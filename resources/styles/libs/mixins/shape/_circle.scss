@@ -1,0 +1,12 @@
+//=====================================================================
+// Circle
+//=====================================================================
+@mixin circle( $width ) {
+  @include dib;
+  @include vam;
+  @include rad( 100% );
+  @include square( $width );
+  @include lh( $width );
+  @include vam();
+  @include tac();
+}

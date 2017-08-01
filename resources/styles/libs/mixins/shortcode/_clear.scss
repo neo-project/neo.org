@@ -1,0 +1,18 @@
+//=====================================================================
+//Clear shortcode
+//=====================================================================
+@mixin cl( $type ) {
+    clear: $type;
+}
+@mixin cll() {
+    @include cl( left );
+}
+@mixin clr() {
+    @include cl( right );
+}
+@mixin clb() {
+    @include cl( both );
+}
+@mixin cl0() {
+    @include cl( none );
+}

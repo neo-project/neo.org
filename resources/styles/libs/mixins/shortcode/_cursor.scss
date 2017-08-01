@@ -1,0 +1,21 @@
+//=====================================================================
+// Cursor Shortcode
+//=====================================================================
+@mixin cu( $value ) {
+    cursor: $value;
+}
+@mixin cu0() {
+    @include cu( none );
+}
+@mixin cud() {
+    @include cu( default );
+}
+@mixin cuh() {
+    @include cu( help );
+}
+@mixin cum() {
+    @include cu( move );
+}
+@mixin cup() {
+    @include cu( pointer );
+}

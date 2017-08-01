@@ -1,0 +1,15 @@
+//=====================================================================
+//Float shortcode
+//=====================================================================
+@mixin fo( $dir ) {
+    float: $dir;
+}
+@mixin fol() {
+    @include fo( left );
+}
+@mixin for() {
+    @include fo( right );
+}
+@mixin fo0() {
+    @include fo( none );
+}

@@ -1,0 +1,91 @@
+//- Include all mixins
+include ../mixins/mixins
+
+block vars
+  - var pageTitle     = 'NEO Smart Economy';
+  - var pageName      = 'article';
+  - var bodyClass     = 'article';
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    //[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"><![endif]
+    title=pageTitle
+    link(rel='“apple-touch-icon”', sizes='“57x57"', href='“images/apple-icon-57x57.png”')
+    link(rel='“apple-touch-icon”', sizes='“60x60”', href='“images/apple-icon-60x60.png”')
+    link(rel='“apple-touch-icon”', sizes='“72x72"', href='“images/apple-icon-72x72.png”')
+    link(rel='“apple-touch-icon”', sizes='“76x76”', href='“images/apple-icon-76x76.png”')
+    link(rel='“apple-touch-icon”', sizes='“114x114"', href='“images/apple-icon-114x114.png”')
+    link(rel='“apple-touch-icon”', sizes='“120x120”', href='“images/apple-icon-120x120.png”')
+    link(rel='“apple-touch-icon”', sizes='“144x144"', href='“images/apple-icon-144x144.png”')
+    link(rel='“apple-touch-icon”', sizes='“152x152”', href='“images/apple-icon-152x152.png”')
+    link(rel='“apple-touch-icon”', sizes='“180x180"', href='“images/apple-icon-180x180.png”')
+    link(rel='“icon”', type='“image/png”', sizes='“192x192"', href='“images/android-icon-192x192.png”')
+    link(rel='“icon”', type='“image/png”', sizes='“32x32"', href='“images/favicon-32x32.png”')
+    link(rel='“icon”', type='“image/png”', sizes='“96x96"', href='“images/favicon-96x96.png”')
+    link(rel='“icon”', type='“image/png”', sizes='“16x16"', href='“images/favicon-16x16.png”')
+    link(rel='“manifest”', href='“/manifest.json”')
+    meta(name='“msapplication-TileColor”', content='“#ffffff', ”='')
+    meta(name='“msapplication-TileImage”', content='“images/ms-icon-144x144.png”')
+    meta(name='“theme-color”', content='“#ffffff', ”='')
+
+    meta(name="description", content="")
+    meta(name="keywords", content="")
+    meta(name="viewport", content="width=device-width, initial-scale=1, minimal-ui, user-scalable=no")
+    link(rel="icon", href="images/favicon.ico", type="image/x-icon", sizes="16x16")
+    link(href='https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700', rel='stylesheet')
+
+
+    //- Additional styles
+    block styles
+
+    link(rel="stylesheet", href="css/styles.css")
+
+    //- Additional scripts
+    block head_scripts
+
+  body(class=bodyClass)
+    .site
+      .site--inner
+        //-
+        //- header
+        //-
+
+        //- Block before header
+        block header_before
+
+        include ../blocks/header
+
+
+        //- Block after header
+        block header_after
+
+        //-
+        //- Main content
+        //-
+        main.main
+          .main--inner#fullpage
+            block main
+            //-include blog_article
+            include ../blocks/article
+
+
+
+
+        //-
+        //- footer
+        //-
+
+        //- Block before footer
+        block footer_before
+
+        include ../blocks/footer
+
+        //- Block after footer
+        block footer_after
+
+    //- Additional sctips
+    block footer_scripts
+
+    script(src='js/scripts.js')

@@ -1,0 +1,19 @@
+//=====================================================================
+//Box Sizing
+//=====================================================================
+@mixin border-box() {
+  @include browser-ext( box-sizing, border-box );
+}
+@mixin content-box() {
+  @include browser-ext( box-sizing, content-box );
+}
+
+//
+//Shortcode
+//
+@mixin bsbb() {
+  @include border-box();
+}
+@mixin bscb() {
+  @include content-box();
+}

@@ -1,0 +1,60 @@
+//=====================================================================
+// Transform
+//=====================================================================
+@mixin translate( $x, $y ) {
+    $val: translate( $x, $y );
+    @include browser-ext( transform, $val );
+}
+@mixin translateX( $x ) {
+    $val: translateX( $x );
+    @include browser-ext( transform, $val );
+}
+@mixin translateY( $y ) {
+    $val: translateY( $y );
+    @include browser-ext( transform, $val );
+}
+@mixin rotate( $deg ) {
+    $val: rotate( $deg );
+    @include browser-ext( transform, $val );
+}
+@mixin rotateX( $deg ) {
+    $val: rotateX( $deg );
+    @include browser-ext( transform, $val );
+}
+@mixin rotateY( $deg ) {
+    $val: rotateY( $deg );
+    @include browser-ext( transform, $val );
+}
+@mixin rotateZ( $deg ) {
+    $val: rotateZ( $deg );
+    @include browser-ext( transform, $val );
+}
+@mixin scale( $x, $y ) {
+    $val: scale( $x, $y );
+    @include browser-ext( transform, $val );
+}
+@mixin scaleX( $x ) {
+    $val: scaleX( $x );
+    @include browser-ext( transform, $val );
+}
+@mixin scaleY( $y ) {
+    $val: scaleX( $y );
+    @include browser-ext( transform, $val );
+}
+@mixin skew( $x-angle, $y-angle ) {
+    $val: skew( $x-angle, $y-angle );
+    @include browser-ext( transform, $val );
+}
+@mixin skewX( $angle ) {
+    $val: skewX( $angle );
+    @include browser-ext( transform, $val );
+}
+@mixin skewY( $angle ) {
+    $val: skewX( $angle );
+    @include browser-ext( transform, $val );
+}
+
+@mixin origin( $x, $y ) {
+    $val: $x $y;
+    @include browser-ext( transform-origin, $val );
+}

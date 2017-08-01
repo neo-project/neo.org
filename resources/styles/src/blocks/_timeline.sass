@@ -1,0 +1,209 @@
+//
+// Timeline styles
+//
+.timeline
+
+  //Main
+  &--main
+    &--inner
+      +por
+
+  //Nav
+  &--nav
+    +poa
+    +w(100%)
+    +t(-50px)
+    z-index: 300
+    +fs(12px)
+    @media (min-width: 1720px)
+      +fs(16px)
+      +t(-100px)
+    @media (min-width: 1910px)
+      +t(-100px)
+    .date-nav
+      +m(0 30px)
+      +fs(12px)
+      text-decoration: none
+      +por
+      +c(#fff)
+      letter-spacing: 2px
+      +dib
+      transform: rotate(90deg)
+      transform-origin: left top 0
+      font-family: 'Josefin Sans', sans-serif
+      &.disable
+        pointer-events: none
+        cursor: default
+        opacity: 0.1
+      @media (min-width: 1720px)
+        +fs(22px)
+      &:hover
+        +c(#56b900)
+        &:after
+          content: ""
+          width: 1px
+          +h(200px)
+          +poa
+          +b(-87px)
+          +r(140px)
+          transform: rotate(90deg)
+          +bg(#56b900)
+          @media (min-width: 1720px)
+            +h(250px)
+            +b(-110px)
+            +r(180px)
+          @media (min-width: 1910px)
+            +b(-132px)
+            +r(202px)
+            +h(300px)
+        @media (min-width: 1910px)
+          +fs(22px)
+
+      &.active
+        +c(#56b900)
+        &:after
+          content: ""
+          width: 2px
+          +h(200px)
+          +poa
+          +b(-87px)
+          +r(140px)
+          transform: rotate(90deg)
+          +bg(#56b900)
+          @media (min-width: 1720px)
+            +h(250px)
+            +b(-110px)
+            +r(180px)
+          @media (min-width: 1910px)
+            +b(-132px)
+            +r(202px)
+            +h(300px)
+
+  //slider
+  &--slider
+    +ofh
+    +h( 510px )
+
+  //Wrapper
+  &--wraper
+    text-align: center
+    +poa
+    +t(50%)
+    +l(50%)
+    transform: translate(-50%, -50%)
+    z-index: 200
+    +w(100%)
+    +m(0 auto)
+    .top-title
+      +w(80%)
+      +m(0 auto)
+      +por
+      +t(15px)
+      @media (min-width: 1910px)
+        +t(-70px)
+        +w(90%)
+      @media (min-width: 1720px)
+        +t(-20px)
+        +w(90%)
+      h2
+        text-align: left
+        font-family: 'Josefin Sans', sans-serif
+        +fs(25px)
+        letter-spacing: 10px
+        +c(#fff)
+        font-weight: 300
+        line-height: 45px
+        letter-spacing: 17px
+        @media (min-width: 1910px)
+          line-height: 80px
+          +fs(61px)
+        @media (min-width: 1720px)
+          line-height: 63px
+          +fs(50px)
+
+  //cover
+  &--cover
+    +w(628px)
+    +h(300%)
+    background: url('../images/gradient.png') repeat-y
+    +poa
+    +r(0)
+    +t(-70%)
+    z-index: 10
+    @media (min-width: 1910px)
+       +h(500%)
+       +r(0%)
+
+  //Node
+  &--node
+    +por
+    +h( 225px )
+    display: flex
+
+    &--inner
+      align-self: flex-end
+
+    &:first-child
+      +t( -17px )
+      +l( -45px )
+
+    &:last-child
+      +t( -5px )
+      +l( 81px )
+
+      .timeline--node--inner
+        align-self: flex-start
+
+    //Group
+    &--group
+      +fol
+      +w( 25% )
+
+      &._node--alt
+        .timeline--node
+          &:first-child
+            +t( -6px )
+            +l( -51px )
+
+          &:last-child
+            +t( -5px )
+            +l( 80px )
+
+
+      ._group--inner
+        +h(450px)
+        background: url('../images/midle-bg-timeline.png') no-repeat center
+        background-size: 100%
+        +por
+
+    //Node inner
+    &--inner
+      +w(200px)
+      text-align: left
+      font-family: 'Josefin Sans', sans-serif
+      letter-spacing: 1px
+      +m(0 60px)
+      +dib
+      +fs(14px)
+      +c(#b9baba)
+      +por
+      @media (min-width: 1910px)
+        +w(350px)
+        +fs(20px)
+      @media (min-width: 1720px)
+        +w(340px)
+        +fs(16px)
+
+      h3
+        +fs(14px)
+        +c(#f4f4f4)
+
+    //Point
+    &--point
+      +w(15px)
+      +m(0 auto)
+      +por
+      img
+        +w(100%)
+      @media (min-width: 1910px)
+         +w(24px)

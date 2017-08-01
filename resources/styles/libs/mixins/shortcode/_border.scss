@@ -1,0 +1,112 @@
+//=====================================================================
+//Mixins Shortcode
+//=====================================================================
+
+//Border shortcode
+@mixin bo( $color, $width: 1px, $style: solid ) {
+    border: $width $style $color;
+}
+@mixin bot( $color, $width: 1px, $style: solid ) {
+    border-top: $width $style $color;
+}
+@mixin bob( $color, $width: 1px, $style: solid ) {
+    border-bottom: $width $style $color;
+}
+@mixin bol( $color, $width: 1px, $style: solid ) {
+    border-left: $width $style $color;
+}
+@mixin bor( $color, $width: 1px, $style: solid ) {
+    border-right: $width $style $color;
+}
+@mixin bo0() {
+    border: 0 none;
+}
+@mixin bot0() {
+    border-top: 0 none;
+}
+@mixin bob0() {
+    border-bottom: 0 none;
+}
+@mixin bol0() {
+    border-left: 0 none;
+}
+@mixin bor0() {
+    border-right: 0 none;
+}
+
+//Border Vertical shortcode
+@mixin boy( $color, $width: 1px, $style: solid ) {
+    @include bot( $color, $width, $style );
+    @include bob( $color, $width, $style );
+}
+//Border Horizontal shortcode
+@mixin box( $color, $width: 1px, $style: solid ) {
+    @include bol( $color, $width, $style );
+    @include bor( $color, $width, $style );
+}
+
+//Border color shortcode
+@mixin boc( $color ) {
+    border-color:  $color;
+}
+@mixin boct( $color ) {
+    border-top-color:  $color;
+}
+@mixin bocb( $color ) {
+    border-bottom-color:  $color;
+}
+@mixin bocl( $color ) {
+    border-left-color:  $color;
+}
+@mixin bocr( $color ) {
+    border-right-color:  $color;
+}
+@mixin boc0() {
+    @include boc( transparent );
+}
+@mixin boct0() {
+    @include boct( transparent );
+}
+@mixin bocb0() {
+    @include bocb( transparent );
+}
+@mixin bocl0() {
+    @include bocl( transparent );
+}
+@mixin bocr0() {
+    @include bocr( transparent );
+}
+
+//Border width shortcode
+@mixin bow( $width ) {
+    border-width:  $width;
+}
+@mixin bowt( $width ) {
+    border-top-width:  $width;
+}
+@mixin bowb( $width ) {
+    border-bottom-width:  $width;
+}
+@mixin bowl( $width ) {
+    border-left-width:  $width;
+}
+@mixin bowr( $width ) {
+    border-right-width:  $width;
+}
+
+//Border style shortcode
+@mixin bos( $style ) {
+    border-style:  $style;
+}
+@mixin bost( $style ) {
+    border-top-style:  $style;
+}
+@mixin bosb( $style ) {
+    border-bottom-style:  $style;
+}
+@mixin bosl( $style ) {
+    border-left-style:  $style;
+}
+@mixin bosr( $style ) {
+    border-right-style:  $style;
+}

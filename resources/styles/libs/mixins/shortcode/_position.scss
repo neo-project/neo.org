@@ -1,0 +1,117 @@
+//=====================================================================
+//Position shortcode
+//=====================================================================
+//Position shortcode
+@mixin po( $type ) {
+    position: $type;
+}
+@mixin por() {
+    position: relative;
+}
+@mixin poa() {
+    position: absolute;
+}
+@mixin pof() {
+    position: fixed;
+}
+@mixin pos() {
+    position: static;
+}
+
+//Top shortcode
+@mixin t( $size ) {
+    top: $size;
+}
+@mixin t0(){
+    @include t(0);
+}
+//Bottom shortcode
+@mixin b( $size ) {
+    bottom: $size;
+}
+@mixin b0() {
+    @include b(0);
+}
+//Left shortcode
+@mixin l( $size ) {
+    left: $size;
+}
+@mixin l0() {
+    @include l(0);
+}
+//Right shortcode
+@mixin r( $size ) {
+    right: $size;
+}
+@mixin r0() {
+    @include r(0);
+}
+//Horizontal position shortcode
+@mixin x( $l, $r ) {
+    @include l( $l );
+    @include r( $r );
+}
+@mixin x0() {
+    @include x(0, 0);
+}
+//Vertical position shortcode
+@mixin y( $t, $b ) {
+    @include t( $t );
+    @include b( $b );
+}
+@mixin y0() {
+    @include y(0, 0);
+}
+//All position shortcode
+@mixin xy( $t, $r, $b, $l ) {
+    @include x( $l, $r );
+    @include y( $t, $b );
+}
+@mixin xy0() {
+    @include xy(0, 0, 0, 0);
+}
+
+//
+//Position shortcode
+//
+@mixin position-absolute-full() {
+    @include poa();
+    @include xy0();
+}
+@mixin poaf() {
+    @include position-absolute-full();
+}
+@mixin position-absolute-half( $width, $height ) {
+    $left: $width/2;
+    $top: $height/2;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -#{$left}px;
+    margin-top: -#{$top}px;
+}
+@mixin poah( $width, $height ) {
+    @include position-absolute-half( $width, $height );
+}
+
+@mixin position-fixed-full() {
+  @include pof();
+  @include xy0();
+}
+@mixin poff() {
+  @include position-fixed-full();
+}
+@mixin position-fixed-half( $width, $height ) {
+  $left: $width/2;
+  $top: $height/2;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -#{$left}px;
+  margin-top: -#{$top}px;
+}
+@mixin pofh( $width, $height ) {
+    @include position-fixed-half( $width, $height );
+}

@@ -1,0 +1,65 @@
+//=====================================================================
+// Border Radius shortcode
+//=====================================================================
+@mixin radius( $radius ) {
+    @include browser-ext( border-radius, $radius );
+}
+
+@mixin radius-top( $size ) {
+    @include radius( $size $size 0 0 );
+}
+@mixin radius-bottom( $size ) {
+    @include radius( 0 0 $size $size );
+}
+@mixin radius-left( $size ) {
+    @include radius( $size 0 0 $size );
+}
+@mixin radius-right( $size ) {
+    @include radius( 0 $size $size 0 );
+}
+@mixin radius-top-left( $size ) {
+    @include radius( $size 0 0 0 );
+}
+@mixin radius-top-right( $size ) {
+    @include radius( 0 $size 0 0 );
+}
+@mixin radius-bottom-left( $size ) {
+    @include radius( 0 0 0 $size );
+}
+@mixin radius-bottom-right( $size ) {
+    @include radius( 0 0 $size 0 );
+}
+
+//
+//Shortcode
+//
+@mixin rad( $radius ) {
+    @include radius( $radius );
+}
+@mixin rad0() {
+    @include radius(0);
+}
+@mixin radt( $size ) {
+    @include radius-top( $size );
+}
+@mixin radb( $size ) {
+    @include radius-bottom( $size );
+}
+@mixin radl( $size ) {
+    @include radius-left( $size );
+}
+@mixin radr( $size ) {
+    @include radius-right( $size );
+}
+@mixin radtl( $size ) {
+    @include radius-top-left( $size );
+}
+@mixin radtr( $size ) {
+    @include radius-top-right( $size );
+}
+@mixin radbl( $size ) {
+    @include radius-bottom-left( $size );
+}
+@mixin radbr( $size ) {
+    @include radius-bottom-right( $size );
+}

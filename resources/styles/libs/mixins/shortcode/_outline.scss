@@ -1,0 +1,18 @@
+//=====================================================================
+//Outline shortcode
+//=====================================================================
+@mixin ol( $color, $width: 1px, $style: dotted ) {
+    outline: $width $style $color;
+}
+@mixin olc ( $color ) {
+    outline-color: $color;
+}
+@mixin olw ( $width: 1px ) {
+    outline-width: $width;
+}
+@mixin ols ( $style: dotted ) {
+    outline-style: $style;
+}
+@mixin ol0() {
+    outline: 0 none;
+}

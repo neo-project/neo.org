@@ -1,0 +1,21 @@
+//=====================================================================
+//Display shortcode
+//=====================================================================
+@mixin d( $type ) {
+    display: $type;
+}
+@mixin di() {
+    @include d( inline );
+}
+@mixin db() {
+    @include d( block );
+}
+@mixin dib() {
+    @include d( inline-block );
+}
+@mixin dt() {
+    @include d( table );
+}
+@mixin d0() {
+    @include d( none );
+}

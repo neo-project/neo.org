@@ -1,0 +1,188 @@
+//=====================================================================
+//Font shortcode
+//=====================================================================
+@mixin f( $attr ) {
+    font: $attr;
+}
+//Font size shortcode
+@mixin fs( $size ) {
+    font-size: $size;
+}
+//Font family shortcode
+@mixin ff( $family ) {
+    font-family: $family;
+}
+//Font weight shortcode
+@mixin fb( $weight: bold ) {
+    font-weight: $weight;
+}
+@mixin fb0() {
+    @include fb( normal );
+}
+//Font style shortcode
+@mixin fi( $style: italic ) {
+    font-style: $style;
+}
+@mixin fi0() {
+    @include fi( normal );
+}
+@mixin fw( $size ) {
+    font-weight: $size;
+}
+
+//
+//Font size specified shortcode
+//
+@mixin fs10() {
+    font-size: 10px;
+}
+@mixin fs11() {
+    font-size: 11px;
+}
+@mixin fs12() {
+    font-size: 12px;
+}
+@mixin fs13() {
+    font-size: 13px;
+}
+@mixin fs14() {
+    font-size: 14px;
+}
+@mixin fs15() {
+    font-size: 15px;
+}
+@mixin fs16() {
+    font-size: 16px;
+}
+@mixin fs17() {
+    font-size: 17px;
+}
+@mixin fs18() {
+    font-size: 18px;
+}
+@mixin fs19() {
+    font-size: 19px;
+}
+@mixin fs20() {
+    font-size: 20px;
+}
+@mixin fs21() {
+    font-size: 21px;
+}
+@mixin fs22() {
+    font-size: 22px;
+}
+@mixin fs23() {
+    font-size: 23px;
+}
+@mixin fs24() {
+    font-size: 24px;
+}
+@mixin fs25() {
+    font-size: 25px;
+}
+@mixin fs26() {
+    font-size: 26px;
+}
+@mixin fs27() {
+    font-size: 27px;
+}
+@mixin fs28() {
+    font-size: 28px;
+}
+@mixin fs29() {
+    font-size: 29px;
+}
+@mixin fs30() {
+    font-size: 30px;
+}
+@mixin fs31() {
+    font-size: 31px;
+}
+@mixin fs32() {
+    font-size: 32px;
+}
+@mixin fs33() {
+    font-size: 33px;
+}
+@mixin fs34() {
+    font-size: 34px;
+}
+@mixin fs35() {
+    font-size: 35px;
+}
+@mixin fs36() {
+    font-size: 36px;
+}
+@mixin fs37() {
+    font-size: 37px;
+}
+@mixin fs38() {
+    font-size: 38px;
+}
+@mixin fs39() {
+    font-size: 39px;
+}
+@mixin fs40() {
+    font-size: 40px;
+}
+@mixin fs41() {
+    font-size: 41px;
+}
+@mixin fs42() {
+    font-size: 42px;
+}
+@mixin fs43() {
+    font-size: 43px;
+}
+@mixin fs44() {
+    font-size: 44px;
+}
+@mixin fs45() {
+    font-size: 45px;
+}
+@mixin fs46() {
+    font-size: 46px;
+}
+@mixin fs47() {
+    font-size: 47px;
+}
+@mixin fs48() {
+    font-size: 48px;
+}
+@mixin fs49() {
+    font-size: 49px;
+}
+@mixin fs50() {
+    font-size: 50px;
+}
+@mixin fs51() {
+    font-size: 51px;
+}
+@mixin fs52() {
+    font-size: 52px;
+}
+@mixin fs53() {
+    font-size: 53px;
+}
+@mixin fs54() {
+    font-size: 54px;
+}
+@mixin fs55() {
+    font-size: 55px;
+}
+@mixin fs56() {
+    font-size: 56px;
+}
+@mixin fs57() {
+    font-size: 57px;
+}
+@mixin fs58() {
+    font-size: 58px;
+}
+@mixin fs59() {
+    font-size: 59px;
+}
+@mixin fs60() {
+    font-size: 60px;
+}

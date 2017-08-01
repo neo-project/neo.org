@@ -1,0 +1,378 @@
+
+.warp
+  font-family: JosefinSans_Light
+  width: 100%
+  background: #0e1216 url(../images/downloads_bg.png)
+  color: #ffffff
+  min-height: 100vh
+
+ul, li, ol
+  list-style: none
+  margin: 0
+  padding: 0
+
+.get_title
+  text-align: center
+  font-size: 70px
+  margin-top: 100px
+  letter-spacing: 40px
+  padding-left: 40px
+  font-family: 'Josefin Sans', sans-serif
+  font-weight: 300
+  span
+    color: #8fd700
+
+.blog_content
+  display: block
+  margin-top: 140px
+
+#blogNavigation
+  display: inline-block
+  width: 20%
+  vertical-align: top
+  font-weight: bold
+  line-height: 40px
+  li
+    list-style: none
+    a
+      text-decoration: none
+      color: #6FC308
+      cursor: pointer
+      font-size: 26px
+      letter-spacing: 10px
+      margin-bottom: 10px
+      font-family: 'Josefin Sans', sans-serif
+    ul
+      display: none
+
+
+
+#blogArticle
+  display: inline-block
+  width: 79%
+  vertical-align: top
+  li
+    border: 1px solid #6B6B6B
+    border-style: none solid
+    position: relative
+    box-sizing: border-box
+    padding: 45px 50px
+    margin-bottom: 50px
+    min-height: 300px
+    &:hover
+      border-style: none solid
+      transition: border 0.5s linear
+      border-color: #6FC308
+    &:before
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      height: 1px
+      width: 100%
+      background: #6B6B6B
+      transition: 100ms ease all
+    &:after
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      height: 1px
+      width: 100%
+      background: #6B6B6B
+      transition: 100ms ease all
+      right: inherit
+      top: inherit
+      left: 0
+      bottom: 0
+    &:hover
+      &:before, &:after
+        animation: borderChange 0.5s
+        animation-fill-mode: forwards
+
+@keyframes borderChange
+  0%
+    width: 0
+
+  100%
+    width: 100%
+    background: #6FC308
+
+
+.warp, .container
+  min-width: 970px
+
+.blog_title
+  font-size: 22px
+  font-family: 'Josefin Sans', sans-serif
+  font-weight: bold
+  padding-bottom: 30px
+  border-bottom: 1px solid #6B6B6B
+  letter-spacing: 8px
+  a
+    color: #6FC308
+
+.publish_time
+  float: right
+  letter-spacing: 5px
+  font-size: 20px
+  vertical-align: middle
+  line-height: 35px
+  font-family: 'Josefin Sans', sans-serif
+  color: #fff
+
+#blogArticle li a
+  cursor: pointer
+  &:hover
+    text-decoration: none
+
+.artical_content
+  font-size: 21px
+  line-height: 40px
+  margin-top: 30px
+  > div
+    display: inline-block
+
+.artical_intro
+  width: 60%
+  font-family: 'Josefin Sans', sans-serif
+  color: #fff
+
+.artical_writer
+  width: 200px
+  float: right
+  font-family: 'Josefin Sans', sans-serif
+  color: #fff
+  p
+    font-size: 22px
+    color: #6FC308
+    padding-left: 4px
+  a
+    display: block
+    font-size: 21px
+    color: #ffffff
+    font-weight: bold
+  span
+    color: #6FC308
+
+.comments span:before
+  content: ""
+  display: inline-block
+  width: 39px
+  height: 28px
+  background: url(../images/blog_icon.png) 4px -1px no-repeat
+  vertical-align: middle
+
+.times_read span:before
+  content: ""
+  display: inline-block
+  width: 39px
+  height: 28px
+  background: url(../images/blog_icon.png) -1px -28px no-repeat
+  vertical-align: middle
+
+
+.artical_container
+  margin-top: 210px
+  padding-bottom: 60px
+  border-bottom: 1px dashed #6B6B6B
+  div
+    display: inline-block
+
+.artical_title
+  width: 25%
+  font-size: 30px
+  font-family: 'Josefin Sans', sans-serif
+  font-weight: bold
+  vertical-align: top
+  letter-spacing: 4px
+  text-align: right
+  color: #67c500
+  p
+    font-size: 18px
+    color: #ffffff
+
+.entrie_artical
+  width: 74%
+  line-height: 40px
+  font-size: 22px
+  letter-spacing: 1px
+  padding-left: 40px
+  p
+    margin-bottom: 50px
+    font-family: 'Josefin Sans', sans-serif
+    font-size: 22px
+
+
+.artical_comment
+  margin-top: 110px
+  line-height: 30px
+  margin-bottom: 80px
+  ul li
+    margin-bottom: 20px
+    font-family: 'Josefin Sans', sans-serif
+
+  li div
+    display: inline-block
+    vertical-align: top
+    font-family: 'Josefin Sans', sans-serif
+
+.comment_writer
+  width: 25%
+  font-weight: bold
+  font-size: 16px
+  text-align: right
+  letter-spacing: 3px
+  span
+    margin-right: 5px
+    color: #67c500
+
+.comment_content
+  width: 74%
+  font-size: 16px
+  padding-left: 40px
+  letter-spacing: 1px
+
+.reg_login
+  font-size: 18px
+  letter-spacing: 5px
+  text-align: center
+  margin-bottom: 80px
+  font-family: 'Josefin Sans', sans-serif
+  a
+    font-family: 'Josefin Sans', sans-serif
+    font-weight: bold
+    color: #ffffff
+    text-decoration: none
+
+
+
+.apply_title
+  margin-top: 140px
+  font-family: 'Josefin Sans', sans-serif
+  font-weight: 300
+  font-size: 60px
+  letter-spacing: 15px
+  text-align: center
+  p
+    font-size: 40px
+    color: #fff
+  span
+    color: #67c500
+
+.apply_intro
+  padding: 0 220px
+  text-align: center
+  font-size: 22px
+  line-height: 40px
+  margin: 50px auto
+  letter-spacing: 2px
+  font-family: 'Josefin Sans', sans-serif
+
+.apply_input li
+  display: inline-block
+  width: 39%
+  position: relative
+  margin: 0 5%
+  margin-top: 30px
+  font-size: 16px
+  height: 60px
+  vertical-align: bottom
+  padding-top: 30px
+  font-family: 'Josefin Sans', sans-serif
+  label
+    position: absolute
+    font-family: 'Josefin Sans', sans-serif
+    color: #575757
+    letter-spacing: 4px
+    z-index: 1
+    -webkit-transition: 0.2s cubic-bezier(0.77, 0, 0.175, 1)
+    transition: 0.2s cubic-bezier(0.77, 0, 0.175, 1)
+
+.focus_label
+  top: 20px
+  font-size: 12px
+  z-index: 3
+
+.apply_input
+  li input
+    background: transparent
+    border: none
+    width: 100%
+    font-size: 18px
+    height: 30px
+    letter-spacing: 1px
+    line-height: 30px
+    position: relative
+    z-index: 4
+    border-bottom: 1px solid #f8f3e7
+    &:focus
+      outline: none
+      border-bottom: 1px solid #67c500
+      transition: border-bottom 1s
+  .l_input
+    width: 88.4%
+  .border_input
+    padding-top: 60px
+    height: auto
+    input, textarea
+      font-size: 18px
+      line-height: 28px
+      letter-spacing: 2px
+      border: 1px solid #f8f3e7
+      background: transparent
+      width: 100%
+    input:focus, textarea:focus
+      border: 1px solid #67c500
+      outline: none
+      transition: border 1s
+    label
+      top: 30px
+      color: #FFFFFF
+
+.border_input.l_borderin
+  width: 88.4%
+
+.l_borderin textarea
+  height: 250px
+  resize: vertical
+
+.apply_input .border_input input
+  height: 60px
+
+.border_input
+  &.s_borderin
+    width: 21%
+    margin-right: 0
+  &.m_borderin
+    width: 35.6%
+    margin-right: 0
+    label
+      top: 26px !important
+      line-height: 30px
+
+.ques_icon
+  display: inline-block
+  background: url(../images/blog_icon.png) 0 -53px
+  width: 32px
+  height: 33px
+  vertical-align: middle
+
+.sub_input
+  color: #8fd700
+  cursor: pointer
+  font-size: 15px
+  letter-spacing: 2px
+  text-align: center
+  margin: 80px auto
+  font-family: 'Josefin Sans', sans-serif
+  &:hover
+    animation: pulse 0.5s infinite
+  &:before
+    content: ""
+    display: inline-block
+    width: 16px
+    height: 26px
+    background: url(../images/down_icon.png) -5px -8px
+    vertical-align: middle
+    margin-right: 10px

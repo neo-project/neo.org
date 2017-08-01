@@ -1,0 +1,27 @@
+//=====================================================================
+//Animation
+//=====================================================================
+@mixin animation($animation) {
+  @include browser-ext( animation, $animation );
+}
+@mixin animation-name($name) {
+  @include browser-ext( animation-name, $name );
+}
+@mixin animation-duration($duration) {
+  @include browser-ext( animation-duration, $duration );
+}
+@mixin animation-timing-function($timing-function) {
+  @include browser-ext( animation-timing-function, $timing-function );
+}
+@mixin animation-delay($delay) {
+  @include browser-ext( animation-delay, $delay );
+}
+@mixin animation-iteration-count($iteration-count) {
+  @include browser-ext( animation-iteration-count, $iteration-count );
+}
+@mixin animation-direction($direction) {
+  @include browser-ext( animation-direction, $direction );
+}
+@mixin animation-fill-mode($fill-mode) {
+  @include browser-ext( animation-fill-mode, $fill-mode );
+}

@@ -1,0 +1,15 @@
+//=====================================================================
+//Text transform shortcode
+//=====================================================================
+@mixin tt( $type ) {
+    text-transform: $type;
+}
+@mixin ttuc() {
+    @include tt( uppercase );
+}
+@mixin ttlc() {
+    @include tt( lowercase );
+}
+@mixin ttcap() {
+    @include tt( capitalize );
+}

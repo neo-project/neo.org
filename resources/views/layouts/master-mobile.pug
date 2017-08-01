@@ -1,0 +1,89 @@
+//- Include all mixins
+include ../mixins/mixins
+
+block vars
+  - var pageTitle     = 'NEO Smart Economy';
+  - var pageName      = 'home';
+  - var bodyClass     = 'home mobile';
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    //[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"><![endif]
+    title=pageTitle
+    meta(name="description", content="")
+    meta(name="keywords", content="")
+    meta(name="viewport", content="width=device-width, initial-scale=1, minimal-ui, user-scalable=no")
+    link(rel="icon", href="favicon.png", type="image/x-icon", sizes="16x16")
+    link(href='https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700', rel='stylesheet')
+
+
+    //- Additional styles
+    block styles
+
+    link(rel="stylesheet", href="css/styles.css")
+
+    //- Additional scripts
+    block head_scripts
+
+  body(class=bodyClass)
+    .site
+      .site--inner
+        //-
+        //- header
+        //-
+
+        //- Block before header
+        block header_before
+
+        include ../blocks/header-mobile
+
+
+        //- Block after header
+        block header_after
+
+        //-
+        //- Main content
+        //-
+        main.main
+          .main--inner#fullpage-mobile
+            block main
+
+            //-include home-page
+            include ../blocks/home-mobile
+
+            //-include introduce-page
+            include ../blocks/introduce-mobile
+
+            //-include statistic-page
+            include ../blocks/statistic-mobile
+
+            //-include statistic-page
+            include ../blocks/technology-mobile
+
+            //-include team-page
+            include ../blocks/team-mobile
+
+             //-include footer
+            include ../blocks/footer-comunity-mobile
+
+
+
+
+        //-
+        //- footer
+        //-
+
+        //- Block before footer
+        block footer_before
+
+        include ../blocks/footer
+
+        //- Block after footer
+        block footer_after
+
+    //- Additional sctips
+    block footer_scripts
+
+    script(src='js/scripts.js')

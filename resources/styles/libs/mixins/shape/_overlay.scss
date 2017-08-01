@@ -1,0 +1,19 @@
+//=====================================================================
+// Overlay
+//=====================================================================
+@mixin overlay-base( $bgcolor, $zindex: 99999999 ) {
+	@include bgc( $bgcolor );
+	@include pof;
+	@include t0;
+	@include l0;
+	@include b0;
+	@include r0;
+	@include p0;
+	@include zi( $zindex );
+}
+@mixin overlay-light( $opacity: 0.9, $zindex: 99999999 ) {
+	@include overlay-base( rgba(255,255,255,$opacity), $zindex );
+}
+@mixin overlay-dark( $opacity: 0.9, $zindex: 99999999 ) {
+	@include overlay-base( rgba(0,0,0,$opacity), $zindex );
+}
