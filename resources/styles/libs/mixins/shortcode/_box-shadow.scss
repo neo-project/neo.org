@@ -1,0 +1,51 @@
+//=====================================================================
+// Box Shadow mixins
+//=====================================================================
+@mixin box-shadow( $arg ) {
+    @include browser-ext( box-shadow, $arg );
+}
+@mixin box-shadow-outer( $h, $v, $blur, $spread, $color ) {
+    $arg: $h $v $blur $spread $color;
+    @include box-shadow( $arg );
+}
+@mixin box-shadow-inner( $h, $v, $blur, $spread, $color ) {
+    $arg: inset $h $v $blur $spread $color;
+    @include box-shadow( $arg );
+}
+@mixin box-shadow-outerY( $blur, $spread, $color ) {
+    $arg: 0 $blur $spread $color;
+    @include box-shadow( $arg );
+}
+@mixin box-shadow-innerY( $blur, $spread, $color ) {
+    $arg: inset 0 $blur $spread $color;
+    @include box-shadow( $arg );
+}
+@mixin box-shadow-edge( $size, $blur: 6px, $color: black ) {
+    $arg: 0 $size $blur -$blur $color;
+    @include box-shadow( $arg );
+}
+
+//=====================================================================
+// Box Shadow shortcode
+//=====================================================================
+@mixin bs( $arg ) {
+    @include box-shadow( $arg );
+}
+@mixin bso( $h, $v, $blur, $spread, $color ) {
+    @include box-shadow-outer( $h, $v, $blur, $spread, $color );
+}
+@mixin bsi( $h, $v, $blur, $spread, $color ) {
+    @include box-shadow-inner( $h, $v, $blur, $spread, $color );
+}
+@mixin bsoy( $blur, $spread, $color ) {
+    @include box-shadow-outerY( $blur, $spread, $color );
+}
+@mixin bsiy( $blur, $spread, $color ) {
+    @include box-shadow-innerY( $blur, $spread, $color );
+}
+@mixin bse( $size, $blur: 6px, $color: black ) {
+    @include box-shadow-edge( $size, $blur, $color );
+}
+@mixin bs0() {
+    @include box-shadow( none );
+}

@@ -1,0 +1,33 @@
+//=====================================================================
+//Transition
+//=====================================================================
+@mixin transition( $arg ) {
+  @include browser-ext( transition, $arg );
+}
+@mixin tr02() {
+  @include transition( all 0.2s );
+}
+@mixin tr03() {
+  @include transition( all 0.3s );
+}
+@mixin tr04() {
+  @include transition( all 0.4s );
+}
+@mixin tr05() {
+  @include transition( all 0.5s );
+}
+@mixin tr06() {
+  @include transition( all 0.6s );
+}
+@mixin tr07() {
+  @include transition( all 0.7s );
+}
+@mixin tr08() {
+  @include transition( all 0.8s );
+}
+@mixin tr09() {
+  @include transition( all 0.9s );
+}
+@mixin tr1() {
+  @include transition( all 1s );
+}

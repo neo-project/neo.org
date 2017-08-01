@@ -1,0 +1,62 @@
+//=====================================================================
+//Color
+//=====================================================================
+//Color shortcode
+@mixin c( $color ) {
+	color: $color;
+}
+@mixin ct() {
+	color: transparent;
+}
+
+//
+//Specified color shortcode
+//
+@mixin c0() {
+	color: #000000;
+}
+@mixin c1() {
+	color: #111111;
+}
+@mixin c2() {
+	color: #222222;
+}
+@mixin c3() {
+	color: #333333;
+}
+@mixin c4() {
+	color: #444444;
+}
+@mixin c5() {
+	color: #555555;
+}
+@mixin c6() {
+	color: #666666;
+}
+@mixin c7() {
+	color: #777777;
+}
+@mixin c8() {
+	color: #888888;
+}
+@mixin c9() {
+	color: #999999;
+}
+@mixin ca() {
+	color: #aaaaaa;
+}
+@mixin cb() {
+	color: #bbbbbb;
+}
+@mixin cc() {
+	color: #cccccc;
+}
+@mixin cd() {
+	color: #dddddd;
+}
+@mixin cc() {
+	color: #eeeeee;
+}
+@mixin cf() {
+	color: #ffffff;
+}

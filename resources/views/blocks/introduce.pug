@@ -1,0 +1,39 @@
+.section.intro
+  canvas#flying
+  .content-tab
+    .wrapper
+      .bs-example.bs-example-tabs(role='tabpanel', data-example-id='togglable-tabs')
+        ul#myTab.nav.nav-tabs.nav-tabs-responsive(role='tablist')
+          li.active(role='presentation')
+            a#what-tab(href='#what', role='tab', data-toggle='tab', aria-controls='what', aria-expanded='true')
+              span.text WHAT IS NEO?
+          li.next(role='presentation')
+            a#feature-tab(href='#feature', role='tab', data-toggle='tab', aria-controls='feature')
+              span.text SMART ECONOMY
+          li(role='presentation')
+            a#security-tab(href='#security', role='tab', data-toggle='tab', aria-controls='security')
+              span.text A BETTER WORLD
+        #myTabContent.tab-content
+          #what.tab-pane.fade.in.active(role='tabpanel', aria-labelledby='what-tab')
+            h2.feature-title
+              b
+                | NEO
+              |  IS China's
+              i
+                |  first<br>
+              | original public chain
+            p
+              | NEO, former name—Antshares, is China's first ever original and open source public chain project, which was founded in 2014<br>and launched on Github in June, 2015. Ever since it was founded, NEO’s team has experienced many ups and downs in the<br>blockchain industry as well as digital currency market, and the government’s changeable/unclear policies. Nevertheless, we<br>believe that technology is the force that motivates the development of the world. Pushing forward by the tide, we will step into<br>a new era of “smart economy.”
+          #feature.tab-pane.fade(role='tabpanel', aria-labelledby='features-tab')
+            ul.list-advantage
+              li
+                .advantage
+                  canvas#smart-text
+
+
+          #security.tab-pane.fade(role='tabpanel', aria-labelledby='security-tab')
+            h2.feature-title
+              | A TRANSPARENT AND<br>FAIR WORLD
+            p
+              | In this smart economy society, we will make a huge leap from “information internet,” to “value internet,” then to “order internet.”<br>Once substantial economy and digital economy connects seamlessly, all exchanges among assets could have perfect liquidity.<br>There wouldn’t be any trust issues in any exchanges of values and activities related to economics. The rules and policies of<br> the society and organizations would be transparent and fair. The world would become a much better place.
+

@@ -1,0 +1,18 @@
+//=====================================================================
+//Text decoration shortcode
+//=====================================================================
+@mixin td( $type ) {
+    text-decoration: $type;
+}
+@mixin td0() {
+    @include td( none );
+}
+@mixin tdul() {
+    @include td( underline );
+}
+@mixin tdol() {
+    @include td( overline );
+}
+@mixin tdlt() {
+    @include td( line-through );
+}

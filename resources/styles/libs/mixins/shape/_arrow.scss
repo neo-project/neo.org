@@ -1,0 +1,29 @@
+//=====================================================================
+// Arrow
+//=====================================================================
+@mixin arrow-base( $size: 10px ) {
+	content: '';
+	display: block;
+	width: 0;
+	height: 0;
+	border-color: transparent;
+	border-style: solid;
+	border-width: $size;
+	position: absolute;
+}
+@mixin arrow-up( $color, $size: 10px ) {
+	@include arrow-base( $size );
+  border-bottom-color: $color;
+}
+@mixin arrow-down( $color, $size: 10px ) {
+	@include arrow-base( $size );
+  border-top-color: $color;
+}
+@mixin arrow-left( $color, $size: 10px ) {
+	@include arrow-base( $size );
+  border-right-color: $color;
+}
+@mixin arrow-right( $color, $size: 10px ) {
+	@include arrow-base( $size );
+  border-left-color: $color;
+}

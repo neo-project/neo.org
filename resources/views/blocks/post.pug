@@ -1,0 +1,39 @@
+.warp
+  .container
+    .apply_title.wow.fadeInDownBig(data-wow-duration='1s')
+      p APPLY FOR
+      | TESTCOIN
+      span NEO/GAS
+    .apply_intro.wow.fadeInDown(data-wow-delay='1s')
+      | If you are creating a NEO ecology project and need some NEO/GAS from testnet, please fill in the form below and you will receive an e-mail when your application is accepted.
+    ul.apply_input
+      li
+        label NAME
+        input.input_area(type='text', name='name')
+      li
+        label E-MAIL
+        input.input_area(type='text', name='email')
+      li
+        label PHONE NO(OPTIONAL)
+        input.input_area(type='text', name='phone_num')
+      li
+        label QQ(OPTIONAL)
+        input.input_area(type='text')
+      li.l_input
+        label COMPANY NAME/PROJECT NAME:
+        input.input_area(type='text')
+      li.border_input.l_borderin
+        label REASONS FOR APPLICATION:
+        textarea
+      li.border_input.s_borderin
+        label AMOUNT OF NEO:
+        input(type='text')
+      li.border_input.s_borderin
+        label AMOUNT OF ANC:
+        input(type='text')
+      li.border_input.m_borderin
+        label
+          | NEO RUBLIC KEY
+          i.ques_icon
+        input(type='text')
+    .sub_input SUBMIT APPLICATION

@@ -1,0 +1,43 @@
+//Importing compass mixins
+@import "../loader/compass"
+//Importing iznlibs mixins
+@import "../libs/mixins/mixins"
+//Importing bootstrap core
+@import "../loader/bootstrap"
+
+//Importing font awesome
+@import "../loader/fontawesome"
+
+//Importing vendors scss
+@import "../vendor/owl.carousel"
+@import "../vendor/owl.theme.default"
+@import "../vendor/jquery.fullpage"
+
+// Import main style
+@import "blocks/font"
+@import "blocks/variables"
+@import "blocks/general"
+@import "blocks/extend"
+@import "blocks/header"
+@import "blocks/footer"
+@import "blocks/timeline"
+@import "blocks/text-carousel"
+
+//
+// slider
+//
+.home-title
+    +por
+
+    .slider-progress
+        +poa
+        +t( -20px )
+        +l( 50% )
+        +w( 30px )
+        +h( 30px )
+        +ml( -15px )
+        +zi(9)
+        @media (min-width: 1910px)
+          +t(50px)
+        @media (max-width: 680px)
+            +t(-70px)

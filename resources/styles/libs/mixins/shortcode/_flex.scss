@@ -1,0 +1,67 @@
+//=====================================================================
+// Mixins Functions
+//=====================================================================
+@mixin flex-display() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+@mixin flex( $attr, $width: 0 ) {
+  @if $width == 0 {
+    -webkit-box-flex: $attr;
+       -moz-box-flex: $attr;
+    -webkit-flex: $attr;
+        -ms-flex: $attr;
+            flex: $attr;
+  } @else {
+    width: $width;
+    -webkit-box-flex: $attr;
+       -moz-box-flex: $attr;
+    -webkit-flex: $attr;
+        -ms-flex: $attr;
+            flex: $attr; 
+  }
+}
+
+@mixin flex-align( $align ) {
+      -webkit-box-align: $align;
+         -moz-box-align: $align;
+         -ms-flex-align: $align;
+    -webkit-align-items: $align;
+            align-items: $align;
+}
+
+@mixin flex-justify( $justify ) {
+           -webkit-box-pack: $justify;
+              -moz-box-pack: $justify;
+              -ms-flex-pack: $justify;
+    -webkit-justify-content: $justify;
+            justify-content: $justify;
+}
+
+@mixin flex-ordinal( $ordinal ) {
+    -webkit-box-ordinal-group: abs( $ordinal );
+       -moz-box-ordinal-group: abs( $ordinal );
+               -ms-flex-order: $ordinal;
+           -webkit-flex-order: $ordinal;
+                        order: $ordinal;
+}
+
+
+//=====================================================================
+// Mixins Shortcode
+//=====================================================================
+@mixin fxd() {
+    @include flex-display();
+}
+@mixin fx( $attr, $width: 0 ) {
+    @include flex( $attr, $width );
+}
+@mixin fxa( $align ) {
+    @include flex-align( $align );
+}
+@mixin fxj( $justify ) {
+    @include flex-justify( $justify );
+}

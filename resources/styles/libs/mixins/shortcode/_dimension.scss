@@ -1,0 +1,64 @@
+//=====================================================================
+//Dimension Shortcode
+//=====================================================================
+//
+//Width shortcode
+@mixin w( $w ) {
+    width: $w;
+}
+@mixin wp( $w, $d: 1 ) {
+    @include set-percent( width, $w, $d );
+}
+@mixin w0() {
+    @include w(0);
+}
+//Width auto
+@mixin wa() {
+    @include w( auto );
+}
+//Width full
+@mixin wf() {
+    @include w( 100% );
+}
+
+//
+//Height shortcode
+@mixin h( $h ) {
+    height: $h;
+}
+@mixin hp( $h, $d: 1 ) {
+    @include set-percent( height, $h, $d );
+}
+@mixin h0() {
+    @include h(0);
+}
+//Height auto
+@mixin ha() {
+    @include h( auto );
+}
+//Height full
+@mixin hf() {
+    @include h( 100% );
+}
+//Height + line height
+@mixin hlh( $size ) {
+    @include h( $size );
+    @include lh( $size );
+}
+
+//Size shortcode
+@mixin wh( $w, $h ) {
+    @include w( $w );
+    @include h( $h );
+}
+@mixin wh0() {
+    @include wh(0,0);
+}
+//Size auto
+@mixin wha() {
+    @include wh( auto, auto );
+}
+//Size full
+@mixin whf() {
+    @include wh( 100%, 100% );
+}

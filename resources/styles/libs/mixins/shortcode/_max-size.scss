@@ -1,0 +1,29 @@
+//=====================================================================
+// Max Size
+//=====================================================================
+@mixin maxw( $size ) {
+    max-width: $size;
+}
+@mixin maxw0() {
+    @include maxw( auto );
+}
+@mixin maxwf() {
+    @include maxw( 100% );
+}
+@mixin maxh( $size ) {
+    max-height: $size;
+}
+@mixin maxh0() {
+    @include maxh( auto );
+}
+@mixin maxhf() {
+    @include maxh( 100% );
+}
+@mixin maxwh( $w, $h ) {
+    @include maxw( $w );
+    @include maxh( $h );
+}
+@mixin maxwh0() {
+    @include maxw0;
+    @include maxh0;
+}

@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"><![endif]-->
+    <title>NEO Smart Economy</title>
+    <link rel="“apple-touch-icon”" sizes="“57x57&quot;" href="“images/apple-icon-57x57.png”">
+    <link rel="“apple-touch-icon”" sizes="“60x60”" href="“images/apple-icon-60x60.png”">
+    <link rel="“apple-touch-icon”" sizes="“72x72&quot;" href="“images/apple-icon-72x72.png”">
+    <link rel="“apple-touch-icon”" sizes="“76x76”" href="“images/apple-icon-76x76.png”">
+    <link rel="“apple-touch-icon”" sizes="“114x114&quot;" href="“images/apple-icon-114x114.png”">
+    <link rel="“apple-touch-icon”" sizes="“120x120”" href="“images/apple-icon-120x120.png”">
+    <link rel="“apple-touch-icon”" sizes="“144x144&quot;" href="“images/apple-icon-144x144.png”">
+    <link rel="“apple-touch-icon”" sizes="“152x152”" href="“images/apple-icon-152x152.png”">
+    <link rel="“apple-touch-icon”" sizes="“180x180&quot;" href="“images/apple-icon-180x180.png”">
+    <link rel="“icon”" type="“image/png”" sizes="“192x192&quot;" href="“images/android-icon-192x192.png”">
+    <link rel="“icon”" type="“image/png”" sizes="“32x32&quot;" href="“images/favicon-32x32.png”">
+    <link rel="“icon”" type="“image/png”" sizes="“96x96&quot;" href="“images/favicon-96x96.png”">
+    <link rel="“icon”" type="“image/png”" sizes="“16x16&quot;" href="“images/favicon-16x16.png”">
+    <link rel="“manifest”" href="“/manifest.json”">
+    <meta name="“msapplication-TileColor”" content="“#ffffff" ”="">
+    <meta name="“msapplication-TileImage”" content="“images/ms-icon-144x144.png”">
+    <meta name="“theme-color”" content="“#ffffff" ”="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui, user-scalable=no">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" sizes="16x16">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body class="home">
+    <div class="site">
+      <div class="site--inner">
+        <header class="header">
+          <div class="header--inner">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-6 col-sm-6 col-xs-6">
+                  <div class="left-side">
+                    <div class="logo"><a href="#section1"><img src="images/neo_logo.svg"></a></div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-sm-6 col-xs-6">
+                  <div class="right-side">
+                    <div class="lang">
+                      <ul>
+                        <li><a class="active" href="#">EN&nbsp;/&nbsp;</a></li>
+                        <li><a href="#">&nbsp;中文</a></li>
+                      </ul>
+                    </div>
+                    <div class="nav open-circle">
+                      <div class="open" id="nav-id"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                      <ul class="menu-nav open">
+                        <li class="list-menu"><a href="#section1">NEO HOME</a></li>
+                        <li class="list-menu"><a href="download.html">Download</a></li>
+                        <li class="list-menu"><a href="developer.html">Developer</a></li>
+                        <li class="list-menu"><a href="#">Blog</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <main class="main">
+          <div class="main--inner" id="fullpage">
+            <div class="section home">
+              <video id="videoid" autoplay loop data-autoplay>
+                <source src="images/neo_mov.mp4" type="video/mp4">Your browser does not support HTML5 video.
+              </video>
+              <div class="home-title">
+                <div class="slider-progress"></div>
+                <div class="text-carousel" id="text-slider" style="opacity:0;" data-index="1">
+                  <div>
+                    <h2>A distributed network<br>of intelligent economy</h2>
+                  </div>
+                  <div>
+                    <h2 class="second">A New standard for digital assets<br>new operation system of digital identity based on blockchain<br>new smart contract environment</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="link-down"><span>WHAT IS NEO?</span><a class="down-arrow" href="#"><img src="images/arrow-down.png"></a></div>
+            </div>
+            <div class="section intro">
+              <canvas id="flying"></canvas>
+              <div class="content-tab">
+                <div class="wrapper">
+                  <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                    <ul class="nav nav-tabs nav-tabs-responsive" id="myTab" role="tablist">
+                      <li class="active" role="presentation"><a id="what-tab" href="#what" role="tab" data-toggle="tab" aria-controls="what" aria-expanded="true"><span class="text">WHAT IS NEO?</span></a></li>
+                      <li class="next" role="presentation"><a id="feature-tab" href="#feature" role="tab" data-toggle="tab" aria-controls="feature"><span class="text">SMART ECONOMY</span></a></li>
+                      <li role="presentation"><a id="security-tab" href="#security" role="tab" data-toggle="tab" aria-controls="security"><span class="text">A BETTER WORLD</span></a></li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                      <div class="tab-pane fade in active" id="what" role="tabpanel" aria-labelledby="what-tab">
+                        <h2 class="feature-title"><b>NEO</b> IS China's<i> first<br></i>original public chain</h2>
+                        <p>NEO, former name—Antshares, is China's first ever original and open source public chain project, which was founded in 2014<br>and launched on Github in June, 2015. Ever since it was founded, NEO’s team has experienced many ups and downs in the<br>blockchain industry as well as digital currency market, and the government’s changeable/unclear policies. Nevertheless, we<br>believe that technology is the force that motivates the development of the world. Pushing forward by the tide, we will step into<br>a new era of “smart economy.”</p>
+                      </div>
+                      <div class="tab-pane fade" id="feature" role="tabpanel" aria-labelledby="features-tab">
+                        <ul class="list-advantage">
+                          <li>
+                            <div class="advantage">
+                              <canvas id="smart-text"></canvas>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
+                        <h2 class="feature-title">A TRANSPARENT AND<br>FAIR WORLD</h2>
+                        <p>In this smart economy society, we will make a huge leap from “information internet,” to “value internet,” then to “order internet.”<br>Once substantial economy and digital economy connects seamlessly, all exchanges among assets could have perfect liquidity.<br>There wouldn’t be any trust issues in any exchanges of values and activities related to economics. The rules and policies of<br> the society and organizations would be transparent and fair. The world would become a much better place.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="section statistic">
+              <div class="statistic--wraper">
+                <div class="top-title">
+                  <h2>Explore<span>NEO</span></h2>
+                </div>
+                <div class="container-list-stat">
+                  <p>Explore the NEO ecosystem, get up-to-date statistics and track our progress as we move into the future.</p>
+                </div>
+                <div class="content-links">
+                  <div class="content-links-wraper">
+                    <div class="bg-images"><img src="images/half-sphere.png"></div>
+                    <div class="content-toltip">
+                      <div class="circle-btn bg1 large pos1">
+                        <div class="hidden-content"><a href="#">NeoLocate dApp</a></div>
+                      </div>
+                      <div class="circle-btn bg2 large pos2">
+                        <div class="hidden-content"><a href="#">NeoLocate dApp</a></div>
+                      </div>
+                      <div class="circle-btn bg3 large pos3">
+                        <div class="hidden-content"><a href="#">NeoLocate dApp</a></div>
+                      </div>
+                      <div class="circle-btn bg4 small pos4">
+                        <div class="hidden-content"><a href="#">NeoLocate dApp</a></div>
+                      </div>
+                      <div class="circle-btn bg5 pos5">
+                        <div class="hidden-content"><a href="#">NeoLocate dApp</a></div>
+                      </div>
+                      <div class="circle-btn bg6 small pos6">
+                        <div class="hidden-content"><a href="#">NeoLocate dApp</a></div>
+                      </div>
+                      <div class="circle-btn bg1 large pos7">
+                        <div class="hidden-content"><a href="#">NeoLocate dApp</a></div>
+                      </div>
+                      <div class="circle-btn bg2 large pos8">
+                        <div class="hidden-content"><a href="#">NeoLocate dApp</a></div>
+                      </div>
+                      <div class="circle-btn bg3 large pos9">
+                        <div class="hidden-content"><a href="#">NeoLocate dApp</a></div>
+                      </div>
+                      <div class="circle-btn bg4 small pos10">
+                        <div class="hidden-content"><a href="#">NeoLocate dApp</a></div>
+                      </div>
+                      <div class="circle-btn bg5 pos11">
+                        <div class="hidden-content"><a href="#">NeoLocate dApp</a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="left-info-stat">
+                  <div class="top-stat-info">
+                    <h2 class="number-stat">324</h2>
+                    <p class="text-title-stat">NO. OF<br>FULL NODES</p>
+                  </div>
+                  <div class="bottom-stat-info">
+                    <h2 class="number-stat">595</h2>
+                    <p class="text-title-stat">DAYS SINCE<br>GENESIS BLOCKS</p>
+                  </div>
+                </div>
+                <div class="right-info-stat">
+                  <div class="top-stat-info">
+                    <h2 class="number-stat">1140939</h2>
+                    <p class="text-title-stat">real-time number<br>of blocks</p>
+                  </div>
+                  <div class="bottom-stat-info">
+                    <h2 class="number-stat">269</h2>
+                    <p class="text-title-stat">days since main<br>net is launched</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="section technology">
+              <div class="technology--wraper">
+                <div class="technology--wraper-top">
+                  <h2>THE TECHNOLOGY<br>BEHIND<span> NEO</span></h2>
+                  <p>Through technologies such as P2P network, dBFT consensus, digital certificate,<br>Superconducting Transactions and cross-chain interoperability, NEO blockchain enables one<br>to manage smart assets in a fast, efficient, safe and certified manner.</p>
+                </div>
+                <div class="technology--wraper-carousel">
+                  <div class="owl-carousel" id="technology-carousel">
+                    <div class="list-technology">
+                      <div class="top-images">
+                        <canvas id="ico1"></canvas>
+                      </div>
+                      <h3>First Original Blockchain in China</h3>
+                      <p>Founded in 2014, NEO became open<br>source on GitHub in 2015. NEO is<br>the innovator and leading force in<br>numerous new blockchain<br>technologies. It is also the leading<br>public blockchain in China.</p>
+                    </div>
+                    <div class="list-technology">
+                      <div class="top-images">
+                        <canvas id="ico2"></canvas>
+                      </div>
+                      <h3>Underlying design supports<br>various digital assets</h3>
+                      <p>NEO’s Underlying design supports various<br>digital assets. One can register, spread,<br>trade and circulate assets all by oneself.</p>
+                    </div>
+                    <div class="list-technology">
+                      <div class="top-images big-images">
+                        <canvas id="ico3"></canvas>
+                      </div>
+                      <h3>Digital Certificates solves problems<br>of trust</h3>
+                      <p>NEO supports digital certificates, solves the<br>potential problem of untrustworthy nodes on<br>a public blockchain. With digital certificates,<br>one can legally issue assets on the blockchain<br>and be protected by the regulations</p>
+                    </div>
+                    <div class="list-technology">
+                      <div class="top-images">
+                        <canvas id="ico4"></canvas>
+                      </div>
+                      <h3>Original Superconducting<br>Transactions mechanism</h3>
+                      <p>This mechanism makes a trustless digital<br>exchange possible. One can order match<br>various types of digital assets without the<br>need to top-up.</p>
+                    </div>
+                    <div class="list-technology">
+                      <div class="top-images">
+                        <canvas id="ico5"></canvas>
+                      </div>
+                      <h3>Turing complete Smart Contracts</h3>
+                      <p>NEO smart contracts are Turing complete,<br>executes in the NEO VM and has<br>advantages including determinability, being<br>terminable, resource controllability, parallel<br>execution, ability to partition and limitless<br>performance scalability.</p>
+                    </div>
+                    <div class="list-technology">
+                      <div class="top-images">
+                        <canvas id="ico6"></canvas>
+                      </div>
+                      <h3>Smart Contracts in high level programming languages</h3>
+                      <p>Supporting languages such as C#,<br>Java, Go, developers can promptly<br>start developing smart contracts<br>on NEO blockchain.</p>
+                    </div>
+                    <div class="list-technology">
+                      <div class="top-images">
+                        <canvas id="ico7"></canvas>
+                      </div>
+                      <h3>NEO VM lightweight Virtual<br>Stack Machines</h3>
+                      <p>NEO VM has short booting time and<br>high execution efficiency, coupled with<br>‘certainty call tree’ technology, it can<br>deliver limitless scalability.</p>
+                    </div>
+                    <div class="list-technology">
+                      <div class="top-images">
+                        <canvas id="ico8"></canvas>
+                      </div>
+                      <h3>Innovative dBFT consensus mechanism</h3>
+                      <p>Consensus nodes use Byzantine Fault<br>Tolerance Algorithm to reach consensus and<br>ensure the finality of transactions. It is also<br>ensured that the system keeps its finality and<br>operability as longa as less than 1/3 of the<br>nodes are observing dBFT errors.</p>
+                    </div>
+                    <div class="list-technology">
+                      <div class="top-images">
+                        <canvas id="ico9"></canvas>
+                      </div>
+                      <h3>Innovative Cross-chain Operation Protocol</h3>
+                      <p>comprising of Cross-chain Asset Swap Protocol<br>and Cross-chain Distributed Operation protocol,<br>can achieve atomic asset swap and<br>guarantee the operation consistency of smart<br>contracts executed on different chains.</p>
+                    </div>
+                    <div class="list-technology"></div>
+                    <div class="list-technology">
+                      <div class="top-images">
+                        <canvas id="ico10"></canvas>
+                      </div>
+                      <h3>Lattice cryptology-quantum computer-proof technology</h3>
+                      <p>Use Lattice-based cryptograph<br>signature and encryption technology,<br>which can prevent the quantum crisis as<br>Lattice-based cryptography provides<br>encryption problems (e.g. SVP) beyond<br>the capability of quantum computers.</p>
+                    </div>
+                    <div class="list-technology"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="section timeline">
+              <div class="timeline--wraper">
+                <div class="top-title">
+                  <h2>TIMELINE<br>& ROADMAP</h2>
+                </div>
+                <div class="timeline--main">
+                  <div class="timeline--main--inner">
+                    <div class="timeline--nav"><a class="date-nav active" href="#2014">2014</a><a class="date-nav" href="#2015">2015</a><a class="date-nav " href="#2016">2016</a><a class="date-nav " href="#2017">2017</a><a class="date-nav disable" href="#2017">2018</a><a class="date-nav disable" href="#2017">2019</a></div>
+                    <div class="timeline--content">
+                      <div class="timeline--slider">
+                        <div class="timeline--slider--inner">
+                          <div class="timeline--node--group">
+                            <div class="_group--inner">
+                              <div class="timeline--node" data-year="2014">
+                                <div class="timeline--node--inner animated">
+                                  <h3>June 2014</h3>
+                                  <p>Antshares project initiated,seed-round fund received</p>
+                                  <div class="timeline--node--point"><img src="images/timeline-point-1.png"></div>
+                                </div>
+                              </div>
+                              <div class="timeline--node" data-year="2014">
+                                <div class="timeline--node--inner animated">
+                                  <div class="timeline--node--point"><img src="images/timeline-point-2.png"></div>
+                                  <h3>June 2014</h3>
+                                  <p>Weangel, Antshares front-end service platform launched</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="timeline--node--group _node--alt">
+                            <div class="_group--inner">
+                              <div class="timeline--node" data-year="2014">
+                                <div class="timeline--node--inner animated">
+                                  <h3>August 2014</h3>
+                                  <p>Antshares team and operating company formed</p>
+                                  <div class="timeline--node--point"><img src="images/timeline-point-3.png"></div>
+                                </div>
+                              </div>
+                              <div class="timeline--node bottom-content" data-year="2015">
+                                <div class="timeline--node--inner animated">
+                                  <div class="timeline--node--point"><img src="images/timeline-point-4.png"></div>
+                                  <h3>June 2015</h3>
+                                  <p>Antshares started on Github as an real time open source project</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="timeline--node--group">
+                            <div class="_group--inner">
+                              <div class="timeline--node" data-year="2015">
+                                <div class="timeline--node--inner animated">
+                                  <h3>July 2015</h3>
+                                  <p>8btc, btc38 covers Antshares with an article titiled "Be Uber of securities market,Antshares helps you transact ownership"</p>
+                                  <div class="timeline--node--point"><img src="images/timeline-point-5.png"></div>
+                                </div>
+                              </div>
+                              <div class="timeline--node" data-year="2015">
+                                <div class="timeline--node--inner animated">
+                                  <div class="timeline--node--point"><img src="images/timeline-point-6.png"></div>
+                                  <h3>September 2015</h3>
+                                  <p>Antshares blockchain whitepaper officially released</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="timeline--node--group _node--alt">
+                            <div class="_group--inner">
+                              <div class="timeline--node" data-year="2015">
+                                <div class="timeline--node--inner animated">
+                                  <h3>October 2015</h3>
+                                  <p>First phase ICO with 2100btc funded in total, full report from Chinese main blockchain media 8btc and btc38.</p>
+                                  <div class="timeline--node--point"><img src="images/timeline-point-7.png"></div>
+                                </div>
+                              </div>
+                              <div class="timeline--node bottom-content" data-year="2015">
+                                <div class="timeline--node--inner animated">
+                                  <div class="timeline--node--point"><img src="images/timeline-point-8.png"></div>
+                                  <h3>November 2015</h3>
+                                  <p>first phase ICO with 2100btc funded in total, full report from Chinese main blockchain media 8btc and btc38.</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="timeline--node--group">
+                            <div class="_group--inner">
+                              <div class="timeline--node" data-year="2016">
+                                <div class="timeline--node--inner animated">
+                                  <h3>April 2016</h3>
+                                  <p>dBFT-China's first orignial consensus mechanism released</p>
+                                  <div class="timeline--node--point"><img src="images/timeline-point-1.png"></div>
+                                </div>
+                              </div>
+                              <div class="timeline--node bottom-content" data-year="2016">
+                                <div class="timeline--node--inner animated">
+                                  <div class="timeline--node--point"><img src="images/timeline-point-2.png"></div>
+                                  <h3>May 2016</h3>
+                                  <p>Antshares recruit more talents including Tony Tao, the current CEO</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="timeline--node--group _node--alt">
+                            <div class="_group--inner">
+                              <div class="timeline--node" data-year="2016">
+                                <div class="timeline--node--inner animated">
+                                  <h3>June 2016</h3>
+                                  <p>Antshares sponsors 2016 Global Blockchain summit</p>
+                                  <div class="timeline--node--point"><img src="images/timeline-point-3.png"></div>
+                                </div>
+                              </div>
+                              <div class="timeline--node bottom-content" data-year="2016">
+                                <div class="timeline--node--inner animated">
+                                  <div class="timeline--node--point"><img src="images/timeline-point-4.png"></div>
+                                  <h3>July 2016</h3>
+                                  <p>Anshares becomes Hyperledger's 3rd project</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="timeline--node--group">
+                            <div class="_group--inner">
+                              <div class="timeline--node" data-year="2016">
+                                <div class="timeline--node--inner animated">
+                                  <h3>July 2016</h3>
+                                  <p>China's mainstream financial media CCTV2 reported Anshares</p>
+                                  <div class="timeline--node--point"><img src="images/timeline-point-1.png"></div>
+                                </div>
+                              </div>
+                              <div class="timeline--node" data-year="2016">
+                                <div class="timeline--node--inner animated">
+                                  <div class="timeline--node--point"><img src="images/timeline-point-2.png"></div>
+                                  <h3>August 2016</h3>
+                                  <p>second phase of global ICO with 6119 btc raised</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="timeline--node--group _node--alt">
+                            <div class="_group--inner">
+                              <div class="timeline--node" data-year="2016">
+                                <div class="timeline--node--inner animated">
+                                  <h3>August 2016</h3>
+                                  <p>antfans.org,the first Antshares' community organized by Antshares fans incepted</p>
+                                  <div class="timeline--node--point"><img src="images/timeline-point-3.png"></div>
+                                </div>
+                              </div>
+                              <div class="timeline--node bottom-content" data-year="2016">
+                                <div class="timeline--node--inner animated">
+                                  <div class="timeline--node--point"><img src="images/timeline-point-4.png"></div>
+                                  <h3>September 2016</h3>
+                                  <p>KPMG released Top 50 fintech innovation companies in China, Antshares in on the list. Other companies on the list include Antfinance (of Alibaba),Webank(from Tencent).</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="timeline--node--group">
+                            <div class="_group--inner">
+                              <div class="timeline--node" data-year="2016">
+                                <div class="timeline--node--inner animated">
+                                  <h3>October 2016</h3>
+                                  <p>Mainnet of Antshares' blockchain launched!</p>
+                                  <div class="timeline--node--point"><img src="images/timeline-point-3.png"></div>
+                                </div>
+                              </div>
+                              <div class="timeline--node bottom-content" data-year="2016">
+                                <div class="timeline--node--inner fourth-pos animated">
+                                  <div class="timeline--node--point"><img src="images/timeline-point-4.png"></div>
+                                  <h3>October 2016</h3>
+                                  <p>the first blockchain browser based on Antshares launched</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="timeline--node--group _node--alt">
+                            <div class="_group--inner">
+                              <div class="timeline--node" data-year="2016">
+                                <div class="timeline--node--inner animated">
+                                  <h3>October 2016</h3>
+                                  <p>ANS available on yunbi,yuanbao,19800,bittrex</p>
+                                  <div class="timeline--node--point"><img src="images/timeline-point-3.png"></div>
+                                </div>
+                              </div>
+                              <div class="timeline--node bottom-content" data-year="2016">
+                                <div class="timeline--node--inner animated">
+                                  <div class="timeline--node--point"><img src="images/timeline-point-4.png"></div>
+                                  <h3>October 2016</h3>
+                                  <p>Antshares is on list of the Top 10 blockchain platform, announced by a fintech conference in China</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="timeline--node--group">
+                            <div class="_group--inner">
+                              <div class="timeline--node" data-year="2016">
+                                <div class="timeline--node--inner animated">
+                                  <h3>October 2016</h3>
+                                  <p>Antshares built comprehensive and strategic cooperation with Wings. The two will jointly explore the market and blockchain technology.</p>
+                                  <div class="timeline--node--point"><img src="images/timeline-point-3.png"></div>
+                                </div>
+                              </div>
+                              <div class="timeline--node bottom-content" data-year="2016">
+                                <div class="timeline--node--inner animated">
+                                  <div class="timeline--node--point"><img src="images/timeline-point-4.png"></div>
+                                  <h3>November 2016</h3>
+                                  <p>Whitepaper on general light-weight AVM(Antshares Virtual Machine) released</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="timeline--node--group _node--alt">
+                            <div class="_group--inner">
+                              <div class="timeline--node" data-year="2016">
+                                <div class="timeline--node--inner animated">
+                                  <h3>December 2016</h3>
+                                  <p>Antshares built cooperation with Mngo VR, an game developer.An effort to explore game+blockchain</p>
+                                  <div class="timeline--node--point"><img src="images/timeline-point-3.png"></div>
+                                </div>
+                              </div>
+                              <div class="timeline--node bottom-content" data-year="2017">
+                                <div class="timeline--node--inner animated">
+                                  <div class="timeline--node--point"><img src="images/timeline-point-4.png"></div>
+                                  <h3>February 2017</h3>
+                                  <p>otcgo.cn, the first smart contract assets transfer platform on Antshares.</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="timeline--node--group">
+                            <div class="_group--inner">
+                              <div class="timeline--node" data-year="2017">
+                                <div class="timeline--node--inner animated">
+                                  <h3>February 2017</h3>
+                                  <p>antchain.xyz, a new blockch browser on Antshares released</p>
+                                  <div class="timeline--node--point"><img src="images/timeline-point-3.png"></div>
+                                </div>
+                              </div>
+                              <div class="timeline--node bottom-content" data-year="2017">
+                                <div class="timeline--node--inner animated">
+                                  <div class="timeline--node--point"><img src="images/timeline-point-4.png"></div>
+                                  <h3>February 2017</h3>
+                                  <p>Nestfund.io, the official website of Nest,an Antshares-based Smart fund launched</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="timeline--node--group _node--alt">
+                            <div class="_group--inner">
+                              <div class="timeline--node" data-year="2017">
+                                <div class="timeline--node--inner animated">
+                                  <h3>May 2017</h3>
+                                  <p>2017.5Hold blockchain development competition" with Shanghai Science and Technology Committee and Innospace.</p>
+                                  <div class="timeline--node--point"><img src="images/timeline-point-3.png"></div>
+                                </div>
+                              </div>
+                              <div class="timeline--node bottom-content" data-year="2017">
+                                <div class="timeline--node--inner animated">
+                                  <div class="timeline--node--point"><img src="images/timeline-point-4.png"></div>
+                                  <h3>June 2017</h3>
+                                  <p>New Antshares brand strategy release conference.</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="timeline--cover"></div>
+              </div>
+            </div>
+            <div class="section team">
+              <h2>TEAM MEMBERS</h2>
+              <ul class="list-member">
+                <li>
+                  <div class="wraper-images"><img src="images/person-1.png"></div>
+                </li>
+                <li>
+                  <div class="wraper-images"><img src="images/person-2.png"></div>
+                </li>
+                <li>
+                  <div class="wraper-images"><img src="images/person-3.png"></div>
+                </li>
+                <li>
+                  <div class="wraper-images"><img src="images/person-4.png"></div>
+                </li>
+                <li>
+                  <div class="wraper-images"><img src="images/person-5.png"></div>
+                </li>
+                <li>
+                  <div class="wraper-images"><img src="images/person-6.png"></div>
+                </li>
+                <li>
+                  <div class="wraper-images"><img src="images/person-7.png"></div>
+                </li>
+                <li>
+                  <div class="wraper-images"><img src="images/person-8.png"></div>
+                </li>
+              </ul>
+              <ul class="list-member">
+                <li>
+                  <div class="wraper-images"><img src="images/person-9.png"></div>
+                </li>
+                <li>
+                  <div class="wraper-images"><img src="images/person-10.png"></div>
+                </li>
+                <li>
+                  <div class="wraper-images"><img src="images/person-11.png"></div>
+                </li>
+                <li>
+                  <div class="wraper-images"><img src="images/person-12.png"></div>
+                </li>
+                <li>
+                  <div class="wraper-images"><img src="images/person-13.png"></div>
+                </li>
+                <li>
+                  <div class="wraper-images"><img src="images/person-14.png"></div>
+                </li>
+                <li>
+                  <div class="wraper-images"><img src="images/person-15.png"></div>
+                </li>
+                <li>
+                  <div class="wraper-images"><img src="images/person-16.png"></div>
+                </li>
+              </ul>
+              <p class="bottom-text">The community members mentioned above include the co-founder of NEO Da Hongfei, the other co-founder and core developer Zhang Zhengwen, the Secretary General Tao Rongqi, and other community developers, operators and contributors. Here, we sincerely and warmly welcome domestic and overseas talent to join us at any time to build the bright future of NEO community.</p><a class="link-comunity down-arrow" href="#">JOIN THE COMMUNITY</a>
+            </div>
+            <div class="section footer-comunity fp-auto-height">
+              <div class="wraper-footer-comunity">
+                <div class="content-footer-comunity">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="top-wraper">
+                        <h2>COMMUNITY</h2>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="row">
+                        <div class="col-lg-5">
+                          <div class="content-footer-comunity--left">
+                            <div class="logo"><img src="images/logo-neo.png"></div>
+                            <div class="contact"><span>contact@neo.org</span></div>
+                            <div class="tagline">
+                              <p>NEO originates from the ancient Greek prefix, ‘νεο-’, meaning ‘new’, ‘modern’,<br>and ‘young’. We quite like the idea of an old word with the meaning of youth. It brings about the feeling of a gateway that brings us from the physical world to the digital.And apparently, one can also take the meaning from the protagonist of ‘Matrix’: Neo,The One who woke up and changed the world.</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="content-footer-comunity--social">
+                            <ul class="social-ico">
+                              <li class="blog"><a href="">loremipsum.neo/blog</a></li>
+                              <li class="reddit"><a href="https://www.reddit.com/r/NEO/" target="_blank">https://www.reddit.com/r/NEO/</a></li>
+                              <li class="slack"><a href="https://antsharesteam.slack.com/" target="_blank">Slack：https://antsharesteam.slack.com/</a></li>
+                              <li class="twitter"><a href="https://twitter.com/NEO_Blockchain" target="_blank">Twitter: https://twitter.com/NEO_Blockchain</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="col-lg-3">
+                          <div class="content-footer-comunity--social">
+                            <ul class="social-ico">
+                              <li class="facebook"><a href="https://www.facebook.com/neo.blockchain.9" target="_blank">https://www.facebook.com/neo.blockchain.9</a></li>
+                              <li class="qq"><a href="" target="_blank">QQ：23917224</a></li>
+                              <li class="weebo"><a href="" target="_blank">@NEO智能经济</a></li>
+                              <li class="door"><a href="" target="_blank">主办方NEO智能经济</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <footer class="footer">
+          <div class="footer--inner"></div>
+        </footer>
+      </div>
+    </div>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>

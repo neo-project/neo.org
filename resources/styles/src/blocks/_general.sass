@@ -1,0 +1,1685 @@
+//
+// General styles
+//
+.add-border-right
+  border-right: 1px solid #fff
+body
+  background: url('../images/main-bg.png') no-repeat top #0c0f13
+  background-size: cover
+  #fp-nav ul li .fp-tooltip
+    font-family: 'Josefin Sans', sans-serif
+    +c(#8fd700)
+    +t(-2px)
+    text-transform: uppercase
+    +fs(12px)
+    letter-spacing: 3px
+    @media (min-width: 1910px)
+      +fs(15px)
+  @media (min-width: 1910px)
+    #fp-nav ul li
+        &:nth-child(5) .fp-tooltip
+          +fs(13px)
+          letter-spacing: 2
+  #fp-nav ul li a, .fp-slidesNav ul li a
+    +w(70px)
+    +h(7px)
+  #fp-nav ul li a.active + .fp-tooltip
+    +w(auto!important)
+    opacity: 1!important
+  #fp-nav ul li .fp-tooltip.right
+    +r(60px)
+  #fp-nav ul li:hover a span, .fp-slidesNav ul li:hover a span, #fp-nav ul li:focus a span, .fp-slidesNav ul li:focus a span
+    height: 4px
+    width: 70px
+    left: 0
+    margin: 0px
+    border-radius: 0
+    border: 1px solid #8fd700
+    @media (min-width: 1910px)
+      +h(7px)
+  #fp-nav ul li, .fp-slidesNav ul li
+    display: block
+    width: 50px
+    height: 4px
+    margin: 15px 0
+    position: relative
+    @media (min-width: 1910px)
+      +h(7px)
+      +m(25px 0)
+  #fp-nav ul li a span, .fp-slidesNav ul li a span
+    +w(50px)
+    +h(4px)
+    background: none
+    border-radius: 0
+    margin: 0
+    border: 1px solid #26370f
+    @media (min-width: 1910px)
+      +h(7px)
+  #fp-nav ul li a.active span, .fp-slidesNav ul li a.active span, #fp-nav ul li:hover a.active span, .fp-slidesNav ul li:hover a.active span, #fp-nav ul li:focus a.active span, .fp-slidesNav ul li:focus a.active span
+    height: 4px
+    width: 70px
+    left: 0
+    margin: 0px
+    border: 1px solid #8fd700
+    border-radius: 0
+    @media (min-width: 1910px)
+      +h(7px)
+
+
+
+
+
+  .section
+    +bg(#0c0f13)
+    +w(100%)
+    +por
+    +h(100vh)
+    overflow: hidden
+    &.home
+      //-home-mobile
+      &.mobile
+        background: url('../images/bg-home-mobile.png') no-repeat center top #0c0f13
+        background-size: 100%
+      //-end home-mobile
+      #circle
+        width: 16px
+        height: 16px
+        position: absolute
+        top: 2.4px
+        left: 50%
+      .fullscreen-bg
+        position: fixed
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        overflow: hidden
+        z-index: -100
+      .fullscreen-bg__video
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        @media (min-aspect-ratio: 16 / 9)
+          height: 300%
+          top: -100%
+        @media (max-aspect-ratio: 16 / 9)
+          width: 300%
+          left: -100%
+      #videoid
+        position: absolute
+        right: 0
+        bottom: 0
+        top: 0
+        right: 0
+        width: 100%
+        height: 100%
+        background-size: 100% 100%
+        background-color: black
+        background-position: center center
+        background-size: contain
+        object-fit: cover
+      .bg-animate
+        .bg-animate-globe
+          +poa
+          +w(100%)
+          +h(100%)
+          +t(0)
+          z-index: 2
+          background: url('../images/bg-globe.png') no-repeat top
+          background-size: cover
+        .bg-animate-green-square
+          +poa
+          +t(0)
+          +w(100%)
+          +h(100%)
+          z-index: 2
+          background: url('../images/bg-green-globe.png') no-repeat top
+          background-size: cover
+      .home-title
+        text-align: center
+        z-index: 200
+        +w(100%)
+        h2
+          +fs(40px)
+          font-family: 'Josefin Sans', sans-serif
+          +c(#ffffff)
+          z-index: 200
+          text-transform: uppercase
+          font-weight: 300
+          letter-spacing: 20px
+          line-height: 60px
+          +mt(4%)
+          @media (min-width: 1910px)
+            +fs(46px)
+            line-height: 100px
+            +mt(6%)
+          @media (max-width: 680px)
+            +fs(16px)
+            line-height: 32px
+            +mt(0px)
+            letter-spacing: 10px
+          &.second
+            +fs(20px)
+            line-height: 60px
+            letter-spacing: 7px
+            +mt(2%)
+            @media (min-width: 1910px)
+              +fs(30px)
+              line-height: 90px
+              +mt(4%)
+            @media (max-width: 680px)
+              font-size: 20px
+              line-height: 38px
+              letter-spacing: 4px
+              margin-top: 2%
+              width: 90%
+              margin: 0 auto
+      .link-down
+        +w(100%)
+        +poa
+        text-align: center
+        +b(5%)
+        z-index: 200
+        letter-spacing: 5px
+        span
+          +db
+          +mb(5px)
+          font-family: 'Josefin Sans', sans-serif
+          font-weight: bold
+          +c(#fff)
+          @media (min-width: 1910px)
+            +mb(20px)
+            +fs(18px)
+            letter-spacing: 10px
+          @media (max-width: 680px)
+            +fs(12px)
+        .down-arrow
+          @media (max-width: 680px)
+            img
+              +w(30px)
+    /*statistic*/
+    &.statistic
+      .statistic--wraper
+        +w(95%)
+        +por
+        +m(0 auto)
+        @media (max-width: 680px)
+          +por
+          +t(0px)
+          +l(0)
+          +m(0 auto)
+          +w(100%)
+          transform: translate(0, 0)
+        .top-title
+          text-align: center
+          h2
+            font-family: 'Josefin Sans', sans-serif
+            +fs(35px)
+            font-weight: 300
+            +c(#fff)
+            text-transform: uppercase
+            letter-spacing: 10px
+            text-align: center
+            @media (min-width: 1720px)
+              +fs(60px)
+
+            @media (max-width: 680px)
+              letter-spacing: 20px
+            span
+              +c(#78b403)
+              +fs(80px)
+              +ml(12px)
+              letter-spacing: 20px
+              +db
+              @media (max-width: 680px)
+                letter-spacing: 43px
+                margin-left: 23px
+              @media (min-width: 1720px)
+                +ml(50px)
+                letter-spacing: 50px
+                +fs(100px)
+        .container-list-stat
+          +w(80%)
+          +m(20px auto 30px auto)
+          text-align: center
+          p
+            font-family: 'Josefin Sans', sans-serif
+            +fs(24px)
+            +c(#fff)
+            letter-spacing: 2px
+          @media (min-width: 1910px)
+            +w(80%)
+          @media (min-width: 1720px)
+            +w(40%)
+            +m(60px auto)
+          ul
+            +p(0)
+            li
+              list-style: none
+              +mb(15px)
+              &:nth-child(3)
+                opacity: 0.4
+              &:last-child
+                opacity: 0.1
+              a
+                font-family: 'Josefin Sans', sans-serif
+                +fs(14px)
+                +c(#fff)
+                letter-spacing: 1.5px
+                @media (min-width: 1910px)
+                  +fs(18px)
+              .left
+                +dib
+                +w(48%)
+                background: url('../images/bg-stat.png') no-repeat left center
+                +pl(25px)
+                background-size: 15px
+                +pt(7px)
+                +pb(6px)
+              .right
+                +dib
+                +ml(3px)
+                +w(48%)
+                background: url('../images/ico-arrow.png') no-repeat left center
+                +pl(42px)
+                background-size: 25px
+                +pt(6px)
+                +pb(6px)
+        .content-links
+          +w(60%)
+          +m(0 auto)
+          +por
+          &-wraper
+            min-height: 300px
+            +mt(0)
+            +por
+            @media (min-width: 1910px)
+              min-height: 370px
+            .bg-images
+              +poa
+              +w(100%)
+              img
+                +w(100%)
+            .content-toltip
+              +w(100%)
+              +poa
+              +h(100%)
+              .circle-btn
+                +w(20px)
+                +h(20px)
+                border-radius: 50%
+                border: none
+                background: #000
+                cursor: pointer
+                +poa
+                &.pos1
+                  +t(16%)
+                  +l(20%)
+                &.pos2
+                  +t(10%)
+                  +l(50%)
+                &.pos3
+                  +t(30%)
+                  +l(70%)
+                &.pos4
+                  +t(25%)
+                  +l(80%)
+                &.pos5
+                  +t(70%)
+                  +l(30%)
+                &.pos6
+                  +t(60%)
+                  +l(25%)
+                &.pos7
+                  +t(70%)
+                  +l(20%)
+                &.pos8
+                  +t(80%)
+                  +l(10%)
+                &.pos9
+                  +t(90%)
+                  +l(90%)
+                &.pos10
+                  +t(100%)
+                  +l(90%)
+                &.pos11
+                  +t(70%)
+                  +l(50%)
+                &.bg1
+                  background: url('../images/bullet-1.png') no-repeat
+                  background-size: cover
+                &.bg2
+                  background: url('../images/bullet-2.png') no-repeat
+                  background-size: cover
+                &.bg3
+                  background: url('../images/bullet-3.png') no-repeat
+                  background-size: cover
+                &.bg4
+                  background: url('../images/bullet-4.png') no-repeat
+                  background-size: cover
+                &.bg5
+                  background: url('../images/bullet-5.png') no-repeat
+                  background-size: cover
+                &.bg6
+                  background: url('../images/bullet-6.png') no-repeat
+                  background-size: cover
+                &.bg7
+                  background: url('../images/bullet-7.png') no-repeat
+                  background-size: cover
+                &.bg8
+                  background: url('../images/bullet-8.png') no-repeat
+                  background-size: cover
+                &.small
+                  +w(15px)
+                  +h(15px)
+                &.large
+                  +w(25px)
+                  +h(25px)
+                .hidden-content
+                  display: none
+                  +poa
+                  +t(-50px)
+                  +l(-140px)
+                  +p(10px)
+                  +bg(#25272b)
+                  +c(#fff)
+                  +fs(14px)
+                  +p(7px 10px)
+                  +w(150px)
+                  font-family: 'Josefin Sans', sans-serif
+                  a
+                    +c(#fff)
+                    text-decoration: none
+                    background: url('../images/logout-ico.png') no-repeat right center
+                    +pr(30px)
+                    +dib
+                    +pt(2px)
+                    +pb(2px)
+                  &:after
+                    content: ""
+                    +poa
+                    background: url('../images/triangel.png') no-repeat
+                    +r(0)
+                    bottom: -10px
+                    width: 10px
+                    height: 10px
+                    background-size: cover
+                &:hover
+                  .hidden-content
+                    display: block
+        .number-stat
+          +c(#79d700)
+          +fs(70px)
+          font-family: 'Josefin Sans', sans-serif
+          border-bottom: 1px solid #fefefe
+          margin-bottom: 5px
+          line-height: 50px
+          +dib
+          +pb(5px)
+          text-transform: uppercase
+          @media (max-width: 680px)
+            +fs(45px)
+        .top-stat-info
+          +mb(40px)
+        .text-title-stat
+          +c(#fefefe)
+          +fs(15px)
+          text-transform: uppercase
+          letter-spacing: 2px
+          @media (max-width: 680px)
+            +fs(10px)
+        .left-info-stat
+          +poa
+          +b(-60px)
+          +l(50px)
+          @media (max-width: 680px)
+            +por
+            +b(0)
+            +l(50)
+            +pl(15px)
+        .right-info-stat
+          +poa
+          +b(-60px)
+          +r(50px)
+          text-align: right
+          @media (max-width: 680px)
+            +por
+            +b(0)
+            +r(50)
+            +pr(15px)
+        .bottom-button-wraper
+          +p(20px)
+          +m(20px 0)
+          a
+            cursor: pointer
+            img
+              +w(100%)
+    /*introduce section*/
+    &.intro
+      background: url('../images/bg-section2.png') no-repeat top
+      background-size: cover
+      @media (max-width: 680px)
+        +bg(#0c0f13)
+      canvas#flying
+        +w(100%!important)
+        +h(100%!important)
+        +poa
+        +b(0)
+        right: 0
+        top: 0
+        right: 0
+        background-size: 100% 100%
+        background-position: center center
+        background-size: contain
+        object-fit: cover
+      .content-tab
+        +w(74%)
+        +m(0 auto)
+        z-index: 200
+        +por
+        height: 446px
+        @media (max-width: 680px)
+          +w(100%)
+          +p(20px)
+          +h(auto)
+
+
+        .wrapper
+          min-height: 250px
+        @media (min-width: 1910px)
+          height: 439px
+        @media (min-width: 1720px)
+          height: 569px
+      .nav-tabs
+        border: none
+        text-align: center
+      .nav-tabs > li.active > a
+        background: none
+        +c(#8fd700)
+        &:hover, &:focus
+          background: none
+          border: none
+          +c(#8fd700)
+          span
+            +c(#8fd700)
+      .nav-tabs > li
+        float: none
+        +dib
+        +m(0 40px 30px 40px)
+        a
+          border: none
+          font-family: 'Josefin Sans', sans-serif
+          text-decoration: none
+          +c(#fff)
+          letter-spacing: 7px
+          background: none
+          +fs(12px)
+          &:hover
+            +c(#8fd700)
+          @media (min-width: 1910px)
+            +fs(16px)
+      .tab-content
+        text-align: center
+        .title-intro-span
+          font-family: 'Josefin Sans', sans-serif
+          +fs(14px)
+          +c(#8fd700)
+          text-transform: uppercase
+          letter-spacing: 8px
+        .feature-title
+          font-family: 'Josefin Sans', sans-serif
+          letter-spacing: 13px
+          +c(#fff)
+          text-transform: uppercase
+          font-size: 30px
+          font-weight: 300
+          line-height: 45px
+          +m(30px 0 40px)
+          b
+            +c(#8fd700)
+          @media (min-width: 1910px)
+            +fs(62px)
+            line-height: 75px
+            +mt(60px)
+            +mb(80px)
+            letter-spacing: 23px
+          @media (max-width: 680px)
+            letter-spacing: 6px
+            color: #fff
+            text-transform: uppercase
+            font-size: 20px
+            font-weight: 300
+            line-height: 34px
+            margin: 30px 0 30px
+
+        p
+          font-family: 'Josefin Sans', sans-serif
+          font-weight: 300
+          +fs(16px)
+          +c(#fff)
+          +w(100%)
+          +m(30px auto 0 auto)
+          line-height: 30px
+          letter-spacing: 1px
+          @media (min-width: 1720px)
+            +w(90%)
+          @media (min-width: 1910px)
+            +fs(20px)
+            line-height: 50px
+            +w(75%)
+        .list-advantage
+          +p(0)
+          +w(80%)
+          +m(20px auto)
+          li
+            +db
+            +m(25px 0)
+            text-align: left
+            &:last-child
+              .advantage
+                h2
+                  +c(#8fd700)
+            .advantage
+              text-align: center
+              canvas
+                +w(587px!important)
+                +h(auto!important)
+                +mt(20px)
+                @media (min-width: 1720px)
+                  +mt(50px)
+                  +w(727px!important)
+                  +h(445px!important)
+                @media (max-width: 620px)
+                  +w(100%!important)
+                  +h(auto!important)
+              @media (max-width: 620px)
+                img
+                  +w(100%)
+              h2
+                font-family: 'Josefin Sans', sans-serif
+                font-weight: 300
+                +fs(35px)
+                letter-spacing: 20px
+                text-transform: uppercase
+                +c(#fff)
+                span
+                  &.contract
+                    +w(25px)
+                    +mt(-8px)
+                    +mr(18px)
+                  &.person
+                    +w(25px)
+                    +mt(-8px)
+                    +mr(17px)
+                  +dib
+                  +w(50px)
+                  vertical-align: top
+                  +por
+                  +mt(-20px)
+                  +mr(13px)
+                  img
+                    +w(100%)
+
+            p
+              +fs(18px)
+              line-height: 20px
+              vertical-align: middle
+              +pt(14px)
+              +por
+            .advantage-1
+              background: url('../images/advantage-1.png') no-repeat left center
+              +pl(40px)
+              background-size: 60px
+              height: 70px
+              vertical-align: middle
+              +por
+            .advantage-2
+              background: url('../images/advantage-2.png') no-repeat left 10px center
+              +pl(40px)
+              background-size: 40px
+              height: 90px
+              vertical-align: middle
+              +por
+              p
+                +pt(25px)
+            .advantage-3
+              background: url('../images/advantage-3.png') no-repeat left 15px center
+              +pl(40px)
+              background-size: 40px
+              height: 70px
+              vertical-align: middle
+              +por
+              p
+                +pt(24px)
+            .advantage-4
+              background: url('../images/advantage-4.png') no-repeat left 8px center
+              +pl(40px)
+              background-size: 45px
+              height: 70px
+              vertical-align: middle
+              +por
+              p
+                +pt(30px)
+
+    /*get neo section*/
+    .get
+      &--wraper
+        +poa
+        +t(50%)
+        +l(50%)
+        transform: translate(-50%, -50%)
+        z-index: 200
+        .top-title
+          +fs(60px)
+          text-align: center
+          font-family: 'Josefin Sans', sans-serif
+          +c(#fff)
+          letter-spacing: 20px
+          font-weight: 300
+          +mb(50px)
+          span
+            +c(#8fd700)
+        &-github
+          .top-content
+            text-align: center
+            &.bottom
+              +mt(50px)
+            .logo-github
+              img
+                +w(100px)
+                +m(0 auto)
+            p
+              +w(82%)
+              +m(0 auto)
+              +c(#d2d2d3)
+              font-weight: 300
+              +fs(14px)
+              font-family: 'Josefin Sans', sans-serif
+              letter-spacing: 1px
+              +mt(30px)
+              +mb(30px)
+            .link-get
+              +c(#63bd01)
+              +fs(14px)
+              font-family: 'Josefin Sans', sans-serif
+              letter-spacing: 1px
+              text-transform: uppercase
+              display: block
+              background: url('../images/arrow-left.png') no-repeat left center
+              background-size: 10px
+              +w(50%)
+              +m(10px auto)
+              text-align: left
+              +pl(23px)
+            .contact
+              +c(#fff)
+              +w(50%)
+              +fs(15px)
+              letter-spacing: 1px
+              display: block
+              +m(0 auto)
+              font-family: 'Josefin Sans', sans-serif
+              background: url('../images/contact-ico.png') no-repeat left center
+              +pl(30px)
+              background-size: 20px
+
+    /* Team Member Section*/
+    &.team
+      +p(0)
+      h2
+        text-align: center
+        font-family: 'Josefin Sans', sans-serif
+        letter-spacing: 25px
+        +fs(38px)
+        font-weight: 300
+        text-transform: uppercase
+        +c(#fff)
+        +mb(40px)
+        @media (min-width: 1910px)
+          +fs(40px)
+          +mb(70px)
+        @media (max-width: 680px)
+          +fs(30px)
+          line-height: 40px
+          letter-spacing: 20px
+      .bottom-text
+        +c(#ffffff)
+        font-family: 'Josefin Sans', sans-serif
+        +fs(10px)
+        line-height: 20px
+        text-transform: uppercase
+        letter-spacing: 1px
+        +w(50%)
+        +m(40px auto 20px)
+        text-align: center
+        @media (min-width: 1720px)
+          +m(55px auto 30px)
+          line-height: 25px
+          +fs(14px)
+        @media (min-width: 1910px)
+          +fs(15px)
+          +w(50%)
+          line-height: 30px
+          +m(70px auto 40px)
+        @media (max-width: 680px)
+          +w(90%)
+      .list-member
+        +p(0)
+        +w(80%)
+        +m(0 auto)
+        text-align: center
+        +mb(20px)
+        @media (max-width: 680px)
+          +p(0)
+          +w(100%)
+        li
+          +dib
+          +w(7%)
+          +m(0 25px)
+          +por
+          @media (min-width: 1720px)
+            +m(0 30px)
+          @media (min-width: 1910px)
+            +m(0 35px)
+          .wraper-images
+            img
+              +w(100%)
+          &.left
+            @media (max-width: 680px)
+              +l(-25px)
+
+          &.center
+            @media (max-width: 680px)
+              +r(0px)
+              +l(0px)
+          &.right
+            @media (max-width: 680px)
+              +r(-25px)
+
+          @media (max-width: 680px)
+            +dib
+            +w(20%)
+            +m(0 0px)
+
+      .link-comunity
+        +c(#63bd01)
+        +fs(10px)
+        font-family: 'Josefin Sans', sans-serif
+        letter-spacing: 1px
+        text-transform: uppercase
+        display: block
+        font-weight: 600
+        background: url('../images/arrow-left.png') no-repeat left center
+        background-size: 10px
+        +w(200px)
+        +m(10px auto)
+        text-align: left
+        +pl(23px)
+        @media (min-width: 1910px)
+          +fs(15px)
+          font-weight: bold
+          +w(220px)
+        @media (min-width: 1720px)
+          +fs(14px)
+          +mb(50px)
+    /*timeline*/
+    &.timeline
+      .timeline--wraper
+        text-align: center
+        +poa
+        +t(50%)
+        +l(50%)
+        transform: translate(-50%, -50%)
+        z-index: 200
+        +w(100%)
+        +m(0 auto)
+        .top-title
+          +w(80%)
+          +m(0 auto)
+          +por
+          +t(15px)
+          @media (min-width: 1910px)
+            +t(-70px)
+            +w(90%)
+          @media (min-width: 1720px)
+            +t(-20px)
+            +w(90%)
+          h2
+            text-align: left
+            font-family: 'Josefin Sans', sans-serif
+            +fs(25px)
+            letter-spacing: 10px
+            +c(#fff)
+            font-weight: 300
+            line-height: 45px
+            letter-spacing: 17px
+            @media (min-width: 1910px)
+              line-height: 80px
+              +fs(61px)
+            @media (min-width: 1720px)
+              line-height: 63px
+              +fs(50px)
+        .cover-bg
+          +w(628px)
+          +h(300%)
+          background: url('../images/gradient.png') repeat-y
+          +poa
+          +r(0)
+          +t(-70%)
+          z-index: 10
+          @media (min-width: 1910px)
+             +h(500%)
+             +r(0%)
+
+        &-carousel
+          +por
+          .date-navigation
+            +poa
+            +w(100%)
+            +t(-50px)
+            z-index: 300
+            +fs(12px)
+            @media (min-width: 1720px)
+              +fs(16px)
+              +t(-100px)
+            @media (min-width: 1910px)
+              +t(-100px)
+            .date-nav
+              +m(0 30px)
+              +fs(12px)
+              text-decoration: none
+              +por
+              +c(#fff)
+              letter-spacing: 2px
+              +dib
+              transform: rotate(90deg)
+              transform-origin: left top 0
+              font-family: 'Josefin Sans', sans-serif
+              &.disable
+                pointer-events: none
+                cursor: default
+                opacity: 0.1
+              @media (min-width: 1720px)
+                +fs(22px)
+              &:hover
+                +c(#56b900)
+                &:after
+                  content: ""
+                  width: 1px
+                  +h(200px)
+                  +poa
+                  +b(-87px)
+                  +r(140px)
+                  transform: rotate(90deg)
+                  +bg(#56b900)
+                  @media (min-width: 1720px)
+                    +h(250px)
+                    +b(-110px)
+                    +r(180px)
+                  @media (min-width: 1910px)
+                    +b(-132px)
+                    +r(202px)
+                    +h(300px)
+                @media (min-width: 1910px)
+                  +fs(22px)
+
+              &.active
+                +c(#56b900)
+                &:after
+                  content: ""
+                  width: 2px
+                  +h(200px)
+                  +poa
+                  +b(-87px)
+                  +r(140px)
+                  transform: rotate(90deg)
+                  +bg(#56b900)
+                  @media (min-width: 1720px)
+                    +h(250px)
+                    +b(-110px)
+                    +r(180px)
+                  @media (min-width: 1910px)
+                    +b(-132px)
+                    +r(202px)
+                    +h(300px)
+          #timeline-carousel
+            .wraper-timeline
+              +h(450px)
+              background: url('../images/midle-bg-timeline.png') no-repeat center
+              background-size: 100%;
+              +por
+
+            .content-timeline
+              +w(200px)
+              text-align: left
+              font-family: 'Josefin Sans', sans-serif
+              letter-spacing: 1px
+              +m(0 60px)
+              +dib
+              +fs(14px)
+              +c(#b9baba)
+              +por
+              @media (min-width: 1910px)
+                +w(350px)
+                +fs(20px)
+              @media (min-width: 1720px)
+                +w(340px)
+                +fs(16px)
+              .point-timeline
+                +w(15px)
+                +m(0 auto)
+                +por
+                img
+                  +w(100%)
+                @media (min-width: 1910px)
+                   +w(24px)
+              &.one-pos
+                +t(94px)
+                @media (min-width: 1910px)
+                  +t(62px)
+                  .point-timeline
+                    +w(20px)
+                .point-timeline
+                  +w(12px)
+                  @media (min-width: 1910px)
+                    +w(20px)
+              &.second-pos
+                +t(22px)
+                @media (min-width: 1910px)
+                  +t(4px)
+                @media (min-width: 1720px)
+                  +t(22px)
+              &.third-pos
+                +t(90px)
+                @media (min-width: 1910px)
+                  +t(66px)
+                  .point-timeline
+                    +w(20px)
+                .point-timeline
+                  +w(11px)
+                  @media (min-width: 1910px)
+                    +w(20px)
+              &.fourth-pos
+                +t(20px)
+                @media (min-width: 1910px)
+                  .point-timeline
+                    +w(19px)
+                .point-timeline
+                  +w(12px)
+                  @media (min-width: 1910px)
+                    +w(19px)
+              &.fifth-pos
+                +t(30px)
+                +l(15px)
+                @media (min-width: 1910px)
+                  +t(20px)
+                  +l(0)
+                  .point-timeline
+                    +w(21px)
+                .point-timeline
+                  +l(20px)
+                  +m(0)
+                  +w(13px)
+                  @media (min-width: 1910px)
+                    +w(21px)
+              &.sixth-pos
+                +t(9px)
+                +l(-35px)
+                @media (min-width: 1910px)
+                  +t(19px)
+                .point-timeline
+                  +l(0)
+                  +m(0)
+                  +w(12px)
+                  @media (min-width: 1910px)
+                    +w(12px)
+              &.seventh-pos
+                +t(-5px)
+                +l(145px)
+                @media (min-width: 1720px)
+                  +t(8px)
+                @media (min-width: 1910px)
+                  top: -14px
+                  left: -100px
+                  .point-timeline
+                    +w(18px)
+                .point-timeline
+                  +l(0)
+                  +m(0)
+                  +w(11px)
+                  @media (min-width: 1910px)
+                    +w(18pxf)
+              &.eight-pos
+                +l(-40px)
+                +t(-20px)
+                @media (min-width: 1720px)
+                  top: -13px
+                @media(min-width: 1910px)
+                  left: -50px
+                  top: -7px
+                .point-timeline
+                  +l(0)
+                  +m(0)
+            .owl-dots
+              +poa
+              +w(100%)
+              +t(-50px)
+              @media (min-width: 1720px)
+                +fs(16px)
+                +t(-80px)
+              @media (min-width: 1910px)
+                +t(-180px)
+              .owl-dot
+                +m(0 30px)
+                +por
+                +c(#fff)
+                letter-spacing: 2px
+                +dib
+                transform: rotate(90deg)
+                transform-origin: left top 0
+                font-family: 'Josefin Sans', sans-serif
+                &:last-child
+                  pointer-events: none!important;
+                  color: #2e2f32
+                &:nth-child(5)
+                  pointer-events: none!important;
+                  color: #2e2f32
+                p.disable
+                  pointer-events: none
+                  cursor: default
+                &:hover
+                  +c(#56b900)
+                  &:after
+                    content: ""
+                    width: 1px
+                    +h(200px)
+                    +poa
+                    +b(-80px)
+                    +r(140px)
+                    transform: rotate(90deg)
+                    +bg(#56b900)
+                    @media (min-width: 1910px)
+                      +b(-121px)
+                      +r(202px)
+                      +h(300px)
+                    @media (min-width: 1720px)
+                      +h(220px)
+                      +b(-82px)
+                      +r(162px)
+                @media (min-width: 1910px)
+                  +fs(22px)
+
+                &.active
+                  +c(#56b900)
+                  &:after
+                    content: ""
+                    width: 2px
+                    +h(200px)
+                    +poa
+                    +b(-80px)
+                    +r(140px)
+                    transform: rotate(90deg)
+                    +bg(#56b900)
+                    @media (min-width: 1910px)
+                      +b(-121px)
+                      +r(202px)
+                      +h(300px)
+                    @media (min-width: 1720px)
+                      +h(220px)
+                      +b(-82px)
+                      +r(162px)
+
+
+
+              h3
+                +fs(14px)
+                +c(#f4f4f4)
+
+
+    /*technology*/
+    &.technology
+      +p(0)
+      .technology--wraper
+        text-align: center
+        +w(80%)
+        +m(0 auto)
+        @media (max-width: 680px)
+          +w(100%)
+          +pt(50px)
+        .technology--wraper-top
+          h2
+            text-align: center
+            font-family: 'Josefin Sans', sans-serif
+            letter-spacing: 22px
+            font-size: 30px
+            font-weight: 300
+            text-transform: uppercase
+            color: #fff
+            margin-bottom: 20px
+            line-height: 52px
+            span
+              +c(#63bd01)
+            @media (min-width: 1910px)
+              +fs(50px)
+              line-height: 80px
+              letter-spacing: 25px
+            @media (max-width: 680px)
+              +fs(20px)
+              letter-spacing: 8px
+              line-height: 31px
+
+          p
+            +w(60%)
+            +m(0 auto)
+            font-family: 'Josefin Sans', sans-serif
+            +c(#d2d2d3)
+            font-weight: 300
+            font-size: 12px
+            letter-spacing: 1px
+            line-height: 27px
+            @media (min-width: 1720px)
+              +fs(18px)
+              +m(40px auto 50px)
+              line-height: 30px
+            @media (min-width: 1910px)
+              +fs(20px)
+              line-height: 50px
+              +mt(30px)
+              line-height: 30px
+            @media (max-width: 680px)
+              +fs(12px)
+              +w(75%)
+              line-height: 20px
+              br
+                display: none
+
+        .technology--wraper-carousel
+          +w(80%)
+          +m(20px auto 0)
+          +por
+          @media (min-width: 1910px)
+            +m(80px auto 0)
+            +w(100%)
+          @media (min-width: 1720px)
+            +w(100%)
+          @media (max-width: 680px)
+            +m(0px auto 0)
+          .owl-dots
+            +w(100%)
+            @media (min-width: 1910px)
+              +mt(50px)
+            .owl-dot
+              +w(10px)
+              +h(10px)
+              border: 1px solid #8cd500
+              border-radius: 50%
+              +dib
+              +m(0 5px)
+              &:hover
+                +bg(#8cd500)
+              &.active
+                +bg(#8cd500)
+              @media (min-width: 1910px)
+                +w(15px)
+                +h(15px)
+                +m(0 15px)
+              @media (min-width: 1720px)
+                +w(12px)
+                +h(12px)
+                +m(0 13px)
+          .owl-nav
+            +poa
+            +t(50%)
+            +w(100%)
+            .owl-prev
+              +l(-10%)
+              +poa
+              background: url('../images/left-arrow-carousel.png') no-repeat
+              +w(12px)
+              +h(20px)
+              background-size: cover
+              text-indent: -99999px
+              &.disabled
+                opacity: 0.3
+              @media (min-width: 1910px)
+                +w(20px)
+                +h(40px)
+                background-size: cover
+                +l(-5%)
+              @media (min-width: 1720px)
+                +w(20px)
+                +h(42px)
+                background-size: cover
+                +l(-5%)
+            .owl-next
+              +r(-10%)
+              +poa
+              background: url('../images/right-arrow-carousel.png') no-repeat
+              +w(12px)
+              +h(20px)
+              background-size: cover
+              text-indent: -99999px
+              &.disabled
+                opacity: 0.3
+              @media (min-width: 1910px)
+                +w(20px)
+                +h(42px)
+                background-size: cover
+                +r(-5%)
+              @media (min-width: 1720px)
+                +w(20px)
+                +h(40px)
+                background-size: cover
+                +r(-5%)
+          .list-technology
+            font-family: 'Josefin Sans', sans-serif
+            font-weight: 300
+            +fs(14px)
+            +c(#fff)
+            +p(0 10px)
+            letter-spacing: 1px
+            .top-images
+              text-align: center
+              +h(127px)
+              canvas
+                +por
+                +w(150px!important)
+                +h(150px!important)
+                @media (min-width: 1910px)
+                  +w(200px!important)
+                  +h(200px!important)
+                  +mt(-40px)
+                @media (max-width: 680px)
+                  +w(110px!important)
+                  +h(110px!important)
+              img
+                +w(60px)
+                +m(0 auto)
+                @media (min-width: 1910px)
+                  +m(0 auto 20px auto)
+            h3
+              font-weight: 400
+              +fs(12px)
+              letter-spacing: 1px
+              +mb(20px)
+              @media (min-width: 1720px)
+                +fs(20px)
+              @media (min-width: 1910px)
+                font-weight: 400
+                +fs(20px)
+                +mb(30px)
+              @media (max-width: 680px)
+                +mt(0)
+            p
+              font-weight: 300
+              +fs(12px)
+              line-height: 16px
+              @media (min-width: 1720px)
+                +fs(16px)
+              @media (min-width: 1910px)
+                +fs(16px)
+                font-weight: 300
+
+
+
+
+    /*page download*/
+    &.download-page
+      .download-page--wraper
+        text-align: center
+        +poa
+        +t(50%)
+        +l(50%)
+        transform: translate(-50%, -50%)
+        z-index: 200
+        text-align: center
+        +w(80%)
+        +m(0 auto)
+        h2
+          font-family: 'Josefin Sans', sans-serif
+          font-weight: 300
+          +fs(38px)
+          letter-spacing: 20px
+          +c(#fff)
+          span
+            +c(#63bd01)
+          @media (min-width: 1720px)
+            +fs(60px)
+            letter-spacing: 40px
+        p
+          +w(45%)
+          line-height: 18px
+          +fs(14px)
+          +c(#fff)
+          +m(20px auto)
+          letter-spacing: 1px
+          font-family: 'Josefin Sans', sans-serif
+          font-weight: 300
+          @media (min-width: 1720px)
+            +fs(24px)
+            line-height: 35px
+            +m(50px auto)
+
+        .wraper-list-download
+          +h(200px)
+          @media (min-width: 1720px)
+            +mt(50px)
+            +h(290px)
+        .ico-platform
+          +mt(30px)
+          +p(0)
+          text-align: center
+          border-bottom: 1px dashed #5c5c5c
+          +pb(20px)
+          li
+            +m(0 30px)
+            +dib
+            +pl(40px)
+            +pr(40px)
+            +pt(70px)
+            @media (min-width: 1720px)
+              +pt(100px)
+            span
+              font-family: 'Josefin Sans', sans-serif
+              font-weight: bold
+              text-transform: uppercase
+              +fs(14px)
+              +c(#fff)
+              letter-spacing: 3px
+            &.mobile
+              background: url('../images/mobile-ico.png') no-repeat top 20px center
+              background-size: 60px
+              &.download_selected
+                background: url('../images/mobile-ico-hover.png') no-repeat top 20px center
+                background-size: 60px
+                span
+                  +c(#8fd700)
+              @media (min-width: 1720px)
+                &.download_selected
+                  background: url('../images/mobile-ico-hover.png') no-repeat top 20px center
+                background-size: 80px
+
+            &.desktop
+              background: url('../images/desktop-ico.png') no-repeat top center
+              background-size: 60px
+              &.download_selected
+                background: url('../images/desktop-ico-hover.png') no-repeat top center
+                background-size: 60px
+                span
+                  +c(#8fd700)
+              @media (min-width: 1720px)
+                &.download_selected
+                  background: url('../images/desktop-ico-hover.png') no-repeat top center
+                background-size: 80px
+            &.web
+              background: url('../images/web-ico.png') no-repeat top 10px center
+              background-size: 60px
+              &.download_selected
+                background: url('../images/web-ico-hover.png') no-repeat top 10px center
+                background-size: 60px
+                span
+                  +c(#8fd700)
+              @media (min-width: 1720px)
+                background-size: 80px
+                &.download_selected
+                  background: url('../images/web-ico-hover.png') no-repeat top 10px center
+        .download-edition
+          text-align: center
+          &#change_0
+            display: none
+          &#change_1
+            display: none
+          &#change_2
+            display: none
+          &.change_show
+            display: block!important
+            animation-timing-function: ease-in
+            animation-duration: 225ms
+          li
+            +dib
+            vertical-align: top
+            +w(30%)
+            +m(0 auto)
+            font-family: 'Josefin Sans', sans-serif
+            h3
+              +fs(14px)
+              text-transform: uppercase
+              +c(#fff)
+              +p(10px 40px 5px)
+              +dib
+              @media (min-width: 1720px)
+                +fs(18px)
+            p
+              +w(90%)
+              +mt(0)
+              +mb(20px)
+              +ml(auto)
+              +mr(auto)
+              font-weight: 300
+              @media (min-width: 1720px)
+                +w(90%)
+            .link-download
+              +dib
+              text-align: center
+              +c(#63bd01)
+              +fs(12px)
+              +w(120px)
+              +m(0 auto)
+              font-family: 'Josefin Sans', sans-serif
+              letter-spacing: 1px
+              text-transform: uppercase
+              display: block
+              font-weight: 600
+              +mb(10px)
+              background: url('../images/arrow-left.png') no-repeat left top
+              background-size: 10px
+              &.big
+                +w(180px)
+              @media (min-width: 1720px)
+                +fs(14px)
+            &.pc
+              h3
+                background: url('../images/pc-ico.png') no-repeat left center
+                background-size: 30px
+                @media (min-width: 1720px)
+                  background-size: 50px
+                  +p(18px 0px 16px 70px)
+                  +mb(15px)
+
+            &.command-line
+              h3
+                background: url('../images/cmd-ico.png') no-repeat left center
+                background-size: 30px
+                @media (min-width: 1720px)
+                  background-size: 50px
+                  +p(18px 0px 16px 70px)
+                  +mb(15px)
+            &.mobile
+              h3
+                background: url('../images/mobile-android-ico.png') no-repeat left center
+                background-size: 27px
+                @media (min-width: 1720px)
+                  background-size: 50px
+                  +p(18px 0px 16px 70px)
+                  +mb(15px)
+
+            &.web-browser
+              h3
+                img
+                  +w(170px)
+                  +mb(10px)
+            &.github
+              h3
+                img
+                  +w(100px)
+                  +mb(10px)
+
+
+        .link-buy
+          +mt(50px)
+          span
+            +c(#fff)
+            text-transform: uppercase
+            font-family: 'Josefin Sans', sans-serif
+            +fs(12px)
+            +c(#fff)
+            letter-spacing: 2px
+            @media (min-width: 1720px)
+              +fs(16px)
+              letter-spacing: 6px
+          ul
+            +p(0)
+            +mt(30px)
+            li
+              +dib
+              +m(0 30px)
+              img
+                +w(80px)
+                @media (min-width: 1720px)
+                  +w(100px)
+
+
+
+
+
+    /*footer comunity*/
+    &.footer-comunity
+      .wraper-footer-comunity
+        .row
+          +m(0)
+        +por
+        +w(100%)
+        +bg(#000)
+        +b(0)
+        +h(60%)
+      .content-footer-comunity
+        +w(90%)
+        +m(0 auto)
+        +p(30px 0)
+        @media (max-width: 680px)
+          +w(100%)
+        .top-wraper
+          +mt(0px)
+          @media (min-width: 1720px)
+            +mt(45px)
+          @media (min-width: 1920px)
+            +mt(25px)
+          h2
+            font-family: 'Josefin Sans', sans-serif
+            letter-spacing: 20px
+            +fs(28px)
+            font-weight: 300
+            text-transform: uppercase
+            +c(#fff)
+            +mb(20px)
+            +mt(5px)
+            @media (min-width: 1720px)
+              +fs(38px)
+              letter-spacing: 25px
+              +mb(40px)
+        &--left
+          .logo
+            +dib
+            img
+              +w(100px)
+              @media (min-width: 1720px)
+                +w(170px)
+          .contact
+            +dib
+            +mt(12px)
+            +por
+            vertical-align: middle
+            span
+              font-family: 'Josefin Sans', sans-serif
+              letter-spacing: 1px
+              +c(#fff)
+              font-weight: bold
+              text-transform: uppercase
+              +fs(12px)
+              +pl(10px)
+          .tagline
+            +c(#fff)
+            font-family: 'Josefin Sans', sans-serif
+            +fs(14px)
+            +c(#6b6b6b)
+            +mt(20px)
+            line-height: 25px
+            @media (min-width: 1720px)
+              +fs(16px)
+              +c(#6b6b6b)
+              +mt(30px)
+              line-height: 30px
+        &--social
+          .social-ico
+            +mt(30px)
+            +p(0)
+            @media (min-width: 1720px)
+              +mt(65px)
+            li
+              +db
+              +c(#fff)
+              font-family: 'Josefin Sans', sans-serif
+              font-weight: 300
+              +c(#fff)
+              text-transform: uppercase
+              list-style: none
+              +mb(20px)
+              +por
+              vertical-align: middle
+              +pl(35px)
+              +fs(10px)
+              +pt(4px)
+              +pb(3px)
+              letter-spacing: 2px
+              a
+                +db
+                letter-spacing: 2px
+                +c(#fff)
+                text-decoration: none
+              @media (min-width: 1720px)
+                +fs(12px)
+              &.blog
+                background: url('../images/blog-ico.png') no-repeat left center
+                background-size: 20px
+              &.reddit
+                background: url('../images/reddit-ico.png') no-repeat left center
+                background-size: 20px
+              &.slack
+                background: url('../images/slack-ico.png') no-repeat left center
+                background-size: 20px
+              &.twitter
+                background: url('../images/twitter-ico.png') no-repeat left center
+                background-size: 20px
+              &.facebook
+                background: url('../images/fb-ico.png') no-repeat left center
+                background-size: 20px
+              &.qq
+                background: url('../images/qq-ico.png') no-repeat left center
+                background-size: 20px
+              &.weebo
+                background: url('../images/webo-ico.png') no-repeat left center
+                background-size: 20px
+              &.door
+                background: url('../images/door-ico.png') no-repeat left center
+                background-size: 12px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

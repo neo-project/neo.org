@@ -1,0 +1,29 @@
+//=====================================================================
+// Min Size
+//=====================================================================
+@mixin minw( $size ) {
+    min-width: $size;
+}
+@mixin minw0() {
+    @include minw( auto );
+}
+@mixin minwf() {
+    @include minw( 100% );
+}
+@mixin minh( $size ) {
+    min-height: $size;
+}
+@mixin minh0() {
+    @include minh( auto );
+}
+@mixin minhf() {
+    @include minh( 100% );
+}
+@mixin minwh( $w, $h ) {
+    @include minw( $w );
+    @include minh( $h );
+}
+@mixin minwh0() {
+    @include minw0;
+    @include minh0;
+}

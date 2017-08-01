@@ -1,0 +1,12 @@
+//=====================================================================
+//Visibility shortcode
+//=====================================================================
+@mixin vi( $visible ) {
+    visibility: $visible;
+}
+@mixin vion {
+    visibility: visible;
+}
+@mixin vioff {
+    visibility: hidden;
+}

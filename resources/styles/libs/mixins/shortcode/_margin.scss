@@ -1,0 +1,285 @@
+//=====================================================================
+//Margin shortcode
+//=====================================================================
+@mixin m( $size ) {
+    margin: $size;
+}
+//Margin top
+@mixin mt( $size ) {
+    margin-top: $size;
+}
+//Margin bottom
+@mixin mb( $size ) {
+    margin-bottom: $size;
+}
+//Margin left
+@mixin ml( $size ) {
+    margin-left: $size;
+}
+//Margin right
+@mixin mr( $size ) {
+    margin-right: $size;
+}
+//Margin horizontal
+@mixin mx( $size ) {
+    margin-left: $size;
+    margin-right: $size;
+}
+//Margin vertical
+@mixin my( $size ) {
+    margin-top: $size;
+    margin-bottom: $size;
+}
+//Margin clear
+@mixin m0() {
+    @include m(0);
+}
+@mixin mt0() {
+    @include mt(0);
+}
+@mixin mb0() {
+    @include mb(0);
+}
+@mixin ml0() {
+    @include ml(0);
+}
+@mixin mr0() {
+    @include mr(0);
+}
+@mixin my0() {
+    @include mt(0);
+    @include mb(0);
+}
+@mixin mx0() {
+    @include ml(0);
+    @include mr(0);
+}
+
+
+//
+//Margin auto shortcode
+//
+@mixin mxa( $y: 0, $unit: px ) {
+    $margin: #{$y}#{$unit};
+    margin: $margin auto;
+}
+
+//
+//Shortcode margin without px
+//
+@mixin mg( $size, $unit: px, $dir: all ) {
+    $margin: #{$size}#{$unit};
+
+    @if $dir == top {
+        margin-top: $margin;
+    } @else if $dir == bottom {
+        margin-bottom: $margin;
+    } @else if $dir == left {
+        margin-left: $margin;
+    } @else if $dir == right {
+        margin-right: $margin;
+    } @else if $dir == leftright {
+        margin: 0 $margin;
+    } @else if $dir == topbottom {
+        margin: 0 $margin;
+    } @else {
+        margin: $margin;
+    }
+}
+@mixin mgt( $size, $unit: px ) {
+    @include mg( $size, $unit, top );
+}
+@mixin mgb( $size, $unit: px ) {
+    @include mg( $size, $unit, bottom );
+}
+@mixin mgl( $size, $unit: px ) {
+    @include mg( $size, $unit, left );
+}
+@mixin mgr( $size, $unit: px ) {
+    @include mg( $size, $unit, right );
+}
+@mixin mgx( $size, $unit: px ) {
+    @include mg( $size, $unit, leftright );
+}
+@mixin mgy( $size, $unit: px ) {
+    @include mg( $size, $unit, topbottom );
+}
+
+
+//
+//Margin shortcode with specified size
+//
+@mixin m_size_helper( $base, $add: 0, $unit: px, $dir: all ) {
+    $size: $base+$add;
+    @include mg( $size, $unit, $dir );
+}
+
+//Margin 5px
+@mixin m5( $add: 0, $unit: px ){
+    @include m_size_helper( 5, $add, $unit );
+}
+@mixin mt5( $add: 0, $unit: px ){
+    @include m_size_helper( 5, $add, $unit, top );
+}
+@mixin mb5( $add: 0, $unit: px ){
+    @include m_size_helper( 5, $add, $unit, bottom );
+}
+@mixin ml5( $add: 0, $unit: px ){
+    @include m_size_helper( 5, $add, $unit, left );
+}
+@mixin mr5( $add: 0, $unit: px ){
+    @include m_size_helper( 5, $add, $unit, right );
+}
+
+//Margin 10px
+@mixin m10( $add: 0, $unit: px ){
+    @include m_size_helper( 10, $add, $unit );
+}
+@mixin mt10( $add: 0, $unit: px ){
+    @include m_size_helper( 10, $add, $unit, top );
+}
+@mixin mb10( $add: 0, $unit: px ){
+    @include m_size_helper( 10, $add, $unit, bottom );
+}
+@mixin ml10( $add: 0, $unit: px ){
+    @include m_size_helper( 10, $add, $unit, left );
+}
+@mixin mr10( $add: 0, $unit: px ){
+    @include m_size_helper( 10, $add, $unit, right );
+}
+
+//Margin 15px
+@mixin m15( $add: 0, $unit: px ){
+    @include m_size_helper( 15, $add, $unit );
+}
+@mixin mt15( $add: 0, $unit: px ){
+    @include m_size_helper( 15, $add, $unit, top );
+}
+@mixin mb15( $add: 0, $unit: px ){
+    @include m_size_helper( 15, $add, $unit, bottom );
+}
+@mixin ml15( $add: 0, $unit: px ){
+    @include m_size_helper( 15, $add, $unit, left );
+}
+@mixin mr15( $add: 0, $unit: px ){
+    @include m_size_helper( 15, $add, $unit, right );
+}
+
+//Margin 20px
+@mixin m20( $add: 0, $unit: px ){
+    @include m_size_helper( 20, $add, $unit );
+}
+@mixin mt20( $add: 0, $unit: px ){
+    @include m_size_helper( 20, $add, $unit, top );
+}
+@mixin mb20( $add: 0, $unit: px ){
+    @include m_size_helper( 20, $add, $unit, bottom );
+}
+@mixin ml20( $add: 0, $unit: px ){
+    @include m_size_helper( 20, $add, $unit, left );
+}
+@mixin mr20( $add: 0, $unit: px ){
+    @include m_size_helper( 20, $add, $unit, right );
+}
+
+//Margin 25px
+@mixin m25( $add: 0, $unit: px ){
+    @include m_size_helper( 25, $add, $unit );
+}
+@mixin mt25( $add: 0, $unit: px ){
+    @include m_size_helper( 25, $add, $unit, top );
+}
+@mixin mb25( $add: 0, $unit: px ){
+    @include m_size_helper( 25, $add, $unit, bottom );
+}
+@mixin ml25( $add: 0, $unit: px ){
+    @include m_size_helper( 25, $add, $unit, left );
+}
+@mixin mr25( $add: 0, $unit: px ){
+    @include m_size_helper( 25, $add, $unit, right );
+}
+
+//Margin 30px
+@mixin m30( $add: 0, $unit: px ){
+    @include m_size_helper( 30, $add, $unit );
+}
+@mixin mt30( $add: 0, $unit: px ){
+    @include m_size_helper( 30, $add, $unit, top );
+}
+@mixin mb30( $add: 0, $unit: px ){
+    @include m_size_helper( 30, $add, $unit, bottom );
+}
+@mixin ml30( $add: 0, $unit: px ){
+    @include m_size_helper( 30, $add, $unit, left );
+}
+@mixin mr30( $add: 0, $unit: px ){
+    @include m_size_helper( 30, $add, $unit, right );
+}
+
+//Margin 35px
+@mixin m35( $add: 0, $unit: px ){
+    @include m_size_helper( 35, $add, $unit );
+}
+@mixin mt35( $add: 0, $unit: px ){
+    @include m_size_helper( 35, $add, $unit, top );
+}
+@mixin mb35( $add: 0, $unit: px ){
+    @include m_size_helper( 35, $add, $unit, bottom );
+}
+@mixin ml35( $add: 0, $unit: px ){
+    @include m_size_helper( 35, $add, $unit, left );
+}
+@mixin mr35( $add: 0, $unit: px ){
+    @include m_size_helper( 35, $add, $unit, right );
+}
+
+//Margin 40px
+@mixin m40( $add: 0, $unit: px ){
+    @include m_size_helper( 40, $add, $unit );
+}
+@mixin mt40( $add: 0, $unit: px ){
+    @include m_size_helper( 40, $add, $unit, top );
+}
+@mixin mb40( $add: 0, $unit: px ){
+    @include m_size_helper( 40, $add, $unit, bottom );
+}
+@mixin ml40( $add: 0, $unit: px ){
+    @include m_size_helper( 40, $add, $unit, left );
+}
+@mixin mr40( $add: 0, $unit: px ){
+    @include m_size_helper( 40, $add, $unit, right );
+}
+
+//Margin 45px
+@mixin m45( $add: 0, $unit: px ){
+    @include m_size_helper( 45, $add, $unit );
+}
+@mixin mt45( $add: 0, $unit: px ){
+    @include m_size_helper( 45, $add, $unit, top );
+}
+@mixin mb45( $add: 0, $unit: px ){
+    @include m_size_helper( 45, $add, $unit, bottom );
+}
+@mixin ml45( $add: 0, $unit: px ){
+    @include m_size_helper( 45, $add, $unit, left );
+}
+@mixin mr45( $add: 0, $unit: px ){
+    @include m_size_helper( 45, $add, $unit, right );
+}
+
+//Margin 50px
+@mixin m50( $add: 0, $unit: px ){
+    @include m_size_helper( 50, $add, $unit );
+}
+@mixin mt50( $add: 0, $unit: px ){
+    @include m_size_helper( 50, $add, $unit, top );
+}
+@mixin mb50( $add: 0, $unit: px ){
+    @include m_size_helper( 50, $add, $unit, bottom );
+}
+@mixin ml50( $add: 0, $unit: px ){
+    @include m_size_helper( 50, $add, $unit, left );
+}
+@mixin mr50( $add: 0, $unit: px ){
+    @include m_size_helper( 50, $add, $unit, right );
+}

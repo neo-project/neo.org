@@ -1,0 +1,128 @@
+//=====================================================================
+//Background
+//=====================================================================
+//Background shortcode
+@mixin bg( $attr ) {
+    background: $attr;
+}
+//Background color shortcode
+@mixin bgc( $color ) {
+    background-color: $color;
+}
+@mixin bgc0() {
+    background-color: transparent;
+}
+@mixin bgc-rgba( $r, $g, $b, $amount ) {
+    background-color: rgba($r,$g,$b,$amount);
+}
+//Background image shortcode
+@mixin bgi( $src ) {
+    background-image: url("${src}");
+}
+@mixin bgi0() {
+    background-image: none;
+}
+//Background position shortcode
+@mixin bgp( $x, $y ) {
+    background-position: $x $y;
+}
+@mixin bgp0() {
+    @include bgp( 0, 0 );
+}
+//Background repeat shortcode
+@mixin bgr( $repeat ) {
+    background-repeat: $repeat;
+}
+@mixin bgr0() {
+    background-repeat: no-repeat;
+}
+//Background size shortcode
+@mixin bgs( $size ) {
+    background-size: $size;
+}
+@mixin bgsc() {
+    background-size: cover;
+}
+@mixin bgscn() {
+    background-size: contain;
+}
+@mixin bgs0() {
+    background-size: auto;
+}
+
+//
+//Specified background position shortcode
+//
+@mixin bgptl() {
+	background-position: top left;
+}
+@mixin bgptr() {
+	background-position: top right;
+}
+@mixin bgptc() {
+	background-position: top center;
+}
+@mixin bgpcc() {
+	background-position: center center;
+}
+@mixin bgpbl() {
+	background-position: bottom left;
+}
+@mixin bgpbr() {
+	background-position: bottom right;
+}
+@mixin bgpbc() {
+	background-position: bottom center;
+}
+
+//
+//Specified background color shortcode
+//
+@mixin bgc00() {
+	background-color: #000000;
+}
+@mixin bgc1() {
+	background-color: #111111;
+}
+@mixin bgc2() {
+	background-color: #222222;
+}
+@mixin bgc3() {
+	background-color: #333333;
+}
+@mixin bgc4() {
+	background-color: #444444;
+}
+@mixin bgc5() {
+	background-color: #555555;
+}
+@mixin bgc6() {
+	background-color: #666666;
+}
+@mixin bgc7() {
+	background-color: #777777;
+}
+@mixin bgc8() {
+	background-color: #888888;
+}
+@mixin bgc9() {
+	background-color: #999999;
+}
+@mixin bgca() {
+	background-color: #aaaaaa;
+}
+@mixin bgcb() {
+	background-color: #bbbbbb;
+}
+@mixin bgcc() {
+	background-color: #cccccc;
+}
+@mixin bgcd() {
+	background-color: #dddddd;
+}
+@mixin bgcc() {
+	background-color: #eeeeee;
+}
+@mixin bgcf() {
+	background-color: #ffffff;
+}

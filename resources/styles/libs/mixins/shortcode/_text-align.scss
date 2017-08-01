@@ -1,0 +1,18 @@
+//=====================================================================
+//Text Align shortcode
+//=====================================================================
+@mixin ta( $dir ) {
+    text-align: $dir;
+}
+@mixin tal() {
+    @include ta( left );
+}
+@mixin tar() {
+    @include ta( right );
+}
+@mixin tac() {
+    @include ta( center );
+}
+@mixin taj() {
+    @include ta( justify );
+}

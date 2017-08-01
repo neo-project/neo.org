@@ -1,0 +1,54 @@
+//-
+//- Login form
+//-
+block mat__form__login_vars
+  - var loginFormTitle               = 'Login';
+  - var loginFormUsernameLabel       = 'Username';
+  - var loginFormUsernamePlaceholder = 'Username';
+  - var loginFormPasswordLabel       = 'Password';
+  - var loginFormPasswordPlaceholder = 'Password';
+  - var loginFormRememberInfo        = 'Remember password';
+  - var loginFormButtonLabel         = 'Login';
+  - var loginFormId                  = 'mat__form__login';
+  - var loginFormLabel               = true;
+  - var loginFormRemember            = true;
+
+.mat__form__login(id=loginFormId)
+  .mat__form__login--inner
+    .mat__form__login--header
+      h2.mat__form__login--title=loginFormTitle
+
+    //-
+    //- Add content before main section
+    block mat__form__login__main_before
+
+    .mat__form__login--main
+      .mat__form__login--box
+        form.mat__form.form(action="",method="post")
+          .form--fields
+            +form__field( loginFormUsernameLabel )
+              input.mat__form--control(type="text",id="input-username",name="username",placeholder=loginFormUsernamePlaceholder)
+
+            +form__field( loginFormPasswordLabel )
+              input.mat__form--control(type="text",id="input-password",name="username",placeholder=loginFormPasswordPlaceholder)
+
+            //-
+            //- Add content after form fields
+            block mat__form__login__fields_after
+
+            if loginFormRemember
+              .mat__form--field
+                .mat__form--input
+                  label
+                    input.mat__form--checkbox(type="checkbox",name="remember")
+                    span=loginFormRememberInfo
+
+          .mat__form--submit
+            +button( loginFormButtonLabel, 'submit', 'primary', 'md' )
+
+          //-
+          //- Add content after form
+          block mat__form__login__form_after
+    //-
+    //- Add content after main section
+    block mat__form__login__main_after

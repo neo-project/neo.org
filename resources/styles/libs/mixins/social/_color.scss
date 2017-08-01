@@ -1,0 +1,163 @@
+
+//=====================================================================
+// Social Helper
+//=====================================================================
+
+//
+//Color Code
+//
+@facebook-color:            #3b5998;
+@twitter-color:             #00aced;
+@google-plus-color:         #dd4b39;
+@linkedin-color:            #007bb6;
+@pinterest-color:           #cb2027;
+@instagram-color:           #517fa4;
+@vine-color:                #00bf8f;
+@flickr-color:              #ff0084;
+@tumblr-color:              #32506d;
+@foursquare-color:          #0072b1;
+@stumbleupon-color:         #eb4924;
+@reddit-color:              #cee3f8;
+@rss-color:                 #fa9b39;
+@blogger-color:             #ff8833;
+@soundcloud-color:          #ff3a00;
+@dribbble-color:            #ea4c89;
+@forrst-color:              #5b9a68;
+@android-color:             #99cc00;
+@amazon-color:              #e47911;
+@behance-color:             #1769ff;
+@delicious-color:           #3271cb;
+@deviantart-color:          #506256;
+@digg-color:                #333333;
+@digg-blue-color:           #0093cc;
+@dropbox-color:             #2281cf;
+@github-color:              #000000;
+@github-blue-color:         #4183c4;
+@lastfm-color:              #df1303;
+@paypal-color:              #336699;
+@skype-color:               #00aff0;
+@stack-overflow-color:      #fe7a15;
+@wikipedia-color:           #0645ad;
+@wordpress-color:           #21759b;
+@vimeo-color:               #aad450;
+@vimeo-blue-color:          #44bbff;
+@vimeo-black-color:         #445566;
+@yahoo-color:               #7b0099;
+@youtube-color:             #bb0000;
+
+
+//
+//RGBA Mixins
+//
+.facebook-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 59,89,152, @alpha );
+}
+.twitter-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 0,172,237, @alpha );
+}
+.google-plus-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 222,76,58, @alpha );
+}
+.android-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 153,204,0, @alpha );
+}
+.amazon-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 227,120,16, @alpha );
+}
+.behance-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 23,66,255, @alpha );
+}
+.blogger-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 242,99,0, @alpha );
+}
+.delicious-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 51,88,204, @alpha );
+}
+.deviantart-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 79,97,85, @alpha );
+}
+.digg-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 51,51,51, @alpha );
+}
+.digg-blue-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 0,113,204, @alpha );
+}
+.dribbble-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 234,76,137, @alpha );
+}
+.dropbox-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 33,99,207, @alpha );
+}
+.flickr-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 255,0,132, @alpha );
+}
+.forrst-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 51,92,48, @alpha );
+}
+.foursquare-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 11,150,222, @alpha );
+}
+.github-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 0,0,0, @alpha );
+}
+.github-blue-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 65,131,196, @alpha );
+}
+.instagram-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 64,99,156, @alpha );
+}
+.lastfm-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 222,18,2, @alpha );
+}
+.linkedin-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 51,128,204, @alpha );
+}
+.paypal-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 50,85,153, @alpha );
+}
+.pinterest-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 204,33,40, @alpha );
+}
+.reddit-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 205,219,247, @alpha );
+}
+.rss-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 255,121,0, @alpha );
+}
+.skype-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 0,135,240, @alpha );
+}
+.soundcloud-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 247,103,0, @alpha );
+}
+.stack-overflow-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 255,122,20, @alpha );
+}
+.stumbleupon-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 235,72,35, @alpha );
+}
+.tumblr-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 44,71,98, @alpha );
+}
+.vimeo-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 170,212,80, @alpha );
+}
+.vimeo-blue-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 69,156,255, @alpha );
+}
+.vimeo-black-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 68,80,102, @alpha );
+}
+.wikipedia-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 5,41,173, @alpha );
+}
+.wordpress-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 33,97,156, @alpha );
+}
+.yahoo-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 149,0,153, @alpha );
+}
+.youtube-rgba( @attr; @alpha: 1 ) {
+    @{attr}: rgba( 196,48,43, @alpha );
+}
+
