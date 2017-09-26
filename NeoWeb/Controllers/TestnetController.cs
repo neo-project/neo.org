@@ -22,7 +22,14 @@ namespace NeoWeb.Controllers
         }
 
         // GET: Testnet
-        public async Task<IActionResult> Index()
+        [AllowAnonymous]
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        // GET: Testnet/List
+        public async Task<IActionResult> List()
         {
             return View(await _context.Testnets.ToListAsync());
         }

@@ -25,7 +25,7 @@ namespace NeoWeb.Controllers
         {
             _context = context;
             _userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            ViewBag.UserId = _userId;
+            ViewData["UserId"] = _userId;
         }
 
         // GET: Blog
@@ -169,7 +169,7 @@ namespace NeoWeb.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { id = id });
             }
             return View(blog);
         }

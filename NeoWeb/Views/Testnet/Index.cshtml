@@ -1,89 +1,21 @@
-﻿@model IEnumerable<NeoWeb.Models.Testnet>
-
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = Localizer["Developer"];
 }
 
-<h2>Index</h2>
+<div class="row">
+    <div class="col-xs-12">
+        
+    </div>
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Email)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Phone)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.QQ)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Company)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Reason)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ANSCount)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ANCCount)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PubKey)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Remark)
-                </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Phone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QQ)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Company)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Reason)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ANSCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ANCCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PubKey)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Remark)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="row">
+    <div class="col-xs-12 col-sm-6">
+
+    </div>
+    <div class="col-xs-12 col-sm-6">
+
+    </div>
+</div>
+
