@@ -4,18 +4,42 @@
     ViewData["Title"] = Localizer["Developer"];
 }
 
-<div class="row">
-    <div class="col-xs-12">
-        
-    </div>
+@section Styles{
+    <link href="~/css/Common.css" rel="stylesheet"/>
+    <link href="~/css/download.css" rel="stylesheet"/>
+}
+
+<div class="row content-border">
+        <div class="col-sm-4">
+            图标
+        </div>
+        <div class="col-sm-8">
+            <h1>@Localizer["Apply For Testcoin NEO&GAS"]</h1>
+            <h3>@Localizer["If you are developing a NEO ecosystem application project, and need NEO/GAS in the TestNet, please fill in the following application form and send it. Once your application is passed, you will receive an email notification."]</h3>
+            <p class="center-area">
+                <a class="btn btneo-fri" asp-controller="Testnet" asp-action="Create">@Localizer["developers file application"]</a>
+            </p>
+        </div>
 </div>
 
 <div class="row">
-    <div class="col-xs-12 col-sm-6">
-
+    <div class="col-sm-6">
+        <div class="content-border">
+            <h1>GITHUB</h1>
+            <p class="center-area"><a class="btn btneo-sec">进入</a></p>
+        </div>
     </div>
-    <div class="col-xs-12 col-sm-6">
-
+    <div class="col-sm-6">
+        <div class="content-border">
+            <h1>技术文档</h1>
+            <p class="center-area"><a class="btn btneo-sec">打开页面</a></p>
+        </div>
     </div>
 </div>
+
+
+@*@section Scripts
+{
+    <script src="~/js/1234567.js" asp-append-version="true"></script>
+}*@
 

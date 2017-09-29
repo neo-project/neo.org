@@ -117,14 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Amount Of GAS" xml:space="preserve">
+    <value>申请数量（GAS）</value>
+  </data>
+  <data name="Amount Of NEO" xml:space="preserve">
+    <value>申请数量（NEO）</value>
+  </data>
   <data name="Apply For Testcoin NEO&amp;GAS" xml:space="preserve">
     <value>测试NEO&amp;GAS申请</value>
   </data>
-  <data name="Blog" xml:space="preserve">
-    <value>博客</value>
-  </data>
-  <data name="Client" xml:space="preserve">
-    <value>客户端</value>
+  <data name="Company Name/Project Name" xml:space="preserve">
+    <value>公司名/项目名</value>
   </data>
   <data name="Developer" xml:space="preserve">
     <value>开发者</value>
@@ -141,7 +144,31 @@
   <data name="Home" xml:space="preserve">
     <value>首页</value>
   </data>
-  <data name="If you are developing a NEO ecosystem application project, and need NEO/GAS in the TestNet, please fill in the following application form and send it. Once your application is passed, you will receive an email notification." xml:space="preserve">
-    <value>如果你正在创建小蚁生态的项目，需要 测试网 的 NEO 或 GAS，请填写下面的表单进行申请，申请通过后会收到邮件通知。</value>
+  <data name="Name" xml:space="preserve">
+    <value>姓名</value>
+  </data>
+  <data name="NEO Public Key" xml:space="preserve">
+    <value>NEO公钥</value>
+  </data>
+  <data name="NEO Smart economy" xml:space="preserve">
+    <value>NEO 智能经济</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>电话</value>
+  </data>
+  <data name="Please fill out your own NEO public key, if the application succeeds, we will send Neo/gas to a multiple signature address and tell you how to use it." xml:space="preserve">
+    <value>请填写你自己的NEO公钥，如果申请成功，我们会将 NEO / GAS 发到一个多重签名的地址中，并告诉你如何使用。</value>
+  </data>
+  <data name="QQ" xml:space="preserve">
+    <value>QQ</value>
+  </data>
+  <data name="Reasons For Application" xml:space="preserve">
+    <value>申请理由</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>提交成功</value>
+  </data>
+  <data name="Submit Application" xml:space="preserve">
+    <value>提交申请</value>
   </data>
 </root>

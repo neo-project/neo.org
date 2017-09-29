@@ -10,12 +10,14 @@
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/navigation.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/navigation.css" asp-append-version="true" />
     </environment>
     @RenderSection("Styles", required: false)
 </head>
@@ -32,25 +34,59 @@
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">NeoWeb</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav navbar-right pop-menu">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">@Localizer["Home"]</a></li>
                     <li><a href="http://docs.neo.org" target="_blank">@Localizer["Document"]</a></li>
                     <li><a asp-area="" asp-controller="Testnet" asp-action="Index">@Localizer["Developer"]</a></li>
                     <li><a asp-area="" asp-controller="Download" asp-action="Index">@Localizer["Client"]</a></li>
                     <li><a asp-area="" asp-controller="DApps" asp-action="Index">@Localizer["dApps"]</a></li>
                     <li><a asp-area="" asp-controller="Blog" asp-action="Index">@Localizer["Blog"]</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Demo</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">select1</a></li>
+                            <li><a href="#">select2</a></li>
+                        </ul>
+                    </li>
                 </ul>
-                @await Html.PartialAsync("_LoginPartial")
+                @*@await Html.PartialAsync("_LoginPartial")*@
             </div>
         </div>
     </nav>
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; 2017 - NeoWeb</p>
-        </footer>
     </div>
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="widget">
+                        <h4 class="title">1111</h4>
+                        <div class=""></div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="widget">
+                        <h4 class="title">1111</h4>
+                        <div class=""></div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="widget">
+                        <h4 class="title">1111</h4>
+                        <div class=""></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row copyright">
+                <div class="col-sm-12">
+                    <span>Copyright © NEO</span>
+                </div>
+            </div>
+        </div>
+
+    </footer>
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
