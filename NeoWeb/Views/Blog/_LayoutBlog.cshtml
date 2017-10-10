@@ -9,6 +9,7 @@
         @RenderBody()
     </div>
 </div>
+@await Html.PartialAsync("_LoginPartial")
 
 @section Scripts{
     @RenderSection("Scripts", required: false)

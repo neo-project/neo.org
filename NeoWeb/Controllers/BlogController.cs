@@ -25,7 +25,6 @@ namespace NeoWeb.Controllers
         {
             _context = context;
             _userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            ViewData["UserId"] = _userId;
         }
 
         // GET: Blog
@@ -83,8 +82,9 @@ namespace NeoWeb.Controllers
                 return NotFound();
             }
 
-            var blog = await _context.Blogs
+            var blog = await _context.Blogs.Include(m => m.User)
                 .SingleOrDefaultAsync(m => m.Id == id);
+            ViewBag.UserId = _userId;
             if (blog == null)
             {
                 return NotFound();
@@ -104,7 +104,7 @@ namespace NeoWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Content,Summary,Lang,CreateTime,EditTime,ReadCount")] Blog blog)
+        public async Task<IActionResult> Create([Bind("Id,Title,Content,Summary,Lang")] Blog blog)
         {
             if (ModelState.IsValid)
             {
