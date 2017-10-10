@@ -8,11 +8,14 @@
     <link href="~/css/blog.css" rel="stylesheet" />
 }
 
-@*<ul>
+
+<h1 class="blog_title m2">博客文章列表</h1>
+
+<ul class="col-lg-1 blog_date" id="blogDate">
     @foreach (var item in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Select(p => p.Year).Distinct())
     {
-        <li>
-            <a>@item</a>
+        <li class="m3">
+            <a class="iconfont h2">@item</a>
             <ul>
                 @foreach (var m in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Where(p => p.Year == item).Select(p => p.Month).Distinct())
                 {
@@ -21,65 +24,20 @@
             </ul>
         </li>
     }
-</ul>*@
-
-@*@foreach (var item in Model)
-{
-    <div>
-        <a asp-action="details" asp-route-id="@item.Id">
-            <h2>@item.Title</h2>
-        </a>
-        <div>@item.CreateTime</div>
-        <div>@item.Summary.Substring(0, Math.Min(item.Summary.Length, 100))…</div>
-    </div>
-}*@
-
-<h1 class="blog_title m2">博客文章列表</h1>
-
-<ul class="col-lg-1 blog_date" id="blogDate">
-    <li class="m3">
-        <a class="iconfont h2">2017</a>
-        <ul>
-            <li><a class="h3">222</a></li>
-            <li>111</li>
-            <li>111</li>
-        </ul>
-    </li>
-    <li class="m3">
-        <a class="iconfont h2">2016</a>
-        <ul>
-            <li>111</li>
-            <li>111</li>
-            <li>111</li>
-        </ul>
-    </li>
-    <li class="m3">
-        <a class="iconfont h2">2015</a>
-        <ul>
-            <li>111</li>
-            <li>111</li>
-            <li>111</li>
-        </ul>
-    </li>
-    <li class="m3">
-        <a class="iconfont h2">2014</a>
-        <ul>
-            <li>111</li>
-            <li>111</li>
-            <li>111</li>
-        </ul>
-    </li>
 </ul>
 
 <div class="col-lg-11 blog_scroll" id="blogScroll">
     <ul class="blog-list">
-        <li class="m3">
-            <h2><a href="#">NEO 理事会7月计划</a></h2>
-            <p class="t3 m3">由作者 <span class="bold-font">DA HONG FEI</span> 于 <span class="bold-font">2017/7/27</span> 发布</p>
-            <p class="t2">
-                Happy New Year to all our supporters!Thank you for your support! You are the very reason our project You are the very reason our project
-            </p>
-        </li>
+        @foreach (var item in Model)
+        {
+            <li class="m3">
+                <h2><a asp-action="details" asp-route-id="@item.Id">@item.Title</a></h2>
+                <p class="t3 m3">由作者 <span class="bold-font">@item.User</span> 于 <span class="bold-font">@item.CreateTime</span> 发布</p>
+                <p class="t2">@item.Summary.Substring(0, Math.Min(item.Summary.Length, 100))…</p>
+            </li>
+        }
+
+
         <li class="m3">
             <h2><a>NEO 理事会7月计划</a></h2>
             <p class="t3 m3">由作者 <span class="bold-font">DA HONG FEI</span> 于 <span class="bold-font">2017/7/27</span> 发布</p>
