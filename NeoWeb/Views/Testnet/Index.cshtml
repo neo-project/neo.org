@@ -5,19 +5,16 @@
 }
 
 @section Styles{
-    <link href="~/css/Common.css" rel="stylesheet"/>
-    <link href="~/css/download.css" rel="stylesheet"/>
+    <link href="~/css/testnet.css" rel="stylesheet"/>
 }
 
-<div class="row content-border">
-        <div class="col-sm-4">
-            图标
-        </div>
-        <div class="col-sm-8">
-            <h1>@Localizer["Apply For Testcoin NEO&GAS"]</h1>
-            <h3>@Localizer["If you are developing a NEO ecosystem application project, and need NEO/GAS in the TestNet, please fill in the following application form and send it. Once your application is passed, you will receive an email notification."]</h3>
-            <p class="center-area">
-                <a class="btn btneo-fri" asp-controller="Testnet" asp-action="Create">@Localizer["developers file application"]</a>
+<div class="row content-border link-apply">
+        <div class="col-sm-5"></div>
+        <div class="col-sm-7">
+            <p class="h1 m2">@Localizer["Apply For Testcoin NEO&GAS"]</p>
+            <p class="t2">@Localizer["If you are developing a NEO ecosystem application project, and need NEO/GAS in the TestNet, please fill in the following application form and send it. Once your application is passed, you will receive an email notification."]</p>
+            <p class="m2">
+                <a class="btneo-fri t1" asp-controller="Testnet" asp-action="Create">@Localizer["developers file application"]</a>
             </p>
         </div>
 </div>
@@ -25,14 +22,14 @@
 <div class="row">
     <div class="col-sm-6">
         <div class="content-border">
-            <h1>GITHUB</h1>
-            <p class="center-area"><a class="btn btneo-sec">进入</a></p>
+            <h1 class="m2">GITHUB</h1>
+            <p class="center-area m2"><a class="btneo-sec t1">进入</a></p>
         </div>
     </div>
     <div class="col-sm-6">
         <div class="content-border">
-            <h1>技术文档</h1>
-            <p class="center-area"><a class="btn btneo-sec">打开页面</a></p>
+            <h1 class="m2">技术文档</h1>
+            <p class="center-area m2"><a href="http://docs.neo.org" target="_blank" class="btneo-sec t1">打开页面</a></p>
         </div>
     </div>
 </div>

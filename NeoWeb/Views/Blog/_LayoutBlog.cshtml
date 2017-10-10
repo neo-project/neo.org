@@ -1,10 +1,16 @@
 ﻿@{
     Layout = "../Shared/_Layout.cshtml";
 }
-<div class="container">
-    <h1>NEO TEAM BLOG</h1>
-    <div>
+@section Styles{
+    @RenderSection("Styles", required: false)
+}
+<div class="container blog-container">
+    <div class="row">
         @RenderBody()
     </div>
 </div>
-@RenderSection("scripts", required: false)
+
+@section Scripts{
+    @RenderSection("Scripts", required: false)
+    <script type="text/javascript" src="~/js/jquery.nicescroll.min.js"></script>
+}

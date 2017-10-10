@@ -3,6 +3,29 @@
 ul,li {
     list-style:none;
 }
+.navbar-brand {
+    padding-top:20px;
+    padding-bottom:20px;
+    height:60px;
+}
+.nav.navbar-nav.pop-menu li a{
+    padding-top:20px;
+    padding-bottom:20px;
+    color:#6C6C6C;
+}
+.nav.navbar-nav.pop-menu li a:hover{
+    color:#58bf00;
+}
+.navbar-inverse {
+    background:#e4e4e4;
+    border:none;
+}
+.navbar-inverse .navbar-collapse {
+    border:none;
+}
+.nav > li {
+    display:inline-block;
+}
 
 /*弹出框样式调整*/
 /*.navbar-brand {
@@ -40,13 +63,62 @@ ul,li {
 }*/
 
 .main-footer {
-    /*position:absolute;
-    bottom:0;*/
-
-    background: #202020;
+    background: #E4E4E4;
     padding: 35px 0; 
     color: #959595; 
     width:100%;
 
     text-align:center;
+}
+.footer-link {
+    padding:0;
+}
+.footer-link li {
+    display:inline-block;
+    width:22%;
+    line-height:2.5;
+}
+.footer-link li a{
+    color:#9C9C9C;
+}
+
+[class*=footerLogo] {
+    
+}
+.footerLogo-desk {
+
+}
+.footerLogo-mobile {
+    display:none;
+}
+@media only screen and (max-width : 780px) {
+    #backHome {
+        float: none;
+        display: block;
+        margin: auto;
+        width: 160px;
+        text-align: center;
+    }
+    .nav.navbar-nav.pop-menu {
+        text-align:center;
+        margin:0 -15px;
+    }
+    .nav.navbar-nav.pop-menu li a{
+        padding:5px 10px;
+    }
+
+    .main-footer {
+        padding: 20px 0; 
+    }
+
+    .footer-link li {
+        width:48%;
+    }
+    .footerLogo-desk {
+        display:none;
+    }
+    .footerLogo-mobile {
+        display:block;
+    }
+
 }

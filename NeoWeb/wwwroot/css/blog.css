@@ -1,0 +1,137 @@
+﻿/*blog页面*/
+.blog-container {
+    text-align:center;
+    color:#6C6C6C;
+    font-weight:100;
+}
+a{
+    cursor:pointer;
+    text-decoration:none;
+}
+.iconfont {
+    color:#AAAAAA;
+}
+.selected-part .iconfont{
+    color:#6C6C6C;
+}
+
+.blog_title {
+    font-weight: 100;
+    letter-spacing:3px;
+}
+
+.blog_date {
+    /*padding: 10px 0 0;*/
+}
+.blog_date>li{
+    /*float:left;*/
+}
+.blog_date::before,
+.blog_date::after{
+    content: "";
+    display:table;
+}
+.blog_date::after{
+    clear:both;
+}
+.blog_date ul{
+    display:none;
+    padding:0;
+}
+.blog_date>li{
+    padding:0;
+    width:100px;
+}
+.blog_date>li a{
+    cursor:pointer;
+    text-decoration:none;
+}
+
+.blog_scroll {
+    height:900px;
+    overflow-y:auto;
+}
+.blog_scroll::-webkit-scrollbar{
+    width: 8px;
+    height: 8px;
+    background-color: transparent;
+}
+.blog_scroll::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+.blog_scroll::-webkit-scrollbar-thumb{
+    border-radius:5px;
+    background-color: #aaa;
+}
+
+.blog-list {
+    /*margin-top:10px;*/
+}
+.blog-list li{
+    padding:42px 50px;
+    background:#ffffff;
+    color:#AAAAAA;
+    text-align:left;
+}
+.blog-list li:first-child{
+    margin-top:0!important;
+}
+.blog-list a{
+    color:#6C6C6C;
+    text-decoration:none;
+}
+.blog-list a:visited {
+    color: #AAAAAA;
+}
+.blog-list a:hover {
+    color: #58BF00;
+}
+
+
+
+
+@media only screen and (max-width : 1200px) {
+    .blog_title {
+        letter-spacing:2px;
+    }
+    .body-content,
+    .blog-list {
+        padding:0;
+        margin-top:0;
+    }
+    .blog_date{
+        padding: 0 15px;
+        text-align:center;
+        margin-bottom: 3px;
+    }
+    .blog_date > li {
+        margin: auto;
+        display:inline-block;
+        width: 66px;
+        vertical-align: text-top;
+    }
+    .selected-part>a::after{
+        content:" \e61f";
+        font-size: 12px;
+        vertical-align: middle;
+    }
+    .blog_scroll {
+        height: 800px;
+    }
+    .blog-list li {
+        margin: 12px 0;
+        padding:20px 10px;
+    }
+    .blog-list h2 a{
+        color:#6C6C6C;
+    }
+}
+
+@media only screen and (max-width : 780px) {
+    body {
+        padding-top: 84px;
+    }
+    .blog_scroll {
+        height: 500px;
+    }
+}

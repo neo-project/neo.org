@@ -4,8 +4,11 @@
     ViewData["Title"] = "Index";
     Layout = "_LayoutBlog.cshtml";
 }
+@section Styles{
+    <link href="~/css/blog.css" rel="stylesheet" />
+}
 
-<ul>
+@*<ul>
     @foreach (var item in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Select(p => p.Year).Distinct())
     {
         <li>
@@ -18,9 +21,9 @@
             </ul>
         </li>
     }
-</ul>
+</ul>*@
 
-@foreach (var item in Model)
+@*@foreach (var item in Model)
 {
     <div>
         <a asp-action="details" asp-route-id="@item.Id">
@@ -29,4 +32,79 @@
         <div>@item.CreateTime</div>
         <div>@item.Summary.Substring(0, Math.Min(item.Summary.Length, 100))…</div>
     </div>
+}*@
+
+<h1 class="blog_title m2">博客文章列表</h1>
+
+<ul class="col-lg-1 blog_date" id="blogDate">
+    <li class="m3">
+        <a class="iconfont h2">2017</a>
+        <ul>
+            <li><a class="h3">222</a></li>
+            <li>111</li>
+            <li>111</li>
+        </ul>
+    </li>
+    <li class="m3">
+        <a class="iconfont h2">2016</a>
+        <ul>
+            <li>111</li>
+            <li>111</li>
+            <li>111</li>
+        </ul>
+    </li>
+    <li class="m3">
+        <a class="iconfont h2">2015</a>
+        <ul>
+            <li>111</li>
+            <li>111</li>
+            <li>111</li>
+        </ul>
+    </li>
+    <li class="m3">
+        <a class="iconfont h2">2014</a>
+        <ul>
+            <li>111</li>
+            <li>111</li>
+            <li>111</li>
+        </ul>
+    </li>
+</ul>
+
+<div class="col-lg-11 blog_scroll" id="blogScroll">
+    <ul class="blog-list">
+        <li class="m3">
+            <h2><a href="#">NEO 理事会7月计划</a></h2>
+            <p class="t3 m3">由作者 <span class="bold-font">DA HONG FEI</span> 于 <span class="bold-font">2017/7/27</span> 发布</p>
+            <p class="t2">
+                Happy New Year to all our supporters!Thank you for your support! You are the very reason our project You are the very reason our project
+            </p>
+        </li>
+        <li class="m3">
+            <h2><a>NEO 理事会7月计划</a></h2>
+            <p class="t3 m3">由作者 <span class="bold-font">DA HONG FEI</span> 于 <span class="bold-font">2017/7/27</span> 发布</p>
+            <p class="t2">
+                不知道你有没有发现小蚁钱包web/App版界面改变了？12月12日我们升级上线了新的钱包客户端，希望给用户带来更好的使用体验。小蚁是基于区块链技术的数字资产平台，面向的用户群体是广泛的互联网主流用户，主流用户，主流用户，
+            </p>
+        </li>
+
+        <li class="m3">
+            <h2><a>NEO 理事会7月计划</a></h2>
+            <p class="t3 m3">由作者 <span class="bold-font">DA HONG FEI</span> 于 <span class="bold-font">2017/7/27</span> 发布</p>
+            <p class="t2">
+                不知道你有没有发现小蚁钱包web/App版界面改变了？12月12日我们升级上线了新的钱包客户端，希望给用户带来更好的使用体验。小蚁是基于区块链技术的数字资产平台，面向的用户群体是广泛的互联网主流用户，主流用户，主流用户，
+            </p>
+        </li>
+        <li class="m3">
+            <h2><a>NEO 理事会7月计划</a></h2>
+            <p class="t3 m3">由作者 <span class="bold-font">DA HONG FEI</span> 于 <span class="bold-font">2017/7/27</span> 发布</p>
+            <p class="t2">
+                不知道你有没有发现小蚁钱包web/App版界面改变了？12月12日我们升级上线了新的钱包客户端，希望给用户带来更好的使用体验。小蚁是基于区块链技术的数字资产平台，面向的用户群体是广泛的互联网主流用户，主流用户，主流用户，
+            </p>
+        </li>
+    </ul>
+</div>
+
+@section Scripts{
+    <script type="text/javascript" src="~/js/blog.js"></script>
 }
