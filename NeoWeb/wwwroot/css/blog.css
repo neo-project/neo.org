@@ -124,28 +124,30 @@ a{
 }
 
 .nav-artical a {
-    color:#AAAAAA;
+    color:#6C6C6C;
 }
 .nav-artical a:hover{
     text-decoration:none;
 }
 .nav-artical a::before,
 .nav-artical a::after {
-    font-size:18px;
+    font-size:22px;
     vertical-align: middle;
-    color:#6C6C6C;
+    color:#AAAAAA;
+    margin:0 3px;
+    vertical-align:middle;
 }
-a.back_list::after{
-    content:" 回到文章列表";
+a.back_list::before{
+    content:"\eaa4";
 }
-a.back_top::after {
-    content:"回顶部";
+a.back_top::before {
+    content:"\e600";
 }
-a.prev-artical::after {
-    content:"上一篇";
+a.prev-artical::before {
+    content:"\eaa5";
 }
-a.next-artical::before {
-    content:"下一篇";
+a.next-artical::after {
+    content:"\eaa3";
 }
 
 @media only screen and (max-width : 1200px) {
@@ -206,7 +208,6 @@ a.next-artical::before {
         margin-bottom:5px;
         border-top:1px solid #E4E4E4;
     }
-    .mobile-show {display:inline-block;}
 }
 
 @media only screen and (max-width : 780px) {
@@ -215,10 +216,6 @@ a.next-artical::before {
     }
     .blog_scroll {
         height: 500px;
-    }
-    .iconfont::before,
-    .iconfont::after {
-        content:""!important;
     }
     .nav-artical .prev-artical {
         margin-right: 12px;

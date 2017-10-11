@@ -10,7 +10,7 @@
 }
 
 <div>
-    <ul class="col-lg-1 blog_date artical-date desktop-show" id="blogDate">
+    <ul class="col-lg-1 blog_date artical-date visible-lg" id="blogDate">
         <li class="m3">
             <a class="iconfont h2">2017</a>
             <ul>
@@ -32,16 +32,18 @@
     </ul>
 
     <div class="col-lg-11 artical-container">
+
         <div class="nav-artical nav-artical-top p2">
-            <div class="text-left"><a class="iconfont t1 back_list">&#xeaa4; </a></div>
+            <div class="text-left"><a class="iconfont t1 back_list"><span class="desktop-show">回到文章列表</span></a></div>
             <div class="mobile-show">日期部分</div>
-            <div class="text-right"><a class="iconfont t1 prev-artical">&#xeaa5; </a><a class="iconfont t1 next-artical"> &#xeaa3;</a></div>
+            <div class="text-right"><a class="iconfont t1 prev-artical icon-to-left"><span class="desktop-show">上一篇</span></a><a class="iconfont t1 next-artical"><span class="desktop-show">下一篇</span></a></div>
         </div>
 
         <div class="artical-content">
             <div>
                 <h2>@Model.Title</h2>
-                <div class="t2 m3">@Model.CreateTime.ToString()</div>
+                <br /><p class="light-text t2 m3">由作者 <span class="bold-font">@Model.User.UserName</span> 于 <span class="bold-font">@Model.CreateTime.ToString()</span> 发布</p>
+                <br />
             </div>
             <div class="blog-content t2">
                 @Html.Raw(Model.Content)
@@ -49,16 +51,15 @@
         </div>
 
         <div class="nav-artical nav-artical-bottom p2">
-            <div class="text-left"><a class="iconfont t1 back_list">&#xeaa4; </a></div>
-            <div><a class="iconfont t1 back_top">&#xe600; </a></div>
-            <div class="text-right"><a class="iconfont t1 prev-artical">&#xeaa5; </a><a class="iconfont t1 next-artical"> &#xeaa3;</a></div>
+            <div class="text-left"><a class="iconfont t1 back_list"><span class="visible-lg">回到文章列表</span></a></div>
+            <div><a class="iconfont t1 back_top"><span class="visible-lg">回顶部</span></a></div>
+            <div class="text-right"><a class="iconfont t1 prev-artical icon-to-left"><span class="visible-lg">上一篇</span></a><a class="iconfont t1 next-artical"><span class="visible-lg">下一篇</span></a></div>
         </div>
 
     </div>
 </div>
 
 
-<div>@Model.User.UserName</div>
 <p>
     @if (Model.User.Id == ViewBag.UserId)
     {

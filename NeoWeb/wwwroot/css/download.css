@@ -1,2 +1,61 @@
 ﻿body {
 }
+ul,li {
+    margin:0;
+    padding:0;
+}
+.nav-download li{
+    display:inline-block;
+    width:32%;
+    color:#AAAAAA;
+    text-align:center;
+    font-weight:600;
+}
+.download-ul {
+    font-weight:100;
+}
+.download-ul li {
+    line-height:1.5;
+}
+.down-box {
+    background:#FFFFFF;
+    box-shadow:0 0 10px #aaaaaa;
+}
+.down-pic {
+    /*position:relative;*/
+    width:100%;
+    display:block;
+    
+}
+.down-pic img{
+    width:100%;
+}
+.down-pic span{
+    /*float:left;*/
+}
+.down-box p{
+    padding:0 25px;
+    color:#6C6C6C;
+}
+.down-box p.bold-font{
+    line-height:2;
+}
+.down-btn {
+    display:block;
+    background:#BEEB00;
+    width:100%;
+    height:55px;
+    color:#FFFFFF;
+    font-size:29px;
+    text-align:center;
+
+}
+
+@media only screen and (max-width : 780px) {
+    .download-ul li:first-child{
+        margin-top:0;
+    }
+    .down-box p{
+        padding:0 14px;
+    }
+}

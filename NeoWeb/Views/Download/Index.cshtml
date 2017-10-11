@@ -2,6 +2,56 @@
 @{
     ViewData["Title"] = "Index";
 }
+@section Styles{
+    <link href="~/css/download.css" rel="stylesheet" />
+}
 
-<h2>Index</h2>
+<div class="row download-container">
+    <h2>下载页面</h2>
+    <ul class="nav-download m3 t2">
+        <li>移动</li>
+        <li>桌面</li>
+        <li>网页</li>
+    </ul>
+    <ul class="download-ul download-mobile">
+        <li class="col-sm-4 m3">
+            <div class="down-box">
+                <a class="down-pic"><img src="~/images/banner2.svg" /><span>NEOGUI</span></a>
+                <p class="m2 t1">
+                    开发者：NEO Project<br />
+                    支持语言：中文 / English<br />
+                    支持平台：Windows 7 SP及以上
+                </p>
+                <p class="m2 t1 bold-font">
+                    查看源代码<br />
+                    下载离线同步数据
+                </p>
+                <a class="down-btn">下载</a>
+            </div>
+        </li>
+        <li class="col-sm-4 m3">
+            <div class="down-box">
+                <a class="down-pic"><img src="~/images/banner2.svg" /><span>NEOGUI</span></a>
+                <p class="m2 t1">
+                    开发者：NEO Project<br />
+                    支持语言：中文 / English<br />
+                    支持平台：Windows 7 SP及以上
+                </p>
+                <p class="m2 t1 bold-font">
+                    查看源代码<br />
+                    下载离线同步数据
+                </p>
+                <a class="down-btn">下载</a>
+            </div>
+        </li>
+    </ul>
+
+    <ul class="download-desktop" style="display:none;">
+
+    </ul>
+
+    <ul class="download-web" style="display:none;">
+
+    </ul>
+</div>
 

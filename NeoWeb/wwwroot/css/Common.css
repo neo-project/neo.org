@@ -27,8 +27,9 @@ h3,.h3 {font-size: 16px;font-weight:bold;}
 .p2 {padding:20px;}
 .bold-font {font-weight:600;}
 .body-content {padding-bottom:50px;}
-.desktop-show {display:block;}
+.desktop-show {display:inline-block;}
 .mobile-show {display:none;}
+.light-text {color:#AAAAAA;}
 
 @media only screen and (max-width : 1200px) {
     h1,.h1 {font-size: 24px;}
@@ -44,7 +45,7 @@ h3,.h3 {font-size: 16px;font-weight:bold;}
     .p1 {padding:40px;}
     .p2 {padding:12px;}
     .desktop-show {display:none;}
-    .mobile-show {display:block;}
+    .mobile-show {display:inline-block;}
 }
 @media only screen and (max-width : 780px) {
     body {
