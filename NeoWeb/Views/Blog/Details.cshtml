@@ -57,15 +57,17 @@
     </div>
 </div>
 
+
+<div>@Model.User.UserName</div>
 <p>
-    @*@if (Model.User.Id == ViewData["UserId"].ToString())
-    {*@
+    @if (Model.User.Id == ViewBag.UserId)
+    {
         <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
         <span>|</span>
         <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
         <span>|</span>
         <a asp-action="Index">Back to List</a>
-    @*}*@
+    }
 </p>
 
 
