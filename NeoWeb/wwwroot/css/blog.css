@@ -140,8 +140,11 @@ a{
 a.back_list::before{
     content:"\eaa4";
 }
-a.back_top::before {
-    content:"\e600";
+a.back-to-top {
+    display: none;
+}
+a.back-to-top::before {
+    content: "\e600";
 }
 a.prev-artical::before {
     content:"\eaa5";
