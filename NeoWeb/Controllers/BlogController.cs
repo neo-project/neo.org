@@ -51,7 +51,6 @@ namespace NeoWeb.Controllers
                 Lang = p.Lang
             });
 
-
             ViewBag.CreateTime = models.Select(p => new BlogDateTimeViewModels
             {
                 Year = p.CreateTime.Year,
@@ -79,8 +78,28 @@ namespace NeoWeb.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction("Index");
             }
+
+            var blogs = _context.Blogs.OrderByDescending(o => o.CreateTime).Select(p => new
+            {
+                p.Id,
+                p.CreateTime
+            }).ToList().Select(p => new Blog()
+            {
+                Id = p.Id,
+                CreateTime = p.CreateTime
+            });
+
+            var idList = blogs.Select(p => p.Id).ToList();
+            ViewBag.NextBlogId = idList[Math.Max(idList.IndexOf((int)id) - 1, 0)];
+            ViewBag.PrevBlogId = idList[Math.Min(idList.IndexOf((int)id) + 1, idList.Count - 1)];
+
+            ViewBag.CreateTime = blogs.Select(p => new BlogDateTimeViewModels
+            {
+                Year = p.CreateTime.Year,
+                Month = p.CreateTime.Month
+            }).Distinct();
 
             var blog = await _context.Blogs.Include(m => m.User)
                 .SingleOrDefaultAsync(m => m.Id == id);
