@@ -5,15 +5,58 @@
     Layout = "_LayoutBlog.cshtml";
 }
 
+@section Styles{ 
+    <link href="~/css/blog.css" rel="stylesheet"/>
+}
+
 <div>
-    <div>
-        <h1>@Model.Title</h1>
-        <div>@Model.CreateTime.ToString()</div>
-    </div>
-    <div class="blog-content">
-        @Html.Raw(Model.Content)
+    <ul class="col-lg-1 blog_date artical-date desktop-show" id="blogDate">
+        <li class="m3">
+            <a class="iconfont h2">2017</a>
+            <ul>
+                <li><a href="">1231</a></li>
+            </ul>
+        </li>
+        <li class="m3">
+            <a class="iconfont h2">2017</a>
+            <ul>
+                <li><a href="">1231</a></li>
+            </ul>
+        </li>
+        <li class="m3">
+            <a class="iconfont h2">2017</a>
+            <ul>
+                <li><a href="">1231</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="col-lg-11 artical-container">
+        <div class="nav-artical nav-artical-top p2">
+            <div class="text-left"><a class="iconfont t1 back_list">&#xeaa4; </a></div>
+            <div class="mobile-show">日期部分</div>
+            <div class="text-right"><a class="iconfont t1 prev-artical">&#xeaa5; </a><a class="iconfont t1 next-artical"> &#xeaa3;</a></div>
+        </div>
+
+        <div class="artical-content">
+            <div>
+                <h2>@Model.Title</h2>
+                <div class="t2 m3">@Model.CreateTime.ToString()</div>
+            </div>
+            <div class="blog-content t2">
+                @Html.Raw(Model.Content)
+            </div>
+        </div>
+
+        <div class="nav-artical nav-artical-bottom p2">
+            <div class="text-left"><a class="iconfont t1 back_list">&#xeaa4; </a></div>
+            <div><a class="iconfont t1 back_top">&#xe600; </a></div>
+            <div class="text-right"><a class="iconfont t1 prev-artical">&#xeaa5; </a><a class="iconfont t1 next-artical"> &#xeaa3;</a></div>
+        </div>
+
     </div>
 </div>
+
 <p>
     @*@if (Model.User.Id == ViewData["UserId"].ToString())
     {*@
@@ -24,3 +67,8 @@
         <a asp-action="Index">Back to List</a>
     @*}*@
 </p>
+
+
+@section Scripts{
+    <script type="text/javascript" src="~/js/blog.js"></script>
+}

@@ -18,6 +18,7 @@ ul,li {
 }
 .navbar-inverse {
     background:#e4e4e4;
+    background:rgba(228,228,228,0.95);
     border:none;
 }
 .navbar-inverse .navbar-collapse {

@@ -21,7 +21,7 @@ a{
 }
 
 .blog_date {
-    /*padding: 10px 0 0;*/
+    padding:0;
 }
 .blog_date>li{
     /*float:left;*/
@@ -87,8 +87,66 @@ a{
     color: #58BF00;
 }
 
+/*博客内容页面*/
+.blog_date.artical-date {
+    padding-top:50px;
+}
+.artical-container {
+    
+}
+.nav-artical {
+    line-height: 1;
+}
+.nav-artical div{
+    display:inline-block;
+    width:32%;
+}
+.nav-artical .prev-artical{
+    margin-right:30px;
+}
+.artical-content {
+    background:#FFFFFF;
+    padding:42px 0;
+}
+.artical-content p{
+    margin:0;
+    text-indent:0!important;
+    text-align:left;
+    padding:0 100px;
+    line-height:1.5;
+}
+.blog-content :first-child img{
+    width:100%;
+    height:100%;
+}
+.blog-content img {
+    max-width:100%;
+}
 
-
+.nav-artical a {
+    color:#AAAAAA;
+}
+.nav-artical a:hover{
+    text-decoration:none;
+}
+.nav-artical a::before,
+.nav-artical a::after {
+    font-size:18px;
+    vertical-align: middle;
+    color:#6C6C6C;
+}
+a.back_list::after{
+    content:" 回到文章列表";
+}
+a.back_top::after {
+    content:"回顶部";
+}
+a.prev-artical::after {
+    content:"上一篇";
+}
+a.next-artical::before {
+    content:"下一篇";
+}
 
 @media only screen and (max-width : 1200px) {
     .blog_title {
@@ -118,6 +176,10 @@ a{
     .blog_scroll {
         height: 800px;
     }
+    .iconfont::before,
+    .iconfont::after {
+        font-size:15px!important;
+    }
     .blog-list li {
         margin: 12px 0;
         padding:20px 10px;
@@ -125,6 +187,26 @@ a{
     .blog-list h2 a{
         color:#6C6C6C;
     }
+    .artical-container {
+        padding:0;
+    }
+    .nav-artical {
+        background:#ffffff;
+        /*padding:5px 10px 0px;*/
+    }
+    .nav-artical-top::after{
+        content:" ";
+        display:block;
+        margin-top:5px;
+        border-bottom:1px solid #E4E4E4;
+    }
+    .nav-artical-bottom::before{
+        content:" ";
+        display:block;
+        margin-bottom:5px;
+        border-top:1px solid #E4E4E4;
+    }
+    .mobile-show {display:inline-block;}
 }
 
 @media only screen and (max-width : 780px) {
@@ -133,5 +215,15 @@ a{
     }
     .blog_scroll {
         height: 500px;
+    }
+    .iconfont::before,
+    .iconfont::after {
+        content:""!important;
+    }
+    .nav-artical .prev-artical {
+        margin-right: 12px;
+    }
+    .artical-content p {
+        padding:0 12px;
     }
 }
