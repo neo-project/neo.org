@@ -48,7 +48,7 @@ a{
 }
 
 .blog_scroll {
-    height:900px;
+    /*height:900px;*/
     overflow-y:auto;
 }
 .blog_scroll::-webkit-scrollbar{
@@ -137,10 +137,10 @@ a{
     margin:0 3px;
     vertical-align:middle;
 }
-a.back_list::before{
+a.back-list::before{
     content:"\eaa4";
 }
-a.back_top::before {
+a.back-top::before {
     content:"\e600";
 }
 a.prev-artical::before {
