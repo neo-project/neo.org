@@ -4,8 +4,12 @@ ul,li {
     margin:0;
     padding:0;
 }
+.download-container {
+    text-align:center;
+    color:#7F7F7F;
+}
 .nav-download {
-    color:#AAAAAA;
+    color:#6C6C6C;
     text-align:center;
 }
 .nav-download li{
@@ -22,6 +26,7 @@ ul,li {
 .download-ul {
     font-weight:100;
     display:none;
+    text-align:left;
 }
 .download-ul li {
     line-height:1.5;
@@ -45,7 +50,7 @@ ul,li {
 }
 .down-pic img{
     width:100%;
-    /*height:300px;*/
+    max-height:300px;
 }
 .down-pic span{
     position: absolute;
@@ -106,6 +111,10 @@ ul,li {
     }
     .nav-download li img {
         display:none;
+    }
+    .download-ul{
+        max-width:360px;
+        margin:auto;
     }
     .down-box p{
         min-height:initial;

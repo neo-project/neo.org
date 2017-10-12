@@ -8,12 +8,16 @@ ul,li {
     padding-bottom:20px;
     height:60px;
 }
-.nav.navbar-nav.pop-menu li a{
-    padding-top:20px;
-    padding-bottom:20px;
+.nav.navbar-nav.pop-menu>li a,
+.nav.navbar-nav.pop-menu>li span{
+    display:inline-block;
+    padding: 20px 15px;
     color:#6C6C6C;
+    line-height:20px;
+    vertical-align:middle;
 }
-.nav.navbar-nav.pop-menu li a:hover{
+.nav.navbar-nav.pop-menu>li a:hover{
+    background:transparent;
     color:#58bf00;
 }
 .navbar-inverse {
@@ -29,39 +33,15 @@ ul,li {
 }
 
 /*弹出框样式调整*/
-/*.navbar-brand {
-    padding:20px 15px;
+.dropdown-menu {
+    background:transparent;
+    border: none;
+    box-shadow:none;
 }
-.navbar.navbar-inverse {
-    height: 60px;
+.dropdown-menu li a{
+    width:100%;
+    /*background:rgba();*/
 }
-.navbar-nav > li > a {
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-.pop-menu {
-
-}
-.navbar-nav > li > .dropdown-menu {
-    margin-top: 10px;
-    border-radius: 4px;
-}
-.pop-menu .dropdown-menu {
-    padding: 0;
-
-}
-.pop-menu .dropdown-menu li{
-    line-height:40px;
-    height:40px;
-    vertical-align:middle;
-}
-.pop-menu .dropdown-menu li:hover {
-    background: #f5f5f5;
-    cursor: pointer;
-}
-.pop-menu .dropdown-menu li a{
-    display:inline-block;
-}*/
 
 .main-footer {
     background: #E4E4E4;

@@ -36,13 +36,13 @@
                     <li><a asp-area="" asp-controller="download" asp-action="index">@Localizer["Client"]</a></li>
                     <li><a asp-area="" asp-controller="dapps" asp-action="index">@Localizer["dApps"]</a></li>
                     <li><a asp-area="" asp-controller="blog" asp-action="index">@Localizer["Blog"]</a></li>
-                    @*<li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Demo</a>
+                    <li class="dropdown">
+                        <span href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Demo</span>
                         <ul class="dropdown-menu">
                             <li><a href="#">select1</a></li>
                             <li><a href="#">select2</a></li>
                         </ul>
-                    </li>*@
+                    </li>
                 </ul>
                 @*@await Html.PartialAsync("_LoginPartial")*@
             </div>
@@ -61,7 +61,7 @@
                     </div>
                 </div>
                 <div class="col-sm-8">
-                    <ul class="footer-link">
+                    <ul class="footer-link t2">
                         <li><a href="#">facebook</a></li>
                         <li><a href="#">twitter</a></li>
                         <li><a href="#">wechat</a></li>
