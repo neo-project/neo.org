@@ -5,8 +5,8 @@
     Layout = "_LayoutBlog.cshtml";
 }
 
-@section Styles{ 
-    <link href="~/css/blog.css" rel="stylesheet"/>
+@section Styles{
+    <link href="~/css/blog.css" rel="stylesheet" />
 }
 
 <div>
@@ -27,10 +27,18 @@
 
     <div class="col-lg-11 artical-container">
 
-        <div class="nav-artical nav-artical-top p2">
-            <div class="text-left"><a class="iconfont t1 back-list" href="~/blog"><span class="desktop-show">回到文章列表</span></a></div>
-            <div class="mobile-show">日期部分</div>
-            <div class="text-right">
+        <div class="nav-artical nav-artical-top p2 clearfix">
+            <div class="pull-left"><a class="iconfont t1 back_list" href="~/blog"><span class="desktop-show">回到文章列表</span></a></div>
+            <ul class="blog_date mobile-show">
+                @foreach (var item in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Select(p => p.Year).Distinct())
+                {
+                    <li>
+                        <a class="h2" href="~/blog/index?y=@item">@item</a>
+                    </li>
+                }
+            </ul>
+
+            <div class="pull-right">
                 <a class="iconfont t1 prev-artical icon-to-left" href="~/blog/details/@ViewBag.PrevBlogId"><span class="desktop-show">上一篇</span></a>
                 <a class="iconfont t1 next-artical" href="~/blog/details/@ViewBag.NextBlogId"><span class="desktop-show">下一篇</span></a>
             </div>
@@ -47,11 +55,11 @@
             </div>
         </div>
 
-        <div class="nav-artical nav-artical-bottom p2">
-            <div class="text-left"><a class="iconfont t1 back-list" href="~/blog"><span class="desktop-show">回到文章列表</span></a></div>
-            <div><a class="iconfont t1 back-top"><span class="desktop-show">回顶部</span></a></div>
-            <div class="text-right">
-                <a class="iconfont t1 prev-artical" href="~/blog/details/@ViewBag.PrevBlogId"><span class="desktop-show">上一篇</span></a>
+        <div class="nav-artical nav-artical-bottom p2 clearfix">
+            <div class="pull-left"><a class="iconfont t1 back_list" href="~/blog"><span class="desktop-show">回到文章列表</span></a></div>
+            <div><a class="iconfont t1 back-to-top"><span class="desktop-show">回顶部</span></a></div>
+            <div class="pull-right">
+                <a class="iconfont t1 prev-artical icon-to-left" href="~/blog/details/@ViewBag.PrevBlogId"><span class="desktop-show">上一篇</span></a>
                 <a class="iconfont t1 next-artical" href="~/blog/details/@ViewBag.NextBlogId"><span class="desktop-show">下一篇</span></a>
             </div>
         </div>
