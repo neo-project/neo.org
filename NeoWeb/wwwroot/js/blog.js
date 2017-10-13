@@ -1,11 +1,8 @@
 ﻿$(function () {
     //根据年份显示日期
-    $("#blogDate li a.iconfont").click(function () {
-        var _this = $(this).parent("li");
-        _this.siblings().find("ul").hide();
-        $(".selected-part").removeClass("selected-part");
-        _this.addClass("selected-part");
-        _this.find("ul").toggle(300);
+    $(".year").click(function () {
+        $(".blog_date ul").hide(300);
+        $(this.parentNode).find("ul").show(300);
     });
 
     $(window).scroll(function () {
@@ -18,5 +15,5 @@
 
     $('.back-to-top').click(function (event) {
         $('html, body').animate({ scrollTop: 0 }, 500);
-    })    
+    })
 })

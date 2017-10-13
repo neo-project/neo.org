@@ -90,7 +90,12 @@ ul,li {
 #more_list a {
     padding: 10px 20px;
 }
-
+.navbar-brand {
+    padding: 5px 15px;
+}
+.navbar-brand img {
+    height: 100%;
+}
 @media only screen and (max-width : 780px) {
     .nav.navbar-nav.pop-menu {
         text-align:center;

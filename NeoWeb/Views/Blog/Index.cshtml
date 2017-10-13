@@ -8,18 +8,19 @@
     <link href="~/css/blog.css" rel="stylesheet" />
 }
 
-
-<h1 class="blog_title m2">博客文章列表</h1>
+<div class="col-xs-12">
+    <h1 class="blog_title m2">博客文章列表</h1>
+</div>
 
 <ul class="col-lg-1 blog_date desktop-show" id="blogDate">
     @foreach (var item in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Select(p => p.Year).Distinct())
     {
         <li class="m3">
-            <a class="iconfont h2">@item</a>
+            <a class="h2 year">@item</a>
             <ul>
                 @foreach (var m in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Where(p => p.Year == item).Select(p => p.Month).Distinct())
                 {
-                    <li><a href="~/blog/index?y=@item&m=@m">@m.ToMonth().ToUpper()</a></li>
+                    <li><a class="month" href="~/blog/index?y=@item&m=@m">@m.ToMonth().ToUpper()</a></li>
                 }
             </ul>
         </li>
@@ -29,7 +30,7 @@
     @foreach (var item in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Select(p => p.Year).Distinct())
     {
         <li>
-            <a class="h2" href="~/blog/index?y=@item">@item</a>
+            <a class="h2 year" href="~/blog/index?y=@item">@item</a>
         </li>
     }
 </ul>
