@@ -72,20 +72,29 @@ ul,li {
 .footerLogo-mobile {
     display:none;
 }
+.nav.navbar-nav.pop-menu ul.dropdown-menu {
+    background-color: white;
+}
+  
+.nav.navbar-nav.pop-menu ul.dropdown-menu li.menu-item a {
+    text-align:right;
+    padding: 10px;
+}
+#more_list {
+    position: absolute;
+    right: 0;
+    display: none;
+    width: 200px;
+    text-align:right;
+}
+#more_list a {
+    padding: 10px 20px;
+}
+
 @media only screen and (max-width : 780px) {
-    #backHome {
-        float: none;
-        display: block;
-        margin: auto;
-        width: 160px;
-        text-align: center;
-    }
     .nav.navbar-nav.pop-menu {
         text-align:center;
         margin:0 -15px;
-    }
-    .nav.navbar-nav.pop-menu li a{
-        padding:5px 10px;
     }
 
     .main-footer {

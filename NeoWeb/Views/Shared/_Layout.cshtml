@@ -25,29 +25,30 @@
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
+        <div id="nav_container" class="container">
+            <div id="logo_div" class="pull-left">
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand" id="backHome">NeoWeb</a>
             </div>
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right pop-menu t2">
-                    <li><a asp-area="" asp-controller="home" asp-action="index">@Localizer["Home"]</a></li>
-                    <li><a asp-area="" asp-controller="testnet" asp-action="index">@Localizer["Developer"]</a></li>
-                    <li><a asp-area="" asp-controller="download" asp-action="index">@Localizer["Client"]</a></li>
-                    <li><a asp-area="" asp-controller="dapps" asp-action="index">@Localizer["dApps"]</a></li>
-                    <li><a asp-area="" asp-controller="blog" asp-action="index">@Localizer["Blog"]</a></li>
-                    <li class="dropdown">
-                        <span href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Demo</span>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">select1</a></li>
-                            <li><a href="#">select2</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                @*@await Html.PartialAsync("_LoginPartial")*@
-            </div>
+            <ul id="menu_list" class="nav navbar-nav pull-right pop-menu t2">
+                <li class="menu-item"><a asp-area="" asp-controller="home" asp-action="index">@Localizer["Home"]</a></li>
+                <li class="menu-item"><a asp-area="" asp-controller="testnet" asp-action="index">@Localizer["Developer"]</a></li>
+                <li class="menu-item"><a asp-area="" asp-controller="download" asp-action="index">@Localizer["Client"]</a></li>
+                <li class="menu-item"><a asp-area="" asp-controller="blog" asp-action="index">@Localizer["Blog"]</a></li>
+                <li class="menu-item"><a asp-area="" asp-controller="dapps" asp-action="index">@Localizer["dApps"]</a></li>
+                <li class="menu-item"><a asp-area="" asp-controller="explorer" asp-action="index">@Localizer["Explorer"]</a></li>
+                @*<li class="menu-item"><a asp-area="" asp-controller="home" asp-action="index">@Localizer["Home"]</a></li>
+                <li class="menu-item"><a asp-area="" asp-controller="testnet" asp-action="index">@Localizer["Developer"]</a></li>
+                <li class="menu-item"><a asp-area="" asp-controller="download" asp-action="index">@Localizer["Client"]</a></li>*@
+                <li id="dropdown_btn" style="display:none">
+                    <a class="iconfont" onclick="$('#more_list').toggle()">&#xe675;</a>
+                    <ul id="more_list"></ul>
+                </li>
+            </ul>
+            @*@await Html.PartialAsync("_LoginPartial")*@
         </div>
     </nav>
+    
+
     <div class="container body-content">
         @RenderBody()
     </div>
@@ -119,5 +120,26 @@
             s.parentNode.insertBefore(hm, s);
         })();
     </script>
+    <script>
+        function resize() {
+            while ($("#menu_list").width() + $("#logo_div").width() > $("#nav_container").width()) {
+                $("#dropdown_btn").show();
+                $("#more_list").append($(".menu-item:last"));
+                $(".menu-item:last").removeClass("menu-item");
+            }
+            if ($("#menu_list").width() + $("#logo_div").width() + 100 <= $("#nav_container").width()) {
+                var preShowItem = $("#more_list li:first");
+                $(".menu-item:last").after(preShowItem);
+                preShowItem.addClass("menu-item");
+                if ($("#more_list li").length == 0)
+                { 
+                    $("#dropdown_btn").hide();
+                }
+            }
+        }
+        window.onresize = resize;
+        resize();
+    </script>
+
 </body>
 </html>
