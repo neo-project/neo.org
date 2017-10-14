@@ -110,7 +110,10 @@ namespace NeoWeb.Controllers
             }
 
             var match = Regex.Match(blog.Content, "<img.*/>");
-            ViewBag.Cover = 1;
+            if (match.Success && match.Value.Length > 0)
+            {
+                ViewBag.Cover = match.Value.Insert(4, " class=\"img-cover\" ");
+            }
 
             return View(blog);
         }

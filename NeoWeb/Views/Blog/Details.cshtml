@@ -50,6 +50,7 @@
                 <p class="light-text t2 m3">由作者 <span class="bold-font">@Model.User.UserName</span> 于 <span class="bold-font">@Model.CreateTime.ToString()</span> 发布</p>
             </div>
             <div class="blog-content t2">
+                @*@Html.Raw(ViewBag.Cover)*@
                 @Html.Raw(Model.Content)
             </div>
         </div>
