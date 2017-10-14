@@ -7,10 +7,86 @@
 @section Styles{ 
     <link href="~/css/homepage.css" rel="stylesheet"/>
 }
-<div class="a111"></div>
-<div class="container body-content">
-    <div class="row">
 
+@*<div class="container body-content home-container">*@
 
+<div class="scroll-page"style="position:fixed;width:100%;">
+    <div class="home-scroll scroll-fri" data-0="margin-left:0px;" data-end="margin-left:5000px;">
+        <img src="~/images/home-scroll-1.png" />
+    </div>
+    <div class="home-scroll scroll-sec" data-100-top="margin-top:0px;" data-bottom="margin-top:-100px;">
+        <img src="~/images/home-scroll-2.png" />
+    </div>
+    <div class="home-scroll scroll-thr" data-100-top="margin-top:0px;" data-bottom="margin-top:-50px;">
+        <img src="~/images/home-scroll-3.png" />
+    </div>
+    <div class="home-scroll scroll-four" data-100-top="margin-top:0px;" data-bottom="margin-top:100px;">
+        <img src="~/images/home-scroll-4.png" />
     </div>
 </div>
+
+<div class="home-page-content back-opacity">
+    <div class="row">
+        <div class="back-mask"></div>
+        <div class="midpoint home-text-fir">
+            <h1>一种分布式智能经济网络</h1>
+            <h2>数字资产+数字身份+智能合约=智能经济</h2>
+        </div>
+    </div>
+</div>
+
+<div class="home-page-content back-opacity">
+    <div class="container body-content">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>NEO有什么优势？</h2>
+                <p>
+                    数字资产+数字身份+智能合约=智能经济数字资产+数字身份+智能合约=智能经济数字资产+数字身份+智能合约=智能经济数字资产+数字身份+智能合约=智能经济数字资产+数字身份+智能合约=智能经济数字资产+数字身份+智能合约=智能经济数字资产+数字身份+智能合约=智能经济
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>NEO有什么优势？</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="home-page-content ">
+
+
+</div>
+<div class="home-page-content scroll-page">
+    <div class="home-scroll" data-100-top="margin-left:0px;" data-bottom="margin-left:50px;">
+        <img src="~/images/home-scroll-1.png" />
+    </div>
+    <div class="home-scroll" data-100-top="margin-top:0px;" data-bottom="margin-top:-100px;">
+        <img src="~/images/home-scroll-2.png" />
+    </div>
+    <div class="home-scroll" data-100-top="margin-top:0px;" data-bottom="margin-top:-50px;">
+        <img src="~/images/home-scroll-3.png" />
+    </div>
+    <div class="home-scroll" data-100-top="margin-top:0px;" data-bottom="margin-top:100px;">
+        <img src="~/images/home-scroll-4.png" />
+    </div>
+</div>
+<div class="home-page-content">
+    1111111
+</div>
+
+
+@section Scripts{
+    <script type="text/javascript" src="~/js/skrollr.js"></script>
+    <script type="text/javascript">
+        var s = skrollr.init({
+            edgeStrategy: 'set',
+            easing: {
+                WTF: Math.random,
+                inverted: function (p) {
+                    return 1 - p;
+                }
+            }
+        });
+    </script>
+}
