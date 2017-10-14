@@ -129,6 +129,9 @@
   <data name="Document" xml:space="preserve">
     <value>技术文档</value>
   </data>
+  <data name="Explorer" xml:space="preserve">
+    <value>区块链浏览器</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>首页</value>
   </data>

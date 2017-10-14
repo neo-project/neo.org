@@ -20,9 +20,6 @@ a{
     letter-spacing:3px;
 }
 
-.blog_date {
-    padding:0;
-}
 .blog_date>li{
     /*float:left;*/
 }
@@ -39,8 +36,7 @@ a{
     padding:0;
 }
 .blog_date>li{
-    padding:0;
-    width:100px;
+    padding-right: 20px;
 }
 .blog_date>li a{
     cursor:pointer;
@@ -64,8 +60,11 @@ a{
     background-color: #aaa;
 }
 
-.blog-list {
-    /*margin-top:10px;*/
+.year, .month {
+    color:#AAAAAA;
+}
+.year:hover, .year:focus, .month:hover, .month:focus {
+    color: #58BF00;
 }
 .blog-list li{
     padding:42px 50px;
@@ -170,7 +169,6 @@ a.next-artical::after {
     .blog_date > li {
         margin: auto;
         display:inline-block;
-        width: 66px;
         vertical-align: text-top;
     }
     .selected-part>a::after{
