@@ -109,6 +109,9 @@ namespace NeoWeb.Controllers
                 return NotFound();
             }
 
+            var match = Regex.Match(blog.Content, "<img.*/>");
+            ViewBag.Cover = 1;
+
             return View(blog);
         }
 

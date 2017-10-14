@@ -8,69 +8,69 @@
 @section Styles{
     <link href="~/css/testnet.css" rel="stylesheet" />
 }
-
-
-<div class="row apply-content m2">
-    <div class="col-lg-12">
-        <h1 class="apply-title m1">@Localizer["Apply For Testcoin NEO&GAS"]</h1>
-        <form asp-action="Create">
-            <div class="input-form">
-                <ul>
-                    <li class="col-lg-6">
-                        <label asp-for="Name">@Localizer["Name"]</label><br />
-                        <input asp-for="Name" name="Name" id="Name" type="text">
-                        <span asp-validation-for="Name" class="text-danger"></span>
-                    </li>
-                    <li class="col-lg-6">
-                        <label asp-for="Email">@Localizer["Email"]</label><br />
-                        <input asp-for="Email" name="Email" id="Email" type="email">
-                        <span asp-validation-for="Email" class="text-danger"></span>
-                    </li>
-                    <li class="col-lg-6">
-                        <label asp-for="Phone">@Localizer["Phone"]</label><br />
-                        <input asp-for="Phone" id="Phone" type="tel">
-                        <span asp-validation-for="Phone" class="text-danger"></span>
-                    </li>
-                    <li class="col-lg-6">
-                        <label asp-for="QQ">@Localizer["QQ"]</label><br />
-                        <input asp-for="QQ" id="QQ" type="text" data-val-regex-pattern="\d+" />
-                        <span asp-validation-for="QQ" class="text-danger"></span>
-                    </li>
-                    <li class="col-lg-12">
-                        <label asp-for="Company">@Localizer["Company Name/Project Name"]</label><br />
-                        <input asp-for="Company" id="Company" type="text" placeholder=@Localizer["Company Name/Project Name"] />
-                        <span asp-validation-for="Company" class="text-danger"></span>
-                    </li>
-                    <li class="col-lg-12">
-                        <label asp-for="Reason">@Localizer["Reasons For Application"]</label><br />
-                        <textarea asp-for="Reason" id="Reason" type="text" rows="2" cols="20" data-val-length-min="50" data-val-length-max="300"></textarea>
-                        <span asp-validation-for="Reason" class="text-danger"></span>
-                    </li>
-                    <li class="col-sm-4">
-                        <label asp-for="ANSCount">@Localizer["Amount Of NEO"]</label><br />
-                        <input asp-for="ANSCount" id="NEOCount" type="text" data-val-regex-pattern="\d+" />
-                        <span asp-validation-for="ANSCount" class="text-danger"></span>
-                    </li>
-                    <li class="col-sm-4">
-                        <label asp-for="ANCCount">@Localizer["Amount Of GAS"]</label><br />
-                        <input asp-for="ANCCount" id="GASCount" type="text" data-val-regex-pattern="\d+" />
-                        <span asp-validation-for="ANCCount" class="text-danger"></span>
-                    </li>
-                    <li class="col-sm-4">
-                        <label asp-for="PubKey">@Localizer["NEO Public Key"]</label><br />
-                        <input asp-for="PubKey" id="PubKey" type="text" data-val-regex-pattern="0[0-9|abcdef]{65}" />
-                        <p class="t3">@Localizer["Please fill out your own NEO public key, if the application succeeds, we will send Neo/gas to a multiple signature address and tell you how to use it."]</p>
-                        <span asp-validation-for="PubKey" class="text-danger"></span>
-                    </li>
-                </ul>
-                <p class="apply-btn-p m1"><input type="submit" class="btneo-fri t1" value=@Localizer["Submit Application"]></p>
-            </div>
-        </form>
+<div class="container body-content">
+    <div class="row apply-content m2">
+        <div class="col-lg-12">
+            <h1 class="apply-title m1">@Localizer["Apply For Testcoin NEO&GAS"]</h1>
+            <form asp-action="Create">
+                <div class="input-form">
+                    <ul>
+                        <li class="col-lg-6">
+                            <label asp-for="Name">@Localizer["Name"]</label><br />
+                            <input asp-for="Name" name="Name" id="Name" type="text">
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </li>
+                        <li class="col-lg-6">
+                            <label asp-for="Email">@Localizer["Email"]</label><br />
+                            <input asp-for="Email" name="Email" id="Email" type="email">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </li>
+                        <li class="col-lg-6">
+                            <label asp-for="Phone">@Localizer["Phone"]</label><br />
+                            <input asp-for="Phone" id="Phone" type="tel">
+                            <span asp-validation-for="Phone" class="text-danger"></span>
+                        </li>
+                        <li class="col-lg-6">
+                            <label asp-for="QQ">@Localizer["QQ"]</label><br />
+                            <input asp-for="QQ" id="QQ" type="text" data-val-regex-pattern="\d+" />
+                            <span asp-validation-for="QQ" class="text-danger"></span>
+                        </li>
+                        <li class="col-lg-12">
+                            <label asp-for="Company">@Localizer["Company Name/Project Name"]</label><br />
+                            <input asp-for="Company" id="Company" type="text" placeholder=@Localizer["Company Name/Project Name"] />
+                            <span asp-validation-for="Company" class="text-danger"></span>
+                        </li>
+                        <li class="col-lg-12">
+                            <label asp-for="Reason">@Localizer["Reasons For Application"]</label><br />
+                            <textarea asp-for="Reason" id="Reason" type="text" rows="2" cols="20" data-val-length-min="50" data-val-length-max="300"></textarea>
+                            <span asp-validation-for="Reason" class="text-danger"></span>
+                        </li>
+                        <li class="col-sm-4">
+                            <label asp-for="ANSCount">@Localizer["Amount Of NEO"]</label><br />
+                            <input asp-for="ANSCount" id="NEOCount" type="text" data-val-regex-pattern="\d+" />
+                            <span asp-validation-for="ANSCount" class="text-danger"></span>
+                        </li>
+                        <li class="col-sm-4">
+                            <label asp-for="ANCCount">@Localizer["Amount Of GAS"]</label><br />
+                            <input asp-for="ANCCount" id="GASCount" type="text" data-val-regex-pattern="\d+" />
+                            <span asp-validation-for="ANCCount" class="text-danger"></span>
+                        </li>
+                        <li class="col-sm-4">
+                            <label asp-for="PubKey">@Localizer["NEO Public Key"]</label><br />
+                            <input asp-for="PubKey" id="PubKey" type="text" data-val-regex-pattern="0[0-9|abcdef]{65}" />
+                            <p class="t3">@Localizer["Please fill out your own NEO public key, if the application succeeds, we will send Neo/gas to a multiple signature address and tell you how to use it."]</p>
+                            <span asp-validation-for="PubKey" class="text-danger"></span>
+                        </li>
+                    </ul>
+                    <p class="apply-btn-p m1"><input type="submit" class="btneo-fri t1" value=@Localizer["Submit Application"]></p>
+                </div>
+            </form>
+        </div>
     </div>
+    @*<div>
+            <a asp-action="List">Back to List</a>
+        </div>*@
 </div>
-@*<div>
-    <a asp-action="List">Back to List</a>
-</div>*@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -1,11 +1,17 @@
-﻿
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
 @{
     ViewData["Title"] = "dApps";
 }
+@section Styles{
+    <link href="~/css/dapps.css" rel="stylesheet" />
+}
 <div class="container body-content">
-    <h2>dApps</h2>
-
-    <a class="btn btn-primary" href="javascript:">添加dApp</a>
+    <div class="text-center">
+        <h2 class="m2">@Localizer["dApps list"]</h2>
+        <a class="btn btn-default" target="_blank" href="https://github.com/neo-project/neo.org/tree/develop/NeoWeb/Views/DApps">@Localizer["Add dApp"]</a>
+    </div>
 
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-4">

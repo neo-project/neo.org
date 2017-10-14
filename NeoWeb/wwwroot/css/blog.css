@@ -90,11 +90,9 @@ a{
 .blog_date.artical-date {
     padding-top:50px;
 }
-.artical-container {
-    
-}
+
 .nav-artical {
-    line-height: 1;
+    line-height: 2;
 }
 .nav-artical div{
     display:inline-block;
@@ -105,13 +103,21 @@ a{
 }
 .artical-content {
     background:#FFFFFF;
-    padding:42px 0;
+    padding:42px 100px;
+}
+.nav-artical {
+    padding: 10px 100px;
+}
+.artical-content h2 {
+    line-height: 2;
+    padding-bottom: 20px;
 }
 .artical-content p{
     margin:0;
     text-indent:0!important;
     text-align:left;
-    padding:0 100px;
+    padding-top:0;
+    padding-bottom:20px;
     line-height:1.5;
 }
 .blog-content :first-child img{
@@ -156,7 +162,6 @@ a.next-artical::after {
     .blog_title {
         letter-spacing:2px;
     }
-    .body-content,
     .blog-list {
         padding:0;
         margin-top:0;
@@ -210,18 +215,22 @@ a.next-artical::after {
         border-top:1px solid #E4E4E4;
     }
 }
-
-@media only screen and (max-width : 780px) {
+@media only screen and (max-width : 1200px) {
     body {
         padding-top: 84px;
     }
+}
+@media only screen and (max-width : 780px) {
     .blog_scroll {
         height: 500px;
     }
     .nav-artical .prev-artical {
         margin-right: 12px;
     }
-    .artical-content p {
+    .artical-content{
         padding:0 12px;
+    }
+    .nav-artical {
+        padding:20px 12px;
     }
 }

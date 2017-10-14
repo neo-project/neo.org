@@ -9,16 +9,16 @@
     <link href="~/css/blog.css" rel="stylesheet" />
 }
 
-<div>
+<div class="row">
     <ul class="col-lg-1 blog_date artical-date desktop-show" id="blogDate">
         @foreach (var item in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Select(p => p.Year).Distinct())
         {
             <li class="m3">
-                <a class="iconfont h2">@item</a>
+                <a class="h2 year">@item</a>
                 <ul>
                     @foreach (var m in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Where(p => p.Year == item).Select(p => p.Month).Distinct())
                     {
-                        <li><a href="~/blog/index?y=@item&m=@m">@m.ToMonth().ToUpper()</a></li>
+                        <li><a class="month" href="~/blog/index?y=@item&m=@m">@m.ToMonth().ToUpper()</a></li>
                     }
                 </ul>
             </li>
@@ -29,16 +29,16 @@
 
         <div class="nav-artical nav-artical-top p2 clearfix">
             <div class="pull-left"><a class="iconfont t1 back_list" href="~/blog"><span class="desktop-show">回到文章列表</span></a></div>
-            <ul class="blog_date mobile-show">
+            <ul class="blog_date mobile-show pull-left">
                 @foreach (var item in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Select(p => p.Year).Distinct())
                 {
                     <li>
-                        <a class="h2" href="~/blog/index?y=@item">@item</a>
+                        <a class="h2 year" href="~/blog/index?y=@item">@item</a>
                     </li>
                 }
             </ul>
 
-            <div class="pull-right">
+            <div class="pull-right pull-right text-right">
                 <a class="iconfont t1 prev-artical icon-to-left" href="~/blog/details/@ViewBag.PrevBlogId"><span class="desktop-show">上一篇</span></a>
                 <a class="iconfont t1 next-artical" href="~/blog/details/@ViewBag.NextBlogId"><span class="desktop-show">下一篇</span></a>
             </div>
@@ -46,9 +46,8 @@
 
         <div class="artical-content">
             <div>
-                <h2>@Model.Title</h2>
-                <br /><p class="light-text t2 m3">由作者 <span class="bold-font">@Model.User.UserName</span> 于 <span class="bold-font">@Model.CreateTime.ToString()</span> 发布</p>
-                <br />
+                <h2 class="text-center">@Model.Title</h2>
+                <p class="light-text t2 m3">由作者 <span class="bold-font">@Model.User.UserName</span> 于 <span class="bold-font">@Model.CreateTime.ToString()</span> 发布</p>
             </div>
             <div class="blog-content t2">
                 @Html.Raw(Model.Content)
@@ -57,8 +56,8 @@
 
         <div class="nav-artical nav-artical-bottom p2 clearfix">
             <div class="pull-left"><a class="iconfont t1 back_list" href="~/blog"><span class="desktop-show">回到文章列表</span></a></div>
-            <div><a class="iconfont t1 back-to-top"><span class="desktop-show">回顶部</span></a></div>
-            <div class="pull-right">
+            <div class="pull-left"><a class="iconfont t1 back-to-top"><span class="desktop-show">回顶部</span></a></div>
+            <div class="pull-right text-right">
                 <a class="iconfont t1 prev-artical icon-to-left" href="~/blog/details/@ViewBag.PrevBlogId"><span class="desktop-show">上一篇</span></a>
                 <a class="iconfont t1 next-artical" href="~/blog/details/@ViewBag.NextBlogId"><span class="desktop-show">下一篇</span></a>
             </div>

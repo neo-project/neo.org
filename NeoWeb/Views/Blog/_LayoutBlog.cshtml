@@ -4,10 +4,8 @@
 @section Styles{
     @RenderSection("Styles", required: false)
 }
-<div class="container body-content">
-    <div class="row">
-        @RenderBody()
-    </div>
+<div class="container">
+    @RenderBody()
 </div>
 @await Html.PartialAsync("_LoginPartial")
 
