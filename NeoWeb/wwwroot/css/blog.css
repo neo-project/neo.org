@@ -158,6 +158,7 @@ a.next-artical::after {
     content:"\eaa3";
 }
 
+
 @media only screen and (max-width : 1200px) {
     .blog_title {
         letter-spacing:2px;
@@ -218,6 +219,14 @@ a.next-artical::after {
 @media only screen and (max-width : 1200px) {
     body {
         padding-top: 84px;
+    }
+}
+
+@media only screen and (min-width : 780px) {
+    .blog-content .img-cover {
+        width: calc(100% + 200px);
+        margin-left: -100px;
+        max-width: none;
     }
 }
 @media only screen and (max-width : 780px) {
