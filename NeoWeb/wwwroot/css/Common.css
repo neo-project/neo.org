@@ -2,12 +2,11 @@
     width: 100%;
     height:100%;
     margin: 0;
-    background:#E4E4E4;
     font-family:'Microsoft YaHei UI';
 }
 body {
+    background:#E4E4E4;
     padding-top: 60px;
-    padding-bottom: 20px;
 }
 h1, .h1, h2, .h2, h3, .h3 {
     margin:0;
@@ -30,7 +29,9 @@ h3,.h3 {font-size: 16px;font-weight:bold;}
 .desktop-show {display:inline-block;}
 .mobile-show {display:none;}
 .light-text {color:#AAAAAA;}
-
+.midpoint {position:absolute;top:0;left:0;right:0;bottom:0;margin:auto;}
+.posi-rela {position:relative;}
+.posi-fixed {position:fixed;}
 @media only screen and (max-width : 1200px) {
     h1,.h1 {font-size: 24px;}
     h2,.h2 {font-size: 18px;font-weight:bold;}

@@ -9,7 +9,7 @@
     <link href="~/css/blog.css" rel="stylesheet" />
 }
 
-<div>
+<div class="blog-container">
     <ul class="col-lg-1 blog_date artical-date desktop-show" id="blogDate">
         @foreach (var item in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Select(p => p.Year).Distinct())
         {

@@ -1,27 +1,122 @@
 ﻿body {
+    /*padding-top: 0px;*/
+    overflow-x:hidden;
     background: url(../images/home-bg.png);
     background-position: top left;
     background-size: cover;
     background-attachment:fixed;
     background-repeat: no-repeat;
-    background:linear-gradient(rgb(255,255,255),rgb(200,200,200));
 }
-.a111 {
+.posi-rela {
+    height:100%;
+}
+#bg1, #bg2, #bg3 {
+    position:fixed;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-repeat: repeat-x;
+}
+#bg1 {
+    background: url(../images/home-bg.png);
+}
+#bg2 {
+    background: url(../images/home-bg.png);
+}
+#bg3 {
+    background: url(../images/home-bg.png);
+}
+.back-mask {
+    position:absolute;
+    top:0;
+    left:0;
     width:100%;
     height:100%;
-    background: url(../images/home-bg.png);
-    background-position: top left;
-    background-attachment: fixed;
+    background: url(../images/home-bg-1.png);
+    background-position: center;
     background-repeat: no-repeat;
-    -webkit-mask: url(../images/home-cube.png) no-repeat center center;
+    background-size:cover;
+
+}
+.home-page-content {
+    position:relative;
+    height:1200px;
+    background:#E4E4E4;
+}
+.back-opacity {
+    background:transparent;
+}
+.home-text-fir {
+    width:90%;
+    height:48%;
+}
+.home-text-fir h1,
+.home-text-fir h2{
+    text-align:center;
+    line-height:1.5;
 }
 
-.a111 {
-    width:100%;
-    height:100%;
-    background: url(../images/home-bg.png);
-    background-position: top left;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    -webkit-mask: url(../images/home-cube.png) no-repeat center center;
+/*滚动元素样式调整*/
+.scroll-page {
+    position:relative;
 }
+.scroll-page div {
+    position:absolute;
+    z-index:1;
+    top:0;
+    left:0;
+    width:100%;
+    background-repeat:no-repeat;
+    background-position: center;
+    background-size:100%;
+}
+.home-scroll {
+    text-align:center;
+}
+.home-scroll img{
+    width:100%;
+}
+.home-scroll .posi-fixed {
+
+}
+.home-scroll.posi-fixed div{
+    z-index:1;
+}
+.home-scroll.scroll-fri {
+    background:url(../images/home-scroll-1.png) repeat;
+}
+.home-scroll.scroll-sec {
+
+}
+.home-scroll.scroll-thr {
+
+}
+.home-scroll.scroll-four {
+
+}
+@media only screen and (max-width: 1400px) {
+    .home-page-content {
+        height:800px;
+    }
+}
+@media only screen and (max-width: 1200px) {
+    .home-page-content {
+        height:600px;
+    }
+}
+@media only screen and (max-width: 780px) {
+    body {
+        padding-top: 0;
+    }
+}
+@media only screen and (max-width: 350px) {
+    .home-text-fir {
+        width: 85%;
+        height: 60%;
+    }
+    .home-page-content {
+        height:500px;
+    }
+}
+
