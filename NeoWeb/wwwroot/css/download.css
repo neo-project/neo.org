@@ -11,6 +11,7 @@ ul,li {
 .nav-download {
     color:#6C6C6C;
     text-align:center;
+    width: 50%;
 }
 .nav-download li{
     display:inline-block;
@@ -30,6 +31,20 @@ ul,li {
 }
 .download-ul li {
     line-height:1.5;
+    text-align:center;
+}
+.download-ul li:hover .down-pic{
+    animation:pulse 2s infinite;
+}
+.download-ul li:hover .down-pic span{
+    animation:pulse 2s infinite;
+}
+@keyframes pulse{
+    0% { transform:scale(1);}
+    25% { transform:scale(1.1);}
+    50% { transform:scale(1);}
+    75% { transform:scale(1.1);}
+    100% { transform:scale(1);}
 }
 .download-ul a {
     color:initial;
@@ -40,7 +55,7 @@ ul,li {
 }
 .down-box {
     background:#FFFFFF;
-    /*box-shadow:0 0 10px #aaaaaa;*/
+    overflow:hidden;
 }
 .down-pic {
     position:relative;
@@ -64,6 +79,7 @@ ul,li {
     padding:0 25px;
     color:#6C6C6C;
     min-height:137px;
+    text-align:left;
 }
 .down-box p.bold-font{
     color:#4A4A4A;
@@ -107,6 +123,9 @@ ul,li {
     }
     .down-box p{
         padding:0 14px;
+    }
+    .nav-download {
+        width: 100%;
     }
     .nav-download li img {
         display:none;

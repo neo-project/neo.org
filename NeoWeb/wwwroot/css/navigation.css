@@ -40,7 +40,6 @@ ul,li {
 }
 .dropdown-menu li a{
     width:100%;
-    /*background:rgba();*/
 }
 
 .main-footer {
@@ -62,15 +61,11 @@ ul,li {
 .footer-link li a{
     color:#9C9C9C;
 }
-
-[class*=footerLogo] {
-    
+.footer-logo{
+    height:100px;
 }
-.footerLogo-desk {
-
-}
-.footerLogo-mobile {
-    display:none;
+.footer-logo img{
+    height:inherit;
 }
 .nav.navbar-nav.pop-menu ul.dropdown-menu {
     background-color: white;
@@ -112,11 +107,8 @@ ul,li {
     .footer-link li {
         width:48%;
     }
-    .footerLogo-desk {
-        display:none;
-    }
-    .footerLogo-mobile {
-        display:block;
-    }
 
+    .footer-logo{
+        height:50px;
+    }
 }
