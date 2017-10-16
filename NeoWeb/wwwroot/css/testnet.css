@@ -87,10 +87,14 @@
 
 /*申请块*/
 .link-apply {
-    background: url(../images/deve-bg-1.png) no-repeat left center;
+    background-image: linear-gradient(-140deg, #A5A5A5 0%, #6D6D6D 100%, #6C6C6C 100%),
+        url(../images/deve-bg-1.png) no-repeat left center;
     background-size:contain;
     color:#FFFFFF;
     font-weight:100;
+}
+.link-apply .col-sm-5{
+
 }
 .link-apply .h1{
     color:#BEEB00;
