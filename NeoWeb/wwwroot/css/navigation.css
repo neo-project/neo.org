@@ -97,6 +97,9 @@ ul,li {
     height: 100%;
 }
 @media only screen and (max-width : 780px) {
+    .navbar-brand {
+        padding: 5px 0;
+    }
     .nav.navbar-nav.pop-menu {
         text-align:center;
         margin:0 -15px;
