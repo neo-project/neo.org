@@ -6,27 +6,12 @@
     background-size: cover;
     background-attachment:fixed;
     background-repeat: no-repeat;
+    min-height:100%;
 }
 .posi-rela {
     height:100%;
 }
-#bg1, #bg2, #bg3 {
-    position:fixed;
-    z-index: 1;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-repeat: repeat-x;
-}
-#bg1 {
-    background: url(../images/home-bg.png);
-}
-#bg2 {
-    background: url(../images/home-bg.png);
-}
-#bg3 {
-    background: url(../images/home-bg.png);
-}
+
 .back-mask {
     position:absolute;
     top:0;
@@ -71,6 +56,11 @@
     background-position: center;
     background-size:100%;
 }
+.scroll-page.city-back .home-scroll {
+    top:auto;
+    bottom:60px;
+    width:180%;
+}
 .home-scroll {
     text-align:center;
 }
@@ -84,7 +74,7 @@
     z-index:1;
 }
 .home-scroll.scroll-fri {
-    background:url(../images/home-scroll-1.png) repeat;
+    /*background:url(../images/home-back-5.png);*/
 }
 .home-scroll.scroll-sec {
 

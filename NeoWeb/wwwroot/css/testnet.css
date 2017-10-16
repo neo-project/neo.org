@@ -87,7 +87,8 @@
 
 /*申请块*/
 .link-apply {
-    background:#6C6C6C;
+    background: url(../images/deve-bg-1.png) no-repeat left center;
+    background-size:contain;
     color:#FFFFFF;
     font-weight:100;
 }
@@ -95,7 +96,6 @@
     color:#BEEB00;
     font-weight:100;
 }
-
 
 /*申请内部的表部分*/
 .apply-content {
