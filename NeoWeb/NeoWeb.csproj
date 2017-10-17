@@ -22,4 +22,8 @@
       <Generator></Generator>
     </EmbeddedResource>
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\upload\" />
+  </ItemGroup>
 </Project>
