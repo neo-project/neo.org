@@ -6,7 +6,6 @@
     background:#3F3F3F;
     background:rgba(63,63,63,0.9);
     border-top:none;
-    border-bottom:1px solid #5D5D5D;
 }
 .nav.navbar-nav.pop-menu li a{
     color:#FFFFFF;
@@ -23,9 +22,8 @@
 }
 
 .content-border {
-    margin: 30px 0 0;
-    padding: 50px;
-    border: 1px solid #6C6C6C;
+    margin: 30px auto 0;
+    padding: 100px 50px;
     text-align: center;
     letter-spacing:1px;
     color:#FFFFFF;
@@ -44,6 +42,7 @@
 
 .btneo-fri {
     display: block;
+    width:100%;
     max-width:300px;
     color: #6c6c6c;
     background: #beeb00;
@@ -87,24 +86,50 @@
 
 /*申请块*/
 .link-apply {
-    background-image:url(../images/deve-bg-1.png) left center;
-    background-image:url(../images/deve-bg-1.png),linear-gradient(-140deg, #A5A5A5 0%, #6D6D6D 100%, #6C6C6C 100%);
-    background-repeat:no-repeat;
-    background-size:contain;
-    color:#FFFFFF;
-    font-weight:100;
+    background-image: linear-gradient(140deg, #A5A5A5 0%, #6D6D6D 100%, #6C6C6C 100%);
+    background-image: url(../images/deve-bg-1.png),linear-gradient(140deg, #A5A5A5 0%, #6D6D6D 100%, #6C6C6C 100%);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: -50px center,left center;
+    color: #FFFFFF;
+    font-weight: 100;
 }
 .link-apply .h1{
     color:#BEEB00;
     font-weight:100;
 }
+.link-apply .apply-intro {
+    line-height: 2;
+    padding: 0px 12px;
+    text-align: left;
+}
 .github-back {
     background:url(../images/deve-git.jpg) no-repeat center;
     background-size:cover;
+    color:#86E991;
+}
+.github-back .btneo-sec {
+    border:1px solid #86E991;
+    color:#86E991;
+}
+.github-back .btneo-sec:hover {
+    color: #3F3F3F;
+    background: rgba(134,233,145,.7);
+    border: none;
 }
 .docu-back {
     background:url(../images/deve-docu.jpg) no-repeat center;
     background-size:cover;
+    color:#73A2FF;
+}
+.docu-back .btneo-sec {
+    border:1px solid #73A2FF;
+    color:#73A2FF;
+}
+.docu-back .btneo-sec:hover {
+    color: #3F3F3F;
+    background: rgba(115,162,255,.75);
+    border: none;
 }
 /*申请内部的表部分*/
 .apply-content {
@@ -113,6 +138,7 @@
     text-align:center;
     letter-spacing:1px;
     font-weight:100;
+    padding: 18px 0px;
 }
 .apply-title {
     color:#BEEB00;
@@ -131,10 +157,11 @@
 .input-form ul::after {
     clear: both;
 }
-.input-form ul li {
+/*.input-form ul li {
     margin-bottom:20px;
-}
+}*/
 .input-form ul label {
+    margin-bottom: 10px;
     color:#d8d8d8;
     font-size:14px;
     font-weight:100;
@@ -157,21 +184,48 @@
 .apply-btn-p {
     margin-top:12px;
 }
+.pub-key-hint {
+    margin-top:10px;
+}
+
+.input-validation-error {
+    border:1px solid #D95B5B!important;
+}
+.text-danger {
+    display: inline-block;
+    margin-top: 10px;
+    color: #D95B5B;
+}
 
 @media only screen and (max-width : 1200px) {
     .content-border {
-        padding: 40px;
+        padding: 100px 40px;
         margin-top:15px;
-    }
-    .btneo-fri {
-        max-width:200px;
     }
     .btneo-sec {
         max-width:200px;
     }
 }
-@media only screen and (max-width : 780px) {
+@media only screen and (max-width : 768px) {
+    .link-apply {
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-size: 200px, 100%;
+        background-position: center -160px,left top;
+    }
     .content-border {
-        padding: 20px 30px;
+        padding: 100px 30px 60px;
+        max-width: 355px;
+    }
+    .github-back,
+    .docu-back{
+        padding: 80px 30px;
+    }
+    [class*=btneo] {
+        height: 45px;
+        line-height: 45px;
+    }
+    .btneo-fri {
+        max-width:200px;
     }
 }

@@ -17,12 +17,13 @@ ul,li {
     display:inline-block;
     width:32%;
     font-weight:600;
+    color:#AAAAAA;
+    cursor:pointer;
 }
-.nav-download li img{
+.nav-download li em{
     display:block;
-    margin:auto;
-    width:50px;
-    height:50px;
+    font-style:normal;
+    font-size:40px;
 }
 .download-ul {
     font-weight:100;
@@ -33,7 +34,7 @@ ul,li {
     line-height:1.5;
     text-align:center;
 }
-.download-ul li:hover .down-pic{
+/*.download-ul li:hover .down-pic{
     animation:pulse 2s infinite;
 }
 .download-ul li:hover .down-pic span{
@@ -45,7 +46,7 @@ ul,li {
     50% { transform:scale(1);}
     75% { transform:scale(1.1);}
     100% { transform:scale(1);}
-}
+}*/
 .download-ul a {
     color:initial;
     cursor:pointer;
@@ -71,21 +72,27 @@ ul,li {
     z-index: 24;
     left: 24px;
     bottom:20px;
-    color:#6C6C6C;
+    color:#FFFFFF;
     font-weight:600;
     letter-spacing:2px;
 }
 .down-box p{
     padding:0 25px;
     color:#6C6C6C;
-    min-height:137px;
     text-align:left;
 }
-.down-box p.bold-font{
-    color:#4A4A4A;
+
+.down-box p.bold-font,
+.down-box p.bold-font a{
+    color:#6C6C6C;
     line-height:2;
     min-height:initial;
 }
+.down-box p.bold-font a:hover{
+    color:#333333;
+    text-decoration:none;
+}
+
 .down-btn {
     display:block;
     background:#BEEB00;
@@ -97,23 +104,25 @@ ul,li {
     vertical-align: middle;
     line-height: 55px;
 }
-
-.downtab-select {
-    color:#6c6c6c;
+.nav-download  li.downtab-select {
+    color:#58BF00;
 }
+
 .down-select {
     display:block;
+}
+
+.down-hint {
+    width: 50%;
+    background: #D8D8D8;
+    color: #6C6C6C;
+    padding: 12px 62px;
+    line-height: 2;
 }
 
 @media only screen and (max-width : 1200px) {
     .down-box p{
         min-height:110px;
-    }
-}
-
-@media only screen and (max-width : 980px) {
-    .down-box p{
-        min-height:162px;
     }
 }
 
@@ -127,7 +136,7 @@ ul,li {
     .nav-download {
         width: 100%;
     }
-    .nav-download li img {
+    .nav-download li em{
         display:none;
     }
     .download-ul{
@@ -136,5 +145,10 @@ ul,li {
     }
     .down-box p{
         min-height:initial;
+    }
+    .down-hint {
+        width:100%;
+        max-width:330px;
+        padding: 12px 20px;
     }
 }

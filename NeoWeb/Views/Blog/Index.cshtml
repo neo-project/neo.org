@@ -41,13 +41,13 @@
             {
                 <li class="m3">
                     <h2><a asp-action="details" asp-route-id="@item.Id">@item.Title</a></h2>
-                    <p class="t3 m3">由作者 <span class="bold-font">@item.User</span> 于 <span class="bold-font">@item.CreateTime</span> 发布</p>
+                    <p class="t2 m3">由作者 <span class="bold-font">@item.User</span> 于 <span class="bold-font">@item.CreateTime</span> 发布</p>
                     <p class="t2">@item.Summary.Substring(0, Math.Min(item.Summary.Length, 100))…</p>
                 </li>
             }
         </ul>
     </div>
-
+</div>
 
 @section Scripts{
     <script type="text/javascript" src="~/js/blog.js"></script>
