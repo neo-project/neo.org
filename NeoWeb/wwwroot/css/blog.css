@@ -1,4 +1,7 @@
-﻿/*blog页面*/
+﻿ul, ol {
+    margin-bottom: 0px;
+}
+/*blog页面*/
 .blog-container {
     text-align:center;
     color:#6C6C6C;
@@ -108,6 +111,10 @@ a{
 .artical-content {
     background:#FFFFFF;
     padding:42px 100px;
+}
+.artical-content ul,
+.artical-content li {
+     list-style: initial; 
 }
 .nav-artical {
     padding: 10px;

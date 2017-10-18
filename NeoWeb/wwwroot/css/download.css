@@ -135,10 +135,11 @@ ul,li {
     }
     .nav-download {
         width: 100%;
+        max-width:340px;
     }
-    .nav-download li em{
+    /*.nav-download li em{
         display:none;
-    }
+    }*/
     .download-ul{
         max-width:360px;
         margin:auto;

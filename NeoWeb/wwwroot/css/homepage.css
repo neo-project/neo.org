@@ -2,7 +2,6 @@
     /*padding-top: 0px;*/
     overflow-x:hidden;
     overflow:hidden;
-    background: url(../images/home-bg.png);
     background-position: top left;
     background-size: cover;
     background-attachment:fixed;
@@ -189,6 +188,24 @@
     /*opacity: 0.58;
     background: #0C461B;*/
 }
+
+/*什么是neo页面*/
+.home-neo-intro {
+    line-height:2;
+    padding:40px 80px;
+    text-align:center;
+}
+.home-neo-intro .p2{
+    padding-top:0px;
+}
+.home-neo-intro .col-lg-8{
+    background-image: linear-gradient(-177deg, rgba(244,244,244,0.8), rgb(188,188,188));
+    min-height:250px;
+    float:initial;
+    margin:auto;
+}
+
+
 @media only screen and (max-width: 1400px) {
     .home-page-content {
         height:800px;
