@@ -44,6 +44,28 @@ h3,.h3 {font-size: 16px;font-weight:bold;}
 .dis-table {display:table;}
 .dis-table-row {display:table-row;}
 .dis-table-cell {display:table-cell;vertical-align:middle;}
+.btneo {
+    display: block;
+    margin: auto;
+    border-radius: 0;
+    font-weight: 100;
+    height: 55px;
+    line-height: 55px;
+    width: 100%;
+    max-width: 300px;
+    vertical-align: middle;
+    color: #6c6c6c;
+    background: #beeb00;
+    border: none;
+    padding: 0 20px;
+    cursor:pointer;
+}
+.btneo:hover {
+    color: #222222;
+    background: #aedb00;
+    border-radius: 0;
+    text-decoration: none;
+}
 
 @media only screen and (max-width : 1200px) {
     h1,.h1 {font-size: 22px;}
