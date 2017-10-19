@@ -273,7 +273,17 @@
     float:right;
 }
 /*开发者页面*/
-
+.home-developer {
+    background-image: url(../images/deve-bg-1.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: -50px center;
+    color: #FFFFFF;
+    font-weight: 100;
+}
+.developer-text {
+    padding-left:20%;
+}
 
 /*小屏样式适配*/
 @media only screen and (max-width: 1400px) {
