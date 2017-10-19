@@ -58,7 +58,12 @@ ul,li {
     width:22%;
     line-height:2.5;
 }
+.footer-link li span.iconfont{
+    font-size:40px;
+}
 .footer-link li a{
+    display: inline-block;
+    width: 100px;
     color:#9C9C9C;
 }
 .footer-logo{
