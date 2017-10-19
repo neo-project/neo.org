@@ -43,11 +43,10 @@ ul,li {
 }
 
 .main-footer {
-    background: #E4E4E4;
+    background: #FFFFFF;
     padding: 35px 0; 
-    color: #959595; 
+    color: #6C6C6C; 
     width:100%;
-
     text-align:center;
 }
 .footer-link {
@@ -59,15 +58,16 @@ ul,li {
     line-height:2.5;
 }
 .footer-link li span.iconfont{
+    vertical-align:middle;
     font-size:40px;
 }
 .footer-link li a{
     display: inline-block;
     width: 100px;
-    color:#9C9C9C;
+    color:#6C6C6C;
 }
 .footer-logo{
-    height:100px;
+    height:70px;
 }
 .footer-logo img{
     height:inherit;
@@ -111,6 +111,10 @@ ul,li {
 
     .footer-link li {
         width:48%;
+        line-height:1.8;
+    }
+    .footer-link li span.iconfont{
+        font-size:30px;
     }
 
     .footer-logo{
