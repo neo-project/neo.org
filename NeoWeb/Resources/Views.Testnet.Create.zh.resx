@@ -168,4 +168,22 @@
   <data name="Submit Application" xml:space="preserve">
     <value>提交申请</value>
   </data>
+  <data name="Application reason at least 50 characters, up to 300 characters" xml:space="preserve">
+    <value>申请理由至少50字，最多300字</value>
+  </data>
+  <data name="Please enter a valid E-mail address" xml:space="preserve">
+    <value>请输入正确的邮件地址</value>
+  </data>
+  <data name="Please enter a valid number" xml:space="preserve">
+    <value>请输入正确的数字</value>
+  </data>
+  <data name="Please enter a valid phone" xml:space="preserve">
+    <value>请输入正确的手机号</value>
+  </data>
+  <data name="Please enter a valid public key" xml:space="preserve">
+    <value>请输入正确的公钥</value>
+  </data>
+  <data name="This field is required" xml:space="preserve">
+    <value>必填项</value>
+  </data>
 </root>

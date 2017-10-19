@@ -117,16 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Apply For Testcoin NEO&amp;GAS" xml:space="preserve">
-    <value>测试NEO&amp;GAS申请</value>
+  <data name="Apply for NEO/GAS" xml:space="preserve">
+    <value>申请NEO/GAS</value>
   </data>
-  <data name="developers file application" xml:space="preserve">
-    <value>开发者申请</value>
+  <data name="Apply For NEO/GAS in Testnet" xml:space="preserve">
+    <value>申请测试网的NEO/GAS</value>
   </data>
-  <data name="If you are developing a NEO ecosystem application project, and need NEO/GAS in the TestNet, please fill in the following application form and send it. Once your application is passed, you will receive an email notification." xml:space="preserve">
-    <value>如果你正在创建小蚁生态的项目，需要 测试网 的 NEO 或 GAS，请填写下面的表单进行申请，申请通过后会收到邮件通知。</value>
+  <data name="If you are developing a NEO ecosystem application project, and need NEO/GAS in the &lt;b&gt;TestNet&lt;/b&gt;, please fill in the following application form and send it. Once your application is passed, you will receive an email notification." xml:space="preserve">
+    <value>如果你正在创建小蚁生态的项目，需要 &lt;b&gt;测试网&lt;/b&gt; 的 NEO 或 GAS，请填写下面的表单进行申请，申请通过后会收到邮件通知。</value>
   </data>
-  <data name="Technical documentation" xml:space="preserve">
+  <data name="Technical Docs" xml:space="preserve">
     <value>技术文档</value>
+  </data>
+  <data name="Open link" xml:space="preserve">
+    <value>访问链接</value>
   </data>
 </root>

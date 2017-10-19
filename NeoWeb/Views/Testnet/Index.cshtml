@@ -11,10 +11,10 @@
     <div class="row content-border link-apply">
         <div class="col-sm-6"></div>
         <div class="col-sm-6">
-            <p class="h1 m2">@Localizer["Apply For Testcoin NEO&GAS"]</p>
-            <p class="t2 apply-intro">@Localizer["If you are developing a NEO ecosystem application project, and need NEO/GAS in the TestNet, please fill in the following application form and send it. Once your application is passed, you will receive an email notification."]</p>
+            <p class="h1 m2">@Localizer["Apply For NEO/GAS in Testnet"]</p>
+            <p class="t2 apply-intro">@(Localizer["If you are developing a NEO ecosystem application project, and need NEO/GAS in the <b>TestNet</b>, please fill in the following application form and send it. Once your application is passed, you will receive an email notification."])</p>
             <p class="m2">
-                <a class="btneo-fri t1" asp-controller="Testnet" asp-action="Create">@Localizer["developers file application"]</a>
+                <a class="btneo-fri t1" asp-controller="Testnet" asp-action="Create">@Localizer["Apply for NEO/GAS"]</a>
             </p>
         </div>
     </div>
@@ -23,20 +23,14 @@
         <div class="col-sm-6">
             <div class="content-border github-back">
                 <h1 class="m1">GitHub</h1>
-                <p class="center-area m2"><a href="https://github.com/neo-project" target="_blank" class="btneo-sec t1">进入</a></p>
+                <p class="center-area m2"><a href="https://github.com/neo-project" target="_blank" class="btneo-sec t1">@Localizer["Open link"]</a></p>
             </div>
         </div>
         <div class="col-sm-6">
             <div class="content-border docu-back">
-                <h1 class="m1">@Localizer["Technical documentation"]</h1>
-                <p class="center-area m2"><a href="http://docs.neo.org" target="_blank" class="btneo-sec t1">打开页面</a></p>
+                <h1 class="m1">@Localizer["Technical Docs"]</h1>
+                <p class="center-area m2"><a href="http://docs.neo.org" target="_blank" class="btneo-sec t1">@Localizer["Open link"]</a></p>
             </div>
         </div>
     </div>
 </div>
-
-    @*@section Scripts
-        {
-            <script src="~/js/1234567.js" asp-append-version="true"></script>
-        }*@
-

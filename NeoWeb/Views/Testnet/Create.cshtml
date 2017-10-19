@@ -17,49 +17,58 @@
                     <ul>
                         <li class="col-lg-6">
                             <label asp-for="Name">@Localizer["Name"]</label><br />
-                            <input asp-for="Name" name="Name" id="Name" type="text">
+                            <input name="Name" id="Name" type="text"
+                                   data-val="true" data-val-required="@Localizer["This field is required"]">
                             <span asp-validation-for="Name" class="text-danger"></span>
                         </li>
                         <li class="col-lg-6">
                             <label asp-for="Email">@Localizer["Email"]</label><br />
-                            <input asp-for="Email" name="Email" id="Email" type="email">
+                            <input asp-for="Email" name="Email" id="Email" type="email"
+                                   data-val="true" data-val-required="@Localizer["This field is required"]" data-val-email="@Localizer["Please enter a valid E-mail address"]">
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </li>
                         <li class="col-lg-6">
                             <label asp-for="Phone">@Localizer["Phone"]</label><br />
-                            <input asp-for="Phone" id="Phone" type="tel">
+                            <input asp-for="Phone" id="Phone" type="tel"
+                                   data-val="true" data-val-phone="@Localizer["Please enter a valid phone"]">
                             <span asp-validation-for="Phone" class="text-danger"></span>
                         </li>
                         <li class="col-lg-6">
                             <label asp-for="QQ">@Localizer["QQ"]</label><br />
-                            <input asp-for="QQ" id="QQ" type="text" data-val-regex-pattern="\d+" />
+                            <input asp-for="QQ" id="QQ" type="text"
+                                   data-val="true" data-val-regex-pattern="\d+"/>
                             <span asp-validation-for="QQ" class="text-danger"></span>
                         </li>
                         <li class="col-lg-12">
                             <label asp-for="Company">@Localizer["Company Name/Project Name"]</label><br />
-                            <input asp-for="Company" id="Company" type="text" placeholder=@Localizer["Company Name/Project Name"] />
+                            <input asp-for="Company" id="Company" type="text" placeholder=@Localizer["Company Name/Project Name"]
+                                   data-val="true" data-val-required="@Localizer["This field is required"]"/>
                             <span asp-validation-for="Company" class="text-danger"></span>
                         </li>
                         <li class="col-lg-12">
                             <label asp-for="Reason">@Localizer["Reasons For Application"]</label><br />
-                            <textarea asp-for="Reason" id="Reason" type="text" rows="2" cols="20" data-val-length-min="50" data-val-length-max="300"></textarea>
+                            <textarea asp-for="Reason" id="Reason" type="text" rows="2" cols="20"
+                                      data-val="true" data-val-required="@Localizer["This field is required"]" data-val-length-min="50" data-val-length-max="300" data-val-length="@Localizer["Application reason at least 50 characters, up to 300 characters"]"></textarea>
                             <span asp-validation-for="Reason" class="text-danger"></span>
                         </li>
                         <li class="col-sm-4">
                             <label asp-for="ANSCount">@Localizer["Amount Of NEO"]</label><br />
-                            <input asp-for="ANSCount" id="NEOCount" type="text" data-val-regex-pattern="\d+" />
+                            <input asp-for="ANSCount" id="NEOCount" type="text"
+                                   data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex-pattern="\d+" data-val-regex="@Localizer["Please enter a valid number"]"/>
                             <span asp-validation-for="ANSCount" class="text-danger"></span>
                         </li>
                         <li class="col-sm-4">
                             <label asp-for="ANCCount">@Localizer["Amount Of GAS"]</label><br />
-                            <input asp-for="ANCCount" id="GASCount" type="text" data-val-regex-pattern="\d+" />
+                            <input asp-for="ANCCount" id="GASCount" type="text"
+                                   data-val="true" data-val-regex-pattern="\d+" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter a valid number"]"/>
                             <span asp-validation-for="ANCCount" class="text-danger"></span>
                         </li>
                         <li class="col-sm-4">
                             <label asp-for="PubKey">@Localizer["NEO Public Key"]</label><br />
-                            <input asp-for="PubKey" id="PubKey" type="text" data-val-regex-pattern="0[0-9|abcdef]{65}" />
-                            <p class="pub-key-hint t3">@Localizer["Please fill out your own NEO public key, if the application succeeds, we will send Neo/gas to a multiple signature address and tell you how to use it."]</p>
+                            <input asp-for="PubKey" id="PubKey" type="text"
+                                   data-val="true" data-val-regex-pattern="0[0-9|abcdef]{65}" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter a valid public key"]"/>
                             <span asp-validation-for="PubKey" class="text-danger"></span>
+                            <p class="pub-key-hint t3">@Localizer["Please fill out your own NEO public key, if the application succeeds, we will send Neo/gas to a multiple signature address and tell you how to use it."]</p>
                         </li>
                     </ul>
                     <p class="apply-btn-p m1"><input type="submit" class="btneo-fri t1" value=@Localizer["Submit Application"]></p>

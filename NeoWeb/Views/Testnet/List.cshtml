@@ -4,11 +4,9 @@
     ViewData["Title"] = "Index";
 }
 <div class="container">
-    <h2>Index</h2>
-
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
+    <br />
+    <h2>测试币申请列表</h2>
+    <hr />
     <table class="table">
         <thead>
             <tr>
@@ -19,25 +17,13 @@
                     @Html.DisplayNameFor(model => model.Email)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Phone)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.QQ)
-                </th>
-                <th>
                     @Html.DisplayNameFor(model => model.Company)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Reason)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.ANSCount)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.ANCCount)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PubKey)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Remark)
@@ -56,25 +42,13 @@
                         @Html.DisplayFor(modelItem => item.Email)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Phone)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.QQ)
-                    </td>
-                    <td>
                         @Html.DisplayFor(modelItem => item.Company)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Reason)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.ANSCount)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.ANCCount)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PubKey)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Remark)
