@@ -1,20 +1,20 @@
 ﻿body {
-    /*padding-top: 0px;*/
     overflow-x:hidden;
-    overflow:hidden;
     background-position: top left;
     background-size: cover;
     background-attachment:fixed;
     background-repeat: no-repeat;
     min-height:100%;
 }
+.zindex {position:relative;z-index:10;}
+
 /*loading页面*/
 .load-page{
     width: 100%;
     height: 100%;
     background-color: #E4E4E4;
-    position:relative;
-    z-index:1050;
+    position:fixed;
+    z-index:1000;
 }
 .span{
     float: left;
@@ -88,43 +88,38 @@
     100%{ box-shadow: inset 0 -40px 0 0 rgba(90,188,0,1);}
 }
 
-.posi-rela {
-    height:100%;
-}
-
 .back-mask {
     position:absolute;
     top:0;
     left:0;
     width:100%;
     height:100%;
-    background: url(../images/home-bg-1.png);
+    background: url(../images/home-bg.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size:cover;
 }
 .home-page-content {
     position:relative;
-    height:1200px;
-    background:#E4E4E4;
     text-align:center;
 }
-.back-opacity {
-    background:transparent;
+.back-color {
+    background:#E4E4E4;
+    box-shadow: 0 0 30px #666;
 }
 .home-text-fir {
     width:90%;
-    height:48%;
+    height:50%;
 }
 .home-text-fir h1,
 .home-text-fir h2{
     text-align:center;
     line-height:1.5;
 }
-
-/*滚动元素样式调整*/
+/*首页固定背景滚动样式*/
 .scroll-page {
     position:relative;
+    position:initial;
 }
 .scroll-page div {
     position:absolute;
@@ -136,6 +131,12 @@
     background-position: center;
     background-size:100%;
 }
+.scroll-page.city-back{
+    position:fixed;
+    z-index:-1;
+    width:100%;
+    height:100%;
+}
 .scroll-page.city-back .home-scroll {
     top:auto;
     bottom:0px;
@@ -144,15 +145,6 @@
 }
 .home-scroll {
     text-align:center;
-}
-.home-scroll img{
-    width:100%;
-}
-.home-scroll .posi-fixed {
-
-}
-.home-scroll.posi-fixed div{
-    z-index:1;
 }
 .scroll-page.city-back .home-scroll {
     background-size: contain;
@@ -174,57 +166,136 @@
 .home-scroll.scroll-five {
     background: url(../images/home-back-5.png) repeat-x;
 }
+/*.scroll-text-acr {
+    color:#FFFFFF;
+    font-size:100px;
+    opacity:0.2;
+    transform:rotateX(90deg);
+}
+.scroll-text-ver {
+    color:#FFFFFF;
+    font-size:100px;
+}*/
 .city-back .home-scroll.scroll-top {
     background: url(../images/home-back-top.png) repeat-x;
     background-size: contain;
     height:inherit;
 }
-.scroll-page.city-back .home-scroll.top-ba {
-    /* Rectangle 13: */
-    /*height:inherit;
-    opacity: 0.62;
-    background-image: linear-gradient(-1deg, rgba(180,236,81,0.80) 69%, rgba(25,82,2,0.96) 100%);*/
-    /* Rectangle 2: */
-    /*opacity: 0.58;
-    background: #0C461B;*/
-}
+
 
 /*什么是neo页面*/
 .home-neo-intro {
+    height:60%;
     line-height:2;
-    padding:40px 80px;
+    padding:40px 0px;
     text-align:center;
 }
-.home-neo-intro .p2{
+
+.home-neo-intro .col-sm-6.p2{
     padding-top:0px;
+    letter-spacing:1px;
 }
-.home-neo-intro .col-lg-8{
+.home-neo-intro .col-sm-8{
     background-image: linear-gradient(-177deg, rgba(244,244,244,0.8), rgb(188,188,188));
-    min-height:250px;
-    float:initial;
+    float:none;
     margin:auto;
+    color:#6C6C6C;
 }
 
+/*客户端下载部分页面*/
+.home-down {
+    position:relative;
+    z-index:15;
+    height:600px;
+    background-image:url("../images/home-down.png");
+    background-repeat:no-repeat;
+    background-position:top right;
+}
 
+/*技术详细介绍页面*/
+.home-deve {
+    position:relative;
+    background:#E4E4E4;
+    background:linear-gradient(98deg, #A5A5A5 1%, #6D6D6D 100%, #6C6C6C 100%);
+    overflow:hidden;
+}
+.home-scroll img{
+    width:100%;
+}
+.home-detail {
+    padding:100px 0;
+    line-height:1.8;
+}
+.home-detail:before,
+.home-detail:after{
+    content:" ";
+    display:table;
+}
+.home-detail:after{
+    clear:both;
+}
+.home-detail .detail-text {
+    display:inline-block;
+    width:52%;
+    max-width:480px;
+    padding:0px 60px;
+    color:#FFFFFF;
+    
+}
+.home-detail img{
+    display:inline-block;  
+    width:48%;
+}
+.left-pic {
+    float:left;
+}
+.right-pic {
+    float:right;
+}
+/*开发者页面*/
+
+
+/*小屏样式适配*/
 @media only screen and (max-width: 1400px) {
-    .home-page-content {
-        height:800px;
-    }
     .scroll-page.city-back .home-scroll {
         width:200%;
     }
 }
 @media only screen and (max-width: 1200px) {
-    .home-page-content {
-        height:600px;
-    }
     .scroll-page.city-back .home-scroll {
         width:250%;
     }
 }
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 768px) {
     body {
         padding-top: 0;
+    }
+    .scroll-page.city-back {
+        width:150%;
+    }
+    .home-page-content {
+        overflow-x: hidden;
+    }
+    .home-neo-intro {
+        position:static\0;
+        height:75%;
+        height:fit-content;
+        padding:20px 10px;
+        line-height:1.5;
+    }
+    .home-neo-intro .col-sm-8 {
+        margin: auto 20px;
+    }
+    .home-detail {
+        padding: 30px 0;
+    }
+    .home-detail .detail-text {
+        padding: 10px 0px;
+    }
+    .home-detail .left-pic,
+    .home-detail .right-pic {
+        width:60%;
+        float:none;
     }
 }
 @media only screen and (max-width: 350px) {
@@ -232,23 +303,14 @@
         width: 85%;
         height: 60%;
     }
-    .home-page-content {
-        height:500px;
-    }
     .scroll-page.city-back .home-scroll {
         width:280%;
     }
+    .home-neo-intro {
+        height:100%;
+    }
+    .home-neo-intro .col-sm-8{
+        padding:5px;
+    }
 }
 
-/*.blog_scroll::-webkit-scrollbar{
-    width: 5px;
-    height: 5px;
-    background-color: transparent;
-}
-.blog_scroll::-webkit-scrollbar-track{
-    background-color: transparent;
-}
-.blog_scroll::-webkit-scrollbar-thumb{
-    border-radius:5px;
-    background-color: #aaa;
-}*/
