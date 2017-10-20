@@ -14,8 +14,7 @@
     }
 }
 resize();
-window.onresize = resize;
-//$(window).bind('resize', resize);
+$(window).bind('resize', resize);
 
 var _hmt = _hmt || [];
 (function () {
