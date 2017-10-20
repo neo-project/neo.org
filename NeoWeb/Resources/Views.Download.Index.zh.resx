@@ -117,31 +117,64 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Blog" xml:space="preserve">
-    <value>博客</value>
+  <data name="Chinese" xml:space="preserve">
+    <value>中文</value>
   </data>
-  <data name="Client" xml:space="preserve">
-    <value>客户端</value>
+  <data name="Desktop" xml:space="preserve">
+    <value>桌面</value>
   </data>
   <data name="Developer" xml:space="preserve">
     <value>开发者</value>
   </data>
-  <data name="Document" xml:space="preserve">
-    <value>技术文档</value>
+  <data name="Download" xml:space="preserve">
+    <value>下载</value>
   </data>
-  <data name="Explorer" xml:space="preserve">
-    <value>区块链浏览器</value>
+  <data name="Download Client" xml:space="preserve">
+    <value>客户端下载</value>
   </data>
-  <data name="Home" xml:space="preserve">
-    <value>首页</value>
+  <data name="Download Synchronize data offline" xml:space="preserve">
+    <value>下载离线同步数据</value>
   </data>
-  <data name="Huodongxing" xml:space="preserve">
-    <value>活动行</value>
+  <data name="English" xml:space="preserve">
+    <value>英文</value>
   </data>
-  <data name="NEO Smart economy" xml:space="preserve">
-    <value>NEO 智能经济</value>
+  <data name="English/Chinese" xml:space="preserve">
+    <value>中文/英文</value>
   </data>
-  <data name="Weibo" xml:space="preserve">
-    <value>微博</value>
+  <data name="Get source code" xml:space="preserve">
+    <value>查看源代码</value>
+  </data>
+  <data name="https://play.google.com/store/apps/details?id=neo.app" xml:space="preserve">
+    <value>http://android.myapp.com/myapp/detail.htm?apkName=neo.app</value>
+  </data>
+  <data name="Mobile" xml:space="preserve">
+    <value>移动</value>
+  </data>
+  <data name="Open Google Play" xml:space="preserve">
+    <value>从应用宝下载</value>
+  </data>
+  <data name="or later" xml:space="preserve">
+    <value>及以上</value>
+  </data>
+  <data name="OTCGO" xml:space="preserve">
+    <value>蓝鲸淘</value>
+  </data>
+  <data name="Supported Borwser" xml:space="preserve">
+    <value>支持浏览器</value>
+  </data>
+  <data name="Supported Languages" xml:space="preserve">
+    <value>支持语言</value>
+  </data>
+  <data name="Supported OS" xml:space="preserve">
+    <value>支持系统</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>版本</value>
+  </data>
+  <data name="Visit Site" xml:space="preserve">
+    <value>访问</value>
+  </data>
+  <data name="Web" xml:space="preserve">
+    <value>网页</value>
   </data>
 </root>
