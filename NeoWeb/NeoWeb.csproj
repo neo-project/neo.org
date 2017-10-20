@@ -30,4 +30,8 @@
   <ItemGroup>
     <Folder Include="wwwroot\upload\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\Views.Download.Index.zh.resx" />
+  </ItemGroup>
 </Project>

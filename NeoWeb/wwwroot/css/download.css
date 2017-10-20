@@ -124,7 +124,16 @@ ul,li {
     .down-box p{
         min-height:110px;
     }
+
 }
+
+@media only screen and (max-width : 992px) {
+    .down-hint {
+        width:100%;
+        max-width:none;
+    }
+}
+
 
 @media only screen and (max-width : 768px) {
     .download-ul li:first-child{
@@ -147,9 +156,7 @@ ul,li {
     .down-box p{
         min-height:initial;
     }
-    .down-hint {
-        width:100%;
+        .down-hint {
         max-width:330px;
-        padding: 12px 20px;
     }
 }

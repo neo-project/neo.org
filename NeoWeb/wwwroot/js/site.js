@@ -13,8 +13,8 @@
         }
     }
 }
-window.onresize = resize;
 resize();
+$(window).bind('resize', resize);
 
 var _hmt = _hmt || [];
 (function () {
