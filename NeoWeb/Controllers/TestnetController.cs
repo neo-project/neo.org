@@ -97,18 +97,19 @@ namespace NeoWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Email,Phone,QQ,Company,Reason,ANSCount,ANCCount,PubKey,Remark")] Testnet testnet)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Remark")] Testnet testnet)
         {
             if (id != testnet.Id)
             {
                 return NotFound();
             }
-
-            if (ModelState.IsValid)
+            var item = _context.Testnets.FirstOrDefault(p => p.Id == testnet.Id);
+            if (item != null)
             {
                 try
                 {
-                    _context.Update(testnet);
+                    item.Remark = testnet.Remark;
+                    _context.Update(item);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -122,7 +123,7 @@ namespace NeoWeb.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(List));
             }
             return View(testnet);
         }

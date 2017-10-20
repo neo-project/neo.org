@@ -3,12 +3,13 @@
 @{
     ViewData["Title"] = "Details";
 }
+@section Styles{
+    <link rel="stylesheet" href="~/css/testnet-list.css" />
+}
 
 <div class="container">
-    <br />
-    <h2>测试币申请详情</h2>
-    <hr />
-    <div>
+    <h1 class="m1">测试币申请详情</h1>
+    <div class="coin-back apply-detail">
         <dl class="dl-horizontal">
             <dt>
                 @Html.DisplayNameFor(model => model.Name)
@@ -72,8 +73,8 @@
             </dd>
         </dl>
     </div>
-    <div>
-        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-        <a asp-action="List">Back to List</a>
+    <div class="back-to-list">
+        <a asp-action="Edit" asp-route-id="@Model.Id">备注</a> 
+        <a asp-action="List">返回列表</a>
     </div>
 </div>

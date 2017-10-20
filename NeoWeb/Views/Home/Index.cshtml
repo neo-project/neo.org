@@ -193,9 +193,9 @@
             $("body").css("height", "auto");
         }
 
-        window.onresize = function () {
-            pageSize();
-        }
+        $(window).resize(function () { 
+            pageSize()
+        });
 
         function pageSize() {
             $("#homeFri").each(function () {

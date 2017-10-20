@@ -1,78 +1,37 @@
 ﻿@model NeoWeb.Models.Testnet
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "备注";
+}
+@section Styles{ 
+    <link rel="stylesheet" href="~/css/testnet-list.css"/>
 }
 
 <div class="container">
-    <h2>Edit</h2>
-
-    <h4>Testnet</h4>
-    <hr />
-    <div class="row">
-        <div class="col-md-4">
+    <h1 class="m1">备注</h1>
+    <div class="row coin-back">
+        <h4 class="m3">添加备注</h4>
+        <div class="col-md-12">
             <form asp-action="Edit">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="Id" />
-                <div class="form-group">
-                    <label asp-for="Name" class="control-label"></label>
-                    <input asp-for="Name" class="form-control" />
-                    <span asp-validation-for="Name" class="text-danger"></span>
+                <div class="form-group m3">
+                    <p class="bold-font"><label>姓名</label> @Model.Name</p>  
                 </div>
-                <div class="form-group">
-                    <label asp-for="Email" class="control-label"></label>
-                    <input asp-for="Email" class="form-control" />
-                    <span asp-validation-for="Email" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Phone" class="control-label"></label>
-                    <input asp-for="Phone" class="form-control" />
-                    <span asp-validation-for="Phone" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="QQ" class="control-label"></label>
-                    <input asp-for="QQ" class="form-control" />
-                    <span asp-validation-for="QQ" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Company" class="control-label"></label>
-                    <input asp-for="Company" class="form-control" />
-                    <span asp-validation-for="Company" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Reason" class="control-label"></label>
-                    <input asp-for="Reason" class="form-control" />
-                    <span asp-validation-for="Reason" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="ANSCount" class="control-label"></label>
-                    <input asp-for="ANSCount" class="form-control" />
-                    <span asp-validation-for="ANSCount" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="ANCCount" class="control-label"></label>
-                    <input asp-for="ANCCount" class="form-control" />
-                    <span asp-validation-for="ANCCount" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="PubKey" class="control-label"></label>
-                    <input asp-for="PubKey" class="form-control" />
-                    <span asp-validation-for="PubKey" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Remark" class="control-label"></label>
-                    <input asp-for="Remark" class="form-control" />
+                <div class="form-group m3">
+                    <label asp-for="Remark" class=""></label>
+                    <textarea asp-for="Remark" class="" ></textarea>
                     <span asp-validation-for="Remark" class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <input type="submit" value="Save" class="btn btn-default" />
+                <div class="text-center m3">
+                    <input type="submit" value="保存" class="btn btn-default" />
                 </div>
             </form>
         </div>
     </div>
 
-    <div>
-        <a asp-action="List">Back to List</a>
+    <div class="back-to-list">
+        <a asp-action="List">返回列表</a>
     </div>
 </div>
 

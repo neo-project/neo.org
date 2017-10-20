@@ -1,0 +1,109 @@
+﻿html {
+    height:auto;
+    min-height:100%;
+}
+body {
+    height:auto;
+    min-height:100%;
+    background-image: linear-gradient(144deg, #AAAAAA 0%, #E4E4E4 100%);
+}
+.container {
+    text-align:center;
+}
+.main-footer {
+    display:none;
+}
+.testcoin {
+    margin:auto;
+    width:70%;
+    max-width:1450px;
+    text-align:center;
+}
+.back-to-list {
+    text-align:right;
+    margin:20px 0;
+}
+.back-to-list a{
+    display: inline-block;
+    margin-left: 10px;
+    min-width: 90px;
+    background: #FFFFFF;
+    padding: 6px 15px;
+    border-radius: 5px;
+    color: #6C6C6C;
+    text-align: center;
+    border: 1px solid #ccc;
+    vertical-align: middle;
+    text-decoration:none;
+}
+.back-to-list a:hover{
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+
+
+
+/*申请列表*/
+.apply-list {
+    table-layout:fixed;
+    background:#FFFFFF;
+}
+.apply-list th,
+.apply-list td{
+    
+}
+.apply-list th{
+    padding:25px 15px;
+    background:#F9F9F9;
+}
+.apply-list td{
+    height:70px;
+    padding:10px 15px;
+    border-top:1px solid #F9F9F9;
+    vertical-align:middle;
+    text-align:left;
+    word-break: break-all;
+}
+.apply-list td a{
+    color:#51bb00;
+    display:inline-block;
+}
+/*.apply-list .pub-key {
+    display:none;
+}*/
+
+
+/*备注页面*/
+.coin-back {
+    background:#FFFFFF;
+    padding:50px 100px;
+}
+.coin-back .form-group {
+    margin:auto;
+    width:750px;
+    text-align:left;
+}
+.coin-back .bold-font{
+    text-align:left;
+}
+.coin-back label{
+    display: inline-block;
+    vertical-align: top;
+    text-align:center;
+    width: 80px;
+}
+.coin-back textarea {
+    width:650px;
+    height:300px;
+    resize:vertical;
+    border:1px solid #AAAAAA;
+    border-radius:4px;
+}
+
+/*申请详情*/
+.coin-back.apply-detail {
+}
+.coin-back.apply-detail dd{
+    height:40px;
+    text-align:left;
+}
