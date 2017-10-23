@@ -84,11 +84,16 @@ ul,li {
     position: absolute;
     right: 0;
     display: none;
-    width: 200px;
+    /*width: 200px;*/
     text-align:right;
+    padding:0;
 }
 #more_list a {
     padding: 10px 20px;
+}
+#more_list li{
+    background:#e4e4e4;
+    background:rgba(228,228,228,0.95);
 }
 .navbar-brand {
     padding: 5px 15px;

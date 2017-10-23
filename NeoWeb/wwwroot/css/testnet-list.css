@@ -102,8 +102,9 @@ body {
 
 /*申请详情*/
 .coin-back.apply-detail {
+    line-height:20px;
 }
 .coin-back.apply-detail dd{
-    height:40px;
     text-align:left;
+    margin-bottom:20px;
 }
