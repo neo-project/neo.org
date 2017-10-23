@@ -276,7 +276,7 @@
 .home-detail .detail-text {
     display:inline-block;
     width:52%;
-    max-width:480px;
+    /*max-width:480px;*/
     padding:0px 60px;
     color:#FFFFFF;
     font-weight:100;
