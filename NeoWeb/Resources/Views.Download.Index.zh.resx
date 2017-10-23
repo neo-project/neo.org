@@ -148,7 +148,7 @@
     <value>http://android.myapp.com/myapp/detail.htm?apkName=neo.app</value>
   </data>
   <data name="Mobile" xml:space="preserve">
-    <value>移动</value>
+    <value>手机</value>
   </data>
   <data name="Open Google Play" xml:space="preserve">
     <value>从应用宝下载</value>
@@ -176,5 +176,8 @@
   </data>
   <data name="Web" xml:space="preserve">
     <value>网页</value>
+  </data>
+  <data name="Wallets developed by third party/community. Please contact the corresponding parties for technical support." xml:space="preserve">
+    <value>这些客户端是由社区进行开发和维护的，如果遇到问题请直接联系相应开发者。</value>
   </data>
 </root>
