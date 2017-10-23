@@ -198,6 +198,18 @@
     color:#6C6C6C;
 }
 
+/*NEO技术特点*/
+.tech-item {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+@media only screen and (max-width: 991px) {
+    .tech-item {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+}
+
 /*客户端下载部分页面*/
 .home-down {
     position:relative;
