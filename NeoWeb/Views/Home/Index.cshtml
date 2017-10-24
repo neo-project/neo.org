@@ -6,6 +6,7 @@
 
 @section Styles{ 
     <link href="~/css/homepage.css" rel="stylesheet"/>
+    <link href="~/lib/wow/css/libs/animate.css" rel="stylesheet" />
 }
 
 @* loading页面 *@
@@ -22,8 +23,9 @@
     <div class="home-scroll scroll-thr" data-0="background-position-x:0px" data-end="background-position-x:600px;"></div>
     <div class="home-scroll scroll-sec" data-0="background-position-x:0px" data-end="background-position-x:800px;"></div>
     <div class="home-scroll scroll-fri" data-0="background-position-x:0px" data-end="background-position-x:2000px;"></div>
-    <div class="@Localizer["scroll-acr-en"]" data-0="" data-end=""></div>
-    <div class="@Localizer["scroll-ver-en"]" data-0="" data-end=""></div>
+    <div class="@Localizer["scroll-acr-en"]" data-0="margin-top: 0px;" data-top-bottom="margin-top: -1000px;"></div>
+    <div class="@Localizer["scroll-ver-fri-en"]" data-0="margin-top: 0px;" data-top-bottom="margin-top: -1500px;"></div>
+    <div class="@Localizer["scroll-ver-sec-en"]" data-0="margin-top: 0px;" data-top-bottom="margin-top: -2000px;"></div>
     <div class="home-scroll scroll-top"></div>
 </div>
 
@@ -56,15 +58,15 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-sm-8 p2">
+        <div class="row wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
+            <div class="col-sm-9 p2">
                 <h2 class="m3 text-uppercase">@Localizer["Digital Asset"] + @Localizer["Digital Identity"] + @Localizer["Smart Contract"]</h2>
                 <h2 class="m3"> = </h2>
                 <h1 class="m3">@Localizer["Smart Economy"]</h1>
             </div>
         </div>
         <p class="t2 text-white p2">@Localizer["Know more? Please see"] <a class="bold-font text-white" href="javascript:"  data-toggle="modal" data-target="#myModal">@Localizer["NEO technical characteristics"]</a></p>
-        <p>NEO</p>
+        <p><img src="~/images/home-icon.png" /></p>
     </div>
 </div>
 
@@ -166,6 +168,7 @@
 </div>
 
 @section Scripts{
+    <script type="text/javascript" src="~/lib/wow/dist/wow.min.js"></script>
     <script type="text/javascript" src="~/js/skrollr.js"></script>
     <script type="text/javascript" src="http://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
     <script type="text/javascript">
@@ -174,9 +177,10 @@
     </script>
     <script type="text/javascript">
 
-
         window.onload = function () {
+            $(document).scrollTop(0);
             pageSize();
+            new WOW().init();
 
             if (/Mobile|Windows Phone|Lumia|Android|webOS|iPhone|iPod|Blackberry|PlayBook|BB10|Opera Mini|\bCrMo\/|Opera Mobi/i.test(navigator.userAgent)) {
             } else {
