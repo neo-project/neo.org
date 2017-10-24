@@ -4,8 +4,9 @@
     ViewData["Title"] = "Home Page";
 }
 
-@section Styles{
-    <link href="~/css/homepage.css" rel="stylesheet" />
+@section Styles{ 
+    <link href="~/css/homepage.css" rel="stylesheet"/>
+    <link href="~/lib/wow/css/libs/animate.css" rel="stylesheet" />
 }
 
 @* loading页面 *@
@@ -22,8 +23,9 @@
     <div class="home-scroll scroll-thr" data-0="background-position-x:0px" data-end="background-position-x:600px;"></div>
     <div class="home-scroll scroll-sec" data-0="background-position-x:0px" data-end="background-position-x:800px;"></div>
     <div class="home-scroll scroll-fri" data-0="background-position-x:0px" data-end="background-position-x:2000px;"></div>
-    <div class="@Localizer["scroll-acr-en"]" data-0="" data-end=""></div>
-    <div class="@Localizer["scroll-ver-en"]" data-0="" data-end=""></div>
+    <div class="@Localizer["scroll-acr-en"]" data-0="transform: translateX(0em);" data-1000="transform: translateX(-100em);"></div>
+    <div class="@Localizer["scroll-ver-fri-en"]" data-0="transform: translateY(0em);" data-1000="transform: translateY(-100em);"></div>
+    <div class="@Localizer["scroll-ver-sec-en"]" data-0="transform: translateY(0em);" data-1000="transform: translateY(-70em);"></div>
     <div class="home-scroll scroll-top"></div>
 </div>
 
@@ -56,15 +58,15 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-sm-8 p2">
+        <div class="row wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
+            <div class="col-sm-9 p2">
                 <h2 class="m3 text-uppercase">@Localizer["Digital Asset"] + @Localizer["Digital Identity"] + @Localizer["Smart Contract"]</h2>
                 <h2 class="m3"> = </h2>
                 <h1 class="m3">@Localizer["Smart Economy"]</h1>
             </div>
         </div>
-        <p class="t2 text-white p2">@Localizer["Know more? Please see"] <a class="bold-font text-white" href="javascript:" data-toggle="modal" data-target="#myModal">@Localizer["NEO technical characteristics"]</a></p>
-        <p>NEO</p>
+        <p class="t2 text-white p2">@Localizer["Know more? Please see"] <a class="bold-font text-white" href="javascript:"  data-toggle="modal" data-target="#myModal">@Localizer["NEO technical characteristics"]</a></p>
+        <p><img src="~/images/home-icon.png" /></p>
     </div>
 </div>
 
@@ -138,7 +140,26 @@
 </div>
 </div>
 
+<div class="home-page-content back-color home-down">
+    <div class="container home-detail zindex">
+        <div class="row">
+            <div class="col-sm-6 p2">
+                <h1 class="m2">@Localizer["NEO Client"]</h1>
+                <p class="t2 m2">
+                    @Localizer["The NEO Team and community has created various wallets for different platforms. You can download the wallets or access the web wallets below."]
+                    <a class="btneo t1 m2">@Localizer["Go to download page"]</a>
+                <p class="home-down-tab m2">
+                    <a class="iconfont" title="@Localizer["Mobile"]" href="#" target="_blank">&#xe64b;</a>
+                    <a class="iconfont" title="@Localizer["Desktop"]" href="#" target="_blank">&#xe632;</a>
+                    <a class="iconfont" title="@Localizer["Web"]" href="#" target="_blank">&#xe63c;</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="home-page-content home-deve">
+    <h1 class="m1 text-white">NEO将如何勾勒未来？</h1>
     <div class="home-neo-intro">
         <div class="home-detail zindex">
             <div class="detail-text">
@@ -192,26 +213,8 @@
     </div>
 </div>
 
-
-<div class="home-page-content back-color home-down">
-    <div class="container home-detail zindex">
-        <div class="row">
-            <div class="col-sm-6 p2">
-                <h1 class="m2">@Localizer["NEO Client"]</h1>
-                <p class="t2 m2">
-                    @Localizer["The NEO Team and community has created various wallets for different platforms. You can download the wallets or access the web wallets below."]
-                    <a class="btneo t1 m2">@Localizer["Go to download page"]</a>
-                <p class="home-down-tab m2">
-                    <a class="iconfont" title="@Localizer["Mobile"]" href="#" target="_blank">&#xe64b;</a>
-                    <a class="iconfont" title="@Localizer["Desktop"]" href="#" target="_blank">&#xe632;</a>
-                    <a class="iconfont" title="@Localizer["Web"]" href="#" target="_blank">&#xe63c;</a>
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-
 @section Scripts{
+    <script type="text/javascript" src="~/lib/wow/dist/wow.min.js"></script>
     <script type="text/javascript" src="~/js/skrollr.js"></script>
     <script type="text/javascript" src="http://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
     <script type="text/javascript">
@@ -220,9 +223,9 @@
     </script>
     <script type="text/javascript">
 
-
         window.onload = function () {
             pageSize();
+            new WOW().init();
 
             if (/Mobile|Windows Phone|Lumia|Android|webOS|iPhone|iPod|Blackberry|PlayBook|BB10|Opera Mini|\bCrMo\/|Opera Mobi/i.test(navigator.userAgent)) {
             } else {
@@ -236,7 +239,7 @@
                     }
                 });
             }
-
+            
             setTimeout(function () {
                 $(".load-page").hide();
             }, 100);
@@ -244,8 +247,8 @@
             $("body").css("height", "auto");
         }
 
-        $(window).resize(function () {
-            pageSize()
+        $(window).resize(function () { 
+            pageSize();
         });
 
         function pageSize() {

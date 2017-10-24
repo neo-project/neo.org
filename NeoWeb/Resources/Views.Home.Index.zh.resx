@@ -214,7 +214,10 @@
   <data name="scroll-acr-en" xml:space="preserve">
     <value>scroll-acr</value>
   </data>
-  <data name="scroll-ver-en" xml:space="preserve">
-    <value>scroll-ver</value>
+  <data name="scroll-ver-fri-en" xml:space="preserve">
+    <value>scroll-ver-fri</value>
+  </data>
+  <data name="scroll-ver-sec-en" xml:space="preserve">
+    <value>scroll-ver-sec</value>
   </data>
 </root>
