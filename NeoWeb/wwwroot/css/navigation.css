@@ -43,10 +43,6 @@ ul,li {
 }
 
 .main-footer {
-    background: #FFFFFF;
-    background-image: url('../images/home-developer-1.png'),url('../images/home-developer-2.png'),linear-gradient(rgba(255,255,255,0.95),rgba(255,255,255,0.5));
-    background-position: top left,center right,center;
-    background-repeat:no-repeat;
     padding: 35px 0 0; 
     color: #6C6C6C; 
     width:100%;
@@ -115,7 +111,6 @@ ul,li {
 
     .main-footer {
         padding: 20px 0; 
-        background: #FFFFFF;
     }
 
 

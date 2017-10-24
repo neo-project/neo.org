@@ -7,7 +7,12 @@
     min-height:100%;
 }
 .zindex {position:relative;z-index:10;}
-
+.main-footer {
+    background: #FFFFFF;
+    background-image: url('../images/home-developer-1.png'),url('../images/home-developer-2.png'),linear-gradient(rgba(255,255,255,0.95),rgba(255,255,255,0.5));
+    background-position: top left,center right,center;
+    background-repeat:no-repeat;
+}
 /*loading页面*/
 .load-page{
     width: 100%;
@@ -359,6 +364,9 @@
     body {
         padding-top: 0;
     }
+    .main-footer {
+        background: #FFFFFF;
+    }
     .scroll-page.city-back .home-scroll {
         width:300%;
     }
@@ -378,7 +386,7 @@
         padding:20px 0px;
         line-height:1.5;
     }
-    .home-neo-intro .col-sm-8 {
+    .home-neo-intro .col-sm-9 {
         margin: auto 20px;
     }
     .home-detail {
