@@ -121,7 +121,7 @@
 .scroll-page div.home-scroll{
     position:absolute;
     z-index:1;
-    top:0;
+    top:100px;
     left:0;
     width:100%;
     background-position: center;
@@ -270,6 +270,7 @@
     background:#E4E4E4;
     background:linear-gradient(98deg, #A5A5A5 1%, #6D6D6D 100%, #6C6C6C 100%);
     overflow:hidden;
+    padding-top:40px;
 }
 .home-scroll img{
     width:100%;
