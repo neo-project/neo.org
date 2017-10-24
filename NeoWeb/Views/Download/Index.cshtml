@@ -12,13 +12,13 @@
         <h1 class="m2">@Localizer["Download Client"]</h1>
         <ul class="nav-download m3 t1" id="downTab">
             <li><em class="iconfont">&#xe64b;</em>@Localizer["Mobile"]</li>
-            <li class="downtab-select"><em class="iconfont">&#xe632;</em>@Localizer["Desktop"]</li>
+            <li><em class="iconfont">&#xe632;</em>@Localizer["Desktop"]</li>
             <li><em class="iconfont">&#xe63c;</em>@Localizer["Web"]</li>
         </ul>
         <ul class="download-ul download-mobile">
             <li class="col-sm-4 m3">
                 <div class="down-box">
-                    <div class="down-pic"><img src="~/images/down-app.jpg" /><span class="h2">NEO APP *</span></div>
+                    <div class="down-pic"><img src="~/images/down-app.jpg" /><span class="h2">NEO APP</span></div>
                     <p class="m2 t2">
                         @Localizer["Developer"]: <a href="https://github.com/PeterLinX" target="_blank">PeterLinX</a><br />
                         @Localizer["Supported Languages"]: @Localizer["English/Chinese"]<br />
@@ -32,7 +32,7 @@
             </li>
         </ul>
 
-        <ul class="download-ul download-desktop down-select">
+        <ul class="download-ul download-desktop">
             <li class="col-sm-4 m3">
                 <div class="down-box">
                     <div class="down-pic"><img src="~/images/down-gui.jpg" /><span class="h2">NEO-GUI</span></div>
@@ -65,7 +65,7 @@
             </li>
             <li class="col-sm-4 m3">
                 <div class="down-box">
-                    <div class="down-pic"><img src="~/images/down-NEON.jpg" /><span class="h2">NEON *</span></div>
+                    <div class="down-pic"><img src="~/images/down-NEON.jpg" /><span class="h2">NEON</span></div>
                     <p class="m2 t2">
                         @Localizer["Developer"]: <a href="https://cityofzion.io" target="_blank">City of Zion</a><br />
                         @Localizer["Supported Languages"]: @Localizer["English"]<br />
@@ -83,7 +83,7 @@
         <ul class="download-ul download-web">
             <li class="col-sm-4 m3">
                 <div class="down-box">
-                    <div class="down-pic"><img src="~/images/down-tracker.jpg" /><span class="h2">NEO Tracker *</span></div>
+                    <div class="down-pic"><img src="~/images/down-tracker.jpg" /><span class="h2">NEO Tracker</span></div>
                     <p class="m2 t2">
                         @Localizer["Developer"]: <a href="https://neotracker.io/wallet" target="_blank">neotracker</a><br />
                         @Localizer["Supported Languages"]: @Localizer["English"]<br />
@@ -97,7 +97,7 @@
             </li>
             <li class="col-sm-4 m3">
                 <div class="down-box">
-                    <div class="down-pic"><img src="~/images/down-wallet.jpg" /><span class="h2">NEO WALLET *</span></div>
+                    <div class="down-pic"><img src="~/images/down-wallet.jpg" /><span class="h2">NEO WALLET</span></div>
                     <p class="m2 t2">
                         @Localizer["Developer"]: <a href="https://github.com/PeterLinX/" target="_blank">PeterLinX</a><br>
                         @Localizer["Supported Languages"]: @Localizer["English/Chinese"]<br>
@@ -111,7 +111,7 @@
             </li>
             <li class="col-sm-4 m3">
                 <div class="down-box">
-                    <div class="down-pic"><img src="~/images/down-otcgo.jpg" /><span class="h2">@Localizer["OTCGO"] *</span></div>
+                    <div class="down-pic"><img src="~/images/down-otcgo.jpg" /><span class="h2">@Localizer["OTCGO"]</span></div>
                     <p class="m2 t2">
                         @Localizer["Developer"]: <a href="https://github.com/OTCGO/" target="_blank">fl0wjacky</a><br>
                         @Localizer["Supported Languages"]: @Localizer["Chinese"]<br>
@@ -125,21 +125,36 @@
             </li>
         </ul>
     </div>
-    <p class="down-hint t2 m2"> * ：@Localizer["Wallets developed by third party/community. Please contact the corresponding parties for technical support."]</p>
+    <p class="down-hint t2 m2"> @Localizer["Wallets developed by third party/community. Please contact the corresponding parties for technical support."]</p>
 </div>
-    @section Scripts{
-        <script>
-            $(function () {
-                $("#downTab li").click(function () {
-                    $(".downtab-select").removeClass("downtab-select");
-                    $(this).addClass("downtab-select");
-                    $(".down-select").removeClass("down-select");
-                    switch ($(this).index()) {
-                        case 0: $(".download-mobile").addClass("down-select"); break;
-                        case 1: $(".download-desktop").addClass("down-select"); break;
-                        case 2: $(".download-web").addClass("down-select"); break;
-                    }
-                })
+@section Scripts{
+    <script>
+        $(function () {
+            var test = window.location.hash.substr(1);
+            var num = parseInt(test);
+            if (num) {
+                $("#downTab li").eq(num - 1).addClass("downtab-select");
+                switch (num) {
+                    case 1: $(".download-mobile").addClass("down-select"); break;
+                    case 2: $(".download-desktop").addClass("down-select"); break;
+                    case 3: $(".download-web").addClass("down-select"); break;
+                    default: break;
+                }
+            } else {
+                $("#downTab li").eq(1).addClass("downtab-select");
+                $(".download-desktop").addClass("down-select");
+            }
+
+            $("#downTab li").click(function () {
+                $(".downtab-select").removeClass("downtab-select");
+                $(this).addClass("downtab-select");
+                $(".down-select").removeClass("down-select");
+                switch ($(this).index()) {
+                    case 0: $(".download-mobile").addClass("down-select"); break;
+                    case 1: $(".download-desktop").addClass("down-select"); break;
+                    case 2: $(".download-web").addClass("down-select"); break;
+                }
             })
-        </script>
-    }
+        })
+    </script>
+}
