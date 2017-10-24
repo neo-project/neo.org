@@ -19,6 +19,8 @@ namespace NeoWeb.Data
 
         public DbSet<Testnet> Testnets { get; set; }
 
+        public DbSet<News> News { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

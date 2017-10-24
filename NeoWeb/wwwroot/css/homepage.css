@@ -187,6 +187,18 @@
     height:inherit;
 }
 
+.news {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    width: 300px;
+    margin-left: -150px;
+}
+@media only screen and (max-width: 768px) {
+    .news {
+        bottom: 10px;
+    }
+}
 
 /*什么是neo页面*/
 .home-neo-intro {
