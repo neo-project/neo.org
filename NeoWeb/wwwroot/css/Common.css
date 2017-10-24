@@ -34,8 +34,8 @@ h3,.h3 {font-size: 16px;font-weight:bold;}
 .p3 {padding:20px;}
 .bold-font {font-weight:600;}
 .body-content {padding-bottom:50px;}
-.desktop-show {display:inline-block;}
-.mobile-show {display:none;}
+.desktop-show {display:inline-block!important;}
+.mobile-show {display:none!important;}
 .light-text {color:#AAAAAA;}
 .midpoint {position:absolute;top:0;left:0;right:0;bottom:0;margin:auto;}
 .posi-rela {position:relative;}
@@ -76,8 +76,8 @@ h3,.h3 {font-size: 16px;font-weight:bold;}
     .p1 {padding:40px;}
     .p2 {padding:20px;}
     .p3 {padding:12px;}
-    .desktop-show {display:none;}
-    .mobile-show {display:inline-block;}
+    .desktop-show {display:none!important;}
+    .mobile-show {display:inline-block!important;}
 }
 @media only screen and (max-width : 780px) {
     body {
