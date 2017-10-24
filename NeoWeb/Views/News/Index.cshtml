@@ -1,0 +1,27 @@
+﻿@model IEnumerable<NeoWeb.Models.News>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container">
+    <h2>Index</h2>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>
+                <a href="@Html.DisplayFor(modelItem => item.Link)" target="_blank">
+                    @Html.DisplayFor(modelItem => item.Title)
+                </a>
+                <p>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </p>
+            </li>
+        }
+    </ul>
+
+</div>

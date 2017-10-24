@@ -39,6 +39,14 @@
             <h1>@Localizer["NEO, A Distributed Smart Economy Network"]</h1>
         </div>
     </div>
+    <ul class="news">
+        @foreach (var item in (ViewBag.News as List<NeoWeb.Models.News>))
+        {
+            <li>
+                <a href="@item.Link" target="_blank">@item.Title</a>
+            </li>
+        }
+    </ul>
 </div>
 <div class="home-page-content">
     <div class="container body-content  home-neo-intro">
@@ -154,42 +162,6 @@
         </div>
         <div class="home-scroll" data-100-top="margin-top:0px;" data-bottom="margin-top:100px;">
             <img src="~/images/home-scroll-4.png" />
-        </div>
-    </div>
-</div>
-
-@*<div class="home-page-content home-down">
-    <div class="container home-detail zindex">
-        <div class="row">
-            <div class="col-sm-6 p2">
-                <h1 class="m2">NEO客户端</h1>
-                <p class="t2 m2">NEO客户端支持多种平台，并有社区开发者持续开发和维护，您可以选择最合适的进行下载或访问，如有使用方面的问题可以直接联系开发者。</p>
-                <a class="btneo t1">进入下载页面</a>
-                <p class="home-down-tab m2">
-                    <a class="iconfont" title="移动" href="#" target="_blank">&#xe64b;</a>
-                    <a class="iconfont" title="桌面" href="#" target="_blank">&#xe632;</a>
-                    <a class="iconfont" title="网页" href="#" target="_blank">&#xe63c;</a>
-                </p>
-            </div>
-        </div>
-    </div>
-</div>*@
-
-<div class="home-page-content home-download p1">
-    <div class="container home-detail">
-        <div class="row">
-            <div class="col-sm-6 p1">
-                <h1>NEO客户端</h1>
-                <p class="t2 m2">NEO客户端支持多种平台，并有社区开发者持续开发和维护，您可以选择最合适的进行下载或访问，如有使用方面的问题可以直接联系开发者。</p>
-            </div>
-            <div class="col-sm-6 p1">
-                <a class="btneo t1">进入下载页面</a>
-                <p class="home-down-tab m2">
-                    <a class="iconfont" title="移动" href="#" target="_blank">&#xe64b;</a>
-                    <a class="iconfont" title="桌面" href="#" target="_blank">&#xe632;</a>
-                    <a class="iconfont" title="网页" href="#" target="_blank">&#xe63c;</a>
-                </p>
-            </div>
         </div>
     </div>
 </div>

@@ -5,27 +5,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using NeoWeb.Models;
+using NeoWeb.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace NeoWeb.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public HomeController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
+            ViewBag.News = _context.News.OrderByDescending(p => p.Time).Take(3).ToList();
             return View();
         }
 
