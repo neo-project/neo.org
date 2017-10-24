@@ -224,17 +224,24 @@
 }
 
 /*NEO技术特点*/
+.modal-content {
+    border-radius: 0;
+}
 .tech-item {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 15px;
 }
 .tech-item img {
     max-width: 80px;
+    margin-bottom: 5px;
 }
 @media only screen and (max-width: 991px) {
     .tech-item {
         padding-top: 8px;
         padding-bottom: 8px;
+    }
+    .tech-item img {
+        max-width: 50px;
+        margin-bottom: 0;
     }
 }
 
