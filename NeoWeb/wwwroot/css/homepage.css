@@ -124,7 +124,6 @@
     top:0;
     left:0;
     width:100%;
-    background-repeat:no-repeat;
     background-position: center;
     background-size:100%;
 }
@@ -150,7 +149,6 @@
 }
 .home-scroll.scroll-fri {
     background: url(../images/home-back-1.png) repeat-x;
-
 }
 .home-scroll.scroll-sec {
     background: url(../images/home-back-2.png) repeat-x;
@@ -164,35 +162,25 @@
 .home-scroll.scroll-five {
     background: url(../images/home-back-5.png) repeat-x;
 }
-.scroll-text-acr {
-    font-size: 90px;
+.scroll-acr,
+.scroll-acr-en,
+.scroll-ver,
+.scroll-ver-en {
     position: absolute;
-    margin: auto;
-    left: 0px;
-    right: 0;
-    bottom: 0;
-    top: 1%;
-    height: 40%;
-    width: 40%;
-    line-height: 2;
-    transform: rotateZ(-90deg);
-    font-weight: 600;
-    color: #FFFFFF;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: contain;
 }
-.scroll-text-ver {
-    font-size: 90px;
-    position: absolute;
-    margin: auto;
-    left: 0px;
-    right: 0;
-    bottom: 0;
-    top: 1%;
-    height: 40%;
-    width: 40%;
-    transform: rotateZ(-90deg);
-    font-weight: 600;
-    color: #FFFFFF;
+.scroll-page.city-back .scroll-acr {
+    background:url(../images/home-bg-1.png) no-repeat;
 }
+.scroll-page.city-back .scroll-ver {
+    background:url(../images/home-bg-2.png) no-repeat;
+    background-position: 39% center;
+}
+
 .city-back .home-scroll.scroll-top {
     background: url(../images/home-back-top.png) repeat-x;
     background-size: contain;
@@ -323,8 +311,8 @@
     body {
         padding-top: 0;
     }
-    .scroll-page.city-back {
-        width:150%;
+    .scroll-page.city-back .home-scroll {
+        width:300%;
     }
     .home-page-content {
         overflow-x: hidden;
@@ -366,7 +354,7 @@
         height: 60%;
     }
     .scroll-page.city-back .home-scroll {
-        width:280%;
+        width:350%;
     }
     .home-neo-intro {
         height:100%;
