@@ -224,6 +224,9 @@
     padding-top: 20px;
     padding-bottom: 20px;
 }
+.tech-item img {
+    max-width: 80px;
+}
 @media only screen and (max-width: 991px) {
     .tech-item {
         padding-top: 8px;
