@@ -211,4 +211,10 @@
   <data name="What is NEO" xml:space="preserve">
     <value>什么是 NEO</value>
   </data>
+  <data name="scroll-acr-en" xml:space="preserve">
+    <value>scroll-acr</value>
+  </data>
+  <data name="scroll-ver-en" xml:space="preserve">
+    <value>scroll-ver</value>
+  </data>
 </root>
