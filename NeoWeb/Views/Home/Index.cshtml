@@ -1,8 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 
-@section Styles{ 
-    <link href="~/css/homepage.css" rel="stylesheet"/>
+@section Styles{
+    <link href="~/css/homepage.css" rel="stylesheet" />
     <link href="~/lib/wow/css/libs/animate.css" rel="stylesheet" />
 }
 
@@ -62,7 +62,7 @@
                 <h1 class="m3">@Localizer["Smart Economy"]</h1>
             </div>
         </div>
-        <p class="t2 text-white p2">@Localizer["Know more? Please see"] <a class="bold-font text-white" href="javascript:"  data-toggle="modal" data-target="#myModal">@Localizer["NEO technical characteristics"]</a></p>
+        <p class="t2 text-white p2">@Localizer["Know more? Please see"] <a class="bold-font text-white" href="javascript:" data-toggle="modal" data-target="#myModal">@Localizer["NEO technical characteristics"]</a></p>
         <p><img width="50" src="~/images/home-icon.svg" /></p>
     </div>
 </div>
@@ -212,6 +212,12 @@
 @section Scripts{
     <script type="text/javascript" src="~/lib/wow/dist/wow.min.js"></script>
     <script type="text/javascript" src="~/js/skrollr.js"></script>
+    @*<script type="text/javascript" src="https://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
+    <script type="text/javascript">
+        $youziku.load("body", "e938e314246f492b8728c35fa5c4a067", "Source-Han-Light");
+        $youziku.draw();
+    </script>*@
+
     <script type="text/javascript">
 
         window.onload = function () {
@@ -230,7 +236,7 @@
                     }
                 });
             }
-            
+
             setTimeout(function () {
                 $(".load-page").hide();
             }, 100);
@@ -238,7 +244,7 @@
             $("body").css("height", "auto");
         }
 
-        $(window).resize(function () { 
+        $(window).resize(function () {
             pageSize();
         });
 
