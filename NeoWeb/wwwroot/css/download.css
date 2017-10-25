@@ -15,8 +15,7 @@ ul,li {
 }
 .nav-download li{
     display:inline-block;
-    width:32%;
-    font-weight:600;
+    width:30%;
     color:#AAAAAA;
     cursor:pointer;
 }

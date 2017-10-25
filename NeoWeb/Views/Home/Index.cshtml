@@ -138,7 +138,6 @@
         </div>
     </div>
 </div>
-</div>
 
 <div class="home-page-content back-color home-down">
     <div class="container home-detail zindex">
@@ -216,11 +215,6 @@
 @section Scripts{
     <script type="text/javascript" src="~/lib/wow/dist/wow.min.js"></script>
     <script type="text/javascript" src="~/js/skrollr.js"></script>
-    <script type="text/javascript" src="http://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
-    <script type="text/javascript">
-        $youziku.load("body", "e938e314246f492b8728c35fa5c4a067", "Source-Han-Light");
-        $youziku.draw();
-    </script>
     <script type="text/javascript">
 
         window.onload = function () {
@@ -257,5 +251,7 @@
                 $(this).css("min-height", $(window).height());
             })
         }
+        $("#menu_list a").css("border-bottom", "none")
+        $("#menu_list li.menu-item [href='/']").css("border-bottom", "2px solid #58bf00")
     </script>
 }

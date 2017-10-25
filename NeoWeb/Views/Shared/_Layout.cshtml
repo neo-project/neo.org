@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="robots" content="index,follow">
-    <meta name="description" content="@Localizer["NEO is a non-profit community-based blockchain project, that use of blockchain technology and digital identity to digitize assets, the use of smart contracts for digital assets to be self-managed, to achieve \"smart economy\" with a distributed network."]">
+    <meta name="description" content='@Localizer["NEO is a non-profit community-based blockchain project, that use of blockchain technology and digital identity to digitize assets, the use of smart contracts for digital assets to be self-managed, to achieve \"smart economy\" with a distributed network."]'>
     <meta name="keywords" content="NEO,Blockchain,智能经济,antshares,小蚁,区块链">
     <meta name="author" content="neo-project">
     <meta name="robots" content="index,follow">
@@ -25,6 +25,11 @@
     <link rel="stylesheet" href="~/css/navigation.css" />
     <link href="~/css/common.css" rel="stylesheet" />
     @RenderSection("Styles", required: false)
+    <script type="text/javascript" src="https://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
+    <script type="text/javascript">
+        $youziku.load("body", "e938e314246f492b8728c35fa5c4a067", "Source-Han-Light");
+        $youziku.draw();
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -42,7 +47,7 @@
                 <li class="menu-item"><a href="javascript:" title="comming soon">@Localizer["dApps"]</a></li>
                 @*<li class="menu-item"><a asp-area="" asp-controller="explorer" asp-action="index">@Localizer["Explorer"]</a></li>*@
                 <li id="dropdown_btn" style="display:none">
-                    <a class="iconfont" onclick="$('#more_list').toggle()">&#xe675;</a>
+                    <a class="iconfont" href="javascript:" onclick="$('#more_list').toggle()">&#xe675;</a>
                     <ul id="more_list"></ul>
                 </li>
             </ul>
@@ -50,6 +55,11 @@
     </nav>
     @RenderBody()
     <footer class="main-footer">
+        <div class="lang-select">
+            <p>
+                <a href="/?culture=es-us">English</a> <a href="/?culture=zh-cn">中文</a>
+            </p>
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -83,6 +93,7 @@
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="~/js/site.js"></script>
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>
