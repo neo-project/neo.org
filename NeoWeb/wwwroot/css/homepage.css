@@ -122,7 +122,6 @@
 .scroll-page {
     position:relative;
     position:initial;
-    opacity:0.5;
 }
 .scroll-page div.home-scroll{
     position:absolute;
