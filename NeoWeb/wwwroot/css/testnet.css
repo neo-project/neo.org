@@ -14,6 +14,11 @@
 .nav.navbar-nav.pop-menu li a:hover {
     color:#beeb00;
 }
+#more_list li {
+    color:#FFFFFF;
+    background: #3F3F3F;
+    background: rgba(63,63,63,0.9);
+}
 .navbar-collapse {
     box-shadow:none;
 }

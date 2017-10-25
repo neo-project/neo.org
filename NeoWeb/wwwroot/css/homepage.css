@@ -122,7 +122,6 @@
 .scroll-page {
     position:relative;
     position:initial;
-    opacity:0.5;
 }
 .scroll-page div.home-scroll{
     position:absolute;
@@ -379,13 +378,7 @@
         background: #FFFFFF;
     }
     .scroll-page.city-back .home-scroll {
-        width:300%;
-    }
-    .scroll-page.city-back .scroll-ver-fri {
-        background-position: 27% 50px;
-    }
-    .scroll-page.city-back .scroll-ver-sec {
-        background-position: 72% center;
+        width:340%;
     }
     .home-page-content {
         overflow-x: hidden;
@@ -430,7 +423,7 @@
         height: 60%;
     }
     .scroll-page.city-back .home-scroll {
-        width:350%;
+        width:420%;
     }
     .home-neo-intro {
         height:100%;

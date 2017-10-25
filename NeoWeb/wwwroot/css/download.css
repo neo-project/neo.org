@@ -33,19 +33,6 @@ ul,li {
     line-height:1.5;
     text-align:center;
 }
-/*.download-ul li:hover .down-pic{
-    animation:pulse 2s infinite;
-}
-.download-ul li:hover .down-pic span{
-    animation:pulse 2s infinite;
-}
-@keyframes pulse{
-    0% { transform:scale(1);}
-    25% { transform:scale(1.1);}
-    50% { transform:scale(1);}
-    75% { transform:scale(1.1);}
-    100% { transform:scale(1);}
-}*/
 .download-ul a {
     color:initial;
     cursor:pointer;
