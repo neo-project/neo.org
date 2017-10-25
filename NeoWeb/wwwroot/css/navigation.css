@@ -43,10 +43,20 @@ ul,li {
 }
 
 .main-footer {
+    position: relative;
     padding: 35px 0 0; 
     color: #6C6C6C; 
     width:100%;
     text-align:center;
+}
+.main-footer .lang-select {
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    text-align: left;
+}
+.main-footer .lang-select a {
+    margin-right: 10px;
 }
 .footer-link {
     padding:0;
@@ -89,6 +99,7 @@ ul,li {
 }
 #more_list a {
     padding: 10px 20px;
+    white-space: nowrap;
 }
 #more_list li{
     background:#e4e4e4;
