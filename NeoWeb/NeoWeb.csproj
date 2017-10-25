@@ -25,6 +25,9 @@
     <EmbeddedResource Update="Resources\Views.DApps.Index.zh.resx">
       <Generator></Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Views.Logo.Index.zh.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>

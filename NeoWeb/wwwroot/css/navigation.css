@@ -54,6 +54,7 @@ ul,li {
     bottom: 20px;
     left: 30px;
     text-align: left;
+    z-index: 10;
 }
 .main-footer .lang-select a {
     margin-right: 10px;

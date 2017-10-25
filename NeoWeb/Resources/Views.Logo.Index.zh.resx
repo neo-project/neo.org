@@ -117,34 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Blog" xml:space="preserve">
-    <value>博客</value>
-  </data>
-  <data name="Client" xml:space="preserve">
-    <value>客户端</value>
-  </data>
-  <data name="Developer" xml:space="preserve">
-    <value>开发者</value>
-  </data>
-  <data name="Document" xml:space="preserve">
-    <value>技术文档</value>
-  </data>
-  <data name="Download Logo" xml:space="preserve">
-    <value>Logo下载</value>
-  </data>
-  <data name="Explorer" xml:space="preserve">
-    <value>区块链浏览器</value>
-  </data>
-  <data name="Home" xml:space="preserve">
-    <value>首页</value>
-  </data>
-  <data name="Huodongxing" xml:space="preserve">
-    <value>活动行</value>
-  </data>
-  <data name="NEO Smart economy" xml:space="preserve">
-    <value>NEO 智能经济</value>
-  </data>
-  <data name="Weibo" xml:space="preserve">
-    <value>微博</value>
+  <data name="The logo below is for you to choose to use in cooperation promotion, thank you!" xml:space="preserve">
+    <value>下方所示LOGO供您在合作推广中选择使用，谢谢！</value>
   </data>
 </root>
