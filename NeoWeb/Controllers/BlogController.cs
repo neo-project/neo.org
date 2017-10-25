@@ -39,7 +39,8 @@ namespace NeoWeb.Controllers
                 p.CreateTime,
                 p.EditTime,
                 p.ReadCount,
-                p.Lang
+                p.Lang,
+                p.User
             }).ToList().Select(p => new Blog()
             {
                 Id = p.Id,
@@ -48,7 +49,8 @@ namespace NeoWeb.Controllers
                 CreateTime = p.CreateTime,
                 EditTime = p.EditTime,
                 ReadCount = p.ReadCount,
-                Lang = p.Lang
+                Lang = p.Lang,
+                User = p.User
             });
 
             ViewBag.CreateTime = models.Select(p => new BlogDateTimeViewModels
