@@ -86,9 +86,6 @@ a{
     color:#6C6C6C;
     text-decoration:none;
 }
-.blog-list a:visited {
-    color: #AAAAAA;
-}
 .blog-list a:hover {
     color: #58BF00;
 }
