@@ -69,6 +69,21 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
     border-radius: 0;
     text-decoration: none;
 }
+/*注册部分样式修改*/
+.login-part ul{
+    padding:0;
+}
+.login-part li{
+    margin:5px 10px;
+    display:inline-block;
+    padding:5px;
+    min-width: 100px;
+    background: #FAFAFA;
+}
+.login-part li a{
+    width:inherit;
+    height:inherit;
+}
 
 @media only screen and (max-width : 1200px) {
     .link2 {font-size:17px;}
