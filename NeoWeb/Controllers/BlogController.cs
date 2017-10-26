@@ -170,7 +170,7 @@ namespace NeoWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Content,Summary,Lang,CreateTime,EditTime,ReadCount")] Blog blog)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Content")] Blog blog)
         {
             if (id != blog.Id)
             {
@@ -179,12 +179,13 @@ namespace NeoWeb.Controllers
 
             if (ModelState.IsValid)
             {
+                var item = _context.Blogs.FirstOrDefault(p => p.Id == blog.Id);
                 try
                 {
-                    blog.Content = Convert(blog.Content);
-                    blog.Summary = blog.Content.ClearHtmlTag(150);
-                    blog.EditTime = DateTime.Now;
-                    _context.Update(blog);
+                    item.Content = Convert(blog.Content);
+                    item.Summary = blog.Content.ClearHtmlTag(150);
+                    item.EditTime = DateTime.Now;
+                    _context.Update(item);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
