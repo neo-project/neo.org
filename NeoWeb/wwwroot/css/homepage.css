@@ -224,7 +224,7 @@
 
 .home-neo-intro .col-sm-6.p2{
     padding-top:0px;
-    letter-spacing:1px;
+    /*letter-spacing:1px;*/
 }
 .home-neo-intro .col-sm-9{
     background-image: linear-gradient(-177deg, rgba(244,244,244,0.8), rgb(188,188,188));
@@ -233,6 +233,15 @@
     color:#6C6C6C;
     padding-left:10px;
     padding-right:10px;
+}
+.formula h1, .formula h2{
+    line-height: 1.6;
+    font-weight: 400;
+}
+.formula span {
+    padding: 0 10px;
+    display:inline-block;
+    white-space:nowrap;
 }
 
 /*NEO技术特点*/
@@ -297,7 +306,7 @@
 }
 .home-detail {
     padding:50px 0;
-    line-height:1.8;
+    line-height:1.5;
 }
 .home-detail:before,
 .home-detail:after{
@@ -309,7 +318,7 @@
 }
 .home-detail .detail-text {
     display:inline-block;
-    width:46%;
+    width:55%;
     padding:0px 60px;
     color:#FFFFFF;
     font-weight:100;
@@ -317,7 +326,7 @@
 }
 .home-detail .detail-img{
     display:inline-block;  
-    width:45%;
+    width:40%;
 }
 .home-detail .detail-img img{
     max-width: 100%;
