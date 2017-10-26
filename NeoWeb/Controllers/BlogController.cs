@@ -20,11 +20,16 @@ namespace NeoWeb.Controllers
     {
         private readonly ApplicationDbContext _context;
         private string _userId;
+        private bool _userRulesCount;
 
         public BlogController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
             _userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (_userId != null)
+            {
+                _userRulesCount = _context.UserRoles.Any(p => p.UserId == _userId);
+            }
         }
 
         // GET: Blog
@@ -106,6 +111,7 @@ namespace NeoWeb.Controllers
             var blog = await _context.Blogs.Include(m => m.User)
                 .SingleOrDefaultAsync(m => m.Id == id);
             ViewBag.UserId = _userId;
+            ViewBag.UserRulesCount = _userRulesCount;
             if (blog == null)
             {
                 return NotFound();

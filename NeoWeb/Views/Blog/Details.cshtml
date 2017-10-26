@@ -51,7 +51,14 @@
                 <h2>@Model.Title</h2>
                 <p class="light-text t2 m3 @Localizer["hidden"]">由作者 <span class="bold-font">@Model.User.UserName</span> 于 <span class="bold-font">@Model.CreateTime.ToShortDateString()</span> 发布</p>
                 <p class="light-text t2 m3 @Localizer["hidden-zh"]">Author <span class="bold-font">@Model.User.UserName</span> posted on <span class="bold-font">@Model.CreateTime.ToShortDateString()</span></p>
-
+                <p>
+                    @if (ViewBag.UserRulesCount)
+                    {
+                        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                        <span>|</span>
+                        <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+                    }
+                </p>
             </div>
             <div class="blog-content t2">
                 @Html.Raw(ViewBag.Cover)
@@ -69,18 +76,6 @@
         </div>
     </div>
 </div>
-
-
-<p>
-    @if (Model.User.Id == ViewBag.UserId)
-    {
-        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-        <span>|</span>
-        <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
-        <span>|</span>
-        <a asp-action="Index">Back to List</a>
-    }
-</p>
 
 
 @section Scripts{
