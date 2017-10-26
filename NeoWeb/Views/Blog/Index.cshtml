@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<NeoWeb.Models.Blog>
-
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 @{
     ViewData["Title"] = "Index";
     Layout = "_LayoutBlog.cshtml";
@@ -9,7 +10,7 @@
 }
 <div class="row">
     <div class="col-xs-12">
-        <h1 class="blog_title m2">博客文章列表</h1>
+        <h1 class="blog_title m2">@Localizer["Blog posts list"]</h1>
     </div>
 
     <ul class="col-lg-1 blog_date desktop-show" id="blogDate">
@@ -41,7 +42,8 @@
             {
                 <li class="m3">
                     <h2><a asp-action="details" asp-route-id="@item.Id">@item.Title</a></h2>
-                    <p class="t2 m3">由作者 <span class="bold-font">@item.User</span> 于 <span class="bold-font">@item.CreateTime</span> 发布</p>
+                    <p class="t2 m3 @Localizer["hidden"]">由作者 <span class="bold-font">@item.User</span> 于 <span class="bold-font">@item.CreateTime.ToShortDateString()</span> 发布</p>
+                    <p class="t2 m3 @Localizer["hidden-zh"]">Author <span class="bold-font">@item.User</span> posted on <span class="bold-font">@item.CreateTime.ToShortDateString()</span></p>
                     <p class="t2">@item.Summary.Substring(0, Math.Min(item.Summary.Length, 100))…</p>
                 </li>
             }
