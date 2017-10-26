@@ -201,7 +201,19 @@
     margin-top: 10px;
     color: #D95B5B;
 }
+.completed-content {
+    background: #6c6c6c;
+    color: #ffffff;
+    text-align: center;
+    letter-spacing: 1px;
+    font-weight: 100;
+    padding: 50px 0px 80px;
+}
 
+.alert-text {
+    width: 80%;
+    margin: 20px auto;
+}
 @media only screen and (max-width : 1200px) {
     .content-border {
         padding: 100px 40px;

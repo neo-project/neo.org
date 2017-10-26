@@ -50,10 +50,22 @@
     </nav>
     @RenderBody()
     <footer class="main-footer">
-        <div class="lang-select">
-            <p>
-                <a href="javascript:language('en-us')">English</a> <a  href="javascript:language('zh-cn')">中文</a>
-            </p>
+        <div class="lang-select hidden-xs">
+            <form id="form_language" asp-action="SetLanguage" asp-controller="home" method="post">
+                <p>
+                    <input type="hidden" id="culture" name="culture" />
+                    <input type="hidden" id="returnUrl" name="returnUrl" />
+                    <a href="javascript:" onclick="setLanguage('en-us')">English</a>
+                    <a href="javascript:" onclick="setLanguage('zh-cn')">中文</a></p>
+                    <script>
+                        function setLanguage(culture)
+                        {
+                            $("#culture").val(culture);
+                            $("#returnUrl").val(window.location.pathname);
+                            $("#form_language").submit();
+                        }
+                    </script>
+            </form>
         </div>
         <div class="container">
             <div class="row">
@@ -62,7 +74,7 @@
                         <li><span class="iconfont">&#xe6ed;</span><a target="_blank" href="https://github.com/neo-project">GitHub</a></li>
                         <li><span class="iconfont">&#xe681;</span><a target="_blank" href="https://www.facebook.com/NEOSmartEcon/">Facebook</a></li>
                         <li><span class="iconfont">&#xe601;</span><a target="_blank" href="https://twitter.com/neo_blockchain">Twitter</a></li>
-                        <li><span class="iconfont">&#xeaa2;</span><a target="_blank" href="https://join.slack.com/t/neosmarteconomy/shared_invite/enQtMjQ0OTU4OTUwNDM5LWZiNTAwZDJiZjUwYmRlNDk1ZGM2Y2NiODI3OTIzZDc0MTY2NjYyNDdlYWRkMjFjNjMyYTFiMmRiZjc1OTk1NWU">slack</a></li>
+                        <li><span class="iconfont">&#xeaa2;</span><a target="_blank" href="https://join.slack.com/t/neosmarteconomy/shared_invite/enQtMjYyMjg4Nzc2MDUzLTNmZGEyMzAzMjBmM2YwNjBlNDc0MjBjNTVmMGYwMTY3NjY1Yzc1MGY3MGY1M2YzN2NjMmU5ZDE5MGIzNzFjNzk">slack</a></li>
                         <li><span class="iconfont">&#xe7d9;</span><a target="_blank" href="https://www.reddit.com/r/NEO/">Reddit</a></li>
                         <li><span class="iconfont">&#xe604;</span><a target="_blank" href="https://shang.qq.com/wpa/qunwpa?idkey=7a70d15ce55b94c5cc93d8dffd074316f40d44c243a998e9128f8712deca934b">QQ</a></li>
                         <li><span class="iconfont">&#xe64a;</span><a target="_blank" href="https://weibo.com/neosmarteconomy">@Localizer["Weibo"]</a></li>
@@ -77,6 +89,7 @@
             </div>
             <div class="row copyright">
                 <div class="col-sm-12 m3 t3">
+                    <p class="visible-xs"><a href="javascript:language('en-us')">English</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:language('zh-cn')">中文</a></p>
                     <p><a href="mailto:contact@neo.org">E-mail: contact@neo.org</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/logo">@Localizer["Download Logo"]</a></p>
                     <p>Copyright © NEO Team 2014 - @DateTime.Now.Year </p>
                 </div>

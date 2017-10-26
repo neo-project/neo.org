@@ -25,9 +25,7 @@ a{
     color:#6C6C6C;
 }
 
-.blog_date>li{
-    /*float:left;*/
-}
+
 .blog_date::before,
 .blog_date::after{
     content: "";

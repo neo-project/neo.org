@@ -71,10 +71,17 @@ namespace NeoWeb.Controllers
             {
                 _context.Add(testnet);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return View("completed");
             }
             return View(testnet);
         }
+
+        //// GET: Testnet/Completed
+        //[AllowAnonymous]
+        //public IActionResult Completed()
+        //{
+        //    return View();
+        //}
 
         // GET: Testnet/Edit/5
         public async Task<IActionResult> Edit(int? id)

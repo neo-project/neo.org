@@ -1,0 +1,15 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = "Completed";
+}
+@section Styles{
+    <link href="~/css/testnet.css" rel="stylesheet" />
+}
+<div class="container completed-content">
+    <h1 class="apply-title m2">@Localizer["The application has been submitted"]</h1>
+    <div class="alert-text">
+        @Localizer["Your NEO/GAS application has been submitted, and if approved, we will send NEO/GAS to a multiple-signature address within 3 business days and notify you by email of how to add the address to the NEO wallet and how to use it, please wait patiently."]
+    </div>
+</div>
+
