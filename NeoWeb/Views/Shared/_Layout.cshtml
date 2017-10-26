@@ -51,9 +51,21 @@
     @RenderBody()
     <footer class="main-footer">
         <div class="lang-select hidden-xs">
-            <p>
-                <a href="javascript:language('en-us')">English</a> <a  href="javascript:language('zh-cn')">中文</a>
-            </p>
+            <form id="form_language" asp-action="SetLanguage" asp-controller="home" method="post">
+                <p>
+                    <input type="hidden" id="culture" name="culture" />
+                    <input type="hidden" id="returnUrl" name="returnUrl" />
+                    <a href="javascript:" onclick="setLanguage('en-us')">English</a>
+                    <a href="javascript:" onclick="setLanguage('zh-cn')">中文</a></p>
+                    <script>
+                        function setLanguage(culture)
+                        {
+                            $("#culture").val(culture);
+                            $("#returnUrl").val(window.location.pathname);
+                            $("#form_language").submit();
+                        }
+                    </script>
+            </form>
         </div>
         <div class="container">
             <div class="row">
