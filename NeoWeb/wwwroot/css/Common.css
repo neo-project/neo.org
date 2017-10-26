@@ -76,13 +76,16 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
 .login-part li{
     margin:5px 10px;
     display:inline-block;
-    padding:5px;
     min-width: 100px;
     background: #FAFAFA;
 }
 .login-part li a{
+    display:inline-block;
     width:inherit;
     height:inherit;
+    padding: 6px 12px;
+    border:1px solid #FAFAFA;
+    vertical-align: middle;
 }
 
 @media only screen and (max-width : 1200px) {
