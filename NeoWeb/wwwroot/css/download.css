@@ -1,6 +1,4 @@
-﻿body {
-}
-ul,li {
+﻿ul,li {
     margin:0;
     padding:0;
 }
@@ -87,7 +85,6 @@ ul,li {
     color:#FFFFFF;
     font-size:29px;
     text-align:center;
-    vertical-align: middle;
     line-height: 55px;
 }
 .nav-download  li.downtab-select {
