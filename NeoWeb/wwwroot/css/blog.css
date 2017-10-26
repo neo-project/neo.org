@@ -159,6 +159,9 @@ a{
         padding:0;
         margin-top:0;
     }
+    .mobile-show.blog_date {
+        margin-left:20px;
+    }
     .blog_date{
         padding: 0;
         text-align:center;
