@@ -11,12 +11,6 @@ a{
     cursor:pointer;
     text-decoration:none;
 }
-.iconfont {
-    color:#AAAAAA;
-}
-.selected-part .iconfont{
-    color:#6C6C6C;
-}
 
 .blog_title {
     font-weight: 100;
@@ -140,34 +134,22 @@ a{
 }
 
 .nav-artical a {
+    display:inline-block;
+    height:inherit;
     color:#6C6C6C;
 }
 .nav-artical a:hover{
     text-decoration:none;
 }
-.nav-artical a::before,
-.nav-artical a::after {
+.nav-artical .iconfont{
     font-size:22px;
-    vertical-align: middle;
+    font-style:normal;
     color:#AAAAAA;
     margin:0 3px;
 }
-a.back-list::before{
-    content:"\eaa4";
+.icon-left {
+    margin-right:20px;
 }
-/*a.back-to-top {
-    display: none;
-}*/
-a.back-to-top::before {
-    content: "\e600";
-}
-a.prev-artical::before {
-    content:"\eaa5";
-}
-a.next-artical::after {
-    content:"\eaa3";
-}
-
 
 @media only screen and (max-width : 1200px) {
     .blog_title {
@@ -178,7 +160,7 @@ a.next-artical::after {
         margin-top:0;
     }
     .blog_date{
-        padding: 0 15px;
+        padding: 0;
         text-align:center;
         margin-bottom: 3px;
     }
@@ -195,8 +177,7 @@ a.next-artical::after {
     .blog_scroll {
         height: 800px;
     }
-    .iconfont::before,
-    .iconfont::after {
+    .iconfont{
         font-size:15px!important;
     }
     .blog-list li {

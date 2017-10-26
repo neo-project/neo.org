@@ -29,7 +29,7 @@
     <div class="col-lg-11 artical-container">
 
         <div class="nav-artical nav-artical-top p2">
-            <div class="text-left"><a class="iconfont t2 back-list" href="~/blog"><span class="desktop-show">@Localizer["Back to list"]</span></a></div>
+            <div class="text-left"><a class="t2" href="~/blog"><i class="iconfont">&#xeaa4;</i><span class="desktop-show">@Localizer["Back to list"]</span></a></div>
             <div>
                 <ul class="blog_date mobile-show">
                     @foreach (var item in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Select(p => p.Year).Distinct())
@@ -41,8 +41,8 @@
                 </ul>
             </div>
             <div class="text-right">
-                <a class="iconfont t2 prev-artical icon-to-left" href="~/blog/details/@ViewBag.PrevBlogId"><span class="desktop-show">@Localizer["Previous article"]</span></a>
-                <a class="iconfont t2 next-artical" href="~/blog/details/@ViewBag.NextBlogId"><span class="desktop-show">@Localizer["Next article"]</span></a>
+                <a class="t2 icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xeaa5;</i><span class="desktop-show">@Localizer["Previous article"]</span></a>
+                <a class="t2" href="~/blog/details/@ViewBag.NextBlogId"><span class="desktop-show">@Localizer["Next article"]</span><i class="iconfont">&#xeaa3;</i></a>
             </div>
         </div>
 
@@ -60,11 +60,11 @@
         </div>
 
         <div class="nav-artical nav-artical-bottom">
-            <div class="text-left"><a class="iconfont t2 back-list" href="~/blog"><span class="desktop-show">@Localizer["Back to list"]</span></a></div>
-            <div class="text-center"><a class="iconfont t2 back-to-top"><span class="desktop-show">@Localizer["Back to top"]</span></a></div>
+            <div class="text-left"><a class="t2" href="~/blog"><i class="iconfont">&#xeaa4;</i><span class="desktop-show">@Localizer["Back to list"]</span></a></div>
+            <div class="text-center"><a class="t2"><i class="iconfont">&#xe600;</i><span class="desktop-show">@Localizer["Back to top"]</span></a></div>
             <div class="text-right">
-                <a class="iconfont t2 prev-artical icon-to-left" href="~/blog/details/@ViewBag.PrevBlogId"><span class="desktop-show">@Localizer["Previous article"]</span></a>
-                <a class="iconfont t2 next-artical" href="~/blog/details/@ViewBag.NextBlogId"><span class="desktop-show">@Localizer["Next article"]</span></a>
+                <a class="t2 icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xeaa5;</i><span class="desktop-show">@Localizer["Previous article"]</span></a>
+                <a class="t2" href="~/blog/details/@ViewBag.NextBlogId"><span class="desktop-show">@Localizer["Next article"]</span><i class="iconfont">&#xeaa3;</i></a>
             </div>
         </div>
 
