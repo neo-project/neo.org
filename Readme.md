@@ -2,7 +2,7 @@
 
 本网站由 NEO Project 开发，由 NEO 理事会负责运营维护，网站代码在 GitHub 上开源，允许社区成员开发和修改。
 
-## 关于所使用的浏览器
+### 关于所使用的浏览器
 
 推荐使用以下浏览器及系统最新版环境浏览本网站。
 
@@ -18,11 +18,15 @@ Internet Explorer10以上、Microsoft Edge、Google Chrome、Firefox、Safari、
 
 [.NET Core 2.0 SDK](https://www.microsoft.com/net/core)
 
-项目代码不包含数据库，首次运行网站会提示 A database operation failed while processing the request.
+项目代码不包含数据库，首次运行网站会提示：
 
-此时按照提示操作，点击天蓝色按钮即可自动创建数据库。
+A database operation failed while processing the request.
 
-附：[ASP.NET Core MVC 教程](https://docs.microsoft.com/en-us/aspnet/core/)
+Applying existing migrations for ApplicationDbContext may resolve this issue.
+
+此时按照提示操作，点击 `Apply Migrations` 按钮即可自动创建数据库。
+
+附：[ASP.NET Core Tutorials](https://docs.microsoft.com/en-us/aspnet/core/)
 
 ### 如何修改网站的代码
 
