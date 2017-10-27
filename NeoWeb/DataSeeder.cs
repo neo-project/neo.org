@@ -9,7 +9,7 @@ namespace NeoWeb
 {
     public static class DataSeeder
     {
-        public static async void SeedUser(this ApplicationDbContext context)
+        public static void SeedUser(this ApplicationDbContext context)
         {
             string[] roles = new string[] { "Admin" };
             foreach (var role in roles)
@@ -17,7 +17,7 @@ namespace NeoWeb
                 var roleStore = new RoleStore<IdentityRole>(context);
                 if (!context.Roles.Any(r => r.Name == role))
                 {
-                    await roleStore.CreateAsync(new IdentityRole(role));
+                    roleStore.CreateAsync(new IdentityRole(role));
                 }
             }
         }
