@@ -6,8 +6,12 @@
 }
 <div class="container">
     @RenderBody()
+    <div class="row">
+        <div class="col-lg-11 col-lg-push-1">
+            @await Html.PartialAsync("_LoginPartial")
+        </div>
+    </div>
 </div>
-@await Html.PartialAsync("_LoginPartial")
 
 @section Scripts{
     @RenderSection("Scripts", required: false)
