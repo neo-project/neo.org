@@ -15,15 +15,27 @@
 - [Creating a pull request](https://help.github.com/articles/creating-a-pull-request/)
 - [Creating a pull request from a fork](https://help.github.com/articles/creating-a-pull-request-from-a-fork/)
 
-### 项目说明
-- 本网站使用 `ASP.NET Core 2.0`，请先安装好开发环境。
+### 开发环境
 
-  [Visual Studio 2017](https://www.visualstudio.com) 安装时需要勾选 `ASP.NET 和 Web 开发`、`.NET Core 跨平台开发` 。
+本网站使用 `ASP.NET Core 2.0`，开发者如需本地运行调试请先安装好开发环境。
 
-  [.NET Core 2.0 SDK](https://www.microsoft.com/net/core)
+[Visual Studio 2017](https://www.visualstudio.com) 安装时需要勾选 `ASP.NET 和 Web 开发`、`.NET Core 跨平台开发` 。
+
+[.NET Core 2.0 SDK](https://www.microsoft.com/net/core)
+
+项目代码不包含数据库，首次运行网站会提示：
+
+A database operation failed while processing the request.
+
+Applying existing migrations for ApplicationDbContext may resolve this issue.
+
+此时按照提示操作，点击 `Apply Migrations` 按钮即可自动创建数据库。
+
+附：[ASP.NET Core Tutorials](https://docs.microsoft.com/en-us/aspnet/core/)
 
 ### dApp 要求
 
 - 所添加的 dApp 必需已在 main net 或 test net 上发布
-- 需要添加完善的 dApp 信息，如名称、作者、dApp描述、邮箱、GitHub、ScriptHash
+- 需要添加完善的 dApp 信息，如封面图片、名称、作者、dApp描述、邮箱、GitHub、ScriptHash
+- 封面图片上传至 NeoWeb\wwwroot\images\dapps 文件夹中
 - 如果 dApp 是在测试网上发布的需要单独标出

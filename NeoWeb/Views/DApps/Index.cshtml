@@ -8,19 +8,71 @@
     <link href="~/css/dapps.css" rel="stylesheet" />
 }
 <div class="container body-content">
-    <div class="text-center">
-        <h2 class="m2">@Localizer["dApps list"]</h2>
-        <a class="btn btn-default" target="_blank" href="https://github.com/neo-project/neo.org/tree/develop/NeoWeb/Views/DApps">@Localizer["Add dApp"]</a>
+    <h2 class="m2">@Localizer["NEO Quality dApp Recommendation"]</h2>
+    <div class="m2">
+        <a class="btneo t2" target="_blank" href="https://github.com/neo-project/neo.org/tree/develop/NeoWeb/Views/DApps">@Localizer["Add dApp"]</a>
     </div>
 
-    <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-4">
-            <h3>AgencyContract</h3>
-            <p>Agency Contract 2.0</p>
-            <p>Erik Zhang</p>
-            <p>ce3a97d7cfaa770a5e51c5b12cd1d015fbb5f87d</p>
+    <div class="dapp">
+        <a href="https://github.com/neo-project/examples-csharp/tree/master/AgencyTransaction" target="_blank">
+            <img width="300" height="150" src="~/images/dapps/AgencyContract.png">
+        </a>
+        <div>
+            <h3>
+                <a href="https://github.com/neo-project/examples-csharp/tree/master/AgencyTransaction" target="_blank">AgencyContract<br>
+                <small>by Erik Zhang</small></a>
+            </h3>
+            <p class="description">超导交易2.0，可以实现去信任的数字资产交易所，在无需充值的情况下对各类数字资产进行撮合。</p>
+            <p><a href="https://neotracker.io/contract/ce3a97d7cfaa770a5e51c5b12cd1d015fbb5f87d" target="_blank">ce3a97d7cfaa770a5e51c5b12cd1d015fbb5f87d</a></p>
         </div>
     </div>
+
+    <div class="dapp">
+        <a href="https://github.com/neo-project/examples-csharp/tree/master/Lock" target="_blank">
+            <img width="300" height="150" src="~/images/dapps/lock.png">
+        </a>
+        <div>
+            <h3>
+                <a href="https://github.com/neo-project/examples-csharp/tree/master/Lock" target="_blank">
+                    Lock<br>
+                    <small>by Erik Zhang</small>
+                </a>
+            </h3>
+            <p class="description">锁仓合约，提供一个在一定时间内不允许花费的智能合约账户,类似银行的定期存款。</p>
+            <p><a href="https://neotracker.io/contract/d3cce84d0800172d09c88ccad61130611bd047a4" target="_blank">d3cce84d0800172d09c88ccad61130611bd047a4</a></p>
+        </div>
+    </div>
+
+    <div class="dapp">
+        <a href="https://github.com/neo-project/examples-csharp/tree/master/ICO_Template" target="_blank">
+            <img width="300" height="150" src="~/images/dapps/NEO Token Sales Template.png">
+        </a>
+        <div>
+            <h3>
+                <a href="https://github.com/neo-project/examples-csharp/tree/master/ICO_Template" target="_blank">NEO Token Sales Template<br>
+                <small>by Erik Zhang & tanZiWen </small></a>
+            </h3>
+            <p class="description">利用此模板可以让Token发行方发行Token，并且公开接受Token投资方的投资，完成代币注册、发售和流转的过程。</p>
+            <p></p>
+        </div>
+    </div>
+
+    <div class="dapp">
+        <a href="https://coin.red-pulse.com/" target="_blank">
+            <img width="300" height="150" src="~/images/dapps/redpulse.png">
+        </a>
+        <div>
+            <h3>
+                <a href="https://coin.red-pulse.com/" target="_blank">
+                    RED PULSE 代币(RPX)<br>
+                    <small>by Red Pulse</small>
+                </a>
+            </h3>
+            <p class="description">RED PULSE 代币(RPX) 为NEO代币，由研究中国公司，行业，宏观经济的事件驱动型研究公司Red Pulse发行。</p>
+            <p><a href="https://neotracker.io/contract/ecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9" target="_blank">ecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9</a></p>
+        </div>
+    </div>
+
 </div>
 @section Scripts{
     <script>
