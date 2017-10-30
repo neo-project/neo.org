@@ -11,8 +11,14 @@
 <div class="row">
     <div class="col-xs-12">
         <h1 class="blog_title m2">@Localizer["Blog posts list"]</h1>
-    </div>
 
+        <div class="text-center m3">
+            @if (ViewBag.UserRulesCount)
+            {
+                <a asp-action="Create">发布新博客</a>
+            }
+        </div>
+    </div>
     <ul class="col-lg-1 blog_date desktop-show" id="blogDate">
         @foreach (var item in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Select(p => p.Year).Distinct())
         {

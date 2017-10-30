@@ -76,6 +76,7 @@ namespace NeoWeb.Controllers
             {
                 models = models.Take(30);
             }
+            ViewBag.UserRulesCount = _userRulesCount;
             return View(models);
         }
 

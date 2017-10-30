@@ -161,7 +161,7 @@ namespace NeoWeb.Controllers
             var testnet = await _context.Testnets.SingleOrDefaultAsync(m => m.Id == id);
             _context.Testnets.Remove(testnet);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(List));
         }
 
         private bool TestnetExists(int id)
