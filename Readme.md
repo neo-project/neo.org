@@ -73,8 +73,10 @@ This website uses `ASP.NET Core 2.0`. Developers need to run local debugging. Pl
 - [.NET Core 2.0 SDK](https://www.microsoft.com/net/core).
 
 The project code does not contain the database. The first time running the website, the following prompt will appear:
+
 `A database operation failed while processing the request.
 Applying existing migrations for ApplicationDbContext may resolve this issue.`
+
 At this point, follow the prompts, click the `Apply Migrations` button to automatically create the database.
 
 See also: [ASP.NET Core Tutorials](https://docs.microsoft.com/en-us/aspnet/core/)
