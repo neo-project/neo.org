@@ -19,7 +19,7 @@
     background-size: 200px;
     background-repeat:no-repeat;
 }
-/*loading页面*/
+/*loading页面 - loading page*/
 .load-page{
     width: 100%;
     height: 100%;
@@ -214,7 +214,7 @@
     padding-left: 0;
 }
 
-/*什么是neo页面*/
+/*什么是neo页面 - About NEO page*/
 .home-neo-intro {
     height:60%;
     line-height:2;
@@ -244,7 +244,7 @@
     white-space:nowrap;
 }
 
-/*NEO技术特点*/
+/*NEO技术特点 - NEO Technical Features*/
 .modal-content {
     border-radius: 0;
 }
@@ -266,7 +266,7 @@
     }
 }
 
-/*客户端下载部分页面*/
+/*客户端下载部分页面 - Client Download page*/
 .home-down {
     position:relative;
     z-index:15;
@@ -293,7 +293,7 @@
     text-decoration:none;
 }
 
-/*技术详细介绍页面*/
+/*技术详细介绍页面 - Technical Details page*/
 .home-deve {
     position:relative;
     background:#E4E4E4;
@@ -331,7 +331,7 @@
 .home-detail .detail-img img{
     max-width: 100%;
 }
-/*开发者页面*/
+/*开发者页面 - Developer page*/
 .home-developer {
     background-image: url(../images/deve-bg-1.png);
     background-repeat: no-repeat;
@@ -344,7 +344,7 @@
     padding-left:20%;
 }
 
-/*屏幕样式适配*/
+/*屏幕样式适配 - Scroll effect*/
 @media only screen and (min-width: 1800px) {
     .scroll-page.city-back .scroll-ver-fri {
         background-position: 41% 100px;
