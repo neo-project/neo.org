@@ -1,7 +1,7 @@
 ﻿html, body {
     background:#3f3f3f;
 }
-/*顶部样式*/
+/*顶部样式 - Header style*/
 .navbar.navbar-fixed-top {
     background:#3F3F3F;
     background:rgba(63,63,63,0.9);
@@ -89,7 +89,7 @@
     box-shadow: 0px 0px 8px rgb(150,200,0);
 }
 
-/*申请块*/
+/*申请块 - Application block*/
 .link-apply {
     background-image: linear-gradient(140deg, #A5A5A5 0%, #6D6D6D 100%, #6C6C6C 100%);
     background-image: url(../images/deve-bg-1.png),linear-gradient(140deg, #A5A5A5 0%, #6D6D6D 100%, #6C6C6C 100%);
@@ -136,7 +136,7 @@
     background: rgba(115,162,255,.75);
     border: none;
 }
-/*申请内部的表部分*/
+/*申请内部的表部分 - Application form*/
 .apply-content {
     background: #6c6c6c;
     color:#FFFFFF;
