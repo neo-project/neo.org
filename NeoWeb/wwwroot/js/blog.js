@@ -16,4 +16,6 @@
     $('.back-to-top').click(function (event) {
         $('html, body').animate({ scrollTop: 0 }, 500);
     })
+
+    $("#blogDate").find("ul:first").show(300);
 })
