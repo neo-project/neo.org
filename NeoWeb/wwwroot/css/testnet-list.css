@@ -43,7 +43,7 @@ body {
 
 
 
-/*申请列表*/
+/*申请列表 - Application list*/
 .apply-list {
     table-layout:fixed;
     background:#FFFFFF;
@@ -73,7 +73,7 @@ body {
 }*/
 
 
-/*备注页面*/
+/*备注页面 - Remarks page*/
 .coin-back {
     background:#FFFFFF;
     padding:50px 100px;
@@ -100,7 +100,7 @@ body {
     border-radius:4px;
 }
 
-/*申请详情*/
+/*申请详情 - Application details*/
 .coin-back.apply-detail {
     line-height:20px;
 }
