@@ -1,7 +1,7 @@
 ﻿ul, ol {
     margin-bottom: 0px;
 }
-/*blog页面*/
+/*blog页面 - Blog page*/
 .blog-container {
     text-align:center;
     color:#6C6C6C;
@@ -81,7 +81,7 @@ a{
     color: #58BF00;
 }
 
-/*博客内容页面*/
+/*博客内容页面 - Blog content page*/
 .blog_date.artical-date {
     padding-top:50px;
 }

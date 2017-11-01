@@ -1,5 +1,5 @@
 ﻿$(function () {
-    //根据年份显示日期
+    //根据年份显示日期 - Show date by year
     $(".year").click(function () {
         $(".blog_date ul").hide(300);
         $(this.parentNode).find("ul").show(300);

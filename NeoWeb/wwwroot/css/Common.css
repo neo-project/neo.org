@@ -69,7 +69,7 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
     border-radius: 0;
     text-decoration: none;
 }
-/*注册部分样式修改*/
+/*注册部分样式修改 - Registration of style changes*/
 .login-part ul{
     padding:0;
 }

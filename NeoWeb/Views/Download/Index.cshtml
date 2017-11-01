@@ -5,11 +5,11 @@
     ViewData["Title"] = "Index";
 }
 @section Styles{
-    <link href="~/css/download.css" rel="stylesheet" />
+    <link href="~/css/download.min.css" rel="stylesheet" />
 }
 <div class="container body-content">
     <div class="row download-container">
-        <h1 class="m2">@Localizer["Download Client"]</h1>
+        <h1 class="m2">@Localizer["Client Downloads"]</h1>
         <ul class="nav-download m3 t1" id="downTab">
             <li><em class="iconfont">&#xe64b;</em>@Localizer["Mobile"]</li>
             <li><em class="iconfont">&#xe632;</em>@Localizer["Desktop"]</li>
@@ -43,7 +43,7 @@
                     </p>
                     <p class="m2 t2 bold-font">
                         <a href="https://github.com/neo-project/neo-gui/" target="_blank">@Localizer["Get source code"]</a><br />
-                        <a href="/client/chain.acc.zip" target="_blank">@Localizer["Download Synchronize data offline"]</a>
+                        <a href="/client/chain.acc.zip" target="_blank">@Localizer["Download offline synchronized data"]</a>
                     </p>
                     <a class="down-btn" href="https://github.com/neo-project/neo-gui/releases" target="_blank">@Localizer["Download"]</a>
                 </div>
@@ -58,7 +58,7 @@
                     </p>
                     <p class="m2 t2 bold-font">
                         <a href="https://github.com/neo-project/neo-cli/" target="_blank">@Localizer["Get source code"]</a><br />
-                        <a href="/client/chain.acc.zip" target="_blank">@Localizer["Download Synchronize data offline"]</a>
+                        <a href="/client/chain.acc.zip" target="_blank">@Localizer["Download offline synchronized data"]</a>
                     </p>
                     <a class="down-btn" href="https://github.com/neo-project/neo-cli/releases" target="_blank">@Localizer["Download"]</a>
                 </div>
@@ -87,7 +87,7 @@
                     <p class="m2 t2">
                         @Localizer["Developer"]: <a href="https://neotracker.io/wallet" target="_blank">neotracker</a><br />
                         @Localizer["Supported Languages"]: @Localizer["English"]<br />
-                        @Localizer["Supported Borwser"]: Chrome/Edge
+                        @Localizer["Supported Browser"]: Chrome/Edge
                     </p>
                     <p class="m2 t2 bold-font">
                         <a href="https://github.com/neotracker" target="_blank">@Localizer["Get source code"]</a><br />
@@ -101,7 +101,7 @@
                     <p class="m2 t2">
                         @Localizer["Developer"]: <a href="https://github.com/PeterLinX/" target="_blank">PeterLinX</a><br>
                         @Localizer["Supported Languages"]: @Localizer["English/Chinese"]<br>
-                        @Localizer["Supported Borwser"]: Chrome/Edge
+                        @Localizer["Supported Browser"]: Chrome/Edge
                     </p>
                     <p class="m2 t2 bold-font">
                         <a href="https://github.com/PeterLinX" target="_blank">@Localizer["Get source code"]</a><br />
@@ -115,7 +115,7 @@
                     <p class="m2 t2">
                         @Localizer["Developer"]: <a href="https://github.com/OTCGO/" target="_blank">fl0wjacky</a><br>
                         @Localizer["Supported Languages"]: @Localizer["Chinese"]<br>
-                        @Localizer["Supported Borwser"]: Chrome/Edge
+                        @Localizer["Supported Browser"]: Chrome/Edge
                     </p>
                     <p class="m2 t2 bold-font">
                         <a href="https://github.com/OTCGO/" target="_blank">@Localizer["Get source code"]</a><br />
@@ -125,7 +125,7 @@
             </li>
         </ul>
     </div>
-    <p class="down-hint t2 m2"> @Localizer["Wallets developed by third party/community. Please contact the corresponding parties for technical support."]</p>
+    <p class="down-hint t2 m2"> @Localizer["Wallets are developed by a third party/community. Please contact the corresponding parties for technical support."]</p>
 </div>
 @section Scripts{
     <script>
