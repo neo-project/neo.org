@@ -123,7 +123,7 @@
   <data name="Amount Of NEO" xml:space="preserve">
     <value>申请数量（NEO）</value>
   </data>
-  <data name="Apply For Testcoin NEO&amp;GAS" xml:space="preserve">
+  <data name="Apply For TestNet NEO&amp;GAS" xml:space="preserve">
     <value>测试NEO&amp;GAS申请</value>
   </data>
   <data name="Company Name/Project Name" xml:space="preserve">
@@ -153,10 +153,10 @@
   <data name="NEO Smart economy" xml:space="preserve">
     <value>NEO 智能经济</value>
   </data>
-  <data name="Phone" xml:space="preserve">
+  <data name="Phone Number" xml:space="preserve">
     <value>电话</value>
   </data>
-  <data name="Please fill out your own NEO public key, if the application succeeds, we will send Neo/gas to a multiple signature address and tell you how to use it." xml:space="preserve">
+  <data name="Please enter your own NEO public key. If the application succeeds, we will send Neo/GAS to a multiple signature address and tell you how to use it." xml:space="preserve">
     <value>请填写你自己的NEO公钥，如果申请成功，我们会将 NEO / GAS 发到一个多重签名的地址中，并告诉你如何使用。</value>
   </data>
   <data name="QQ" xml:space="preserve">

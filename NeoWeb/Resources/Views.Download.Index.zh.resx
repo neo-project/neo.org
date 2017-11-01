@@ -129,10 +129,10 @@
   <data name="Download" xml:space="preserve">
     <value>下载</value>
   </data>
-  <data name="Download Client" xml:space="preserve">
+  <data name="Client Downloads" xml:space="preserve">
     <value>客户端下载</value>
   </data>
-  <data name="Download Synchronize data offline" xml:space="preserve">
+  <data name="Download offline synchronized data" xml:space="preserve">
     <value>下载离线同步数据</value>
   </data>
   <data name="English" xml:space="preserve">
@@ -159,7 +159,7 @@
   <data name="OTCGO" xml:space="preserve">
     <value>蓝鲸淘</value>
   </data>
-  <data name="Supported Borwser" xml:space="preserve">
+  <data name="Supported Browser" xml:space="preserve">
     <value>支持浏览器</value>
   </data>
   <data name="Supported Languages" xml:space="preserve">
@@ -177,7 +177,7 @@
   <data name="Web" xml:space="preserve">
     <value>网页</value>
   </data>
-  <data name="Wallets developed by third party/community. Please contact the corresponding parties for technical support." xml:space="preserve">
+  <data name="Wallets are developed by a third party/community. Please contact the corresponding parties for technical support." xml:space="preserve">
     <value>这些客户端是由社区进行开发和维护的，如果遇到问题请直接联系相应开发者。</value>
   </data>
 </root>
