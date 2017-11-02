@@ -34,7 +34,7 @@ namespace NeoWeb.Controllers
 
         // GET: Blog
         [AllowAnonymous]
-        public IActionResult Index(int? y = null, int? m = null)
+        public IActionResult Index(int? y = null, int? m = null, string lang = null)
         {
             var models = _context.Blogs.OrderByDescending(o => o.CreateTime).Select(p => new
             {
@@ -71,6 +71,10 @@ namespace NeoWeb.Controllers
                 {
                     models = models.Where(p => p.CreateTime.Month == m);
                 }
+            }
+            if (lang != null)
+            {
+                models = models.Where(p => p.Lang == lang).Take(30);
             }
             else
             {
@@ -177,7 +181,7 @@ namespace NeoWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Content")] Blog blog)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Lang,Content")] Blog blog)
         {
             if (id != blog.Id)
             {
@@ -191,6 +195,7 @@ namespace NeoWeb.Controllers
                 {
                     item.Content = Convert(blog.Content);
                     item.Summary = blog.Content.ClearHtmlTag(150);
+                    item.Lang = blog.Lang;
                     item.EditTime = DateTime.Now;
                     _context.Update(item);
                     await _context.SaveChangesAsync();

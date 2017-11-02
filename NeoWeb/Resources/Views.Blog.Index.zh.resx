@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="All languages" xml:space="preserve">
+    <value>所有语言</value>
+  </data>
   <data name="Blog posts list" xml:space="preserve">
     <value>博客文章列表</value>
   </data>

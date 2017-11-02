@@ -57,6 +57,10 @@ a{
     border-radius:5px;
     background-color: #aaa;
 }
+.language li {
+    display: inline-block;
+    margin: 0 20px 20px 0;
+}
 
 .year, .month {
     color:#AAAAAA;
