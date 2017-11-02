@@ -57,6 +57,7 @@
     color:#FFFFFF;
     font-weight:600;
     letter-spacing:2px;
+    text-shadow: 0 0 5px 2px rgba(0,0,0,.7);
 }
 .down-box p{
     padding:0 25px;
