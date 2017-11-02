@@ -20,10 +20,17 @@
     <link rel="icon" type="image/x-icon" href="~/images/favicon.png">
     <link rel="bookmark" type="image/x-icon" href="~/images/favicon.png" />
 
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.min.css" />
-    <link rel="stylesheet" href="~/css/navigation.min.css" />
-    <link href="~/css/common.min.css" rel="stylesheet" />
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/navigation.css" />
+        <link rel="stylesheet" href="~/css/common.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+
     @RenderSection("Styles", required: false)
 </head>
 <body>

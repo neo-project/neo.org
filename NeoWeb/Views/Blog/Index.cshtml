@@ -6,7 +6,12 @@
     Layout = "_LayoutBlog.cshtml";
 }
 @section Styles{
-    <link href="~/css/blog.min.css" rel="stylesheet" />
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/blog.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/blog.min.css" asp-append-version="true" />
+    </environment>
 }
 <div class="row">
     <div class="col-xs-12">

@@ -3,10 +3,14 @@
 @{
     ViewData["Title"] = "备注";
 }
-@section Styles{ 
-    <link rel="stylesheet" href="~/css/testnet-list.min.css"/>
+@section Styles{
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/testnet-list.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/testnet-list.min.css" asp-append-version="true" />
+    </environment>
 }
-
 <div class="container">
     <h1 class="m1">备注</h1>
     <div class="row coin-back">

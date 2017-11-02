@@ -2,7 +2,12 @@
 @inject IViewLocalizer Localizer
 
 @section Styles{
-    <link href="~/css/logo.min.css" rel="stylesheet" />
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/logo.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/logo.min.css" asp-append-version="true" />
+    </environment>
 }
 <div class="container logo-container">
     <h1 class="m2">NEO LOGO</h1>

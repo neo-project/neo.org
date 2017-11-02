@@ -2,10 +2,15 @@
 @inject IViewLocalizer Localizer
 
 @section Styles{
-    <link href="~/css/homepage.min.css" rel="stylesheet" />
-    <link href="~/lib/wow/css/libs/animate.min.css" rel="stylesheet" />
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/homepage.css" />
+        <link href="~/lib/wow/css/libs/animate.css" rel="stylesheet" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/homepage.min.css" asp-append-version="true" />
+        <link href="~/lib/wow/css/libs/animate.min.css" rel="stylesheet" />
+    </environment>
 }
-
 @* loading页面 - loading page *@ 
 <div class="load-page">
     <div class="span">

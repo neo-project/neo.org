@@ -5,7 +5,12 @@
     ViewData["Title"] = "Index";
 }
 @section Styles{
-    <link href="~/css/download.min.css" rel="stylesheet" />
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/download.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/download.min.css" asp-append-version="true" />
+    </environment>
 }
 <div class="container body-content">
     <div class="row download-container">
@@ -121,6 +126,20 @@
                         <a href="https://github.com/OTCGO/" target="_blank">@Localizer["Get source code"]</a><br />
                     </p>
                     <a class="down-btn" href="https://otcgo.cn/" target="_blank">@Localizer["Visit Site"]</a>
+                </div>
+            </li>
+            <li class="col-sm-4 m3">
+                <div class="down-box">
+                    <div class="down-pic"><img src="~/images/down-ansy.jpg" /><span class="h2">Ansy</span></div>
+                    <p class="m2 t2">
+                        @Localizer["Developer"]: <a href="https://github.com/snowypowers" target="_blank">snowypowers</a><br>
+                        @Localizer["Supported Languages"]: @Localizer["English"]<br>
+                        @Localizer["Supported Browser"]: Chrome/Edge
+                    </p>
+                    <p class="m2 t2 bold-font">
+                        <a href="https://github.com/snowypowers/ansy" target="_blank">@Localizer["Get source code"]</a><br />
+                    </p>
+                    <a class="down-btn" href="https://snowypowers.github.io/ansy/" target="_blank">@Localizer["Visit Site"]</a>
                 </div>
             </li>
         </ul>

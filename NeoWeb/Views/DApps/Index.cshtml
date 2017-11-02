@@ -5,7 +5,12 @@
     ViewData["Title"] = "dApps";
 }
 @section Styles{
-    <link href="~/css/dapps.min.css" rel="stylesheet" />
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/dapps.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/dapps.min.css" asp-append-version="true" />
+    </environment>
 }
 <div class="container body-content">
     <h1 class="m2">@Localizer["NEO Quality dApp Recommendation"]</h1>
@@ -20,15 +25,32 @@
         <div>
             <h3>
                 <a href="https://coin.red-pulse.com/" target="_blank">
-                    RED PULSE 代币(RPX)<br>
-                    <small>by Red Pulse</small>
-                </a>
+                    Red Pulse (RPX)
+                </a><br>
+                <small>by <a href="https://www.red-pulse.com/" target="_blank">Red Pulse</a></small>
+                
             </h3>
-            <p class="description">RED PULSE 代币(RPX) 为NEO代币，由研究中国公司，行业，宏观经济的事件驱动型研究公司Red Pulse发行。</p>
-            <p><a href="https://neotracker.io/contract/ecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9" target="_blank">ecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9</a></p>
+            <p class="description">Red Pulse Tokens (RPX) are NEO tokens issued by Red Pulse, an event-driven research firm covering market events impacting Chinese companies, sectors and the overall economy.</p>
+            <p><a href="https://neotracker.io/contract/ecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9" target="_blank">0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9</a></p>
         </div>
     </div>
 
+    <div class="dapp">
+        <a href="https://github.com/AdExBlockchain" target="_blank">
+            <img width="300" height="150" src="~/images/dapps/AdExBlockchain.png">
+        </a>
+        <div>
+            <h3>
+                <a href="https://github.com/AdExBlockchain" target="_blank">
+                    AdEx
+                </a>
+                <br>
+                <small>by <a href="http://adex.network/" target="_blank">adex.network</a></small>
+            </h3>
+            <p class="description">AdEx is a decentralized ad exchange built on the blockchain and smart contracts. The core feature of AdEx will be the so-called AdEx User Profile - a personalized page that allows every end user to understand and control the ads delivered to them.</p>
+            <p><a href="javascript:" target="_blank">In Development</a></p>
+        </div>
+    </div>
 </div>
 @section Scripts{
     <script>
