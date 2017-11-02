@@ -12,6 +12,10 @@
     background: rgb(242,242,242);
     transition:background 1s;
 }
+footer {
+    padding-top: 50px;
+    background: #FFFFFF;
+}
 .main-footer {
     background: #FFFFFF;
     background-image: url('../images/home-developer.svg'),url('../images/home-developer.svg'),linear-gradient(rgba(255,255,255,0.95),rgba(255,255,255,0.5));
