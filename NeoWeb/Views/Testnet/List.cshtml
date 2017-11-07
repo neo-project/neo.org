@@ -11,34 +11,30 @@
         <link rel="stylesheet" href="~/css/testnet-list.min.css" asp-append-version="true" />
     </environment>
 }
-<div class="testcoin">
+<div class="container">
     <h1 class="m1">测试币申请列表</h1>
     <table class="apply-list">
         <thead>
             <tr class="t3">
-                <th width="8%">
-                    @Html.DisplayNameFor(model => model.Company)
-                </th>
-                <th width="11%">
-                    @Html.DisplayNameFor(model => model.Email)
-                </th>
-                <th width="11%">
+                <th width="12%">
                     @Html.DisplayNameFor(model => model.Name)
                 </th>
-                <th class="pub-key" width="20%">
-                    @Html.DisplayNameFor(model => model.PubKey)
+                <th width="12%">
+                    @Html.DisplayNameFor(model => model.Email)
                 </th>
-                <th> </th>
-                <th width="8%">
+                <th width="10%">
+                    @Html.DisplayNameFor(model => model.Company)
+                </th>
+                <th width="10%">
                     @Html.DisplayNameFor(model => model.ANSCount)
                 </th>
-                <th width="8%">
+                <th width="10%">
                     @Html.DisplayNameFor(model => model.ANCCount)
                 </th>
-                <th width="24%">
+                <th width="32%">
                     @Html.DisplayNameFor(model => model.Remark)
                 </th>
-                <th width="10%">操作</th>
+                <th width="14%">操作</th>
             </tr>
         </thead>
         <tbody>
@@ -46,18 +42,14 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Company)
+                        @Html.DisplayFor(modelItem => item.Name)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Email)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Name)
+                        @Html.DisplayFor(modelItem => item.Company)
                     </td>
-                    <td class="pub-key">
-                        @Html.DisplayFor(modelItem => item.PubKey)
-                    </td>
-                    <td> </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.ANSCount)
                     </td>

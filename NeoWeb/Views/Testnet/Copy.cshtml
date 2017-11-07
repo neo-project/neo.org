@@ -1,0 +1,48 @@
+﻿@model IEnumerable<NeoWeb.Models.Testnet>
+
+@{
+    ViewData["Title"] = "Copy";
+}
+@section Styles{
+    <link rel="stylesheet" href="~/css/testnet-list.css" />
+}
+<div class="container">
+    <h1 class="m1">复制列表</h1>
+    <table class="apply-list">
+        <thead>
+            <tr class="t3">
+                <th width="20%">姓名</th>
+                <th width="39%">公钥</th>
+                <th></th>
+                <th width="20%">申请数量（NEO）</th>
+                <th width="20%">申请数量（GAS）</th>
+            </tr>
+        </thead>
+        <tbody id="tBody">
+            
+        </tbody>
+    </table>
+    <div class="back-to-list">
+        <a onclick="window.history.back();">返回上一页</a>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        window.onload = function () {
+            var flag = sessionStorage.length - 2;
+            var html = "";
+            if (flag > 0) {
+                for (var i = 0; i < flag; i++) {
+                    var lis = JSON.parse(sessionStorage.getItem("list" + i));
+                    html += "<tr><td>" + lis.name + "</td>" +
+                        "<td>" + lis.key + "</td>" +
+                        "<td></td>" +
+                        "<td>" + lis.neo + "</td>" +
+                        "<td>" + lis.gas + "</td></tr>";
+                }
+                $("#tBody").html(html);
+            }
+        }
+    </script>
+}

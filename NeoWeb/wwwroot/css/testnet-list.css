@@ -13,8 +13,14 @@ body {
 .main-footer {
     display:none;
 }
+.container a {
+    color:#58bf00;
+}
+.container a:visited{
+    color:#6C6C6C;
+}
 .testcoin {
-    margin:auto;
+    margin:60px auto;
     width:70%;
     max-width:1450px;
     text-align:center;
@@ -35,6 +41,7 @@ body {
     border: 1px solid #ccc;
     vertical-align: middle;
     text-decoration:none;
+    cursor:pointer;
 }
 .back-to-list a:hover{
     background-color: #e6e6e6;
@@ -107,4 +114,5 @@ body {
 .coin-back.apply-detail dd{
     text-align:left;
     margin-bottom:20px;
+    word-break: break-word;
 }

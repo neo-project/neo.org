@@ -76,9 +76,32 @@
                 @Html.DisplayFor(model => model.Remark)
             </dd>
         </dl>
+        <div class="text-right">
+            <a class="p3" onclick="copyData();" href="">复制</a>
+            <a asp-action="Copy">查看复制</a>
+        </div>
     </div>
     <div class="back-to-list">
         <a asp-action="Edit" asp-route-id="@Model.Id">备注</a> 
-        <a asp-action="List">返回列表</a>
+        <a onclick="window.history.back();">返回上一页</a>
     </div>
 </div>
+@section Scripts{ 
+<script>
+    function copyData() {
+        var item = sessionStorage.length,flag = 0;
+        if (item>1) {
+            flag = item-1;
+        }
+        var lista = {
+            name: "@Html.DisplayFor(model => model.Name)",
+            key: "@Html.DisplayFor(model => model.PubKey)",
+            neo: "@Html.DisplayFor(model => model.ANSCount)",
+            gas: "@Html.DisplayFor(model => model.ANCCount)"
+        };
+
+        sessionStorage.setItem("list" + flag, JSON.stringify(lista));
+
+    }
+</script>
+}
