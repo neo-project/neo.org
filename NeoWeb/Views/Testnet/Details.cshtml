@@ -115,7 +115,7 @@
 @section Scripts{ 
 <script>
     function copyData() {
-        var item = sessionStorage.length,flag = 0;
+        var item = sessionStorage.length,flag = 1;
         if (item>1) {
             flag = item;
         }
@@ -131,11 +131,12 @@
     }
 
     function  copytable() {
-        var flag = sessionStorage.length - 1;
+        var flag = sessionStorage.length;
         var html = "";
         if (flag > 0) {
-            for (var i = 0; i < flag; i++) {
+            for (var i = 1; i < flag; i++) {
                 var lis = JSON.parse(sessionStorage.getItem("list" + i));
+                console.log(lis);
                 html += "<tr><td>" + lis.name + "</td>" +
                     "<td>" + lis.key + "</td>" +
                     "<td></td>" +
