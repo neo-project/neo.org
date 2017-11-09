@@ -35,7 +35,9 @@
     </div>
 
     <div class="back-to-list">
-        <a onclick="window.history.back();">返回上一页</a>
+        <a onclick="document.referrer === '' ?
+          window.location.pathname = '/Testnet/list' :
+          window.history.back();">返回上一页</a>
     </div>
 </div>
 

@@ -52,13 +52,6 @@ namespace NeoWeb.Controllers
             return View(testnet);
         }
 
-        // GET: Testnet/Copy
-        [AllowAnonymous]
-        public IActionResult Copy()
-        {
-            return View();
-        }
-
         // GET: Testnet/Create
         [AllowAnonymous]
         public IActionResult Create()

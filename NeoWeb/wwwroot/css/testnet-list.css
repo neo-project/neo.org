@@ -54,6 +54,7 @@ body {
 .apply-list {
     table-layout:fixed;
     background:#FFFFFF;
+    width:100%;
 }
 .apply-list th,
 .apply-list td{
@@ -115,4 +116,8 @@ body {
     text-align:left;
     margin-bottom:20px;
     word-break: break-word;
+}
+
+.modal-content {
+    overflow:hidden;
 }
