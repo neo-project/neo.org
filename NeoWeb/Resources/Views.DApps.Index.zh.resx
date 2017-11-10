@@ -120,7 +120,10 @@
   <data name="Add dApp" xml:space="preserve">
     <value>添加 dApp</value>
   </data>
-  <data name="NEO Quality dApp Recommendation" xml:space="preserve">
-    <value>NEO 优质 dApp 推荐</value>
+  <data name="NEO dApp List" xml:space="preserve">
+    <value>NEO dApp 列表</value>
+  </data>
+  <data name="These dAPPs come from the community. The information on this page is provided by the project owner. NEO does not endorse these projects." xml:space="preserve">
+    <value>这些dAPP来自于社区，本页面的信息均由项目方自主填写，NEO不为这些项目进行背书。</value>
   </data>
 </root>

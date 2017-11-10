@@ -21,46 +21,51 @@
     font-size:40px;
 }
 .download-ul {
+    text-align: center;
     font-weight:100;
     display:none;
-    text-align:left;
 }
 .download-ul li {
+    display: inline-block;
+    width: 360px;
+    margin: 20px 8px;
     line-height:1.5;
-    text-align:center;
 }
 .download-ul a {
     color:initial;
     cursor:pointer;
 }
-.download-ul a.down-btn {
-    color:#6C6C6C;
-}
 .down-box {
     background:#FFFFFF;
     overflow:hidden;
 }
-.down-pic {
-    position:relative;
-    width:100%;
-    min-height:50px;
-    display:block;
+.download-web .desc {
+    min-height: 100px;
 }
-.down-pic img{
-    width:100%;
+.download-mobile .desc {
+    min-height: 120px;
 }
-.down-pic span{
-    position: absolute;
-    z-index: 24;
-    left: 24px;
-    bottom:20px;
-    color:#FFFFFF;
-    font-weight:600;
-    letter-spacing:2px;
-    text-shadow: 0 0 5px 2px rgba(0,0,0,.7);
+.download-desktop .desc {
+    min-height: 150px;
+}
+.down-box .info {
+    margin-bottom: 20px;
+}
+.down-box h2 {
+    text-align: center;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 3;
+}
+.down-box h2 small {
+    font-size: 14px;
+    margin-left: 20px;
+}
+.down-box img{
+    width:100%;
 }
 .down-box p{
-    padding:0 25px;
+    padding:0 20px;
     color:#6C6C6C;
     text-align:left;
 }
@@ -76,15 +81,15 @@
     text-decoration:none;
 }
 
-.down-btn {
+.down-box .down-btn {
     display:block;
+    margin: 20px auto;
+    width: 150px;
+    line-height: 40px;
     background:#BEEB00;
-    width:100%;
-    height:55px;
     color:#FFFFFF;
-    font-size:29px;
+    font-size:18px;
     text-align:center;
-    line-height: 55px;
 }
 .nav-download  li.downtab-select {
     color:#58BF00;
