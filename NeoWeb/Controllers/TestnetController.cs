@@ -69,6 +69,7 @@ namespace NeoWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                testnet.Time = DateTime.Now;
                 _context.Add(testnet);
                 await _context.SaveChangesAsync();
                 return View("completed");
