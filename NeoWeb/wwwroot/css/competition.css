@@ -1,0 +1,69 @@
+﻿body {
+    background:#FFF;
+}
+.block {
+    padding:100px 0px;
+}
+.compe-title span{
+    background:#464646;
+    color:#FFFFFF;
+    font-size:26px;
+    padding:5px 12px;
+    vertical-align:middle;
+    letter-spacing:1px;
+}
+.compe-title:before,
+.compe-title:after{
+    content:"—————";
+    display:inline-block;
+    margin:0px 20px;
+    color:#464646;
+}
+.compe-title{
+
+}
+.compe-btn {
+    display:inline-block;
+    margin:0px 10px;
+    border:2px solid #30B900;
+    width:155px;
+    height:45px;
+    line-height:44px;
+    font-size:18px;
+    color:#30B900;
+    box-sizing:content-box;
+    cursor:pointer;
+}
+.compe-btn:hover{
+    background:#fdfdfd;
+}
+/*底部样式调整*/
+footer {display:none;}
+.footer {
+    background:#000000;
+    color:#FFFFFF;
+    padding:30px 0;
+}
+.foo-content {
+    margin:35px auto;
+    max-width:660px;
+}
+.foo-content>div{
+    display:inline-block;
+}
+.foo-title {
+    width:100px;
+    vertical-align:top;
+}
+.icon-content {
+    width:550px;
+    word-break:break-word;
+}
+.icon-content span{
+    margin-right:25px;
+}
+@media only screen and (max-width : 780px) {
+    .block {
+        padding:30px 0px;
+    }
+}
