@@ -46,10 +46,10 @@
     min-height: 120px;
 }
 .download-desktop .desc {
-    min-height: 150px;
+    min-height: 130px;
 }
 .down-box .info {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 .down-box h2 {
     text-align: center;
@@ -83,7 +83,7 @@
 
 .down-box .down-btn {
     display:block;
-    margin: 20px auto;
+    margin: 10px auto 20px;
     width: 150px;
     line-height: 40px;
     background:#BEEB00;
@@ -93,6 +93,11 @@
 }
 .nav-download  li.downtab-select {
     color:#58BF00;
+}
+.down-box p.down-time {
+    text-align: center;
+    font-size: 14px;
+
 }
 
 .down-select {
@@ -107,20 +112,12 @@
     line-height: 2;
 }
 
-@media only screen and (max-width : 1200px) {
-    .down-box p{
-        min-height:110px;
-    }
-
-}
-
 @media only screen and (max-width : 992px) {
     .down-hint {
         width:100%;
         max-width:none;
     }
 }
-
 
 @media only screen and (max-width : 768px) {
     .download-ul li:first-child{
