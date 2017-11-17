@@ -3,25 +3,24 @@
 @{
     ViewData["Title"] = "Index";
 }
-<div class="container">
-    <h2>Index</h2>
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
+<div class="container text-center m1">
+    <h1 class="m2">新闻列表</h1>
+
     <ul>
         @foreach (var item in Model)
         {
             <li>
-                <a href="@Html.DisplayFor(modelItem => item.Link)" target="_blank">
-                    @Html.DisplayFor(modelItem => item.Title)
-                </a>
                 <p>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a href="@Html.DisplayFor(modelItem => item.Link)" target="_blank">
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span>
+                        <a asp-action="Edit" asp-route-id="@item.Id">编辑</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">删除</a>
+                    </span>
                 </p>
             </li>
         }
     </ul>
-
+    <a asp-action="Create">添加新闻</a>
 </div>

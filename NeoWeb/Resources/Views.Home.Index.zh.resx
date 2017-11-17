@@ -151,7 +151,7 @@
   <data name="Go to download page" xml:space="preserve">
     <value>进入下载页面</value>
   </data>
-  <data name="If you are developer" xml:space="preserve">
+  <data name="If you are a developer" xml:space="preserve">
     <value>如果您是开发者</value>
   </data>
   <data name="Introduced Lattice cryptography-based signing and encryption technique to avoid quantum crisis by Turing encryption and decryption problem into the Shortest Vector Problem (SVP), which cannot be solved by current quantum computers." xml:space="preserve">

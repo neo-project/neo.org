@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace NeoWeb.Models
 {
@@ -40,6 +41,9 @@ namespace NeoWeb.Models
         [Display(Name = "申请数量 (GAS)")]
         [RegularExpression("\\d+", ErrorMessage = "申请数量必须为整数")]
         public string ANCCount { get; set; }
+
+        [Display(Name = "申请日期")]
+        public DateTime Time { get; set; }
 
         [Required]
         [Display(Name = "NEO公钥")]
