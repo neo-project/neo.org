@@ -65,14 +65,14 @@
     width:22%;
     line-height:2.5;
 }
-.footer-link li span.iconfont{
+.footer-link li i.iconfont{
+    font-style: normal;
     vertical-align:middle;
     font-size:40px;
 }
-.footer-link li a{
+.footer-link li span{
     display: inline-block;
     width: 100px;
-    color:#6C6C6C;
 }
 .footer-logo{
     height:70px;
