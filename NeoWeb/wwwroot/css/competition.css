@@ -1,16 +1,14 @@
 ﻿body {
     background:#FFF;
 }
-.block {
-    padding:100px 0px;
+a {
+    cursor:pointer;
 }
-.compe-title span{
-    background:#464646;
-    color:#FFFFFF;
-    font-size:26px;
-    padding:5px 12px;
-    vertical-align:middle;
-    letter-spacing:1px;
+.block {
+    padding:100px 0px 40px;
+}
+.compe-title{
+    
 }
 .compe-title:before,
 .compe-title:after{
@@ -19,16 +17,27 @@
     margin:0px 20px;
     color:#464646;
 }
-.compe-title{
+.compe-title span{
+    background:#464646;
+    color:#FFFFFF;
+    font-size:24px;
+    padding:4px 12px;
+    vertical-align:middle;
+    letter-spacing:1px;
+}
 
+.compe-intro {
+    font-weight:600;
+    letter-spacing:1px;
+    line-height:2;
 }
 .compe-btn {
     display:inline-block;
-    margin:0px 10px;
+    margin:60px 10px;
     border:2px solid #30B900;
     width:155px;
     height:45px;
-    line-height:44px;
+    line-height:2.5;
     font-size:18px;
     color:#30B900;
     box-sizing:content-box;
@@ -37,6 +46,108 @@
 .compe-btn:hover{
     background:#fdfdfd;
 }
+
+
+.comp-rules {
+    background:url(../images/competition/bg2.png) repeat-x;
+    background-size: contain;
+}
+.rules-intro {
+    margin:0px auto 60px;
+    max-width:880px;
+    font-size:14px;
+    line-height:2.5;
+}
+.rules-intro li{
+    list-style: decimal;
+    padding-left:10px;
+}
+
+.compe-awards {
+    font-size:0;
+    padding-left:0;
+}
+.compe-awards li{
+    display:inline-block;
+    width:20%;
+    font-size:13px;
+    vertical-align:bottom;
+}
+.compe-awards p{
+    line-height:28px;
+    margin-bottom:20px;
+}
+.compe-awards p b{
+    font-size:28px;
+    color:#5DBD22;
+    vertical-align:bottom;
+}
+.compe-awards div{
+    color:#FFF;
+    vertical-align:middle;
+    letter-spacing:1px;
+}
+.compe-awards .fri{
+    height:101px;
+    line-height:101px;
+    background:#212121;
+}
+.compe-awards .sec{
+    height:76px;
+    line-height:76px;
+    background:#444444;
+}
+.compe-awards .thr{
+    height:63px;
+    line-height:63px;
+    background:#707070;
+}
+.compe-awards .other{
+    height:50px;
+    line-height:50px;
+    background:#ADADAD;
+}
+.comp-process {
+    font-size:0;
+    min-height:360px;
+}
+
+.comp-process div {
+    font-size:18px;
+    min-height:360px;
+    display:inline-block;
+    vertical-align: bottom;
+    padding:70px 65px;
+}
+.comp-process .left-intro{
+    width:30%;
+    background:#57BE00;
+    background-image:url('../images/competition/Page 1 Copy.svg'),linear-gradient(#57BE00,#53b900);
+    background-repeat:no-repeat;
+    background-position:bottom right;
+}
+.comp-process .right-intro{
+    width:70%;
+    background:#404040;
+    color:#FFFFFF;
+}
+
+.comp-judge {
+    width:100%;
+    padding:0;
+    font-size:0;
+}
+.comp-judge li{
+    width:20%;
+    display:inline-block;
+    font-size:14px;
+}
+.comp-judge img{
+    width:118px;
+    height:118px;
+    margin-bottom:20px;
+}
+
 /*底部样式调整*/
 footer {display:none;}
 .footer {
@@ -61,6 +172,16 @@ footer {display:none;}
 }
 .icon-content span{
     margin-right:25px;
+}
+
+.font1 {
+    font-size:20px;
+}
+.mar-b1 {
+    margin-bottom:42px;
+}
+.line1 {
+
 }
 @media only screen and (max-width : 780px) {
     .block {
