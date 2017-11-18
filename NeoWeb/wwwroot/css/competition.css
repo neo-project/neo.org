@@ -147,14 +147,25 @@ nav {
     content:"";
 }
 .process-intro {
-
+    padding:0px;
+    width:100%;
+    font-size: 0px;
 }
 .process-intro li {
     width:20%;
     display:inline-block;
+    vertical-align:middle;
+    font-size:14px;
+}
+.bg-border {
+    height:110px;
+    line-height:110px;
+    background:url(../images/competition/intro-border.png) no-repeat;
+    background-size:contain;
+    background-position:center;
 }
 .process-intro img{
-    width:100%;
+    vertical-align:super;
 }
 .process-intro .line-img{
     width:20%;
