@@ -1,8 +1,11 @@
-﻿body {
+﻿html,body{
     background:#FFF;
 }
 a {
     cursor:pointer;
+}
+nav {
+    display:none;
 }
 .block {
     padding:100px 0px 40px;
@@ -12,7 +15,7 @@ a {
 }
 .compe-title:before,
 .compe-title:after{
-    content:"—————";
+    content:"————";
     display:inline-block;
     margin:0px 20px;
     color:#464646;
@@ -46,6 +49,9 @@ a {
 .compe-btn:hover{
     background:#fdfdfd;
 }
+.compe-btn {
+    margin: 15px 10px 50px;
+}
 
 
 .comp-rules {
@@ -54,6 +60,8 @@ a {
 }
 .rules-intro {
     margin:0px auto 60px;
+    -webkit-padding-start: 0px;
+    -webkit-margin-start: 10px;
     max-width:880px;
     font-size:14px;
     line-height:2.5;
@@ -112,7 +120,7 @@ a {
     min-height:360px;
 }
 
-.comp-process div {
+.comp-process>div {
     font-size:18px;
     min-height:360px;
     display:inline-block;
@@ -130,6 +138,26 @@ a {
     width:70%;
     background:#404040;
     color:#FFFFFF;
+}
+.left-intro .compe-title {
+
+}
+.left-intro .compe-title::before,
+.left-intro .compe-title::after{
+    content:"";
+}
+.process-intro {
+
+}
+.process-intro li {
+    width:20%;
+    display:inline-block;
+}
+.process-intro img{
+    width:100%;
+}
+.process-intro .line-img{
+    width:20%;
 }
 
 .comp-judge {
@@ -167,7 +195,7 @@ footer {display:none;}
     vertical-align:top;
 }
 .icon-content {
-    width:550px;
+    max-width:550px;
     word-break:break-word;
 }
 .icon-content span{
@@ -183,8 +211,65 @@ footer {display:none;}
 .line1 {
 
 }
-@media only screen and (max-width : 780px) {
+@media only screen and (max-width : 1200px) {
     .block {
         padding:30px 0px;
+    }
+}
+@media only screen and (max-width : 780px) {
+    .mar-b1 {
+        margin-bottom:20px;
+    }
+    .compe-title:before, .compe-title:after {
+        margin:0 10px;
+    }
+    .compe-title span {
+        font-size: 18px;
+        padding: 2px 8px;
+    }
+    .comp-process div {
+        font-size:14px;
+    }
+    .left-intro p {
+        color:#FFFFFF;
+    }
+    .left-intro span{
+        background: #FFFFFF;
+        color: #222222;
+    }
+    .block {
+        padding:30px 0px;
+    }
+    .rules-intro{
+        line-height:2;
+        margin-bottom:30px;
+    }
+    .compe-awards {
+    }
+    .compe-awards li {
+        display:block;
+        width:230px;
+        text-align:left;
+        margin:auto;
+    }
+    .compe-awards li b{
+        font-size:20px;
+    }
+    .compe-awards div {
+        display:none;
+    }
+    .comp-process div {
+        padding:30px 0px 15px;
+        min-height:initial;
+    }
+    .comp-process .left-intro {
+        width:100%;
+        background-size: contain;
+    }
+    .comp-process .right-intro {
+        width:100%;
+    }
+    .comp-judge li {
+        width: 50%;
     }
 }
