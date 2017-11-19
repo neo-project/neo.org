@@ -13,10 +13,33 @@
 
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/site.min.css" />
-    <link rel="stylesheet" href="css/contest.min.css" />
+    <link rel="stylesheet" href="css/contest.css" />
 </head>
-<body>
-    <div class="competition text-center">
+<body >
+    <nav id="con-navbar" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".nav-scr-page">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Project Name</a>
+            </div>
+            <div class="collapse navbar-collapse nav-scr-page">
+                <ul class="nav navbar-nav pull-right">
+                    <li class=""><a href="#introduce">大赛简介</a></li>
+                    <li class=""><a href="#rules">大赛规则</a></li>
+                    <li class=""><a href="#award">奖项设置</a></li>
+                    <li class=""><a href="#process">大赛流程</a></li>
+                    <li class=""><a href="#judge">大赛评委</a></li>
+                    <li class=""><a href="#collaborate">合作伙伴</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="competition text-center" data-spy="scroll" data-target="#con-navbar">
         <div class="block banner">
             <div class="container">
                 <h1>2017</h1>
@@ -24,7 +47,7 @@
                 <h2>2017年11月17日 - 2018年1月31日</h2>
             </div>
         </div>
-        <div class="block">
+        <div class="block" id="introduce">
             <div class="container">
                 <p class="compe-title"><span>大赛简介</span></p>
                 <p class="mar-b1">Competition Introduction</p>
@@ -38,7 +61,7 @@
                 <a class="compe-btn">作品提交</a>
             </div>
         </div>
-        <div class="block comp-rules">
+        <div class="block comp-rules" id="rules" >
             <div class="container">
                 <p class="compe-title"><span>大赛规则</span></p>
                 <p class="mar-b1">Competition Rules</p>
@@ -51,7 +74,7 @@
                 </ul>
             </div>
         </div>
-        <div class="block container">
+        <div class="block container" id="award" >
             <p class="compe-title"><span>奖项设置</span></p>
             <p class="mar-b1">Competition Rules</p>
             <ul class="compe-awards">
@@ -76,7 +99,7 @@
                 </li>
             </ul>
         </div>
-        <div class="block comp-process">
+        <div class="block comp-process" id="process">
             <div class="left-intro">
                 <p class="compe-title"><span>大赛流程</span></p>
                 <p>Competition Rules</p>
@@ -84,26 +107,26 @@
             <div class="right-intro">
                 <ul class="process-intro">
                     <li>
-                        <div class="bg-border"><img src="images/competition/Mask.png" /></div>
+                        <div class="bg-border"><img src="images/contest/Mask.png" /></div>
                         <p class="t2 bold-font">开始报名</p>
                         <p class="t2">2017.11.17</p>
                     </li>
-                    <li class="line-img">……</li>
+                    <li class="line-img"></li>
                     <li>
-                        <div class="bg-border"><img src="images/competition/Shape.png" /></div>
+                        <div class="bg-border"><img src="images/contest/Shape.png" /></div>
                         <p class="t2 bold-font">开始报名</p>
                         <p class="t2">2017.11.17</p>
                     </li>
-                    <li class="line-img">……</li>
+                    <li class="line-img"></li>
                     <li>
-                        <div class="bg-border"><img src="images/competition/Group.png" /></div>
+                        <div class="bg-border"><img src="images/contest/Group.png" /></div>
                         <p class="t2 bold-font">开始报名</p>
                         <p class="t2">2017.11.17</p>
                     </li>
                 </ul>
             </div>
         </div>
-        <div class="block">
+        <div class="block" id="judge">
             <div class="container">
                 <p class="compe-title"><span>大赛评委</span></p>
                 <p class="mar-b1">Competition Judge</p>
@@ -136,7 +159,7 @@
                 </ul>
             </div>
         </div>
-        <div class="block">
+        <div class="block" id="collaborate">
             <p class="compe-title"><span>合作伙伴</span></p>
             <p>Competition Rules</p>
         </div>
