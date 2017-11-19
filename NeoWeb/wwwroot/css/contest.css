@@ -1,11 +1,20 @@
 ﻿html,body{
     background:#FFF;
 }
+body {
+    padding: 0;
+}
 a {
     cursor:pointer;
 }
 .block {
     padding:100px 0px 40px;
+
+}
+.banner {
+    background-image: url(../images/contest/bg.jpg);
+    background-position: center;
+    background-size: cover;
 }
 .compe-title{
     
