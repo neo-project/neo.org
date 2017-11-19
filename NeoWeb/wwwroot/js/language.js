@@ -12,6 +12,18 @@ $(function () {
         setLanguage("zh");
     });
 
+    $("#esBtn").bind("click", function () {
+        setLanguage("es");
+    });
+
+    $("#jaBtn").bind("click", function () {
+        setLanguage("ja");
+    });
+
+    $("#koBtn").bind("click", function () {
+        setLanguage("ko");
+    });
+
     $("#applyBtn").bind("click", function () {
         alert(__tr("a translation test!"));
     });
