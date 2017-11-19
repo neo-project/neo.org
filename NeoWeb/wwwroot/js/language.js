@@ -2,8 +2,22 @@
 
 $(function () {
     registerWords();
-    setLanguage("zh");
-
+    var currentLanguage = navigator.language || navigator.browserLanguage;
+    if (currentLanguage.split('-')[0] == 'zh') {
+        setLanguage("zh");
+    }
+    else if (currentLanguage.split('-')[0] == 'es') {
+        setLanguage("es");
+    }
+    else if (currentLanguage.split('-')[0] == 'ko') {
+        setLanguage("ko");
+    }
+    else if (currentLanguage.split('-')[0] == 'ja') {
+        setLanguage("ja");
+    }
+    else {
+        setLanguage("en");
+    }
     $("#enBtn").bind("click", function () {
         setLanguage("en");
     });
@@ -62,7 +76,7 @@ function translate() {
                 $(this).val(__tr($(this).attr("lang")));
                 break;
             default:
-                $(this).text(__tr($(this).attr("lang")));
+                $(this).html(__tr($(this).attr("lang")));
         }
     });
 }

@@ -41,4 +41,6 @@
     <None Include="Resources\Views.Blog.Index.zh.resx" />
     <None Include="Resources\Views.Download.Index.zh.resx" />
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 </Project>
