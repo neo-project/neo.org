@@ -11,14 +11,36 @@ a {
     padding:100px 0px 40px;
 
 }
+.navbar-brand img {
+    padding:5px;
+}
 .navbar-default {
     background:transparent;
     border:none;
+}
+.navbar-default .navbar-nav > li > a {
+    color:#FFFFFF;
+}
+.nav > li > a {
+    padding:20px 30px;
+}
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+    color: #FFFFFF;
+    text-shadow: 0px 0px 8px #FFFFFF;
+    font-weight: 600;
 }
 .banner {
     background-image: url(../images/contest/bg.jpg);
     background-position: center;
     background-size: cover;
+    color:#FFFFFF;
+    padding:150px 0 50px;
+}
+.banner p{
+    margin:20px;
+}
+.banner .frist-text img{
+    height:80px;
 }
 .compe-title{
     
@@ -171,6 +193,7 @@ a {
     width: 50%;
 }
 .process-intro img{
+    height:inherit;
 }
 .process-intro .line-img{
     width:20%;
@@ -257,9 +280,6 @@ a {
     .compe-btn {
         margin: 15px 10px 10px;
     }
-    .comp-process div {
-        font-size:14px;
-    }
     .left-intro p {
         color:#FFFFFF;
     }
@@ -288,9 +308,15 @@ a {
     .compe-awards div {
         display:none;
     }
-    .comp-process div {
+    .comp-process {
+        font-size:14px;
+    }
+    .comp-process>div {
         padding:30px 0px 15px;
         min-height:initial;
+    }
+    .comp-process .bg-border {
+        margin:10px;
     }
     .comp-process .left-intro {
         width:100%;
