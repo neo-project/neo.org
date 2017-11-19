@@ -187,10 +187,10 @@ a {
     font-size:14px;
 }
 .bg-border {
-    height:120px;
+    height: 110px;
+    margin-bottom: 10px;
 }
 .bg-border img {
-    width: 50%;
 }
 .process-intro img{
     height:inherit;
