@@ -29,12 +29,12 @@
             </div>
             <div class="collapse navbar-collapse nav-scr-page">
                 <ul class="nav navbar-nav pull-right">
-                    <li class=""><a href="#introduce" lang="">About</a></li>
-                    <li class=""><a href="#rules" lang="">Rules</a></li>
-                    <li class=""><a href="#award" lang="">Prizes</a></li>
-                    <li class=""><a href="#process" lang="">Schedule</a></li>
-                    <li class=""><a href="#judge" lang="">Judge</a></li>
-                    <li class=""><a href="#collaborate" lang="">Collaborate</a></li>
+                    <li class="scroll"><a href="#introduce" lang="">About</a></li>
+                    <li class="scroll"><a href="#rules" lang="">Rules</a></li>
+                    <li class="scroll"><a href="#award" lang="">Prizes</a></li>
+                    <li class="scroll"><a href="#process" lang="">Schedule</a></li>
+                    <li class="scroll"><a href="#judge" lang="">Judge</a></li>
+                    <li class="scroll"><a href="#collaborate" lang="">Collaborate</a></li>
                     <li>
                         <a href="#" id="enBtn">English</a>
                         <a href="#" id="zhBtn">简体中文</a>
@@ -142,28 +142,28 @@
                 <ul class="comp-judge">
                     <li>
                         <img src="images/contest/da.png" /><br />
-                        <b>达鸿飞</b><br />
-                        <span>NEO创始人</span>
+                        <b lang="">dahongfei</b><br />
+                        <span lang="">NEO founder</span>
                     </li>
                     <li>
                         <img src="images/contest/erik.png" /><br />
-                        <b>张铮文</b><br />
-                        <span>NEO核心开发者</span>
+                        <b lang="">erik</b><br />
+                        <span lang="">Core developer at NEO</span>
                     </li>
                     <li>
                         <img src="images/contest/fabio.png" /><br />
-                        <b>Fabio</b><br />
-                        <span>COZ创始人</span>
+                        <b lang="">fabio</b><br />
+                        <span lang="">COZ founder</span>
                     </li>
                     <li>
                         <img src="images/contest/chen.png" /><br />
-                        <b>陈榕</b><br />
-                        <span>亦来云创始人</span>
+                        <b lang="">chenrong</b><br />
+                        <span lang="">Elastos founder</span>
                     </li>
                     <li>
                         <img src="images/contest/li.png" /><br />
-                        <b>李俊</b><br />
-                        <span>Onchain首席架构师</span>
+                        <b lang="">lijun</b><br />
+                        <span lang="">Chief architect at Onchain</span>
                     </li>
                 </ul>
             </div>
@@ -207,5 +207,11 @@
     <script src="lib/jquery/dist/jquery.min.js"></script>
     <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="js/language.js"></script>
+    <script>
+        $('.navbar-collapse ul li.scroll a').on('click', function () {
+            $('html, body').animate({ scrollTop: $(this.hash).offset().top - 5 }, 500);
+            return false;
+        });
+    </script>
 </body>
 </html>

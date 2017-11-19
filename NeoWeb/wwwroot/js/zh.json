@@ -1,8 +1,8 @@
 ﻿{
-  "Introduce": "简介",
+  "About": "简介",
   "Rules": "规则",
-  "Awards": "奖项",
-  "Process": "流程",
+  "Prizes": "奖项",
+  "Schedule": "流程",
   "Judge": "评委",
   "datetime": "2017年11月17日 - 2018年1月31日",
   "Collaborate": "合作伙伴",
@@ -33,5 +33,15 @@
   "Collaborators": "合作伙伴",
   "Hosts": "主办方",
   "Co-organizers": "协办方",
-  "Media partners": "支持媒体"
+  "Media partners": "支持媒体",
+  "dahongfei": "达鸿飞",
+  "erik": "达鸿飞",
+  "fabio": "达鸿飞",
+  "chenrong": "达鸿飞",
+  "lijun": "达鸿飞",
+  "NEO founder": "NEO创始人",
+  "Core developer at NEO": "NEO核心开发者",
+  "COZ founder": "COZ创始人",
+  "Elastos founder": "亦来云创始人",
+  "Chief architect at Onchain": "Onchain首席架构师"
 }  
