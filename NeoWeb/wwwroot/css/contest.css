@@ -9,7 +9,6 @@ a {
 }
 .block {
     padding:100px 0px 40px;
-
 }
 .navbar-brand img {
     padding:5px;
@@ -17,33 +16,59 @@ a {
 .navbar-default {
     background:transparent;
     border:none;
+    margin-bottom:0px;
+    position:absolute;
+    left:0;
+    right:0;
 }
 .navbar-default .navbar-nav > li > a {
     color:#FFFFFF;
+    width:115px;
+    display:inline-block;
+    text-align:center;
 }
 .nav > li > a {
-    padding:20px 30px;
+    padding:20px 10px;
 }
 .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
     color: #FFFFFF;
     text-shadow: 0px 0px 8px #FFFFFF;
     font-weight: 600;
 }
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background:transparent;
+}
 .banner {
     background-image: url(../images/contest/bg.jpg);
     background-position: center;
     background-size: cover;
     color:#FFFFFF;
-    padding:250px 0 80px;
+    padding:250px 0 1px;
 }
 .banner p{
     margin:20px auto;
+    padding:0px 10px;
 }
 .banner .frist-text img{
-    max-height:50px;
+    max-height:60px;
 }
-.sponsor-icon {
-
+.set-lang {
+    text-align:right;
+    color:#FFFFFF;
+    padding:0;
+    margin-top:50px;
+    margin-bottom:20px;
+}
+.set-lang li{
+    display:inline-block;
+    margin-right:10px;
+}
+.set-lang li a{
+    color:#CCCCCC;
+}
+.set-lang li a:hover{
+    color:#FFFFFF;
+    text-shadow:0px 0px 2px #FFFFFF;
 }
 .sponsor-icon a{
     display:inline-block;
@@ -179,12 +204,17 @@ a {
     background:#404040;
     color:#FFFFFF;
 }
-.left-intro .compe-title {
-
+.left-intro p {
+    color:#FFFFFF;
+}
+.left-intro span{
+    background: #FFFFFF;
+    color: #222222;
 }
 .left-intro .compe-title::before,
 .left-intro .compe-title::after{
     content:"";
+    margin:auto;
 }
 .process-intro {
     padding:0px;
@@ -235,7 +265,7 @@ a {
 
 /*底部样式调整*/
 .footer {
-    background:#000000;
+    background:#111111;
     color:#FFFFFF;
     padding:30px 0;
     background-image: url('../images/contest/footer-bg.svg'),url('../images/contest/footer-bg.svg');
@@ -256,13 +286,13 @@ a {
     margin-bottom:10px;
 }
 .icon-content {
-    max-width:550px;
+    max-width:600px;
     word-break:break-word;
 }
 .icon-content a{
     margin:0px 25px 20px 0px;
     display:inline-block;
-    height:35px;
+    height:40px;
 }
 .icon-content img{
     width:auto;
@@ -278,9 +308,27 @@ a {
 .line1 {
 
 }
-@media only screen and (max-width : 780px) {
+@media only screen and (max-width : 980px) {
+    .banner .frist-text img{
+        max-height:50px;
+    }
+    .comp-process .left-intro {
+        padding:85px 20px 60px;
+    }
+    .process-intro .bold-font{
+        margin-left: -15px;
+        width: 125px;
+    }
+}
+@media only screen and (max-width : 768px) {
     .mar-b1 {
         margin-bottom:20px;
+    }
+    .nav > li > a {
+        padding:5px 10px;
+    }
+    .navbar-default .navbar-nav > li > a {
+        width:90px;
     }
     .compe-title:before, .compe-title:after {
         margin:0 10px;
@@ -303,7 +351,7 @@ a {
         padding:30px 0px;
     }
     .banner {
-        padding:150px 0px 50px;
+        padding:150px 0px 1px;
     }
     .sponsor-icon a{
         height:35px;
@@ -346,7 +394,7 @@ a {
     }
     .line-img::before{
         width:0px;
-        min-height:100px;
+        min-height:60px;
         margin:auto;
         border:1px dashed #FFFFFF;
     }
@@ -354,7 +402,11 @@ a {
         width: 100%;
         display: block;
         margin: auto;
-        min-height:120px;
+        min-height:80px;
+    }
+    .process-intro .bold-font{
+        margin-left: 0px;
+        width: auto;
     }
     .comp-judge li {
         width: 50%;
