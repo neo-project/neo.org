@@ -4,9 +4,6 @@
 a {
     cursor:pointer;
 }
-nav {
-    display:none;
-}
 .block {
     padding:100px 0px 40px;
 }
@@ -188,7 +185,6 @@ nav {
 }
 
 /*底部样式调整*/
-footer {display:none;}
 .footer {
     background:#000000;
     color:#FFFFFF;
