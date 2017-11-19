@@ -50,7 +50,7 @@ function translate() {
                 $(this).val(__tr($(this).attr("lang")));
                 break;
             default:
-                $(this).text(__tr($(this).attr("lang")));
+                $(this).html(__tr($(this).attr("lang")));
         }
     });
 }
