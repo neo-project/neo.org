@@ -19,6 +19,8 @@ $(function () {
 
 function setLanguage(lang) {
     setCookie("lang=" + lang + "; path=/;");
+    $(".multi-lang").hide();
+    $(".show-" + lang).show();
     translate();
 }
 
