@@ -165,11 +165,10 @@ a {
     font-size:14px;
 }
 .bg-border {
-    height:100px;
-    line-height:100px;
-    background:url(../images/contest/intro-border.png) no-repeat;
-    background-size:contain;
-    background-position:center;
+    height:120px;
+}
+.bg-border img {
+    width: 50%;
 }
 .process-intro img{
 }
@@ -204,6 +203,11 @@ a {
     background:#000000;
     color:#FFFFFF;
     padding:30px 0;
+    background-image: url('../images/contest/footer-bg.svg'),url('../images/contest/footer-bg.svg');
+    background-position: top left,top right;
+    background-size: 200px;
+    background-repeat:no-repeat;
+
 }
 .foo-content {
     margin:25px auto;
