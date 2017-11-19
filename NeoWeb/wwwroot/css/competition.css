@@ -36,7 +36,7 @@ nav {
 }
 .compe-btn {
     display:inline-block;
-    margin:60px 10px;
+    margin: 20px 10px 60px;
     border:2px solid #30B900;
     width:155px;
     height:45px;
@@ -48,9 +48,6 @@ nav {
 }
 .compe-btn:hover{
     background:#fdfdfd;
-}
-.compe-btn {
-    margin: 15px 10px 50px;
 }
 
 
@@ -158,14 +155,13 @@ nav {
     font-size:14px;
 }
 .bg-border {
-    height:110px;
-    line-height:110px;
+    height:100px;
+    line-height:100px;
     background:url(../images/competition/intro-border.png) no-repeat;
     background-size:contain;
     background-position:center;
 }
 .process-intro img{
-    vertical-align:super;
 }
 .process-intro .line-img{
     width:20%;
@@ -238,6 +234,9 @@ footer {display:none;}
         font-size: 18px;
         padding: 2px 8px;
     }
+    .compe-btn {
+        margin: 15px 10px 10px;
+    }
     .comp-process div {
         font-size:14px;
     }
@@ -279,6 +278,12 @@ footer {display:none;}
     }
     .comp-process .right-intro {
         width:100%;
+    }
+    .process-intro li {
+        width: 100%;
+        display: block;
+        margin: auto;
+        min-height:120px;
     }
     .comp-judge li {
         width: 50%;
