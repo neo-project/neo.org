@@ -29,11 +29,11 @@
             </div>
             <div class="collapse navbar-collapse nav-scr-page">
                 <ul class="nav navbar-nav pull-right">
-                    <li class=""><a href="#rules" lang="">rules</a></li>
-                    <li class=""><a href="#award" lang="">awards</a></li>
-                    <li class=""><a href="#process" lang="">process</a></li>
-                    <li class=""><a href="#judge" lang="">judge</a></li>
-                    <li class=""><a href="#collaborate" lang="">collaborate</a></li>
+                    <li><a href="#rules" lang="">Rules</a></li>
+                    <li><a href="#award" lang="">Prizes</a></li>
+                    <li><a href="#process" lang="">Schedule</a></li>
+                    <li><a href="#judge" lang="">Judge</a></li>
+                    <li><a href="#collaborate" lang="">Collaborate</a></li>
                 </ul>
             </div>
         </div>
@@ -55,8 +55,8 @@
             <ul class="set-lang">
                 <li><a id="zhBtn">中文</a></li>
                 <li><a id="enBtn">English</a></li>
-                <li><a id="esBtn">Español</a></li>
-                <li><a id="jaBtn">日本語</a></li>
+                <!--<li><a id="esBtn">Español</a></li>
+                <li><a id="jaBtn">日本語</a></li>-->
                 <li><a id="koBtn">한국어</a></li>
             </ul>
         </div>
@@ -207,7 +207,7 @@
     <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="js/language.js"></script>
     <script>
-        $('.navbar-collapse ul li.scroll a').on('click', function () {
+        $('.navbar-collapse ul li a').on('click', function () {
             $('html, body').animate({ scrollTop: $(this.hash).offset().top - 5 }, 500);
             return false;
         });
