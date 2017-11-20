@@ -105,8 +105,9 @@ a {
 .compe-btn {
     display:inline-block;
     margin: 20px 10px 60px;
+    padding: 0px 5px;
     border:2px solid #30B900;
-    width:155px;
+    min-width: 185px;
     height:45px;
     line-height:2.5;
     font-size:18px;
@@ -142,7 +143,7 @@ a {
 }
 .compe-awards li{
     display:inline-block;
-    width:20%;
+    width:25%;
     font-size:13px;
     vertical-align:bottom;
 }
@@ -161,23 +162,19 @@ a {
     letter-spacing:1px;
 }
 .compe-awards .fri{
-    height:101px;
-    line-height:101px;
+    height:135px;
     background:#212121;
 }
 .compe-awards .sec{
-    height:76px;
-    line-height:76px;
+    height:110px;
     background:#444444;
 }
 .compe-awards .thr{
-    height:63px;
-    line-height:63px;
+    height:90px;
     background:#707070;
 }
 .compe-awards .other{
-    height:50px;
-    line-height:50px;
+    height:70px;
     background:#ADADAD;
 }
 .comp-process {
@@ -190,7 +187,7 @@ a {
     min-height:360px;
     display:inline-block;
     vertical-align: bottom;
-    padding:85px 65px 60px;
+    padding:85px 65px 0px;
 }
 .comp-process .left-intro{
     width:30%;
