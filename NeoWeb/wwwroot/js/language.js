@@ -38,6 +38,10 @@ $(function () {
         setLanguage("ko");
     });
 
+    $("#frBtn").bind("click", function () {
+        setLanguage("fr");
+    });
+
     $("#applyBtn").bind("click", function () {
         alert(__tr("a translation test!"));
     });
