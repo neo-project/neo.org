@@ -178,6 +178,11 @@ a {
     height:70px;
     background:#ADADAD;
 }
+.devcon {
+    margin-top: 50px;
+    font-size: 16px;
+    font-weight: bold;
+}
 .comp-process {
     font-size:0;
     min-height:400px;
