@@ -258,6 +258,7 @@ a {
     width:20%;
     display:inline-block;
     font-size:14px;
+    vertical-align: top;
 }
 .comp-judge img{
     width:118px;
@@ -422,5 +423,7 @@ a {
         background-image: url('../images/contest/footer-bg.svg');
         background-position: bottom right -60px;
     }
-
+    .foo-title {
+        width: 100%;
+    }
 }
