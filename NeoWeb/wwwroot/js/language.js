@@ -95,7 +95,7 @@ function loadDict() {
     $.ajax({
         async: false,
         type: "GET",
-        url: "js/" + lang + ".json",
+        url: "js/" + lang + ".json" + "?v=" + Math.random(),
         success: function (msg) {
             dict = eval(msg);
         }

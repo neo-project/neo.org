@@ -272,7 +272,7 @@ a {
 }
 .foo-content {
     margin:25px auto 10px;
-    max-width:720px;
+    max-width:780px;
 }
 .foo-content>div{
     display:inline-block;
@@ -283,7 +283,7 @@ a {
     margin-bottom:10px;
 }
 .icon-content {
-    max-width:600px;
+    max-width:650px;
     word-break:break-word;
 }
 .icon-content a{
