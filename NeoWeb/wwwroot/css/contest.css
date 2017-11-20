@@ -128,7 +128,6 @@ a {
     margin:0px auto 60px;
     -webkit-padding-start: 0px;
     -webkit-margin-start: 10px;
-    max-width:880px;
     font-size:14px;
     line-height:2.5;
 }
@@ -148,6 +147,7 @@ a {
     vertical-align:bottom;
 }
 .compe-awards p{
+    text-align:center;
     line-height:28px;
     margin-bottom:20px;
 }
@@ -160,6 +160,7 @@ a {
     color:#FFF;
     vertical-align:middle;
     letter-spacing:1px;
+    padding-top:10px;
 }
 .compe-awards .fri{
     height:135px;
@@ -179,15 +180,15 @@ a {
 }
 .comp-process {
     font-size:0;
-    min-height:360px;
+    min-height:400px;
 }
 
 .comp-process>div {
     font-size:18px;
-    min-height:360px;
+    min-height:400px;
     display:inline-block;
     vertical-align: bottom;
-    padding:85px 65px 0px;
+    padding:65px 65px 45px;
 }
 .comp-process .left-intro{
     width:30%;
@@ -197,6 +198,7 @@ a {
     background-position:bottom right;
 }
 .comp-process .right-intro{
+    display:inline-table;
     width:70%;
     background:#404040;
     color:#FFFFFF;
@@ -205,6 +207,7 @@ a {
     color:#FFFFFF;
 }
 .left-intro span{
+    display:inline-block;
     background: #FFFFFF;
     color: #222222;
 }
@@ -214,10 +217,12 @@ a {
     margin:auto;
 }
 .process-intro {
+    display:table-cell;
     padding:0px;
     width:100%;
     font-size: 0px;
     margin-bottom:0px;
+    vertical-align:middle;
 }
 .process-intro li {
     width:20%;
@@ -272,13 +277,13 @@ a {
 }
 .foo-content {
     margin:25px auto 10px;
-    max-width:780px;
+    max-width:800px;
 }
 .foo-content>div{
     display:inline-block;
 }
 .foo-title {
-    width:100px;
+    width:120px;
     vertical-align:top;
     margin-bottom:10px;
 }
@@ -328,9 +333,11 @@ a {
         width:90px;
     }
     .compe-title:before, .compe-title:after {
+        content:"";
         margin:0 10px;
     }
     .compe-title span {
+        display:inline-block;
         font-size: 18px;
         padding: 2px 8px;
     }
@@ -362,7 +369,7 @@ a {
     }
     .compe-awards li {
         display:block;
-        width:230px;
+        width:260px;
         text-align:left;
         margin:auto;
     }
@@ -415,4 +422,5 @@ a {
         background-image: url('../images/contest/footer-bg.svg');
         background-position: bottom right -60px;
     }
+
 }
