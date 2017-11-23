@@ -8,6 +8,8 @@
   "Collaborate": "제휴협력",
   "About the Competition": "대회소개",
   "summary-text": "첫번째 NEO 개발자 대회 <br />창조, 열정, 야심이 담겨 있는 대회 <br />영감을 모으고, 지혜를 이으며, 역량을 발휘 할 수 있는 개발자들만의 축제<br />전세계 NEO 커뮤니티 개발자들이 모여 피가 끓어 오르는 코딩을 향한 모험을 시작하며, 새로운 “불꽃”들을 일으켜 보고자 합니다!<br />",
+  "statistic": "참가자 전세계 배포",
+  "subhead": "총 지원자수 :<span id='total'></span> 데이터 마감일 :<span id='deadline'></span>",
   "Competition Rules": "대회규칙",
   "Competition Prizes": "수상내역",
   "Competition Schedule": "대회과정",
