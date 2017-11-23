@@ -8,6 +8,8 @@
   "Collaborate": "パートナー",
   "About the Competition": "コンテストについて",
   "summary-text": "NEOが主催する初めての開発コンテストで、皆さんの想像力・情熱・やる気を発揮出来る絶好のチャンスです。グローバルの環境のもと、他の才能豊かな参加者と切磋琢磨できるはずです。Join Us. Get Inspired.",
+  "statistic": "参加者のグローバル分布状況",
+  "subhead": "応募者の総数 :<span id='total'></span> データの締め切り :<span id='deadline'></span>",
   "Competition Rules": "コンテストの規則",
   "Competition Prizes": "賞金",
   "Competition Schedule": "日程",

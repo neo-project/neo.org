@@ -8,6 +8,8 @@
   "Collaborate": "Collaborate",
   "About the Competition": "About the Competition",
   "summary-text": "As NEO’s first dev competition, this is an unparalleled opportunity to unleash your creativity, passion, and ambition. <br/>This global get-together of NEO community developers will give you a chance to inspire others while being motivated by your fellow competitors’ intellect and grit.<br/> Join us. Get inspired.",
+  "statistic": "Global distribution of candidates by country",
+  "subhead": "Total sign-ups :<span id='total'></span> Data collected as of <span id='deadline'></span>",
   "Competition Rules": "Competition Rules",
   "Competition Prizes": "Competition Prizes",
   "Competition Schedule": "Competition Schedule",

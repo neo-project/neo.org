@@ -7,6 +7,8 @@
   "Collaborate": "Collaborateurs",
   "About the Competition": "Informations sur la compétition",
   "summary-text": "C'est le premier concours de développement NEO, un événement qui touche à la création, à la passion et à l'ambition.<br/>Cette rencontre mondiale de la communauté des développeurs NEO vous placera parmi les sources d'inspiration et de rencontres d'intelligence.<br/>Rejoignez-nous et soyez inspiré.",
+  "statistic": "répartition mondiale des candidats par pays",
+  "subhead": "total des inscriptions :<span id='total'></span> les données recueillies en <span id='deadline'></span>",
   "Competition Rules": "Règlement de la compétition",
   "Competition Prizes": "Récompenses",
   "Competition Schedule": "L 'agenda",
