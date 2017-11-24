@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Comprises Cross-chain Assets Swap Protocol and Cross-chain distributed transaction protocol and can achieve atomic assets swap and guarantee the operation consistency of smart contracts executed on different chains." xml:space="preserve">
+    <value>Umfasst blockkettenübergreifende  Asset-Austausch-Protokolle (Cross-Chain Assets Swap Protocol) blockkettenübergreifende verteilte Transaktions-Protokolle (Cross-chain distributed transaction protocol) und erreicht „atomaren“ Asset-Tausch (atomic assets swap) bei Gewährleistung der Betriebskonsistenz von Smarten-Verträgen (smart contracts), die auf unterschiedlichen Blockketten ausgeführt werden.</value>
+  </data>
+  <data name="Consensus nodes use Byzantine Fault Tolerance Algorithm to reach consensus and ensure the finality of transactions. It also ensures that the system keeps its finality and availability as long as Byzantine fault occurs on less than 1/3 of the nodes." xml:space="preserve">
+    <value>Konsensknoten verwenden den Algorithmus der Byzantinischen Fehlertoleranz, um einen Konsens zu erreichen und die Gültigkeit von Transaktionen sicherzustellen. Das garantiert, dass das System seine Gültigkeit und Verfügbarkeit beibehält, solange ein byzantinischer Fehler auf weniger als 1/3 der Knoten auftritt.</value>
+  </data>
+  <data name="Desktop" xml:space="preserve">
+    <value>Desktop</value>
+  </data>
+  <data name="Digital Assets" xml:space="preserve">
+    <value>Digitale Assets</value>
+  </data>
+  <data name="Digital Assets are programmable assets that exist in the form of electronic data. With blockchain technology, the digitization of assets can be decentralized, trustful, traceable, highly transparent, and free of intermediaries. On the NEO blockchain, users are able to register, trade, and circulate multiple types of assets. Proving the connection between digital and physical assets is possible through digital identity. Assets registered through a validated digital identity are protected by law." xml:space="preserve">
+    <value>Digitale Assets sind programmierbare Assets, die in Form von elektronischen Daten vorliegen. Mit der Blockketten-Technologie kann die Digitalisierung von Assets dezentralisiert, vertrauenswürdig nachvollziehbar, transparent und frei von Vermittlern sein. In der NEO-Blockkette können Benutzer mehrere Typen von Assets registrieren, handeln und verteilen. Der Nachweis der Verbindung zwischen digitalen und physischen Assets ist durch die digitale Identität möglich. Vermögenswerte, die über eine validierte digitale Identität registriert werden, sind gesetzlich geschützt.</value>
+  </data>
+  <data name="Digital certificates are supported, placing trust into the public chain. This provides full legal protection for all assets digitized through the NEO platform." xml:space="preserve">
+    <value>Digitale Zertifikate werden unterstützt und setzen Vertrauen in die öffentliche Kette. Dies bietet vollständigen Rechtsschutz für alle, über die NEO-Plattform, digitalisierten Vermögenswerte.</value>
+  </data>
+  <data name="Digital Identity" xml:space="preserve">
+    <value>Digitale Identitäten</value>
+  </data>
+  <data name="Digital identity refers to the identity information of individuals, organizations, and other entities that exist in electronic form. The more mature digital identity system is based on the PKI (Public Key Infrastructure) X.509 standard. In NEO, we will implement a set of X.509 compatible digital identity standards. This set of digital identity standards, in addition to a compatible X.509 level certificate issuance model, will also support the Web Of Trust point-to-point certificate issuance model." xml:space="preserve">
+    <value>Digitale Identität bezieht sich auf die Identitätsinformation von Personen, Organisationen und anderen Entitäten, die in elektronischer Form existieren. Das ausgereiftere digitale Identitätssystem basiert auf dem PKI-Standard (Public Key Infrastructure) X.509. In NEO werden wir eine Reihe von X.509-kompatiblen digitalen Identitätsstandards implementieren. Neben einem kompatiblen Zertifikatsausstellungsmodell auf X.509-Ebene unterstützt dieser Satz von digitalen Identitätsstandards auch das Punkt-zu-Punkt-Zertifikatemissionsmodell des Web of Trust.</value>
+  </data>
+  <data name="Facilitate P2P exchange of digital assets. Buyers and sellers of digital assets and currencies will be handled peer-to-peer without the need for third party exchanges." xml:space="preserve">
+    <value>Erleichterung des P2P-Austausches von digitalen Assets. Käufer und Verkäufer von digitalen Assets und Währungen werden Peer-to-Peer-Transaktionen durchführen, ohne dass ein Austausch durch Dritte erforderlich ist.</value>
+  </data>
+  <data name="Go to developer page" xml:space="preserve">
+    <value>Zur Entwicklerseite</value>
+  </data>
+  <data name="Go to download page" xml:space="preserve">
+    <value>Zum Download</value>
+  </data>
+  <data name="If you are a developer" xml:space="preserve">
+    <value>Für Entwickler</value>
+  </data>
+  <data name="Introduced Lattice cryptography-based signing and encryption technique to avoid quantum crisis by Turing encryption and decryption problem into the Shortest Vector Problem (SVP), which cannot be solved by current quantum computers." xml:space="preserve">
+    <value>Einführung von auf Gitterkryptographie (Lattice cryptography) basierten Signatur- und Verschlüsselungstechniken – Reduktion der Ver- und Entschlüsselung auf das Problem der kürzesten Vektoren (SVP – Shortest Vektor Problem), welche von Quantencomputern nicht gelöst werden kann, um eine „Quantenkrise“ zu verhindern.</value>
+  </data>
+  <data name="Mobile" xml:space="preserve">
+    <value>Mobil</value>
+  </data>
+  <data name="NEO Client" xml:space="preserve">
+    <value>NEO Klient</value>
+  </data>
+  <data name="NEO is a non-profit community-based blockchain project that utilizes blockchain technology and digital identity to digitize assets, to automate the management of digital assets using smart contracts, and to realize a &quot;smart economy&quot; with a distributed network." xml:space="preserve">
+    <value>NEO ist ein Non-Profit, communitybasiertes Blockkettenprojekt. Es nutzt die Digitalisierung von Identitäten und Assets und automatisiert die Verwaltung dieser mithilfe von Smarten Verträgen (Smart Contracts) im dezentralisierten Netzwerk, um so die Vision der "Smart Economy“ zu realisieren!</value>
+  </data>
+  <data name="NEO Technical Features" xml:space="preserve">
+    <value>NEOs technische Eigenschaften</value>
+  </data>
+  <data name="Neo Virtual Machine (NeoVM): NEO's lightweight stack-based virtual machine provides shorter startup times with efficient execution. Deterministic calling tree-technology allows NEO to achieve unlimited theoretical scalability." xml:space="preserve">
+    <value>Neo Virtual Machine (NeoVM): Die kompakte, stapelbasierte (Stack-based) virtuelle Maschine von NEO bietet kürzere Startzeiten bei effizienter Ausführung. Die deterministischer Aufrufbaum Technologie (Deterministic calling tree) ermöglicht es NEO eine theoretisch, unbegrenzte Skalierbarkeit zu erreichen.</value>
+  </data>
+  <data name="NEO was founded in 2014 and was real-time open source on GitHub in June 2015. Since its inception, the NEO team has experienced the upsurge and boom of the blockchain industry and the frenzy and cooling of the digital money market. We believe technology drives progress and together we can create the future. Motivated by this, NEO has been created to shift our traditional economy into the new era of the &quot;Smart Economy&quot;." xml:space="preserve">
+    <value>NEO wurde 2014 gegründet. Seit seiner Gründung hat das NEO-Team den Aufschwung und Boom der Blockketten-Industrie sowie die Überhitzung und Abkühlung des digitalen Geldmarktes erlebt. Wir sind der Überzeugung, dass Technologie den Fortschritt vorantreibt und wir gemeinsam die Zukunft gestalten können. Aus dieser Motivation heraus wurde NEO geschaffen, um unsere traditionelle Wirtschaft in die neue Ära der Smart Economy zu führen.</value>
+  </data>
+  <data name="NEO's vision of the Future?" xml:space="preserve">
+    <value>NEOs Vision der Zukunft?</value>
+  </data>
+  <data name="NEO, A Distributed Smart Economy Network" xml:space="preserve">
+    <value>NEO, das dezentrale Smart Economy Netzwerk</value>
+  </data>
+  <data name="NeoContract supports multiple programming languages such as C#, Java, and Go. Developers can rapidly develop smart contracts based on the NEO platform without learning a unique language." xml:space="preserve">
+    <value>NeoContract unterstützt mehrere, gängige Programmiersprachen wie C #, Java und Go. Entwickler können schnell Smarte Verträge entwickeln, die auf der NEO-Plattform basieren.</value>
+  </data>
+  <data name="Participate in our project, get NEO and GAS for development testing, or view our technical documentation" xml:space="preserve">
+    <value>Nehmen Sie an unserem Projekt teil und erhalten Sie NEO und GAS für Entwicklungstests oder werfen Sie einen Blick auf unsere technische Dokumentation .</value>
+  </data>
+  <data name="scroll-acr-en" xml:space="preserve">
+    <value>scroll-acr-en</value>
+  </data>
+  <data name="scroll-ver-fri-en" xml:space="preserve">
+    <value>scroll-ver-fri-en</value>
+  </data>
+  <data name="scroll-ver-sec-en" xml:space="preserve">
+    <value>scroll-ver-sec-en</value>
+  </data>
+  <data name="Smart Contract" xml:space="preserve">
+    <value>Smarte Verträge</value>
+  </data>
+  <data name="Smart Economy" xml:space="preserve">
+    <value>Smarte Economy</value>
+  </data>
+  <data name="The NEO Team and community have created various wallets for different platforms. You can download the wallets or access the web wallets below." xml:space="preserve">
+    <value>Das NEO Team und die Community haben verschiedene Wallets für verschiedene Plattformen entwickelt. Sie können die Wallets herunterladen oder auf die unten abgebildeten Web-Wallets zugreifen.</value>
+  </data>
+  <data name="The NeoContract smart contract system is the biggest feature of the seamless integration of the existing developer ecosystem. Developers do not need to learn a new programming language, but can use C#, Java and other mainstream programming languages in their familiar IDE environments (Visual Studio, Eclipse, etc.) for smart contract development, debugging and compilation. NEO's Universal Lightweight Virtual Machine, NeoVM, has the advantages of high certainty, high concurrency, and high scalability. The NeoContract smart contract system will allow millions of developers around the world to quickly carry out the development of smart contracts. NeoContract will have a separate white paper describing the implementation details." xml:space="preserve">
+    <value>Das NeoContract System für die Erstellung von smarten Verträgen ist das größte Merkmal der nahtlosen Integration in das bestehende Entwicklerökosystem. Softwareentwickler können gängige Programmiersprachen wie bspw. C #, Java und andere in ihren vertrauten IDE-Umgebungen (Visual Studio, Eclipse usw.) für die Vertragsentwicklung, das Debugging und die Kompilierung verwenden. NEOs universelle virtuelle Maschine, NeoVM (Universal Lightweight Virtual Machine) bietet die Vorteile hoher Sicherheit, hoher Parallelität und hoher Skalierbarkeit. Das NeoContract System für die Erstellung smarter Verträge wird es Millionen von Entwicklern weltweit ermöglichen, schnell smarte Verträge zu entwickeln. Die Implementierungsdetails von NeoContract werden in einem separaten Whitepaper beschrieben werden.</value>
+  </data>
+  <data name="The technology underlying NEO supports multiple types of digital assets. Users can register, transfer and trade at will on NEO." xml:space="preserve">
+    <value>Die Technologie, die NEO zugrunde liegt, unterstützt mehrere Arten von digitalen Assets. Benutzer können sich bei NEO registrieren, transferieren und handeln.</value>
+  </data>
+  <data name="Turing-complete smart contract, which will have high certainty and finality, support parallel operation, sharding and unlimited scalability when run in NeoVM." xml:space="preserve">
+    <value>Die Turing-vollständigen Smart-Verträge, die hohe Sicherheit und Endgültigkeit besitzen, unterstützten den Parallelbetrieb, Sharding und unbegrenzte Skalierbarkeit bei der Ausführung in der NeoVM.</value>
+  </data>
+  <data name="Want to learn more? Please see" xml:space="preserve">
+    <value>Sie möchten mehr lernen? </value>
+  </data>
+  <data name="Web" xml:space="preserve">
+    <value>Web</value>
+  </data>
+  <data name="What is NEO" xml:space="preserve">
+    <value>Was ist NEO?</value>
+  </data>
+</root>
