@@ -8,6 +8,8 @@
   "Collaborate": "合作伙伴",
   "About the Competition": "大赛简介",
   "summary-text": "首届NEO开发者大赛<br />一场有关创造，激情，野心的大赛<br />一场汇聚灵感，连接智慧，释放力量的开发者盛会<br />集结全球NEO社区开发者，开启热血代码之旅，碰撞出不一样的火花!",
+  "statistic": "参赛者全球分布情况",
+  "subhead": "总报名人数 :<span id='total'></span> 数据截止日期 :<span id='deadline'></span>",
   "Competition Rules": "大赛规则",
   "Competition Prizes": "奖项设置",
   "Competition Schedule": "大赛流程",

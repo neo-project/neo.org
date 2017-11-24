@@ -45,6 +45,11 @@ $(function () {
     $("#applyBtn").bind("click", function () {
         alert(__tr("a translation test!"));
     });
+
+    $(".set-lang [id$='Btn']").bind("click", function () {
+        statistic();
+    })
+    statistic();
 });
 
 function setLanguage(lang) {
