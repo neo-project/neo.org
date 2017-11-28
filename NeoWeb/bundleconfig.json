@@ -25,6 +25,10 @@
     "inputFiles": [ "wwwroot/css/download.css" ]
   },
   {
+    "outputFileName": "wwwroot/css/giveback.min.css",
+    "inputFiles": [ "wwwroot/css/giveback.css" ]
+  },
+  {
     "outputFileName": "wwwroot/css/homepage.min.css",
     "inputFiles": [ "wwwroot/css/homepage.css" ]
   },
@@ -42,7 +46,7 @@
   },
   {
     "outputFileName": "wwwroot/css/contest.min.css",
-    "inputFiles": ["wwwroot/css/contest.css"]
+    "inputFiles": [ "wwwroot/css/contest.css" ]
   },
   {
     "outputFileName": "wwwroot/js/site.min.js",

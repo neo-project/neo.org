@@ -42,5 +42,11 @@
     <None Include="Resources\Views.Download.Index.zh.resx" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Neo">
+      <HintPath>Neo.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
   <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 </Project>
