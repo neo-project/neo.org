@@ -14,6 +14,11 @@
     line-height:20px;
     vertical-align:middle;
 }
+.nav.navbar-nav.pop-menu>li a.strong{
+    color:#58bf00;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+}
 .nav.navbar-nav.pop-menu>li a:hover{
     background:transparent;
     color:#58bf00;

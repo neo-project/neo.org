@@ -215,7 +215,12 @@ footer {
     position: absolute;
     bottom: 20px;
     width: 100%;
+    letter-spacing: 0.2em;
     padding-left: 0;
+    font-size: 16px;
+}
+.news a {
+    color: #333;
 }
 
 /*什么是neo页面 - About NEO page*/
