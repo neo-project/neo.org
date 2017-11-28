@@ -86,9 +86,14 @@
     </form>
 </div>
 
-@Html.Partial("_NotePartialPage", Model)
+@Html.Partial("_NotePartialPage")
 @section Scripts {
     <script>
+        var alert_prikey = '@Localizer["Please enter the correct private key in the WIF format"]';
+        var btn_val = '@Localizer["Submit Application"]';
+        var btn_wait = '@Localizer["Please wait"]';
+        var confirm_text = '@Localizer["Are you sure the information you filled out is correct?"]'
+
         function setChoose() {
             if ($("#select1").val() == 0) {
                 $(".hidden-neo").show();
@@ -103,12 +108,12 @@
 
         function submit_click() {
             if ($("#form_ico2").valid())
-            { 
-                $("#btn_submit").val("wait……");
+            {
+                $("#btn_submit").val(btn_wait);
                 setTimeout(signClick, 100);
             }
             //if (document.getElementById("chk").checked) {
-            
+
             //}
         }
 
@@ -122,8 +127,8 @@
             }).then(function (privateKey) {
                 return AntShares.Wallets.Account.create(privateKey);
             }, function (err) {
-                    alert("私钥格式不正确");
-                    $("#btn_submit").val("提交申请");
+                alert(alert_prikey);
+                $("#btn_submit").val(btn_val);
                 }).then(function (account) {
                     return Promise.all([
                         account.publicKey,
@@ -132,10 +137,10 @@
                 }).then(function (results) {
                     $("#pubkey").val(results[0].toString());
                     $("#sign").val(new Uint8Array(results[1]).toHexString());
-                    if (confirm("Are you sure?"))
+                    if (confirm(confirm_text))
                         $("#form_ico2").submit();
                     else
-                        $("#btn_submit").val("提交申请");
+                        $("#btn_submit").val(btn_val);
                 }, function (err) {
                     console.log(err);
                 });

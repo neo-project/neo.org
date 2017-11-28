@@ -117,79 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="bank account" xml:space="preserve">
-    <value>银行卡号</value>
+  <data name="The application has been submitted" xml:space="preserve">
+    <value>申请已提交</value>
   </data>
-  <data name="bank name" xml:space="preserve">
-    <value>开户行</value>
-  </data>
-  <data name="Email" xml:space="preserve">
-    <value>邮箱</value>
-  </data>
-  <data name="How to receive giveback" xml:space="preserve">
-    <value>以何种方式接受回馈</value>
-  </data>
-  <data name="Length cannot exceed {0} characters" xml:space="preserve">
-    <value>长度不能超过{0}个字符</value>
-  </data>
-  <data name="Length is at least {0} characters" xml:space="preserve">
-    <value>长度至少是{0}个字符</value>
-  </data>
-  <data name="Must be a bank card in mainland China" xml:space="preserve">
-    <value>必须是中国大陆的银行卡</value>
-  </data>
-  <data name="Must be a bank in mainland China" xml:space="preserve">
-    <value>必须是中国大陆的开户行</value>
-  </data>
-  <data name="NEO address" xml:space="preserve">
-    <value>NEO 地址</value>
-  </data>
-  <data name="owner of account" xml:space="preserve">
-    <value>银行卡开户人</value>
-  </data>
-  <data name="Please enter a valid E-mail address" xml:space="preserve">
-    <value>请输入正确的邮件地址</value>
-  </data>
-  <data name="Please enter a valid NEO address" xml:space="preserve">
-    <value>请输入正确的NEO地址</value>
-  </data>
-  <data name="Please enter a valid number" xml:space="preserve">
-    <value>请输入正确的数字</value>
-  </data>
-  <data name="Please enter the correct private key in the WIF format" xml:space="preserve">
-    <value>请输入正确的WIF格式的私钥</value>
-  </data>
-  <data name="Please enter the email so that we can contact you" xml:space="preserve">
-    <value>请输入邮箱，以便我们可以联系到您</value>
-  </data>
-  <data name="Please enter your private key that participates in ICO at that time, we will sign in the browser side, and upload the signature and the NEO address to the server to authenticate, the private key &lt;b&gt; will not &lt;/b&gt; upload to the server, please rest assured fills in" xml:space="preserve">
-    <value>请输入您当时参与ICO的私钥，我们将在浏览器端进行签名，并将签名及NEO地址上传到服务器进行验证，私钥&lt;b&gt;不会&lt;/b&gt;上传到服务器，请放心填写</value>
-  </data>
-  <data name="Please make sure that the address is yours" xml:space="preserve">
-    <value>请确保该地址归您所有</value>
-  </data>
-  <data name="Private key when ICO" xml:space="preserve">
-    <value>ICO时的私钥</value>
-  </data>
-  <data name="Submit Application" xml:space="preserve">
-    <value>提交申请</value>
-  </data>
-  <data name="This field is required" xml:space="preserve">
-    <value>必填项</value>
-  </data>
-  <data name="Are you sure the information you filled out is correct?" xml:space="preserve">
-    <value>你确定填写的信息无误吗？</value>
-  </data>
-  <data name="Please wait" xml:space="preserve">
-    <value>请稍后</value>
-  </data>
-  <data name="Signature Verification Failure" xml:space="preserve">
-    <value>签名验证失败</value>
-  </data>
-  <data name="The giveback plan has expired" xml:space="preserve">
-    <value>回馈计划信息填写已截止</value>
-  </data>
-  <data name="You have not participated in ICO2" xml:space="preserve">
-    <value>你没有参与过ICO2</value>
+  <data name="We have received your application for &quot;NEO Sponsor Giveback Plan&quot;. The giveback of all sponsor will be issued on December 18 - December 22 in Beijing time. Please contact contact@neo.org If you have any questions." xml:space="preserve">
+    <value>我们已收到您的资助者回馈计划申请。所有资助者的回馈将在北京时间12月18日-12月22日统一发放。如有任何问题请联系contact@neo.org。</value>
   </data>
 </root>

@@ -10,16 +10,19 @@ using NeoWeb.Models;
 using System.Security.Cryptography;
 using Neo;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Localization;
 
 namespace NeoWeb.Controllers
 {
     public class GivebackController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IHtmlLocalizer<GivebackController> _localizer;
 
-        public GivebackController(ApplicationDbContext context)
+        public GivebackController(ApplicationDbContext context, IHtmlLocalizer<GivebackController> localizer)
         {
             _context = context;
+            _localizer = localizer;
         }
 
         // GET: Giveback
@@ -91,7 +94,7 @@ namespace NeoWeb.Controllers
                     }
                     catch (Exception)
                     {
-                        ModelState.AddModelError("GivebackNeoAddress", "Incorrect NEO address");
+                        ModelState.AddModelError("GivebackNeoAddress", "NEO地址错误");
                         return View(giveback);
                     }
                     item.GivebackNeoAddress = giveback.GivebackNeoAddress;
@@ -113,7 +116,7 @@ namespace NeoWeb.Controllers
         {
             if (DateTime.Now > new DateTime(2017, 12, 15, 0, 0, 0))
             {
-                ViewBag.Message = "The giveback plan has expired";
+                ViewBag.Message = _localizer["The giveback plan has expired"];
                 return View(giveback);
             }
             if (ModelState.IsValid)
@@ -122,13 +125,13 @@ namespace NeoWeb.Controllers
                 var sc = Neo.Wallets.VerificationContract.CreateSignatureContract(publicKey);
                 if (!VerifySignature(message, signature, pubkey))
                 {
-                    ViewBag.Message = "Signature Verification Failure";
+                    ViewBag.Message = _localizer["Signature Verification Failure"];
                     return View(giveback);
                 }
                 var item = _context.ICO2.FirstOrDefault(p => p.NeoAddress == sc.Address);
                 if (item == null)
                 {
-                    ViewBag.Message = "You have not participated in ICO2";
+                    ViewBag.Message = _localizer["You have not participated in ICO2"];
                     return View(giveback);
                 }
                 if (giveback.Choose == Choose.RMB)
