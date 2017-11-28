@@ -153,4 +153,7 @@
   <data name="Weibo" xml:space="preserve">
     <value>Weibo</value>
   </data>
+  <data name="Competition" xml:space="preserve">
+    <value>Wettbewerb</value>
+  </data>
 </root>

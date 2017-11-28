@@ -153,4 +153,7 @@
   <data name="Weibo" xml:space="preserve">
     <value>微博</value>
   </data>
+  <data name="Competition" xml:space="preserve">
+    <value>开发者大赛</value>
+  </data>
 </root>
