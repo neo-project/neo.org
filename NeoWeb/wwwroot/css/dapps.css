@@ -54,6 +54,10 @@
 .dapp img {
     border-bottom: 1px solid #6FC308;
 }
+.dapp p a {
+    white-space: nowrap;
+    margin-right: 15px;
+}
 .dapp h3 {
     padding: 10px 0;
 }
