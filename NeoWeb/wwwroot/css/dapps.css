@@ -7,7 +7,7 @@
     margin: 10px;
     padding: 5px;
     max-width: 310px;
-    height: 336px;
+    height: 400px;
     border-radius: 0;
     border: 1px solid #fff;
     border-style: none solid;
@@ -48,8 +48,11 @@
 	100%{width:100%;background: #6FC308;}
 }
 .dapp .description {
-    height: 63px;
+    height: 126px;
     overflow: hidden;
+}
+.dapp img {
+    border-bottom: 1px solid #6FC308;
 }
 .dapp h3 {
     padding: 10px 0;
