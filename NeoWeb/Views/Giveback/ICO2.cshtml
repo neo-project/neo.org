@@ -55,7 +55,7 @@
             </div>
         </div>
         <div class="form-group hidden-cny">
-            <label asp-for="GivebackNeoAddress" class="control-label col-md-4">@Localizer["NEO address"]</label>
+            <label asp-for="GivebackNeoAddress" class="control-label col-md-4">@Localizer["NEO address to receive giveback"]</label>
             <div class="col-md-4">
                 <input asp-for="GivebackNeoAddress" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex-pattern="A[F-HJ-NP-Za-f][1-9A-HJ-NP-Za-km-z]{32}" data-val-regex="@Localizer["Please enter a valid NEO address"]"/>
                 <span class="help-block">@Localizer["Please make sure that the address is yours"]</span>

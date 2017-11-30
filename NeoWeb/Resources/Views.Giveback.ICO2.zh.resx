@@ -141,8 +141,8 @@
   <data name="Must be a bank in mainland China" xml:space="preserve">
     <value>必须是中国大陆的开户行</value>
   </data>
-  <data name="NEO address" xml:space="preserve">
-    <value>NEO 地址</value>
+  <data name="NEO address to receive giveback" xml:space="preserve">
+    <value>接受回馈的NEO地址</value>
   </data>
   <data name="owner of account" xml:space="preserve">
     <value>银行卡开户人</value>

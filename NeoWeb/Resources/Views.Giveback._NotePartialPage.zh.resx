@@ -120,16 +120,19 @@
   <data name="&quot;NEO Sponsor Giveback Plan&quot; Announcement" xml:space="preserve">
     <value>NEO资助者回馈计划公告</value>
   </data>
-  <data name="Deadline for the completion of information for sponsor to &lt;b&gt; December {0} &lt;/b&gt;" xml:space="preserve">
-    <value>资助者信息填写时间截止至&lt;b&gt;12月15日&lt;/b&gt;</value>
+  <data name="The time for completing the information expires until &lt;b&gt;March 15, 2018&lt;/b&gt;" xml:space="preserve">
+    <value>资助者信息填写的时间截止至 &lt;b&gt;2018年3月15日&lt;/b&gt;</value>
   </data>
-  <data name="Giveback for all sponsor will be issued from &lt;b&gt; December {0} to December {1} &lt;/b&gt;" xml:space="preserve">
-    <value>所有资助者的回馈将在&lt;b&gt;12月{0}日至12月{1}日&lt;/b&gt;统一发放</value>
+  <data name="Giveback for all sponsor will be issued from &lt;b&gt;March 16, 2018&lt;/b&gt; to &lt;b&gt;Marth 31, 2018&lt;/b&gt;" xml:space="preserve">
+    <value>所有资助者的回馈将在 &lt;b&gt;2018年3月16日&lt;/b&gt; 至 &lt;b&gt;2018年3月31日&lt;/b&gt; 统一发放</value>
   </data>
   <data name="https://neo.org/blog/details/3014" xml:space="preserve">
     <value>https://neo.org/blog/details/3013</value>
   </data>
   <data name="Sponsor can choose to accept giveback in &lt;b&gt;RMB&lt;/b&gt; or &lt;b&gt;NEO&lt;/b&gt;" xml:space="preserve">
-    <value>资助者可以选择接受以人民币的回馈或者以NEO的回馈</value>
+    <value>资助者可以选择接受以 &lt;b&gt;人民币&lt;/b&gt; 的回馈或者以 &lt;b&gt;NEO&lt;/b&gt; 的回馈</value>
+  </data>
+  <data name="&quot;NEO Sponsor Giveback Plan&quot;Rules" xml:space="preserve">
+    <value>”NEO资助者回馈计划“细则</value>
   </data>
 </root>
