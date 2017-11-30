@@ -38,6 +38,9 @@ a {
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
     background:transparent;
 }
+.notice {
+    
+}
 .banner {
     background-image: url(../images/contest/bg.jpg);
     background-position: center;
