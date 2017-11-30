@@ -50,8 +50,8 @@
     height: 126px;
     overflow: hidden;
 }
-.dapp img {
-    border-bottom: 1px solid #6FC308;
+.dapp img + div {
+    border-top: 1px solid #6FC308;
 }
 .dapp p a {
     white-space: nowrap;
