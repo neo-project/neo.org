@@ -20,7 +20,7 @@
         <div class="form-group">
             <label asp-for="RedeemCode" class="col-md-4 control-label">兑换码</label>
             <div class="col-md-4">
-                <input asp-for="RedeemCode" class="form-control" data-val="true" data-val-required="请填写兑换码" data-val-regex-pattern="\w{20}" data-val-regex="回馈计划的兑换码长度为20字符"/>
+                <input asp-for="RedeemCode" class="form-control" autocomplete="off" data-val="true" data-val-required="请填写兑换码" data-val-regex-pattern="\w{20}" data-val-regex="回馈计划的兑换码长度为20字符"/>
                 <span class="help-block">兑换码请在微天使网站，个人中心，兑换码中查看</span>
                 <span asp-validation-for="RedeemCode" class="text-danger"></span>
             </div>
@@ -45,7 +45,7 @@
         <div class="form-group hidden-neo">
             <label asp-for="BankAccount" class="control-label col-md-4">银行卡号</label>
             <div class="col-md-4">
-                <input asp-for="BankAccount" class="form-control" data-val="true" data-val-required="请填写银行卡号" data-val-minlength-min="15" data-val-minlength="长度至少是15个字符" data-val-maxlength-max="19" data-val-maxlength="长度不能超过19个字符"/>
+                <input asp-for="BankAccount" class="form-control" data-val="true" data-val-digits="银行卡号必须是纯数字" data-val-required="请填写银行卡号" data-val-minlength-min="15" data-val-minlength="长度至少是15个字符" data-val-maxlength-max="19" data-val-maxlength="长度不能超过19个字符"/>
                 <span class="help-block">必须是中国大陆的银行卡</span>
                 <span asp-validation-for="BankAccount" class="text-danger"></span>
             </div>
