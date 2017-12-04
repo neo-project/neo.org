@@ -84,4 +84,20 @@
 
 @section Scripts{
     <script type="text/javascript" src="~/js/blog.min.js"></script>
+    <script type="text/javascript" src="~/js/jweixin-1.2.0.js"></script>
+    <script type="text/javascript">
+        wx.ready(function () {
+            wx.onMenuShareAppMessage({
+                title: 'NEO博客',
+                desc: 'NEO博客内容',
+                imgUrl: 'https://neo.org/images/neo_logo.svg',
+                success: function (res) {
+                    alert('已分享');
+                },
+                fail: function (res) {
+                    alert('分享失败');
+                }
+            });
+        });
+    </script>
 }
