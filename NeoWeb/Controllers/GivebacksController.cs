@@ -111,7 +111,7 @@ namespace NeoWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult ICO2(string message, string signature, string pubkey,
+        public IActionResult ICO2(string signature, string pubkey,
             [Bind("Email,Choose,Name,BankAccount,BankName,GivebackNeoAddress")] ICO2 giveback)
         {
             if (DateTime.Now > new DateTime(2018, 3, 15, 0, 0, 0))
@@ -123,6 +123,7 @@ namespace NeoWeb.Controllers
             {
                 var publicKey = Neo.Cryptography.ECC.ECPoint.FromBytes(pubkey.HexToBytes(), Neo.Cryptography.ECC.ECCurve.Secp256r1);
                 var sc = Neo.Wallets.VerificationContract.CreateSignatureContract(publicKey);
+                var message = "giveback" + giveback.BankAccount + giveback.GivebackNeoAddress;
                 if (!VerifySignature(message, signature, pubkey))
                 {
                     ViewBag.Message = _localizer["Signature Verification Failure"];
