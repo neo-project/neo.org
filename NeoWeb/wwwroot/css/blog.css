@@ -10,6 +10,7 @@
 a{
     cursor:pointer;
     text-decoration:none;
+    word-break: break-word;
 }
 
 .blog_title {
