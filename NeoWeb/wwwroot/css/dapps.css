@@ -12,7 +12,7 @@
     border: 1px solid #fff;
     border-style: none solid;
     text-align: center;
-    word-break: break-all;
+    word-break: normal;
     line-height: 1.5;
     background-color: #fff;
     overflow: hidden;
@@ -51,8 +51,8 @@
     height: 126px;
     overflow: hidden;
 }
-.dapp img {
-    border-bottom: 1px solid #6FC308;
+.dapp img + div {
+    border-top: 1px solid #6FC308;
 }
 .dapp p a {
     white-space: nowrap;
