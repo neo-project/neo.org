@@ -1,14 +1,12 @@
 ﻿@model NeoWeb.Models.Blog
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "发布博客";
     Layout = "_LayoutBlog.cshtml";
 }
 
-<h2>Create</h2>
+<h2 class="m2">发布博客</h2>
 
-<h4>Blog</h4>
-<hr />
 <form asp-action="Create">
     <div class="form-group">
         <label asp-for="Title" class="control-label"></label>
