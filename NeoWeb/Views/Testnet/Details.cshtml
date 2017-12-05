@@ -1,0 +1,156 @@
+﻿@model NeoWeb.Models.Testnet
+
+@{
+    ViewData["Title"] = "测试币申请详情";
+}
+@section Styles{
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/testnet-list.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/testnet-list.min.css" asp-append-version="true" />
+    </environment>
+}
+<div class="container">
+    <h1 class="m1">测试币申请详情</h1>
+    <div class="coin-back apply-detail">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Phone)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Phone)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.QQ)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.QQ)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Company)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Company)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Reason)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Reason)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ANSCount)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ANSCount)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ANCCount)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ANCCount)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PubKey)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PubKey)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Remark)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Time)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Time)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Remark)
+            </dd>
+        </dl>
+        <div class="text-right">
+            <a class="p3" onclick="copyData();" href="">复制</a>
+            <a onclick="copytable();" data-toggle="modal" data-target="#myModal">查看复制</a>
+        </div>
+    </div>
+    <div class="back-to-list">
+        <a asp-action="Edit" asp-route-id="@Model.Id">备注</a> 
+        <a onclick="document.referrer === '' ?
+          window.location.pathname = '/Testnet/list' :  
+          window.history.back();">返回上一页</a>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <table class="apply-list">
+                <thead>
+                    <tr class="t3">
+                        <th width="15%">姓名</th>
+                        <th width="39%">公钥</th>
+                        <th width="5%"></th>
+                        <th width="20%">申请数量（NEO）</th>
+                        <th width="20%">申请数量（GAS）</th>
+                    </tr>
+                </thead>
+                <tbody id="tBody"></tbody>
+            </table>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{ 
+<script>
+    function copyData() {
+        var item = sessionStorage.length,flag = 1;
+        if (item>1) {
+            flag = item;
+        }
+        var lista = {
+            name: "@Html.DisplayFor(model => model.Name)",
+            key: "@Html.DisplayFor(model => model.PubKey)",
+            neo: "@Html.DisplayFor(model => model.ANSCount)",
+            gas: "@Html.DisplayFor(model => model.ANCCount)"
+        };
+
+        sessionStorage.setItem("list" + flag, JSON.stringify(lista));
+
+    }
+
+    function  copytable() {
+        var flag = sessionStorage.length;
+        var html = "";
+        if (flag > 0) {
+            for (var i = 1; i < flag; i++) {
+                var lis = JSON.parse(sessionStorage.getItem("list" + i));
+                console.log(lis);
+                html += "<tr><td>" + lis.name + "</td>" +
+                    "<td>" + lis.key + "</td>" +
+                    "<td></td>" +
+                    "<td>" + lis.neo + "</td>" +
+                    "<td>" + lis.gas + "</td></tr>";
+            }
+            $("#tBody").html(html);
+        }
+    }
+</script>
+}

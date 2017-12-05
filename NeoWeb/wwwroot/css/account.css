@@ -1,0 +1,12 @@
+﻿body {
+}
+ul{padding:0;}
+li {padding:5px;}
+.account-container {
+}
+.account-container .col-md-4 {
+    float: none;
+    margin: auto;
+    background: #FFF;
+    padding: 30px;
+}
