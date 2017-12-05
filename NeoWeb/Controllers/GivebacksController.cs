@@ -74,7 +74,8 @@ namespace NeoWeb.Controllers
                     ModelState.AddModelError("Email", "该用户未参与过ICO1");
                     return View(giveback);
                 }
-                if (item.RedeemCode != giveback.RedeemCode)
+                item = _context.ICO1.FirstOrDefault(p => p.Email == giveback.Email && p.RedeemCode == giveback.RedeemCode);
+                if (item == null)
                 {
                     ModelState.AddModelError("RedeemCode", "兑换码错误");
                     return View(giveback);
