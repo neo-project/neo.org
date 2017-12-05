@@ -1,0 +1,13 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-5">
+            <p><a href="@Localizer["https://neo.org/blog/details/3014"]">@Localizer["\"NEO Sponsor Giveback Plan\" Announcement"]</a></p>
+            <p>@Html.Raw(Localizer["The time for completing the information expires until <b>March 15, 2018</b>"].Value)</p>
+            <p>@Html.Raw(Localizer["Giveback for all sponsor will be issued from <b>March 16, 2018</b> to <b>Marth 31, 2018</b>"].Value)</p>
+            <p>@Localizer["Sponsor can choose to accept giveback in <b>RMB</b> or <b>NEO</b>"]</p>
+        </div>
+    </div>
+</div>

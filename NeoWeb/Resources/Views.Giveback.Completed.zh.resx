@@ -117,46 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About this website" xml:space="preserve">
-    <value>关于本网站</value>
+  <data name="The application has been submitted" xml:space="preserve">
+    <value>申请已提交</value>
   </data>
-  <data name="Blog" xml:space="preserve">
-    <value>博客</value>
-  </data>
-  <data name="Client" xml:space="preserve">
-    <value>客户端</value>
-  </data>
-  <data name="Developer" xml:space="preserve">
-    <value>开发者</value>
-  </data>
-  <data name="Document" xml:space="preserve">
-    <value>技术文档</value>
-  </data>
-  <data name="Download Logo" xml:space="preserve">
-    <value>Logo下载</value>
-  </data>
-  <data name="Explorer" xml:space="preserve">
-    <value>区块链浏览器</value>
-  </data>
-  <data name="Home" xml:space="preserve">
-    <value>首页</value>
-  </data>
-  <data name="Huodongxing" xml:space="preserve">
-    <value>活动行</value>
-  </data>
-  <data name="NEO is a non-profit community-based blockchain project that utilizes blockchain technology and digital identity to digitize assets, to automate the management of digital assets using smart contracts, and to realize a &quot;smart economy&quot; with a distributed network." xml:space="preserve">
-    <value>NEO是一个非盈利的社区化的区块链项目，是利用区块链技术和数字身份进行资产数字化，利用智能合约对数字资产进行自动化管理，实现“智能经济”的一种分布式网络。</value>
-  </data>
-  <data name="NEO Smart Economy" xml:space="preserve">
-    <value>NEO 智能经济</value>
-  </data>
-  <data name="Weibo" xml:space="preserve">
-    <value>微博</value>
-  </data>
-  <data name="Competition" xml:space="preserve">
-    <value>开发者大赛</value>
-  </data>
-  <data name="Sponsor Giveback" xml:space="preserve">
-    <value>资助者回馈</value>
+  <data name="We have received your application for &quot;NEO Sponsor Giveback Plan&quot;. The giveback for all sponsor will be issued from &lt;b&gt;March 16, 2018&lt;/b&gt; to &lt;b&gt;Marth 31, 2018&lt;/b&gt;. Please contact contact@neo.org If you have any questions." xml:space="preserve">
+    <value>我们已收到您的资助者回馈计划申请。所有资助者的回馈将在北京时间2018年3月16日-3月31日统一发放。如有任何问题请联系contact@neo.org。</value>
   </data>
 </root>

@@ -117,46 +117,79 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About this website" xml:space="preserve">
-    <value>关于本网站</value>
+  <data name="bank account" xml:space="preserve">
+    <value>银行卡号</value>
   </data>
-  <data name="Blog" xml:space="preserve">
-    <value>博客</value>
+  <data name="bank name" xml:space="preserve">
+    <value>开户行</value>
   </data>
-  <data name="Client" xml:space="preserve">
-    <value>客户端</value>
+  <data name="Email" xml:space="preserve">
+    <value>邮箱</value>
   </data>
-  <data name="Developer" xml:space="preserve">
-    <value>开发者</value>
+  <data name="How to receive giveback" xml:space="preserve">
+    <value>以何种方式接受回馈</value>
   </data>
-  <data name="Document" xml:space="preserve">
-    <value>技术文档</value>
+  <data name="Length cannot exceed {0} characters" xml:space="preserve">
+    <value>长度不能超过{0}个字符</value>
   </data>
-  <data name="Download Logo" xml:space="preserve">
-    <value>Logo下载</value>
+  <data name="Length is at least {0} characters" xml:space="preserve">
+    <value>长度至少是{0}个字符</value>
   </data>
-  <data name="Explorer" xml:space="preserve">
-    <value>区块链浏览器</value>
+  <data name="Must be a bank card in mainland China" xml:space="preserve">
+    <value>必须是中国大陆的银行卡</value>
   </data>
-  <data name="Home" xml:space="preserve">
-    <value>首页</value>
+  <data name="Must be a bank in mainland China" xml:space="preserve">
+    <value>必须是中国大陆的开户行</value>
   </data>
-  <data name="Huodongxing" xml:space="preserve">
-    <value>活动行</value>
+  <data name="NEO address to receive giveback" xml:space="preserve">
+    <value>接受回馈的NEO地址</value>
   </data>
-  <data name="NEO is a non-profit community-based blockchain project that utilizes blockchain technology and digital identity to digitize assets, to automate the management of digital assets using smart contracts, and to realize a &quot;smart economy&quot; with a distributed network." xml:space="preserve">
-    <value>NEO是一个非盈利的社区化的区块链项目，是利用区块链技术和数字身份进行资产数字化，利用智能合约对数字资产进行自动化管理，实现“智能经济”的一种分布式网络。</value>
+  <data name="owner of account" xml:space="preserve">
+    <value>银行卡开户人</value>
   </data>
-  <data name="NEO Smart Economy" xml:space="preserve">
-    <value>NEO 智能经济</value>
+  <data name="Please enter a valid E-mail address" xml:space="preserve">
+    <value>请输入正确的邮件地址</value>
   </data>
-  <data name="Weibo" xml:space="preserve">
-    <value>微博</value>
+  <data name="Please enter a valid NEO address" xml:space="preserve">
+    <value>请输入正确的NEO地址</value>
   </data>
-  <data name="Competition" xml:space="preserve">
-    <value>开发者大赛</value>
+  <data name="Please enter a valid number" xml:space="preserve">
+    <value>请输入正确的数字</value>
   </data>
-  <data name="Sponsor Giveback" xml:space="preserve">
-    <value>资助者回馈</value>
+  <data name="Please enter the correct private key in the WIF format" xml:space="preserve">
+    <value>请输入正确的WIF格式的私钥</value>
+  </data>
+  <data name="Please enter the email so that we can contact you" xml:space="preserve">
+    <value>请输入邮箱，以便我们可以联系到您</value>
+  </data>
+  <data name="Please enter your private key that participates in ICO at that time, we will sign in the browser side, and upload the signature and the NEO address to the server to authenticate, the private key &lt;b&gt; will not &lt;/b&gt; upload to the server, please rest assured fills in" xml:space="preserve">
+    <value>请输入您当时参与ICO的私钥，我们将在浏览器端进行签名，并将签名及NEO地址上传到服务器进行验证，私钥&lt;b&gt;不会&lt;/b&gt;上传到服务器，请放心填写</value>
+  </data>
+  <data name="Please make sure that the address is yours" xml:space="preserve">
+    <value>请确保该地址归您所有</value>
+  </data>
+  <data name="Private key when ICO" xml:space="preserve">
+    <value>ICO时的私钥</value>
+  </data>
+  <data name="Submit Application" xml:space="preserve">
+    <value>提交申请</value>
+  </data>
+  <data name="This field is required" xml:space="preserve">
+    <value>必填项</value>
+  </data>
+  <data name="Are you sure the information you filled out is correct?" xml:space="preserve">
+    <value>你确定填写的信息无误吗？</value>
+  </data>
+  <data name="Please wait" xml:space="preserve">
+    <value>请稍后</value>
+  </data>
+  <data name="Signature Verification Failure" xml:space="preserve">
+    <value>签名验证失败</value>
+  </data>
+  <data name="The giveback plan has expired" xml:space="preserve">
+    <value>回馈计划信息填写已截止</value>
+  </data>
+  <data name="You have not participated in ICO2" xml:space="preserve">
+    <value>你没有参与过ICO2</value>
   </data>
 </root>
