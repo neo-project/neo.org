@@ -7,17 +7,23 @@
 <div class="container">
     <h2 class="text-center">ICO2</h2>
     <br />
-    <form asp-action="ICO2" id="form_ico2" class="form-horizontal">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
+    <div class="form-horizontal">
         <div class="form-group">
             <label for="prikey" class="col-md-4 control-label">@Localizer["Private key when ICO"]</label>
             <div class="col-md-4">
                 <input name="prikey" id="prikey" class="form-control" autocomplete="off" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex-pattern="[L|K][1-9A-HJ-NP-Za-km-z]{51}" data-val-regex="@Localizer["Please enter the correct private key in the WIF format"]" />
-                <input type="hidden" name="pubkey" id="pubkey" />
-                <input type="hidden" name="signature" id="sign" />
                 <span class="help-block">@Localizer["Please enter your private key that participates in ICO at that time, we will sign in the browser side, and upload the signature and the NEO address to the server to authenticate, the private key <b> will not </b> upload to the server, please rest assured fills in"]</span>
                 <span class="text-danger" data-valmsg-for="prikey" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+    </div>
+    <form asp-action="ICO2" id="form_ico2" class="form-horizontal">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <div class="col-md-4">
+                <input type="hidden" name="pubkey" id="pubkey" />
+                <input type="hidden" name="signature" id="sign" />
             </div>
         </div>
         <div class="form-group">
