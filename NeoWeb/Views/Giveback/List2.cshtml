@@ -21,8 +21,8 @@
     </div>
     <div class="list1">
         <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#rmb" aria-controls="rmb" role="tab" data-toggle="tab">接受人民币</a></li>
-            <li role="presentation"><a href="#neo" aria-controls="profile" role="tab" data-toggle="tab">接受NEO</a></li>
+            <li role="presentation" class="active"><a href="#rmb" aria-controls="rmb" role="tab" data-toggle="tab">接受人民币 (@Model.Where(p => p.GivebackNeoAddress == null).Count()) ￥@Model.Where(p => p.GivebackNeoAddress == null).Sum(p => p.GiveBackCNY)</a></li>
+            <li role="presentation"><a href="#neo" aria-controls="profile" role="tab" data-toggle="tab">接受NEO (@Model.Where(p => p.GivebackNeoAddress != null).Count()) ￥@Model.Where(p => p.GivebackNeoAddress != null).Sum(p => p.GiveBackCNY)</a></li>
         </ul>
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="rmb">
@@ -130,3 +130,9 @@
         </div>
     </div>
 </div>
+@section Scripts{
+    <script>
+        $("#menu_list a").css("border-bottom", "none")
+        $("#menu_list li.menu-item [href='/giveback']").css("border-bottom", "2px solid #58bf00")
+    </script>
+}
