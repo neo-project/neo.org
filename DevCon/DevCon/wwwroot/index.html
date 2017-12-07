@@ -3,10 +3,41 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
-    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="css/devcon.css"/>
 </head>
 <body>
+    <div class="dev-container">
+        <div class="dev-content container">
+            vfgdsfredtfr
+        </div>
+        <div class="bg-animate">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" version="1.1">
+                <line class="svg-line green-line fast_line op_30" x1="10%" y1="10%" x2="10%" y2="60%" />
+                <line class="svg-line fast_line op_50" x1="5%" y1="40%" x2="23%" y2="40%" />
+                <line class="svg-line normal_line" x1="0%" y1="43%" x2="31%" y2="43%" />
+                <line class="svg-line slow_line" x1="8%" y1="48%" x2="27%" y2="48%" />
+                <line class="svg-line green-line slow_line op_80" x1="18%" y1="30%" x2="18%" y2="75%" />
+                <line class="svg-line green-line fast_line" x1="73%" y1="20%" x2="73%" y2="80%" />
+                <line class="svg-line green-line fast_line" x1="84%" y1="55%" x2="84%" y2="86%" />
+                <line class="svg-line green-line fast_line" x1="90%" y1="45%" x2="90%" y2="76%" />
+                <!--<line class="svg-line green-line fast_line" x1="70%" y1="45%" x2="70%" y2="80%" />-->
+            </svg>
+        </div>
+    </div>
 
-    <script src="lib/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="lib/jquery/dist/jquery.js"></script>
+    <script type="text/javascript">
+        pageSize();
+        $(window).resize(function () {
+            pageSize();
+        });
+        function pageSize() {
+            $(".dev-container").each(function () {
+                $(this).css("width", $(window).width());
+                $(this).css("min-height", $(window).height());
+            })
+        }
+    </script>
 </body>
 </html>
