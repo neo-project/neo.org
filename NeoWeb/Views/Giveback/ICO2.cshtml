@@ -48,7 +48,7 @@
             <label asp-for="BankName" class="control-label col-md-4">@Localizer["bank name"]</label>
             <div class="col-md-4">
                 <input asp-for="BankName" placeholder="如：招商银行上海创智天地支行" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-minlength-min="5" data-val-minlength="@string.Format(Localizer["Length is at least {0} characters"].Value, 5)" data-val-maxlength-max="30" data-val-maxlength="@string.Format(Localizer["Length cannot exceed {0} characters"].Value, 30)"/>
-                <span class="help-block">@Localizer["Must be a bank in mainland China"]</span>
+                <span class="help-block">@Localizer["Must be a bank in mainland China"]，开户行大致格式应为 XX银行XX市XX分行（支行），不能只填写 XX银行 或者 XX市XX分行（支行）</span>
                 <span asp-validation-for="BankName" class="text-danger"></span>
             </div>
         </div>

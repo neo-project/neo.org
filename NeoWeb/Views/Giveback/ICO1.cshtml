@@ -54,7 +54,7 @@
             <label asp-for="BankName" class="control-label col-md-4">开户行</label>
             <div class="col-md-4">
                 <input asp-for="BankName" class="form-control" placeholder="如：招商银行上海创智天地支行" data-val="true" data-val-required="请填写开户行" data-val-minlength-min="5" data-val-minlength="长度至少是5个字符" data-val-maxlength-max="30" data-val-maxlength="长度不能超过30个字符"/>
-                <span class="help-block">必须是中国大陆的开户行</span>
+                <span class="help-block">必须是中国大陆的开户行，开户行大致格式应为 XX银行XX市XX分行（支行），不能只填写 XX银行 或者 XX市XX分行（支行）</span>
                 <span asp-validation-for="BankName" class="text-danger"></span>
             </div>
         </div>
