@@ -112,6 +112,9 @@
     .ma-m {margin-top:20px;}
     .ma-s {margin-top:10px;}
     .ma-xs {margin-top:5px;}
+    .bg-animate svg {
+        opacity:0.6;
+    }
     .dev-container {
         background-size:40%,40%,contain;
     }
