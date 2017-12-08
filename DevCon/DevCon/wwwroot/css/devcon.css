@@ -46,8 +46,6 @@
     font-family:"Poppins";
     font-size:45px;
 }
-.sec-intro {
-}
 .thr-intro {
     font-family:"ShareTechMono";
     font-size:45px;
@@ -104,26 +102,46 @@
 .ma-xs {margin-top:10px;margin-bottom:0px;}
 
 @media only screen and (max-width:1400px) {
-    .ma-l {margin-top:80px;}
-    .ma-m {margin-top:50px;}
-    .ma-s {margin-top:25px;}
+    .ma-l {margin-top:70px;}
+    .ma-m {margin-top:40px;}
+    .ma-s {margin-top:15px;}
     .ma-xs {margin-top:7px;}
 }
 @media only screen and (max-width: 768px) {
-    .ma-l {margin-top:60px;}
-    .ma-m {margin-top:30px;}
-    .ma-s {margin-top:15px;}
-    .ma-xs {margin-top:10px;}
+    .ma-l {margin-top:40px;}
+    .ma-m {margin-top:20px;}
+    .ma-s {margin-top:10px;}
+    .ma-xs {margin-top:5px;}
     .dev-container {
         background-size:40%,40%,contain;
     }
+    .fri-intro,.thr-intro {
+        font-size:30px;
+    }
+    .sec-intro {
+        font-size:20px;
+    }
+    .four-intro {
+        font-size: 48px;
+    }
+    .ver-year {
+        display:none;
+    }
 }
 @media only screen and (max-width: 480px) {
-
+    .bg-animate svg {
+        opacity:0.4;
+    }
     .coming-logo img{
         width:55%;
     }
     .dev-title img{
         width:70%;
+    }
+    .thr-intro {
+        letter-spacing:5px;
+    }
+    .five-intro {
+        letter-spacing:1px;
     }
 }
