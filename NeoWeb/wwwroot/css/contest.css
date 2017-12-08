@@ -133,12 +133,13 @@ a {
     display:inline-block;
     margin: 20px 10px;
     padding: 0px 5px;
-    border:2px solid #30B900;
     min-width: 185px;
     height:45px;
     line-height:2.5;
     font-size:18px;
-    color:#30B900;
+    border:2px solid #30B900;
+    background:#30B900;
+    color: #fff;
     box-sizing:content-box;
     cursor:pointer;
 }
@@ -152,17 +153,16 @@ a {
     padding: 0px 5px;
     min-width: 185px;
     height:45px;
+    border:2px solid #30B900;
+    color:#30B900;
     line-height:2.5;
     font-size:18px;
-    border:2px solid #30B900;
-    background:#30B900;
-    color: #fff;
     box-sizing:content-box;
     cursor:pointer;
 }
 .compe-btn2:hover{
-    background:#fdfdfd;
-    border:2px solid #30B900;
+    background:#30B900;
+    color:#fff;
 }
 
 .comp-rules {

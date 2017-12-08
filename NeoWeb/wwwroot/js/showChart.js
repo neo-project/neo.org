@@ -3,7 +3,7 @@ statistic();
 function statistic() {
     $.ajax({
         type: "GET",
-        url: "js/statistic.json",
+        url: "js/statistic.json" + "?v=" + Math.random(),
         dataType: "json",
         success: function (data) {
             $("#total").text(data.Total);
