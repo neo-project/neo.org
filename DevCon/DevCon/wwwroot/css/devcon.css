@@ -1,15 +1,21 @@
 ﻿html,body {
     margin:0;
     padding:0;
+    font-family:"Poppins";
 }
 .dev-container {
-    background:linear-gradient(#BBD431,#11713A);
+    background:url(../images/bg-green.png) repeat-x;
+    background:url(../images/left.svg),url(../images/right.svg),url(../images/bg-green.png);
+    background-repeat:no-repeat,no-repeat,repeat-x;
+    background-position:bottom left,bottom right,center;
+    background-size:28%,20%,contain;
 }
 .dev-content {
     position:relative;
     z-index:3;
     color:#FFFFFF;
     text-align:center;
+    padding-bottom:20px;
 }
 
 
@@ -26,9 +32,40 @@
 
 /*coming soon*/
 .coming-logo img{
-    max-width:300px;
+    max-width:350px;
+    width:40%;
 }
-
+.dev-title img{
+    max-width:450px;
+    width:40%;
+}
+.ver-year {
+    writing-mode: tb;
+}
+.fri-intro {
+    font-family:"Poppins";
+    font-size:45px;
+}
+.sec-intro {
+}
+.thr-intro {
+    font-family:"ShareTechMono";
+    font-size:45px;
+    letter-spacing:15px;
+}
+.four-intro {
+    font-family:"ShareTechMono";
+    font-size:60px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+.five-intro {
+    font-family:"ShareTechMono";
+    letter-spacing:5px;
+}
+.five-intro a{
+    color:#FFFFFF;
+}
 
 /*svg样式*/
 .svg-line {
@@ -37,29 +74,22 @@
     stroke-dasharray: 8 8;
     stroke-dashoffset: 0px;
     stroke-linecap:round;
+    animation: nor 15s linear infinite;
 }
 .green-line {
     stroke:#2A843D;
 }
 .fast-line {
-    animation: fast 10s linear infinite;
-}
-@keyframes fast {
-    0% {stroke-dashoffset: 300px;}
-    100% {stroke-dashoffset: 0px;}
+    animation: nor 5s linear infinite;
 }
 .normal-line {
     animation: nor 10s linear infinite;
 }
+.slow-line {
+    animation: nor 20s linear infinite;
+}
 @keyframes nor {
     0% {stroke-dashoffset: 200px;}
-    100% {stroke-dashoffset: 0px;}
-}
-.slow-line {
-    animation: slow 10s linear infinite;
-}
-@keyframes slow {
-    0% {stroke-dashoffset: 80px;}
     100% {stroke-dashoffset: 0px;}
 }
 
@@ -68,9 +98,32 @@
 .op-70{opacity:0.7;}
 .op-80{opacity:0.8;}
 .op-90{opacity:0.9;}
-.ma-l {margin-top:150px;}
-.ma-m {margin-top:70px;}
-.ma-s {margin-top:40px;}
-.ma-xs {margin-top:20px;}
+.ma-l {margin-top:100px;margin-bottom:0px;}
+.ma-m {margin-top:60px;margin-bottom:0px;}
+.ma-s {margin-top:20px;margin-bottom:0px;}
+.ma-xs {margin-top:10px;margin-bottom:0px;}
 
+@media only screen and (max-width:1400px) {
+    .ma-l {margin-top:80px;}
+    .ma-m {margin-top:50px;}
+    .ma-s {margin-top:25px;}
+    .ma-xs {margin-top:7px;}
+}
+@media only screen and (max-width: 768px) {
+    .ma-l {margin-top:60px;}
+    .ma-m {margin-top:30px;}
+    .ma-s {margin-top:15px;}
+    .ma-xs {margin-top:10px;}
+    .dev-container {
+        background-size:40%,40%,contain;
+    }
+}
+@media only screen and (max-width: 480px) {
 
+    .coming-logo img{
+        width:55%;
+    }
+    .dev-title img{
+        width:70%;
+    }
+}
