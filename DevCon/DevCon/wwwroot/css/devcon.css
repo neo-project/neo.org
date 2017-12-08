@@ -31,8 +31,11 @@
 }
 
 /*coming soon*/
+.coming-logo {
+    text-align: left;
+}
 .coming-logo img{
-    max-width:350px;
+    max-width:280px;
     width:40%;
 }
 .dev-title img{
@@ -112,6 +115,9 @@
     .ma-m {margin-top:20px;}
     .ma-s {margin-top:10px;}
     .ma-xs {margin-top:5px;}
+    .coming-logo{
+        text-align:center;
+    }
     .bg-animate svg {
         opacity:0.6;
     }
