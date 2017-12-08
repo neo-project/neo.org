@@ -21,6 +21,10 @@
     "inputFiles": [ "wwwroot/css/dapps.css" ]
   },
   {
+    "outputFileName": "wwwroot/css/team.min.css",
+    "inputFiles": [ "wwwroot/css/team.css" ]
+  },
+  {
     "outputFileName": "wwwroot/css/download.min.css",
     "inputFiles": [ "wwwroot/css/download.css" ]
   },
