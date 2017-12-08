@@ -104,7 +104,7 @@
 .ma-s {margin-top:20px;margin-bottom:0px;}
 .ma-xs {margin-top:10px;margin-bottom:0px;}
 
-@media only screen and (max-width:1400px) {
+@media only screen and (max-width:1550px) {
     .ma-l {margin-top:45px;}
     .ma-m {margin-top:35px;}
     .ma-s {margin-top:10px;}
