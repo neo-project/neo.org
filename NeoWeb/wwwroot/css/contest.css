@@ -131,7 +131,7 @@ a {
 }
 .compe-btn {
     display:inline-block;
-    margin: 20px 10px 60px;
+    margin: 20px 10px;
     padding: 0px 5px;
     border:2px solid #30B900;
     min-width: 185px;
@@ -145,7 +145,25 @@ a {
 .compe-btn:hover{
     background:#fdfdfd;
 }
-
+.compe-btn2 {
+    display:block;
+    width: 300px;
+    margin: 20px auto 60px;
+    padding: 0px 5px;
+    min-width: 185px;
+    height:45px;
+    line-height:2.5;
+    font-size:18px;
+    border:2px solid #30B900;
+    background:#30B900;
+    color: #fff;
+    box-sizing:content-box;
+    cursor:pointer;
+}
+.compe-btn2:hover{
+    background:#fdfdfd;
+    border:2px solid #30B900;
+}
 
 .comp-rules {
     background:url(../images/contest/bg2.png) repeat-x;
