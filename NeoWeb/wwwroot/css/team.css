@@ -11,6 +11,7 @@
 .member > div {
     display: inline-block;
     width: 150px;
+    min-height:225px;
     padding: 3px;
     background-color: #fff;
     vertical-align: top;
