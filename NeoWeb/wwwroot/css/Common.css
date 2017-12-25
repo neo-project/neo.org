@@ -32,6 +32,10 @@ h3,.h3 {font-size: 16px;font-weight:bold;}
 .p1 {padding:60px;}
 .p2 {padding:40px;}
 .p3 {padding:20px;}
+.pt0 {padding-top:0px!important;}
+.pl0 {padding-left:0px!important;}
+.pb0 {padding-bottom:0px!important;}
+.pr0 {padding-right:0px!important;}
 a, a:active, .btn-link, .btn-link:active { color:#6c6c6c; text-decoration: none }
 a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decoration: none; outline: none }
 .bold-font {font-weight:600;}

@@ -1,0 +1,459 @@
+﻿
+@{
+    ViewData["Title"] = "NEO Contributors";
+}
+@section Styles{
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/team.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/team.min.css" asp-append-version="true" />
+    </environment>
+}
+<div class="container">
+    <h2 class="m2 text-center">NEO Contributors</h2>
+    <div class="team">
+        <div class="member">
+            <div>
+                <img data-original="../images/team/da.jpg" />
+                <div class="name">
+                    Da Hongfei
+                </div>
+                <div class="title">
+                    NEO Founder
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/erik.jpg" />
+                <div class="name">
+                    Erik Zhang
+                </div>
+                <div class="title">
+                    NEO Founder & Core Developer
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/tony.jpg" />
+                <div class="name">
+                    Tony Tao
+                </div>
+                <div class="title">
+                    Secretary-General, NEO Council Secretariat
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/jianying.jpg" />
+                <div class="name">
+                    Li Jianying
+                </div>
+                <div class="title">
+                    Core Developer
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/malcolm.jpg" />
+                <div class="name">
+                    Malcolm
+                </div>
+                <div class="title">
+                    Senior R&D Manager
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/zc.jpg" />
+                <div class="name">
+                    Johnson
+                </div>
+                <div class="title">
+                    NEO Global Development Director
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/fred.jpg" />
+                <div class="name">
+                    Fred Huang
+                </div>
+                <div class="title">
+                    NEO Overseas Community Operation
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/chen.jpg" />
+                <div class="name">
+                    Nathan Chen
+                </div>
+                <div class="title">
+                    Project Liaison
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/chris.jpg" />
+                <div class="name">
+                    Chris Chen
+                </div>
+                <div class="title">
+                    Developer
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/qiaoling.jpg" />
+                <div class="name">
+                    Sharlyne
+                </div>
+                <div class="title">
+                    Community Operation
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/peter.jpg" />
+                <div class="name">
+                    Peter Lin
+                </div>
+                <div class="title">
+                    Developer
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/shou.jpg" />
+                <div class="name">
+                    Ray
+                </div>
+                <div class="title">
+                    Test Engineer
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/yan.jpg" />
+                <div class="name">
+                    Yan Mingxia
+                </div>
+                <div class="title">
+                    Front-end Developer
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/huang.jpg" />
+                <div class="name">
+                    JC
+                </div>
+                <div class="title">
+                    Community Operation
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/fang.jpg" />
+                <div class="name">
+                    Robin Fang
+                </div>
+                <div class="title">
+                    Translator
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/su.jpg" />
+                <div class="name">
+                    Susu
+                </div>
+                <div class="title">
+                    Project Liaison
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/zeng.jpg" />
+                <div class="name">
+                    Kris
+                </div>
+                <div class="title">
+                    NEO Overseas Community Operation
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/yu.jpg" />
+                <div class="name">
+                    Celia Yu
+                </div>
+                <div class="title">
+                    Senior Technical Writer
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/luoxue.jpg" />
+                <div class="name">
+                    Luo Xue
+                </div>
+                <div class="title">
+                    Developer Intern
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/simiao.jpg" />
+                <div class="name">
+                    Hebe Wang
+                </div>
+                <div class="title">
+                    Community Operation
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/keke.jpg" />
+                <div class="name">
+                    Caterina Zhang
+                </div>
+                <div class="title">
+                    Global Marketing Manager
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/tamar.jpg" />
+                <div class="name">
+                    Tamar
+                </div>
+                <div class="title">
+                    Global Business Development Manager
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/joe.jpg" />
+                <div class="name">
+                    Joe Stewart
+                </div>
+                <div class="title">
+                    City of Zion Developer
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/chris-hager.jpg" />
+                <div class="name">
+                    Chris Hager
+                    <div class="title">
+                        City of Zion Developer
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/david_s.jpg" />
+                <div class="name">
+                    David Schwartz
+                </div>
+                <div class="title">
+                    City of Zion Developer
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/jason.jpg" />
+                <div class="name">
+                    Jason L Perry
+                </div>
+                <div class="title">
+                    City of Zion Developer
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/yjx.jpg" />
+                <div class="name">
+                    Yak Jun Xiang
+                </div>
+                <div class="title">
+                    City of Zion Developer
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/tsaunders.jpg" />
+                <div class="name">
+                    Thomas Saunders
+                </div>
+                <div class="title">
+                    City of Zion Council/Developer
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/erik-vd-brink.jpg" />
+                <div class="name">
+                    Erik van den Brink
+                </div>
+                <div class="title">
+                    City of Zion Developer
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/miles.jpg" />
+                <div class="name">
+                    Miles Graham
+                </div>
+                <div class="title">
+                    Consultant
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/lucianoengel.jpg" />
+                <div class="name">
+                    Luciano Engel
+                </div>
+                <div class="title">
+                    City of Zion Council/Developer
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/tba.jpg" />
+                <div class="name">
+                    Tyler B Adams
+                </div>
+                <div class="title">
+                    City of Zion Council/Developer
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/travis.jpg" />
+                <div class="name">
+                    Travis Lin
+                </div>
+                <div class="title">
+                    City of Zion Developer
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/jlgaffney.jpg" />
+                <div class="name">
+                    Justin Gaffney
+                </div>
+                <div class="title">
+                    City of Zion Developer
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/deanpress.jpg" />
+                <div class="name">
+                    Dean van Dugteren
+                </div>
+                <div class="title">
+                    City of Zion Developer
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/jaime.jpg" />
+                <div class="name">
+                    Jaime Kindelan
+                </div>
+                <div class="title">
+                    Security Team
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/shargon.jpg" />
+                <div class="name">
+                    Fernando Díaz Toledano
+                </div>
+                <div class="title">
+                    Security Team
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <img data-original="../images/team/sa.jpg" />
+                <div class="name">
+                    Silas Albrecht
+                </div>
+                <div class="title">
+                    City of Zion Developer
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div>
+                <a target="_blank" href="https://github.com/neo-project/neo.org/tree/develop/NeoWeb/Views/Home/contributor.md">
+                    <img data-original="../images/team/add.jpg" />
+                </a>
+                <div class="name">
+                    <a target="_blank" href="https://github.com/neo-project/neo.org/tree/develop/NeoWeb/Views/Home/contributor.md">
+                        Add Your Photo
+                    </a>
+                </div>
+                <div class="title">
+                    NEO contributor
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/js/jquery.lazyload.min.js"></script>
+    <script>
+        $('[data-original]').lazyload({
+            threshold : 200,
+            effect : "fadeIn"
+        });
+    </script>
+}

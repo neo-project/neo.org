@@ -156,4 +156,7 @@
   <data name="Competition" xml:space="preserve">
     <value>开发者大赛</value>
   </data>
+  <data name="Sponsor Giveback" xml:space="preserve">
+    <value>资助者回馈</value>
+  </data>
 </root>

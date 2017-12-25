@@ -17,7 +17,7 @@ namespace NeoWeb.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.0.0-rtm-26452")
+                .HasAnnotation("ProductVersion", "2.0.1-rtm-125")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -207,6 +207,60 @@ namespace NeoWeb.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Blogs");
+                });
+
+            modelBuilder.Entity("NeoWeb.Models.ICO1", b =>
+                {
+                    b.Property<string>("RedeemCode")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("BankAccount")
+                        .HasMaxLength(19);
+
+                    b.Property<string>("BankName")
+                        .HasMaxLength(30);
+
+                    b.Property<DateTime?>("CommitTime");
+
+                    b.Property<string>("Email");
+
+                    b.Property<decimal>("GiveBackCNY");
+
+                    b.Property<string>("GivebackNeoAddress");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(8);
+
+                    b.HasKey("RedeemCode");
+
+                    b.ToTable("ICO1");
+                });
+
+            modelBuilder.Entity("NeoWeb.Models.ICO2", b =>
+                {
+                    b.Property<string>("NeoAddress")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("BankAccount")
+                        .HasMaxLength(19);
+
+                    b.Property<string>("BankName")
+                        .HasMaxLength(30);
+
+                    b.Property<DateTime?>("CommitTime");
+
+                    b.Property<string>("Email");
+
+                    b.Property<decimal>("GiveBackCNY");
+
+                    b.Property<string>("GivebackNeoAddress");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(8);
+
+                    b.HasKey("NeoAddress");
+
+                    b.ToTable("ICO2");
                 });
 
             modelBuilder.Entity("NeoWeb.Models.News", b =>
