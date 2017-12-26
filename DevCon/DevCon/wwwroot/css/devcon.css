@@ -1,7 +1,7 @@
 ﻿html,body {
     margin:0;
     padding:0;
-    font-family:"Microsoft Himalaya";
+    font-family:"Microsoft Sans Serif";
 }
 .dev-container.bg-green{
     background:url(../images/bg-green.png) repeat-x;
@@ -46,6 +46,27 @@
     writing-mode: tb;
 }
 
+/*第一个页面*/
+.count-down {
+    margin:auto;
+    padding:0px;
+    text-align:center;
+    width:80%;
+}
+.count-down li{
+    display:inline-block;
+    width:24%;
+    padding-bottom:5px;
+    border-left:3px solid #FFFFFF;
+    letter-spacing:2px;
+}
+.count-down li:first-child {
+    border:none;
+}
+/*.count-down li p{
+    font-size:50px;
+}*/
+
 /*svg样式*/
 .svg-line {
     stroke:#FFFFFF;
@@ -72,6 +93,11 @@
     100% {stroke-dashoffset: 0px;}
 }
 
+.font-xl {font-size:65px;}
+.font-l {font-size:50px;}
+.font-m {font-size:36px;}
+.font-s {font-size:24px;}
+.font-xs {font-size:15px;}
 .op-30{opacity:0.3;}
 .op-50{opacity:0.5;}
 .op-70{opacity:0.7;}
@@ -83,6 +109,11 @@
 .ma-xs {margin-top:10px;margin-bottom:0px;}
 
 @media only screen and (max-width:1550px) {
+    .font-xl {font-size:55px;}
+    .font-l {font-size:40px;}
+    .font-m {font-size:28px;}
+    .font-s {font-size:18px;}
+    .font-xs {font-size:10px;}
     .ma-l {margin-top:45px;}
     .ma-m {margin-top:35px;}
     .ma-s {margin-top:10px;}

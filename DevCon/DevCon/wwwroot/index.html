@@ -17,24 +17,24 @@
         <div class="dev-content container">
             <p class="ma-l coming-logo"><img src="images/neo-logo-white.svg"/></p>
             <p class="ma-m dev-title"><img src="images/dev.svg" /></p>
-            <h1 class="ma-m">SAN FRANCISCO</h1>
+            <h1 class="ma-l font-l">SAN FRANCISCO</h1>
             <h3 class="ma-xs sec-intro">JANUARY 30th-31st</h3>
-            <ul class="count-down">
+            <ul class="ma-m count-down">
                 <li>
-                    <p id="day-count"></p>
-                    <p>DAYS</p>
+                    <p class="font-xl" id="dayCount">00</p>
+                    <div>DAYS</div>
                 </li>
                 <li>
-                    <p id="hour-count"></p>
-                    <p>HOURS</p>
+                    <p class="font-xl" id="hourCount">00</p>
+                    <div>HOURS</div>
                 </li>
                 <li>
-                    <p id="min-count"></p>
-                    <p>MINUTES</p>
+                    <p class="font-xl" id="minCount">00</p>
+                    <div>MINUTES</div>
                 </li>
                 <li>
-                    <p id="sec-count"></p>
-                    <p>SECONDS</p>
+                    <p class="font-xl" id="secCount">00</p>
+                    <div>SECONDS</div>
                 </li>
             </ul>
         </div>
@@ -61,8 +61,10 @@
     </div>
 
     <script type="text/javascript" src="lib/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="js/site.min.js"></script>
     <script type="text/javascript">
         pageSize();
+        timeShow();
         $(window).resize(function () {
             pageSize();
         });
@@ -72,6 +74,19 @@
                 $(this).css("min-height", $(window).height());
             })
         }
+
+        //倒计时方法
+        var deadline = new Date("2017-12-27 10:55:10");
+        var now = new Date();
+        if (deadline>now) { setInterval(timeShow, 1000);}
+        function timeShow() {
+            var counttime = new CountTime(deadline);
+            $("#dayCount").html(counttime.fomate(counttime.day()));
+            $("#hourCount").html(counttime.fomate(counttime.hour()));
+            $("#minCount").html(counttime.fomate(counttime.minute()));
+            $("#secCount").html(counttime.fomate(counttime.second()));
+        }
+
     </script>
 </body>
 </html>
