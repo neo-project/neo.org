@@ -156,8 +156,6 @@
 
 /*第五个页面*/
 .dev-venue {
-    /*background:#ddd;*/
-    
 }
 .dev-venue h3{
     color:#3C3C3C;
@@ -250,11 +248,13 @@
     .ma-xs {margin-top:7px;}
 }
 @media only screen and (max-width:992px) {
-    /*.font-xl {font-size:60px;}
-    .font-l {font-size:50px;}
-    .font-m {font-size:28px;}
-    .font-s {font-size:18px;}
-    .font-xs {font-size:14px;}*/
+    .down-area p {
+        min-height: 78px;
+    }
+    .down-btn {
+        min-width:220px;
+        padding:15px 20px;
+    }
 }
 @media only screen and (max-width: 768px) {
     .dev-container {
@@ -269,7 +269,6 @@
     .ma-m {margin-top:20px;}
     .ma-s {margin-top:10px;}
     .ma-xs {margin-top:5px;}
-    /*第一个页面*/
     .coming-logo{
         text-align:center;
     }
@@ -286,7 +285,6 @@
         padding: 3px 2px;
         border-left: 1px solid #EEE;
     }
-    /*第三个页面*/
     .speaker-detail li {
         width:33%;
     }
@@ -330,7 +328,6 @@
     .dev-title img{
         width:70%;
     }
-    /*第三个页面*/
     .speaker-detail li {
         width:49%;
     }
@@ -341,6 +338,9 @@
     .down-btn {
         min-width:180px;
         padding:10px 15px;
+    }
+    .ticket-btn {
+        min-width: 200px;
     }
 
     .thr-intro {
