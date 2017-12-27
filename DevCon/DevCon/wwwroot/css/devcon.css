@@ -54,6 +54,7 @@
 }
 /*第一个页面*/
 .count-down {
+    font-size:0px;
     margin:auto;
     padding:0px;
     text-align:center;
@@ -62,7 +63,7 @@
 .count-down li{
     display:inline-block;
     width:24%;
-    padding-bottom:5px;
+    padding: 10px 1px;
     border-left:3px solid #FFFFFF;
     letter-spacing:2px;
 }
@@ -105,8 +106,6 @@
     display:inline-block;
     width:25%;
     height:auto;
-    background:#FFFFFF;
-    font-size:12px;
     padding:10px 0;
     font-family:"Poppins-Bloder";
     color:#3C3C3C;
@@ -131,11 +130,9 @@
     display:inline-block;
     background:#ADD036;
     color:#FFFFFF;
-    min-width:200px;
-    line-height:36px;
-    height:60px;
+    min-width:300px;
     vertical-align:middle;
-    padding:12px 20px;
+    padding:20px;
     cursor:pointer;
 }
 .down-btn:hover{
@@ -160,8 +157,9 @@
 /*第五个页面*/
 .dev-venue {
     /*background:#ddd;*/
+    
 }
-.dev-venue p{
+.dev-venue h3{
     color:#3C3C3C;
 }
 .dev-venue .dev-headline{
@@ -171,21 +169,31 @@
     width:100%;
 }
 .nearby-hint {
-    background:#CCCCCC;
+    background:#F5F5F5;
+    font-family:"Poppins-Bloder";
+    color:#4C4C4C;
+    letter-spacing:1px;
     padding:50px;
+}
+.nearby-hint .iconfont{
+    font-size:40px;
 }
 .hint-detail {
     text-align:left;
 }
 .hint-detail p{
-    margin:10px auto 5px;
+    color:#525252;
     font-weight:bolder;
+}
+.hint-detail span{
+    display:inline-block;
 }
 /*footer*/
 .dev-footer {
-    background:#d0ff9f;
-    padding-top:200px;
-    padding-bottom:50px;
+    background:url(../images/footer.svg) no-repeat center;
+    background-size:cover;
+    padding-top:250px;
+    padding-bottom:125px;
 }
 
 /*svg样式*/
@@ -218,7 +226,7 @@
 .font-l {font-size:55px;}
 .font-m {font-size:40px;}
 .font-s {font-size:24px;}
-.font-xs {font-size:15px;}
+.font-xs {font-size:16px;}
 .op-30{opacity:0.3;}
 .op-50{opacity:0.5;}
 .op-70{opacity:0.7;}
@@ -233,24 +241,35 @@
 @media only screen and (max-width:1550px) {
     .font-xl {font-size:60px;}
     .font-l {font-size:50px;}
-    .font-m {font-size:28px;}
+    .font-m {font-size:24px;}
     .font-s {font-size:18px;}
-    .font-xs {font-size:10px;}
+    .font-xs {font-size:14px;}
     .ma-l {margin-top:50px;}
     .ma-m {margin-top:35px;}
     .ma-s {margin-top:10px;}
     .ma-xs {margin-top:7px;}
 }
-@media only screen and (max-width: 768px) {
-    .font-xl {font-size:40px;}
+@media only screen and (max-width:992px) {
+    /*.font-xl {font-size:60px;}
     .font-l {font-size:50px;}
     .font-m {font-size:28px;}
     .font-s {font-size:18px;}
-    .font-xs {font-size:10px;}
+    .font-xs {font-size:14px;}*/
+}
+@media only screen and (max-width: 768px) {
+    .dev-container {
+        padding:60px 0;
+    }
+    .font-xl {font-size:35px;}
+    .font-l {font-size:30px;}
+    .font-m {font-size:22px;}
+    .font-s {font-size:15px;}
+    .font-xs {font-size:12px;}
     .ma-l {margin-top:40px;}
     .ma-m {margin-top:20px;}
     .ma-s {margin-top:10px;}
     .ma-xs {margin-top:5px;}
+    /*第一个页面*/
     .coming-logo{
         text-align:center;
     }
@@ -260,6 +279,30 @@
     .dev-container.bg-green{
         background-size:40%,40%,contain;
     }
+    .count-down {
+        width:100%;
+    }
+    .count-down li {
+        padding: 3px 2px;
+        border-left: 1px solid #EEE;
+    }
+    /*第三个页面*/
+    .speaker-detail li {
+        width:33%;
+    }
+    .down-area,
+    .nearby-hint{
+        padding:50px 30px;
+    }
+    .down-area p {
+        min-height:initial;
+    }
+    .down-btn {
+        min-width:220px;
+        padding:15px 20px;
+    }
+
+
     .fri-intro,.thr-intro {
         font-size:30px;
     }
@@ -273,7 +316,7 @@
         display:none;
     }
     .col-sm-6 {
-        max-width:300px;
+        max-width:380px;
         margin:15px auto;
     }
 }
@@ -287,6 +330,19 @@
     .dev-title img{
         width:70%;
     }
+    /*第三个页面*/
+    .speaker-detail li {
+        width:49%;
+    }
+    .down-area,
+    .nearby-hint{
+        padding:30px;
+    }
+    .down-btn {
+        min-width:180px;
+        padding:10px 15px;
+    }
+
     .thr-intro {
         letter-spacing:5px;
     }
