@@ -1,7 +1,11 @@
 ﻿html,body {
     margin:0;
     padding:0;
-    font-family:"Microsoft Sans Serif";
+    font-family:"Poppins-Light","Microsoft Sans Serif";
+    letter-spacing:2px;
+}
+.dev-container {
+    padding:120px 0;
 }
 .dev-container.bg-green{
     background:url(../images/bg-green.png) repeat-x;
@@ -20,7 +24,6 @@
 .iconfont {
     font-size:20px;
 }
-
 
 .bg-animate {
     position: absolute;
@@ -45,7 +48,10 @@
 .ver-year {
     writing-mode: tb;
 }
-
+.dev-headline {
+    font-family:"Poppins-Bloder";
+    letter-spacing:2px;
+}
 /*第一个页面*/
 .count-down {
     margin:auto;
@@ -63,9 +69,124 @@
 .count-down li:first-child {
     border:none;
 }
-/*.count-down li p{
-    font-size:50px;
-}*/
+
+/*第二个页面*/
+.dev-intro {
+    background:url(../images/bridge-bg.jpg) no-repeat center;
+    background-size:cover;
+    background:url(../images/bg-green-2.png),url(../images/bridge-bg.jpg);
+    background-size:contain,cover;
+    background-repeat:repeat-x,no-repeat;
+    background-position:center,top center;
+    background-attachment:fixed;
+}
+.dev-intro p {
+    width:80%;
+    margin-left:auto;
+    margin-right:auto;
+    font-weight:100;
+}
+
+/*第三个页面*/
+.dev-speaker {
+}
+.dev-speaker .dev-headline {
+    color:#7ECE38;
+}
+.speaker-detail {
+    margin:auto;
+    padding:0;
+    font-size:0;
+    text-align:left;
+    letter-spacing:0;
+}
+.speaker-detail li{
+    list-style:none;
+    display:inline-block;
+    width:25%;
+    height:auto;
+    background:#FFFFFF;
+    font-size:12px;
+    padding:10px 0;
+    font-family:"Poppins-Bloder";
+    color:#3C3C3C;
+    text-align:center;
+    vertical-align:top;
+}
+.speaker-detail li img{
+    width:60%;
+    height:auto;
+    border-radius: 50%;
+}
+.down-area {
+    background:#F5F5F5;
+    padding:50px;
+    font-family:"Poppins-Bloder";
+}
+.down-area p{
+    color:#3C3C3C;
+    min-height:60px;
+}
+.down-btn{
+    display:inline-block;
+    background:#ADD036;
+    color:#FFFFFF;
+    min-width:200px;
+    line-height:36px;
+    height:60px;
+    vertical-align:middle;
+    padding:12px 20px;
+    cursor:pointer;
+}
+.down-btn:hover{
+    background:#a3c339;
+    color:#FFFFFF;
+    text-decoration:none;
+}
+/*第四个页面*/
+.dev-ticket {
+
+}
+.ticket-btn {
+    display:inline-block;
+    margin-bottom:50px!important;
+    min-width:300px;
+    background:#FFFFFF;
+    font-family:"Poppins-Bloder";
+    color:#66BB46;
+    padding:12px 20px;
+}
+
+/*第五个页面*/
+.dev-venue {
+    /*background:#ddd;*/
+}
+.dev-venue p{
+    color:#3C3C3C;
+}
+.dev-venue .dev-headline{
+    color:#47BA32;
+}
+.map-area img {
+    width:100%;
+}
+.nearby-hint {
+    background:#CCCCCC;
+    padding:50px;
+}
+.hint-detail {
+    text-align:left;
+}
+.hint-detail p{
+    margin:10px auto 5px;
+    font-weight:bolder;
+}
+/*footer*/
+.dev-footer {
+    background:#d0ff9f;
+    padding-top:200px;
+    padding-bottom:50px;
+}
 
 /*svg样式*/
 .svg-line {
@@ -93,9 +214,9 @@
     100% {stroke-dashoffset: 0px;}
 }
 
-.font-xl {font-size:65px;}
-.font-l {font-size:50px;}
-.font-m {font-size:36px;}
+.font-xl {font-size:70px;}
+.font-l {font-size:55px;}
+.font-m {font-size:40px;}
 .font-s {font-size:24px;}
 .font-xs {font-size:15px;}
 .op-30{opacity:0.3;}
@@ -107,19 +228,25 @@
 .ma-m {margin-top:60px;margin-bottom:0px;}
 .ma-s {margin-top:20px;margin-bottom:0px;}
 .ma-xs {margin-top:10px;margin-bottom:0px;}
+.bold-text {font-weight:900;}
 
 @media only screen and (max-width:1550px) {
-    .font-xl {font-size:55px;}
-    .font-l {font-size:40px;}
+    .font-xl {font-size:60px;}
+    .font-l {font-size:50px;}
     .font-m {font-size:28px;}
     .font-s {font-size:18px;}
     .font-xs {font-size:10px;}
-    .ma-l {margin-top:45px;}
+    .ma-l {margin-top:50px;}
     .ma-m {margin-top:35px;}
     .ma-s {margin-top:10px;}
     .ma-xs {margin-top:7px;}
 }
 @media only screen and (max-width: 768px) {
+    .font-xl {font-size:40px;}
+    .font-l {font-size:50px;}
+    .font-m {font-size:28px;}
+    .font-s {font-size:18px;}
+    .font-xs {font-size:10px;}
     .ma-l {margin-top:40px;}
     .ma-m {margin-top:20px;}
     .ma-s {margin-top:10px;}
@@ -130,7 +257,7 @@
     .bg-animate svg {
         opacity:0.6;
     }
-    .dev-container {
+    .dev-container.bg-green{
         background-size:40%,40%,contain;
     }
     .fri-intro,.thr-intro {
@@ -144,6 +271,10 @@
     }
     .ver-year {
         display:none;
+    }
+    .col-sm-6 {
+        max-width:300px;
+        margin:15px auto;
     }
 }
 @media only screen and (max-width: 480px) {

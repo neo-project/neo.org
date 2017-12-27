@@ -7,6 +7,14 @@ body {
     src:url("font/Poppins-Medium.ttf");
 }
 @font-face {
+    font-family:"Poppins-Light";
+    src:url("font/Poppins-Light.ttf");
+}
+@font-face {
+    font-family:"Poppins-Bloder";
+    src:url("font/Poppins-Bold.ttf");
+}
+@font-face {
     font-family:"ShareTechMono";
     src:url("font/ShareTechMono-Regular.ttf");
 }
