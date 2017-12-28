@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEO DEVCON</title>
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="css/site.css" />
-    <link rel="stylesheet" href="css/devcon.css" />
+    <link rel="stylesheet" href="css/site.min.css" />
+    <link rel="stylesheet" href="css/devcon.min.css" />
     <link rel="apple-touch-icon" href="~/images/favicon.png">
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
     <link rel="icon" type="image/x-icon" href="images/favicon.png">
@@ -132,10 +132,11 @@
                 <li class="font-xs">
                     <img src="images/3-3.jpg" />
                     <p class="ma-s">Li Yanbo</p>
-                    <p class="ma-xs">Co-founder, Onchain</p>
+                    <p class="ma-xs">Founder, NKN</p>
                 </li>
                 <li class="font-xs">
                     <img src="images/default-photo.jpg" />
+                    <p class="ma-xs">more coming soon...</p>
                 </li>
             </ul>
             <div class="row ma-m font-s">
@@ -163,9 +164,12 @@
         </div>
         <div class="bg-animate">
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" version="1.1">
-                <line class="svg-line fast-line op-30" x1="11%" y1="10%" x2="11%" y2="60%" />
-                <line class="svg-line fast-line op-50" x1="2%" y1="40%" x2="18%" y2="40%" />
+                <line class="svg-line fast-line op-30" x1="11%" y1="2%" x2="11%" y2="60%" />
+                <line class="svg-line slow-line op-30" x1="0%" y1="75%" x2="29%" y2="75%" />
+                <line class="svg-line fast-line op-50" x1="0%" y1="80%" x2="25%" y2="80%" />
+                <line class="svg-line fast-line op-50" x1="2%" y1="35%" x2="25%" y2="35%" />
                 <line class="svg-line green-line op-80" x1="6%" y1="27%" x2="6%" y2="75%" />
+                <!--<line class="svg-line green-line op-80" x1="6%" y1="27%" x2="6%" y2="75%" />-->
             </svg>
         </div>
     </div>
@@ -177,7 +181,6 @@
             <p class="ma-xs font-xs">InterContinental San Francisco, 888 Howard St,San Francisco,CA 94103</p>
             <!--</div>-->
             <p class="ma-m map-area" id="map">
-
                 <img src="images/map.jpg" />
             </p>
             <!--<div class="dev-content container">-->
@@ -225,6 +228,13 @@
             </div>
         </div>
     </div>
+    <div class="dev-organizer">
+        <div class="dev-content container">
+            <h1 class="font-xl dev-headline">Organizer</h1>
+            <p class="font-xl ma-m"><a href="https://neo.org/" target="_blank">NEO COUNCIL</a></p>
+            <p class="ma-m"><img src="images/neo_logo.svg" /></p>
+        </div>
+    </div>
     <div class="dev-container dev-footer">
         <div class="dev-content container">
             <dl>
@@ -236,6 +246,9 @@
                 <dd class="font-s"><a href="https://twitter.com/NEO_DevCon" target="_blank"><span class="iconfont">&#xe614;</span>twitter</a></dd>
             </dl>
         </div>
+        <div class="dev-content container ma-m font-xs copyright">
+            <p>Copyright©NEO Team 2014-2017</p>
+        </div>
     </div>
 
     <script type="text/javascript" src="lib/jquery/dist/jquery.js"></script>
@@ -243,10 +256,7 @@
     <script type="text/javascript">
         pageSize();
         timeShow();
-
-        $(window).resize(function () {
-            pageSize();
-        });
+        
         function pageSize() {
             $(".page-size").each(function () {
                 $(this).css("width", $(window).width());
@@ -255,7 +265,8 @@
         }
 
         //倒计时方法
-        var deadline = new Date("2018/01/30 00:00:00");
+        var deadline = new Date("2018/01/30 09:30:00 GMT");
+
         var now = new Date();
         if (deadline > now) { setInterval(timeShow, 1000); }
 
@@ -267,8 +278,10 @@
             $("#secCount").html(counttime.fomate(counttime.second()));
         }
 
-    </script>
-    <script>
+        $(window).resize(function () {
+            pageSize();
+        });
+
         function initMap() {
             var uluru = { lat: 37.7819117000, lng: -122.4046539000 };
             document.getElementById('map').style.height = "350px";
@@ -285,6 +298,5 @@
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCi7pz5L6PwGZgNo_n0nbmxw5i77LYYkRw&callback=initMap">
     </script>
-</body>
 </body>
 </html>
