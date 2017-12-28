@@ -21,8 +21,18 @@
     text-align:center;
     padding-bottom:20px;
 }
+a {
+    color:#FFFFFF;
+    cursor:pointer;
+}
+a:visited,
+a:focus,
+a:hover{
+    color:#EEEEEE;
+    text-decoration:none;
+}
 .iconfont {
-    font-size:20px;
+    font-size:22px;
 }
 
 .bg-animate {
@@ -70,6 +80,28 @@
 .count-down li:first-child {
     border:none;
 }
+.dev-updates {
+    height:25px;
+    overflow:hidden;
+}
+.move-a {
+    width:100%;
+    /*animation:link 10s infinite;*/
+}
+.move-a a{
+    display:block;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+/*@keyframes link {
+    0% {margin-top:0px;}
+    10% {margin-top:0px;}
+    45% {margin-top:-25px;}
+    50% {margin-top:-25px;}
+    80% {margin-top:-50px;}
+    100% {margin-top:0px;}
+}*/
 
 /*第二个页面*/
 .dev-intro {
@@ -142,7 +174,7 @@
 }
 /*第四个页面*/
 .dev-ticket {
-
+    position:relative;
 }
 .ticket-btn {
     display:inline-block;
@@ -153,9 +185,17 @@
     color:#66BB46;
     padding:12px 20px;
 }
+.ticket-btn:hover{
+    background:#FEFEFE;
+    color:#72ce4f;
+}
 
 /*第五个页面*/
 .dev-venue {
+}
+.dev-venue .dev-content {
+    font-family:"Poppins-Bloder";
+    color:#525252;
 }
 .dev-venue h3{
     color:#3C3C3C;
@@ -168,19 +208,18 @@
 }
 .nearby-hint {
     background:#F5F5F5;
-    font-family:"Poppins-Bloder";
     color:#4C4C4C;
     letter-spacing:1px;
     padding:50px;
 }
 .nearby-hint .iconfont{
-    font-size:40px;
+    font-size:55px;
+    color:#66BB46;
 }
 .hint-detail {
     text-align:left;
 }
 .hint-detail p{
-    color:#525252;
     font-weight:bolder;
 }
 .hint-detail span{
@@ -188,12 +227,31 @@
 }
 /*footer*/
 .dev-footer {
-    background:url(../images/footer.svg) no-repeat center;
+    background:url(../images/footer.svg) no-repeat;
+    background-position:top center;
     background-size:cover;
+    font-family:"Poppins-Bloder";
     padding-top:250px;
     padding-bottom:125px;
 }
-
+.dev-footer dl{
+    display:inline-block;
+    padding:0 5%;
+    vertical-align:top;
+}
+.dev-footer dt{
+    border-bottom:1px solid #FFFFFF;
+}
+.dev-footer dt:after{
+    content:"";
+    display:block;
+    border-bottom:2px solid #FFFFFF;
+}
+.dev-footer dd{
+    margin-top:5px;
+    font-family:"Poppins";
+    text-align:left;
+}
 /*svg样式*/
 .svg-line {
     stroke:#FFFFFF;
@@ -235,6 +293,8 @@
 .ma-s {margin-top:20px;margin-bottom:0px;}
 .ma-xs {margin-top:10px;margin-bottom:0px;}
 .bold-text {font-weight:900;}
+.unclickable {cursor:not-allowed;background:#BBBBBB;}
+.unclickable:hover{color:#FFFFFF;background:#BBBBBB;}
 
 @media only screen and (max-width:1550px) {
     .font-xl {font-size:60px;}
@@ -246,6 +306,9 @@
     .ma-m {margin-top:35px;}
     .ma-s {margin-top:10px;}
     .ma-xs {margin-top:7px;}
+    .dev-footer {
+        padding:200px 0px 60px 0px;
+    }
 }
 @media only screen and (max-width:992px) {
     .down-area p {
@@ -255,12 +318,15 @@
         min-width:220px;
         padding:15px 20px;
     }
+    .dev-footer {
+        padding:150px 0px 40px 0px;
+    }
 }
 @media only screen and (max-width: 768px) {
     .dev-container {
-        padding:60px 0;
+        padding:50px 0;
     }
-    .font-xl {font-size:35px;}
+    .font-xl {font-size:40px;}
     .font-l {font-size:30px;}
     .font-m {font-size:22px;}
     .font-s {font-size:15px;}
@@ -299,8 +365,9 @@
         min-width:220px;
         padding:15px 20px;
     }
-
-
+    .dev-footer {
+        padding:150px 0px 10px 0px;
+    }
     .fri-intro,.thr-intro {
         font-size:30px;
     }
@@ -328,6 +395,14 @@
     .dev-title img{
         width:70%;
     }
+    .dev-intro {
+        background:url(../images/bridge-bg.jpg) no-repeat center;
+        background-size:cover;
+        background:url(../images/bg-green-2.png),url(../images/bridge-bg.jpg);
+        background-size:contain,cover;
+        background-repeat:repeat-x,no-repeat;
+        background-position:center,top center;
+    }
     .speaker-detail li {
         width:49%;
     }
@@ -341,6 +416,12 @@
     }
     .ticket-btn {
         min-width: 200px;
+    }
+    .dev-footer .dev-content{
+        text-align:right;
+    }
+    .dev-footer dd {
+        text-align:right;
     }
 
     .thr-intro {
