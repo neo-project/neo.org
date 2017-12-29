@@ -337,6 +337,11 @@ a:hover{
         padding-top:100px\0;
     }
 }
+@media only screen and (max-width:1200px) {
+    .nearby-hint {
+        min-height: 530px;
+    }
+}
 @media only screen and (max-width:992px) {
     .down-area p {
         min-height: 78px;
@@ -388,6 +393,9 @@ a:hover{
     .down-area,
     .nearby-hint{
         padding:50px 30px;
+    }
+    .nearby-hint {
+        min-height: initial;
     }
     .down-area p {
         min-height:initial;
