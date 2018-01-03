@@ -93,7 +93,7 @@ a:hover{
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
-    padding:0 20px;
+    padding:0 25px;
 }
 /*@keyframes link {
     0% {margin-top:0px;}
@@ -176,6 +176,15 @@ a:hover{
 .wait-info {
     font-family:"Poppins-Bloder";
     color:#525252;
+}
+.wait-info a {
+    color:#525252;
+}
+.wait-info a span{
+    color: #7ECE38;
+    font-size: 17px;
+    vertical-align: middle;
+    padding-right: 5px;
 }
 /*第四个页面*/
 .dev-ticket {
