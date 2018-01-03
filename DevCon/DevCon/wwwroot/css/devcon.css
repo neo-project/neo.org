@@ -93,6 +93,7 @@ a:hover{
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
+    padding:0 20px;
 }
 /*@keyframes link {
     0% {margin-top:0px;}
