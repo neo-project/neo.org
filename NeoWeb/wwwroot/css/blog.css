@@ -33,7 +33,10 @@ a{
     padding:0;
 }
 .blog_date>li{
-    padding-right: 20px;
+    /*padding-right: 20px;*/
+}
+.col-lg-1.blog_date {
+    padding: 0;
 }
 .blog_date>li a{
     cursor:pointer;
