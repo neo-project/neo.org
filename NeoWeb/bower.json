@@ -1,0 +1,18 @@
+{
+  "name": "asp.net",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "v3.3.7",
+    "jquery": "3.2.1",
+    "jquery-validation": "1.17.0",
+    "jquery-validation-unobtrusive": "3.2.6",
+    "tinymce": "4.6.6",
+    "less": "less.js#v2.7.2",
+    "wow": "wow.js#1.1.2"
+  },
+  "resolutions": {
+    "tinymce": "4.6.6",
+    "jquery-validation": "1.17.0",
+    "jquery": "3.2.1"
+  }
+}
