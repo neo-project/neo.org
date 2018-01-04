@@ -23,7 +23,14 @@ namespace NeoWeb.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.News = _context.News.OrderByDescending(p => p.Time).Take(3).ToList();
+            try
+            {
+                ViewBag.News = _context.News.OrderByDescending(p => p.Time).Take(3).ToList();
+            }
+            catch (Exception)
+            {
+                //网站第一次运行，未创建数据库时会有异常
+            }
             return View();
         }
 
