@@ -32,7 +32,8 @@
     line-height:1.5;
 }
 .download-ul a {
-    color:initial;
+    color: #51BC00;
+    font-weight: 400;
     cursor:pointer;
 }
 .down-box {
