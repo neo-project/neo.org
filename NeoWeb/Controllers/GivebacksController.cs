@@ -123,7 +123,7 @@ namespace NeoWeb.Controllers
             if (ModelState.IsValid)
             {
                 var publicKey = Neo.Cryptography.ECC.ECPoint.FromBytes(pubkey.HexToBytes(), Neo.Cryptography.ECC.ECCurve.Secp256r1);
-                var sc = Neo.Wallets.VerificationContract.CreateSignatureContract(publicKey);
+                var sc = Neo.SmartContract.Contract.CreateSignatureContract(publicKey);
                 var message = "giveback" + giveback.BankAccount + giveback.GivebackNeoAddress;
                 if (!VerifySignature(message, signature, pubkey))
                 {
