@@ -15,10 +15,14 @@
     color:#AAAAAA;
     cursor:pointer;
 }
-.nav-download li em{
+.nav-download li a{
     display:block;
+    color:#AAAAAA;
     font-style:normal;
     font-size:40px;
+}
+.nav-download li.downtab-select a, .nav-download li a:hover {
+    color:#58BF00;
 }
 .download-ul {
     text-align: center;
@@ -91,9 +95,6 @@
     color:#FFFFFF;
     font-size:18px;
     text-align:center;
-}
-.downtab-select {
-    color:#58BF00;
 }
 .down-box p.down-time {
     text-align: center;
