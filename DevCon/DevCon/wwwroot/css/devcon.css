@@ -253,6 +253,18 @@ a:hover{
     font-family:"Poppins-Bloder";
     color:#47ba32;
 }
+.spon-img {
+    list-style:none;
+    margin:0 auto;
+    padding:0;
+}
+.spon-img li{
+    display:inline-block;
+    margin:8px;
+}
+.spon-img li img{
+    height:70px;
+}
 
 /*footer*/
 .dev-footer {
@@ -309,7 +321,7 @@ a:hover{
 }
 @keyframes nor {
     0% {stroke-dashoffset: 200px;}
-    100% {stroke-dashoffset: 0px;}
+    100% {stroke-dashoffset: 1px;}
 }
 
 .font-xl {font-size:70px;}
@@ -345,7 +357,7 @@ a:hover{
     }
     .dev-footer {
         padding:200px 0px 30px 0px;
-        padding-top:100px\0;
+        padding-top:100px\9;
     }
 }
 @media only screen and (max-width:1200px) {
@@ -366,7 +378,7 @@ a:hover{
     }
     .dev-footer {
         padding:150px 0px 0px 0px;
-        padding-top:80px\0;
+        padding-top:80px\9;
     }
 }
 @media only screen and (max-width: 768px) {
@@ -417,7 +429,7 @@ a:hover{
     }
     .dev-footer {
         padding:150px 0px 10px 0px;
-        padding-top:60px\0;
+        padding-top:60px\9;
     }
     .fri-intro,.thr-intro {
         font-size:30px;
@@ -434,6 +446,9 @@ a:hover{
     .col-sm-6 {
         max-width:380px;
         margin:15px auto;
+    }
+    .spon-img li img{
+        height:45px;
     }
 }
 @media only screen and (max-width: 480px) {
