@@ -92,7 +92,7 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
     vertical-align: middle;
 }
 
-@media only screen and (max-width : 1200px) {
+@media only screen and (max-width : 1198px) {
     .link2 {font-size:17px;}
     .m1 {margin:26px auto;}
     .m2 {margin:20px auto;}
