@@ -193,6 +193,7 @@ namespace NeoWeb.Controllers
                 var item = _context.Blogs.FirstOrDefault(p => p.Id == blog.Id);
                 try
                 {
+                    item.Title = blog.Title;
                     item.Content = Convert(blog.Content);
                     item.Summary = blog.Content.ClearHtmlTag(150);
                     item.Lang = blog.Lang;
