@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using NeoWeb.Data;
 using NeoWeb.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Localization;
 
 namespace NeoWeb.Controllers
 {
@@ -15,10 +16,12 @@ namespace NeoWeb.Controllers
     public class TestnetController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IStringLocalizer<TestnetController> _localizer;
 
-        public TestnetController(ApplicationDbContext context)
+        public TestnetController(ApplicationDbContext context, IStringLocalizer<TestnetController> localizer)
         {
             _context = context;
+            _localizer = localizer;
         }
 
         // GET: Testnet
@@ -69,6 +72,11 @@ namespace NeoWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (_context.Testnets.Any(p => p.PubKey == testnet.PubKey))
+                {
+                    ModelState.AddModelError("PubKey", _localizer["Please do not repeat the request."]);
+                    return View();
+                }
                 testnet.Time = DateTime.Now;
                 _context.Add(testnet);
                 await _context.SaveChangesAsync();

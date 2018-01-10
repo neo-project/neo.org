@@ -10,16 +10,16 @@ using NeoWeb.Models;
 using System.Security.Cryptography;
 using Neo;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.Localization;
+using Microsoft.Extensions.Localization;
 
 namespace NeoWeb.Controllers
 {
     public class GivebackController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly IHtmlLocalizer<GivebackController> _localizer;
+        private readonly IStringLocalizer<GivebackController> _localizer;
 
-        public GivebackController(ApplicationDbContext context, IHtmlLocalizer<GivebackController> localizer)
+        public GivebackController(ApplicationDbContext context, IStringLocalizer<GivebackController> localizer)
         {
             _context = context;
             _localizer = localizer;
