@@ -1,0 +1,26 @@
+﻿@model NeoWeb.Models.Blog
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "_LayoutBlog.cshtml";
+}
+
+<div>
+    <div>
+        <h1>@Model.Title</h1>
+        <div>@Model.CreateTime.ToString()</div>
+    </div>
+    <div class="blog-content">
+        @Html.Raw(Model.Content)
+    </div>
+</div>
+<p>
+    @*@if (Model.User.Id == ViewData["UserId"].ToString())
+    {*@
+        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+        <span>|</span>
+        <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+        <span>|</span>
+        <a asp-action="Index">Back to List</a>
+    @*}*@
+</p>
