@@ -129,6 +129,11 @@ namespace NeoWeb.Controllers
                 ViewBag.Cover = match.Value.Insert(4, " class=\"img-cover\" ");
                 blog.Content = blog.Content.Replace(match.Value, "");
             }
+            if(String.IsNullOrEmpty(Request.Cookies[blog.Id.ToString()]))
+            {
+                blog.ReadCount++;
+            }
+            await _context.SaveChangesAsync();
 
             return View(blog);
         }
