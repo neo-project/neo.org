@@ -18,8 +18,9 @@ a{
     letter-spacing:3px;
     text-align:center;
 }
-
-
+.nav-artical a.back-to-top {
+    display: none;
+}
 .blog_date::before,
 .blog_date::after{
     content: "";
@@ -73,20 +74,27 @@ a{
     color: #58BF00;
 }
 .blog-list li{
-    padding:42px 50px;
+    padding:30px 40px;
     background:#ffffff;
-    color:#AAAAAA;
+    color:#888;
     text-align:left;
 }
 .blog-list li:first-child{
     margin-top:0!important;
 }
-.blog-list a{
+.blog-list a.blog-title{
     color:#6C6C6C;
     text-decoration:none;
 }
-.blog-list a:hover {
+.blog-list a.blog-title:hover {
     color: #58BF00;
+}
+.blog-list a.blog-summary{
+    color:#888;
+    text-decoration:none;
+}
+.blog-list a.blog-summary:hover {
+    color: #aaa;
 }
 
 /*博客内容页面 - Blog content page*/
