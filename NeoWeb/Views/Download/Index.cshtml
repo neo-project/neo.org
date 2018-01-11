@@ -1,0 +1,215 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = Localizer["Client Downloads"];
+}
+@section Styles{
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/download.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/download.min.css" asp-append-version="true" />
+    </environment>
+}
+<div class="container body-content">
+    <div class="row download-container">
+        <h1 class="m2">@Localizer["Client Downloads"]</h1>
+        <ul class="nav-download m3 t1" id="downTab">
+            <li><a class="iconfont">&#xe64b;</a>@Localizer["Mobile"]</li>
+            <li><a class="iconfont">&#xe632;</a>@Localizer["Desktop"]</li>
+            <li><a class="iconfont">&#xe63c;</a>@Localizer["Web"]</li>
+        </ul>
+        <ul class="download-ul download-mobile">
+            <li class="down-box">
+                <img src="~/images/download/down-app.jpg" />
+                <h2>NEO APP<small>1.2.1</small></h2>
+                <p class="desc">
+                    - <a href="https://github.com/PeterLinX" target="_blank">PeterLinX</a> @Localizer["developed Android wallet"]<br />
+                    - @Localizer["Light wallet, without sync block"]<br />
+                    - @Localizer["Wallet file is stored locally, log in via password"]<br />
+                </p>
+                <p class="info">
+                    @Localizer["Supported Languages"]: @Localizer["English/Chinese"]<br />
+                    @Localizer["Supported OS"]: Android 5 @Localizer["or later"]<br />
+                </p>
+                <p class="down-time">2017-12-5</p>
+                <a class="down-btn" href="@Localizer["https://play.google.com/store/apps/details?id=neo.app"]" target="_blank">@Localizer["Open Google Play"]</a>
+            </li>
+            <li class="down-box">
+                <img src="~/images/download/down-O3.jpg" />
+                <h2>O3 - Neo Wallet<small>0.1.1</small></h2>
+                <p class="desc">
+                    - O3 is a native iOS wallet for NEO blockchain<br />
+                    - Contacts, Claim GAS, Sending/receiving assets<br />
+                    - Protected byTouchID and pincode<br />
+                    - Develop by <a href="https://github.com/CityOfZion/OzoneWalletIOS" target="_blank">O3 Labs</a><br />
+                </p>
+                <p class="info">
+                    @Localizer["Supported Languages"]: @Localizer["English"]<br />
+                    @Localizer["Supported OS"]: iOS 11.0 @Localizer["or later"]<br />
+                </p>
+                <p class="down-time">2017-11-1</p>
+                <a class="down-btn" style="background-color:gray" href="javascript:" target="_blank">Coming soon</a>
+            </li>
+        </ul>
+
+        <ul class="download-ul download-desktop">
+            <li class="down-box">
+                <img src="~/images/download/down-gui.jpg" />
+                <h2>NEO-GUI<small>2.5.2</small></h2>
+                <p class="desc">
+                    - <a href="https://github.com/neo-project" target="_blank">NEO Project</a>@Localizer["developed PC client"] <br />
+                    - @Localizer["Clients with complete blockchain data"]<br />
+                    - @Localizer["Full-featured client"]<br />
+                    - @Localizer["Support offline synchronization"] <a href="http://static.neo.org/client/chain.acc.zip" target="_blank">@Localizer["Download offline synchronized data"]</a><br />
+                    - @Localizer["Need to install"] <a href="https://www.microsoft.com/net/download/dotnet-framework-runtime" target="_blank">.NetFramework 4.7.1</a><br />
+                    - @Localizer["Support"] NEP-5, NEP-6 <br />
+                </p>
+                <p class="info">
+                    @Localizer["Supported Languages"]: @Localizer["English/Chinese"]<br />
+                    @Localizer["Supported OS"]: Windows 7 SP1 @Localizer["or later"]<br />
+                </p>
+                <p class="down-time">2017-12-14</p>
+                <a class="down-btn" href="https://github.com/neo-project/neo-gui/releases" target="_blank">@Localizer["Download"]</a>
+            </li>
+            <li class="down-box">
+                <img src="~/images/download/down-cli.jpg" />
+                <h2>NEO-CLI<small>2.6.0-preview5</small></h2>
+                <p class="desc">
+                    - <a href="https://github.com/neo-project" target="_blank">NEO Project</a> @Localizer["for developers command line client"]<br />
+                    - @Localizer["Clients with complete blockchain data"]<br />
+                    - @Localizer["Provided API support"]<br />
+                    - @Localizer["Consensus node function, you can build a private chain"]<br />
+                    - @Localizer["Support offline synchronization"] <a href="http://static.neo.org/client/chain.acc.zip" target="_blank">@Localizer["Download offline synchronized data"]</a><br />
+                    - @Localizer["Support"] NEP-5, NEP-6 <br />
+                </p>
+                <p class="info">
+                    @Localizer["Supported Languages"]: @Localizer["English"]<br />
+                    @Localizer["Supported OS"]: Windows / Linux
+                </p>
+                <p class="down-time">2018-1-5</p>
+                <a class="down-btn" href="https://github.com/neo-project/neo-cli/releases" target="_blank">@Localizer["Download"]</a>
+            </li>
+            <li class="down-box">
+                <img src="~/images/download/down-NEON.jpg" />
+                <h2>Neon Wallet<small>0.0.9</small></h2>
+                <p class="desc">
+                    - <a href="https://github.com/CityOfZion" target="_blank">City of Zion</a> @Localizer["developed cross-platform client"]<br />
+                    - @Localizer["New UI, simple interface design"]<br />
+                    - @Localizer["Light wallet, without sync block"]<br />
+                    - @Localizer["Login via private key"]<br />
+                    - @Localizer["Support"] NEP-2, NEP-5 <br />
+                </p>
+                <p class="info">
+                    @Localizer["Supported Languages"]: @Localizer["English"]<br />
+                    @Localizer["Supported OS"]: OSX / Windows / Linux
+                </p>
+                <p class="down-time">2018-1-6</p>
+                <a class="down-btn" href="https://github.com/CityOfZion/neon-wallet/releases" target="_blank">@Localizer["Download"]</a>
+            </li>
+        </ul>
+
+        <ul class="download-ul download-web">
+            <li class="down-box">
+                <img src="~/images/download/down-tracker.jpg" />
+                <h2>NEO Tracker</h2>
+                <p class="desc">
+                    - NEO Tracker Wallet is a online wallet<br />
+                    - Login with private key or keystore File.<br />
+                    - It is also a good NEO blockchain explorer<br />
+                    - Open source on <a href="https://github.com/neotracker/neotracker-wallet" target="_blank">GitHub</a><br />
+                    - Support NEP-5 <br />
+                </p>
+                <p class="info">
+                    @Localizer["Developer"]: <a href="https://neotracker.io/wallet" target="_blank">neotracker</a><br />
+                    @Localizer["Supported Languages"]: @Localizer["English"]<br />
+                    @Localizer["Supported Browser"]: Chrome/Edge
+                </p>
+                <a class="down-btn" href="https://neotracker.io/wallet" target="_blank">@Localizer["Visit Site"]</a>
+            </li>
+            <li class="down-box">
+                <img src="~/images/download/down-wallet.jpg" />
+                <h2>NEO WALLET</h2>
+                <p class="desc">
+                    - NEO WALLET @Localizer["is a online wallet"]<br />
+                    - @Localizer["Wallet file is stored locally, log in via password"]<br />
+                    - @Localizer["Open source on  <a href=\"https://github.com/PeterLinX/AntSharesApp\" target=\"_blank\">GitHub</a>"]<br />
+                </p>
+                <p class="info">
+                    @Localizer["Developer"]: <a href="https://github.com/PeterLinX/" target="_blank">PeterLinX</a><br>
+                    @Localizer["Supported Languages"]: @Localizer["English/Chinese"]<br>
+                    @Localizer["Supported Browser"]: Chrome
+                </p>
+                <a class="down-btn" href="https://neowallet.cn/" target="_blank">@Localizer["Visit Site"]</a>
+            </li>
+            <li class="down-box">
+                <img src="~/images/download/down-otcgo.jpg" />
+                <h2>@Localizer["OTCGO"]</h2>
+                <p class="desc">
+                    - 蓝鲸淘是一个在线钱包<br />
+                    - 通过私钥或者钱包文件登录<br />
+                    - 它同时也是一个交易所<br />
+                    - 在 <a href="https://github.com/OTCGO/website" target="_blank">GitHub</a> 上开源<br />
+                    - 支持 NEP-5 <br />
+                </p>
+                <p class="info">
+                    @Localizer["Developer"]: <a href="https://github.com/OTCGO/" target="_blank">fl0wjacky</a><br>
+                    @Localizer["Supported Languages"]: @Localizer["Chinese"]<br>
+                    @Localizer["Supported Browser"]: Chrome<br />
+                </p>
+                <a class="down-btn" href="https://otcgo.cn/" target="_blank">@Localizer["Visit Site"]</a>
+            </li>
+            <li class="down-box">
+                <img src="~/images/download/down-ansy.jpg" />
+                <h2>Ansy</h2>
+                <p class="desc">
+                    - Simple NEO Paper wallet generator<br>
+                    - Simple and easy to use<br>
+                    - Open source on <a href="https://github.com/snowypowers/ansy" target="_blank">GitHub</a><br />
+                    - NEP2 Support for encryption (Similar to BIP38)<br>
+                </p>
+                <p class="info">
+                    @Localizer["Developer"]: <a href="https://github.com/snowypowers" target="_blank">snowypowers</a><br>
+                    @Localizer["Supported Languages"]: @Localizer["English"]<br>
+                    @Localizer["Supported Browser"]: Chrome/Edge<br />
+                </p>
+                <a class="down-btn" href="https://snowypowers.github.io/ansy/" target="_blank">@Localizer["Visit Site"]</a>
+            </li>
+        </ul>
+    </div>
+    <p class="down-hint t3 m2"> @Localizer["Wallets are developed by a third party/community. Please contact the corresponding parties for technical support."]</p>
+</div>
+@section Scripts{
+    <script>
+        $(function () {
+            var test = window.location.hash.substr(1);
+            var num = parseInt(test);
+            if (num) {
+                $("#downTab li").eq(num - 1).addClass("downtab-select");
+                switch (num) {
+                    case 1: $(".download-mobile").addClass("down-select"); break;
+                    case 2: $(".download-desktop").addClass("down-select"); break;
+                    case 3: $(".download-web").addClass("down-select"); break;
+                    default: break;
+                }
+            } else {
+                $("#downTab li").eq(1).addClass("downtab-select");
+                $(".download-desktop").addClass("down-select");
+            }
+
+            $("#downTab li").click(function () {
+                $(".downtab-select").removeClass("downtab-select");
+                $(this).addClass("downtab-select");
+                $(".down-select").removeClass("down-select");
+                switch ($(this).index()) {
+                    case 0: $(".download-mobile").addClass("down-select"); break;
+                    case 1: $(".download-desktop").addClass("down-select"); break;
+                    case 2: $(".download-web").addClass("down-select"); break;
+                }
+            })
+        })
+        $("#menu_list a").css("border-bottom", "none")
+        $("#menu_list li.menu-item [href='/download']").css("border-bottom", "2px solid #58bf00")
+    </script>
+}
