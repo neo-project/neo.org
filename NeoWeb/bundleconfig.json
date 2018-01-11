@@ -1,0 +1,77 @@
+﻿// More info at https://go.microsoft.com/fwlink/?LinkId=808241
+[
+  {
+    "outputFileName": "wwwroot/css/site.min.css",
+    "inputFiles": [
+      "wwwroot/css/navigation.css",
+      "wwwroot/css/site.css",
+      "wwwroot/css/common.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/account.min.css",
+    "inputFiles": [ "wwwroot/css/account.css" ]
+  },
+  {
+    "outputFileName": "wwwroot/css/blog.min.css",
+    "inputFiles": [ "wwwroot/css/blog.css" ]
+  },
+  {
+    "outputFileName": "wwwroot/css/dapps.min.css",
+    "inputFiles": [ "wwwroot/css/dapps.css" ]
+  },
+  {
+    "outputFileName": "wwwroot/css/team.min.css",
+    "inputFiles": [ "wwwroot/css/team.css" ]
+  },
+  {
+    "outputFileName": "wwwroot/css/download.min.css",
+    "inputFiles": [ "wwwroot/css/download.css" ]
+  },
+  {
+    "outputFileName": "wwwroot/css/giveback.min.css",
+    "inputFiles": [ "wwwroot/css/giveback.css" ]
+  },
+  {
+    "outputFileName": "wwwroot/css/homepage.min.css",
+    "inputFiles": [ "wwwroot/css/homepage.css" ]
+  },
+  {
+    "outputFileName": "wwwroot/css/logo.min.css",
+    "inputFiles": [ "wwwroot/css/logo.css" ]
+  },
+  {
+    "outputFileName": "wwwroot/css/testnet.min.css",
+    "inputFiles": [ "wwwroot/css/testnet.css" ]
+  },
+  {
+    "outputFileName": "wwwroot/css/testnet-list.min.css",
+    "inputFiles": [ "wwwroot/css/testnet-list.css" ]
+  },
+  {
+    "outputFileName": "wwwroot/css/contest.min.css",
+    "inputFiles": [ "wwwroot/css/contest.css" ]
+  },
+  {
+    "outputFileName": "wwwroot/js/site.min.js",
+    "inputFiles": [
+      "wwwroot/js/site.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/js/blog.min.js",
+    "inputFiles": [
+      "wwwroot/js/blog.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  }
+]

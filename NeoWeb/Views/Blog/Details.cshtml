@@ -1,0 +1,96 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@model NeoWeb.Models.Blog
+@{
+    ViewData["Title"] = Model.Title;
+    Layout = "_LayoutBlog.cshtml";
+}
+
+@section Styles{
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/blog.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/blog.min.css" asp-append-version="true" />
+    </environment>
+}
+<div class="row">
+    <ul class="col-lg-1 blog_date artical-date desktop-show" id="blogDate">
+        @foreach (var item in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Select(p => p.Year).Distinct())
+        {
+            <li class="m3">
+                <a class="h2 year">@item</a>
+                <ul>
+                    @foreach (var m in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Where(p => p.Year == item).Select(p => p.Month).Distinct())
+                    {
+                        <li><a class="month" href="~/blog/index?y=@item&m=@m">@m.ToMonth().ToUpper()</a></li>
+                    }
+                </ul>
+            </li>
+        }
+    </ul>
+
+    <div class="col-lg-11 artical-container">
+
+        <div class="nav-artical nav-artical-top p2">
+            <div class="text-left"><a class="t2" href="~/blog"><i class="iconfont">&#xeaa4;</i><span class="desktop-show">@Localizer["Back to list"]</span></a></div>
+            <div>
+                <ul class="blog_date mobile-show">
+                    @foreach (var item in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Select(p => p.Year).Distinct())
+                    {
+                        <li>
+                            <a class="h2 year" href="~/blog/index?y=@item">@item</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="text-right">
+                <a class="t2 icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xeaa5;</i><span class="desktop-show">@Localizer["Previous article"]</span></a>
+                <a class="t2" href="~/blog/details/@ViewBag.NextBlogId"><span class="desktop-show">@Localizer["Next article"]</span><i class="iconfont">&#xeaa3;</i></a>
+            </div>
+        </div>
+
+        <div class="artical-content">
+            <div>
+                <h2>@Model.Title</h2>
+                <p class="light-text t2 m3 @Localizer["hidden"]">由作者 <span class="bold-font">@Model.User.UserName</span> 于 <span class="bold-font">@Model.CreateTime.ToShortDateString()</span> 发布</p>
+                <p class="light-text t2 m3 @Localizer["hidden-zh"]">Author <span class="bold-font">@Model.User.UserName</span> posted on <span class="bold-font">@Model.CreateTime.ToShortDateString()</span></p>
+                <p>
+                    @if (ViewBag.UserRulesCount)
+                    {
+                        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                        <span>|</span>
+                        <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+                    }
+                </p>
+            </div>
+            <div class="blog-content t2">
+                @Html.Raw(ViewBag.Cover)
+                @Html.Raw(Model.Content)
+            </div>
+        </div>
+
+        <div class="nav-artical nav-artical-bottom">
+            <div class="text-left"><a class="t2" href="~/blog"><i class="iconfont">&#xeaa4;</i><span class="desktop-show">@Localizer["Back to list"]</span></a></div>
+            <div class="text-center"><a class="t2 back-to-top"><i class="iconfont">&#xe600;</i><span class="desktop-show">@Localizer["Back to top"]</span></a></div>
+            <div class="text-right">
+                <a class="t2 icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xeaa5;</i><span class="desktop-show">@Localizer["Previous article"]</span></a>
+                <a class="t2" href="~/blog/details/@ViewBag.NextBlogId"><span class="desktop-show">@Localizer["Next article"]</span><i class="iconfont">&#xeaa3;</i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script type="text/javascript" src="~/js/blog.min.js"></script>
+    <script>
+        function setCookie(name, value) {
+            var Days = 30;
+            var exp = new Date();
+            exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+            document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
+        }
+        setCookie(@Model.Id, "Read");
+    </script>
+}

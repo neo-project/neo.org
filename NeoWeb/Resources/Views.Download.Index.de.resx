@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Chinese" xml:space="preserve">
+    <value>Chinesisch</value>
+  </data>
+  <data name="Client Downloads" xml:space="preserve">
+    <value>Klient herunterladen</value>
+  </data>
+  <data name="Clients with complete blockchain data" xml:space="preserve">
+    <value>Klienten mit kompletten Blockketten Daten</value>
+  </data>
+  <data name="Consensus node function, you can build a private chain" xml:space="preserve">
+    <value>Konsens-Knotenfunktion, es kann eine private Blockkette erstellt werden.</value>
+  </data>
+  <data name="Desktop" xml:space="preserve">
+    <value>Desktop</value>
+  </data>
+  <data name="developed Android wallet" xml:space="preserve">
+    <value>entwickelte Android Wallet</value>
+  </data>
+  <data name="developed cross-platform client" xml:space="preserve">
+    <value>entwickelter plattformübergreifender Klient</value>
+  </data>
+  <data name="developed PC client" xml:space="preserve">
+    <value>entwickelter PC Klient</value>
+  </data>
+  <data name="Developer" xml:space="preserve">
+    <value>Entwickler</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Herunterladen</value>
+  </data>
+  <data name="Download offline synchronized data" xml:space="preserve">
+    <value>Herunterladen offline synchronisierter Daten</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>Englisch</value>
+  </data>
+  <data name="English/Chinese" xml:space="preserve">
+    <value>Englisch/Chinesisch</value>
+  </data>
+  <data name="for developers command line client" xml:space="preserve">
+    <value> Befehlszeilen Klient für Entwickler</value>
+  </data>
+  <data name="Full-featured client" xml:space="preserve">
+    <value>Komplett unterstützter Klient</value>
+  </data>
+  <data name="Get source code" xml:space="preserve">
+    <value>Erhalte den Quellcode</value>
+  </data>
+  <data name="https://play.google.com/store/apps/details?id=neo.app" xml:space="preserve">
+    <value>http://android.myapp.com/myapp/detail.htm?apkName=neo.app</value>
+  </data>
+  <data name="is a online wallet" xml:space="preserve">
+    <value>ist eine online Wallet</value>
+  </data>
+  <data name="Light wallet, without sync block" xml:space="preserve">
+    <value>Light wallet, ohne synchroniserte Blöcke</value>
+  </data>
+  <data name="Login via private key" xml:space="preserve">
+    <value>Einloggen mittels privatem Schlüssel</value>
+  </data>
+  <data name="Mobile" xml:space="preserve">
+    <value>Mobil</value>
+  </data>
+  <data name="Need to install" xml:space="preserve">
+    <value>Muss installiert werden</value>
+  </data>
+  <data name="New UI, simple interface design" xml:space="preserve">
+    <value>Neues UI, simples interface design</value>
+  </data>
+  <data name="Open Google Play" xml:space="preserve">
+    <value>Öffne Google Play</value>
+  </data>
+  <data name="Open source on  &lt;a href=&quot;https://github.com/PeterLinX/AntSharesApp&quot; target=&quot;_blank&quot;&gt;GitHub&lt;/a&gt;" xml:space="preserve">
+    <value>Öffne Quelle auf &lt;a href="https://github.com/PeterLinX/AntSharesApp" target="_blank"&gt;GitHub&lt;/a&gt;</value>
+  </data>
+  <data name="or later" xml:space="preserve">
+    <value>oder später</value>
+  </data>
+  <data name="OTCGO" xml:space="preserve">
+    <value>OTCGO</value>
+  </data>
+  <data name="Provided API support" xml:space="preserve">
+    <value>Angebotene API Unterstützung</value>
+  </data>
+  <data name="Support offline synchronization" xml:space="preserve">
+    <value>Unterstütze offline synchronisation</value>
+  </data>
+  <data name="Supported Browser" xml:space="preserve">
+    <value>Unterstützter Browser</value>
+  </data>
+  <data name="Supported Languages" xml:space="preserve">
+    <value>Unterstützte Sprachen</value>
+  </data>
+  <data name="Supported OS" xml:space="preserve">
+    <value>Unterstütztes Betriebssystem</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="Visit Site" xml:space="preserve">
+    <value>Besuche die Seite</value>
+  </data>
+  <data name="Wallet file is stored locally, log in via password" xml:space="preserve">
+    <value>Wallet Datei ist lokal gespeichert, einloggen via Passwort</value>
+  </data>
+  <data name="Wallets are developed by a third party/community. Please contact the corresponding parties for technical support." xml:space="preserve">
+    <value>Wallets werden von Drittparteien/der Community entwickelt. Bitte kontaktieren Sie die entsprechenden Parteien für technische Unterstützung.</value>
+  </data>
+  <data name="Web" xml:space="preserve">
+    <value>Netz</value>
+  </data>
+  <data name="Support" xml:space="preserve">
+    <value>Unterstütze</value>
+  </data>
+</root>

@@ -1,0 +1,50 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = "Give Back";
+}
+@section Styles
+    {
+    <environment include="Development">
+        <link href="~/css/giveback.css" rel="stylesheet" />
+    </environment>
+    <environment exclude="Development">
+        <link href="~/css/giveback.min.css" rel="stylesheet" />
+    </environment>
+}
+<div class="container">
+    <h1 class="text-center m2">@Localizer["NEO Sponsor Giveback Plan"]</h1>
+    <br />
+    @if (DateTime.Now > new DateTime(2018, 3, 16, 0, 0, 0))
+    {
+        <div>The giveback plan has expired</div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-sm-6 text-center ico1">
+                <a class="btneo t1" href="~/giveback/ico1">ICO1 @Localizer["Giveback entry"]</a>
+                <p class="give-info">
+                    ICO1 @Localizer["time:"]<br />
+                    2015/10/20 - 2015/10/31<br />
+                    @Localizer["ICO on weangel.com"]
+                </p>
+            </div>
+            <div class="col-sm-6 text-center ico2">
+                <a class="btneo t1" href="~/giveback/ico2">ICO2 @Localizer["Giveback entry"]</a>
+                <p class="give-info">
+                    ICO2 @Localizer["time:"]<br />
+                    2016/8/8 - 2016/9/8<br />
+                    @Localizer["ICO on the official website of NEO"]
+                </p>
+            </div>
+        </div>
+    }
+</div>
+@Html.Partial("_NotePartialPage")
+@section Scripts{
+    <script>
+        $("#menu_list a").css("border-bottom", "none")
+        $("#menu_list li.menu-item [href='/giveback']").css("border-bottom", "2px solid #58bf00")
+    </script>
+}

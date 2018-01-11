@@ -1,0 +1,83 @@
+﻿@model IEnumerable<NeoWeb.Models.Testnet>
+
+@{
+    ViewData["Title"] = "测试币申请列表";
+}
+@section Styles{
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/testnet-list.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/testnet-list.min.css" asp-append-version="true" />
+    </environment>
+}
+<div class="container">
+    <h1 class="m1">测试币申请列表</h1>
+    <table class="apply-list">
+        <thead>
+            <tr class="t3">
+                <th width="10%">
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th width="10%">
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th width="10%">
+                    @Html.DisplayNameFor(model => model.Company)
+                </th>
+                <th width="8%">
+                    @Html.DisplayNameFor(model => model.ANSCount)
+                </th>
+                <th width="8%">
+                    @Html.DisplayNameFor(model => model.ANCCount)
+                </th>
+                <th width="10%">
+                    @Html.DisplayNameFor(model => model.Time)
+                </th>
+                <th width="30%">
+                    @Html.DisplayNameFor(model => model.Remark)
+                </th>
+                <th width="14%">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Reverse())
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Company)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ANSCount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ANCCount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Time)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Remark)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">备注</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">详情</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">删除</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts{ 
+    <script type="text/javascript">
+
+    </script>
+}
