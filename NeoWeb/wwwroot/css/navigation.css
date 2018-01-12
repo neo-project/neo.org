@@ -123,20 +123,17 @@
         text-align:center;
         margin:0 -15px;
     }
-
     .main-footer {
         padding: 20px 0; 
     }
-
-
     .footer-link li {
         width:48%;
         line-height:1.8;
     }
-    .footer-link li span.iconfont{
-        font-size:30px;
+    /*调整页面footer的icon大小*/
+    .footer-link li i.iconfont{
+        font-size:28px;
     }
-
     .footer-logo{
         height:50px;
     }
