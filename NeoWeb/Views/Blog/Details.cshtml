@@ -55,6 +55,7 @@
                 <h2>@Model.Title</h2>
                 <p class="light-text t2 m3 @Localizer["hidden"]">由作者 <span class="bold-font">@Model.User.UserName</span> 于 <span class="bold-font">@Model.CreateTime.ToShortDateString()</span> 发布</p>
                 <p class="light-text t2 m3 @Localizer["hidden-zh"]">Author <span class="bold-font">@Model.User.UserName</span> posted on <span class="bold-font">@Model.CreateTime.ToShortDateString()</span></p>
+                <div class="pull-right qrcode-div"><i class="iconfont">&#xe79b;</i><div id="qrcode"></div></div>
                 <p>
                     @if (ViewBag.UserRulesCount)
                     {
@@ -84,6 +85,7 @@
 
 @section Scripts{
     <script type="text/javascript" src="~/js/blog.min.js"></script>
+    <script src="~/js/jquery.qrcode.min.js"></script>
     <script>
         function setCookie(name, value) {
             var Days = 30;
@@ -92,5 +94,7 @@
             document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
         }
         setCookie(@Model.Id, "Read");
+        $('#qrcode').qrcode(location.href);
+        
     </script>
 }

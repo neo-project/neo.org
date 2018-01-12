@@ -166,6 +166,33 @@ a{
     margin-right:20px;
 }
 
+/*博客二维码*/
+#qrcode {
+    position: absolute;
+    right: 30px;
+    top: -35px;
+    display: none;
+    border: 1px solid #eee;
+}
+.qrcode-div {
+    position: relative;
+    margin-top: -45px;
+    cursor: pointer;
+}
+.qrcode-div .iconfont {
+    font-size: 20px;
+}
+.qrcode-div:hover #qrcode {
+    display: block;
+    line-height: 0;
+}
+#qrcode canvas {
+    width: 150px;
+    height: 150px;
+    border: 10px solid #fff;
+}
+/*end 博客二维码*/
+
 @media only screen and (max-width : 1200px) {
     .blog_title {
         letter-spacing:2px;
