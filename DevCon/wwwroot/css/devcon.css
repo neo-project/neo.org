@@ -252,6 +252,7 @@ a:hover{
 .dev-organizer a{
     font-family:"Poppins-Bloder";
     color:#47ba32;
+    display:inline-block;
 }
 .spon-img {
     list-style:none;
