@@ -38,8 +38,9 @@
                 </li>
             </ul>
             <p class="ma-l font-m dev-headline">Recent updates</p>
-            <div class="ma-s font-s dev-updates">
+            <div class="font-s dev-updates">
                 <div class="move-a">
+                    <a id="skipDown" href="#downArea">Updated DevCon Program, Speaker and Project Profiles</a>
                     <a href="https://neo.org/blog/details/3055">Instructions for Developers & Students to Receive Free Tickets to Neo DevCon</a>
                 </div>
             </div>
@@ -139,7 +140,7 @@
                     <p class="ma-xs">more coming soon...</p>
                 </li>
             </ul>
-            <div class="row ma-m font-s">
+            <div class="row ma-m font-s" id="downArea">
                 <div class="col-sm-6 ma-s">
                     <div class="down-area">
                         <p>NEO DEVCON<br />AGENDA</p>
@@ -154,7 +155,6 @@
                 </div>
             </div>
             <div class="wait-info ma-m"><a href="https://neo.org/blog/details/3058"><span class="iconfont">&#xe761;</span>  CODE OF CONDUCT</a></div>
-            <div class="wait-info ma-xs"><p>MORE INFORMATION TO BE RELEASED SOON…</p></div>
         </div>
     </div>
 
@@ -284,13 +284,18 @@
     <script type="text/javascript">
         pageSize();
         timeShow();
-        
+
         function pageSize() {
             $(".page-size").each(function () {
                 $(this).css("width", $(window).width());
                 $(this).css("min-height", $(window).height());
             })
         }
+
+        $('#skipDown').on('click', function () {
+            $('html, body').animate({ scrollTop: $(this.hash).offset().top - 5 }, 500);
+            return false;
+        });
 
         //倒计时方法
         var deadline = new Date("2018/01/30 09:30:00 GMT-0800(CST)");

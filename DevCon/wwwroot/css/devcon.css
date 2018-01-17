@@ -81,12 +81,10 @@ a:hover{
     border:none;
 }
 .dev-updates {
-    height:25px;
     overflow:hidden;
 }
 .move-a {
     width:100%;
-    /*animation:link 10s infinite;*/
 }
 .move-a a{
     display:block;
@@ -95,15 +93,8 @@ a:hover{
     text-overflow:ellipsis;
     padding:0 25px;
     text-decoration:underline;
+    margin-top:10px;
 }
-/*@keyframes link {
-    0% {margin-top:0px;}
-    10% {margin-top:0px;}
-    45% {margin-top:-25px;}
-    50% {margin-top:-25px;}
-    80% {margin-top:-50px;}
-    100% {margin-top:0px;}
-}*/
 
 /*第二个页面*/
 .dev-intro {
