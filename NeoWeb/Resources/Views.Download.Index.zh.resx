@@ -133,7 +133,7 @@
     <value>客户端下载</value>
   </data>
   <data name="Download offline synchronized data" xml:space="preserve">
-    <value>下载离线同步数据</value>
+    <value>下载离线同步数据包</value>
   </data>
   <data name="English" xml:space="preserve">
     <value>英文</value>
@@ -230,5 +230,62 @@
   </data>
   <data name="Support" xml:space="preserve">
     <value>支持</value>
+  </data>
+  <data name="Contacts, Claim GAS, Sending/receiving assets" xml:space="preserve">
+    <value>支持导入私钥，转账，提取GAS，不用同步区块</value>
+  </data>
+  <data name="Currently released via TestFlight" xml:space="preserve">
+    <value>目前通过TestFlight发布</value>
+  </data>
+  <data name="developed a native Android application" xml:space="preserve">
+    <value>开发的一个用户体验极佳的安卓钱包</value>
+  </data>
+  <data name="developed a native iOS application" xml:space="preserve">
+    <value>开发的iOS版钱包客户端</value>
+  </data>
+  <data name="It is also a good NEO blockchain explorer" xml:space="preserve">
+    <value>同时也是一个区块链浏览器</value>
+  </data>
+  <data name="It is also an exchange" xml:space="preserve">
+    <value>它同时也是一个交易所</value>
+  </data>
+  <data name="Login with private key or keystore File" xml:space="preserve">
+    <value>用私钥或者密钥存储登录</value>
+  </data>
+  <data name="Login with private key or wallet file" xml:space="preserve">
+    <value>通过私钥或者钱包文件登录</value>
+  </data>
+  <data name="Manage your assets in a simple and secure way" xml:space="preserve">
+    <value>良好的交互，安全的设计，轻松管理资产</value>
+  </data>
+  <data name="NEO Tracker Wallet is a online wallet" xml:space="preserve">
+    <value>NEO Tracker Wallet 是一个在线钱包</value>
+  </data>
+  <data name="Open source on  &lt;a href=&quot;https://github.com/OTCGO/website&quot; target =&quot;_blank&quot;&gt;GitHub&lt;/a&gt;" xml:space="preserve">
+    <value>在 &lt;a href="https://github.com/OTCGO/website" target="_blank"&gt;GitHub&lt;/a&gt; 上开源</value>
+  </data>
+  <data name="Open source on  &lt;a href=&quot;https://github.com/snowypowers/ansy&quot; target =&quot;_blank&quot;&gt;GitHub&lt;/a&gt;" xml:space="preserve">
+    <value>在  &lt;a href="https://github.com/snowypowers/ansy" target ="_blank"&gt;GitHub&lt;/a&gt; 上开源</value>
+  </data>
+  <data name="Open source on &lt;a href=&quot;https://github.com/neotracker/neotracker-wallet&quot; target=&quot;_blank&quot;&gt;GitHub&lt;/a&gt;" xml:space="preserve">
+    <value>在 &lt;a href="https://github.com/neotracker/neotracker-wallet" target="_blank"&gt;GitHub&lt;/a&gt; 上开源</value>
+  </data>
+  <data name="OTCGO is a online wallet" xml:space="preserve">
+    <value>蓝鲸淘是一个在线钱包</value>
+  </data>
+  <data name="Protected by TouchID and pincode" xml:space="preserve">
+    <value>用TouchID和PIN码保护钱包安全</value>
+  </data>
+  <data name="Send assets, Claim GAS, top up from a cold storage wallet" xml:space="preserve">
+    <value>支持导入私钥，转账，提取GAS，不用同步区块</value>
+  </data>
+  <data name="Simple and easy to use" xml:space="preserve">
+    <value>简单易用</value>
+  </data>
+  <data name="Simple NEO Paper wallet generator" xml:space="preserve">
+    <value>简单的纸钱包生成工具</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>访问官网</value>
   </data>
 </root>
