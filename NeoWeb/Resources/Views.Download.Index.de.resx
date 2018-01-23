@@ -126,9 +126,6 @@
   <data name="Clients with complete blockchain data" xml:space="preserve">
     <value>Klienten mit kompletten Blockketten Daten</value>
   </data>
-  <data name="Consensus node function, you can build a private chain" xml:space="preserve">
-    <value>Konsens-Knotenfunktion, es kann eine private Blockkette erstellt werden.</value>
-  </data>
   <data name="Desktop" xml:space="preserve">
     <value>Desktop</value>
   </data>
@@ -168,8 +165,8 @@
   <data name="https://play.google.com/store/apps/details?id=neo.app" xml:space="preserve">
     <value>http://android.myapp.com/myapp/detail.htm?apkName=neo.app</value>
   </data>
-  <data name="is a online wallet" xml:space="preserve">
-    <value>ist eine online Wallet</value>
+  <data name="It is also a good NEO blockchain explorer" xml:space="preserve">
+    <value>Es ist auch ein guter neo Blockchain Explorer</value>
   </data>
   <data name="Light wallet, without sync block" xml:space="preserve">
     <value>Light wallet, ohne synchroniserte Blöcke</value>
@@ -189,17 +186,14 @@
   <data name="Open Google Play" xml:space="preserve">
     <value>Öffne Google Play</value>
   </data>
-  <data name="Open source on  &lt;a href=&quot;https://github.com/PeterLinX/AntSharesApp&quot; target=&quot;_blank&quot;&gt;GitHub&lt;/a&gt;" xml:space="preserve">
-    <value>Öffne Quelle auf &lt;a href="https://github.com/PeterLinX/AntSharesApp" target="_blank"&gt;GitHub&lt;/a&gt;</value>
-  </data>
   <data name="or later" xml:space="preserve">
     <value>oder später</value>
   </data>
   <data name="OTCGO" xml:space="preserve">
     <value>OTCGO</value>
   </data>
-  <data name="Provided API support" xml:space="preserve">
-    <value>Angebotene API Unterstützung</value>
+  <data name="Provided API support and consensus function" xml:space="preserve">
+    <value>Bereitgestellte API-Unterstützung und Konsens Funktion</value>
   </data>
   <data name="Support offline synchronization" xml:space="preserve">
     <value>Unterstütze offline synchronisation</value>
@@ -207,11 +201,11 @@
   <data name="Supported Browser" xml:space="preserve">
     <value>Unterstützter Browser</value>
   </data>
-  <data name="Supported Languages" xml:space="preserve">
-    <value>Unterstützte Sprachen</value>
+  <data name="Languages" xml:space="preserve">
+    <value>Sprachen</value>
   </data>
   <data name="Supported OS" xml:space="preserve">
-    <value>Unterstütztes Betriebssystem</value>
+    <value>Betriebssystem</value>
   </data>
   <data name="Version" xml:space="preserve">
     <value>Version</value>
@@ -230,5 +224,53 @@
   </data>
   <data name="Support" xml:space="preserve">
     <value>Unterstütze</value>
+  </data>
+  <data name="Android version" xml:space="preserve">
+    <value>Android version</value>
+  </data>
+  <data name="Contacts, Claim GAS, Sending/receiving assets" xml:space="preserve">
+    <value>Kontakte, Claim Gas, senden/empfangen von Vermögenswerten</value>
+  </data>
+  <data name="Currently released via TestFlight" xml:space="preserve">
+    <value>Derzeit veröffentlicht über Testflug</value>
+  </data>
+  <data name="developed a native Android application" xml:space="preserve">
+    <value>entwickelte eine native Android-Anwendung</value>
+  </data>
+  <data name="developed a native iOS application" xml:space="preserve">
+    <value>entwickelte eine native iOS-Anwendung</value>
+  </data>
+  <data name="developed an online wallet" xml:space="preserve">
+    <value>entwickelt eine Online-Geldbörse</value>
+  </data>
+  <data name="iOS version" xml:space="preserve">
+    <value>iOS version</value>
+  </data>
+  <data name="It is also an exchange" xml:space="preserve">
+    <value>Es ist auch ein Austausch</value>
+  </data>
+  <data name="License" xml:space="preserve">
+    <value>Lizenz</value>
+  </data>
+  <data name="Login with private key or keystore File" xml:space="preserve">
+    <value>Login mit privatem Schlüssel oder Keystore-Datei</value>
+  </data>
+  <data name="Login with private key or wallet file" xml:space="preserve">
+    <value>Login mit privatem Schlüssel oder Wallet-Datei</value>
+  </data>
+  <data name="Manage your assets in a simple and secure way" xml:space="preserve">
+    <value>Verwalten Sie Ihre Assets auf einfache und sichere Weise</value>
+  </data>
+  <data name="Protected by TouchID and pincode" xml:space="preserve">
+    <value>Geschützt durch Berührungs-und Pincode</value>
+  </data>
+  <data name="Send assets, Claim GAS, top up from a cold storage wallet" xml:space="preserve">
+    <value>Senden von Vermögenswerten, Anspruch Gas, nach oben aus einem kühl-Storage-Wallet</value>
+  </data>
+  <data name="Simple and easy to use" xml:space="preserve">
+    <value>Einfach und einfach zu bedienen</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>Website</value>
   </data>
 </root>
