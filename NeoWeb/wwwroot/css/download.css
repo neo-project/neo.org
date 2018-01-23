@@ -21,6 +21,9 @@
     font-style:normal;
     font-size:40px;
 }
+.nav-download .downtab-select {
+    color:#58BF00;
+}
 .nav-download li.downtab-select a, .nav-download li a:hover {
     color:#58BF00;
 }
@@ -34,6 +37,7 @@
     width: 360px;
     margin: 20px 8px;
     line-height:1.5;
+    vertical-align:top;
 }
 .download-ul a {
     color: #51BC00;
@@ -45,7 +49,7 @@
     overflow:hidden;
 }
 .download-web .desc {
-    min-height: 100px;
+    min-height: 130px;
 }
 .download-mobile .desc {
     min-height: 130px;
