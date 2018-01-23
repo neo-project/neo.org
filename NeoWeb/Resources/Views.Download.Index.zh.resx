@@ -162,8 +162,8 @@
   <data name="Supported Browser" xml:space="preserve">
     <value>支持浏览器</value>
   </data>
-  <data name="Supported Languages" xml:space="preserve">
-    <value>支持语言</value>
+  <data name="Languages" xml:space="preserve">
+    <value>语言</value>
   </data>
   <data name="Supported OS" xml:space="preserve">
     <value>支持系统</value>
@@ -183,9 +183,6 @@
   <data name="Clients with complete blockchain data" xml:space="preserve">
     <value>具有完整区块数据的客户端</value>
   </data>
-  <data name="Consensus node function, you can build a private chain" xml:space="preserve">
-    <value>具备共识节点功能，可以搭建私有链</value>
-  </data>
   <data name="developed Android wallet" xml:space="preserve">
     <value>开发的安卓钱包</value>
   </data>
@@ -193,16 +190,13 @@
     <value>开发的跨平台客户端</value>
   </data>
   <data name="developed PC client" xml:space="preserve">
-    <value>开发的 PC 版客户端</value>
+    <value>开发的PC版客户端</value>
   </data>
   <data name="for developers command line client" xml:space="preserve">
     <value>为开发者提供的命令行客户端</value>
   </data>
   <data name="Full-featured client" xml:space="preserve">
     <value>全功能客户端</value>
-  </data>
-  <data name="is a online wallet" xml:space="preserve">
-    <value>是一个在线钱包</value>
   </data>
   <data name="Light wallet, without sync block" xml:space="preserve">
     <value>轻钱包，不用同步区块</value>
@@ -213,11 +207,8 @@
   <data name="New UI, simple interface design" xml:space="preserve">
     <value>全新视觉，简约的界面设计</value>
   </data>
-  <data name="Open source on  &lt;a href=&quot;https://github.com/PeterLinX/AntSharesApp&quot; target=&quot;_blank&quot;&gt;GitHub&lt;/a&gt;" xml:space="preserve">
-    <value>在 &lt;a href="https://github.com/PeterLinX/AntSharesApp" target="_blank"&gt;GitHub&lt;/a&gt; 上开源</value>
-  </data>
-  <data name="Provided API support" xml:space="preserve">
-    <value>提供 API 支持</value>
+  <data name="Provided API support and consensus function" xml:space="preserve">
+    <value>提供API支持和共识节点的功能</value>
   </data>
   <data name="Support offline synchronization" xml:space="preserve">
     <value>支持离线同步</value>
@@ -258,20 +249,8 @@
   <data name="Manage your assets in a simple and secure way" xml:space="preserve">
     <value>良好的交互，安全的设计，轻松管理资产</value>
   </data>
-  <data name="NEO Tracker Wallet is a online wallet" xml:space="preserve">
-    <value>NEO Tracker Wallet 是一个在线钱包</value>
-  </data>
-  <data name="Open source on  &lt;a href=&quot;https://github.com/OTCGO/website&quot; target =&quot;_blank&quot;&gt;GitHub&lt;/a&gt;" xml:space="preserve">
-    <value>在 &lt;a href="https://github.com/OTCGO/website" target="_blank"&gt;GitHub&lt;/a&gt; 上开源</value>
-  </data>
-  <data name="Open source on  &lt;a href=&quot;https://github.com/snowypowers/ansy&quot; target =&quot;_blank&quot;&gt;GitHub&lt;/a&gt;" xml:space="preserve">
-    <value>在  &lt;a href="https://github.com/snowypowers/ansy" target ="_blank"&gt;GitHub&lt;/a&gt; 上开源</value>
-  </data>
-  <data name="Open source on &lt;a href=&quot;https://github.com/neotracker/neotracker-wallet&quot; target=&quot;_blank&quot;&gt;GitHub&lt;/a&gt;" xml:space="preserve">
-    <value>在 &lt;a href="https://github.com/neotracker/neotracker-wallet" target="_blank"&gt;GitHub&lt;/a&gt; 上开源</value>
-  </data>
-  <data name="OTCGO is a online wallet" xml:space="preserve">
-    <value>蓝鲸淘是一个在线钱包</value>
+  <data name="developed an online wallet" xml:space="preserve">
+    <value>开发的在线钱包</value>
   </data>
   <data name="Protected by TouchID and pincode" xml:space="preserve">
     <value>用TouchID和PIN码保护钱包安全</value>
@@ -282,8 +261,8 @@
   <data name="Simple and easy to use" xml:space="preserve">
     <value>简单易用</value>
   </data>
-  <data name="Simple NEO Paper wallet generator" xml:space="preserve">
-    <value>简单的纸钱包生成工具</value>
+  <data name="developed a simple paper wallet" xml:space="preserve">
+    <value>开发的简单的纸钱包生成器</value>
   </data>
   <data name="Website" xml:space="preserve">
     <value>访问官网</value>
@@ -293,5 +272,8 @@
   </data>
   <data name="iOS version" xml:space="preserve">
     <value>iOS版</value>
+  </data>
+  <data name="License" xml:space="preserve">
+    <value>开源协议</value>
   </data>
 </root>
