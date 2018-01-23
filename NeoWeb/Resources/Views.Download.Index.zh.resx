@@ -288,4 +288,10 @@
   <data name="Website" xml:space="preserve">
     <value>访问官网</value>
   </data>
+  <data name="Android version" xml:space="preserve">
+    <value>Android版</value>
+  </data>
+  <data name="iOS version" xml:space="preserve">
+    <value>iOS版</value>
+  </data>
 </root>
