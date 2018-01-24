@@ -240,6 +240,9 @@ a:hover{
 .dev-organizer img{
     height:80px;
 }
+.dev-organizer .nnt-img{
+    width:350px;
+}
 .dev-organizer a{
     font-family:"Poppins-Bloder";
     color:#47ba32;
@@ -487,5 +490,8 @@ a:hover{
     }
     .five-intro {
         letter-spacing:1px;
+    }
+    .dev-organizer .nnt-img{
+        width:250px;
     }
 }
