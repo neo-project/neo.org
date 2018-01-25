@@ -237,11 +237,32 @@ a:hover{
 .dev-organizer {
     padding-bottom:150px;
 }
-.dev-organizer img{
+.dev-organizer .org-logo{
     height:80px;
 }
-.dev-organizer .nnt-img{
-    width:350px;
+.dev-schedule {
+    color:#FFFFFF;
+    position:relative;
+}
+.dev-schedule .dev-content{
+}
+.dev-schedule .schedule-img{
+    width:70%;
+    min-width:280px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.dev-schedule .nnt-img{
+    width:400px;
+    background:#FFFFFF;
+    padding:10px;
+}
+.schedule-img img{
+    width:80%;
+}
+.dev-schedule a {
+    text-decoration:underline;
+    color:#ffffff;
 }
 .dev-organizer a{
     font-family:"Poppins-Bloder";
@@ -445,6 +466,9 @@ a:hover{
     .spon-img li img{
         height:45px;
     }
+    .dev-schedule .nnt-img{
+        width:300px;
+    }
 }
 @media only screen and (max-width: 480px) {
     .bg-animate svg {
@@ -491,7 +515,7 @@ a:hover{
     .five-intro {
         letter-spacing:1px;
     }
-    .dev-organizer .nnt-img{
+    .dev-schedule .nnt-img{
         width:250px;
     }
 }
