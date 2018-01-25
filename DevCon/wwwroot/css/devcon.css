@@ -247,7 +247,7 @@ a:hover{
 .dev-schedule .dev-content{
 }
 .dev-schedule .schedule-img{
-    width:85%;
+    width:70%;
     min-width:280px;
     margin-left:auto;
     margin-right:auto;
@@ -258,7 +258,7 @@ a:hover{
     padding:10px;
 }
 .schedule-img img{
-    width:100%;
+    width:80%;
 }
 .dev-schedule a {
     text-decoration:underline;
