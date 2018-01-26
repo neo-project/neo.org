@@ -1,228 +1,411 @@
 (function () {
-var toc = (function () {
-  'use strict';
 
-  var PluginManager = tinymce.util.Tools.resolve('tinymce.PluginManager');
+var defs = {}; // id -> {dependencies, definition, instance (possibly undefined)}
 
-  var DOMUtils = tinymce.util.Tools.resolve('tinymce.dom.DOMUtils');
+// Used when there is no 'main' module.
+// The name is probably (hopefully) unique so minification removes for releases.
+var register_3795 = function (id) {
+  var module = dem(id);
+  var fragments = id.split('.');
+  var target = Function('return this;')();
+  for (var i = 0; i < fragments.length - 1; ++i) {
+    if (target[fragments[i]] === undefined)
+      target[fragments[i]] = {};
+    target = target[fragments[i]];
+  }
+  target[fragments[fragments.length - 1]] = module;
+};
 
-  var I18n = tinymce.util.Tools.resolve('tinymce.util.I18n');
+var instantiate = function (id) {
+  var actual = defs[id];
+  var dependencies = actual.deps;
+  var definition = actual.defn;
+  var len = dependencies.length;
+  var instances = new Array(len);
+  for (var i = 0; i < len; ++i)
+    instances[i] = dem(dependencies[i]);
+  var defResult = definition.apply(null, instances);
+  if (defResult === undefined)
+     throw 'module [' + id + '] returned undefined';
+  actual.instance = defResult;
+};
 
-  var Tools = tinymce.util.Tools.resolve('tinymce.util.Tools');
-
-  var getTocClass = function (editor) {
-    return editor.getParam('toc_class', 'mce-toc');
+var def = function (id, dependencies, definition) {
+  if (typeof id !== 'string')
+    throw 'module id must be a string';
+  else if (dependencies === undefined)
+    throw 'no dependencies for ' + id;
+  else if (definition === undefined)
+    throw 'no definition function for ' + id;
+  defs[id] = {
+    deps: dependencies,
+    defn: definition,
+    instance: undefined
   };
-  var getTocHeader = function (editor) {
-    var tagName = editor.getParam('toc_header', 'h2');
-    return /^h[1-6]$/.test(tagName) ? tagName : 'h2';
-  };
-  var getTocDepth = function (editor) {
-    var depth = parseInt(editor.getParam('toc_depth', '3'), 10);
-    return depth >= 1 && depth <= 9 ? depth : 3;
-  };
-  var $_fbu1f1qkjcq86kkj = {
-    getTocClass: getTocClass,
-    getTocHeader: getTocHeader,
-    getTocDepth: getTocDepth
-  };
+};
 
-  var create = function (prefix) {
-    var counter = 0;
-    return function () {
-      var guid = new Date().getTime().toString(32);
-      return prefix + guid + (counter++).toString(32);
-    };
-  };
-  var $_cf2yq2qljcq86kkk = { create: create };
+var dem = function (id) {
+  var actual = defs[id];
+  if (actual === undefined)
+    throw 'module [' + id + '] was undefined';
+  else if (actual.instance === undefined)
+    instantiate(id);
+  return actual.instance;
+};
 
-  var tocId = $_cf2yq2qljcq86kkk.create('mcetoc_');
-  var generateSelector = function generateSelector(depth) {
-    var i;
-    var selector = [];
-    for (i = 1; i <= depth; i++) {
-      selector.push('h' + i);
+var req = function (ids, callback) {
+  var len = ids.length;
+  var instances = new Array(len);
+  for (var i = 0; i < len; ++i)
+    instances.push(dem(ids[i]));
+  callback.apply(null, callback);
+};
+
+var ephox = {};
+
+ephox.bolt = {
+  module: {
+    api: {
+      define: def,
+      require: req,
+      demand: dem
     }
-    return selector.join(',');
-  };
-  var hasHeaders = function (editor) {
-    return readHeaders(editor).length > 0;
-  };
-  var readHeaders = function (editor) {
-    var tocClass = $_fbu1f1qkjcq86kkj.getTocClass(editor);
-    var headerTag = $_fbu1f1qkjcq86kkj.getTocHeader(editor);
-    var selector = generateSelector($_fbu1f1qkjcq86kkj.getTocDepth(editor));
-    var headers = editor.$(selector);
-    if (headers.length && /^h[1-9]$/i.test(headerTag)) {
-      headers = headers.filter(function (i, el) {
-        return !editor.dom.hasClass(el.parentNode, tocClass);
-      });
-    }
-    return Tools.map(headers, function (h) {
-      return {
-        id: h.id ? h.id : tocId(),
-        level: parseInt(h.nodeName.replace(/^H/i, ''), 10),
-        title: editor.$.text(h),
-        element: h
+  }
+};
+
+var define = def;
+var require = req;
+var demand = dem;
+// this helps with minificiation when using a lot of global references
+var defineGlobal = function (id, ref) {
+  define(id, [], function () { return ref; });
+};
+/*jsc
+["tinymce.plugins.toc.Plugin","tinymce.core.PluginManager","tinymce.core.util.I18n","tinymce.core.util.Tools","global!tinymce.util.Tools.resolve"]
+jsc*/
+defineGlobal("global!tinymce.util.Tools.resolve", tinymce.util.Tools.resolve);
+/**
+ * ResolveGlobal.js
+ *
+ * Released under LGPL License.
+ * Copyright (c) 1999-2017 Ephox Corp. All rights reserved
+ *
+ * License: http://www.tinymce.com/license
+ * Contributing: http://www.tinymce.com/contributing
+ */
+
+define(
+  'tinymce.core.PluginManager',
+  [
+    'global!tinymce.util.Tools.resolve'
+  ],
+  function (resolve) {
+    return resolve('tinymce.PluginManager');
+  }
+);
+
+/**
+ * ResolveGlobal.js
+ *
+ * Released under LGPL License.
+ * Copyright (c) 1999-2017 Ephox Corp. All rights reserved
+ *
+ * License: http://www.tinymce.com/license
+ * Contributing: http://www.tinymce.com/contributing
+ */
+
+define(
+  'tinymce.core.util.I18n',
+  [
+    'global!tinymce.util.Tools.resolve'
+  ],
+  function (resolve) {
+    return resolve('tinymce.util.I18n');
+  }
+);
+
+/**
+ * ResolveGlobal.js
+ *
+ * Released under LGPL License.
+ * Copyright (c) 1999-2017 Ephox Corp. All rights reserved
+ *
+ * License: http://www.tinymce.com/license
+ * Contributing: http://www.tinymce.com/contributing
+ */
+
+define(
+  'tinymce.core.util.Tools',
+  [
+    'global!tinymce.util.Tools.resolve'
+  ],
+  function (resolve) {
+    return resolve('tinymce.util.Tools');
+  }
+);
+
+/**
+ * Plugin.js
+ *
+ * Released under LGPL License.
+ * Copyright (c) 1999-2017 Ephox Corp. All rights reserved
+ *
+ * License: http://www.tinymce.com/license
+ * Contributing: http://www.tinymce.com/contributing
+ */
+
+/**
+ * This class contains all core logic for the code plugin.
+ *
+ * @class tinymce.toc.Plugin
+ * @private
+ */
+define(
+  'tinymce.plugins.toc.Plugin',
+  [
+    'tinymce.core.PluginManager',
+    'tinymce.core.util.I18n',
+    'tinymce.core.util.Tools'
+  ],
+  function (PluginManager, I18n, Tools) {
+    PluginManager.add('toc', function (editor) {
+      var $ = editor.$;
+      var opts;
+
+      var defs = {
+        depth: 3,
+        headerTag: 'h2',
+        className: 'mce-toc'
       };
-    });
-  };
-  var getMinLevel = function (headers) {
-    var i, minLevel = 9;
-    for (i = 0; i < headers.length; i++) {
-      if (headers[i].level < minLevel) {
-        minLevel = headers[i].level;
+
+      var guid = function (prefix) {
+        var counter = 0;
+        return function () {
+          var guid = new Date().getTime().toString(32);
+          return prefix + guid + (counter++).toString(32);
+        };
+      };
+
+      var tocId = guid('mcetoc_');
+
+
+      function isValidTag(tagName) {
+        return tagName ? editor.schema.isValidChild('div', tagName) : false;
       }
-      if (minLevel === 1) {
+
+
+      function isToc(elm) {
+        return elm && editor.dom.is(elm, '.' + opts.className) && editor.getBody().contains(elm);
+      }
+
+
+      function toggleState() {
+        var self = this;
+
+        self.disabled(editor.readonly || !haveHeaders());
+
+        editor.on('LoadContent SetContent change', function () {
+          self.disabled(editor.readonly || !haveHeaders());
+        });
+      }
+
+
+      function generateSelector(depth) {
+        var i, selector = [];
+        for (i = 1; i <= depth; i++) {
+          selector.push('h' + i);
+        }
+        return selector.join(',');
+      }
+
+
+      function haveHeaders() {
+        return !!(opts && prepareHeaders(opts).length);
+      }
+
+
+      function prepareHeaders(o) {
+        var selector = generateSelector(o.depth);
+        var headers = $(selector);
+
+        // if headerTag is one of h1-9, we need to filter it out from the set
+        if (headers.length && /^h[1-9]$/i.test(o.headerTag)) {
+          headers = headers.filter(function (i, el) {
+            return !editor.dom.hasClass(el.parentNode, o.className);
+          });
+        }
+
+        return Tools.map(headers, function (h) {
+          if (!h.id) {
+            h.id = tocId();
+          }
+          return {
+            id: h.id,
+            level: parseInt(h.nodeName.replace(/^H/i, ''), 10),
+            title: $.text(h)
+          };
+        });
+      }
+
+
+      function getMinLevel(headers) {
+        var i, minLevel = 9;
+
+        for (i = 0; i < headers.length; i++) {
+          if (headers[i].level < minLevel) {
+            minLevel = headers[i].level;
+          }
+
+          // do not proceed if we have reached absolute minimum
+          if (minLevel == 1) {
+            return minLevel;
+          }
+        }
         return minLevel;
       }
-    }
-    return minLevel;
-  };
-  var generateTitle = function (tag, title) {
-    var openTag = '<' + tag + ' contenteditable="true">';
-    var closeTag = '</' + tag + '>';
-    return openTag + DOMUtils.DOM.encode(title) + closeTag;
-  };
-  var generateTocHtml = function (editor) {
-    var html = generateTocContentHtml(editor);
-    return '<div class="' + editor.dom.encode($_fbu1f1qkjcq86kkj.getTocClass(editor)) + '" contenteditable="false">' + html + '</div>';
-  };
-  var generateTocContentHtml = function (editor) {
-    var html = '';
-    var headers = readHeaders(editor);
-    var prevLevel = getMinLevel(headers) - 1;
-    var i, ii, h, nextLevel;
-    if (!headers.length) {
-      return '';
-    }
-    html += generateTitle($_fbu1f1qkjcq86kkj.getTocHeader(editor), I18n.translate('Table of Contents'));
-    for (i = 0; i < headers.length; i++) {
-      h = headers[i];
-      h.element.id = h.id;
-      nextLevel = headers[i + 1] && headers[i + 1].level;
-      if (prevLevel === h.level) {
-        html += '<li>';
-      } else {
-        for (ii = prevLevel; ii < h.level; ii++) {
-          html += '<ul><li>';
-        }
+
+
+      function generateTitle(tag, title) {
+        var openTag = '<' + tag + ' contenteditable="true">';
+        var closeTag = '</' + tag + '>';
+        return openTag + editor.dom.encode(title) + closeTag;
       }
-      html += '<a href="#' + h.id + '">' + h.title + '</a>';
-      if (nextLevel === h.level || !nextLevel) {
-        html += '</li>';
-        if (!nextLevel) {
-          html += '</ul>';
-        }
-      } else {
-        for (ii = h.level; ii > nextLevel; ii--) {
-          html += '</li></ul><li>';
-        }
+
+
+      function generateTocHtml(o) {
+        var html = generateTocContentHtml(o);
+        return '<div class="' + o.className + '" contenteditable="false">' + html + '</div>';
       }
-      prevLevel = h.level;
-    }
-    return html;
-  };
-  var isEmptyOrOffscren = function (editor, nodes) {
-    return !nodes.length || editor.dom.getParents(nodes[0], '.mce-offscreen-selection').length > 0;
-  };
-  var insertToc = function (editor) {
-    var tocClass = $_fbu1f1qkjcq86kkj.getTocClass(editor);
-    var $tocElm = editor.$('.' + tocClass);
-    if (isEmptyOrOffscren(editor, $tocElm)) {
-      editor.insertContent(generateTocHtml(editor));
-    } else {
-      updateToc(editor);
-    }
-  };
-  var updateToc = function (editor) {
-    var tocClass = $_fbu1f1qkjcq86kkj.getTocClass(editor);
-    var $tocElm = editor.$('.' + tocClass);
-    if ($tocElm.length) {
-      editor.undoManager.transact(function () {
-        $tocElm.html(generateTocContentHtml(editor));
+
+
+      function generateTocContentHtml(o) {
+        var html = '';
+        var headers = prepareHeaders(o);
+        var prevLevel = getMinLevel(headers) - 1;
+        var i, ii, h, nextLevel;
+
+        if (!headers.length) {
+          return '';
+        }
+
+        html += generateTitle(o.headerTag, I18n.translate("Table of Contents"));
+
+        for (i = 0; i < headers.length; i++) {
+          h = headers[i];
+          nextLevel = headers[i + 1] && headers[i + 1].level;
+
+          if (prevLevel === h.level) {
+            html += '<li>';
+          } else {
+            for (ii = prevLevel; ii < h.level; ii++) {
+              html += '<ul><li>';
+            }
+          }
+
+          html += '<a href="#' + h.id + '">' + h.title + '</a>';
+
+          if (nextLevel === h.level || !nextLevel) {
+            html += '</li>';
+
+            if (!nextLevel) {
+              html += '</ul>';
+            }
+          } else {
+            for (ii = h.level; ii > nextLevel; ii--) {
+              html += '</li></ul><li>';
+            }
+          }
+
+          prevLevel = h.level;
+        }
+
+        return html;
+      }
+
+
+      editor.on('PreInit', function () {
+        var s = editor.settings;
+        var depth = parseInt(s.toc_depth, 10) || 0;
+
+        opts = {
+          depth: depth >= 1 && depth <= 9 ? depth : defs.depth,
+          headerTag: isValidTag(s.toc_header) ? s.toc_header : defs.headerTag,
+          className: s.toc_class ? editor.dom.encode(s.toc_class) : defs.className
+        };
       });
-    }
-  };
-  var $_ggxvluqgjcq86kkb = {
-    hasHeaders: hasHeaders,
-    insertToc: insertToc,
-    updateToc: updateToc
-  };
 
-  var register = function (editor) {
-    editor.addCommand('mceInsertToc', function () {
-      $_ggxvluqgjcq86kkb.insertToc(editor);
-    });
-    editor.addCommand('mceUpdateToc', function () {
-      $_ggxvluqgjcq86kkb.updateToc(editor);
-    });
-  };
-  var $_5h3kcmqfjcq86kk9 = { register: register };
 
-  var setup = function (editor) {
-    var $ = editor.$, tocClass = $_fbu1f1qkjcq86kkj.getTocClass(editor);
-    editor.on('PreProcess', function (e) {
-      var $tocElm = $('.' + tocClass, e.node);
-      if ($tocElm.length) {
-        $tocElm.removeAttr('contentEditable');
-        $tocElm.find('[contenteditable]').removeAttr('contentEditable');
-      }
-    });
-    editor.on('SetContent', function () {
-      var $tocElm = $('.' + tocClass);
-      if ($tocElm.length) {
-        $tocElm.attr('contentEditable', false);
-        $tocElm.children(':first-child').attr('contentEditable', true);
-      }
-    });
-  };
-  var $_20192yqmjcq86kkm = { setup: setup };
-
-  var toggleState = function (editor) {
-    return function (e) {
-      var ctrl = e.control;
-      editor.on('LoadContent SetContent change', function () {
-        ctrl.disabled(editor.readonly || !$_ggxvluqgjcq86kkb.hasHeaders(editor));
+      editor.on('PreProcess', function (e) {
+        var $tocElm = $('.' + opts.className, e.node);
+        if ($tocElm.length) {
+          $tocElm.removeAttr('contentEditable');
+          $tocElm.find('[contenteditable]').removeAttr('contentEditable');
+        }
       });
-    };
-  };
-  var isToc = function (editor) {
-    return function (elm) {
-      return elm && editor.dom.is(elm, '.' + $_fbu1f1qkjcq86kkj.getTocClass(editor)) && editor.getBody().contains(elm);
-    };
-  };
-  var register$1 = function (editor) {
-    editor.addButton('toc', {
-      tooltip: 'Table of Contents',
-      cmd: 'mceInsertToc',
-      icon: 'toc',
-      onPostRender: toggleState(editor)
-    });
-    editor.addButton('tocupdate', {
-      tooltip: 'Update',
-      cmd: 'mceUpdateToc',
-      icon: 'reload'
-    });
-    editor.addMenuItem('toc', {
-      text: 'Table of Contents',
-      context: 'insert',
-      cmd: 'mceInsertToc',
-      onPostRender: toggleState(editor)
-    });
-    editor.addContextToolbar(isToc(editor), 'tocupdate');
-  };
-  var $_37qe8cqnjcq86kko = { register: register$1 };
 
-  PluginManager.add('toc', function (editor) {
-    $_5h3kcmqfjcq86kk9.register(editor);
-    $_37qe8cqnjcq86kko.register(editor);
-    $_20192yqmjcq86kkm.setup(editor);
-  });
-  var Plugin = function () {
-  };
 
-  return Plugin;
+      editor.on('SetContent', function () {
+        var $tocElm = $('.' + opts.className);
+        if ($tocElm.length) {
+          $tocElm.attr('contentEditable', false);
+          $tocElm.children(':first-child').attr('contentEditable', true);
+        }
+      });
 
-}());
-})()
+      var isEmptyOrOffscren = function (nodes) {
+        return !nodes.length || editor.dom.getParents(nodes[0], '.mce-offscreen-selection').length > 0;
+      };
+
+      editor.addCommand('mceInsertToc', function () {
+        var $tocElm = $('.' + opts.className);
+
+        if (isEmptyOrOffscren($tocElm)) {
+          editor.insertContent(generateTocHtml(opts));
+        } else {
+          editor.execCommand('mceUpdateToc');
+        }
+      });
+
+
+      editor.addCommand('mceUpdateToc', function () {
+        var $tocElm = $('.' + opts.className);
+        if ($tocElm.length) {
+          editor.undoManager.transact(function () {
+            $tocElm.html(generateTocContentHtml(opts));
+          });
+        }
+      });
+
+
+      editor.addButton('toc', {
+        tooltip: 'Table of Contents',
+        cmd: 'mceInsertToc',
+        icon: 'toc',
+        onPostRender: toggleState
+      });
+
+      editor.addButton('tocupdate', {
+        tooltip: 'Update',
+        cmd: 'mceUpdateToc',
+        icon: 'reload'
+      });
+
+      editor.addContextToolbar(
+        isToc,
+        'tocupdate'
+      );
+
+      editor.addMenuItem('toc', {
+        text: "Table of Contents",
+        context: 'insert',
+        cmd: 'mceInsertToc',
+        onPostRender: toggleState
+      });
+    });
+
+
+    return function () { };
+  }
+);
+dem('tinymce.plugins.toc.Plugin')();
+})();
