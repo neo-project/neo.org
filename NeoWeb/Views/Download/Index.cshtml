@@ -12,13 +12,16 @@
         <link rel="stylesheet" href="~/css/download.min.css" asp-append-version="true" />
     </environment>
 }
-<h1 class="m2 text-center">@Localizer["Client Downloads"]</h1>
-<ul class="nav-download m3 t1" id="downTab">
-    <li><a class="iconfont">&#xe64b;</a>@Localizer["Mobile"]</li>
-    <li><a class="iconfont">&#xe632;</a>@Localizer["Desktop"]</li>
-    <li><a class="iconfont">&#xe63c;</a>@Localizer["Web"]</li>
-</ul>
+
 <div class="container">
+    <div class="row">
+        <h1 class="m3">@Localizer["Client Downloads"]</h1>
+    </div>
+    <ul class="nav-download m3 t1" id="downTab">
+        <li><a class="iconfont">&#xe64b;</a>@Localizer["Mobile"]</li>
+        <li><a class="iconfont">&#xe632;</a>@Localizer["Desktop"]</li>
+        <li><a class="iconfont">&#xe63c;</a>@Localizer["Web"]</li>
+    </ul>
     <div class="row download-container">
 
         <ul class="download-ul download-mobile">
