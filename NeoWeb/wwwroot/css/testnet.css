@@ -2,16 +2,16 @@
     background:#3f3f3f;
 }
 /*顶部样式 - Header style*/
-.navbar.navbar-fixed-top {
+.navbar {
     background:#3F3F3F;
     background:rgba(63,63,63,0.9);
     border-top:none;
 }
-.nav.navbar-nav.pop-menu li a{
+.navbar-expand .navbar-nav .nav-link{
     color:#FFFFFF;
     font-weight:100;
 }
-.nav.navbar-nav.pop-menu li a:hover {
+.navbar-expand .navbar-nav a:hover {
     color:#beeb00;
 }
 #more_list li {
@@ -225,7 +225,7 @@
         max-width:200px;
     }
 }
-@media only screen and (max-width : 768px) {
+@media only screen and (max-width : 576px) {
     .link-apply {
         background-repeat: no-repeat;
         background-size: contain;

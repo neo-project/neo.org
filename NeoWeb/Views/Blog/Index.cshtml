@@ -13,17 +13,14 @@
         <link rel="stylesheet" href="~/css/blog.min.css" asp-append-version="true" />
     </environment>
 }
+<h1 class="blog_title m2 text-center">@Localizer["Blog posts list"]</h1>
+<div class="text-center m3">
+    @if (ViewBag.UserRulesCount)
+    {
+        <a asp-action="Create">发布新博客</a>
+    }
+</div>
 <div class="row">
-    <div class="col-xs-12">
-        <h1 class="blog_title m2">@Localizer["Blog posts list"]</h1>
-
-        <div class="text-center m3">
-            @if (ViewBag.UserRulesCount)
-            {
-                <a asp-action="Create">发布新博客</a>
-            }
-        </div>
-    </div>
     <div class="col-lg-1">
     </div>
     <div class="col-lg-11">
@@ -65,8 +62,8 @@
             {
                 <li class="m3">
                     <h2><a asp-action="details" class="blog-title" asp-route-id="@item.Id">@item.Title</a></h2>
-                    <p class="t2 m3 @Localizer["hidden"]">由作者 <span class="bold-font">@item.User</span> 于 <span class="bold-font">@item.CreateTime.ToShortDateString()</span> 发布 <small class="pull-right">@item.ReadCount 次阅读</small></p>
-                    <p class="t2 m3 @Localizer["hidden-zh"]">Author <span class="bold-font">@item.User</span> posted on <span class="bold-font">@item.CreateTime.ToShortDateString()</span> <small class="pull-right">@item.ReadCount Times read</small></p>
+                    <p class="t2 m3 @Localizer["d-none"]">由作者 <span class="bold-font">@item.User</span> 于 <span class="bold-font">@item.CreateTime.ToShortDateString()</span> 发布 <small class="float-right">@item.ReadCount 次阅读</small></p>
+                    <p class="t2 m3 @Localizer["d-none-zh"]">Author <span class="bold-font">@item.User</span> posted on <span class="bold-font">@item.CreateTime.ToShortDateString()</span> <small class="float-right">@item.ReadCount Times read</small></p>
                     <a class="blog-summary" asp-action="details" asp-route-id="@item.Id">
                         <p class="t2">@item.Summary.Substring(0, Math.Min(item.Summary.Length, item.Lang == "zh" || item.Lang == "ko" ? 100 : 150))…</p>
                     </a>
@@ -76,7 +73,7 @@
             {
                 <li class="m3">
                     <h2>Coming Soon</h2>
-                </li> 
+                </li>
             }
         </ul>
     </div>

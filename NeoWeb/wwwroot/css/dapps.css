@@ -11,13 +11,17 @@
     border-radius: 0;
     border: 1px solid #fff;
     border-style: none solid;
+    font-size: 14px;
     text-align: center;
     word-break: normal;
     line-height: 1.5;
     background-color: #fff;
     overflow: hidden;
 }
-
+.dapp small {
+    color: #6c6c6c;
+    font-size: 11px;
+}
 .dapp:hover {
 	border: 1px solid #6FC308;
     border-style: none solid;
