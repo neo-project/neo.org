@@ -67,7 +67,7 @@ a{
     margin: 0 20px 20px 0;
 }
 
-.year, .month {
+.blog_date li, .blog_date li a {
     color:#AAAAAA;
 }
 .year:hover, .year:focus, .month:hover, .month:focus {

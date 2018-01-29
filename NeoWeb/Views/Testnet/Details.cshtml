@@ -12,79 +12,79 @@
     </environment>
 }
 <div class="container">
-    <h1 class="m1">测试币申请详情</h1>
+    <h1 class="m1 text-center">测试币申请详情</h1>
     <div class="coin-back apply-detail">
-        <dl class="dl-horizontal">
-            <dt>
+        <div class="row">
+            <div class="col-3 text-right font-weight-bold">
                 @Html.DisplayNameFor(model => model.Name)
-            </dt>
-            <dd>
+            </div>
+            <div class="col-9">
                 @Html.DisplayFor(model => model.Name)
-            </dd>
-            <dt>
+            </div>
+            <div class="col-3 text-right font-weight-bold">
                 @Html.DisplayNameFor(model => model.Email)
-            </dt>
-            <dd>
+            </div>
+            <div class="col-9">
                 @Html.DisplayFor(model => model.Email)
-            </dd>
-            <dt>
+            </div>
+            <div class="col-3 text-right font-weight-bold">
                 @Html.DisplayNameFor(model => model.Phone)
-            </dt>
-            <dd>
+            </div>
+            <div class="col-9">
                 @Html.DisplayFor(model => model.Phone)
-            </dd>
-            <dt>
+            </div>
+            <div class="col-3 text-right font-weight-bold">
                 @Html.DisplayNameFor(model => model.QQ)
-            </dt>
-            <dd>
+            </div>
+            <div class="col-9">
                 @Html.DisplayFor(model => model.QQ)
-            </dd>
-            <dt>
+            </div>
+            <div class="col-3 text-right font-weight-bold">
                 @Html.DisplayNameFor(model => model.Company)
-            </dt>
-            <dd>
+            </div>
+            <div class="col-9">
                 @Html.DisplayFor(model => model.Company)
-            </dd>
-            <dt>
+            </div>
+            <div class="col-3 text-right font-weight-bold">
                 @Html.DisplayNameFor(model => model.Reason)
-            </dt>
-            <dd>
+            </div>
+            <div class="col-9">
                 @Html.DisplayFor(model => model.Reason)
-            </dd>
-            <dt>
+            </div>
+            <div class="col-3 text-right font-weight-bold">
                 @Html.DisplayNameFor(model => model.ANSCount)
-            </dt>
-            <dd>
+            </div>
+            <div class="col-9">
                 @Html.DisplayFor(model => model.ANSCount)
-            </dd>
-            <dt>
+            </div>
+            <div class="col-3 text-right font-weight-bold">
                 @Html.DisplayNameFor(model => model.ANCCount)
-            </dt>
-            <dd>
+            </div>
+            <div class="col-9">
                 @Html.DisplayFor(model => model.ANCCount)
-            </dd>
-            <dt>
+            </div>
+            <div class="col-3 text-right font-weight-bold">
                 @Html.DisplayNameFor(model => model.PubKey)
-            </dt>
-            <dd>
+            </div>
+            <div class="col-9">
                 @Html.DisplayFor(model => model.PubKey)
-            </dd>
-            <dt>
+            </div>
+            <div class="col-3 text-right font-weight-bold">
                 @Html.DisplayNameFor(model => model.Remark)
-            </dt>
-            <dd>
+            </div>
+            <div class="col-9">
                 @Html.DisplayFor(model => model.Remark)
-            </dd>
-            <dt>
+            </div>
+            <div class="col-3 text-right font-weight-bold">
                 @Html.DisplayNameFor(model => model.Time)
-            </dt>
-            <dd>
+            </div>
+            <div class="col-9">
                 @Html.DisplayFor(model => model.Time)
-            </dd>
-        </dl>
+            </div>
+        </div>
         <div class="text-right">
-            <a class="p3" onclick="copyData();" href="">复制</a>
-            <a onclick="copytable();" data-toggle="modal" data-target="#myModal">查看复制</a>
+            <a class="btn btn-primary" onclick="copyData();" href="">复制</a>
+            <a class="btn btn-secondary" onclick="copytable();" data-toggle="modal" data-target="#myModal">查看复制</a>
         </div>
     </div>
     <div class="back-to-list">
@@ -112,7 +112,7 @@
                 <tbody id="tBody"></tbody>
             </table>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

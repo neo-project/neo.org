@@ -7,14 +7,8 @@ body {
     min-height:100%;
     background-image: linear-gradient(144deg, #AAAAAA 0%, #E4E4E4 100%);
 }
-.container {
-    text-align:center;
-}
 .main-footer {
     display:none;
-}
-.container a {
-    color:#58bf00;
 }
 .container a:visited{
     color:#6C6C6C;

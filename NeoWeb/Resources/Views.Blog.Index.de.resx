@@ -123,10 +123,10 @@
   <data name="Blog posts list" xml:space="preserve">
     <value>Blog Post Liste</value>
   </data>
-  <data name="hidden" xml:space="preserve">
+  <data name="d-none" xml:space="preserve">
     <value />
   </data>
-  <data name="hidden-zh" xml:space="preserve">
+  <data name="d-none-zh" xml:space="preserve">
     <value />
   </data>
 </root>

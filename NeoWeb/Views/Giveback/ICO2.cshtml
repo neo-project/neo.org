@@ -8,82 +8,82 @@
     <h2 class="text-center">ICO2</h2>
     <br />
     <div class="form-horizontal">
-        <div class="form-group">
-            <label for="prikey" class="col-md-4 control-label">@Localizer["Private key when ICO"]</label>
+        <div class="form-group row">
+            <label for="prikey" class="col-md-4 col-form-label text-right">@Localizer["Private key when ICO"]</label>
             <div class="col-md-4">
                 <input name="prikey" id="prikey" class="form-control" autocomplete="off" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex-pattern="[L|K][1-9A-HJ-NP-Za-km-z]{51}" data-val-regex="@Localizer["Please enter the correct private key in the WIF format"]" />
-                <span class="help-block">@Localizer["Please enter your private key that participates in ICO at that time, we will sign in the browser side, and upload the signature and the NEO address to the server to authenticate, the private key <b> will not </b> upload to the server, please rest assured fills in"]</span>
-                <span class="text-danger" data-valmsg-for="prikey" data-valmsg-replace="true"></span>
+                <small class="form-text text-muted">@Localizer["Please enter your private key that participates in ICO at that time, we will sign in the browser side, and upload the signature and the NEO address to the server to authenticate, the private key <b> will not </b> upload to the server, please rest assured fills in"]</small>
+                <small><span class="text-danger" data-valmsg-for="prikey" data-valmsg-replace="true"></span></small>
             </div>
         </div>
     </div>
     <form asp-action="ICO2" id="form_ico2" class="form-horizontal">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-        <div class="form-group">
+        <div class="form-group row">
             <div class="col-md-4">
                 <input type="hidden" name="pubkey" id="pubkey" />
                 <input type="hidden" name="signature" id="sign" />
             </div>
         </div>
-        <div class="form-group">
-            <label asp-for="Choose" class="control-label col-md-4">@Localizer["How to receive giveback"]</label>
+        <div class="form-group row">
+            <label asp-for="Choose" class="col-form-label text-right col-md-4">@Localizer["How to receive giveback"]</label>
             <div class="col-md-4">
                 <select id="select1" asp-for="Choose" class="form-control" onchange="setChoose()">
                     <option value="0">人民币（CNY）</option>
                     <option value="1">NEO</option>
                 </select>
-                <span asp-validation-for="Choose" class="text-danger"></span>
+                <small><span asp-validation-for="Choose" class="text-danger"></span></small>
             </div>
         </div>
-        <div class="form-group hidden-neo">
-            <label asp-for="BankAccount" class="control-label col-md-4">@Localizer["bank account"]</label>
+        <div class="form-group row hidden-neo">
+            <label asp-for="BankAccount" class="col-form-label text-right col-md-4">@Localizer["bank account"]</label>
             <div class="col-md-4">
                 <input id="bankAccount" asp-for="BankAccount" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-digits="This field is not a valid Bank account" data-val-minlength-min="15" data-val-minlength="@string.Format(Localizer["Length is at least {0} characters"].Value, 15)" data-val-maxlength-max="19" data-val-maxlength="@string.Format(Localizer["Length cannot exceed {0} characters"].Value, 19)"/>
-                <span class="help-block">@Localizer["Must be a bank card in mainland China"]</span>
-                <span asp-validation-for="BankAccount" class="text-danger"></span>
+                <small class="form-text text-muted">@Localizer["Must be a bank card in mainland China"]</small>
+                <small><span asp-validation-for="BankAccount" class="text-danger"></span></small>
             </div>
         </div>
-        <div class="form-group hidden-neo">
-            <label asp-for="BankName" class="control-label col-md-4">@Localizer["bank name"]</label>
+        <div class="form-group row hidden-neo">
+            <label asp-for="BankName" class="col-form-label text-right col-md-4">@Localizer["bank name"]</label>
             <div class="col-md-4">
                 <input asp-for="BankName" placeholder="如：招商银行上海创智天地支行" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-minlength-min="5" data-val-minlength="@string.Format(Localizer["Length is at least {0} characters"].Value, 5)" data-val-maxlength-max="30" data-val-maxlength="@string.Format(Localizer["Length cannot exceed {0} characters"].Value, 30)"/>
-                <span class="help-block">@Localizer["Must be a bank in mainland China"]，开户行大致格式应为 XX银行XX市XX分行（支行），不能只填写 XX银行 或者 XX市XX分行（支行）</span>
-                <span asp-validation-for="BankName" class="text-danger"></span>
+                <small class="form-text text-muted">@Localizer["Must be a bank in mainland China"]，开户行大致格式应为 XX银行XX市XX分行（支行），不能只填写 XX银行 或者 XX市XX分行（支行）</small>
+                <small><span asp-validation-for="BankName" class="text-danger"></span></small>
             </div>
         </div>
-        <div class="form-group hidden-neo">
-            <label asp-for="Name" class="control-label col-md-4">@Localizer["owner of account"]</label>
+        <div class="form-group row hidden-neo">
+            <label asp-for="Name" class="col-form-label text-right col-md-4">@Localizer["owner of account"]</label>
             <div class="col-md-4">
                 <input asp-for="Name" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-minlength-min="2" data-val-minlength="@string.Format(Localizer["Length is at least {0} characters"].Value, 2)" data-val-maxlength-max="8" data-val-maxlength="@string.Format(Localizer["Length cannot exceed {0} characters"].Value, 8)" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+                <small><span asp-validation-for="Name" class="text-danger"></span></small>
             </div>
         </div>
-        <div class="form-group hidden-cny">
-            <label asp-for="GivebackNeoAddress" class="control-label col-md-4">@Localizer["NEO address to receive giveback"]</label>
+        <div class="form-group row hidden-cny">
+            <label asp-for="GivebackNeoAddress" class="col-form-label text-right col-md-4">@Localizer["NEO address to receive giveback"]</label>
             <div class="col-md-4">
                 <input id="givebackNeoAddress" asp-for="GivebackNeoAddress" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex-pattern="A[F-HJ-NP-Za-f][1-9A-HJ-NP-Za-km-z]{32}" data-val-regex="@Localizer["Please enter a valid NEO address"]"/>
-                <span class="help-block">@Localizer["Please make sure that the address is yours"]</span>
-                <span asp-validation-for="GivebackNeoAddress" class="text-danger"></span>
+                <small class="form-text text-muted">@Localizer["Please make sure that the address is yours"]</small>
+                <small><span asp-validation-for="GivebackNeoAddress" class="text-danger"></span></small>
             </div>
         </div>
-        <div class="form-group">
-            <label asp-for="Email" class="col-md-4 control-label">@Localizer["Email"]</label>
+        <div class="form-group row">
+            <label asp-for="Email" class="col-md-4 col-form-label text-right">@Localizer["Email"]</label>
             <div class="col-md-4">
                 <input asp-for="Email" class="form-control" id="textinput" type="text" data-val="true" data-val-required="@Localizer["This field is required"]"  data-val-email="@Localizer["Please enter a valid E-mail address"]">
-                <span class="help-block">@Localizer["Please enter the email so that we can contact you"]</span>
-                <span asp-validation-for="Email" class="text-danger"></span>
+                <small class="form-text text-muted">@Localizer["Please enter the email so that we can contact you"]</small>
+                <small><span asp-validation-for="Email" class="text-danger"></span></small>
             </div>
         </div>
-        <div class="form-group">
-            <label class="control-label col-md-4"></label>
+        <div class="form-group row">
+            <label class="col-form-label text-right col-md-4"></label>
             <div class="col-md-4">
-                <input type="button" onclick="submit_click()" id="btn_submit" value="@Localizer["Submit Application"]" class="btn btn-default" />
+                <input type="button" onclick="submit_click()" id="btn_submit" value="@Localizer["Submit Application"]" class="btn btn-secondary" />
             </div>
         </div>
 
-        <div class="form-group">
-            <label class="control-label col-md-4"></label>
+        <div class="form-group row">
+            <label class="col-form-label text-right col-md-4"></label>
             <div class="col-md-4">
                 <span class="text-danger">@ViewBag.Message</span>
             </div>
@@ -117,9 +117,6 @@
                 $("#btn_submit").val(btn_wait);
                 setTimeout(signClick, 100);
             }
-            //if (document.getElementById("chk").checked) {
-
-            //}
         }
 
         function signClick() {
@@ -153,7 +150,7 @@
                 });
         }
         $("#menu_list a").css("border-bottom", "none")
-        $("#menu_list li.menu-item [href='/giveback']").css("border-bottom", "2px solid #58bf00")
+        $("#menu_list li.nav-item [href='/giveback']").css("border-bottom", "2px solid #58bf00")
     </script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script src="~/js/AntSharesSDK.js"></script>
