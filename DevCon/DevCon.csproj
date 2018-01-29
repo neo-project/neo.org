@@ -3,12 +3,15 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="wwwroot\新文件夹\**" />
+    <Content Remove="wwwroot\新文件夹\**" />
+    <EmbeddedResource Remove="wwwroot\新文件夹\**" />
+    <None Remove="wwwroot\新文件夹\**" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.1" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="wwwroot\新文件夹\" />
   </ItemGroup>
 </Project>
