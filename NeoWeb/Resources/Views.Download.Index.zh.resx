@@ -132,8 +132,8 @@
   <data name="Client Downloads" xml:space="preserve">
     <value>客户端下载</value>
   </data>
-  <data name="Download offline synchronized data" xml:space="preserve">
-    <value>下载离线同步数据包</value>
+  <data name="Offline synchronized data(Main Net)" xml:space="preserve">
+    <value>离线同步数据包(主网)</value>
   </data>
   <data name="English" xml:space="preserve">
     <value>英文</value>
@@ -275,5 +275,17 @@
   </data>
   <data name="License" xml:space="preserve">
     <value>开源协议</value>
+  </data>
+  <data name="http://docs.neo.org/en-us/node/cli.html" xml:space="preserve">
+    <value>http://docs.neo.org/zh-cn/node/cli.html</value>
+  </data>
+  <data name="http://docs.neo.org/en-us/node/gui.html" xml:space="preserve">
+    <value>http://docs.neo.org/zh-cn/node/gui.html</value>
+  </data>
+  <data name="Instructions for use" xml:space="preserve">
+    <value>使用说明</value>
+  </data>
+  <data name="Test Net" xml:space="preserve">
+    <value>测试网</value>
   </data>
 </root>
