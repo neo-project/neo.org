@@ -144,8 +144,8 @@
   <data name="Download" xml:space="preserve">
     <value>Herunterladen</value>
   </data>
-  <data name="Download offline synchronized data" xml:space="preserve">
-    <value>Herunterladen offline synchronisierter Daten</value>
+  <data name="Offline synchronized data(Main Net)" xml:space="preserve">
+    <value>Offline synchronisierte Daten (Haupt Netz)</value>
   </data>
   <data name="English" xml:space="preserve">
     <value>Englisch</value>
@@ -272,5 +272,17 @@
   </data>
   <data name="Website" xml:space="preserve">
     <value>Website</value>
+  </data>
+  <data name="http://docs.neo.org/en-us/node/cli.html" xml:space="preserve">
+    <value>http://docs.neo.org/de-de/node/cli.html</value>
+  </data>
+  <data name="http://docs.neo.org/en-us/node/gui.html" xml:space="preserve">
+    <value>http://docs.neo.org/de-de/node/gui.html</value>
+  </data>
+  <data name="Instructions for use" xml:space="preserve">
+    <value>Gebrauchsanweisung</value>
+  </data>
+  <data name="Test Net" xml:space="preserve">
+    <value>Test Netz</value>
   </data>
 </root>
