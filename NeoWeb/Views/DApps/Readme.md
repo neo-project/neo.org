@@ -38,9 +38,8 @@ Applying existing migrations for ApplicationDbContext may resolve this issue.
 - 所添加的 dApp 必需已在 main net 或 test net 上发布
 - 需要添加完善的 dApp 信息，如封面图片、名称、作者、dApp描述、邮箱、GitHub、ScriptHash
 - 封面图片上传至 NeoWeb\wwwroot\images\dapps 文件夹中
-- 如果 dApp 是在测试网上发布的需要单独标出
+- 新添加的项目应该添加到项目列表的最后，否则审核不会通过。
 
----
 ## How to add a dApp
 
 The overall process is as follows:
@@ -80,4 +79,4 @@ See also: [ASP.NET Core Tutorials](https://docs.microsoft.com/en-us/aspnet/core/
 - The added dApp must be published on main net or test net.
 - You need to add crucial dApp information, such as cover pictures, name, author, dApp description, mailbox, GitHub, ScriptHash.
 - The cover image is uploaded to the NeoWeb \ wwwroot \ images \ dapps folder.
-- If the dApp is published on the test network, it needs to be marked separately.
+- The newly added item should be added to the end of the dApps list, otherwise the audit will not pass.
