@@ -184,8 +184,8 @@
   <data name="NEO - An Open Network For Smart Economy" xml:space="preserve">
     <value>NEO  一种智能经济分布式网络</value>
   </data>
-  <data name="NeoContract supports multiple programming languages such as C#, Java, and Go. Developers can rapidly develop smart contracts based on the NEO platform without learning a unique language." xml:space="preserve">
-    <value>NEO智能支持用C#、Java、Go等编程语言来开发，开发者无需学习新语言即可快速开发基于NEO区块链的智能合约。</value>
+  <data name="NeoContract supports multiple programming languages such as C#, Java, and Python. Developers can rapidly develop smart contracts based on the NEO platform without learning a unique language." xml:space="preserve">
+    <value>NEO智能支持用C#、Java、Phthon等编程语言来开发，开发者无需学习新语言即可快速开发基于NEO区块链的智能合约。</value>
   </data>
   <data name="Participate in our project, get NEO and GAS for development testing, or view our technical documentation" xml:space="preserve">
     <value>参与我们的项目、领取开发测试用的NEO与GAS或者查看我们的技术文档</value>
