@@ -270,7 +270,6 @@
             <h1 class="font-l dev-headline ma-l">Sponsors</h1>
             <ul class="spon-img ma-m">
                 <li><img src="images/github.png" title="GitHub" /></li>
-                <li><img src="images/microsoft.png" title="Microsoft" /></li>
                 <li><img src="images/ontology.png" title="Ontology" /></li>
                 <li><img src="images/adex.png" title="Adex" /></li>
                 <li><img src="images/zeepin.png" title="Zeepin" /></li>
@@ -314,7 +313,7 @@
     <script type="text/javascript" src="js/site.min.js"></script>
     <script type="text/javascript">
         pageSize();
-        timeShow();
+        //timeShow();
 
         function pageSize() {
             $(".page-size").each(function () {
@@ -329,18 +328,18 @@
         });
 
         //倒计时方法
-        var deadline = new Date("2018/01/30 09:30:00 GMT-0800(CST)");
+        //var deadline = new Date("2018/01/30 09:30:00 GMT-0800(CST)");
 
-        var now = new Date();
-        if (deadline > now) { setInterval(timeShow, 1000); }
+        //var now = new Date();
+        //if (deadline > now) { setInterval(timeShow, 1000); }
 
-        function timeShow() {
-            var counttime = new CountTime(deadline);
-            $("#dayCount").html(counttime.fomate(counttime.day()));
-            $("#hourCount").html(counttime.fomate(counttime.hour()));
-            $("#minCount").html(counttime.fomate(counttime.minute()));
-            $("#secCount").html(counttime.fomate(counttime.second()));
-        }
+        //function timeShow() {
+        //    var counttime = new CountTime(deadline);
+        //    $("#dayCount").html(counttime.fomate(counttime.day()));
+        //    $("#hourCount").html(counttime.fomate(counttime.hour()));
+        //    $("#minCount").html(counttime.fomate(counttime.minute()));
+        //    $("#secCount").html(counttime.fomate(counttime.second()));
+        //}
 
         $(window).resize(function () {
             pageSize();
