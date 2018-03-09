@@ -1,0 +1,17 @@
+﻿@model NeoWeb.Models.Event
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+<div class="container">
+    <h2 class="text-center">Edit Event</h2>
+    <br />
+    <form asp-action="Edit" class="form-horizontal">
+        @Html.Partial("_CreatePartialPage", Model)
+    </form>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

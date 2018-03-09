@@ -1,0 +1,53 @@
+﻿@model IEnumerable<NeoWeb.Models.Event>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = "Event";
+}
+@section Styles{
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/event.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/event.min.css" asp-append-version="true" />
+    </environment>
+}
+
+<div class="container text-center" style="position: relative;">
+    <h2 class="m2">Event List</h2>
+    <div class="text-left m3">
+        @if (ViewBag.UserRules)
+        {
+            <a asp-action="Create">发布新活动</a>
+        }
+    </div>
+    <div class="text-left m3">
+        <strong class="mt-2 mb-2">Type: </strong>
+        <a class="btn btn-light btn-sm mb-1" href="~/event/index">ALL</a>
+        @foreach (var item in (ViewBag.AllFeatureEvent as IEnumerable<Event>).GroupBy(p => p.Type))
+        {
+            <a class="btn btn-light btn-sm mb-1" href="~/event/index/@item.FirstOrDefault().Type.ToString().ToLower()">@item.FirstOrDefault().Type</a>
+        }
+    </div>
+    <div class="text-left m3">
+        <strong class="mt-2 mb-2">Date: </strong>
+        <a class="btn btn-light btn-sm mb-1" href="~/event/index">ALL</a>
+        @foreach (var item in (ViewBag.AllFeatureEvent as IEnumerable<Event>).GroupBy(p => p.StartTime.Month))
+        {
+            <a class="btn btn-light btn-sm mb-1" href="~/event/index/@item.FirstOrDefault().StartTime.Month">@item.FirstOrDefault().StartTime.Month.ToMonth()</a>
+        }
+    </div>
+    <hr />
+    @foreach (var item in Model.Where(p => p.EndTime >= DateTime.Now))
+    {
+        Html.RenderPartial("_EventPartialPage", item);
+    }
+    <hr />
+    <div><a href="~/event/index/showall">显示过去的活动</a></div>
+    @foreach (var item in Model.Where(p => p.EndTime < DateTime.Now))
+    {
+        Html.RenderPartial("_EventPartialPage", item);
+    }
+    <hr />
+    @await Html.PartialAsync("_LoginPartial")
+</div>

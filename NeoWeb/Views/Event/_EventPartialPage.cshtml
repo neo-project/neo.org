@@ -1,0 +1,35 @@
+﻿@model NeoWeb.Models.Event
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+<div class="event-item">
+    <img src="@String.Format("/images/event/{0}.jpg", Model.Type)">
+    <div class="mb-3">
+        <h3 class="mt-2 mb-1">@Model.Name</h3>
+        <div class="address">
+            <i class="iconfont">&#xe620;</i><span class="@Localizer["d-none-zh"]">@Model.Country.Name</span><span class="@Localizer["d-none"]">@Model.Country.ZhName</span> - <span>@Model.City</span>
+        </div>
+        <div class="date">
+            @if (Model.StartTime.Year == DateTime.Now.Year)
+            {
+                <span>@Model.StartTime.ToString("MM-dd HH:mm") @*~ @Model.EndTime.ToString("HH:mm")*@</span>
+            }
+            else
+            {
+                <span>@Model.StartTime.ToString("yyyy-MM-dd HH:mm") @*~ @Model.EndTime.ToString("HH:mm")*@</span>
+            }
+        </div>
+    </div>
+    <a href="~/event/details/@Model.Id" class="btn btn-success">查看详情</a>
+
+    <div class="org">
+        @Model.Organizers
+        <div class="float-right">
+            @if (ViewBag.UserRules)
+            {
+                <a asp-action="Edit" asp-route-id="@Model.Id">编辑</a>
+                <span>|</span>
+                <a asp-action="Delete" asp-route-id="@Model.Id">删除</a>
+            }
+        </div>
+    </div>
+</div>

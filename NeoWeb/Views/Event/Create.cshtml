@@ -1,0 +1,24 @@
+﻿@model NeoWeb.Models.Event
+
+@{
+    ViewData["Title"] = "Create Event";
+}
+@section Styles{
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/event.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/event.min.css" asp-append-version="true" />
+    </environment>
+}
+<div class="container">
+    <h2 class="text-center">Create Event</h2>
+    <form asp-action="Create" class="form-horizontal">
+        @Html.Partial("_CreatePartialPage", Model)
+    </form>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

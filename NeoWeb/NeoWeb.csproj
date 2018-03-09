@@ -32,6 +32,9 @@
     <EmbeddedResource Update="Resources\Views.DApps.Index.zh.resx">
       <Generator></Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Views.Event.Index.zh.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Views.Giveback.Completed.zh.resx">
       <Generator></Generator>
     </EmbeddedResource>

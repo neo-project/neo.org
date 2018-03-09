@@ -17,6 +17,8 @@ namespace NeoWeb.Data
 
         public DbSet<Blog> Blogs { get; set; }
 
+        public DbSet<Country> Countries { get; set; }
+
         public DbSet<Testnet> Testnets { get; set; }
 
         public DbSet<News> News { get; set; }
@@ -24,6 +26,8 @@ namespace NeoWeb.Data
         public DbSet<ICO1> ICO1 { get; set; }
 
         public DbSet<ICO2> ICO2 { get; set; }
+
+        public DbSet<Event> Events { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -6,15 +6,15 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using NeoWeb.Data;
-using NeoWeb.Models;
 using System;
 
 namespace NeoWeb.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180307101639_Country")]
+    partial class Country
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -230,46 +230,6 @@ namespace NeoWeb.Data.Migrations
                     b.ToTable("Countries");
                 });
 
-            modelBuilder.Entity("NeoWeb.Models.Event", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Address")
-                        .IsRequired();
-
-                    b.Property<string>("City")
-                        .IsRequired();
-
-                    b.Property<int?>("CountryId");
-
-                    b.Property<string>("Cover");
-
-                    b.Property<string>("Details");
-
-                    b.Property<DateTime>("EndTime");
-
-                    b.Property<bool>("IsFree");
-
-                    b.Property<string>("Name")
-                        .IsRequired();
-
-                    b.Property<string>("Organizers")
-                        .IsRequired();
-
-                    b.Property<DateTime>("StartTime");
-
-                    b.Property<string>("ThirdPartyLink");
-
-                    b.Property<int>("Type");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CountryId");
-
-                    b.ToTable("Events");
-                });
-
             modelBuilder.Entity("NeoWeb.Models.ICO1", b =>
                 {
                     b.Property<string>("RedeemCode")
@@ -432,13 +392,6 @@ namespace NeoWeb.Data.Migrations
                     b.HasOne("NeoWeb.Models.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("NeoWeb.Models.Event", b =>
-                {
-                    b.HasOne("NeoWeb.Models.Country", "Country")
-                        .WithMany()
-                        .HasForeignKey("CountryId");
                 });
 #pragma warning restore 612, 618
         }

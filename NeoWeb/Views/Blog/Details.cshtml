@@ -57,7 +57,7 @@
                 <p class="light-text t2 m3 @Localizer["d-none-zh"]">Author <span class="bold-font">@Model.User.UserName</span> posted on <span class="bold-font">@Model.CreateTime.ToShortDateString()</span></p>
                 <div class="float-right qrcode-div"><i class="iconfont">&#xe79b;</i><div id="qrcode"></div></div>
                 <p>
-                    @if (ViewBag.UserRulesCount)
+                    @if (ViewBag.UserRules)
                     {
                         <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
                         <span>|</span>
