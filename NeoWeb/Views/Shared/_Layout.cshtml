@@ -13,15 +13,27 @@
     <meta name="application-name" content="neo.org">
     <meta name="renderer" content="ie-stand">
 
+
     @if (ViewData["Title"] == null)
     {
         <title>@Localizer["NEO Smart Economy"]</title>
+        <meta name="twitter:title" content="@Localizer["NEO Smart Economy"]" />
     }
     else
     {
         <title>@ViewData["Title"] - @Localizer["NEO Smart Economy"]</title>
+        <meta name="twitter:title" content="@ViewData["Title"] - @Localizer["NEO Smart Economy"]" />
     }
-
+    @if (ViewData["Details"] == null)
+    {
+        <meta name="twitter:description" content="@Localizer["NEO Smart Economy"]" />
+    }
+    else
+    {
+        <meta name="twitter:description" content="@ViewData["Details"]" />
+    }
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://neo.org/images/twitter-img.jpg" />
     <link rel="apple-touch-icon" href="~/images/favicon.png">
     <link rel="shortcut icon" type="image/x-icon" href="~/images/favicon.png">
     <link rel="icon" type="image/x-icon" href="~/images/favicon.png">
