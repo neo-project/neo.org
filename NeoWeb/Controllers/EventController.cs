@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -79,6 +80,7 @@ namespace NeoWeb.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public IActionResult Search(string keyword)
         {
@@ -128,6 +130,7 @@ namespace NeoWeb.Controllers
                     || p.Organizers.Contains(item)); break;
                 }
             }
+            ViewBag.UserRules = _userRules;
             return View(models);
         }
 
@@ -162,7 +165,7 @@ namespace NeoWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,City,Type,Address,StartTime,EndTime,Cover,Details,Organizers,IsFree,ThirdPartyLink")] Event @event, int countryId)
+        public async Task<IActionResult> Create([Bind("Id,Name,City,Type,Address,StartTime,EndTime,Cover,Details,Organizers,IsFree,ThirdPartyLink")] Event @event, int countryId, IFormFile cover)
         {
             var country = _context.Countries.FirstOrDefault(p => p.Id == countryId);
             if (country == null)
@@ -180,12 +183,33 @@ namespace NeoWeb.Controllers
             }
             if (ModelState.IsValid)
             {
+                if(cover != null)
+                {
+                    @event.Cover = Upload(cover);
+                }
                 _context.Add(@event);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             ViewBag.Countries = _context.Countries.ToList();
             return View(@event);
+        }
+
+        public string Upload(IFormFile cover)
+        {
+            var random = new Random();
+            var bytes = new byte[10];
+            random.NextBytes(bytes);
+            var newName = bytes.ToHexString() + Path.GetExtension(cover.FileName);
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", newName);
+            if (cover.Length > 0)
+            {
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    cover.CopyTo(stream);
+                }
+            }
+            return newName;
         }
 
         // GET: Event/Edit/5
@@ -210,7 +234,7 @@ namespace NeoWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,City,Type,Address,StartTime,EndTime,Cover,Details,Organizers,IsFree,ThirdPartyLink")] Event @event, int countryId)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,City,Type,Address,StartTime,EndTime,Cover,Details,Organizers,IsFree,ThirdPartyLink")] Event @event, int countryId, IFormFile cover)
         {
             if (id != @event.Id)
             {
@@ -234,6 +258,12 @@ namespace NeoWeb.Controllers
             {
                 try
                 {
+                    if (cover != null)
+                    {
+                        if(!String.IsNullOrEmpty(@event.Cover))
+                            System.IO.File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", @event.Cover));
+                        @event.Cover = Upload(cover);
+                    }
                     _context.Update(@event);
                     await _context.SaveChangesAsync();
                 }

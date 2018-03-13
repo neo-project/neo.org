@@ -144,4 +144,10 @@
   <data name="Back to List" xml:space="preserve">
     <value>返回列表</value>
   </data>
+  <data name="Search Result" xml:space="preserve">
+    <value>搜索结果</value>
+  </data>
+  <data name="Show details" xml:space="preserve">
+    <value>查看详情</value>
+  </data>
 </root>

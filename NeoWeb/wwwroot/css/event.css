@@ -28,6 +28,7 @@
 
 .event-item img {
     max-width: 100%;
+    height: 126.5px;
 }
 
 .event-item img + div {

@@ -4,8 +4,19 @@
 @{
     ViewData["Title"] = "Search";
 }
-<div class="container">
-    <h2>Search Result</h2>
+@section Styles{
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/event.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/event.min.css" asp-append-version="true" />
+    </environment>
+}
+<div class="container event-detail">
+    <h2>@Localizer["Search Result"]</h2>
+    <div class="mt-2">
+        <a asp-action="Index">@Localizer["Back to List"]</a>
+    </div>
     @foreach (var item in Model)
     {
         <div class="row mt-3">
@@ -31,6 +42,7 @@
                         <span>@Localizer["Paid ticket"]</span>
                     }
                 </div>
+                <a href="~/event/details/@item.Id" class="btn btn-success mt-2">@Localizer["Show details"]</a>
                 @if (ViewBag.UserRules)
                 {
                     <a asp-action="Edit" asp-route-id="@item.Id">@Localizer["Edit"]</a>
@@ -39,9 +51,10 @@
                 }
             </div>
         </div>
+        <hr />
     }
-
-    <a asp-action="Index">Back to List</a>
-
+    <div class="mt-2">
+        <a asp-action="Index">@Localizer["Back to List"]</a>
+    </div>
 </div>
 

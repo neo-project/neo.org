@@ -2,7 +2,14 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 <div class="event-item">
-    <img src="@String.Format("/images/event/{0}.jpg", Model.Type)">
+    @if (String.IsNullOrEmpty(Model.Cover))
+    {
+        <img src="@String.Format("/images/event/{0}.jpg", Model.Type)">
+    }
+    else
+    {
+        <img src="@String.Format("/upload/{0}", Model.Cover)">
+    }
     <div class="mb-3">
         <h3 class="mt-2 mb-1">@Model.Name</h3>
         <div class="address">
@@ -26,7 +33,7 @@
         <div class="float-right">
             @if (ViewBag.UserRules)
             {
-            <a asp-action="Edit" asp-route-id="@Model.Id">@Localizer["Edit"]</a>
+                <a asp-action="Edit" asp-route-id="@Model.Id">@Localizer["Edit"]</a>
                 <span>|</span>
                 <a asp-action="Delete" asp-route-id="@Model.Id">@Localizer["Delete"]</a>
             }
