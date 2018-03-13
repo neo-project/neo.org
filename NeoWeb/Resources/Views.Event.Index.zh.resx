@@ -117,10 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Create a new event" xml:space="preserve">
+    <value>发布新活动</value>
+  </data>
   <data name="d-none" xml:space="preserve">
     <value />
   </data>
   <data name="d-none-zh" xml:space="preserve">
     <value>d-none</value>
+  </data>
+  <data name="Show previous events" xml:space="preserve">
+    <value>显示过去的活动</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>搜索</value>
   </data>
 </root>

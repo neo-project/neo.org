@@ -123,4 +123,22 @@
   <data name="d-none-zh" xml:space="preserve">
     <value>d-none</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Details of the event are being edited, please look forward to." xml:space="preserve">
+    <value>活动详情正在编辑中，敬请期待</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="Free ticket" xml:space="preserve">
+    <value>免费票</value>
+  </data>
+  <data name="Paid ticket" xml:space="preserve">
+    <value>付费票</value>
+  </data>
+  <data name="Purchase ticket Link" xml:space="preserve">
+    <value>购票链接</value>
+  </data>
 </root>

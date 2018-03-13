@@ -123,4 +123,13 @@
   <data name="d-none-zh" xml:space="preserve">
     <value>d-none</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="Show details" xml:space="preserve">
+    <value>查看详情</value>
+  </data>
 </root>

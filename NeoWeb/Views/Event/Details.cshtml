@@ -30,18 +30,18 @@
                 <div class="mt-2">
                     @if (Model.IsFree)
                     {
-                        <span>免费票</span>
+                        <span>@Localizer["Free ticket"]</span>
                     }
                     else
                     {
-                        <span>付费票</span>
+                        <span>@Localizer["Paid ticket"]</span>
                     }
                 </div>
                 @if (ViewBag.UserRules)
                 {
-                    <a asp-action="Edit" asp-route-id="@Model.Id">编辑</a>
+                <a asp-action="Edit" asp-route-id="@Model.Id">@Localizer["Edit"]</a>
                     <span>|</span>
-                    <a asp-action="Delete" asp-route-id="@Model.Id">删除</a>
+                    <a asp-action="Delete" asp-route-id="@Model.Id">@Localizer["Delete"]</a>
                 }
             </div>
         </div>
@@ -50,14 +50,14 @@
         @if (!String.IsNullOrEmpty(Model.ThirdPartyLink))
         {
             <div>
-                <a class="btn btn-success" href="@Model.ThirdPartyLink">购票链接</a>
+                <a class="btn btn-success" href="@Model.ThirdPartyLink">@Localizer["Purchase ticket Link"]</a>
                 <hr />
             </div>
         }
         <div>
             @if (String.IsNullOrEmpty(Model.Details))
             {
-                <span>敬请期待</span>
+            <span>@Localizer["Details of the event are being edited, please look forward to."]</span>
             }
             else
             {

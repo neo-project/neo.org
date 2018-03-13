@@ -53,3 +53,11 @@
 .event-detail img {
     max-width:100%;
 }
+.type-div {
+    width: 100%;
+    background-color: #28a745;
+    padding: 10px;
+}
+#eventCarousel img {
+    max-height: 370px;
+}

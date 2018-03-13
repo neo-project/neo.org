@@ -78,6 +78,59 @@ namespace NeoWeb.Controllers
             return View(models);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Search(string keyword)
+        {
+            var models = _context.Events.OrderBy(o => o.StartTime).Select(p => new
+            {
+                p.Id,
+                p.Name,
+                p.Type,
+                p.Country,
+                p.City,
+                p.Address,
+                p.StartTime,
+                p.EndTime,
+                p.Cover,
+                p.Organizers,
+                p.IsFree,
+                p.ThirdPartyLink
+            }).ToList().Select(p => new Event()
+            {
+                Id = p.Id,
+                Name = p.Name,
+                Type = p.Type,
+                Country = p.Country,
+                City = p.City,
+                Address = p.Address,
+                StartTime = p.StartTime,
+                EndTime = p.EndTime,
+                Cover = p.Cover,
+                Organizers = p.Organizers,
+                IsFree = p.IsFree,
+                ThirdPartyLink = p.ThirdPartyLink
+            });
+            var keywords = keyword.Split(" ");
+            foreach (var item in keywords)
+            {
+                switch (item)
+                {
+                    case "devcon": models = models.Where(p => p.Type == EventType.DevCon); break;
+                    case "meetup": models = models.Where(p => p.Type == EventType.Meetup); break;
+                    case "workshop": models = models.Where(p => p.Type == EventType.Workshop); break;
+                    case "hackathon": models = models.Where(p => p.Type == EventType.Hackathon); break;
+                    default: models = models.Where(p => p.Name.Contains(item) 
+                    || p.Country.Name.Contains(item)
+                    || p.Country.ZhName.Contains(item)
+                    || p.City.Contains(item)
+                    || p.Address.Contains(item)
+                    || p.Organizers.Contains(item)); break;
+                }
+            }
+            return View(models);
+        }
+
         // GET: Event/Details/5
         [AllowAnonymous]
         public async Task<IActionResult> Details(int? id)
