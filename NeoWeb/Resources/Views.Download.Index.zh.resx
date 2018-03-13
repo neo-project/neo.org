@@ -288,4 +288,10 @@
   <data name="Test Net" xml:space="preserve">
     <value>测试网</value>
   </data>
+  <data name="Login via encrypted key and password" xml:space="preserve">
+    <value>用 encrypted key 或密码登录</value>
+  </data>
+  <data name="Perfect combination with ledger Nano S" xml:space="preserve">
+    <value>与 Ledger Nano S 完美结合</value>
+  </data>
 </root>
