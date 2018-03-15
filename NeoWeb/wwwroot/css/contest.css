@@ -164,6 +164,15 @@ a {
     background:#30B900;
     color:#fff;
 }
+.unclick-btn {
+    background:#FFF;
+    border:2px solid #777777;
+    background:#777777;
+    color:#FFFFFF!important;
+}
+.unclick-btn:hover{
+    background:#777777;
+}
 
 .comp-rules {
     background:url(../images/contest/bg2.png) repeat-x;
