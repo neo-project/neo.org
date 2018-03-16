@@ -10,7 +10,7 @@
 }
 .nav-download li{
     display:inline-block;
-    width:4em;
+    width:7em;
     color:#AAAAAA;
     cursor:pointer;
 }
@@ -18,7 +18,8 @@
     display:block;
     color:#AAAAAA;
     font-style:normal;
-    font-size:40px;
+    font-size:35px;
+    height:50px;
 }
 .nav-download .downtab-select {
     color:#58BF00;
@@ -34,7 +35,7 @@
 }
 .download-ul li {
     display: inline-block;
-    width: 360px;
+    max-width: 360px;
     margin: 20px 8px;
     line-height:1.5;
     vertical-align:top;
@@ -122,6 +123,9 @@
     font-size: 14px;
 
 }
+.down-time {
+    margin-bottom:0;
+}
 
 .down-select {
     display:block;
@@ -160,10 +164,23 @@
         max-width:360px;
         margin:auto;
     }
+    .download-ul .down-box{
+        max-width:340px;
+        margin:20px 0;
+    }
     .down-box p{
         min-height:initial;
     }
-        .down-hint {
+    .down-hint {
         max-width:330px;
+    }
+    .nav-download li{
+        width:4em;
+        font-size:16px;
+        margin-bottom:10px;
+    }
+    .nav-download li .iconfont {
+        font-size:30px;
+        height:40px;
     }
 }
