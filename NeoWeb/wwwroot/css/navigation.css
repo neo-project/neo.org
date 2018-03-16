@@ -99,6 +99,7 @@
     /*width: 200px;*/
     text-align:right;
     padding:0;
+    margin-right:-12px;
 }
 #more_list a {
     padding: 10px 20px;
@@ -120,7 +121,7 @@
     }
     .navbar-nav {
         text-align:center;
-        margin:0 -15px;
+        /*margin:0 -15px;*/
     }
     .main-footer {
         padding: 20px 0; 
