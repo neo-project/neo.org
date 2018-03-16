@@ -61,7 +61,7 @@ namespace NeoWeb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult ICO1([Bind("Email,RedeemCode,Choose,Name,BankAccount,BankName,GivebackNeoAddress")] ICO1 giveback)
         {
-            if (DateTime.Now > new DateTime(2018, 3, 15, 0, 0, 0))
+            if (DateTime.Now > new DateTime(2018, 3, 16, 0, 0, 0))
             {
                 ViewBag.Message = "回馈计划已截止";
                 return View(giveback);
@@ -115,7 +115,7 @@ namespace NeoWeb.Controllers
         public IActionResult ICO2(string signature, string pubkey,
             [Bind("Email,Choose,Name,BankAccount,BankName,GivebackNeoAddress")] ICO2 giveback)
         {
-            if (DateTime.Now > new DateTime(2018, 3, 15, 0, 0, 0))
+            if (DateTime.Now > new DateTime(2018, 3, 16, 0, 0, 0))
             {
                 ViewBag.Message = _localizer["The giveback plan has expired"];
                 return View(giveback);
