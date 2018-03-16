@@ -290,8 +290,8 @@ footer {
 
 .home-down-tab .iconfont {
     display:inline-block;
-    width:20%;
-    font-size:60px;
+    width:1.5em;
+    font-size:48px;
     color:#AAAAAA;
     cursor:pointer;
     text-decoration:none;
@@ -451,9 +451,6 @@ footer {
     }
     .home-neo-intro .col-sm-9{
         padding:5px;
-    }
-    .home-down-tab .iconfont {
-        width: 30%;
     }
     .home-down {
         background-position: top left;

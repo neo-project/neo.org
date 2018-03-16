@@ -21,10 +21,11 @@
         <li><a class="iconfont">&#xe64b;</a>@Localizer["Mobile"]</li>
         <li><a class="iconfont">&#xe632;</a>@Localizer["Desktop"]</li>
         <li><a class="iconfont">&#xe63c;</a>@Localizer["Web"]</li>
+        <li><a class="iconfont">&#xe63c;</a>@Localizer["Hardware"]</li>
     </ul>
     <div class="row download-container">
 
-        <ul class="download-ul download-mobile">
+        <ul class="download-ul">
             <li class="down-box">
                 <div class="picture">
                     <img src="~/images/download/o3-android.jpg" />
@@ -85,7 +86,7 @@
             </li>
         </ul>
 
-        <ul class="download-ul download-desktop">
+        <ul class="download-ul">
             <li class="down-box">
                 <div class="picture">
                     <img src="~/images/download/down-gui.jpg" />
@@ -174,7 +175,7 @@
             </li>
         </ul>
 
-        <ul class="download-ul download-web">
+        <ul class="download-ul">
             <li class="down-box">
                 <div class="picture">
                     <img src="~/images/download/down-tracker.jpg" />
@@ -245,6 +246,28 @@
                 <a class="down-btn" href="https://snowypowers.github.io/ansy/" target="_blank">@Localizer["Visit Site"]</a>
             </li>
         </ul>
+
+        <ul class="download-ul">
+            <li class="down-box">
+                <div class="picture">
+                    <img src="~/images/download/down-tracker.jpg" />
+                </div>
+                <h2>NEO Tracker</h2>
+                <p class="desc">
+                    - <a href="https://github.com/neotracker/neotracker-wallet" target="_blank">NEO Tracker</a> @Localizer["developed an online wallet"]<br />
+                    - @Localizer["Login with private key or keystore File"]<br />
+                    - @Localizer["It is also a good NEO blockchain explorer"]<br />
+                    - @Localizer["Support"] NEP-5 <br />
+                </p>
+                <p class="info">
+                    @Localizer["Languages"]: @Localizer["English"]<br />
+                    @Localizer["Supported Browser"]: Chrome/Edge<br />
+                    @Localizer["License"]: <a href="https://github.com/neotracker/neotracker-wallet/blob/master/LICENSE.md" target="_blank">MIT</a><br />
+                </p>
+                <a class="down-btn" href="https://neotracker.io/wallet" target="_blank">@Localizer["Visit Site"]</a>
+            </li>
+        </ul>
+
     </div>
 </div>
 @section Scripts{
@@ -252,28 +275,14 @@
         $(function () {
             var test = window.location.hash.substr(1);
             var num = parseInt(test);
-            if (num) {
-                $("#downTab li").eq(num - 1).addClass("downtab-select");
-                switch (num) {
-                    case 1: $(".download-mobile").addClass("down-select"); break;
-                    case 2: $(".download-desktop").addClass("down-select"); break;
-                    case 3: $(".download-web").addClass("down-select"); break;
-                    default: break;
-                }
-            } else {
-                $("#downTab li").eq(1).addClass("downtab-select");
-                $(".download-desktop").addClass("down-select");
-            }
+            $("#downTab li").eq(num ? num - 1 : 1).addClass("downtab-select");
+            $(".download-container ul").eq(num ? num - 1 : 1).addClass("down-select");
 
             $("#downTab li").click(function () {
                 $(".downtab-select").removeClass("downtab-select");
-                $(this).addClass("downtab-select");
                 $(".down-select").removeClass("down-select");
-                switch ($(this).index()) {
-                    case 0: $(".download-mobile").addClass("down-select"); break;
-                    case 1: $(".download-desktop").addClass("down-select"); break;
-                    case 2: $(".download-web").addClass("down-select"); break;
-                }
+                $(this).addClass("downtab-select");
+                $(".download-container ul").eq($(this).index()).addClass("down-select");
             })
         })
         $("#menu_list a").css("border-bottom", "none")
