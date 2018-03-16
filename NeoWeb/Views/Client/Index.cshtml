@@ -2,7 +2,7 @@
 @inject IViewLocalizer Localizer
 
 @{
-    ViewData["Title"] = Localizer["Client Downloads"];
+    ViewData["Title"] = Localizer["Get Client"];
 }
 @section Styles{
     <environment include="Development">
@@ -28,7 +28,7 @@
         <ul class="download-ul download-mobile">
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/download/o3-android.jpg" />
+                    <img src="~/images/client/o3-android.jpg" />
                 </div>
                 <h2>O3 - @Localizer["Android version"]<small>1.5.6</small></h2>
                 <p class="desc">
@@ -48,7 +48,7 @@
             </li>
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/download/down-O3.jpg" />
+                    <img src="~/images/client/o3-ios.jpg" />
                 </div>
                 <h2>O3 - @Localizer["iOS version"]<small>1.1.0</small></h2>
                 <p class="desc">
@@ -68,7 +68,7 @@
             </li>
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/download/down-app.jpg" />
+                    <img src="~/images/client/app.jpg" />
                 </div>
                 <h2>NEO APP - @Localizer["Android version"]<small>1.2.2</small></h2>
                 <p class="desc">
@@ -89,7 +89,7 @@
         <ul class="download-ul download-desktop">
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/download/down-gui.jpg" />
+                    <img src="~/images/client/gui.jpg" />
                 </div>
                 <h2>NEO-GUI<small>2.6.0</small></h2>
                 <p class="desc">
@@ -112,7 +112,7 @@
             </li>
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/download/down-cli.jpg" />
+                    <img src="~/images/client/cli.jpg" />
                 </div>
                 <h2>NEO-CLI<small>2.7.3</small></h2>
                 <p class="desc">
@@ -133,7 +133,7 @@
             </li>
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/download/down-NEON.jpg" />
+                    <img src="~/images/client/neon.jpg" />
                 </div>
                 <h2>Neon Wallet<small>0.2.1</small></h2>
                 <p class="desc">
@@ -153,7 +153,7 @@
             </li>
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/download/down-morpheus.jpg" />
+                    <img src="~/images/client/morpheus.jpg" />
                 </div>
                 <h2>Morpheus Wallet<small>0.0.52</small></h2>
                 <p class="desc">
@@ -178,7 +178,7 @@
         <ul class="download-ul download-web">
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/download/down-tracker.jpg" />
+                    <img src="~/images/client/tracker.jpg" />
                 </div>
                 <h2>NEO Tracker</h2>
                 <p class="desc">
@@ -196,7 +196,7 @@
             </li>
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/download/down-wallet.jpg" />
+                    <img src="~/images/client/wallet.jpg" />
                 </div>
                 <h2>NEO WALLET</h2>
                 <p class="desc">
@@ -212,7 +212,7 @@
             </li>
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/download/down-otcgo.jpg" />
+                    <img src="~/images/client/otcgo.jpg" />
                 </div>
                 <h2>@Localizer["OTCGO"]</h2>
                 <p class="desc">
@@ -230,7 +230,7 @@
             </li>
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/download/down-ansy.jpg" />
+                    <img src="~/images/client/ansy.jpg" />
                 </div>
                 <h2>Ansy</h2>
                 <p class="desc">
@@ -250,7 +250,7 @@
         <ul class="download-ul download-hardware">
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/download/down-ledgerblue.jpg" />
+                    <img src="~/images/client/ledger-blue.jpg" />
                 </div>
                 <h2>Ledger Blue</h2>
                 <p class="desc">
@@ -269,7 +269,7 @@
             </li>
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/download/down-ledger.jpg" />
+                    <img src="~/images/client/ledger-nano.jpg" />
                 </div>
                 <h2>Ledger Nano S</h2>
                 <p class="desc">
@@ -304,6 +304,6 @@
             })
         })
         $("#menu_list a").css("border-bottom", "none")
-        $("#menu_list li.nav-item [href='/download']").css("border-bottom", "2px solid #58bf00")
+        $("#menu_list li.nav-item [href='/client']").css("border-bottom", "2px solid #58bf00")
     </script>
 }
