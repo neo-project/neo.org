@@ -6,26 +6,26 @@
 }
 @section Styles{
     <environment include="Development">
-        <link rel="stylesheet" href="~/css/download.css" />
+        <link rel="stylesheet" href="~/css/client.css" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="~/css/download.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/client.min.css" asp-append-version="true" />
     </environment>
 }
 
 <div class="container">
     <div class="row">
-        <h1 class="m3">@Localizer["Client Downloads"]</h1>
+        <h1 class="m3">@Localizer["Get Client"]</h1>
     </div>
     <ul class="nav-download m3 t1" id="downTab">
         <li><a class="iconfont">&#xe64b;</a>@Localizer["Mobile"]</li>
         <li><a class="iconfont">&#xe632;</a>@Localizer["Desktop"]</li>
         <li><a class="iconfont">&#xe63c;</a>@Localizer["Web"]</li>
-        <li><a class="iconfont">&#xe63c;</a>@Localizer["Hardware"]</li>
+        <li><a class="iconfont">&#xe688;</a>@Localizer["Hardware"]</li>
     </ul>
     <div class="row download-container">
 
-        <ul class="download-ul">
+        <ul class="download-ul download-mobile">
             <li class="down-box">
                 <div class="picture">
                     <img src="~/images/download/o3-android.jpg" />
@@ -77,16 +77,16 @@
                     - @Localizer["Wallet file is stored locally, log in via password"]<br />
                 </p>
                 <p class="info">
-                    @Localizer["Languages"]: @Localizer["English/Chinese"]<br />
+                    @Localizer["Languages"]: @Localizer["English"]<br />
                     @Localizer["Supported OS"]: Android 5 @Localizer["or later"]<br />
                     @Localizer["License"]: <a href="https://github.com/PeterLinX/neowallet.cn/blob/master/LICENSE" target="_blank">MIT</a><br />
                 </p>
                 <p class="down-time">2018-3-5</p>
-                <a class="down-btn" href="@Localizer["https://play.google.com/store/apps/details?id=neo.app"]" target="_blank">@Localizer["Download"]</a>
+                <a class="down-btn" href="@Localizer["https://play.google.com/store/apps/details?id=neo.app"]" target="_blank">@Localizer["Website"]</a>
             </li>
         </ul>
 
-        <ul class="download-ul">
+        <ul class="download-ul download-desktop">
             <li class="down-box">
                 <div class="picture">
                     <img src="~/images/download/down-gui.jpg" />
@@ -175,7 +175,7 @@
             </li>
         </ul>
 
-        <ul class="download-ul">
+        <ul class="download-ul download-web">
             <li class="down-box">
                 <div class="picture">
                     <img src="~/images/download/down-tracker.jpg" />
@@ -247,27 +247,45 @@
             </li>
         </ul>
 
-        <ul class="download-ul">
+        <ul class="download-ul download-hardware">
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/download/down-tracker.jpg" />
+                    <img src="~/images/download/down-ledgerblue.jpg" />
                 </div>
-                <h2>NEO Tracker</h2>
+                <h2>Ledger Blue</h2>
                 <p class="desc">
-                    - <a href="https://github.com/neotracker/neotracker-wallet" target="_blank">NEO Tracker</a> @Localizer["developed an online wallet"]<br />
-                    - @Localizer["Login with private key or keystore File"]<br />
-                    - @Localizer["It is also a good NEO blockchain explorer"]<br />
-                    - @Localizer["Support"] NEP-5 <br />
+                    - <a href="https://github.com/LedgerHQ" target="_blank">Ledger</a> @Localizer["developed a cryptocurrency hardware wallet"]<br />
+                    - @Localizer["Large touchscreen"]<br />
+                    - @Localizer["Bluetooth (BLE)"]<br />
+                    - @Localizer["Rechargeable battery"]<br />
+                    - @Localizer["Multicurrency"]<br />
+                    - @Localizer["Extensible with other apps"]<br />
                 </p>
                 <p class="info">
                     @Localizer["Languages"]: @Localizer["English"]<br />
-                    @Localizer["Supported Browser"]: Chrome/Edge<br />
-                    @Localizer["License"]: <a href="https://github.com/neotracker/neotracker-wallet/blob/master/LICENSE.md" target="_blank">MIT</a><br />
+                    @Localizer["License"]: <a href="https://github.com/LedgerHQ/ledger-wallet-chrome/blob/master/LICENSE" target="_blank">MIT</a><br />
                 </p>
-                <a class="down-btn" href="https://neotracker.io/wallet" target="_blank">@Localizer["Visit Site"]</a>
+                <a class="down-btn" href="https://www.ledgerwallet.com/apps/manager" target="_blank">@Localizer["Website"]</a>
+            </li>
+            <li class="down-box">
+                <div class="picture">
+                    <img src="~/images/download/down-ledger.jpg" />
+                </div>
+                <h2>Ledger Nano S</h2>
+                <p class="desc">
+                    - <a href="https://github.com/LedgerHQ" target="_blank">Ledger</a> @Localizer["developed a cryptocurrency hardware wallet"]<br />
+                    - @Localizer["Compact and durable"]<br />
+                    - @Localizer["OLED screen + buttons"]<br />
+                    - @Localizer["Multicurrency"]<br />
+                    - @Localizer["Extensible with other apps"]<br />
+                </p>
+                <p class="info">
+                    @Localizer["Languages"]: @Localizer["English"]<br />
+                    @Localizer["License"]: <a href="https://github.com/LedgerHQ/ledger-wallet-chrome/blob/master/LICENSE" target="_blank">MIT</a><br />
+                </p>
+                <a class="down-btn" href="https://www.ledgerwallet.com/apps/manager" target="_blank">@Localizer["Website"]</a>
             </li>
         </ul>
-
     </div>
 </div>
 @section Scripts{

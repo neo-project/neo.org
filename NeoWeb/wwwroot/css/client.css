@@ -7,11 +7,10 @@
 }
 .nav-download {
     text-align:center;
-    width: 50%;
 }
 .nav-download li{
     display:inline-block;
-    width:30%;
+    width:4em;
     color:#AAAAAA;
     cursor:pointer;
 }
@@ -30,6 +29,7 @@
 .download-ul {
     text-align: center;
     font-weight:100;
+    width: 100%;
     display:none;
 }
 .download-ul li {
@@ -56,6 +56,9 @@
 }
 .download-desktop .desc {
     min-height: 170px;
+}
+.download-hardware .desc {
+    min-height: 130px;
 }
 .down-box .info {
     margin-bottom: 30px;
