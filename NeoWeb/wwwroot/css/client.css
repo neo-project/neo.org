@@ -59,7 +59,7 @@
     min-height: 170px;
 }
 .download-hardware .desc {
-    min-height: 130px;
+    min-height: 150px;
 }
 .down-box .info {
     margin-bottom: 30px;
@@ -117,6 +117,12 @@
     color:#FFFFFF;
     font-size:18px;
     text-align:center;
+}
+.down-box .down-btn.disabled {
+    background:#999;
+}
+.down-box .down-btn.disabled:hover {
+    cursor: default;
 }
 .down-box p.down-time {
     text-align: center;

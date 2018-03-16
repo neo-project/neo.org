@@ -291,7 +291,7 @@
   <data name="Login via encrypted key and password" xml:space="preserve">
     <value>用 encrypted key 或密码登录</value>
   </data>
-  <data name="Perfect combination with ledger Nano S" xml:space="preserve">
+  <data name="Perfect combination with Ledger Nano S" xml:space="preserve">
     <value>与 Ledger Nano S 完美结合</value>
   </data>
   <data name="Get Client" xml:space="preserve">
@@ -306,7 +306,7 @@
   <data name="Compact and durable" xml:space="preserve">
     <value>轻薄耐用</value>
   </data>
-  <data name="developed a cryptocurrency hardware wallet" xml:space="preserve">
+  <data name="developed a hardware wallet" xml:space="preserve">
     <value>开发的硬件钱包</value>
   </data>
   <data name="Extensible with other apps" xml:space="preserve">
@@ -323,5 +323,14 @@
   </data>
   <data name="Rechargeable battery" xml:space="preserve">
     <value>可充电电池</value>
+  </data>
+  <data name="NEODUN" xml:space="preserve">
+    <value>牛顿</value>
+  </data>
+  <data name="Support for importing private key and Managing multiple private keys" xml:space="preserve">
+    <value>支持私钥导入及多私钥管理</value>
+  </data>
+  <data name="Type-C/Bluetooth" xml:space="preserve">
+    <value>Type-C/蓝牙</value>
   </data>
 </root>
