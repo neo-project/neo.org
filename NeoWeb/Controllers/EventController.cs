@@ -113,6 +113,8 @@ namespace NeoWeb.Controllers
                 IsFree = p.IsFree,
                 ThirdPartyLink = p.ThirdPartyLink
             });
+            ViewBag.AllFeatureEvent = models.Where(p => p.EndTime.Date >= DateTime.Now);
+            ViewBag.Keywords = keyword;
             var keywords = keyword.Split(" ");
             foreach (var item in keywords)
             {
@@ -131,7 +133,7 @@ namespace NeoWeb.Controllers
                 }
             }
             ViewBag.UserRules = _userRules;
-            return View(models);
+            return View("Index", models);
         }
 
         // GET: Event/Details/5
