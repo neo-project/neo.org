@@ -62,13 +62,12 @@
             </div>
             <ul id="menu_list" class="navbar-nav float-right t2">
                 <li class="nav-item"><a class="nav-link" asp-controller="home" asp-action="index">@Localizer["Home"]</a></li>
-                <li class="nav-item"><a class="nav-link strong" href="~/competition.html">@Localizer["Competition"]</a></li>
+                <li class="nav-item"><a class="nav-link" href="~/competition.html">@Localizer["Competition"]</a></li>
                 <li class="nav-item"><a class="nav-link" asp-controller="testnet" asp-action="index">@Localizer["Developer"]</a></li>
-                <li class="nav-item"><a class="nav-link" asp-controller="download" asp-action="index">@Localizer["Client"]</a></li>
+                <li class="nav-item"><a class="nav-link" asp-controller="client" asp-action="index">@Localizer["Client"]</a></li>
                 <li class="nav-item"><a class="nav-link" asp-controller="blog" asp-action="index">@Localizer["Blog"]</a></li>
                 <li class="nav-item"><a class="nav-link" href="http://ndapp.org" target="_blank">@Localizer["dApps"]</a></li>
-                @*<li class="nav-item"><a class="nav-link" asp-controller="event" asp-action="index">@Localizer["Event"]</a></li>*@
-                <li class="nav-item"><a class="nav-link strong" asp-controller="giveback" asp-action="index">@Localizer["Sponsor Giveback"]</a></li>
+                @*<li class="nav-item"><a class="nav-link"  asp-controller="event" asp-action="index">@Localizer["Event"]</a></li>*@
                 <li id="dropdown_btn" style="display:none">
                     <a class="iconfont nav-link" href="javascript:" onclick="$('#more_list').toggle()">&#xe675;</a>
                     <ul id="more_list"></ul>
