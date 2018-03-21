@@ -17,7 +17,6 @@
     <link rel="bookmark" type="image/x-icon" href="images/favicon.png" />
 
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/lib/wow/css/libs/animate.min.css" />
     <link rel="stylesheet" href="css/site.min.css" />
     <link rel="stylesheet" href="css/contest.min.css" />
 
@@ -44,8 +43,9 @@
                 <div class="award-detail award-fri">
                     <img src="../images/contest/awards/demo.jpg" style="background:#F4F4F4;" />
                     <div class="table d-table m3">
-                        <span class="d-table-cell">Team Name:XXXXXXX</span>
-                        <span class="d-table-cell text-right">Github</span>
+                        <a class="d-table-cell"><i class="iconfont">&#xe603;</i>XXXXXXX</a>
+                        <a class="d-table-cell"><i class="iconfont">&#xe8a1;</i>github</a>
+                        <a class="d-table-cell text-right"><i class="iconfont">&#xe659;</i></a>
                     </div>
                 </div>
             </div>
@@ -240,10 +240,6 @@
     <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="lib/wow/dist/wow.min.js"></script>
     <script src="js/language.js"></script>
-    <script src="js/echarts.js"></script>
-    <script src="js/world.js"></script>
-    <script src="js/showChart.js"></script>
-
     <script>
         $('.nav-scr-page ul li a').on('click', function () {
             $('html, body').animate({ scrollTop: $(this.hash).offset().top - 5 }, 500);
@@ -256,13 +252,6 @@
             threshold: 200,
             effect: "fadeIn"
         });
-        var _hmt = _hmt || [];
-        (function () {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?89c4ec96535ab0e5578edff466ccb91a";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
     </script>
 </body>
 </html>
