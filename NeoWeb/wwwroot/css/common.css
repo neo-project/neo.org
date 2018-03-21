@@ -25,10 +25,12 @@ h3,.h3 {font-size: 16px;font-weight:bold;}
 .m1 {margin:60px auto;}
 .m2 {margin:42px auto;}
 .m3 {margin:20px auto;}
+.m4 {margin:10px auto;}
 .padding_normal {padding:initial 100px;}
 .p1 {padding:60px;}
 .p2 {padding:40px;}
 .p3 {padding:20px;}
+.p4 {padding:12px;}
 .pt0 {padding-top:0px!important;}
 .pl0 {padding-left:0px!important;}
 .pb0 {padding-bottom:0px!important;}
@@ -95,10 +97,12 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
     .m1 {margin:26px auto;}
     .m2 {margin:20px auto;}
     .m3 {margin:12px auto;}
+    .m4 {margin:8px auto;}
     .padding_normal {padding:initial 22px;}
     .p1 {padding:40px;}
     .p2 {padding:20px;}
     .p3 {padding:12px;}
+    .p4 {padding:6px;}
     .desktop-show {display:none!important;}
     .mobile-show {display:inline-block!important;}
 }

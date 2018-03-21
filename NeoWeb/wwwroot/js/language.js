@@ -49,7 +49,6 @@ $(function () {
     $(".set-lang [id$='Btn']").bind("click", function () {
         if(statistic)statistic();
     })
-    //statistic();
 });
 
 function setLanguage(lang) {

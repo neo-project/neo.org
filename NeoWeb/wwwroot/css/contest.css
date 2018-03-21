@@ -514,46 +514,69 @@ a {
 .award-detail{
    text-align:left;
    margin-bottom:40px;
-   padding:15px;
-   box-shadow: 0 0 6px #EFEFEF;
+   box-shadow: 0 0 6px #EEE;
+   vertical-align:top;
 }
 .award-detail img {
     width:100%;
     max-height:450px;
 }
+.award-detail a{
+   display:inline-block;
+   overflow:hidden;
+   text-overflow:ellipsis;
+   white-space:nowrap;
+}
+.award-detail a:hover{
+   color:#30b900!important;
+}
+.award-detail .table{
+    margin:0;
+}
 .award-detail .iconfont{
-    font-size:30px;
+    font-size:26px;
     vertical-align:middle;
 }
-.award-fri {
+.award-fri .award-detail{
     font-size:15px;
     width:100%;
 }
-.award-sec {
+.award-sec .award-detail{
     display:inline-block;
     width: calc(50% - 10px);
     font-size:15px;
     margin-left:20px;
 }
-.award-sec img {
+.award-sec .award-detail img {
     max-height:225px;
 }
-.award-sec:first-child{
+.award-sec .award-detail:first-child{
     margin-left:0;
 }
-.award-thr {
+.award-thr .award-detail{
     display:inline-block;
     width:calc(33.33% - 14px);
     font-size:15px;
     margin-left:20px;
 }
-.award-thr img {
+.award-thr .award-detail img {
     max-height:150px;
 }
-.award-thr:first-child{
+.award-thr .award-detail:first-child{
     margin-left:0;
 }
-@media only screen and (max-width : 780px) {
+.award-thr .iconfont{
+    font-size:22px;
+}
+@media only screen and (max-width : 990px) {
+    .com-award {
+        padding:0 30px;
+    }
+    .award-detail a {
+        max-width: 188px;
+    }
+}
+@media only screen and (max-width : 767px) {
     .awards-title::before,
     .awards-title::after {
         width: 42px;
@@ -562,9 +585,12 @@ a {
     .awards-title::after {
         background-position: -40px 0px;
     }
-    .award-fri,.award-sec,.award-thr {
+    .com-award .award-detail{
         width:100%;
         margin:0 0 20px;
+    }
+    .award-detail a {
+        max-width: 188px;
     }
 }
 @media only screen and (max-width : 580px) {
@@ -572,7 +598,14 @@ a {
         width:300px;
         padding:0;
     }
-    .award-fri,.award-sec,.award-thr {
+    .com-award .award-detail{
         width:300px;
+    }
+    .award-detail .iconfont{
+        font-size:22px;
+        vertical-align:middle;
+    }
+    .award-detail a {
+        max-width: 280px;
     }
 }
