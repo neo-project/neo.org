@@ -63,16 +63,20 @@
             <div class="mt-2">
                 <span>@Model.StartTime.ToString("yyyy-MM-dd HH:mm") ~ @Model.EndTime.ToString("yyyy-MM-dd HH:mm")</span>
             </div>
-            @if (ViewBag.UserRules)
-            {
-                <a asp-action="Edit" asp-route-id="@Model.Id">@Localizer["Edit"]</a>
-                <span>|</span>
-                <a asp-action="Delete" asp-route-id="@Model.Id">@Localizer["Delete"]</a>
-            }
+
         </div>
         <div class="col-12">
             <div class="line"></div>
             <span>@Model.Organizers</span>
+            @if (ViewBag.UserRules)
+            {
+                <span class="float-right">
+                    <a asp-action="Edit" asp-route-id="@Model.Id">@Localizer["Edit"]</a>
+                    <span>|</span>
+                    <a asp-action="Delete" asp-route-id="@Model.Id">@Localizer["Delete"]</a>
+
+                </span>
+            }
         </div>
     </div>
 </div>

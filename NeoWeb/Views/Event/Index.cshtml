@@ -17,23 +17,21 @@
     <div class="container">
         <div class="search-div">
             <h1 class="text-center mb-3">Find your next experience</h1>
-            <form asp-action="search">
+            <form asp-action="search" method="post">
                 <div class="input-group search-group">
                     <input name="keyword" type="text" value="@ViewBag.Keywords" class="form-control" placeholder="Search events or categories">
-                    <select class="form-control d-none d-md-inline-block">
-                        <option selected="selected">All Country</option>
-                        <option>A</option>
-                        <option>B</option>
-                        <option>C</option>
+                    <select name="countryId" class="form-control d-none d-md-inline-block">
+                        <option value="0" selected="selected">All Country</option>
+                        @foreach (var item in (ViewBag.AllFeatureEvent as IEnumerable<Event>).OrderBy(p => p.Country.Name).GroupBy(p => p.Country))
+                        {
+                            <option value="@((item.FirstOrDefault() as Event).Country.Id)">@((item.FirstOrDefault() as Event).Country.Name)</option>
+                        }
                     </select>
-                    <select class="form-control d-none d-md-inline-block">
+                    <select name="date" class="form-control d-none d-md-inline-block">
                         <option selected="selected" value="">All Dates</option>
-                        <option value="today">Today</option>
-                        <option value="tomorrow">Tomorrow</option>
                         <option value="this_week">This Week</option>
-                        <option value="this_weekend">This Weekend</option>
-                        <option value="next_week">Next Week</option>
-                        <option value="next_month">Next Month</option>
+                        <option value="this_month">This Month</option>
+                        <option value="past_events">Past Events</option>
                     </select>
                     <div class="input-group-append">
                         <button class="btn btn-success" type="submit">@Localizer["Search"]</button>
@@ -53,26 +51,27 @@
         }
     </div>
 </div>
-<div class="text-left m3">
-    @if (ViewBag.UserRules)
-    {
-        <a asp-action="Create">@Localizer["Create a new event"]</a>
-    }
-</div>
-<div class="container text-center" style="position: relative;">
+
+<div class="container text-center">
+    <div class="text-center m3">
+        @if (ViewBag.UserRules)
+        {
+            <a asp-action="Create">@Localizer["Create a new event"]</a>
+        }
+    </div>
     <div class="row">
         <div class="col-12 col-md-8 text-center">
+            @* 先显示未来的活动 *@
             @foreach (var item in Model.Where(p => p.EndTime >= DateTime.Now))
             {
                 Html.RenderPartial("_EventPartialPage", item);
             }
-            <hr />
-            <div><a href="~/event/index/showall">@Localizer["Show previous events"]</a></div>
+            <div class="mt-4 mb-4" style="border-top: 3px dotted #aaa" ></div>
+            @* 再显示过去的活动 *@
             @foreach (var item in Model.Where(p => p.EndTime < DateTime.Now))
             {
                 Html.RenderPartial("_EventPartialPage", item);
             }
-            <hr />
             @await Html.PartialAsync("_LoginPartial")
         </div>
         <div class="d-none d-md-block col-md-4">
