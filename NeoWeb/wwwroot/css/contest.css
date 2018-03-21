@@ -492,7 +492,8 @@ a {
 
 /*awards*/
 .awards-title {
-    
+    font-size:40px;
+    letter-spacing:3px;
 }
 .awards-title::before,
 .awards-title::after{
@@ -500,12 +501,11 @@ a {
     display:inline-block;
     background:url(../images/contest/award.png) no-repeat;
     background-size:cover;
-    width:75px;
-    height:50px;
-    vertical-align:bottom;
+    width:60px;
+    height:28px;
 }
 .awards-title::after {
-    background-position:-72px 0px;
+    background-position:-55px 0px;
 }
 .com-award {
     padding:0 100px;
@@ -523,6 +523,7 @@ a {
 }
 .award-detail a{
    display:inline-block;
+   max-width:500px;
    overflow:hidden;
    text-overflow:ellipsis;
    white-space:nowrap;
@@ -568,19 +569,44 @@ a {
 .award-thr .iconfont{
     font-size:22px;
 }
+.awards-name {
+    max-width:300px!important;
+}
+.award-thr .awards-name {
+    max-width:130px!important;
+}
+@media only screen and (max-width : 1200px) {
+    .award-thr .award-detail a {
+        max-width: 205px;
+    }
+    .award-sec .awards-name {
+        max-width:230px!important;
+    }
+    .award-thr .awards-name {
+        max-width:130px!important;
+    }
+}
 @media only screen and (max-width : 990px) {
     .com-award {
         padding:0 30px;
     }
-    .award-detail a {
+    .award-fri .award-detail a,
+    .award-sec .award-detail a {
+        max-width:320px;
+    }
+    .award-thr .award-detail a {
         max-width: 188px;
     }
 }
 @media only screen and (max-width : 767px) {
+    .awards-title {
+        margin-top:30px;
+        font-size:34px;
+    }
     .awards-title::before,
     .awards-title::after {
-        width: 42px;
-        height: 28px;
+        width: 40px;
+        height: 20px;
     }
     .awards-title::after {
         background-position: -40px 0px;
@@ -589,11 +615,22 @@ a {
         width:100%;
         margin:0 0 20px;
     }
-    .award-detail a {
+    .award-fri .award-detail a,
+    .award-sec .award-detail a {
+        max-width:300px;
+    }
+    .award-thr .award-detail a {
         max-width: 188px;
+    }
+    .awards-name {
+        max-width: 150px!important;
     }
 }
 @media only screen and (max-width : 580px) {
+    .awards-title {
+        margin-top:20px;
+        font-size:30px;
+    }
     .com-award {
         width:300px;
         padding:0;
@@ -604,8 +641,5 @@ a {
     .award-detail .iconfont{
         font-size:22px;
         vertical-align:middle;
-    }
-    .award-detail a {
-        max-width: 280px;
     }
 }
