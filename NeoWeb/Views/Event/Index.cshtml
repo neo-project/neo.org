@@ -22,7 +22,7 @@
                     <input name="keyword" type="text" value="@ViewBag.Keywords" class="form-control" placeholder="Search events or categories">
                     <select name="countryId" class="form-control d-none d-md-inline-block">
                         <option value="0" selected="selected">All Country</option>
-                        @foreach (var item in (ViewBag.AllFeatureEvent as IEnumerable<Event>).OrderBy(p => p.Country.Name).GroupBy(p => p.Country))
+                        @foreach (var item in (Model as IEnumerable<Event>).OrderBy(p => p.Country.Name).GroupBy(p => p.Country))
                         {
                             <option value="@((item.FirstOrDefault() as Event).Country.Id)">@((item.FirstOrDefault() as Event).Country.Name)</option>
                         }
@@ -45,7 +45,7 @@
 <div class="mb-3 text-center d-md-none">
     <div class="container">
         <a class="btn btn-sm btn-light mb-1" href="~/event/index">ALL</a>
-        @foreach (var item in (ViewBag.AllFeatureEvent as IEnumerable<Event>).GroupBy(p => p.Type))
+        @foreach (var item in (Model as IEnumerable<Event>).GroupBy(p => p.Type))
         {
             <a class="btn btn-sm btn-light mb-1" href="~/event/index/@item.FirstOrDefault().Type.ToString().ToLower()">@item.FirstOrDefault().Type</a>
         }
@@ -75,7 +75,7 @@
             @await Html.PartialAsync("_LoginPartial")
         </div>
         <div class="d-none d-md-block col-md-4">
-            @foreach (var item in (ViewBag.AllFeatureEvent as IEnumerable<Event>).GroupBy(p => p.Type))
+            @foreach (var item in (Model as IEnumerable<Event>).GroupBy(p => p.Type))
             {
                 <a class="d-block alert alert-light mb-2" href="~/event/index/@item.FirstOrDefault().Type.ToString().ToLower()">@item.FirstOrDefault().Type</a>
             }

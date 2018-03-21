@@ -64,7 +64,6 @@ namespace NeoWeb.Controllers
                 IsFree = p.IsFree,
                 ThirdPartyLink = p.ThirdPartyLink
             });
-            ViewBag.AllFeatureEvent = models.Where(p => p.EndTime.Date >= DateTime.Now);
             ViewBag.UserRules = _userRules;
             switch (id)
             {
@@ -112,7 +111,6 @@ namespace NeoWeb.Controllers
                 IsFree = p.IsFree,
                 ThirdPartyLink = p.ThirdPartyLink
             });
-            ViewBag.AllFeatureEvent = models.Where(p => p.EndTime.Date >= DateTime.Now);
             ViewBag.Keywords = keyword;
             //对关键词进行筛选
             if (!String.IsNullOrEmpty(keyword))
