@@ -1,4 +1,4 @@
-﻿var dict = {};
+﻿var dict = {},statistic;
 
 $(function () {
     registerWords();
@@ -47,9 +47,9 @@ $(function () {
     });
 
     $(".set-lang [id$='Btn']").bind("click", function () {
-        statistic();
+        if(statistic)statistic();
     })
-    statistic();
+    //statistic();
 });
 
 function setLanguage(lang) {

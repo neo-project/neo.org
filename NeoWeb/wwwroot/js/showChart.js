@@ -1,5 +1,4 @@
 statistic();
-
 function statistic() {
     $.ajax({
         type: "GET",
