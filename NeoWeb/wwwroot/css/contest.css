@@ -489,3 +489,86 @@ a {
         width: 100%;
     }
 }
+
+/*awards*/
+.awards-title {
+    
+}
+.awards-title::before,
+.awards-title::after{
+    content:"";
+    display:inline-block;
+    background:url(../images/contest/award.png) no-repeat;
+    background-size:cover;
+    width:75px;
+    height:50px;
+    vertical-align:bottom;
+}
+.awards-title::after {
+    background-position:-72px 0px;
+}
+.com-award {
+    padding:0 100px;
+    font-size:0;
+}
+.award-detail{
+   text-align:left;
+   margin-bottom:40px;
+   padding:15px;
+   box-shadow: 0 0 6px #EFEFEF;
+}
+.award-detail img {
+    width:100%;
+    max-height:450px;
+}
+.award-fri {
+    font-size:15px;
+    width:100%;
+}
+.award-sec {
+    display:inline-block;
+    width: calc(50% - 10px);
+    font-size:15px;
+    margin-left:20px;
+}
+.award-sec img {
+    max-height:225px;
+}
+.award-sec:first-child{
+    margin-left:0;
+}
+.award-thr {
+    display:inline-block;
+    width:calc(33.33% - 14px);
+    font-size:15px;
+    margin-left:20px;
+}
+.award-thr img {
+    max-height:150px;
+}
+.award-thr:first-child{
+    margin-left:0;
+}
+@media only screen and (max-width : 780px) {
+    .awards-title::before,
+    .awards-title::after {
+        width: 42px;
+        height: 28px;
+    }
+    .awards-title::after {
+        background-position: -40px 0px;
+    }
+    .award-fri,.award-sec,.award-thr {
+        width:100%;
+        margin:0 0 20px;
+    }
+}
+@media only screen and (max-width : 580px) {
+    .com-award {
+        width:300px;
+        padding:0;
+    }
+    .award-fri,.award-sec,.award-thr {
+        width:300px;
+    }
+}
