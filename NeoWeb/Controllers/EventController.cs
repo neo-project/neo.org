@@ -33,7 +33,7 @@ namespace NeoWeb.Controllers
 
         // GET: Event
         //[AllowAnonymous]
-        public IActionResult Index(string id)
+        public IActionResult Index(string k = null, int c = 0, int d = 0)
         {
             var models = _context.Events.OrderBy(o => o.StartTime).Select(p => new
             {
@@ -64,58 +64,18 @@ namespace NeoWeb.Controllers
                 IsFree = p.IsFree,
                 ThirdPartyLink = p.ThirdPartyLink
             });
-            ViewBag.UserRules = _userRules;
-            switch (id)
-            {
-                case "devcon": models = models.Where(p => p.Type == EventType.DevCon); break;
-                case "meetup": models = models.Where(p => p.Type == EventType.Meetup); break;
-                case "workshop": models = models.Where(p => p.Type == EventType.Workshop); break;
-                case "hackathon": models = models.Where(p => p.Type == EventType.Hackathon); break;
-                default: break;
-            }
-            models = int.TryParse(id, out int month) ? models.Where(p => p.EndTime.Date >= DateTime.Now && p.StartTime.Month == month) : models;
-            return View(models);
-        }
-
-        [HttpPost]
-        //[AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public IActionResult Search(string keyword, int countryId, string date)
-        {
-            var models = _context.Events.OrderBy(o => o.StartTime).Select(p => new
-            {
-                p.Id,
-                p.Name,
-                p.Type,
-                p.Country,
-                p.City,
-                p.Address,
-                p.StartTime,
-                p.EndTime,
-                p.Cover,
-                p.Organizers,
-                p.IsFree,
-                p.ThirdPartyLink
-            }).ToList().Select(p => new Event()
-            {
-                Id = p.Id,
-                Name = p.Name,
-                Type = p.Type,
-                Country = p.Country,
-                City = p.City,
-                Address = p.Address,
-                StartTime = p.StartTime,
-                EndTime = p.EndTime,
-                Cover = p.Cover,
-                Organizers = p.Organizers,
-                IsFree = p.IsFree,
-                ThirdPartyLink = p.ThirdPartyLink
-            });
-            ViewBag.Keywords = keyword;
+            //全部筛选列表
+            ViewBag.Countries = models.Select(p => p.Country).Distinct();
+            ViewBag.Types = models.Select(p => p.Type).Distinct();
+            ViewBag.Dates = new string[] { "All Dates", "This Week", "This Month", "Past Events" };
+            //筛选列表中的默认选项
+            ViewBag.Keywords = k;
+            ViewBag.CountryId = c;
+            ViewBag.Date = d;
             //对关键词进行筛选
-            if (!String.IsNullOrEmpty(keyword))
+            if (!String.IsNullOrEmpty(k))
             {
-                var keywords = keyword.Split(" ");
+                var keywords = k.Split(" ");
                 foreach (var item in keywords)
                 {
                     switch (item.ToLower())
@@ -135,22 +95,22 @@ namespace NeoWeb.Controllers
                 }
             }
             //对国家进行筛选
-            if(countryId > 0)
+            if(c > 0)
             {
-                models = models.Where(p => p.Country.Id == countryId);
+                models = models.Where(p => p.Country.Id == c);
             }
             //对日期进行筛选
-            switch (date)
+            switch (d)
             {
                 //本周内（非7天内）的未结束的活动
-                case "this_week": models = models.Where(p => IsInSameWeek(DateTime.Now, p.StartTime) || IsInSameWeek(DateTime.Now, p.EndTime)).Where(p => p.EndTime >= DateTime.Now); break;
-                //本月内（非7天内）的未结束的活动
-                case "this_month": models = models.Where(p => p.StartTime.Year == DateTime.Now.Year && p.StartTime.Month == DateTime.Now.Month || p.EndTime.Year == DateTime.Now.Year && p.EndTime.Month == DateTime.Now.Month).Where(p => p.EndTime >= DateTime.Now); break;
+                case 1: models = models.Where(p => IsInSameWeek(DateTime.Now, p.StartTime) || IsInSameWeek(DateTime.Now, p.EndTime)).Where(p => p.EndTime >= DateTime.Now); break;
+                //本月内（非30天内）的未结束的活动
+                case 2: models = models.Where(p => p.StartTime.Year == DateTime.Now.Year && p.StartTime.Month == DateTime.Now.Month || p.EndTime.Year == DateTime.Now.Year && p.EndTime.Month == DateTime.Now.Month).Where(p => p.EndTime >= DateTime.Now); break;
                 //已经结束的活动
-                case "past_events": models = models.Where(p => p.EndTime < DateTime.Now); break;
+                case 3: models = models.Where(p => p.EndTime < DateTime.Now); break;
             }
             ViewBag.UserRules = _userRules;
-            return View("Index", models);
+            return View(models);
         }
 
         /// <summary>   
