@@ -6,7 +6,7 @@
 <div class="container">
     <h2 class="text-center">编辑活动</h2>
     <br />
-    <form asp-action="Edit" class="form-horizontal">
+    <form asp-action="Edit" class="form-horizontal" enctype="multipart/form-data">
         @Html.Partial("_CreatePartialPage", Model)
     </form>
 </div>

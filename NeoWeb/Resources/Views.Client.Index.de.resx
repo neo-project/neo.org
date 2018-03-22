@@ -118,174 +118,171 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Chinese" xml:space="preserve">
-    <value>中文</value>
+    <value>Chinesisch</value>
+  </data>
+  <data name="Get Client" xml:space="preserve">
+    <value>Client abrufen</value>
+  </data>
+  <data name="Clients with complete blockchain data" xml:space="preserve">
+    <value>Klienten mit kompletten Blockketten Daten</value>
   </data>
   <data name="Desktop" xml:space="preserve">
-    <value>桌面</value>
+    <value>Desktop</value>
+  </data>
+  <data name="developed Android wallet" xml:space="preserve">
+    <value>entwickelte Android Wallet</value>
+  </data>
+  <data name="developed cross-platform client" xml:space="preserve">
+    <value>entwickelter plattformübergreifender Klient</value>
+  </data>
+  <data name="developed PC client" xml:space="preserve">
+    <value>entwickelter PC Klient</value>
   </data>
   <data name="Developer" xml:space="preserve">
-    <value>开发者</value>
+    <value>Entwickler</value>
   </data>
   <data name="Download" xml:space="preserve">
-    <value>下载</value>
-  </data>
-  <data name="Client Downloads" xml:space="preserve">
-    <value>客户端下载</value>
+    <value>Herunterladen</value>
   </data>
   <data name="Offline synchronized data(Main Net)" xml:space="preserve">
-    <value>离线同步数据包(主网)</value>
+    <value>Offline synchronisierte Daten (Haupt Netz)</value>
   </data>
   <data name="English" xml:space="preserve">
-    <value>英文</value>
+    <value>Englisch</value>
   </data>
   <data name="English/Chinese" xml:space="preserve">
-    <value>中文/英文</value>
+    <value>Englisch/Chinesisch</value>
+  </data>
+  <data name="for developers command line client" xml:space="preserve">
+    <value> Befehlszeilen Klient für Entwickler</value>
+  </data>
+  <data name="Full-featured client" xml:space="preserve">
+    <value>Komplett unterstützter Klient</value>
   </data>
   <data name="Get source code" xml:space="preserve">
-    <value>查看源代码</value>
+    <value>Erhalte den Quellcode</value>
   </data>
   <data name="https://play.google.com/store/apps/details?id=neo.app" xml:space="preserve">
     <value>http://android.myapp.com/myapp/detail.htm?apkName=neo.app</value>
   </data>
-  <data name="Mobile" xml:space="preserve">
-    <value>手机</value>
-  </data>
-  <data name="Open Google Play" xml:space="preserve">
-    <value>从应用宝下载</value>
-  </data>
-  <data name="or later" xml:space="preserve">
-    <value>及以上</value>
-  </data>
-  <data name="OTCGO" xml:space="preserve">
-    <value>蓝鲸淘</value>
-  </data>
-  <data name="Supported Browser" xml:space="preserve">
-    <value>支持浏览器</value>
-  </data>
-  <data name="Languages" xml:space="preserve">
-    <value>语言</value>
-  </data>
-  <data name="Supported OS" xml:space="preserve">
-    <value>支持系统</value>
-  </data>
-  <data name="Version" xml:space="preserve">
-    <value>版本</value>
-  </data>
-  <data name="Visit Site" xml:space="preserve">
-    <value>访问</value>
-  </data>
-  <data name="Web" xml:space="preserve">
-    <value>网页</value>
-  </data>
-  <data name="Wallets are developed by a third party/community. Please contact the corresponding parties for technical support." xml:space="preserve">
-    <value>这些客户端是由社区进行开发和维护的，如果遇到问题请直接联系相应开发者。</value>
-  </data>
-  <data name="Clients with complete blockchain data" xml:space="preserve">
-    <value>具有完整区块数据的客户端</value>
-  </data>
-  <data name="developed Android wallet" xml:space="preserve">
-    <value>开发的安卓钱包</value>
-  </data>
-  <data name="developed cross-platform client" xml:space="preserve">
-    <value>开发的跨平台客户端</value>
-  </data>
-  <data name="developed PC client" xml:space="preserve">
-    <value>开发的PC版客户端</value>
-  </data>
-  <data name="for developers command line client" xml:space="preserve">
-    <value>为开发者提供的命令行客户端</value>
-  </data>
-  <data name="Full-featured client" xml:space="preserve">
-    <value>全功能客户端</value>
+  <data name="It is also a good NEO blockchain explorer" xml:space="preserve">
+    <value>Es ist auch ein guter neo Blockchain Explorer</value>
   </data>
   <data name="Light wallet, without sync block" xml:space="preserve">
-    <value>轻钱包，不用同步区块</value>
+    <value>Light wallet, ohne synchroniserte Blöcke</value>
   </data>
   <data name="Login via private key" xml:space="preserve">
-    <value>通过私钥登录</value>
+    <value>Einloggen mittels privatem Schlüssel</value>
   </data>
-  <data name="New UI, simple interface design" xml:space="preserve">
-    <value>全新视觉，简约的界面设计</value>
-  </data>
-  <data name="Provided API support and consensus function" xml:space="preserve">
-    <value>提供API支持和共识节点的功能</value>
-  </data>
-  <data name="Support offline synchronization" xml:space="preserve">
-    <value>支持离线同步</value>
-  </data>
-  <data name="Wallet file is stored locally, log in via password" xml:space="preserve">
-    <value>钱包文件本地存储，通过密码登录</value>
+  <data name="Mobile" xml:space="preserve">
+    <value>Mobil</value>
   </data>
   <data name="Need to install" xml:space="preserve">
-    <value>需要安装</value>
+    <value>Muss installiert werden</value>
+  </data>
+  <data name="New UI, simple interface design" xml:space="preserve">
+    <value>Neues UI, simples interface design</value>
+  </data>
+  <data name="Open Google Play" xml:space="preserve">
+    <value>Öffne Google Play</value>
+  </data>
+  <data name="or later" xml:space="preserve">
+    <value>oder später</value>
+  </data>
+  <data name="OTCGO" xml:space="preserve">
+    <value>OTCGO</value>
+  </data>
+  <data name="Provided API support and consensus function" xml:space="preserve">
+    <value>Bereitgestellte API-Unterstützung und Konsens Funktion</value>
+  </data>
+  <data name="Support offline synchronization" xml:space="preserve">
+    <value>Unterstütze offline synchronisation</value>
+  </data>
+  <data name="Supported Browser" xml:space="preserve">
+    <value>Unterstützter Browser</value>
+  </data>
+  <data name="Languages" xml:space="preserve">
+    <value>Sprachen</value>
+  </data>
+  <data name="Supported OS" xml:space="preserve">
+    <value>Betriebssystem</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="Visit Site" xml:space="preserve">
+    <value>Besuche die Seite</value>
+  </data>
+  <data name="Wallet file is stored locally, log in via password" xml:space="preserve">
+    <value>Wallet Datei ist lokal gespeichert, einloggen via Passwort</value>
+  </data>
+  <data name="Wallets are developed by a third party/community. Please contact the corresponding parties for technical support." xml:space="preserve">
+    <value>Wallets werden von Drittparteien/der Community entwickelt. Bitte kontaktieren Sie die entsprechenden Parteien für technische Unterstützung.</value>
+  </data>
+  <data name="Web" xml:space="preserve">
+    <value>Netz</value>
   </data>
   <data name="Support" xml:space="preserve">
-    <value>支持</value>
-  </data>
-  <data name="Contacts, Claim GAS, Sending/receiving assets" xml:space="preserve">
-    <value>支持导入私钥，转账，提取GAS，不用同步区块</value>
-  </data>
-  <data name="Currently released via TestFlight" xml:space="preserve">
-    <value>目前通过TestFlight发布</value>
-  </data>
-  <data name="developed a native Android application" xml:space="preserve">
-    <value>开发的一个用户体验极佳的安卓钱包</value>
-  </data>
-  <data name="developed a native iOS application" xml:space="preserve">
-    <value>开发的iOS版钱包客户端</value>
-  </data>
-  <data name="It is also a good NEO blockchain explorer" xml:space="preserve">
-    <value>同时也是一个区块链浏览器</value>
-  </data>
-  <data name="It is also an exchange" xml:space="preserve">
-    <value>它同时也是一个交易所</value>
-  </data>
-  <data name="Login with private key or keystore File" xml:space="preserve">
-    <value>用私钥或者密钥存储登录</value>
-  </data>
-  <data name="Login with private key or wallet file" xml:space="preserve">
-    <value>通过私钥或者钱包文件登录</value>
-  </data>
-  <data name="Manage your assets in a simple and secure way" xml:space="preserve">
-    <value>良好的交互，安全的设计，轻松管理资产</value>
-  </data>
-  <data name="developed an online wallet" xml:space="preserve">
-    <value>开发的在线钱包</value>
-  </data>
-  <data name="Protected by TouchID and pincode" xml:space="preserve">
-    <value>用TouchID和PIN码保护钱包安全</value>
-  </data>
-  <data name="Send assets, Claim GAS, top up from a cold storage wallet" xml:space="preserve">
-    <value>支持导入私钥，转账，提取GAS，不用同步区块</value>
-  </data>
-  <data name="Simple and easy to use" xml:space="preserve">
-    <value>简单易用</value>
-  </data>
-  <data name="developed a simple paper wallet" xml:space="preserve">
-    <value>开发的简单的纸钱包生成器</value>
-  </data>
-  <data name="Website" xml:space="preserve">
-    <value>访问官网</value>
+    <value>Unterstütze</value>
   </data>
   <data name="Android version" xml:space="preserve">
-    <value>Android版</value>
+    <value>Android version</value>
+  </data>
+  <data name="Contacts, Claim GAS, Sending/receiving assets" xml:space="preserve">
+    <value>Kontakte, Claim Gas, senden/empfangen von Vermögenswerten</value>
+  </data>
+  <data name="Currently released via TestFlight" xml:space="preserve">
+    <value>Derzeit veröffentlicht über Testflug</value>
+  </data>
+  <data name="developed a native Android application" xml:space="preserve">
+    <value>entwickelte eine native Android-Anwendung</value>
+  </data>
+  <data name="developed a native iOS application" xml:space="preserve">
+    <value>entwickelte eine native iOS-Anwendung</value>
+  </data>
+  <data name="developed an online wallet" xml:space="preserve">
+    <value>entwickelt eine Online-Geldbörse</value>
   </data>
   <data name="iOS version" xml:space="preserve">
-    <value>iOS版</value>
+    <value>iOS version</value>
+  </data>
+  <data name="It is also an exchange" xml:space="preserve">
+    <value>Es ist auch ein Austausch</value>
   </data>
   <data name="License" xml:space="preserve">
-    <value>开源协议</value>
+    <value>Lizenz</value>
+  </data>
+  <data name="Login with private key or keystore File" xml:space="preserve">
+    <value>Login mit privatem Schlüssel oder Keystore-Datei</value>
+  </data>
+  <data name="Login with private key or wallet file" xml:space="preserve">
+    <value>Login mit privatem Schlüssel oder Wallet-Datei</value>
+  </data>
+  <data name="Manage your assets in a simple and secure way" xml:space="preserve">
+    <value>Verwalten Sie Ihre Assets auf einfache und sichere Weise</value>
+  </data>
+  <data name="Protected by TouchID and pincode" xml:space="preserve">
+    <value>Geschützt durch Berührungs-und Pincode</value>
+  </data>
+  <data name="Send assets, Claim GAS, top up from a cold storage wallet" xml:space="preserve">
+    <value>Senden von Vermögenswerten, Anspruch Gas, nach oben aus einem kühl-Storage-Wallet</value>
+  </data>
+  <data name="Simple and easy to use" xml:space="preserve">
+    <value>Einfach und einfach zu bedienen</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>Website</value>
   </data>
   <data name="http://docs.neo.org/en-us/node/cli.html" xml:space="preserve">
-    <value>http://docs.neo.org/zh-cn/node/cli.html</value>
+    <value>http://docs.neo.org/de-de/node/cli.html</value>
   </data>
   <data name="http://docs.neo.org/en-us/node/gui.html" xml:space="preserve">
-    <value>http://docs.neo.org/zh-cn/node/gui.html</value>
+    <value>http://docs.neo.org/de-de/node/gui.html</value>
   </data>
   <data name="Instructions for use" xml:space="preserve">
-    <value>使用说明</value>
+    <value>Gebrauchsanweisung</value>
   </data>
   <data name="Test Net" xml:space="preserve">
-    <value>测试网</value>
+    <value>Test Netz</value>
   </data>
 </root>

@@ -28,36 +28,49 @@
 
 .event-item img {
     max-width: 100%;
+    height: 126.5px;
 }
 
 .event-item img + div {
     border-top: 1px solid #28a745;
 }
-.event-item .org{
+
+.event-item .org {
     margin: 20px 5px 0;
     line-height: 35px;
     border-top: 1px solid lightgray;
     text-align: left;
     color: gray;
 }
+
 .event-item .address, .event-item .date {
     color: gray;
 }
+
 .event-detail .type-img {
     border: 1px solid #28a745;
 }
+
 .event-detail {
     background-color: #fff;
-    padding: 30px 50px;
+    padding: 10px 20px;
 }
+
 .event-detail img {
-    max-width:100%;
+    max-width: 100%;
 }
-.type-div {
-    width: 100%;
-    background-color: #28a745;
-    padding: 10px;
+
+.event-detail .line {
+    border-top: 1px solid lightgray;
+    margin: 5px 0;
 }
+
+.search-group {
+    margin: auto;
+    width: 95%;
+}
+
+
 #eventCarousel img {
     max-height: 370px;
 }
@@ -103,4 +116,34 @@ ul,li{
 }
 .news-li img{
     width: inherit;
+}
+}
+
+.event-banner {
+    background-image: url(/images/event/homepage_hero_banner.jpg);
+    padding: 300px 0 50px;
+    margin-bottom: 80px;
+}
+
+.event-banner .search-div {
+    margin-bottom: -100px;
+    background: linear-gradient( rgba(255, 255, 255, 0.9) 0%, white 25%);
+    padding: 20px;
+    border-radius: 3px;
+    box-shadow: rgba(0,0,0,.3) 2px 2px 5px 0;
+}
+
+.event-banner .container h1 {
+    color: #f86820
+}
+
+@media only screen and (min-width: 576px) {
+    .search-group {
+        width: 80%;
+        margin: auto;
+    }
+
+    .event-banner .search-div {
+        padding: 50px;
+    }
 }

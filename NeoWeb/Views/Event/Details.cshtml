@@ -39,7 +39,7 @@
                 </div>
                 @if (ViewBag.UserRules)
                 {
-                <a asp-action="Edit" asp-route-id="@Model.Id">@Localizer["Edit"]</a>
+                    <a asp-action="Edit" asp-route-id="@Model.Id">@Localizer["Edit"]</a>
                     <span>|</span>
                     <a asp-action="Delete" asp-route-id="@Model.Id">@Localizer["Delete"]</a>
                 }
@@ -51,13 +51,20 @@
         {
             <div>
                 <a class="btn btn-success" href="@Model.ThirdPartyLink">@Localizer["Purchase ticket Link"]</a>
-                <hr />
             </div>
+            <hr />
+        }
+        else
+        {
+            <div>
+                无需购票
+            </div>
+            <hr />
         }
         <div>
             @if (String.IsNullOrEmpty(Model.Details))
             {
-            <span>@Localizer["Details of the event are being edited, please look forward to."]</span>
+                <span>@Localizer["Details of the event are being edited, please look forward to."]</span>
             }
             else
             {
@@ -66,6 +73,6 @@
         </div>
     </div>
     <div class="mt-2">
-        <a asp-action="Index">Back to List</a>
+        <a asp-action="Index">@Localizer["Back to List"]</a>
     </div>
 </div>

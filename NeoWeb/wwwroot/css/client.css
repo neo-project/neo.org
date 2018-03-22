@@ -7,11 +7,10 @@
 }
 .nav-download {
     text-align:center;
-    width: 50%;
 }
 .nav-download li{
     display:inline-block;
-    width:30%;
+    width:7em;
     color:#AAAAAA;
     cursor:pointer;
 }
@@ -19,7 +18,8 @@
     display:block;
     color:#AAAAAA;
     font-style:normal;
-    font-size:40px;
+    font-size:35px;
+    height:50px;
 }
 .nav-download .downtab-select {
     color:#58BF00;
@@ -30,11 +30,12 @@
 .download-ul {
     text-align: center;
     font-weight:100;
+    width: 100%;
     display:none;
 }
 .download-ul li {
     display: inline-block;
-    width: 360px;
+    max-width: 360px;
     margin: 20px 8px;
     line-height:1.5;
     vertical-align:top;
@@ -56,6 +57,9 @@
 }
 .download-desktop .desc {
     min-height: 170px;
+}
+.download-hardware .desc {
+    min-height: 150px;
 }
 .down-box .info {
     margin-bottom: 30px;
@@ -114,10 +118,19 @@
     font-size:18px;
     text-align:center;
 }
+.down-box .down-btn.disabled {
+    background:#999;
+}
+.down-box .down-btn.disabled:hover {
+    cursor: default;
+}
 .down-box p.down-time {
     text-align: center;
     font-size: 14px;
 
+}
+.down-time {
+    margin-bottom:0;
 }
 
 .down-select {
@@ -157,10 +170,23 @@
         max-width:360px;
         margin:auto;
     }
+    .download-ul .down-box{
+        max-width:340px;
+        margin:20px 0;
+    }
     .down-box p{
         min-height:initial;
     }
-        .down-hint {
+    .down-hint {
         max-width:330px;
+    }
+    .nav-download li{
+        width:4em;
+        font-size:16px;
+        margin-bottom:10px;
+    }
+    .nav-download li .iconfont {
+        font-size:30px;
+        height:40px;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -31,7 +32,7 @@ namespace NeoWeb.Controllers
         }
 
         // GET: Event
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public IActionResult Index(string id)
         {
             var models = _context.Events.OrderBy(o => o.StartTime).Select(p => new
@@ -63,24 +64,23 @@ namespace NeoWeb.Controllers
                 IsFree = p.IsFree,
                 ThirdPartyLink = p.ThirdPartyLink
             });
-            ViewBag.AllFeatureEvent = models.Where(p => p.EndTime.Date >= DateTime.Now);
             ViewBag.UserRules = _userRules;
             switch (id)
             {
-                case "showall": break;
                 case "devcon": models = models.Where(p => p.Type == EventType.DevCon); break;
                 case "meetup": models = models.Where(p => p.Type == EventType.Meetup); break;
                 case "workshop": models = models.Where(p => p.Type == EventType.Workshop); break;
                 case "hackathon": models = models.Where(p => p.Type == EventType.Hackathon); break;
-                default: models = models.Where(p => p.EndTime >= DateTime.Now); break;
+                default: break;
             }
             models = int.TryParse(id, out int month) ? models.Where(p => p.EndTime.Date >= DateTime.Now && p.StartTime.Month == month) : models;
             return View(models);
         }
 
         [HttpPost]
+        //[AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public IActionResult Search(string keyword)
+        public IActionResult Search(string keyword, int countryId, string date)
         {
             var models = _context.Events.OrderBy(o => o.StartTime).Select(p => new
             {
@@ -111,28 +111,67 @@ namespace NeoWeb.Controllers
                 IsFree = p.IsFree,
                 ThirdPartyLink = p.ThirdPartyLink
             });
-            var keywords = keyword.Split(" ");
-            foreach (var item in keywords)
+            ViewBag.Keywords = keyword;
+            //对关键词进行筛选
+            if (!String.IsNullOrEmpty(keyword))
             {
-                switch (item)
+                var keywords = keyword.Split(" ");
+                foreach (var item in keywords)
                 {
-                    case "devcon": models = models.Where(p => p.Type == EventType.DevCon); break;
-                    case "meetup": models = models.Where(p => p.Type == EventType.Meetup); break;
-                    case "workshop": models = models.Where(p => p.Type == EventType.Workshop); break;
-                    case "hackathon": models = models.Where(p => p.Type == EventType.Hackathon); break;
-                    default: models = models.Where(p => p.Name.Contains(item) 
-                    || p.Country.Name.Contains(item)
-                    || p.Country.ZhName.Contains(item)
-                    || p.City.Contains(item)
-                    || p.Address.Contains(item)
-                    || p.Organizers.Contains(item)); break;
+                    switch (item.ToLower())
+                    {
+                        case "devcon": models = models.Where(p => p.Type == EventType.DevCon); break;
+                        case "meetup": models = models.Where(p => p.Type == EventType.Meetup); break;
+                        case "workshop": models = models.Where(p => p.Type == EventType.Workshop); break;
+                        case "hackathon": models = models.Where(p => p.Type == EventType.Hackathon); break;
+                        default:
+                            models = models.Where(p => p.Name.Contains(item)
+                   || p.Country.Name.Contains(item, StringComparison.OrdinalIgnoreCase)
+                   || p.Country.ZhName.Contains(item, StringComparison.OrdinalIgnoreCase)
+                   || p.City.Contains(item, StringComparison.OrdinalIgnoreCase)
+                   || p.Address.Contains(item, StringComparison.OrdinalIgnoreCase)
+                   || p.Organizers.Contains(item, StringComparison.OrdinalIgnoreCase)); break;
+                    }
                 }
             }
-            return View(models);
+            //对国家进行筛选
+            if(countryId > 0)
+            {
+                models = models.Where(p => p.Country.Id == countryId);
+            }
+            //对日期进行筛选
+            switch (date)
+            {
+                //本周内（非7天内）的未结束的活动
+                case "this_week": models = models.Where(p => IsInSameWeek(DateTime.Now, p.StartTime) || IsInSameWeek(DateTime.Now, p.EndTime)).Where(p => p.EndTime >= DateTime.Now); break;
+                //本月内（非7天内）的未结束的活动
+                case "this_month": models = models.Where(p => p.StartTime.Year == DateTime.Now.Year && p.StartTime.Month == DateTime.Now.Month || p.EndTime.Year == DateTime.Now.Year && p.EndTime.Month == DateTime.Now.Month).Where(p => p.EndTime >= DateTime.Now); break;
+                //已经结束的活动
+                case "past_events": models = models.Where(p => p.EndTime < DateTime.Now); break;
+            }
+            ViewBag.UserRules = _userRules;
+            return View("Index", models);
+        }
+
+        /// <summary>   
+        /// 判断两个日期是否在同一周   
+        /// </summary>    
+        private bool IsInSameWeek(DateTime dateX, DateTime dateY)
+        {
+            if (dateX > dateY)
+            {
+                var temp = dateX;
+                dateX = dateY;
+                dateY = temp;
+            }
+            double timespan = (dateY - dateX).TotalDays;
+            int dayOfWeek = Convert.ToInt32(dateY.DayOfWeek);
+            if (dayOfWeek == 0) dayOfWeek = 7;
+            return timespan < 7 && timespan < dayOfWeek;
         }
 
         // GET: Event/Details/5
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -162,7 +201,7 @@ namespace NeoWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,City,Type,Address,StartTime,EndTime,Cover,Details,Organizers,IsFree,ThirdPartyLink")] Event @event, int countryId)
+        public async Task<IActionResult> Create([Bind("Id,Name,City,Type,Address,StartTime,EndTime,Cover,Details,Organizers,IsFree,ThirdPartyLink")] Event @event, int countryId, IFormFile cover)
         {
             var country = _context.Countries.FirstOrDefault(p => p.Id == countryId);
             if (country == null)
@@ -180,12 +219,33 @@ namespace NeoWeb.Controllers
             }
             if (ModelState.IsValid)
             {
+                if(cover != null)
+                {
+                    @event.Cover = Upload(cover);
+                }
                 _context.Add(@event);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             ViewBag.Countries = _context.Countries.ToList();
             return View(@event);
+        }
+
+        public string Upload(IFormFile cover)
+        {
+            var random = new Random();
+            var bytes = new byte[10];
+            random.NextBytes(bytes);
+            var newName = bytes.ToHexString() + Path.GetExtension(cover.FileName);
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", newName);
+            if (cover.Length > 0)
+            {
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    cover.CopyTo(stream);
+                }
+            }
+            return newName;
         }
 
         // GET: Event/Edit/5
@@ -210,7 +270,7 @@ namespace NeoWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,City,Type,Address,StartTime,EndTime,Cover,Details,Organizers,IsFree,ThirdPartyLink")] Event @event, int countryId)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,City,Type,Address,StartTime,EndTime,Cover,Details,Organizers,IsFree,ThirdPartyLink")] Event @event, int countryId, IFormFile cover)
         {
             if (id != @event.Id)
             {
@@ -234,6 +294,12 @@ namespace NeoWeb.Controllers
             {
                 try
                 {
+                    if (cover != null)
+                    {
+                        if(!String.IsNullOrEmpty(@event.Cover))
+                            System.IO.File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", @event.Cover));
+                        @event.Cover = Upload(cover);
+                    }
                     _context.Update(@event);
                     await _context.SaveChangesAsync();
                 }
