@@ -54,17 +54,8 @@
 </div>
 
 <div class="container text-center">
-    <div class="calender">
-        <ul>
-            <li>Sun</li>
-            <li>Mon</li>
-            <li>Tues</li>
-            <li>Wed</li>
-            <li>Tur</li>
-            <li>Fri</li>
-            <li>Sat</li>
-        </ul>
-        <ul class="cal-tbody" id="calender"></ul>
+    <div class="">
+
     </div>   
     <div class="news-list">
         <ul class="news-ul"></ul>
@@ -99,8 +90,17 @@
             {
                 <a class="d-block alert alert-light mb-2" href="~/event/index/@item.FirstOrDefault().Type.ToString().ToLower()">@item.FirstOrDefault().Type</a>
             }
-            <div class="alert alert-light p-5" style="height: 300px;">
-                日历
+            <div class="calender alert alert-light p-5" style="height: 300px;">
+                <ul>
+                    <li>Sun</li>
+                    <li>Mon</li>
+                    <li>Tues</li>
+                    <li>Wed</li>
+                    <li>Tur</li>
+                    <li>Fri</li>
+                    <li>Sat</li>
+                </ul>
+                <ul class="cal-tbody" id="calender"></ul>
             </div>
         </div>
     </div>

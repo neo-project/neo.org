@@ -82,9 +82,9 @@ ul,li{
     padding: 0;
 }
 .calender{
-    display:inline-block;
+    /*display:inline-block;
     white-space: nowrap;
-    width: 65%;
+    width: 65%;*/
 }
 .calender ul{
     margin: auto;
