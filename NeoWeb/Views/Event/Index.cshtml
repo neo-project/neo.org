@@ -120,3 +120,12 @@
         </div>
     </div>
 </div>
+@section Scripts{
+    <script>
+        $.get("event/date", { year: 2018, month: 3 })
+            .done(function (data) {
+                console.log(data);
+            });;
+    </script>
+}
+
