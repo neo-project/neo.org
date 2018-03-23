@@ -123,15 +123,7 @@
 
 @section Scripts{ 
 <script>
-        var marks = [{
-            'date': '2018/3/5',
-        }, {
-            'date': '2018/3/8',
-        }, {
-            'date': '2018/3/15',
-        }, {
-            'date': '2018/3/25',
-        }];
+    var marks;
 
         function calender(date) {
             date = date || new Date();
@@ -161,29 +153,30 @@
         }
 
         $(function () {
-            var date = new Date();//传入想要展示的日期
-            calender(date);
-            addNews(marks);
-            function addNews(marks) {
-                if (!marks.length) return false;
-                $(".news-ul").empty();
-                for (var i = 0; i < marks.length; i++) {
-                    var mark = $("." + marks[i].date.split('/')[2]);
-                    mark.addClass("sss").attr("data", i);
-                    var aa = mark.html();
-                    var ss = "2018/3/13";
-                    mark.html("<a href='?z="+ss+"'>"+aa+"</a>");
-                }
-            }
             $(".sss").click(function () {
                 var num = $(this).attr("data");
                 $(".news-ul li").removeClass("select-news");
                 $(".news-ul li").eq(num).addClass("select-news");
             });
         });
+        function addNews(marks) {
+            if (!marks.length) return false;
+            $(".news-ul").empty();
+            for (var i = 0; i < marks.length; i++) {
+                var mark = $("." + marks[i].split('/')[2]);
+                mark.addClass("sss").attr("data", i);
+                var aa = mark.html();
+                var ss = "2018/3/" + aa;
+                mark.html("<a href='?z=" + ss + "'>" + aa + "</a>");
+            }
+        }
         $.get("event/date", { year: 2018, month: 3 })
             .done(function (data) {
                 console.log(data);
+                marks = data;
+                var date = new Date();//传入想要展示的日期
+                calender(date);
+                addNews(marks);
         });;
 </script>
 }
