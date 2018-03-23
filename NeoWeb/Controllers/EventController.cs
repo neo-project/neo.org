@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using NeoWeb.Data;
 using NeoWeb.Models;
+using Newtonsoft.Json;
 
 namespace NeoWeb.Controllers
 {
@@ -33,7 +34,7 @@ namespace NeoWeb.Controllers
 
         // GET: Event
         //[AllowAnonymous]
-        public IActionResult Index(string k = null, int c = 0, int d = 0)
+        public IActionResult Index(string k = null, int c = 0, int d = 0, string z = null)
         {
             var models = _context.Events.OrderBy(o => o.StartTime).Select(p => new
             {
@@ -95,7 +96,7 @@ namespace NeoWeb.Controllers
                 }
             }
             //对国家进行筛选
-            if(c > 0)
+            if (c > 0)
             {
                 models = models.Where(p => p.Country.Id == c);
             }
@@ -109,8 +110,20 @@ namespace NeoWeb.Controllers
                 //已经结束的活动
                 case 3: models = models.Where(p => p.EndTime < DateTime.Now); break;
             }
+            //对具体日期进行查找
+            if (DateTime.TryParse(z, out DateTime date))
+                models = models.Where(p => p.StartTime.Date <= date && p.EndTime.Date >= date);
+
+
             ViewBag.UserRules = _userRules;
             return View(models);
+        }
+
+        [HttpGet]
+        public JsonResult Date(int year, int month)
+        {
+            var obj = _context.Events.Where(p => p.StartTime.Year == year && p.StartTime.Month == month).OrderBy(p => p.StartTime).Select(p => p.StartTime.ToString("yyyy/M/d")).ToList();
+            return Json(obj);
         }
 
         /// <summary>   
@@ -179,7 +192,7 @@ namespace NeoWeb.Controllers
             }
             if (ModelState.IsValid)
             {
-                if(cover != null)
+                if (cover != null)
                 {
                     @event.Cover = Upload(cover);
                 }
@@ -256,7 +269,7 @@ namespace NeoWeb.Controllers
                 {
                     if (cover != null)
                     {
-                        if(!String.IsNullOrEmpty(@event.Cover))
+                        if (!String.IsNullOrEmpty(@event.Cover))
                             System.IO.File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", @event.Cover));
                         @event.Cover = Upload(cover);
                     }
