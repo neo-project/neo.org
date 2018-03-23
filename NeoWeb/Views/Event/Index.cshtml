@@ -18,21 +18,35 @@
     <div class="container">
         <div class="search-div">
             <h1 class="text-center mb-3">Find your next experience</h1>
-            <form asp-action="search" method="post">
+            <form asp-action="index" method="get">
                 <div class="input-group search-group">
-                    <input name="keyword" type="text" value="@ViewBag.Keywords" class="form-control" placeholder="Search events or categories">
-                    <select name="countryId" class="form-control d-none d-md-inline-block">
-                        <option value="0" selected="selected">All Country</option>
-                        @foreach (var item in (Model as IEnumerable<Event>).OrderBy(p => p.Country.Name).GroupBy(p => p.Country))
+                    <input name="k" type="text" value="@ViewBag.Keywords" class="form-control" placeholder="Search events or categories">
+                    <select name="c" class="form-control d-none d-md-inline-block">
+                        <option value="0">All Country</option>
+                        @foreach (var item in ViewBag.Countries as IEnumerable<Country>)
                         {
-                            <option value="@((item.FirstOrDefault() as Event).Country.Id)">@((item.FirstOrDefault() as Event).Country.Name)</option>
+                            if (item.Id == ViewBag.CountryId)
+                            {
+                                <option selected="selected" value="@item.Id">@item.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
                         }
                     </select>
-                    <select name="date" class="form-control d-none d-md-inline-block">
-                        <option selected="selected" value="">All Dates</option>
-                        <option value="this_week">This Week</option>
-                        <option value="this_month">This Month</option>
-                        <option value="past_events">Past Events</option>
+                    <select name="d" class="form-control d-none d-md-inline-block">
+                        @for (int i = 0; i < (ViewBag.Dates as string[]).Length; i++)
+                        {
+                            @if (i == ViewBag.Date)
+                            {
+                                <option selected="selected" value="@i">@ViewBag.Dates[i]</option>
+                            }
+                            else
+                            {
+                                <option value="@i">@ViewBag.Dates[i]</option>
+                            }
+                        }
                     </select>
                     <div class="input-group-append">
                         <button class="btn btn-success" type="submit">@Localizer["Search"]</button>
@@ -46,9 +60,9 @@
 <div class="mb-3 text-center d-md-none">
     <div class="container">
         <a class="btn btn-sm btn-light mb-1" href="~/event/index">ALL</a>
-        @foreach (var item in (Model as IEnumerable<Event>).GroupBy(p => p.Type))
+        @foreach (var item in ViewBag.Types as IEnumerable<EventType>)
         {
-            <a class="btn btn-sm btn-light mb-1" href="~/event/index/@item.FirstOrDefault().Type.ToString().ToLower()">@item.FirstOrDefault().Type</a>
+            <a class="btn btn-sm btn-light mb-1" href="~/event/index?k=@item.ToString().ToLower()">@item</a>
         }
     </div>
 </div>
@@ -77,7 +91,7 @@
             {
                 Html.RenderPartial("_EventPartialPage", item);
             }
-            <div class="mt-4 mb-4" style="border-top: 3px dotted #aaa" ></div>
+            <div class="mt-4 mb-4" style="border-top: 3px dotted #aaa"></div>
             @* 再显示过去的活动 *@
             @foreach (var item in Model.Where(p => p.EndTime < DateTime.Now))
             {
@@ -86,9 +100,10 @@
             @await Html.PartialAsync("_LoginPartial")
         </div>
         <div class="d-none d-md-block col-md-4">
-            @foreach (var item in (Model as IEnumerable<Event>).GroupBy(p => p.Type))
+            <a class="d-block alert alert-light mb-2" href="~/event/index">ALL</a>
+            @foreach (var item in ViewBag.Types as IEnumerable<EventType>)
             {
-                <a class="d-block alert alert-light mb-2" href="~/event/index/@item.FirstOrDefault().Type.ToString().ToLower()">@item.FirstOrDefault().Type</a>
+                <a class="d-block alert alert-light mb-2" href="~/event/index?k=@item.ToString().ToLower()">@item</a>
             }
             <div class="calender alert alert-light p-5" style="height: 300px;">
                 <ul>
