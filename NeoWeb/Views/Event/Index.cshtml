@@ -67,14 +67,14 @@
     </div>
 </div>
 
-<div class="container text-center">
+@*<div class="container text-center">
     <div class="">
 
     </div>   
     <div class="news-list">
         <ul class="news-ul"></ul>
     </div>
-</div>
+</div>*@
 
 <div class="container text-center" style="position: relative;">
 
@@ -122,23 +122,15 @@
 </div>
 
 @section Scripts{ 
-    <script>
+<script>
         var marks = [{
             'date': '2018/3/5',
-            'title': '35上学',
-            'intro': '35上学上学上学上学上学上学'
         }, {
             'date': '2018/3/8',
-            'title': '38上学',
-            'intro': '38上学上学上学上学上学上学'
         }, {
             'date': '2018/3/15',
-            'title': '315上学',
-            'intro': '315上学上学上学上学上学上学'
         }, {
             'date': '2018/3/25',
-            'title': '325上学',
-            'intro': '325上学上学上学上学上学上学'
         }];
 
         function calender(date) {
@@ -160,7 +152,6 @@
 
         function drawCal(obj) {
             var html = "";
-            console.log(obj.startday);
             for (var j = 1; j <= obj.startday; j++) { html += "<li></li>"; }
             for (var i = 1; i <= obj.num; i++) {
                 if ((i + obj.startday - 1) % 7 == 0) html += "</br>";
@@ -170,7 +161,7 @@
         }
 
         $(function () {
-            var date = new Date("2018/3/13");//传入想要展示的日期
+            var date = new Date();//传入想要展示的日期
             calender(date);
             addNews(marks);
             function addNews(marks) {
@@ -179,9 +170,10 @@
                 for (var i = 0; i < marks.length; i++) {
                     var mark = $("." + marks[i].date.split('/')[2]);
                     mark.addClass("sss").attr("data", i);
-                    $(".news-ul").append("<li>" + marks[i].intro + "</li>")
+                    var aa = mark.html();
+                    var ss = "2018/3/13";
+                    mark.html("<a href='?z="+ss+"'>"+aa+"</a>");
                 }
-                $(".news-ul li").eq(0).addClass("select-news");
             }
             $(".sss").click(function () {
                 var num = $(this).attr("data");
@@ -189,5 +181,5 @@
                 $(".news-ul li").eq(num).addClass("select-news");
             });
         });
-        </script>
+</script>
 }
