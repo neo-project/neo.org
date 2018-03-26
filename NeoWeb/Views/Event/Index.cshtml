@@ -85,7 +85,7 @@
         }
     </div>
     <div class="row">
-        <div class="col-12 col-md-8 text-center">
+        <div class="col-12 col-lg-8 text-center">
             @* 先显示未来的活动 *@
             @foreach (var item in Model.Where(p => p.EndTime >= DateTime.Now))
             {
@@ -99,19 +99,19 @@
             }
             @await Html.PartialAsync("_LoginPartial")
         </div>
-        <div class="d-none d-md-block col-md-4">
+        <div class="d-none d-lg-block col-md-4">
             <a class="d-block alert alert-light mb-2" href="~/event/index">ALL</a>
             @foreach (var item in ViewBag.Types as IEnumerable<EventType>)
             {
                 <a class="d-block alert alert-light mb-2" href="~/event/index?k=@item.ToString().ToLower()">@item</a>
             }
             <div class="calender alert-light">
-                <div>
-                    <div>
+                <div class="dis-table">
+                    <div class="dis-table-cell text-left">
                         <span id="chooseY">2018</span>/<span id="chooseM">3</span>
                     </div>
-                    <div>
-                        <a onclick="monthChange(-1)">左</a><a onclick="monthChange(1)">右</a>
+                    <div class="dis-table-cell text-right">
+                        <a onclick="monthChange(-1)"><</a>   <a onclick="monthChange(1)">></a>
                     </div>
                 </div>
                 <ul>
@@ -183,10 +183,10 @@
         $(".news-ul").empty();
         for (var i = 0; i < marks.length; i++) {
             var mark = $("." + marks[i].split('/')[2]);
-            mark.addClass("sss").attr("data", i);
-            var aa = mark.html();
-            var ss = date.getFullYear()+"/"+(parseInt(date.getMonth())+1)+"/"+ aa;
-            mark.html("<a href='?z=" + ss + "'>" + aa + "</a>");
+            mark.addClass("had-event").attr("data", i);
+            var _day = mark.html();
+            var _href = date.getFullYear()+"/"+(parseInt(date.getMonth())+1)+"/"+ _day;
+            mark.html("<a href='?z=" + _href + "'>" + _day + "</a>");
         }
     }
 
@@ -195,7 +195,7 @@
         json = {year:date.getFullYear(),month:date.getMonth()+1}
         $.get("event/date", json).done(function (data) {
             marks = data;
-            var date = new Date(json.year, json.month - 1, 1);//传入想要展示的日期
+            var date = new Date(json.year, json.month - 1, 1);
             calender(date);
             addNews(marks,date);
         });

@@ -82,28 +82,34 @@ ul,li{
     padding: 0;
 }
 .calender{
-    /*display:inline-block;
-    white-space: nowrap;
-    width: 65%;*/
     padding:15px 0;
     min-height:300px;
+}
+.calender .dis-table {
+    width:100%;
+    padding:0 10px;
+}
+.calender .dis-table-cell {
+    width:50%;
 }
 .calender ul{
     margin: auto;
     vertical-align:top;
     font-size:0;
+    text-align:left;
 }
 .calender li{
     display: inline-block;
-    width: 13%;
+    width: 14.1%;
     vertical-align: top;
     text-align: center;
     white-space: normal;
     word-break: break-all;
     padding: 5px;
     font-size:15px;
+    white-space:nowrap;
 }
-.calender .sss{
+.calender .had-event{
     border:1px solid #444;
 }
 .select-news {
