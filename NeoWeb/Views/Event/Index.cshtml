@@ -106,6 +106,14 @@
                 <a class="d-block alert alert-light mb-2" href="~/event/index?k=@item.ToString().ToLower()">@item</a>
             }
             <div class="calender alert-light">
+                <div>
+                    <div>
+                        <span id="chooseY">2018</span>/<span id="chooseM">3</span>
+                    </div>
+                    <div>
+                        <a onclick="monthChange(-1)">左</a><a onclick="monthChange(1)">右</a>
+                    </div>
+                </div>
                 <ul>
                     <li>Sun</li>
                     <li>Mon</li>
@@ -123,60 +131,74 @@
 
 @section Scripts{ 
 <script>
-    var marks;
-
-        function calender(date) {
-            date = date || new Date();
-            drawCal(getObj(date));//传入想要展示的日期，获取值
-        }
-
-        function getObj(date) {
-            var _y = date.getFullYear();
-            var _m = date.getMonth();
-            var _num = new Date(_y, _m + 1, 0).getDate();
-            var obj = {
-                year: _y, month: _m + 1, num: _num,
-                startday: new Date(_y, _m, 1).getDay(),
-                lastday: new Date(_y, _m, _num).getDay()
-            };
-            return obj;
-        }
-
-        function drawCal(obj) {
-            var html = "";
-            for (var j = 1; j <= obj.startday; j++) { html += "<li></li>"; }
-            for (var i = 1; i <= obj.num; i++) {
-                if ((i + obj.startday - 1) % 7 == 0) html += "</br>";
-                html += "<li class=" + i + ">" + i + "</li>";
-            }
-            document.getElementById("calender").innerHTML = html;
-        }
-
-        $(function () {
-            $(".sss").click(function () {
-                var num = $(this).attr("data");
-                $(".news-ul li").removeClass("select-news");
-                $(".news-ul li").eq(num).addClass("select-news");
-            });
+    $(function () {
+        $(".sss").click(function () {
+            var num = $(this).attr("data");
+            $(".news-ul li").removeClass("select-news");
+            $(".news-ul li").eq(num).addClass("select-news");
         });
-        function addNews(marks) {
-            if (!marks.length) return false;
-            $(".news-ul").empty();
-            for (var i = 0; i < marks.length; i++) {
-                var mark = $("." + marks[i].split('/')[2]);
-                mark.addClass("sss").attr("data", i);
-                var aa = mark.html();
-                var ss = "2018/3/" + aa;
-                mark.html("<a href='?z=" + ss + "'>" + aa + "</a>");
-            }
+        getlist();
+    });
+
+    function monthChange(num) {
+        var _year = parseInt($("#chooseY").html());
+        var _month = parseInt($("#chooseM").html())-1;
+        var date = new Date(_year, _month + num, 1);
+        drawCal(getObj(date));
+        getlist(date);
+        $("#chooseY").html(date.getFullYear());
+        $("#chooseM").html(date.getMonth()+1);
+    }
+
+
+    function calender(date) {
+        date = date || new Date();
+        drawCal(getObj(date));//传入想要展示的日期，获取值
+    }
+
+    function getObj(date) {
+        var _y = date.getFullYear();
+        var _m = date.getMonth();
+        var _num = new Date(_y, _m + 1, 0).getDate();
+        var obj = {
+            year: _y, month: _m + 1, num: _num,
+            startday: new Date(_y, _m, 1).getDay(),
+            lastday: new Date(_y, _m, _num).getDay()
+        };
+        return obj;
+    }
+
+    function drawCal(obj) {
+        var html = "";
+        for (var j = 1; j <= obj.startday; j++) { html += "<li></li>"; }
+        for (var i = 1; i <= obj.num; i++) {
+            if ((i + obj.startday - 1) % 7 == 0) html += "</br>";
+            html += "<li class=" + i + ">" + i + "</li>";
         }
-        $.get("event/date", { year: 2018, month: 3 })
-            .done(function (data) {
-                console.log(data);
-                marks = data;
-                var date = new Date();//传入想要展示的日期
-                calender(date);
-                addNews(marks);
-        });;
+        document.getElementById("calender").innerHTML = html;
+    }
+
+    function addNews(marks,date) {
+        if (!marks.length) return false;
+        $(".news-ul").empty();
+        for (var i = 0; i < marks.length; i++) {
+            var mark = $("." + marks[i].split('/')[2]);
+            mark.addClass("sss").attr("data", i);
+            var aa = mark.html();
+            var ss = date.getFullYear()+"/"+(parseInt(date.getMonth())+1)+"/"+ aa;
+            mark.html("<a href='?z=" + ss + "'>" + aa + "</a>");
+        }
+    }
+
+    function getlist(date){
+        date = date || new Date();
+        json = {year:date.getFullYear(),month:date.getMonth()+1}
+        $.get("event/date", json).done(function (data) {
+            marks = data;
+            var date = new Date(json.year, json.month - 1, 1);//传入想要展示的日期
+            calender(date);
+            addNews(marks,date);
+        });
+    }
 </script>
 }
