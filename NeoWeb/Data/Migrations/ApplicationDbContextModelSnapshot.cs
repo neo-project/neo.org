@@ -263,6 +263,27 @@ namespace NeoWeb.Data.Migrations
                     b.ToTable("ICO2");
                 });
 
+            modelBuilder.Entity("NeoWeb.Models.Media", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Image");
+
+                    b.Property<string>("Link")
+                        .IsRequired();
+
+                    b.Property<DateTime>("Time");
+
+                    b.Property<string>("Title");
+
+                    b.Property<string>("Description");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Media");
+                });
+
             modelBuilder.Entity("NeoWeb.Models.News", b =>
                 {
                     b.Property<int>("Id")

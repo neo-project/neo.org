@@ -1,0 +1,30 @@
+﻿@model IEnumerable<NeoWeb.Models.Media>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container">
+    <h2>Index</h2>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+
+    @foreach (var item in Model)
+    {
+        <div>
+            <img class="d-block img-thumbnail" src="@item.Image" />
+            <a href="@item.Link" target="_blank">
+                @Html.Raw(item.Title)
+            </a>
+            <div>
+                @Html.Raw(item.Description)
+            </div>
+            <div>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </div>
+        </div>
+    }
+</div>

@@ -556,7 +556,7 @@ a {
 }
 .award-thr .award-detail{
     display:inline-block;
-    width:calc(33.33% - 14px);
+    width:calc(33.33% - 20px);
     font-size:15px;
     margin-left:20px;
 }
@@ -567,7 +567,7 @@ a {
     margin-left:0;
 }
 .award-thr .iconfont{
-    font-size:22px;
+    font-size:20px;
 }
 .awards-name {
     max-width:300px!important;
