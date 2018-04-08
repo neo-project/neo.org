@@ -21,6 +21,8 @@ namespace NeoWeb.Data
 
         public DbSet<News> News { get; set; }
 
+        public DbSet<Media> Media { get; set; }
+
         public DbSet<ICO1> ICO1 { get; set; }
 
         public DbSet<ICO2> ICO2 { get; set; }
