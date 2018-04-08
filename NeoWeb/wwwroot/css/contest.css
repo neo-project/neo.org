@@ -535,8 +535,9 @@ a {
     margin:0;
 }
 .award-detail .iconfont{
-    font-size:26px;
+    font-size:20px;
     vertical-align:middle;
+    color:#464646;
 }
 .award-fri .award-detail{
     font-size:15px;
@@ -544,27 +545,21 @@ a {
 }
 .award-sec .award-detail{
     display:inline-block;
-    width: calc(50% - 10px);
+    width: calc(50% - 20px);
     font-size:15px;
-    margin-left:20px;
+    margin:15px 10px;
 }
 .award-sec .award-detail img {
     max-height:225px;
-}
-.award-sec .award-detail:first-child{
-    margin-left:0;
 }
 .award-thr .award-detail{
     display:inline-block;
     width:calc(33.33% - 20px);
     font-size:15px;
-    margin-left:20px;
+    margin:15px 10px;
 }
 .award-thr .award-detail img {
     max-height:150px;
-}
-.award-thr .award-detail:first-child{
-    margin-left:0;
 }
 .award-thr .iconfont{
     font-size:20px;
