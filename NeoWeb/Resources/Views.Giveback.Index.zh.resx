@@ -129,6 +129,9 @@
   <data name="NEO Sponsor Giveback Plan" xml:space="preserve">
     <value>NEO资助者回馈计划</value>
   </data>
+  <data name="This supplement is filled out only for users who have not filled in the giveback information before April 1." xml:space="preserve">
+    <value>此次为补充填写，仅适用于没有在4月1日前填写回馈信息的用户。</value>
+  </data>
   <data name="time:" xml:space="preserve">
     <value>时间为</value>
   </data>
