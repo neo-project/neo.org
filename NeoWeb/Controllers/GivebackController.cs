@@ -142,12 +142,6 @@ namespace NeoWeb.Controllers
                     ViewBag.Message = _localizer["You are not in the Fill list (not participating in ICO2 or have received giveback)"];
                     return View(giveback);
                 }
-                ViewBag.FirstCommit = true;
-                if (item.CommitTime != null)
-                {
-                    ViewBag.FirstCommit = false;
-                    return View("completed");
-                }
                 if (giveback.Choose == Choose.RMB)
                 {
                     item.GivebackNeoAddress = null;
