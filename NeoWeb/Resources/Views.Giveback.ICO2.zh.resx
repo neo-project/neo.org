@@ -192,4 +192,7 @@
   <data name="You have not participated in ICO2" xml:space="preserve">
     <value>你没有参与过ICO2</value>
   </data>
+  <data name="The signature failed and the browser is not compatible, please resubmit your application with the latest Chrome or Edge browser." xml:space="preserve">
+    <value>签名失败，浏览器不兼容，请使用最新的Chrome或Edge浏览器重新提交申请，如果是双核浏览器可以切换至极速模式尝试。</value>
+  </data>
 </root>

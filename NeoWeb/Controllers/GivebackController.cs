@@ -43,6 +43,12 @@ namespace NeoWeb.Controllers
             return View();
         }
 
+        // GET: Giveback/Completed
+        //public IActionResult Completed()
+        //{
+        //    return View();
+        //}
+
         // GET: Giveback/List1
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> List1()
@@ -61,7 +67,7 @@ namespace NeoWeb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult ICO1([Bind("Email,RedeemCode,Choose,Name,BankAccount,BankName,GivebackNeoAddress")] ICO1 giveback)
         {
-            if (DateTime.Now > new DateTime(2018, 3, 16, 0, 0, 0))
+            if (DateTime.Now > new DateTime(2018, 6, 1, 0, 0, 0))
             {
                 ViewBag.Message = "回馈计划已截止";
                 return View(giveback);
@@ -71,7 +77,7 @@ namespace NeoWeb.Controllers
                 var item = _context.ICO1.FirstOrDefault(p => p.Email == giveback.Email);
                 if (item == null)
                 {
-                    ModelState.AddModelError("Email", "该用户未参与过ICO1");
+                    ModelState.AddModelError("Email", "你不在此次补填写名单（没有参加ICO1或者已经收到了回馈）");
                     return View(giveback);
                 }
                 item = _context.ICO1.FirstOrDefault(p => p.Email == giveback.Email && p.RedeemCode == giveback.RedeemCode);
@@ -115,7 +121,7 @@ namespace NeoWeb.Controllers
         public IActionResult ICO2(string signature, string pubkey,
             [Bind("Email,Choose,Name,BankAccount,BankName,GivebackNeoAddress")] ICO2 giveback)
         {
-            if (DateTime.Now > new DateTime(2018, 3, 16, 0, 0, 0))
+            if (DateTime.Now > new DateTime(2018, 6, 1, 0, 0, 0))
             {
                 ViewBag.Message = _localizer["The giveback plan has expired"];
                 return View(giveback);
@@ -133,7 +139,7 @@ namespace NeoWeb.Controllers
                 var item = _context.ICO2.FirstOrDefault(p => p.NeoAddress == sc.Address);
                 if (item == null)
                 {
-                    ViewBag.Message = _localizer["You have not participated in ICO2"];
+                    ViewBag.Message = _localizer["You are not in the Fill list (not participating in ICO2 or have received giveback)"];
                     return View(giveback);
                 }
                 if (giveback.Choose == Choose.RMB)
@@ -166,7 +172,7 @@ namespace NeoWeb.Controllers
             }
             return View(giveback);
         }
-        
+
         private bool VerifySignature(string message, string signature, string pubkey)
         {
             var msg = System.Text.Encoding.Default.GetBytes(message);
