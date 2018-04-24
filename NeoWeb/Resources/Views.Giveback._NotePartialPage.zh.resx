@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&quot;NEO Sponsor Giveback Plan&quot; Announcement" xml:space="preserve">
-    <value>NEO资助者回馈计划公告</value>
+  <data name="NEO Sponsor Giveback Plan Extension Announcement" xml:space="preserve">
+    <value>NEO资助者回馈延期公告</value>
   </data>
   <data name="The time for completing the information expires until &lt;b&gt;May 31,  2018&lt;/b&gt;" xml:space="preserve">
     <value>信息填写的时间截止至 &lt;b&gt;2018年5月31日&lt;/b&gt;</value>
@@ -126,19 +126,19 @@
   <data name="Giveback will be issued from &lt;b&gt;June 5, 2018&lt;/b&gt; to &lt;b&gt;June 10, 2018&lt;/b&gt;" xml:space="preserve">
     <value>回馈将在 &lt;b&gt;2018年6月5日&lt;/b&gt; 至 &lt;b&gt;6月10日&lt;/b&gt; 统一发放</value>
   </data>
-  <data name="https://neo.org/blog/details/3014" xml:space="preserve">
-    <value>https://neo.org/blog/details/3013</value>
+  <data name="https://neo.org/blog/details/3076" xml:space="preserve">
+    <value>https://neo.org/blog/details/3075</value>
   </data>
   <data name="Sponsor can choose to accept giveback in &lt;b&gt;RMB&lt;/b&gt; or &lt;b&gt;NEO&lt;/b&gt;" xml:space="preserve">
     <value>资助者可以选择接受以 &lt;b&gt;人民币&lt;/b&gt; 的回馈或者以 &lt;b&gt;NEO&lt;/b&gt; 的回馈</value>
   </data>
-  <data name="&quot;NEO Sponsor Giveback Plan&quot;Rules" xml:space="preserve">
-    <value>”NEO资助者回馈计划“细则</value>
+  <data name="NEO Sponsor Giveback Plan Rules" xml:space="preserve">
+    <value>NEO资助者回馈计划细则</value>
   </data>
   <data name="https://neo.org/blog/details/3046" xml:space="preserve">
     <value>https://neo.org/blog/details/3045</value>
   </data>
   <data name="Implementation Details of &quot;NEO Sponsor Giveback Plan&quot;" xml:space="preserve">
-    <value>“NEO资助者回馈计划”实施细则公告</value>
+    <value>NEO资助者回馈计划实施细则公告</value>
   </data>
 </root>
