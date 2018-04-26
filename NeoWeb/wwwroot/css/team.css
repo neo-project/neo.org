@@ -10,6 +10,15 @@
     height: 250px;
 }
 
+h2 {
+    color: #58bf00;
+}
+
+.nf.team .card {
+    width: 180px;
+    height: 280px;
+}
+
 .team .card-body {
     padding: 5px 0;
 }
