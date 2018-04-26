@@ -37,6 +37,10 @@
     "inputFiles": [ "wwwroot/css/homepage.css" ]
   },
   {
+    "outputFileName": "wwwroot/css/team.min.css",
+    "inputFiles": [ "wwwroot/css/team.css" ]
+  },
+  {
     "outputFileName": "wwwroot/css/logo.min.css",
     "inputFiles": [ "wwwroot/css/logo.css" ]
   },
