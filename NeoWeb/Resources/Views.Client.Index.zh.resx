@@ -333,4 +333,22 @@
   <data name="Type-C/Bluetooth" xml:space="preserve">
     <value>Type-C/蓝牙</value>
   </data>
+  <data name="Convenient operation and rich function" xml:space="preserve">
+    <value>操作便捷，功能丰富</value>
+  </data>
+  <data name="developed efficient smart wallet" xml:space="preserve">
+    <value>开发的高效智能的钱包</value>
+  </data>
+  <data name="Login via password" xml:space="preserve">
+    <value>通过密码登录</value>
+  </data>
+  <data name="Multi-dimension display project dynamic" xml:space="preserve">
+    <value>多维度展示项目动态</value>
+  </data>
+  <data name="Support NEO, GAS, NEP-5, ETH, ERC20, will support NFT" xml:space="preserve">
+    <value>支持NEO，GAS，NEP-5，ETH，ERC20，即将支持NFT</value>
+  </data>
+  <data name="Wallet file is stored locally, support transfer, claim gas" xml:space="preserve">
+    <value>钱包文件本地存储，支持转账、提取GAS</value>
+  </data>
 </root>

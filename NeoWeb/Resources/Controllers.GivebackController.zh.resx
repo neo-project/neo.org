@@ -126,7 +126,7 @@
   <data name="The giveback plan has expired" xml:space="preserve">
     <value>回馈计划已截止</value>
   </data>
-  <data name="You have not participated in ICO2" xml:space="preserve">
-    <value>你没有参与ICO2</value>
+  <data name="You are not in the Fill list (not participating in ICO2 or have received giveback)" xml:space="preserve">
+    <value>你不在此次补填写名单（没有参加ICO2或者已经收到了回馈）</value>
   </data>
 </root>

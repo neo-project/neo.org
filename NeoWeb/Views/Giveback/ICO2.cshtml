@@ -105,6 +105,7 @@
         var btn_val = '@Localizer["Submit Application"]';
         var btn_wait = '@Localizer["Please wait"]';
         var confirm_text = '@Localizer["Are you sure the information you filled out is correct?"]'
+        var compatible_text = '@Localizer["The signature failed and the browser is not compatible, please resubmit your application with the latest Chrome or Edge browser."]'
 
         function setChoose() {
             if ($("#select1").val() == 0) {
@@ -117,12 +118,20 @@
             }
         }
         setChoose();
-
+        var IsCompatible = false;
         function submit_click() {
             if ($("#form_ico2").valid())
             {
+                IsCompatible = false;
                 $("#btn_submit").val(btn_wait);
                 setTimeout(signClick, 100);
+                //浏览器不兼容时提示
+                setTimeout(function () {
+                    if (!IsCompatible) {
+                        alert(compatible_text);
+                        $("#btn_submit").val(btn_val);
+                    }
+                }, 10000);
             }
         }
 
@@ -137,7 +146,8 @@
                 return AntShares.Wallets.Wallet.getPrivateKeyFromWIF(wif);
             }).then(function (privateKey) {
                 return AntShares.Wallets.Account.create(privateKey);
-            }, function (err) {
+                }, function (err) {
+                IsCompatible = true;
                 alert(alert_prikey);
                 $("#btn_submit").val(btn_val);
                 }).then(function (account) {
@@ -148,6 +158,7 @@
                 }).then(function (results) {
                     $("#pubkey").val(results[0].toString());
                     $("#sign").val(new Uint8Array(results[1]).toHexString());
+                    IsCompatible = true;
                     if (confirm(confirm_text))
                         $("#form_ico2").submit();
                     else
