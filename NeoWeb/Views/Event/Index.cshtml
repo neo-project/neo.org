@@ -20,7 +20,13 @@
             <h1 class="text-center mb-3">Find your next experience</h1>
             <form asp-action="index" method="get">
                 <div class="input-group search-group">
-                    <input name="k" type="text" value="@ViewBag.Keywords" class="form-control" placeholder="Search events or categories">
+                    <select name="k" class="form-control d-none d-md-inline-block">
+                        <option value="">All Event Type</option>
+                        @foreach (var item in ViewBag.Types as IEnumerable<EventType>)
+                        {
+                            <option value="@item">@item</option>
+                        }
+                    </select>
                     <select name="c" class="form-control d-none d-md-inline-block">
                         <option value="0">All Country</option>
                         @foreach (var item in ViewBag.Countries as IEnumerable<Country>)
@@ -56,25 +62,6 @@
         </div>
     </div>
 </div>
-@* 按类别筛选 *@
-<div class="mb-3 text-center d-md-none">
-    <div class="container">
-        <a class="btn btn-sm btn-light mb-1" href="~/event/index">ALL</a>
-        @foreach (var item in ViewBag.Types as IEnumerable<EventType>)
-        {
-            <a class="btn btn-sm btn-light mb-1" href="~/event/index?k=@item.ToString().ToLower()">@item</a>
-        }
-    </div>
-</div>
-
-@*<div class="container text-center">
-    <div class="">
-
-    </div>   
-    <div class="news-list">
-        <ul class="news-ul"></ul>
-    </div>
-</div>*@
 
 <div class="container text-center" style="position: relative;">
 
@@ -100,11 +87,6 @@
             @await Html.PartialAsync("_LoginPartial")
         </div>
         <div class="d-none d-lg-block col-md-4">
-            <a class="d-block alert alert-light mb-2" href="~/event/index">ALL</a>
-            @foreach (var item in ViewBag.Types as IEnumerable<EventType>)
-            {
-                <a class="d-block alert alert-light mb-2" href="~/event/index?k=@item.ToString().ToLower()">@item</a>
-            }
             <div class="calender alert-light">
                 <div class="dis-table">
                     <div class="dis-table-cell text-left">
