@@ -351,4 +351,13 @@
   <data name="Wallet file is stored locally, support transfer, claim gas" xml:space="preserve">
     <value>钱包文件本地存储，支持转账、提取GAS</value>
   </data>
+  <data name="A cutting edge user interface" xml:space="preserve">
+    <value>一个前沿的用户界面</value>
+  </data>
+  <data name="Address book and complete Nep5 token integration" xml:space="preserve">
+    <value>通讯簿和完整的 Nep5 令牌集成</value>
+  </data>
+  <data name="Real-time trading chart data" xml:space="preserve">
+    <value>实时交易图表数据</value>
+  </data>
 </root>
