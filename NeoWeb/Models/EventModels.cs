@@ -46,7 +46,7 @@ namespace NeoWeb.Models
 
     public enum EventType
     {
-        DevCon,
+        Conference,
         Meetup,
         Workshop,
         Hackathon

@@ -48,12 +48,13 @@
 }
 
 .event-detail .type-img {
-    border: 1px solid #28a745;
+    border: 1px solid #ccc;
 }
 
 .event-detail {
     background-color: #fff;
     padding: 10px 20px;
+    margin: 40px 0;
 }
 
 .event-detail img {
@@ -138,12 +139,13 @@ ul,li{
     margin-bottom: -100px;
     background: linear-gradient( rgba(255, 255, 255, 0.9) 0%, white 25%);
     padding: 20px;
-    border-radius: 3px;
-    box-shadow: rgba(0,0,0,.3) 2px 2px 5px 0;
+    box-shadow: #ccc 8px 8px 0;
 }
 
 .event-banner .container h1 {
-    color: #f86820
+    color: #58bf00;
+    font-size: 72px;
+    font-weight: bold;
 }
 
 @media only screen and (min-width: 576px) {

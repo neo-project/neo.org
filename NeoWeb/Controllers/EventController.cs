@@ -33,7 +33,7 @@ namespace NeoWeb.Controllers
         }
 
         // GET: Event
-        //[AllowAnonymous]
+        [AllowAnonymous]
         public IActionResult Index(string k = null, int c = 0, int d = 0, string z = null)
         {
             var models = _context.Events.OrderBy(o => o.StartTime).Select(p => new
@@ -81,7 +81,7 @@ namespace NeoWeb.Controllers
                 {
                     switch (item.ToLower())
                     {
-                        case "devcon": models = models.Where(p => p.Type == EventType.DevCon); break;
+                        case "Conference": models = models.Where(p => p.Type == EventType.Conference); break;
                         case "meetup": models = models.Where(p => p.Type == EventType.Meetup); break;
                         case "workshop": models = models.Where(p => p.Type == EventType.Workshop); break;
                         case "hackathon": models = models.Where(p => p.Type == EventType.Hackathon); break;
@@ -120,6 +120,7 @@ namespace NeoWeb.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public JsonResult Date(int year, int month)
         {
             var obj = _context.Events.Where(p => p.StartTime.Year == year && p.StartTime.Month == month).OrderBy(p => p.StartTime).Select(p => p.StartTime.ToString("yyyy/M/d")).ToList();
@@ -144,7 +145,7 @@ namespace NeoWeb.Controllers
         }
 
         // GET: Event/Details/5
-        //[AllowAnonymous]
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)

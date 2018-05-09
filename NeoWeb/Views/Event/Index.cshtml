@@ -11,23 +11,22 @@
     <environment exclude="Development">
         <link rel="stylesheet" href="~/css/event.min.css" asp-append-version="true" />
     </environment>
-
 }
 
 <div class="event-banner">
     <div class="container">
-        <div class="search-div">
-            <h1 class="text-center mb-3">Find your next experience</h1>
+        <div class="search-div text-center">
+            <img class="img-fluid search-group mt-3 mb-5" src="~/images/event/h1.jpg" />
             <form asp-action="index" method="get">
                 <div class="input-group search-group">
-                    <select name="k" class="form-control d-none d-md-inline-block">
-                        <option value="">All Event Type</option>
+                    <select name="k" class="form-control">
+                        <option value="">Categories</option>
                         @foreach (var item in ViewBag.Types as IEnumerable<EventType>)
                         {
                             <option value="@item">@item</option>
                         }
                     </select>
-                    <select name="c" class="form-control d-none d-md-inline-block">
+                    <select name="c" class="form-control">
                         <option value="0">All Country</option>
                         @foreach (var item in ViewBag.Countries as IEnumerable<Country>)
                         {
@@ -41,7 +40,7 @@
                             }
                         }
                     </select>
-                    <select name="d" class="form-control d-none d-md-inline-block">
+                    <select name="d" class="form-control">
                         @for (int i = 0; i < (ViewBag.Dates as string[]).Length; i++)
                         {
                             @if (i == ViewBag.Date)
@@ -74,6 +73,9 @@
     <div class="row">
         <div class="col-12 col-lg-8 text-center">
             @* 先显示未来的活动 *@
+            <div>
+                LIVE EVENTS
+            </div>
             @foreach (var item in Model.Where(p => p.EndTime >= DateTime.Now))
             {
                 Html.RenderPartial("_EventPartialPage", item);
@@ -90,7 +92,7 @@
             <div class="calender alert-light">
                 <div class="dis-table">
                     <div class="dis-table-cell text-left">
-                        <span id="chooseY">2018</span>/<span id="chooseM">3</span>
+                        <span id="chooseY">@DateTime.Now.Year</span>/<span id="chooseM">@DateTime.Now.Month</span>
                     </div>
                     <div class="dis-table-cell text-right">
                         <a onclick="monthChange(-1)"><</a>   <a onclick="monthChange(1)">></a>
@@ -114,12 +116,12 @@
 @section Scripts{ 
 <script>
     $(function () {
-        $(".sss").click(function () {
-            var num = $(this).attr("data");
-            $(".news-ul li").removeClass("select-news");
-            $(".news-ul li").eq(num).addClass("select-news");
-        });
-        getlist();
+        //$(".sss").click(function () {
+        //    var num = $(this).attr("data");
+        //    $(".news-ul li").removeClass("select-news");
+        //    $(".news-ul li").eq(num).addClass("select-news");
+        //});
+        monthChange(0);
     });
 
     function monthChange(num) {
