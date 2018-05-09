@@ -1,4 +1,24 @@
-﻿.event-item {
+﻿body {
+    background:#F3F3F3;
+}
+
+.event-line{
+	border-bottom: 3px solid #D6D6D6;
+	position: relative;
+	margin-top: 12px;
+    text-align:left;
+}
+
+.event-line span{
+    letter-spacing:3px;
+    background-color:#F2F2F2;
+    padding-left:10px;
+    vertical-align: bottom;
+    display: inline-block;
+    margin-bottom: -8px;
+}
+
+.event-item {
     position: relative;
     display: inline-block;
     margin: 9px 6px;
@@ -48,17 +68,39 @@
 }
 
 .event-detail .type-img {
-    border: 1px solid #ccc;
+    border: 2px solid #EBEBEB;
 }
 
 .event-detail {
+    color:#222222;
     background-color: #fff;
     padding: 10px 20px;
-    margin: 40px 0;
+    margin: 30px 0;
+    box-shadow: 3px 3px 1px #E8E8E8;
 }
 
 .event-detail img {
     max-width: 100%;
+    min-width:125px;
+    min-height:125px;
+}
+
+.event-detail a {
+    color:#222222;
+    font-weight:600;
+    letter-spacing:2px;
+}
+
+.event-detail a:active,
+.event-detail a:visited{
+    color:#222222;
+}
+
+.e-detail-title:after{
+    content:" ";
+    border-bottom:2px solid #9ACA3D;
+    display:block;
+    margin-top:5px;
 }
 
 .event-detail .line {
@@ -91,7 +133,7 @@ ul,li{
     padding:0 10px;
 }
 .calender .dis-table-cell {
-    width:50%;
+    width:33%;
 }
 .calender ul{
     margin: auto;

@@ -73,14 +73,12 @@
     <div class="row">
         <div class="col-12 col-lg-8 text-center">
             @* 先显示未来的活动 *@
-            <div>
-                LIVE EVENTS
-            </div>
+            <div class="event-line"><span class="h1 bold-font ">LIVE EVENTS</span></div>
             @foreach (var item in Model.Where(p => p.EndTime >= DateTime.Now))
             {
                 Html.RenderPartial("_EventPartialPage", item);
             }
-            <div class="mt-4 mb-4" style="border-top: 3px dotted #aaa"></div>
+            <div class="event-line"><span class="h1 bold-font ">PAST EVENTS</span></div>
             @* 再显示过去的活动 *@
             @foreach (var item in Model.Where(p => p.EndTime < DateTime.Now))
             {
@@ -91,11 +89,14 @@
         <div class="d-none d-lg-block col-md-4">
             <div class="calender alert-light">
                 <div class="dis-table">
-                    <div class="dis-table-cell text-left">
+                    <div class="dis-table-cell text-right">
+                        <a onclick="monthChange(-1)"><</a>
+                    </div>
+                    <div class="dis-table-cell text-center">
                         <span id="chooseY">@DateTime.Now.Year</span>/<span id="chooseM">@DateTime.Now.Month</span>
                     </div>
-                    <div class="dis-table-cell text-right">
-                        <a onclick="monthChange(-1)"><</a>   <a onclick="monthChange(1)">></a>
+                    <div class="dis-table-cell text-left">
+                           <a onclick="monthChange(1)">></a>
                     </div>
                 </div>
                 <ul>

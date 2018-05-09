@@ -1,82 +1,28 @@
 ﻿@model NeoWeb.Models.Event
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
-<div class="event-item d-inline-block d-sm-none">
-    @if (String.IsNullOrEmpty(Model.Cover))
-    {
-        <img src="@String.Format("/images/event/{0}.jpg", Model.Type)">
-    }
-    else
-    {
-        <img src="@String.Format("/upload/{0}", Model.Cover)">
-    }
-    <div class="mb-3">
-        <h3 class="mt-2 mb-1">@Model.Name</h3>
-        <div class="address">
-            <i class="iconfont">&#xe620;</i><span class="@Localizer["d-none-zh"]">@Model.Country.Name</span><span class="@Localizer["d-none"]">@Model.Country.ZhName</span> - <span>@Model.City</span>
-        </div>
-        <div class="date">
-            @if (Model.StartTime.Year == DateTime.Now.Year)
-            {
-                <span>@Model.StartTime.ToString("MM-dd HH:mm")</span>
-            }
-            else
-            {
-                <span>@Model.StartTime.ToString("yyyy-MM-dd HH:mm")</span>
-            }
-        </div>
-    </div>
-    <a href="~/event/details/@Model.Id" class="btn btn-success">@Localizer["Show details"]</a>
-
-    <div class="org">
-        @Model.Organizers
-        <div class="float-right">
-            @if (ViewBag.UserRules)
-            {
-                <a asp-action="Edit" asp-route-id="@Model.Id">@Localizer["Edit"]</a>
-                <span>|</span>
-                <a asp-action="Delete" asp-route-id="@Model.Id">@Localizer["Delete"]</a>
-            }
-        </div>
-    </div>
-</div>
-<div class="d-none d-sm-block event-detail mb-2 text-left">
+<div class="event-detail mb-2 text-left">
     <div class="row mt-3">
         <div class="col-12 col-sm-4 col-md-3">
-            @if (String.IsNullOrEmpty(Model.Cover))
-            {
-                <img class="type-img mb-2" src="@String.Format("/images/event/{0}.jpg", Model.Type)">
-            }
-            else
-            {
-                <img class="type-img mb-2" src="@String.Format("/upload/{0}", Model.Cover)">
-            }
+        @if (String.IsNullOrEmpty(Model.Cover))
+        {
+            <img class="type-img mb-2" src="@String.Format("/images/event/{0}.jpg", Model.Type)">
+        }
+        else
+        {
+            <img class="type-img mb-2" src="@String.Format("/upload/{0}", Model.Cover)">
+        }
         </div>
         <div class="col-12 col-sm-8 col-md-9">
-            <h2>
-                <a href="~/event/details/@Model.Id">@Model.Name</a>
-            </h2>
+            <p class="e-detail-title">
+                <a class="t2" href="~/event/details/@Model.Id">@Model.Name</a>
+            </p>
             <div class="mt-2">
                 <i class="iconfont">&#xe620;</i><span class="@Localizer["d-none-zh"]">@Model.Country.Name</span><span class="@Localizer["d-none"]">@Model.Country.ZhName</span> - <span>@Model.City</span>
-                <div>@Model.Address</div>
             </div>
             <div class="mt-2">
-                <span>@Model.StartTime.ToString("yyyy-MM-dd HH:mm") ~ @Model.EndTime.ToString("yyyy-MM-dd HH:mm")</span>
+                <span>@Model.StartTime.ToString("yyyy-MM-dd") / @Model.EndTime.ToString("yyyy-MM-dd")</span>
             </div>
-
-        </div>
-        <div class="col-12">
-            <div class="line"></div>
-            <span>@Model.Organizers</span>
-            @if (ViewBag.UserRules)
-            {
-                <span class="float-right">
-                    <a asp-action="Edit" asp-route-id="@Model.Id">@Localizer["Edit"]</a>
-                    <span>|</span>
-                    <a asp-action="Delete" asp-route-id="@Model.Id">@Localizer["Delete"]</a>
-
-                </span>
-            }
         </div>
     </div>
 </div>
