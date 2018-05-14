@@ -4,6 +4,10 @@
 <div class="event-detail text-left">
     <div class="row mt-3">
         <div class="col-12 col-sm-4 col-md-3 text-center">
+        @if (@Model.IsFree)
+        {
+            <span class="ticket-free"></span>
+        }
         @if (String.IsNullOrEmpty(Model.Cover))
         {
             <img class="type-img mb-2" src="@String.Format("/images/event/{0}.jpg", Model.Type)">

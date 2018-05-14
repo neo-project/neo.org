@@ -121,6 +121,25 @@ select.form-control {
     font-weight:100;
 }
 
+.event-detail .ticket-free {
+    position:absolute;
+    width:0px;
+    height:0px;
+    border-left:23px solid #9ACA3D;
+    border-top: 23px solid #9ACA3D;
+    border-bottom:23px solid transparent;
+    border-right:23px solid transparent;
+}
+
+.ticket-free::after {
+    content:"Free";
+    position:absolute;
+    top:-18px;
+    left:-20px;
+    color:#FFFFFF;
+    font-size:12px;
+}
+
 .event-detail img {
     width:100%;
     max-width: 150px;
