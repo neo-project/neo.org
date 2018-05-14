@@ -2,9 +2,7 @@
 var image = (function () {
   'use strict';
 
-  var PluginManager = tinymce.util.Tools.resolve('tinymce.PluginManager');
-
-  var Tools = tinymce.util.Tools.resolve('tinymce.util.Tools');
+  var global = tinymce.util.Tools.resolve('tinymce.PluginManager');
 
   var hasDimensions = function (editor) {
     return editor.settings.image_dimensions === false ? false : true;
@@ -48,7 +46,7 @@ var image = (function () {
   var getUploadCredentials = function (editor) {
     return editor.getParam('images_upload_credentials');
   };
-  var $_a66r9ebqjcq86icg = {
+  var $_9h39ugcdjgqkptmr = {
     hasDimensions: hasDimensions,
     hasAdvTab: hasAdvTab,
     getPrependUrl: getPrependUrl,
@@ -65,10 +63,10 @@ var image = (function () {
     getUploadCredentials: getUploadCredentials
   };
 
-  var global = typeof window !== 'undefined' ? window : Function('return this;')();
+  var global$1 = typeof window !== 'undefined' ? window : Function('return this;')();
 
   var path = function (parts, scope) {
-    var o = scope !== undefined && scope !== null ? scope : global;
+    var o = scope !== undefined && scope !== null ? scope : global$1;
     for (var i = 0; i < parts.length && o !== undefined && o !== null; ++i)
       o = o[parts[i]];
     return o;
@@ -83,7 +81,7 @@ var image = (function () {
     return o[part];
   };
   var forge = function (parts, target) {
-    var o = target !== undefined ? target : global;
+    var o = target !== undefined ? target : global$1;
     for (var i = 0; i < parts.length; ++i)
       o = step(o, parts[i]);
     return o;
@@ -92,7 +90,7 @@ var image = (function () {
     var parts = name.split('.');
     return forge(parts, target);
   };
-  var $_7j78qsbujcq86icu = {
+  var $_f81i68chjgqkptns = {
     path: path,
     resolve: resolve,
     forge: forge,
@@ -100,7 +98,7 @@ var image = (function () {
   };
 
   var unsafe = function (name, scope) {
-    return $_7j78qsbujcq86icu.resolve(name, scope);
+    return $_f81i68chjgqkptns.resolve(name, scope);
   };
   var getOrDie = function (name, scope) {
     var actual = unsafe(name, scope);
@@ -108,16 +106,18 @@ var image = (function () {
       throw name + ' not available on this browser';
     return actual;
   };
-  var $_946qzpbtjcq86icr = { getOrDie: getOrDie };
+  var $_cac1hbcgjgqkptnn = { getOrDie: getOrDie };
 
-  var FileReader = function () {
-    var f = $_946qzpbtjcq86icr.getOrDie('FileReader');
+  function FileReader () {
+    var f = $_cac1hbcgjgqkptnn.getOrDie('FileReader');
     return new f();
-  };
+  }
 
-  var Promise = tinymce.util.Tools.resolve('tinymce.util.Promise');
+  var global$2 = tinymce.util.Tools.resolve('tinymce.util.Promise');
 
-  var XHR = tinymce.util.Tools.resolve('tinymce.util.XHR');
+  var global$3 = tinymce.util.Tools.resolve('tinymce.util.Tools');
+
+  var global$4 = tinymce.util.Tools.resolve('tinymce.util.XHR');
 
   var parseIntAndGetMax = function (val1, val2) {
     return Math.max(parseInt(val1, 10), parseInt(val2, 10));
@@ -152,7 +152,7 @@ var image = (function () {
   var buildListItems = function (inputList, itemCallback, startItems) {
     function appendItems(values, output) {
       output = output || [];
-      Tools.each(values, function (item) {
+      global$3.each(values, function (item) {
         var menuItem = { text: item.text || item.title };
         if (item.menu) {
           menuItem.menu = appendItems(item.menu);
@@ -211,9 +211,9 @@ var image = (function () {
     return css;
   };
   var createImageList = function (editor, callback) {
-    var imageList = $_a66r9ebqjcq86icg.getImageList(editor);
+    var imageList = $_9h39ugcdjgqkptmr.getImageList(editor);
     if (typeof imageList === 'string') {
-      XHR.send({
+      global$4.send({
         url: imageList,
         success: function (text) {
           callback(JSON.parse(text));
@@ -234,7 +234,7 @@ var image = (function () {
       }
     }
     imgElm.onload = function () {
-      if (!data.width && !data.height && $_a66r9ebqjcq86icg.hasDimensions(editor)) {
+      if (!data.width && !data.height && $_9h39ugcdjgqkptmr.hasDimensions(editor)) {
         editor.dom.setAttribs(imgElm, {
           width: imgElm.clientWidth,
           height: imgElm.clientHeight
@@ -245,7 +245,7 @@ var image = (function () {
     imgElm.onerror = selectImage;
   };
   var blobToDataUri = function (blob) {
-    return new Promise(function (resolve, reject) {
+    return new global$2(function (resolve, reject) {
       var reader = new FileReader();
       reader.onload = function () {
         resolve(reader.result);
@@ -256,7 +256,7 @@ var image = (function () {
       reader.readAsDataURL(blob);
     });
   };
-  var $_b3vdazbrjcq86icj = {
+  var $_29plracejgqkptn9 = {
     getImageSize: getImageSize,
     buildListItems: buildListItems,
     removePixelSuffix: removePixelSuffix,
@@ -267,37 +267,406 @@ var image = (function () {
     blobToDataUri: blobToDataUri
   };
 
+  var global$5 = tinymce.util.Tools.resolve('tinymce.dom.DOMUtils');
+
+  var typeOf = function (x) {
+    if (x === null)
+      return 'null';
+    var t = typeof x;
+    if (t === 'object' && Array.prototype.isPrototypeOf(x))
+      return 'array';
+    if (t === 'object' && String.prototype.isPrototypeOf(x))
+      return 'string';
+    return t;
+  };
+  var isType = function (type) {
+    return function (value) {
+      return typeOf(value) === type;
+    };
+  };
+  var $_clk9j6crjgqkptoo = {
+    isString: isType('string'),
+    isObject: isType('object'),
+    isArray: isType('array'),
+    isNull: isType('null'),
+    isBoolean: isType('boolean'),
+    isUndefined: isType('undefined'),
+    isFunction: isType('function'),
+    isNumber: isType('number')
+  };
+
+  var shallow = function (old, nu) {
+    return nu;
+  };
+  var deep = function (old, nu) {
+    var bothObjects = $_clk9j6crjgqkptoo.isObject(old) && $_clk9j6crjgqkptoo.isObject(nu);
+    return bothObjects ? deepMerge(old, nu) : nu;
+  };
+  var baseMerge = function (merger) {
+    return function () {
+      var objects = new Array(arguments.length);
+      for (var i = 0; i < objects.length; i++)
+        objects[i] = arguments[i];
+      if (objects.length === 0)
+        throw new Error('Can\'t merge zero objects');
+      var ret = {};
+      for (var j = 0; j < objects.length; j++) {
+        var curObject = objects[j];
+        for (var key in curObject)
+          if (curObject.hasOwnProperty(key)) {
+            ret[key] = merger(ret[key], curObject[key]);
+          }
+      }
+      return ret;
+    };
+  };
+  var deepMerge = baseMerge(deep);
+  var merge = baseMerge(shallow);
+  var $_7o7pxucqjgqkptol = {
+    deepMerge: deepMerge,
+    merge: merge
+  };
+
+  var DOM = global$5.DOM;
+  var getHspace = function (image) {
+    if (image.style.marginLeft && image.style.marginRight && image.style.marginLeft === image.style.marginRight) {
+      return $_29plracejgqkptn9.removePixelSuffix(image.style.marginLeft);
+    } else {
+      return '';
+    }
+  };
+  var getVspace = function (image) {
+    if (image.style.marginTop && image.style.marginBottom && image.style.marginTop === image.style.marginBottom) {
+      return $_29plracejgqkptn9.removePixelSuffix(image.style.marginTop);
+    } else {
+      return '';
+    }
+  };
+  var getBorder = function (image) {
+    if (image.style.borderWidth) {
+      return $_29plracejgqkptn9.removePixelSuffix(image.style.borderWidth);
+    } else {
+      return '';
+    }
+  };
+  var getAttrib = function (image, name) {
+    if (image.hasAttribute(name)) {
+      return image.getAttribute(name);
+    } else {
+      return '';
+    }
+  };
+  var getStyle = function (image, name) {
+    return image.style[name] ? image.style[name] : '';
+  };
+  var hasCaption = function (image) {
+    return image.parentNode !== null && image.parentNode.nodeName === 'FIGURE';
+  };
+  var setAttrib = function (image, name, value) {
+    image.setAttribute(name, value);
+  };
+  var wrapInFigure = function (image) {
+    var figureElm = DOM.create('figure', { class: 'image' });
+    DOM.insertAfter(figureElm, image);
+    figureElm.appendChild(image);
+    figureElm.appendChild(DOM.create('figcaption', { contentEditable: true }, 'Caption'));
+    figureElm.contentEditable = 'false';
+  };
+  var removeFigure = function (image) {
+    var figureElm = image.parentNode;
+    DOM.insertAfter(image, figureElm);
+    DOM.remove(figureElm);
+  };
+  var toggleCaption = function (image) {
+    if (hasCaption(image)) {
+      removeFigure(image);
+    } else {
+      wrapInFigure(image);
+    }
+  };
+  var normalizeStyle = function (image, normalizeCss) {
+    var attrValue = image.getAttribute('style');
+    var value = normalizeCss(attrValue !== null ? attrValue : '');
+    if (value.length > 0) {
+      image.setAttribute('style', value);
+      image.setAttribute('data-mce-style', value);
+    } else {
+      image.removeAttribute('style');
+    }
+  };
+  var setSize = function (name, normalizeCss) {
+    return function (image, name, value) {
+      if (image.style[name]) {
+        image.style[name] = $_29plracejgqkptn9.addPixelSuffix(value);
+        normalizeStyle(image, normalizeCss);
+      } else {
+        setAttrib(image, name, value);
+      }
+    };
+  };
+  var getSize = function (image, name) {
+    if (image.style[name]) {
+      return $_29plracejgqkptn9.removePixelSuffix(image.style[name]);
+    } else {
+      return getAttrib(image, name);
+    }
+  };
+  var setHspace = function (image, value) {
+    var pxValue = $_29plracejgqkptn9.addPixelSuffix(value);
+    image.style.marginLeft = pxValue;
+    image.style.marginRight = pxValue;
+  };
+  var setVspace = function (image, value) {
+    var pxValue = $_29plracejgqkptn9.addPixelSuffix(value);
+    image.style.marginTop = pxValue;
+    image.style.marginBottom = pxValue;
+  };
+  var setBorder = function (image, value) {
+    var pxValue = $_29plracejgqkptn9.addPixelSuffix(value);
+    image.style.borderWidth = pxValue;
+  };
+  var setBorderStyle = function (image, value) {
+    image.style.borderStyle = value;
+  };
+  var getBorderStyle = function (image) {
+    return getStyle(image, 'borderStyle');
+  };
+  var isFigure = function (elm) {
+    return elm.nodeName === 'FIGURE';
+  };
+  var defaultData = function () {
+    return {
+      src: '',
+      alt: '',
+      title: '',
+      width: '',
+      height: '',
+      class: '',
+      style: '',
+      caption: false,
+      hspace: '',
+      vspace: '',
+      border: '',
+      borderStyle: ''
+    };
+  };
+  var getStyleValue = function (normalizeCss, data) {
+    var image = document.createElement('img');
+    setAttrib(image, 'style', data.style);
+    if (getHspace(image) || data.hspace !== '') {
+      setHspace(image, data.hspace);
+    }
+    if (getVspace(image) || data.vspace !== '') {
+      setVspace(image, data.vspace);
+    }
+    if (getBorder(image) || data.border !== '') {
+      setBorder(image, data.border);
+    }
+    if (getBorderStyle(image) || data.borderStyle !== '') {
+      setBorderStyle(image, data.borderStyle);
+    }
+    return normalizeCss(image.getAttribute('style'));
+  };
+  var create = function (normalizeCss, data) {
+    var image = document.createElement('img');
+    write(normalizeCss, $_7o7pxucqjgqkptol.merge(data, { caption: false }), image);
+    setAttrib(image, 'alt', data.alt);
+    if (data.caption) {
+      var figure = DOM.create('figure', { class: 'image' });
+      figure.appendChild(image);
+      figure.appendChild(DOM.create('figcaption', { contentEditable: true }, 'Caption'));
+      figure.contentEditable = 'false';
+      return figure;
+    } else {
+      return image;
+    }
+  };
+  var read = function (normalizeCss, image) {
+    return {
+      src: getAttrib(image, 'src'),
+      alt: getAttrib(image, 'alt'),
+      title: getAttrib(image, 'title'),
+      width: getSize(image, 'width'),
+      height: getSize(image, 'height'),
+      class: getAttrib(image, 'class'),
+      style: normalizeCss(getAttrib(image, 'style')),
+      caption: hasCaption(image),
+      hspace: getHspace(image),
+      vspace: getVspace(image),
+      border: getBorder(image),
+      borderStyle: getStyle(image, 'borderStyle')
+    };
+  };
+  var updateProp = function (image, oldData, newData, name, set) {
+    if (newData[name] !== oldData[name]) {
+      set(image, name, newData[name]);
+    }
+  };
+  var normalized = function (set, normalizeCss) {
+    return function (image, name, value) {
+      set(image, value);
+      normalizeStyle(image, normalizeCss);
+    };
+  };
+  var write = function (normalizeCss, newData, image) {
+    var oldData = read(normalizeCss, image);
+    updateProp(image, oldData, newData, 'caption', function (image, _name, _value) {
+      return toggleCaption(image);
+    });
+    updateProp(image, oldData, newData, 'src', setAttrib);
+    updateProp(image, oldData, newData, 'alt', setAttrib);
+    updateProp(image, oldData, newData, 'title', setAttrib);
+    updateProp(image, oldData, newData, 'width', setSize('width', normalizeCss));
+    updateProp(image, oldData, newData, 'height', setSize('height', normalizeCss));
+    updateProp(image, oldData, newData, 'class', setAttrib);
+    updateProp(image, oldData, newData, 'style', normalized(function (image, value) {
+      return setAttrib(image, 'style', value);
+    }, normalizeCss));
+    updateProp(image, oldData, newData, 'hspace', normalized(setHspace, normalizeCss));
+    updateProp(image, oldData, newData, 'vspace', normalized(setVspace, normalizeCss));
+    updateProp(image, oldData, newData, 'border', normalized(setBorder, normalizeCss));
+    updateProp(image, oldData, newData, 'borderStyle', normalized(setBorderStyle, normalizeCss));
+  };
+
+  var normalizeCss = function (editor, cssText) {
+    var css = editor.dom.styles.parse(cssText);
+    var mergedCss = $_29plracejgqkptn9.mergeMargins(css);
+    var compressed = editor.dom.styles.parse(editor.dom.styles.serialize(mergedCss));
+    return editor.dom.styles.serialize(compressed);
+  };
+  var getSelectedImage = function (editor) {
+    var imgElm = editor.selection.getNode();
+    var figureElm = editor.dom.getParent(imgElm, 'figure.image');
+    if (figureElm) {
+      return editor.dom.select('img', figureElm)[0];
+    }
+    if (imgElm && (imgElm.nodeName !== 'IMG' || imgElm.getAttribute('data-mce-object') || imgElm.getAttribute('data-mce-placeholder'))) {
+      return null;
+    }
+    return imgElm;
+  };
+  var splitTextBlock = function (editor, figure) {
+    var dom = editor.dom;
+    var textBlock = dom.getParent(figure.parentNode, function (node) {
+      return editor.schema.getTextBlockElements()[node.nodeName];
+    });
+    if (textBlock) {
+      return dom.split(textBlock, figure);
+    } else {
+      return figure;
+    }
+  };
+  var readImageDataFromSelection = function (editor) {
+    var image = getSelectedImage(editor);
+    return image ? read(function (css) {
+      return normalizeCss(editor, css);
+    }, image) : defaultData();
+  };
+  var insertImageAtCaret = function (editor, data) {
+    var elm = create(function (css) {
+      return normalizeCss(editor, css);
+    }, data);
+    editor.dom.setAttrib(elm, 'data-mce-id', '__mcenew');
+    editor.focus();
+    editor.selection.setContent(elm.outerHTML);
+    var insertedElm = editor.dom.select('*[data-mce-id="__mcenew"]')[0];
+    editor.dom.setAttrib(insertedElm, 'data-mce-id', null);
+    if (isFigure(insertedElm)) {
+      var figure = splitTextBlock(editor, insertedElm);
+      editor.selection.select(figure);
+    } else {
+      editor.selection.select(insertedElm);
+    }
+  };
+  var syncSrcAttr = function (editor, image) {
+    editor.dom.setAttrib(image, 'src', image.getAttribute('src'));
+  };
+  var deleteImage = function (editor, image) {
+    if (image) {
+      var elm = editor.dom.is(image.parentNode, 'figure.image') ? image.parentNode : image;
+      editor.dom.remove(elm);
+      editor.focus();
+      editor.nodeChanged();
+      if (editor.dom.isEmpty(editor.getBody())) {
+        editor.setContent('');
+        editor.selection.setCursorLocation();
+      }
+    }
+  };
+  var writeImageDataToSelection = function (editor, data) {
+    var image = getSelectedImage(editor);
+    write(function (css) {
+      return normalizeCss(editor, css);
+    }, data, image);
+    syncSrcAttr(editor, image);
+    if (isFigure(image.parentNode)) {
+      var figure = image.parentNode;
+      splitTextBlock(editor, figure);
+      editor.selection.select(image.parentNode);
+    } else {
+      editor.selection.select(image);
+      $_29plracejgqkptn9.waitLoadImage(editor, data, image);
+    }
+  };
+  var insertOrUpdateImage = function (editor, data) {
+    var image = getSelectedImage(editor);
+    if (image) {
+      if (data.src) {
+        writeImageDataToSelection(editor, data);
+      } else {
+        deleteImage(editor, image);
+      }
+    } else if (data.src) {
+      insertImageAtCaret(editor, data);
+    }
+  };
+
   var updateVSpaceHSpaceBorder = function (editor) {
     return function (evt) {
       var dom = editor.dom;
       var rootControl = evt.control.rootControl;
-      if (!$_a66r9ebqjcq86icg.hasAdvTab(editor)) {
+      if (!$_9h39ugcdjgqkptmr.hasAdvTab(editor)) {
         return;
       }
       var data = rootControl.toJSON();
       var css = dom.parseStyle(data.style);
       rootControl.find('#vspace').value('');
       rootControl.find('#hspace').value('');
-      css = $_b3vdazbrjcq86icj.mergeMargins(css);
+      css = $_29plracejgqkptn9.mergeMargins(css);
       if (css['margin-top'] && css['margin-bottom'] || css['margin-right'] && css['margin-left']) {
         if (css['margin-top'] === css['margin-bottom']) {
-          rootControl.find('#vspace').value($_b3vdazbrjcq86icj.removePixelSuffix(css['margin-top']));
+          rootControl.find('#vspace').value($_29plracejgqkptn9.removePixelSuffix(css['margin-top']));
         } else {
           rootControl.find('#vspace').value('');
         }
         if (css['margin-right'] === css['margin-left']) {
-          rootControl.find('#hspace').value($_b3vdazbrjcq86icj.removePixelSuffix(css['margin-right']));
+          rootControl.find('#hspace').value($_29plracejgqkptn9.removePixelSuffix(css['margin-right']));
         } else {
           rootControl.find('#hspace').value('');
         }
       }
       if (css['border-width']) {
-        rootControl.find('#border').value($_b3vdazbrjcq86icj.removePixelSuffix(css['border-width']));
+        rootControl.find('#border').value($_29plracejgqkptn9.removePixelSuffix(css['border-width']));
+      } else {
+        rootControl.find('#border').value('');
+      }
+      if (css['border-style']) {
+        rootControl.find('#borderStyle').value(css['border-style']);
+      } else {
+        rootControl.find('#borderStyle').value('');
       }
       rootControl.find('#style').value(dom.serializeStyle(dom.parseStyle(dom.serializeStyle(css))));
     };
   };
-  var makeTab = function (editor, updateStyle) {
+  var updateStyle = function (editor, win) {
+    win.find('#style').each(function (ctrl) {
+      var value = getStyleValue(function (css) {
+        return normalizeCss(editor, css);
+      }, $_7o7pxucqjgqkptol.merge(defaultData(), win.toJSON()));
+      ctrl.value(value);
+    });
+  };
+  var makeTab = function (editor) {
     return {
       title: 'Advanced',
       type: 'form',
@@ -315,10 +684,6 @@ var image = (function () {
           packV: 'start',
           columns: 2,
           padding: 0,
-          alignH: [
-            'left',
-            'right'
-          ],
           defaults: {
             type: 'textbox',
             maxWidth: 50,
@@ -332,19 +697,75 @@ var image = (function () {
               name: 'vspace'
             },
             {
+              label: 'Border width',
+              name: 'border'
+            },
+            {
               label: 'Horizontal space',
               name: 'hspace'
             },
             {
-              label: 'Border',
-              name: 'border'
+              label: 'Border style',
+              type: 'listbox',
+              name: 'borderStyle',
+              width: 90,
+              maxWidth: 90,
+              onselect: function (evt) {
+                updateStyle(editor, evt.control.rootControl);
+              },
+              values: [
+                {
+                  text: 'Select...',
+                  value: ''
+                },
+                {
+                  text: 'Solid',
+                  value: 'solid'
+                },
+                {
+                  text: 'Dotted',
+                  value: 'dotted'
+                },
+                {
+                  text: 'Dashed',
+                  value: 'dashed'
+                },
+                {
+                  text: 'Double',
+                  value: 'double'
+                },
+                {
+                  text: 'Groove',
+                  value: 'groove'
+                },
+                {
+                  text: 'Ridge',
+                  value: 'ridge'
+                },
+                {
+                  text: 'Inset',
+                  value: 'inset'
+                },
+                {
+                  text: 'Outset',
+                  value: 'outset'
+                },
+                {
+                  text: 'None',
+                  value: 'none'
+                },
+                {
+                  text: 'Hidden',
+                  value: 'hidden'
+                }
+              ]
             }
           ]
         }
       ]
     };
   };
-  var $_1wondobyjcq86icx = { makeTab: makeTab };
+  var $_828jqecmjgqkptnz = { makeTab: makeTab };
 
   var doSyncSize = function (widthCtrl, heightCtrl) {
     widthCtrl.state.set('oldVal', widthCtrl.value());
@@ -424,7 +845,7 @@ var image = (function () {
       ]
     };
   };
-  var $_e6cx1kc0jcq86id3 = {
+  var $_cwl3iyctjgqkptow = {
     createUi: createUi,
     syncSize: syncSize,
     updateSize: updateSize
@@ -439,22 +860,22 @@ var image = (function () {
     if (imageListCtrl) {
       imageListCtrl.value(editor.convertURL(control.value(), 'src'));
     }
-    Tools.each(meta, function (value, key) {
+    global$3.each(meta, function (value, key) {
       rootControl.find('#' + key).value(value);
     });
     if (!meta.width && !meta.height) {
       srcURL = editor.convertURL(control.value(), 'src');
-      prependURL = $_a66r9ebqjcq86icg.getPrependUrl(editor);
+      prependURL = $_9h39ugcdjgqkptmr.getPrependUrl(editor);
       absoluteURLPattern = new RegExp('^(?:[a-z]+:)?//', 'i');
       if (prependURL && !absoluteURLPattern.test(srcURL) && srcURL.substring(0, prependURL.length) !== prependURL) {
         srcURL = prependURL + srcURL;
       }
       control.value(srcURL);
-      $_b3vdazbrjcq86icj.getImageSize(editor.documentBaseURI.toAbsolute(control.value()), function (data) {
-        if (data.width && data.height && $_a66r9ebqjcq86icg.hasDimensions(editor)) {
+      $_29plracejgqkptn9.getImageSize(editor.documentBaseURI.toAbsolute(control.value()), function (data) {
+        if (data.width && data.height && $_9h39ugcdjgqkptmr.hasDimensions(editor)) {
           rootControl.find('#width').value(data.width);
           rootControl.find('#height').value(data.height);
-          $_e6cx1kc0jcq86id3.updateSize(rootControl);
+          $_cwl3iyctjgqkptow.syncSize(rootControl);
         }
       });
     }
@@ -477,29 +898,29 @@ var image = (function () {
       },
       imageListCtrl
     ];
-    if ($_a66r9ebqjcq86icg.hasDescription(editor)) {
+    if ($_9h39ugcdjgqkptmr.hasDescription(editor)) {
       generalFormItems.push({
         name: 'alt',
         type: 'textbox',
         label: 'Image description'
       });
     }
-    if ($_a66r9ebqjcq86icg.hasImageTitle(editor)) {
+    if ($_9h39ugcdjgqkptmr.hasImageTitle(editor)) {
       generalFormItems.push({
         name: 'title',
         type: 'textbox',
         label: 'Image Title'
       });
     }
-    if ($_a66r9ebqjcq86icg.hasDimensions(editor)) {
-      generalFormItems.push($_e6cx1kc0jcq86id3.createUi());
+    if ($_9h39ugcdjgqkptmr.hasDimensions(editor)) {
+      generalFormItems.push($_cwl3iyctjgqkptow.createUi());
     }
-    if ($_a66r9ebqjcq86icg.getClassList(editor)) {
+    if ($_9h39ugcdjgqkptmr.getClassList(editor)) {
       generalFormItems.push({
         name: 'class',
         type: 'listbox',
         label: 'Class',
-        values: $_b3vdazbrjcq86icj.buildListItems($_a66r9ebqjcq86icg.getClassList(editor), function (item) {
+        values: $_29plracejgqkptn9.buildListItems($_9h39ugcdjgqkptmr.getClassList(editor), function (item) {
           if (item.value) {
             item.textStyle = function () {
               return editor.formatter.getCssText({
@@ -511,7 +932,7 @@ var image = (function () {
         })
       });
     }
-    if ($_a66r9ebqjcq86icg.hasImageCaption(editor)) {
+    if ($_9h39ugcdjgqkptmr.hasImageCaption(editor)) {
       generalFormItems.push({
         name: 'caption',
         type: 'checkbox',
@@ -527,13 +948,13 @@ var image = (function () {
       items: getGeneralItems(editor, imageListCtrl)
     };
   };
-  var $_bk0w3pbzjcq86id0 = {
+  var $_g0bhmxcsjgqkptos = {
     makeTab: makeTab$1,
     getGeneralItems: getGeneralItems
   };
 
   var url = function () {
-    return $_946qzpbtjcq86icr.getOrDie('URL');
+    return $_cac1hbcgjgqkptnn.getOrDie('URL');
   };
   var createObjectURL = function (blob) {
     return url().createObjectURL(blob);
@@ -541,17 +962,17 @@ var image = (function () {
   var revokeObjectURL = function (u) {
     url().revokeObjectURL(u);
   };
-  var $_fqdiknc2jcq86ida = {
+  var $_7mspricvjgqkptp4 = {
     createObjectURL: createObjectURL,
     revokeObjectURL: revokeObjectURL
   };
 
-  var Factory = tinymce.util.Tools.resolve('tinymce.ui.Factory');
+  var global$6 = tinymce.util.Tools.resolve('tinymce.ui.Factory');
 
-  var XMLHttpRequest = function () {
-    var f = $_946qzpbtjcq86icr.getOrDie('XMLHttpRequest');
+  function XMLHttpRequest () {
+    var f = $_cac1hbcgjgqkptnn.getOrDie('XMLHttpRequest');
     return new f();
-  };
+  }
 
   var noop = function () {
   };
@@ -561,7 +982,7 @@ var image = (function () {
     }
     return path2;
   };
-  var Uploader = function (settings) {
+  function Uploader (settings) {
     var defaultHandler = function (blobInfo, success, failure, progress) {
       var xhr, formData;
       xhr = new XMLHttpRequest();
@@ -591,7 +1012,7 @@ var image = (function () {
       xhr.send(formData);
     };
     var uploadBlob = function (blobInfo, handler) {
-      return new Promise(function (resolve, reject) {
+      return new global$2(function (resolve, reject) {
         try {
           handler(blobInfo, resolve, reject, noop);
         } catch (ex) {
@@ -603,34 +1024,34 @@ var image = (function () {
       return handler === defaultHandler;
     };
     var upload = function (blobInfo) {
-      return !settings.url && isDefaultHandler(settings.handler) ? Promise.reject('Upload url missing from the settings.') : uploadBlob(blobInfo, settings.handler);
+      return !settings.url && isDefaultHandler(settings.handler) ? global$2.reject('Upload url missing from the settings.') : uploadBlob(blobInfo, settings.handler);
     };
-    settings = Tools.extend({
+    settings = global$3.extend({
       credentials: false,
       handler: defaultHandler
     }, settings);
     return { upload: upload };
-  };
+  }
 
   var onFileInput = function (editor) {
     return function (evt) {
-      var Throbber = Factory.get('Throbber');
+      var Throbber = global$6.get('Throbber');
       var rootControl = evt.control.rootControl;
       var throbber = new Throbber(rootControl.getEl());
       var file = evt.control.value();
-      var blobUri = $_fqdiknc2jcq86ida.createObjectURL(file);
+      var blobUri = $_7mspricvjgqkptp4.createObjectURL(file);
       var uploader = Uploader({
-        url: $_a66r9ebqjcq86icg.getUploadUrl(editor),
-        basePath: $_a66r9ebqjcq86icg.getUploadBasePath(editor),
-        credentials: $_a66r9ebqjcq86icg.getUploadCredentials(editor),
-        handler: $_a66r9ebqjcq86icg.getUploadHandler(editor)
+        url: $_9h39ugcdjgqkptmr.getUploadUrl(editor),
+        basePath: $_9h39ugcdjgqkptmr.getUploadBasePath(editor),
+        credentials: $_9h39ugcdjgqkptmr.getUploadCredentials(editor),
+        handler: $_9h39ugcdjgqkptmr.getUploadHandler(editor)
       });
       var finalize = function () {
         throbber.hide();
-        $_fqdiknc2jcq86ida.revokeObjectURL(blobUri);
+        $_7mspricvjgqkptp4.revokeObjectURL(blobUri);
       };
       throbber.show();
-      return $_b3vdazbrjcq86icj.blobToDataUri(file).then(function (dataUrl) {
+      return $_29plracejgqkptn9.blobToDataUri(file).then(function (dataUrl) {
         var blobInfo = editor.editorUpload.blobCache.create({
           blob: file,
           blobUri: blobUri,
@@ -690,144 +1111,120 @@ var image = (function () {
       ]
     };
   };
-  var $_fwd4ebc1jcq86id5 = { makeTab: makeTab$2 };
+  var $_1qi3becujgqkptoy = { makeTab: makeTab$2 };
 
-  var Dialog = function (editor) {
-    var updateStyle = function (editor, rootControl) {
-      if (!$_a66r9ebqjcq86icg.hasAdvTab(editor)) {
-        return;
+  var noop$1 = function () {
+    var x = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+      x[_i] = arguments[_i];
+    }
+  };
+  var noarg = function (f) {
+    return function () {
+      var x = [];
+      for (var _i = 0; _i < arguments.length; _i++) {
+        x[_i] = arguments[_i];
       }
-      var dom = editor.dom;
-      var data = rootControl.toJSON();
-      var css = dom.parseStyle(data.style);
-      css = $_b3vdazbrjcq86icj.mergeMargins(css);
-      if (data.vspace) {
-        css['margin-top'] = css['margin-bottom'] = $_b3vdazbrjcq86icj.addPixelSuffix(data.vspace);
-      }
-      if (data.hspace) {
-        css['margin-left'] = css['margin-right'] = $_b3vdazbrjcq86icj.addPixelSuffix(data.hspace);
-      }
-      if (data.border) {
-        css['border-width'] = $_b3vdazbrjcq86icj.addPixelSuffix(data.border);
-      }
-      rootControl.find('#style').value(dom.serializeStyle(dom.parseStyle(dom.serializeStyle(css))));
+      return f();
     };
+  };
+  var compose = function (fa, fb) {
+    return function () {
+      var x = [];
+      for (var _i = 0; _i < arguments.length; _i++) {
+        x[_i] = arguments[_i];
+      }
+      return fa(fb.apply(null, arguments));
+    };
+  };
+  var constant = function (value) {
+    return function () {
+      return value;
+    };
+  };
+  var identity = function (x) {
+    return x;
+  };
+  var tripleEquals = function (a, b) {
+    return a === b;
+  };
+  var curry = function (f) {
+    var x = [];
+    for (var _i = 1; _i < arguments.length; _i++) {
+      x[_i - 1] = arguments[_i];
+    }
+    var args = new Array(arguments.length - 1);
+    for (var i = 1; i < arguments.length; i++)
+      args[i - 1] = arguments[i];
+    return function () {
+      var x = [];
+      for (var _i = 0; _i < arguments.length; _i++) {
+        x[_i] = arguments[_i];
+      }
+      var newArgs = new Array(arguments.length);
+      for (var j = 0; j < newArgs.length; j++)
+        newArgs[j] = arguments[j];
+      var all = args.concat(newArgs);
+      return f.apply(null, all);
+    };
+  };
+  var not = function (f) {
+    return function () {
+      var x = [];
+      for (var _i = 0; _i < arguments.length; _i++) {
+        x[_i] = arguments[_i];
+      }
+      return !f.apply(null, arguments);
+    };
+  };
+  var die = function (msg) {
+    return function () {
+      throw new Error(msg);
+    };
+  };
+  var apply = function (f) {
+    return f();
+  };
+  var call = function (f) {
+    f();
+  };
+  var never = constant(false);
+  var always = constant(true);
+  var $_2221u2czjgqkptpe = {
+    noop: noop$1,
+    noarg: noarg,
+    compose: compose,
+    constant: constant,
+    identity: identity,
+    tripleEquals: tripleEquals,
+    curry: curry,
+    not: not,
+    die: die,
+    apply: apply,
+    call: call,
+    never: never,
+    always: always
+  };
+
+  var submitForm = function (editor, evt) {
+    var win = evt.control.getRoot();
+    $_cwl3iyctjgqkptow.updateSize(win);
+    editor.undoManager.transact(function () {
+      var data = $_7o7pxucqjgqkptol.merge(readImageDataFromSelection(editor), win.toJSON());
+      insertOrUpdateImage(editor, data);
+    });
+    editor.editorUpload.uploadImagesAuto();
+  };
+  function Dialog (editor) {
     function showDialog(imageList) {
-      var win, data = {}, imgElm, figureElm;
-      var dom = editor.dom;
-      var imageListCtrl;
-      function onSubmitForm() {
-        var figureElm, oldImg;
-        $_e6cx1kc0jcq86id3.updateSize(win);
-        updateStyle(editor, win);
-        data = Tools.extend(data, win.toJSON());
-        if (!data.alt) {
-          data.alt = '';
-        }
-        if (!data.title) {
-          data.title = '';
-        }
-        if (data.width === '') {
-          data.width = null;
-        }
-        if (data.height === '') {
-          data.height = null;
-        }
-        if (!data.style) {
-          data.style = null;
-        }
-        data = {
-          src: data.src,
-          alt: data.alt,
-          title: data.title,
-          width: data.width,
-          height: data.height,
-          style: data.style,
-          caption: data.caption,
-          class: data.class
-        };
-        editor.undoManager.transact(function () {
-          if (!data.src) {
-            if (imgElm) {
-              var elm = dom.is(imgElm.parentNode, 'figure.image') ? imgElm.parentNode : imgElm;
-              dom.remove(elm);
-              editor.focus();
-              editor.nodeChanged();
-              if (dom.isEmpty(editor.getBody())) {
-                editor.setContent('');
-                editor.selection.setCursorLocation();
-              }
-            }
-            return;
-          }
-          if (data.title === '') {
-            data.title = null;
-          }
-          if (!imgElm) {
-            data.id = '__mcenew';
-            editor.focus();
-            editor.selection.setContent(dom.createHTML('img', data));
-            imgElm = dom.get('__mcenew');
-            dom.setAttrib(imgElm, 'id', null);
-          } else {
-            dom.setAttribs(imgElm, data);
-          }
-          editor.editorUpload.uploadImagesAuto();
-          if (data.caption === false) {
-            if (dom.is(imgElm.parentNode, 'figure.image')) {
-              figureElm = imgElm.parentNode;
-              dom.insertAfter(imgElm, figureElm);
-              dom.remove(figureElm);
-            }
-          }
-          if (data.caption === true) {
-            if (!dom.is(imgElm.parentNode, 'figure.image')) {
-              oldImg = imgElm;
-              imgElm = imgElm.cloneNode(true);
-              figureElm = dom.create('figure', { class: 'image' });
-              figureElm.appendChild(imgElm);
-              figureElm.appendChild(dom.create('figcaption', { contentEditable: true }, 'Caption'));
-              figureElm.contentEditable = false;
-              var textBlock = dom.getParent(oldImg, function (node) {
-                return editor.schema.getTextBlockElements()[node.nodeName];
-              });
-              if (textBlock) {
-                dom.split(textBlock, oldImg, figureElm);
-              } else {
-                dom.replace(figureElm, oldImg);
-              }
-              editor.selection.select(figureElm);
-            }
-            return;
-          }
-          $_b3vdazbrjcq86icj.waitLoadImage(editor, data, imgElm);
-        });
-      }
-      imgElm = editor.selection.getNode();
-      figureElm = dom.getParent(imgElm, 'figure.image');
-      if (figureElm) {
-        imgElm = dom.select('img', figureElm)[0];
-      }
-      if (imgElm && (imgElm.nodeName !== 'IMG' || imgElm.getAttribute('data-mce-object') || imgElm.getAttribute('data-mce-placeholder'))) {
-        imgElm = null;
-      }
-      if (imgElm) {
-        data = {
-          src: dom.getAttrib(imgElm, 'src'),
-          alt: dom.getAttrib(imgElm, 'alt'),
-          title: dom.getAttrib(imgElm, 'title'),
-          class: dom.getAttrib(imgElm, 'class'),
-          width: dom.getAttrib(imgElm, 'width'),
-          height: dom.getAttrib(imgElm, 'height'),
-          caption: !!figureElm
-        };
-      }
+      var data = readImageDataFromSelection(editor);
+      var win, imageListCtrl;
       if (imageList) {
         imageListCtrl = {
           type: 'listbox',
           label: 'Image list',
           name: 'image-list',
-          values: $_b3vdazbrjcq86icj.buildListItems(imageList, function (item) {
+          values: $_29plracejgqkptn9.buildListItems(imageList, function (item) {
             item.value = editor.convertURL(item.value || item.url, 'src');
           }, [{
               text: 'None',
@@ -846,53 +1243,41 @@ var image = (function () {
           }
         };
       }
-      if ($_a66r9ebqjcq86icg.hasAdvTab(editor) || $_a66r9ebqjcq86icg.hasUploadUrl(editor) || $_a66r9ebqjcq86icg.hasUploadHandler(editor)) {
-        var body = [$_bk0w3pbzjcq86id0.makeTab(editor, imageListCtrl)];
-        if ($_a66r9ebqjcq86icg.hasAdvTab(editor)) {
-          if (imgElm) {
-            if (imgElm.style.marginLeft && imgElm.style.marginRight && imgElm.style.marginLeft === imgElm.style.marginRight) {
-              data.hspace = $_b3vdazbrjcq86icj.removePixelSuffix(imgElm.style.marginLeft);
-            }
-            if (imgElm.style.marginTop && imgElm.style.marginBottom && imgElm.style.marginTop === imgElm.style.marginBottom) {
-              data.vspace = $_b3vdazbrjcq86icj.removePixelSuffix(imgElm.style.marginTop);
-            }
-            if (imgElm.style.borderWidth) {
-              data.border = $_b3vdazbrjcq86icj.removePixelSuffix(imgElm.style.borderWidth);
-            }
-            data.style = editor.dom.serializeStyle(editor.dom.parseStyle(editor.dom.getAttrib(imgElm, 'style')));
-          }
-          body.push($_1wondobyjcq86icx.makeTab(editor, updateStyle));
+      if ($_9h39ugcdjgqkptmr.hasAdvTab(editor) || $_9h39ugcdjgqkptmr.hasUploadUrl(editor) || $_9h39ugcdjgqkptmr.hasUploadHandler(editor)) {
+        var body = [$_g0bhmxcsjgqkptos.makeTab(editor, imageListCtrl)];
+        if ($_9h39ugcdjgqkptmr.hasAdvTab(editor)) {
+          body.push($_828jqecmjgqkptnz.makeTab(editor));
         }
-        if ($_a66r9ebqjcq86icg.hasUploadUrl(editor) || $_a66r9ebqjcq86icg.hasUploadHandler(editor)) {
-          body.push($_fwd4ebc1jcq86id5.makeTab(editor));
+        if ($_9h39ugcdjgqkptmr.hasUploadUrl(editor) || $_9h39ugcdjgqkptmr.hasUploadHandler(editor)) {
+          body.push($_1qi3becujgqkptoy.makeTab(editor));
         }
         win = editor.windowManager.open({
           title: 'Insert/edit image',
           data: data,
           bodyType: 'tabpanel',
           body: body,
-          onSubmit: onSubmitForm
+          onSubmit: $_2221u2czjgqkptpe.curry(submitForm, editor)
         });
       } else {
         win = editor.windowManager.open({
           title: 'Insert/edit image',
           data: data,
-          body: $_bk0w3pbzjcq86id0.getGeneralItems(editor, imageListCtrl),
-          onSubmit: onSubmitForm
+          body: $_g0bhmxcsjgqkptos.getGeneralItems(editor, imageListCtrl),
+          onSubmit: $_2221u2czjgqkptpe.curry(submitForm, editor)
         });
       }
-      $_e6cx1kc0jcq86id3.syncSize(win);
+      $_cwl3iyctjgqkptow.syncSize(win);
     }
     function open() {
-      $_b3vdazbrjcq86icj.createImageList(editor, showDialog);
+      $_29plracejgqkptn9.createImageList(editor, showDialog);
     }
     return { open: open };
-  };
+  }
 
   var register = function (editor) {
     editor.addCommand('mceImage', Dialog(editor).open);
   };
-  var $_4ndmz8bnjcq86ic5 = { register: register };
+  var $_91iqa5cbjgqkptmf = { register: register };
 
   var hasImageClass = function (node) {
     var className = node.attr('class');
@@ -908,7 +1293,7 @@ var image = (function () {
         node = nodes[i];
         if (hasImageClass(node)) {
           node.attr('contenteditable', state ? 'false' : null);
-          Tools.each(node.getAll('figcaption'), toggleContentEditable);
+          global$3.each(node.getAll('figcaption'), toggleContentEditable);
         }
       }
     };
@@ -919,7 +1304,7 @@ var image = (function () {
       editor.serializer.addNodeFilter('figure', toggleContentEditableState(false));
     });
   };
-  var $_51zylsc6jcq86idk = { setup: setup };
+  var $_cc5jy1d0jgqkptph = { setup: setup };
 
   var register$1 = function (editor) {
     editor.addButton('image', {
@@ -936,17 +1321,17 @@ var image = (function () {
       prependToContext: true
     });
   };
-  var $_4hfgf7c7jcq86idl = { register: register$1 };
+  var $_4uty9dd1jgqkptpj = { register: register$1 };
 
-  PluginManager.add('image', function (editor) {
-    $_51zylsc6jcq86idk.setup(editor);
-    $_4hfgf7c7jcq86idl.register(editor);
-    $_4ndmz8bnjcq86ic5.register(editor);
+  global.add('image', function (editor) {
+    $_cc5jy1d0jgqkptph.setup(editor);
+    $_4uty9dd1jgqkptpj.register(editor);
+    $_91iqa5cbjgqkptmf.register(editor);
   });
-  var Plugin = function () {
-  };
+  function Plugin () {
+  }
 
   return Plugin;
 
 }());
-})()
+})();

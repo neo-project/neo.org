@@ -27,7 +27,7 @@ select.form-control {
 .event-line{
 	border-bottom: 3px solid #D6D6D6;
 	position: relative;
-	margin: 12px;
+	margin: 12px 0;
     text-align:left;
 }
 
@@ -223,6 +223,10 @@ ul,li{
     background:url(../images/event/circle.png) no-repeat center;
     background-size:contain;
     border-radius:100%;
+}
+
+.contact-us {
+    padding:15px 0;
 }
 
 .had-event a,
