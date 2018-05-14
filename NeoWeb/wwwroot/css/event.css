@@ -121,7 +121,7 @@ select.form-control {
     font-weight:100;
 }
 
-.event-detail img {
+.event-detail img.img-thumbnail, .event-detail img.type-img {
     width:100%;
     max-width: 150px;
     max-height:150px;
