@@ -90,7 +90,7 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
 }
 @media only screen and (max-width : 780px) {
     body {
-        padding-top: 90px;
+        padding-top: 60px;
     }
     .body-content {padding-bottom:20px;}
     h1,.h1 {font-size: 26px;}

@@ -26,7 +26,7 @@
                             <option value="@item">@item</option>
                         }
                     </select>
-                    <select name="c" class="form-control">
+                    <select name="c" class="form-control d-none d-sm-block">
                         <option value="0">All Country</option>
                         @foreach (var item in ViewBag.Countries as IEnumerable<Country>)
                         {
@@ -40,7 +40,7 @@
                             }
                         }
                     </select>
-                    <select name="d" class="form-control">
+                    <select name="d" class="form-control d-none d-sm-block">
                         @for (int i = 0; i < (ViewBag.Dates as string[]).Length; i++)
                         {
                             @if (i == ViewBag.Date)
@@ -87,26 +87,28 @@
             @await Html.PartialAsync("_LoginPartial")
         </div>
         <div class="d-none d-lg-block col-md-4">
-            <div class="calender alert-light">
-                <div class="dis-table">
+            <div class="t1 bold-font text-left">Events Dates</div>
+            <div class="calender m3 alert-light">
+                <div class="dis-table t2">
                     <div class="dis-table-cell text-right">
-                        <a onclick="monthChange(-1)"><</a>
+                        <a class="change-date" onclick="monthChange(-1)"><i class="iconfont">&#xeaa5;</i></a>
                     </div>
-                    <div class="dis-table-cell text-center">
-                        <span id="chooseY">@DateTime.Now.Year</span>/<span id="chooseM">@DateTime.Now.Month</span>
+                    <div class="dis-table-cell text-center t1">
+                        <span id="chooseY">@DateTime.Now.Year</span>  <span id="chooseM">@DateTime.Now.Month</span>
                     </div>
                     <div class="dis-table-cell text-left">
-                           <a onclick="monthChange(1)">></a>
+                           <a class="change-date" onclick="monthChange(1)"><i class="iconfont">&#xeaa3;</i></a>
                     </div>
                 </div>
-                <ul>
-                    <li>Sun</li>
-                    <li>Mon</li>
-                    <li>Tues</li>
-                    <li>Wed</li>
-                    <li>Tur</li>
-                    <li>Fri</li>
-                    <li>Sat</li>
+                <hr />
+                <ul class="cal-head">
+                    <li>SUN</li>
+                    <li>MON</li>
+                    <li>TUE</li>
+                    <li>WED</li>
+                    <li>TUR</li>
+                    <li>FRI</li>
+                    <li>SAT</li>
                 </ul>
                 <ul class="cal-tbody" id="calender"></ul>
             </div>
@@ -117,11 +119,12 @@
 @section Scripts{ 
 <script>
     $(function () {
-        //$(".sss").click(function () {
-        //    var num = $(this).attr("data");
-        //    $(".news-ul li").removeClass("select-news");
-        //    $(".news-ul li").eq(num).addClass("select-news");
-        //});
+        var url = window.location.search;
+        if (url.indexOf("z=") != -1) {
+            var str = url.substr(1).split("=")[1].split("/");
+            $("#chooseY").html(str[0]);
+            $("#chooseM").html(str[1]);
+        }
         monthChange(0);
     });
 
@@ -177,7 +180,7 @@
 
     function getlist(date){
         date = date || new Date();
-        json = {year:date.getFullYear(),month:date.getMonth()+1}
+        json = { year: date.getFullYear(), month: date.getMonth() + 1 };
         $.get("event/date", json).done(function (data) {
             marks = data;
             var date = new Date(json.year, json.month - 1, 1);

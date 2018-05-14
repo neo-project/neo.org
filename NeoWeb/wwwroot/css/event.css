@@ -2,10 +2,32 @@
     background:#F3F3F3;
 }
 
+select.form-control {
+    border-radius:0px;
+    margin-right:10px;
+}
+
+.btn {
+    background: #9ACA3D;
+    color:#FFFFFF;
+    border: none;
+    border-radius: 0;
+    min-width: 100px;
+    letter-spacing: 2px;
+}
+
+.btn:focus,
+.btn:hover,
+.btn:active{
+    background: #8ABA2D!important;
+    box-shadow:none!important;
+    color:#FFFFFF;
+}
+
 .event-line{
 	border-bottom: 3px solid #D6D6D6;
 	position: relative;
-	margin-top: 12px;
+	margin: 12px;
     text-align:left;
 }
 
@@ -100,6 +122,7 @@
 }
 
 .event-detail img {
+    width:100%;
     max-width: 150px;
     max-height:150px;
     min-width:125px;
@@ -135,9 +158,8 @@
 
 .search-group {
     margin: auto;
-    width: 95%;
+    width: 80%;
 }
-
 
 #eventCarousel img {
     max-height: 370px;
@@ -155,10 +177,22 @@ ul,li{
 }
 .calender .dis-table {
     width:100%;
-    padding:0 10px;
+    padding:15px 10px;
+    color:#222222;
+    vertical-align:middle;
+}
+.calender .iconfont {
+    font-size:14px;
+    vertical-align:middle;
+    color:#737373;
+    cursor:pointer;
 }
 .calender .dis-table-cell {
     width:33%;
+}
+.calender hr {
+    border-top-color:#9ACA3D;
+    border-width:20px;
 }
 .calender ul{
     margin: auto;
@@ -169,20 +203,39 @@ ul,li{
 .calender li{
     display: inline-block;
     width: 14.1%;
+    min-height:20px;
     vertical-align: top;
     text-align: center;
     white-space: normal;
     word-break: break-all;
     padding: 5px;
-    font-size:15px;
+    color:#222222;
+    font-size:18px;
+    font-weight:600;
     white-space:nowrap;
 }
-.calender .had-event{
-    border:1px solid #444;
+.cal-head li{
+    font-size:12px;
+    font-weight:100;
 }
+.calender .had-event{
+    color:#222222;
+    background:url(../images/event/circle.png) no-repeat center;
+    background-size:contain;
+    border-radius:100%;
+}
+
+.had-event a,
+.had-event a:hover,
+.had-event a:visited,
+.had-event a:active{
+    color:#222222;
+}
+
 .select-news {
     border: 1px solid #444444;
 }
+
 .news-list {
     display:inline-block;
     width:33%;
@@ -205,7 +258,7 @@ ul,li{
 .event-banner .search-div {
     margin-bottom: -100px;
     background: linear-gradient( rgba(255, 255, 255, 0.9) 0%, white 25%);
-    padding: 20px;
+    padding: 50px;
     box-shadow: #ccc 8px 8px 0;
 }
 
@@ -219,19 +272,31 @@ ul,li{
     text-align:right;
 }
 
-@media only screen and (max-width: 576px) {
-    .left-to-center {
-        text-align:center;
-    }
-}
-
-@media only screen and (min-width: 576px) {
+@media only screen and (max-width: 992px) {
     .search-group {
-        width: 80%;
+        width: 90%;
         margin: auto;
     }
 
+    .event-banner {
+        padding:100px 0 50px;
+    }
+
     .event-banner .search-div {
-        padding: 50px;
+        padding: 50px 20px;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .search-div img{
+        margin-bottom: 30px!important;
+    }
+    
+    .event-banner .search-div {
+        padding:20px;
+    }
+
+    .left-to-center {
+        text-align:center;
     }
 }
