@@ -290,6 +290,7 @@ namespace NeoWeb.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.Countries = _context.Countries.ToList();
             return View(@event);
         }
 
