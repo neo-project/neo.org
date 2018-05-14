@@ -23,7 +23,14 @@
                         <option value="">Categories</option>
                         @foreach (var item in ViewBag.Types as IEnumerable<EventType>)
                         {
-                            <option value="@item">@item</option>
+                            if (item.ToString() == ViewBag.Keywords)
+                            {
+                                <option selected="selected" value="@item">@item</option>
+                            }
+                            else
+                            {
+                                <option value="@item">@item</option>
+                            }
                         }
                     </select>
                     <select name="c" class="form-control d-none d-sm-block">
