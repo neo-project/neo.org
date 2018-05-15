@@ -91,7 +91,7 @@
             }
             <div class="event-line"><span class="h2 bold-font ">PAST EVENTS</span></div>
             @* 再显示过去的活动 *@
-            @foreach (var item in Model.Where(p => p.EndTime < DateTime.Now))
+            @foreach (var item in Model.Where(p => p.EndTime < DateTime.Now).OrderByDescending(p => p.StartTime))
             {
                 Html.RenderPartial("_EventPartialPage", item);
             }
