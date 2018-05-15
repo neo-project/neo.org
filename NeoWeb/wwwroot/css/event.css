@@ -106,8 +106,11 @@ select.form-control {
     border: 2px solid #EBEBEB;
 }
 
+.event-detail .row {
+    font-weight: bold;
+}
 .event-detail {
-    font-weight:bold;
+    font-weight:normal;
     color:#222222;
     background-color: #fff;
     padding: 10px 20px;
