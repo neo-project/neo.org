@@ -220,7 +220,7 @@
 
     function addToday(date) {
         var _today = new Date();
-        if (_today.getMonth() == date.getMonth()) {
+        if (_today.getMonth() == date.getMonth() && _today.getFullYear() == date.getFullYear()) {
             var _mark = _today.getDate();
             $("#calender li." + _mark).addClass("today-mark");
         }
