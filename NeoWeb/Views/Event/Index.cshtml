@@ -217,14 +217,23 @@
         }
     }
 
+    function addToday(date) {
+        var _today = new Date();
+        if (_today.getMonth() == date.getMonth()) {
+            var _mark = _today.getDate();
+            $("#calender li." + _mark).addClass("today-mark");
+        }
+
+    }
+
     function getlist(date){
         date = date || new Date();
         json = { year: date.getFullYear(), month: date.getMonth() + 1 };
         $.get("event/date", json).done(function (data) {
-            marks = data;
             var date = new Date(json.year, json.month - 1, 1);
             calender(date);
-            addNews(marks,date);
+            addNews(data, date);
+            addToday(date);
         });
     }
 </script>

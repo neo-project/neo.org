@@ -243,6 +243,9 @@ ul,li{
     background-size:contain;
     border-radius:100%;
 }
+.calender .today-mark {
+    color:#00A04A;
+}
 
 .contact-us {
     padding:15px 0;
