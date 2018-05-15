@@ -123,7 +123,7 @@ namespace NeoWeb.Controllers
         [AllowAnonymous]
         public JsonResult Date(int year, int month)
         {
-            var obj = _context.Events.Where(p => p.StartTime.Year == year && p.StartTime.Month == month).OrderBy(p => p.StartTime).Select(p => p.StartTime.ToString("yyyy/M/d")).ToList();
+            var obj = _context.Events.Where(p => p.StartTime.Year == year && p.StartTime.Month == month).OrderBy(p => p.StartTime).Select(p => p.StartTime.ToString("yyyy/M/d")).ToList().Distinct();
             return Json(obj);
         }
 
