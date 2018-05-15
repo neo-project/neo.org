@@ -156,4 +156,7 @@
   <data name="Competition" xml:space="preserve">
     <value>Wettbewerb</value>
   </data>
+  <data name="Event" xml:space="preserve">
+    <value>Ereignis</value>
+  </data>
 </root>

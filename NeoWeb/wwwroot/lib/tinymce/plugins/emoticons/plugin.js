@@ -2,9 +2,9 @@
 var emoticons = (function () {
   'use strict';
 
-  var PluginManager = tinymce.util.Tools.resolve('tinymce.PluginManager');
+  var global = tinymce.util.Tools.resolve('tinymce.PluginManager');
 
-  var Tools = tinymce.util.Tools.resolve('tinymce.util.Tools');
+  var global$1 = tinymce.util.Tools.resolve('tinymce.util.Tools');
 
   var emoticons = [
     [
@@ -35,9 +35,9 @@ var emoticons = (function () {
   var getHtml = function (pluginUrl) {
     var emoticonsHtml;
     emoticonsHtml = '<table role="list" class="mce-grid">';
-    Tools.each(emoticons, function (row) {
+    global$1.each(emoticons, function (row) {
       emoticonsHtml += '<tr>';
-      Tools.each(row, function (icon) {
+      global$1.each(row, function (icon) {
         var emoticonUrl = pluginUrl + '/img/smiley-' + icon + '.gif';
         emoticonsHtml += '<td><a href="#" data-mce-url="' + emoticonUrl + '" data-mce-alt="' + icon + '" tabindex="-1" ' + 'role="option" aria-label="' + icon + '"><img src="' + emoticonUrl + '" style="width: 18px; height: 18px" role="presentation" /></a></td>';
       });
@@ -46,7 +46,7 @@ var emoticons = (function () {
     emoticonsHtml += '</table>';
     return emoticonsHtml;
   };
-  var $_c639lna8jcq86i6u = { getHtml: getHtml };
+  var $_km0ofavjgqkptfj = { getHtml: getHtml };
 
   var insertEmoticon = function (editor, src, alt) {
     editor.insertContent(editor.dom.createHTML('img', {
@@ -55,7 +55,7 @@ var emoticons = (function () {
     }));
   };
   var register = function (editor, pluginUrl) {
-    var panelHtml = $_c639lna8jcq86i6u.getHtml(pluginUrl);
+    var panelHtml = $_km0ofavjgqkptfj.getHtml(pluginUrl);
     editor.addButton('emoticons', {
       type: 'panelbutton',
       panel: {
@@ -73,15 +73,15 @@ var emoticons = (function () {
       tooltip: 'Emoticons'
     });
   };
-  var $_eo9z90a7jcq86i6t = { register: register };
+  var $_ab6o0aaujgqkptfi = { register: register };
 
-  PluginManager.add('emoticons', function (editor, pluginUrl) {
-    $_eo9z90a7jcq86i6t.register(editor, pluginUrl);
+  global.add('emoticons', function (editor, pluginUrl) {
+    $_ab6o0aaujgqkptfi.register(editor, pluginUrl);
   });
-  var Plugin = function () {
-  };
+  function Plugin () {
+  }
 
   return Plugin;
 
 }());
-})()
+})();

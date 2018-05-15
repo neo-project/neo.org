@@ -159,4 +159,7 @@
   <data name="Sponsor Giveback" xml:space="preserve">
     <value>资助者回馈</value>
   </data>
+  <data name="Event" xml:space="preserve">
+    <value>活动</value>
+  </data>
 </root>

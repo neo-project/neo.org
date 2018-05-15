@@ -17,8 +17,8 @@
     "inputFiles": [ "wwwroot/css/blog.css" ]
   },
   {
-    "outputFileName": "wwwroot/css/dapps.min.css",
-    "inputFiles": [ "wwwroot/css/dapps.css" ]
+    "outputFileName": "wwwroot/css/event.min.css",
+    "inputFiles": [ "wwwroot/css/event.css" ]
   },
   {
     "outputFileName": "wwwroot/css/team.min.css",

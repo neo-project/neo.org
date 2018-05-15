@@ -6,11 +6,11 @@
     "jquery": "3.3.1",
     "jquery-validation": "1.17.0",
     "jquery-validation-unobtrusive": "3.2.6",
-    "tinymce": "4.7.5",
+    "tinymce": "4.7.12",
     "wow": "wow.js#1.1.2"
   },
   "resolutions": {
-    "tinymce": "4.7.5",
+    "tinymce": "4.7.12",
     "jquery-validation": "1.17.0",
     "jquery": "3.3.1",
     "bootstrap": "v4.0.0"

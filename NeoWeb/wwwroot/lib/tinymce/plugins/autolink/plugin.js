@@ -2,9 +2,9 @@
 var autolink = (function () {
   'use strict';
 
-  var PluginManager = tinymce.util.Tools.resolve('tinymce.PluginManager');
+  var global = tinymce.util.Tools.resolve('tinymce.PluginManager');
 
-  var Env = tinymce.util.Tools.resolve('tinymce.Env');
+  var global$1 = tinymce.util.Tools.resolve('tinymce.Env');
 
   var getAutoLinkPattern = function (editor) {
     return editor.getParam('autolink_pattern', /^(https?:\/\/|ssh:\/\/|ftp:\/\/|file:\/|www\.|(?:mailto:)?[A-Z0-9._%+\-]+@)(.+)$/i);
@@ -12,7 +12,7 @@ var autolink = (function () {
   var getDefaultLinkTarget = function (editor) {
     return editor.getParam('default_link_target', '');
   };
-  var $_a9676d7vjcq86hye = {
+  var $_a6u5o88ijgqkpt4g = {
     getAutoLinkPattern: getAutoLinkPattern,
     getDefaultLinkTarget: getDefaultLinkTarget
   };
@@ -57,8 +57,8 @@ var autolink = (function () {
   };
   var parseCurrentLine = function (editor, endOffset, delimiter) {
     var rng, end, start, endContainer, bookmark, text, matches, prev, len, rngText;
-    var autoLinkPattern = $_a9676d7vjcq86hye.getAutoLinkPattern(editor);
-    var defaultLinkTarget = $_a9676d7vjcq86hye.getDefaultLinkTarget(editor);
+    var autoLinkPattern = $_a6u5o88ijgqkpt4g.getAutoLinkPattern(editor);
+    var defaultLinkTarget = $_a6u5o88ijgqkpt4g.getDefaultLinkTarget(editor);
     if (editor.selection.getNode().tagName === 'A') {
       return;
     }
@@ -143,7 +143,7 @@ var autolink = (function () {
         return handleEnter(editor);
       }
     });
-    if (Env.ie) {
+    if (global$1.ie) {
       editor.on('focus', function () {
         if (!autoUrlDetectState) {
           autoUrlDetectState = true;
@@ -166,15 +166,15 @@ var autolink = (function () {
       }
     });
   };
-  var $_953k2n7tjcq86hy7 = { setup: setup };
+  var $_grp318gjgqkpt4b = { setup: setup };
 
-  PluginManager.add('autolink', function (editor) {
-    $_953k2n7tjcq86hy7.setup(editor);
+  global.add('autolink', function (editor) {
+    $_grp318gjgqkpt4b.setup(editor);
   });
-  var Plugin = function () {
-  };
+  function Plugin () {
+  }
 
   return Plugin;
 
 }());
-})()
+})();

@@ -2,17 +2,29 @@
 var table = (function () {
   'use strict';
 
-  var PluginManager = tinymce.util.Tools.resolve('tinymce.PluginManager');
+  var global = tinymce.util.Tools.resolve('tinymce.PluginManager');
 
   var noop = function () {
+    var x = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+      x[_i] = arguments[_i];
+    }
   };
   var noarg = function (f) {
     return function () {
+      var x = [];
+      for (var _i = 0; _i < arguments.length; _i++) {
+        x[_i] = arguments[_i];
+      }
       return f();
     };
   };
   var compose = function (fa, fb) {
     return function () {
+      var x = [];
+      for (var _i = 0; _i < arguments.length; _i++) {
+        x[_i] = arguments[_i];
+      }
       return fa(fb.apply(null, arguments));
     };
   };
@@ -28,10 +40,18 @@ var table = (function () {
     return a === b;
   };
   var curry = function (f) {
+    var x = [];
+    for (var _i = 1; _i < arguments.length; _i++) {
+      x[_i - 1] = arguments[_i];
+    }
     var args = new Array(arguments.length - 1);
     for (var i = 1; i < arguments.length; i++)
       args[i - 1] = arguments[i];
     return function () {
+      var x = [];
+      for (var _i = 0; _i < arguments.length; _i++) {
+        x[_i] = arguments[_i];
+      }
       var newArgs = new Array(arguments.length);
       for (var j = 0; j < newArgs.length; j++)
         newArgs[j] = arguments[j];
@@ -41,6 +61,10 @@ var table = (function () {
   };
   var not = function (f) {
     return function () {
+      var x = [];
+      for (var _i = 0; _i < arguments.length; _i++) {
+        x[_i] = arguments[_i];
+      }
       return !f.apply(null, arguments);
     };
   };
@@ -55,9 +79,9 @@ var table = (function () {
   var call = function (f) {
     f();
   };
-  var never$1 = constant(false);
-  var always$1 = constant(true);
-  var $_8h7nl9jijcq86j7b = {
+  var never = constant(false);
+  var always = constant(true);
+  var $_fu1fqpkejgqkpus4 = {
     noop: noop,
     noarg: noarg,
     compose: compose,
@@ -69,12 +93,12 @@ var table = (function () {
     die: die,
     apply: apply,
     call: call,
-    never: never$1,
-    always: always$1
+    never: never,
+    always: always
   };
 
-  var never = $_8h7nl9jijcq86j7b.never;
-  var always = $_8h7nl9jijcq86j7b.always;
+  var never$1 = $_fu1fqpkejgqkpus4.never;
+  var always$1 = $_fu1fqpkejgqkpus4.always;
   var none = function () {
     return NONE;
   };
@@ -94,9 +118,9 @@ var table = (function () {
       fold: function (n, s) {
         return n();
       },
-      is: never,
-      isSome: never,
-      isNone: always,
+      is: never$1,
+      isSome: never$1,
+      isNone: always$1,
       getOr: id,
       getOrThunk: call,
       getOrDie: function (msg) {
@@ -109,15 +133,15 @@ var table = (function () {
       each: noop,
       bind: none,
       flatten: none,
-      exists: never,
-      forall: always,
+      exists: never$1,
+      forall: always$1,
       filter: none,
       equals: eq,
       equals_: eq,
       toArray: function () {
         return [];
       },
-      toString: $_8h7nl9jijcq86j7b.constant('none()')
+      toString: $_fu1fqpkejgqkpus4.constant('none()')
     };
     if (Object.freeze)
       Object.freeze(me);
@@ -143,8 +167,8 @@ var table = (function () {
       is: function (v) {
         return a === v;
       },
-      isSome: always,
-      isNone: never,
+      isSome: always$1,
+      isNone: never$1,
       getOr: constant_a,
       getOrThunk: constant_a,
       getOrDie: constant_a,
@@ -170,7 +194,7 @@ var table = (function () {
         return o.is(a);
       },
       equals_: function (o, elementEq) {
-        return o.fold(never, function (b) {
+        return o.fold(never$1, function (b) {
           return elementEq(a, b);
         });
       },
@@ -186,10 +210,36 @@ var table = (function () {
   var from = function (value) {
     return value === null || value === undefined ? NONE : some(value);
   };
-  var $_f1um5wjhjcq86j78 = {
+  var Option = {
     some: some,
     none: none,
     from: from
+  };
+
+  var typeOf = function (x) {
+    if (x === null)
+      return 'null';
+    var t = typeof x;
+    if (t === 'object' && Array.prototype.isPrototypeOf(x))
+      return 'array';
+    if (t === 'object' && String.prototype.isPrototypeOf(x))
+      return 'string';
+    return t;
+  };
+  var isType = function (type) {
+    return function (value) {
+      return typeOf(value) === type;
+    };
+  };
+  var $_329fsbkfjgqkpus7 = {
+    isString: isType('string'),
+    isObject: isType('object'),
+    isArray: isType('array'),
+    isNull: isType('null'),
+    isBoolean: isType('boolean'),
+    isUndefined: isType('undefined'),
+    isFunction: isType('function'),
+    isNumber: isType('number')
   };
 
   var rawIndexOf = function () {
@@ -204,7 +254,7 @@ var table = (function () {
   }();
   var indexOf = function (xs, x) {
     var r = rawIndexOf(xs, x);
-    return r === -1 ? $_f1um5wjhjcq86j78.none() : $_f1um5wjhjcq86j78.some(r);
+    return r === -1 ? Option.none() : Option.some(r);
   };
   var contains = function (xs, x) {
     return rawIndexOf(xs, x) > -1;
@@ -310,19 +360,19 @@ var table = (function () {
     for (var i = 0, len = xs.length; i < len; i++) {
       var x = xs[i];
       if (pred(x, i, xs)) {
-        return $_f1um5wjhjcq86j78.some(x);
+        return Option.some(x);
       }
     }
-    return $_f1um5wjhjcq86j78.none();
+    return Option.none();
   };
   var findIndex = function (xs, pred) {
     for (var i = 0, len = xs.length; i < len; i++) {
       var x = xs[i];
       if (pred(x, i, xs)) {
-        return $_f1um5wjhjcq86j78.some(i);
+        return Option.some(i);
       }
     }
-    return $_f1um5wjhjcq86j78.none();
+    return Option.none();
   };
   var slowIndexOf = function (xs, x) {
     for (var i = 0, len = xs.length; i < len; ++i) {
@@ -388,12 +438,15 @@ var table = (function () {
     return copy;
   };
   var head = function (xs) {
-    return xs.length === 0 ? $_f1um5wjhjcq86j78.none() : $_f1um5wjhjcq86j78.some(xs[0]);
+    return xs.length === 0 ? Option.none() : Option.some(xs[0]);
   };
   var last = function (xs) {
-    return xs.length === 0 ? $_f1um5wjhjcq86j78.none() : $_f1um5wjhjcq86j78.some(xs[xs.length - 1]);
+    return xs.length === 0 ? Option.none() : Option.some(xs[xs.length - 1]);
   };
-  var $_4rqlpsjgjcq86j74 = {
+  var from$1 = $_329fsbkfjgqkpus7.isFunction(Array.from) ? Array.from : function (x) {
+    return slice.call(x);
+  };
+  var $_e5654tkcjgqkpurw = {
     map: map,
     each: each,
     eachr: eachr,
@@ -419,7 +472,8 @@ var table = (function () {
     sort: sort,
     range: range,
     head: head,
-    last: last
+    last: last,
+    from: from$1
   };
 
   var keys = function () {
@@ -484,10 +538,10 @@ var table = (function () {
       var i = props[k];
       var x = obj[i];
       if (pred(x, i, obj)) {
-        return $_f1um5wjhjcq86j78.some(x);
+        return Option.some(x);
       }
     }
-    return $_f1um5wjhjcq86j78.none();
+    return Option.none();
   };
   var values = function (obj) {
     return mapToArray(obj, function (v) {
@@ -497,7 +551,7 @@ var table = (function () {
   var size = function (obj) {
     return values(obj).length;
   };
-  var $_bxkr0jkjcq86j7s = {
+  var $_38kcbmkhjgqkputf = {
     bifilter: bifilter,
     each: each$1,
     map: objectMap,
@@ -509,47 +563,26 @@ var table = (function () {
     size: size
   };
 
-  var Immutable = function () {
-    var fields = arguments;
+  function Immutable () {
+    var fields = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+      fields[_i] = arguments[_i];
+    }
     return function () {
-      var values = new Array(arguments.length);
-      for (var i = 0; i < values.length; i++)
-        values[i] = arguments[i];
-      if (fields.length !== values.length)
+      var values = [];
+      for (var _i = 0; _i < arguments.length; _i++) {
+        values[_i] = arguments[_i];
+      }
+      if (fields.length !== values.length) {
         throw new Error('Wrong number of arguments to struct. Expected "[' + fields.length + ']", got ' + values.length + ' arguments');
+      }
       var struct = {};
-      $_4rqlpsjgjcq86j74.each(fields, function (name, i) {
-        struct[name] = $_8h7nl9jijcq86j7b.constant(values[i]);
+      $_e5654tkcjgqkpurw.each(fields, function (name, i) {
+        struct[name] = $_fu1fqpkejgqkpus4.constant(values[i]);
       });
       return struct;
     };
-  };
-
-  var typeOf = function (x) {
-    if (x === null)
-      return 'null';
-    var t = typeof x;
-    if (t === 'object' && Array.prototype.isPrototypeOf(x))
-      return 'array';
-    if (t === 'object' && String.prototype.isPrototypeOf(x))
-      return 'string';
-    return t;
-  };
-  var isType = function (type) {
-    return function (value) {
-      return typeOf(value) === type;
-    };
-  };
-  var $_7d4g1yjpjcq86j83 = {
-    isString: isType('string'),
-    isObject: isType('object'),
-    isArray: isType('array'),
-    isNull: isType('null'),
-    isBoolean: isType('boolean'),
-    isUndefined: isType('undefined'),
-    isFunction: isType('function'),
-    isNumber: isType('number')
-  };
+  }
 
   var sort$1 = function (arr) {
     return arr.slice(0).sort();
@@ -561,10 +594,10 @@ var table = (function () {
     throw new Error('Unsupported keys for object: ' + sort$1(unsupported).join(', '));
   };
   var validateStrArr = function (label, array) {
-    if (!$_7d4g1yjpjcq86j83.isArray(array))
+    if (!$_329fsbkfjgqkpus7.isArray(array))
       throw new Error('The ' + label + ' fields must be an array. Was: ' + array + '.');
-    $_4rqlpsjgjcq86j74.each(array, function (a) {
-      if (!$_7d4g1yjpjcq86j83.isString(a))
+    $_e5654tkcjgqkpurw.each(array, function (a) {
+      if (!$_329fsbkfjgqkpus7.isString(a))
         throw new Error('The value ' + a + ' in the ' + label + ' fields was not a string.');
     });
   };
@@ -573,14 +606,14 @@ var table = (function () {
   };
   var checkDupes = function (everything) {
     var sorted = sort$1(everything);
-    var dupe = $_4rqlpsjgjcq86j74.find(sorted, function (s, i) {
+    var dupe = $_e5654tkcjgqkpurw.find(sorted, function (s, i) {
       return i < sorted.length - 1 && s === sorted[i + 1];
     });
     dupe.each(function (d) {
       throw new Error('The field: ' + d + ' occurs more than once in the combined fields: [' + sorted.join(', ') + '].');
     });
   };
-  var $_83iwssjojcq86j7z = {
+  var $_16xnbkljgqkputp = {
     sort: sort$1,
     reqMessage: reqMessage,
     unsuppMessage: unsuppMessage,
@@ -589,55 +622,55 @@ var table = (function () {
     checkDupes: checkDupes
   };
 
-  var MixedBag = function (required, optional) {
+  function MixedBag (required, optional) {
     var everything = required.concat(optional);
     if (everything.length === 0)
       throw new Error('You must specify at least one required or optional field.');
-    $_83iwssjojcq86j7z.validateStrArr('required', required);
-    $_83iwssjojcq86j7z.validateStrArr('optional', optional);
-    $_83iwssjojcq86j7z.checkDupes(everything);
+    $_16xnbkljgqkputp.validateStrArr('required', required);
+    $_16xnbkljgqkputp.validateStrArr('optional', optional);
+    $_16xnbkljgqkputp.checkDupes(everything);
     return function (obj) {
-      var keys = $_bxkr0jkjcq86j7s.keys(obj);
-      var allReqd = $_4rqlpsjgjcq86j74.forall(required, function (req) {
-        return $_4rqlpsjgjcq86j74.contains(keys, req);
+      var keys = $_38kcbmkhjgqkputf.keys(obj);
+      var allReqd = $_e5654tkcjgqkpurw.forall(required, function (req) {
+        return $_e5654tkcjgqkpurw.contains(keys, req);
       });
       if (!allReqd)
-        $_83iwssjojcq86j7z.reqMessage(required, keys);
-      var unsupported = $_4rqlpsjgjcq86j74.filter(keys, function (key) {
-        return !$_4rqlpsjgjcq86j74.contains(everything, key);
+        $_16xnbkljgqkputp.reqMessage(required, keys);
+      var unsupported = $_e5654tkcjgqkpurw.filter(keys, function (key) {
+        return !$_e5654tkcjgqkpurw.contains(everything, key);
       });
       if (unsupported.length > 0)
-        $_83iwssjojcq86j7z.unsuppMessage(unsupported);
+        $_16xnbkljgqkputp.unsuppMessage(unsupported);
       var r = {};
-      $_4rqlpsjgjcq86j74.each(required, function (req) {
-        r[req] = $_8h7nl9jijcq86j7b.constant(obj[req]);
+      $_e5654tkcjgqkpurw.each(required, function (req) {
+        r[req] = $_fu1fqpkejgqkpus4.constant(obj[req]);
       });
-      $_4rqlpsjgjcq86j74.each(optional, function (opt) {
-        r[opt] = $_8h7nl9jijcq86j7b.constant(Object.prototype.hasOwnProperty.call(obj, opt) ? $_f1um5wjhjcq86j78.some(obj[opt]) : $_f1um5wjhjcq86j78.none());
+      $_e5654tkcjgqkpurw.each(optional, function (opt) {
+        r[opt] = $_fu1fqpkejgqkpus4.constant(Object.prototype.hasOwnProperty.call(obj, opt) ? Option.some(obj[opt]) : Option.none());
       });
       return r;
     };
-  };
+  }
 
-  var $_9bzkn9jljcq86j7v = {
+  var $_c756rzkijgqkputi = {
     immutable: Immutable,
     immutableBag: MixedBag
   };
 
-  var dimensions = $_9bzkn9jljcq86j7v.immutable('width', 'height');
-  var grid = $_9bzkn9jljcq86j7v.immutable('rows', 'columns');
-  var address = $_9bzkn9jljcq86j7v.immutable('row', 'column');
-  var coords = $_9bzkn9jljcq86j7v.immutable('x', 'y');
-  var detail = $_9bzkn9jljcq86j7v.immutable('element', 'rowspan', 'colspan');
-  var detailnew = $_9bzkn9jljcq86j7v.immutable('element', 'rowspan', 'colspan', 'isNew');
-  var extended = $_9bzkn9jljcq86j7v.immutable('element', 'rowspan', 'colspan', 'row', 'column');
-  var rowdata = $_9bzkn9jljcq86j7v.immutable('element', 'cells', 'section');
-  var elementnew = $_9bzkn9jljcq86j7v.immutable('element', 'isNew');
-  var rowdatanew = $_9bzkn9jljcq86j7v.immutable('element', 'cells', 'section', 'isNew');
-  var rowcells = $_9bzkn9jljcq86j7v.immutable('cells', 'section');
-  var rowdetails = $_9bzkn9jljcq86j7v.immutable('details', 'section');
-  var bounds = $_9bzkn9jljcq86j7v.immutable('startRow', 'startCol', 'finishRow', 'finishCol');
-  var $_8lo3ucjrjcq86j8b = {
+  var dimensions = $_c756rzkijgqkputi.immutable('width', 'height');
+  var grid = $_c756rzkijgqkputi.immutable('rows', 'columns');
+  var address = $_c756rzkijgqkputi.immutable('row', 'column');
+  var coords = $_c756rzkijgqkputi.immutable('x', 'y');
+  var detail = $_c756rzkijgqkputi.immutable('element', 'rowspan', 'colspan');
+  var detailnew = $_c756rzkijgqkputi.immutable('element', 'rowspan', 'colspan', 'isNew');
+  var extended = $_c756rzkijgqkputi.immutable('element', 'rowspan', 'colspan', 'row', 'column');
+  var rowdata = $_c756rzkijgqkputi.immutable('element', 'cells', 'section');
+  var elementnew = $_c756rzkijgqkputi.immutable('element', 'isNew');
+  var rowdatanew = $_c756rzkijgqkputi.immutable('element', 'cells', 'section', 'isNew');
+  var rowcells = $_c756rzkijgqkputi.immutable('cells', 'section');
+  var rowdetails = $_c756rzkijgqkputi.immutable('details', 'section');
+  var bounds = $_c756rzkijgqkputi.immutable('startRow', 'startCol', 'finishRow', 'finishCol');
+  var $_71damwknjgqkpuu3 = {
     dimensions: dimensions,
     grid: grid,
     address: address,
@@ -676,12 +709,12 @@ var table = (function () {
   var fromDom = function (node) {
     if (node === null || node === undefined)
       throw new Error('Node cannot be null or undefined');
-    return { dom: $_8h7nl9jijcq86j7b.constant(node) };
+    return { dom: $_fu1fqpkejgqkpus4.constant(node) };
   };
   var fromPoint = function (doc, x, y) {
-    return $_f1um5wjhjcq86j78.from(doc.dom().elementFromPoint(x, y)).map(fromDom);
+    return Option.from(doc.dom().elementFromPoint(x, y)).map(fromDom);
   };
-  var $_69jxc7jvjcq86j93 = {
+  var $_cimonkrjgqkpuvh = {
     fromHtml: fromHtml,
     fromTag: fromTag,
     fromText: fromText,
@@ -689,7 +722,7 @@ var table = (function () {
     fromPoint: fromPoint
   };
 
-  var $_8mtxyljwjcq86j98 = {
+  var $_fqsqsjksjgqkpuvo = {
     ATTRIBUTE: 2,
     CDATA_SECTION: 4,
     COMMENT: 8,
@@ -704,8 +737,8 @@ var table = (function () {
     NOTATION: 12
   };
 
-  var ELEMENT = $_8mtxyljwjcq86j98.ELEMENT;
-  var DOCUMENT = $_8mtxyljwjcq86j98.DOCUMENT;
+  var ELEMENT = $_fqsqsjksjgqkpuvo.ELEMENT;
+  var DOCUMENT = $_fqsqsjksjgqkpuvo.DOCUMENT;
   var is = function (element, selector) {
     var elem = element.dom();
     if (elem.nodeType !== ELEMENT)
@@ -726,13 +759,13 @@ var table = (function () {
   };
   var all = function (selector, scope) {
     var base = scope === undefined ? document : scope.dom();
-    return bypassSelector(base) ? [] : $_4rqlpsjgjcq86j74.map(base.querySelectorAll(selector), $_69jxc7jvjcq86j93.fromDom);
+    return bypassSelector(base) ? [] : $_e5654tkcjgqkpurw.map(base.querySelectorAll(selector), $_cimonkrjgqkpuvh.fromDom);
   };
   var one = function (selector, scope) {
     var base = scope === undefined ? document : scope.dom();
-    return bypassSelector(base) ? $_f1um5wjhjcq86j78.none() : $_f1um5wjhjcq86j78.from(base.querySelector(selector)).map($_69jxc7jvjcq86j93.fromDom);
+    return bypassSelector(base) ? Option.none() : Option.from(base.querySelector(selector)).map($_cimonkrjgqkpuvh.fromDom);
   };
-  var $_fpww74jujcq86j8z = {
+  var $_e0dyi1kqjgqkpuv9 = {
     all: all,
     is: is,
     one: one
@@ -750,12 +783,12 @@ var table = (function () {
     } while (cur.isSome());
     return r;
   };
-  var $_3qt84ljyjcq86j9k = { toArray: toArray };
+  var $_6dzdppkujgqkpuw5 = { toArray: toArray };
 
-  var global = typeof window !== 'undefined' ? window : Function('return this;')();
+  var global$1 = typeof window !== 'undefined' ? window : Function('return this;')();
 
   var path = function (parts, scope) {
-    var o = scope !== undefined && scope !== null ? scope : global;
+    var o = scope !== undefined && scope !== null ? scope : global$1;
     for (var i = 0; i < parts.length && o !== undefined && o !== null; ++i)
       o = o[parts[i]];
     return o;
@@ -770,7 +803,7 @@ var table = (function () {
     return o[part];
   };
   var forge = function (parts, target) {
-    var o = target !== undefined ? target : global;
+    var o = target !== undefined ? target : global$1;
     for (var i = 0; i < parts.length; ++i)
       o = step(o, parts[i]);
     return o;
@@ -779,7 +812,7 @@ var table = (function () {
     var parts = name.split('.');
     return forge(parts, target);
   };
-  var $_3m8mxfk2jcq86j9x = {
+  var $_aue30ykyjgqkpuwo = {
     path: path,
     resolve: resolve,
     forge: forge,
@@ -787,7 +820,7 @@ var table = (function () {
   };
 
   var unsafe = function (name, scope) {
-    return $_3m8mxfk2jcq86j9x.resolve(name, scope);
+    return $_aue30ykyjgqkpuwo.resolve(name, scope);
   };
   var getOrDie = function (name, scope) {
     var actual = unsafe(name, scope);
@@ -795,10 +828,10 @@ var table = (function () {
       throw name + ' not available on this browser';
     return actual;
   };
-  var $_8xgsgwk1jcq86j9v = { getOrDie: getOrDie };
+  var $_8nhgohkxjgqkpuwl = { getOrDie: getOrDie };
 
   var node = function () {
-    var f = $_8xgsgwk1jcq86j9v.getOrDie('Node');
+    var f = $_8nhgohkxjgqkpuwl.getOrDie('Node');
     return f;
   };
   var compareDocumentPosition = function (a, b, match) {
@@ -810,7 +843,7 @@ var table = (function () {
   var documentPositionContainedBy = function (a, b) {
     return compareDocumentPosition(a, b, node().DOCUMENT_POSITION_CONTAINED_BY);
   };
-  var $_e0wfkrk0jcq86j9u = {
+  var $_k8rwmkwjgqkpuwj = {
     documentPositionPreceding: documentPositionPreceding,
     documentPositionContainedBy: documentPositionContainedBy
   };
@@ -826,7 +859,7 @@ var table = (function () {
       return r;
     };
   };
-  var $_2syu80k5jcq86ja1 = { cached: cached };
+  var $_6bgxepl1jgqkpuwu = { cached: cached };
 
   var firstMatch = function (regexes, s) {
     for (var i = 0; i < regexes.length; i++) {
@@ -846,27 +879,27 @@ var table = (function () {
     var group = function (i) {
       return Number(agent.replace(r, '$' + i));
     };
-    return nu$1(group(1), group(2));
+    return nu(group(1), group(2));
   };
-  var detect$2 = function (versionRegexes, agent) {
+  var detect = function (versionRegexes, agent) {
     var cleanedAgent = String(agent).toLowerCase();
     if (versionRegexes.length === 0)
-      return unknown$1();
+      return unknown();
     return find$2(versionRegexes, cleanedAgent);
   };
-  var unknown$1 = function () {
-    return nu$1(0, 0);
+  var unknown = function () {
+    return nu(0, 0);
   };
-  var nu$1 = function (major, minor) {
+  var nu = function (major, minor) {
     return {
       major: major,
       minor: minor
     };
   };
-  var $_7rxa8sk8jcq86jaa = {
-    nu: nu$1,
-    detect: detect$2,
-    unknown: unknown$1
+  var $_ef6lwcl4jgqkpux1 = {
+    nu: nu,
+    detect: detect,
+    unknown: unknown
   };
 
   var edge = 'Edge';
@@ -880,13 +913,13 @@ var table = (function () {
       return current === name;
     };
   };
-  var unknown = function () {
-    return nu({
+  var unknown$1 = function () {
+    return nu$1({
       current: undefined,
-      version: $_7rxa8sk8jcq86jaa.unknown()
+      version: $_ef6lwcl4jgqkpux1.unknown()
     });
   };
-  var nu = function (info) {
+  var nu$1 = function (info) {
     var current = info.current;
     var version = info.version;
     return {
@@ -900,15 +933,15 @@ var table = (function () {
       isSafari: isBrowser(safari, current)
     };
   };
-  var $_9euw42k7jcq86ja7 = {
-    unknown: unknown,
-    nu: nu,
-    edge: $_8h7nl9jijcq86j7b.constant(edge),
-    chrome: $_8h7nl9jijcq86j7b.constant(chrome),
-    ie: $_8h7nl9jijcq86j7b.constant(ie),
-    opera: $_8h7nl9jijcq86j7b.constant(opera),
-    firefox: $_8h7nl9jijcq86j7b.constant(firefox),
-    safari: $_8h7nl9jijcq86j7b.constant(safari)
+  var $_10ck8ml3jgqkpuwx = {
+    unknown: unknown$1,
+    nu: nu$1,
+    edge: $_fu1fqpkejgqkpus4.constant(edge),
+    chrome: $_fu1fqpkejgqkpus4.constant(chrome),
+    ie: $_fu1fqpkejgqkpus4.constant(ie),
+    opera: $_fu1fqpkejgqkpus4.constant(opera),
+    firefox: $_fu1fqpkejgqkpus4.constant(firefox),
+    safari: $_fu1fqpkejgqkpus4.constant(safari)
   };
 
   var windows = 'Windows';
@@ -926,7 +959,7 @@ var table = (function () {
   var unknown$2 = function () {
     return nu$2({
       current: undefined,
-      version: $_7rxa8sk8jcq86jaa.unknown()
+      version: $_ef6lwcl4jgqkpux1.unknown()
     });
   };
   var nu$2 = function (info) {
@@ -944,19 +977,19 @@ var table = (function () {
       isFreeBSD: isOS(freebsd, current)
     };
   };
-  var $_2h71ark9jcq86jab = {
+  var $_eznda1l5jgqkpux2 = {
     unknown: unknown$2,
     nu: nu$2,
-    windows: $_8h7nl9jijcq86j7b.constant(windows),
-    ios: $_8h7nl9jijcq86j7b.constant(ios),
-    android: $_8h7nl9jijcq86j7b.constant(android),
-    linux: $_8h7nl9jijcq86j7b.constant(linux),
-    osx: $_8h7nl9jijcq86j7b.constant(osx),
-    solaris: $_8h7nl9jijcq86j7b.constant(solaris),
-    freebsd: $_8h7nl9jijcq86j7b.constant(freebsd)
+    windows: $_fu1fqpkejgqkpus4.constant(windows),
+    ios: $_fu1fqpkejgqkpus4.constant(ios),
+    android: $_fu1fqpkejgqkpus4.constant(android),
+    linux: $_fu1fqpkejgqkpus4.constant(linux),
+    osx: $_fu1fqpkejgqkpus4.constant(osx),
+    solaris: $_fu1fqpkejgqkpus4.constant(solaris),
+    freebsd: $_fu1fqpkejgqkpus4.constant(freebsd)
   };
 
-  var DeviceType = function (os, browser, userAgent) {
+  function DeviceType (os, browser, userAgent) {
     var isiPad = os.isiOS() && /ipad/i.test(userAgent) === true;
     var isiPhone = os.isiOS() && !isiPad;
     var isAndroid3 = os.isAndroid() && os.version.major === 3;
@@ -966,26 +999,26 @@ var table = (function () {
     var isPhone = isTouch && !isTablet;
     var iOSwebview = browser.isSafari() && os.isiOS() && /safari/i.test(userAgent) === false;
     return {
-      isiPad: $_8h7nl9jijcq86j7b.constant(isiPad),
-      isiPhone: $_8h7nl9jijcq86j7b.constant(isiPhone),
-      isTablet: $_8h7nl9jijcq86j7b.constant(isTablet),
-      isPhone: $_8h7nl9jijcq86j7b.constant(isPhone),
-      isTouch: $_8h7nl9jijcq86j7b.constant(isTouch),
+      isiPad: $_fu1fqpkejgqkpus4.constant(isiPad),
+      isiPhone: $_fu1fqpkejgqkpus4.constant(isiPhone),
+      isTablet: $_fu1fqpkejgqkpus4.constant(isTablet),
+      isPhone: $_fu1fqpkejgqkpus4.constant(isPhone),
+      isTouch: $_fu1fqpkejgqkpus4.constant(isTouch),
       isAndroid: os.isAndroid,
       isiOS: os.isiOS,
-      isWebView: $_8h7nl9jijcq86j7b.constant(iOSwebview)
+      isWebView: $_fu1fqpkejgqkpus4.constant(iOSwebview)
     };
-  };
+  }
 
-  var detect$3 = function (candidates, userAgent) {
+  var detect$1 = function (candidates, userAgent) {
     var agent = String(userAgent).toLowerCase();
-    return $_4rqlpsjgjcq86j74.find(candidates, function (candidate) {
+    return $_e5654tkcjgqkpurw.find(candidates, function (candidate) {
       return candidate.search(agent);
     });
   };
   var detectBrowser = function (browsers, userAgent) {
-    return detect$3(browsers, userAgent).map(function (browser) {
-      var version = $_7rxa8sk8jcq86jaa.detect(browser.versionRegexes, userAgent);
+    return detect$1(browsers, userAgent).map(function (browser) {
+      var version = $_ef6lwcl4jgqkpux1.detect(browser.versionRegexes, userAgent);
       return {
         current: browser.name,
         version: version
@@ -993,15 +1026,15 @@ var table = (function () {
     });
   };
   var detectOs = function (oses, userAgent) {
-    return detect$3(oses, userAgent).map(function (os) {
-      var version = $_7rxa8sk8jcq86jaa.detect(os.versionRegexes, userAgent);
+    return detect$1(oses, userAgent).map(function (os) {
+      var version = $_ef6lwcl4jgqkpux1.detect(os.versionRegexes, userAgent);
       return {
         current: os.name,
         version: version
       };
     });
   };
-  var $_5k43yikbjcq86jag = {
+  var $_7qgn82l7jgqkpuxa = {
     detectBrowser: detectBrowser,
     detectOs: detectOs
   };
@@ -1018,7 +1051,7 @@ var table = (function () {
   var removeFromEnd = function (str, numChars) {
     return str.substring(0, str.length - numChars);
   };
-  var $_dm6smukejcq86jaq = {
+  var $_cstjrklajgqkpuxr = {
     addToStart: addToStart,
     addToEnd: addToEnd,
     removeFromStart: removeFromStart,
@@ -1032,12 +1065,12 @@ var table = (function () {
     return str.substr(str.length - count, str.length);
   };
   var head$1 = function (str) {
-    return str === '' ? $_f1um5wjhjcq86j78.none() : $_f1um5wjhjcq86j78.some(str.substr(0, 1));
+    return str === '' ? Option.none() : Option.some(str.substr(0, 1));
   };
   var tail = function (str) {
-    return str === '' ? $_f1um5wjhjcq86j78.none() : $_f1um5wjhjcq86j78.some(str.substring(1));
+    return str === '' ? Option.none() : Option.some(str.substring(1));
   };
-  var $_8a6ew8kfjcq86jar = {
+  var $_cggg80lbjgqkpuxs = {
     first: first,
     last: last$1,
     head: head$1,
@@ -1063,23 +1096,23 @@ var table = (function () {
     });
   };
   var removeLeading = function (str, prefix) {
-    return startsWith(str, prefix) ? $_dm6smukejcq86jaq.removeFromStart(str, prefix.length) : str;
+    return startsWith(str, prefix) ? $_cstjrklajgqkpuxr.removeFromStart(str, prefix.length) : str;
   };
   var removeTrailing = function (str, prefix) {
-    return endsWith(str, prefix) ? $_dm6smukejcq86jaq.removeFromEnd(str, prefix.length) : str;
+    return endsWith(str, prefix) ? $_cstjrklajgqkpuxr.removeFromEnd(str, prefix.length) : str;
   };
   var ensureLeading = function (str, prefix) {
-    return startsWith(str, prefix) ? str : $_dm6smukejcq86jaq.addToStart(str, prefix);
+    return startsWith(str, prefix) ? str : $_cstjrklajgqkpuxr.addToStart(str, prefix);
   };
   var ensureTrailing = function (str, prefix) {
-    return endsWith(str, prefix) ? str : $_dm6smukejcq86jaq.addToEnd(str, prefix);
+    return endsWith(str, prefix) ? str : $_cstjrklajgqkpuxr.addToEnd(str, prefix);
   };
-  var contains$2 = function (str, substr) {
+  var contains$1 = function (str, substr) {
     return str.indexOf(substr) !== -1;
   };
   var capitalize = function (str) {
-    return $_8a6ew8kfjcq86jar.head(str).bind(function (head) {
-      return $_8a6ew8kfjcq86jar.tail(str).map(function (tail) {
+    return $_cggg80lbjgqkpuxs.head(str).bind(function (head) {
+      return $_cggg80lbjgqkpuxs.tail(str).map(function (tail) {
         return head.toUpperCase() + tail;
       });
     }).getOr(str);
@@ -1099,7 +1132,7 @@ var table = (function () {
   var rTrim = function (str) {
     return str.replace(/\s+$/g, '');
   };
-  var $_eujqwfkdjcq86jao = {
+  var $_4pby0el9jgqkpuxp = {
     supplant: supplant,
     startsWith: startsWith,
     removeLeading: removeLeading,
@@ -1107,7 +1140,7 @@ var table = (function () {
     ensureLeading: ensureLeading,
     ensureTrailing: ensureTrailing,
     endsWith: endsWith,
-    contains: contains$2,
+    contains: contains$1,
     trim: trim,
     lTrim: lTrim,
     rTrim: rTrim,
@@ -1117,7 +1150,7 @@ var table = (function () {
   var normalVersionRegex = /.*?version\/\ ?([0-9]+)\.([0-9]+).*/;
   var checkContains = function (target) {
     return function (uastring) {
-      return $_eujqwfkdjcq86jao.contains(uastring, target);
+      return $_4pby0el9jgqkpuxp.contains(uastring, target);
     };
   };
   var browsers = [
@@ -1125,7 +1158,7 @@ var table = (function () {
       name: 'Edge',
       versionRegexes: [/.*?edge\/ ?([0-9]+)\.([0-9]+)$/],
       search: function (uastring) {
-        var monstrosity = $_eujqwfkdjcq86jao.contains(uastring, 'edge/') && $_eujqwfkdjcq86jao.contains(uastring, 'chrome') && $_eujqwfkdjcq86jao.contains(uastring, 'safari') && $_eujqwfkdjcq86jao.contains(uastring, 'applewebkit');
+        var monstrosity = $_4pby0el9jgqkpuxp.contains(uastring, 'edge/') && $_4pby0el9jgqkpuxp.contains(uastring, 'chrome') && $_4pby0el9jgqkpuxp.contains(uastring, 'safari') && $_4pby0el9jgqkpuxp.contains(uastring, 'applewebkit');
         return monstrosity;
       }
     },
@@ -1136,7 +1169,7 @@ var table = (function () {
         normalVersionRegex
       ],
       search: function (uastring) {
-        return $_eujqwfkdjcq86jao.contains(uastring, 'chrome') && !$_eujqwfkdjcq86jao.contains(uastring, 'chromeframe');
+        return $_4pby0el9jgqkpuxp.contains(uastring, 'chrome') && !$_4pby0el9jgqkpuxp.contains(uastring, 'chromeframe');
       }
     },
     {
@@ -1146,7 +1179,7 @@ var table = (function () {
         /.*?rv:([0-9]+)\.([0-9]+).*/
       ],
       search: function (uastring) {
-        return $_eujqwfkdjcq86jao.contains(uastring, 'msie') || $_eujqwfkdjcq86jao.contains(uastring, 'trident');
+        return $_4pby0el9jgqkpuxp.contains(uastring, 'msie') || $_4pby0el9jgqkpuxp.contains(uastring, 'trident');
       }
     },
     {
@@ -1169,7 +1202,7 @@ var table = (function () {
         /.*?cpu os ([0-9]+)_([0-9]+).*/
       ],
       search: function (uastring) {
-        return ($_eujqwfkdjcq86jao.contains(uastring, 'safari') || $_eujqwfkdjcq86jao.contains(uastring, 'mobile/')) && $_eujqwfkdjcq86jao.contains(uastring, 'applewebkit');
+        return ($_4pby0el9jgqkpuxp.contains(uastring, 'safari') || $_4pby0el9jgqkpuxp.contains(uastring, 'mobile/')) && $_4pby0el9jgqkpuxp.contains(uastring, 'applewebkit');
       }
     }
   ];
@@ -1182,7 +1215,7 @@ var table = (function () {
     {
       name: 'iOS',
       search: function (uastring) {
-        return $_eujqwfkdjcq86jao.contains(uastring, 'iphone') || $_eujqwfkdjcq86jao.contains(uastring, 'ipad');
+        return $_4pby0el9jgqkpuxp.contains(uastring, 'iphone') || $_4pby0el9jgqkpuxp.contains(uastring, 'ipad');
       },
       versionRegexes: [
         /.*?version\/\ ?([0-9]+)\.([0-9]+).*/,
@@ -1216,16 +1249,16 @@ var table = (function () {
       versionRegexes: []
     }
   ];
-  var $_dxw4thkcjcq86jaj = {
-    browsers: $_8h7nl9jijcq86j7b.constant(browsers),
-    oses: $_8h7nl9jijcq86j7b.constant(oses)
+  var $_ab71wzl8jgqkpuxf = {
+    browsers: $_fu1fqpkejgqkpus4.constant(browsers),
+    oses: $_fu1fqpkejgqkpus4.constant(oses)
   };
 
-  var detect$1 = function (userAgent) {
-    var browsers = $_dxw4thkcjcq86jaj.browsers();
-    var oses = $_dxw4thkcjcq86jaj.oses();
-    var browser = $_5k43yikbjcq86jag.detectBrowser(browsers, userAgent).fold($_9euw42k7jcq86ja7.unknown, $_9euw42k7jcq86ja7.nu);
-    var os = $_5k43yikbjcq86jag.detectOs(oses, userAgent).fold($_2h71ark9jcq86jab.unknown, $_2h71ark9jcq86jab.nu);
+  var detect$2 = function (userAgent) {
+    var browsers = $_ab71wzl8jgqkpuxf.browsers();
+    var oses = $_ab71wzl8jgqkpuxf.oses();
+    var browser = $_7qgn82l7jgqkpuxa.detectBrowser(browsers, userAgent).fold($_10ck8ml3jgqkpuwx.unknown, $_10ck8ml3jgqkpuwx.nu);
+    var os = $_7qgn82l7jgqkpuxa.detectOs(oses, userAgent).fold($_eznda1l5jgqkpux2.unknown, $_eznda1l5jgqkpux2.nu);
     var deviceType = DeviceType(os, browser, userAgent);
     return {
       browser: browser,
@@ -1233,13 +1266,13 @@ var table = (function () {
       deviceType: deviceType
     };
   };
-  var $_9tr6gfk6jcq86ja2 = { detect: detect$1 };
+  var $_dmayzjl2jgqkpuwv = { detect: detect$2 };
 
-  var detect = $_2syu80k5jcq86ja1.cached(function () {
+  var detect$3 = $_6bgxepl1jgqkpuwu.cached(function () {
     var userAgent = navigator.userAgent;
-    return $_9tr6gfk6jcq86ja2.detect(userAgent);
+    return $_dmayzjl2jgqkpuwv.detect(userAgent);
   });
-  var $_g90906k4jcq86j9z = { detect: detect };
+  var $_7vy8tfl0jgqkpuwq = { detect: detect$3 };
 
   var eq = function (e1, e2) {
     return e1.dom() === e2.dom();
@@ -1248,56 +1281,56 @@ var table = (function () {
     return e1.dom().isEqualNode(e2.dom());
   };
   var member = function (element, elements) {
-    return $_4rqlpsjgjcq86j74.exists(elements, $_8h7nl9jijcq86j7b.curry(eq, element));
+    return $_e5654tkcjgqkpurw.exists(elements, $_fu1fqpkejgqkpus4.curry(eq, element));
   };
   var regularContains = function (e1, e2) {
     var d1 = e1.dom(), d2 = e2.dom();
     return d1 === d2 ? false : d1.contains(d2);
   };
   var ieContains = function (e1, e2) {
-    return $_e0wfkrk0jcq86j9u.documentPositionContainedBy(e1.dom(), e2.dom());
+    return $_k8rwmkwjgqkpuwj.documentPositionContainedBy(e1.dom(), e2.dom());
   };
-  var browser = $_g90906k4jcq86j9z.detect().browser;
-  var contains$1 = browser.isIE() ? ieContains : regularContains;
-  var $_6oaqssjzjcq86j9l = {
+  var browser = $_7vy8tfl0jgqkpuwq.detect().browser;
+  var contains$2 = browser.isIE() ? ieContains : regularContains;
+  var $_an4cuxkvjgqkpuw7 = {
     eq: eq,
     isEqualNode: isEqualNode,
     member: member,
-    contains: contains$1,
-    is: $_fpww74jujcq86j8z.is
+    contains: contains$2,
+    is: $_e0dyi1kqjgqkpuv9.is
   };
 
   var owner = function (element) {
-    return $_69jxc7jvjcq86j93.fromDom(element.dom().ownerDocument);
+    return $_cimonkrjgqkpuvh.fromDom(element.dom().ownerDocument);
   };
   var documentElement = function (element) {
     var doc = owner(element);
-    return $_69jxc7jvjcq86j93.fromDom(doc.dom().documentElement);
+    return $_cimonkrjgqkpuvh.fromDom(doc.dom().documentElement);
   };
   var defaultView = function (element) {
     var el = element.dom();
     var defaultView = el.ownerDocument.defaultView;
-    return $_69jxc7jvjcq86j93.fromDom(defaultView);
+    return $_cimonkrjgqkpuvh.fromDom(defaultView);
   };
   var parent = function (element) {
     var dom = element.dom();
-    return $_f1um5wjhjcq86j78.from(dom.parentNode).map($_69jxc7jvjcq86j93.fromDom);
+    return Option.from(dom.parentNode).map($_cimonkrjgqkpuvh.fromDom);
   };
   var findIndex$1 = function (element) {
     return parent(element).bind(function (p) {
       var kin = children(p);
-      return $_4rqlpsjgjcq86j74.findIndex(kin, function (elem) {
-        return $_6oaqssjzjcq86j9l.eq(element, elem);
+      return $_e5654tkcjgqkpurw.findIndex(kin, function (elem) {
+        return $_an4cuxkvjgqkpuw7.eq(element, elem);
       });
     });
   };
   var parents = function (element, isRoot) {
-    var stop = $_7d4g1yjpjcq86j83.isFunction(isRoot) ? isRoot : $_8h7nl9jijcq86j7b.constant(false);
+    var stop = $_329fsbkfjgqkpus7.isFunction(isRoot) ? isRoot : $_fu1fqpkejgqkpus4.constant(false);
     var dom = element.dom();
     var ret = [];
     while (dom.parentNode !== null && dom.parentNode !== undefined) {
       var rawParent = dom.parentNode;
-      var parent = $_69jxc7jvjcq86j93.fromDom(rawParent);
+      var parent = $_cimonkrjgqkpuvh.fromDom(rawParent);
       ret.push(parent);
       if (stop(parent) === true)
         break;
@@ -1308,37 +1341,37 @@ var table = (function () {
   };
   var siblings = function (element) {
     var filterSelf = function (elements) {
-      return $_4rqlpsjgjcq86j74.filter(elements, function (x) {
-        return !$_6oaqssjzjcq86j9l.eq(element, x);
+      return $_e5654tkcjgqkpurw.filter(elements, function (x) {
+        return !$_an4cuxkvjgqkpuw7.eq(element, x);
       });
     };
     return parent(element).map(children).map(filterSelf).getOr([]);
   };
   var offsetParent = function (element) {
     var dom = element.dom();
-    return $_f1um5wjhjcq86j78.from(dom.offsetParent).map($_69jxc7jvjcq86j93.fromDom);
+    return Option.from(dom.offsetParent).map($_cimonkrjgqkpuvh.fromDom);
   };
   var prevSibling = function (element) {
     var dom = element.dom();
-    return $_f1um5wjhjcq86j78.from(dom.previousSibling).map($_69jxc7jvjcq86j93.fromDom);
+    return Option.from(dom.previousSibling).map($_cimonkrjgqkpuvh.fromDom);
   };
   var nextSibling = function (element) {
     var dom = element.dom();
-    return $_f1um5wjhjcq86j78.from(dom.nextSibling).map($_69jxc7jvjcq86j93.fromDom);
+    return Option.from(dom.nextSibling).map($_cimonkrjgqkpuvh.fromDom);
   };
   var prevSiblings = function (element) {
-    return $_4rqlpsjgjcq86j74.reverse($_3qt84ljyjcq86j9k.toArray(element, prevSibling));
+    return $_e5654tkcjgqkpurw.reverse($_6dzdppkujgqkpuw5.toArray(element, prevSibling));
   };
   var nextSiblings = function (element) {
-    return $_3qt84ljyjcq86j9k.toArray(element, nextSibling);
+    return $_6dzdppkujgqkpuw5.toArray(element, nextSibling);
   };
   var children = function (element) {
     var dom = element.dom();
-    return $_4rqlpsjgjcq86j74.map(dom.childNodes, $_69jxc7jvjcq86j93.fromDom);
+    return $_e5654tkcjgqkpurw.map(dom.childNodes, $_cimonkrjgqkpuvh.fromDom);
   };
   var child = function (element, index) {
     var children = element.dom().childNodes;
-    return $_f1um5wjhjcq86j78.from(children[index]).map($_69jxc7jvjcq86j93.fromDom);
+    return Option.from(children[index]).map($_cimonkrjgqkpuvh.fromDom);
   };
   var firstChild = function (element) {
     return child(element, 0);
@@ -1352,12 +1385,12 @@ var table = (function () {
   var hasChildNodes = function (element) {
     return element.dom().hasChildNodes();
   };
-  var spot = $_9bzkn9jljcq86j7v.immutable('element', 'offset');
+  var spot = $_c756rzkijgqkputi.immutable('element', 'offset');
   var leaf = function (element, offset) {
     var cs = children(element);
     return cs.length > 0 && offset < cs.length ? spot(cs[offset], 0) : spot(element, offset);
   };
-  var $_alsyrkjxjcq86j99 = {
+  var $_3t5binktjgqkpuvq = {
     owner: owner,
     defaultView: defaultView,
     documentElement: documentElement,
@@ -1380,14 +1413,14 @@ var table = (function () {
   };
 
   var firstLayer = function (scope, selector) {
-    return filterFirstLayer(scope, selector, $_8h7nl9jijcq86j7b.constant(true));
+    return filterFirstLayer(scope, selector, $_fu1fqpkejgqkpus4.constant(true));
   };
   var filterFirstLayer = function (scope, selector, predicate) {
-    return $_4rqlpsjgjcq86j74.bind($_alsyrkjxjcq86j99.children(scope), function (x) {
-      return $_fpww74jujcq86j8z.is(x, selector) ? predicate(x) ? [x] : [] : filterFirstLayer(x, selector, predicate);
+    return $_e5654tkcjgqkpurw.bind($_3t5binktjgqkpuvq.children(scope), function (x) {
+      return $_e0dyi1kqjgqkpuv9.is(x, selector) ? predicate(x) ? [x] : [] : filterFirstLayer(x, selector, predicate);
     });
   };
-  var $_buz28mjtjcq86j8s = {
+  var $_3g2gghkpjgqkpuuu = {
     firstLayer: firstLayer,
     filterFirstLayer: filterFirstLayer
   };
@@ -1408,12 +1441,12 @@ var table = (function () {
     };
   };
   var isComment = function (element) {
-    return type(element) === $_8mtxyljwjcq86j98.COMMENT || name(element) === '#comment';
+    return type(element) === $_fqsqsjksjgqkpuvo.COMMENT || name(element) === '#comment';
   };
-  var isElement = isType$1($_8mtxyljwjcq86j98.ELEMENT);
-  var isText = isType$1($_8mtxyljwjcq86j98.TEXT);
-  var isDocument = isType$1($_8mtxyljwjcq86j98.DOCUMENT);
-  var $_lmewskhjcq86jb0 = {
+  var isElement = isType$1($_fqsqsjksjgqkpuvo.ELEMENT);
+  var isText = isType$1($_fqsqsjksjgqkpuvo.TEXT);
+  var isDocument = isType$1($_fqsqsjksjgqkpuvo.DOCUMENT);
+  var $_4qtrrjldjgqkpuy4 = {
     name: name,
     type: type,
     value: value,
@@ -1424,7 +1457,7 @@ var table = (function () {
   };
 
   var rawSet = function (dom, key, value) {
-    if ($_7d4g1yjpjcq86j83.isString(value) || $_7d4g1yjpjcq86j83.isBoolean(value) || $_7d4g1yjpjcq86j83.isNumber(value)) {
+    if ($_329fsbkfjgqkpus7.isString(value) || $_329fsbkfjgqkpus7.isBoolean(value) || $_329fsbkfjgqkpus7.isNumber(value)) {
       dom.setAttribute(key, value + '');
     } else {
       console.error('Invalid call to Attr.set. Key ', key, ':: Value ', value, ':: Element ', dom);
@@ -1436,7 +1469,7 @@ var table = (function () {
   };
   var setAll = function (element, attrs) {
     var dom = element.dom();
-    $_bxkr0jkjcq86j7s.each(attrs, function (v, k) {
+    $_38kcbmkhjgqkputf.each(attrs, function (v, k) {
       rawSet(dom, k, v);
     });
   };
@@ -1456,7 +1489,7 @@ var table = (function () {
     return attrs === undefined || attrs === null || attrs.length === 0;
   };
   var clone = function (element) {
-    return $_4rqlpsjgjcq86j74.foldl(element.dom().attributes, function (acc, attr) {
+    return $_e5654tkcjgqkpurw.foldl(element.dom().attributes, function (acc, attr) {
       acc[attr.name] = attr.value;
       return acc;
     }, {});
@@ -1466,13 +1499,13 @@ var table = (function () {
       set(destination, attr, get(source, attr));
   };
   var transfer = function (source, destination, attrs) {
-    if (!$_lmewskhjcq86jb0.isElement(source) || !$_lmewskhjcq86jb0.isElement(destination))
+    if (!$_4qtrrjldjgqkpuy4.isElement(source) || !$_4qtrrjldjgqkpuy4.isElement(destination))
       return;
-    $_4rqlpsjgjcq86j74.each(attrs, function (attr) {
+    $_e5654tkcjgqkpurw.each(attrs, function (attr) {
       transferOne(source, destination, attr);
     });
   };
-  var $_at8pjgkgjcq86jat = {
+  var $_41i612lcjgqkpuxu = {
     clone: clone,
     set: set,
     setAll: setAll,
@@ -1484,76 +1517,47 @@ var table = (function () {
   };
 
   var inBody = function (element) {
-    var dom = $_lmewskhjcq86jb0.isText(element) ? element.dom().parentNode : element.dom();
+    var dom = $_4qtrrjldjgqkpuy4.isText(element) ? element.dom().parentNode : element.dom();
     return dom !== undefined && dom !== null && dom.ownerDocument.body.contains(dom);
   };
-  var body = $_2syu80k5jcq86ja1.cached(function () {
-    return getBody($_69jxc7jvjcq86j93.fromDom(document));
+  var body = $_6bgxepl1jgqkpuwu.cached(function () {
+    return getBody($_cimonkrjgqkpuvh.fromDom(document));
   });
   var getBody = function (doc) {
     var body = doc.dom().body;
     if (body === null || body === undefined)
       throw 'Body is not available yet';
-    return $_69jxc7jvjcq86j93.fromDom(body);
+    return $_cimonkrjgqkpuvh.fromDom(body);
   };
-  var $_a0brkykkjcq86jb5 = {
+  var $_boj1hmlgjgqkpuyc = {
     body: body,
     getBody: getBody,
     inBody: inBody
   };
 
-  var all$2 = function (predicate) {
-    return descendants$1($_a0brkykkjcq86jb5.body(), predicate);
+  var all$1 = function (predicate) {
+    return descendants($_boj1hmlgjgqkpuyc.body(), predicate);
   };
-  var ancestors$1 = function (scope, predicate, isRoot) {
-    return $_4rqlpsjgjcq86j74.filter($_alsyrkjxjcq86j99.parents(scope, isRoot), predicate);
+  var ancestors = function (scope, predicate, isRoot) {
+    return $_e5654tkcjgqkpurw.filter($_3t5binktjgqkpuvq.parents(scope, isRoot), predicate);
   };
-  var siblings$2 = function (scope, predicate) {
-    return $_4rqlpsjgjcq86j74.filter($_alsyrkjxjcq86j99.siblings(scope), predicate);
+  var siblings$1 = function (scope, predicate) {
+    return $_e5654tkcjgqkpurw.filter($_3t5binktjgqkpuvq.siblings(scope), predicate);
   };
-  var children$2 = function (scope, predicate) {
-    return $_4rqlpsjgjcq86j74.filter($_alsyrkjxjcq86j99.children(scope), predicate);
+  var children$1 = function (scope, predicate) {
+    return $_e5654tkcjgqkpurw.filter($_3t5binktjgqkpuvq.children(scope), predicate);
   };
-  var descendants$1 = function (scope, predicate) {
+  var descendants = function (scope, predicate) {
     var result = [];
-    $_4rqlpsjgjcq86j74.each($_alsyrkjxjcq86j99.children(scope), function (x) {
+    $_e5654tkcjgqkpurw.each($_3t5binktjgqkpuvq.children(scope), function (x) {
       if (predicate(x)) {
         result = result.concat([x]);
       }
-      result = result.concat(descendants$1(x, predicate));
+      result = result.concat(descendants(x, predicate));
     });
     return result;
   };
-  var $_1urbzskjjcq86jb2 = {
-    all: all$2,
-    ancestors: ancestors$1,
-    siblings: siblings$2,
-    children: children$2,
-    descendants: descendants$1
-  };
-
-  var all$1 = function (selector) {
-    return $_fpww74jujcq86j8z.all(selector);
-  };
-  var ancestors = function (scope, selector, isRoot) {
-    return $_1urbzskjjcq86jb2.ancestors(scope, function (e) {
-      return $_fpww74jujcq86j8z.is(e, selector);
-    }, isRoot);
-  };
-  var siblings$1 = function (scope, selector) {
-    return $_1urbzskjjcq86jb2.siblings(scope, function (e) {
-      return $_fpww74jujcq86j8z.is(e, selector);
-    });
-  };
-  var children$1 = function (scope, selector) {
-    return $_1urbzskjjcq86jb2.children(scope, function (e) {
-      return $_fpww74jujcq86j8z.is(e, selector);
-    });
-  };
-  var descendants = function (scope, selector) {
-    return $_fpww74jujcq86j8z.all(selector, scope);
-  };
-  var $_h5pcpkijcq86jb1 = {
+  var $_zm4orlfjgqkpuy8 = {
     all: all$1,
     ancestors: ancestors,
     siblings: siblings$1,
@@ -1561,109 +1565,138 @@ var table = (function () {
     descendants: descendants
   };
 
-  var ClosestOrAncestor = function (is, ancestor, scope, a, isRoot) {
-    return is(scope, a) ? $_f1um5wjhjcq86j78.some(scope) : $_7d4g1yjpjcq86j83.isFunction(isRoot) && isRoot(scope) ? $_f1um5wjhjcq86j78.none() : ancestor(scope, a, isRoot);
+  var all$2 = function (selector) {
+    return $_e0dyi1kqjgqkpuv9.all(selector);
+  };
+  var ancestors$1 = function (scope, selector, isRoot) {
+    return $_zm4orlfjgqkpuy8.ancestors(scope, function (e) {
+      return $_e0dyi1kqjgqkpuv9.is(e, selector);
+    }, isRoot);
+  };
+  var siblings$2 = function (scope, selector) {
+    return $_zm4orlfjgqkpuy8.siblings(scope, function (e) {
+      return $_e0dyi1kqjgqkpuv9.is(e, selector);
+    });
+  };
+  var children$2 = function (scope, selector) {
+    return $_zm4orlfjgqkpuy8.children(scope, function (e) {
+      return $_e0dyi1kqjgqkpuv9.is(e, selector);
+    });
+  };
+  var descendants$1 = function (scope, selector) {
+    return $_e0dyi1kqjgqkpuv9.all(selector, scope);
+  };
+  var $_2v58a5lejgqkpuy6 = {
+    all: all$2,
+    ancestors: ancestors$1,
+    siblings: siblings$2,
+    children: children$2,
+    descendants: descendants$1
   };
 
-  var first$2 = function (predicate) {
-    return descendant$1($_a0brkykkjcq86jb5.body(), predicate);
+  function ClosestOrAncestor (is, ancestor, scope, a, isRoot) {
+    return is(scope, a) ? Option.some(scope) : $_329fsbkfjgqkpus7.isFunction(isRoot) && isRoot(scope) ? Option.none() : ancestor(scope, a, isRoot);
+  }
+
+  var first$1 = function (predicate) {
+    return descendant($_boj1hmlgjgqkpuyc.body(), predicate);
   };
-  var ancestor$1 = function (scope, predicate, isRoot) {
+  var ancestor = function (scope, predicate, isRoot) {
     var element = scope.dom();
-    var stop = $_7d4g1yjpjcq86j83.isFunction(isRoot) ? isRoot : $_8h7nl9jijcq86j7b.constant(false);
+    var stop = $_329fsbkfjgqkpus7.isFunction(isRoot) ? isRoot : $_fu1fqpkejgqkpus4.constant(false);
     while (element.parentNode) {
       element = element.parentNode;
-      var el = $_69jxc7jvjcq86j93.fromDom(element);
+      var el = $_cimonkrjgqkpuvh.fromDom(element);
       if (predicate(el))
-        return $_f1um5wjhjcq86j78.some(el);
+        return Option.some(el);
       else if (stop(el))
         break;
     }
-    return $_f1um5wjhjcq86j78.none();
+    return Option.none();
   };
-  var closest$1 = function (scope, predicate, isRoot) {
+  var closest = function (scope, predicate, isRoot) {
     var is = function (scope) {
       return predicate(scope);
     };
-    return ClosestOrAncestor(is, ancestor$1, scope, predicate, isRoot);
+    return ClosestOrAncestor(is, ancestor, scope, predicate, isRoot);
   };
-  var sibling$1 = function (scope, predicate) {
+  var sibling = function (scope, predicate) {
     var element = scope.dom();
     if (!element.parentNode)
-      return $_f1um5wjhjcq86j78.none();
-    return child$2($_69jxc7jvjcq86j93.fromDom(element.parentNode), function (x) {
-      return !$_6oaqssjzjcq86j9l.eq(scope, x) && predicate(x);
+      return Option.none();
+    return child$1($_cimonkrjgqkpuvh.fromDom(element.parentNode), function (x) {
+      return !$_an4cuxkvjgqkpuw7.eq(scope, x) && predicate(x);
     });
   };
-  var child$2 = function (scope, predicate) {
-    var result = $_4rqlpsjgjcq86j74.find(scope.dom().childNodes, $_8h7nl9jijcq86j7b.compose(predicate, $_69jxc7jvjcq86j93.fromDom));
-    return result.map($_69jxc7jvjcq86j93.fromDom);
+  var child$1 = function (scope, predicate) {
+    var result = $_e5654tkcjgqkpurw.find(scope.dom().childNodes, $_fu1fqpkejgqkpus4.compose(predicate, $_cimonkrjgqkpuvh.fromDom));
+    return result.map($_cimonkrjgqkpuvh.fromDom);
   };
-  var descendant$1 = function (scope, predicate) {
+  var descendant = function (scope, predicate) {
     var descend = function (element) {
       for (var i = 0; i < element.childNodes.length; i++) {
-        if (predicate($_69jxc7jvjcq86j93.fromDom(element.childNodes[i])))
-          return $_f1um5wjhjcq86j78.some($_69jxc7jvjcq86j93.fromDom(element.childNodes[i]));
+        if (predicate($_cimonkrjgqkpuvh.fromDom(element.childNodes[i])))
+          return Option.some($_cimonkrjgqkpuvh.fromDom(element.childNodes[i]));
         var res = descend(element.childNodes[i]);
         if (res.isSome())
           return res;
       }
-      return $_f1um5wjhjcq86j78.none();
+      return Option.none();
     };
     return descend(scope.dom());
   };
-  var $_3sgfw3kmjcq86jba = {
-    first: first$2,
-    ancestor: ancestor$1,
-    closest: closest$1,
-    sibling: sibling$1,
-    child: child$2,
-    descendant: descendant$1
-  };
-
-  var first$1 = function (selector) {
-    return $_fpww74jujcq86j8z.one(selector);
-  };
-  var ancestor = function (scope, selector, isRoot) {
-    return $_3sgfw3kmjcq86jba.ancestor(scope, function (e) {
-      return $_fpww74jujcq86j8z.is(e, selector);
-    }, isRoot);
-  };
-  var sibling = function (scope, selector) {
-    return $_3sgfw3kmjcq86jba.sibling(scope, function (e) {
-      return $_fpww74jujcq86j8z.is(e, selector);
-    });
-  };
-  var child$1 = function (scope, selector) {
-    return $_3sgfw3kmjcq86jba.child(scope, function (e) {
-      return $_fpww74jujcq86j8z.is(e, selector);
-    });
-  };
-  var descendant = function (scope, selector) {
-    return $_fpww74jujcq86j8z.one(selector, scope);
-  };
-  var closest = function (scope, selector, isRoot) {
-    return ClosestOrAncestor($_fpww74jujcq86j8z.is, ancestor, scope, selector, isRoot);
-  };
-  var $_30b5qvkljcq86jb8 = {
+  var $_bg06nslijgqkpuyi = {
     first: first$1,
     ancestor: ancestor,
+    closest: closest,
     sibling: sibling,
     child: child$1,
-    descendant: descendant,
-    closest: closest
+    descendant: descendant
+  };
+
+  var first$2 = function (selector) {
+    return $_e0dyi1kqjgqkpuv9.one(selector);
+  };
+  var ancestor$1 = function (scope, selector, isRoot) {
+    return $_bg06nslijgqkpuyi.ancestor(scope, function (e) {
+      return $_e0dyi1kqjgqkpuv9.is(e, selector);
+    }, isRoot);
+  };
+  var sibling$1 = function (scope, selector) {
+    return $_bg06nslijgqkpuyi.sibling(scope, function (e) {
+      return $_e0dyi1kqjgqkpuv9.is(e, selector);
+    });
+  };
+  var child$2 = function (scope, selector) {
+    return $_bg06nslijgqkpuyi.child(scope, function (e) {
+      return $_e0dyi1kqjgqkpuv9.is(e, selector);
+    });
+  };
+  var descendant$1 = function (scope, selector) {
+    return $_e0dyi1kqjgqkpuv9.one(selector, scope);
+  };
+  var closest$1 = function (scope, selector, isRoot) {
+    return ClosestOrAncestor($_e0dyi1kqjgqkpuv9.is, ancestor$1, scope, selector, isRoot);
+  };
+  var $_3gag4rlhjgqkpuyg = {
+    first: first$2,
+    ancestor: ancestor$1,
+    sibling: sibling$1,
+    child: child$2,
+    descendant: descendant$1,
+    closest: closest$1
   };
 
   var lookup = function (tags, element, _isRoot) {
-    var isRoot = _isRoot !== undefined ? _isRoot : $_8h7nl9jijcq86j7b.constant(false);
+    var isRoot = _isRoot !== undefined ? _isRoot : $_fu1fqpkejgqkpus4.constant(false);
     if (isRoot(element))
-      return $_f1um5wjhjcq86j78.none();
-    if ($_4rqlpsjgjcq86j74.contains(tags, $_lmewskhjcq86jb0.name(element)))
-      return $_f1um5wjhjcq86j78.some(element);
+      return Option.none();
+    if ($_e5654tkcjgqkpurw.contains(tags, $_4qtrrjldjgqkpuy4.name(element)))
+      return Option.some(element);
     var isRootOrUpperTable = function (element) {
-      return $_fpww74jujcq86j8z.is(element, 'table') || isRoot(element);
+      return $_e0dyi1kqjgqkpuv9.is(element, 'table') || isRoot(element);
     };
-    return $_30b5qvkljcq86jb8.ancestor(element, tags.join(','), isRootOrUpperTable);
+    return $_3gag4rlhjgqkpuyg.ancestor(element, tags.join(','), isRootOrUpperTable);
   };
   var cell = function (element, isRoot) {
     return lookup([
@@ -1672,7 +1705,7 @@ var table = (function () {
     ], element, isRoot);
   };
   var cells = function (ancestor) {
-    return $_buz28mjtjcq86j8s.firstLayer(ancestor, 'th,td');
+    return $_3g2gghkpjgqkpuuu.firstLayer(ancestor, 'th,td');
   };
   var notCell = function (element, isRoot) {
     return lookup([
@@ -1684,33 +1717,33 @@ var table = (function () {
     ], element, isRoot);
   };
   var neighbours = function (selector, element) {
-    return $_alsyrkjxjcq86j99.parent(element).map(function (parent) {
-      return $_h5pcpkijcq86jb1.children(parent, selector);
+    return $_3t5binktjgqkpuvq.parent(element).map(function (parent) {
+      return $_2v58a5lejgqkpuy6.children(parent, selector);
     });
   };
-  var neighbourCells = $_8h7nl9jijcq86j7b.curry(neighbours, 'th,td');
-  var neighbourRows = $_8h7nl9jijcq86j7b.curry(neighbours, 'tr');
+  var neighbourCells = $_fu1fqpkejgqkpus4.curry(neighbours, 'th,td');
+  var neighbourRows = $_fu1fqpkejgqkpus4.curry(neighbours, 'tr');
   var firstCell = function (ancestor) {
-    return $_30b5qvkljcq86jb8.descendant(ancestor, 'th,td');
+    return $_3gag4rlhjgqkpuyg.descendant(ancestor, 'th,td');
   };
   var table = function (element, isRoot) {
-    return $_30b5qvkljcq86jb8.closest(element, 'table', isRoot);
+    return $_3gag4rlhjgqkpuyg.closest(element, 'table', isRoot);
   };
   var row = function (element, isRoot) {
     return lookup(['tr'], element, isRoot);
   };
   var rows = function (ancestor) {
-    return $_buz28mjtjcq86j8s.firstLayer(ancestor, 'tr');
+    return $_3g2gghkpjgqkpuuu.firstLayer(ancestor, 'tr');
   };
   var attr = function (element, property) {
-    return parseInt($_at8pjgkgjcq86jat.get(element, property), 10);
+    return parseInt($_41i612lcjgqkpuxu.get(element, property), 10);
   };
   var grid$1 = function (element, rowProp, colProp) {
     var rows = attr(element, rowProp);
     var cols = attr(element, colProp);
-    return $_8lo3ucjrjcq86j8b.grid(rows, cols);
+    return $_71damwknjgqkpuu3.grid(rows, cols);
   };
-  var $_7b9jhqjsjcq86j8e = {
+  var $_928zfykojgqkpuu7 = {
     cell: cell,
     firstCell: firstCell,
     cells: cells,
@@ -1725,33 +1758,33 @@ var table = (function () {
   };
 
   var fromTable = function (table) {
-    var rows = $_7b9jhqjsjcq86j8e.rows(table);
-    return $_4rqlpsjgjcq86j74.map(rows, function (row) {
+    var rows = $_928zfykojgqkpuu7.rows(table);
+    return $_e5654tkcjgqkpurw.map(rows, function (row) {
       var element = row;
-      var parent = $_alsyrkjxjcq86j99.parent(element);
+      var parent = $_3t5binktjgqkpuvq.parent(element);
       var parentSection = parent.bind(function (parent) {
-        var parentName = $_lmewskhjcq86jb0.name(parent);
+        var parentName = $_4qtrrjldjgqkpuy4.name(parent);
         return parentName === 'tfoot' || parentName === 'thead' || parentName === 'tbody' ? parentName : 'tbody';
       });
-      var cells = $_4rqlpsjgjcq86j74.map($_7b9jhqjsjcq86j8e.cells(row), function (cell) {
-        var rowspan = $_at8pjgkgjcq86jat.has(cell, 'rowspan') ? parseInt($_at8pjgkgjcq86jat.get(cell, 'rowspan'), 10) : 1;
-        var colspan = $_at8pjgkgjcq86jat.has(cell, 'colspan') ? parseInt($_at8pjgkgjcq86jat.get(cell, 'colspan'), 10) : 1;
-        return $_8lo3ucjrjcq86j8b.detail(cell, rowspan, colspan);
+      var cells = $_e5654tkcjgqkpurw.map($_928zfykojgqkpuu7.cells(row), function (cell) {
+        var rowspan = $_41i612lcjgqkpuxu.has(cell, 'rowspan') ? parseInt($_41i612lcjgqkpuxu.get(cell, 'rowspan'), 10) : 1;
+        var colspan = $_41i612lcjgqkpuxu.has(cell, 'colspan') ? parseInt($_41i612lcjgqkpuxu.get(cell, 'colspan'), 10) : 1;
+        return $_71damwknjgqkpuu3.detail(cell, rowspan, colspan);
       });
-      return $_8lo3ucjrjcq86j8b.rowdata(element, cells, parentSection);
+      return $_71damwknjgqkpuu3.rowdata(element, cells, parentSection);
     });
   };
   var fromPastedRows = function (rows, example) {
-    return $_4rqlpsjgjcq86j74.map(rows, function (row) {
-      var cells = $_4rqlpsjgjcq86j74.map($_7b9jhqjsjcq86j8e.cells(row), function (cell) {
-        var rowspan = $_at8pjgkgjcq86jat.has(cell, 'rowspan') ? parseInt($_at8pjgkgjcq86jat.get(cell, 'rowspan'), 10) : 1;
-        var colspan = $_at8pjgkgjcq86jat.has(cell, 'colspan') ? parseInt($_at8pjgkgjcq86jat.get(cell, 'colspan'), 10) : 1;
-        return $_8lo3ucjrjcq86j8b.detail(cell, rowspan, colspan);
+    return $_e5654tkcjgqkpurw.map(rows, function (row) {
+      var cells = $_e5654tkcjgqkpurw.map($_928zfykojgqkpuu7.cells(row), function (cell) {
+        var rowspan = $_41i612lcjgqkpuxu.has(cell, 'rowspan') ? parseInt($_41i612lcjgqkpuxu.get(cell, 'rowspan'), 10) : 1;
+        var colspan = $_41i612lcjgqkpuxu.has(cell, 'colspan') ? parseInt($_41i612lcjgqkpuxu.get(cell, 'colspan'), 10) : 1;
+        return $_71damwknjgqkpuu3.detail(cell, rowspan, colspan);
       });
-      return $_8lo3ucjrjcq86j8b.rowdata(row, cells, example.section());
+      return $_71damwknjgqkpuu3.rowdata(row, cells, example.section());
     });
   };
-  var $_5tj7bljqjcq86j84 = {
+  var $_fqjflgkmjgqkputr = {
     fromTable: fromTable,
     fromPastedRows: fromPastedRows
   };
@@ -1761,33 +1794,33 @@ var table = (function () {
   };
   var getAt = function (warehouse, row, column) {
     var raw = warehouse.access()[key(row, column)];
-    return raw !== undefined ? $_f1um5wjhjcq86j78.some(raw) : $_f1um5wjhjcq86j78.none();
+    return raw !== undefined ? Option.some(raw) : Option.none();
   };
   var findItem = function (warehouse, item, comparator) {
     var filtered = filterItems(warehouse, function (detail) {
       return comparator(item, detail.element());
     });
-    return filtered.length > 0 ? $_f1um5wjhjcq86j78.some(filtered[0]) : $_f1um5wjhjcq86j78.none();
+    return filtered.length > 0 ? Option.some(filtered[0]) : Option.none();
   };
   var filterItems = function (warehouse, predicate) {
-    var all = $_4rqlpsjgjcq86j74.bind(warehouse.all(), function (r) {
+    var all = $_e5654tkcjgqkpurw.bind(warehouse.all(), function (r) {
       return r.cells();
     });
-    return $_4rqlpsjgjcq86j74.filter(all, predicate);
+    return $_e5654tkcjgqkpurw.filter(all, predicate);
   };
   var generate = function (list) {
     var access = {};
     var cells = [];
     var maxRows = list.length;
     var maxColumns = 0;
-    $_4rqlpsjgjcq86j74.each(list, function (details, r) {
+    $_e5654tkcjgqkpurw.each(list, function (details, r) {
       var currentRow = [];
-      $_4rqlpsjgjcq86j74.each(details.cells(), function (detail, c) {
+      $_e5654tkcjgqkpurw.each(details.cells(), function (detail, c) {
         var start = 0;
         while (access[key(r, start)] !== undefined) {
           start++;
         }
-        var current = $_8lo3ucjrjcq86j8b.extended(detail.element(), detail.rowspan(), detail.colspan(), r, start);
+        var current = $_71damwknjgqkpuu3.extended(detail.element(), detail.rowspan(), detail.colspan(), r, start);
         for (var i = 0; i < detail.colspan(); i++) {
           for (var j = 0; j < detail.rowspan(); j++) {
             var cr = r + j;
@@ -1799,22 +1832,22 @@ var table = (function () {
         }
         currentRow.push(current);
       });
-      cells.push($_8lo3ucjrjcq86j8b.rowdata(details.element(), currentRow, details.section()));
+      cells.push($_71damwknjgqkpuu3.rowdata(details.element(), currentRow, details.section()));
     });
-    var grid = $_8lo3ucjrjcq86j8b.grid(maxRows, maxColumns);
+    var grid = $_71damwknjgqkpuu3.grid(maxRows, maxColumns);
     return {
-      grid: $_8h7nl9jijcq86j7b.constant(grid),
-      access: $_8h7nl9jijcq86j7b.constant(access),
-      all: $_8h7nl9jijcq86j7b.constant(cells)
+      grid: $_fu1fqpkejgqkpus4.constant(grid),
+      access: $_fu1fqpkejgqkpus4.constant(access),
+      all: $_fu1fqpkejgqkpus4.constant(cells)
     };
   };
   var justCells = function (warehouse) {
-    var rows = $_4rqlpsjgjcq86j74.map(warehouse.all(), function (w) {
+    var rows = $_e5654tkcjgqkpurw.map(warehouse.all(), function (w) {
       return w.cells();
     });
-    return $_4rqlpsjgjcq86j74.flatten(rows);
+    return $_e5654tkcjgqkpurw.flatten(rows);
   };
-  var $_axex7bkojcq86jbm = {
+  var $_3c1k16lkjgqkpuz1 = {
     generate: generate,
     getAt: getAt,
     findItem: findItem,
@@ -1825,18 +1858,18 @@ var table = (function () {
   var isSupported = function (dom) {
     return dom.style !== undefined;
   };
-  var $_90b0mokqjcq86jc7 = { isSupported: isSupported };
+  var $_drz3swlmjgqkpuzu = { isSupported: isSupported };
 
   var internalSet = function (dom, property, value) {
-    if (!$_7d4g1yjpjcq86j83.isString(value)) {
+    if (!$_329fsbkfjgqkpus7.isString(value)) {
       console.error('Invalid call to CSS.set. Property ', property, ':: Value ', value, ':: Element ', dom);
       throw new Error('CSS value must be a string: ' + value);
     }
-    if ($_90b0mokqjcq86jc7.isSupported(dom))
+    if ($_drz3swlmjgqkpuzu.isSupported(dom))
       dom.style.setProperty(property, value);
   };
   var internalRemove = function (dom, property) {
-    if ($_90b0mokqjcq86jc7.isSupported(dom))
+    if ($_drz3swlmjgqkpuzu.isSupported(dom))
       dom.style.removeProperty(property);
   };
   var set$1 = function (element, property, value) {
@@ -1845,13 +1878,13 @@ var table = (function () {
   };
   var setAll$1 = function (element, css) {
     var dom = element.dom();
-    $_bxkr0jkjcq86j7s.each(css, function (v, k) {
+    $_38kcbmkhjgqkputf.each(css, function (v, k) {
       internalSet(dom, k, v);
     });
   };
   var setOptions = function (element, css) {
     var dom = element.dom();
-    $_bxkr0jkjcq86j7s.each(css, function (v, k) {
+    $_38kcbmkhjgqkputf.each(css, function (v, k) {
       v.fold(function () {
         internalRemove(dom, k);
       }, function (value) {
@@ -1863,23 +1896,23 @@ var table = (function () {
     var dom = element.dom();
     var styles = window.getComputedStyle(dom);
     var r = styles.getPropertyValue(property);
-    var v = r === '' && !$_a0brkykkjcq86jb5.inBody(element) ? getUnsafeProperty(dom, property) : r;
+    var v = r === '' && !$_boj1hmlgjgqkpuyc.inBody(element) ? getUnsafeProperty(dom, property) : r;
     return v === null ? undefined : v;
   };
   var getUnsafeProperty = function (dom, property) {
-    return $_90b0mokqjcq86jc7.isSupported(dom) ? dom.style.getPropertyValue(property) : '';
+    return $_drz3swlmjgqkpuzu.isSupported(dom) ? dom.style.getPropertyValue(property) : '';
   };
   var getRaw = function (element, property) {
     var dom = element.dom();
     var raw = getUnsafeProperty(dom, property);
-    return $_f1um5wjhjcq86j78.from(raw).filter(function (r) {
+    return Option.from(raw).filter(function (r) {
       return r.length > 0;
     });
   };
   var getAllRaw = function (element) {
     var css = {};
     var dom = element.dom();
-    if ($_90b0mokqjcq86jc7.isSupported(dom)) {
+    if ($_drz3swlmjgqkpuzu.isSupported(dom)) {
       for (var i = 0; i < dom.style.length; i++) {
         var ruleName = dom.style.item(i);
         css[ruleName] = dom.style[ruleName];
@@ -1888,7 +1921,7 @@ var table = (function () {
     return css;
   };
   var isValidValue = function (tag, property, value) {
-    var element = $_69jxc7jvjcq86j93.fromTag(tag);
+    var element = $_cimonkrjgqkpuvh.fromTag(tag);
     set$1(element, property, value);
     var style = getRaw(element, property);
     return style.isSome();
@@ -1896,21 +1929,21 @@ var table = (function () {
   var remove$1 = function (element, property) {
     var dom = element.dom();
     internalRemove(dom, property);
-    if ($_at8pjgkgjcq86jat.has(element, 'style') && $_eujqwfkdjcq86jao.trim($_at8pjgkgjcq86jat.get(element, 'style')) === '') {
-      $_at8pjgkgjcq86jat.remove(element, 'style');
+    if ($_41i612lcjgqkpuxu.has(element, 'style') && $_4pby0el9jgqkpuxp.trim($_41i612lcjgqkpuxu.get(element, 'style')) === '') {
+      $_41i612lcjgqkpuxu.remove(element, 'style');
     }
   };
   var preserve = function (element, f) {
-    var oldStyles = $_at8pjgkgjcq86jat.get(element, 'style');
+    var oldStyles = $_41i612lcjgqkpuxu.get(element, 'style');
     var result = f(element);
-    var restore = oldStyles === undefined ? $_at8pjgkgjcq86jat.remove : $_at8pjgkgjcq86jat.set;
+    var restore = oldStyles === undefined ? $_41i612lcjgqkpuxu.remove : $_41i612lcjgqkpuxu.set;
     restore(element, 'style', oldStyles);
     return result;
   };
   var copy = function (source, target) {
     var sourceDom = source.dom();
     var targetDom = target.dom();
-    if ($_90b0mokqjcq86jc7.isSupported(sourceDom) && $_90b0mokqjcq86jc7.isSupported(targetDom)) {
+    if ($_drz3swlmjgqkpuzu.isSupported(sourceDom) && $_drz3swlmjgqkpuzu.isSupported(targetDom)) {
       targetDom.style.cssText = sourceDom.style.cssText;
     }
   };
@@ -1924,13 +1957,13 @@ var table = (function () {
     });
   };
   var transfer$1 = function (source, destination, styles) {
-    if (!$_lmewskhjcq86jb0.isElement(source) || !$_lmewskhjcq86jb0.isElement(destination))
+    if (!$_4qtrrjldjgqkpuy4.isElement(source) || !$_4qtrrjldjgqkpuy4.isElement(destination))
       return;
-    $_4rqlpsjgjcq86j74.each(styles, function (style) {
+    $_e5654tkcjgqkpurw.each(styles, function (style) {
       transferOne$1(source, destination, style);
     });
   };
-  var $_eqzddikpjcq86jbt = {
+  var $_9bj18xlljgqkpuzb = {
     copy: copy,
     set: set$1,
     preserve: preserve,
@@ -1946,15 +1979,15 @@ var table = (function () {
   };
 
   var before = function (marker, element) {
-    var parent = $_alsyrkjxjcq86j99.parent(marker);
+    var parent = $_3t5binktjgqkpuvq.parent(marker);
     parent.each(function (v) {
       v.dom().insertBefore(element.dom(), marker.dom());
     });
   };
   var after = function (marker, element) {
-    var sibling = $_alsyrkjxjcq86j99.nextSibling(marker);
+    var sibling = $_3t5binktjgqkpuvq.nextSibling(marker);
     sibling.fold(function () {
-      var parent = $_alsyrkjxjcq86j99.parent(marker);
+      var parent = $_3t5binktjgqkpuvq.parent(marker);
       parent.each(function (v) {
         append(v, element);
       });
@@ -1963,7 +1996,7 @@ var table = (function () {
     });
   };
   var prepend = function (parent, element) {
-    var firstChild = $_alsyrkjxjcq86j99.firstChild(parent);
+    var firstChild = $_3t5binktjgqkpuvq.firstChild(parent);
     firstChild.fold(function () {
       append(parent, element);
     }, function (v) {
@@ -1974,7 +2007,7 @@ var table = (function () {
     parent.dom().appendChild(element.dom());
   };
   var appendAt = function (parent, element, index) {
-    $_alsyrkjxjcq86j99.child(parent, index).fold(function () {
+    $_3t5binktjgqkpuvq.child(parent, index).fold(function () {
       append(parent, element);
     }, function (v) {
       before(v, element);
@@ -1984,7 +2017,7 @@ var table = (function () {
     before(element, wrapper);
     append(wrapper, element);
   };
-  var $_6cjpwckrjcq86jc8 = {
+  var $_4rg294lnjgqkpuzw = {
     before: before,
     after: after,
     prepend: prepend,
@@ -1994,27 +2027,27 @@ var table = (function () {
   };
 
   var before$1 = function (marker, elements) {
-    $_4rqlpsjgjcq86j74.each(elements, function (x) {
-      $_6cjpwckrjcq86jc8.before(marker, x);
+    $_e5654tkcjgqkpurw.each(elements, function (x) {
+      $_4rg294lnjgqkpuzw.before(marker, x);
     });
   };
   var after$1 = function (marker, elements) {
-    $_4rqlpsjgjcq86j74.each(elements, function (x, i) {
+    $_e5654tkcjgqkpurw.each(elements, function (x, i) {
       var e = i === 0 ? marker : elements[i - 1];
-      $_6cjpwckrjcq86jc8.after(e, x);
+      $_4rg294lnjgqkpuzw.after(e, x);
     });
   };
   var prepend$1 = function (parent, elements) {
-    $_4rqlpsjgjcq86j74.each(elements.slice().reverse(), function (x) {
-      $_6cjpwckrjcq86jc8.prepend(parent, x);
+    $_e5654tkcjgqkpurw.each(elements.slice().reverse(), function (x) {
+      $_4rg294lnjgqkpuzw.prepend(parent, x);
     });
   };
   var append$1 = function (parent, elements) {
-    $_4rqlpsjgjcq86j74.each(elements, function (x) {
-      $_6cjpwckrjcq86jc8.append(parent, x);
+    $_e5654tkcjgqkpurw.each(elements, function (x) {
+      $_4rg294lnjgqkpuzw.append(parent, x);
     });
   };
-  var $_esc1scktjcq86jcd = {
+  var $_aapssclpjgqkpv01 = {
     before: before$1,
     after: after$1,
     prepend: prepend$1,
@@ -2023,7 +2056,7 @@ var table = (function () {
 
   var empty = function (element) {
     element.dom().textContent = '';
-    $_4rqlpsjgjcq86j74.each($_alsyrkjxjcq86j99.children(element), function (rogue) {
+    $_e5654tkcjgqkpurw.each($_3t5binktjgqkpuvq.children(element), function (rogue) {
       remove$2(rogue);
     });
   };
@@ -2033,18 +2066,18 @@ var table = (function () {
       dom.parentNode.removeChild(dom);
   };
   var unwrap = function (wrapper) {
-    var children = $_alsyrkjxjcq86j99.children(wrapper);
+    var children = $_3t5binktjgqkpuvq.children(wrapper);
     if (children.length > 0)
-      $_esc1scktjcq86jcd.before(wrapper, children);
+      $_aapssclpjgqkpv01.before(wrapper, children);
     remove$2(wrapper);
   };
-  var $_bu1tvfksjcq86jca = {
+  var $_461fa9lojgqkpuzx = {
     empty: empty,
     remove: remove$2,
     unwrap: unwrap
   };
 
-  var stats = $_9bzkn9jljcq86j7v.immutable('minRow', 'minCol', 'maxRow', 'maxCol');
+  var stats = $_c756rzkijgqkputi.immutable('minRow', 'minCol', 'maxRow', 'maxCol');
   var findSelectedStats = function (house, isSelected) {
     var totalColumns = house.grid().columns();
     var totalRows = house.grid().rows();
@@ -2052,7 +2085,7 @@ var table = (function () {
     var minCol = totalColumns;
     var maxRow = 0;
     var maxCol = 0;
-    $_bxkr0jkjcq86j7s.each(house.access(), function (detail) {
+    $_38kcbmkhjgqkputf.each(house.access(), function (detail) {
       if (isSelected(detail)) {
         var startRow = detail.row();
         var endRow = startRow + detail.rowspan() - 1;
@@ -2072,9 +2105,9 @@ var table = (function () {
   };
   var makeCell = function (list, seenSelected, rowIndex) {
     var row = list[rowIndex].element();
-    var td = $_69jxc7jvjcq86j93.fromTag('td');
-    $_6cjpwckrjcq86jc8.append(td, $_69jxc7jvjcq86j93.fromTag('br'));
-    var f = seenSelected ? $_6cjpwckrjcq86jc8.append : $_6cjpwckrjcq86jc8.prepend;
+    var td = $_cimonkrjgqkpuvh.fromTag('td');
+    $_4rg294lnjgqkpuzw.append(td, $_cimonkrjgqkpuvh.fromTag('br'));
+    var f = seenSelected ? $_4rg294lnjgqkpuzw.append : $_4rg294lnjgqkpuzw.prepend;
     f(row, td);
   };
   var fillInGaps = function (list, house, stats, isSelected) {
@@ -2084,7 +2117,7 @@ var table = (function () {
       var seenSelected = false;
       for (var j = 0; j < totalColumns; j++) {
         if (!(i < stats.minRow() || i > stats.maxRow() || j < stats.minCol() || j > stats.maxCol())) {
-          var needCell = $_axex7bkojcq86jbm.getAt(house, i, j).filter(isSelected).isNone();
+          var needCell = $_3c1k16lkjgqkpuz1.getAt(house, i, j).filter(isSelected).isNone();
           if (needCell)
             makeCell(list, seenSelected, i);
           else
@@ -2094,41 +2127,41 @@ var table = (function () {
     }
   };
   var clean = function (table, stats) {
-    var emptyRows = $_4rqlpsjgjcq86j74.filter($_buz28mjtjcq86j8s.firstLayer(table, 'tr'), function (row) {
+    var emptyRows = $_e5654tkcjgqkpurw.filter($_3g2gghkpjgqkpuuu.firstLayer(table, 'tr'), function (row) {
       return row.dom().childElementCount === 0;
     });
-    $_4rqlpsjgjcq86j74.each(emptyRows, $_bu1tvfksjcq86jca.remove);
+    $_e5654tkcjgqkpurw.each(emptyRows, $_461fa9lojgqkpuzx.remove);
     if (stats.minCol() === stats.maxCol() || stats.minRow() === stats.maxRow()) {
-      $_4rqlpsjgjcq86j74.each($_buz28mjtjcq86j8s.firstLayer(table, 'th,td'), function (cell) {
-        $_at8pjgkgjcq86jat.remove(cell, 'rowspan');
-        $_at8pjgkgjcq86jat.remove(cell, 'colspan');
+      $_e5654tkcjgqkpurw.each($_3g2gghkpjgqkpuuu.firstLayer(table, 'th,td'), function (cell) {
+        $_41i612lcjgqkpuxu.remove(cell, 'rowspan');
+        $_41i612lcjgqkpuxu.remove(cell, 'colspan');
       });
     }
-    $_at8pjgkgjcq86jat.remove(table, 'width');
-    $_at8pjgkgjcq86jat.remove(table, 'height');
-    $_eqzddikpjcq86jbt.remove(table, 'width');
-    $_eqzddikpjcq86jbt.remove(table, 'height');
+    $_41i612lcjgqkpuxu.remove(table, 'width');
+    $_41i612lcjgqkpuxu.remove(table, 'height');
+    $_9bj18xlljgqkpuzb.remove(table, 'width');
+    $_9bj18xlljgqkpuzb.remove(table, 'height');
   };
   var extract = function (table, selectedSelector) {
     var isSelected = function (detail) {
-      return $_fpww74jujcq86j8z.is(detail.element(), selectedSelector);
+      return $_e0dyi1kqjgqkpuv9.is(detail.element(), selectedSelector);
     };
-    var list = $_5tj7bljqjcq86j84.fromTable(table);
-    var house = $_axex7bkojcq86jbm.generate(list);
+    var list = $_fqjflgkmjgqkputr.fromTable(table);
+    var house = $_3c1k16lkjgqkpuz1.generate(list);
     var stats = findSelectedStats(house, isSelected);
     var selector = 'th:not(' + selectedSelector + ')' + ',td:not(' + selectedSelector + ')';
-    var unselectedCells = $_buz28mjtjcq86j8s.filterFirstLayer(table, 'th,td', function (cell) {
-      return $_fpww74jujcq86j8z.is(cell, selector);
+    var unselectedCells = $_3g2gghkpjgqkpuuu.filterFirstLayer(table, 'th,td', function (cell) {
+      return $_e0dyi1kqjgqkpuv9.is(cell, selector);
     });
-    $_4rqlpsjgjcq86j74.each(unselectedCells, $_bu1tvfksjcq86jca.remove);
+    $_e5654tkcjgqkpurw.each(unselectedCells, $_461fa9lojgqkpuzx.remove);
     fillInGaps(list, house, stats, isSelected);
     clean(table, stats);
     return table;
   };
-  var $_6kadqgjjjcq86j7e = { extract: extract };
+  var $_1aak1zkgjgqkpusd = { extract: extract };
 
   var clone$1 = function (original, deep) {
-    return $_69jxc7jvjcq86j93.fromDom(original.dom().cloneNode(deep));
+    return $_cimonkrjgqkpuvh.fromDom(original.dom().cloneNode(deep));
   };
   var shallow = function (original) {
     return clone$1(original, false);
@@ -2137,26 +2170,26 @@ var table = (function () {
     return clone$1(original, true);
   };
   var shallowAs = function (original, tag) {
-    var nu = $_69jxc7jvjcq86j93.fromTag(tag);
-    var attributes = $_at8pjgkgjcq86jat.clone(original);
-    $_at8pjgkgjcq86jat.setAll(nu, attributes);
+    var nu = $_cimonkrjgqkpuvh.fromTag(tag);
+    var attributes = $_41i612lcjgqkpuxu.clone(original);
+    $_41i612lcjgqkpuxu.setAll(nu, attributes);
     return nu;
   };
   var copy$1 = function (original, tag) {
     var nu = shallowAs(original, tag);
-    var cloneChildren = $_alsyrkjxjcq86j99.children(deep(original));
-    $_esc1scktjcq86jcd.append(nu, cloneChildren);
+    var cloneChildren = $_3t5binktjgqkpuvq.children(deep(original));
+    $_aapssclpjgqkpv01.append(nu, cloneChildren);
     return nu;
   };
   var mutate = function (original, tag) {
     var nu = shallowAs(original, tag);
-    $_6cjpwckrjcq86jc8.before(original, nu);
-    var children = $_alsyrkjxjcq86j99.children(original);
-    $_esc1scktjcq86jcd.append(nu, children);
-    $_bu1tvfksjcq86jca.remove(original);
+    $_4rg294lnjgqkpuzw.before(original, nu);
+    var children = $_3t5binktjgqkpuvq.children(original);
+    $_aapssclpjgqkpv01.append(nu, children);
+    $_461fa9lojgqkpuzx.remove(original);
     return nu;
   };
-  var $_bf2067kvjcq86jcx = {
+  var $_6ix3t4lrjgqkpv12 = {
     shallow: shallow,
     shallowAs: shallowAs,
     deep: deep,
@@ -2164,7 +2197,7 @@ var table = (function () {
     mutate: mutate
   };
 
-  var NodeValue = function (is, name) {
+  function NodeValue (is, name) {
     var get = function (element) {
       if (!is(element))
         throw new Error('Can only get ' + name + ' value of a ' + name + ' node');
@@ -2174,13 +2207,13 @@ var table = (function () {
       try {
         return getOptionSafe(element);
       } catch (e) {
-        return $_f1um5wjhjcq86j78.none();
+        return Option.none();
       }
     };
     var getOptionSafe = function (element) {
-      return is(element) ? $_f1um5wjhjcq86j78.from(element.dom().nodeValue) : $_f1um5wjhjcq86j78.none();
+      return is(element) ? Option.from(element.dom().nodeValue) : Option.none();
     };
-    var browser = $_g90906k4jcq86j9z.detect().browser;
+    var browser = $_7vy8tfl0jgqkpuwq.detect().browser;
     var getOption = browser.isIE() && browser.version.major === 10 ? getOptionIE10 : getOptionSafe;
     var set = function (element, value) {
       if (!is(element))
@@ -2192,9 +2225,9 @@ var table = (function () {
       getOption: getOption,
       set: set
     };
-  };
+  }
 
-  var api = NodeValue($_lmewskhjcq86jb0.isText, 'text');
+  var api = NodeValue($_4qtrrjldjgqkpuy4.isText, 'text');
   var get$2 = function (element) {
     return api.get(element);
   };
@@ -2204,15 +2237,15 @@ var table = (function () {
   var set$2 = function (element, value) {
     api.set(element, value);
   };
-  var $_gicm64kyjcq86jd5 = {
+  var $_96nm8vlujgqkpv1d = {
     get: get$2,
     getOption: getOption,
     set: set$2
   };
 
   var getEnd = function (element) {
-    return $_lmewskhjcq86jb0.name(element) === 'img' ? 1 : $_gicm64kyjcq86jd5.getOption(element).fold(function () {
-      return $_alsyrkjxjcq86j99.children(element).length;
+    return $_4qtrrjldjgqkpuy4.name(element) === 'img' ? 1 : $_96nm8vlujgqkpv1d.getOption(element).fold(function () {
+      return $_3t5binktjgqkpuvq.children(element).length;
     }, function (v) {
       return v.length;
     });
@@ -2225,7 +2258,7 @@ var table = (function () {
   };
   var NBSP = '\xA0';
   var isTextNodeWithCursorPosition = function (el) {
-    return $_gicm64kyjcq86jd5.getOption(el).filter(function (text) {
+    return $_96nm8vlujgqkpv1d.getOption(el).filter(function (text) {
       return text.trim().length !== 0 || text.indexOf(NBSP) > -1;
     }).isSome();
   };
@@ -2235,9 +2268,9 @@ var table = (function () {
   ];
   var isCursorPosition = function (elem) {
     var hasCursorPosition = isTextNodeWithCursorPosition(elem);
-    return hasCursorPosition || $_4rqlpsjgjcq86j74.contains(elementsWithCursorPosition, $_lmewskhjcq86jb0.name(elem));
+    return hasCursorPosition || $_e5654tkcjgqkpurw.contains(elementsWithCursorPosition, $_4qtrrjldjgqkpuy4.name(elem));
   };
-  var $_79inm4kxjcq86jd2 = {
+  var $_g7n23sltjgqkpv19 = {
     getEnd: getEnd,
     isEnd: isEnd,
     isStart: isStart,
@@ -2245,43 +2278,43 @@ var table = (function () {
   };
 
   var first$3 = function (element) {
-    return $_3sgfw3kmjcq86jba.descendant(element, $_79inm4kxjcq86jd2.isCursorPosition);
+    return $_bg06nslijgqkpuyi.descendant(element, $_g7n23sltjgqkpv19.isCursorPosition);
   };
   var last$2 = function (element) {
-    return descendantRtl(element, $_79inm4kxjcq86jd2.isCursorPosition);
+    return descendantRtl(element, $_g7n23sltjgqkpv19.isCursorPosition);
   };
   var descendantRtl = function (scope, predicate) {
     var descend = function (element) {
-      var children = $_alsyrkjxjcq86j99.children(element);
+      var children = $_3t5binktjgqkpuvq.children(element);
       for (var i = children.length - 1; i >= 0; i--) {
         var child = children[i];
         if (predicate(child))
-          return $_f1um5wjhjcq86j78.some(child);
+          return Option.some(child);
         var res = descend(child);
         if (res.isSome())
           return res;
       }
-      return $_f1um5wjhjcq86j78.none();
+      return Option.none();
     };
     return descend(scope);
   };
-  var $_8vz744kwjcq86jd0 = {
+  var $_8t9497lsjgqkpv15 = {
     first: first$3,
     last: last$2
   };
 
   var cell$1 = function () {
-    var td = $_69jxc7jvjcq86j93.fromTag('td');
-    $_6cjpwckrjcq86jc8.append(td, $_69jxc7jvjcq86j93.fromTag('br'));
+    var td = $_cimonkrjgqkpuvh.fromTag('td');
+    $_4rg294lnjgqkpuzw.append(td, $_cimonkrjgqkpuvh.fromTag('br'));
     return td;
   };
   var replace = function (cell, tag, attrs) {
-    var replica = $_bf2067kvjcq86jcx.copy(cell, tag);
-    $_bxkr0jkjcq86j7s.each(attrs, function (v, k) {
+    var replica = $_6ix3t4lrjgqkpv12.copy(cell, tag);
+    $_38kcbmkhjgqkputf.each(attrs, function (v, k) {
       if (v === null)
-        $_at8pjgkgjcq86jat.remove(replica, k);
+        $_41i612lcjgqkpuxu.remove(replica, k);
       else
-        $_at8pjgkgjcq86jat.set(replica, k, v);
+        $_41i612lcjgqkpuxu.set(replica, k, v);
     });
     return replica;
   };
@@ -2290,27 +2323,27 @@ var table = (function () {
   };
   var newRow = function (doc) {
     return function () {
-      return $_69jxc7jvjcq86j93.fromTag('tr', doc.dom());
+      return $_cimonkrjgqkpuvh.fromTag('tr', doc.dom());
     };
   };
   var cloneFormats = function (oldCell, newCell, formats) {
-    var first = $_8vz744kwjcq86jd0.first(oldCell);
+    var first = $_8t9497lsjgqkpv15.first(oldCell);
     return first.map(function (firstText) {
       var formatSelector = formats.join(',');
-      var parents = $_h5pcpkijcq86jb1.ancestors(firstText, formatSelector, function (element) {
-        return $_6oaqssjzjcq86j9l.eq(element, oldCell);
+      var parents = $_2v58a5lejgqkpuy6.ancestors(firstText, formatSelector, function (element) {
+        return $_an4cuxkvjgqkpuw7.eq(element, oldCell);
       });
-      return $_4rqlpsjgjcq86j74.foldr(parents, function (last, parent) {
-        var clonedFormat = $_bf2067kvjcq86jcx.shallow(parent);
-        $_6cjpwckrjcq86jc8.append(last, clonedFormat);
+      return $_e5654tkcjgqkpurw.foldr(parents, function (last, parent) {
+        var clonedFormat = $_6ix3t4lrjgqkpv12.shallow(parent);
+        $_4rg294lnjgqkpuzw.append(last, clonedFormat);
         return clonedFormat;
       }, newCell);
     }).getOr(newCell);
   };
   var cellOperations = function (mutate, doc, formatsToClone) {
     var newCell = function (prev) {
-      var doc = $_alsyrkjxjcq86j99.owner(prev.element());
-      var td = $_69jxc7jvjcq86j93.fromTag($_lmewskhjcq86jb0.name(prev.element()), doc.dom());
+      var doc = $_3t5binktjgqkpuvq.owner(prev.element());
+      var td = $_cimonkrjgqkpuvh.fromTag($_4qtrrjldjgqkpuy4.name(prev.element()), doc.dom());
       var formats = formatsToClone.getOr([
         'strong',
         'em',
@@ -2328,11 +2361,11 @@ var table = (function () {
         'div'
       ]);
       var lastNode = formats.length > 0 ? cloneFormats(prev.element(), td, formats) : td;
-      $_6cjpwckrjcq86jc8.append(lastNode, $_69jxc7jvjcq86j93.fromTag('br'));
-      $_eqzddikpjcq86jbt.copy(prev.element(), td);
-      $_eqzddikpjcq86jbt.remove(td, 'height');
+      $_4rg294lnjgqkpuzw.append(lastNode, $_cimonkrjgqkpuvh.fromTag('br'));
+      $_9bj18xlljgqkpuzb.copy(prev.element(), td);
+      $_9bj18xlljgqkpuzb.remove(td, 'height');
       if (prev.colspan() !== 1)
-        $_eqzddikpjcq86jbt.remove(prev.element(), 'width');
+        $_9bj18xlljgqkpuzb.remove(prev.element(), 'width');
       mutate(prev.element(), td);
       return td;
     };
@@ -2351,7 +2384,7 @@ var table = (function () {
       gap: cell$1
     };
   };
-  var $_e7ajnfkujcq86jcg = {
+  var $_3ng6folqjgqkpv06 = {
     cellOperations: cellOperations,
     paste: paste
   };
@@ -2360,22 +2393,22 @@ var table = (function () {
     var doc = scope || document;
     var div = doc.createElement('div');
     div.innerHTML = html;
-    return $_alsyrkjxjcq86j99.children($_69jxc7jvjcq86j93.fromDom(div));
+    return $_3t5binktjgqkpuvq.children($_cimonkrjgqkpuvh.fromDom(div));
   };
   var fromTags = function (tags, scope) {
-    return $_4rqlpsjgjcq86j74.map(tags, function (x) {
-      return $_69jxc7jvjcq86j93.fromTag(x, scope);
+    return $_e5654tkcjgqkpurw.map(tags, function (x) {
+      return $_cimonkrjgqkpuvh.fromTag(x, scope);
     });
   };
   var fromText$1 = function (texts, scope) {
-    return $_4rqlpsjgjcq86j74.map(texts, function (x) {
-      return $_69jxc7jvjcq86j93.fromText(x, scope);
+    return $_e5654tkcjgqkpurw.map(texts, function (x) {
+      return $_cimonkrjgqkpuvh.fromText(x, scope);
     });
   };
   var fromDom$1 = function (nodes) {
-    return $_4rqlpsjgjcq86j74.map(nodes, $_69jxc7jvjcq86j93.fromDom);
+    return $_e5654tkcjgqkpurw.map(nodes, $_cimonkrjgqkpuvh.fromDom);
   };
-  var $_gkx18l0jcq86jda = {
+  var $_5ymqpulwjgqkpv1l = {
     fromHtml: fromHtml$1,
     fromTags: fromTags,
     fromText: fromText$1,
@@ -2416,109 +2449,109 @@ var table = (function () {
     'address'
   ];
 
-  var DomUniverse = function () {
+  function DomUniverse () {
     var clone = function (element) {
-      return $_69jxc7jvjcq86j93.fromDom(element.dom().cloneNode(false));
+      return $_cimonkrjgqkpuvh.fromDom(element.dom().cloneNode(false));
     };
     var isBoundary = function (element) {
-      if (!$_lmewskhjcq86jb0.isElement(element))
+      if (!$_4qtrrjldjgqkpuy4.isElement(element))
         return false;
-      if ($_lmewskhjcq86jb0.name(element) === 'body')
+      if ($_4qtrrjldjgqkpuy4.name(element) === 'body')
         return true;
-      return $_4rqlpsjgjcq86j74.contains(TagBoundaries, $_lmewskhjcq86jb0.name(element));
+      return $_e5654tkcjgqkpurw.contains(TagBoundaries, $_4qtrrjldjgqkpuy4.name(element));
     };
     var isEmptyTag = function (element) {
-      if (!$_lmewskhjcq86jb0.isElement(element))
+      if (!$_4qtrrjldjgqkpuy4.isElement(element))
         return false;
-      return $_4rqlpsjgjcq86j74.contains([
+      return $_e5654tkcjgqkpurw.contains([
         'br',
         'img',
         'hr',
         'input'
-      ], $_lmewskhjcq86jb0.name(element));
+      ], $_4qtrrjldjgqkpuy4.name(element));
     };
     var comparePosition = function (element, other) {
       return element.dom().compareDocumentPosition(other.dom());
     };
     var copyAttributesTo = function (source, destination) {
-      var as = $_at8pjgkgjcq86jat.clone(source);
-      $_at8pjgkgjcq86jat.setAll(destination, as);
+      var as = $_41i612lcjgqkpuxu.clone(source);
+      $_41i612lcjgqkpuxu.setAll(destination, as);
     };
     return {
-      up: $_8h7nl9jijcq86j7b.constant({
-        selector: $_30b5qvkljcq86jb8.ancestor,
-        closest: $_30b5qvkljcq86jb8.closest,
-        predicate: $_3sgfw3kmjcq86jba.ancestor,
-        all: $_alsyrkjxjcq86j99.parents
+      up: $_fu1fqpkejgqkpus4.constant({
+        selector: $_3gag4rlhjgqkpuyg.ancestor,
+        closest: $_3gag4rlhjgqkpuyg.closest,
+        predicate: $_bg06nslijgqkpuyi.ancestor,
+        all: $_3t5binktjgqkpuvq.parents
       }),
-      down: $_8h7nl9jijcq86j7b.constant({
-        selector: $_h5pcpkijcq86jb1.descendants,
-        predicate: $_1urbzskjjcq86jb2.descendants
+      down: $_fu1fqpkejgqkpus4.constant({
+        selector: $_2v58a5lejgqkpuy6.descendants,
+        predicate: $_zm4orlfjgqkpuy8.descendants
       }),
-      styles: $_8h7nl9jijcq86j7b.constant({
-        get: $_eqzddikpjcq86jbt.get,
-        getRaw: $_eqzddikpjcq86jbt.getRaw,
-        set: $_eqzddikpjcq86jbt.set,
-        remove: $_eqzddikpjcq86jbt.remove
+      styles: $_fu1fqpkejgqkpus4.constant({
+        get: $_9bj18xlljgqkpuzb.get,
+        getRaw: $_9bj18xlljgqkpuzb.getRaw,
+        set: $_9bj18xlljgqkpuzb.set,
+        remove: $_9bj18xlljgqkpuzb.remove
       }),
-      attrs: $_8h7nl9jijcq86j7b.constant({
-        get: $_at8pjgkgjcq86jat.get,
-        set: $_at8pjgkgjcq86jat.set,
-        remove: $_at8pjgkgjcq86jat.remove,
+      attrs: $_fu1fqpkejgqkpus4.constant({
+        get: $_41i612lcjgqkpuxu.get,
+        set: $_41i612lcjgqkpuxu.set,
+        remove: $_41i612lcjgqkpuxu.remove,
         copyTo: copyAttributesTo
       }),
-      insert: $_8h7nl9jijcq86j7b.constant({
-        before: $_6cjpwckrjcq86jc8.before,
-        after: $_6cjpwckrjcq86jc8.after,
-        afterAll: $_esc1scktjcq86jcd.after,
-        append: $_6cjpwckrjcq86jc8.append,
-        appendAll: $_esc1scktjcq86jcd.append,
-        prepend: $_6cjpwckrjcq86jc8.prepend,
-        wrap: $_6cjpwckrjcq86jc8.wrap
+      insert: $_fu1fqpkejgqkpus4.constant({
+        before: $_4rg294lnjgqkpuzw.before,
+        after: $_4rg294lnjgqkpuzw.after,
+        afterAll: $_aapssclpjgqkpv01.after,
+        append: $_4rg294lnjgqkpuzw.append,
+        appendAll: $_aapssclpjgqkpv01.append,
+        prepend: $_4rg294lnjgqkpuzw.prepend,
+        wrap: $_4rg294lnjgqkpuzw.wrap
       }),
-      remove: $_8h7nl9jijcq86j7b.constant({
-        unwrap: $_bu1tvfksjcq86jca.unwrap,
-        remove: $_bu1tvfksjcq86jca.remove
+      remove: $_fu1fqpkejgqkpus4.constant({
+        unwrap: $_461fa9lojgqkpuzx.unwrap,
+        remove: $_461fa9lojgqkpuzx.remove
       }),
-      create: $_8h7nl9jijcq86j7b.constant({
-        nu: $_69jxc7jvjcq86j93.fromTag,
+      create: $_fu1fqpkejgqkpus4.constant({
+        nu: $_cimonkrjgqkpuvh.fromTag,
         clone: clone,
-        text: $_69jxc7jvjcq86j93.fromText
+        text: $_cimonkrjgqkpuvh.fromText
       }),
-      query: $_8h7nl9jijcq86j7b.constant({
+      query: $_fu1fqpkejgqkpus4.constant({
         comparePosition: comparePosition,
-        prevSibling: $_alsyrkjxjcq86j99.prevSibling,
-        nextSibling: $_alsyrkjxjcq86j99.nextSibling
+        prevSibling: $_3t5binktjgqkpuvq.prevSibling,
+        nextSibling: $_3t5binktjgqkpuvq.nextSibling
       }),
-      property: $_8h7nl9jijcq86j7b.constant({
-        children: $_alsyrkjxjcq86j99.children,
-        name: $_lmewskhjcq86jb0.name,
-        parent: $_alsyrkjxjcq86j99.parent,
-        isText: $_lmewskhjcq86jb0.isText,
-        isComment: $_lmewskhjcq86jb0.isComment,
-        isElement: $_lmewskhjcq86jb0.isElement,
-        getText: $_gicm64kyjcq86jd5.get,
-        setText: $_gicm64kyjcq86jd5.set,
+      property: $_fu1fqpkejgqkpus4.constant({
+        children: $_3t5binktjgqkpuvq.children,
+        name: $_4qtrrjldjgqkpuy4.name,
+        parent: $_3t5binktjgqkpuvq.parent,
+        isText: $_4qtrrjldjgqkpuy4.isText,
+        isComment: $_4qtrrjldjgqkpuy4.isComment,
+        isElement: $_4qtrrjldjgqkpuy4.isElement,
+        getText: $_96nm8vlujgqkpv1d.get,
+        setText: $_96nm8vlujgqkpv1d.set,
         isBoundary: isBoundary,
         isEmptyTag: isEmptyTag
       }),
-      eq: $_6oaqssjzjcq86j9l.eq,
-      is: $_6oaqssjzjcq86j9l.is
+      eq: $_an4cuxkvjgqkpuw7.eq,
+      is: $_an4cuxkvjgqkpuw7.is
     };
-  };
+  }
 
-  var leftRight = $_9bzkn9jljcq86j7v.immutable('left', 'right');
+  var leftRight = $_c756rzkijgqkputi.immutable('left', 'right');
   var bisect = function (universe, parent, child) {
     var children = universe.property().children(parent);
-    var index = $_4rqlpsjgjcq86j74.findIndex(children, $_8h7nl9jijcq86j7b.curry(universe.eq, child));
+    var index = $_e5654tkcjgqkpurw.findIndex(children, $_fu1fqpkejgqkpus4.curry(universe.eq, child));
     return index.map(function (ind) {
       return {
-        before: $_8h7nl9jijcq86j7b.constant(children.slice(0, ind)),
-        after: $_8h7nl9jijcq86j7b.constant(children.slice(ind + 1))
+        before: $_fu1fqpkejgqkpus4.constant(children.slice(0, ind)),
+        after: $_fu1fqpkejgqkpus4.constant(children.slice(ind + 1))
       };
     });
   };
-  var breakToRight$2 = function (universe, parent, child) {
+  var breakToRight = function (universe, parent, child) {
     return bisect(universe, parent, child).map(function (parts) {
       var second = universe.create().clone(parent);
       universe.insert().appendAll(second, parts.after());
@@ -2526,7 +2559,7 @@ var table = (function () {
       return leftRight(parent, second);
     });
   };
-  var breakToLeft$2 = function (universe, parent, child) {
+  var breakToLeft = function (universe, parent, child) {
     return bisect(universe, parent, child).map(function (parts) {
       var prior = universe.create().clone(parent);
       universe.insert().appendAll(prior, parts.before().concat([child]));
@@ -2535,10 +2568,10 @@ var table = (function () {
       return leftRight(prior, parent);
     });
   };
-  var breakPath$2 = function (universe, item, isTop, breaker) {
-    var result = $_9bzkn9jljcq86j7v.immutable('first', 'second', 'splits');
+  var breakPath = function (universe, item, isTop, breaker) {
+    var result = $_c756rzkijgqkputi.immutable('first', 'second', 'splits');
     var next = function (child, group, splits) {
-      var fallback = result(child, $_f1um5wjhjcq86j78.none(), splits);
+      var fallback = result(child, Option.none(), splits);
       if (isTop(child))
         return result(child, group, splits);
       else {
@@ -2549,17 +2582,17 @@ var table = (function () {
                 second: breakage.right
               }];
             var nextChild = isTop(parent) ? parent : breakage.left();
-            return next(nextChild, $_f1um5wjhjcq86j78.some(breakage.right()), splits.concat(extra));
+            return next(nextChild, Option.some(breakage.right()), splits.concat(extra));
           }).getOr(fallback);
         });
       }
     };
-    return next(item, $_f1um5wjhjcq86j78.none(), []);
+    return next(item, Option.none(), []);
   };
-  var $_8u5zsyl9jcq86jfg = {
-    breakToLeft: breakToLeft$2,
-    breakToRight: breakToRight$2,
-    breakPath: breakPath$2
+  var $_5k5017m5jgqkpv52 = {
+    breakToLeft: breakToLeft,
+    breakToRight: breakToRight,
+    breakPath: breakPath
   };
 
   var all$3 = function (universe, look, elements, f) {
@@ -2568,36 +2601,36 @@ var table = (function () {
     return f(universe, look, head, tail);
   };
   var oneAll = function (universe, look, elements) {
-    return elements.length > 0 ? all$3(universe, look, elements, unsafeOne) : $_f1um5wjhjcq86j78.none();
+    return elements.length > 0 ? all$3(universe, look, elements, unsafeOne) : Option.none();
   };
   var unsafeOne = function (universe, look, head, tail) {
     var start = look(universe, head);
-    return $_4rqlpsjgjcq86j74.foldr(tail, function (b, a) {
+    return $_e5654tkcjgqkpurw.foldr(tail, function (b, a) {
       var current = look(universe, a);
       return commonElement(universe, b, current);
     }, start);
   };
   var commonElement = function (universe, start, end) {
     return start.bind(function (s) {
-      return end.filter($_8h7nl9jijcq86j7b.curry(universe.eq, s));
+      return end.filter($_fu1fqpkejgqkpus4.curry(universe.eq, s));
     });
   };
-  var $_59i529lajcq86jfn = { oneAll: oneAll };
+  var $_11ca32m6jgqkpv5g = { oneAll: oneAll };
 
   var eq$1 = function (universe, item) {
-    return $_8h7nl9jijcq86j7b.curry(universe.eq, item);
+    return $_fu1fqpkejgqkpus4.curry(universe.eq, item);
   };
   var unsafeSubset = function (universe, common, ps1, ps2) {
     var children = universe.property().children(common);
     if (universe.eq(common, ps1[0]))
-      return $_f1um5wjhjcq86j78.some([ps1[0]]);
+      return Option.some([ps1[0]]);
     if (universe.eq(common, ps2[0]))
-      return $_f1um5wjhjcq86j78.some([ps2[0]]);
+      return Option.some([ps2[0]]);
     var finder = function (ps) {
-      var topDown = $_4rqlpsjgjcq86j74.reverse(ps);
-      var index = $_4rqlpsjgjcq86j74.findIndex(topDown, eq$1(universe, common)).getOr(-1);
+      var topDown = $_e5654tkcjgqkpurw.reverse(ps);
+      var index = $_e5654tkcjgqkpurw.findIndex(topDown, eq$1(universe, common)).getOr(-1);
       var item = index < topDown.length - 1 ? topDown[index + 1] : topDown[index];
-      return $_4rqlpsjgjcq86j74.findIndex(children, eq$1(universe, item));
+      return $_e5654tkcjgqkpurw.findIndex(children, eq$1(universe, item));
     };
     var startIndex = finder(ps1);
     var endIndex = finder(ps2);
@@ -2609,12 +2642,12 @@ var table = (function () {
       });
     });
   };
-  var ancestors$4 = function (universe, start, end, _isRoot) {
-    var isRoot = _isRoot !== undefined ? _isRoot : $_8h7nl9jijcq86j7b.constant(false);
+  var ancestors$2 = function (universe, start, end, _isRoot) {
+    var isRoot = _isRoot !== undefined ? _isRoot : $_fu1fqpkejgqkpus4.constant(false);
     var ps1 = [start].concat(universe.up().all(start));
     var ps2 = [end].concat(universe.up().all(end));
     var prune = function (path) {
-      var index = $_4rqlpsjgjcq86j74.findIndex(path, isRoot);
+      var index = $_e5654tkcjgqkpurw.findIndex(path, isRoot);
       return index.fold(function () {
         return path;
       }, function (ind) {
@@ -2623,46 +2656,46 @@ var table = (function () {
     };
     var pruned1 = prune(ps1);
     var pruned2 = prune(ps2);
-    var shared = $_4rqlpsjgjcq86j74.find(pruned1, function (x) {
-      return $_4rqlpsjgjcq86j74.exists(pruned2, eq$1(universe, x));
+    var shared = $_e5654tkcjgqkpurw.find(pruned1, function (x) {
+      return $_e5654tkcjgqkpurw.exists(pruned2, eq$1(universe, x));
     });
     return {
-      firstpath: $_8h7nl9jijcq86j7b.constant(pruned1),
-      secondpath: $_8h7nl9jijcq86j7b.constant(pruned2),
-      shared: $_8h7nl9jijcq86j7b.constant(shared)
+      firstpath: $_fu1fqpkejgqkpus4.constant(pruned1),
+      secondpath: $_fu1fqpkejgqkpus4.constant(pruned2),
+      shared: $_fu1fqpkejgqkpus4.constant(shared)
     };
   };
-  var subset$2 = function (universe, start, end) {
-    var ancs = ancestors$4(universe, start, end);
+  var subset = function (universe, start, end) {
+    var ancs = ancestors$2(universe, start, end);
     return ancs.shared().bind(function (shared) {
       return unsafeSubset(universe, shared, ancs.firstpath(), ancs.secondpath());
     });
   };
-  var $_djs892lbjcq86jfs = {
-    subset: subset$2,
-    ancestors: ancestors$4
+  var $_94tkgm7jgqkpv5s = {
+    subset: subset,
+    ancestors: ancestors$2
   };
 
-  var sharedOne$1 = function (universe, look, elements) {
-    return $_59i529lajcq86jfn.oneAll(universe, look, elements);
+  var sharedOne = function (universe, look, elements) {
+    return $_11ca32m6jgqkpv5g.oneAll(universe, look, elements);
   };
   var subset$1 = function (universe, start, finish) {
-    return $_djs892lbjcq86jfs.subset(universe, start, finish);
+    return $_94tkgm7jgqkpv5s.subset(universe, start, finish);
   };
   var ancestors$3 = function (universe, start, finish, _isRoot) {
-    return $_djs892lbjcq86jfs.ancestors(universe, start, finish, _isRoot);
+    return $_94tkgm7jgqkpv5s.ancestors(universe, start, finish, _isRoot);
   };
   var breakToLeft$1 = function (universe, parent, child) {
-    return $_8u5zsyl9jcq86jfg.breakToLeft(universe, parent, child);
+    return $_5k5017m5jgqkpv52.breakToLeft(universe, parent, child);
   };
   var breakToRight$1 = function (universe, parent, child) {
-    return $_8u5zsyl9jcq86jfg.breakToRight(universe, parent, child);
+    return $_5k5017m5jgqkpv52.breakToRight(universe, parent, child);
   };
   var breakPath$1 = function (universe, child, isTop, breaker) {
-    return $_8u5zsyl9jcq86jfg.breakPath(universe, child, isTop, breaker);
+    return $_5k5017m5jgqkpv52.breakPath(universe, child, isTop, breaker);
   };
-  var $_a0b8zxl8jcq86jfe = {
-    sharedOne: sharedOne$1,
+  var $_2of83sm4jgqkpv50 = {
+    sharedOne: sharedOne,
     subset: subset$1,
     ancestors: ancestors$3,
     breakToLeft: breakToLeft$1,
@@ -2671,35 +2704,35 @@ var table = (function () {
   };
 
   var universe = DomUniverse();
-  var sharedOne = function (look, elements) {
-    return $_a0b8zxl8jcq86jfe.sharedOne(universe, function (universe, element) {
+  var sharedOne$1 = function (look, elements) {
+    return $_2of83sm4jgqkpv50.sharedOne(universe, function (universe, element) {
       return look(element);
     }, elements);
   };
-  var subset = function (start, finish) {
-    return $_a0b8zxl8jcq86jfe.subset(universe, start, finish);
+  var subset$2 = function (start, finish) {
+    return $_2of83sm4jgqkpv50.subset(universe, start, finish);
   };
-  var ancestors$2 = function (start, finish, _isRoot) {
-    return $_a0b8zxl8jcq86jfe.ancestors(universe, start, finish, _isRoot);
+  var ancestors$4 = function (start, finish, _isRoot) {
+    return $_2of83sm4jgqkpv50.ancestors(universe, start, finish, _isRoot);
   };
-  var breakToLeft = function (parent, child) {
-    return $_a0b8zxl8jcq86jfe.breakToLeft(universe, parent, child);
+  var breakToLeft$2 = function (parent, child) {
+    return $_2of83sm4jgqkpv50.breakToLeft(universe, parent, child);
   };
-  var breakToRight = function (parent, child) {
-    return $_a0b8zxl8jcq86jfe.breakToRight(universe, parent, child);
+  var breakToRight$2 = function (parent, child) {
+    return $_2of83sm4jgqkpv50.breakToRight(universe, parent, child);
   };
-  var breakPath = function (child, isTop, breaker) {
-    return $_a0b8zxl8jcq86jfe.breakPath(universe, child, isTop, function (u, p, c) {
+  var breakPath$2 = function (child, isTop, breaker) {
+    return $_2of83sm4jgqkpv50.breakPath(universe, child, isTop, function (u, p, c) {
       return breaker(p, c);
     });
   };
-  var $_a4lf5ml5jcq86jei = {
-    sharedOne: sharedOne,
-    subset: subset,
-    ancestors: ancestors$2,
-    breakToLeft: breakToLeft,
-    breakToRight: breakToRight,
-    breakPath: breakPath
+  var $_3zah0am1jgqkpv3l = {
+    sharedOne: sharedOne$1,
+    subset: subset$2,
+    ancestors: ancestors$4,
+    breakToLeft: breakToLeft$2,
+    breakToRight: breakToRight$2,
+    breakPath: breakPath$2
   };
 
   var inSelection = function (bounds, detail) {
@@ -2714,109 +2747,109 @@ var table = (function () {
   };
   var isRectangular = function (warehouse, bounds) {
     var isRect = true;
-    var detailIsWithin = $_8h7nl9jijcq86j7b.curry(isWithin, bounds);
+    var detailIsWithin = $_fu1fqpkejgqkpus4.curry(isWithin, bounds);
     for (var i = bounds.startRow(); i <= bounds.finishRow(); i++) {
       for (var j = bounds.startCol(); j <= bounds.finishCol(); j++) {
-        isRect = isRect && $_axex7bkojcq86jbm.getAt(warehouse, i, j).exists(detailIsWithin);
+        isRect = isRect && $_3c1k16lkjgqkpuz1.getAt(warehouse, i, j).exists(detailIsWithin);
       }
     }
-    return isRect ? $_f1um5wjhjcq86j78.some(bounds) : $_f1um5wjhjcq86j78.none();
+    return isRect ? Option.some(bounds) : Option.none();
   };
-  var $_ct0nllejcq86jga = {
+  var $_ggeas3majgqkpv6h = {
     inSelection: inSelection,
     isWithin: isWithin,
     isRectangular: isRectangular
   };
 
   var getBounds = function (detailA, detailB) {
-    return $_8lo3ucjrjcq86j8b.bounds(Math.min(detailA.row(), detailB.row()), Math.min(detailA.column(), detailB.column()), Math.max(detailA.row() + detailA.rowspan() - 1, detailB.row() + detailB.rowspan() - 1), Math.max(detailA.column() + detailA.colspan() - 1, detailB.column() + detailB.colspan() - 1));
+    return $_71damwknjgqkpuu3.bounds(Math.min(detailA.row(), detailB.row()), Math.min(detailA.column(), detailB.column()), Math.max(detailA.row() + detailA.rowspan() - 1, detailB.row() + detailB.rowspan() - 1), Math.max(detailA.column() + detailA.colspan() - 1, detailB.column() + detailB.colspan() - 1));
   };
   var getAnyBox = function (warehouse, startCell, finishCell) {
-    var startCoords = $_axex7bkojcq86jbm.findItem(warehouse, startCell, $_6oaqssjzjcq86j9l.eq);
-    var finishCoords = $_axex7bkojcq86jbm.findItem(warehouse, finishCell, $_6oaqssjzjcq86j9l.eq);
+    var startCoords = $_3c1k16lkjgqkpuz1.findItem(warehouse, startCell, $_an4cuxkvjgqkpuw7.eq);
+    var finishCoords = $_3c1k16lkjgqkpuz1.findItem(warehouse, finishCell, $_an4cuxkvjgqkpuw7.eq);
     return startCoords.bind(function (sc) {
       return finishCoords.map(function (fc) {
         return getBounds(sc, fc);
       });
     });
   };
-  var getBox$1 = function (warehouse, startCell, finishCell) {
+  var getBox = function (warehouse, startCell, finishCell) {
     return getAnyBox(warehouse, startCell, finishCell).bind(function (bounds) {
-      return $_ct0nllejcq86jga.isRectangular(warehouse, bounds);
+      return $_ggeas3majgqkpv6h.isRectangular(warehouse, bounds);
     });
   };
-  var $_18la5flfjcq86jgf = {
+  var $_a9kpzembjgqkpv6o = {
     getAnyBox: getAnyBox,
-    getBox: getBox$1
+    getBox: getBox
   };
 
-  var moveBy$1 = function (warehouse, cell, row, column) {
-    return $_axex7bkojcq86jbm.findItem(warehouse, cell, $_6oaqssjzjcq86j9l.eq).bind(function (detail) {
+  var moveBy = function (warehouse, cell, row, column) {
+    return $_3c1k16lkjgqkpuz1.findItem(warehouse, cell, $_an4cuxkvjgqkpuw7.eq).bind(function (detail) {
       var startRow = row > 0 ? detail.row() + detail.rowspan() - 1 : detail.row();
       var startCol = column > 0 ? detail.column() + detail.colspan() - 1 : detail.column();
-      var dest = $_axex7bkojcq86jbm.getAt(warehouse, startRow + row, startCol + column);
+      var dest = $_3c1k16lkjgqkpuz1.getAt(warehouse, startRow + row, startCol + column);
       return dest.map(function (d) {
         return d.element();
       });
     });
   };
-  var intercepts$1 = function (warehouse, start, finish) {
-    return $_18la5flfjcq86jgf.getAnyBox(warehouse, start, finish).map(function (bounds) {
-      var inside = $_axex7bkojcq86jbm.filterItems(warehouse, $_8h7nl9jijcq86j7b.curry($_ct0nllejcq86jga.inSelection, bounds));
-      return $_4rqlpsjgjcq86j74.map(inside, function (detail) {
+  var intercepts = function (warehouse, start, finish) {
+    return $_a9kpzembjgqkpv6o.getAnyBox(warehouse, start, finish).map(function (bounds) {
+      var inside = $_3c1k16lkjgqkpuz1.filterItems(warehouse, $_fu1fqpkejgqkpus4.curry($_ggeas3majgqkpv6h.inSelection, bounds));
+      return $_e5654tkcjgqkpurw.map(inside, function (detail) {
         return detail.element();
       });
     });
   };
   var parentCell = function (warehouse, innerCell) {
     var isContainedBy = function (c1, c2) {
-      return $_6oaqssjzjcq86j9l.contains(c2, c1);
+      return $_an4cuxkvjgqkpuw7.contains(c2, c1);
     };
-    return $_axex7bkojcq86jbm.findItem(warehouse, innerCell, isContainedBy).bind(function (detail) {
+    return $_3c1k16lkjgqkpuz1.findItem(warehouse, innerCell, isContainedBy).bind(function (detail) {
       return detail.element();
     });
   };
-  var $_b6mzojldjcq86jg2 = {
-    moveBy: moveBy$1,
-    intercepts: intercepts$1,
+  var $_119kgjm9jgqkpv68 = {
+    moveBy: moveBy,
+    intercepts: intercepts,
     parentCell: parentCell
   };
 
-  var moveBy = function (cell, deltaRow, deltaColumn) {
-    return $_7b9jhqjsjcq86j8e.table(cell).bind(function (table) {
+  var moveBy$1 = function (cell, deltaRow, deltaColumn) {
+    return $_928zfykojgqkpuu7.table(cell).bind(function (table) {
       var warehouse = getWarehouse(table);
-      return $_b6mzojldjcq86jg2.moveBy(warehouse, cell, deltaRow, deltaColumn);
+      return $_119kgjm9jgqkpv68.moveBy(warehouse, cell, deltaRow, deltaColumn);
     });
   };
-  var intercepts = function (table, first, last) {
+  var intercepts$1 = function (table, first, last) {
     var warehouse = getWarehouse(table);
-    return $_b6mzojldjcq86jg2.intercepts(warehouse, first, last);
+    return $_119kgjm9jgqkpv68.intercepts(warehouse, first, last);
   };
   var nestedIntercepts = function (table, first, firstTable, last, lastTable) {
     var warehouse = getWarehouse(table);
-    var startCell = $_6oaqssjzjcq86j9l.eq(table, firstTable) ? first : $_b6mzojldjcq86jg2.parentCell(warehouse, first);
-    var lastCell = $_6oaqssjzjcq86j9l.eq(table, lastTable) ? last : $_b6mzojldjcq86jg2.parentCell(warehouse, last);
-    return $_b6mzojldjcq86jg2.intercepts(warehouse, startCell, lastCell);
+    var startCell = $_an4cuxkvjgqkpuw7.eq(table, firstTable) ? first : $_119kgjm9jgqkpv68.parentCell(warehouse, first);
+    var lastCell = $_an4cuxkvjgqkpuw7.eq(table, lastTable) ? last : $_119kgjm9jgqkpv68.parentCell(warehouse, last);
+    return $_119kgjm9jgqkpv68.intercepts(warehouse, startCell, lastCell);
   };
-  var getBox = function (table, first, last) {
+  var getBox$1 = function (table, first, last) {
     var warehouse = getWarehouse(table);
-    return $_18la5flfjcq86jgf.getBox(warehouse, first, last);
+    return $_a9kpzembjgqkpv6o.getBox(warehouse, first, last);
   };
   var getWarehouse = function (table) {
-    var list = $_5tj7bljqjcq86j84.fromTable(table);
-    return $_axex7bkojcq86jbm.generate(list);
+    var list = $_fqjflgkmjgqkputr.fromTable(table);
+    return $_3c1k16lkjgqkpuz1.generate(list);
   };
-  var $_eiw9xtlcjcq86jfz = {
-    moveBy: moveBy,
-    intercepts: intercepts,
+  var $_ayiyltm8jgqkpv63 = {
+    moveBy: moveBy$1,
+    intercepts: intercepts$1,
     nestedIntercepts: nestedIntercepts,
-    getBox: getBox
+    getBox: getBox$1
   };
 
   var lookupTable = function (container, isRoot) {
-    return $_30b5qvkljcq86jb8.ancestor(container, 'table');
+    return $_3gag4rlhjgqkpuyg.ancestor(container, 'table');
   };
-  var identified = $_9bzkn9jljcq86j7v.immutableBag([
+  var identified = $_c756rzkijgqkputi.immutableBag([
     'boxes',
     'start',
     'finish'
@@ -2824,49 +2857,49 @@ var table = (function () {
   var identify = function (start, finish, isRoot) {
     var getIsRoot = function (rootTable) {
       return function (element) {
-        return isRoot(element) || $_6oaqssjzjcq86j9l.eq(element, rootTable);
+        return isRoot(element) || $_an4cuxkvjgqkpuw7.eq(element, rootTable);
       };
     };
-    if ($_6oaqssjzjcq86j9l.eq(start, finish)) {
-      return $_f1um5wjhjcq86j78.some(identified({
-        boxes: $_f1um5wjhjcq86j78.some([start]),
+    if ($_an4cuxkvjgqkpuw7.eq(start, finish)) {
+      return Option.some(identified({
+        boxes: Option.some([start]),
         start: start,
         finish: finish
       }));
     } else {
       return lookupTable(start, isRoot).bind(function (startTable) {
         return lookupTable(finish, isRoot).bind(function (finishTable) {
-          if ($_6oaqssjzjcq86j9l.eq(startTable, finishTable)) {
-            return $_f1um5wjhjcq86j78.some(identified({
-              boxes: $_eiw9xtlcjcq86jfz.intercepts(startTable, start, finish),
+          if ($_an4cuxkvjgqkpuw7.eq(startTable, finishTable)) {
+            return Option.some(identified({
+              boxes: $_ayiyltm8jgqkpv63.intercepts(startTable, start, finish),
               start: start,
               finish: finish
             }));
-          } else if ($_6oaqssjzjcq86j9l.contains(startTable, finishTable)) {
-            var ancestorCells = $_h5pcpkijcq86jb1.ancestors(finish, 'td,th', getIsRoot(startTable));
+          } else if ($_an4cuxkvjgqkpuw7.contains(startTable, finishTable)) {
+            var ancestorCells = $_2v58a5lejgqkpuy6.ancestors(finish, 'td,th', getIsRoot(startTable));
             var finishCell = ancestorCells.length > 0 ? ancestorCells[ancestorCells.length - 1] : finish;
-            return $_f1um5wjhjcq86j78.some(identified({
-              boxes: $_eiw9xtlcjcq86jfz.nestedIntercepts(startTable, start, startTable, finish, finishTable),
+            return Option.some(identified({
+              boxes: $_ayiyltm8jgqkpv63.nestedIntercepts(startTable, start, startTable, finish, finishTable),
               start: start,
               finish: finishCell
             }));
-          } else if ($_6oaqssjzjcq86j9l.contains(finishTable, startTable)) {
-            var ancestorCells = $_h5pcpkijcq86jb1.ancestors(start, 'td,th', getIsRoot(finishTable));
+          } else if ($_an4cuxkvjgqkpuw7.contains(finishTable, startTable)) {
+            var ancestorCells = $_2v58a5lejgqkpuy6.ancestors(start, 'td,th', getIsRoot(finishTable));
             var startCell = ancestorCells.length > 0 ? ancestorCells[ancestorCells.length - 1] : start;
-            return $_f1um5wjhjcq86j78.some(identified({
-              boxes: $_eiw9xtlcjcq86jfz.nestedIntercepts(finishTable, start, startTable, finish, finishTable),
+            return Option.some(identified({
+              boxes: $_ayiyltm8jgqkpv63.nestedIntercepts(finishTable, start, startTable, finish, finishTable),
               start: start,
               finish: startCell
             }));
           } else {
-            return $_a4lf5ml5jcq86jei.ancestors(start, finish).shared().bind(function (lca) {
-              return $_30b5qvkljcq86jb8.closest(lca, 'table', isRoot).bind(function (lcaTable) {
-                var finishAncestorCells = $_h5pcpkijcq86jb1.ancestors(finish, 'td,th', getIsRoot(lcaTable));
+            return $_3zah0am1jgqkpv3l.ancestors(start, finish).shared().bind(function (lca) {
+              return $_3gag4rlhjgqkpuyg.closest(lca, 'table', isRoot).bind(function (lcaTable) {
+                var finishAncestorCells = $_2v58a5lejgqkpuy6.ancestors(finish, 'td,th', getIsRoot(lcaTable));
                 var finishCell = finishAncestorCells.length > 0 ? finishAncestorCells[finishAncestorCells.length - 1] : finish;
-                var startAncestorCells = $_h5pcpkijcq86jb1.ancestors(start, 'td,th', getIsRoot(lcaTable));
+                var startAncestorCells = $_2v58a5lejgqkpuy6.ancestors(start, 'td,th', getIsRoot(lcaTable));
                 var startCell = startAncestorCells.length > 0 ? startAncestorCells[startAncestorCells.length - 1] : start;
-                return $_f1um5wjhjcq86j78.some(identified({
-                  boxes: $_eiw9xtlcjcq86jfz.nestedIntercepts(lcaTable, start, startTable, finish, finishTable),
+                return Option.some(identified({
+                  boxes: $_ayiyltm8jgqkpv63.nestedIntercepts(lcaTable, start, startTable, finish, finishTable),
                   start: startCell,
                   finish: finishCell
                 }));
@@ -2877,40 +2910,40 @@ var table = (function () {
       });
     }
   };
-  var retrieve$1 = function (container, selector) {
-    var sels = $_h5pcpkijcq86jb1.descendants(container, selector);
-    return sels.length > 0 ? $_f1um5wjhjcq86j78.some(sels) : $_f1um5wjhjcq86j78.none();
+  var retrieve = function (container, selector) {
+    var sels = $_2v58a5lejgqkpuy6.descendants(container, selector);
+    return sels.length > 0 ? Option.some(sels) : Option.none();
   };
   var getLast = function (boxes, lastSelectedSelector) {
-    return $_4rqlpsjgjcq86j74.find(boxes, function (box) {
-      return $_fpww74jujcq86j8z.is(box, lastSelectedSelector);
+    return $_e5654tkcjgqkpurw.find(boxes, function (box) {
+      return $_e0dyi1kqjgqkpuv9.is(box, lastSelectedSelector);
     });
   };
   var getEdges = function (container, firstSelectedSelector, lastSelectedSelector) {
-    return $_30b5qvkljcq86jb8.descendant(container, firstSelectedSelector).bind(function (first) {
-      return $_30b5qvkljcq86jb8.descendant(container, lastSelectedSelector).bind(function (last) {
-        return $_a4lf5ml5jcq86jei.sharedOne(lookupTable, [
+    return $_3gag4rlhjgqkpuyg.descendant(container, firstSelectedSelector).bind(function (first) {
+      return $_3gag4rlhjgqkpuyg.descendant(container, lastSelectedSelector).bind(function (last) {
+        return $_3zah0am1jgqkpv3l.sharedOne(lookupTable, [
           first,
           last
         ]).map(function (tbl) {
           return {
-            first: $_8h7nl9jijcq86j7b.constant(first),
-            last: $_8h7nl9jijcq86j7b.constant(last),
-            table: $_8h7nl9jijcq86j7b.constant(tbl)
+            first: $_fu1fqpkejgqkpus4.constant(first),
+            last: $_fu1fqpkejgqkpus4.constant(last),
+            table: $_fu1fqpkejgqkpus4.constant(tbl)
           };
         });
       });
     });
   };
   var expandTo = function (finish, firstSelectedSelector) {
-    return $_30b5qvkljcq86jb8.ancestor(finish, 'table').bind(function (table) {
-      return $_30b5qvkljcq86jb8.descendant(table, firstSelectedSelector).bind(function (start) {
+    return $_3gag4rlhjgqkpuyg.ancestor(finish, 'table').bind(function (table) {
+      return $_3gag4rlhjgqkpuyg.descendant(table, firstSelectedSelector).bind(function (start) {
         return identify(start, finish).bind(function (identified) {
           return identified.boxes().map(function (boxes) {
             return {
-              boxes: $_8h7nl9jijcq86j7b.constant(boxes),
-              start: $_8h7nl9jijcq86j7b.constant(identified.start()),
-              finish: $_8h7nl9jijcq86j7b.constant(identified.finish())
+              boxes: $_fu1fqpkejgqkpus4.constant(boxes),
+              start: $_fu1fqpkejgqkpus4.constant(identified.start()),
+              finish: $_fu1fqpkejgqkpus4.constant(identified.finish())
             };
           });
         });
@@ -2919,37 +2952,37 @@ var table = (function () {
   };
   var shiftSelection = function (boxes, deltaRow, deltaColumn, firstSelectedSelector, lastSelectedSelector) {
     return getLast(boxes, lastSelectedSelector).bind(function (last) {
-      return $_eiw9xtlcjcq86jfz.moveBy(last, deltaRow, deltaColumn).bind(function (finish) {
+      return $_ayiyltm8jgqkpv63.moveBy(last, deltaRow, deltaColumn).bind(function (finish) {
         return expandTo(finish, firstSelectedSelector);
       });
     });
   };
-  var $_53qo10l4jcq86jdx = {
+  var $_1dw0qdm0jgqkpv2r = {
     identify: identify,
-    retrieve: retrieve$1,
+    retrieve: retrieve,
     shiftSelection: shiftSelection,
     getEdges: getEdges
   };
 
-  var retrieve = function (container, selector) {
-    return $_53qo10l4jcq86jdx.retrieve(container, selector);
+  var retrieve$1 = function (container, selector) {
+    return $_1dw0qdm0jgqkpv2r.retrieve(container, selector);
   };
   var retrieveBox = function (container, firstSelectedSelector, lastSelectedSelector) {
-    return $_53qo10l4jcq86jdx.getEdges(container, firstSelectedSelector, lastSelectedSelector).bind(function (edges) {
+    return $_1dw0qdm0jgqkpv2r.getEdges(container, firstSelectedSelector, lastSelectedSelector).bind(function (edges) {
       var isRoot = function (ancestor) {
-        return $_6oaqssjzjcq86j9l.eq(container, ancestor);
+        return $_an4cuxkvjgqkpuw7.eq(container, ancestor);
       };
-      var firstAncestor = $_30b5qvkljcq86jb8.ancestor(edges.first(), 'thead,tfoot,tbody,table', isRoot);
-      var lastAncestor = $_30b5qvkljcq86jb8.ancestor(edges.last(), 'thead,tfoot,tbody,table', isRoot);
+      var firstAncestor = $_3gag4rlhjgqkpuyg.ancestor(edges.first(), 'thead,tfoot,tbody,table', isRoot);
+      var lastAncestor = $_3gag4rlhjgqkpuyg.ancestor(edges.last(), 'thead,tfoot,tbody,table', isRoot);
       return firstAncestor.bind(function (fA) {
         return lastAncestor.bind(function (lA) {
-          return $_6oaqssjzjcq86j9l.eq(fA, lA) ? $_eiw9xtlcjcq86jfz.getBox(edges.table(), edges.first(), edges.last()) : $_f1um5wjhjcq86j78.none();
+          return $_an4cuxkvjgqkpuw7.eq(fA, lA) ? $_ayiyltm8jgqkpv63.getBox(edges.table(), edges.first(), edges.last()) : Option.none();
         });
       });
     });
   };
-  var $_3ztm73l3jcq86jdp = {
-    retrieve: retrieve,
+  var $_hwha1lzjgqkpv2e = {
+    retrieve: retrieve$1,
     retrieveBox: retrieveBox
   };
 
@@ -2960,18 +2993,18 @@ var table = (function () {
   var firstSelectedSelector = 'td[' + firstSelected + '],th[' + firstSelected + ']';
   var lastSelected = 'data-mce-last-selected';
   var lastSelectedSelector = 'td[' + lastSelected + '],th[' + lastSelected + ']';
-  var $_2l55qplgjcq86jgj = {
-    selected: $_8h7nl9jijcq86j7b.constant(selected),
-    selectedSelector: $_8h7nl9jijcq86j7b.constant(selectedSelector),
-    attributeSelector: $_8h7nl9jijcq86j7b.constant(attributeSelector),
-    firstSelected: $_8h7nl9jijcq86j7b.constant(firstSelected),
-    firstSelectedSelector: $_8h7nl9jijcq86j7b.constant(firstSelectedSelector),
-    lastSelected: $_8h7nl9jijcq86j7b.constant(lastSelected),
-    lastSelectedSelector: $_8h7nl9jijcq86j7b.constant(lastSelectedSelector)
+  var $_dxk082mcjgqkpv6t = {
+    selected: $_fu1fqpkejgqkpus4.constant(selected),
+    selectedSelector: $_fu1fqpkejgqkpus4.constant(selectedSelector),
+    attributeSelector: $_fu1fqpkejgqkpus4.constant(attributeSelector),
+    firstSelected: $_fu1fqpkejgqkpus4.constant(firstSelected),
+    firstSelectedSelector: $_fu1fqpkejgqkpus4.constant(firstSelectedSelector),
+    lastSelected: $_fu1fqpkejgqkpus4.constant(lastSelected),
+    lastSelectedSelector: $_fu1fqpkejgqkpus4.constant(lastSelectedSelector)
   };
 
   var generate$1 = function (cases) {
-    if (!$_7d4g1yjpjcq86j83.isArray(cases)) {
+    if (!$_329fsbkfjgqkpus7.isArray(cases)) {
       throw new Error('cases must be an array');
     }
     if (cases.length === 0) {
@@ -2979,8 +3012,8 @@ var table = (function () {
     }
     var constructors = [];
     var adt = {};
-    $_4rqlpsjgjcq86j74.each(cases, function (acase, count) {
-      var keys = $_bxkr0jkjcq86j7s.keys(acase);
+    $_e5654tkcjgqkpurw.each(cases, function (acase, count) {
+      var keys = $_38kcbmkhjgqkputf.keys(acase);
       if (keys.length !== 1) {
         throw new Error('one and only one name per case');
       }
@@ -2990,7 +3023,7 @@ var table = (function () {
         throw new Error('duplicate key detected:' + key);
       } else if (key === 'cata') {
         throw new Error('cannot have a case named cata (sorry)');
-      } else if (!$_7d4g1yjpjcq86j83.isArray(value)) {
+      } else if (!$_329fsbkfjgqkpus7.isArray(value)) {
         throw new Error('case arguments must be an array');
       }
       constructors.push(key);
@@ -3003,12 +3036,12 @@ var table = (function () {
         for (var i = 0; i < args.length; i++)
           args[i] = arguments[i];
         var match = function (branches) {
-          var branchKeys = $_bxkr0jkjcq86j7s.keys(branches);
+          var branchKeys = $_38kcbmkhjgqkputf.keys(branches);
           if (constructors.length !== branchKeys.length) {
             throw new Error('Wrong number of arguments to match. Expected: ' + constructors.join(',') + '\nActual: ' + branchKeys.join(','));
           }
-          var allReqd = $_4rqlpsjgjcq86j74.forall(constructors, function (reqKey) {
-            return $_4rqlpsjgjcq86j74.contains(branchKeys, reqKey);
+          var allReqd = $_e5654tkcjgqkpurw.forall(constructors, function (reqKey) {
+            return $_e5654tkcjgqkpurw.contains(branchKeys, reqKey);
           });
           if (!allReqd)
             throw new Error('Not all branches were specified when using match. Specified: ' + branchKeys.join(', ') + '\nRequired: ' + constructors.join(', '));
@@ -3035,9 +3068,9 @@ var table = (function () {
     });
     return adt;
   };
-  var $_1peq2flijcq86jgp = { generate: generate$1 };
+  var $_48tn2vmejgqkpv75 = { generate: generate$1 };
 
-  var type$1 = $_1peq2flijcq86jgp.generate([
+  var type$1 = $_48tn2vmejgqkpv75.generate([
     { none: [] },
     { multiple: ['elements'] },
     { single: ['selection'] }
@@ -3045,7 +3078,7 @@ var table = (function () {
   var cata = function (subject, onNone, onMultiple, onSingle) {
     return subject.fold(onNone, onMultiple, onSingle);
   };
-  var $_f7r35vlhjcq86jgm = {
+  var $_f9sj9pmdjgqkpv70 = {
     cata: cata,
     none: type$1.none,
     multiple: type$1.multiple,
@@ -3053,29 +3086,29 @@ var table = (function () {
   };
 
   var selection = function (cell, selections) {
-    return $_f7r35vlhjcq86jgm.cata(selections.get(), $_8h7nl9jijcq86j7b.constant([]), $_8h7nl9jijcq86j7b.identity, $_8h7nl9jijcq86j7b.constant([cell]));
+    return $_f9sj9pmdjgqkpv70.cata(selections.get(), $_fu1fqpkejgqkpus4.constant([]), $_fu1fqpkejgqkpus4.identity, $_fu1fqpkejgqkpus4.constant([cell]));
   };
   var unmergable = function (cell, selections) {
     var hasSpan = function (elem) {
-      return $_at8pjgkgjcq86jat.has(elem, 'rowspan') && parseInt($_at8pjgkgjcq86jat.get(elem, 'rowspan'), 10) > 1 || $_at8pjgkgjcq86jat.has(elem, 'colspan') && parseInt($_at8pjgkgjcq86jat.get(elem, 'colspan'), 10) > 1;
+      return $_41i612lcjgqkpuxu.has(elem, 'rowspan') && parseInt($_41i612lcjgqkpuxu.get(elem, 'rowspan'), 10) > 1 || $_41i612lcjgqkpuxu.has(elem, 'colspan') && parseInt($_41i612lcjgqkpuxu.get(elem, 'colspan'), 10) > 1;
     };
     var candidates = selection(cell, selections);
-    return candidates.length > 0 && $_4rqlpsjgjcq86j74.forall(candidates, hasSpan) ? $_f1um5wjhjcq86j78.some(candidates) : $_f1um5wjhjcq86j78.none();
+    return candidates.length > 0 && $_e5654tkcjgqkpurw.forall(candidates, hasSpan) ? Option.some(candidates) : Option.none();
   };
   var mergable = function (table, selections) {
-    return $_f7r35vlhjcq86jgm.cata(selections.get(), $_f1um5wjhjcq86j78.none, function (cells, _env) {
+    return $_f9sj9pmdjgqkpv70.cata(selections.get(), Option.none, function (cells, _env) {
       if (cells.length === 0) {
-        return $_f1um5wjhjcq86j78.none();
+        return Option.none();
       }
-      return $_3ztm73l3jcq86jdp.retrieveBox(table, $_2l55qplgjcq86jgj.firstSelectedSelector(), $_2l55qplgjcq86jgj.lastSelectedSelector()).bind(function (bounds) {
-        return cells.length > 1 ? $_f1um5wjhjcq86j78.some({
-          bounds: $_8h7nl9jijcq86j7b.constant(bounds),
-          cells: $_8h7nl9jijcq86j7b.constant(cells)
-        }) : $_f1um5wjhjcq86j78.none();
+      return $_hwha1lzjgqkpv2e.retrieveBox(table, $_dxk082mcjgqkpv6t.firstSelectedSelector(), $_dxk082mcjgqkpv6t.lastSelectedSelector()).bind(function (bounds) {
+        return cells.length > 1 ? Option.some({
+          bounds: $_fu1fqpkejgqkpus4.constant(bounds),
+          cells: $_fu1fqpkejgqkpus4.constant(cells)
+        }) : Option.none();
       });
-    }, $_f1um5wjhjcq86j78.none);
+    }, Option.none);
   };
-  var $_2vfssil2jcq86jdi = {
+  var $_15kkoglyjgqkpv21 = {
     mergable: mergable,
     unmergable: unmergable,
     selection: selection
@@ -3083,35 +3116,35 @@ var table = (function () {
 
   var noMenu = function (cell) {
     return {
-      element: $_8h7nl9jijcq86j7b.constant(cell),
-      mergable: $_f1um5wjhjcq86j78.none,
-      unmergable: $_f1um5wjhjcq86j78.none,
-      selection: $_8h7nl9jijcq86j7b.constant([cell])
+      element: $_fu1fqpkejgqkpus4.constant(cell),
+      mergable: Option.none,
+      unmergable: Option.none,
+      selection: $_fu1fqpkejgqkpus4.constant([cell])
     };
   };
   var forMenu = function (selections, table, cell) {
     return {
-      element: $_8h7nl9jijcq86j7b.constant(cell),
-      mergable: $_8h7nl9jijcq86j7b.constant($_2vfssil2jcq86jdi.mergable(table, selections)),
-      unmergable: $_8h7nl9jijcq86j7b.constant($_2vfssil2jcq86jdi.unmergable(cell, selections)),
-      selection: $_8h7nl9jijcq86j7b.constant($_2vfssil2jcq86jdi.selection(cell, selections))
+      element: $_fu1fqpkejgqkpus4.constant(cell),
+      mergable: $_fu1fqpkejgqkpus4.constant($_15kkoglyjgqkpv21.mergable(table, selections)),
+      unmergable: $_fu1fqpkejgqkpus4.constant($_15kkoglyjgqkpv21.unmergable(cell, selections)),
+      selection: $_fu1fqpkejgqkpus4.constant($_15kkoglyjgqkpv21.selection(cell, selections))
     };
   };
   var notCell$1 = function (element) {
     return noMenu(element);
   };
-  var paste$1 = $_9bzkn9jljcq86j7v.immutable('element', 'clipboard', 'generators');
+  var paste$1 = $_c756rzkijgqkputi.immutable('element', 'clipboard', 'generators');
   var pasteRows = function (selections, table, cell, clipboard, generators) {
     return {
-      element: $_8h7nl9jijcq86j7b.constant(cell),
-      mergable: $_f1um5wjhjcq86j78.none,
-      unmergable: $_f1um5wjhjcq86j78.none,
-      selection: $_8h7nl9jijcq86j7b.constant($_2vfssil2jcq86jdi.selection(cell, selections)),
-      clipboard: $_8h7nl9jijcq86j7b.constant(clipboard),
-      generators: $_8h7nl9jijcq86j7b.constant(generators)
+      element: $_fu1fqpkejgqkpus4.constant(cell),
+      mergable: Option.none,
+      unmergable: Option.none,
+      selection: $_fu1fqpkejgqkpus4.constant($_15kkoglyjgqkpv21.selection(cell, selections)),
+      clipboard: $_fu1fqpkejgqkpus4.constant(clipboard),
+      generators: $_fu1fqpkejgqkpus4.constant(generators)
     };
   };
-  var $_oxhawl1jcq86jdd = {
+  var $_30tsillxjgqkpv1q = {
     noMenu: noMenu,
     forMenu: forMenu,
     notCell: notCell$1,
@@ -3120,8 +3153,8 @@ var table = (function () {
   };
 
   var extractSelected = function (cells) {
-    return $_7b9jhqjsjcq86j8e.table(cells[0]).map($_bf2067kvjcq86jcx.deep).map(function (replica) {
-      return [$_6kadqgjjjcq86j7e.extract(replica, $_2l55qplgjcq86jgj.attributeSelector())];
+    return $_928zfykojgqkpuu7.table(cells[0]).map($_6ix3t4lrjgqkpv12.deep).map(function (replica) {
+      return [$_1aak1zkgjgqkpusd.extract(replica, $_dxk082mcjgqkpv6t.attributeSelector())];
     });
   };
   var serializeElement = function (editor, elm) {
@@ -3132,30 +3165,30 @@ var table = (function () {
       var multiCellContext = function (cells) {
         e.preventDefault();
         extractSelected(cells).each(function (elements) {
-          e.content = $_4rqlpsjgjcq86j74.map(elements, function (elm) {
+          e.content = $_e5654tkcjgqkpurw.map(elements, function (elm) {
             return serializeElement(editor, elm);
           }).join('');
         });
       };
       if (e.selection === true) {
-        $_f7r35vlhjcq86jgm.cata(selections.get(), $_8h7nl9jijcq86j7b.noop, multiCellContext, $_8h7nl9jijcq86j7b.noop);
+        $_f9sj9pmdjgqkpv70.cata(selections.get(), $_fu1fqpkejgqkpus4.noop, multiCellContext, $_fu1fqpkejgqkpus4.noop);
       }
     });
     editor.on('BeforeSetContent', function (e) {
       if (e.selection === true && e.paste === true) {
-        var cellOpt = $_f1um5wjhjcq86j78.from(editor.dom.getParent(editor.selection.getStart(), 'th,td'));
+        var cellOpt = Option.from(editor.dom.getParent(editor.selection.getStart(), 'th,td'));
         cellOpt.each(function (domCell) {
-          var cell = $_69jxc7jvjcq86j93.fromDom(domCell);
-          var table = $_7b9jhqjsjcq86j8e.table(cell);
+          var cell = $_cimonkrjgqkpuvh.fromDom(domCell);
+          var table = $_928zfykojgqkpuu7.table(cell);
           table.bind(function (table) {
-            var elements = $_4rqlpsjgjcq86j74.filter($_gkx18l0jcq86jda.fromHtml(e.content), function (content) {
-              return $_lmewskhjcq86jb0.name(content) !== 'meta';
+            var elements = $_e5654tkcjgqkpurw.filter($_5ymqpulwjgqkpv1l.fromHtml(e.content), function (content) {
+              return $_4qtrrjldjgqkpuy4.name(content) !== 'meta';
             });
-            if (elements.length === 1 && $_lmewskhjcq86jb0.name(elements[0]) === 'table') {
+            if (elements.length === 1 && $_4qtrrjldjgqkpuy4.name(elements[0]) === 'table') {
               e.preventDefault();
-              var doc = $_69jxc7jvjcq86j93.fromDom(editor.getDoc());
-              var generators = $_e7ajnfkujcq86jcg.paste(doc);
-              var targets = $_oxhawl1jcq86jdd.paste(cell, elements[0], generators);
+              var doc = $_cimonkrjgqkpuvh.fromDom(editor.getDoc());
+              var generators = $_3ng6folqjgqkpv06.paste(doc);
+              var targets = $_30tsillxjgqkpv1q.paste(cell, elements[0], generators);
               actions.pasteCells(table, targets).each(function (rng) {
                 editor.selection.setRng(rng);
                 editor.focus();
@@ -3167,128 +3200,28 @@ var table = (function () {
       }
     });
   };
-  var $_bsvgdrjfjcq86j6i = { registerEvents: registerEvents };
+  var $_27qqvlkbjgqkpur0 = { registerEvents: registerEvents };
 
-  var makeTable = function () {
-    return $_69jxc7jvjcq86j93.fromTag('table');
-  };
-  var tableBody = function () {
-    return $_69jxc7jvjcq86j93.fromTag('tbody');
-  };
-  var tableRow = function () {
-    return $_69jxc7jvjcq86j93.fromTag('tr');
-  };
-  var tableHeaderCell = function () {
-    return $_69jxc7jvjcq86j93.fromTag('th');
-  };
-  var tableCell = function () {
-    return $_69jxc7jvjcq86j93.fromTag('td');
-  };
-  var render = function (rows, columns, rowHeaders, columnHeaders) {
-    var table = makeTable();
-    $_eqzddikpjcq86jbt.setAll(table, {
-      'border-collapse': 'collapse',
-      width: '100%'
-    });
-    $_at8pjgkgjcq86jat.set(table, 'border', '1');
-    var tbody = tableBody();
-    $_6cjpwckrjcq86jc8.append(table, tbody);
-    var trs = [];
-    for (var i = 0; i < rows; i++) {
-      var tr = tableRow();
-      for (var j = 0; j < columns; j++) {
-        var td = i < rowHeaders || j < columnHeaders ? tableHeaderCell() : tableCell();
-        if (j < columnHeaders) {
-          $_at8pjgkgjcq86jat.set(td, 'scope', 'row');
-        }
-        if (i < rowHeaders) {
-          $_at8pjgkgjcq86jat.set(td, 'scope', 'col');
-        }
-        $_6cjpwckrjcq86jc8.append(td, $_69jxc7jvjcq86j93.fromTag('br'));
-        $_eqzddikpjcq86jbt.set(td, 'width', 100 / columns + '%');
-        $_6cjpwckrjcq86jc8.append(tr, td);
-      }
-      trs.push(tr);
-    }
-    $_esc1scktjcq86jcd.append(tbody, trs);
-    return table;
-  };
-  var $_d6dcfslljcq86jh1 = { render: render };
-
-  var $_ajarllkjcq86jh0 = { render: $_d6dcfslljcq86jh1.render };
-
-  var get$3 = function (element) {
-    return element.dom().innerHTML;
-  };
-  var set$3 = function (element, content) {
-    var owner = $_alsyrkjxjcq86j99.owner(element);
-    var docDom = owner.dom();
-    var fragment = $_69jxc7jvjcq86j93.fromDom(docDom.createDocumentFragment());
-    var contentElements = $_gkx18l0jcq86jda.fromHtml(content, docDom);
-    $_esc1scktjcq86jcd.append(fragment, contentElements);
-    $_bu1tvfksjcq86jca.empty(element);
-    $_6cjpwckrjcq86jc8.append(element, fragment);
-  };
-  var getOuter = function (element) {
-    var container = $_69jxc7jvjcq86j93.fromTag('div');
-    var clone = $_69jxc7jvjcq86j93.fromDom(element.dom().cloneNode(true));
-    $_6cjpwckrjcq86jc8.append(container, clone);
-    return get$3(container);
-  };
-  var $_2cdgevlmjcq86jh9 = {
-    get: get$3,
-    set: set$3,
-    getOuter: getOuter
-  };
-
-  var placeCaretInCell = function (editor, cell) {
-    editor.selection.select(cell.dom(), true);
-    editor.selection.collapse(true);
-  };
-  var selectFirstCellInTable = function (editor, tableElm) {
-    $_30b5qvkljcq86jb8.descendant(tableElm, 'td,th').each($_8h7nl9jijcq86j7b.curry(placeCaretInCell, editor));
-  };
-  var insert = function (editor, columns, rows) {
-    var tableElm;
-    var renderedHtml = $_ajarllkjcq86jh0.render(rows, columns, 0, 0);
-    $_at8pjgkgjcq86jat.set(renderedHtml, 'id', '__mce');
-    var html = $_2cdgevlmjcq86jh9.getOuter(renderedHtml);
-    editor.insertContent(html);
-    tableElm = editor.dom.get('__mce');
-    editor.dom.setAttrib(tableElm, 'id', null);
-    editor.$('tr', tableElm).each(function (index, row) {
-      editor.fire('newrow', { node: row });
-      editor.$('th,td', row).each(function (index, cell) {
-        editor.fire('newcell', { node: cell });
-      });
-    });
-    editor.dom.setAttribs(tableElm, editor.settings.table_default_attributes || {});
-    editor.dom.setStyles(tableElm, editor.settings.table_default_styles || {});
-    selectFirstCellInTable(editor, $_69jxc7jvjcq86j93.fromDom(tableElm));
-    return tableElm;
-  };
-  var $_d1g2vkljjcq86jgt = { insert: insert };
-
-  var Dimension = function (name, getOffset) {
+  function Dimension (name, getOffset) {
     var set = function (element, h) {
-      if (!$_7d4g1yjpjcq86j83.isNumber(h) && !h.match(/^[0-9]+$/))
+      if (!$_329fsbkfjgqkpus7.isNumber(h) && !h.match(/^[0-9]+$/))
         throw name + '.set accepts only positive integer values. Value was ' + h;
       var dom = element.dom();
-      if ($_90b0mokqjcq86jc7.isSupported(dom))
+      if ($_drz3swlmjgqkpuzu.isSupported(dom))
         dom.style[name] = h + 'px';
     };
     var get = function (element) {
       var r = getOffset(element);
       if (r <= 0 || r === null) {
-        var css = $_eqzddikpjcq86jbt.get(element, name);
+        var css = $_9bj18xlljgqkpuzb.get(element, name);
         return parseFloat(css) || 0;
       }
       return r;
     };
     var getOuter = get;
     var aggregate = function (element, properties) {
-      return $_4rqlpsjgjcq86j74.foldl(properties, function (acc, property) {
-        var val = $_eqzddikpjcq86jbt.get(element, property);
+      return $_e5654tkcjgqkpurw.foldl(properties, function (acc, property) {
+        var val = $_9bj18xlljgqkpuzb.get(element, property);
         var value = val === undefined ? 0 : parseInt(val, 10);
         return isNaN(value) ? acc : acc + value;
       }, 0);
@@ -3305,18 +3238,18 @@ var table = (function () {
       aggregate: aggregate,
       max: max
     };
-  };
+  }
 
   var api$1 = Dimension('height', function (element) {
-    return $_a0brkykkjcq86jb5.inBody(element) ? element.dom().getBoundingClientRect().height : element.dom().offsetHeight;
+    return $_boj1hmlgjgqkpuyc.inBody(element) ? element.dom().getBoundingClientRect().height : element.dom().offsetHeight;
   });
-  var set$4 = function (element, h) {
+  var set$3 = function (element, h) {
     api$1.set(element, h);
   };
-  var get$5 = function (element) {
+  var get$3 = function (element) {
     return api$1.get(element);
   };
-  var getOuter$1 = function (element) {
+  var getOuter = function (element) {
     return api$1.getOuter(element);
   };
   var setMax = function (element, value) {
@@ -3329,25 +3262,25 @@ var table = (function () {
       'margin-bottom'
     ];
     var absMax = api$1.max(element, value, inclusions);
-    $_eqzddikpjcq86jbt.set(element, 'max-height', absMax + 'px');
+    $_9bj18xlljgqkpuzb.set(element, 'max-height', absMax + 'px');
   };
-  var $_2dkpw5lrjcq86jii = {
-    set: set$4,
-    get: get$5,
-    getOuter: getOuter$1,
+  var $_2dezo4mjjgqkpv9l = {
+    set: set$3,
+    get: get$3,
+    getOuter: getOuter,
     setMax: setMax
   };
 
   var api$2 = Dimension('width', function (element) {
     return element.dom().offsetWidth;
   });
-  var set$5 = function (element, h) {
+  var set$4 = function (element, h) {
     api$2.set(element, h);
   };
-  var get$6 = function (element) {
+  var get$4 = function (element) {
     return api$2.get(element);
   };
-  var getOuter$2 = function (element) {
+  var getOuter$1 = function (element) {
     return api$2.getOuter(element);
   };
   var setMax$1 = function (element, value) {
@@ -3360,16 +3293,16 @@ var table = (function () {
       'margin-right'
     ];
     var absMax = api$2.max(element, value, inclusions);
-    $_eqzddikpjcq86jbt.set(element, 'max-width', absMax + 'px');
+    $_9bj18xlljgqkpuzb.set(element, 'max-width', absMax + 'px');
   };
-  var $_c060pnltjcq86jip = {
-    set: set$5,
-    get: get$6,
-    getOuter: getOuter$2,
+  var $_axkrb1mljgqkpv9v = {
+    set: set$4,
+    get: get$4,
+    getOuter: getOuter$1,
     setMax: setMax$1
   };
 
-  var platform = $_g90906k4jcq86j9z.detect();
+  var platform = $_7vy8tfl0jgqkpuwq.detect();
   var needManualCalc = function () {
     return platform.browser.isIE() || platform.browser.isEdge();
   };
@@ -3378,7 +3311,7 @@ var table = (function () {
     return isNaN(num) ? fallback : num;
   };
   var getProp = function (elm, name, fallback) {
-    return toNumber($_eqzddikpjcq86jbt.get(elm, name), fallback);
+    return toNumber($_9bj18xlljgqkpuzb.get(elm, name), fallback);
   };
   var getCalculatedHeight = function (cell) {
     var paddingTop = getProp(cell, 'padding-top', 0);
@@ -3386,40 +3319,40 @@ var table = (function () {
     var borderTop = getProp(cell, 'border-top-width', 0);
     var borderBottom = getProp(cell, 'border-bottom-width', 0);
     var height = cell.dom().getBoundingClientRect().height;
-    var boxSizing = $_eqzddikpjcq86jbt.get(cell, 'box-sizing');
+    var boxSizing = $_9bj18xlljgqkpuzb.get(cell, 'box-sizing');
     var borders = borderTop + borderBottom;
     return boxSizing === 'border-box' ? height : height - paddingTop - paddingBottom - borders;
   };
   var getWidth = function (cell) {
-    return getProp(cell, 'width', $_c060pnltjcq86jip.get(cell));
+    return getProp(cell, 'width', $_axkrb1mljgqkpv9v.get(cell));
   };
-  var getHeight$1 = function (cell) {
-    return needManualCalc() ? getCalculatedHeight(cell) : getProp(cell, 'height', $_2dkpw5lrjcq86jii.get(cell));
+  var getHeight = function (cell) {
+    return needManualCalc() ? getCalculatedHeight(cell) : getProp(cell, 'height', $_2dezo4mjjgqkpv9l.get(cell));
   };
-  var $_4njxshlqjcq86ji8 = {
+  var $_26apkbmijgqkpv9a = {
     getWidth: getWidth,
-    getHeight: getHeight$1
+    getHeight: getHeight
   };
 
   var genericSizeRegex = /(\d+(\.\d+)?)(\w|%)*/;
   var percentageBasedSizeRegex = /(\d+(\.\d+)?)%/;
   var pixelBasedSizeRegex = /(\d+(\.\d+)?)px|em/;
   var setPixelWidth = function (cell, amount) {
-    $_eqzddikpjcq86jbt.set(cell, 'width', amount + 'px');
+    $_9bj18xlljgqkpuzb.set(cell, 'width', amount + 'px');
   };
   var setPercentageWidth = function (cell, amount) {
-    $_eqzddikpjcq86jbt.set(cell, 'width', amount + '%');
+    $_9bj18xlljgqkpuzb.set(cell, 'width', amount + '%');
   };
   var setHeight = function (cell, amount) {
-    $_eqzddikpjcq86jbt.set(cell, 'height', amount + 'px');
+    $_9bj18xlljgqkpuzb.set(cell, 'height', amount + 'px');
   };
   var getHeightValue = function (cell) {
-    return $_eqzddikpjcq86jbt.getRaw(cell, 'height').getOrThunk(function () {
-      return $_4njxshlqjcq86ji8.getHeight(cell) + 'px';
+    return $_9bj18xlljgqkpuzb.getRaw(cell, 'height').getOrThunk(function () {
+      return $_26apkbmijgqkpv9a.getHeight(cell) + 'px';
     });
   };
   var convert = function (cell, number, getter, setter) {
-    var newSize = $_7b9jhqjsjcq86j8e.table(cell).map(function (table) {
+    var newSize = $_928zfykojgqkpuu7.table(cell).map(function (table) {
       var total = getter(table);
       return Math.floor(number / 100 * total);
     }).getOr(number);
@@ -3428,28 +3361,28 @@ var table = (function () {
   };
   var normalizePixelSize = function (value, cell, getter, setter) {
     var number = parseInt(value, 10);
-    return $_eujqwfkdjcq86jao.endsWith(value, '%') && $_lmewskhjcq86jb0.name(cell) !== 'table' ? convert(cell, number, getter, setter) : number;
+    return $_4pby0el9jgqkpuxp.endsWith(value, '%') && $_4qtrrjldjgqkpuy4.name(cell) !== 'table' ? convert(cell, number, getter, setter) : number;
   };
   var getTotalHeight = function (cell) {
     var value = getHeightValue(cell);
     if (!value)
-      return $_2dkpw5lrjcq86jii.get(cell);
-    return normalizePixelSize(value, cell, $_2dkpw5lrjcq86jii.get, setHeight);
+      return $_2dezo4mjjgqkpv9l.get(cell);
+    return normalizePixelSize(value, cell, $_2dezo4mjjgqkpv9l.get, setHeight);
   };
-  var get$4 = function (cell, type, f) {
+  var get$5 = function (cell, type, f) {
     var v = f(cell);
     var span = getSpan(cell, type);
     return v / span;
   };
   var getSpan = function (cell, type) {
-    return $_at8pjgkgjcq86jat.has(cell, type) ? parseInt($_at8pjgkgjcq86jat.get(cell, type), 10) : 1;
+    return $_41i612lcjgqkpuxu.has(cell, type) ? parseInt($_41i612lcjgqkpuxu.get(cell, type), 10) : 1;
   };
   var getRawWidth = function (element) {
-    var cssWidth = $_eqzddikpjcq86jbt.getRaw(element, 'width');
+    var cssWidth = $_9bj18xlljgqkpuzb.getRaw(element, 'width');
     return cssWidth.fold(function () {
-      return $_f1um5wjhjcq86j78.from($_at8pjgkgjcq86jat.get(element, 'width'));
+      return Option.from($_41i612lcjgqkpuxu.get(element, 'width'));
     }, function (width) {
-      return $_f1um5wjhjcq86j78.some(width);
+      return Option.some(width);
     });
   };
   var normalizePercentageWidth = function (cellWidth, tableSize) {
@@ -3460,7 +3393,7 @@ var table = (function () {
       var percentMatch = percentageBasedSizeRegex.exec(width);
       return parseFloat(percentMatch[1]);
     } else {
-      var fallbackWidth = $_c060pnltjcq86jip.get(element);
+      var fallbackWidth = $_axkrb1mljgqkpv9v.get(element);
       var intWidth = parseInt(fallbackWidth, 10);
       return normalizePercentageWidth(intWidth, tableSize);
     }
@@ -3468,7 +3401,7 @@ var table = (function () {
   var getPercentageWidth = function (cell, tableSize) {
     var width = getRawWidth(cell);
     return width.fold(function () {
-      var width = $_c060pnltjcq86jip.get(cell);
+      var width = $_axkrb1mljgqkpv9v.get(cell);
       var intWidth = parseInt(width, 10);
       return normalizePercentageWidth(intWidth, tableSize);
     }, function (width) {
@@ -3487,43 +3420,43 @@ var table = (function () {
       var floatWidth = parseFloat(percentMatch[1]);
       return normalizePixelWidth(floatWidth, tableSize);
     } else {
-      var fallbackWidth = $_c060pnltjcq86jip.get(element);
+      var fallbackWidth = $_axkrb1mljgqkpv9v.get(element);
       return parseInt(fallbackWidth, 10);
     }
   };
   var getPixelWidth = function (cell, tableSize) {
     var width = getRawWidth(cell);
     return width.fold(function () {
-      var width = $_c060pnltjcq86jip.get(cell);
+      var width = $_axkrb1mljgqkpv9v.get(cell);
       var intWidth = parseInt(width, 10);
       return intWidth;
     }, function (width) {
       return choosePixelSize(cell, width, tableSize);
     });
   };
-  var getHeight = function (cell) {
-    return get$4(cell, 'rowspan', getTotalHeight);
+  var getHeight$1 = function (cell) {
+    return get$5(cell, 'rowspan', getTotalHeight);
   };
   var getGenericWidth = function (cell) {
     var width = getRawWidth(cell);
     return width.bind(function (width) {
       if (genericSizeRegex.test(width)) {
         var match = genericSizeRegex.exec(width);
-        return $_f1um5wjhjcq86j78.some({
-          width: $_8h7nl9jijcq86j7b.constant(match[1]),
-          unit: $_8h7nl9jijcq86j7b.constant(match[3])
+        return Option.some({
+          width: $_fu1fqpkejgqkpus4.constant(match[1]),
+          unit: $_fu1fqpkejgqkpus4.constant(match[3])
         });
       } else {
-        return $_f1um5wjhjcq86j78.none();
+        return Option.none();
       }
     });
   };
   var setGenericWidth = function (cell, amount, unit) {
-    $_eqzddikpjcq86jbt.set(cell, 'width', amount + unit);
+    $_9bj18xlljgqkpuzb.set(cell, 'width', amount + unit);
   };
-  var $_ah84g4lpjcq86jht = {
-    percentageBasedSizeRegex: $_8h7nl9jijcq86j7b.constant(percentageBasedSizeRegex),
-    pixelBasedSizeRegex: $_8h7nl9jijcq86j7b.constant(pixelBasedSizeRegex),
+  var $_83pv9rmhjgqkpv8j = {
+    percentageBasedSizeRegex: $_fu1fqpkejgqkpus4.constant(percentageBasedSizeRegex),
+    pixelBasedSizeRegex: $_fu1fqpkejgqkpus4.constant(pixelBasedSizeRegex),
     setPixelWidth: setPixelWidth,
     setPercentageWidth: setPercentageWidth,
     setHeight: setHeight,
@@ -3531,31 +3464,31 @@ var table = (function () {
     getPercentageWidth: getPercentageWidth,
     getGenericWidth: getGenericWidth,
     setGenericWidth: setGenericWidth,
-    getHeight: getHeight,
+    getHeight: getHeight$1,
     getRawWidth: getRawWidth
   };
 
   var halve = function (main, other) {
-    var width = $_ah84g4lpjcq86jht.getGenericWidth(main);
+    var width = $_83pv9rmhjgqkpv8j.getGenericWidth(main);
     width.each(function (width) {
       var newWidth = width.width() / 2;
-      $_ah84g4lpjcq86jht.setGenericWidth(main, newWidth, width.unit());
-      $_ah84g4lpjcq86jht.setGenericWidth(other, newWidth, width.unit());
+      $_83pv9rmhjgqkpv8j.setGenericWidth(main, newWidth, width.unit());
+      $_83pv9rmhjgqkpv8j.setGenericWidth(other, newWidth, width.unit());
     });
   };
-  var $_ehko51lojcq86jhr = { halve: halve };
+  var $_brtcmamgjgqkpv8f = { halve: halve };
 
   var attached = function (element, scope) {
-    var doc = scope || $_69jxc7jvjcq86j93.fromDom(document.documentElement);
-    return $_3sgfw3kmjcq86jba.ancestor(element, $_8h7nl9jijcq86j7b.curry($_6oaqssjzjcq86j9l.eq, doc)).isSome();
+    var doc = scope || $_cimonkrjgqkpuvh.fromDom(document.documentElement);
+    return $_bg06nslijgqkpuyi.ancestor(element, $_fu1fqpkejgqkpus4.curry($_an4cuxkvjgqkpuw7.eq, doc)).isSome();
   };
   var windowOf = function (element) {
     var dom = element.dom();
     if (dom === dom.window)
       return element;
-    return $_lmewskhjcq86jb0.isDocument(element) ? dom.defaultView || dom.parentWindow : null;
+    return $_4qtrrjldjgqkpuy4.isDocument(element) ? dom.defaultView || dom.parentWindow : null;
   };
-  var $_usguclyjcq86jj4 = {
+  var $_9otrujmqjgqkpvak = {
     attached: attached,
     windowOf: windowOf
   };
@@ -3565,8 +3498,8 @@ var table = (function () {
       return r(left + x, top + y);
     };
     return {
-      left: $_8h7nl9jijcq86j7b.constant(left),
-      top: $_8h7nl9jijcq86j7b.constant(top),
+      left: $_fu1fqpkejgqkpus4.constant(left),
+      top: $_fu1fqpkejgqkpus4.constant(top),
       translate: translate
     };
   };
@@ -3581,7 +3514,7 @@ var table = (function () {
   var absolute = function (element) {
     var doc = element.dom().ownerDocument;
     var body = doc.body;
-    var win = $_usguclyjcq86jj4.windowOf($_69jxc7jvjcq86j93.fromDom(doc));
+    var win = $_9otrujmqjgqkpvak.windowOf($_cimonkrjgqkpuvh.fromDom(doc));
     var html = doc.documentElement;
     var scrollTop = firstDefinedOrZero(win.pageYOffset, html.scrollTop);
     var scrollLeft = firstDefinedOrZero(win.pageXOffset, html.scrollLeft);
@@ -3597,27 +3530,27 @@ var table = (function () {
     var dom = element.dom();
     var doc = dom.ownerDocument;
     var body = doc.body;
-    var html = $_69jxc7jvjcq86j93.fromDom(doc.documentElement);
+    var html = $_cimonkrjgqkpuvh.fromDom(doc.documentElement);
     if (body === dom)
       return r(body.offsetLeft, body.offsetTop);
-    if (!$_usguclyjcq86jj4.attached(element, html))
+    if (!$_9otrujmqjgqkpvak.attached(element, html))
       return r(0, 0);
     return boxPosition(dom);
   };
-  var $_dhw84zlxjcq86jj3 = {
+  var $_57wipcmpjgqkpvai = {
     absolute: absolute,
     relative: relative,
     viewport: viewport
   };
 
-  var rowInfo = $_9bzkn9jljcq86j7v.immutable('row', 'y');
-  var colInfo = $_9bzkn9jljcq86j7v.immutable('col', 'x');
+  var rowInfo = $_c756rzkijgqkputi.immutable('row', 'y');
+  var colInfo = $_c756rzkijgqkputi.immutable('col', 'x');
   var rtlEdge = function (cell) {
-    var pos = $_dhw84zlxjcq86jj3.absolute(cell);
-    return pos.left() + $_c060pnltjcq86jip.getOuter(cell);
+    var pos = $_57wipcmpjgqkpvai.absolute(cell);
+    return pos.left() + $_axkrb1mljgqkpv9v.getOuter(cell);
   };
   var ltrEdge = function (cell) {
-    return $_dhw84zlxjcq86jj3.absolute(cell).left();
+    return $_57wipcmpjgqkpvai.absolute(cell).left();
   };
   var getLeftEdge = function (index, cell) {
     return colInfo(index, ltrEdge(cell));
@@ -3626,18 +3559,18 @@ var table = (function () {
     return colInfo(index, rtlEdge(cell));
   };
   var getTop = function (cell) {
-    return $_dhw84zlxjcq86jj3.absolute(cell).top();
+    return $_57wipcmpjgqkpvai.absolute(cell).top();
   };
   var getTopEdge = function (index, cell) {
     return rowInfo(index, getTop(cell));
   };
   var getBottomEdge = function (index, cell) {
-    return rowInfo(index, getTop(cell) + $_2dkpw5lrjcq86jii.getOuter(cell));
+    return rowInfo(index, getTop(cell) + $_2dezo4mjjgqkpv9l.getOuter(cell));
   };
   var findPositions = function (getInnerEdge, getOuterEdge, array) {
     if (array.length === 0)
       return [];
-    var lines = $_4rqlpsjgjcq86j74.map(array.slice(1), function (cellOption, index) {
+    var lines = $_e5654tkcjgqkpurw.map(array.slice(1), function (cellOption, index) {
       return cellOption.map(function (cell) {
         return getInnerEdge(index, cell);
       });
@@ -3651,34 +3584,34 @@ var table = (function () {
     return -step;
   };
   var height = {
-    delta: $_8h7nl9jijcq86j7b.identity,
-    positions: $_8h7nl9jijcq86j7b.curry(findPositions, getTopEdge, getBottomEdge),
+    delta: $_fu1fqpkejgqkpus4.identity,
+    positions: $_fu1fqpkejgqkpus4.curry(findPositions, getTopEdge, getBottomEdge),
     edge: getTop
   };
   var ltr = {
-    delta: $_8h7nl9jijcq86j7b.identity,
+    delta: $_fu1fqpkejgqkpus4.identity,
     edge: ltrEdge,
-    positions: $_8h7nl9jijcq86j7b.curry(findPositions, getLeftEdge, getRightEdge)
+    positions: $_fu1fqpkejgqkpus4.curry(findPositions, getLeftEdge, getRightEdge)
   };
   var rtl = {
     delta: negate,
     edge: rtlEdge,
-    positions: $_8h7nl9jijcq86j7b.curry(findPositions, getRightEdge, getLeftEdge)
+    positions: $_fu1fqpkejgqkpus4.curry(findPositions, getRightEdge, getLeftEdge)
   };
-  var $_dxrxkolwjcq86jis = {
+  var $_5gdftfmojgqkpva2 = {
     height: height,
     rtl: rtl,
     ltr: ltr
   };
 
-  var $_3v7f68lvjcq86jir = {
-    ltr: $_dxrxkolwjcq86jis.ltr,
-    rtl: $_dxrxkolwjcq86jis.rtl
+  var $_fozviamnjgqkpva0 = {
+    ltr: $_5gdftfmojgqkpva2.ltr,
+    rtl: $_5gdftfmojgqkpva2.rtl
   };
 
-  var TableDirection = function (directionAt) {
+  function TableDirection (directionAt) {
     var auto = function (table) {
-      return directionAt(table).isRtl() ? $_3v7f68lvjcq86jir.rtl : $_3v7f68lvjcq86jir.ltr;
+      return directionAt(table).isRtl() ? $_fozviamnjgqkpva0.rtl : $_fozviamnjgqkpva0.ltr;
     };
     var delta = function (amount, table) {
       return auto(table).delta(amount, table);
@@ -3694,14 +3627,14 @@ var table = (function () {
       edge: edge,
       positions: positions
     };
-  };
+  }
 
   var getGridSize = function (table) {
-    var input = $_5tj7bljqjcq86j84.fromTable(table);
-    var warehouse = $_axex7bkojcq86jbm.generate(input);
+    var input = $_fqjflgkmjgqkputr.fromTable(table);
+    var warehouse = $_3c1k16lkjgqkpuz1.generate(input);
     return warehouse.grid();
   };
-  var $_d6dimum0jcq86jja = { getGridSize: getGridSize };
+  var $_gj7nkvmsjgqkpvau = { getGridSize: getGridSize };
 
   var Cell = function (initial) {
     var value = initial;
@@ -3723,57 +3656,57 @@ var table = (function () {
 
   var base = function (handleUnsupported, required) {
     return baseWith(handleUnsupported, required, {
-      validate: $_7d4g1yjpjcq86j83.isFunction,
+      validate: $_329fsbkfjgqkpus7.isFunction,
       label: 'function'
     });
   };
   var baseWith = function (handleUnsupported, required, pred) {
     if (required.length === 0)
       throw new Error('You must specify at least one required field.');
-    $_83iwssjojcq86j7z.validateStrArr('required', required);
-    $_83iwssjojcq86j7z.checkDupes(required);
+    $_16xnbkljgqkputp.validateStrArr('required', required);
+    $_16xnbkljgqkputp.checkDupes(required);
     return function (obj) {
-      var keys = $_bxkr0jkjcq86j7s.keys(obj);
-      var allReqd = $_4rqlpsjgjcq86j74.forall(required, function (req) {
-        return $_4rqlpsjgjcq86j74.contains(keys, req);
+      var keys = $_38kcbmkhjgqkputf.keys(obj);
+      var allReqd = $_e5654tkcjgqkpurw.forall(required, function (req) {
+        return $_e5654tkcjgqkpurw.contains(keys, req);
       });
       if (!allReqd)
-        $_83iwssjojcq86j7z.reqMessage(required, keys);
+        $_16xnbkljgqkputp.reqMessage(required, keys);
       handleUnsupported(required, keys);
-      var invalidKeys = $_4rqlpsjgjcq86j74.filter(required, function (key) {
+      var invalidKeys = $_e5654tkcjgqkpurw.filter(required, function (key) {
         return !pred.validate(obj[key], key);
       });
       if (invalidKeys.length > 0)
-        $_83iwssjojcq86j7z.invalidTypeMessage(invalidKeys, pred.label);
+        $_16xnbkljgqkputp.invalidTypeMessage(invalidKeys, pred.label);
       return obj;
     };
   };
   var handleExact = function (required, keys) {
-    var unsupported = $_4rqlpsjgjcq86j74.filter(keys, function (key) {
-      return !$_4rqlpsjgjcq86j74.contains(required, key);
+    var unsupported = $_e5654tkcjgqkpurw.filter(keys, function (key) {
+      return !$_e5654tkcjgqkpurw.contains(required, key);
     });
     if (unsupported.length > 0)
-      $_83iwssjojcq86j7z.unsuppMessage(unsupported);
+      $_16xnbkljgqkputp.unsuppMessage(unsupported);
   };
-  var allowExtra = $_8h7nl9jijcq86j7b.noop;
-  var $_atyef8m4jcq86jk1 = {
-    exactly: $_8h7nl9jijcq86j7b.curry(base, handleExact),
-    ensure: $_8h7nl9jijcq86j7b.curry(base, allowExtra),
-    ensureWith: $_8h7nl9jijcq86j7b.curry(baseWith, allowExtra)
+  var allowExtra = $_fu1fqpkejgqkpus4.noop;
+  var $_3d86ymmwjgqkpvc1 = {
+    exactly: $_fu1fqpkejgqkpus4.curry(base, handleExact),
+    ensure: $_fu1fqpkejgqkpus4.curry(base, allowExtra),
+    ensureWith: $_fu1fqpkejgqkpus4.curry(baseWith, allowExtra)
   };
 
   var elementToData = function (element) {
-    var colspan = $_at8pjgkgjcq86jat.has(element, 'colspan') ? parseInt($_at8pjgkgjcq86jat.get(element, 'colspan'), 10) : 1;
-    var rowspan = $_at8pjgkgjcq86jat.has(element, 'rowspan') ? parseInt($_at8pjgkgjcq86jat.get(element, 'rowspan'), 10) : 1;
+    var colspan = $_41i612lcjgqkpuxu.has(element, 'colspan') ? parseInt($_41i612lcjgqkpuxu.get(element, 'colspan'), 10) : 1;
+    var rowspan = $_41i612lcjgqkpuxu.has(element, 'rowspan') ? parseInt($_41i612lcjgqkpuxu.get(element, 'rowspan'), 10) : 1;
     return {
-      element: $_8h7nl9jijcq86j7b.constant(element),
-      colspan: $_8h7nl9jijcq86j7b.constant(colspan),
-      rowspan: $_8h7nl9jijcq86j7b.constant(rowspan)
+      element: $_fu1fqpkejgqkpus4.constant(element),
+      colspan: $_fu1fqpkejgqkpus4.constant(colspan),
+      rowspan: $_fu1fqpkejgqkpus4.constant(rowspan)
     };
   };
   var modification = function (generators, _toData) {
     contract(generators);
-    var position = Cell($_f1um5wjhjcq86j78.none());
+    var position = Cell(Option.none());
     var toData = _toData !== undefined ? _toData : elementToData;
     var nu = function (data) {
       return generators.cell(data);
@@ -3785,14 +3718,14 @@ var table = (function () {
     var add = function (element) {
       var replacement = nuFrom(element);
       if (position.get().isNone())
-        position.set($_f1um5wjhjcq86j78.some(replacement));
-      recent = $_f1um5wjhjcq86j78.some({
+        position.set(Option.some(replacement));
+      recent = Option.some({
         item: element,
         replacement: replacement
       });
       return replacement;
     };
-    var recent = $_f1um5wjhjcq86j78.none();
+    var recent = Option.none();
     var getOrInit = function (element, comparator) {
       return recent.fold(function () {
         return add(element);
@@ -3807,11 +3740,11 @@ var table = (function () {
   };
   var transform = function (scope, tag) {
     return function (generators) {
-      var position = Cell($_f1um5wjhjcq86j78.none());
+      var position = Cell(Option.none());
       contract(generators);
       var list = [];
       var find = function (element, comparator) {
-        return $_4rqlpsjgjcq86j74.find(list, function (x) {
+        return $_e5654tkcjgqkpurw.find(list, function (x) {
           return comparator(x.item, element);
         });
       };
@@ -3822,7 +3755,7 @@ var table = (function () {
           sub: cell
         });
         if (position.get().isNone())
-          position.set($_f1um5wjhjcq86j78.some(cell));
+          position.set(Option.some(cell));
         return cell;
       };
       var replaceOrInit = function (element, comparator) {
@@ -3840,18 +3773,18 @@ var table = (function () {
   };
   var merging = function (generators) {
     contract(generators);
-    var position = Cell($_f1um5wjhjcq86j78.none());
+    var position = Cell(Option.none());
     var combine = function (cell) {
       if (position.get().isNone())
-        position.set($_f1um5wjhjcq86j78.some(cell));
+        position.set(Option.some(cell));
       return function () {
         var raw = generators.cell({
-          element: $_8h7nl9jijcq86j7b.constant(cell),
-          colspan: $_8h7nl9jijcq86j7b.constant(1),
-          rowspan: $_8h7nl9jijcq86j7b.constant(1)
+          element: $_fu1fqpkejgqkpus4.constant(cell),
+          colspan: $_fu1fqpkejgqkpus4.constant(1),
+          rowspan: $_fu1fqpkejgqkpus4.constant(1)
         });
-        $_eqzddikpjcq86jbt.remove(raw, 'width');
-        $_eqzddikpjcq86jbt.remove(cell, 'width');
+        $_9bj18xlljgqkpuzb.remove(raw, 'width');
+        $_9bj18xlljgqkpuzb.remove(cell, 'width');
         return raw;
       };
     };
@@ -3860,13 +3793,13 @@ var table = (function () {
       cursor: position.get
     };
   };
-  var contract = $_atyef8m4jcq86jk1.exactly([
+  var contract = $_3d86ymmwjgqkpvc1.exactly([
     'cell',
     'row',
     'replace',
     'gap'
   ]);
-  var $_5p72fom2jcq86jjp = {
+  var $_50s4z4mujgqkpvbh = {
     modification: modification,
     transform: transform,
     merging: merging
@@ -3904,20 +3837,20 @@ var table = (function () {
     'pre',
     'address'
   ];
-  var isList$1 = function (universe, item) {
+  var isList = function (universe, item) {
     var tagName = universe.property().name(item);
-    return $_4rqlpsjgjcq86j74.contains([
+    return $_e5654tkcjgqkpurw.contains([
       'ol',
       'ul'
     ], tagName);
   };
-  var isBlock$1 = function (universe, item) {
+  var isBlock = function (universe, item) {
     var tagName = universe.property().name(item);
-    return $_4rqlpsjgjcq86j74.contains(blockList, tagName);
+    return $_e5654tkcjgqkpurw.contains(blockList, tagName);
   };
-  var isFormatting$1 = function (universe, item) {
+  var isFormatting = function (universe, item) {
     var tagName = universe.property().name(item);
-    return $_4rqlpsjgjcq86j74.contains([
+    return $_e5654tkcjgqkpurw.contains([
       'address',
       'pre',
       'p',
@@ -3929,9 +3862,9 @@ var table = (function () {
       'h6'
     ], tagName);
   };
-  var isHeading$1 = function (universe, item) {
+  var isHeading = function (universe, item) {
     var tagName = universe.property().name(item);
-    return $_4rqlpsjgjcq86j74.contains([
+    return $_e5654tkcjgqkpurw.contains([
       'h1',
       'h2',
       'h3',
@@ -3940,8 +3873,8 @@ var table = (function () {
       'h6'
     ], tagName);
   };
-  var isContainer$1 = function (universe, item) {
-    return $_4rqlpsjgjcq86j74.contains([
+  var isContainer = function (universe, item) {
+    return $_e5654tkcjgqkpurw.contains([
       'div',
       'li',
       'td',
@@ -3951,57 +3884,21 @@ var table = (function () {
       'caption'
     ], universe.property().name(item));
   };
-  var isEmptyTag$1 = function (universe, item) {
-    return $_4rqlpsjgjcq86j74.contains([
+  var isEmptyTag = function (universe, item) {
+    return $_e5654tkcjgqkpurw.contains([
       'br',
       'img',
       'hr',
       'input'
     ], universe.property().name(item));
   };
-  var isFrame$1 = function (universe, item) {
+  var isFrame = function (universe, item) {
     return universe.property().name(item) === 'iframe';
   };
-  var isInline$1 = function (universe, item) {
-    return !(isBlock$1(universe, item) || isEmptyTag$1(universe, item)) && universe.property().name(item) !== 'li';
+  var isInline = function (universe, item) {
+    return !(isBlock(universe, item) || isEmptyTag(universe, item)) && universe.property().name(item) !== 'li';
   };
-  var $_5khb1fm7jcq86jkr = {
-    isBlock: isBlock$1,
-    isList: isList$1,
-    isFormatting: isFormatting$1,
-    isHeading: isHeading$1,
-    isContainer: isContainer$1,
-    isEmptyTag: isEmptyTag$1,
-    isFrame: isFrame$1,
-    isInline: isInline$1
-  };
-
-  var universe$1 = DomUniverse();
-  var isBlock = function (element) {
-    return $_5khb1fm7jcq86jkr.isBlock(universe$1, element);
-  };
-  var isList = function (element) {
-    return $_5khb1fm7jcq86jkr.isList(universe$1, element);
-  };
-  var isFormatting = function (element) {
-    return $_5khb1fm7jcq86jkr.isFormatting(universe$1, element);
-  };
-  var isHeading = function (element) {
-    return $_5khb1fm7jcq86jkr.isHeading(universe$1, element);
-  };
-  var isContainer = function (element) {
-    return $_5khb1fm7jcq86jkr.isContainer(universe$1, element);
-  };
-  var isEmptyTag = function (element) {
-    return $_5khb1fm7jcq86jkr.isEmptyTag(universe$1, element);
-  };
-  var isFrame = function (element) {
-    return $_5khb1fm7jcq86jkr.isFrame(universe$1, element);
-  };
-  var isInline = function (element) {
-    return $_5khb1fm7jcq86jkr.isInline(universe$1, element);
-  };
-  var $_8ej6egm6jcq86jkn = {
+  var $_1pja61mzjgqkpvd9 = {
     isBlock: isBlock,
     isList: isList,
     isFormatting: isFormatting,
@@ -4012,53 +3909,89 @@ var table = (function () {
     isInline: isInline
   };
 
+  var universe$1 = DomUniverse();
+  var isBlock$1 = function (element) {
+    return $_1pja61mzjgqkpvd9.isBlock(universe$1, element);
+  };
+  var isList$1 = function (element) {
+    return $_1pja61mzjgqkpvd9.isList(universe$1, element);
+  };
+  var isFormatting$1 = function (element) {
+    return $_1pja61mzjgqkpvd9.isFormatting(universe$1, element);
+  };
+  var isHeading$1 = function (element) {
+    return $_1pja61mzjgqkpvd9.isHeading(universe$1, element);
+  };
+  var isContainer$1 = function (element) {
+    return $_1pja61mzjgqkpvd9.isContainer(universe$1, element);
+  };
+  var isEmptyTag$1 = function (element) {
+    return $_1pja61mzjgqkpvd9.isEmptyTag(universe$1, element);
+  };
+  var isFrame$1 = function (element) {
+    return $_1pja61mzjgqkpvd9.isFrame(universe$1, element);
+  };
+  var isInline$1 = function (element) {
+    return $_1pja61mzjgqkpvd9.isInline(universe$1, element);
+  };
+  var $_cs9m57myjgqkpvd3 = {
+    isBlock: isBlock$1,
+    isList: isList$1,
+    isFormatting: isFormatting$1,
+    isHeading: isHeading$1,
+    isContainer: isContainer$1,
+    isEmptyTag: isEmptyTag$1,
+    isFrame: isFrame$1,
+    isInline: isInline$1
+  };
+
   var merge = function (cells) {
     var isBr = function (el) {
-      return $_lmewskhjcq86jb0.name(el) === 'br';
+      return $_4qtrrjldjgqkpuy4.name(el) === 'br';
     };
     var advancedBr = function (children) {
-      return $_4rqlpsjgjcq86j74.forall(children, function (c) {
-        return isBr(c) || $_lmewskhjcq86jb0.isText(c) && $_gicm64kyjcq86jd5.get(c).trim().length === 0;
+      return $_e5654tkcjgqkpurw.forall(children, function (c) {
+        return isBr(c) || $_4qtrrjldjgqkpuy4.isText(c) && $_96nm8vlujgqkpv1d.get(c).trim().length === 0;
       });
     };
     var isListItem = function (el) {
-      return $_lmewskhjcq86jb0.name(el) === 'li' || $_3sgfw3kmjcq86jba.ancestor(el, $_8ej6egm6jcq86jkn.isList).isSome();
+      return $_4qtrrjldjgqkpuy4.name(el) === 'li' || $_bg06nslijgqkpuyi.ancestor(el, $_cs9m57myjgqkpvd3.isList).isSome();
     };
     var siblingIsBlock = function (el) {
-      return $_alsyrkjxjcq86j99.nextSibling(el).map(function (rightSibling) {
-        if ($_8ej6egm6jcq86jkn.isBlock(rightSibling))
+      return $_3t5binktjgqkpuvq.nextSibling(el).map(function (rightSibling) {
+        if ($_cs9m57myjgqkpvd3.isBlock(rightSibling))
           return true;
-        if ($_8ej6egm6jcq86jkn.isEmptyTag(rightSibling)) {
-          return $_lmewskhjcq86jb0.name(rightSibling) === 'img' ? false : true;
+        if ($_cs9m57myjgqkpvd3.isEmptyTag(rightSibling)) {
+          return $_4qtrrjldjgqkpuy4.name(rightSibling) === 'img' ? false : true;
         }
       }).getOr(false);
     };
     var markCell = function (cell) {
-      return $_8vz744kwjcq86jd0.last(cell).bind(function (rightEdge) {
+      return $_8t9497lsjgqkpv15.last(cell).bind(function (rightEdge) {
         var rightSiblingIsBlock = siblingIsBlock(rightEdge);
-        return $_alsyrkjxjcq86j99.parent(rightEdge).map(function (parent) {
-          return rightSiblingIsBlock === true || isListItem(parent) || isBr(rightEdge) || $_8ej6egm6jcq86jkn.isBlock(parent) && !$_6oaqssjzjcq86j9l.eq(cell, parent) ? [] : [$_69jxc7jvjcq86j93.fromTag('br')];
+        return $_3t5binktjgqkpuvq.parent(rightEdge).map(function (parent) {
+          return rightSiblingIsBlock === true || isListItem(parent) || isBr(rightEdge) || $_cs9m57myjgqkpvd3.isBlock(parent) && !$_an4cuxkvjgqkpuw7.eq(cell, parent) ? [] : [$_cimonkrjgqkpuvh.fromTag('br')];
         });
       }).getOr([]);
     };
     var markContent = function () {
-      var content = $_4rqlpsjgjcq86j74.bind(cells, function (cell) {
-        var children = $_alsyrkjxjcq86j99.children(cell);
+      var content = $_e5654tkcjgqkpurw.bind(cells, function (cell) {
+        var children = $_3t5binktjgqkpuvq.children(cell);
         return advancedBr(children) ? [] : children.concat(markCell(cell));
       });
-      return content.length === 0 ? [$_69jxc7jvjcq86j93.fromTag('br')] : content;
+      return content.length === 0 ? [$_cimonkrjgqkpuvh.fromTag('br')] : content;
     };
     var contents = markContent();
-    $_bu1tvfksjcq86jca.empty(cells[0]);
-    $_esc1scktjcq86jcd.append(cells[0], contents);
+    $_461fa9lojgqkpuzx.empty(cells[0]);
+    $_aapssclpjgqkpv01.append(cells[0], contents);
   };
-  var $_aon3gym5jcq86jk3 = { merge: merge };
+  var $_6blez6mxjgqkpvc8 = { merge: merge };
 
   var shallow$1 = function (old, nu) {
     return nu;
   };
   var deep$1 = function (old, nu) {
-    var bothObjects = $_7d4g1yjpjcq86j83.isObject(old) && $_7d4g1yjpjcq86j83.isObject(nu);
+    var bothObjects = $_329fsbkfjgqkpus7.isObject(old) && $_329fsbkfjgqkpus7.isObject(nu);
     return bothObjects ? deepMerge(old, nu) : nu;
   };
   var baseMerge = function (merger) {
@@ -4081,7 +4014,7 @@ var table = (function () {
   };
   var deepMerge = baseMerge(deep$1);
   var merge$1 = baseMerge(shallow$1);
-  var $_dgiifum9jcq86jl7 = {
+  var $_fcdlx0n1jgqkpvdz = {
     deepMerge: deepMerge,
     merge: merge$1
   };
@@ -4103,7 +4036,7 @@ var table = (function () {
         return r;
       }
     }
-    return $_f1um5wjhjcq86j78.none();
+    return Option.none();
   };
   var liftN = function (arr, f) {
     var r = [];
@@ -4112,12 +4045,12 @@ var table = (function () {
       if (x.isSome()) {
         r.push(x.getOrDie());
       } else {
-        return $_f1um5wjhjcq86j78.none();
+        return Option.none();
       }
     }
-    return $_f1um5wjhjcq86j78.some(f.apply(null, r));
+    return Option.some(f.apply(null, r));
   };
-  var $_dsgmzrmajcq86jl8 = {
+  var $_82sd1cn2jgqkpve1 = {
     cat: cat,
     findMap: findMap,
     liftN: liftN
@@ -4135,12 +4068,12 @@ var table = (function () {
     cells[index] = cell;
   };
   var setCells = function (gridRow, cells) {
-    return $_8lo3ucjrjcq86j8b.rowcells(cells, gridRow.section());
+    return $_71damwknjgqkpuu3.rowcells(cells, gridRow.section());
   };
   var mapCells = function (gridRow, f) {
     var cells = gridRow.cells();
-    var r = $_4rqlpsjgjcq86j74.map(cells, f);
-    return $_8lo3ucjrjcq86j8b.rowcells(r, gridRow.section());
+    var r = $_e5654tkcjgqkpurw.map(cells, f);
+    return $_71damwknjgqkpuu3.rowcells(r, gridRow.section());
   };
   var getCell = function (gridRow, index) {
     return gridRow.cells()[index];
@@ -4151,7 +4084,7 @@ var table = (function () {
   var cellLength = function (gridRow) {
     return gridRow.cells().length;
   };
-  var $_d1tf1amdjcq86jli = {
+  var $_eiuw3nn5jgqkpvek = {
     addCell: addCell,
     setCells: setCells,
     mutateCell: mutateCell,
@@ -4162,8 +4095,8 @@ var table = (function () {
   };
 
   var getColumn = function (grid, index) {
-    return $_4rqlpsjgjcq86j74.map(grid, function (row) {
-      return $_d1tf1amdjcq86jli.getCell(row, index);
+    return $_e5654tkcjgqkpurw.map(grid, function (row) {
+      return $_eiuw3nn5jgqkpvek.getCell(row, index);
     });
   };
   var getRow = function (grid, index) {
@@ -4173,7 +4106,7 @@ var table = (function () {
     if (xs.length === 0)
       return 0;
     var first = xs[0];
-    var index = $_4rqlpsjgjcq86j74.findIndex(xs, function (x) {
+    var index = $_e5654tkcjgqkpurw.findIndex(xs, function (x) {
       return !comp(first.element(), x.element());
     });
     return index.fold(function () {
@@ -4188,15 +4121,15 @@ var table = (function () {
     var restOfColumn = getColumn(grid, column).slice(row);
     var endRowIndex = findDiff(restOfColumn, comparator);
     return {
-      colspan: $_8h7nl9jijcq86j7b.constant(endColIndex),
-      rowspan: $_8h7nl9jijcq86j7b.constant(endRowIndex)
+      colspan: $_fu1fqpkejgqkpus4.constant(endColIndex),
+      rowspan: $_fu1fqpkejgqkpus4.constant(endRowIndex)
     };
   };
-  var $_1gsci0mcjcq86jle = { subgrid: subgrid };
+  var $_7mb5d5n4jgqkpve8 = { subgrid: subgrid };
 
   var toDetails = function (grid, comparator) {
-    var seen = $_4rqlpsjgjcq86j74.map(grid, function (row, ri) {
-      return $_4rqlpsjgjcq86j74.map(row.cells(), function (col, ci) {
+    var seen = $_e5654tkcjgqkpurw.map(grid, function (row, ri) {
+      return $_e5654tkcjgqkpurw.map(row.cells(), function (col, ci) {
         return false;
       });
     });
@@ -4207,17 +4140,17 @@ var table = (function () {
         }
       }
     };
-    return $_4rqlpsjgjcq86j74.map(grid, function (row, ri) {
-      var details = $_4rqlpsjgjcq86j74.bind(row.cells(), function (cell, ci) {
+    return $_e5654tkcjgqkpurw.map(grid, function (row, ri) {
+      var details = $_e5654tkcjgqkpurw.bind(row.cells(), function (cell, ci) {
         if (seen[ri][ci] === false) {
-          var result = $_1gsci0mcjcq86jle.subgrid(grid, ri, ci, comparator);
+          var result = $_7mb5d5n4jgqkpve8.subgrid(grid, ri, ci, comparator);
           updateSeen(ri, ci, result.rowspan(), result.colspan());
-          return [$_8lo3ucjrjcq86j8b.detailnew(cell.element(), result.rowspan(), result.colspan(), cell.isNew())];
+          return [$_71damwknjgqkpuu3.detailnew(cell.element(), result.rowspan(), result.colspan(), cell.isNew())];
         } else {
           return [];
         }
       });
-      return $_8lo3ucjrjcq86j8b.rowdetails(details, row.section());
+      return $_71damwknjgqkpuu3.rowdetails(details, row.section());
     });
   };
   var toGrid = function (warehouse, generators, isNew) {
@@ -4225,59 +4158,59 @@ var table = (function () {
     for (var i = 0; i < warehouse.grid().rows(); i++) {
       var rowCells = [];
       for (var j = 0; j < warehouse.grid().columns(); j++) {
-        var element = $_axex7bkojcq86jbm.getAt(warehouse, i, j).map(function (item) {
-          return $_8lo3ucjrjcq86j8b.elementnew(item.element(), isNew);
+        var element = $_3c1k16lkjgqkpuz1.getAt(warehouse, i, j).map(function (item) {
+          return $_71damwknjgqkpuu3.elementnew(item.element(), isNew);
         }).getOrThunk(function () {
-          return $_8lo3ucjrjcq86j8b.elementnew(generators.gap(), true);
+          return $_71damwknjgqkpuu3.elementnew(generators.gap(), true);
         });
         rowCells.push(element);
       }
-      var row = $_8lo3ucjrjcq86j8b.rowcells(rowCells, warehouse.all()[i].section());
+      var row = $_71damwknjgqkpuu3.rowcells(rowCells, warehouse.all()[i].section());
       grid.push(row);
     }
     return grid;
   };
-  var $_1ev7w4mbjcq86jla = {
+  var $_i7hi9n3jgqkpve3 = {
     toDetails: toDetails,
     toGrid: toGrid
   };
 
   var setIfNot = function (element, property, value, ignore) {
     if (value === ignore)
-      $_at8pjgkgjcq86jat.remove(element, property);
+      $_41i612lcjgqkpuxu.remove(element, property);
     else
-      $_at8pjgkgjcq86jat.set(element, property, value);
+      $_41i612lcjgqkpuxu.set(element, property, value);
   };
-  var render$1 = function (table, grid) {
+  var render = function (table, grid) {
     var newRows = [];
     var newCells = [];
     var renderSection = function (gridSection, sectionName) {
-      var section = $_30b5qvkljcq86jb8.child(table, sectionName).getOrThunk(function () {
-        var tb = $_69jxc7jvjcq86j93.fromTag(sectionName, $_alsyrkjxjcq86j99.owner(table).dom());
-        $_6cjpwckrjcq86jc8.append(table, tb);
+      var section = $_3gag4rlhjgqkpuyg.child(table, sectionName).getOrThunk(function () {
+        var tb = $_cimonkrjgqkpuvh.fromTag(sectionName, $_3t5binktjgqkpuvq.owner(table).dom());
+        $_4rg294lnjgqkpuzw.append(table, tb);
         return tb;
       });
-      $_bu1tvfksjcq86jca.empty(section);
-      var rows = $_4rqlpsjgjcq86j74.map(gridSection, function (row) {
+      $_461fa9lojgqkpuzx.empty(section);
+      var rows = $_e5654tkcjgqkpurw.map(gridSection, function (row) {
         if (row.isNew()) {
           newRows.push(row.element());
         }
         var tr = row.element();
-        $_bu1tvfksjcq86jca.empty(tr);
-        $_4rqlpsjgjcq86j74.each(row.cells(), function (cell) {
+        $_461fa9lojgqkpuzx.empty(tr);
+        $_e5654tkcjgqkpurw.each(row.cells(), function (cell) {
           if (cell.isNew()) {
             newCells.push(cell.element());
           }
           setIfNot(cell.element(), 'colspan', cell.colspan(), 1);
           setIfNot(cell.element(), 'rowspan', cell.rowspan(), 1);
-          $_6cjpwckrjcq86jc8.append(tr, cell.element());
+          $_4rg294lnjgqkpuzw.append(tr, cell.element());
         });
         return tr;
       });
-      $_esc1scktjcq86jcd.append(section, rows);
+      $_aapssclpjgqkpv01.append(section, rows);
     };
     var removeSection = function (sectionName) {
-      $_30b5qvkljcq86jb8.child(table, sectionName).bind($_bu1tvfksjcq86jca.remove);
+      $_3gag4rlhjgqkpuyg.child(table, sectionName).bind($_461fa9lojgqkpuzx.remove);
     };
     var renderOrRemoveSection = function (gridSection, sectionName) {
       if (gridSection.length > 0) {
@@ -4289,7 +4222,7 @@ var table = (function () {
     var headSection = [];
     var bodySection = [];
     var footSection = [];
-    $_4rqlpsjgjcq86j74.each(grid, function (row) {
+    $_e5654tkcjgqkpurw.each(grid, function (row) {
       switch (row.section()) {
       case 'thead':
         headSection.push(row);
@@ -4306,25 +4239,25 @@ var table = (function () {
     renderOrRemoveSection(bodySection, 'tbody');
     renderOrRemoveSection(footSection, 'tfoot');
     return {
-      newRows: $_8h7nl9jijcq86j7b.constant(newRows),
-      newCells: $_8h7nl9jijcq86j7b.constant(newCells)
+      newRows: $_fu1fqpkejgqkpus4.constant(newRows),
+      newCells: $_fu1fqpkejgqkpus4.constant(newCells)
     };
   };
   var copy$2 = function (grid) {
-    var rows = $_4rqlpsjgjcq86j74.map(grid, function (row) {
-      var tr = $_bf2067kvjcq86jcx.shallow(row.element());
-      $_4rqlpsjgjcq86j74.each(row.cells(), function (cell) {
-        var clonedCell = $_bf2067kvjcq86jcx.deep(cell.element());
+    var rows = $_e5654tkcjgqkpurw.map(grid, function (row) {
+      var tr = $_6ix3t4lrjgqkpv12.shallow(row.element());
+      $_e5654tkcjgqkpurw.each(row.cells(), function (cell) {
+        var clonedCell = $_6ix3t4lrjgqkpv12.deep(cell.element());
         setIfNot(clonedCell, 'colspan', cell.colspan(), 1);
         setIfNot(clonedCell, 'rowspan', cell.rowspan(), 1);
-        $_6cjpwckrjcq86jc8.append(tr, clonedCell);
+        $_4rg294lnjgqkpuzw.append(tr, clonedCell);
       });
       return tr;
     });
     return rows;
   };
-  var $_cskim3mejcq86jll = {
-    render: render$1,
+  var $_1mpq53n6jgqkpvep = {
+    render: render,
     copy: copy$2
   };
 
@@ -4344,7 +4277,7 @@ var table = (function () {
   };
   var unique = function (xs, comparator) {
     var result = [];
-    $_4rqlpsjgjcq86j74.each(xs, function (x, i) {
+    $_e5654tkcjgqkpurw.each(xs, function (x, i) {
       if (i < xs.length - 1 && !comparator(x, xs[i + 1])) {
         result.push(x);
       } else if (i === xs.length - 1) {
@@ -4355,10 +4288,10 @@ var table = (function () {
   };
   var deduce = function (xs, index) {
     if (index < 0 || index >= xs.length - 1)
-      return $_f1um5wjhjcq86j78.none();
+      return Option.none();
     var current = xs[index].fold(function () {
-      var rest = $_4rqlpsjgjcq86j74.reverse(xs.slice(0, index));
-      return $_dsgmzrmajcq86jl8.findMap(rest, function (a, i) {
+      var rest = $_e5654tkcjgqkpurw.reverse(xs.slice(0, index));
+      return $_82sd1cn2jgqkpve1.findMap(rest, function (a, i) {
         return a.map(function (aa) {
           return {
             value: aa,
@@ -4367,14 +4300,14 @@ var table = (function () {
         });
       });
     }, function (c) {
-      return $_f1um5wjhjcq86j78.some({
+      return Option.some({
         value: c,
         delta: 0
       });
     });
     var next = xs[index + 1].fold(function () {
       var rest = xs.slice(index + 1);
-      return $_dsgmzrmajcq86jl8.findMap(rest, function (a, i) {
+      return $_82sd1cn2jgqkpve1.findMap(rest, function (a, i) {
         return a.map(function (aa) {
           return {
             value: aa,
@@ -4383,7 +4316,7 @@ var table = (function () {
         });
       });
     }, function (n) {
-      return $_f1um5wjhjcq86j78.some({
+      return Option.some({
         value: n,
         delta: 1
       });
@@ -4395,7 +4328,7 @@ var table = (function () {
       });
     });
   };
-  var $_70obyimhjcq86jmr = {
+  var $_6gfs3zn9jgqkpvge = {
     repeat: repeat,
     range: range$1,
     unique: unique,
@@ -4404,14 +4337,14 @@ var table = (function () {
 
   var columns = function (warehouse) {
     var grid = warehouse.grid();
-    var cols = $_70obyimhjcq86jmr.range(0, grid.columns());
-    var rows = $_70obyimhjcq86jmr.range(0, grid.rows());
-    return $_4rqlpsjgjcq86j74.map(cols, function (col) {
+    var cols = $_6gfs3zn9jgqkpvge.range(0, grid.columns());
+    var rows = $_6gfs3zn9jgqkpvge.range(0, grid.rows());
+    return $_e5654tkcjgqkpurw.map(cols, function (col) {
       var getBlock = function () {
-        return $_4rqlpsjgjcq86j74.bind(rows, function (r) {
-          return $_axex7bkojcq86jbm.getAt(warehouse, r, col).filter(function (detail) {
+        return $_e5654tkcjgqkpurw.bind(rows, function (r) {
+          return $_3c1k16lkjgqkpuz1.getAt(warehouse, r, col).filter(function (detail) {
             return detail.column() === col;
-          }).fold($_8h7nl9jijcq86j7b.constant([]), function (detail) {
+          }).fold($_fu1fqpkejgqkpus4.constant([]), function (detail) {
             return [detail];
           });
         });
@@ -4420,16 +4353,16 @@ var table = (function () {
         return detail.colspan() === 1;
       };
       var getFallback = function () {
-        return $_axex7bkojcq86jbm.getAt(warehouse, 0, col);
+        return $_3c1k16lkjgqkpuz1.getAt(warehouse, 0, col);
       };
       return decide(getBlock, isSingle, getFallback);
     });
   };
   var decide = function (getBlock, isSingle, getFallback) {
     var inBlock = getBlock();
-    var singleInBlock = $_4rqlpsjgjcq86j74.find(inBlock, isSingle);
+    var singleInBlock = $_e5654tkcjgqkpurw.find(inBlock, isSingle);
     var detailOption = singleInBlock.orThunk(function () {
-      return $_f1um5wjhjcq86j78.from(inBlock[0]).orThunk(getFallback);
+      return Option.from(inBlock[0]).orThunk(getFallback);
     });
     return detailOption.map(function (detail) {
       return detail.element();
@@ -4437,14 +4370,14 @@ var table = (function () {
   };
   var rows$1 = function (warehouse) {
     var grid = warehouse.grid();
-    var rows = $_70obyimhjcq86jmr.range(0, grid.rows());
-    var cols = $_70obyimhjcq86jmr.range(0, grid.columns());
-    return $_4rqlpsjgjcq86j74.map(rows, function (row) {
+    var rows = $_6gfs3zn9jgqkpvge.range(0, grid.rows());
+    var cols = $_6gfs3zn9jgqkpvge.range(0, grid.columns());
+    return $_e5654tkcjgqkpurw.map(rows, function (row) {
       var getBlock = function () {
-        return $_4rqlpsjgjcq86j74.bind(cols, function (c) {
-          return $_axex7bkojcq86jbm.getAt(warehouse, row, c).filter(function (detail) {
+        return $_e5654tkcjgqkpurw.bind(cols, function (c) {
+          return $_3c1k16lkjgqkpuz1.getAt(warehouse, row, c).filter(function (detail) {
             return detail.row() === row;
-          }).fold($_8h7nl9jijcq86j7b.constant([]), function (detail) {
+          }).fold($_fu1fqpkejgqkpus4.constant([]), function (detail) {
             return [detail];
           });
         });
@@ -4453,47 +4386,47 @@ var table = (function () {
         return detail.rowspan() === 1;
       };
       var getFallback = function () {
-        return $_axex7bkojcq86jbm.getAt(warehouse, row, 0);
+        return $_3c1k16lkjgqkpuz1.getAt(warehouse, row, 0);
       };
       return decide(getBlock, isSingle, getFallback);
     });
   };
-  var $_7comtomgjcq86jml = {
+  var $_3tj6k7n8jgqkpvg4 = {
     columns: columns,
     rows: rows$1
   };
 
   var col = function (column, x, y, w, h) {
-    var blocker = $_69jxc7jvjcq86j93.fromTag('div');
-    $_eqzddikpjcq86jbt.setAll(blocker, {
+    var blocker = $_cimonkrjgqkpuvh.fromTag('div');
+    $_9bj18xlljgqkpuzb.setAll(blocker, {
       position: 'absolute',
       left: x - w / 2 + 'px',
       top: y + 'px',
       height: h + 'px',
       width: w + 'px'
     });
-    $_at8pjgkgjcq86jat.setAll(blocker, {
+    $_41i612lcjgqkpuxu.setAll(blocker, {
       'data-column': column,
       'role': 'presentation'
     });
     return blocker;
   };
   var row$1 = function (row, x, y, w, h) {
-    var blocker = $_69jxc7jvjcq86j93.fromTag('div');
-    $_eqzddikpjcq86jbt.setAll(blocker, {
+    var blocker = $_cimonkrjgqkpuvh.fromTag('div');
+    $_9bj18xlljgqkpuzb.setAll(blocker, {
       position: 'absolute',
       left: x + 'px',
       top: y - h / 2 + 'px',
       height: h + 'px',
       width: w + 'px'
     });
-    $_at8pjgkgjcq86jat.setAll(blocker, {
+    $_41i612lcjgqkpuxu.setAll(blocker, {
       'data-row': row,
       'role': 'presentation'
     });
     return blocker;
   };
-  var $_96mnzamijcq86jmy = {
+  var $_fbbljvnajgqkpvgp = {
     col: col,
     row: row$1
   };
@@ -4505,12 +4438,12 @@ var table = (function () {
     };
     return { resolve: resolve };
   };
-  var $_ah53lomkjcq86jn6 = { css: css };
+  var $_591zehncjgqkpvh2 = { css: css };
 
-  var styles = $_ah53lomkjcq86jn6.css('ephox-snooker');
-  var $_eaihi7mjjcq86jn4 = { resolve: styles.resolve };
+  var styles = $_591zehncjgqkpvh2.css('ephox-snooker');
+  var $_83x9h3nbjgqkpvgy = { resolve: styles.resolve };
 
-  var Toggler = function (turnOff, turnOn, initial) {
+  function Toggler (turnOff, turnOn, initial) {
     var active = initial || false;
     var on = function () {
       turnOn();
@@ -4533,178 +4466,178 @@ var table = (function () {
       toggle: toggle,
       isOn: isOn
     };
-  };
+  }
 
   var read = function (element, attr) {
-    var value = $_at8pjgkgjcq86jat.get(element, attr);
+    var value = $_41i612lcjgqkpuxu.get(element, attr);
     return value === undefined || value === '' ? [] : value.split(' ');
   };
-  var add$2 = function (element, attr, id) {
+  var add = function (element, attr, id) {
     var old = read(element, attr);
     var nu = old.concat([id]);
-    $_at8pjgkgjcq86jat.set(element, attr, nu.join(' '));
+    $_41i612lcjgqkpuxu.set(element, attr, nu.join(' '));
   };
-  var remove$5 = function (element, attr, id) {
-    var nu = $_4rqlpsjgjcq86j74.filter(read(element, attr), function (v) {
+  var remove$3 = function (element, attr, id) {
+    var nu = $_e5654tkcjgqkpurw.filter(read(element, attr), function (v) {
       return v !== id;
     });
     if (nu.length > 0)
-      $_at8pjgkgjcq86jat.set(element, attr, nu.join(' '));
+      $_41i612lcjgqkpuxu.set(element, attr, nu.join(' '));
     else
-      $_at8pjgkgjcq86jat.remove(element, attr);
+      $_41i612lcjgqkpuxu.remove(element, attr);
   };
-  var $_9odormojcq86jnd = {
+  var $_g0k4ujngjgqkpvhb = {
     read: read,
-    add: add$2,
-    remove: remove$5
+    add: add,
+    remove: remove$3
   };
 
   var supports = function (element) {
     return element.dom().classList !== undefined;
   };
-  var get$7 = function (element) {
-    return $_9odormojcq86jnd.read(element, 'class');
+  var get$6 = function (element) {
+    return $_g0k4ujngjgqkpvhb.read(element, 'class');
   };
   var add$1 = function (element, clazz) {
-    return $_9odormojcq86jnd.add(element, 'class', clazz);
+    return $_g0k4ujngjgqkpvhb.add(element, 'class', clazz);
   };
   var remove$4 = function (element, clazz) {
-    return $_9odormojcq86jnd.remove(element, 'class', clazz);
+    return $_g0k4ujngjgqkpvhb.remove(element, 'class', clazz);
   };
-  var toggle$1 = function (element, clazz) {
-    if ($_4rqlpsjgjcq86j74.contains(get$7(element), clazz)) {
+  var toggle = function (element, clazz) {
+    if ($_e5654tkcjgqkpurw.contains(get$6(element), clazz)) {
       remove$4(element, clazz);
     } else {
       add$1(element, clazz);
     }
   };
-  var $_fx2qehmnjcq86jna = {
-    get: get$7,
+  var $_3tlwh7nfjgqkpvh7 = {
+    get: get$6,
     add: add$1,
     remove: remove$4,
-    toggle: toggle$1,
+    toggle: toggle,
     supports: supports
   };
 
-  var add = function (element, clazz) {
-    if ($_fx2qehmnjcq86jna.supports(element))
+  var add$2 = function (element, clazz) {
+    if ($_3tlwh7nfjgqkpvh7.supports(element))
       element.dom().classList.add(clazz);
     else
-      $_fx2qehmnjcq86jna.add(element, clazz);
+      $_3tlwh7nfjgqkpvh7.add(element, clazz);
   };
   var cleanClass = function (element) {
-    var classList = $_fx2qehmnjcq86jna.supports(element) ? element.dom().classList : $_fx2qehmnjcq86jna.get(element);
+    var classList = $_3tlwh7nfjgqkpvh7.supports(element) ? element.dom().classList : $_3tlwh7nfjgqkpvh7.get(element);
     if (classList.length === 0) {
-      $_at8pjgkgjcq86jat.remove(element, 'class');
+      $_41i612lcjgqkpuxu.remove(element, 'class');
     }
   };
-  var remove$3 = function (element, clazz) {
-    if ($_fx2qehmnjcq86jna.supports(element)) {
+  var remove$5 = function (element, clazz) {
+    if ($_3tlwh7nfjgqkpvh7.supports(element)) {
       var classList = element.dom().classList;
       classList.remove(clazz);
     } else
-      $_fx2qehmnjcq86jna.remove(element, clazz);
+      $_3tlwh7nfjgqkpvh7.remove(element, clazz);
     cleanClass(element);
   };
-  var toggle = function (element, clazz) {
-    return $_fx2qehmnjcq86jna.supports(element) ? element.dom().classList.toggle(clazz) : $_fx2qehmnjcq86jna.toggle(element, clazz);
+  var toggle$1 = function (element, clazz) {
+    return $_3tlwh7nfjgqkpvh7.supports(element) ? element.dom().classList.toggle(clazz) : $_3tlwh7nfjgqkpvh7.toggle(element, clazz);
   };
   var toggler = function (element, clazz) {
-    var hasClasslist = $_fx2qehmnjcq86jna.supports(element);
+    var hasClasslist = $_3tlwh7nfjgqkpvh7.supports(element);
     var classList = element.dom().classList;
     var off = function () {
       if (hasClasslist)
         classList.remove(clazz);
       else
-        $_fx2qehmnjcq86jna.remove(element, clazz);
+        $_3tlwh7nfjgqkpvh7.remove(element, clazz);
     };
     var on = function () {
       if (hasClasslist)
         classList.add(clazz);
       else
-        $_fx2qehmnjcq86jna.add(element, clazz);
+        $_3tlwh7nfjgqkpvh7.add(element, clazz);
     };
     return Toggler(off, on, has$1(element, clazz));
   };
   var has$1 = function (element, clazz) {
-    return $_fx2qehmnjcq86jna.supports(element) && element.dom().classList.contains(clazz);
+    return $_3tlwh7nfjgqkpvh7.supports(element) && element.dom().classList.contains(clazz);
   };
-  var $_1ymy3mmljcq86jn7 = {
-    add: add,
-    remove: remove$3,
-    toggle: toggle,
+  var $_bqzv8tndjgqkpvh3 = {
+    add: add$2,
+    remove: remove$5,
+    toggle: toggle$1,
     toggler: toggler,
     has: has$1
   };
 
-  var resizeBar = $_eaihi7mjjcq86jn4.resolve('resizer-bar');
-  var resizeRowBar = $_eaihi7mjjcq86jn4.resolve('resizer-rows');
-  var resizeColBar = $_eaihi7mjjcq86jn4.resolve('resizer-cols');
+  var resizeBar = $_83x9h3nbjgqkpvgy.resolve('resizer-bar');
+  var resizeRowBar = $_83x9h3nbjgqkpvgy.resolve('resizer-rows');
+  var resizeColBar = $_83x9h3nbjgqkpvgy.resolve('resizer-cols');
   var BAR_THICKNESS = 7;
   var clear = function (wire) {
-    var previous = $_h5pcpkijcq86jb1.descendants(wire.parent(), '.' + resizeBar);
-    $_4rqlpsjgjcq86j74.each(previous, $_bu1tvfksjcq86jca.remove);
+    var previous = $_2v58a5lejgqkpuy6.descendants(wire.parent(), '.' + resizeBar);
+    $_e5654tkcjgqkpurw.each(previous, $_461fa9lojgqkpuzx.remove);
   };
   var drawBar = function (wire, positions, create) {
     var origin = wire.origin();
-    $_4rqlpsjgjcq86j74.each(positions, function (cpOption, i) {
+    $_e5654tkcjgqkpurw.each(positions, function (cpOption, i) {
       cpOption.each(function (cp) {
         var bar = create(origin, cp);
-        $_1ymy3mmljcq86jn7.add(bar, resizeBar);
-        $_6cjpwckrjcq86jc8.append(wire.parent(), bar);
+        $_bqzv8tndjgqkpvh3.add(bar, resizeBar);
+        $_4rg294lnjgqkpuzw.append(wire.parent(), bar);
       });
     });
   };
   var refreshCol = function (wire, colPositions, position, tableHeight) {
     drawBar(wire, colPositions, function (origin, cp) {
-      var colBar = $_96mnzamijcq86jmy.col(cp.col(), cp.x() - origin.left(), position.top() - origin.top(), BAR_THICKNESS, tableHeight);
-      $_1ymy3mmljcq86jn7.add(colBar, resizeColBar);
+      var colBar = $_fbbljvnajgqkpvgp.col(cp.col(), cp.x() - origin.left(), position.top() - origin.top(), BAR_THICKNESS, tableHeight);
+      $_bqzv8tndjgqkpvh3.add(colBar, resizeColBar);
       return colBar;
     });
   };
   var refreshRow = function (wire, rowPositions, position, tableWidth) {
     drawBar(wire, rowPositions, function (origin, cp) {
-      var rowBar = $_96mnzamijcq86jmy.row(cp.row(), position.left() - origin.left(), cp.y() - origin.top(), tableWidth, BAR_THICKNESS);
-      $_1ymy3mmljcq86jn7.add(rowBar, resizeRowBar);
+      var rowBar = $_fbbljvnajgqkpvgp.row(cp.row(), position.left() - origin.left(), cp.y() - origin.top(), tableWidth, BAR_THICKNESS);
+      $_bqzv8tndjgqkpvh3.add(rowBar, resizeRowBar);
       return rowBar;
     });
   };
   var refreshGrid = function (wire, table, rows, cols, hdirection, vdirection) {
-    var position = $_dhw84zlxjcq86jj3.absolute(table);
+    var position = $_57wipcmpjgqkpvai.absolute(table);
     var rowPositions = rows.length > 0 ? hdirection.positions(rows, table) : [];
-    refreshRow(wire, rowPositions, position, $_c060pnltjcq86jip.getOuter(table));
+    refreshRow(wire, rowPositions, position, $_axkrb1mljgqkpv9v.getOuter(table));
     var colPositions = cols.length > 0 ? vdirection.positions(cols, table) : [];
-    refreshCol(wire, colPositions, position, $_2dkpw5lrjcq86jii.getOuter(table));
+    refreshCol(wire, colPositions, position, $_2dezo4mjjgqkpv9l.getOuter(table));
   };
   var refresh = function (wire, table, hdirection, vdirection) {
     clear(wire);
-    var list = $_5tj7bljqjcq86j84.fromTable(table);
-    var warehouse = $_axex7bkojcq86jbm.generate(list);
-    var rows = $_7comtomgjcq86jml.rows(warehouse);
-    var cols = $_7comtomgjcq86jml.columns(warehouse);
+    var list = $_fqjflgkmjgqkputr.fromTable(table);
+    var warehouse = $_3c1k16lkjgqkpuz1.generate(list);
+    var rows = $_3tj6k7n8jgqkpvg4.rows(warehouse);
+    var cols = $_3tj6k7n8jgqkpvg4.columns(warehouse);
     refreshGrid(wire, table, rows, cols, hdirection, vdirection);
   };
   var each$2 = function (wire, f) {
-    var bars = $_h5pcpkijcq86jb1.descendants(wire.parent(), '.' + resizeBar);
-    $_4rqlpsjgjcq86j74.each(bars, f);
+    var bars = $_2v58a5lejgqkpuy6.descendants(wire.parent(), '.' + resizeBar);
+    $_e5654tkcjgqkpurw.each(bars, f);
   };
   var hide = function (wire) {
     each$2(wire, function (bar) {
-      $_eqzddikpjcq86jbt.set(bar, 'display', 'none');
+      $_9bj18xlljgqkpuzb.set(bar, 'display', 'none');
     });
   };
   var show = function (wire) {
     each$2(wire, function (bar) {
-      $_eqzddikpjcq86jbt.set(bar, 'display', 'block');
+      $_9bj18xlljgqkpuzb.set(bar, 'display', 'block');
     });
   };
   var isRowBar = function (element) {
-    return $_1ymy3mmljcq86jn7.has(element, resizeRowBar);
+    return $_bqzv8tndjgqkpvh3.has(element, resizeRowBar);
   };
   var isColBar = function (element) {
-    return $_1ymy3mmljcq86jn7.has(element, resizeColBar);
+    return $_bqzv8tndjgqkpvh3.has(element, resizeColBar);
   };
-  var $_7oisfimfjcq86jm7 = {
+  var $_9ab3ujn7jgqkpvfg = {
     refresh: refresh,
     hide: hide,
     show: show,
@@ -4714,58 +4647,58 @@ var table = (function () {
   };
 
   var fromWarehouse = function (warehouse, generators) {
-    return $_1ev7w4mbjcq86jla.toGrid(warehouse, generators, false);
+    return $_i7hi9n3jgqkpve3.toGrid(warehouse, generators, false);
   };
   var deriveRows = function (rendered, generators) {
     var findRow = function (details) {
-      var rowOfCells = $_dsgmzrmajcq86jl8.findMap(details, function (detail) {
-        return $_alsyrkjxjcq86j99.parent(detail.element()).map(function (row) {
-          var isNew = $_alsyrkjxjcq86j99.parent(row).isNone();
-          return $_8lo3ucjrjcq86j8b.elementnew(row, isNew);
+      var rowOfCells = $_82sd1cn2jgqkpve1.findMap(details, function (detail) {
+        return $_3t5binktjgqkpuvq.parent(detail.element()).map(function (row) {
+          var isNew = $_3t5binktjgqkpuvq.parent(row).isNone();
+          return $_71damwknjgqkpuu3.elementnew(row, isNew);
         });
       });
       return rowOfCells.getOrThunk(function () {
-        return $_8lo3ucjrjcq86j8b.elementnew(generators.row(), true);
+        return $_71damwknjgqkpuu3.elementnew(generators.row(), true);
       });
     };
-    return $_4rqlpsjgjcq86j74.map(rendered, function (details) {
+    return $_e5654tkcjgqkpurw.map(rendered, function (details) {
       var row = findRow(details.details());
-      return $_8lo3ucjrjcq86j8b.rowdatanew(row.element(), details.details(), details.section(), row.isNew());
+      return $_71damwknjgqkpuu3.rowdatanew(row.element(), details.details(), details.section(), row.isNew());
     });
   };
   var toDetailList = function (grid, generators) {
-    var rendered = $_1ev7w4mbjcq86jla.toDetails(grid, $_6oaqssjzjcq86j9l.eq);
+    var rendered = $_i7hi9n3jgqkpve3.toDetails(grid, $_an4cuxkvjgqkpuw7.eq);
     return deriveRows(rendered, generators);
   };
   var findInWarehouse = function (warehouse, element) {
-    var all = $_4rqlpsjgjcq86j74.flatten($_4rqlpsjgjcq86j74.map(warehouse.all(), function (r) {
+    var all = $_e5654tkcjgqkpurw.flatten($_e5654tkcjgqkpurw.map(warehouse.all(), function (r) {
       return r.cells();
     }));
-    return $_4rqlpsjgjcq86j74.find(all, function (e) {
-      return $_6oaqssjzjcq86j9l.eq(element, e.element());
+    return $_e5654tkcjgqkpurw.find(all, function (e) {
+      return $_an4cuxkvjgqkpuw7.eq(element, e.element());
     });
   };
   var run = function (operation, extract, adjustment, postAction, genWrappers) {
     return function (wire, table, target, generators, direction) {
-      var input = $_5tj7bljqjcq86j84.fromTable(table);
-      var warehouse = $_axex7bkojcq86jbm.generate(input);
+      var input = $_fqjflgkmjgqkputr.fromTable(table);
+      var warehouse = $_3c1k16lkjgqkpuz1.generate(input);
       var output = extract(warehouse, target).map(function (info) {
         var model = fromWarehouse(warehouse, generators);
-        var result = operation(model, info, $_6oaqssjzjcq86j9l.eq, genWrappers(generators));
+        var result = operation(model, info, $_an4cuxkvjgqkpuw7.eq, genWrappers(generators));
         var grid = toDetailList(result.grid(), generators);
         return {
-          grid: $_8h7nl9jijcq86j7b.constant(grid),
+          grid: $_fu1fqpkejgqkpus4.constant(grid),
           cursor: result.cursor
         };
       });
       return output.fold(function () {
-        return $_f1um5wjhjcq86j78.none();
+        return Option.none();
       }, function (out) {
-        var newElements = $_cskim3mejcq86jll.render(table, out.grid());
+        var newElements = $_1mpq53n6jgqkpvep.render(table, out.grid());
         adjustment(table, out.grid(), direction);
         postAction(table);
-        $_7oisfimfjcq86jm7.refresh(wire, table, $_dxrxkolwjcq86jis.height, direction);
-        return $_f1um5wjhjcq86j78.some({
+        $_9ab3ujn7jgqkpvfg.refresh(wire, table, $_5gdftfmojgqkpva2.height, direction);
+        return Option.some({
           cursor: out.cursor,
           newRows: newElements.newRows,
           newCells: newElements.newCells
@@ -4774,14 +4707,14 @@ var table = (function () {
     };
   };
   var onCell = function (warehouse, target) {
-    return $_7b9jhqjsjcq86j8e.cell(target.element()).bind(function (cell) {
+    return $_928zfykojgqkpuu7.cell(target.element()).bind(function (cell) {
       return findInWarehouse(warehouse, cell);
     });
   };
   var onPaste = function (warehouse, target) {
-    return $_7b9jhqjsjcq86j8e.cell(target.element()).bind(function (cell) {
+    return $_928zfykojgqkpuu7.cell(target.element()).bind(function (cell) {
       return findInWarehouse(warehouse, cell).map(function (details) {
-        return $_dgiifum9jcq86jl7.merge(details, {
+        return $_fcdlx0n1jgqkpvdz.merge(details, {
           generators: target.generators,
           clipboard: target.clipboard
         });
@@ -4789,16 +4722,16 @@ var table = (function () {
     });
   };
   var onPasteRows = function (warehouse, target) {
-    var details = $_4rqlpsjgjcq86j74.map(target.selection(), function (cell) {
-      return $_7b9jhqjsjcq86j8e.cell(cell).bind(function (lc) {
+    var details = $_e5654tkcjgqkpurw.map(target.selection(), function (cell) {
+      return $_928zfykojgqkpuu7.cell(cell).bind(function (lc) {
         return findInWarehouse(warehouse, lc);
       });
     });
-    var cells = $_dsgmzrmajcq86jl8.cat(details);
-    return cells.length > 0 ? $_f1um5wjhjcq86j78.some($_dgiifum9jcq86jl7.merge({ cells: cells }, {
+    var cells = $_82sd1cn2jgqkpve1.cat(details);
+    return cells.length > 0 ? Option.some($_fcdlx0n1jgqkpvdz.merge({ cells: cells }, {
       generators: target.generators,
       clipboard: target.clipboard
-    })) : $_f1um5wjhjcq86j78.none();
+    })) : Option.none();
   };
   var onMergable = function (warehouse, target) {
     return target.mergable();
@@ -4807,15 +4740,15 @@ var table = (function () {
     return target.unmergable();
   };
   var onCells = function (warehouse, target) {
-    var details = $_4rqlpsjgjcq86j74.map(target.selection(), function (cell) {
-      return $_7b9jhqjsjcq86j8e.cell(cell).bind(function (lc) {
+    var details = $_e5654tkcjgqkpurw.map(target.selection(), function (cell) {
+      return $_928zfykojgqkpuu7.cell(cell).bind(function (lc) {
         return findInWarehouse(warehouse, lc);
       });
     });
-    var cells = $_dsgmzrmajcq86jl8.cat(details);
-    return cells.length > 0 ? $_f1um5wjhjcq86j78.some(cells) : $_f1um5wjhjcq86j78.none();
+    var cells = $_82sd1cn2jgqkpve1.cat(details);
+    return cells.length > 0 ? Option.some(cells) : Option.none();
   };
-  var $_ldhiqm8jcq86jkv = {
+  var $_6pausrn0jgqkpvdf = {
     run: run,
     toDetailList: toDetailList,
     onCell: onCell,
@@ -4855,15 +4788,15 @@ var table = (function () {
       return f(o);
     };
     var toOption = function () {
-      return $_f1um5wjhjcq86j78.some(o);
+      return Option.some(o);
     };
     return {
       is: is,
-      isValue: $_8h7nl9jijcq86j7b.constant(true),
-      isError: $_8h7nl9jijcq86j7b.constant(false),
-      getOr: $_8h7nl9jijcq86j7b.constant(o),
-      getOrThunk: $_8h7nl9jijcq86j7b.constant(o),
-      getOrDie: $_8h7nl9jijcq86j7b.constant(o),
+      isValue: $_fu1fqpkejgqkpus4.always,
+      isError: $_fu1fqpkejgqkpus4.never,
+      getOr: $_fu1fqpkejgqkpus4.constant(o),
+      getOrThunk: $_fu1fqpkejgqkpus4.constant(o),
+      getOrDie: $_fu1fqpkejgqkpus4.constant(o),
       or: or,
       orThunk: orThunk,
       fold: fold,
@@ -4880,7 +4813,7 @@ var table = (function () {
       return f();
     };
     var getOrDie = function () {
-      return $_8h7nl9jijcq86j7b.die(message)();
+      return $_fu1fqpkejgqkpus4.die(String(message))();
     };
     var or = function (opt) {
       return opt;
@@ -4898,82 +4831,82 @@ var table = (function () {
       return onError(message);
     };
     return {
-      is: $_8h7nl9jijcq86j7b.constant(false),
-      isValue: $_8h7nl9jijcq86j7b.constant(false),
-      isError: $_8h7nl9jijcq86j7b.constant(true),
-      getOr: $_8h7nl9jijcq86j7b.identity,
+      is: $_fu1fqpkejgqkpus4.never,
+      isValue: $_fu1fqpkejgqkpus4.never,
+      isError: $_fu1fqpkejgqkpus4.always,
+      getOr: $_fu1fqpkejgqkpus4.identity,
       getOrThunk: getOrThunk,
       getOrDie: getOrDie,
       or: or,
       orThunk: orThunk,
       fold: fold,
       map: map,
-      each: $_8h7nl9jijcq86j7b.noop,
+      each: $_fu1fqpkejgqkpus4.noop,
       bind: bind,
-      exists: $_8h7nl9jijcq86j7b.constant(false),
-      forall: $_8h7nl9jijcq86j7b.constant(true),
-      toOption: $_f1um5wjhjcq86j78.none
+      exists: $_fu1fqpkejgqkpus4.never,
+      forall: $_fu1fqpkejgqkpus4.always,
+      toOption: Option.none
     };
   };
-  var $_eo3qb1mrjcq86jnr = {
+  var Result = {
     value: value$1,
     error: error
   };
 
   var measure = function (startAddress, gridA, gridB) {
-    if (startAddress.row() >= gridA.length || startAddress.column() > $_d1tf1amdjcq86jli.cellLength(gridA[0]))
-      return $_eo3qb1mrjcq86jnr.error('invalid start address out of table bounds, row: ' + startAddress.row() + ', column: ' + startAddress.column());
+    if (startAddress.row() >= gridA.length || startAddress.column() > $_eiuw3nn5jgqkpvek.cellLength(gridA[0]))
+      return Result.error('invalid start address out of table bounds, row: ' + startAddress.row() + ', column: ' + startAddress.column());
     var rowRemainder = gridA.slice(startAddress.row());
     var colRemainder = rowRemainder[0].cells().slice(startAddress.column());
-    var colRequired = $_d1tf1amdjcq86jli.cellLength(gridB[0]);
+    var colRequired = $_eiuw3nn5jgqkpvek.cellLength(gridB[0]);
     var rowRequired = gridB.length;
-    return $_eo3qb1mrjcq86jnr.value({
-      rowDelta: $_8h7nl9jijcq86j7b.constant(rowRemainder.length - rowRequired),
-      colDelta: $_8h7nl9jijcq86j7b.constant(colRemainder.length - colRequired)
+    return Result.value({
+      rowDelta: $_fu1fqpkejgqkpus4.constant(rowRemainder.length - rowRequired),
+      colDelta: $_fu1fqpkejgqkpus4.constant(colRemainder.length - colRequired)
     });
   };
   var measureWidth = function (gridA, gridB) {
-    var colLengthA = $_d1tf1amdjcq86jli.cellLength(gridA[0]);
-    var colLengthB = $_d1tf1amdjcq86jli.cellLength(gridB[0]);
+    var colLengthA = $_eiuw3nn5jgqkpvek.cellLength(gridA[0]);
+    var colLengthB = $_eiuw3nn5jgqkpvek.cellLength(gridB[0]);
     return {
-      rowDelta: $_8h7nl9jijcq86j7b.constant(0),
-      colDelta: $_8h7nl9jijcq86j7b.constant(colLengthA - colLengthB)
+      rowDelta: $_fu1fqpkejgqkpus4.constant(0),
+      colDelta: $_fu1fqpkejgqkpus4.constant(colLengthA - colLengthB)
     };
   };
   var fill = function (cells, generator) {
-    return $_4rqlpsjgjcq86j74.map(cells, function () {
-      return $_8lo3ucjrjcq86j8b.elementnew(generator.cell(), true);
+    return $_e5654tkcjgqkpurw.map(cells, function () {
+      return $_71damwknjgqkpuu3.elementnew(generator.cell(), true);
     });
   };
   var rowFill = function (grid, amount, generator) {
-    return grid.concat($_70obyimhjcq86jmr.repeat(amount, function (_row) {
-      return $_d1tf1amdjcq86jli.setCells(grid[grid.length - 1], fill(grid[grid.length - 1].cells(), generator));
+    return grid.concat($_6gfs3zn9jgqkpvge.repeat(amount, function (_row) {
+      return $_eiuw3nn5jgqkpvek.setCells(grid[grid.length - 1], fill(grid[grid.length - 1].cells(), generator));
     }));
   };
   var colFill = function (grid, amount, generator) {
-    return $_4rqlpsjgjcq86j74.map(grid, function (row) {
-      return $_d1tf1amdjcq86jli.setCells(row, row.cells().concat(fill($_70obyimhjcq86jmr.range(0, amount), generator)));
+    return $_e5654tkcjgqkpurw.map(grid, function (row) {
+      return $_eiuw3nn5jgqkpvek.setCells(row, row.cells().concat(fill($_6gfs3zn9jgqkpvge.range(0, amount), generator)));
     });
   };
   var tailor = function (gridA, delta, generator) {
-    var fillCols = delta.colDelta() < 0 ? colFill : $_8h7nl9jijcq86j7b.identity;
-    var fillRows = delta.rowDelta() < 0 ? rowFill : $_8h7nl9jijcq86j7b.identity;
+    var fillCols = delta.colDelta() < 0 ? colFill : $_fu1fqpkejgqkpus4.identity;
+    var fillRows = delta.rowDelta() < 0 ? rowFill : $_fu1fqpkejgqkpus4.identity;
     var modifiedCols = fillCols(gridA, Math.abs(delta.colDelta()), generator);
     var tailoredGrid = fillRows(modifiedCols, Math.abs(delta.rowDelta()), generator);
     return tailoredGrid;
   };
-  var $_d64clxmqjcq86jnk = {
+  var $_egrhfznijgqkpvhl = {
     measure: measure,
     measureWidth: measureWidth,
     tailor: tailor
   };
 
-  var merge$3 = function (grid, bounds, comparator, substitution) {
+  var merge$2 = function (grid, bounds, comparator, substitution) {
     if (grid.length === 0)
       return grid;
     for (var i = bounds.startRow(); i <= bounds.finishRow(); i++) {
       for (var j = bounds.startCol(); j <= bounds.finishCol(); j++) {
-        $_d1tf1amdjcq86jli.mutateCell(grid[i], j, $_8lo3ucjrjcq86j8b.elementnew(substitution(), false));
+        $_eiuw3nn5jgqkpvek.mutateCell(grid[i], j, $_71damwknjgqkpuu3.elementnew(substitution(), false));
       }
     }
     return grid;
@@ -4981,11 +4914,11 @@ var table = (function () {
   var unmerge = function (grid, target, comparator, substitution) {
     var first = true;
     for (var i = 0; i < grid.length; i++) {
-      for (var j = 0; j < $_d1tf1amdjcq86jli.cellLength(grid[0]); j++) {
-        var current = $_d1tf1amdjcq86jli.getCellElement(grid[i], j);
+      for (var j = 0; j < $_eiuw3nn5jgqkpvek.cellLength(grid[0]); j++) {
+        var current = $_eiuw3nn5jgqkpvek.getCellElement(grid[i], j);
         var isToReplace = comparator(current, target);
         if (isToReplace === true && first === false) {
-          $_d1tf1amdjcq86jli.mutateCell(grid[i], j, $_8lo3ucjrjcq86j8b.elementnew(substitution(), true));
+          $_eiuw3nn5jgqkpvek.mutateCell(grid[i], j, $_71damwknjgqkpuu3.elementnew(substitution(), true));
         } else if (isToReplace === true) {
           first = false;
         }
@@ -4994,8 +4927,8 @@ var table = (function () {
     return grid;
   };
   var uniqueCells = function (row, comparator) {
-    return $_4rqlpsjgjcq86j74.foldl(row, function (rest, cell) {
-      return $_4rqlpsjgjcq86j74.exists(rest, function (currentCell) {
+    return $_e5654tkcjgqkpurw.foldl(row, function (rest, cell) {
+      return $_e5654tkcjgqkpurw.exists(rest, function (currentCell) {
         return comparator(currentCell.element(), cell.element());
       }) ? rest : rest.concat([cell]);
     }, []);
@@ -5004,18 +4937,18 @@ var table = (function () {
     if (index > 0 && index < grid.length) {
       var rowPrevCells = grid[index - 1].cells();
       var cells = uniqueCells(rowPrevCells, comparator);
-      $_4rqlpsjgjcq86j74.each(cells, function (cell) {
-        var replacement = $_f1um5wjhjcq86j78.none();
+      $_e5654tkcjgqkpurw.each(cells, function (cell) {
+        var replacement = Option.none();
         for (var i = index; i < grid.length; i++) {
-          for (var j = 0; j < $_d1tf1amdjcq86jli.cellLength(grid[0]); j++) {
+          for (var j = 0; j < $_eiuw3nn5jgqkpvek.cellLength(grid[0]); j++) {
             var current = grid[i].cells()[j];
             var isToReplace = comparator(current.element(), cell.element());
             if (isToReplace) {
               if (replacement.isNone()) {
-                replacement = $_f1um5wjhjcq86j78.some(substitution());
+                replacement = Option.some(substitution());
               }
               replacement.each(function (sub) {
-                $_d1tf1amdjcq86jli.mutateCell(grid[i], j, $_8lo3ucjrjcq86j8b.elementnew(sub, true));
+                $_eiuw3nn5jgqkpvek.mutateCell(grid[i], j, $_71damwknjgqkpuu3.elementnew(sub, true));
               });
             }
           }
@@ -5024,147 +4957,147 @@ var table = (function () {
     }
     return grid;
   };
-  var $_88ua0umsjcq86jnu = {
-    merge: merge$3,
+  var $_5u7j5enkjgqkpvhz = {
+    merge: merge$2,
     unmerge: unmerge,
     splitRows: splitRows
   };
 
   var isSpanning = function (grid, row, col, comparator) {
-    var candidate = $_d1tf1amdjcq86jli.getCell(grid[row], col);
-    var matching = $_8h7nl9jijcq86j7b.curry(comparator, candidate.element());
+    var candidate = $_eiuw3nn5jgqkpvek.getCell(grid[row], col);
+    var matching = $_fu1fqpkejgqkpus4.curry(comparator, candidate.element());
     var currentRow = grid[row];
-    return grid.length > 1 && $_d1tf1amdjcq86jli.cellLength(currentRow) > 1 && (col > 0 && matching($_d1tf1amdjcq86jli.getCellElement(currentRow, col - 1)) || col < currentRow.length - 1 && matching($_d1tf1amdjcq86jli.getCellElement(currentRow, col + 1)) || row > 0 && matching($_d1tf1amdjcq86jli.getCellElement(grid[row - 1], col)) || row < grid.length - 1 && matching($_d1tf1amdjcq86jli.getCellElement(grid[row + 1], col)));
+    return grid.length > 1 && $_eiuw3nn5jgqkpvek.cellLength(currentRow) > 1 && (col > 0 && matching($_eiuw3nn5jgqkpvek.getCellElement(currentRow, col - 1)) || col < currentRow.length - 1 && matching($_eiuw3nn5jgqkpvek.getCellElement(currentRow, col + 1)) || row > 0 && matching($_eiuw3nn5jgqkpvek.getCellElement(grid[row - 1], col)) || row < grid.length - 1 && matching($_eiuw3nn5jgqkpvek.getCellElement(grid[row + 1], col)));
   };
   var mergeTables = function (startAddress, gridA, gridB, generator, comparator) {
     var startRow = startAddress.row();
     var startCol = startAddress.column();
     var mergeHeight = gridB.length;
-    var mergeWidth = $_d1tf1amdjcq86jli.cellLength(gridB[0]);
+    var mergeWidth = $_eiuw3nn5jgqkpvek.cellLength(gridB[0]);
     var endRow = startRow + mergeHeight;
     var endCol = startCol + mergeWidth;
     for (var r = startRow; r < endRow; r++) {
       for (var c = startCol; c < endCol; c++) {
         if (isSpanning(gridA, r, c, comparator)) {
-          $_88ua0umsjcq86jnu.unmerge(gridA, $_d1tf1amdjcq86jli.getCellElement(gridA[r], c), comparator, generator.cell);
+          $_5u7j5enkjgqkpvhz.unmerge(gridA, $_eiuw3nn5jgqkpvek.getCellElement(gridA[r], c), comparator, generator.cell);
         }
-        var newCell = $_d1tf1amdjcq86jli.getCellElement(gridB[r - startRow], c - startCol);
+        var newCell = $_eiuw3nn5jgqkpvek.getCellElement(gridB[r - startRow], c - startCol);
         var replacement = generator.replace(newCell);
-        $_d1tf1amdjcq86jli.mutateCell(gridA[r], c, $_8lo3ucjrjcq86j8b.elementnew(replacement, true));
+        $_eiuw3nn5jgqkpvek.mutateCell(gridA[r], c, $_71damwknjgqkpuu3.elementnew(replacement, true));
       }
     }
     return gridA;
   };
-  var merge$2 = function (startAddress, gridA, gridB, generator, comparator) {
-    var result = $_d64clxmqjcq86jnk.measure(startAddress, gridA, gridB);
+  var merge$3 = function (startAddress, gridA, gridB, generator, comparator) {
+    var result = $_egrhfznijgqkpvhl.measure(startAddress, gridA, gridB);
     return result.map(function (delta) {
-      var fittedGrid = $_d64clxmqjcq86jnk.tailor(gridA, delta, generator);
+      var fittedGrid = $_egrhfznijgqkpvhl.tailor(gridA, delta, generator);
       return mergeTables(startAddress, fittedGrid, gridB, generator, comparator);
     });
   };
-  var insert$1 = function (index, gridA, gridB, generator, comparator) {
-    $_88ua0umsjcq86jnu.splitRows(gridA, index, comparator, generator.cell);
-    var delta = $_d64clxmqjcq86jnk.measureWidth(gridB, gridA);
-    var fittedNewGrid = $_d64clxmqjcq86jnk.tailor(gridB, delta, generator);
-    var secondDelta = $_d64clxmqjcq86jnk.measureWidth(gridA, fittedNewGrid);
-    var fittedOldGrid = $_d64clxmqjcq86jnk.tailor(gridA, secondDelta, generator);
+  var insert = function (index, gridA, gridB, generator, comparator) {
+    $_5u7j5enkjgqkpvhz.splitRows(gridA, index, comparator, generator.cell);
+    var delta = $_egrhfznijgqkpvhl.measureWidth(gridB, gridA);
+    var fittedNewGrid = $_egrhfznijgqkpvhl.tailor(gridB, delta, generator);
+    var secondDelta = $_egrhfznijgqkpvhl.measureWidth(gridA, fittedNewGrid);
+    var fittedOldGrid = $_egrhfznijgqkpvhl.tailor(gridA, secondDelta, generator);
     return fittedOldGrid.slice(0, index).concat(fittedNewGrid).concat(fittedOldGrid.slice(index, fittedOldGrid.length));
   };
-  var $_cihebimpjcq86jnh = {
-    merge: merge$2,
-    insert: insert$1
+  var $_ajv0frnhjgqkpvhg = {
+    merge: merge$3,
+    insert: insert
   };
 
   var insertRowAt = function (grid, index, example, comparator, substitution) {
     var before = grid.slice(0, index);
     var after = grid.slice(index);
-    var between = $_d1tf1amdjcq86jli.mapCells(grid[example], function (ex, c) {
-      var withinSpan = index > 0 && index < grid.length && comparator($_d1tf1amdjcq86jli.getCellElement(grid[index - 1], c), $_d1tf1amdjcq86jli.getCellElement(grid[index], c));
-      var ret = withinSpan ? $_d1tf1amdjcq86jli.getCell(grid[index], c) : $_8lo3ucjrjcq86j8b.elementnew(substitution(ex.element(), comparator), true);
+    var between = $_eiuw3nn5jgqkpvek.mapCells(grid[example], function (ex, c) {
+      var withinSpan = index > 0 && index < grid.length && comparator($_eiuw3nn5jgqkpvek.getCellElement(grid[index - 1], c), $_eiuw3nn5jgqkpvek.getCellElement(grid[index], c));
+      var ret = withinSpan ? $_eiuw3nn5jgqkpvek.getCell(grid[index], c) : $_71damwknjgqkpuu3.elementnew(substitution(ex.element(), comparator), true);
       return ret;
     });
     return before.concat([between]).concat(after);
   };
   var insertColumnAt = function (grid, index, example, comparator, substitution) {
-    return $_4rqlpsjgjcq86j74.map(grid, function (row) {
-      var withinSpan = index > 0 && index < $_d1tf1amdjcq86jli.cellLength(row) && comparator($_d1tf1amdjcq86jli.getCellElement(row, index - 1), $_d1tf1amdjcq86jli.getCellElement(row, index));
-      var sub = withinSpan ? $_d1tf1amdjcq86jli.getCell(row, index) : $_8lo3ucjrjcq86j8b.elementnew(substitution($_d1tf1amdjcq86jli.getCellElement(row, example), comparator), true);
-      return $_d1tf1amdjcq86jli.addCell(row, index, sub);
+    return $_e5654tkcjgqkpurw.map(grid, function (row) {
+      var withinSpan = index > 0 && index < $_eiuw3nn5jgqkpvek.cellLength(row) && comparator($_eiuw3nn5jgqkpvek.getCellElement(row, index - 1), $_eiuw3nn5jgqkpvek.getCellElement(row, index));
+      var sub = withinSpan ? $_eiuw3nn5jgqkpvek.getCell(row, index) : $_71damwknjgqkpuu3.elementnew(substitution($_eiuw3nn5jgqkpvek.getCellElement(row, example), comparator), true);
+      return $_eiuw3nn5jgqkpvek.addCell(row, index, sub);
     });
   };
-  var splitCellIntoColumns$1 = function (grid, exampleRow, exampleCol, comparator, substitution) {
+  var splitCellIntoColumns = function (grid, exampleRow, exampleCol, comparator, substitution) {
     var index = exampleCol + 1;
-    return $_4rqlpsjgjcq86j74.map(grid, function (row, i) {
+    return $_e5654tkcjgqkpurw.map(grid, function (row, i) {
       var isTargetCell = i === exampleRow;
-      var sub = isTargetCell ? $_8lo3ucjrjcq86j8b.elementnew(substitution($_d1tf1amdjcq86jli.getCellElement(row, exampleCol), comparator), true) : $_d1tf1amdjcq86jli.getCell(row, exampleCol);
-      return $_d1tf1amdjcq86jli.addCell(row, index, sub);
+      var sub = isTargetCell ? $_71damwknjgqkpuu3.elementnew(substitution($_eiuw3nn5jgqkpvek.getCellElement(row, exampleCol), comparator), true) : $_eiuw3nn5jgqkpvek.getCell(row, exampleCol);
+      return $_eiuw3nn5jgqkpvek.addCell(row, index, sub);
     });
   };
-  var splitCellIntoRows$1 = function (grid, exampleRow, exampleCol, comparator, substitution) {
+  var splitCellIntoRows = function (grid, exampleRow, exampleCol, comparator, substitution) {
     var index = exampleRow + 1;
     var before = grid.slice(0, index);
     var after = grid.slice(index);
-    var between = $_d1tf1amdjcq86jli.mapCells(grid[exampleRow], function (ex, i) {
+    var between = $_eiuw3nn5jgqkpvek.mapCells(grid[exampleRow], function (ex, i) {
       var isTargetCell = i === exampleCol;
-      return isTargetCell ? $_8lo3ucjrjcq86j8b.elementnew(substitution(ex.element(), comparator), true) : ex;
+      return isTargetCell ? $_71damwknjgqkpuu3.elementnew(substitution(ex.element(), comparator), true) : ex;
     });
     return before.concat([between]).concat(after);
   };
   var deleteColumnsAt = function (grid, start, finish) {
-    var rows = $_4rqlpsjgjcq86j74.map(grid, function (row) {
+    var rows = $_e5654tkcjgqkpurw.map(grid, function (row) {
       var cells = row.cells().slice(0, start).concat(row.cells().slice(finish + 1));
-      return $_8lo3ucjrjcq86j8b.rowcells(cells, row.section());
+      return $_71damwknjgqkpuu3.rowcells(cells, row.section());
     });
-    return $_4rqlpsjgjcq86j74.filter(rows, function (row) {
+    return $_e5654tkcjgqkpurw.filter(rows, function (row) {
       return row.cells().length > 0;
     });
   };
   var deleteRowsAt = function (grid, start, finish) {
     return grid.slice(0, start).concat(grid.slice(finish + 1));
   };
-  var $_exoyy0mtjcq86jo0 = {
+  var $_ct5dshnljgqkpvi8 = {
     insertRowAt: insertRowAt,
     insertColumnAt: insertColumnAt,
-    splitCellIntoColumns: splitCellIntoColumns$1,
-    splitCellIntoRows: splitCellIntoRows$1,
+    splitCellIntoColumns: splitCellIntoColumns,
+    splitCellIntoRows: splitCellIntoRows,
     deleteRowsAt: deleteRowsAt,
     deleteColumnsAt: deleteColumnsAt
   };
 
   var replaceIn = function (grid, targets, comparator, substitution) {
     var isTarget = function (cell) {
-      return $_4rqlpsjgjcq86j74.exists(targets, function (target) {
+      return $_e5654tkcjgqkpurw.exists(targets, function (target) {
         return comparator(cell.element(), target.element());
       });
     };
-    return $_4rqlpsjgjcq86j74.map(grid, function (row) {
-      return $_d1tf1amdjcq86jli.mapCells(row, function (cell) {
-        return isTarget(cell) ? $_8lo3ucjrjcq86j8b.elementnew(substitution(cell.element(), comparator), true) : cell;
+    return $_e5654tkcjgqkpurw.map(grid, function (row) {
+      return $_eiuw3nn5jgqkpvek.mapCells(row, function (cell) {
+        return isTarget(cell) ? $_71damwknjgqkpuu3.elementnew(substitution(cell.element(), comparator), true) : cell;
       });
     });
   };
   var notStartRow = function (grid, rowIndex, colIndex, comparator) {
-    return $_d1tf1amdjcq86jli.getCellElement(grid[rowIndex], colIndex) !== undefined && (rowIndex > 0 && comparator($_d1tf1amdjcq86jli.getCellElement(grid[rowIndex - 1], colIndex), $_d1tf1amdjcq86jli.getCellElement(grid[rowIndex], colIndex)));
+    return $_eiuw3nn5jgqkpvek.getCellElement(grid[rowIndex], colIndex) !== undefined && (rowIndex > 0 && comparator($_eiuw3nn5jgqkpvek.getCellElement(grid[rowIndex - 1], colIndex), $_eiuw3nn5jgqkpvek.getCellElement(grid[rowIndex], colIndex)));
   };
   var notStartColumn = function (row, index, comparator) {
-    return index > 0 && comparator($_d1tf1amdjcq86jli.getCellElement(row, index - 1), $_d1tf1amdjcq86jli.getCellElement(row, index));
+    return index > 0 && comparator($_eiuw3nn5jgqkpvek.getCellElement(row, index - 1), $_eiuw3nn5jgqkpvek.getCellElement(row, index));
   };
   var replaceColumn = function (grid, index, comparator, substitution) {
-    var targets = $_4rqlpsjgjcq86j74.bind(grid, function (row, i) {
+    var targets = $_e5654tkcjgqkpurw.bind(grid, function (row, i) {
       var alreadyAdded = notStartRow(grid, i, index, comparator) || notStartColumn(row, index, comparator);
-      return alreadyAdded ? [] : [$_d1tf1amdjcq86jli.getCell(row, index)];
+      return alreadyAdded ? [] : [$_eiuw3nn5jgqkpvek.getCell(row, index)];
     });
     return replaceIn(grid, targets, comparator, substitution);
   };
   var replaceRow = function (grid, index, comparator, substitution) {
     var targetRow = grid[index];
-    var targets = $_4rqlpsjgjcq86j74.bind(targetRow.cells(), function (item, i) {
+    var targets = $_e5654tkcjgqkpurw.bind(targetRow.cells(), function (item, i) {
       var alreadyAdded = notStartRow(grid, index, i, comparator) || notStartColumn(targetRow, i, comparator);
       return alreadyAdded ? [] : [item];
     });
     return replaceIn(grid, targets, comparator, substitution);
   };
-  var $_9lyrk1mujcq86jo7 = {
+  var $_ta0ibnmjgqkpvid = {
     replaceColumn: replaceColumn,
     replaceRow: replaceRow
   };
@@ -5197,7 +5130,7 @@ var table = (function () {
   var folder = function (fold) {
     return { fold: fold };
   };
-  var $_66z3vzmxjcq86joj = {
+  var $_98c8fmnpjgqkpviw = {
     none: none$1,
     only: only,
     left: left,
@@ -5207,24 +5140,24 @@ var table = (function () {
 
   var neighbours$1 = function (input, index) {
     if (input.length === 0)
-      return $_66z3vzmxjcq86joj.none();
+      return $_98c8fmnpjgqkpviw.none();
     if (input.length === 1)
-      return $_66z3vzmxjcq86joj.only(0);
+      return $_98c8fmnpjgqkpviw.only(0);
     if (index === 0)
-      return $_66z3vzmxjcq86joj.left(0, 1);
+      return $_98c8fmnpjgqkpviw.left(0, 1);
     if (index === input.length - 1)
-      return $_66z3vzmxjcq86joj.right(index - 1, index);
+      return $_98c8fmnpjgqkpviw.right(index - 1, index);
     if (index > 0 && index < input.length - 1)
-      return $_66z3vzmxjcq86joj.middle(index - 1, index, index + 1);
-    return $_66z3vzmxjcq86joj.none();
+      return $_98c8fmnpjgqkpviw.middle(index - 1, index, index + 1);
+    return $_98c8fmnpjgqkpviw.none();
   };
   var determine = function (input, column, step, tableSize) {
     var result = input.slice(0);
     var context = neighbours$1(input, column);
     var zero = function (array) {
-      return $_4rqlpsjgjcq86j74.map(array, $_8h7nl9jijcq86j7b.constant(0));
+      return $_e5654tkcjgqkpurw.map(array, $_fu1fqpkejgqkpus4.constant(0));
     };
-    var onNone = $_8h7nl9jijcq86j7b.constant(zero(result));
+    var onNone = $_fu1fqpkejgqkpus4.constant(zero(result));
     var onOnly = function (index) {
       return tableSize.singleColumnWidth(result[index], step);
     };
@@ -5258,10 +5191,10 @@ var table = (function () {
     };
     return context.fold(onNone, onOnly, onLeft, onMiddle, onRight);
   };
-  var $_1qbtxtmwjcq86joe = { determine: determine };
+  var $_e3p0ccnojgqkpvio = { determine: determine };
 
   var getSpan$1 = function (cell, type) {
-    return $_at8pjgkgjcq86jat.has(cell, type) && parseInt($_at8pjgkgjcq86jat.get(cell, type), 10) > 1;
+    return $_41i612lcjgqkpuxu.has(cell, type) && parseInt($_41i612lcjgqkpuxu.get(cell, type), 10) > 1;
   };
   var hasColspan = function (cell) {
     return getSpan$1(cell, 'colspan');
@@ -5270,38 +5203,38 @@ var table = (function () {
     return getSpan$1(cell, 'rowspan');
   };
   var getInt = function (element, property) {
-    return parseInt($_eqzddikpjcq86jbt.get(element, property), 10);
+    return parseInt($_9bj18xlljgqkpuzb.get(element, property), 10);
   };
-  var $_80ojjzmzjcq86jot = {
+  var $_79qyt9nrjgqkpvjc = {
     hasColspan: hasColspan,
     hasRowspan: hasRowspan,
-    minWidth: $_8h7nl9jijcq86j7b.constant(10),
-    minHeight: $_8h7nl9jijcq86j7b.constant(10),
+    minWidth: $_fu1fqpkejgqkpus4.constant(10),
+    minHeight: $_fu1fqpkejgqkpus4.constant(10),
     getInt: getInt
   };
 
   var getRaw$1 = function (cell, property, getter) {
-    return $_eqzddikpjcq86jbt.getRaw(cell, property).fold(function () {
+    return $_9bj18xlljgqkpuzb.getRaw(cell, property).fold(function () {
       return getter(cell) + 'px';
     }, function (raw) {
       return raw;
     });
   };
   var getRawW = function (cell) {
-    return getRaw$1(cell, 'width', $_ah84g4lpjcq86jht.getPixelWidth);
+    return getRaw$1(cell, 'width', $_83pv9rmhjgqkpv8j.getPixelWidth);
   };
   var getRawH = function (cell) {
-    return getRaw$1(cell, 'height', $_ah84g4lpjcq86jht.getHeight);
+    return getRaw$1(cell, 'height', $_83pv9rmhjgqkpv8j.getHeight);
   };
   var getWidthFrom = function (warehouse, direction, getWidth, fallback, tableSize) {
-    var columns = $_7comtomgjcq86jml.columns(warehouse);
-    var backups = $_4rqlpsjgjcq86j74.map(columns, function (cellOption) {
+    var columns = $_3tj6k7n8jgqkpvg4.columns(warehouse);
+    var backups = $_e5654tkcjgqkpurw.map(columns, function (cellOption) {
       return cellOption.map(direction.edge);
     });
-    return $_4rqlpsjgjcq86j74.map(columns, function (cellOption, c) {
-      var columnCell = cellOption.filter($_8h7nl9jijcq86j7b.not($_80ojjzmzjcq86jot.hasColspan));
+    return $_e5654tkcjgqkpurw.map(columns, function (cellOption, c) {
+      var columnCell = cellOption.filter($_fu1fqpkejgqkpus4.not($_79qyt9nrjgqkpvjc.hasColspan));
       return columnCell.fold(function () {
-        var deduced = $_70obyimhjcq86jmr.deduce(backups, c);
+        var deduced = $_6gfs3zn9jgqkpvge.deduce(backups, c);
         return fallback(deduced);
       }, function (cell) {
         return getWidth(cell, tableSize);
@@ -5317,7 +5250,7 @@ var table = (function () {
     return getWidthFrom(warehouse, direction, getRawW, getDeduced);
   };
   var getPercentageWidths = function (warehouse, direction, tableSize) {
-    return getWidthFrom(warehouse, direction, $_ah84g4lpjcq86jht.getPercentageWidth, function (deduced) {
+    return getWidthFrom(warehouse, direction, $_83pv9rmhjgqkpv8j.getPercentageWidth, function (deduced) {
       return deduced.fold(function () {
         return tableSize.minCellWidth();
       }, function (cellWidth) {
@@ -5326,19 +5259,19 @@ var table = (function () {
     }, tableSize);
   };
   var getPixelWidths = function (warehouse, direction, tableSize) {
-    return getWidthFrom(warehouse, direction, $_ah84g4lpjcq86jht.getPixelWidth, function (deduced) {
+    return getWidthFrom(warehouse, direction, $_83pv9rmhjgqkpv8j.getPixelWidth, function (deduced) {
       return deduced.getOrThunk(tableSize.minCellWidth);
     }, tableSize);
   };
   var getHeightFrom = function (warehouse, direction, getHeight, fallback) {
-    var rows = $_7comtomgjcq86jml.rows(warehouse);
-    var backups = $_4rqlpsjgjcq86j74.map(rows, function (cellOption) {
+    var rows = $_3tj6k7n8jgqkpvg4.rows(warehouse);
+    var backups = $_e5654tkcjgqkpurw.map(rows, function (cellOption) {
       return cellOption.map(direction.edge);
     });
-    return $_4rqlpsjgjcq86j74.map(rows, function (cellOption, c) {
-      var rowCell = cellOption.filter($_8h7nl9jijcq86j7b.not($_80ojjzmzjcq86jot.hasRowspan));
+    return $_e5654tkcjgqkpurw.map(rows, function (cellOption, c) {
+      var rowCell = cellOption.filter($_fu1fqpkejgqkpus4.not($_79qyt9nrjgqkpvjc.hasRowspan));
       return rowCell.fold(function () {
-        var deduced = $_70obyimhjcq86jmr.deduce(backups, c);
+        var deduced = $_6gfs3zn9jgqkpvge.deduce(backups, c);
         return fallback(deduced);
       }, function (cell) {
         return getHeight(cell);
@@ -5346,14 +5279,14 @@ var table = (function () {
     });
   };
   var getPixelHeights = function (warehouse, direction) {
-    return getHeightFrom(warehouse, direction, $_ah84g4lpjcq86jht.getHeight, function (deduced) {
-      return deduced.getOrThunk($_80ojjzmzjcq86jot.minHeight);
+    return getHeightFrom(warehouse, direction, $_83pv9rmhjgqkpv8j.getHeight, function (deduced) {
+      return deduced.getOrThunk($_79qyt9nrjgqkpvjc.minHeight);
     });
   };
   var getRawHeights = function (warehouse, direction) {
     return getHeightFrom(warehouse, direction, getRawH, getDeduced);
   };
-  var $_b5dygqmyjcq86jol = {
+  var $_fcyo9onqjgqkpvj2 = {
     getRawWidths: getRawWidths,
     getPixelWidths: getPixelWidths,
     getPercentageWidths: getPercentageWidths,
@@ -5369,36 +5302,36 @@ var table = (function () {
     return r;
   };
   var recalculateWidth = function (warehouse, widths) {
-    var all = $_axex7bkojcq86jbm.justCells(warehouse);
-    return $_4rqlpsjgjcq86j74.map(all, function (cell) {
+    var all = $_3c1k16lkjgqkpuz1.justCells(warehouse);
+    return $_e5654tkcjgqkpurw.map(all, function (cell) {
       var width = total(cell.column(), cell.column() + cell.colspan(), widths);
       return {
         element: cell.element,
-        width: $_8h7nl9jijcq86j7b.constant(width),
+        width: $_fu1fqpkejgqkpus4.constant(width),
         colspan: cell.colspan
       };
     });
   };
   var recalculateHeight = function (warehouse, heights) {
-    var all = $_axex7bkojcq86jbm.justCells(warehouse);
-    return $_4rqlpsjgjcq86j74.map(all, function (cell) {
+    var all = $_3c1k16lkjgqkpuz1.justCells(warehouse);
+    return $_e5654tkcjgqkpurw.map(all, function (cell) {
       var height = total(cell.row(), cell.row() + cell.rowspan(), heights);
       return {
         element: cell.element,
-        height: $_8h7nl9jijcq86j7b.constant(height),
+        height: $_fu1fqpkejgqkpus4.constant(height),
         rowspan: cell.rowspan
       };
     });
   };
   var matchRowHeight = function (warehouse, heights) {
-    return $_4rqlpsjgjcq86j74.map(warehouse.all(), function (row, i) {
+    return $_e5654tkcjgqkpurw.map(warehouse.all(), function (row, i) {
       return {
         element: row.element,
-        height: $_8h7nl9jijcq86j7b.constant(heights[i])
+        height: $_fu1fqpkejgqkpus4.constant(heights[i])
       };
     });
   };
-  var $_9bfulcn0jcq86joz = {
+  var $_31z1mensjgqkpvjn = {
     recalculateWidth: recalculateWidth,
     recalculateHeight: recalculateHeight,
     matchRowHeight: matchRowHeight
@@ -5406,7 +5339,7 @@ var table = (function () {
 
   var percentageSize = function (width, element) {
     var floatWidth = parseFloat(width);
-    var pixelWidth = $_c060pnltjcq86jip.get(element);
+    var pixelWidth = $_axkrb1mljgqkpv9v.get(element);
     var getCellDelta = function (delta) {
       return delta / pixelWidth * 100;
     };
@@ -5414,93 +5347,93 @@ var table = (function () {
       return [100 - width];
     };
     var minCellWidth = function () {
-      return $_80ojjzmzjcq86jot.minWidth() / pixelWidth * 100;
+      return $_79qyt9nrjgqkpvjc.minWidth() / pixelWidth * 100;
     };
     var setTableWidth = function (table, _newWidths, delta) {
       var total = floatWidth + delta;
-      $_ah84g4lpjcq86jht.setPercentageWidth(table, total);
+      $_83pv9rmhjgqkpv8j.setPercentageWidth(table, total);
     };
     return {
-      width: $_8h7nl9jijcq86j7b.constant(floatWidth),
-      pixelWidth: $_8h7nl9jijcq86j7b.constant(pixelWidth),
-      getWidths: $_b5dygqmyjcq86jol.getPercentageWidths,
+      width: $_fu1fqpkejgqkpus4.constant(floatWidth),
+      pixelWidth: $_fu1fqpkejgqkpus4.constant(pixelWidth),
+      getWidths: $_fcyo9onqjgqkpvj2.getPercentageWidths,
       getCellDelta: getCellDelta,
       singleColumnWidth: singleColumnWidth,
       minCellWidth: minCellWidth,
-      setElementWidth: $_ah84g4lpjcq86jht.setPercentageWidth,
+      setElementWidth: $_83pv9rmhjgqkpv8j.setPercentageWidth,
       setTableWidth: setTableWidth
     };
   };
   var pixelSize = function (width) {
     var intWidth = parseInt(width, 10);
-    var getCellDelta = $_8h7nl9jijcq86j7b.identity;
+    var getCellDelta = $_fu1fqpkejgqkpus4.identity;
     var singleColumnWidth = function (width, delta) {
-      var newNext = Math.max($_80ojjzmzjcq86jot.minWidth(), width + delta);
+      var newNext = Math.max($_79qyt9nrjgqkpvjc.minWidth(), width + delta);
       return [newNext - width];
     };
     var setTableWidth = function (table, newWidths, _delta) {
-      var total = $_4rqlpsjgjcq86j74.foldr(newWidths, function (b, a) {
+      var total = $_e5654tkcjgqkpurw.foldr(newWidths, function (b, a) {
         return b + a;
       }, 0);
-      $_ah84g4lpjcq86jht.setPixelWidth(table, total);
+      $_83pv9rmhjgqkpv8j.setPixelWidth(table, total);
     };
     return {
-      width: $_8h7nl9jijcq86j7b.constant(intWidth),
-      pixelWidth: $_8h7nl9jijcq86j7b.constant(intWidth),
-      getWidths: $_b5dygqmyjcq86jol.getPixelWidths,
+      width: $_fu1fqpkejgqkpus4.constant(intWidth),
+      pixelWidth: $_fu1fqpkejgqkpus4.constant(intWidth),
+      getWidths: $_fcyo9onqjgqkpvj2.getPixelWidths,
       getCellDelta: getCellDelta,
       singleColumnWidth: singleColumnWidth,
-      minCellWidth: $_80ojjzmzjcq86jot.minWidth,
-      setElementWidth: $_ah84g4lpjcq86jht.setPixelWidth,
+      minCellWidth: $_79qyt9nrjgqkpvjc.minWidth,
+      setElementWidth: $_83pv9rmhjgqkpv8j.setPixelWidth,
       setTableWidth: setTableWidth
     };
   };
   var chooseSize = function (element, width) {
-    if ($_ah84g4lpjcq86jht.percentageBasedSizeRegex().test(width)) {
-      var percentMatch = $_ah84g4lpjcq86jht.percentageBasedSizeRegex().exec(width);
+    if ($_83pv9rmhjgqkpv8j.percentageBasedSizeRegex().test(width)) {
+      var percentMatch = $_83pv9rmhjgqkpv8j.percentageBasedSizeRegex().exec(width);
       return percentageSize(percentMatch[1], element);
-    } else if ($_ah84g4lpjcq86jht.pixelBasedSizeRegex().test(width)) {
-      var pixelMatch = $_ah84g4lpjcq86jht.pixelBasedSizeRegex().exec(width);
+    } else if ($_83pv9rmhjgqkpv8j.pixelBasedSizeRegex().test(width)) {
+      var pixelMatch = $_83pv9rmhjgqkpv8j.pixelBasedSizeRegex().exec(width);
       return pixelSize(pixelMatch[1]);
     } else {
-      var fallbackWidth = $_c060pnltjcq86jip.get(element);
+      var fallbackWidth = $_axkrb1mljgqkpv9v.get(element);
       return pixelSize(fallbackWidth);
     }
   };
   var getTableSize = function (element) {
-    var width = $_ah84g4lpjcq86jht.getRawWidth(element);
+    var width = $_83pv9rmhjgqkpv8j.getRawWidth(element);
     return width.fold(function () {
-      var fallbackWidth = $_c060pnltjcq86jip.get(element);
+      var fallbackWidth = $_axkrb1mljgqkpv9v.get(element);
       return pixelSize(fallbackWidth);
     }, function (width) {
       return chooseSize(element, width);
     });
   };
-  var $_622qzkn1jcq86jp4 = { getTableSize: getTableSize };
+  var $_bvm6u2ntjgqkpvju = { getTableSize: getTableSize };
 
   var getWarehouse$1 = function (list) {
-    return $_axex7bkojcq86jbm.generate(list);
+    return $_3c1k16lkjgqkpuz1.generate(list);
   };
   var sumUp = function (newSize) {
-    return $_4rqlpsjgjcq86j74.foldr(newSize, function (b, a) {
+    return $_e5654tkcjgqkpurw.foldr(newSize, function (b, a) {
       return b + a;
     }, 0);
   };
   var getTableWarehouse = function (table) {
-    var list = $_5tj7bljqjcq86j84.fromTable(table);
+    var list = $_fqjflgkmjgqkputr.fromTable(table);
     return getWarehouse$1(list);
   };
   var adjustWidth = function (table, delta, index, direction) {
-    var tableSize = $_622qzkn1jcq86jp4.getTableSize(table);
+    var tableSize = $_bvm6u2ntjgqkpvju.getTableSize(table);
     var step = tableSize.getCellDelta(delta);
     var warehouse = getTableWarehouse(table);
     var widths = tableSize.getWidths(warehouse, direction, tableSize);
-    var deltas = $_1qbtxtmwjcq86joe.determine(widths, index, step, tableSize);
-    var newWidths = $_4rqlpsjgjcq86j74.map(deltas, function (dx, i) {
+    var deltas = $_e3p0ccnojgqkpvio.determine(widths, index, step, tableSize);
+    var newWidths = $_e5654tkcjgqkpurw.map(deltas, function (dx, i) {
       return dx + widths[i];
     });
-    var newSizes = $_9bfulcn0jcq86joz.recalculateWidth(warehouse, newWidths);
-    $_4rqlpsjgjcq86j74.each(newSizes, function (cell) {
+    var newSizes = $_31z1mensjgqkpvjn.recalculateWidth(warehouse, newWidths);
+    $_e5654tkcjgqkpurw.each(newSizes, function (cell) {
       tableSize.setElementWidth(cell.element(), cell.width());
     });
     if (index === warehouse.grid().columns() - 1) {
@@ -5509,57 +5442,57 @@ var table = (function () {
   };
   var adjustHeight = function (table, delta, index, direction) {
     var warehouse = getTableWarehouse(table);
-    var heights = $_b5dygqmyjcq86jol.getPixelHeights(warehouse, direction);
-    var newHeights = $_4rqlpsjgjcq86j74.map(heights, function (dy, i) {
-      return index === i ? Math.max(delta + dy, $_80ojjzmzjcq86jot.minHeight()) : dy;
+    var heights = $_fcyo9onqjgqkpvj2.getPixelHeights(warehouse, direction);
+    var newHeights = $_e5654tkcjgqkpurw.map(heights, function (dy, i) {
+      return index === i ? Math.max(delta + dy, $_79qyt9nrjgqkpvjc.minHeight()) : dy;
     });
-    var newCellSizes = $_9bfulcn0jcq86joz.recalculateHeight(warehouse, newHeights);
-    var newRowSizes = $_9bfulcn0jcq86joz.matchRowHeight(warehouse, newHeights);
-    $_4rqlpsjgjcq86j74.each(newRowSizes, function (row) {
-      $_ah84g4lpjcq86jht.setHeight(row.element(), row.height());
+    var newCellSizes = $_31z1mensjgqkpvjn.recalculateHeight(warehouse, newHeights);
+    var newRowSizes = $_31z1mensjgqkpvjn.matchRowHeight(warehouse, newHeights);
+    $_e5654tkcjgqkpurw.each(newRowSizes, function (row) {
+      $_83pv9rmhjgqkpv8j.setHeight(row.element(), row.height());
     });
-    $_4rqlpsjgjcq86j74.each(newCellSizes, function (cell) {
-      $_ah84g4lpjcq86jht.setHeight(cell.element(), cell.height());
+    $_e5654tkcjgqkpurw.each(newCellSizes, function (cell) {
+      $_83pv9rmhjgqkpv8j.setHeight(cell.element(), cell.height());
     });
     var total = sumUp(newHeights);
-    $_ah84g4lpjcq86jht.setHeight(table, total);
+    $_83pv9rmhjgqkpv8j.setHeight(table, total);
   };
   var adjustWidthTo = function (table, list, direction) {
-    var tableSize = $_622qzkn1jcq86jp4.getTableSize(table);
+    var tableSize = $_bvm6u2ntjgqkpvju.getTableSize(table);
     var warehouse = getWarehouse$1(list);
     var widths = tableSize.getWidths(warehouse, direction, tableSize);
-    var newSizes = $_9bfulcn0jcq86joz.recalculateWidth(warehouse, widths);
-    $_4rqlpsjgjcq86j74.each(newSizes, function (cell) {
+    var newSizes = $_31z1mensjgqkpvjn.recalculateWidth(warehouse, widths);
+    $_e5654tkcjgqkpurw.each(newSizes, function (cell) {
       tableSize.setElementWidth(cell.element(), cell.width());
     });
-    var total = $_4rqlpsjgjcq86j74.foldr(widths, function (b, a) {
+    var total = $_e5654tkcjgqkpurw.foldr(widths, function (b, a) {
       return a + b;
     }, 0);
     if (newSizes.length > 0) {
       tableSize.setElementWidth(table, total);
     }
   };
-  var $_54gvixmvjcq86joa = {
+  var $_10jbwqnnjgqkpvii = {
     adjustWidth: adjustWidth,
     adjustHeight: adjustHeight,
     adjustWidthTo: adjustWidthTo
   };
 
   var prune = function (table) {
-    var cells = $_7b9jhqjsjcq86j8e.cells(table);
+    var cells = $_928zfykojgqkpuu7.cells(table);
     if (cells.length === 0)
-      $_bu1tvfksjcq86jca.remove(table);
+      $_461fa9lojgqkpuzx.remove(table);
   };
-  var outcome = $_9bzkn9jljcq86j7v.immutable('grid', 'cursor');
+  var outcome = $_c756rzkijgqkputi.immutable('grid', 'cursor');
   var elementFromGrid = function (grid, row, column) {
     return findIn(grid, row, column).orThunk(function () {
       return findIn(grid, 0, 0);
     });
   };
   var findIn = function (grid, row, column) {
-    return $_f1um5wjhjcq86j78.from(grid[row]).bind(function (r) {
-      return $_f1um5wjhjcq86j78.from(r.cells()[column]).bind(function (c) {
-        return $_f1um5wjhjcq86j78.from(c.element());
+    return Option.from(grid[row]).bind(function (r) {
+      return Option.from(r.cells()[column]).bind(function (c) {
+        return Option.from(c.element());
       });
     });
   };
@@ -5567,8 +5500,8 @@ var table = (function () {
     return outcome(grid, findIn(grid, row, column));
   };
   var uniqueRows = function (details) {
-    return $_4rqlpsjgjcq86j74.foldl(details, function (rest, detail) {
-      return $_4rqlpsjgjcq86j74.exists(rest, function (currentDetail) {
+    return $_e5654tkcjgqkpurw.foldl(details, function (rest, detail) {
+      return $_e5654tkcjgqkpurw.exists(rest, function (currentDetail) {
         return currentDetail.row() === detail.row();
       }) ? rest : rest.concat([detail]);
     }, []).sort(function (detailA, detailB) {
@@ -5576,8 +5509,8 @@ var table = (function () {
     });
   };
   var uniqueColumns = function (details) {
-    return $_4rqlpsjgjcq86j74.foldl(details, function (rest, detail) {
-      return $_4rqlpsjgjcq86j74.exists(rest, function (currentDetail) {
+    return $_e5654tkcjgqkpurw.foldl(details, function (rest, detail) {
+      return $_e5654tkcjgqkpurw.exists(rest, function (currentDetail) {
         return currentDetail.column() === detail.column();
       }) ? rest : rest.concat([detail]);
     }, []).sort(function (detailA, detailB) {
@@ -5587,137 +5520,137 @@ var table = (function () {
   var insertRowBefore = function (grid, detail, comparator, genWrappers) {
     var example = detail.row();
     var targetIndex = detail.row();
-    var newGrid = $_exoyy0mtjcq86jo0.insertRowAt(grid, targetIndex, example, comparator, genWrappers.getOrInit);
+    var newGrid = $_ct5dshnljgqkpvi8.insertRowAt(grid, targetIndex, example, comparator, genWrappers.getOrInit);
     return bundle(newGrid, targetIndex, detail.column());
   };
   var insertRowsBefore = function (grid, details, comparator, genWrappers) {
     var example = details[0].row();
     var targetIndex = details[0].row();
     var rows = uniqueRows(details);
-    var newGrid = $_4rqlpsjgjcq86j74.foldl(rows, function (newGrid, _row) {
-      return $_exoyy0mtjcq86jo0.insertRowAt(newGrid, targetIndex, example, comparator, genWrappers.getOrInit);
+    var newGrid = $_e5654tkcjgqkpurw.foldl(rows, function (newGrid, _row) {
+      return $_ct5dshnljgqkpvi8.insertRowAt(newGrid, targetIndex, example, comparator, genWrappers.getOrInit);
     }, grid);
     return bundle(newGrid, targetIndex, details[0].column());
   };
   var insertRowAfter = function (grid, detail, comparator, genWrappers) {
     var example = detail.row();
     var targetIndex = detail.row() + detail.rowspan();
-    var newGrid = $_exoyy0mtjcq86jo0.insertRowAt(grid, targetIndex, example, comparator, genWrappers.getOrInit);
+    var newGrid = $_ct5dshnljgqkpvi8.insertRowAt(grid, targetIndex, example, comparator, genWrappers.getOrInit);
     return bundle(newGrid, targetIndex, detail.column());
   };
   var insertRowsAfter = function (grid, details, comparator, genWrappers) {
     var rows = uniqueRows(details);
     var example = rows[rows.length - 1].row();
     var targetIndex = rows[rows.length - 1].row() + rows[rows.length - 1].rowspan();
-    var newGrid = $_4rqlpsjgjcq86j74.foldl(rows, function (newGrid, _row) {
-      return $_exoyy0mtjcq86jo0.insertRowAt(newGrid, targetIndex, example, comparator, genWrappers.getOrInit);
+    var newGrid = $_e5654tkcjgqkpurw.foldl(rows, function (newGrid, _row) {
+      return $_ct5dshnljgqkpvi8.insertRowAt(newGrid, targetIndex, example, comparator, genWrappers.getOrInit);
     }, grid);
     return bundle(newGrid, targetIndex, details[0].column());
   };
   var insertColumnBefore = function (grid, detail, comparator, genWrappers) {
     var example = detail.column();
     var targetIndex = detail.column();
-    var newGrid = $_exoyy0mtjcq86jo0.insertColumnAt(grid, targetIndex, example, comparator, genWrappers.getOrInit);
+    var newGrid = $_ct5dshnljgqkpvi8.insertColumnAt(grid, targetIndex, example, comparator, genWrappers.getOrInit);
     return bundle(newGrid, detail.row(), targetIndex);
   };
   var insertColumnsBefore = function (grid, details, comparator, genWrappers) {
     var columns = uniqueColumns(details);
     var example = columns[0].column();
     var targetIndex = columns[0].column();
-    var newGrid = $_4rqlpsjgjcq86j74.foldl(columns, function (newGrid, _row) {
-      return $_exoyy0mtjcq86jo0.insertColumnAt(newGrid, targetIndex, example, comparator, genWrappers.getOrInit);
+    var newGrid = $_e5654tkcjgqkpurw.foldl(columns, function (newGrid, _row) {
+      return $_ct5dshnljgqkpvi8.insertColumnAt(newGrid, targetIndex, example, comparator, genWrappers.getOrInit);
     }, grid);
     return bundle(newGrid, details[0].row(), targetIndex);
   };
   var insertColumnAfter = function (grid, detail, comparator, genWrappers) {
     var example = detail.column();
     var targetIndex = detail.column() + detail.colspan();
-    var newGrid = $_exoyy0mtjcq86jo0.insertColumnAt(grid, targetIndex, example, comparator, genWrappers.getOrInit);
+    var newGrid = $_ct5dshnljgqkpvi8.insertColumnAt(grid, targetIndex, example, comparator, genWrappers.getOrInit);
     return bundle(newGrid, detail.row(), targetIndex);
   };
   var insertColumnsAfter = function (grid, details, comparator, genWrappers) {
     var example = details[details.length - 1].column();
     var targetIndex = details[details.length - 1].column() + details[details.length - 1].colspan();
     var columns = uniqueColumns(details);
-    var newGrid = $_4rqlpsjgjcq86j74.foldl(columns, function (newGrid, _row) {
-      return $_exoyy0mtjcq86jo0.insertColumnAt(newGrid, targetIndex, example, comparator, genWrappers.getOrInit);
+    var newGrid = $_e5654tkcjgqkpurw.foldl(columns, function (newGrid, _row) {
+      return $_ct5dshnljgqkpvi8.insertColumnAt(newGrid, targetIndex, example, comparator, genWrappers.getOrInit);
     }, grid);
     return bundle(newGrid, details[0].row(), targetIndex);
   };
   var makeRowHeader = function (grid, detail, comparator, genWrappers) {
-    var newGrid = $_9lyrk1mujcq86jo7.replaceRow(grid, detail.row(), comparator, genWrappers.replaceOrInit);
+    var newGrid = $_ta0ibnmjgqkpvid.replaceRow(grid, detail.row(), comparator, genWrappers.replaceOrInit);
     return bundle(newGrid, detail.row(), detail.column());
   };
   var makeColumnHeader = function (grid, detail, comparator, genWrappers) {
-    var newGrid = $_9lyrk1mujcq86jo7.replaceColumn(grid, detail.column(), comparator, genWrappers.replaceOrInit);
+    var newGrid = $_ta0ibnmjgqkpvid.replaceColumn(grid, detail.column(), comparator, genWrappers.replaceOrInit);
     return bundle(newGrid, detail.row(), detail.column());
   };
   var unmakeRowHeader = function (grid, detail, comparator, genWrappers) {
-    var newGrid = $_9lyrk1mujcq86jo7.replaceRow(grid, detail.row(), comparator, genWrappers.replaceOrInit);
+    var newGrid = $_ta0ibnmjgqkpvid.replaceRow(grid, detail.row(), comparator, genWrappers.replaceOrInit);
     return bundle(newGrid, detail.row(), detail.column());
   };
   var unmakeColumnHeader = function (grid, detail, comparator, genWrappers) {
-    var newGrid = $_9lyrk1mujcq86jo7.replaceColumn(grid, detail.column(), comparator, genWrappers.replaceOrInit);
+    var newGrid = $_ta0ibnmjgqkpvid.replaceColumn(grid, detail.column(), comparator, genWrappers.replaceOrInit);
     return bundle(newGrid, detail.row(), detail.column());
   };
-  var splitCellIntoColumns = function (grid, detail, comparator, genWrappers) {
-    var newGrid = $_exoyy0mtjcq86jo0.splitCellIntoColumns(grid, detail.row(), detail.column(), comparator, genWrappers.getOrInit);
+  var splitCellIntoColumns$1 = function (grid, detail, comparator, genWrappers) {
+    var newGrid = $_ct5dshnljgqkpvi8.splitCellIntoColumns(grid, detail.row(), detail.column(), comparator, genWrappers.getOrInit);
     return bundle(newGrid, detail.row(), detail.column());
   };
-  var splitCellIntoRows = function (grid, detail, comparator, genWrappers) {
-    var newGrid = $_exoyy0mtjcq86jo0.splitCellIntoRows(grid, detail.row(), detail.column(), comparator, genWrappers.getOrInit);
+  var splitCellIntoRows$1 = function (grid, detail, comparator, genWrappers) {
+    var newGrid = $_ct5dshnljgqkpvi8.splitCellIntoRows(grid, detail.row(), detail.column(), comparator, genWrappers.getOrInit);
     return bundle(newGrid, detail.row(), detail.column());
   };
   var eraseColumns = function (grid, details, comparator, _genWrappers) {
     var columns = uniqueColumns(details);
-    var newGrid = $_exoyy0mtjcq86jo0.deleteColumnsAt(grid, columns[0].column(), columns[columns.length - 1].column());
+    var newGrid = $_ct5dshnljgqkpvi8.deleteColumnsAt(grid, columns[0].column(), columns[columns.length - 1].column());
     var cursor = elementFromGrid(newGrid, details[0].row(), details[0].column());
     return outcome(newGrid, cursor);
   };
   var eraseRows = function (grid, details, comparator, _genWrappers) {
     var rows = uniqueRows(details);
-    var newGrid = $_exoyy0mtjcq86jo0.deleteRowsAt(grid, rows[0].row(), rows[rows.length - 1].row());
+    var newGrid = $_ct5dshnljgqkpvi8.deleteRowsAt(grid, rows[0].row(), rows[rows.length - 1].row());
     var cursor = elementFromGrid(newGrid, details[0].row(), details[0].column());
     return outcome(newGrid, cursor);
   };
   var mergeCells = function (grid, mergable, comparator, _genWrappers) {
     var cells = mergable.cells();
-    $_aon3gym5jcq86jk3.merge(cells);
-    var newGrid = $_88ua0umsjcq86jnu.merge(grid, mergable.bounds(), comparator, $_8h7nl9jijcq86j7b.constant(cells[0]));
-    return outcome(newGrid, $_f1um5wjhjcq86j78.from(cells[0]));
+    $_6blez6mxjgqkpvc8.merge(cells);
+    var newGrid = $_5u7j5enkjgqkpvhz.merge(grid, mergable.bounds(), comparator, $_fu1fqpkejgqkpus4.constant(cells[0]));
+    return outcome(newGrid, Option.from(cells[0]));
   };
   var unmergeCells = function (grid, unmergable, comparator, genWrappers) {
-    var newGrid = $_4rqlpsjgjcq86j74.foldr(unmergable, function (b, cell) {
-      return $_88ua0umsjcq86jnu.unmerge(b, cell, comparator, genWrappers.combine(cell));
+    var newGrid = $_e5654tkcjgqkpurw.foldr(unmergable, function (b, cell) {
+      return $_5u7j5enkjgqkpvhz.unmerge(b, cell, comparator, genWrappers.combine(cell));
     }, grid);
-    return outcome(newGrid, $_f1um5wjhjcq86j78.from(unmergable[0]));
+    return outcome(newGrid, Option.from(unmergable[0]));
   };
   var pasteCells = function (grid, pasteDetails, comparator, genWrappers) {
     var gridify = function (table, generators) {
-      var list = $_5tj7bljqjcq86j84.fromTable(table);
-      var wh = $_axex7bkojcq86jbm.generate(list);
-      return $_1ev7w4mbjcq86jla.toGrid(wh, generators, true);
+      var list = $_fqjflgkmjgqkputr.fromTable(table);
+      var wh = $_3c1k16lkjgqkpuz1.generate(list);
+      return $_i7hi9n3jgqkpve3.toGrid(wh, generators, true);
     };
     var gridB = gridify(pasteDetails.clipboard(), pasteDetails.generators());
-    var startAddress = $_8lo3ucjrjcq86j8b.address(pasteDetails.row(), pasteDetails.column());
-    var mergedGrid = $_cihebimpjcq86jnh.merge(startAddress, grid, gridB, pasteDetails.generators(), comparator);
+    var startAddress = $_71damwknjgqkpuu3.address(pasteDetails.row(), pasteDetails.column());
+    var mergedGrid = $_ajv0frnhjgqkpvhg.merge(startAddress, grid, gridB, pasteDetails.generators(), comparator);
     return mergedGrid.fold(function () {
-      return outcome(grid, $_f1um5wjhjcq86j78.some(pasteDetails.element()));
+      return outcome(grid, Option.some(pasteDetails.element()));
     }, function (nuGrid) {
       var cursor = elementFromGrid(nuGrid, pasteDetails.row(), pasteDetails.column());
       return outcome(nuGrid, cursor);
     });
   };
   var gridifyRows = function (rows, generators, example) {
-    var pasteDetails = $_5tj7bljqjcq86j84.fromPastedRows(rows, example);
-    var wh = $_axex7bkojcq86jbm.generate(pasteDetails);
-    return $_1ev7w4mbjcq86jla.toGrid(wh, generators, true);
+    var pasteDetails = $_fqjflgkmjgqkputr.fromPastedRows(rows, example);
+    var wh = $_3c1k16lkjgqkpuz1.generate(pasteDetails);
+    return $_i7hi9n3jgqkpve3.toGrid(wh, generators, true);
   };
   var pasteRowsBefore = function (grid, pasteDetails, comparator, genWrappers) {
     var example = grid[pasteDetails.cells[0].row()];
     var index = pasteDetails.cells[0].row();
     var gridB = gridifyRows(pasteDetails.clipboard(), pasteDetails.generators(), example);
-    var mergedGrid = $_cihebimpjcq86jnh.insert(index, grid, gridB, pasteDetails.generators(), comparator);
+    var mergedGrid = $_ajv0frnhjgqkpvhg.insert(index, grid, gridB, pasteDetails.generators(), comparator);
     var cursor = elementFromGrid(mergedGrid, pasteDetails.cells[0].row(), pasteDetails.cells[0].column());
     return outcome(mergedGrid, cursor);
   };
@@ -5725,41 +5658,47 @@ var table = (function () {
     var example = grid[pasteDetails.cells[0].row()];
     var index = pasteDetails.cells[pasteDetails.cells.length - 1].row() + pasteDetails.cells[pasteDetails.cells.length - 1].rowspan();
     var gridB = gridifyRows(pasteDetails.clipboard(), pasteDetails.generators(), example);
-    var mergedGrid = $_cihebimpjcq86jnh.insert(index, grid, gridB, pasteDetails.generators(), comparator);
+    var mergedGrid = $_ajv0frnhjgqkpvhg.insert(index, grid, gridB, pasteDetails.generators(), comparator);
     var cursor = elementFromGrid(mergedGrid, pasteDetails.cells[0].row(), pasteDetails.cells[0].column());
     return outcome(mergedGrid, cursor);
   };
-  var resize = $_54gvixmvjcq86joa.adjustWidthTo;
-  var $_8gd5i9m1jcq86jjd = {
-    insertRowBefore: $_ldhiqm8jcq86jkv.run(insertRowBefore, $_ldhiqm8jcq86jkv.onCell, $_8h7nl9jijcq86j7b.noop, $_8h7nl9jijcq86j7b.noop, $_5p72fom2jcq86jjp.modification),
-    insertRowsBefore: $_ldhiqm8jcq86jkv.run(insertRowsBefore, $_ldhiqm8jcq86jkv.onCells, $_8h7nl9jijcq86j7b.noop, $_8h7nl9jijcq86j7b.noop, $_5p72fom2jcq86jjp.modification),
-    insertRowAfter: $_ldhiqm8jcq86jkv.run(insertRowAfter, $_ldhiqm8jcq86jkv.onCell, $_8h7nl9jijcq86j7b.noop, $_8h7nl9jijcq86j7b.noop, $_5p72fom2jcq86jjp.modification),
-    insertRowsAfter: $_ldhiqm8jcq86jkv.run(insertRowsAfter, $_ldhiqm8jcq86jkv.onCells, $_8h7nl9jijcq86j7b.noop, $_8h7nl9jijcq86j7b.noop, $_5p72fom2jcq86jjp.modification),
-    insertColumnBefore: $_ldhiqm8jcq86jkv.run(insertColumnBefore, $_ldhiqm8jcq86jkv.onCell, resize, $_8h7nl9jijcq86j7b.noop, $_5p72fom2jcq86jjp.modification),
-    insertColumnsBefore: $_ldhiqm8jcq86jkv.run(insertColumnsBefore, $_ldhiqm8jcq86jkv.onCells, resize, $_8h7nl9jijcq86j7b.noop, $_5p72fom2jcq86jjp.modification),
-    insertColumnAfter: $_ldhiqm8jcq86jkv.run(insertColumnAfter, $_ldhiqm8jcq86jkv.onCell, resize, $_8h7nl9jijcq86j7b.noop, $_5p72fom2jcq86jjp.modification),
-    insertColumnsAfter: $_ldhiqm8jcq86jkv.run(insertColumnsAfter, $_ldhiqm8jcq86jkv.onCells, resize, $_8h7nl9jijcq86j7b.noop, $_5p72fom2jcq86jjp.modification),
-    splitCellIntoColumns: $_ldhiqm8jcq86jkv.run(splitCellIntoColumns, $_ldhiqm8jcq86jkv.onCell, resize, $_8h7nl9jijcq86j7b.noop, $_5p72fom2jcq86jjp.modification),
-    splitCellIntoRows: $_ldhiqm8jcq86jkv.run(splitCellIntoRows, $_ldhiqm8jcq86jkv.onCell, $_8h7nl9jijcq86j7b.noop, $_8h7nl9jijcq86j7b.noop, $_5p72fom2jcq86jjp.modification),
-    eraseColumns: $_ldhiqm8jcq86jkv.run(eraseColumns, $_ldhiqm8jcq86jkv.onCells, resize, prune, $_5p72fom2jcq86jjp.modification),
-    eraseRows: $_ldhiqm8jcq86jkv.run(eraseRows, $_ldhiqm8jcq86jkv.onCells, $_8h7nl9jijcq86j7b.noop, prune, $_5p72fom2jcq86jjp.modification),
-    makeColumnHeader: $_ldhiqm8jcq86jkv.run(makeColumnHeader, $_ldhiqm8jcq86jkv.onCell, $_8h7nl9jijcq86j7b.noop, $_8h7nl9jijcq86j7b.noop, $_5p72fom2jcq86jjp.transform('row', 'th')),
-    unmakeColumnHeader: $_ldhiqm8jcq86jkv.run(unmakeColumnHeader, $_ldhiqm8jcq86jkv.onCell, $_8h7nl9jijcq86j7b.noop, $_8h7nl9jijcq86j7b.noop, $_5p72fom2jcq86jjp.transform(null, 'td')),
-    makeRowHeader: $_ldhiqm8jcq86jkv.run(makeRowHeader, $_ldhiqm8jcq86jkv.onCell, $_8h7nl9jijcq86j7b.noop, $_8h7nl9jijcq86j7b.noop, $_5p72fom2jcq86jjp.transform('col', 'th')),
-    unmakeRowHeader: $_ldhiqm8jcq86jkv.run(unmakeRowHeader, $_ldhiqm8jcq86jkv.onCell, $_8h7nl9jijcq86j7b.noop, $_8h7nl9jijcq86j7b.noop, $_5p72fom2jcq86jjp.transform(null, 'td')),
-    mergeCells: $_ldhiqm8jcq86jkv.run(mergeCells, $_ldhiqm8jcq86jkv.onMergable, $_8h7nl9jijcq86j7b.noop, $_8h7nl9jijcq86j7b.noop, $_5p72fom2jcq86jjp.merging),
-    unmergeCells: $_ldhiqm8jcq86jkv.run(unmergeCells, $_ldhiqm8jcq86jkv.onUnmergable, resize, $_8h7nl9jijcq86j7b.noop, $_5p72fom2jcq86jjp.merging),
-    pasteCells: $_ldhiqm8jcq86jkv.run(pasteCells, $_ldhiqm8jcq86jkv.onPaste, resize, $_8h7nl9jijcq86j7b.noop, $_5p72fom2jcq86jjp.modification),
-    pasteRowsBefore: $_ldhiqm8jcq86jkv.run(pasteRowsBefore, $_ldhiqm8jcq86jkv.onPasteRows, $_8h7nl9jijcq86j7b.noop, $_8h7nl9jijcq86j7b.noop, $_5p72fom2jcq86jjp.modification),
-    pasteRowsAfter: $_ldhiqm8jcq86jkv.run(pasteRowsAfter, $_ldhiqm8jcq86jkv.onPasteRows, $_8h7nl9jijcq86j7b.noop, $_8h7nl9jijcq86j7b.noop, $_5p72fom2jcq86jjp.modification)
+  var resize = $_10jbwqnnjgqkpvii.adjustWidthTo;
+  var $_cagp30mtjgqkpvaw = {
+    insertRowBefore: $_6pausrn0jgqkpvdf.run(insertRowBefore, $_6pausrn0jgqkpvdf.onCell, $_fu1fqpkejgqkpus4.noop, $_fu1fqpkejgqkpus4.noop, $_50s4z4mujgqkpvbh.modification),
+    insertRowsBefore: $_6pausrn0jgqkpvdf.run(insertRowsBefore, $_6pausrn0jgqkpvdf.onCells, $_fu1fqpkejgqkpus4.noop, $_fu1fqpkejgqkpus4.noop, $_50s4z4mujgqkpvbh.modification),
+    insertRowAfter: $_6pausrn0jgqkpvdf.run(insertRowAfter, $_6pausrn0jgqkpvdf.onCell, $_fu1fqpkejgqkpus4.noop, $_fu1fqpkejgqkpus4.noop, $_50s4z4mujgqkpvbh.modification),
+    insertRowsAfter: $_6pausrn0jgqkpvdf.run(insertRowsAfter, $_6pausrn0jgqkpvdf.onCells, $_fu1fqpkejgqkpus4.noop, $_fu1fqpkejgqkpus4.noop, $_50s4z4mujgqkpvbh.modification),
+    insertColumnBefore: $_6pausrn0jgqkpvdf.run(insertColumnBefore, $_6pausrn0jgqkpvdf.onCell, resize, $_fu1fqpkejgqkpus4.noop, $_50s4z4mujgqkpvbh.modification),
+    insertColumnsBefore: $_6pausrn0jgqkpvdf.run(insertColumnsBefore, $_6pausrn0jgqkpvdf.onCells, resize, $_fu1fqpkejgqkpus4.noop, $_50s4z4mujgqkpvbh.modification),
+    insertColumnAfter: $_6pausrn0jgqkpvdf.run(insertColumnAfter, $_6pausrn0jgqkpvdf.onCell, resize, $_fu1fqpkejgqkpus4.noop, $_50s4z4mujgqkpvbh.modification),
+    insertColumnsAfter: $_6pausrn0jgqkpvdf.run(insertColumnsAfter, $_6pausrn0jgqkpvdf.onCells, resize, $_fu1fqpkejgqkpus4.noop, $_50s4z4mujgqkpvbh.modification),
+    splitCellIntoColumns: $_6pausrn0jgqkpvdf.run(splitCellIntoColumns$1, $_6pausrn0jgqkpvdf.onCell, resize, $_fu1fqpkejgqkpus4.noop, $_50s4z4mujgqkpvbh.modification),
+    splitCellIntoRows: $_6pausrn0jgqkpvdf.run(splitCellIntoRows$1, $_6pausrn0jgqkpvdf.onCell, $_fu1fqpkejgqkpus4.noop, $_fu1fqpkejgqkpus4.noop, $_50s4z4mujgqkpvbh.modification),
+    eraseColumns: $_6pausrn0jgqkpvdf.run(eraseColumns, $_6pausrn0jgqkpvdf.onCells, resize, prune, $_50s4z4mujgqkpvbh.modification),
+    eraseRows: $_6pausrn0jgqkpvdf.run(eraseRows, $_6pausrn0jgqkpvdf.onCells, $_fu1fqpkejgqkpus4.noop, prune, $_50s4z4mujgqkpvbh.modification),
+    makeColumnHeader: $_6pausrn0jgqkpvdf.run(makeColumnHeader, $_6pausrn0jgqkpvdf.onCell, $_fu1fqpkejgqkpus4.noop, $_fu1fqpkejgqkpus4.noop, $_50s4z4mujgqkpvbh.transform('row', 'th')),
+    unmakeColumnHeader: $_6pausrn0jgqkpvdf.run(unmakeColumnHeader, $_6pausrn0jgqkpvdf.onCell, $_fu1fqpkejgqkpus4.noop, $_fu1fqpkejgqkpus4.noop, $_50s4z4mujgqkpvbh.transform(null, 'td')),
+    makeRowHeader: $_6pausrn0jgqkpvdf.run(makeRowHeader, $_6pausrn0jgqkpvdf.onCell, $_fu1fqpkejgqkpus4.noop, $_fu1fqpkejgqkpus4.noop, $_50s4z4mujgqkpvbh.transform('col', 'th')),
+    unmakeRowHeader: $_6pausrn0jgqkpvdf.run(unmakeRowHeader, $_6pausrn0jgqkpvdf.onCell, $_fu1fqpkejgqkpus4.noop, $_fu1fqpkejgqkpus4.noop, $_50s4z4mujgqkpvbh.transform(null, 'td')),
+    mergeCells: $_6pausrn0jgqkpvdf.run(mergeCells, $_6pausrn0jgqkpvdf.onMergable, $_fu1fqpkejgqkpus4.noop, $_fu1fqpkejgqkpus4.noop, $_50s4z4mujgqkpvbh.merging),
+    unmergeCells: $_6pausrn0jgqkpvdf.run(unmergeCells, $_6pausrn0jgqkpvdf.onUnmergable, resize, $_fu1fqpkejgqkpus4.noop, $_50s4z4mujgqkpvbh.merging),
+    pasteCells: $_6pausrn0jgqkpvdf.run(pasteCells, $_6pausrn0jgqkpvdf.onPaste, resize, $_fu1fqpkejgqkpus4.noop, $_50s4z4mujgqkpvbh.modification),
+    pasteRowsBefore: $_6pausrn0jgqkpvdf.run(pasteRowsBefore, $_6pausrn0jgqkpvdf.onPasteRows, $_fu1fqpkejgqkpus4.noop, $_fu1fqpkejgqkpus4.noop, $_50s4z4mujgqkpvbh.modification),
+    pasteRowsAfter: $_6pausrn0jgqkpvdf.run(pasteRowsAfter, $_6pausrn0jgqkpvdf.onPasteRows, $_fu1fqpkejgqkpus4.noop, $_fu1fqpkejgqkpus4.noop, $_50s4z4mujgqkpvbh.modification)
   };
 
   var getBody$1 = function (editor) {
-    return $_69jxc7jvjcq86j93.fromDom(editor.getBody());
+    return $_cimonkrjgqkpuvh.fromDom(editor.getBody());
+  };
+  var getPixelWidth$1 = function (elm) {
+    return elm.getBoundingClientRect().width;
+  };
+  var getPixelHeight = function (elm) {
+    return elm.getBoundingClientRect().height;
   };
   var getIsRoot = function (editor) {
     return function (element) {
-      return $_6oaqssjzjcq86j9l.eq(element, getBody$1(editor));
+      return $_an4cuxkvjgqkpuw7.eq(element, getBody$1(editor));
     };
   };
   var removePxSuffix = function (size) {
@@ -5771,12 +5710,6 @@ var table = (function () {
     }
     return size;
   };
-  var $_7k8e7dn2jcq86jpa = {
-    getBody: getBody$1,
-    getIsRoot: getIsRoot,
-    addSizeSuffix: addSizeSuffix,
-    removePxSuffix: removePxSuffix
-  };
 
   var onDirection = function (isLtr, isRtl) {
     return function (element) {
@@ -5784,66 +5717,160 @@ var table = (function () {
     };
   };
   var getDirection = function (element) {
-    return $_eqzddikpjcq86jbt.get(element, 'direction') === 'rtl' ? 'rtl' : 'ltr';
+    return $_9bj18xlljgqkpuzb.get(element, 'direction') === 'rtl' ? 'rtl' : 'ltr';
   };
-  var $_bzugqvn4jcq86jpg = {
+  var $_f16x4dnwjgqkpvkf = {
     onDirection: onDirection,
     getDirection: getDirection
   };
 
-  var ltr$1 = { isRtl: $_8h7nl9jijcq86j7b.constant(false) };
-  var rtl$1 = { isRtl: $_8h7nl9jijcq86j7b.constant(true) };
+  var ltr$1 = { isRtl: $_fu1fqpkejgqkpus4.constant(false) };
+  var rtl$1 = { isRtl: $_fu1fqpkejgqkpus4.constant(true) };
   var directionAt = function (element) {
-    var dir = $_bzugqvn4jcq86jpg.getDirection(element);
+    var dir = $_f16x4dnwjgqkpvkf.getDirection(element);
     return dir === 'rtl' ? rtl$1 : ltr$1;
   };
-  var $_diqe05n3jcq86jpd = { directionAt: directionAt };
+  var $_8b8v1fnvjgqkpvka = { directionAt: directionAt };
+
+  var defaultTableToolbar = [
+    'tableprops',
+    'tabledelete',
+    '|',
+    'tableinsertrowbefore',
+    'tableinsertrowafter',
+    'tabledeleterow',
+    '|',
+    'tableinsertcolbefore',
+    'tableinsertcolafter',
+    'tabledeletecol'
+  ];
+  var defaultStyles = {
+    'border-collapse': 'collapse',
+    'width': '100%'
+  };
+  var defaultAttributes = { border: '1' };
+  var getDefaultAttributes = function (editor) {
+    return editor.getParam('table_default_attributes', defaultAttributes, 'object');
+  };
+  var getDefaultStyles = function (editor) {
+    return editor.getParam('table_default_styles', defaultStyles, 'object');
+  };
+  var hasTableResizeBars = function (editor) {
+    return editor.getParam('table_resize_bars', true, 'boolean');
+  };
+  var hasTabNavigation = function (editor) {
+    return editor.getParam('table_tab_navigation', true, 'boolean');
+  };
+  var hasAdvancedCellTab = function (editor) {
+    return editor.getParam('table_cell_advtab', true, 'boolean');
+  };
+  var hasAdvancedRowTab = function (editor) {
+    return editor.getParam('table_row_advtab', true, 'boolean');
+  };
+  var hasAdvancedTableTab = function (editor) {
+    return editor.getParam('table_advtab', true, 'boolean');
+  };
+  var hasAppearanceOptions = function (editor) {
+    return editor.getParam('table_appearance_options', true, 'boolean');
+  };
+  var hasTableGrid = function (editor) {
+    return editor.getParam('table_grid', true, 'boolean');
+  };
+  var shouldStyleWithCss = function (editor) {
+    return editor.getParam('table_style_by_css', false, 'boolean');
+  };
+  var getCellClassList = function (editor) {
+    return editor.getParam('table_cell_class_list', [], 'array');
+  };
+  var getRowClassList = function (editor) {
+    return editor.getParam('table_row_class_list', [], 'array');
+  };
+  var getTableClassList = function (editor) {
+    return editor.getParam('table_class_list', [], 'array');
+  };
+  var getColorPickerCallback = function (editor) {
+    return editor.getParam('color_picker_callback');
+  };
+  var isPixelsForced = function (editor) {
+    return editor.getParam('table_responsive_width') === false;
+  };
+  var getCloneElements = function (editor) {
+    var cloneElements = editor.getParam('table_clone_elements');
+    if ($_329fsbkfjgqkpus7.isString(cloneElements)) {
+      return Option.some(cloneElements.split(/[ ,]/));
+    } else if (Array.isArray(cloneElements)) {
+      return Option.some(cloneElements);
+    } else {
+      return Option.none();
+    }
+  };
+  var hasObjectResizing = function (editor) {
+    var objectResizing = editor.getParam('object_resizing', true);
+    return objectResizing === 'table' || objectResizing;
+  };
+  var getToolbar = function (editor) {
+    var toolbar = editor.getParam('table_toolbar', defaultTableToolbar);
+    if (toolbar === '' || toolbar === false) {
+      return [];
+    } else if ($_329fsbkfjgqkpus7.isString(toolbar)) {
+      return toolbar.split(/[ ,]/);
+    } else if ($_329fsbkfjgqkpus7.isArray(toolbar)) {
+      return toolbar;
+    } else {
+      return [];
+    }
+  };
+
+  var fireNewRow = function (editor, row) {
+    return editor.fire('newrow', { node: row });
+  };
+  var fireNewCell = function (editor, cell) {
+    return editor.fire('newcell', { node: cell });
+  };
+  var fireObjectResizeStart = function (editor, target, width, height) {
+    editor.fire('ObjectResizeStart', {
+      target: target,
+      width: width,
+      height: height
+    });
+  };
+  var fireObjectResized = function (editor, target, width, height) {
+    editor.fire('ObjectResized', {
+      target: target,
+      width: width,
+      height: height
+    });
+  };
 
   var TableActions = function (editor, lazyWire) {
     var isTableBody = function (editor) {
-      return $_lmewskhjcq86jb0.name($_7k8e7dn2jcq86jpa.getBody(editor)) === 'table';
+      return $_4qtrrjldjgqkpuy4.name(getBody$1(editor)) === 'table';
     };
     var lastRowGuard = function (table) {
-      var size = $_d6dimum0jcq86jja.getGridSize(table);
+      var size = $_gj7nkvmsjgqkpvau.getGridSize(table);
       return isTableBody(editor) === false || size.rows() > 1;
     };
     var lastColumnGuard = function (table) {
-      var size = $_d6dimum0jcq86jja.getGridSize(table);
+      var size = $_gj7nkvmsjgqkpvau.getGridSize(table);
       return isTableBody(editor) === false || size.columns() > 1;
     };
-    var fireNewRow = function (node) {
-      editor.fire('newrow', { node: node.dom() });
-      return node.dom();
-    };
-    var fireNewCell = function (node) {
-      editor.fire('newcell', { node: node.dom() });
-      return node.dom();
-    };
-    var cloneFormatsArray;
-    if (editor.settings.table_clone_elements !== false) {
-      if (typeof editor.settings.table_clone_elements === 'string') {
-        cloneFormatsArray = editor.settings.table_clone_elements.split(/[ ,]/);
-      } else if (Array.isArray(editor.settings.table_clone_elements)) {
-        cloneFormatsArray = editor.settings.table_clone_elements;
-      }
-    }
-    var cloneFormats = $_f1um5wjhjcq86j78.from(cloneFormatsArray);
+    var cloneFormats = getCloneElements(editor);
     var execute = function (operation, guard, mutate, lazyWire) {
       return function (table, target) {
-        var dataStyleCells = $_h5pcpkijcq86jb1.descendants(table, 'td[data-mce-style],th[data-mce-style]');
-        $_4rqlpsjgjcq86j74.each(dataStyleCells, function (cell) {
-          $_at8pjgkgjcq86jat.remove(cell, 'data-mce-style');
+        var dataStyleCells = $_2v58a5lejgqkpuy6.descendants(table, 'td[data-mce-style],th[data-mce-style]');
+        $_e5654tkcjgqkpurw.each(dataStyleCells, function (cell) {
+          $_41i612lcjgqkpuxu.remove(cell, 'data-mce-style');
         });
         var wire = lazyWire();
-        var doc = $_69jxc7jvjcq86j93.fromDom(editor.getDoc());
-        var direction = TableDirection($_diqe05n3jcq86jpd.directionAt);
-        var generators = $_e7ajnfkujcq86jcg.cellOperations(mutate, doc, cloneFormats);
+        var doc = $_cimonkrjgqkpuvh.fromDom(editor.getDoc());
+        var direction = TableDirection($_8b8v1fnvjgqkpvka.directionAt);
+        var generators = $_3ng6folqjgqkpv06.cellOperations(mutate, doc, cloneFormats);
         return guard(table) ? operation(wire, table, target, generators, direction).bind(function (result) {
-          $_4rqlpsjgjcq86j74.each(result.newRows(), function (row) {
-            fireNewRow(row);
+          $_e5654tkcjgqkpurw.each(result.newRows(), function (row) {
+            fireNewRow(editor, row.dom());
           });
-          $_4rqlpsjgjcq86j74.each(result.newCells(), function (cell) {
-            fireNewCell(cell);
+          $_e5654tkcjgqkpurw.each(result.newCells(), function (cell) {
+            fireNewCell(editor, cell.dom());
           });
           return result.cursor().map(function (cell) {
             var rng = editor.dom.createRng();
@@ -5851,20 +5878,20 @@ var table = (function () {
             rng.setEnd(cell.dom(), 0);
             return rng;
           });
-        }) : $_f1um5wjhjcq86j78.none();
+        }) : Option.none();
       };
     };
-    var deleteRow = execute($_8gd5i9m1jcq86jjd.eraseRows, lastRowGuard, $_8h7nl9jijcq86j7b.noop, lazyWire);
-    var deleteColumn = execute($_8gd5i9m1jcq86jjd.eraseColumns, lastColumnGuard, $_8h7nl9jijcq86j7b.noop, lazyWire);
-    var insertRowsBefore = execute($_8gd5i9m1jcq86jjd.insertRowsBefore, $_8h7nl9jijcq86j7b.always, $_8h7nl9jijcq86j7b.noop, lazyWire);
-    var insertRowsAfter = execute($_8gd5i9m1jcq86jjd.insertRowsAfter, $_8h7nl9jijcq86j7b.always, $_8h7nl9jijcq86j7b.noop, lazyWire);
-    var insertColumnsBefore = execute($_8gd5i9m1jcq86jjd.insertColumnsBefore, $_8h7nl9jijcq86j7b.always, $_ehko51lojcq86jhr.halve, lazyWire);
-    var insertColumnsAfter = execute($_8gd5i9m1jcq86jjd.insertColumnsAfter, $_8h7nl9jijcq86j7b.always, $_ehko51lojcq86jhr.halve, lazyWire);
-    var mergeCells = execute($_8gd5i9m1jcq86jjd.mergeCells, $_8h7nl9jijcq86j7b.always, $_8h7nl9jijcq86j7b.noop, lazyWire);
-    var unmergeCells = execute($_8gd5i9m1jcq86jjd.unmergeCells, $_8h7nl9jijcq86j7b.always, $_8h7nl9jijcq86j7b.noop, lazyWire);
-    var pasteRowsBefore = execute($_8gd5i9m1jcq86jjd.pasteRowsBefore, $_8h7nl9jijcq86j7b.always, $_8h7nl9jijcq86j7b.noop, lazyWire);
-    var pasteRowsAfter = execute($_8gd5i9m1jcq86jjd.pasteRowsAfter, $_8h7nl9jijcq86j7b.always, $_8h7nl9jijcq86j7b.noop, lazyWire);
-    var pasteCells = execute($_8gd5i9m1jcq86jjd.pasteCells, $_8h7nl9jijcq86j7b.always, $_8h7nl9jijcq86j7b.noop, lazyWire);
+    var deleteRow = execute($_cagp30mtjgqkpvaw.eraseRows, lastRowGuard, $_fu1fqpkejgqkpus4.noop, lazyWire);
+    var deleteColumn = execute($_cagp30mtjgqkpvaw.eraseColumns, lastColumnGuard, $_fu1fqpkejgqkpus4.noop, lazyWire);
+    var insertRowsBefore = execute($_cagp30mtjgqkpvaw.insertRowsBefore, $_fu1fqpkejgqkpus4.always, $_fu1fqpkejgqkpus4.noop, lazyWire);
+    var insertRowsAfter = execute($_cagp30mtjgqkpvaw.insertRowsAfter, $_fu1fqpkejgqkpus4.always, $_fu1fqpkejgqkpus4.noop, lazyWire);
+    var insertColumnsBefore = execute($_cagp30mtjgqkpvaw.insertColumnsBefore, $_fu1fqpkejgqkpus4.always, $_brtcmamgjgqkpv8f.halve, lazyWire);
+    var insertColumnsAfter = execute($_cagp30mtjgqkpvaw.insertColumnsAfter, $_fu1fqpkejgqkpus4.always, $_brtcmamgjgqkpv8f.halve, lazyWire);
+    var mergeCells = execute($_cagp30mtjgqkpvaw.mergeCells, $_fu1fqpkejgqkpus4.always, $_fu1fqpkejgqkpus4.noop, lazyWire);
+    var unmergeCells = execute($_cagp30mtjgqkpvaw.unmergeCells, $_fu1fqpkejgqkpus4.always, $_fu1fqpkejgqkpus4.noop, lazyWire);
+    var pasteRowsBefore = execute($_cagp30mtjgqkpvaw.pasteRowsBefore, $_fu1fqpkejgqkpus4.always, $_fu1fqpkejgqkpus4.noop, lazyWire);
+    var pasteRowsAfter = execute($_cagp30mtjgqkpvaw.pasteRowsAfter, $_fu1fqpkejgqkpus4.always, $_fu1fqpkejgqkpus4.noop, lazyWire);
+    var pasteCells = execute($_cagp30mtjgqkpvaw.pasteCells, $_fu1fqpkejgqkpus4.always, $_fu1fqpkejgqkpus4.noop, lazyWire);
     return {
       deleteRow: deleteRow,
       deleteColumn: deleteColumn,
@@ -5881,21 +5908,19 @@ var table = (function () {
   };
 
   var copyRows = function (table, target, generators) {
-    var list = $_5tj7bljqjcq86j84.fromTable(table);
-    var house = $_axex7bkojcq86jbm.generate(list);
-    var details = $_ldhiqm8jcq86jkv.onCells(house, target);
+    var list = $_fqjflgkmjgqkputr.fromTable(table);
+    var house = $_3c1k16lkjgqkpuz1.generate(list);
+    var details = $_6pausrn0jgqkpvdf.onCells(house, target);
     return details.map(function (selectedCells) {
-      var grid = $_1ev7w4mbjcq86jla.toGrid(house, generators, false);
+      var grid = $_i7hi9n3jgqkpve3.toGrid(house, generators, false);
       var slicedGrid = grid.slice(selectedCells[0].row(), selectedCells[selectedCells.length - 1].row() + selectedCells[selectedCells.length - 1].rowspan());
-      var slicedDetails = $_ldhiqm8jcq86jkv.toDetailList(slicedGrid, generators);
-      return $_cskim3mejcq86jll.copy(slicedDetails);
+      var slicedDetails = $_6pausrn0jgqkpvdf.toDetailList(slicedGrid, generators);
+      return $_1mpq53n6jgqkpvep.copy(slicedDetails);
     });
   };
-  var $_3y6rjvn6jcq86jps = { copyRows: copyRows };
+  var $_56ym02o0jgqkpvle = { copyRows: copyRows };
 
-  var Tools = tinymce.util.Tools.resolve('tinymce.util.Tools');
-
-  var Env = tinymce.util.Tools.resolve('tinymce.Env');
+  var global$2 = tinymce.util.Tools.resolve('tinymce.util.Tools');
 
   var getTDTHOverallStyle = function (dom, elm, name) {
     var cells = dom.select('td,th', elm);
@@ -5926,16 +5951,16 @@ var table = (function () {
     }
   };
   var unApplyAlign = function (editor, elm) {
-    Tools.each('left center right'.split(' '), function (name) {
+    global$2.each('left center right'.split(' '), function (name) {
       editor.formatter.remove('align' + name, {}, elm);
     });
   };
   var unApplyVAlign = function (editor, elm) {
-    Tools.each('top middle bottom'.split(' '), function (name) {
+    global$2.each('top middle bottom'.split(' '), function (name) {
       editor.formatter.remove('valign' + name, {}, elm);
     });
   };
-  var $_3als29najcq86jq6 = {
+  var $_6kk5lxo3jgqkpvlp = {
     applyAlign: applyAlign,
     applyVAlign: applyVAlign,
     unApplyAlign: unApplyAlign,
@@ -5946,7 +5971,7 @@ var table = (function () {
   var buildListItems = function (inputList, itemCallback, startItems) {
     var appendItems = function (values, output) {
       output = output || [];
-      Tools.each(values, function (item) {
+      global$2.each(values, function (item) {
         var menuItem = { text: item.text || item.title };
         if (item.menu) {
           menuItem.menu = appendItems(item.menu);
@@ -5977,8 +6002,8 @@ var table = (function () {
       css['border-style'] = data.borderStyle;
       css['border-color'] = data.borderColor;
       css['background-color'] = data.backgroundColor;
-      css.width = data.width ? $_7k8e7dn2jcq86jpa.addSizeSuffix(data.width) : '';
-      css.height = data.height ? $_7k8e7dn2jcq86jpa.addSizeSuffix(data.height) : '';
+      css.width = data.width ? addSizeSuffix(data.width) : '';
+      css.height = data.height ? addSizeSuffix(data.height) : '';
     }
     rootControl.find('#style').value(dom.serializeStyle(dom.parseStyle(dom.serializeStyle(css))));
   };
@@ -5999,7 +6024,7 @@ var table = (function () {
   };
   var createStyleForm = function (editor) {
     var createColorPickAction = function () {
-      var colorPickerCallback = editor.settings.color_picker_callback;
+      var colorPickerCallback = getColorPickerCallback(editor);
       if (colorPickerCallback) {
         return function (evt) {
           return colorPickerCallback.call(editor, function (value) {
@@ -6011,7 +6036,7 @@ var table = (function () {
     return {
       title: 'Advanced',
       type: 'form',
-      defaults: { onchange: $_8h7nl9jijcq86j7b.curry(updateStyleField, editor) },
+      defaults: { onchange: $_fu1fqpkejgqkpus4.curry(updateStyleField, editor) },
       items: [
         {
           label: 'Style',
@@ -6035,7 +6060,7 @@ var table = (function () {
               type: 'listbox',
               name: 'borderStyle',
               width: 90,
-              onselect: $_8h7nl9jijcq86j7b.curry(updateStyleField, editor),
+              onselect: $_fu1fqpkejgqkpus4.curry(updateStyleField, editor),
               values: [
                 {
                   text: 'Select...',
@@ -6100,504 +6125,41 @@ var table = (function () {
       ]
     };
   };
-  var $_fwzoggnbjcq86jq8 = {
+  var $_aa7n4no4jgqkpvls = {
     createStyleForm: createStyleForm,
     buildListItems: buildListItems,
     updateStyleField: updateStyleField,
     extractAdvancedStyles: extractAdvancedStyles
   };
 
-  function styleTDTH(dom, elm, name, value) {
-    if (elm.tagName === 'TD' || elm.tagName === 'TH') {
-      dom.setStyle(elm, name, value);
-    } else {
-      if (elm.children) {
-        for (var i = 0; i < elm.children.length; i++) {
-          styleTDTH(dom, elm.children[i], name, value);
-        }
-      }
-    }
-  }
-  var extractDataFromElement = function (editor, tableElm) {
-    var dom = editor.dom;
-    var data = {
-      width: dom.getStyle(tableElm, 'width') || dom.getAttrib(tableElm, 'width'),
-      height: dom.getStyle(tableElm, 'height') || dom.getAttrib(tableElm, 'height'),
-      cellspacing: dom.getStyle(tableElm, 'border-spacing') || dom.getAttrib(tableElm, 'cellspacing'),
-      cellpadding: dom.getAttrib(tableElm, 'data-mce-cell-padding') || dom.getAttrib(tableElm, 'cellpadding') || $_3als29najcq86jq6.getTDTHOverallStyle(editor.dom, tableElm, 'padding'),
-      border: dom.getAttrib(tableElm, 'data-mce-border') || dom.getAttrib(tableElm, 'border') || $_3als29najcq86jq6.getTDTHOverallStyle(editor.dom, tableElm, 'border'),
-      borderColor: dom.getAttrib(tableElm, 'data-mce-border-color'),
-      caption: !!dom.select('caption', tableElm)[0],
-      class: dom.getAttrib(tableElm, 'class')
-    };
-    Tools.each('left center right'.split(' '), function (name) {
-      if (editor.formatter.matchNode(tableElm, 'align' + name)) {
-        data.align = name;
-      }
-    });
-    if (editor.settings.table_advtab !== false) {
-      Tools.extend(data, $_fwzoggnbjcq86jq8.extractAdvancedStyles(dom, tableElm));
-    }
-    return data;
-  };
-  var applyDataToElement = function (editor, tableElm, data) {
-    var dom = editor.dom;
-    var attrs = {};
-    var styles = {};
-    attrs.class = data.class;
-    styles.height = $_7k8e7dn2jcq86jpa.addSizeSuffix(data.height);
-    if (dom.getAttrib(tableElm, 'width') && !editor.settings.table_style_by_css) {
-      attrs.width = $_7k8e7dn2jcq86jpa.removePxSuffix(data.width);
-    } else {
-      styles.width = $_7k8e7dn2jcq86jpa.addSizeSuffix(data.width);
-    }
-    if (editor.settings.table_style_by_css) {
-      styles['border-width'] = $_7k8e7dn2jcq86jpa.addSizeSuffix(data.border);
-      styles['border-spacing'] = $_7k8e7dn2jcq86jpa.addSizeSuffix(data.cellspacing);
-      Tools.extend(attrs, {
-        'data-mce-border-color': data.borderColor,
-        'data-mce-cell-padding': data.cellpadding,
-        'data-mce-border': data.border
-      });
-    } else {
-      Tools.extend(attrs, {
-        border: data.border,
-        cellpadding: data.cellpadding,
-        cellspacing: data.cellspacing
-      });
-    }
-    if (editor.settings.table_style_by_css) {
-      if (tableElm.children) {
-        for (var i = 0; i < tableElm.children.length; i++) {
-          styleTDTH(dom, tableElm.children[i], {
-            'border-width': $_7k8e7dn2jcq86jpa.addSizeSuffix(data.border),
-            'border-color': data.borderColor,
-            'padding': $_7k8e7dn2jcq86jpa.addSizeSuffix(data.cellpadding)
-          });
-        }
-      }
-    }
-    if (data.style) {
-      Tools.extend(styles, dom.parseStyle(data.style));
-    } else {
-      styles = Tools.extend({}, dom.parseStyle(dom.getAttrib(tableElm, 'style')), styles);
-    }
-    attrs.style = dom.serializeStyle(styles);
-    dom.setAttribs(tableElm, attrs);
-  };
-  var onSubmitTableForm = function (editor, tableElm, evt) {
-    var dom = editor.dom;
-    var captionElm;
-    var data;
-    $_fwzoggnbjcq86jq8.updateStyleField(editor, evt);
-    data = evt.control.rootControl.toJSON();
-    if (data.class === false) {
-      delete data.class;
-    }
-    editor.undoManager.transact(function () {
-      if (!tableElm) {
-        tableElm = $_d1g2vkljjcq86jgt.insert(editor, data.cols || 1, data.rows || 1);
-      }
-      applyDataToElement(editor, tableElm, data);
-      captionElm = dom.select('caption', tableElm)[0];
-      if (captionElm && !data.caption) {
-        dom.remove(captionElm);
-      }
-      if (!captionElm && data.caption) {
-        captionElm = dom.create('caption');
-        captionElm.innerHTML = !Env.ie ? '<br data-mce-bogus="1"/>' : '\xA0';
-        tableElm.insertBefore(captionElm, tableElm.firstChild);
-      }
-      $_3als29najcq86jq6.unApplyAlign(editor, tableElm);
-      if (data.align) {
-        $_3als29najcq86jq6.applyAlign(editor, tableElm, data.align);
-      }
-      editor.focus();
-      editor.addVisual();
-    });
-  };
-  var open = function (editor, isProps) {
-    var dom = editor.dom;
-    var tableElm, colsCtrl, rowsCtrl, classListCtrl, data = {}, generalTableForm;
-    if (isProps === true) {
-      tableElm = dom.getParent(editor.selection.getStart(), 'table');
-      if (tableElm) {
-        data = extractDataFromElement(editor, tableElm);
-      }
-    } else {
-      colsCtrl = {
-        label: 'Cols',
-        name: 'cols'
-      };
-      rowsCtrl = {
-        label: 'Rows',
-        name: 'rows'
-      };
-    }
-    if (editor.settings.table_class_list) {
-      if (data.class) {
-        data.class = data.class.replace(/\s*mce\-item\-table\s*/g, '');
-      }
-      classListCtrl = {
-        name: 'class',
-        type: 'listbox',
-        label: 'Class',
-        values: $_fwzoggnbjcq86jq8.buildListItems(editor.settings.table_class_list, function (item) {
-          if (item.value) {
-            item.textStyle = function () {
-              return editor.formatter.getCssText({
-                block: 'table',
-                classes: [item.value]
-              });
-            };
-          }
-        })
-      };
-    }
-    generalTableForm = {
-      type: 'form',
-      layout: 'flex',
-      direction: 'column',
-      labelGapCalc: 'children',
-      padding: 0,
-      items: [
-        {
-          type: 'form',
-          labelGapCalc: false,
-          padding: 0,
-          layout: 'grid',
-          columns: 2,
-          defaults: {
-            type: 'textbox',
-            maxWidth: 50
-          },
-          items: editor.settings.table_appearance_options !== false ? [
-            colsCtrl,
-            rowsCtrl,
-            {
-              label: 'Width',
-              name: 'width',
-              onchange: $_8h7nl9jijcq86j7b.curry($_fwzoggnbjcq86jq8.updateStyleField, editor)
-            },
-            {
-              label: 'Height',
-              name: 'height',
-              onchange: $_8h7nl9jijcq86j7b.curry($_fwzoggnbjcq86jq8.updateStyleField, editor)
-            },
-            {
-              label: 'Cell spacing',
-              name: 'cellspacing'
-            },
-            {
-              label: 'Cell padding',
-              name: 'cellpadding'
-            },
-            {
-              label: 'Border',
-              name: 'border'
-            },
-            {
-              label: 'Caption',
-              name: 'caption',
-              type: 'checkbox'
-            }
-          ] : [
-            colsCtrl,
-            rowsCtrl,
-            {
-              label: 'Width',
-              name: 'width',
-              onchange: $_8h7nl9jijcq86j7b.curry($_fwzoggnbjcq86jq8.updateStyleField, editor)
-            },
-            {
-              label: 'Height',
-              name: 'height',
-              onchange: $_8h7nl9jijcq86j7b.curry($_fwzoggnbjcq86jq8.updateStyleField, editor)
-            }
-          ]
-        },
-        {
-          label: 'Alignment',
-          name: 'align',
-          type: 'listbox',
-          text: 'None',
-          values: [
-            {
-              text: 'None',
-              value: ''
-            },
-            {
-              text: 'Left',
-              value: 'left'
-            },
-            {
-              text: 'Center',
-              value: 'center'
-            },
-            {
-              text: 'Right',
-              value: 'right'
-            }
-          ]
-        },
-        classListCtrl
-      ]
-    };
-    if (editor.settings.table_advtab !== false) {
-      editor.windowManager.open({
-        title: 'Table properties',
-        data: data,
-        bodyType: 'tabpanel',
-        body: [
-          {
-            title: 'General',
-            type: 'form',
-            items: generalTableForm
-          },
-          $_fwzoggnbjcq86jq8.createStyleForm(editor)
-        ],
-        onsubmit: $_8h7nl9jijcq86j7b.curry(onSubmitTableForm, editor, tableElm)
-      });
-    } else {
-      editor.windowManager.open({
-        title: 'Table properties',
-        data: data,
-        body: generalTableForm,
-        onsubmit: $_8h7nl9jijcq86j7b.curry(onSubmitTableForm, editor, tableElm)
-      });
-    }
-  };
-  var $_co5rfjn8jcq86jpz = { open: open };
-
-  var extractDataFromElement$1 = function (editor, elm) {
-    var dom = editor.dom;
-    var data = {
-      height: dom.getStyle(elm, 'height') || dom.getAttrib(elm, 'height'),
-      scope: dom.getAttrib(elm, 'scope'),
-      class: dom.getAttrib(elm, 'class')
-    };
-    data.type = elm.parentNode.nodeName.toLowerCase();
-    Tools.each('left center right'.split(' '), function (name) {
-      if (editor.formatter.matchNode(elm, 'align' + name)) {
-        data.align = name;
-      }
-    });
-    if (editor.settings.table_row_advtab !== false) {
-      Tools.extend(data, $_fwzoggnbjcq86jq8.extractAdvancedStyles(dom, elm));
-    }
-    return data;
-  };
-  var switchRowType = function (dom, rowElm, toType) {
-    var tableElm = dom.getParent(rowElm, 'table');
-    var oldParentElm = rowElm.parentNode;
-    var parentElm = dom.select(toType, tableElm)[0];
-    if (!parentElm) {
-      parentElm = dom.create(toType);
-      if (tableElm.firstChild) {
-        if (tableElm.firstChild.nodeName === 'CAPTION') {
-          dom.insertAfter(parentElm, tableElm.firstChild);
-        } else {
-          tableElm.insertBefore(parentElm, tableElm.firstChild);
-        }
-      } else {
-        tableElm.appendChild(parentElm);
-      }
-    }
-    parentElm.appendChild(rowElm);
-    if (!oldParentElm.hasChildNodes()) {
-      dom.remove(oldParentElm);
-    }
-  };
-  function onSubmitRowForm(editor, rows, evt) {
-    var dom = editor.dom;
-    var data;
-    function setAttrib(elm, name, value) {
-      if (value) {
-        dom.setAttrib(elm, name, value);
-      }
-    }
-    function setStyle(elm, name, value) {
-      if (value) {
-        dom.setStyle(elm, name, value);
-      }
-    }
-    $_fwzoggnbjcq86jq8.updateStyleField(editor, evt);
-    data = evt.control.rootControl.toJSON();
-    editor.undoManager.transact(function () {
-      Tools.each(rows, function (rowElm) {
-        setAttrib(rowElm, 'scope', data.scope);
-        setAttrib(rowElm, 'style', data.style);
-        setAttrib(rowElm, 'class', data.class);
-        setStyle(rowElm, 'height', $_7k8e7dn2jcq86jpa.addSizeSuffix(data.height));
-        if (data.type !== rowElm.parentNode.nodeName.toLowerCase()) {
-          switchRowType(editor.dom, rowElm, data.type);
-        }
-        if (rows.length === 1) {
-          $_3als29najcq86jq6.unApplyAlign(editor, rowElm);
-        }
-        if (data.align) {
-          $_3als29najcq86jq6.applyAlign(editor, rowElm, data.align);
-        }
-      });
-      editor.focus();
-    });
-  }
-  var open$1 = function (editor) {
-    var dom = editor.dom;
-    var tableElm, cellElm, rowElm, classListCtrl, data;
-    var rows = [];
-    var generalRowForm;
-    tableElm = dom.getParent(editor.selection.getStart(), 'table');
-    cellElm = dom.getParent(editor.selection.getStart(), 'td,th');
-    Tools.each(tableElm.rows, function (row) {
-      Tools.each(row.cells, function (cell) {
-        if (dom.getAttrib(cell, 'data-mce-selected') || cell === cellElm) {
-          rows.push(row);
-          return false;
-        }
-      });
-    });
-    rowElm = rows[0];
-    if (!rowElm) {
-      return;
-    }
-    if (rows.length > 1) {
-      data = {
-        height: '',
-        scope: '',
-        class: '',
-        align: '',
-        type: rowElm.parentNode.nodeName.toLowerCase()
-      };
-    } else {
-      data = extractDataFromElement$1(editor, rowElm);
-    }
-    if (editor.settings.table_row_class_list) {
-      classListCtrl = {
-        name: 'class',
-        type: 'listbox',
-        label: 'Class',
-        values: $_fwzoggnbjcq86jq8.buildListItems(editor.settings.table_row_class_list, function (item) {
-          if (item.value) {
-            item.textStyle = function () {
-              return editor.formatter.getCssText({
-                block: 'tr',
-                classes: [item.value]
-              });
-            };
-          }
-        })
-      };
-    }
-    generalRowForm = {
-      type: 'form',
-      columns: 2,
-      padding: 0,
-      defaults: { type: 'textbox' },
-      items: [
-        {
-          type: 'listbox',
-          name: 'type',
-          label: 'Row type',
-          text: 'Header',
-          maxWidth: null,
-          values: [
-            {
-              text: 'Header',
-              value: 'thead'
-            },
-            {
-              text: 'Body',
-              value: 'tbody'
-            },
-            {
-              text: 'Footer',
-              value: 'tfoot'
-            }
-          ]
-        },
-        {
-          type: 'listbox',
-          name: 'align',
-          label: 'Alignment',
-          text: 'None',
-          maxWidth: null,
-          values: [
-            {
-              text: 'None',
-              value: ''
-            },
-            {
-              text: 'Left',
-              value: 'left'
-            },
-            {
-              text: 'Center',
-              value: 'center'
-            },
-            {
-              text: 'Right',
-              value: 'right'
-            }
-          ]
-        },
-        {
-          label: 'Height',
-          name: 'height'
-        },
-        classListCtrl
-      ]
-    };
-    if (editor.settings.table_row_advtab !== false) {
-      editor.windowManager.open({
-        title: 'Row properties',
-        data: data,
-        bodyType: 'tabpanel',
-        body: [
-          {
-            title: 'General',
-            type: 'form',
-            items: generalRowForm
-          },
-          $_fwzoggnbjcq86jq8.createStyleForm(editor)
-        ],
-        onsubmit: $_8h7nl9jijcq86j7b.curry(onSubmitRowForm, editor, rows)
-      });
-    } else {
-      editor.windowManager.open({
-        title: 'Row properties',
-        data: data,
-        body: generalRowForm,
-        onsubmit: $_8h7nl9jijcq86j7b.curry(onSubmitRowForm, editor, rows)
-      });
-    }
-  };
-  var $_6gk2ovncjcq86jqc = { open: open$1 };
-
   var updateStyles = function (elm, cssText) {
+    delete elm.dataset.mceStyle;
     elm.style.cssText += ';' + cssText;
   };
-  var extractDataFromElement$2 = function (editor, elm) {
+  var extractDataFromElement = function (editor, elm) {
     var dom = editor.dom;
     var data = {
       width: dom.getStyle(elm, 'width') || dom.getAttrib(elm, 'width'),
       height: dom.getStyle(elm, 'height') || dom.getAttrib(elm, 'height'),
       scope: dom.getAttrib(elm, 'scope'),
-      class: dom.getAttrib(elm, 'class')
+      class: dom.getAttrib(elm, 'class'),
+      type: elm.nodeName.toLowerCase(),
+      style: '',
+      align: '',
+      valign: ''
     };
-    data.type = elm.nodeName.toLowerCase();
-    Tools.each('left center right'.split(' '), function (name) {
+    global$2.each('left center right'.split(' '), function (name) {
       if (editor.formatter.matchNode(elm, 'align' + name)) {
         data.align = name;
       }
     });
-    Tools.each('top middle bottom'.split(' '), function (name) {
+    global$2.each('top middle bottom'.split(' '), function (name) {
       if (editor.formatter.matchNode(elm, 'valign' + name)) {
         data.valign = name;
       }
     });
-    if (editor.settings.table_cell_advtab !== false) {
-      Tools.extend(data, $_fwzoggnbjcq86jq8.extractAdvancedStyles(dom, elm));
+    if (hasAdvancedCellTab(editor)) {
+      global$2.extend(data, $_aa7n4no4jgqkpvls.extractAdvancedStyles(dom, elm));
     }
     return data;
   };
@@ -6614,10 +6176,10 @@ var table = (function () {
         dom.setStyle(elm, name, value);
       }
     }
-    $_fwzoggnbjcq86jq8.updateStyleField(editor, evt);
+    $_aa7n4no4jgqkpvls.updateStyleField(editor, evt);
     data = evt.control.rootControl.toJSON();
     editor.undoManager.transact(function () {
-      Tools.each(cells, function (cellElm) {
+      global$2.each(cells, function (cellElm) {
         setAttrib(cellElm, 'scope', data.scope);
         if (cells.length === 1) {
           setAttrib(cellElm, 'style', data.style);
@@ -6625,26 +6187,26 @@ var table = (function () {
           updateStyles(cellElm, data.style);
         }
         setAttrib(cellElm, 'class', data.class);
-        setStyle(cellElm, 'width', $_7k8e7dn2jcq86jpa.addSizeSuffix(data.width));
-        setStyle(cellElm, 'height', $_7k8e7dn2jcq86jpa.addSizeSuffix(data.height));
+        setStyle(cellElm, 'width', addSizeSuffix(data.width));
+        setStyle(cellElm, 'height', addSizeSuffix(data.height));
         if (data.type && cellElm.nodeName.toLowerCase() !== data.type) {
           cellElm = dom.rename(cellElm, data.type);
         }
         if (cells.length === 1) {
-          $_3als29najcq86jq6.unApplyAlign(editor, cellElm);
-          $_3als29najcq86jq6.unApplyVAlign(editor, cellElm);
+          $_6kk5lxo3jgqkpvlp.unApplyAlign(editor, cellElm);
+          $_6kk5lxo3jgqkpvlp.unApplyVAlign(editor, cellElm);
         }
         if (data.align) {
-          $_3als29najcq86jq6.applyAlign(editor, cellElm, data.align);
+          $_6kk5lxo3jgqkpvlp.applyAlign(editor, cellElm, data.align);
         }
         if (data.valign) {
-          $_3als29najcq86jq6.applyVAlign(editor, cellElm, data.valign);
+          $_6kk5lxo3jgqkpvlp.applyVAlign(editor, cellElm, data.valign);
         }
       });
       editor.focus();
     });
   };
-  var open$2 = function (editor) {
+  var open = function (editor) {
     var cellElm, data, classListCtrl, cells = [];
     cells = editor.dom.select('td[data-mce-selected],th[data-mce-selected]');
     cellElm = editor.dom.getParent(editor.selection.getStart(), 'td,th');
@@ -6662,18 +6224,19 @@ var table = (function () {
         scope: '',
         class: '',
         align: '',
+        valign: '',
         style: '',
         type: cellElm.nodeName.toLowerCase()
       };
     } else {
-      data = extractDataFromElement$2(editor, cellElm);
+      data = extractDataFromElement(editor, cellElm);
     }
-    if (editor.settings.table_cell_class_list) {
+    if (getCellClassList(editor).length > 0) {
       classListCtrl = {
         name: 'class',
         type: 'listbox',
         label: 'Class',
-        values: $_fwzoggnbjcq86jq8.buildListItems(editor.settings.table_cell_class_list, function (item) {
+        values: $_aa7n4no4jgqkpvls.buildListItems(getCellClassList(editor), function (item) {
           if (item.value) {
             item.textStyle = function () {
               return editor.formatter.getCssText({
@@ -6706,12 +6269,12 @@ var table = (function () {
             {
               label: 'Width',
               name: 'width',
-              onchange: $_8h7nl9jijcq86j7b.curry($_fwzoggnbjcq86jq8.updateStyleField, editor)
+              onchange: $_fu1fqpkejgqkpus4.curry($_aa7n4no4jgqkpvls.updateStyleField, editor)
             },
             {
               label: 'Height',
               name: 'height',
-              onchange: $_8h7nl9jijcq86j7b.curry($_fwzoggnbjcq86jq8.updateStyleField, editor)
+              onchange: $_fu1fqpkejgqkpus4.curry($_aa7n4no4jgqkpvls.updateStyleField, editor)
             },
             {
               label: 'Cell type',
@@ -6818,7 +6381,7 @@ var table = (function () {
         classListCtrl
       ]
     };
-    if (editor.settings.table_cell_advtab !== false) {
+    if (hasAdvancedCellTab(editor)) {
       editor.windowManager.open({
         title: 'Cell properties',
         bodyType: 'tabpanel',
@@ -6829,45 +6392,620 @@ var table = (function () {
             type: 'form',
             items: generalCellForm
           },
-          $_fwzoggnbjcq86jq8.createStyleForm(editor)
+          $_aa7n4no4jgqkpvls.createStyleForm(editor)
         ],
-        onsubmit: $_8h7nl9jijcq86j7b.curry(onSubmitCellForm, editor, cells)
+        onsubmit: $_fu1fqpkejgqkpus4.curry(onSubmitCellForm, editor, cells)
       });
     } else {
       editor.windowManager.open({
         title: 'Cell properties',
         data: data,
         body: generalCellForm,
-        onsubmit: $_8h7nl9jijcq86j7b.curry(onSubmitCellForm, editor, cells)
+        onsubmit: $_fu1fqpkejgqkpus4.curry(onSubmitCellForm, editor, cells)
       });
     }
   };
-  var $_crs8nondjcq86jqh = { open: open$2 };
+  var $_g64rano2jgqkpvli = { open: open };
 
-  var each$3 = Tools.each;
-  var clipboardRows = $_f1um5wjhjcq86j78.none();
-  var getClipboardRows = function () {
-    return clipboardRows.fold(function () {
+  var extractDataFromElement$1 = function (editor, elm) {
+    var dom = editor.dom;
+    var data = {
+      height: dom.getStyle(elm, 'height') || dom.getAttrib(elm, 'height'),
+      scope: dom.getAttrib(elm, 'scope'),
+      class: dom.getAttrib(elm, 'class'),
+      align: '',
+      style: '',
+      type: elm.parentNode.nodeName.toLowerCase()
+    };
+    global$2.each('left center right'.split(' '), function (name) {
+      if (editor.formatter.matchNode(elm, 'align' + name)) {
+        data.align = name;
+      }
+    });
+    if (hasAdvancedRowTab(editor)) {
+      global$2.extend(data, $_aa7n4no4jgqkpvls.extractAdvancedStyles(dom, elm));
+    }
+    return data;
+  };
+  var switchRowType = function (dom, rowElm, toType) {
+    var tableElm = dom.getParent(rowElm, 'table');
+    var oldParentElm = rowElm.parentNode;
+    var parentElm = dom.select(toType, tableElm)[0];
+    if (!parentElm) {
+      parentElm = dom.create(toType);
+      if (tableElm.firstChild) {
+        if (tableElm.firstChild.nodeName === 'CAPTION') {
+          dom.insertAfter(parentElm, tableElm.firstChild);
+        } else {
+          tableElm.insertBefore(parentElm, tableElm.firstChild);
+        }
+      } else {
+        tableElm.appendChild(parentElm);
+      }
+    }
+    parentElm.appendChild(rowElm);
+    if (!oldParentElm.hasChildNodes()) {
+      dom.remove(oldParentElm);
+    }
+  };
+  function onSubmitRowForm(editor, rows, oldData, evt) {
+    var dom = editor.dom;
+    function setAttrib(elm, name, value) {
+      if (value) {
+        dom.setAttrib(elm, name, value);
+      }
+    }
+    function setStyle(elm, name, value) {
+      if (value) {
+        dom.setStyle(elm, name, value);
+      }
+    }
+    $_aa7n4no4jgqkpvls.updateStyleField(editor, evt);
+    var data = evt.control.rootControl.toJSON();
+    editor.undoManager.transact(function () {
+      global$2.each(rows, function (rowElm) {
+        setAttrib(rowElm, 'scope', data.scope);
+        setAttrib(rowElm, 'style', data.style);
+        setAttrib(rowElm, 'class', data.class);
+        setStyle(rowElm, 'height', addSizeSuffix(data.height));
+        if (data.type !== rowElm.parentNode.nodeName.toLowerCase()) {
+          switchRowType(editor.dom, rowElm, data.type);
+        }
+        if (data.align !== oldData.align) {
+          $_6kk5lxo3jgqkpvlp.unApplyAlign(editor, rowElm);
+          $_6kk5lxo3jgqkpvlp.applyAlign(editor, rowElm, data.align);
+        }
+      });
+      editor.focus();
+    });
+  }
+  var open$1 = function (editor) {
+    var dom = editor.dom;
+    var tableElm, cellElm, rowElm, classListCtrl, data;
+    var rows = [];
+    var generalRowForm;
+    tableElm = dom.getParent(editor.selection.getStart(), 'table');
+    cellElm = dom.getParent(editor.selection.getStart(), 'td,th');
+    global$2.each(tableElm.rows, function (row) {
+      global$2.each(row.cells, function (cell) {
+        if (dom.getAttrib(cell, 'data-mce-selected') || cell === cellElm) {
+          rows.push(row);
+          return false;
+        }
+      });
+    });
+    rowElm = rows[0];
+    if (!rowElm) {
       return;
-    }, function (rows) {
-      return $_4rqlpsjgjcq86j74.map(rows, function (row) {
-        return row.dom();
+    }
+    if (rows.length > 1) {
+      data = {
+        height: '',
+        scope: '',
+        style: '',
+        class: '',
+        align: '',
+        type: rowElm.parentNode.nodeName.toLowerCase()
+      };
+    } else {
+      data = extractDataFromElement$1(editor, rowElm);
+    }
+    if (getRowClassList(editor).length > 0) {
+      classListCtrl = {
+        name: 'class',
+        type: 'listbox',
+        label: 'Class',
+        values: $_aa7n4no4jgqkpvls.buildListItems(getRowClassList(editor), function (item) {
+          if (item.value) {
+            item.textStyle = function () {
+              return editor.formatter.getCssText({
+                block: 'tr',
+                classes: [item.value]
+              });
+            };
+          }
+        })
+      };
+    }
+    generalRowForm = {
+      type: 'form',
+      columns: 2,
+      padding: 0,
+      defaults: { type: 'textbox' },
+      items: [
+        {
+          type: 'listbox',
+          name: 'type',
+          label: 'Row type',
+          text: 'Header',
+          maxWidth: null,
+          values: [
+            {
+              text: 'Header',
+              value: 'thead'
+            },
+            {
+              text: 'Body',
+              value: 'tbody'
+            },
+            {
+              text: 'Footer',
+              value: 'tfoot'
+            }
+          ]
+        },
+        {
+          type: 'listbox',
+          name: 'align',
+          label: 'Alignment',
+          text: 'None',
+          maxWidth: null,
+          values: [
+            {
+              text: 'None',
+              value: ''
+            },
+            {
+              text: 'Left',
+              value: 'left'
+            },
+            {
+              text: 'Center',
+              value: 'center'
+            },
+            {
+              text: 'Right',
+              value: 'right'
+            }
+          ]
+        },
+        {
+          label: 'Height',
+          name: 'height'
+        },
+        classListCtrl
+      ]
+    };
+    if (hasAdvancedRowTab(editor)) {
+      editor.windowManager.open({
+        title: 'Row properties',
+        data: data,
+        bodyType: 'tabpanel',
+        body: [
+          {
+            title: 'General',
+            type: 'form',
+            items: generalRowForm
+          },
+          $_aa7n4no4jgqkpvls.createStyleForm(editor)
+        ],
+        onsubmit: $_fu1fqpkejgqkpus4.curry(onSubmitRowForm, editor, rows, data)
+      });
+    } else {
+      editor.windowManager.open({
+        title: 'Row properties',
+        data: data,
+        body: generalRowForm,
+        onsubmit: $_fu1fqpkejgqkpus4.curry(onSubmitRowForm, editor, rows, data)
+      });
+    }
+  };
+  var $_7o6rmfo5jgqkpvly = { open: open$1 };
+
+  var global$3 = tinymce.util.Tools.resolve('tinymce.Env');
+
+  var DefaultRenderOptions = {
+    styles: {
+      'border-collapse': 'collapse',
+      width: '100%'
+    },
+    attributes: { border: '1' },
+    percentages: true
+  };
+  var makeTable = function () {
+    return $_cimonkrjgqkpuvh.fromTag('table');
+  };
+  var tableBody = function () {
+    return $_cimonkrjgqkpuvh.fromTag('tbody');
+  };
+  var tableRow = function () {
+    return $_cimonkrjgqkpuvh.fromTag('tr');
+  };
+  var tableHeaderCell = function () {
+    return $_cimonkrjgqkpuvh.fromTag('th');
+  };
+  var tableCell = function () {
+    return $_cimonkrjgqkpuvh.fromTag('td');
+  };
+  var render$1 = function (rows, columns, rowHeaders, columnHeaders, renderOpts) {
+    if (renderOpts === void 0) {
+      renderOpts = DefaultRenderOptions;
+    }
+    var table = makeTable();
+    $_9bj18xlljgqkpuzb.setAll(table, renderOpts.styles);
+    $_41i612lcjgqkpuxu.setAll(table, renderOpts.attributes);
+    var tbody = tableBody();
+    $_4rg294lnjgqkpuzw.append(table, tbody);
+    var trs = [];
+    for (var i = 0; i < rows; i++) {
+      var tr = tableRow();
+      for (var j = 0; j < columns; j++) {
+        var td = i < rowHeaders || j < columnHeaders ? tableHeaderCell() : tableCell();
+        if (j < columnHeaders) {
+          $_41i612lcjgqkpuxu.set(td, 'scope', 'row');
+        }
+        if (i < rowHeaders) {
+          $_41i612lcjgqkpuxu.set(td, 'scope', 'col');
+        }
+        $_4rg294lnjgqkpuzw.append(td, $_cimonkrjgqkpuvh.fromTag('br'));
+        if (renderOpts.percentages) {
+          $_9bj18xlljgqkpuzb.set(td, 'width', 100 / columns + '%');
+        }
+        $_4rg294lnjgqkpuzw.append(tr, td);
+      }
+      trs.push(tr);
+    }
+    $_aapssclpjgqkpv01.append(tbody, trs);
+    return table;
+  };
+
+  var get$7 = function (element) {
+    return element.dom().innerHTML;
+  };
+  var set$5 = function (element, content) {
+    var owner = $_3t5binktjgqkpuvq.owner(element);
+    var docDom = owner.dom();
+    var fragment = $_cimonkrjgqkpuvh.fromDom(docDom.createDocumentFragment());
+    var contentElements = $_5ymqpulwjgqkpv1l.fromHtml(content, docDom);
+    $_aapssclpjgqkpv01.append(fragment, contentElements);
+    $_461fa9lojgqkpuzx.empty(element);
+    $_4rg294lnjgqkpuzw.append(element, fragment);
+  };
+  var getOuter$2 = function (element) {
+    var container = $_cimonkrjgqkpuvh.fromTag('div');
+    var clone = $_cimonkrjgqkpuvh.fromDom(element.dom().cloneNode(true));
+    $_4rg294lnjgqkpuzw.append(container, clone);
+    return get$7(container);
+  };
+  var $_1dow4fobjgqkpvnc = {
+    get: get$7,
+    set: set$5,
+    getOuter: getOuter$2
+  };
+
+  var placeCaretInCell = function (editor, cell) {
+    editor.selection.select(cell.dom(), true);
+    editor.selection.collapse(true);
+  };
+  var selectFirstCellInTable = function (editor, tableElm) {
+    $_3gag4rlhjgqkpuyg.descendant(tableElm, 'td,th').each($_fu1fqpkejgqkpus4.curry(placeCaretInCell, editor));
+  };
+  var fireEvents = function (editor, table) {
+    $_e5654tkcjgqkpurw.each($_2v58a5lejgqkpuy6.descendants(table, 'tr'), function (row) {
+      fireNewRow(editor, row.dom());
+      $_e5654tkcjgqkpurw.each($_2v58a5lejgqkpuy6.descendants(row, 'th,td'), function (cell) {
+        fireNewCell(editor, cell.dom());
       });
     });
   };
-  var setClipboardRows = function (rows) {
-    var sugarRows = $_4rqlpsjgjcq86j74.map(rows, $_69jxc7jvjcq86j93.fromDom);
-    clipboardRows = $_f1um5wjhjcq86j78.from(sugarRows);
+  var isPercentage = function (width) {
+    return $_329fsbkfjgqkpus7.isString(width) && width.indexOf('%') !== -1;
   };
-  var registerCommands = function (editor, actions, cellSelection, selections) {
-    var isRoot = $_7k8e7dn2jcq86jpa.getIsRoot(editor);
+  var insert$1 = function (editor, columns, rows) {
+    var defaultStyles = getDefaultStyles(editor);
+    var options = {
+      styles: defaultStyles,
+      attributes: getDefaultAttributes(editor),
+      percentages: isPercentage(defaultStyles.width) && !isPixelsForced(editor)
+    };
+    var table = render$1(rows, columns, 0, 0, options);
+    $_41i612lcjgqkpuxu.set(table, 'data-mce-id', '__mce');
+    var html = $_1dow4fobjgqkpvnc.getOuter(table);
+    editor.insertContent(html);
+    return $_3gag4rlhjgqkpuyg.descendant(getBody$1(editor), 'table[data-mce-id="__mce"]').map(function (table) {
+      if (isPixelsForced(editor)) {
+        $_9bj18xlljgqkpuzb.set(table, 'width', $_9bj18xlljgqkpuzb.get(table, 'width'));
+      }
+      $_41i612lcjgqkpuxu.remove(table, 'data-mce-id');
+      fireEvents(editor, table);
+      selectFirstCellInTable(editor, table);
+      return table.dom();
+    }).getOr(null);
+  };
+  var $_445if4o8jgqkpvmb = { insert: insert$1 };
+
+  function styleTDTH(dom, elm, name, value) {
+    if (elm.tagName === 'TD' || elm.tagName === 'TH') {
+      dom.setStyle(elm, name, value);
+    } else {
+      if (elm.children) {
+        for (var i = 0; i < elm.children.length; i++) {
+          styleTDTH(dom, elm.children[i], name, value);
+        }
+      }
+    }
+  }
+  var extractDataFromElement$2 = function (editor, tableElm) {
+    var dom = editor.dom;
+    var data = {
+      width: dom.getStyle(tableElm, 'width') || dom.getAttrib(tableElm, 'width'),
+      height: dom.getStyle(tableElm, 'height') || dom.getAttrib(tableElm, 'height'),
+      cellspacing: dom.getStyle(tableElm, 'border-spacing') || dom.getAttrib(tableElm, 'cellspacing'),
+      cellpadding: dom.getAttrib(tableElm, 'data-mce-cell-padding') || dom.getAttrib(tableElm, 'cellpadding') || $_6kk5lxo3jgqkpvlp.getTDTHOverallStyle(editor.dom, tableElm, 'padding'),
+      border: dom.getAttrib(tableElm, 'data-mce-border') || dom.getAttrib(tableElm, 'border') || $_6kk5lxo3jgqkpvlp.getTDTHOverallStyle(editor.dom, tableElm, 'border'),
+      borderColor: dom.getAttrib(tableElm, 'data-mce-border-color'),
+      caption: !!dom.select('caption', tableElm)[0],
+      class: dom.getAttrib(tableElm, 'class')
+    };
+    global$2.each('left center right'.split(' '), function (name) {
+      if (editor.formatter.matchNode(tableElm, 'align' + name)) {
+        data.align = name;
+      }
+    });
+    if (hasAdvancedTableTab(editor)) {
+      global$2.extend(data, $_aa7n4no4jgqkpvls.extractAdvancedStyles(dom, tableElm));
+    }
+    return data;
+  };
+  var applyDataToElement = function (editor, tableElm, data) {
+    var dom = editor.dom;
+    var attrs = {};
+    var styles = {};
+    attrs.class = data.class;
+    styles.height = addSizeSuffix(data.height);
+    if (dom.getAttrib(tableElm, 'width') && !shouldStyleWithCss(editor)) {
+      attrs.width = removePxSuffix(data.width);
+    } else {
+      styles.width = addSizeSuffix(data.width);
+    }
+    if (shouldStyleWithCss(editor)) {
+      styles['border-width'] = addSizeSuffix(data.border);
+      styles['border-spacing'] = addSizeSuffix(data.cellspacing);
+      global$2.extend(attrs, {
+        'data-mce-border-color': data.borderColor,
+        'data-mce-cell-padding': data.cellpadding,
+        'data-mce-border': data.border
+      });
+    } else {
+      global$2.extend(attrs, {
+        border: data.border,
+        cellpadding: data.cellpadding,
+        cellspacing: data.cellspacing
+      });
+    }
+    if (shouldStyleWithCss(editor)) {
+      if (tableElm.children) {
+        for (var i = 0; i < tableElm.children.length; i++) {
+          styleTDTH(dom, tableElm.children[i], {
+            'border-width': addSizeSuffix(data.border),
+            'border-color': data.borderColor,
+            'padding': addSizeSuffix(data.cellpadding)
+          });
+        }
+      }
+    }
+    if (data.style) {
+      global$2.extend(styles, dom.parseStyle(data.style));
+    } else {
+      styles = global$2.extend({}, dom.parseStyle(dom.getAttrib(tableElm, 'style')), styles);
+    }
+    attrs.style = dom.serializeStyle(styles);
+    dom.setAttribs(tableElm, attrs);
+  };
+  var onSubmitTableForm = function (editor, tableElm, evt) {
+    var dom = editor.dom;
+    var captionElm;
+    var data;
+    $_aa7n4no4jgqkpvls.updateStyleField(editor, evt);
+    data = evt.control.rootControl.toJSON();
+    if (data.class === false) {
+      delete data.class;
+    }
+    editor.undoManager.transact(function () {
+      if (!tableElm) {
+        tableElm = $_445if4o8jgqkpvmb.insert(editor, data.cols || 1, data.rows || 1);
+      }
+      applyDataToElement(editor, tableElm, data);
+      captionElm = dom.select('caption', tableElm)[0];
+      if (captionElm && !data.caption) {
+        dom.remove(captionElm);
+      }
+      if (!captionElm && data.caption) {
+        captionElm = dom.create('caption');
+        captionElm.innerHTML = !global$3.ie ? '<br data-mce-bogus="1"/>' : '\xA0';
+        tableElm.insertBefore(captionElm, tableElm.firstChild);
+      }
+      $_6kk5lxo3jgqkpvlp.unApplyAlign(editor, tableElm);
+      if (data.align) {
+        $_6kk5lxo3jgqkpvlp.applyAlign(editor, tableElm, data.align);
+      }
+      editor.focus();
+      editor.addVisual();
+    });
+  };
+  var open$2 = function (editor, isProps) {
+    var dom = editor.dom;
+    var tableElm, colsCtrl, rowsCtrl, classListCtrl, data = {}, generalTableForm;
+    if (isProps === true) {
+      tableElm = dom.getParent(editor.selection.getStart(), 'table');
+      if (tableElm) {
+        data = extractDataFromElement$2(editor, tableElm);
+      }
+    } else {
+      colsCtrl = {
+        label: 'Cols',
+        name: 'cols'
+      };
+      rowsCtrl = {
+        label: 'Rows',
+        name: 'rows'
+      };
+    }
+    if (getTableClassList(editor).length > 0) {
+      if (data.class) {
+        data.class = data.class.replace(/\s*mce\-item\-table\s*/g, '');
+      }
+      classListCtrl = {
+        name: 'class',
+        type: 'listbox',
+        label: 'Class',
+        values: $_aa7n4no4jgqkpvls.buildListItems(getTableClassList(editor), function (item) {
+          if (item.value) {
+            item.textStyle = function () {
+              return editor.formatter.getCssText({
+                block: 'table',
+                classes: [item.value]
+              });
+            };
+          }
+        })
+      };
+    }
+    generalTableForm = {
+      type: 'form',
+      layout: 'flex',
+      direction: 'column',
+      labelGapCalc: 'children',
+      padding: 0,
+      items: [
+        {
+          type: 'form',
+          labelGapCalc: false,
+          padding: 0,
+          layout: 'grid',
+          columns: 2,
+          defaults: {
+            type: 'textbox',
+            maxWidth: 50
+          },
+          items: hasAppearanceOptions(editor) ? [
+            colsCtrl,
+            rowsCtrl,
+            {
+              label: 'Width',
+              name: 'width',
+              onchange: $_fu1fqpkejgqkpus4.curry($_aa7n4no4jgqkpvls.updateStyleField, editor)
+            },
+            {
+              label: 'Height',
+              name: 'height',
+              onchange: $_fu1fqpkejgqkpus4.curry($_aa7n4no4jgqkpvls.updateStyleField, editor)
+            },
+            {
+              label: 'Cell spacing',
+              name: 'cellspacing'
+            },
+            {
+              label: 'Cell padding',
+              name: 'cellpadding'
+            },
+            {
+              label: 'Border',
+              name: 'border'
+            },
+            {
+              label: 'Caption',
+              name: 'caption',
+              type: 'checkbox'
+            }
+          ] : [
+            colsCtrl,
+            rowsCtrl,
+            {
+              label: 'Width',
+              name: 'width',
+              onchange: $_fu1fqpkejgqkpus4.curry($_aa7n4no4jgqkpvls.updateStyleField, editor)
+            },
+            {
+              label: 'Height',
+              name: 'height',
+              onchange: $_fu1fqpkejgqkpus4.curry($_aa7n4no4jgqkpvls.updateStyleField, editor)
+            }
+          ]
+        },
+        {
+          label: 'Alignment',
+          name: 'align',
+          type: 'listbox',
+          text: 'None',
+          values: [
+            {
+              text: 'None',
+              value: ''
+            },
+            {
+              text: 'Left',
+              value: 'left'
+            },
+            {
+              text: 'Center',
+              value: 'center'
+            },
+            {
+              text: 'Right',
+              value: 'right'
+            }
+          ]
+        },
+        classListCtrl
+      ]
+    };
+    if (hasAdvancedTableTab(editor)) {
+      editor.windowManager.open({
+        title: 'Table properties',
+        data: data,
+        bodyType: 'tabpanel',
+        body: [
+          {
+            title: 'General',
+            type: 'form',
+            items: generalTableForm
+          },
+          $_aa7n4no4jgqkpvls.createStyleForm(editor)
+        ],
+        onsubmit: $_fu1fqpkejgqkpus4.curry(onSubmitTableForm, editor, tableElm)
+      });
+    } else {
+      editor.windowManager.open({
+        title: 'Table properties',
+        data: data,
+        body: generalTableForm,
+        onsubmit: $_fu1fqpkejgqkpus4.curry(onSubmitTableForm, editor, tableElm)
+      });
+    }
+  };
+  var $_67xkkzo6jgqkpvm4 = { open: open$2 };
+
+  var each$3 = global$2.each;
+  var registerCommands = function (editor, actions, cellSelection, selections, clipboardRows) {
+    var isRoot = getIsRoot(editor);
     var eraseTable = function () {
-      var cell = $_69jxc7jvjcq86j93.fromDom(editor.dom.getParent(editor.selection.getStart(), 'th,td'));
-      var table = $_7b9jhqjsjcq86j8e.table(cell, isRoot);
-      table.filter($_8h7nl9jijcq86j7b.not(isRoot)).each(function (table) {
-        var cursor = $_69jxc7jvjcq86j93.fromText('');
-        $_6cjpwckrjcq86jc8.after(table, cursor);
-        $_bu1tvfksjcq86jca.remove(table);
+      var cell = $_cimonkrjgqkpuvh.fromDom(editor.dom.getParent(editor.selection.getStart(), 'th,td'));
+      var table = $_928zfykojgqkpuu7.table(cell, isRoot);
+      table.filter($_fu1fqpkejgqkpus4.not(isRoot)).each(function (table) {
+        var cursor = $_cimonkrjgqkpuvh.fromText('');
+        $_4rg294lnjgqkpuzw.after(table, cursor);
+        $_461fa9lojgqkpuzx.remove(table);
         var rng = editor.dom.createRng();
         rng.setStart(cursor.dom(), 0);
         rng.setEnd(cursor.dom(), 0);
@@ -6875,17 +7013,32 @@ var table = (function () {
       });
     };
     var getSelectionStartCell = function () {
-      return $_69jxc7jvjcq86j93.fromDom(editor.dom.getParent(editor.selection.getStart(), 'th,td'));
+      return $_cimonkrjgqkpuvh.fromDom(editor.dom.getParent(editor.selection.getStart(), 'th,td'));
     };
     var getTableFromCell = function (cell) {
-      return $_7b9jhqjsjcq86j8e.table(cell, isRoot);
+      return $_928zfykojgqkpuu7.table(cell, isRoot);
+    };
+    var getSize = function (table) {
+      return {
+        width: getPixelWidth$1(table.dom()),
+        height: getPixelWidth$1(table.dom())
+      };
+    };
+    var resizeChange = function (editor, oldSize, table) {
+      var newSize = getSize(table);
+      if (oldSize.width !== newSize.width || oldSize.height !== newSize.height) {
+        fireObjectResizeStart(editor, table.dom(), oldSize.width, oldSize.height);
+        fireObjectResized(editor, table.dom(), newSize.width, newSize.height);
+      }
     };
     var actOnSelection = function (execute) {
       var cell = getSelectionStartCell();
       var table = getTableFromCell(cell);
       table.each(function (table) {
-        var targets = $_oxhawl1jcq86jdd.forMenu(selections, table, cell);
+        var targets = $_30tsillxjgqkpv1q.forMenu(selections, table, cell);
+        var beforeSize = getSize(table);
         execute(table, targets).each(function (rng) {
+          resizeChange(editor, beforeSize, table);
           editor.selection.setRng(rng);
           editor.focus();
           cellSelection.clear(table);
@@ -6896,23 +7049,23 @@ var table = (function () {
       var cell = getSelectionStartCell();
       var table = getTableFromCell(cell);
       return table.bind(function (table) {
-        var doc = $_69jxc7jvjcq86j93.fromDom(editor.getDoc());
-        var targets = $_oxhawl1jcq86jdd.forMenu(selections, table, cell);
-        var generators = $_e7ajnfkujcq86jcg.cellOperations($_8h7nl9jijcq86j7b.noop, doc, $_f1um5wjhjcq86j78.none());
-        return $_3y6rjvn6jcq86jps.copyRows(table, targets, generators);
+        var doc = $_cimonkrjgqkpuvh.fromDom(editor.getDoc());
+        var targets = $_30tsillxjgqkpv1q.forMenu(selections, table, cell);
+        var generators = $_3ng6folqjgqkpv06.cellOperations($_fu1fqpkejgqkpus4.noop, doc, Option.none());
+        return $_56ym02o0jgqkpvle.copyRows(table, targets, generators);
       });
     };
     var pasteOnSelection = function (execute) {
-      clipboardRows.each(function (rows) {
-        var clonedRows = $_4rqlpsjgjcq86j74.map(rows, function (row) {
-          return $_bf2067kvjcq86jcx.deep(row);
+      clipboardRows.get().each(function (rows) {
+        var clonedRows = $_e5654tkcjgqkpurw.map(rows, function (row) {
+          return $_6ix3t4lrjgqkpv12.deep(row);
         });
         var cell = getSelectionStartCell();
         var table = getTableFromCell(cell);
         table.bind(function (table) {
-          var doc = $_69jxc7jvjcq86j93.fromDom(editor.getDoc());
-          var generators = $_e7ajnfkujcq86jcg.paste(doc);
-          var targets = $_oxhawl1jcq86jdd.pasteRows(selections, table, cell, clonedRows, generators);
+          var doc = $_cimonkrjgqkpuvh.fromDom(editor.getDoc());
+          var generators = $_3ng6folqjgqkpv06.paste(doc);
+          var targets = $_30tsillxjgqkpv1q.pasteRows(selections, table, cell, clonedRows, generators);
           execute(table, targets).each(function (rng) {
             editor.selection.setRng(rng);
             editor.focus();
@@ -6947,11 +7100,11 @@ var table = (function () {
         actOnSelection(actions.deleteRow);
       },
       mceTableCutRow: function (grid) {
-        clipboardRows = copyRowSelection();
+        clipboardRows.set(copyRowSelection());
         actOnSelection(actions.deleteRow);
       },
       mceTableCopyRow: function (grid) {
-        clipboardRows = copyRowSelection();
+        clipboardRows.set(copyRowSelection());
       },
       mceTablePasteRowBefore: function (grid) {
         pasteOnSelection(actions.pasteRowsBefore);
@@ -6964,53 +7117,49 @@ var table = (function () {
       editor.addCommand(name, func);
     });
     each$3({
-      mceInsertTable: $_8h7nl9jijcq86j7b.curry($_co5rfjn8jcq86jpz.open, editor),
-      mceTableProps: $_8h7nl9jijcq86j7b.curry($_co5rfjn8jcq86jpz.open, editor, true),
-      mceTableRowProps: $_8h7nl9jijcq86j7b.curry($_6gk2ovncjcq86jqc.open, editor),
-      mceTableCellProps: $_8h7nl9jijcq86j7b.curry($_crs8nondjcq86jqh.open, editor)
+      mceInsertTable: $_fu1fqpkejgqkpus4.curry($_67xkkzo6jgqkpvm4.open, editor),
+      mceTableProps: $_fu1fqpkejgqkpus4.curry($_67xkkzo6jgqkpvm4.open, editor, true),
+      mceTableRowProps: $_fu1fqpkejgqkpus4.curry($_7o6rmfo5jgqkpvly.open, editor),
+      mceTableCellProps: $_fu1fqpkejgqkpus4.curry($_g64rano2jgqkpvli.open, editor)
     }, function (func, name) {
       editor.addCommand(name, function (ui, val) {
         func(val);
       });
     });
   };
-  var $_49w7d0n5jcq86jph = {
-    registerCommands: registerCommands,
-    getClipboardRows: getClipboardRows,
-    setClipboardRows: setClipboardRows
-  };
+  var $_hhhjfnzjgqkpvkp = { registerCommands: registerCommands };
 
   var only$1 = function (element) {
-    var parent = $_f1um5wjhjcq86j78.from(element.dom().documentElement).map($_69jxc7jvjcq86j93.fromDom).getOr(element);
+    var parent = Option.from(element.dom().documentElement).map($_cimonkrjgqkpuvh.fromDom).getOr(element);
     return {
-      parent: $_8h7nl9jijcq86j7b.constant(parent),
-      view: $_8h7nl9jijcq86j7b.constant(element),
-      origin: $_8h7nl9jijcq86j7b.constant(r(0, 0))
+      parent: $_fu1fqpkejgqkpus4.constant(parent),
+      view: $_fu1fqpkejgqkpus4.constant(element),
+      origin: $_fu1fqpkejgqkpus4.constant(r(0, 0))
     };
   };
   var detached = function (editable, chrome) {
-    var origin = $_8h7nl9jijcq86j7b.curry($_dhw84zlxjcq86jj3.absolute, chrome);
+    var origin = $_fu1fqpkejgqkpus4.curry($_57wipcmpjgqkpvai.absolute, chrome);
     return {
-      parent: $_8h7nl9jijcq86j7b.constant(chrome),
-      view: $_8h7nl9jijcq86j7b.constant(editable),
+      parent: $_fu1fqpkejgqkpus4.constant(chrome),
+      view: $_fu1fqpkejgqkpus4.constant(editable),
       origin: origin
     };
   };
   var body$1 = function (editable, chrome) {
     return {
-      parent: $_8h7nl9jijcq86j7b.constant(chrome),
-      view: $_8h7nl9jijcq86j7b.constant(editable),
-      origin: $_8h7nl9jijcq86j7b.constant(r(0, 0))
+      parent: $_fu1fqpkejgqkpus4.constant(chrome),
+      view: $_fu1fqpkejgqkpus4.constant(editable),
+      origin: $_fu1fqpkejgqkpus4.constant(r(0, 0))
     };
   };
-  var $_ba4bainfjcq86jqv = {
+  var $_98ty0zodjgqkpvnw = {
     only: only$1,
     detached: detached,
     body: body$1
   };
 
-  var Event = function (fields) {
-    var struct = $_9bzkn9jljcq86j7v.immutable.apply(null, fields);
+  function Event (fields) {
+    var struct = $_c756rzkijgqkputi.immutable.apply(null, fields);
     var handlers = [];
     var bind = function (handler) {
       if (handler === undefined) {
@@ -7019,13 +7168,13 @@ var table = (function () {
       handlers.push(handler);
     };
     var unbind = function (handler) {
-      handlers = $_4rqlpsjgjcq86j74.filter(handlers, function (h) {
+      handlers = $_e5654tkcjgqkpurw.filter(handlers, function (h) {
         return h !== handler;
       });
     };
     var trigger = function () {
       var event = struct.apply(null, arguments);
-      $_4rqlpsjgjcq86j74.each(handlers, function (handler) {
+      $_e5654tkcjgqkpurw.each(handlers, function (handler) {
         handler(event);
       });
     };
@@ -7034,16 +7183,16 @@ var table = (function () {
       unbind: unbind,
       trigger: trigger
     };
-  };
+  }
 
   var create = function (typeDefs) {
-    var registry = $_bxkr0jkjcq86j7s.map(typeDefs, function (event) {
+    var registry = $_38kcbmkhjgqkputf.map(typeDefs, function (event) {
       return {
         bind: event.bind,
         unbind: event.unbind
       };
     });
-    var trigger = $_bxkr0jkjcq86j7s.map(typeDefs, function (event) {
+    var trigger = $_38kcbmkhjgqkputf.map(typeDefs, function (event) {
       return event.trigger;
     });
     return {
@@ -7051,83 +7200,83 @@ var table = (function () {
       trigger: trigger
     };
   };
-  var $_a98s3anijcq86jrd = { create: create };
+  var $_f04b0mogjgqkpvot = { create: create };
 
-  var mode = $_atyef8m4jcq86jk1.exactly([
+  var mode = $_3d86ymmwjgqkpvc1.exactly([
     'compare',
     'extract',
     'mutate',
     'sink'
   ]);
-  var sink$1 = $_atyef8m4jcq86jk1.exactly([
+  var sink = $_3d86ymmwjgqkpvc1.exactly([
     'element',
     'start',
     'stop',
     'destroy'
   ]);
-  var api$3 = $_atyef8m4jcq86jk1.exactly([
+  var api$3 = $_3d86ymmwjgqkpvc1.exactly([
     'forceDrop',
     'drop',
     'move',
     'delayDrop'
   ]);
-  var $_3tpis2nmjcq86jsf = {
+  var $_ea9wreokjgqkpvqt = {
     mode: mode,
-    sink: sink$1,
+    sink: sink,
     api: api$3
   };
 
-  var styles$1 = $_ah53lomkjcq86jn6.css('ephox-dragster');
-  var $_8tzjssnojcq86jsq = { resolve: styles$1.resolve };
+  var styles$1 = $_591zehncjgqkpvh2.css('ephox-dragster');
+  var $_c56ettomjgqkpvrh = { resolve: styles$1.resolve };
 
-  var Blocker = function (options) {
-    var settings = $_dgiifum9jcq86jl7.merge({ 'layerClass': $_8tzjssnojcq86jsq.resolve('blocker') }, options);
-    var div = $_69jxc7jvjcq86j93.fromTag('div');
-    $_at8pjgkgjcq86jat.set(div, 'role', 'presentation');
-    $_eqzddikpjcq86jbt.setAll(div, {
+  function Blocker (options) {
+    var settings = $_fcdlx0n1jgqkpvdz.merge({ 'layerClass': $_c56ettomjgqkpvrh.resolve('blocker') }, options);
+    var div = $_cimonkrjgqkpuvh.fromTag('div');
+    $_41i612lcjgqkpuxu.set(div, 'role', 'presentation');
+    $_9bj18xlljgqkpuzb.setAll(div, {
       position: 'fixed',
       left: '0px',
       top: '0px',
       width: '100%',
       height: '100%'
     });
-    $_1ymy3mmljcq86jn7.add(div, $_8tzjssnojcq86jsq.resolve('blocker'));
-    $_1ymy3mmljcq86jn7.add(div, settings.layerClass);
+    $_bqzv8tndjgqkpvh3.add(div, $_c56ettomjgqkpvrh.resolve('blocker'));
+    $_bqzv8tndjgqkpvh3.add(div, settings.layerClass);
     var element = function () {
       return div;
     };
     var destroy = function () {
-      $_bu1tvfksjcq86jca.remove(div);
+      $_461fa9lojgqkpuzx.remove(div);
     };
     return {
       element: element,
       destroy: destroy
     };
-  };
+  }
 
   var mkEvent = function (target, x, y, stop, prevent, kill, raw) {
     return {
-      'target': $_8h7nl9jijcq86j7b.constant(target),
-      'x': $_8h7nl9jijcq86j7b.constant(x),
-      'y': $_8h7nl9jijcq86j7b.constant(y),
+      'target': $_fu1fqpkejgqkpus4.constant(target),
+      'x': $_fu1fqpkejgqkpus4.constant(x),
+      'y': $_fu1fqpkejgqkpus4.constant(y),
       'stop': stop,
       'prevent': prevent,
       'kill': kill,
-      'raw': $_8h7nl9jijcq86j7b.constant(raw)
+      'raw': $_fu1fqpkejgqkpus4.constant(raw)
     };
   };
   var handle = function (filter, handler) {
     return function (rawEvent) {
       if (!filter(rawEvent))
         return;
-      var target = $_69jxc7jvjcq86j93.fromDom(rawEvent.target);
+      var target = $_cimonkrjgqkpuvh.fromDom(rawEvent.target);
       var stop = function () {
         rawEvent.stopPropagation();
       };
       var prevent = function () {
         rawEvent.preventDefault();
       };
-      var kill = $_8h7nl9jijcq86j7b.compose(prevent, stop);
+      var kill = $_fu1fqpkejgqkpus4.compose(prevent, stop);
       var evt = mkEvent(target, rawEvent.clientX, rawEvent.clientY, stop, prevent, kill, rawEvent);
       handler(evt);
     };
@@ -7135,49 +7284,49 @@ var table = (function () {
   var binder = function (element, event, filter, handler, useCapture) {
     var wrapped = handle(filter, handler);
     element.dom().addEventListener(event, wrapped, useCapture);
-    return { unbind: $_8h7nl9jijcq86j7b.curry(unbind, element, event, wrapped, useCapture) };
+    return { unbind: $_fu1fqpkejgqkpus4.curry(unbind, element, event, wrapped, useCapture) };
   };
-  var bind$2 = function (element, event, filter, handler) {
+  var bind$1 = function (element, event, filter, handler) {
     return binder(element, event, filter, handler, false);
   };
-  var capture$1 = function (element, event, filter, handler) {
+  var capture = function (element, event, filter, handler) {
     return binder(element, event, filter, handler, true);
   };
   var unbind = function (element, event, handler, useCapture) {
     element.dom().removeEventListener(event, handler, useCapture);
   };
-  var $_83wcddnqjcq86jsw = {
-    bind: bind$2,
-    capture: capture$1
-  };
-
-  var filter$1 = $_8h7nl9jijcq86j7b.constant(true);
-  var bind$1 = function (element, event, handler) {
-    return $_83wcddnqjcq86jsw.bind(element, event, filter$1, handler);
-  };
-  var capture = function (element, event, handler) {
-    return $_83wcddnqjcq86jsw.capture(element, event, filter$1, handler);
-  };
-  var $_537a1jnpjcq86jst = {
+  var $_ehpqppoojgqkpvrr = {
     bind: bind$1,
     capture: capture
+  };
+
+  var filter$1 = $_fu1fqpkejgqkpus4.constant(true);
+  var bind$2 = function (element, event, handler) {
+    return $_ehpqppoojgqkpvrr.bind(element, event, filter$1, handler);
+  };
+  var capture$1 = function (element, event, handler) {
+    return $_ehpqppoojgqkpvrr.capture(element, event, filter$1, handler);
+  };
+  var $_fc1yzronjgqkpvrn = {
+    bind: bind$2,
+    capture: capture$1
   };
 
   var compare = function (old, nu) {
     return r(nu.left() - old.left(), nu.top() - old.top());
   };
   var extract$1 = function (event) {
-    return $_f1um5wjhjcq86j78.some(r(event.x(), event.y()));
+    return Option.some(r(event.x(), event.y()));
   };
   var mutate$1 = function (mutation, info) {
     mutation.mutate(info.left(), info.top());
   };
-  var sink = function (dragApi, settings) {
+  var sink$1 = function (dragApi, settings) {
     var blocker = Blocker(settings);
-    var mdown = $_537a1jnpjcq86jst.bind(blocker.element(), 'mousedown', dragApi.forceDrop);
-    var mup = $_537a1jnpjcq86jst.bind(blocker.element(), 'mouseup', dragApi.drop);
-    var mmove = $_537a1jnpjcq86jst.bind(blocker.element(), 'mousemove', dragApi.move);
-    var mout = $_537a1jnpjcq86jst.bind(blocker.element(), 'mouseout', dragApi.delayDrop);
+    var mdown = $_fc1yzronjgqkpvrn.bind(blocker.element(), 'mousedown', dragApi.forceDrop);
+    var mup = $_fc1yzronjgqkpvrn.bind(blocker.element(), 'mouseup', dragApi.drop);
+    var mmove = $_fc1yzronjgqkpvrn.bind(blocker.element(), 'mousemove', dragApi.move);
+    var mout = $_fc1yzronjgqkpvrn.bind(blocker.element(), 'mouseout', dragApi.delayDrop);
     var destroy = function () {
       blocker.destroy();
       mup.unbind();
@@ -7186,35 +7335,35 @@ var table = (function () {
       mdown.unbind();
     };
     var start = function (parent) {
-      $_6cjpwckrjcq86jc8.append(parent, blocker.element());
+      $_4rg294lnjgqkpuzw.append(parent, blocker.element());
     };
     var stop = function () {
-      $_bu1tvfksjcq86jca.remove(blocker.element());
+      $_461fa9lojgqkpuzx.remove(blocker.element());
     };
-    return $_3tpis2nmjcq86jsf.sink({
+    return $_ea9wreokjgqkpvqt.sink({
       element: blocker.element,
       start: start,
       stop: stop,
       destroy: destroy
     });
   };
-  var MouseDrag = $_3tpis2nmjcq86jsf.mode({
+  var MouseDrag = $_ea9wreokjgqkpvqt.mode({
     compare: compare,
     extract: extract$1,
-    sink: sink,
+    sink: sink$1,
     mutate: mutate$1
   });
 
-  var InDrag = function () {
-    var previous = $_f1um5wjhjcq86j78.none();
+  function InDrag () {
+    var previous = Option.none();
     var reset = function () {
-      previous = $_f1um5wjhjcq86j78.none();
+      previous = Option.none();
     };
     var update = function (mode, nu) {
       var result = previous.map(function (old) {
         return mode.compare(old, nu);
       });
-      previous = $_f1um5wjhjcq86j78.some(nu);
+      previous = Option.some(nu);
       return result;
     };
     var onEvent = function (event, mode) {
@@ -7226,24 +7375,24 @@ var table = (function () {
         });
       });
     };
-    var events = $_a98s3anijcq86jrd.create({ move: Event(['info']) });
+    var events = $_f04b0mogjgqkpvot.create({ move: Event(['info']) });
     return {
       onEvent: onEvent,
       reset: reset,
       events: events.registry
     };
-  };
+  }
 
-  var NoDrag = function (anchor) {
+  function NoDrag (anchor) {
     var onEvent = function (event, mode) {
     };
     return {
       onEvent: onEvent,
-      reset: $_8h7nl9jijcq86j7b.noop
+      reset: $_fu1fqpkejgqkpus4.noop
     };
-  };
+  }
 
-  var Movement = function () {
+  function Movement () {
     var noDragState = NoDrag();
     var inDragState = InDrag();
     var dragState = noDragState;
@@ -7268,7 +7417,7 @@ var table = (function () {
       onEvent: onEvent,
       events: inDragState.events
     };
-  };
+  }
 
   var adaptable = function (fn, rate) {
     var timer = null;
@@ -7341,7 +7490,7 @@ var table = (function () {
       throttle: throttle
     };
   };
-  var $_cubh7xnvjcq86jte = {
+  var $_daadnotjgqkpvsp = {
     adaptable: adaptable,
     first: first$4,
     last: last$3
@@ -7349,7 +7498,7 @@ var table = (function () {
 
   var setup = function (mutation, mode, settings) {
     var active = false;
-    var events = $_a98s3anijcq86jrd.create({
+    var events = $_f04b0mogjgqkpvot.create({
       start: Event([]),
       stop: Event([])
     });
@@ -7361,7 +7510,7 @@ var table = (function () {
         events.trigger.stop();
       }
     };
-    var throttledDrop = $_cubh7xnvjcq86jte.last(drop, 200);
+    var throttledDrop = $_daadnotjgqkpvsp.last(drop, 200);
     var go = function (parent) {
       sink.start(parent);
       movement.on();
@@ -7388,7 +7537,7 @@ var table = (function () {
         }
       };
     };
-    var sink = mode.sink($_3tpis2nmjcq86jsf.api({
+    var sink = mode.sink($_ea9wreokjgqkpvqt.api({
       forceDrop: drop,
       drop: runIfActive(drop),
       move: runIfActive(mousemove),
@@ -7406,17 +7555,17 @@ var table = (function () {
       events: events.registry
     };
   };
-  var $_4an207nrjcq86jsz = { setup: setup };
+  var $_6mveh9opjgqkpvrw = { setup: setup };
 
   var transform$1 = function (mutation, options) {
     var settings = options !== undefined ? options : {};
     var mode = settings.mode !== undefined ? settings.mode : MouseDrag;
-    return $_4an207nrjcq86jsz.setup(mutation, mode, options);
+    return $_6mveh9opjgqkpvrw.setup(mutation, mode, options);
   };
-  var $_dx58ndnkjcq86js6 = { transform: transform$1 };
+  var $_dd7f9toijgqkpvq8 = { transform: transform$1 };
 
-  var Mutation = function () {
-    var events = $_a98s3anijcq86jrd.create({
+  function Mutation () {
+    var events = $_f04b0mogjgqkpvot.create({
       'drag': Event([
         'xDelta',
         'yDelta'
@@ -7429,17 +7578,17 @@ var table = (function () {
       mutate: mutate,
       events: events.registry
     };
-  };
+  }
 
-  var BarMutation = function () {
-    var events = $_a98s3anijcq86jrd.create({
+  function BarMutation () {
+    var events = $_f04b0mogjgqkpvot.create({
       drag: Event([
         'xDelta',
         'yDelta',
         'target'
       ])
     });
-    var target = $_f1um5wjhjcq86j78.none();
+    var target = Option.none();
     var delegate = Mutation();
     delegate.events.drag.bind(function (event) {
       target.each(function (t) {
@@ -7447,7 +7596,7 @@ var table = (function () {
       });
     });
     var assign = function (t) {
-      target = $_f1um5wjhjcq86j78.some(t);
+      target = Option.some(t);
     };
     var get = function () {
       return target;
@@ -7458,27 +7607,27 @@ var table = (function () {
       mutate: delegate.mutate,
       events: events.registry
     };
-  };
+  }
 
   var any = function (selector) {
-    return $_30b5qvkljcq86jb8.first(selector).isSome();
+    return $_3gag4rlhjgqkpuyg.first(selector).isSome();
   };
   var ancestor$2 = function (scope, selector, isRoot) {
-    return $_30b5qvkljcq86jb8.ancestor(scope, selector, isRoot).isSome();
+    return $_3gag4rlhjgqkpuyg.ancestor(scope, selector, isRoot).isSome();
   };
   var sibling$2 = function (scope, selector) {
-    return $_30b5qvkljcq86jb8.sibling(scope, selector).isSome();
+    return $_3gag4rlhjgqkpuyg.sibling(scope, selector).isSome();
   };
   var child$3 = function (scope, selector) {
-    return $_30b5qvkljcq86jb8.child(scope, selector).isSome();
+    return $_3gag4rlhjgqkpuyg.child(scope, selector).isSome();
   };
   var descendant$2 = function (scope, selector) {
-    return $_30b5qvkljcq86jb8.descendant(scope, selector).isSome();
+    return $_3gag4rlhjgqkpuyg.descendant(scope, selector).isSome();
   };
   var closest$2 = function (scope, selector, isRoot) {
-    return $_30b5qvkljcq86jb8.closest(scope, selector, isRoot).isSome();
+    return $_3gag4rlhjgqkpuyg.closest(scope, selector, isRoot).isSome();
   };
-  var $_1eqqssnyjcq86jtr = {
+  var $_19hic6owjgqkpvt8 = {
     any: any,
     ancestor: ancestor$2,
     sibling: sibling$2,
@@ -7487,27 +7636,27 @@ var table = (function () {
     closest: closest$2
   };
 
-  var resizeBarDragging = $_eaihi7mjjcq86jn4.resolve('resizer-bar-dragging');
-  var BarManager = function (wire, direction, hdirection) {
+  var resizeBarDragging = $_83x9h3nbjgqkpvgy.resolve('resizer-bar-dragging');
+  function BarManager (wire, direction, hdirection) {
     var mutation = BarMutation();
-    var resizing = $_dx58ndnkjcq86js6.transform(mutation, {});
-    var hoverTable = $_f1um5wjhjcq86j78.none();
+    var resizing = $_dd7f9toijgqkpvq8.transform(mutation, {});
+    var hoverTable = Option.none();
     var getResizer = function (element, type) {
-      return $_f1um5wjhjcq86j78.from($_at8pjgkgjcq86jat.get(element, type));
+      return Option.from($_41i612lcjgqkpuxu.get(element, type));
     };
     mutation.events.drag.bind(function (event) {
       getResizer(event.target(), 'data-row').each(function (_dataRow) {
-        var currentRow = $_80ojjzmzjcq86jot.getInt(event.target(), 'top');
-        $_eqzddikpjcq86jbt.set(event.target(), 'top', currentRow + event.yDelta() + 'px');
+        var currentRow = $_79qyt9nrjgqkpvjc.getInt(event.target(), 'top');
+        $_9bj18xlljgqkpuzb.set(event.target(), 'top', currentRow + event.yDelta() + 'px');
       });
       getResizer(event.target(), 'data-column').each(function (_dataCol) {
-        var currentCol = $_80ojjzmzjcq86jot.getInt(event.target(), 'left');
-        $_eqzddikpjcq86jbt.set(event.target(), 'left', currentCol + event.xDelta() + 'px');
+        var currentCol = $_79qyt9nrjgqkpvjc.getInt(event.target(), 'left');
+        $_9bj18xlljgqkpuzb.set(event.target(), 'left', currentCol + event.xDelta() + 'px');
       });
     });
     var getDelta = function (target, direction) {
-      var newX = $_80ojjzmzjcq86jot.getInt(target, direction);
-      var oldX = parseInt($_at8pjgkgjcq86jat.get(target, 'data-initial-' + direction), 10);
+      var newX = $_79qyt9nrjgqkpvjc.getInt(target, direction);
+      var oldX = parseInt($_41i612lcjgqkpuxu.get(target, 'data-initial-' + direction), 10);
       return newX - oldX;
     };
     resizing.events.stop.bind(function () {
@@ -7515,55 +7664,55 @@ var table = (function () {
         hoverTable.each(function (table) {
           getResizer(target, 'data-row').each(function (row) {
             var delta = getDelta(target, 'top');
-            $_at8pjgkgjcq86jat.remove(target, 'data-initial-top');
+            $_41i612lcjgqkpuxu.remove(target, 'data-initial-top');
             events.trigger.adjustHeight(table, delta, parseInt(row, 10));
           });
           getResizer(target, 'data-column').each(function (column) {
             var delta = getDelta(target, 'left');
-            $_at8pjgkgjcq86jat.remove(target, 'data-initial-left');
+            $_41i612lcjgqkpuxu.remove(target, 'data-initial-left');
             events.trigger.adjustWidth(table, delta, parseInt(column, 10));
           });
-          $_7oisfimfjcq86jm7.refresh(wire, table, hdirection, direction);
+          $_9ab3ujn7jgqkpvfg.refresh(wire, table, hdirection, direction);
         });
       });
     });
     var handler = function (target, direction) {
       events.trigger.startAdjust();
       mutation.assign(target);
-      $_at8pjgkgjcq86jat.set(target, 'data-initial-' + direction, parseInt($_eqzddikpjcq86jbt.get(target, direction), 10));
-      $_1ymy3mmljcq86jn7.add(target, resizeBarDragging);
-      $_eqzddikpjcq86jbt.set(target, 'opacity', '0.2');
+      $_41i612lcjgqkpuxu.set(target, 'data-initial-' + direction, parseInt($_9bj18xlljgqkpuzb.get(target, direction), 10));
+      $_bqzv8tndjgqkpvh3.add(target, resizeBarDragging);
+      $_9bj18xlljgqkpuzb.set(target, 'opacity', '0.2');
       resizing.go(wire.parent());
     };
-    var mousedown = $_537a1jnpjcq86jst.bind(wire.parent(), 'mousedown', function (event) {
-      if ($_7oisfimfjcq86jm7.isRowBar(event.target()))
+    var mousedown = $_fc1yzronjgqkpvrn.bind(wire.parent(), 'mousedown', function (event) {
+      if ($_9ab3ujn7jgqkpvfg.isRowBar(event.target()))
         handler(event.target(), 'top');
-      if ($_7oisfimfjcq86jm7.isColBar(event.target()))
+      if ($_9ab3ujn7jgqkpvfg.isColBar(event.target()))
         handler(event.target(), 'left');
     });
     var isRoot = function (e) {
-      return $_6oaqssjzjcq86j9l.eq(e, wire.view());
+      return $_an4cuxkvjgqkpuw7.eq(e, wire.view());
     };
-    var mouseover = $_537a1jnpjcq86jst.bind(wire.view(), 'mouseover', function (event) {
-      if ($_lmewskhjcq86jb0.name(event.target()) === 'table' || $_1eqqssnyjcq86jtr.ancestor(event.target(), 'table', isRoot)) {
-        hoverTable = $_lmewskhjcq86jb0.name(event.target()) === 'table' ? $_f1um5wjhjcq86j78.some(event.target()) : $_30b5qvkljcq86jb8.ancestor(event.target(), 'table', isRoot);
+    var mouseover = $_fc1yzronjgqkpvrn.bind(wire.view(), 'mouseover', function (event) {
+      if ($_4qtrrjldjgqkpuy4.name(event.target()) === 'table' || $_19hic6owjgqkpvt8.closest(event.target(), 'table', isRoot)) {
+        hoverTable = $_4qtrrjldjgqkpuy4.name(event.target()) === 'table' ? Option.some(event.target()) : $_3gag4rlhjgqkpuyg.ancestor(event.target(), 'table', isRoot);
         hoverTable.each(function (ht) {
-          $_7oisfimfjcq86jm7.refresh(wire, ht, hdirection, direction);
+          $_9ab3ujn7jgqkpvfg.refresh(wire, ht, hdirection, direction);
         });
-      } else if ($_a0brkykkjcq86jb5.inBody(event.target())) {
-        $_7oisfimfjcq86jm7.destroy(wire);
+      } else if ($_boj1hmlgjgqkpuyc.inBody(event.target())) {
+        $_9ab3ujn7jgqkpvfg.destroy(wire);
       }
     });
     var destroy = function () {
       mousedown.unbind();
       mouseover.unbind();
       resizing.destroy();
-      $_7oisfimfjcq86jm7.destroy(wire);
+      $_9ab3ujn7jgqkpvfg.destroy(wire);
     };
     var refresh = function (tbl) {
-      $_7oisfimfjcq86jm7.refresh(wire, tbl, hdirection, direction);
+      $_9ab3ujn7jgqkpvfg.refresh(wire, tbl, hdirection, direction);
     };
-    var events = $_a98s3anijcq86jrd.create({
+    var events = $_f04b0mogjgqkpvot.create({
       adjustHeight: Event([
         'table',
         'delta',
@@ -7581,16 +7730,16 @@ var table = (function () {
       refresh: refresh,
       on: resizing.on,
       off: resizing.off,
-      hideBars: $_8h7nl9jijcq86j7b.curry($_7oisfimfjcq86jm7.hide, wire),
-      showBars: $_8h7nl9jijcq86j7b.curry($_7oisfimfjcq86jm7.show, wire),
+      hideBars: $_fu1fqpkejgqkpus4.curry($_9ab3ujn7jgqkpvfg.hide, wire),
+      showBars: $_fu1fqpkejgqkpus4.curry($_9ab3ujn7jgqkpvfg.show, wire),
       events: events.registry
     };
-  };
+  }
 
-  var TableResize = function (wire, vdirection) {
-    var hdirection = $_dxrxkolwjcq86jis.height;
+  function TableResize (wire, vdirection) {
+    var hdirection = $_5gdftfmojgqkpva2.height;
     var manager = BarManager(wire, vdirection, hdirection);
-    var events = $_a98s3anijcq86jrd.create({
+    var events = $_f04b0mogjgqkpvot.create({
       beforeResize: Event(['table']),
       afterResize: Event(['table']),
       startDrag: Event([])
@@ -7598,7 +7747,7 @@ var table = (function () {
     manager.events.adjustHeight.bind(function (event) {
       events.trigger.beforeResize(event.table());
       var delta = hdirection.delta(event.delta(), event.table());
-      $_54gvixmvjcq86joa.adjustHeight(event.table(), delta, event.row(), hdirection);
+      $_10jbwqnnjgqkpvii.adjustHeight(event.table(), delta, event.row(), hdirection);
       events.trigger.afterResize(event.table());
     });
     manager.events.startAdjust.bind(function (event) {
@@ -7607,7 +7756,7 @@ var table = (function () {
     manager.events.adjustWidth.bind(function (event) {
       events.trigger.beforeResize(event.table());
       var delta = vdirection.delta(event.delta(), event.table());
-      $_54gvixmvjcq86joa.adjustWidth(event.table(), delta, event.column(), vdirection);
+      $_10jbwqnnjgqkpvii.adjustWidth(event.table(), delta, event.column(), vdirection);
       events.trigger.afterResize(event.table());
     });
     return {
@@ -7618,11 +7767,11 @@ var table = (function () {
       destroy: manager.destroy,
       events: events.registry
     };
-  };
+  }
 
   var createContainer = function () {
-    var container = $_69jxc7jvjcq86j93.fromTag('div');
-    $_eqzddikpjcq86jbt.setAll(container, {
+    var container = $_cimonkrjgqkpuvh.fromTag('div');
+    $_9bj18xlljgqkpuzb.setAll(container, {
       position: 'static',
       height: '0',
       width: '0',
@@ -7630,26 +7779,26 @@ var table = (function () {
       margin: '0',
       border: '0'
     });
-    $_6cjpwckrjcq86jc8.append($_a0brkykkjcq86jb5.body(), container);
+    $_4rg294lnjgqkpuzw.append($_boj1hmlgjgqkpuyc.body(), container);
     return container;
   };
   var get$8 = function (editor, container) {
-    return editor.inline ? $_ba4bainfjcq86jqv.body($_7k8e7dn2jcq86jpa.getBody(editor), createContainer()) : $_ba4bainfjcq86jqv.only($_69jxc7jvjcq86j93.fromDom(editor.getDoc()));
+    return editor.inline ? $_98ty0zodjgqkpvnw.body(getBody$1(editor), createContainer()) : $_98ty0zodjgqkpvnw.only($_cimonkrjgqkpuvh.fromDom(editor.getDoc()));
   };
   var remove$6 = function (editor, wire) {
     if (editor.inline) {
-      $_bu1tvfksjcq86jca.remove(wire.parent());
+      $_461fa9lojgqkpuzx.remove(wire.parent());
     }
   };
-  var $_p3wr8nzjcq86jtt = {
+  var $_39pwafoxjgqkpvta = {
     get: get$8,
     remove: remove$6
   };
 
   var ResizeHandler = function (editor) {
-    var selectionRng = $_f1um5wjhjcq86j78.none();
-    var resize = $_f1um5wjhjcq86j78.none();
-    var wire = $_f1um5wjhjcq86j78.none();
+    var selectionRng = Option.none();
+    var resize = Option.none();
+    var wire = Option.none();
     var percentageBasedSizeRegex = /(\d+(\.\d+)?)%/;
     var startW, startRawW;
     var isTable = function (elm) {
@@ -7662,58 +7811,66 @@ var table = (function () {
       return resize;
     };
     var lazyWire = function () {
-      return wire.getOr($_ba4bainfjcq86jqv.only($_69jxc7jvjcq86j93.fromDom(editor.getBody())));
+      return wire.getOr($_98ty0zodjgqkpvnw.only($_cimonkrjgqkpuvh.fromDom(editor.getBody())));
     };
     var destroy = function () {
       resize.each(function (sz) {
         sz.destroy();
       });
       wire.each(function (w) {
-        $_p3wr8nzjcq86jtt.remove(editor, w);
+        $_39pwafoxjgqkpvta.remove(editor, w);
       });
     };
     editor.on('init', function () {
-      var direction = TableDirection($_diqe05n3jcq86jpd.directionAt);
-      var rawWire = $_p3wr8nzjcq86jtt.get(editor);
-      wire = $_f1um5wjhjcq86j78.some(rawWire);
-      if (editor.settings.object_resizing && editor.settings.table_resize_bars !== false && (editor.settings.object_resizing === true || editor.settings.object_resizing === 'table')) {
+      var direction = TableDirection($_8b8v1fnvjgqkpvka.directionAt);
+      var rawWire = $_39pwafoxjgqkpvta.get(editor);
+      wire = Option.some(rawWire);
+      if (hasObjectResizing(editor) && hasTableResizeBars(editor)) {
         var sz = TableResize(rawWire, direction);
         sz.on();
         sz.events.startDrag.bind(function (event) {
-          selectionRng = $_f1um5wjhjcq86j78.some(editor.selection.getRng());
+          selectionRng = Option.some(editor.selection.getRng());
+        });
+        sz.events.beforeResize.bind(function (event) {
+          var rawTable = event.table().dom();
+          fireObjectResizeStart(editor, rawTable, getPixelWidth$1(rawTable), getPixelHeight(rawTable));
         });
         sz.events.afterResize.bind(function (event) {
           var table = event.table();
-          var dataStyleCells = $_h5pcpkijcq86jb1.descendants(table, 'td[data-mce-style],th[data-mce-style]');
-          $_4rqlpsjgjcq86j74.each(dataStyleCells, function (cell) {
-            $_at8pjgkgjcq86jat.remove(cell, 'data-mce-style');
+          var rawTable = table.dom();
+          var dataStyleCells = $_2v58a5lejgqkpuy6.descendants(table, 'td[data-mce-style],th[data-mce-style]');
+          $_e5654tkcjgqkpurw.each(dataStyleCells, function (cell) {
+            $_41i612lcjgqkpuxu.remove(cell, 'data-mce-style');
           });
           selectionRng.each(function (rng) {
             editor.selection.setRng(rng);
             editor.focus();
           });
+          fireObjectResized(editor, rawTable, getPixelWidth$1(rawTable), getPixelHeight(rawTable));
           editor.undoManager.add();
         });
-        resize = $_f1um5wjhjcq86j78.some(sz);
+        resize = Option.some(sz);
       }
     });
     editor.on('ObjectResizeStart', function (e) {
-      if (isTable(e.target)) {
+      var targetElm = e.target;
+      if (isTable(targetElm)) {
         startW = e.width;
-        startRawW = getRawWidth(e.target);
+        startRawW = getRawWidth(targetElm);
       }
     });
     editor.on('ObjectResized', function (e) {
-      if (isTable(e.target)) {
-        var table = e.target;
+      var targetElm = e.target;
+      if (isTable(targetElm)) {
+        var table = targetElm;
         if (percentageBasedSizeRegex.test(startRawW)) {
           var percentW = parseFloat(percentageBasedSizeRegex.exec(startRawW)[1]);
           var targetPercentW = e.width * percentW / startW;
           editor.dom.setStyle(table, 'width', targetPercentW + '%');
         } else {
           var newCellSizes_1 = [];
-          Tools.each(table.rows, function (row) {
-            Tools.each(row.cells, function (cell) {
+          global$2.each(table.rows, function (row) {
+            global$2.each(row.cells, function (cell) {
               var width = editor.dom.getStyle(cell, 'width', true);
               newCellSizes_1.push({
                 cell: cell,
@@ -7721,7 +7878,7 @@ var table = (function () {
               });
             });
           });
-          Tools.each(newCellSizes_1, function (newCellSize) {
+          global$2.each(newCellSizes_1, function (newCellSize) {
             editor.dom.setStyle(newCellSize.cell, 'width', newCellSize.width);
             editor.dom.setAttrib(newCellSize.cell, 'width', null);
           });
@@ -7758,7 +7915,7 @@ var table = (function () {
   var folder$1 = function (fold) {
     return { fold: fold };
   };
-  var $_9cs0voo2jcq86jul = {
+  var $_6ihc9xp0jgqkpvuq = {
     none: none$2,
     first: first$5,
     middle: middle$1,
@@ -7766,15 +7923,15 @@ var table = (function () {
   };
 
   var detect$4 = function (current, isRoot) {
-    return $_7b9jhqjsjcq86j8e.table(current, isRoot).bind(function (table) {
-      var all = $_7b9jhqjsjcq86j8e.cells(table);
-      var index = $_4rqlpsjgjcq86j74.findIndex(all, function (x) {
-        return $_6oaqssjzjcq86j9l.eq(current, x);
+    return $_928zfykojgqkpuu7.table(current, isRoot).bind(function (table) {
+      var all = $_928zfykojgqkpuu7.cells(table);
+      var index = $_e5654tkcjgqkpurw.findIndex(all, function (x) {
+        return $_an4cuxkvjgqkpuw7.eq(current, x);
       });
       return index.map(function (ind) {
         return {
-          index: $_8h7nl9jijcq86j7b.constant(ind),
-          all: $_8h7nl9jijcq86j7b.constant(all)
+          index: $_fu1fqpkejgqkpus4.constant(ind),
+          all: $_fu1fqpkejgqkpus4.constant(all)
         };
       });
     });
@@ -7782,25 +7939,25 @@ var table = (function () {
   var next = function (current, isRoot) {
     var detection = detect$4(current, isRoot);
     return detection.fold(function () {
-      return $_9cs0voo2jcq86jul.none(current);
+      return $_6ihc9xp0jgqkpvuq.none(current);
     }, function (info) {
-      return info.index() + 1 < info.all().length ? $_9cs0voo2jcq86jul.middle(current, info.all()[info.index() + 1]) : $_9cs0voo2jcq86jul.last(current);
+      return info.index() + 1 < info.all().length ? $_6ihc9xp0jgqkpvuq.middle(current, info.all()[info.index() + 1]) : $_6ihc9xp0jgqkpvuq.last(current);
     });
   };
   var prev = function (current, isRoot) {
     var detection = detect$4(current, isRoot);
     return detection.fold(function () {
-      return $_9cs0voo2jcq86jul.none();
+      return $_6ihc9xp0jgqkpvuq.none();
     }, function (info) {
-      return info.index() - 1 >= 0 ? $_9cs0voo2jcq86jul.middle(current, info.all()[info.index() - 1]) : $_9cs0voo2jcq86jul.first(current);
+      return info.index() - 1 >= 0 ? $_6ihc9xp0jgqkpvuq.middle(current, info.all()[info.index() - 1]) : $_6ihc9xp0jgqkpvuq.first(current);
     });
   };
-  var $_6jzrmso1jcq86jue = {
+  var $_8m2fn1ozjgqkpvuh = {
     next: next,
     prev: prev
   };
 
-  var adt = $_1peq2flijcq86jgp.generate([
+  var adt = $_48tn2vmejgqkpv75.generate([
     { 'before': ['element'] },
     {
       'on': [
@@ -7813,18 +7970,18 @@ var table = (function () {
   var cata$1 = function (subject, onBefore, onOn, onAfter) {
     return subject.fold(onBefore, onOn, onAfter);
   };
-  var getStart$1 = function (situ) {
-    return situ.fold($_8h7nl9jijcq86j7b.identity, $_8h7nl9jijcq86j7b.identity, $_8h7nl9jijcq86j7b.identity);
+  var getStart = function (situ) {
+    return situ.fold($_fu1fqpkejgqkpus4.identity, $_fu1fqpkejgqkpus4.identity, $_fu1fqpkejgqkpus4.identity);
   };
-  var $_1mhoydo4jcq86juq = {
+  var $_9fb1vup2jgqkpvv2 = {
     before: adt.before,
     on: adt.on,
     after: adt.after,
     cata: cata$1,
-    getStart: getStart$1
+    getStart: getStart
   };
 
-  var type$2 = $_1peq2flijcq86jgp.generate([
+  var type$2 = $_48tn2vmejgqkpv75.generate([
     { domRange: ['rng'] },
     {
       relative: [
@@ -7841,17 +7998,17 @@ var table = (function () {
       ]
     }
   ]);
-  var range$2 = $_9bzkn9jljcq86j7v.immutable('start', 'soffset', 'finish', 'foffset');
+  var range$2 = $_c756rzkijgqkputi.immutable('start', 'soffset', 'finish', 'foffset');
   var exactFromRange = function (simRange) {
     return type$2.exact(simRange.start(), simRange.soffset(), simRange.finish(), simRange.foffset());
   };
-  var getStart = function (selection) {
+  var getStart$1 = function (selection) {
     return selection.match({
       domRange: function (rng) {
-        return $_69jxc7jvjcq86j93.fromDom(rng.startContainer);
+        return $_cimonkrjgqkpuvh.fromDom(rng.startContainer);
       },
       relative: function (startSitu, finishSitu) {
-        return $_1mhoydo4jcq86juq.getStart(startSitu);
+        return $_9fb1vup2jgqkpvv2.getStart(startSitu);
       },
       exact: function (start, soffset, finish, foffset) {
         return start;
@@ -7859,10 +8016,10 @@ var table = (function () {
     });
   };
   var getWin = function (selection) {
-    var start = getStart(selection);
-    return $_alsyrkjxjcq86j99.defaultView(start);
+    var start = getStart$1(selection);
+    return $_3t5binktjgqkpuvq.defaultView(start);
   };
-  var $_88yslno3jcq86jum = {
+  var $_eox400p1jgqkpvus = {
     domRange: type$2.domRange,
     relative: type$2.relative,
     exact: type$2.exact,
@@ -7872,7 +8029,7 @@ var table = (function () {
   };
 
   var makeRange = function (start, soffset, finish, foffset) {
-    var doc = $_alsyrkjxjcq86j99.owner(start);
+    var doc = $_3t5binktjgqkpuvq.owner(start);
     var rng = doc.dom().createRange();
     rng.setStart(start.dom(), soffset);
     rng.setEnd(finish.dom(), foffset);
@@ -7880,14 +8037,14 @@ var table = (function () {
   };
   var commonAncestorContainer = function (start, soffset, finish, foffset) {
     var r = makeRange(start, soffset, finish, foffset);
-    return $_69jxc7jvjcq86j93.fromDom(r.commonAncestorContainer);
+    return $_cimonkrjgqkpuvh.fromDom(r.commonAncestorContainer);
   };
   var after$2 = function (start, soffset, finish, foffset) {
     var r = makeRange(start, soffset, finish, foffset);
-    var same = $_6oaqssjzjcq86j9l.eq(start, finish) && soffset === foffset;
+    var same = $_an4cuxkvjgqkpuw7.eq(start, finish) && soffset === foffset;
     return r.collapsed && !same;
   };
-  var $_164loeo6jcq86juz = {
+  var $_51f2nxp4jgqkpvvf = {
     after: after$2,
     commonAncestorContainer: commonAncestorContainer
   };
@@ -7895,12 +8052,12 @@ var table = (function () {
   var fromElements = function (elements, scope) {
     var doc = scope || document;
     var fragment = doc.createDocumentFragment();
-    $_4rqlpsjgjcq86j74.each(elements, function (element) {
+    $_e5654tkcjgqkpurw.each(elements, function (element) {
       fragment.appendChild(element.dom());
     });
-    return $_69jxc7jvjcq86j93.fromDom(fragment);
+    return $_cimonkrjgqkpuvh.fromDom(fragment);
   };
-  var $_5tiekko7jcq86jv0 = { fromElements: fromElements };
+  var $_7lsvcp5jgqkpvvi = { fromElements: fromElements };
 
   var selectNodeContents = function (win, element) {
     var rng = win.document.createRange();
@@ -7955,31 +8112,31 @@ var table = (function () {
   };
   var cloneFragment = function (rng) {
     var fragment = rng.cloneContents();
-    return $_69jxc7jvjcq86j93.fromDom(fragment);
+    return $_cimonkrjgqkpuvh.fromDom(fragment);
   };
   var toRect = function (rect) {
     return {
-      left: $_8h7nl9jijcq86j7b.constant(rect.left),
-      top: $_8h7nl9jijcq86j7b.constant(rect.top),
-      right: $_8h7nl9jijcq86j7b.constant(rect.right),
-      bottom: $_8h7nl9jijcq86j7b.constant(rect.bottom),
-      width: $_8h7nl9jijcq86j7b.constant(rect.width),
-      height: $_8h7nl9jijcq86j7b.constant(rect.height)
+      left: $_fu1fqpkejgqkpus4.constant(rect.left),
+      top: $_fu1fqpkejgqkpus4.constant(rect.top),
+      right: $_fu1fqpkejgqkpus4.constant(rect.right),
+      bottom: $_fu1fqpkejgqkpus4.constant(rect.bottom),
+      width: $_fu1fqpkejgqkpus4.constant(rect.width),
+      height: $_fu1fqpkejgqkpus4.constant(rect.height)
     };
   };
-  var getFirstRect$1 = function (rng) {
+  var getFirstRect = function (rng) {
     var rects = rng.getClientRects();
     var rect = rects.length > 0 ? rects[0] : rng.getBoundingClientRect();
-    return rect.width > 0 || rect.height > 0 ? $_f1um5wjhjcq86j78.some(rect).map(toRect) : $_f1um5wjhjcq86j78.none();
+    return rect.width > 0 || rect.height > 0 ? Option.some(rect).map(toRect) : Option.none();
   };
-  var getBounds$2 = function (rng) {
+  var getBounds$1 = function (rng) {
     var rect = rng.getBoundingClientRect();
-    return rect.width > 0 || rect.height > 0 ? $_f1um5wjhjcq86j78.some(rect).map(toRect) : $_f1um5wjhjcq86j78.none();
+    return rect.width > 0 || rect.height > 0 ? Option.some(rect).map(toRect) : Option.none();
   };
   var toString = function (rng) {
     return rng.toString();
   };
-  var $_3dlhj9o8jcq86jv3 = {
+  var $_ansf75p6jgqkpvvm = {
     create: create$1,
     replaceWith: replaceWith,
     selectNodeContents: selectNodeContents,
@@ -7988,13 +8145,13 @@ var table = (function () {
     exactToNative: exactToNative,
     deleteContents: deleteContents,
     cloneFragment: cloneFragment,
-    getFirstRect: getFirstRect$1,
-    getBounds: getBounds$2,
+    getFirstRect: getFirstRect,
+    getBounds: getBounds$1,
     isWithin: isWithin$1,
     toString: toString
   };
 
-  var adt$1 = $_1peq2flijcq86jgp.generate([
+  var adt$1 = $_48tn2vmejgqkpv75.generate([
     {
       ltr: [
         'start',
@@ -8013,33 +8170,33 @@ var table = (function () {
     }
   ]);
   var fromRange = function (win, type, range) {
-    return type($_69jxc7jvjcq86j93.fromDom(range.startContainer), range.startOffset, $_69jxc7jvjcq86j93.fromDom(range.endContainer), range.endOffset);
+    return type($_cimonkrjgqkpuvh.fromDom(range.startContainer), range.startOffset, $_cimonkrjgqkpuvh.fromDom(range.endContainer), range.endOffset);
   };
   var getRanges = function (win, selection) {
     return selection.match({
       domRange: function (rng) {
         return {
-          ltr: $_8h7nl9jijcq86j7b.constant(rng),
-          rtl: $_f1um5wjhjcq86j78.none
+          ltr: $_fu1fqpkejgqkpus4.constant(rng),
+          rtl: Option.none
         };
       },
       relative: function (startSitu, finishSitu) {
         return {
-          ltr: $_2syu80k5jcq86ja1.cached(function () {
-            return $_3dlhj9o8jcq86jv3.relativeToNative(win, startSitu, finishSitu);
+          ltr: $_6bgxepl1jgqkpuwu.cached(function () {
+            return $_ansf75p6jgqkpvvm.relativeToNative(win, startSitu, finishSitu);
           }),
-          rtl: $_2syu80k5jcq86ja1.cached(function () {
-            return $_f1um5wjhjcq86j78.some($_3dlhj9o8jcq86jv3.relativeToNative(win, finishSitu, startSitu));
+          rtl: $_6bgxepl1jgqkpuwu.cached(function () {
+            return Option.some($_ansf75p6jgqkpvvm.relativeToNative(win, finishSitu, startSitu));
           })
         };
       },
       exact: function (start, soffset, finish, foffset) {
         return {
-          ltr: $_2syu80k5jcq86ja1.cached(function () {
-            return $_3dlhj9o8jcq86jv3.exactToNative(win, start, soffset, finish, foffset);
+          ltr: $_6bgxepl1jgqkpuwu.cached(function () {
+            return $_ansf75p6jgqkpvvm.exactToNative(win, start, soffset, finish, foffset);
           }),
-          rtl: $_2syu80k5jcq86ja1.cached(function () {
-            return $_f1um5wjhjcq86j78.some($_3dlhj9o8jcq86jv3.exactToNative(win, finish, foffset, start, soffset));
+          rtl: $_6bgxepl1jgqkpuwu.cached(function () {
+            return Option.some($_ansf75p6jgqkpvvm.exactToNative(win, finish, foffset, start, soffset));
           })
         };
       }
@@ -8052,7 +8209,7 @@ var table = (function () {
         return rev.collapsed === false;
       });
       return reversed.map(function (rev) {
-        return adt$1.rtl($_69jxc7jvjcq86j93.fromDom(rev.endContainer), rev.endOffset, $_69jxc7jvjcq86j93.fromDom(rev.startContainer), rev.startOffset);
+        return adt$1.rtl($_cimonkrjgqkpuvh.fromDom(rev.endContainer), rev.endOffset, $_cimonkrjgqkpuvh.fromDom(rev.startContainer), rev.startOffset);
       }).getOrThunk(function () {
         return fromRange(win, adt$1.ltr, rng);
       });
@@ -8081,7 +8238,7 @@ var table = (function () {
       }
     });
   };
-  var $_4j925jo9jcq86jv8 = {
+  var $_2l3yuip7jgqkpvvu = {
     ltr: adt$1.ltr,
     rtl: adt$1.rtl,
     diagnose: diagnose,
@@ -8109,7 +8266,7 @@ var table = (function () {
   var inRect = function (rect, x, y) {
     return x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
   };
-  var $_dlt95docjcq86jvr = {
+  var $_1xt4expajgqkpvwm = {
     inRect: inRect,
     searchForPoint: searchForPoint
   };
@@ -8125,36 +8282,36 @@ var table = (function () {
       var r = rangeForOffset(offset);
       return r.getBoundingClientRect();
     };
-    var length = $_gicm64kyjcq86jd5.get(textnode).length;
-    var offset = $_dlt95docjcq86jvr.searchForPoint(rectForOffset, x, y, rect.right, length);
+    var length = $_96nm8vlujgqkpv1d.get(textnode).length;
+    var offset = $_1xt4expajgqkpvwm.searchForPoint(rectForOffset, x, y, rect.right, length);
     return rangeForOffset(offset);
   };
-  var locate$1 = function (doc, node, x, y) {
+  var locate = function (doc, node, x, y) {
     var r = doc.dom().createRange();
     r.selectNode(node.dom());
     var rects = r.getClientRects();
-    var foundRect = $_dsgmzrmajcq86jl8.findMap(rects, function (rect) {
-      return $_dlt95docjcq86jvr.inRect(rect, x, y) ? $_f1um5wjhjcq86j78.some(rect) : $_f1um5wjhjcq86j78.none();
+    var foundRect = $_82sd1cn2jgqkpve1.findMap(rects, function (rect) {
+      return $_1xt4expajgqkpvwm.inRect(rect, x, y) ? Option.some(rect) : Option.none();
     });
     return foundRect.map(function (rect) {
       return locateOffset(doc, node, x, y, rect);
     });
   };
-  var $_d8y0duodjcq86jvs = { locate: locate$1 };
+  var $_675wp3pbjgqkpvwo = { locate: locate };
 
   var searchInChildren = function (doc, node, x, y) {
     var r = doc.dom().createRange();
-    var nodes = $_alsyrkjxjcq86j99.children(node);
-    return $_dsgmzrmajcq86jl8.findMap(nodes, function (n) {
+    var nodes = $_3t5binktjgqkpuvq.children(node);
+    return $_82sd1cn2jgqkpve1.findMap(nodes, function (n) {
       r.selectNode(n.dom());
-      return $_dlt95docjcq86jvr.inRect(r.getBoundingClientRect(), x, y) ? locateNode(doc, n, x, y) : $_f1um5wjhjcq86j78.none();
+      return $_1xt4expajgqkpvwm.inRect(r.getBoundingClientRect(), x, y) ? locateNode(doc, n, x, y) : Option.none();
     });
   };
   var locateNode = function (doc, node, x, y) {
-    var locator = $_lmewskhjcq86jb0.isText(node) ? $_d8y0duodjcq86jvs.locate : searchInChildren;
+    var locator = $_4qtrrjldjgqkpuy4.isText(node) ? $_675wp3pbjgqkpvwo.locate : searchInChildren;
     return locator(doc, node, x, y);
   };
-  var locate = function (doc, node, x, y) {
+  var locate$1 = function (doc, node, x, y) {
     var r = doc.dom().createRange();
     r.selectNode(node.dom());
     var rect = r.getBoundingClientRect();
@@ -8162,7 +8319,7 @@ var table = (function () {
     var boundedY = Math.max(rect.top, Math.min(rect.bottom, y));
     return locateNode(doc, node, boundedX, boundedY);
   };
-  var $_4vafm8objcq86jvm = { locate: locate };
+  var $_9wwxq7p9jgqkpvwg = { locate: locate$1 };
 
   var COLLAPSE_TO_LEFT = true;
   var COLLAPSE_TO_RIGHT = false;
@@ -8180,7 +8337,7 @@ var table = (function () {
     cursorRange.selectNode(node.dom());
     var rect = cursorRange.getBoundingClientRect();
     var collapseDirection = getCollapseDirection(rect, x);
-    var f = collapseDirection === COLLAPSE_TO_LEFT ? $_8vz744kwjcq86jd0.first : $_8vz744kwjcq86jd0.last;
+    var f = collapseDirection === COLLAPSE_TO_LEFT ? $_8t9497lsjgqkpv15.first : $_8t9497lsjgqkpv15.last;
     return f(node).map(function (target) {
       return createCollapsedNode(doc, target, collapseDirection);
     });
@@ -8188,26 +8345,26 @@ var table = (function () {
   var locateInEmpty = function (doc, node, x) {
     var rect = node.dom().getBoundingClientRect();
     var collapseDirection = getCollapseDirection(rect, x);
-    return $_f1um5wjhjcq86j78.some(createCollapsedNode(doc, node, collapseDirection));
+    return Option.some(createCollapsedNode(doc, node, collapseDirection));
   };
   var search = function (doc, node, x) {
-    var f = $_alsyrkjxjcq86j99.children(node).length === 0 ? locateInEmpty : locateInElement;
+    var f = $_3t5binktjgqkpuvq.children(node).length === 0 ? locateInEmpty : locateInElement;
     return f(doc, node, x);
   };
-  var $_f2tzs0oejcq86jvy = { search: search };
+  var $_69skdfpcjgqkpvwv = { search: search };
 
   var caretPositionFromPoint = function (doc, x, y) {
-    return $_f1um5wjhjcq86j78.from(doc.dom().caretPositionFromPoint(x, y)).bind(function (pos) {
+    return Option.from(doc.dom().caretPositionFromPoint(x, y)).bind(function (pos) {
       if (pos.offsetNode === null)
-        return $_f1um5wjhjcq86j78.none();
+        return Option.none();
       var r = doc.dom().createRange();
       r.setStart(pos.offsetNode, pos.offset);
       r.collapse();
-      return $_f1um5wjhjcq86j78.some(r);
+      return Option.some(r);
     });
   };
   var caretRangeFromPoint = function (doc, x, y) {
-    return $_f1um5wjhjcq86j78.from(doc.dom().caretRangeFromPoint(x, y));
+    return Option.from(doc.dom().caretRangeFromPoint(x, y));
   };
   var searchTextNodes = function (doc, node, x, y) {
     var r = doc.dom().createRange();
@@ -8215,75 +8372,75 @@ var table = (function () {
     var rect = r.getBoundingClientRect();
     var boundedX = Math.max(rect.left, Math.min(rect.right, x));
     var boundedY = Math.max(rect.top, Math.min(rect.bottom, y));
-    return $_4vafm8objcq86jvm.locate(doc, node, boundedX, boundedY);
+    return $_9wwxq7p9jgqkpvwg.locate(doc, node, boundedX, boundedY);
   };
   var searchFromPoint = function (doc, x, y) {
-    return $_69jxc7jvjcq86j93.fromPoint(doc, x, y).bind(function (elem) {
+    return $_cimonkrjgqkpuvh.fromPoint(doc, x, y).bind(function (elem) {
       var fallback = function () {
-        return $_f2tzs0oejcq86jvy.search(doc, elem, x);
+        return $_69skdfpcjgqkpvwv.search(doc, elem, x);
       };
-      return $_alsyrkjxjcq86j99.children(elem).length === 0 ? fallback() : searchTextNodes(doc, elem, x, y).orThunk(fallback);
+      return $_3t5binktjgqkpuvq.children(elem).length === 0 ? fallback() : searchTextNodes(doc, elem, x, y).orThunk(fallback);
     });
   };
   var availableSearch = document.caretPositionFromPoint ? caretPositionFromPoint : document.caretRangeFromPoint ? caretRangeFromPoint : searchFromPoint;
   var fromPoint$1 = function (win, x, y) {
-    var doc = $_69jxc7jvjcq86j93.fromDom(win.document);
+    var doc = $_cimonkrjgqkpuvh.fromDom(win.document);
     return availableSearch(doc, x, y).map(function (rng) {
-      return $_88yslno3jcq86jum.range($_69jxc7jvjcq86j93.fromDom(rng.startContainer), rng.startOffset, $_69jxc7jvjcq86j93.fromDom(rng.endContainer), rng.endOffset);
+      return $_eox400p1jgqkpvus.range($_cimonkrjgqkpuvh.fromDom(rng.startContainer), rng.startOffset, $_cimonkrjgqkpuvh.fromDom(rng.endContainer), rng.endOffset);
     });
   };
-  var $_fruohqoajcq86jvi = { fromPoint: fromPoint$1 };
+  var $_6sc4zbp8jgqkpvwb = { fromPoint: fromPoint$1 };
 
   var withinContainer = function (win, ancestor, outerRange, selector) {
-    var innerRange = $_3dlhj9o8jcq86jv3.create(win);
-    var self = $_fpww74jujcq86j8z.is(ancestor, selector) ? [ancestor] : [];
-    var elements = self.concat($_h5pcpkijcq86jb1.descendants(ancestor, selector));
-    return $_4rqlpsjgjcq86j74.filter(elements, function (elem) {
-      $_3dlhj9o8jcq86jv3.selectNodeContentsUsing(innerRange, elem);
-      return $_3dlhj9o8jcq86jv3.isWithin(outerRange, innerRange);
+    var innerRange = $_ansf75p6jgqkpvvm.create(win);
+    var self = $_e0dyi1kqjgqkpuv9.is(ancestor, selector) ? [ancestor] : [];
+    var elements = self.concat($_2v58a5lejgqkpuy6.descendants(ancestor, selector));
+    return $_e5654tkcjgqkpurw.filter(elements, function (elem) {
+      $_ansf75p6jgqkpvvm.selectNodeContentsUsing(innerRange, elem);
+      return $_ansf75p6jgqkpvvm.isWithin(outerRange, innerRange);
     });
   };
   var find$3 = function (win, selection, selector) {
-    var outerRange = $_4j925jo9jcq86jv8.asLtrRange(win, selection);
-    var ancestor = $_69jxc7jvjcq86j93.fromDom(outerRange.commonAncestorContainer);
-    return $_lmewskhjcq86jb0.isElement(ancestor) ? withinContainer(win, ancestor, outerRange, selector) : [];
+    var outerRange = $_2l3yuip7jgqkpvvu.asLtrRange(win, selection);
+    var ancestor = $_cimonkrjgqkpuvh.fromDom(outerRange.commonAncestorContainer);
+    return $_4qtrrjldjgqkpuy4.isElement(ancestor) ? withinContainer(win, ancestor, outerRange, selector) : [];
   };
-  var $_eotlp3ofjcq86jw2 = { find: find$3 };
+  var $_4t96l8pdjgqkpvwz = { find: find$3 };
 
   var beforeSpecial = function (element, offset) {
-    var name = $_lmewskhjcq86jb0.name(element);
+    var name = $_4qtrrjldjgqkpuy4.name(element);
     if ('input' === name)
-      return $_1mhoydo4jcq86juq.after(element);
-    else if (!$_4rqlpsjgjcq86j74.contains([
+      return $_9fb1vup2jgqkpvv2.after(element);
+    else if (!$_e5654tkcjgqkpurw.contains([
         'br',
         'img'
       ], name))
-      return $_1mhoydo4jcq86juq.on(element, offset);
+      return $_9fb1vup2jgqkpvv2.on(element, offset);
     else
-      return offset === 0 ? $_1mhoydo4jcq86juq.before(element) : $_1mhoydo4jcq86juq.after(element);
+      return offset === 0 ? $_9fb1vup2jgqkpvv2.before(element) : $_9fb1vup2jgqkpvv2.after(element);
   };
   var preprocessRelative = function (startSitu, finishSitu) {
-    var start = startSitu.fold($_1mhoydo4jcq86juq.before, beforeSpecial, $_1mhoydo4jcq86juq.after);
-    var finish = finishSitu.fold($_1mhoydo4jcq86juq.before, beforeSpecial, $_1mhoydo4jcq86juq.after);
-    return $_88yslno3jcq86jum.relative(start, finish);
+    var start = startSitu.fold($_9fb1vup2jgqkpvv2.before, beforeSpecial, $_9fb1vup2jgqkpvv2.after);
+    var finish = finishSitu.fold($_9fb1vup2jgqkpvv2.before, beforeSpecial, $_9fb1vup2jgqkpvv2.after);
+    return $_eox400p1jgqkpvus.relative(start, finish);
   };
   var preprocessExact = function (start, soffset, finish, foffset) {
     var startSitu = beforeSpecial(start, soffset);
     var finishSitu = beforeSpecial(finish, foffset);
-    return $_88yslno3jcq86jum.relative(startSitu, finishSitu);
+    return $_eox400p1jgqkpvus.relative(startSitu, finishSitu);
   };
   var preprocess = function (selection) {
     return selection.match({
       domRange: function (rng) {
-        var start = $_69jxc7jvjcq86j93.fromDom(rng.startContainer);
-        var finish = $_69jxc7jvjcq86j93.fromDom(rng.endContainer);
+        var start = $_cimonkrjgqkpuvh.fromDom(rng.startContainer);
+        var finish = $_cimonkrjgqkpuvh.fromDom(rng.endContainer);
         return preprocessExact(start, rng.startOffset, finish, rng.endOffset);
       },
       relative: preprocessRelative,
       exact: preprocessExact
     });
   };
-  var $_ad0jixogjcq86jw6 = {
+  var $_69qocdpejgqkpvx4 = {
     beforeSpecial: beforeSpecial,
     preprocess: preprocess,
     preprocessRelative: preprocessRelative,
@@ -8291,26 +8448,28 @@ var table = (function () {
   };
 
   var doSetNativeRange = function (win, rng) {
-    $_f1um5wjhjcq86j78.from(win.getSelection()).each(function (selection) {
+    Option.from(win.getSelection()).each(function (selection) {
       selection.removeAllRanges();
       selection.addRange(rng);
     });
   };
   var doSetRange = function (win, start, soffset, finish, foffset) {
-    var rng = $_3dlhj9o8jcq86jv3.exactToNative(win, start, soffset, finish, foffset);
+    var rng = $_ansf75p6jgqkpvvm.exactToNative(win, start, soffset, finish, foffset);
     doSetNativeRange(win, rng);
   };
   var findWithin = function (win, selection, selector) {
-    return $_eotlp3ofjcq86jw2.find(win, selection, selector);
+    return $_4t96l8pdjgqkpvwz.find(win, selection, selector);
   };
   var setRangeFromRelative = function (win, relative) {
-    return $_4j925jo9jcq86jv8.diagnose(win, relative).match({
+    return $_2l3yuip7jgqkpvvu.diagnose(win, relative).match({
       ltr: function (start, soffset, finish, foffset) {
         doSetRange(win, start, soffset, finish, foffset);
       },
       rtl: function (start, soffset, finish, foffset) {
         var selection = win.getSelection();
-        if (selection.extend) {
+        if (selection.setBaseAndExtent) {
+          selection.setBaseAndExtent(start.dom(), soffset, finish.dom(), foffset);
+        } else if (selection.extend) {
           selection.collapse(start.dom(), soffset);
           selection.extend(finish.dom(), foffset);
         } else {
@@ -8320,20 +8479,20 @@ var table = (function () {
     });
   };
   var setExact = function (win, start, soffset, finish, foffset) {
-    var relative = $_ad0jixogjcq86jw6.preprocessExact(start, soffset, finish, foffset);
+    var relative = $_69qocdpejgqkpvx4.preprocessExact(start, soffset, finish, foffset);
     setRangeFromRelative(win, relative);
   };
   var setRelative = function (win, startSitu, finishSitu) {
-    var relative = $_ad0jixogjcq86jw6.preprocessRelative(startSitu, finishSitu);
+    var relative = $_69qocdpejgqkpvx4.preprocessRelative(startSitu, finishSitu);
     setRangeFromRelative(win, relative);
   };
   var toNative = function (selection) {
-    var win = $_88yslno3jcq86jum.getWin(selection).dom();
+    var win = $_eox400p1jgqkpvus.getWin(selection).dom();
     var getDomRange = function (start, soffset, finish, foffset) {
-      return $_3dlhj9o8jcq86jv3.exactToNative(win, start, soffset, finish, foffset);
+      return $_ansf75p6jgqkpvvm.exactToNative(win, start, soffset, finish, foffset);
     };
-    var filtered = $_ad0jixogjcq86jw6.preprocess(selection);
-    return $_4j925jo9jcq86jv8.diagnose(win, filtered).match({
+    var filtered = $_69qocdpejgqkpvx4.preprocess(selection);
+    return $_2l3yuip7jgqkpvvu.diagnose(win, filtered).match({
       ltr: getDomRange,
       rtl: getDomRange
     });
@@ -8342,69 +8501,70 @@ var table = (function () {
     if (selection.rangeCount > 0) {
       var firstRng = selection.getRangeAt(0);
       var lastRng = selection.getRangeAt(selection.rangeCount - 1);
-      return $_f1um5wjhjcq86j78.some($_88yslno3jcq86jum.range($_69jxc7jvjcq86j93.fromDom(firstRng.startContainer), firstRng.startOffset, $_69jxc7jvjcq86j93.fromDom(lastRng.endContainer), lastRng.endOffset));
+      return Option.some($_eox400p1jgqkpvus.range($_cimonkrjgqkpuvh.fromDom(firstRng.startContainer), firstRng.startOffset, $_cimonkrjgqkpuvh.fromDom(lastRng.endContainer), lastRng.endOffset));
     } else {
-      return $_f1um5wjhjcq86j78.none();
+      return Option.none();
     }
   };
   var doGetExact = function (selection) {
-    var anchorNode = $_69jxc7jvjcq86j93.fromDom(selection.anchorNode);
-    var focusNode = $_69jxc7jvjcq86j93.fromDom(selection.focusNode);
-    return $_164loeo6jcq86juz.after(anchorNode, selection.anchorOffset, focusNode, selection.focusOffset) ? $_f1um5wjhjcq86j78.some($_88yslno3jcq86jum.range($_69jxc7jvjcq86j93.fromDom(selection.anchorNode), selection.anchorOffset, $_69jxc7jvjcq86j93.fromDom(selection.focusNode), selection.focusOffset)) : readRange(selection);
+    var anchorNode = $_cimonkrjgqkpuvh.fromDom(selection.anchorNode);
+    var focusNode = $_cimonkrjgqkpuvh.fromDom(selection.focusNode);
+    return $_51f2nxp4jgqkpvvf.after(anchorNode, selection.anchorOffset, focusNode, selection.focusOffset) ? Option.some($_eox400p1jgqkpvus.range($_cimonkrjgqkpuvh.fromDom(selection.anchorNode), selection.anchorOffset, $_cimonkrjgqkpuvh.fromDom(selection.focusNode), selection.focusOffset)) : readRange(selection);
   };
   var setToElement = function (win, element) {
-    var rng = $_3dlhj9o8jcq86jv3.selectNodeContents(win, element);
+    var rng = $_ansf75p6jgqkpvvm.selectNodeContents(win, element);
     doSetNativeRange(win, rng);
   };
   var forElement = function (win, element) {
-    var rng = $_3dlhj9o8jcq86jv3.selectNodeContents(win, element);
-    return $_88yslno3jcq86jum.range($_69jxc7jvjcq86j93.fromDom(rng.startContainer), rng.startOffset, $_69jxc7jvjcq86j93.fromDom(rng.endContainer), rng.endOffset);
+    var rng = $_ansf75p6jgqkpvvm.selectNodeContents(win, element);
+    return $_eox400p1jgqkpvus.range($_cimonkrjgqkpuvh.fromDom(rng.startContainer), rng.startOffset, $_cimonkrjgqkpuvh.fromDom(rng.endContainer), rng.endOffset);
   };
   var getExact = function (win) {
-    var selection = win.getSelection();
-    return selection.rangeCount > 0 ? doGetExact(selection) : $_f1um5wjhjcq86j78.none();
+    return Option.from(win.getSelection()).filter(function (sel) {
+      return sel.rangeCount > 0;
+    }).bind(doGetExact);
   };
   var get$9 = function (win) {
     return getExact(win).map(function (range) {
-      return $_88yslno3jcq86jum.exact(range.start(), range.soffset(), range.finish(), range.foffset());
+      return $_eox400p1jgqkpvus.exact(range.start(), range.soffset(), range.finish(), range.foffset());
     });
   };
-  var getFirstRect = function (win, selection) {
-    var rng = $_4j925jo9jcq86jv8.asLtrRange(win, selection);
-    return $_3dlhj9o8jcq86jv3.getFirstRect(rng);
+  var getFirstRect$1 = function (win, selection) {
+    var rng = $_2l3yuip7jgqkpvvu.asLtrRange(win, selection);
+    return $_ansf75p6jgqkpvvm.getFirstRect(rng);
   };
-  var getBounds$1 = function (win, selection) {
-    var rng = $_4j925jo9jcq86jv8.asLtrRange(win, selection);
-    return $_3dlhj9o8jcq86jv3.getBounds(rng);
+  var getBounds$2 = function (win, selection) {
+    var rng = $_2l3yuip7jgqkpvvu.asLtrRange(win, selection);
+    return $_ansf75p6jgqkpvvm.getBounds(rng);
   };
   var getAtPoint = function (win, x, y) {
-    return $_fruohqoajcq86jvi.fromPoint(win, x, y);
+    return $_6sc4zbp8jgqkpvwb.fromPoint(win, x, y);
   };
   var getAsString = function (win, selection) {
-    var rng = $_4j925jo9jcq86jv8.asLtrRange(win, selection);
-    return $_3dlhj9o8jcq86jv3.toString(rng);
+    var rng = $_2l3yuip7jgqkpvvu.asLtrRange(win, selection);
+    return $_ansf75p6jgqkpvvm.toString(rng);
   };
   var clear$1 = function (win) {
     var selection = win.getSelection();
     selection.removeAllRanges();
   };
   var clone$2 = function (win, selection) {
-    var rng = $_4j925jo9jcq86jv8.asLtrRange(win, selection);
-    return $_3dlhj9o8jcq86jv3.cloneFragment(rng);
+    var rng = $_2l3yuip7jgqkpvvu.asLtrRange(win, selection);
+    return $_ansf75p6jgqkpvvm.cloneFragment(rng);
   };
   var replace$1 = function (win, selection, elements) {
-    var rng = $_4j925jo9jcq86jv8.asLtrRange(win, selection);
-    var fragment = $_5tiekko7jcq86jv0.fromElements(elements, win.document);
-    $_3dlhj9o8jcq86jv3.replaceWith(rng, fragment);
+    var rng = $_2l3yuip7jgqkpvvu.asLtrRange(win, selection);
+    var fragment = $_7lsvcp5jgqkpvvi.fromElements(elements, win.document);
+    $_ansf75p6jgqkpvvm.replaceWith(rng, fragment);
   };
   var deleteAt = function (win, selection) {
-    var rng = $_4j925jo9jcq86jv8.asLtrRange(win, selection);
-    $_3dlhj9o8jcq86jv3.deleteContents(rng);
+    var rng = $_2l3yuip7jgqkpvvu.asLtrRange(win, selection);
+    $_ansf75p6jgqkpvvm.deleteContents(rng);
   };
   var isCollapsed = function (start, soffset, finish, foffset) {
-    return $_6oaqssjzjcq86j9l.eq(start, finish) && soffset === foffset;
+    return $_an4cuxkvjgqkpuw7.eq(start, finish) && soffset === foffset;
   };
-  var $_c5ixkxo5jcq86juu = {
+  var $_5rneunp3jgqkpvv9 = {
     setExact: setExact,
     getExact: getExact,
     get: get$9,
@@ -8416,42 +8576,42 @@ var table = (function () {
     replace: replace$1,
     deleteAt: deleteAt,
     forElement: forElement,
-    getFirstRect: getFirstRect,
-    getBounds: getBounds$1,
+    getFirstRect: getFirstRect$1,
+    getBounds: getBounds$2,
     getAtPoint: getAtPoint,
     findWithin: findWithin,
     getAsString: getAsString,
     isCollapsed: isCollapsed
   };
 
-  var VK = tinymce.util.Tools.resolve('tinymce.util.VK');
+  var global$4 = tinymce.util.Tools.resolve('tinymce.util.VK');
 
   var forward = function (editor, isRoot, cell, lazyWire) {
-    return go(editor, isRoot, $_6jzrmso1jcq86jue.next(cell), lazyWire);
+    return go(editor, isRoot, $_8m2fn1ozjgqkpvuh.next(cell), lazyWire);
   };
   var backward = function (editor, isRoot, cell, lazyWire) {
-    return go(editor, isRoot, $_6jzrmso1jcq86jue.prev(cell), lazyWire);
+    return go(editor, isRoot, $_8m2fn1ozjgqkpvuh.prev(cell), lazyWire);
   };
   var getCellFirstCursorPosition = function (editor, cell) {
-    var selection = $_88yslno3jcq86jum.exact(cell, 0, cell, 0);
-    return $_c5ixkxo5jcq86juu.toNative(selection);
+    var selection = $_eox400p1jgqkpvus.exact(cell, 0, cell, 0);
+    return $_5rneunp3jgqkpvv9.toNative(selection);
   };
   var getNewRowCursorPosition = function (editor, table) {
-    var rows = $_h5pcpkijcq86jb1.descendants(table, 'tr');
-    return $_4rqlpsjgjcq86j74.last(rows).bind(function (last) {
-      return $_30b5qvkljcq86jb8.descendant(last, 'td,th').map(function (first) {
+    var rows = $_2v58a5lejgqkpuy6.descendants(table, 'tr');
+    return $_e5654tkcjgqkpurw.last(rows).bind(function (last) {
+      return $_3gag4rlhjgqkpuyg.descendant(last, 'td,th').map(function (first) {
         return getCellFirstCursorPosition(editor, first);
       });
     });
   };
   var go = function (editor, isRoot, cell, actions, lazyWire) {
-    return cell.fold($_f1um5wjhjcq86j78.none, $_f1um5wjhjcq86j78.none, function (current, next) {
-      return $_8vz744kwjcq86jd0.first(next).map(function (cell) {
+    return cell.fold(Option.none, Option.none, function (current, next) {
+      return $_8t9497lsjgqkpv15.first(next).map(function (cell) {
         return getCellFirstCursorPosition(editor, cell);
       });
     }, function (current) {
-      return $_7b9jhqjsjcq86j8e.table(current, isRoot).bind(function (table) {
-        var targets = $_oxhawl1jcq86jdd.noMenu(current);
+      return $_928zfykojgqkpuu7.table(current, isRoot).bind(function (table) {
+        var targets = $_30tsillxjgqkpv1q.noMenu(current);
         editor.undoManager.transact(function () {
           actions.insertRowsAfter(table, targets);
         });
@@ -8465,16 +8625,16 @@ var table = (function () {
     'dl'
   ];
   var handle$1 = function (event, editor, actions, lazyWire) {
-    if (event.keyCode === VK.TAB) {
-      var body_1 = $_7k8e7dn2jcq86jpa.getBody(editor);
+    if (event.keyCode === global$4.TAB) {
+      var body_1 = getBody$1(editor);
       var isRoot_1 = function (element) {
-        var name = $_lmewskhjcq86jb0.name(element);
-        return $_6oaqssjzjcq86j9l.eq(element, body_1) || $_4rqlpsjgjcq86j74.contains(rootElements, name);
+        var name = $_4qtrrjldjgqkpuy4.name(element);
+        return $_an4cuxkvjgqkpuw7.eq(element, body_1) || $_e5654tkcjgqkpurw.contains(rootElements, name);
       };
       var rng = editor.selection.getRng();
       if (rng.collapsed) {
-        var start = $_69jxc7jvjcq86j93.fromDom(rng.startContainer);
-        $_7b9jhqjsjcq86j8e.cell(start, isRoot_1).each(function (cell) {
+        var start = $_cimonkrjgqkpuvh.fromDom(rng.startContainer);
+        $_928zfykojgqkpuu7.cell(start, isRoot_1).each(function (cell) {
           event.preventDefault();
           var navigation = event.shiftKey ? backward : forward;
           var rng = navigation(editor, isRoot_1, cell, actions, lazyWire);
@@ -8485,10 +8645,10 @@ var table = (function () {
       }
     }
   };
-  var $_915c31o0jcq86ju0 = { handle: handle$1 };
+  var $_7e2ranoyjgqkpvtp = { handle: handle$1 };
 
-  var response = $_9bzkn9jljcq86j7v.immutable('selection', 'kill');
-  var $_d15tl1okjcq86jx3 = { response: response };
+  var response = $_c756rzkijgqkputi.immutable('selection', 'kill');
+  var $_2427wpijgqkpvyt = { response: response };
 
   var isKey = function (key) {
     return function (keycode) {
@@ -8500,7 +8660,7 @@ var table = (function () {
   var isNavigation = function (keycode) {
     return keycode >= 37 && keycode <= 40;
   };
-  var $_2qvj7yoljcq86jx6 = {
+  var $_pp1nqpjjgqkpvyw = {
     ltr: {
       isBackward: isKey(37),
       isForward: isKey(39)
@@ -8515,26 +8675,26 @@ var table = (function () {
   };
 
   var convertToRange = function (win, selection) {
-    var rng = $_4j925jo9jcq86jv8.asLtrRange(win, selection);
+    var rng = $_2l3yuip7jgqkpvvu.asLtrRange(win, selection);
     return {
-      start: $_8h7nl9jijcq86j7b.constant($_69jxc7jvjcq86j93.fromDom(rng.startContainer)),
-      soffset: $_8h7nl9jijcq86j7b.constant(rng.startOffset),
-      finish: $_8h7nl9jijcq86j7b.constant($_69jxc7jvjcq86j93.fromDom(rng.endContainer)),
-      foffset: $_8h7nl9jijcq86j7b.constant(rng.endOffset)
+      start: $_fu1fqpkejgqkpus4.constant($_cimonkrjgqkpuvh.fromDom(rng.startContainer)),
+      soffset: $_fu1fqpkejgqkpus4.constant(rng.startOffset),
+      finish: $_fu1fqpkejgqkpus4.constant($_cimonkrjgqkpuvh.fromDom(rng.endContainer)),
+      foffset: $_fu1fqpkejgqkpus4.constant(rng.endOffset)
     };
   };
   var makeSitus = function (start, soffset, finish, foffset) {
     return {
-      start: $_8h7nl9jijcq86j7b.constant($_1mhoydo4jcq86juq.on(start, soffset)),
-      finish: $_8h7nl9jijcq86j7b.constant($_1mhoydo4jcq86juq.on(finish, foffset))
+      start: $_fu1fqpkejgqkpus4.constant($_9fb1vup2jgqkpvv2.on(start, soffset)),
+      finish: $_fu1fqpkejgqkpus4.constant($_9fb1vup2jgqkpvv2.on(finish, foffset))
     };
   };
-  var $_bo6o97onjcq86jxm = {
+  var $_9ttfmnpljgqkpvzg = {
     convertToRange: convertToRange,
     makeSitus: makeSitus
   };
 
-  var isSafari = $_g90906k4jcq86j9z.detect().browser.isSafari();
+  var isSafari = $_7vy8tfl0jgqkpuwq.detect().browser.isSafari();
   var get$10 = function (_doc) {
     var doc = _doc !== undefined ? _doc.dom() : document;
     var x = doc.body.scrollLeft || doc.documentElement.scrollLeft;
@@ -8552,8 +8712,8 @@ var table = (function () {
     win.scrollBy(x, y);
   };
   var setToElement$1 = function (win, element) {
-    var pos = $_dhw84zlxjcq86jj3.absolute(element);
-    var doc = $_69jxc7jvjcq86j93.fromDom(win.document);
+    var pos = $_57wipcmpjgqkpvai.absolute(element);
+    var doc = $_cimonkrjgqkpuvh.fromDom(win.document);
     to(pos.left(), pos.top(), doc);
   };
   var preserve$1 = function (doc, f) {
@@ -8565,9 +8725,9 @@ var table = (function () {
     }
   };
   var capture$2 = function (doc) {
-    var previous = $_f1um5wjhjcq86j78.none();
+    var previous = Option.none();
     var save = function () {
-      previous = $_f1um5wjhjcq86j78.some(get$10(doc));
+      previous = Option.some(get$10(doc));
     };
     var restore = function () {
       previous.each(function (p) {
@@ -8581,7 +8741,7 @@ var table = (function () {
     };
   };
   var intoView = function (element, alignToTop) {
-    if (isSafari && $_7d4g1yjpjcq86j83.isFunction(element.dom().scrollIntoViewIfNeeded)) {
+    if (isSafari && $_329fsbkfjgqkpus7.isFunction(element.dom().scrollIntoViewIfNeeded)) {
       element.dom().scrollIntoViewIfNeeded(false);
     } else {
       element.dom().scrollIntoView(alignToTop);
@@ -8597,13 +8757,13 @@ var table = (function () {
     }
   };
   var scrollBarWidth = function () {
-    var scrollDiv = $_69jxc7jvjcq86j93.fromHtml('<div style="width: 100px; height: 100px; overflow: scroll; position: absolute; top: -9999px;"></div>');
-    $_6cjpwckrjcq86jc8.after($_a0brkykkjcq86jb5.body(), scrollDiv);
+    var scrollDiv = $_cimonkrjgqkpuvh.fromHtml('<div style="width: 100px; height: 100px; overflow: scroll; position: absolute; top: -9999px;"></div>');
+    $_4rg294lnjgqkpuzw.after($_boj1hmlgjgqkpuyc.body(), scrollDiv);
     var w = scrollDiv.dom().offsetWidth - scrollDiv.dom().clientWidth;
-    $_bu1tvfksjcq86jca.remove(scrollDiv);
+    $_461fa9lojgqkpuzx.remove(scrollDiv);
     return w;
   };
-  var $_6oguikoojcq86jxt = {
+  var $_1ah2oepmjgqkpvzw = {
     get: get$10,
     to: to,
     by: by,
@@ -8615,57 +8775,57 @@ var table = (function () {
     scrollBarWidth: scrollBarWidth
   };
 
-  var WindowBridge = function (win) {
+  function WindowBridge (win) {
     var elementFromPoint = function (x, y) {
-      return $_f1um5wjhjcq86j78.from(win.document.elementFromPoint(x, y)).map($_69jxc7jvjcq86j93.fromDom);
+      return $_cimonkrjgqkpuvh.fromPoint($_cimonkrjgqkpuvh.fromDom(win.document), x, y);
     };
     var getRect = function (element) {
       return element.dom().getBoundingClientRect();
     };
     var getRangedRect = function (start, soffset, finish, foffset) {
-      var sel = $_88yslno3jcq86jum.exact(start, soffset, finish, foffset);
-      return $_c5ixkxo5jcq86juu.getFirstRect(win, sel).map(function (structRect) {
-        return $_bxkr0jkjcq86j7s.map(structRect, $_8h7nl9jijcq86j7b.apply);
+      var sel = $_eox400p1jgqkpvus.exact(start, soffset, finish, foffset);
+      return $_5rneunp3jgqkpvv9.getFirstRect(win, sel).map(function (structRect) {
+        return $_38kcbmkhjgqkputf.map(structRect, $_fu1fqpkejgqkpus4.apply);
       });
     };
     var getSelection = function () {
-      return $_c5ixkxo5jcq86juu.get(win).map(function (exactAdt) {
-        return $_bo6o97onjcq86jxm.convertToRange(win, exactAdt);
+      return $_5rneunp3jgqkpvv9.get(win).map(function (exactAdt) {
+        return $_9ttfmnpljgqkpvzg.convertToRange(win, exactAdt);
       });
     };
     var fromSitus = function (situs) {
-      var relative = $_88yslno3jcq86jum.relative(situs.start(), situs.finish());
-      return $_bo6o97onjcq86jxm.convertToRange(win, relative);
+      var relative = $_eox400p1jgqkpvus.relative(situs.start(), situs.finish());
+      return $_9ttfmnpljgqkpvzg.convertToRange(win, relative);
     };
     var situsFromPoint = function (x, y) {
-      return $_c5ixkxo5jcq86juu.getAtPoint(win, x, y).map(function (exact) {
+      return $_5rneunp3jgqkpvv9.getAtPoint(win, x, y).map(function (exact) {
         return {
-          start: $_8h7nl9jijcq86j7b.constant($_1mhoydo4jcq86juq.on(exact.start(), exact.soffset())),
-          finish: $_8h7nl9jijcq86j7b.constant($_1mhoydo4jcq86juq.on(exact.finish(), exact.foffset()))
+          start: $_fu1fqpkejgqkpus4.constant($_9fb1vup2jgqkpvv2.on(exact.start(), exact.soffset())),
+          finish: $_fu1fqpkejgqkpus4.constant($_9fb1vup2jgqkpvv2.on(exact.finish(), exact.foffset()))
         };
       });
     };
     var clearSelection = function () {
-      $_c5ixkxo5jcq86juu.clear(win);
+      $_5rneunp3jgqkpvv9.clear(win);
     };
     var selectContents = function (element) {
-      $_c5ixkxo5jcq86juu.setToElement(win, element);
+      $_5rneunp3jgqkpvv9.setToElement(win, element);
     };
     var setSelection = function (sel) {
-      $_c5ixkxo5jcq86juu.setExact(win, sel.start(), sel.soffset(), sel.finish(), sel.foffset());
+      $_5rneunp3jgqkpvv9.setExact(win, sel.start(), sel.soffset(), sel.finish(), sel.foffset());
     };
     var setRelativeSelection = function (start, finish) {
-      $_c5ixkxo5jcq86juu.setRelative(win, start, finish);
+      $_5rneunp3jgqkpvv9.setRelative(win, start, finish);
     };
     var getInnerHeight = function () {
       return win.innerHeight;
     };
     var getScrollY = function () {
-      var pos = $_6oguikoojcq86jxt.get($_69jxc7jvjcq86j93.fromDom(win.document));
+      var pos = $_1ah2oepmjgqkpvzw.get($_cimonkrjgqkpuvh.fromDom(win.document));
       return pos.top();
     };
     var scrollBy = function (x, y) {
-      $_6oguikoojcq86jxt.by(x, y, $_69jxc7jvjcq86j93.fromDom(win.document));
+      $_1ah2oepmjgqkpvzw.by(x, y, $_cimonkrjgqkpuvh.fromDom(win.document));
     };
     return {
       elementFromPoint: elementFromPoint,
@@ -8682,30 +8842,32 @@ var table = (function () {
       getScrollY: getScrollY,
       scrollBy: scrollBy
     };
-  };
+  }
 
   var sync = function (container, isRoot, start, soffset, finish, foffset, selectRange) {
-    if (!($_6oaqssjzjcq86j9l.eq(start, finish) && soffset === foffset)) {
-      return $_30b5qvkljcq86jb8.closest(start, 'td,th', isRoot).bind(function (s) {
-        return $_30b5qvkljcq86jb8.closest(finish, 'td,th', isRoot).bind(function (f) {
+    if (!($_an4cuxkvjgqkpuw7.eq(start, finish) && soffset === foffset)) {
+      return $_3gag4rlhjgqkpuyg.closest(start, 'td,th', isRoot).bind(function (s) {
+        return $_3gag4rlhjgqkpuyg.closest(finish, 'td,th', isRoot).bind(function (f) {
           return detect$5(container, isRoot, s, f, selectRange);
         });
       });
     } else {
-      return $_f1um5wjhjcq86j78.none();
+      return Option.none();
     }
   };
   var detect$5 = function (container, isRoot, start, finish, selectRange) {
-    if (!$_6oaqssjzjcq86j9l.eq(start, finish)) {
-      return $_53qo10l4jcq86jdx.identify(start, finish, isRoot).bind(function (cellSel) {
+    if (!$_an4cuxkvjgqkpuw7.eq(start, finish)) {
+      return $_1dw0qdm0jgqkpv2r.identify(start, finish, isRoot).bind(function (cellSel) {
         var boxes = cellSel.boxes().getOr([]);
         if (boxes.length > 0) {
           selectRange(container, boxes, cellSel.start(), cellSel.finish());
-          return $_f1um5wjhjcq86j78.some($_d15tl1okjcq86jx3.response($_f1um5wjhjcq86j78.some($_bo6o97onjcq86jxm.makeSitus(start, 0, start, $_79inm4kxjcq86jd2.getEnd(start))), true));
+          return Option.some($_2427wpijgqkpvyt.response(Option.some($_9ttfmnpljgqkpvzg.makeSitus(start, 0, start, $_g7n23sltjgqkpv19.getEnd(start))), true));
         } else {
-          return $_f1um5wjhjcq86j78.none();
+          return Option.none();
         }
       });
+    } else {
+      return Option.none();
     }
   };
   var update = function (rows, columns, container, selected, annotations) {
@@ -8714,15 +8876,15 @@ var table = (function () {
       annotations.selectRange(container, newSels.boxes(), newSels.start(), newSels.finish());
       return newSels.boxes();
     };
-    return $_53qo10l4jcq86jdx.shiftSelection(selected, rows, columns, annotations.firstSelectedSelector(), annotations.lastSelectedSelector()).map(updateSelection);
+    return $_1dw0qdm0jgqkpv2r.shiftSelection(selected, rows, columns, annotations.firstSelectedSelector(), annotations.lastSelectedSelector()).map(updateSelection);
   };
-  var $_cudtqfopjcq86jy0 = {
+  var $_6zq3tgpnjgqkpw07 = {
     sync: sync,
     detect: detect$5,
     update: update
   };
 
-  var nu$3 = $_9bzkn9jljcq86j7v.immutableBag([
+  var nu$3 = $_c756rzkijgqkputi.immutableBag([
     'left',
     'top',
     'right',
@@ -8779,7 +8941,7 @@ var table = (function () {
   var toString$1 = function (caret) {
     return '(' + caret.left() + ', ' + caret.top() + ') -> (' + caret.right() + ', ' + caret.bottom() + ')';
   };
-  var $_6jck3posjcq86jz1 = {
+  var $_ehk1t4pqjgqkpw1t = {
     nu: nu$3,
     moveUp: moveUp,
     moveDown: moveDown,
@@ -8792,14 +8954,14 @@ var table = (function () {
   };
 
   var getPartialBox = function (bridge, element, offset) {
-    if (offset >= 0 && offset < $_79inm4kxjcq86jd2.getEnd(element))
+    if (offset >= 0 && offset < $_g7n23sltjgqkpv19.getEnd(element))
       return bridge.getRangedRect(element, offset, element, offset + 1);
     else if (offset > 0)
       return bridge.getRangedRect(element, offset - 1, element, offset);
-    return $_f1um5wjhjcq86j78.none();
+    return Option.none();
   };
   var toCaret = function (rect) {
-    return $_6jck3posjcq86jz1.nu({
+    return $_ehk1t4pqjgqkpw1t.nu({
       left: rect.left,
       top: rect.top,
       right: rect.right,
@@ -8807,30 +8969,30 @@ var table = (function () {
     });
   };
   var getElemBox = function (bridge, element) {
-    return $_f1um5wjhjcq86j78.some(bridge.getRect(element));
+    return Option.some(bridge.getRect(element));
   };
   var getBoxAt = function (bridge, element, offset) {
-    if ($_lmewskhjcq86jb0.isElement(element))
+    if ($_4qtrrjldjgqkpuy4.isElement(element))
       return getElemBox(bridge, element).map(toCaret);
-    else if ($_lmewskhjcq86jb0.isText(element))
+    else if ($_4qtrrjldjgqkpuy4.isText(element))
       return getPartialBox(bridge, element, offset).map(toCaret);
     else
-      return $_f1um5wjhjcq86j78.none();
+      return Option.none();
   };
   var getEntireBox = function (bridge, element) {
-    if ($_lmewskhjcq86jb0.isElement(element))
+    if ($_4qtrrjldjgqkpuy4.isElement(element))
       return getElemBox(bridge, element).map(toCaret);
-    else if ($_lmewskhjcq86jb0.isText(element))
-      return bridge.getRangedRect(element, 0, element, $_79inm4kxjcq86jd2.getEnd(element)).map(toCaret);
+    else if ($_4qtrrjldjgqkpuy4.isText(element))
+      return bridge.getRangedRect(element, 0, element, $_g7n23sltjgqkpv19.getEnd(element)).map(toCaret);
     else
-      return $_f1um5wjhjcq86j78.none();
+      return Option.none();
   };
-  var $_30vktpotjcq86jz4 = {
+  var $_3ovku7prjgqkpw1y = {
     getBoxAt: getBoxAt,
     getEntireBox: getEntireBox
   };
 
-  var traverse = $_9bzkn9jljcq86j7v.immutable('item', 'mode');
+  var traverse = $_c756rzkijgqkputi.immutable('item', 'mode');
   var backtrack = function (universe, item, direction, _transition) {
     var transition = _transition !== undefined ? _transition : sidestep;
     return universe.property().parent(item).map(function (p) {
@@ -8855,22 +9017,22 @@ var table = (function () {
     {
       current: backtrack,
       next: sidestep,
-      fallback: $_f1um5wjhjcq86j78.none()
+      fallback: Option.none()
     },
     {
       current: sidestep,
       next: advance,
-      fallback: $_f1um5wjhjcq86j78.some(backtrack)
+      fallback: Option.some(backtrack)
     },
     {
       current: advance,
       next: advance,
-      fallback: $_f1um5wjhjcq86j78.some(sidestep)
+      fallback: Option.some(sidestep)
     }
   ];
   var go$1 = function (universe, item, mode, direction, rules) {
     var rules = rules !== undefined ? rules : successors;
-    var ruleOpt = $_4rqlpsjgjcq86j74.find(rules, function (succ) {
+    var ruleOpt = $_e5654tkcjgqkpurw.find(rules, function (succ) {
       return succ.current === mode;
     });
     return ruleOpt.bind(function (rule) {
@@ -8881,133 +9043,133 @@ var table = (function () {
       });
     });
   };
-  var $_8c1kbcoyjcq86k00 = {
+  var $_7k64cipwjgqkpw3a = {
     backtrack: backtrack,
     sidestep: sidestep,
     advance: advance,
     go: go$1
   };
 
-  var left$2 = function () {
+  var left$1 = function () {
     var sibling = function (universe, item) {
       return universe.query().prevSibling(item);
     };
     var first = function (children) {
-      return children.length > 0 ? $_f1um5wjhjcq86j78.some(children[children.length - 1]) : $_f1um5wjhjcq86j78.none();
+      return children.length > 0 ? Option.some(children[children.length - 1]) : Option.none();
     };
     return {
       sibling: sibling,
       first: first
     };
   };
-  var right$2 = function () {
+  var right$1 = function () {
     var sibling = function (universe, item) {
       return universe.query().nextSibling(item);
     };
     var first = function (children) {
-      return children.length > 0 ? $_f1um5wjhjcq86j78.some(children[0]) : $_f1um5wjhjcq86j78.none();
+      return children.length > 0 ? Option.some(children[0]) : Option.none();
     };
     return {
       sibling: sibling,
       first: first
     };
   };
-  var $_2gqwoiozjcq86k05 = {
-    left: left$2,
-    right: right$2
+  var $_gilgaupxjgqkpw3l = {
+    left: left$1,
+    right: right$1
   };
 
   var hone = function (universe, item, predicate, mode, direction, isRoot) {
-    var next = $_8c1kbcoyjcq86k00.go(universe, item, mode, direction);
+    var next = $_7k64cipwjgqkpw3a.go(universe, item, mode, direction);
     return next.bind(function (n) {
       if (isRoot(n.item()))
-        return $_f1um5wjhjcq86j78.none();
+        return Option.none();
       else
-        return predicate(n.item()) ? $_f1um5wjhjcq86j78.some(n.item()) : hone(universe, n.item(), predicate, n.mode(), direction, isRoot);
+        return predicate(n.item()) ? Option.some(n.item()) : hone(universe, n.item(), predicate, n.mode(), direction, isRoot);
     });
   };
-  var left$1 = function (universe, item, predicate, isRoot) {
-    return hone(universe, item, predicate, $_8c1kbcoyjcq86k00.sidestep, $_2gqwoiozjcq86k05.left(), isRoot);
+  var left$2 = function (universe, item, predicate, isRoot) {
+    return hone(universe, item, predicate, $_7k64cipwjgqkpw3a.sidestep, $_gilgaupxjgqkpw3l.left(), isRoot);
   };
-  var right$1 = function (universe, item, predicate, isRoot) {
-    return hone(universe, item, predicate, $_8c1kbcoyjcq86k00.sidestep, $_2gqwoiozjcq86k05.right(), isRoot);
+  var right$2 = function (universe, item, predicate, isRoot) {
+    return hone(universe, item, predicate, $_7k64cipwjgqkpw3a.sidestep, $_gilgaupxjgqkpw3l.right(), isRoot);
   };
-  var $_e7s3syoxjcq86jzx = {
-    left: left$1,
-    right: right$1
+  var $_9v2b0pvjgqkpw36 = {
+    left: left$2,
+    right: right$2
   };
 
   var isLeaf = function (universe, element) {
     return universe.property().children(element).length === 0;
   };
-  var before$3 = function (universe, item, isRoot) {
-    return seekLeft$1(universe, item, $_8h7nl9jijcq86j7b.curry(isLeaf, universe), isRoot);
+  var before$2 = function (universe, item, isRoot) {
+    return seekLeft(universe, item, $_fu1fqpkejgqkpus4.curry(isLeaf, universe), isRoot);
   };
-  var after$4 = function (universe, item, isRoot) {
-    return seekRight$1(universe, item, $_8h7nl9jijcq86j7b.curry(isLeaf, universe), isRoot);
+  var after$3 = function (universe, item, isRoot) {
+    return seekRight(universe, item, $_fu1fqpkejgqkpus4.curry(isLeaf, universe), isRoot);
   };
-  var seekLeft$1 = function (universe, item, predicate, isRoot) {
-    return $_e7s3syoxjcq86jzx.left(universe, item, predicate, isRoot);
+  var seekLeft = function (universe, item, predicate, isRoot) {
+    return $_9v2b0pvjgqkpw36.left(universe, item, predicate, isRoot);
   };
-  var seekRight$1 = function (universe, item, predicate, isRoot) {
-    return $_e7s3syoxjcq86jzx.right(universe, item, predicate, isRoot);
-  };
-  var walkers$1 = function () {
-    return {
-      left: $_2gqwoiozjcq86k05.left,
-      right: $_2gqwoiozjcq86k05.right
-    };
-  };
-  var walk$1 = function (universe, item, mode, direction, _rules) {
-    return $_8c1kbcoyjcq86k00.go(universe, item, mode, direction, _rules);
-  };
-  var $_2lux1iowjcq86jzt = {
-    before: before$3,
-    after: after$4,
-    seekLeft: seekLeft$1,
-    seekRight: seekRight$1,
-    walkers: walkers$1,
-    walk: walk$1,
-    backtrack: $_8c1kbcoyjcq86k00.backtrack,
-    sidestep: $_8c1kbcoyjcq86k00.sidestep,
-    advance: $_8c1kbcoyjcq86k00.advance
-  };
-
-  var universe$2 = DomUniverse();
-  var gather = function (element, prune, transform) {
-    return $_2lux1iowjcq86jzt.gather(universe$2, element, prune, transform);
-  };
-  var before$2 = function (element, isRoot) {
-    return $_2lux1iowjcq86jzt.before(universe$2, element, isRoot);
-  };
-  var after$3 = function (element, isRoot) {
-    return $_2lux1iowjcq86jzt.after(universe$2, element, isRoot);
-  };
-  var seekLeft = function (element, predicate, isRoot) {
-    return $_2lux1iowjcq86jzt.seekLeft(universe$2, element, predicate, isRoot);
-  };
-  var seekRight = function (element, predicate, isRoot) {
-    return $_2lux1iowjcq86jzt.seekRight(universe$2, element, predicate, isRoot);
+  var seekRight = function (universe, item, predicate, isRoot) {
+    return $_9v2b0pvjgqkpw36.right(universe, item, predicate, isRoot);
   };
   var walkers = function () {
-    return $_2lux1iowjcq86jzt.walkers();
+    return {
+      left: $_gilgaupxjgqkpw3l.left,
+      right: $_gilgaupxjgqkpw3l.right
+    };
   };
-  var walk = function (item, mode, direction, _rules) {
-    return $_2lux1iowjcq86jzt.walk(universe$2, item, mode, direction, _rules);
+  var walk = function (universe, item, mode, direction, _rules) {
+    return $_7k64cipwjgqkpw3a.go(universe, item, mode, direction, _rules);
   };
-  var $_72on4xovjcq86jzq = {
-    gather: gather,
+  var $_ehfpp7pujgqkpw32 = {
     before: before$2,
     after: after$3,
     seekLeft: seekLeft,
     seekRight: seekRight,
     walkers: walkers,
-    walk: walk
+    walk: walk,
+    backtrack: $_7k64cipwjgqkpw3a.backtrack,
+    sidestep: $_7k64cipwjgqkpw3a.sidestep,
+    advance: $_7k64cipwjgqkpw3a.advance
+  };
+
+  var universe$2 = DomUniverse();
+  var gather = function (element, prune, transform) {
+    return $_ehfpp7pujgqkpw32.gather(universe$2, element, prune, transform);
+  };
+  var before$3 = function (element, isRoot) {
+    return $_ehfpp7pujgqkpw32.before(universe$2, element, isRoot);
+  };
+  var after$4 = function (element, isRoot) {
+    return $_ehfpp7pujgqkpw32.after(universe$2, element, isRoot);
+  };
+  var seekLeft$1 = function (element, predicate, isRoot) {
+    return $_ehfpp7pujgqkpw32.seekLeft(universe$2, element, predicate, isRoot);
+  };
+  var seekRight$1 = function (element, predicate, isRoot) {
+    return $_ehfpp7pujgqkpw32.seekRight(universe$2, element, predicate, isRoot);
+  };
+  var walkers$1 = function () {
+    return $_ehfpp7pujgqkpw32.walkers();
+  };
+  var walk$1 = function (item, mode, direction, _rules) {
+    return $_ehfpp7pujgqkpw32.walk(universe$2, item, mode, direction, _rules);
+  };
+  var $_4fy6ezptjgqkpw2x = {
+    gather: gather,
+    before: before$3,
+    after: after$4,
+    seekLeft: seekLeft$1,
+    seekRight: seekRight$1,
+    walkers: walkers$1,
+    walk: walk$1
   };
 
   var JUMP_SIZE = 5;
   var NUM_RETRIES = 100;
-  var adt$2 = $_1peq2flijcq86jgp.generate([
+  var adt$2 = $_48tn2vmejgqkpv75.generate([
     { 'none': [] },
     { 'retry': ['caret'] }
   ]);
@@ -9015,49 +9177,49 @@ var table = (function () {
     return caret.left() < box.left() || Math.abs(box.right() - caret.left()) < 1 || caret.left() > box.right();
   };
   var inOutsideBlock = function (bridge, element, caret) {
-    return $_3sgfw3kmjcq86jba.closest(element, $_8ej6egm6jcq86jkn.isBlock).fold($_8h7nl9jijcq86j7b.constant(false), function (cell) {
-      return $_30vktpotjcq86jz4.getEntireBox(bridge, cell).exists(function (box) {
+    return $_bg06nslijgqkpuyi.closest(element, $_cs9m57myjgqkpvd3.isBlock).fold($_fu1fqpkejgqkpus4.constant(false), function (cell) {
+      return $_3ovku7prjgqkpw1y.getEntireBox(bridge, cell).exists(function (box) {
         return isOutside(caret, box);
       });
     });
   };
   var adjustDown = function (bridge, element, guessBox, original, caret) {
-    var lowerCaret = $_6jck3posjcq86jz1.moveDown(caret, JUMP_SIZE);
+    var lowerCaret = $_ehk1t4pqjgqkpw1t.moveDown(caret, JUMP_SIZE);
     if (Math.abs(guessBox.bottom() - original.bottom()) < 1)
       return adt$2.retry(lowerCaret);
     else if (guessBox.top() > caret.bottom())
       return adt$2.retry(lowerCaret);
     else if (guessBox.top() === caret.bottom())
-      return adt$2.retry($_6jck3posjcq86jz1.moveDown(caret, 1));
+      return adt$2.retry($_ehk1t4pqjgqkpw1t.moveDown(caret, 1));
     else
-      return inOutsideBlock(bridge, element, caret) ? adt$2.retry($_6jck3posjcq86jz1.translate(lowerCaret, JUMP_SIZE, 0)) : adt$2.none();
+      return inOutsideBlock(bridge, element, caret) ? adt$2.retry($_ehk1t4pqjgqkpw1t.translate(lowerCaret, JUMP_SIZE, 0)) : adt$2.none();
   };
   var adjustUp = function (bridge, element, guessBox, original, caret) {
-    var higherCaret = $_6jck3posjcq86jz1.moveUp(caret, JUMP_SIZE);
+    var higherCaret = $_ehk1t4pqjgqkpw1t.moveUp(caret, JUMP_SIZE);
     if (Math.abs(guessBox.top() - original.top()) < 1)
       return adt$2.retry(higherCaret);
     else if (guessBox.bottom() < caret.top())
       return adt$2.retry(higherCaret);
     else if (guessBox.bottom() === caret.top())
-      return adt$2.retry($_6jck3posjcq86jz1.moveUp(caret, 1));
+      return adt$2.retry($_ehk1t4pqjgqkpw1t.moveUp(caret, 1));
     else
-      return inOutsideBlock(bridge, element, caret) ? adt$2.retry($_6jck3posjcq86jz1.translate(higherCaret, JUMP_SIZE, 0)) : adt$2.none();
+      return inOutsideBlock(bridge, element, caret) ? adt$2.retry($_ehk1t4pqjgqkpw1t.translate(higherCaret, JUMP_SIZE, 0)) : adt$2.none();
   };
   var upMovement = {
-    point: $_6jck3posjcq86jz1.getTop,
+    point: $_ehk1t4pqjgqkpw1t.getTop,
     adjuster: adjustUp,
-    move: $_6jck3posjcq86jz1.moveUp,
-    gather: $_72on4xovjcq86jzq.before
+    move: $_ehk1t4pqjgqkpw1t.moveUp,
+    gather: $_4fy6ezptjgqkpw2x.before
   };
   var downMovement = {
-    point: $_6jck3posjcq86jz1.getBottom,
+    point: $_ehk1t4pqjgqkpw1t.getBottom,
     adjuster: adjustDown,
-    move: $_6jck3posjcq86jz1.moveDown,
-    gather: $_72on4xovjcq86jzq.after
+    move: $_ehk1t4pqjgqkpw1t.moveDown,
+    gather: $_4fy6ezptjgqkpw2x.after
   };
   var isAtTable = function (bridge, x, y) {
     return bridge.elementFromPoint(x, y).filter(function (elm) {
-      return $_lmewskhjcq86jb0.name(elm) === 'table';
+      return $_4qtrrjldjgqkpuy4.name(elm) === 'table';
     }).isSome();
   };
   var adjustForTable = function (bridge, movement, original, caret, numRetries) {
@@ -9065,19 +9227,19 @@ var table = (function () {
   };
   var adjustTil = function (bridge, movement, original, caret, numRetries) {
     if (numRetries === 0)
-      return $_f1um5wjhjcq86j78.some(caret);
+      return Option.some(caret);
     if (isAtTable(bridge, caret.left(), movement.point(caret)))
       return adjustForTable(bridge, movement, original, caret, numRetries - 1);
     return bridge.situsFromPoint(caret.left(), movement.point(caret)).bind(function (guess) {
-      return guess.start().fold($_f1um5wjhjcq86j78.none, function (element, offset) {
-        return $_30vktpotjcq86jz4.getEntireBox(bridge, element, offset).bind(function (guessBox) {
-          return movement.adjuster(bridge, element, guessBox, original, caret).fold($_f1um5wjhjcq86j78.none, function (newCaret) {
+      return guess.start().fold(Option.none, function (element, offset) {
+        return $_3ovku7prjgqkpw1y.getEntireBox(bridge, element, offset).bind(function (guessBox) {
+          return movement.adjuster(bridge, element, guessBox, original, caret).fold(Option.none, function (newCaret) {
             return adjustTil(bridge, movement, original, newCaret, numRetries - 1);
           });
         }).orThunk(function () {
-          return $_f1um5wjhjcq86j78.some(caret);
+          return Option.some(caret);
         });
-      }, $_f1um5wjhjcq86j78.none);
+      }, Option.none);
     });
   };
   var ieTryDown = function (bridge, caret) {
@@ -9088,11 +9250,11 @@ var table = (function () {
   };
   var checkScroll = function (movement, adjusted, bridge) {
     if (movement.point(adjusted) > bridge.getInnerHeight())
-      return $_f1um5wjhjcq86j78.some(movement.point(adjusted) - bridge.getInnerHeight());
+      return Option.some(movement.point(adjusted) - bridge.getInnerHeight());
     else if (movement.point(adjusted) < 0)
-      return $_f1um5wjhjcq86j78.some(-movement.point(adjusted));
+      return Option.some(-movement.point(adjusted));
     else
-      return $_f1um5wjhjcq86j78.none();
+      return Option.none();
   };
   var retry = function (movement, bridge, caret) {
     var moved = movement.move(caret, JUMP_SIZE);
@@ -9104,15 +9266,15 @@ var table = (function () {
       return bridge.situsFromPoint(adjusted.left(), movement.point(adjusted) - delta);
     });
   };
-  var $_etgmiroujcq86jzb = {
-    tryUp: $_8h7nl9jijcq86j7b.curry(retry, upMovement),
-    tryDown: $_8h7nl9jijcq86j7b.curry(retry, downMovement),
+  var $_1724n1psjgqkpw2d = {
+    tryUp: $_fu1fqpkejgqkpus4.curry(retry, upMovement),
+    tryDown: $_fu1fqpkejgqkpus4.curry(retry, downMovement),
     ieTryUp: ieTryUp,
     ieTryDown: ieTryDown,
-    getJumpSize: $_8h7nl9jijcq86j7b.constant(JUMP_SIZE)
+    getJumpSize: $_fu1fqpkejgqkpus4.constant(JUMP_SIZE)
   };
 
-  var adt$3 = $_1peq2flijcq86jgp.generate([
+  var adt$3 = $_48tn2vmejgqkpv75.generate([
     { 'none': ['message'] },
     { 'success': [] },
     { 'failedUp': ['cell'] },
@@ -9124,10 +9286,10 @@ var table = (function () {
     return afterBounds.right > beforeBounds.left && afterBounds.left < beforeBounds.right;
   };
   var verify = function (bridge, before, beforeOffset, after, afterOffset, failure, isRoot) {
-    return $_30b5qvkljcq86jb8.closest(after, 'td,th', isRoot).bind(function (afterCell) {
-      return $_30b5qvkljcq86jb8.closest(before, 'td,th', isRoot).map(function (beforeCell) {
-        if (!$_6oaqssjzjcq86j9l.eq(afterCell, beforeCell)) {
-          return $_a4lf5ml5jcq86jei.sharedOne(isRow, [
+    return $_3gag4rlhjgqkpuyg.closest(after, 'td,th', isRoot).bind(function (afterCell) {
+      return $_3gag4rlhjgqkpuyg.closest(before, 'td,th', isRoot).map(function (beforeCell) {
+        if (!$_an4cuxkvjgqkpuw7.eq(afterCell, beforeCell)) {
+          return $_3zah0am1jgqkpv3l.sharedOne(isRow, [
             afterCell,
             beforeCell
           ]).fold(function () {
@@ -9136,29 +9298,29 @@ var table = (function () {
             return failure(beforeCell);
           });
         } else {
-          return $_6oaqssjzjcq86j9l.eq(after, afterCell) && $_79inm4kxjcq86jd2.getEnd(afterCell) === afterOffset ? failure(beforeCell) : adt$3.none('in same cell');
+          return $_an4cuxkvjgqkpuw7.eq(after, afterCell) && $_g7n23sltjgqkpv19.getEnd(afterCell) === afterOffset ? failure(beforeCell) : adt$3.none('in same cell');
         }
       });
     }).getOr(adt$3.none('default'));
   };
   var isRow = function (elem) {
-    return $_30b5qvkljcq86jb8.closest(elem, 'tr');
+    return $_3gag4rlhjgqkpuyg.closest(elem, 'tr');
   };
   var cata$2 = function (subject, onNone, onSuccess, onFailedUp, onFailedDown) {
     return subject.fold(onNone, onSuccess, onFailedUp, onFailedDown);
   };
-  var $_ckmk85p0jcq86k08 = {
+  var $_ee3xdcpyjgqkpw3q = {
     verify: verify,
     cata: cata$2,
     adt: adt$3
   };
 
-  var point = $_9bzkn9jljcq86j7v.immutable('element', 'offset');
-  var delta = $_9bzkn9jljcq86j7v.immutable('element', 'deltaOffset');
-  var range$3 = $_9bzkn9jljcq86j7v.immutable('element', 'start', 'finish');
-  var points = $_9bzkn9jljcq86j7v.immutable('begin', 'end');
-  var text = $_9bzkn9jljcq86j7v.immutable('element', 'text');
-  var $_b6wprep2jcq86k0u = {
+  var point = $_c756rzkijgqkputi.immutable('element', 'offset');
+  var delta = $_c756rzkijgqkputi.immutable('element', 'deltaOffset');
+  var range$3 = $_c756rzkijgqkputi.immutable('element', 'start', 'finish');
+  var points = $_c756rzkijgqkputi.immutable('begin', 'end');
+  var text = $_c756rzkijgqkputi.immutable('element', 'text');
+  var $_503znmq0jgqkpw4x = {
     point: point,
     delta: delta,
     range: range$3,
@@ -9166,43 +9328,43 @@ var table = (function () {
     text: text
   };
 
-  var inAncestor = $_9bzkn9jljcq86j7v.immutable('ancestor', 'descendants', 'element', 'index');
-  var inParent = $_9bzkn9jljcq86j7v.immutable('parent', 'children', 'element', 'index');
+  var inAncestor = $_c756rzkijgqkputi.immutable('ancestor', 'descendants', 'element', 'index');
+  var inParent = $_c756rzkijgqkputi.immutable('parent', 'children', 'element', 'index');
   var childOf = function (element, ancestor) {
-    return $_3sgfw3kmjcq86jba.closest(element, function (elem) {
-      return $_alsyrkjxjcq86j99.parent(elem).exists(function (parent) {
-        return $_6oaqssjzjcq86j9l.eq(parent, ancestor);
+    return $_bg06nslijgqkpuyi.closest(element, function (elem) {
+      return $_3t5binktjgqkpuvq.parent(elem).exists(function (parent) {
+        return $_an4cuxkvjgqkpuw7.eq(parent, ancestor);
       });
     });
   };
   var indexInParent = function (element) {
-    return $_alsyrkjxjcq86j99.parent(element).bind(function (parent) {
-      var children = $_alsyrkjxjcq86j99.children(parent);
+    return $_3t5binktjgqkpuvq.parent(element).bind(function (parent) {
+      var children = $_3t5binktjgqkpuvq.children(parent);
       return indexOf$1(children, element).map(function (index) {
         return inParent(parent, children, element, index);
       });
     });
   };
   var indexOf$1 = function (elements, element) {
-    return $_4rqlpsjgjcq86j74.findIndex(elements, $_8h7nl9jijcq86j7b.curry($_6oaqssjzjcq86j9l.eq, element));
+    return $_e5654tkcjgqkpurw.findIndex(elements, $_fu1fqpkejgqkpus4.curry($_an4cuxkvjgqkpuw7.eq, element));
   };
   var selectorsInParent = function (element, selector) {
-    return $_alsyrkjxjcq86j99.parent(element).bind(function (parent) {
-      var children = $_h5pcpkijcq86jb1.children(parent, selector);
+    return $_3t5binktjgqkpuvq.parent(element).bind(function (parent) {
+      var children = $_2v58a5lejgqkpuy6.children(parent, selector);
       return indexOf$1(children, element).map(function (index) {
         return inParent(parent, children, element, index);
       });
     });
   };
   var descendantsInAncestor = function (element, ancestorSelector, descendantSelector) {
-    return $_30b5qvkljcq86jb8.closest(element, ancestorSelector).bind(function (ancestor) {
-      var descendants = $_h5pcpkijcq86jb1.descendants(ancestor, descendantSelector);
+    return $_3gag4rlhjgqkpuyg.closest(element, ancestorSelector).bind(function (ancestor) {
+      var descendants = $_2v58a5lejgqkpuy6.descendants(ancestor, descendantSelector);
       return indexOf$1(descendants, element).map(function (index) {
         return inAncestor(ancestor, descendants, element, index);
       });
     });
   };
-  var $_3bbor8p3jcq86k0w = {
+  var $_90mncmq1jgqkpw52 = {
     childOf: childOf,
     indexOf: indexOf$1,
     indexInParent: indexInParent,
@@ -9211,11 +9373,11 @@ var table = (function () {
   };
 
   var isBr = function (elem) {
-    return $_lmewskhjcq86jb0.name(elem) === 'br';
+    return $_4qtrrjldjgqkpuy4.name(elem) === 'br';
   };
   var gatherer = function (cand, gather, isRoot) {
     return gather(cand, isRoot).bind(function (target) {
-      return $_lmewskhjcq86jb0.isText(target) && $_gicm64kyjcq86jd5.get(target).trim().length === 0 ? gatherer(target, gather, isRoot) : $_f1um5wjhjcq86j78.some(target);
+      return $_4qtrrjldjgqkpuy4.isText(target) && $_96nm8vlujgqkpv1d.get(target).trim().length === 0 ? gatherer(target, gather, isRoot) : Option.some(target);
     });
   };
   var handleBr = function (isRoot, element, direction) {
@@ -9224,8 +9386,8 @@ var table = (function () {
     }).map(direction.relative);
   };
   var findBr = function (element, offset) {
-    return $_alsyrkjxjcq86j99.child(element, offset).filter(isBr).orThunk(function () {
-      return $_alsyrkjxjcq86j99.child(element, offset - 1).filter(isBr);
+    return $_3t5binktjgqkpuvq.child(element, offset).filter(isBr).orThunk(function () {
+      return $_3t5binktjgqkpuvq.child(element, offset - 1).filter(isBr);
     });
   };
   var handleParent = function (isRoot, element, offset, direction) {
@@ -9233,8 +9395,8 @@ var table = (function () {
       return direction.traverse(br).fold(function () {
         return gatherer(br, direction.gather, isRoot).map(direction.relative);
       }, function (adjacent) {
-        return $_3bbor8p3jcq86k0w.indexInParent(adjacent).map(function (info) {
-          return $_1mhoydo4jcq86juq.on(info.parent(), info.index());
+        return $_90mncmq1jgqkpw52.indexInParent(adjacent).map(function (info) {
+          return $_9fb1vup2jgqkpvv2.on(info.parent(), info.index());
         });
       });
     });
@@ -9243,66 +9405,66 @@ var table = (function () {
     var target = isBr(element) ? handleBr(isRoot, element, direction) : handleParent(isRoot, element, offset, direction);
     return target.map(function (tgt) {
       return {
-        start: $_8h7nl9jijcq86j7b.constant(tgt),
-        finish: $_8h7nl9jijcq86j7b.constant(tgt)
+        start: $_fu1fqpkejgqkpus4.constant(tgt),
+        finish: $_fu1fqpkejgqkpus4.constant(tgt)
       };
     });
   };
   var process = function (analysis) {
-    return $_ckmk85p0jcq86k08.cata(analysis, function (message) {
-      return $_f1um5wjhjcq86j78.none('BR ADT: none');
+    return $_ee3xdcpyjgqkpw3q.cata(analysis, function (message) {
+      return Option.none();
     }, function () {
-      return $_f1um5wjhjcq86j78.none();
+      return Option.none();
     }, function (cell) {
-      return $_f1um5wjhjcq86j78.some($_b6wprep2jcq86k0u.point(cell, 0));
+      return Option.some($_503znmq0jgqkpw4x.point(cell, 0));
     }, function (cell) {
-      return $_f1um5wjhjcq86j78.some($_b6wprep2jcq86k0u.point(cell, $_79inm4kxjcq86jd2.getEnd(cell)));
+      return Option.some($_503znmq0jgqkpw4x.point(cell, $_g7n23sltjgqkpv19.getEnd(cell)));
     });
   };
-  var $_fquq2lp1jcq86k0h = {
+  var $_2s9gempzjgqkpw45 = {
     tryBr: tryBr,
     process: process
   };
 
   var MAX_RETRIES = 20;
-  var platform$1 = $_g90906k4jcq86j9z.detect();
+  var platform$1 = $_7vy8tfl0jgqkpuwq.detect();
   var findSpot = function (bridge, isRoot, direction) {
     return bridge.getSelection().bind(function (sel) {
-      return $_fquq2lp1jcq86k0h.tryBr(isRoot, sel.finish(), sel.foffset(), direction).fold(function () {
-        return $_f1um5wjhjcq86j78.some($_b6wprep2jcq86k0u.point(sel.finish(), sel.foffset()));
+      return $_2s9gempzjgqkpw45.tryBr(isRoot, sel.finish(), sel.foffset(), direction).fold(function () {
+        return Option.some($_503znmq0jgqkpw4x.point(sel.finish(), sel.foffset()));
       }, function (brNeighbour) {
         var range = bridge.fromSitus(brNeighbour);
-        var analysis = $_ckmk85p0jcq86k08.verify(bridge, sel.finish(), sel.foffset(), range.finish(), range.foffset(), direction.failure, isRoot);
-        return $_fquq2lp1jcq86k0h.process(analysis);
+        var analysis = $_ee3xdcpyjgqkpw3q.verify(bridge, sel.finish(), sel.foffset(), range.finish(), range.foffset(), direction.failure, isRoot);
+        return $_2s9gempzjgqkpw45.process(analysis);
       });
     });
   };
   var scan = function (bridge, isRoot, element, offset, direction, numRetries) {
     if (numRetries === 0)
-      return $_f1um5wjhjcq86j78.none();
+      return Option.none();
     return tryCursor(bridge, isRoot, element, offset, direction).bind(function (situs) {
       var range = bridge.fromSitus(situs);
-      var analysis = $_ckmk85p0jcq86k08.verify(bridge, element, offset, range.finish(), range.foffset(), direction.failure, isRoot);
-      return $_ckmk85p0jcq86k08.cata(analysis, function () {
-        return $_f1um5wjhjcq86j78.none();
+      var analysis = $_ee3xdcpyjgqkpw3q.verify(bridge, element, offset, range.finish(), range.foffset(), direction.failure, isRoot);
+      return $_ee3xdcpyjgqkpw3q.cata(analysis, function () {
+        return Option.none();
       }, function () {
-        return $_f1um5wjhjcq86j78.some(situs);
+        return Option.some(situs);
       }, function (cell) {
-        if ($_6oaqssjzjcq86j9l.eq(element, cell) && offset === 0)
-          return tryAgain(bridge, element, offset, $_6jck3posjcq86jz1.moveUp, direction);
+        if ($_an4cuxkvjgqkpuw7.eq(element, cell) && offset === 0)
+          return tryAgain(bridge, element, offset, $_ehk1t4pqjgqkpw1t.moveUp, direction);
         else
           return scan(bridge, isRoot, cell, 0, direction, numRetries - 1);
       }, function (cell) {
-        if ($_6oaqssjzjcq86j9l.eq(element, cell) && offset === $_79inm4kxjcq86jd2.getEnd(cell))
-          return tryAgain(bridge, element, offset, $_6jck3posjcq86jz1.moveDown, direction);
+        if ($_an4cuxkvjgqkpuw7.eq(element, cell) && offset === $_g7n23sltjgqkpv19.getEnd(cell))
+          return tryAgain(bridge, element, offset, $_ehk1t4pqjgqkpw1t.moveDown, direction);
         else
-          return scan(bridge, isRoot, cell, $_79inm4kxjcq86jd2.getEnd(cell), direction, numRetries - 1);
+          return scan(bridge, isRoot, cell, $_g7n23sltjgqkpv19.getEnd(cell), direction, numRetries - 1);
       });
     });
   };
   var tryAgain = function (bridge, element, offset, move, direction) {
-    return $_30vktpotjcq86jz4.getBoxAt(bridge, element, offset).bind(function (box) {
-      return tryAt(bridge, direction, move(box, $_etgmiroujcq86jzb.getJumpSize()));
+    return $_3ovku7prjgqkpw1y.getBoxAt(bridge, element, offset).bind(function (box) {
+      return tryAt(bridge, direction, move(box, $_1724n1psjgqkpw2d.getJumpSize()));
     });
   };
   var tryAt = function (bridge, direction, box) {
@@ -9311,10 +9473,10 @@ var table = (function () {
     else if (platform$1.browser.isIE())
       return direction.ieRetry(bridge, box);
     else
-      return $_f1um5wjhjcq86j78.none();
+      return Option.none();
   };
   var tryCursor = function (bridge, isRoot, element, offset, direction) {
-    return $_30vktpotjcq86jz4.getBoxAt(bridge, element, offset).bind(function (box) {
+    return $_3ovku7prjgqkpw1y.getBoxAt(bridge, element, offset).bind(function (box) {
       return tryAt(bridge, direction, box);
     });
   };
@@ -9323,27 +9485,27 @@ var table = (function () {
       return scan(bridge, isRoot, spot.element(), spot.offset(), direction, MAX_RETRIES).map(bridge.fromSitus);
     });
   };
-  var $_aadqtsorjcq86jys = { handle: handle$2 };
+  var $_eo9qapppjgqkpw1e = { handle: handle$2 };
 
   var any$1 = function (predicate) {
-    return $_3sgfw3kmjcq86jba.first(predicate).isSome();
+    return $_bg06nslijgqkpuyi.first(predicate).isSome();
   };
   var ancestor$3 = function (scope, predicate, isRoot) {
-    return $_3sgfw3kmjcq86jba.ancestor(scope, predicate, isRoot).isSome();
+    return $_bg06nslijgqkpuyi.ancestor(scope, predicate, isRoot).isSome();
   };
   var closest$3 = function (scope, predicate, isRoot) {
-    return $_3sgfw3kmjcq86jba.closest(scope, predicate, isRoot).isSome();
+    return $_bg06nslijgqkpuyi.closest(scope, predicate, isRoot).isSome();
   };
   var sibling$3 = function (scope, predicate) {
-    return $_3sgfw3kmjcq86jba.sibling(scope, predicate).isSome();
+    return $_bg06nslijgqkpuyi.sibling(scope, predicate).isSome();
   };
   var child$4 = function (scope, predicate) {
-    return $_3sgfw3kmjcq86jba.child(scope, predicate).isSome();
+    return $_bg06nslijgqkpuyi.child(scope, predicate).isSome();
   };
   var descendant$3 = function (scope, predicate) {
-    return $_3sgfw3kmjcq86jba.descendant(scope, predicate).isSome();
+    return $_bg06nslijgqkpuyi.descendant(scope, predicate).isSome();
   };
-  var $_63m595p4jcq86k13 = {
+  var $_c52cvjq2jgqkpw5g = {
     any: any$1,
     ancestor: ancestor$3,
     closest: closest$3,
@@ -9352,25 +9514,25 @@ var table = (function () {
     descendant: descendant$3
   };
 
-  var detection = $_g90906k4jcq86j9z.detect();
+  var detection = $_7vy8tfl0jgqkpuwq.detect();
   var inSameTable = function (elem, table) {
-    return $_63m595p4jcq86k13.ancestor(elem, function (e) {
-      return $_alsyrkjxjcq86j99.parent(e).exists(function (p) {
-        return $_6oaqssjzjcq86j9l.eq(p, table);
+    return $_c52cvjq2jgqkpw5g.ancestor(elem, function (e) {
+      return $_3t5binktjgqkpuvq.parent(e).exists(function (p) {
+        return $_an4cuxkvjgqkpuw7.eq(p, table);
       });
     });
   };
   var simulate = function (bridge, isRoot, direction, initial, anchor) {
-    return $_30b5qvkljcq86jb8.closest(initial, 'td,th', isRoot).bind(function (start) {
-      return $_30b5qvkljcq86jb8.closest(start, 'table', isRoot).bind(function (table) {
+    return $_3gag4rlhjgqkpuyg.closest(initial, 'td,th', isRoot).bind(function (start) {
+      return $_3gag4rlhjgqkpuyg.closest(start, 'table', isRoot).bind(function (table) {
         if (!inSameTable(anchor, table))
-          return $_f1um5wjhjcq86j78.none();
-        return $_aadqtsorjcq86jys.handle(bridge, isRoot, direction).bind(function (range) {
-          return $_30b5qvkljcq86jb8.closest(range.finish(), 'td,th', isRoot).map(function (finish) {
+          return Option.none();
+        return $_eo9qapppjgqkpw1e.handle(bridge, isRoot, direction).bind(function (range) {
+          return $_3gag4rlhjgqkpuyg.closest(range.finish(), 'td,th', isRoot).map(function (finish) {
             return {
-              start: $_8h7nl9jijcq86j7b.constant(start),
-              finish: $_8h7nl9jijcq86j7b.constant(finish),
-              range: $_8h7nl9jijcq86j7b.constant(range)
+              start: $_fu1fqpkejgqkpus4.constant(start),
+              finish: $_fu1fqpkejgqkpus4.constant(finish),
+              range: $_fu1fqpkejgqkpus4.constant(range)
             };
           });
         });
@@ -9379,55 +9541,55 @@ var table = (function () {
   };
   var navigate = function (bridge, isRoot, direction, initial, anchor, precheck) {
     if (detection.browser.isIE()) {
-      return $_f1um5wjhjcq86j78.none();
+      return Option.none();
     } else {
       return precheck(initial, isRoot).orThunk(function () {
         return simulate(bridge, isRoot, direction, initial, anchor).map(function (info) {
           var range = info.range();
-          return $_d15tl1okjcq86jx3.response($_f1um5wjhjcq86j78.some($_bo6o97onjcq86jxm.makeSitus(range.start(), range.soffset(), range.finish(), range.foffset())), true);
+          return $_2427wpijgqkpvyt.response(Option.some($_9ttfmnpljgqkpvzg.makeSitus(range.start(), range.soffset(), range.finish(), range.foffset())), true);
         });
       });
     }
   };
   var firstUpCheck = function (initial, isRoot) {
-    return $_30b5qvkljcq86jb8.closest(initial, 'tr', isRoot).bind(function (startRow) {
-      return $_30b5qvkljcq86jb8.closest(startRow, 'table', isRoot).bind(function (table) {
-        var rows = $_h5pcpkijcq86jb1.descendants(table, 'tr');
-        if ($_6oaqssjzjcq86j9l.eq(startRow, rows[0])) {
-          return $_72on4xovjcq86jzq.seekLeft(table, function (element) {
-            return $_8vz744kwjcq86jd0.last(element).isSome();
+    return $_3gag4rlhjgqkpuyg.closest(initial, 'tr', isRoot).bind(function (startRow) {
+      return $_3gag4rlhjgqkpuyg.closest(startRow, 'table', isRoot).bind(function (table) {
+        var rows = $_2v58a5lejgqkpuy6.descendants(table, 'tr');
+        if ($_an4cuxkvjgqkpuw7.eq(startRow, rows[0])) {
+          return $_4fy6ezptjgqkpw2x.seekLeft(table, function (element) {
+            return $_8t9497lsjgqkpv15.last(element).isSome();
           }, isRoot).map(function (last) {
-            var lastOffset = $_79inm4kxjcq86jd2.getEnd(last);
-            return $_d15tl1okjcq86jx3.response($_f1um5wjhjcq86j78.some($_bo6o97onjcq86jxm.makeSitus(last, lastOffset, last, lastOffset)), true);
+            var lastOffset = $_g7n23sltjgqkpv19.getEnd(last);
+            return $_2427wpijgqkpvyt.response(Option.some($_9ttfmnpljgqkpvzg.makeSitus(last, lastOffset, last, lastOffset)), true);
           });
         } else {
-          return $_f1um5wjhjcq86j78.none();
+          return Option.none();
         }
       });
     });
   };
   var lastDownCheck = function (initial, isRoot) {
-    return $_30b5qvkljcq86jb8.closest(initial, 'tr', isRoot).bind(function (startRow) {
-      return $_30b5qvkljcq86jb8.closest(startRow, 'table', isRoot).bind(function (table) {
-        var rows = $_h5pcpkijcq86jb1.descendants(table, 'tr');
-        if ($_6oaqssjzjcq86j9l.eq(startRow, rows[rows.length - 1])) {
-          return $_72on4xovjcq86jzq.seekRight(table, function (element) {
-            return $_8vz744kwjcq86jd0.first(element).isSome();
+    return $_3gag4rlhjgqkpuyg.closest(initial, 'tr', isRoot).bind(function (startRow) {
+      return $_3gag4rlhjgqkpuyg.closest(startRow, 'table', isRoot).bind(function (table) {
+        var rows = $_2v58a5lejgqkpuy6.descendants(table, 'tr');
+        if ($_an4cuxkvjgqkpuw7.eq(startRow, rows[rows.length - 1])) {
+          return $_4fy6ezptjgqkpw2x.seekRight(table, function (element) {
+            return $_8t9497lsjgqkpv15.first(element).isSome();
           }, isRoot).map(function (first) {
-            return $_d15tl1okjcq86jx3.response($_f1um5wjhjcq86j78.some($_bo6o97onjcq86jxm.makeSitus(first, 0, first, 0)), true);
+            return $_2427wpijgqkpvyt.response(Option.some($_9ttfmnpljgqkpvzg.makeSitus(first, 0, first, 0)), true);
           });
         } else {
-          return $_f1um5wjhjcq86j78.none();
+          return Option.none();
         }
       });
     });
   };
   var select = function (bridge, container, isRoot, direction, initial, anchor, selectRange) {
     return simulate(bridge, isRoot, direction, initial, anchor).bind(function (info) {
-      return $_cudtqfopjcq86jy0.detect(container, isRoot, info.start(), info.finish(), selectRange);
+      return $_6zq3tgpnjgqkpw07.detect(container, isRoot, info.start(), info.finish(), selectRange);
     });
   };
-  var $_fsot1hoqjcq86jy7 = {
+  var $_3mtk4upojgqkpw0k = {
     navigate: navigate,
     select: select,
     firstUpCheck: firstUpCheck,
@@ -9435,12 +9597,12 @@ var table = (function () {
   };
 
   var findCell = function (target, isRoot) {
-    return $_30b5qvkljcq86jb8.closest(target, 'td,th', isRoot);
+    return $_3gag4rlhjgqkpuyg.closest(target, 'td,th', isRoot);
   };
-  var MouseSelection = function (bridge, container, isRoot, annotations) {
-    var cursor = $_f1um5wjhjcq86j78.none();
+  function MouseSelection (bridge, container, isRoot, annotations) {
+    var cursor = Option.none();
     var clearState = function () {
-      cursor = $_f1um5wjhjcq86j78.none();
+      cursor = Option.none();
     };
     var mousedown = function (event) {
       annotations.clear(container);
@@ -9450,9 +9612,9 @@ var table = (function () {
       cursor.each(function (start) {
         annotations.clear(container);
         findCell(event.target(), isRoot).each(function (finish) {
-          $_53qo10l4jcq86jdx.identify(start, finish, isRoot).each(function (cellSel) {
+          $_1dw0qdm0jgqkpv2r.identify(start, finish, isRoot).each(function (cellSel) {
             var boxes = cellSel.boxes().getOr([]);
-            if (boxes.length > 1 || boxes.length === 1 && !$_6oaqssjzjcq86j9l.eq(start, finish)) {
+            if (boxes.length > 1 || boxes.length === 1 && !$_an4cuxkvjgqkpuw7.eq(start, finish)) {
               annotations.selectRange(container, boxes, cellSel.start(), cellSel.finish());
               bridge.selectContents(finish);
             }
@@ -9468,28 +9630,28 @@ var table = (function () {
       mouseover: mouseover,
       mouseup: mouseup
     };
-  };
+  }
 
-  var $_awwe21p6jcq86k1b = {
+  var $_38zb5aq4jgqkpw5t = {
     down: {
-      traverse: $_alsyrkjxjcq86j99.nextSibling,
-      gather: $_72on4xovjcq86jzq.after,
-      relative: $_1mhoydo4jcq86juq.before,
-      otherRetry: $_etgmiroujcq86jzb.tryDown,
-      ieRetry: $_etgmiroujcq86jzb.ieTryDown,
-      failure: $_ckmk85p0jcq86k08.adt.failedDown
+      traverse: $_3t5binktjgqkpuvq.nextSibling,
+      gather: $_4fy6ezptjgqkpw2x.after,
+      relative: $_9fb1vup2jgqkpvv2.before,
+      otherRetry: $_1724n1psjgqkpw2d.tryDown,
+      ieRetry: $_1724n1psjgqkpw2d.ieTryDown,
+      failure: $_ee3xdcpyjgqkpw3q.adt.failedDown
     },
     up: {
-      traverse: $_alsyrkjxjcq86j99.prevSibling,
-      gather: $_72on4xovjcq86jzq.before,
-      relative: $_1mhoydo4jcq86juq.before,
-      otherRetry: $_etgmiroujcq86jzb.tryUp,
-      ieRetry: $_etgmiroujcq86jzb.ieTryUp,
-      failure: $_ckmk85p0jcq86k08.adt.failedUp
+      traverse: $_3t5binktjgqkpuvq.prevSibling,
+      gather: $_4fy6ezptjgqkpw2x.before,
+      relative: $_9fb1vup2jgqkpvv2.before,
+      otherRetry: $_1724n1psjgqkpw2d.tryUp,
+      ieRetry: $_1724n1psjgqkpw2d.ieTryUp,
+      failure: $_ee3xdcpyjgqkpw3q.adt.failedUp
     }
   };
 
-  var rc = $_9bzkn9jljcq86j7v.immutable('rows', 'cols');
+  var rc = $_c756rzkijgqkputi.immutable('rows', 'cols');
   var mouse = function (win, container, isRoot, annotations) {
     var bridge = WindowBridge(win);
     var handlers = MouseSelection(bridge, container, isRoot, annotations);
@@ -9503,44 +9665,44 @@ var table = (function () {
     var bridge = WindowBridge(win);
     var clearToNavigate = function () {
       annotations.clear(container);
-      return $_f1um5wjhjcq86j78.none();
+      return Option.none();
     };
     var keydown = function (event, start, soffset, finish, foffset, direction) {
       var keycode = event.raw().which;
       var shiftKey = event.raw().shiftKey === true;
-      var handler = $_53qo10l4jcq86jdx.retrieve(container, annotations.selectedSelector()).fold(function () {
-        if ($_2qvj7yoljcq86jx6.isDown(keycode) && shiftKey) {
-          return $_8h7nl9jijcq86j7b.curry($_fsot1hoqjcq86jy7.select, bridge, container, isRoot, $_awwe21p6jcq86k1b.down, finish, start, annotations.selectRange);
-        } else if ($_2qvj7yoljcq86jx6.isUp(keycode) && shiftKey) {
-          return $_8h7nl9jijcq86j7b.curry($_fsot1hoqjcq86jy7.select, bridge, container, isRoot, $_awwe21p6jcq86k1b.up, finish, start, annotations.selectRange);
-        } else if ($_2qvj7yoljcq86jx6.isDown(keycode)) {
-          return $_8h7nl9jijcq86j7b.curry($_fsot1hoqjcq86jy7.navigate, bridge, isRoot, $_awwe21p6jcq86k1b.down, finish, start, $_fsot1hoqjcq86jy7.lastDownCheck);
-        } else if ($_2qvj7yoljcq86jx6.isUp(keycode)) {
-          return $_8h7nl9jijcq86j7b.curry($_fsot1hoqjcq86jy7.navigate, bridge, isRoot, $_awwe21p6jcq86k1b.up, finish, start, $_fsot1hoqjcq86jy7.firstUpCheck);
+      var handler = $_1dw0qdm0jgqkpv2r.retrieve(container, annotations.selectedSelector()).fold(function () {
+        if ($_pp1nqpjjgqkpvyw.isDown(keycode) && shiftKey) {
+          return $_fu1fqpkejgqkpus4.curry($_3mtk4upojgqkpw0k.select, bridge, container, isRoot, $_38zb5aq4jgqkpw5t.down, finish, start, annotations.selectRange);
+        } else if ($_pp1nqpjjgqkpvyw.isUp(keycode) && shiftKey) {
+          return $_fu1fqpkejgqkpus4.curry($_3mtk4upojgqkpw0k.select, bridge, container, isRoot, $_38zb5aq4jgqkpw5t.up, finish, start, annotations.selectRange);
+        } else if ($_pp1nqpjjgqkpvyw.isDown(keycode)) {
+          return $_fu1fqpkejgqkpus4.curry($_3mtk4upojgqkpw0k.navigate, bridge, isRoot, $_38zb5aq4jgqkpw5t.down, finish, start, $_3mtk4upojgqkpw0k.lastDownCheck);
+        } else if ($_pp1nqpjjgqkpvyw.isUp(keycode)) {
+          return $_fu1fqpkejgqkpus4.curry($_3mtk4upojgqkpw0k.navigate, bridge, isRoot, $_38zb5aq4jgqkpw5t.up, finish, start, $_3mtk4upojgqkpw0k.firstUpCheck);
         } else {
-          return $_f1um5wjhjcq86j78.none;
+          return Option.none;
         }
       }, function (selected) {
         var update = function (attempts) {
           return function () {
-            var navigation = $_dsgmzrmajcq86jl8.findMap(attempts, function (delta) {
-              return $_cudtqfopjcq86jy0.update(delta.rows(), delta.cols(), container, selected, annotations);
+            var navigation = $_82sd1cn2jgqkpve1.findMap(attempts, function (delta) {
+              return $_6zq3tgpnjgqkpw07.update(delta.rows(), delta.cols(), container, selected, annotations);
             });
             return navigation.fold(function () {
-              return $_53qo10l4jcq86jdx.getEdges(container, annotations.firstSelectedSelector(), annotations.lastSelectedSelector()).map(function (edges) {
-                var relative = $_2qvj7yoljcq86jx6.isDown(keycode) || direction.isForward(keycode) ? $_1mhoydo4jcq86juq.after : $_1mhoydo4jcq86juq.before;
-                bridge.setRelativeSelection($_1mhoydo4jcq86juq.on(edges.first(), 0), relative(edges.table()));
+              return $_1dw0qdm0jgqkpv2r.getEdges(container, annotations.firstSelectedSelector(), annotations.lastSelectedSelector()).map(function (edges) {
+                var relative = $_pp1nqpjjgqkpvyw.isDown(keycode) || direction.isForward(keycode) ? $_9fb1vup2jgqkpvv2.after : $_9fb1vup2jgqkpvv2.before;
+                bridge.setRelativeSelection($_9fb1vup2jgqkpvv2.on(edges.first(), 0), relative(edges.table()));
                 annotations.clear(container);
-                return $_d15tl1okjcq86jx3.response($_f1um5wjhjcq86j78.none(), true);
+                return $_2427wpijgqkpvyt.response(Option.none(), true);
               });
             }, function (_) {
-              return $_f1um5wjhjcq86j78.some($_d15tl1okjcq86jx3.response($_f1um5wjhjcq86j78.none(), true));
+              return Option.some($_2427wpijgqkpvyt.response(Option.none(), true));
             });
           };
         };
-        if ($_2qvj7yoljcq86jx6.isDown(keycode) && shiftKey)
+        if ($_pp1nqpjjgqkpvyw.isDown(keycode) && shiftKey)
           return update([rc(+1, 0)]);
-        else if ($_2qvj7yoljcq86jx6.isUp(keycode) && shiftKey)
+        else if ($_pp1nqpjjgqkpvyw.isUp(keycode) && shiftKey)
           return update([rc(-1, 0)]);
         else if (direction.isBackward(keycode) && shiftKey)
           return update([
@@ -9552,58 +9714,58 @@ var table = (function () {
             rc(0, +1),
             rc(+1, 0)
           ]);
-        else if ($_2qvj7yoljcq86jx6.isNavigation(keycode) && shiftKey === false)
+        else if ($_pp1nqpjjgqkpvyw.isNavigation(keycode) && shiftKey === false)
           return clearToNavigate;
         else
-          return $_f1um5wjhjcq86j78.none;
+          return Option.none;
       });
       return handler();
     };
     var keyup = function (event, start, soffset, finish, foffset) {
-      return $_53qo10l4jcq86jdx.retrieve(container, annotations.selectedSelector()).fold(function () {
+      return $_1dw0qdm0jgqkpv2r.retrieve(container, annotations.selectedSelector()).fold(function () {
         var keycode = event.raw().which;
         var shiftKey = event.raw().shiftKey === true;
         if (shiftKey === false)
-          return $_f1um5wjhjcq86j78.none();
-        if ($_2qvj7yoljcq86jx6.isNavigation(keycode))
-          return $_cudtqfopjcq86jy0.sync(container, isRoot, start, soffset, finish, foffset, annotations.selectRange);
+          return Option.none();
+        if ($_pp1nqpjjgqkpvyw.isNavigation(keycode))
+          return $_6zq3tgpnjgqkpw07.sync(container, isRoot, start, soffset, finish, foffset, annotations.selectRange);
         else
-          return $_f1um5wjhjcq86j78.none();
-      }, $_f1um5wjhjcq86j78.none);
+          return Option.none();
+      }, Option.none);
     };
     return {
       keydown: keydown,
       keyup: keyup
     };
   };
-  var $_1duhh8ojjcq86jwu = {
+  var $_7oxp9uphjgqkpvyc = {
     mouse: mouse,
     keyboard: keyboard
   };
 
   var add$3 = function (element, classes) {
-    $_4rqlpsjgjcq86j74.each(classes, function (x) {
-      $_1ymy3mmljcq86jn7.add(element, x);
+    $_e5654tkcjgqkpurw.each(classes, function (x) {
+      $_bqzv8tndjgqkpvh3.add(element, x);
     });
   };
   var remove$7 = function (element, classes) {
-    $_4rqlpsjgjcq86j74.each(classes, function (x) {
-      $_1ymy3mmljcq86jn7.remove(element, x);
+    $_e5654tkcjgqkpurw.each(classes, function (x) {
+      $_bqzv8tndjgqkpvh3.remove(element, x);
     });
   };
   var toggle$2 = function (element, classes) {
-    $_4rqlpsjgjcq86j74.each(classes, function (x) {
-      $_1ymy3mmljcq86jn7.toggle(element, x);
+    $_e5654tkcjgqkpurw.each(classes, function (x) {
+      $_bqzv8tndjgqkpvh3.toggle(element, x);
     });
   };
   var hasAll = function (element, classes) {
-    return $_4rqlpsjgjcq86j74.forall(classes, function (clazz) {
-      return $_1ymy3mmljcq86jn7.has(element, clazz);
+    return $_e5654tkcjgqkpurw.forall(classes, function (clazz) {
+      return $_bqzv8tndjgqkpvh3.has(element, clazz);
     });
   };
   var hasAny = function (element, classes) {
-    return $_4rqlpsjgjcq86j74.exists(classes, function (clazz) {
-      return $_1ymy3mmljcq86jn7.has(element, clazz);
+    return $_e5654tkcjgqkpurw.exists(classes, function (clazz) {
+      return $_bqzv8tndjgqkpvh3.has(element, clazz);
     });
   };
   var getNative = function (element) {
@@ -9615,9 +9777,9 @@ var table = (function () {
     return r;
   };
   var get$11 = function (element) {
-    return $_fx2qehmnjcq86jna.supports(element) ? getNative(element) : $_fx2qehmnjcq86jna.get(element);
+    return $_3tlwh7nfjgqkpvh7.supports(element) ? getNative(element) : $_3tlwh7nfjgqkpvh7.get(element);
   };
-  var $_d06i65p9jcq86k1u = {
+  var $_26nc5kq7jgqkpw6n = {
     add: add$3,
     remove: remove$7,
     toggle: toggle$2,
@@ -9628,25 +9790,25 @@ var table = (function () {
 
   var addClass = function (clazz) {
     return function (element) {
-      $_1ymy3mmljcq86jn7.add(element, clazz);
+      $_bqzv8tndjgqkpvh3.add(element, clazz);
     };
   };
   var removeClass = function (clazz) {
     return function (element) {
-      $_1ymy3mmljcq86jn7.remove(element, clazz);
+      $_bqzv8tndjgqkpvh3.remove(element, clazz);
     };
   };
   var removeClasses = function (classes) {
     return function (element) {
-      $_d06i65p9jcq86k1u.remove(element, classes);
+      $_26nc5kq7jgqkpw6n.remove(element, classes);
     };
   };
   var hasClass = function (clazz) {
     return function (element) {
-      return $_1ymy3mmljcq86jn7.has(element, clazz);
+      return $_bqzv8tndjgqkpvh3.has(element, clazz);
     };
   };
-  var $_68lk9bp8jcq86k1t = {
+  var $_e2rpwrq6jgqkpw6l = {
     addClass: addClass,
     removeClass: removeClass,
     removeClasses: removeClasses,
@@ -9654,21 +9816,21 @@ var table = (function () {
   };
 
   var byClass = function (ephemera) {
-    var addSelectionClass = $_68lk9bp8jcq86k1t.addClass(ephemera.selected());
-    var removeSelectionClasses = $_68lk9bp8jcq86k1t.removeClasses([
+    var addSelectionClass = $_e2rpwrq6jgqkpw6l.addClass(ephemera.selected());
+    var removeSelectionClasses = $_e2rpwrq6jgqkpw6l.removeClasses([
       ephemera.selected(),
       ephemera.lastSelected(),
       ephemera.firstSelected()
     ]);
     var clear = function (container) {
-      var sels = $_h5pcpkijcq86jb1.descendants(container, ephemera.selectedSelector());
-      $_4rqlpsjgjcq86j74.each(sels, removeSelectionClasses);
+      var sels = $_2v58a5lejgqkpuy6.descendants(container, ephemera.selectedSelector());
+      $_e5654tkcjgqkpurw.each(sels, removeSelectionClasses);
     };
     var selectRange = function (container, cells, start, finish) {
       clear(container);
-      $_4rqlpsjgjcq86j74.each(cells, addSelectionClass);
-      $_1ymy3mmljcq86jn7.add(start, ephemera.firstSelected());
-      $_1ymy3mmljcq86jn7.add(finish, ephemera.lastSelected());
+      $_e5654tkcjgqkpurw.each(cells, addSelectionClass);
+      $_bqzv8tndjgqkpvh3.add(start, ephemera.firstSelected());
+      $_bqzv8tndjgqkpvh3.add(finish, ephemera.lastSelected());
     };
     return {
       clear: clear,
@@ -9680,22 +9842,22 @@ var table = (function () {
   };
   var byAttr = function (ephemera) {
     var removeSelectionAttributes = function (element) {
-      $_at8pjgkgjcq86jat.remove(element, ephemera.selected());
-      $_at8pjgkgjcq86jat.remove(element, ephemera.firstSelected());
-      $_at8pjgkgjcq86jat.remove(element, ephemera.lastSelected());
+      $_41i612lcjgqkpuxu.remove(element, ephemera.selected());
+      $_41i612lcjgqkpuxu.remove(element, ephemera.firstSelected());
+      $_41i612lcjgqkpuxu.remove(element, ephemera.lastSelected());
     };
     var addSelectionAttribute = function (element) {
-      $_at8pjgkgjcq86jat.set(element, ephemera.selected(), '1');
+      $_41i612lcjgqkpuxu.set(element, ephemera.selected(), '1');
     };
     var clear = function (container) {
-      var sels = $_h5pcpkijcq86jb1.descendants(container, ephemera.selectedSelector());
-      $_4rqlpsjgjcq86j74.each(sels, removeSelectionAttributes);
+      var sels = $_2v58a5lejgqkpuy6.descendants(container, ephemera.selectedSelector());
+      $_e5654tkcjgqkpurw.each(sels, removeSelectionAttributes);
     };
     var selectRange = function (container, cells, start, finish) {
       clear(container);
-      $_4rqlpsjgjcq86j74.each(cells, addSelectionAttribute);
-      $_at8pjgkgjcq86jat.set(start, ephemera.firstSelected(), '1');
-      $_at8pjgkgjcq86jat.set(finish, ephemera.lastSelected(), '1');
+      $_e5654tkcjgqkpurw.each(cells, addSelectionAttribute);
+      $_41i612lcjgqkpuxu.set(start, ephemera.firstSelected(), '1');
+      $_41i612lcjgqkpuxu.set(finish, ephemera.lastSelected(), '1');
     };
     return {
       clear: clear,
@@ -9705,99 +9867,79 @@ var table = (function () {
       lastSelectedSelector: ephemera.lastSelectedSelector
     };
   };
-  var $_f6yl4qp7jcq86k1k = {
+  var $_f66nnbq5jgqkpw65 = {
     byClass: byClass,
     byAttr: byAttr
   };
 
-  var CellSelection$1 = function (editor, lazyResize) {
-    var handlerStruct = $_9bzkn9jljcq86j7v.immutableBag([
+  function CellSelection$1 (editor, lazyResize) {
+    var handlerStruct = $_c756rzkijgqkputi.immutableBag([
       'mousedown',
       'mouseover',
       'mouseup',
       'keyup',
       'keydown'
     ], []);
-    var handlers = $_f1um5wjhjcq86j78.none();
-    var annotations = $_f6yl4qp7jcq86k1k.byAttr($_2l55qplgjcq86jgj);
+    var handlers = Option.none();
+    var annotations = $_f66nnbq5jgqkpw65.byAttr($_dxk082mcjgqkpv6t);
     editor.on('init', function (e) {
       var win = editor.getWin();
-      var body = $_7k8e7dn2jcq86jpa.getBody(editor);
-      var isRoot = $_7k8e7dn2jcq86jpa.getIsRoot(editor);
+      var body = getBody$1(editor);
+      var isRoot = getIsRoot(editor);
       var syncSelection = function () {
         var sel = editor.selection;
-        var start = $_69jxc7jvjcq86j93.fromDom(sel.getStart());
-        var end = $_69jxc7jvjcq86j93.fromDom(sel.getEnd());
-        var startTable = $_7b9jhqjsjcq86j8e.table(start);
-        var endTable = $_7b9jhqjsjcq86j8e.table(end);
+        var start = $_cimonkrjgqkpuvh.fromDom(sel.getStart());
+        var end = $_cimonkrjgqkpuvh.fromDom(sel.getEnd());
+        var startTable = $_928zfykojgqkpuu7.table(start);
+        var endTable = $_928zfykojgqkpuu7.table(end);
         var sameTable = startTable.bind(function (tableStart) {
           return endTable.bind(function (tableEnd) {
-            return $_6oaqssjzjcq86j9l.eq(tableStart, tableEnd) ? $_f1um5wjhjcq86j78.some(true) : $_f1um5wjhjcq86j78.none();
+            return $_an4cuxkvjgqkpuw7.eq(tableStart, tableEnd) ? Option.some(true) : Option.none();
           });
         });
         sameTable.fold(function () {
           annotations.clear(body);
-        }, $_8h7nl9jijcq86j7b.noop);
+        }, $_fu1fqpkejgqkpus4.noop);
       };
-      var mouseHandlers = $_1duhh8ojjcq86jwu.mouse(win, body, isRoot, annotations);
-      var keyHandlers = $_1duhh8ojjcq86jwu.keyboard(win, body, isRoot, annotations);
+      var mouseHandlers = $_7oxp9uphjgqkpvyc.mouse(win, body, isRoot, annotations);
+      var keyHandlers = $_7oxp9uphjgqkpvyc.keyboard(win, body, isRoot, annotations);
+      var hasShiftKey = function (event) {
+        return event.raw().shiftKey === true;
+      };
       var handleResponse = function (event, response) {
+        if (!hasShiftKey(event)) {
+          return;
+        }
         if (response.kill()) {
           event.kill();
         }
         response.selection().each(function (ns) {
-          var relative = $_88yslno3jcq86jum.relative(ns.start(), ns.finish());
-          var rng = $_4j925jo9jcq86jv8.asLtrRange(win, relative);
+          var relative = $_eox400p1jgqkpvus.relative(ns.start(), ns.finish());
+          var rng = $_2l3yuip7jgqkpvvu.asLtrRange(win, relative);
           editor.selection.setRng(rng);
         });
       };
       var keyup = function (event) {
         var wrappedEvent = wrapEvent(event);
-        if (wrappedEvent.raw().shiftKey && $_2qvj7yoljcq86jx6.isNavigation(wrappedEvent.raw().which)) {
+        if (wrappedEvent.raw().shiftKey && $_pp1nqpjjgqkpvyw.isNavigation(wrappedEvent.raw().which)) {
           var rng = editor.selection.getRng();
-          var start = $_69jxc7jvjcq86j93.fromDom(rng.startContainer);
-          var end = $_69jxc7jvjcq86j93.fromDom(rng.endContainer);
+          var start = $_cimonkrjgqkpuvh.fromDom(rng.startContainer);
+          var end = $_cimonkrjgqkpuvh.fromDom(rng.endContainer);
           keyHandlers.keyup(wrappedEvent, start, rng.startOffset, end, rng.endOffset).each(function (response) {
             handleResponse(wrappedEvent, response);
           });
         }
-      };
-      var checkLast = function (last) {
-        return !$_at8pjgkgjcq86jat.has(last, 'data-mce-bogus') && $_lmewskhjcq86jb0.name(last) !== 'br' && !($_lmewskhjcq86jb0.isText(last) && $_gicm64kyjcq86jd5.get(last).length === 0);
-      };
-      var getLast = function () {
-        var body = $_69jxc7jvjcq86j93.fromDom(editor.getBody());
-        var lastChild = $_alsyrkjxjcq86j99.lastChild(body);
-        var getPrevLast = function (last) {
-          return $_alsyrkjxjcq86j99.prevSibling(last).bind(function (prevLast) {
-            return checkLast(prevLast) ? $_f1um5wjhjcq86j78.some(prevLast) : getPrevLast(prevLast);
-          });
-        };
-        return lastChild.bind(function (last) {
-          return checkLast(last) ? $_f1um5wjhjcq86j78.some(last) : getPrevLast(last);
-        });
       };
       var keydown = function (event) {
         var wrappedEvent = wrapEvent(event);
         lazyResize().each(function (resize) {
           resize.hideBars();
         });
-        if (event.which === 40) {
-          getLast().each(function (last) {
-            if ($_lmewskhjcq86jb0.name(last) === 'table') {
-              if (editor.settings.forced_root_block) {
-                editor.dom.add(editor.getBody(), editor.settings.forced_root_block, editor.settings.forced_root_block_attrs, '<br/>');
-              } else {
-                editor.dom.add(editor.getBody(), 'br');
-              }
-            }
-          });
-        }
         var rng = editor.selection.getRng();
-        var startContainer = $_69jxc7jvjcq86j93.fromDom(editor.selection.getStart());
-        var start = $_69jxc7jvjcq86j93.fromDom(rng.startContainer);
-        var end = $_69jxc7jvjcq86j93.fromDom(rng.endContainer);
-        var direction = $_diqe05n3jcq86jpd.directionAt(startContainer).isRtl() ? $_2qvj7yoljcq86jx6.rtl : $_2qvj7yoljcq86jx6.ltr;
+        var startContainer = $_cimonkrjgqkpuvh.fromDom(editor.selection.getStart());
+        var start = $_cimonkrjgqkpuvh.fromDom(rng.startContainer);
+        var end = $_cimonkrjgqkpuvh.fromDom(rng.endContainer);
+        var direction = $_8b8v1fnvjgqkpvka.directionAt(startContainer).isRtl() ? $_pp1nqpjjgqkpvyw.rtl : $_pp1nqpjjgqkpvyw.ltr;
         keyHandlers.keydown(wrappedEvent, start, rng.startOffset, end, rng.endOffset, direction).each(function (response) {
           handleResponse(wrappedEvent, response);
         });
@@ -9805,23 +9947,26 @@ var table = (function () {
           resize.showBars();
         });
       };
+      var isMouseEvent = function (event) {
+        return event.hasOwnProperty('x') && event.hasOwnProperty('y');
+      };
       var wrapEvent = function (event) {
-        var target = $_69jxc7jvjcq86j93.fromDom(event.target);
+        var target = $_cimonkrjgqkpuvh.fromDom(event.target);
         var stop = function () {
           event.stopPropagation();
         };
         var prevent = function () {
           event.preventDefault();
         };
-        var kill = $_8h7nl9jijcq86j7b.compose(prevent, stop);
+        var kill = $_fu1fqpkejgqkpus4.compose(prevent, stop);
         return {
-          target: $_8h7nl9jijcq86j7b.constant(target),
-          x: $_8h7nl9jijcq86j7b.constant(event.x),
-          y: $_8h7nl9jijcq86j7b.constant(event.y),
+          target: $_fu1fqpkejgqkpus4.constant(target),
+          x: $_fu1fqpkejgqkpus4.constant(isMouseEvent(event) ? event.x : null),
+          y: $_fu1fqpkejgqkpus4.constant(isMouseEvent(event) ? event.y : null),
           stop: stop,
           prevent: prevent,
           kill: kill,
-          raw: $_8h7nl9jijcq86j7b.constant(event)
+          raw: $_fu1fqpkejgqkpus4.constant(event)
         };
       };
       var isLeftMouse = function (raw) {
@@ -9844,7 +9989,7 @@ var table = (function () {
         }
       };
       var mouseUp = function (e) {
-        if (isLeftMouse) {
+        if (isLeftMouse(e)) {
           mouseHandlers.mouseup(wrapEvent(e));
         }
       };
@@ -9854,7 +9999,7 @@ var table = (function () {
       editor.on('keyup', keyup);
       editor.on('keydown', keydown);
       editor.on('nodechange', syncSelection);
-      handlers = $_f1um5wjhjcq86j78.some(handlerStruct({
+      handlers = Option.some(handlerStruct({
         mousedown: mouseDown,
         mouseover: mouseOver,
         mouseup: mouseUp,
@@ -9870,25 +10015,25 @@ var table = (function () {
       clear: annotations.clear,
       destroy: destroy
     };
-  };
+  }
 
   var Selections = function (editor) {
     var get = function () {
-      var body = $_7k8e7dn2jcq86jpa.getBody(editor);
-      return $_3ztm73l3jcq86jdp.retrieve(body, $_2l55qplgjcq86jgj.selectedSelector()).fold(function () {
+      var body = getBody$1(editor);
+      return $_hwha1lzjgqkpv2e.retrieve(body, $_dxk082mcjgqkpv6t.selectedSelector()).fold(function () {
         if (editor.selection.getStart() === undefined) {
-          return $_f7r35vlhjcq86jgm.none();
+          return $_f9sj9pmdjgqkpv70.none();
         } else {
-          return $_f7r35vlhjcq86jgm.single(editor.selection);
+          return $_f9sj9pmdjgqkpv70.single(editor.selection);
         }
       }, function (cells) {
-        return $_f7r35vlhjcq86jgm.multiple(cells);
+        return $_f9sj9pmdjgqkpv70.multiple(cells);
       });
     };
     return { get: get };
   };
 
-  var each$4 = Tools.each;
+  var each$4 = global$2.each;
   var addButtons = function (editor) {
     var menuItems = [];
     each$4('inserttable tableprops deletetable | cell row column'.split(' '), function (name) {
@@ -9910,7 +10055,7 @@ var table = (function () {
     }
     editor.addButton('tableprops', {
       title: 'Table properties',
-      onclick: $_8h7nl9jijcq86j7b.curry($_co5rfjn8jcq86jpz.open, editor, true),
+      onclick: $_fu1fqpkejgqkpus4.curry($_67xkkzo6jgqkpvm4.open, editor, true),
       icon: 'table'
     });
     editor.addButton('tabledelete', {
@@ -9979,22 +10124,18 @@ var table = (function () {
       var selectorMatched = editor.dom.is(table, 'table') && editor.getBody().contains(table);
       return selectorMatched;
     };
-    var toolbarItems = editor.settings.table_toolbar;
-    if (toolbarItems === '' || toolbarItems === false) {
-      return;
+    var toolbar = getToolbar(editor);
+    if (toolbar.length > 0) {
+      editor.addContextToolbar(isTable, toolbar.join(' '));
     }
-    if (!toolbarItems) {
-      toolbarItems = 'tableprops tabledelete | ' + 'tableinsertrowbefore tableinsertrowafter tabledeleterow | ' + 'tableinsertcolbefore tableinsertcolafter tabledeletecol';
-    }
-    editor.addContextToolbar(isTable, toolbarItems);
   };
-  var $_ww0e9pbjcq86k21 = {
+  var $_56fhsbq9jgqkpw6w = {
     addButtons: addButtons,
     addToolbars: addToolbars
   };
 
   var addMenuItems = function (editor, selections) {
-    var targets = $_f1um5wjhjcq86j78.none();
+    var targets = Option.none();
     var tableCtrls = [];
     var cellCtrls = [];
     var mergeCtrls = [];
@@ -10043,29 +10184,29 @@ var table = (function () {
     };
     var setDisabledCtrls = function () {
       targets.fold(function () {
-        $_4rqlpsjgjcq86j74.each(tableCtrls, noTargetDisable);
-        $_4rqlpsjgjcq86j74.each(cellCtrls, noTargetDisable);
-        $_4rqlpsjgjcq86j74.each(mergeCtrls, noTargetDisable);
-        $_4rqlpsjgjcq86j74.each(unmergeCtrls, noTargetDisable);
+        $_e5654tkcjgqkpurw.each(tableCtrls, noTargetDisable);
+        $_e5654tkcjgqkpurw.each(cellCtrls, noTargetDisable);
+        $_e5654tkcjgqkpurw.each(mergeCtrls, noTargetDisable);
+        $_e5654tkcjgqkpurw.each(unmergeCtrls, noTargetDisable);
       }, function (targets) {
-        $_4rqlpsjgjcq86j74.each(tableCtrls, ctrlEnable);
-        $_4rqlpsjgjcq86j74.each(cellCtrls, ctrlEnable);
-        $_4rqlpsjgjcq86j74.each(mergeCtrls, function (mergeCtrl) {
+        $_e5654tkcjgqkpurw.each(tableCtrls, ctrlEnable);
+        $_e5654tkcjgqkpurw.each(cellCtrls, ctrlEnable);
+        $_e5654tkcjgqkpurw.each(mergeCtrls, function (mergeCtrl) {
           mergeCtrl.disabled(targets.mergable().isNone());
         });
-        $_4rqlpsjgjcq86j74.each(unmergeCtrls, function (unmergeCtrl) {
+        $_e5654tkcjgqkpurw.each(unmergeCtrls, function (unmergeCtrl) {
           unmergeCtrl.disabled(targets.unmergable().isNone());
         });
       });
     };
     editor.on('init', function () {
       editor.on('nodechange', function (e) {
-        var cellOpt = $_f1um5wjhjcq86j78.from(editor.dom.getParent(editor.selection.getStart(), 'th,td'));
+        var cellOpt = Option.from(editor.dom.getParent(editor.selection.getStart(), 'th,td'));
         targets = cellOpt.bind(function (cellDom) {
-          var cell = $_69jxc7jvjcq86j93.fromDom(cellDom);
-          var table = $_7b9jhqjsjcq86j8e.table(cell);
+          var cell = $_cimonkrjgqkpuvh.fromDom(cellDom);
+          var table = $_928zfykojgqkpuu7.table(cell);
           return table.map(function (table) {
-            return $_oxhawl1jcq86jdd.forMenu(selections, table, cell);
+            return $_30tsillxjgqkpv1q.forMenu(selections, table, cell);
           });
         });
         setDisabledCtrls();
@@ -10105,11 +10246,11 @@ var table = (function () {
       }
       return focusCell.parentNode;
     };
-    var insertTable = editor.settings.table_grid === false ? {
+    var insertTable = hasTableGrid(editor) === false ? {
       text: 'Table',
       icon: 'table',
       context: 'table',
-      onclick: $_8h7nl9jijcq86j7b.curry($_co5rfjn8jcq86jpz.open, editor)
+      onclick: $_fu1fqpkejgqkpus4.curry($_67xkkzo6jgqkpvm4.open, editor)
     } : {
       text: 'Table',
       icon: 'table',
@@ -10119,7 +10260,7 @@ var table = (function () {
         if (e.aria) {
           this.parent().hideAll();
           e.stopImmediatePropagation();
-          $_co5rfjn8jcq86jpz.open(editor);
+          $_67xkkzo6jgqkpvm4.open(editor);
         }
       },
       onshow: function () {
@@ -10159,7 +10300,7 @@ var table = (function () {
               e.stopPropagation();
               self.parent().cancel();
               editor.undoManager.transact(function () {
-                $_d1g2vkljjcq86jgt.insert(editor, self.lastX + 1, self.lastY + 1);
+                $_445if4o8jgqkpvmb.insert(editor, self.lastX + 1, self.lastY + 1);
               });
               editor.addVisual();
             }
@@ -10175,7 +10316,7 @@ var table = (function () {
       text: 'Table properties',
       context: 'table',
       onPostRender: pushTable,
-      onclick: $_8h7nl9jijcq86j7b.curry($_co5rfjn8jcq86jpz.open, editor, true)
+      onclick: $_fu1fqpkejgqkpus4.curry($_67xkkzo6jgqkpvm4.open, editor, true)
     };
     var deleteTable = {
       text: 'Delete table',
@@ -10280,43 +10421,66 @@ var table = (function () {
     editor.addMenuItem('column', column);
     editor.addMenuItem('cell', cell);
   };
-  var $_9plvc6pcjcq86k25 = { addMenuItems: addMenuItems };
+  var $_khr4aqajgqkpw77 = { addMenuItems: addMenuItems };
+
+  var getClipboardRows = function (clipboardRows) {
+    return clipboardRows.get().fold(function () {
+      return;
+    }, function (rows) {
+      return $_e5654tkcjgqkpurw.map(rows, function (row) {
+        return row.dom();
+      });
+    });
+  };
+  var setClipboardRows = function (rows, clipboardRows) {
+    var sugarRows = $_e5654tkcjgqkpurw.map(rows, $_cimonkrjgqkpuvh.fromDom);
+    clipboardRows.set(Option.from(sugarRows));
+  };
+  var getApi = function (editor, clipboardRows) {
+    return {
+      insertTable: function (columns, rows) {
+        return $_445if4o8jgqkpvmb.insert(editor, columns, rows);
+      },
+      setClipboardRows: function (rows) {
+        return setClipboardRows(rows, clipboardRows);
+      },
+      getClipboardRows: function () {
+        return getClipboardRows(clipboardRows);
+      }
+    };
+  };
 
   function Plugin(editor) {
-    var self = this;
     var resizeHandler = ResizeHandler(editor);
     var cellSelection = CellSelection$1(editor, resizeHandler.lazyResize);
     var actions = TableActions(editor, resizeHandler.lazyWire);
     var selections = Selections(editor);
-    $_49w7d0n5jcq86jph.registerCommands(editor, actions, cellSelection, selections);
-    $_bsvgdrjfjcq86j6i.registerEvents(editor, selections, actions, cellSelection);
-    $_9plvc6pcjcq86k25.addMenuItems(editor, selections);
-    $_ww0e9pbjcq86k21.addButtons(editor);
-    $_ww0e9pbjcq86k21.addToolbars(editor);
+    var clipboardRows = Cell(Option.none());
+    $_hhhjfnzjgqkpvkp.registerCommands(editor, actions, cellSelection, selections, clipboardRows);
+    $_27qqvlkbjgqkpur0.registerEvents(editor, selections, actions, cellSelection);
+    $_khr4aqajgqkpw77.addMenuItems(editor, selections);
+    $_56fhsbq9jgqkpw6w.addButtons(editor);
+    $_56fhsbq9jgqkpw6w.addToolbars(editor);
     editor.on('PreInit', function () {
-      editor.serializer.addTempAttr($_2l55qplgjcq86jgj.firstSelected());
-      editor.serializer.addTempAttr($_2l55qplgjcq86jgj.lastSelected());
+      editor.serializer.addTempAttr($_dxk082mcjgqkpv6t.firstSelected());
+      editor.serializer.addTempAttr($_dxk082mcjgqkpv6t.lastSelected());
     });
-    if (editor.settings.table_tab_navigation !== false) {
+    if (hasTabNavigation(editor)) {
       editor.on('keydown', function (e) {
-        $_915c31o0jcq86ju0.handle(e, editor, actions, resizeHandler.lazyWire);
+        $_7e2ranoyjgqkpvtp.handle(e, editor, actions, resizeHandler.lazyWire);
       });
     }
     editor.on('remove', function () {
       resizeHandler.destroy();
       cellSelection.destroy();
     });
-    self.insertTable = function (columns, rows) {
-      return $_d1g2vkljjcq86jgt.insert(editor, columns, rows);
-    };
-    self.setClipboardRows = $_49w7d0n5jcq86jph.setClipboardRows;
-    self.getClipboardRows = $_49w7d0n5jcq86jph.getClipboardRows;
+    return getApi(editor, clipboardRows);
   }
-  PluginManager.add('table', Plugin);
-  var Plugin$1 = function () {
-  };
+  global.add('table', Plugin);
+  function Plugin$1 () {
+  }
 
   return Plugin$1;
 
 }());
-})()
+})();

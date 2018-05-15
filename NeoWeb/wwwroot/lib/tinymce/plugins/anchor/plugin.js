@@ -2,7 +2,7 @@
 var anchor = (function () {
   'use strict';
 
-  var PluginManager = tinymce.util.Tools.resolve('tinymce.PluginManager');
+  var global = tinymce.util.Tools.resolve('tinymce.PluginManager');
 
   var isValidId = function (id) {
     return /^[A-Za-z][A-Za-z0-9\-:._]*$/.test(id);
@@ -24,23 +24,23 @@ var anchor = (function () {
       editor.execCommand('mceInsertContent', false, editor.dom.createHTML('a', { id: id }));
     }
   };
-  var $_6pnl157ojcq86hxr = {
+  var $_wqhuq8bjgqkpt3v = {
     isValidId: isValidId,
     getId: getId,
     insert: insert
   };
 
   var insertAnchor = function (editor, newId) {
-    if (!$_6pnl157ojcq86hxr.isValidId(newId)) {
+    if (!$_wqhuq8bjgqkpt3v.isValidId(newId)) {
       editor.windowManager.alert('Id should start with a letter, followed only by letters, numbers, dashes, dots, colons or underscores.');
       return true;
     } else {
-      $_6pnl157ojcq86hxr.insert(editor, newId);
+      $_wqhuq8bjgqkpt3v.insert(editor, newId);
       return false;
     }
   };
   var open = function (editor) {
-    var currentId = $_6pnl157ojcq86hxr.getId(editor);
+    var currentId = $_wqhuq8bjgqkpt3v.getId(editor);
     editor.windowManager.open({
       title: 'Anchor',
       body: {
@@ -58,14 +58,14 @@ var anchor = (function () {
       }
     });
   };
-  var $_ebz8df7njcq86hxp = { open: open };
+  var $_bmwhhl8ajgqkpt3u = { open: open };
 
   var register = function (editor) {
     editor.addCommand('mceAnchor', function () {
-      $_ebz8df7njcq86hxp.open(editor);
+      $_bmwhhl8ajgqkpt3u.open(editor);
     });
   };
-  var $_cxk7mk7mjcq86hxo = { register: register };
+  var $_3sy6sx89jgqkpt3s = { register: register };
 
   var isAnchorNode = function (node) {
     return !node.attr('href') && (node.attr('id') || node.attr('name')) && !node.firstChild;
@@ -85,7 +85,7 @@ var anchor = (function () {
       editor.serializer.addNodeFilter('a', setContentEditable(null));
     });
   };
-  var $_exqyk77pjcq86hxt = { setup: setup };
+  var $_7ndhk08cjgqkpt3x = { setup: setup };
 
   var register$1 = function (editor) {
     editor.addButton('anchor', {
@@ -101,17 +101,17 @@ var anchor = (function () {
       cmd: 'mceAnchor'
     });
   };
-  var $_fg2q3y7qjcq86hxu = { register: register$1 };
+  var $_6zjibd8djgqkpt3y = { register: register$1 };
 
-  PluginManager.add('anchor', function (editor) {
-    $_exqyk77pjcq86hxt.setup(editor);
-    $_cxk7mk7mjcq86hxo.register(editor);
-    $_fg2q3y7qjcq86hxu.register(editor);
+  global.add('anchor', function (editor) {
+    $_7ndhk08cjgqkpt3x.setup(editor);
+    $_3sy6sx89jgqkpt3s.register(editor);
+    $_6zjibd8djgqkpt3y.register(editor);
   });
-  var Plugin = function () {
-  };
+  function Plugin () {
+  }
 
   return Plugin;
 
 }());
-})()
+})();

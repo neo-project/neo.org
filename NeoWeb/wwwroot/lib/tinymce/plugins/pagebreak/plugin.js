@@ -2,9 +2,9 @@
 var pagebreak = (function () {
   'use strict';
 
-  var PluginManager = tinymce.util.Tools.resolve('tinymce.PluginManager');
+  var global = tinymce.util.Tools.resolve('tinymce.PluginManager');
 
-  var Env = tinymce.util.Tools.resolve('tinymce.Env');
+  var global$1 = tinymce.util.Tools.resolve('tinymce.Env');
 
   var getSeparatorHtml = function (editor) {
     return editor.getParam('pagebreak_separator', '<!-- pagebreak -->');
@@ -12,7 +12,7 @@ var pagebreak = (function () {
   var shouldSplitBlock = function (editor) {
     return editor.getParam('pagebreak_split_block', false);
   };
-  var $_8ugffcgrjcq86ixg = {
+  var $_ah5h6vhmjgqkpug1 = {
     getSeparatorHtml: getSeparatorHtml,
     shouldSplitBlock: shouldSplitBlock
   };
@@ -21,10 +21,10 @@ var pagebreak = (function () {
     return 'mce-pagebreak';
   };
   var getPlaceholderHtml = function () {
-    return '<img src="' + Env.transparentSrc + '" class="' + getPageBreakClass() + '" data-mce-resize="false" data-mce-placeholder />';
+    return '<img src="' + global$1.transparentSrc + '" class="' + getPageBreakClass() + '" data-mce-resize="false" data-mce-placeholder />';
   };
   var setup = function (editor) {
-    var separatorHtml = $_8ugffcgrjcq86ixg.getSeparatorHtml(editor);
+    var separatorHtml = $_ah5h6vhmjgqkpug1.getSeparatorHtml(editor);
     var pageBreakSeparatorRegExp = new RegExp(separatorHtml.replace(/[\?\.\*\[\]\(\)\{\}\+\^\$\:]/g, function (a) {
       return '\\' + a;
     }), 'gi');
@@ -39,7 +39,7 @@ var pagebreak = (function () {
           className = node.attr('class');
           if (className && className.indexOf('mce-pagebreak') !== -1) {
             var parentNode = node.parent;
-            if (editor.schema.getBlockElements()[parentNode.name] && $_8ugffcgrjcq86ixg.shouldSplitBlock(editor)) {
+            if (editor.schema.getBlockElements()[parentNode.name] && $_ah5h6vhmjgqkpug1.shouldSplitBlock(editor)) {
               parentNode.type = 3;
               parentNode.value = separatorHtml;
               parentNode.raw = true;
@@ -54,7 +54,7 @@ var pagebreak = (function () {
       });
     });
   };
-  var $_83z2vagpjcq86ixd = {
+  var $_f59nr2hkjgqkpufz = {
     setup: setup,
     getPlaceholderHtml: getPlaceholderHtml,
     getPageBreakClass: getPageBreakClass
@@ -63,22 +63,22 @@ var pagebreak = (function () {
   var register = function (editor) {
     editor.addCommand('mcePageBreak', function () {
       if (editor.settings.pagebreak_split_block) {
-        editor.insertContent('<p>' + $_83z2vagpjcq86ixd.getPlaceholderHtml() + '</p>');
+        editor.insertContent('<p>' + $_f59nr2hkjgqkpufz.getPlaceholderHtml() + '</p>');
       } else {
-        editor.insertContent($_83z2vagpjcq86ixd.getPlaceholderHtml());
+        editor.insertContent($_f59nr2hkjgqkpufz.getPlaceholderHtml());
       }
     });
   };
-  var $_9138kqgojcq86ixb = { register: register };
+  var $_fle1w5hjjgqkpufx = { register: register };
 
   var setup$1 = function (editor) {
     editor.on('ResolveName', function (e) {
-      if (e.target.nodeName === 'IMG' && editor.dom.hasClass(e.target, $_83z2vagpjcq86ixd.getPageBreakClass())) {
+      if (e.target.nodeName === 'IMG' && editor.dom.hasClass(e.target, $_f59nr2hkjgqkpufz.getPageBreakClass())) {
         e.name = 'pagebreak';
       }
     });
   };
-  var $_4rum25gsjcq86ixi = { setup: setup$1 };
+  var $_222af1hnjgqkpug2 = { setup: setup$1 };
 
   var register$1 = function (editor) {
     editor.addButton('pagebreak', {
@@ -92,18 +92,18 @@ var pagebreak = (function () {
       context: 'insert'
     });
   };
-  var $_3pr6cugtjcq86ixj = { register: register$1 };
+  var $_96fplahojgqkpug3 = { register: register$1 };
 
-  PluginManager.add('pagebreak', function (editor) {
-    $_9138kqgojcq86ixb.register(editor);
-    $_3pr6cugtjcq86ixj.register(editor);
-    $_83z2vagpjcq86ixd.setup(editor);
-    $_4rum25gsjcq86ixi.setup(editor);
+  global.add('pagebreak', function (editor) {
+    $_fle1w5hjjgqkpufx.register(editor);
+    $_96fplahojgqkpug3.register(editor);
+    $_f59nr2hkjgqkpufz.setup(editor);
+    $_222af1hnjgqkpug2.setup(editor);
   });
-  var Plugin = function () {
-  };
+  function Plugin () {
+  }
 
   return Plugin;
 
 }());
-})()
+})();

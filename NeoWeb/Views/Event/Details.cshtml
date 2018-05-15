@@ -1,0 +1,78 @@
+﻿@model NeoWeb.Models.Event
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = @Model.Name;
+}
+@section Styles{
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/event.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/event.min.css" asp-append-version="true" />
+    </environment>
+}
+<div class="container">
+    <div class="event-detail">
+        <div class="row mt-3">
+            <div class="col-12 col-sm-6 col-md-5">
+                <img class="img-thumbnail type-img mb-2" src="@String.Format("/images/event/{0}.jpg", Model.Type)">
+            </div>
+            <div class="col-12 col-sm-6 col-md-7">
+                <h2>@Model.Name</h2>
+                <div class="mt-2">
+                    <i class="iconfont">&#xe620;</i><span class="@Localizer["d-none-zh"]">@Model.Country.Name</span><span class="@Localizer["d-none"]">@Model.Country.ZhName</span> - <span>@Model.City</span>
+                    <div>@Model.Address</div>
+                </div>
+                <div class="mt-2">
+                    <span>@Model.StartTime.ToString("yyyy-MM-dd HH:mm") ~ @Model.EndTime.ToString("yyyy-MM-dd HH:mm")</span>
+                </div>
+                <div class="mt-2">
+                    @if (Model.IsFree)
+                    {
+                        <span>@Localizer["Free ticket"]</span>
+                    }
+                    else
+                    {
+                        <span>@Localizer["Paid ticket"]</span>
+                    }
+                </div>
+                @if (ViewBag.UserRules)
+                {
+                    <a asp-action="Edit" asp-route-id="@Model.Id">@Localizer["Edit"]</a>
+                    <span>|</span>
+                    <a asp-action="Delete" asp-route-id="@Model.Id">@Localizer["Delete"]</a>
+                }
+            </div>
+        </div>
+        <hr />
+
+        @if (!String.IsNullOrEmpty(Model.ThirdPartyLink))
+        {
+            <div>
+                <a class="btn btn-success" href="@Model.ThirdPartyLink">@Localizer["Purchase ticket Link"]</a>
+            </div>
+            <hr />
+        }
+        else
+        {
+            <div>
+                无需购票
+            </div>
+            <hr />
+        }
+        <div>
+            @if (String.IsNullOrEmpty(Model.Details))
+            {
+                <span>@Localizer["Details of the event are being edited, please look forward to."]</span>
+            }
+            else
+            {
+                @Html.Raw(Model.Details)
+            }
+        </div>
+    </div>
+    <div class="mt-2">
+        <a asp-action="Index">@Localizer["Back to List"]</a>
+    </div>
+</div>

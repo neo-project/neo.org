@@ -73,24 +73,6 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
     border-radius: 0;
     text-decoration: none;
 }
-/*注册部分样式修改 - Registration of style changes*/
-.login-part ul{
-    padding:0;
-}
-.login-part li{
-    margin:5px 10px;
-    display:inline-block;
-    min-width: 100px;
-    background: #FAFAFA;
-}
-.login-part li a{
-    display:inline-block;
-    width:inherit;
-    height:inherit;
-    padding: 6px 12px;
-    border:1px solid #FAFAFA;
-    vertical-align: middle;
-}
 
 @media only screen and (max-width : 1199px) {
     .link2 {font-size:17px;}
@@ -108,7 +90,7 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
 }
 @media only screen and (max-width : 780px) {
     body {
-        padding-top: 90px;
+        padding-top: 60px;
     }
     .body-content {padding-bottom:20px;}
     h1,.h1 {font-size: 26px;}
