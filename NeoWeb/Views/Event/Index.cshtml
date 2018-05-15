@@ -80,7 +80,7 @@
     <div class="row">
         <div class="col-12 col-lg-8 text-center">
             @* 先显示未来的活动 *@
-            <div class="event-line"><span class="h1 bold-font ">LIVE EVENTS</span></div>
+            <div class="event-line"><span class="h2 bold-font ">LIVE EVENTS</span></div>
             @foreach (var item in Model.Where(p => p.EndTime >= DateTime.Now))
             {
                 Html.RenderPartial("_EventPartialPage", item);
@@ -89,7 +89,7 @@
             {
                 <div class="m-2 mb-5 text-left">@Localizer["No events were found that match the filter criteria."] <a href="~/event">@Localizer["See All Event."]</a></div>
             }
-            <div class="event-line"><span class="h1 bold-font ">PAST EVENTS</span></div>
+            <div class="event-line"><span class="h2 bold-font ">PAST EVENTS</span></div>
             @* 再显示过去的活动 *@
             @foreach (var item in Model.Where(p => p.EndTime < DateTime.Now).OrderByDescending(p => p.StartTime))
             {
@@ -128,8 +128,8 @@
                 </ul>
                 <ul class="cal-tbody" id="calender"></ul>
             </div>
-            <div class="d-none t1 bold-font text-left">abcdefg</div>
-            <div class="d-none contact-us m3 alert-light">
+            <div class="t1 bold-font text-left">abcdefg</div>
+            <div class="contact-us m3 alert-light">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                     Launch demo modal
                 </button>
@@ -217,14 +217,23 @@
         }
     }
 
+    function addToday(date) {
+        var _today = new Date();
+        if (_today.getMonth() == date.getMonth()) {
+            var _mark = _today.getDate();
+            $("#calender li." + _mark).addClass("today-mark");
+        }
+
+    }
+
     function getlist(date){
         date = date || new Date();
         json = { year: date.getFullYear(), month: date.getMonth() + 1 };
         $.get("event/date", json).done(function (data) {
-            marks = data;
             var date = new Date(json.year, json.month - 1, 1);
             calender(date);
-            addNews(marks,date);
+            addNews(data, date);
+            addToday(date);
         });
     }
 </script>
