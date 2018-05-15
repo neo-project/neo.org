@@ -244,7 +244,7 @@ namespace NeoWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,City,Type,Address,StartTime,EndTime,Cover,Details,Organizers,IsFree,ThirdPartyLink")] Event @event, int countryId, IFormFile cover)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,City,Type,Address,StartTime,EndTime,Cover,Details,Organizers,IsFree,ThirdPartyLink")] Event @event, int countryId, string oldCover, IFormFile cover)
         {
             if (id != @event.Id)
             {
@@ -256,6 +256,7 @@ namespace NeoWeb.Controllers
                 ModelState.AddModelError("Country", "国家错误");
             }
             @event.Country = country;
+            //var oldCover = _context.Events.FirstOrDefault(p => p.Id == @event.Id).Cover;
             if (@event.EndTime <= @event.StartTime)
             {
                 ModelState.AddModelError("EndTime", "截止时间错误");
@@ -273,6 +274,10 @@ namespace NeoWeb.Controllers
                         if (!String.IsNullOrEmpty(@event.Cover))
                             System.IO.File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", @event.Cover));
                         @event.Cover = Upload(cover);
+                    }
+                    else
+                    {
+                        @event.Cover = oldCover;
                     }
                     _context.Update(@event);
                     await _context.SaveChangesAsync();
