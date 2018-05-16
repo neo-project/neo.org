@@ -132,10 +132,10 @@
   <data name="Search" xml:space="preserve">
     <value>搜索</value>
   </data>
-  <data name="No events were found that match the filter criteria." xml:space="preserve">
+  <data name="No matching search results." xml:space="preserve">
     <value>没有找到满足筛选条件的活动。</value>
   </data>
-  <data name="See All Event." xml:space="preserve">
+  <data name="View other events." xml:space="preserve">
     <value>查看全部活动。</value>
   </data>
 </root>

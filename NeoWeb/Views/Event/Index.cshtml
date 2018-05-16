@@ -74,20 +74,20 @@
     <div class="text-left m3">
         @if (ViewBag.UserRules)
         {
-            <a asp-action="Create">@Localizer["Create a new event"]</a>
+            <a asp-action="Create" class="event-btn">@Localizer["Create a new event"]</a>
         }
     </div>
     <div class="row">
         <div class="col-12 col-lg-8 text-center">
             @* 先显示未来的活动 *@
-            <div class="event-line"><span class="h2 bold-font ">LIVE EVENTS</span></div>
+            <div class="event-line"><span class="h2 bold-font ">COMING EVENTS</span></div>
             @foreach (var item in Model.Where(p => p.EndTime >= DateTime.Now))
             {
                 Html.RenderPartial("_EventPartialPage", item);
             }
             @if (!Model.Any(p => p.EndTime >= DateTime.Now))
             {
-                <div class="m-2 mb-5 text-left">@Localizer["No events were found that match the filter criteria."] <a href="~/event">@Localizer["See All Event."]</a></div>
+                <div class="m-2 mb-5 text-left">@Localizer["No matching search results."] <a href="~/event">@Localizer["View other events."]</a></div>
             }
             <div class="event-line"><span class="h2 bold-font ">PAST EVENTS</span></div>
             @* 再显示过去的活动 *@

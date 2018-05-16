@@ -81,7 +81,7 @@ namespace NeoWeb.Controllers
                 {
                     switch (item.ToLower())
                     {
-                        case "Conference": models = models.Where(p => p.Type == EventType.Conference); break;
+                        case "conference": models = models.Where(p => p.Type == EventType.Conference); break;
                         case "meetup": models = models.Where(p => p.Type == EventType.Meetup); break;
                         case "workshop": models = models.Where(p => p.Type == EventType.Workshop); break;
                         case "hackathon": models = models.Where(p => p.Type == EventType.Hackathon); break;
