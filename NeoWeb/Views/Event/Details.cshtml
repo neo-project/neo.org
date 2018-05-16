@@ -15,14 +15,21 @@
 <div class="container">
     <div class="event-detail">
         <div class="row mt-3">
-            <div class="col-12 col-sm-6 col-md-5">
-                <img class="img-thumbnail type-img mb-2" src="@String.Format("/images/event/{0}.jpg", Model.Type)">
+            <div class="col-12 col-sm-5 col-md-4">
+                @if (String.IsNullOrEmpty(Model.Cover))
+                {
+                    <img class="img-thumbnail type-img mb-2" src="@String.Format("/images/event/{0}.jpg", Model.Type)">
+                }
+                else
+                {
+                    <img class="img-thumbnail type-img mb-2" src="@String.Format("/upload/{0}", Model.Cover)">
+                }
             </div>
-            <div class="col-12 col-sm-6 col-md-7">
+            <div class="col-12 col-sm-7 col-md-8">
                 <h2>@Model.Name</h2>
                 <div class="mt-2">
                     <i class="iconfont">&#xe620;</i><span class="@Localizer["d-none-zh"]">@Model.Country.Name</span><span class="@Localizer["d-none"]">@Model.Country.ZhName</span> - <span>@Model.City</span>
-                    <div>@Model.Address</div>
+                    <div>@Html.Raw(Model.Address)</div>
                 </div>
                 <div class="mt-2">
                     <span>@Model.StartTime.ToString("yyyy-MM-dd HH:mm") ~ @Model.EndTime.ToString("yyyy-MM-dd HH:mm")</span>
@@ -50,7 +57,7 @@
         @if (!String.IsNullOrEmpty(Model.ThirdPartyLink))
         {
             <div>
-                <a class="btn btn-success" href="@Model.ThirdPartyLink">@Localizer["Purchase ticket Link"]</a>
+                <a class="btn btn-success" href="@Model.ThirdPartyLink">@Localizer["Sign Up"]</a>
             </div>
             <hr />
         }

@@ -106,8 +106,11 @@ select.form-control {
     border: 2px solid #EBEBEB;
 }
 
+.event-detail .row {
+    font-weight: bold;
+}
 .event-detail {
-    font-weight:bold;
+    font-weight:normal;
     color:#222222;
     background-color: #fff;
     padding: 10px 20px;
@@ -243,9 +246,24 @@ ul,li{
     background-size:contain;
     border-radius:100%;
 }
+.calender .today-mark {
+    color:#00A04A;
+}
+
+.calender .today-mark a{
+    color:#00A04A;
+}
 
 .contact-us {
-    padding:15px 0;
+    padding:20px 20px 10px;
+    color:#222222;
+    line-height:1.4;
+    font-weight:600;
+    text-align:left;
+    border-bottom:20px solid #8ABA2D;
+}
+.contact-us a{
+    color:#222222;
 }
 
 .had-event a,
