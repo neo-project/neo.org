@@ -48,10 +48,10 @@
         <link rel="stylesheet" href="~/css/common.css" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
-    @Html.Raw(snippet.FullScript)
+    @Html.Raw(snippet.FullScript)   
     @RenderSection("Styles", required: false)
 </head>
 <body>
@@ -125,7 +125,11 @@
                 </div>
                 <div class="row copyright">
                     <div class="col-sm-12 m3 t3">
-                        <p class="d-block d-md-none"><a href="javascript:language('en-us')">English</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:language('zh-cn')">中文</a></p>
+                        <p class="d-block d-md-none">
+                            <a href="javascript:" onclick="setLanguage('en-us')">English</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="javascript:" onclick="setLanguage('zh-cn')">中文</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="javascript:" onclick="setLanguage('de-de')">Deutsch</a>
+                        </p>
                         <p><a href="mailto:contact@neo.org">E-mail: contact@neo.org</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/logo">@Localizer["Download Logo"]</a></p>
                         <p>Copyright © NEO Team 2014-@DateTime.Now.Year &nbsp;&nbsp;<a href="~/home/team">NEO Contributors</a></p>
                     </div>
@@ -134,9 +138,16 @@
         </div>
     </footer>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="~/js/site.min.js"></script>
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="~/js/site.min.js"></script>
+    </environment>
 
     @RenderSection("Scripts", required: false)
 </body>
