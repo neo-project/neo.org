@@ -16,14 +16,6 @@
 resize();
 $(window).bind('resize', resize);
 
-var _hmt = _hmt || [];
-(function () {
-    var hm = document.createElement("script");
-    hm.src = "https://hm.baidu.com/hm.js?89c4ec96535ab0e5578edff466ccb91a";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(hm, s);
-})();
-
 function language(lang) {
     var rgExp = /\w{2}-\w{2}/;
 

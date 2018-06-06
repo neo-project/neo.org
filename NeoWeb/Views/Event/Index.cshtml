@@ -83,7 +83,7 @@
             <div class="event-line"><span class="h2 bold-font ">COMING EVENTS</span></div>
             @foreach (var item in Model.Where(p => p.EndTime >= DateTime.Now))
             {
-                Html.RenderPartial("_EventPartialPage", item);
+                await Html.RenderPartialAsync("_EventPartialPage", item);
             }
             @if (!Model.Any(p => p.EndTime >= DateTime.Now))
             {
@@ -91,14 +91,14 @@
             }
             <div class="event-line"><span class="h2 bold-font ">PAST EVENTS</span></div>
             @* 再显示过去的活动 *@
-            @foreach (var item in Model.Where(p => p.EndTime < DateTime.Now).OrderByDescending(p => p.StartTime))
+            @foreach (var item in Model.Where(p => p.EndTime < DateTime.Now).OrderByDescending(p => p.StartTime).Take(10))
             {
-                Html.RenderPartial("_EventPartialPage", item);
+                await Html.RenderPartialAsync("_EventPartialPage", item);
             }
 
             @if (!Model.Any(p => p.EndTime < DateTime.Now))
             {
-            <div class="m-2 mb-5 text-left">@Localizer["No events were found that match the filter criteria."] <a href="~/event">@Localizer["See All Event."]</a></div>
+                <div class="m-2 mb-5 text-left">@Localizer["No events were found that match the filter criteria."] <a href="~/event">@Localizer["See All Event."]</a></div>
             }
             @await Html.PartialAsync("_LoginPartial")
         </div>
@@ -156,86 +156,91 @@
         </div>
     </div>
 </div>
-@section Scripts{ 
-<script>
-    $(function () {
-        var url = window.location.search;
-        if (url.indexOf("z=") != -1) {
-            var str = url.substr(1).split("=")[1].split("/");
-            $("#chooseY").html(str[0]);
-            $("#chooseM").html(str[1]);
-        }
-        monthChange(0);
-    });
-
-    function monthChange(num) {
-        var _year = parseInt($("#chooseY").html());
-        var _month = parseInt($("#chooseM").html())-1;
-        var date = new Date(_year, _month + num, 1);
-        drawCal(getObj(date));
-        getlist(date);
-        $("#chooseY").html(date.getFullYear());
-        $("#chooseM").html(date.getMonth()+1);
-    }
-
-
-    function calender(date) {
-        date = date || new Date();
-        drawCal(getObj(date));//传入想要展示的日期，获取值
-    }
-
-    function getObj(date) {
-        var _y = date.getFullYear();
-        var _m = date.getMonth();
-        var _num = new Date(_y, _m + 1, 0).getDate();
-        var obj = {
-            year: _y, month: _m + 1, num: _num,
-            startday: new Date(_y, _m, 1).getDay(),
-            lastday: new Date(_y, _m, _num).getDay()
-        };
-        return obj;
-    }
-
-    function drawCal(obj) {
-        var html = "";
-        for (var j = 1; j <= obj.startday; j++) { html += "<li></li>"; }
-        for (var i = 1; i <= obj.num; i++) {
-            if ((i + obj.startday - 1) % 7 == 0) html += "</br>";
-            html += "<li class=" + i + ">" + i + "</li>";
-        }
-        document.getElementById("calender").innerHTML = html;
-    }
-
-    function addNews(marks,date) {
-        if (!marks.length) return false;
-        $(".news-ul").empty();
-        for (var i = 0; i < marks.length; i++) {
-            var mark = $("." + marks[i].split('/')[2]);
-            mark.addClass("had-event").attr("data", i);
-            var _day = mark.html();
-            var _href = date.getFullYear()+"/"+(parseInt(date.getMonth())+1)+"/"+ _day;
-            mark.html("<a href='?z=" + _href + "'>" + _day + "</a>");
-        }
-    }
-
-    function addToday(date) {
-        var _today = new Date();
-        if (_today.getMonth() == date.getMonth() && _today.getFullYear() == date.getFullYear()) {
-            var _mark = _today.getDate();
-            $("#calender li." + _mark).addClass("today-mark");
-        }
-
-    }
-
-    function getlist(date){
-        date = date || new Date();
-        json = { year: date.getFullYear(), month: date.getMonth() + 1 };
-        $.get("event/date", json).done(function (data) {
-            var date = new Date(json.year, json.month - 1, 1);
-            calender(date);
-            addNews(data, date);
-            addToday(date);
+@section Scripts{
+    <script src="~/js/jquery.lazyload.min.js"></script>
+    <script>
+        $(function () {
+            var url = window.location.search;
+            if (url.indexOf("z=") != -1) {
+                var str = url.substr(1).split("=")[1].split("/");
+                $("#chooseY").html(str[0]);
+                $("#chooseM").html(str[1]);
+            }
+            monthChange(0);
         });
-    }
-</script>
-}
+
+        function monthChange(num) {
+            var _year = parseInt($("#chooseY").html());
+            var _month = parseInt($("#chooseM").html()) - 1;
+            var date = new Date(_year, _month + num, 1);
+            drawCal(getObj(date));
+            getlist(date);
+            $("#chooseY").html(date.getFullYear());
+            $("#chooseM").html(date.getMonth() + 1);
+        }
+
+
+        function calender(date) {
+            date = date || new Date();
+            drawCal(getObj(date));//传入想要展示的日期，获取值
+        }
+
+        function getObj(date) {
+            var _y = date.getFullYear();
+            var _m = date.getMonth();
+            var _num = new Date(_y, _m + 1, 0).getDate();
+            var obj = {
+                year: _y, month: _m + 1, num: _num,
+                startday: new Date(_y, _m, 1).getDay(),
+                lastday: new Date(_y, _m, _num).getDay()
+            };
+            return obj;
+        }
+
+        function drawCal(obj) {
+            var html = "";
+            for (var j = 1; j <= obj.startday; j++) { html += "<li></li>"; }
+            for (var i = 1; i <= obj.num; i++) {
+                if ((i + obj.startday - 1) % 7 == 0) html += "</br>";
+                html += "<li class=" + i + ">" + i + "</li>";
+            }
+            document.getElementById("calender").innerHTML = html;
+        }
+
+        function addNews(marks, date) {
+            if (!marks.length) return false;
+            $(".news-ul").empty();
+            for (var i = 0; i < marks.length; i++) {
+                var mark = $("." + marks[i].split('/')[2]);
+                mark.addClass("had-event").attr("data", i);
+                var _day = mark.html();
+                var _href = date.getFullYear() + "/" + (parseInt(date.getMonth()) + 1) + "/" + _day;
+                mark.html("<a href='?z=" + _href + "'>" + _day + "</a>");
+            }
+        }
+
+        function addToday(date) {
+            var _today = new Date();
+            if (_today.getMonth() == date.getMonth() && _today.getFullYear() == date.getFullYear()) {
+                var _mark = _today.getDate();
+                $("#calender li." + _mark).addClass("today-mark");
+            }
+
+        }
+
+        function getlist(date) {
+            date = date || new Date();
+            json = { year: date.getFullYear(), month: date.getMonth() + 1 };
+            $.get("event/date", json).done(function (data) {
+                var date = new Date(json.year, json.month - 1, 1);
+                calender(date);
+                addNews(data, date);
+                addToday(date);
+            });
+        }
+        $('[data-original]').lazyload({
+            threshold: 200,
+            effect: "fadeIn"
+        });
+    </script>
+}、

@@ -4,14 +4,14 @@
 <div class="event-detail text-left">
     <div class="row mt-3">
         <div class="col-12 col-sm-4 col-md-3 text-center">
-        @if (String.IsNullOrEmpty(Model.Cover))
-        {
-            <img class="type-img mb-2" src="@String.Format("/images/event/{0}.jpg", Model.Type)">
-        }
-        else
-        {
-            <img class="type-img mb-2" src="@String.Format("/upload/{0}", Model.Cover)">
-        }
+            @if (String.IsNullOrEmpty(Model.Cover))
+            {
+                <img class="type-img mb-2" data-original="@String.Format("../images/event/{0}.jpg", Model.Type)">
+            }
+            else
+            {
+                <img class="type-img mb-2" data-original="@String.Format("../upload/{0}", Model.Cover)">
+            }
         </div>
         <div class="col-12 col-sm-8 col-md-9">
             <p class="e-detail-title">
