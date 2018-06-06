@@ -1,5 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
+@using Microsoft.ApplicationInsights.AspNetCore
+@inject JavaScriptSnippet snippet
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +51,7 @@
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
-
+    @Html.Raw(snippet.FullScript)
     @RenderSection("Styles", required: false)
 </head>
 <body>
