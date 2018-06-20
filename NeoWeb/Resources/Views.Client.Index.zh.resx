@@ -276,8 +276,8 @@
   <data name="License" xml:space="preserve">
     <value>开源协议</value>
   </data>
-  <data name="http://docs.neo.org/en-us/node/cli.html" xml:space="preserve">
-    <value>http://docs.neo.org/zh-cn/node/cli.html</value>
+  <data name="http://docs.neo.org/en-us/node/cli/setup.html" xml:space="preserve">
+    <value>http://docs.neo.org/zh-cn/node/cli/setup.html</value>
   </data>
   <data name="http://docs.neo.org/en-us/node/gui.html" xml:space="preserve">
     <value>http://docs.neo.org/zh-cn/node/gui.html</value>
@@ -359,5 +359,8 @@
   </data>
   <data name="Real-time trading chart data" xml:space="preserve">
     <value>实时交易图表数据</value>
+  </data>
+  <data name="Changelog" xml:space="preserve">
+    <value>更新日志</value>
   </data>
 </root>
