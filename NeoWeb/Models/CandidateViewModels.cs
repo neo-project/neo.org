@@ -22,5 +22,14 @@ namespace NeoWeb.Models
                 Active = obj["active"].AsBoolean()
             };
         }
+
+        public NodeState State { get; set; }
+    }
+
+    public enum NodeState
+    {
+        Online,
+        Offline,
+        Unknown
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -42,9 +43,31 @@ namespace NeoWeb.Controllers
             {
                 var c = CandidateViewModels.FromJson(item);
                 c.Info = _context.Candidates.FirstOrDefault(p => p.PublicKey == c.PublicKey);
+
+                if (c.Info == null || c.Info.IP == null)
+                    c.State = NodeState.Unknown;
+                else if (IsConnect(c.Info.IP))
+                    c.State = NodeState.Online;
+                else
+                    c.State = NodeState.Offline;
+
                 result.Add(c);
             }
             return Json(result);
+        }
+
+        private bool IsConnect(string ip)
+        {
+            var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            try
+            {
+                socket.Connect(ip, 10333);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         // GET: Candidate/Details/5
