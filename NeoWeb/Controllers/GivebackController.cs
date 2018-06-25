@@ -14,6 +14,7 @@ using Microsoft.Extensions.Localization;
 
 namespace NeoWeb.Controllers
 {
+    //Abandoned
     public class GivebackController : Controller
     {
         private readonly ApplicationDbContext _context;

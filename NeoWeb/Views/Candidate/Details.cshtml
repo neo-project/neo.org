@@ -1,0 +1,66 @@
+﻿@model NeoWeb.Models.CandidateModels
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CandidateModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IP)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IP)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Website)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Website)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Details)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Details)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SocialAccount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SocialAccount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Telegram)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Telegram)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Summary)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Summary)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.PublicKey">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

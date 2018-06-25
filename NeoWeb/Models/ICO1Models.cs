@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace NeoWeb.Models
 {
+    //Abandoned
     public class ICO1
     {
-
         [Key]
         [Required]
         public string RedeemCode { get; set; }
@@ -18,7 +18,7 @@ namespace NeoWeb.Models
         public string Email { get; set; }
         
         [Required]
-        public decimal GiveBackCNY { get; set; }
+        public double GiveBackCNY { get; set; }
 
         [NotMapped]
         public Choose Choose { get; set; }
