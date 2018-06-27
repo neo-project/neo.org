@@ -1,65 +1,84 @@
 ﻿@model NeoWeb.Models.Candidate
-
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 @{
     ViewData["Title"] = "Create";
 }
 
-<h2>Create</h2>
+<div class="container">
+    <h2>Create</h2>
 
-<h4>CandidateModels</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IP" class="control-label"></label>
-                <input asp-for="IP" class="form-control" />
-                <span asp-validation-for="IP" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Website" class="control-label"></label>
-                <input asp-for="Website" class="form-control" />
-                <span asp-validation-for="Website" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Details" class="control-label"></label>
-                <input asp-for="Details" class="form-control" />
-                <span asp-validation-for="Details" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Location" class="control-label"></label>
-                <input asp-for="Location" class="form-control" />
-                <span asp-validation-for="Location" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SocialAccount" class="control-label"></label>
-                <input asp-for="SocialAccount" class="form-control" />
-                <span asp-validation-for="SocialAccount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Telegram" class="control-label"></label>
-                <input asp-for="Telegram" class="form-control" />
-                <span asp-validation-for="Telegram" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Summary" class="control-label"></label>
-                <input asp-for="Summary" class="form-control" />
-                <span asp-validation-for="Summary" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </form>
+    <h4>CandidateModels</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="PublicKey" class="control-label"></label>
+                    <input asp-for="PublicKey" class="form-control" />
+                    <span asp-validation-for="PublicKey" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IP" class="control-label"></label>
+                    <input asp-for="IP" class="form-control" />
+                    <span asp-validation-for="IP" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Website" class="control-label"></label>
+                    <input asp-for="Website" class="form-control" />
+                    <span asp-validation-for="Website" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Details" class="control-label"></label>
+                    <input asp-for="Details" class="form-control" />
+                    <span asp-validation-for="Details" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Location" class="control-label"></label>
+                    <input asp-for="Location" class="form-control" />
+                    <span asp-validation-for="Location" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SocialAccount" class="control-label"></label>
+                    <input asp-for="SocialAccount" class="form-control" />
+                    <span asp-validation-for="SocialAccount" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Telegram" class="control-label"></label>
+                    <input asp-for="Telegram" class="form-control" />
+                    <span asp-validation-for="Telegram" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Summary" class="control-label"></label>
+                    <input asp-for="Summary" class="form-control" />
+                    <span asp-validation-for="Summary" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="signature" class="control-label">Signature</label>
+                    <input name="signature" id="signature" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" />
+                    <span data-valmsg-for="signature" data-valmsg-replace="true" class="text-danger"></span>
+                </div>
+                <div>
+                    <span class="text-danger">@ViewBag.Message</span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
+@section Scripts
+{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

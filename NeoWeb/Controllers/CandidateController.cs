@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
+using System.Timers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Options;
 using Neo;
 using Neo.IO.Json;
 using NeoWeb.Data;
@@ -26,14 +29,19 @@ namespace NeoWeb.Controllers
             _localizer = localizer;
         }
 
+        static Timer timer = new Timer();
+        static List<CandidateViewModels> candidateList = new List<CandidateViewModels>();
+
         // GET: Candidate
         public async Task<IActionResult> Index()
         {
+            timer.Elapsed += Timer_Elapsed;
+            timer.Interval = new TimeSpan(0, 1, 0).TotalMilliseconds;
+            timer.Start();
             return View(await _context.Candidates.ToListAsync());
         }
 
-        [HttpGet]
-        public JsonResult Getvalidators()
+        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             var response = Helper.PostWebRequest("http://localhost:10332", "{'jsonrpc': '2.0', 'method': 'getvalidators', 'params': [],  'id': 1}");
             var json = JObject.Parse(response)["result"];
@@ -43,22 +51,25 @@ namespace NeoWeb.Controllers
             {
                 var c = CandidateViewModels.FromJson(item);
                 c.Info = _context.Candidates.FirstOrDefault(p => p.PublicKey == c.PublicKey);
-
-                if (c.Info == null || c.Info.IP == null)
-                    c.State = NodeState.Unknown;
-                else if (IsConnect(c.Info.IP))
-                    c.State = NodeState.Online;
-                else
-                    c.State = NodeState.Offline;
-
+                c.State = c.Info == null || c.Info.IP == null ? NodeState.Unknown : IsConnect(c.Info.IP) ? NodeState.Online : NodeState.Offline;
                 result.Add(c);
             }
-            return Json(result);
+            candidateList = result;
+        }
+
+        [HttpGet]
+        public JsonResult Getvalidators()
+        {
+            return Json(candidateList);
         }
 
         private bool IsConnect(string ip)
         {
-            var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp)
+            {
+                SendTimeout = 1000,
+                ReceiveTimeout = 1000
+            };
             try
             {
                 socket.Connect(ip, 10333);
@@ -99,15 +110,13 @@ namespace NeoWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(string signature, string pubkey, [Bind("PublicKey,Email,IP,Website,Details,Location,SocialAccount,Telegram,Summary,")] Candidate c)
+        public async Task<IActionResult> Create(string signature, [Bind("PublicKey,Email,IP,Website,Details,Location,SocialAccount,Telegram,Summary,")] Candidate c)
         {
             if (ModelState.IsValid)
             {
                 //VerifySignature
-                var publicKey = Neo.Cryptography.ECC.ECPoint.FromBytes(pubkey.HexToBytes(), Neo.Cryptography.ECC.ECCurve.Secp256r1);
-                var sc = Neo.SmartContract.Contract.CreateSignatureContract(publicKey);
                 var message = "candidate" + c.Email + c.Details;
-                if (!VerifySignature(message, signature, pubkey))
+                if (!VerifySignature(message, signature, c.PublicKey))
                 {
                     ViewBag.Message = _localizer["Signature Verification Failure"];
                     return View(c);
@@ -132,7 +141,14 @@ namespace NeoWeb.Controllers
         private bool VerifySignature(string message, string signature, string pubkey)
         {
             var msg = System.Text.Encoding.Default.GetBytes(message);
-            return VerifySignature(msg, signature.HexToBytes(), pubkey.HexToBytes());
+            try
+            {
+                return VerifySignature(msg, signature.HexToBytes(), pubkey.HexToBytes());
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         //reference https://github.com/neo-project/neo/blob/master/neo/Cryptography/Crypto.cs

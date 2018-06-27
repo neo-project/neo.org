@@ -22,7 +22,7 @@ namespace NeoWeb.Models
         
         [Required]
         [MaxLength(50)]
-        [RegularExpression("(http|https):\\/\\/[\\w\\-_] + (\\.[\\w\\-_]+)+([\\w\\-\\.,@?^=% &amp;:/~\\+#]*[\\w\\-\\@?^=%&amp;/~\\+#])?")]
+        [RegularExpression("^(?=^.{3,255}$)(http(s)?:\\/\\/)?(www\\.)?[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+(:\\d+)*(\\/\\w+\\.\\w+)*$")]
         public string Website { get; set; }
 
         [MaxLength(100)]
