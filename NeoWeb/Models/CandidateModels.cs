@@ -29,7 +29,7 @@ namespace NeoWeb.Models
         public string Details { get; set; }
 
         [MaxLength(50)]
-        public string Location { get; set; }
+        public virtual Country Country { get; set; }
 
         [MaxLength(50)]
         public string SocialAccount { get; set; }

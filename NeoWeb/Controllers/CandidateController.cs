@@ -29,56 +29,22 @@ namespace NeoWeb.Controllers
             _localizer = localizer;
         }
 
-        static Timer timer = new Timer();
-        static List<CandidateViewModels> candidateList = new List<CandidateViewModels>();
-
         // GET: Candidate
         public async Task<IActionResult> Index()
         {
-            timer.Elapsed += Timer_Elapsed;
-            timer.Interval = new TimeSpan(0, 1, 0).TotalMilliseconds;
-            timer.Start();
             return View(await _context.Candidates.ToListAsync());
         }
 
-        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        [HttpGet]
+        public string Getvalidators()
         {
-            var response = Helper.PostWebRequest("http://localhost:10332", "{'jsonrpc': '2.0', 'method': 'getvalidators', 'params': [],  'id': 1}");
-            var json = JObject.Parse(response)["result"];
-            JArray list = (JArray)json;
-            var result = new List<CandidateViewModels>();
-            foreach (var item in list)
-            {
-                var c = CandidateViewModels.FromJson(item);
-                c.Info = _context.Candidates.FirstOrDefault(p => p.PublicKey == c.PublicKey);
-                c.State = c.Info == null || c.Info.IP == null ? NodeState.Unknown : IsConnect(c.Info.IP) ? NodeState.Online : NodeState.Offline;
-                result.Add(c);
-            }
-            candidateList = result;
+            return System.IO.File.ReadAllText("CandidateBackgrounder/validators.json");
         }
 
         [HttpGet]
-        public JsonResult Getvalidators()
+        public string GetTxCount()
         {
-            return Json(candidateList);
-        }
-
-        private bool IsConnect(string ip)
-        {
-            var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp)
-            {
-                SendTimeout = 1000,
-                ReceiveTimeout = 1000
-            };
-            try
-            {
-                socket.Connect(ip, 10333);
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            return System.IO.File.ReadAllText("CandidateBackgrounder/txcount.json");
         }
 
         // GET: Candidate/Details/5
@@ -102,12 +68,11 @@ namespace NeoWeb.Controllers
         // GET: Candidate/Create
         public IActionResult Create()
         {
+            ViewBag.Countries = _context.Countries.ToList();
             return View();
         }
 
         // POST: Candidate/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(string signature, [Bind("PublicKey,Email,IP,Website,Details,Location,SocialAccount,Telegram,Summary,")] Candidate c)

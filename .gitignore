@@ -288,3 +288,5 @@ __pycache__/
 *.xsd.cs
 
 NeoWeb/wwwroot/upload/*
+NeoWeb/CandidateBackgrounder/
+NeoWeb/validators.json
