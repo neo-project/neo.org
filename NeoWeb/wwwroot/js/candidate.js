@@ -1,6 +1,20 @@
 //点击展开
 
 //每秒获取区块高度、出块时间计算
+var json = { 'jsonrpc': '2.0', 'method': 'getblockcount', 'params': [], 'id': 1 };
+var str = JSON.stringify(json);
+$.ajax({
+    type: 'POST',
+    url: "http://seed2.neo.org:10332",
+    data: str,
+    success: function () {
+        var html = template(document.getElementById('tableContent').innerHTML, dae);
+        document.getElementById('tableList').innerHTML = html;
+    },
+    fail: function () {
+        alert("fail");
+    }
+});
 
 //点击刷新页面
 
@@ -151,7 +165,3 @@ option = {
 };
 // 使用刚指定的配置项和数据显示图表。
 myChart.setOption(option);
-
-$('#main').resize(function () {
-    myChart.resize();
-});
