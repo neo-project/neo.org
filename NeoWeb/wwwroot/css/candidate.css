@@ -2,6 +2,7 @@ html,body{
     height:auto;
     background: linear-gradient(#BAD531,#62BD49);
     background-size:cover;
+    color:#888888;
 }
 .main-footer .container{
     display:none;
@@ -11,7 +12,7 @@ html,body{
     border-left: 4px solid #ffffff;
     padding-left: 15px;
     color: #ffffff;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 .block-info{
     font-size:0px;
@@ -48,6 +49,7 @@ html,body{
     transition: transform .5s;
 }
 .block-info .info-cont:hover{
+    color:#333333;
     background:#ffffff;
     box-shadow:#7E9E00 0 0 12px;
     transform: scale(1.02);
@@ -63,16 +65,35 @@ html,body{
     transition: transform .7s,background .2s;
 }
 
+.block-data {
+    background:#F9FBF2;
+    padding:20px;
+}
+.tab-change {
+    
+}
+.tab-change .tab-btn{
+    display:inline-block;
+    margin-right:10px;
+    padding:2px 8px;
+    min-width:60px;
+    cursor:pointer;
+}
+.tab-selected {
+    background:#BBBBBB;
+    border-left:3px solid #62BD49;
+    color:#FFFFFF!important;
+}
 .can-charts{
-    /*width: 100%;*/
     height:400px;
 }
+
 
 .table-list{
     list-style: none;
 }
 .table-list li{
-    margin: 8px 0;
+    margin-bottom:10px;
     padding: 10px 20px;
     line-height: 2;
     background:#F9FBF2;
@@ -100,11 +121,15 @@ html,body{
     text-align: center;
 }
 .can-detail{
-    display: table;
+    display: none;
     width: 100%;
     border-top: 1px solid #ECECEC;
     padding-top:10px;
     /*line-height:2;*/
+}
+.more-info {
+    cursor:pointer;
+    color:#62BD49!important;
 }
 .detail-left{
     display: inline-table;
@@ -156,6 +181,6 @@ html,body{
         height: 200px;
     }
     .table-list li {
-        margin: 8px 0;
+        margin-bottom:8px;
     }
 }
