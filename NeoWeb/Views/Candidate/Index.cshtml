@@ -1,4 +1,6 @@
-﻿@model IEnumerable<NeoWeb.Models.Candidate>
+﻿@model NeoWeb.Models.Candidate
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 
 @{
     ViewData["Title"] = "Index";
@@ -7,42 +9,42 @@
 @section Styles{
     <link rel="stylesheet" href="~/css/candidate.css" />
 }
-<div class="container">
-    <div class="title-line m2">区块信息</div>
-    <div class="row block-info">
-        <div class="col-sm-3">
-            <div class="info-cont">
-                <p>块高度</p>
-                <p class="data_show">
-                    <span>234568</span>
-                </p>
+    <div class="container">
+        <div class="title-line m2">区块信息</div>
+        <div class="row block-info">
+            <div class="col-sm-3">
+                <div class="info-cont">
+                    <p>块高度</p>
+                    <p class="data_show">
+                        <span>234568</span>
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="info-cont">
+                    <p>块高度</p>
+                    <p class="data_show">
+                        <span>234568</span>
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="info-cont">
+                    <p>块高度</p>
+                    <p class="data_show">
+                        <span>234568</span>
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="info-cont">
+                    <p>块高度</p>
+                    <p class="data_show">
+                        <span>234568</span>
+                    </p>
+                </div>
             </div>
         </div>
-        <div class="col-sm-3">
-            <div class="info-cont">
-                <p>块高度</p>
-                <p class="data_show">
-                    <span>234568</span>
-                </p>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="info-cont">
-                <p>块高度</p>
-                <p class="data_show">
-                    <span>234568</span>
-                </p>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="info-cont">
-                <p>块高度</p>
-                <p class="data_show">
-                    <span>234568</span>
-                </p>
-            </div>
-        </div>
-    </div>
 
     <div class="title-line m2">区块指标</div>
     <div class="row">
@@ -101,19 +103,98 @@
         </ul>
     </div>
 
-</div>
-
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-
-
-<div>
-
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">填写候选人信息</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="PublicKey" class="control-label"></label>
+                        <input asp-for="PublicKey" class="form-control" />
+                        <span asp-validation-for="PublicKey" class="text-danger"></span>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label asp-for="IP" class="control-label"></label>
+                            <input asp-for="IP" class="form-control" />
+                            <span asp-validation-for="IP" class="text-danger"></span>
+                        </div>
+                        <div class="col-6 form-group">
+                            <label asp-for="Country" class="control-label"></label>
+                            <select name="countryId" class="form-control">
+                                @if (Model?.Country != null)
+                                {
+                                    <option value="@Model.Country.Id">@Model.Country.Name - @Model.Country.ZhName</option>
+                                }
+                                @foreach (var item in ViewBag.Countries as List<NeoWeb.Models.Country>)
+                                {
+                                    <option value="@item.Id">@item.Name - @item.ZhName</option>
+                                }
+                            </select>
+                            <span asp-validation-for="Country" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label asp-for="Website" class="control-label"></label>
+                            <input asp-for="Website" class="form-control" />
+                            <span asp-validation-for="Website" class="text-danger"></span>
+                        </div>
+                        <div class="col-6 form-group">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label asp-for="SocialAccount" class="control-label"></label>
+                            <input asp-for="SocialAccount" class="form-control" />
+                            <span asp-validation-for="SocialAccount" class="text-danger"></span>
+                        </div>
+                        <div class="col-6 form-group">
+                            <label asp-for="Telegram" class="control-label"></label>
+                            <input asp-for="Telegram" class="form-control" />
+                            <span asp-validation-for="Telegram" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Summary" class="control-label"></label>
+                        <input asp-for="Summary" class="form-control" />
+                        <span asp-validation-for="Summary" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Details" class="control-label"></label>
+                        <input asp-for="Details" class="form-control" />
+                        <span asp-validation-for="Details" class="text-danger"></span>
+                    </div>
+                    <hr />
+                    <div class="form-group">
+                        <label for="signature" class="control-label">Signature</label>
+                        <input name="signature" id="signature" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" />
+                        <span data-valmsg-for="signature" data-valmsg-replace="true" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <span class="text-danger">@ViewBag.Message</span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 @section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script type="text/javascript" src="~/js/echarts.js"></script>
     <script type="text/javascript" src="~/js/candidate.js"></script>
 }

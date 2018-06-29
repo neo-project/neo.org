@@ -33,7 +33,7 @@ namespace NeoWeb.Controllers
         public async Task<IActionResult> Index()
         {
             ViewBag.Countries = _context.Countries.ToList();
-            return View(await _context.Candidates.ToListAsync());
+            return View();
         }
 
         [HttpGet]
@@ -46,13 +46,6 @@ namespace NeoWeb.Controllers
         public string GetTxCount()
         {
             return System.IO.File.ReadAllText("CandidateBackgrounder/txcount.json");
-        }
-
-        // GET: Candidate/Create
-        public IActionResult Create()
-        {
-            ViewBag.Countries = _context.Countries.ToList();
-            return View();
         }
 
         // POST: Candidate/Create
