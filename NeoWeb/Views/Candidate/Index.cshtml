@@ -14,190 +14,189 @@
         <div class="row block-info">
             <div class="col-sm-3">
                 <div class="info-cont">
-                    <p>块高度</p>
+                    <p>Block Height</p>
                     <p class="data_show">
-                        <span>234568</span>
+                        <span id="blohei">2345168</span>
                     </p>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="info-cont">
-                    <p>块高度</p>
+                    <p>Last Time</p>
                     <p class="data_show">
-                        <span>234568</span>
+                        <span id="lastime">234568</span>
                     </p>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="info-cont">
-                    <p>块高度</p>
+                    <p>Candidate Number</p>
                     <p class="data_show">
-                        <span>234568</span>
+                        <span id="cannum">234568</span>
                     </p>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="info-cont">
-                    <p>块高度</p>
+                    <p>Consensus Number</p>
                     <p class="data_show">
-                        <span>234568</span>
+                        <span id="connum">234568</span>
                     </p>
                 </div>
             </div>
         </div>
 
-    <div class="title-line m2">区块指标</div>
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="block-data">
-                <div class="tab-change">
-                    <a class="tab-btn tab-selected">趋势图</a>
-                    <a class="tab-btn">节点分布</a>
+        <div class="title-line m2">区块指标</div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="block-data">
+                    <div class="tab-change">
+                        <a class="tab-btn tab-selected">趋势图</a>
+                        <a class="tab-btn">节点分布</a>
+                    </div>
+                    <div class="can-charts m3" id="main"></div>
                 </div>
-                <div class="can-charts m3" id="main"></div>
             </div>
         </div>
-    </div>
+        <div class="title-line m2">
+            竞选节点
+            <span class="float-right" data-toggle="modal" data-target="#exampleModal">填写信息</span>
+        </div>
+        <div class="row">
+            <ul class="col-sm-12 table-list" id="tableList">
+                <li>
+                    <div class="tr-con">
+                        <span class="pub-key">Public Key Of Candidates</span>
+                        <span class="can-votes">Votes</span>
+                        <span class="can-connect">Connection</span>
+                        <span class="can-more">More Info</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
-    <div class="title-line m2">
-        竞选节点
-        <span class="float-right" data-toggle="modal" data-target="#exampleModal">填写信息</span>
-    </div>
-    <div class="row">
-        <ul class="col-sm-12 table-list" id="tableList">
-            <li>
-                <div class="tr-con">
-                    <span class="pub-key">Public Key Of Candidates</span>
-                    <span class="can-votes">Votes</span>
-                    <span class="can-connect">Connection</span>
-                    <span class="can-more">More Info</span>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">填写候选人信息</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form asp-action="Create">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="PublicKey" class="control-label"></label>
+                                <input asp-for="PublicKey" class="form-control" />
+                                <span asp-validation-for="PublicKey" class="text-danger"></span>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 form-group">
+                                    <label asp-for="IP" class="control-label"></label>
+                                    <input asp-for="IP" class="form-control" />
+                                    <span asp-validation-for="IP" class="text-danger"></span>
+                                </div>
+                                <div class="col-6 form-group">
+                                    <label asp-for="Country" class="control-label"></label>
+                                    <select name="countryId" class="form-control">
+                                        @if (Model?.Country != null)
+                                        {
+                                            <option value="@Model.Country.Id">@Model.Country.Name - @Model.Country.ZhName</option>
+                                        }
+                                        @foreach (var item in ViewBag.Countries as List<NeoWeb.Models.Country>)
+                                        {
+                                            <option value="@item.Id">@item.Name - @item.ZhName</option>
+                                        }
+                                    </select>
+                                    <span asp-validation-for="Country" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 form-group">
+                                    <label asp-for="Website" class="control-label"></label>
+                                    <input asp-for="Website" class="form-control" />
+                                    <span asp-validation-for="Website" class="text-danger"></span>
+                                </div>
+                                <div class="col-6 form-group">
+                                    <label asp-for="Email" class="control-label"></label>
+                                    <input asp-for="Email" class="form-control" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 form-group">
+                                    <label asp-for="SocialAccount" class="control-label"></label>
+                                    <input asp-for="SocialAccount" class="form-control" />
+                                    <span asp-validation-for="SocialAccount" class="text-danger"></span>
+                                </div>
+                                <div class="col-6 form-group">
+                                    <label asp-for="Telegram" class="control-label"></label>
+                                    <input asp-for="Telegram" class="form-control" />
+                                    <span asp-validation-for="Telegram" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Summary" class="control-label"></label>
+                                <input asp-for="Summary" class="form-control" />
+                                <span asp-validation-for="Summary" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Details" class="control-label"></label>
+                                <input asp-for="Details" class="form-control" />
+                                <span asp-validation-for="Details" class="text-danger"></span>
+                            </div>
+                            <hr />
+                            <div class="form-group">
+                                <label for="signature" class="control-label">Signature</label>
+                                <input name="signature" id="signature" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" />
+                                <span data-valmsg-for="signature" data-valmsg-replace="true" class="text-danger"></span>
+                            </div>
+                            <div>
+                                <span class="text-danger">@ViewBag.Message</span>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Create" class="btn btn-default" />
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </li>
-            <li>
-                <div class="tr-con">
-                    <span class="pub-key">038ca6448dd671f04f18155937b2126ee447e98500b2bfeefab6395e95adf86186</span>
-                    <span class="can-votes">100000000</span>
-                    <span class="can-connect"></span>
-                    <span class="can-more"><a class="more-info iconfont">&#xe61a;</a></span>
-                </div>
-            </li>
-            <li>
-                <div class="tr-con">
-                    <span class="pub-key">038ca6448dd671f04f18155937b2126ee447e98500b2bfeefab6395e95adf86186</span>
-                    <span class="can-votes">100000000</span>
-                    <span class="can-connect">在线</span>
-                    <span class="can-more"><a class="more-info iconfont">&#xe61a;</a></span>
-                </div>
-                <!--<div class="can-detail">-->
-                <!--暂无数据-->
-                <!--</div>-->
-                <div class="can-detail">
-                    <div class="detail-left">
-                        <span>网站：</span><a href="http://www.baidu.com" target="_blank">baidu</a><br>
-                        <span>国家：</span><a href="http://www.baidu.com" target="_blank">baidu</a><br>
-                        <span>社交账号：</span><a href="http://www.baidu.com" target="_blank">baidu</a><br>
-                        <span>电报：</span><a href="http://www.baidu.com" target="_blank">baidu</a><br>
-                    </div>
-                    <div class="detail-right">
-                        <span>简介：</span><a href="http://www.baidu.com" target="_blank">baidu</a><br>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">填写候选人信息</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form asp-action="Create">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group">
-                        <label asp-for="PublicKey" class="control-label"></label>
-                        <input asp-for="PublicKey" class="form-control" />
-                        <span asp-validation-for="PublicKey" class="text-danger"></span>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 form-group">
-                            <label asp-for="IP" class="control-label"></label>
-                            <input asp-for="IP" class="form-control" />
-                            <span asp-validation-for="IP" class="text-danger"></span>
-                        </div>
-                        <div class="col-6 form-group">
-                            <label asp-for="Country" class="control-label"></label>
-                            <select name="countryId" class="form-control">
-                                @if (Model?.Country != null)
-                                {
-                                    <option value="@Model.Country.Id">@Model.Country.Name - @Model.Country.ZhName</option>
-                                }
-                                @foreach (var item in ViewBag.Countries as List<NeoWeb.Models.Country>)
-                                {
-                                    <option value="@item.Id">@item.Name - @item.ZhName</option>
-                                }
-                            </select>
-                            <span asp-validation-for="Country" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 form-group">
-                            <label asp-for="Website" class="control-label"></label>
-                            <input asp-for="Website" class="form-control" />
-                            <span asp-validation-for="Website" class="text-danger"></span>
-                        </div>
-                        <div class="col-6 form-group">
-                            <label asp-for="Email" class="control-label"></label>
-                            <input asp-for="Email" class="form-control" />
-                            <span asp-validation-for="Email" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 form-group">
-                            <label asp-for="SocialAccount" class="control-label"></label>
-                            <input asp-for="SocialAccount" class="form-control" />
-                            <span asp-validation-for="SocialAccount" class="text-danger"></span>
-                        </div>
-                        <div class="col-6 form-group">
-                            <label asp-for="Telegram" class="control-label"></label>
-                            <input asp-for="Telegram" class="form-control" />
-                            <span asp-validation-for="Telegram" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Summary" class="control-label"></label>
-                        <input asp-for="Summary" class="form-control" />
-                        <span asp-validation-for="Summary" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Details" class="control-label"></label>
-                        <input asp-for="Details" class="form-control" />
-                        <span asp-validation-for="Details" class="text-danger"></span>
-                    </div>
-                    <hr />
-                    <div class="form-group">
-                        <label for="signature" class="control-label">Signature</label>
-                        <input name="signature" id="signature" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" />
-                        <span data-valmsg-for="signature" data-valmsg-replace="true" class="text-danger"></span>
-                    </div>
-                    <div>
-                        <span class="text-danger">@ViewBag.Message</span>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-default" />
-                    </div>
-                </form>
             </div>
         </div>
-    </div>
-</div>
+        <script id="test" type="text/html">
+                <li>
+                    <div class="tr-con">
+                        <span class="pub-key">{{PublicKey}}</span>
+                        <span class="can-votes">{{Votes}}</span>
+                        <span class="can-connect">{{Active}}</span>
+                        <span class="can-more">
+                            {{if Info}}<a class="more-info iconfont" onclick="showDetail($(this));">&#xe61a;</a>{{/if}}
+                            {{if !Info}}<a class="more-info iconfont">||||</a>{{/if}}
+                        </span>
+                    </div>
+                    {{if Info}}
+                    {{each Info value i}}
+                    <div class="can-detail">
+                        <div class="detail-left">
+                            <span>网站：</span><a href={{Info.Website}} target="_blank">{{Info.Website}}</a><br>
+                            {{if Info.Country}}<span>国家：</span>{{Info.Country}}<br>{{/if}}
+                            {{if Info.Details}}<span>服务器类型：</span>{{Info.Details}}<br>{{/if}}
+                            {{if Info.SocialAccount}}<span>社交账号：</span>{{Info.SocialAccount}}<br>{{/if}}
+                            {{if Info.Telegram}}<span>电报：</span>{{Info.Telegram}}<br>{{/if}}
+                        </div>
+                        <div class="detail-right">
+                            {{if Info.Summary}}<span>简介：</span>{{Info.Summary}}<br>{{/if}}
+                        </div>
+                    </div>
+                    {{/each}}
+                    {{/if}}
+                 </li>
+        </script>
 
 @section Scripts{
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script type="text/javascript" src="~/js/echarts.js"></script>
+    <script src="~/js/template.js"></script>
     <script type="text/javascript" src="~/js/candidate.js"></script>
 }

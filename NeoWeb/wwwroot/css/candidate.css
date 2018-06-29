@@ -125,7 +125,7 @@ html,body{
     width: 100%;
     border-top: 1px solid #ECECEC;
     padding-top:10px;
-    /*line-height:2;*/
+    font-size:0px;
 }
 .more-info {
     cursor:pointer;
@@ -134,10 +134,12 @@ html,body{
 .detail-left{
     display: inline-table;
     width: 60%;
+    font-size:15px;
 }
 .detail-right{
     display: inline-table;
     width: 40%;
+    font-size:15px;
 }
 
 
@@ -182,5 +184,9 @@ html,body{
     }
     .table-list li {
         margin-bottom:8px;
+    }
+    .tr-con .can-votes,
+    .tr-con .can-more{
+        display:none;
     }
 }
