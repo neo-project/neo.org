@@ -32,6 +32,7 @@ namespace NeoWeb.Controllers
         // GET: Candidate
         public async Task<IActionResult> Index()
         {
+            ViewBag.Countries = _context.Countries.ToList();
             return View(await _context.Candidates.ToListAsync());
         }
 

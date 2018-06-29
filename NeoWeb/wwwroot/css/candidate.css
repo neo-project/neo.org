@@ -3,9 +3,13 @@ html,body{
     background: linear-gradient(#BAD531,#62BD49);
     background-size:cover;
 }
+.main-footer .container{
+    display:none;
+}
+
 .title-line{
     border-left: 4px solid #ffffff;
-    padding-left: 10px;
+    padding-left: 15px;
     color: #ffffff;
     margin-bottom: 10px;
 }
@@ -27,8 +31,9 @@ html,body{
     border-radius: 50%;
     font-size: 20px;
     font-weight: bold;
-    width: 140px;
-    height: 140px;
+    width: 146px;
+    height: 146px;
+    line-height:130px;
     padding:8px;
     transform: rotate(0deg);
     transition: transform .5s;
@@ -68,8 +73,8 @@ html,body{
 }
 .table-list li{
     margin: 8px 0;
-    padding: 5px 20px;
-    line-height: 1.8;
+    padding: 10px 20px;
+    line-height: 2;
     background:#F9FBF2;
 }
 .tr-con{
@@ -79,6 +84,7 @@ html,body{
 .tr-con span{
     display: inline-table;
     word-break: break-all;
+    padding-right:10px;
 }
 .tr-con .pub-key{
     width: 60%;
@@ -97,6 +103,8 @@ html,body{
     display: table;
     width: 100%;
     border-top: 1px solid #ECECEC;
+    padding-top:10px;
+    /*line-height:2;*/
 }
 .detail-left{
     display: inline-table;
@@ -107,16 +115,20 @@ html,body{
     width: 40%;
 }
 
+
+
 @media (max-width: 1200px){
     .block-info .data_show{
         height: 130px;
         width: 130px;
+        line-height:116px;
     }
 }
 @media (max-width: 990px){
     .block-info .data_show{
         height: 110px;
         width: 110px;
+        line-height:96px;
     }
 }
 @media (max-width: 767px){
@@ -136,6 +148,8 @@ html,body{
     .block-info .data_show{
         height: 80px;
         width: 80px;
+        line-height:70px;
+        padding: 5px;
         font-size: 14px;
     }
     .can-charts {
