@@ -363,4 +363,10 @@
   <data name="Changelog" xml:space="preserve">
     <value>更新日志</value>
   </data>
+  <data name="Compatible with mobile page, interact like a native application" xml:space="preserve">
+    <value>完美适配手机网页，流畅体验应用般的操作</value>
+  </data>
+  <data name="Include wide range of assets" xml:space="preserve">
+    <value>币种全面的资产展示</value>
+  </data>
 </root>
