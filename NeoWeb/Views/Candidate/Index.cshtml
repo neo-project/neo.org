@@ -68,6 +68,7 @@
                 <div class="tr-con">
                     <span class="pub-key">@Localizer["Public Key Of Candidates"]</span>
                     <span class="can-votes">@Localizer["Votes"]</span>
+                    <span class="can-consensus">@Localizer["Current state"]</span>
                     <span class="can-connect">@Localizer["Current state"]</span>
                     <span class="can-more">@Localizer["More Info"]</span>
                 </div>
@@ -178,9 +179,12 @@
         <div class="tr-con">
             <span class="pub-key">{{PublicKey}}</span>
             <span class="can-votes">{{Votes}}</span>
-            <span class="can-connect">
+            <span class="can-consensus">
                 {{if Active}}@Localizer["Consensus Node"]{{/if}}
                 {{if !Active}}@Localizer["Candidate Node"]{{/if}}
+            </span>
+            <span class="can-connect">
+                {{State}}
             </span>
             <span class="can-more">
                 {{if Info}}<a class="more-info iconfont" onclick="showDetail($(this));">&#xe61a;</a>{{/if}}
@@ -192,7 +196,7 @@
         <div class="can-detail">
             <div class="detail-left">
                 {{if Info.Website}}<span>@Localizer["Website"]: </span><a href={{Info.Website}} target="_blank">{{Info.Website}}</a><br>{{/if}}
-                {{if Info.Country}}<span>>@Localizer["Server location"]: </span>{{Info.Country}}<br>{{/if}}
+                {{if Info.Country}}<span>@Localizer["Server location"]: </span>{{Info.Country}}<br>{{/if}}
                 {{if Info.Details}}<span>@Localizer["Server type"]: </span>{{Info.Details}}<br>{{/if}}
                 {{if Info.SocialAccount}}<span>@Localizer["Social media account"]: </span>{{Info.SocialAccount}}<br>{{/if}}
                 {{if Info.Telegram}}<span>@Localizer["Telegram account"]: </span>{{Info.Telegram}}<br>{{/if}}

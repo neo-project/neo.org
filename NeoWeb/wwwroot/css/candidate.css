@@ -114,13 +114,17 @@ body {
     padding-right:10px;
 }
 .tr-con .pub-key{
-    width: 60%;
+    width: 55%;
 }
 .tr-con .can-votes{
-    width: 18%;
+    width: 15%;
+}
+.tr-con .can-consensus {
+    width: 10%;
 }
 .tr-con .can-connect{
-    width: 12%;
+    width: 10%;
+    text-align: center;
 }
 .tr-con .can-more{
     width: 10%;

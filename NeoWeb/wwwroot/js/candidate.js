@@ -2,10 +2,21 @@ blockInfo();
 getVolue();
 getListdata();
 
+
+var block_height = 0;
+var seed_url;
+
+seed_url = "http://seed2.neo.org:10332";
+
+setInterval(function () {
+    blockInfo();
+}, 1000);
+
 //点击展开
 function showDetail(ele) {
     ele.parents(".tr-con").next(".can-detail").toggle("fast");
 }
+
 
 //获取区块高度、出块时间计算
 function blockInfo() {
@@ -16,14 +27,39 @@ function blockInfo() {
         url: "http://seed2.neo.org:10332",
         data: str,
         success: function (data) {
-            console.log(data);
-            $("#blohei").html(data.result);
+            if (block_height != data.result - 1) {
+                block_height = data.result - 1;
+                blockTime(block_height);
+                $("#blohei").html(block_height);
+            } else {
+                console.log("倒计时计算函数");
+            }
         },
         fail: function () {
             alert("fail");
         }
     });
 }
+
+//获取时间
+function blockTime(height) {
+    var json = { 'jsonrpc': '2.0', 'method': 'getblock', 'params': [height,1], 'id': 1 };
+    var str = JSON.stringify(json);
+    $.ajax({
+        type: 'POST',
+        url: "http://seed2.neo.org:10332",
+        data: str,
+        success: function (data) {
+            $("#lastime").html(data.result.time);
+        },
+        fail: function () {
+            alert("fail");
+        }
+    });
+}
+
+//根据时间倒计时
+
 
 //获取节点数据
 function getListdata() {
