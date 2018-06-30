@@ -89,7 +89,7 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
                         <label for="PublicKey" class="control-label">@Localizer["Public Key"]</label>
-                        <input asp-for="PublicKey" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]"/>
+                        <input asp-for="PublicKey" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct public key in the HEX format"]"/>
                         <span asp-validation-for="PublicKey" class="text-danger"></span>
                     </div>
                     <div class="row">
@@ -121,7 +121,7 @@
                         </div>
                         <div class="col-6 form-group">
                             <label asp-for="Email" class="control-label">@Localizer["E-mail"]</label>
-                            <input asp-for="Email" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]"/>
+                            <input asp-for="Email" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct E-mail format"]"/>
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                     </div>

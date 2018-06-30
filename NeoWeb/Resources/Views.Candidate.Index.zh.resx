@@ -216,4 +216,7 @@
   <data name="Website" xml:space="preserve">
     <value>公共网站</value>
   </data>
+  <data name="Please enter the correct public key in the HEX format" xml:space="preserve">
+    <value>请输入正确的 16 进制的公钥</value>
+  </data>
 </root>
