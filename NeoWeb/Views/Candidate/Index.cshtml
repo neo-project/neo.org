@@ -9,199 +9,202 @@
 @section Styles{
     <link rel="stylesheet" href="~/css/candidate.css" />
 }
-    <div class="container">
-        <div class="title-line m2">区块信息</div>
-        <div class="row block-info">
-            <div class="col-sm-3">
-                <div class="info-cont">
-                    <p>Block Height</p>
-                    <p class="data_show">
-                        <span id="blohei">2345168</span>
-                    </p>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="info-cont">
-                    <p>Last Time</p>
-                    <p class="data_show">
-                        <span id="lastime">234568</span>
-                    </p>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="info-cont">
-                    <p>Candidate Number</p>
-                    <p class="data_show">
-                        <span id="cannum">234568</span>
-                    </p>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="info-cont">
-                    <p>Consensus Number</p>
-                    <p class="data_show">
-                        <span id="connum">234568</span>
-                    </p>
-                </div>
+<div class="container">
+    <div class="title-line m2">@Localizer["Blockchain Info"]</div>
+    <div class="row block-info">
+        <div class="col-sm-3">
+            <div class="info-cont">
+                <p>@Localizer["Block Height"]</p>
+                <p class="data_show">
+                    <span id="blohei">2345168</span>
+                </p>
             </div>
         </div>
+        <div class="col-sm-3">
+            <div class="info-cont">
+                <p>@Localizer["Last Time"]</p>
+                <p class="data_show">
+                    <span id="lastime">234568</span>
+                </p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="info-cont">
+                <p>@Localizer["Candidate Count"]</p>
+                <p class="data_show">
+                    <span id="cannum">234568</span>
+                </p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="info-cont">
+                <p>@Localizer["Consensus Count"]</p>
+                <p class="data_show">
+                    <span id="connum">234568</span>
+                </p>
+            </div>
+        </div>
+    </div>
 
-        <div class="title-line m2">区块指标</div>
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="block-data">
-                    <div class="tab-change">
-                        <a class="tab-btn tab-selected">趋势图</a>
-                        <a class="tab-btn">节点分布</a>
-                    </div>
-                    <div class="can-charts m3" id="main"></div>
+    <div class="title-line m2">@Localizer["Blockchain indicator"]</div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="block-data">
+                <div class="tab-change">
+                    <a class="tab-btn tab-selected">@Localizer["Trend Chart"]</a>
+                    <a class="tab-btn">@Localizer["Nodes distribution"]</a>
                 </div>
+                <div class="can-charts m3" id="main"></div>
             </div>
         </div>
-        <div class="title-line m2">
-            竞选节点
-            <span class="float-right" data-toggle="modal" data-target="#exampleModal">填写信息</span>
-        </div>
-        <div class="row">
-            <ul class="col-sm-12 table-list" id="tableList">
-                <li>
-                    <div class="tr-con">
-                        <span class="pub-key">Public Key Of Candidates</span>
-                        <span class="can-votes">Votes</span>
-                        <span class="can-connect">Connection</span>
-                        <span class="can-more">More Info</span>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">填写候选人信息</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form asp-action="Create">
-                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                            <div class="form-group">
-                                <label asp-for="PublicKey" class="control-label"></label>
-                                <input asp-for="PublicKey" class="form-control" />
-                                <span asp-validation-for="PublicKey" class="text-danger"></span>
-                            </div>
-                            <div class="row">
-                                <div class="col-6 form-group">
-                                    <label asp-for="IP" class="control-label"></label>
-                                    <input asp-for="IP" class="form-control" />
-                                    <span asp-validation-for="IP" class="text-danger"></span>
-                                </div>
-                                <div class="col-6 form-group">
-                                    <label asp-for="Country" class="control-label"></label>
-                                    <select name="countryId" id="countryId" class="form-control">
-                                        @if (Model?.Country != null)
-                                        {
-                                            <option value="@Model.Country.Id">@Model.Country.Name - @Model.Country.ZhName</option>
-                                        }
-                                        @foreach (var item in ViewBag.Countries as List<NeoWeb.Models.Country>)
-                                        {
-                                            <option value="@item.Id">@item.Name - @item.ZhName</option>
-                                        }
-                                    </select>
-                                    <span asp-validation-for="Country" class="text-danger"></span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6 form-group">
-                                    <label asp-for="Website" class="control-label"></label>
-                                    <input asp-for="Website" class="form-control" />
-                                    <span asp-validation-for="Website" class="text-danger"></span>
-                                </div>
-                                <div class="col-6 form-group">
-                                    <label asp-for="Email" class="control-label"></label>
-                                    <input asp-for="Email" class="form-control" />
-                                    <span asp-validation-for="Email" class="text-danger"></span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6 form-group">
-                                    <label asp-for="SocialAccount" class="control-label"></label>
-                                    <input asp-for="SocialAccount" class="form-control" />
-                                    <span asp-validation-for="SocialAccount" class="text-danger"></span>
-                                </div>
-                                <div class="col-6 form-group">
-                                    <label asp-for="Telegram" class="control-label"></label>
-                                    <input asp-for="Telegram" class="form-control" />
-                                    <span asp-validation-for="Telegram" class="text-danger"></span>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="Summary" class="control-label"></label>
-                                <input asp-for="Summary" class="form-control" />
-                                <span asp-validation-for="Summary" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="Details" class="control-label"></label>
-                                <input asp-for="Details" class="form-control" />
-                                <span asp-validation-for="Details" class="text-danger"></span>
-                            </div>
-                            <hr />
-                            <div class="form-group">
-                                <label class="control-label">Hash</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <button class="btn btn-outline-secondary" type="button" onclick="hashInfo()">生成散列值</button>
-                                    </div>
-                                    <input id="hash" type="text" readonly="readonly" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="signature" class="control-label">Signature</label>
-                                <input name="signature" id="signature" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" />
-                                <span data-valmsg-for="signature" data-valmsg-replace="true" class="text-danger"></span>
-                            </div>
-                            <div>
-                                <span class="text-danger">@ViewBag.Message</span>
-                            </div>
-                            <div class="form-group">
-                                <input type="submit" value="Create" class="btn btn-default" />
-                            </div>
-                        </form>
-                    </div>
+    </div>
+    <div class="title-line m2">
+        @Localizer["Candidate List"]
+        <span class="float-right" data-toggle="modal" data-target="#exampleModal">@Localizer["Fill in the information"]</span>
+    </div>
+    <div class="row">
+        <ul class="col-sm-12 table-list" id="tableList">
+            <li>
+                <div class="tr-con">
+                    <span class="pub-key">@Localizer["Public Key Of Candidates"]</span>
+                    <span class="can-votes">@Localizer["Votes"]</span>
+                    <span class="can-connect">@Localizer["Current state"]</span>
+                    <span class="can-more">@Localizer["More Info"]</span>
                 </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">@Localizer["Input Info for Candidate"]</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-        </div>
-        <script id="test" type="text/html">
-                <li>
-                    <div class="tr-con">
-                        <span class="pub-key">{{PublicKey}}</span>
-                        <span class="can-votes">{{Votes}}</span>
-                        <span class="can-connect">{{Active}}</span>
-                        <span class="can-more">
-                            {{if Info}}<a class="more-info iconfont" onclick="showDetail($(this));">&#xe61a;</a>{{/if}}
-                            {{if !Info}}<a class="more-info iconfont">||||</a>{{/if}}
-                        </span>
+            <div class="modal-body">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label for="PublicKey" class="control-label">@Localizer["Public Key"]</label>
+                        <input asp-for="PublicKey" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]"/>
+                        <span asp-validation-for="PublicKey" class="text-danger"></span>
                     </div>
-                    {{if Info}}
-                    {{each Info value i}}
-                    <div class="can-detail">
-                        <div class="detail-left">
-                            {{if Info.Website}}<span>网站：</span><a href={{Info.Website}} target="_blank">{{Info.Website}}</a><br>{{/if}}
-                            {{if Info.Country}}<span>国家：</span>{{Info.Country}}<br>{{/if}}
-                            {{if Info.Details}}<span>服务器类型：</span>{{Info.Details}}<br>{{/if}}
-                            {{if Info.SocialAccount}}<span>社交账号：</span>{{Info.SocialAccount}}<br>{{/if}}
-                            {{if Info.Telegram}}<span>电报：</span>{{Info.Telegram}}<br>{{/if}}
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label asp-for="IP" class="control-label">@Localizer["Server IP"]</label>
+                            <input asp-for="IP" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct IP address format"]"/>
+                            <span asp-validation-for="IP" class="text-danger"></span>
                         </div>
-                        <div class="detail-right">
-                            {{if Info.Summary}}<span>简介：</span>{{Info.Summary}}<br>{{/if}}
+                        <div class="col-6 form-group">
+                            <label asp-for="Country" class="control-label">@Localizer["Server location"]</label>
+                            <select name="countryId" id="countryId" class="form-control">
+                                @if (Model?.Country != null)
+                                {
+                                    <option value="@Model.Country.Id">@Model.Country.Name - @Model.Country.ZhName</option>
+                                }
+                                @foreach (var item in ViewBag.Countries as List<NeoWeb.Models.Country>)
+                                {
+                                    <option value="@item.Id">@item.Name - @item.ZhName</option>
+                                }
+                            </select>
+                            <span asp-validation-for="Country" class="text-danger"></span>
                         </div>
                     </div>
-                    {{/each}}
-                    {{/if}}
-                 </li>
-        </script>
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label asp-for="Website" class="control-label">@Localizer["Website"]</label>
+                            <input asp-for="Website" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct website format"]"/>
+                            <span asp-validation-for="Website" class="text-danger"></span>
+                        </div>
+                        <div class="col-6 form-group">
+                            <label asp-for="Email" class="control-label">@Localizer["E-mail"]</label>
+                            <input asp-for="Email" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]"/>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label asp-for="SocialAccount" class="control-label">@Localizer["Social media account"]</label>
+                            <input asp-for="SocialAccount" class="form-control" />
+                            <span asp-validation-for="SocialAccount" class="text-danger"></span>
+                        </div>
+                        <div class="col-6 form-group">
+                            <label asp-for="Telegram" class="control-label">@Localizer["Telegram account"]</label>
+                            <input asp-for="Telegram" class="form-control" />
+                            <span asp-validation-for="Telegram" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Summary" class="control-label">@Localizer["Summary"]</label>
+                        <input asp-for="Summary" class="form-control" />
+                        <span asp-validation-for="Summary" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Details" class="control-label">@Localizer["Server type"]</label>
+                        <input asp-for="Details" class="form-control" />
+                        <span asp-validation-for="Details" class="text-danger"></span>
+                    </div>
+                    <hr />
+                    <div class="form-group">
+                        <label class="control-label">Hash</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-outline-secondary" type="button" onclick="hashInfo()">@Localizer["Genarate Hash"]</button>
+                            </div>
+                            <input id="hash" type="text" readonly="readonly" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signature" class="control-label">@Localizer["Signature"]</label>
+                        <input name="signature" id="signature" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" />
+                        <span data-valmsg-for="signature" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <span class="text-danger">@ViewBag.Message</span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="@Localizer["Submit"]" class="btn btn-default" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="test" type="text/html">
+    <li>
+        <div class="tr-con">
+            <span class="pub-key">{{PublicKey}}</span>
+            <span class="can-votes">{{Votes}}</span>
+            <span class="can-connect">
+                {{if Active}}@Localizer["Consensus Node"]{{/if}}
+                {{if !Active}}@Localizer["Candidate Node"]{{/if}}
+            </span>
+            <span class="can-more">
+                {{if Info}}<a class="more-info iconfont" onclick="showDetail($(this));">&#xe61a;</a>{{/if}}
+                {{if !Info}}<a class="more-info iconfont">||||</a>{{/if}}
+            </span>
+        </div>
+        {{if Info}}
+        {{each Info value i}}
+        <div class="can-detail">
+            <div class="detail-left">
+                {{if Info.Website}}<span>@Localizer["Website"]: </span><a href={{Info.Website}} target="_blank">{{Info.Website}}</a><br>{{/if}}
+                {{if Info.Country}}<span>>@Localizer["Server location"]: </span>{{Info.Country}}<br>{{/if}}
+                {{if Info.Details}}<span>@Localizer["Server type"]: </span>{{Info.Details}}<br>{{/if}}
+                {{if Info.SocialAccount}}<span>@Localizer["Social media account"]: </span>{{Info.SocialAccount}}<br>{{/if}}
+                {{if Info.Telegram}}<span>@Localizer["Telegram account"]: </span>{{Info.Telegram}}<br>{{/if}}
+            </div>
+            <div class="detail-right">
+                {{if Info.Summary}}<span>@Localizer["Summary"]: </span>{{Info.Summary}}<br>{{/if}}
+            </div>
+        </div>
+        {{/each}}
+        {{/if}}
+    </li>
+</script>
 
 @section Scripts{
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
@@ -212,8 +215,11 @@
     <script>
         function hashInfo() {
             var msg = "{candidate" + $("#Email").val() + $("#IP").val() + $("#Website").val() + $("#Details").val() + $('#countryId option:selected').val() + $("#SocialAccount").val() + $("#Telegram").val() + $("#Summary").val();
-            alert(msg);
-            $("hash").val(sha256(msg));
+            $("#hash").val(sha256(msg));
+        }
+        var error = '@ViewBag.Message';
+        if (error.length > 0) {
+            $('#exampleModal').modal();
         }
     </script>
 }

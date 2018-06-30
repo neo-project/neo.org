@@ -55,12 +55,13 @@ namespace NeoWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                ViewBag.Countries = _context.Countries.ToList();
                 //VerifySignature
                 var message = ("candidate" + c.Email + c.IP + c.Website + countryId + c.Country + c.SocialAccount + c.Telegram + c.Summary).Sha256().ToLower();
                 if (!Helper.VerifySignature(message, signature, c.PublicKey))
                 {
                     ViewBag.Message = _localizer["Signature Verification Failure"];
-                    return View(c);
+                    return View("Index", c);
                 }
                 //Insert or Update
                 c.Country = _context.Countries.FirstOrDefault(p => p.Id == countryId);
@@ -75,7 +76,7 @@ namespace NeoWeb.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(c);
+            return View("Index", c);
         }
         
         
