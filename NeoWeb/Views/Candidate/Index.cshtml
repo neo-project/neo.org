@@ -100,7 +100,7 @@
                                 </div>
                                 <div class="col-6 form-group">
                                     <label asp-for="Country" class="control-label"></label>
-                                    <select name="countryId" class="form-control">
+                                    <select name="countryId" id="countryId" class="form-control">
                                         @if (Model?.Country != null)
                                         {
                                             <option value="@Model.Country.Id">@Model.Country.Name - @Model.Country.ZhName</option>
@@ -148,6 +148,15 @@
                                 <span asp-validation-for="Details" class="text-danger"></span>
                             </div>
                             <hr />
+                            <div class="form-group">
+                                <label class="control-label">Hash</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-secondary" type="button" onclick="hashInfo()">生成散列值</button>
+                                    </div>
+                                    <input id="hash" type="text" readonly="readonly" class="form-control">
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label for="signature" class="control-label">Signature</label>
                                 <input name="signature" id="signature" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" />

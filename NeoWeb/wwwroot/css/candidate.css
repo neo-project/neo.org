@@ -4,6 +4,12 @@ html,body{
     background-size:cover;
     color:#888888;
 }
+body {
+    /*background: linear-gradient(#BAD531,#62BD49);*/
+    background-image:url('../images/bottombg.svg');
+    background-position:bottom center;
+    background-size:contain;
+}
 .main-footer .container{
     display:none;
 }
