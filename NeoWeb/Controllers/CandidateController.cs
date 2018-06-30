@@ -30,7 +30,7 @@ namespace NeoWeb.Controllers
         }
 
         // GET: Candidate
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             ViewBag.Countries = _context.Countries.ToList();
             return View();
@@ -56,7 +56,7 @@ namespace NeoWeb.Controllers
             if (ModelState.IsValid)
             {
                 //VerifySignature
-                var message = ("candidate" + c.Email + c.IP + c.Website + c.Details + c.Country + c.SocialAccount + c.Telegram + c.Summary).Sha256();
+                var message = ("candidate" + c.Email + c.IP + c.Website + countryId + c.Country + c.SocialAccount + c.Telegram + c.Summary).Sha256().ToLower();
                 if (!Helper.VerifySignature(message, signature, c.PublicKey))
                 {
                     ViewBag.Message = _localizer["Signature Verification Failure"];

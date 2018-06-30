@@ -199,4 +199,12 @@
     <script type="text/javascript" src="~/js/echarts.js"></script>
     <script src="~/js/template.js"></script>
     <script type="text/javascript" src="~/js/candidate.js"></script>
+    <script src="https://cdn.bootcss.com/js-sha256/0.9.0/sha256.min.js"></script>
+    <script>
+        function hashInfo() {
+            var msg = "{candidate" + $("#Email").val() + $("#IP").val() + $("#Website").val() + $("#Details").val() + $('#countryId option:selected').val() + $("#SocialAccount").val() + $("#Telegram").val() + $("#Summary").val();
+            alert(msg);
+            $("hash").val(sha256(msg));
+        }
+    </script>
 }
