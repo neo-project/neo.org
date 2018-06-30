@@ -10,7 +10,7 @@ namespace NeoWeb.Models
     {
         [Key]
         [Required]
-        [RegularExpression("03[0-9a-f]{64}")]
+        [RegularExpression("0[0-9a-f]{65}")]
         public string PublicKey { get; set; }
 
         [Required]
