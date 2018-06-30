@@ -57,7 +57,7 @@ namespace NeoWeb.Controllers
             {
                 ViewBag.Countries = _context.Countries.ToList();
                 //VerifySignature
-                var message = ("candidate" + c.Email + c.IP + c.Website + countryId + c.Country + c.SocialAccount + c.Telegram + c.Summary).Sha256().ToLower();
+                var message = ("candidate" + c.Email + c.IP + c.Website + c.Details + countryId + c.SocialAccount + c.Telegram + c.Summary).Sha256().ToLower();
                 if (!Helper.VerifySignature(message, signature, c.PublicKey))
                 {
                     ViewBag.Message = _localizer["Signature Verification Failure"];
