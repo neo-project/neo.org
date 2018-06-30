@@ -179,7 +179,7 @@
                     {{each Info value i}}
                     <div class="can-detail">
                         <div class="detail-left">
-                            <span>网站：</span><a href={{Info.Website}} target="_blank">{{Info.Website}}</a><br>
+                            {{if Info.Website}}<span>网站：</span><a href={{Info.Website}} target="_blank">{{Info.Website}}</a><br>{{/if}}
                             {{if Info.Country}}<span>国家：</span>{{Info.Country}}<br>{{/if}}
                             {{if Info.Details}}<span>服务器类型：</span>{{Info.Details}}<br>{{/if}}
                             {{if Info.SocialAccount}}<span>社交账号：</span>{{Info.SocialAccount}}<br>{{/if}}

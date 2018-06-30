@@ -1,3 +1,4 @@
+blockInfo();
 getVolue();
 getListdata();
 
@@ -14,9 +15,9 @@ function blockInfo() {
         type: 'POST',
         url: "http://seed2.neo.org:10332",
         data: str,
-        success: function () {
-            var html = template(document.getElementById('tableContent').innerHTML, dae);
-            document.getElementById('tableList').innerHTML = html;
+        success: function (data) {
+            console.log(data);
+            $("#blohei").html(data.result);
         },
         fail: function () {
             alert("fail");
@@ -28,9 +29,12 @@ function blockInfo() {
 function getListdata() {
     $.get("candidate/getvalidators", []).done(function (data) {
         var _list = JSON.parse(data);
-        console.log(_list[3]);
-        //共识个数
+        var flag = 0;
         $("#cannum").html(_list.length);
+        for (var i = 0; i < _list.length; i++) {
+            if (_list[i].Active) flag++;
+        }
+        $("#connum").html(flag);
         
         //竞选个数
         var html = $("#tableList").html();
@@ -44,8 +48,8 @@ function getListdata() {
 //图表数据展示
 function getVolue(){
     $.get("candidate/gettxcount", []).done(function (data) {
-        var _list = JSON.parse(data);     
-        showCharts(data);
+        var _list = JSON.parse(data);
+        showCharts(_list);
     });
 }
 function showCharts(data) {
@@ -93,7 +97,7 @@ function showCharts(data) {
                     opcity: '0.8'
                 }
             },
-            data: data.blockcount
+            data: data.IndexList
         }],
         yAxis: [{
             type: 'value',
@@ -167,7 +171,7 @@ function showCharts(data) {
                     color: 'rgb(200,220,25)'
                 }
             },
-            data: data.blockcount
+            data: data.TxCountList
         }, {
             name: '区块大小',
             type: 'line',
@@ -197,7 +201,7 @@ function showCharts(data) {
                     color: 'rgb(170,203,162)'
                 }
             },
-            data: data.blockcount
+            data: data.SizeList
         }]
     };
     myChart.setOption(option);
