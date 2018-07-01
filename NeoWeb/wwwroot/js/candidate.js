@@ -5,6 +5,7 @@ getListdata();
 
 var block_height = 0;
 var seed_url;
+var lastt = 0;
 
 seed_url = "http://seed2.neo.org:10332";
 
@@ -24,16 +25,16 @@ function blockInfo() {
     var str = JSON.stringify(json);
     $.ajax({
         type: 'POST',
-        url: "http://seed2.neo.org:10332",
+        url: "http://seed3.aphelion-neo.com:10332",
         data: str,
         success: function (data) {
             if (block_height != data.result - 1) {
+                lastt = new Date();
                 block_height = data.result - 1;
-                blockTime(block_height);
+                //getListdata();
                 $("#blohei").html(block_height);
-            } else {
-                console.log("倒计时计算函数");
             }
+            countDown(lastt);
         },
         fail: function () {
             alert("fail");
@@ -42,23 +43,19 @@ function blockInfo() {
 }
 
 //获取时间
-function blockTime(height) {
-    var json = { 'jsonrpc': '2.0', 'method': 'getblock', 'params': [height,1], 'id': 1 };
-    var str = JSON.stringify(json);
-    $.ajax({
-        type: 'POST',
-        url: "http://seed2.neo.org:10332",
-        data: str,
-        success: function (data) {
-            $("#lastime").html(data.result.time);
-        },
-        fail: function () {
-            alert("fail");
-        }
-    });
-}
 
-//根据时间倒计时
+//倒计时函数
+function countDown(time) {
+    var _left = new Date() - time;
+    if (_left>=0) {
+        var hh = parseInt(_left / 1000 / 60 / 60 % 24, 10);
+        var mm = parseInt(_left / 1000 / 60 % 60, 10);
+        var ss = parseInt(_left / 1000 % 60, 10);
+    }
+    if (_left < 600000) { $("#lastime").html(ss + "s"); }
+    else if (_left < 3600000) { $("#lastime").html(mm + "m" + ss + "s"); }
+    else { $("#lastime").html(hh + "h" + mm + "m" + ss + "s"); }
+}
 
 
 //获取节点数据

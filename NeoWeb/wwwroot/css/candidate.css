@@ -10,6 +10,9 @@ body {
     background-position:bottom center;
     background-size:contain;
 }
+.navbar {
+    background:#F9FBF2;
+}
 .main-footer .container{
     display:none;
 }
@@ -153,6 +156,49 @@ body {
 }
 
 
+/*Ä£Ì¬¿ò*/
+.modal-content {
+    border-radius:0;
+}
+.modal-title {
+    color:#888888;
+    border-left:4px solid #8AC73C;
+    padding-left:5px;
+    font-size:18px;
+    line-height:1.2;
+}
+.modal-header .close{
+    color:#8AC73C;
+}
+.modal-header,.modal-body {
+}
+.modal-body .row{
+    margin:0;
+}
+.modal-body .col-6{
+    padding:0 6px;
+}
+.form-control {
+    border-radius:0;
+}
+.form-control:focus {
+    border-color: #8AC73C;
+    box-shadow: 0 0 0 0.2rem rgba(138, 199, 60, 0.25);
+}
+
+.form-group {
+    padding:0 6px;
+}
+.control-label {
+    margin-bottom:.3rem;
+}
+.form-group .btn-outline-secondary,
+.form-group .btn-default{
+    border:1px solid #8AC73C;
+    background:#8AC73C;
+    border-radius:0;
+    color:#FFFFFF;
+}
 
 @media (max-width: 1200px){
     .block-info .data_show{

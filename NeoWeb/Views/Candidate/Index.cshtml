@@ -60,7 +60,7 @@
     </div>
     <div class="title-line m2">
         @Localizer["Candidate List"]
-        <span class="float-right" data-toggle="modal" data-target="#exampleModal">@Localizer["Fill in the information"]</span>
+        <span class="float-right d-none d-xl-block" data-toggle="modal" data-target="#exampleModal">@Localizer["Fill in the information"]</span>
     </div>
     <div class="row">
         <ul class="col-sm-12 table-list" id="tableList">
@@ -69,7 +69,7 @@
                     <span class="pub-key">@Localizer["Public Key Of Candidates"]</span>
                     <span class="can-votes">@Localizer["Votes"]</span>
                     <span class="can-consensus">@Localizer["Current state"]</span>
-                    <span class="can-connect">@Localizer["Current state"]</span>
+                    <span class="can-connect">@Localizer["Connection"]</span>
                     <span class="can-more">@Localizer["More Info"]</span>
                 </div>
             </li>
@@ -90,13 +90,13 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
                         <label for="PublicKey" class="control-label">@Localizer["Public Key"]</label>
-                        <input asp-for="PublicKey" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct public key in the HEX format"]"/>
+                        <input asp-for="PublicKey" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct public key in the HEX format"]" />
                         <span asp-validation-for="PublicKey" class="text-danger"></span>
                     </div>
                     <div class="row">
                         <div class="col-6 form-group">
                             <label asp-for="IP" class="control-label">@Localizer["Server IP"]</label>
-                            <input asp-for="IP" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct IP address format"]"/>
+                            <input asp-for="IP" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct IP address format"]" />
                             <span asp-validation-for="IP" class="text-danger"></span>
                         </div>
                         <div class="col-6 form-group">
@@ -117,12 +117,12 @@
                     <div class="row">
                         <div class="col-6 form-group">
                             <label asp-for="Website" class="control-label">@Localizer["Website"]</label>
-                            <input asp-for="Website" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct website format"]"/>
+                            <input asp-for="Website" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct website format"]" />
                             <span asp-validation-for="Website" class="text-danger"></span>
                         </div>
                         <div class="col-6 form-group">
                             <label asp-for="Email" class="control-label">@Localizer["E-mail"]</label>
-                            <input asp-for="Email" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct E-mail format"]"/>
+                            <input asp-for="Email" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct E-mail format"]" />
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                     </div>
@@ -148,7 +148,7 @@
                         <input asp-for="Details" class="form-control" />
                         <span asp-validation-for="Details" class="text-danger"></span>
                     </div>
-                    <hr />
+                    <hr class="m3" />
                     <div class="form-group">
                         <label class="control-label">Hash</label>
                         <div class="input-group mb-3">
@@ -167,7 +167,7 @@
                         <span class="text-danger">@ViewBag.Message</span>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="@Localizer["Submit"]" class="btn btn-default" />
+                        <input type="submit" value="@Localizer["Submit"]" class="btn btn-default float-right" />
                     </div>
                 </form>
             </div>
@@ -184,7 +184,9 @@
                 {{if !Active}}@Localizer["Candidate Node"]{{/if}}
             </span>
             <span class="can-connect">
-                {{State}}
+                {{if State==0 }}在线{{/if}}
+                {{if State==1 }}不在线{{/if}}
+                {{if State==2 }}待补充{{/if}}
             </span>
             <span class="can-more">
                 {{if Info}}<a class="more-info iconfont" onclick="showDetail($(this));">&#xe61a;</a>{{/if}}
