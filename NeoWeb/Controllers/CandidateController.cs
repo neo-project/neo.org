@@ -56,6 +56,7 @@ namespace NeoWeb.Controllers
             if (ModelState.IsValid)
             {
                 ViewBag.Countries = _context.Countries.ToList();
+                c.Country = _context.Countries.FirstOrDefault(p => p.Id == countryId);
                 //VerifySignature
                 var message = ("candidate" + c.Email + c.IP + c.Website + c.Details + countryId + c.SocialAccount + c.Telegram + c.Summary).Sha256().ToLower();
                 if (!Helper.VerifySignature(message, signature, c.PublicKey))
@@ -64,7 +65,6 @@ namespace NeoWeb.Controllers
                     return View("Index", c);
                 }
                 //Insert or Update
-                c.Country = _context.Countries.FirstOrDefault(p => p.Id == countryId);
                 if (_context.Candidates.Any(p => p.PublicKey == c.PublicKey))
                 {
                     _context.Update(c);
