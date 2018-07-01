@@ -9,6 +9,7 @@
 @section Styles{
     <link rel="stylesheet" href="~/css/candidate.css" />
 }
+
 <div class="container">
     <div class="title-line m2">@Localizer["Blockchain Info"]</div>
     <div class="row block-info">
@@ -184,13 +185,13 @@
                 {{if !Active}}@Localizer["Candidate Node"]{{/if}}
             </span>
             <span class="can-connect">
-                {{if State==0 }}在线{{/if}}
-                {{if State==1 }}不在线{{/if}}
-                {{if State==2 }}待补充{{/if}}
+                {{if State==0 }}<span class="green-text">在线</span><span class="iconfont green-text">&#xe605;</span>{{/if}}
+                {{if State==1 }}<span>不在线</span><span class="iconfont">&#xe603;</span>{{/if}}
+                {{if State==2 }}<span>待补充</span><span class="iconfont">&#xe607;</span>{{/if}}
             </span>
             <span class="can-more">
                 {{if Info}}<a class="more-info iconfont" onclick="showDetail($(this));">&#xe61a;</a>{{/if}}
-                {{if !Info}}<a class="more-info iconfont">||||</a>{{/if}}
+                {{if !Info}}<a class="more-info iconfont">&#xe607;</a>{{/if}}
             </span>
         </div>
         {{if Info}}

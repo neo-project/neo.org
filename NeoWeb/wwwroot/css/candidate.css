@@ -5,16 +5,19 @@ html,body{
     color:#888888;
 }
 body {
-    /*background: linear-gradient(#BAD531,#62BD49);*/
-    background-image:url('../images/bottombg.svg');
-    background-position:bottom center;
-    background-size:contain;
+    background-image: url('../images/backbg.png'),url('../images/backbg.png');
+    background-size: contain,contain;
+    background-repeat:no-repeat;
+    background-position:left -15%,right 110%;
 }
 .navbar {
     background:#F9FBF2;
 }
 .main-footer .container{
     display:none;
+}
+.green-text {
+    color:#62BD49;
 }
 
 .title-line{
@@ -115,6 +118,9 @@ body {
     display: inline-table;
     word-break: break-all;
     padding-right:10px;
+}
+.tr-con .iconfont{
+    font-size:15px;
 }
 .tr-con .pub-key{
     width: 55%;
@@ -241,8 +247,18 @@ body {
     .table-list li {
         margin-bottom:8px;
     }
+    .table-list li {
+        padding:8px 0px 8px 10px;
+    }
+    .tr-con .pub-key {
+        width:75%;
+    }
+    .tr-con .can-connect {
+        width:25%;
+    }
     .tr-con .can-votes,
-    .tr-con .can-more{
+    .tr-con .can-more,
+    .tr-con .can-consensus{
         display:none;
     }
 }

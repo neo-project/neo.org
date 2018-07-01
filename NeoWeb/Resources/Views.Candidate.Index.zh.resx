@@ -160,7 +160,7 @@
     <value>填写候选人信息</value>
   </data>
   <data name="Last Time" xml:space="preserve">
-    <value>距离上次出块时间</value>
+    <value>上次出块时间</value>
   </data>
   <data name="More Info" xml:space="preserve">
     <value>更多信息</value>
