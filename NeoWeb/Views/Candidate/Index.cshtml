@@ -208,7 +208,7 @@
             </span>
             <span class="can-more">
                 {{if Info}}<a class="more-info iconfont" onclick="showDetail($(this));">&#xe61a;</a>{{/if}}
-                {{if !Info}}<a class="more-info iconfont">&#xe607;</a>{{/if}}
+                {{if !Info}}<a class="more-info iconfont" data-toggle="modal" data-target="#exampleModal">&#xe607;</a>{{/if}}
             </span>
         </div>
         {{if Info}}

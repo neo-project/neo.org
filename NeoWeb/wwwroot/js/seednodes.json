@@ -1,0 +1,20 @@
+{
+  "name": "MainNet",
+  "pollTime": "5000",
+  "sites": [
+    {
+      "url": "seed1.switcheo.network",
+      "location": "Singapore",
+      "port": "10331",
+      "locale": "sg",
+      "type": "RPC"
+    },
+    {
+      "protocol": "https",
+      "url": "seed2.switcheo.network",
+      "location": "Singapore",
+      "port": "10331",
+      "locale": "sg",
+      "type": "RPC"
+    }
+]}
