@@ -162,4 +162,7 @@
   <data name="Event" xml:space="preserve">
     <value>活动</value>
   </data>
+  <data name="Consensus Nodes" xml:space="preserve">
+    <value>共识节点</value>
+  </data>
 </root>

@@ -18,6 +18,8 @@ using NeoWeb.Models;
 
 namespace NeoWeb.Controllers
 {
+    [Route("consensus")]
+    [Route("candidate")]
     public class CandidateController : Controller
     {
         private readonly ApplicationDbContext _context;
