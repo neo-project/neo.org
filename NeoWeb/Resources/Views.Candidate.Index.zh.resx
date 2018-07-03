@@ -219,4 +219,19 @@
   <data name="Please enter the correct public key in the HEX format" xml:space="preserve">
     <value>请输入正确的 16 进制的公钥</value>
   </data>
+  <data name="Email" xml:space="preserve">
+    <value>邮箱</value>
+  </data>
+  <data name="Not Filled" xml:space="preserve">
+    <value>未填写</value>
+  </data>
+  <data name="Offline" xml:space="preserve">
+    <value>不在线</value>
+  </data>
+  <data name="Online" xml:space="preserve">
+    <value>在线</value>
+  </data>
+  <data name="Seed Nodes List" xml:space="preserve">
+    <value>种子节点</value>
+  </data>
 </root>

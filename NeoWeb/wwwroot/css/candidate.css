@@ -113,23 +113,27 @@ body {
 .tr-con{
     display: table;
     width: 100%;
+    font-size:0px;
 }
-.tr-con span{
+.tr-con>span{
     display: inline-table;
     word-break: break-all;
     padding-right:10px;
+    font-size:15px;
 }
 .tr-con .iconfont{
-    font-size:15px;
+    font-size: 15px;
+    vertical-align: middle;
+    padding-left: 5px;
 }
 .tr-con .pub-key{
     width: 55%;
 }
 .tr-con .can-votes{
-    width: 15%;
+    width: 12%;
 }
 .tr-con .can-consensus {
-    width: 10%;
+    width: 13%;
 }
 .tr-con .can-connect{
     width: 10%;
@@ -146,6 +150,11 @@ body {
     padding-top:10px;
     font-size:0px;
 }
+.tr-con .text-ellipsis{
+    vertical-align:middle;
+    display:inline-block;
+    white-space:normal;
+}
 .more-info {
     cursor:pointer;
     color:#62BD49!important;
@@ -157,7 +166,7 @@ body {
 }
 .detail-right{
     display: inline-table;
-    width: 40%;
+    width: 43%;
     font-size:15px;
 }
 
@@ -212,15 +221,45 @@ body {
         width: 130px;
         line-height:116px;
     }
+    .tr-con .text-ellipsis{
+        width:400px;
+    }
 }
 @media (max-width: 990px){
+    .container {
+        max-width: 990px;
+    }
     .block-info .data_show{
         height: 110px;
         width: 110px;
         line-height:96px;
     }
+    .tr-con .text-ellipsis{
+        white-space:nowrap;
+        width:300px;
+    }
+    .tr-con .pub-key{
+        width: 50%;
+    }
+    .tr-con .can-votes{
+        width: 15%;
+    }
+    .tr-con .can-consensus {
+        width: 13%;
+    }
+    .tr-con .can-connect{
+        width: 10%;
+        text-align: center;
+    }
+    .tr-con .can-more{
+        width: 10%;
+        text-align: center;
+    }
 }
 @media (max-width: 767px){
+    .container {
+        max-width: 450px;
+    }
     .col-sm-3 {
         display: inline-block;
         width: 50%;
@@ -256,9 +295,15 @@ body {
     .tr-con .can-connect {
         width:25%;
     }
+    .tr-con .text-ellipsis{
+        width:200px;
+    }
     .tr-con .can-votes,
     .tr-con .can-more,
     .tr-con .can-consensus{
+        display:none;
+    }
+    .can-connect .connect-text{
         display:none;
     }
 }

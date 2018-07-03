@@ -43,6 +43,7 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
 .mobile-show {display:none!important;}
 .light-text {color:#AAAAAA;}
 .green-text{color:#00ae1d;}
+.text-ellipsis {overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
 .midpoint {position:absolute;top:0;left:0;right:0;bottom:0;margin:auto;}
 .posi-rela {position:relative;}
 .posi-fixed {position:fixed;}

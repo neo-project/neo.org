@@ -157,7 +157,7 @@ function showCharts(data) {
         }, {
             type: 'value',
             scale: true,
-            name: 'KB',
+            name: 'B',
             axisLine: {
                 lineStyle: {
                     color: '#CCC'

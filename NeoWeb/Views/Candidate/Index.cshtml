@@ -53,7 +53,7 @@
             <div class="block-data">
                 <div class="tab-change">
                     <a class="tab-btn tab-selected">@Localizer["Trend Chart"]</a>
-                    <a class="tab-btn">@Localizer["Nodes distribution"]</a>
+                    @*<a class="tab-btn">@Localizer["Nodes distribution"]</a>*@
                 </div>
                 <div class="can-charts m3" id="main"></div>
             </div>
@@ -69,6 +69,23 @@
                 <div class="tr-con">
                     <span class="pub-key">@Localizer["Public Key Of Candidates"]</span>
                     <span class="can-votes">@Localizer["Votes"]</span>
+                    <span class="can-consensus">@Localizer["Current state"]</span>
+                    <span class="can-connect">@Localizer["Connection"]</span>
+                    <span class="can-more">@Localizer["More Info"]</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="title-line m2">
+        @Localizer["Seed Nodes List"]
+        <span class="float-right d-none d-xl-block" data-toggle="modal" data-target="#exampleModal">@Localizer["Fill in the information"]</span>
+    </div>
+    <div class="row">
+        <ul class="col-sm-12 table-list" id="tableList">
+            <li>
+                <div class="tr-con">
+                    <span class="pub-key">@Localizer["Server location"]</span>
+                    <span class="can-votes">@Localizer["Endpoint"]</span>
                     <span class="can-consensus">@Localizer["Current state"]</span>
                     <span class="can-connect">@Localizer["Connection"]</span>
                     <span class="can-more">@Localizer["More Info"]</span>
@@ -140,14 +157,14 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Summary" class="control-label">@Localizer["Summary"]</label>
-                        <input asp-for="Summary" class="form-control" />
-                        <span asp-validation-for="Summary" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
                         <label asp-for="Details" class="control-label">@Localizer["Server type"]</label>
                         <input asp-for="Details" class="form-control" />
                         <span asp-validation-for="Details" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Summary" class="control-label">@Localizer["Summary"]</label>
+                        <textarea asp-for="Summary" class="form-control" ></textarea>
+                        <span asp-validation-for="Summary" class="text-danger"></span>
                     </div>
                     <hr class="m3" />
                     <div class="form-group">
@@ -178,16 +195,16 @@
 <script id="test" type="text/html">
     <li>
         <div class="tr-con">
-            <span class="pub-key">{{PublicKey}}</span>
+            <span class="pub-key"><span class="text-ellipsis">{{PublicKey}}</span></span>
             <span class="can-votes">{{Votes}}</span>
             <span class="can-consensus">
                 {{if Active}}@Localizer["Consensus Node"]{{/if}}
                 {{if !Active}}@Localizer["Candidate Node"]{{/if}}
             </span>
             <span class="can-connect">
-                {{if State==0 }}<span class="green-text">在线</span><span class="iconfont green-text">&#xe605;</span>{{/if}}
-                {{if State==1 }}<span>不在线</span><span class="iconfont">&#xe603;</span>{{/if}}
-                {{if State==2 }}<span>待补充</span><span class="iconfont">&#xe607;</span>{{/if}}
+                {{if State==0 }}<span class="connect-text green-text">@Localizer["Online"]</span><span class="iconfont green-text">&#xe605;</span>{{/if}}
+                {{if State==1 }}<span class="connect-text">@Localizer["Offline"]</span><span class="iconfont">&#xe603;</span>{{/if}}
+                {{if State==2 }}<span class="connect-text">@Localizer["Not Filled"]</span><span class="iconfont">&#xe607;</span>{{/if}}
             </span>
             <span class="can-more">
                 {{if Info}}<a class="more-info iconfont" onclick="showDetail($(this));">&#xe61a;</a>{{/if}}
@@ -199,6 +216,7 @@
         <div class="can-detail">
             <div class="detail-left">
                 {{if Info.Website}}<span>@Localizer["Website"]: </span><a href={{Info.Website}} target="_blank">{{Info.Website}}</a><br>{{/if}}
+                {{if Info.Email}}<span>@Localizer["Email"]: {{Info.Email}}</span><br>{{/if}}
                 {{if Info.Country}}<span>@Localizer["Server location"]: </span>{{Info.Country}}<br>{{/if}}
                 {{if Info.Details}}<span>@Localizer["Server type"]: </span>{{Info.Details}}<br>{{/if}}
                 {{if Info.SocialAccount}}<span>@Localizer["Social media account"]: </span>{{Info.SocialAccount}}<br>{{/if}}
