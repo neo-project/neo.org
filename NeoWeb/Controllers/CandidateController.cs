@@ -51,14 +51,13 @@ namespace NeoWeb.Controllers
         // POST: Candidate/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(string signature, [Bind("PublicKey,Email,IP,Website,Details,SocialAccount,Telegram,Summary,")] Candidate c, int countryId)
+        public async Task<IActionResult> Create(string signature, [Bind("PublicKey,Email,Website,SocialAccount,Summary,")] Candidate c)
         {
             if (ModelState.IsValid)
             {
                 ViewBag.Countries = _context.Countries.ToList();
-                c.Country = _context.Countries.FirstOrDefault(p => p.Id == countryId);
                 //VerifySignature
-                var message = ("candidate" + c.Email + c.IP + c.Website + c.Details + countryId + c.SocialAccount + c.Telegram + c.Summary).Sha256().ToLower();
+                var message = ("candidate" + c.Email + c.Website + c.SocialAccount + c.Summary).Sha256().ToLower();
                 if (!Helper.VerifySignature(message, signature, c.PublicKey))
                 {
                     ViewBag.Message = _localizer["Signature Verification Failure"];
