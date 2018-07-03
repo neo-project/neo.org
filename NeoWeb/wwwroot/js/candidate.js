@@ -7,7 +7,7 @@ var block_height = 0;
 var seed_url;
 var lastt = 0;
 
-seed_url = "https://seed1.switcheo.network:10331";
+
 
 setInterval(function () {
     blockInfo();
@@ -23,6 +23,7 @@ function showDetail(ele) {
 function blockInfo() {
     var json = { 'jsonrpc': '2.0', 'method': 'getblockcount', 'params': [], 'id': 1 };
     var str = JSON.stringify(json);
+    seed_url = "https://seed1.switcheo.network:10331";
     $.ajax({
         type: 'POST',
         url: seed_url,
@@ -106,7 +107,7 @@ function showCharts(data) {
             itemWidth: 14,
             itemHeight: 14,
             itemGap: 14,
-            data: ['交易量', block_s],
+            data: [tx_v, block_s],
             right: '0',
             textStyle: {
                 fontSize: 12,
@@ -132,7 +133,6 @@ function showCharts(data) {
         }],
         yAxis: [{
             type: 'value',
-            name: '数量',
             axisTick: {
                 show: false
             },
@@ -174,7 +174,7 @@ function showCharts(data) {
             }
         }],
         series: [{
-            name: '交易量',
+            name: tx_v,
             type: 'line',
             smooth: true,
             showSymbol: false,

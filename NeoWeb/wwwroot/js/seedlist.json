@@ -4,10 +4,7 @@
   "sites": [
     {
       "url": "seed1.switcheo.network",
-      "location": "Singapore",
-      "port": "10331",
-      "locale": "sg",
-      "type": "RPC"
+      "port": "10331"
     },
     {
       "protocol": "https",

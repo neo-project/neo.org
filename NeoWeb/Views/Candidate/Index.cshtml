@@ -52,7 +52,7 @@
             <div class="col-sm-12">
                 <div class="block-data">
                     <div class="tab-change">
-                        <a class="tab-btn tab-selected">@Localizer["Trend Chart"]</a>
+                        <a class="tab-btn tab-selected">@Localizer["Charts"]</a>
                         @*<a class="tab-btn">@Localizer["Nodes distribution"]</a>*@
                     </div>
                     <div class="can-charts m3" id="main"></div>
@@ -61,7 +61,7 @@
         </div>
         <div class="title-line m2">
             @Localizer["Candidate List"]
-            <a class="tab-btn float-right d-none d-xl-block" data-toggle="modal" data-target="#exampleModal"><span class="iconfont">&#xe607;</span> @Localizer["Fill in the information"]</a>
+            <a class="tab-btn float-right d-none d-xl-block" data-toggle="modal" data-target="#exampleModal"><span class="iconfont">&#xe608;</span> @Localizer["Provide Info"]</a>
         </div>
         <div class="row">
             <ul class="col-sm-12 table-list">
@@ -101,7 +101,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">@Localizer["Input Info for Candidate"]</h5>
+                <h5 class="modal-title" id="exampleModalLabel">@Localizer["Candidate Info"]</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -110,18 +110,18 @@
                 <form asp-action="Create">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
-                        <label for="PublicKey" class="control-label">@Localizer["Public Key"]</label>
+                        <label for="PublicKey" class="control-label">@Localizer["Public Key"]<span class="red-text"> * </span></label>
                         <input asp-for="PublicKey" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct public key in the HEX format"]" />
                         <span asp-validation-for="PublicKey" class="text-danger"></span>
                     </div>
                     <div class="row">
                         <div class="col-6 form-group">
-                            <label asp-for="IP" class="control-label">@Localizer["Server IP"]</label>
+                            <label asp-for="IP" class="control-label">@Localizer["Server IP"]<span class="red-text"> * </span></label>
                             <input asp-for="IP" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct IP address format"]" />
                             <span asp-validation-for="IP" class="text-danger"></span>
                         </div>
                         <div class="col-6 form-group">
-                            <label asp-for="Country" class="control-label">@Localizer["Server location"]</label>
+                            <label asp-for="Country" class="control-label">@Localizer["Server location"]<span class="red-text"> * </span></label>
                             <select name="countryId" id="countryId" class="form-control">
                                 @if (Model?.Country != null)
                                 {
@@ -137,12 +137,12 @@
                     </div>
                     <div class="row">
                         <div class="col-6 form-group">
-                            <label asp-for="Website" class="control-label">@Localizer["Website"]</label>
+                            <label asp-for="Website" class="control-label">@Localizer["Website"]<span class="red-text"> * </span></label>
                             <input asp-for="Website" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct website format"]" />
                             <span asp-validation-for="Website" class="text-danger"></span>
                         </div>
                         <div class="col-6 form-group">
-                            <label asp-for="Email" class="control-label">@Localizer["E-mail"]</label>
+                            <label asp-for="Email" class="control-label">@Localizer["E-mail"]<span class="red-text"> * </span></label>
                             <input asp-for="Email" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct E-mail format"]" />
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
@@ -210,8 +210,8 @@
                 {{if State==2 }}<span class="connect-text">@Localizer["Not Filled"]</span><span class="iconfont">&#xe607;</span>{{/if}}
             </span>
             <span class="can-more">
-                {{if Info}}<a class="more-info iconfont" onclick="showDetail($(this));">&#xe61a;</a>{{/if}}
-                {{if !Info}}<a class="more-info iconfont" data-toggle="modal" data-target="#exampleModal">&#xe607;</a>{{/if}}
+                {{if Info}}<a class="more-info iconfont" onclick="showDetail($(this));">&#xe606;</a>{{/if}}
+                {{if !Info}}<a class="more-info iconfont" data-toggle="modal" data-target="#exampleModal">&#xe608;</a>{{/if}}
             </span>
         </div>
         {{if Info}}
@@ -246,7 +246,7 @@
             $("#hash").val(sha256(msg));
         }
         var block_s = '@Localizer["Block Size"]';
-        var tx_v = '@Localizer["Block Size"]';
+        var tx_v = '@Localizer["Tx Volume"]';
         var error = '@ViewBag.Message';
         if (error.length > 0) {
             $('#exampleModal').modal();
