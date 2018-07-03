@@ -10,90 +10,93 @@
     <link rel="stylesheet" href="~/css/candidate.css" />
 }
 
-<div class="container">
-    <div class="title-line m2">@Localizer["Blockchain Info"]</div>
-    <div class="row block-info">
-        <div class="col-sm-3">
-            <div class="info-cont">
-                <p>@Localizer["Block Height"]</p>
-                <p class="data_show">
-                    <span id="blohei">--</span>
-                </p>
+    <div class="container">
+        <div class="title-line t1 m2">@Localizer["Blockchain Info"]</div>
+        <div class="row block-info">
+            <div class="col-sm-3">
+                <div class="info-cont">
+                    <p>@Localizer["Block Height"]</p>
+                    <p class="data_show">
+                        <span id="blohei">--</span>
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="info-cont">
+                    <p>@Localizer["Last Time"]</p>
+                    <p class="data_show">
+                        <span id="lastime">--</span>
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="info-cont">
+                    <p>@Localizer["Candidate Count"]</p>
+                    <p class="data_show">
+                        <span id="cannum">--</span>
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="info-cont">
+                    <p>@Localizer["Consensus Count"]</p>
+                    <p class="data_show">
+                        <span id="connum">--</span>
+                    </p>
+                </div>
             </div>
         </div>
-        <div class="col-sm-3">
-            <div class="info-cont">
-                <p>@Localizer["Last Time"]</p>
-                <p class="data_show">
-                    <span id="lastime">--</span>
-                </p>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="info-cont">
-                <p>@Localizer["Candidate Count"]</p>
-                <p class="data_show">
-                    <span id="cannum">--</span>
-                </p>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="info-cont">
-                <p>@Localizer["Consensus Count"]</p>
-                <p class="data_show">
-                    <span id="connum">--</span>
-                </p>
-            </div>
-        </div>
-    </div>
 
-    <div class="title-line m2">@Localizer["Blockchain indicator"]</div>
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="block-data">
-                <div class="tab-change">
-                    <a class="tab-btn tab-selected">@Localizer["Trend Chart"]</a>
-                    @*<a class="tab-btn">@Localizer["Nodes distribution"]</a>*@
+        <div class="title-line m2">@Localizer["Blockchain indicator"]</div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="block-data">
+                    <div class="tab-change">
+                        <a class="tab-btn tab-selected">@Localizer["Trend Chart"]</a>
+                        @*<a class="tab-btn">@Localizer["Nodes distribution"]</a>*@
+                    </div>
+                    <div class="can-charts m3" id="main"></div>
                 </div>
-                <div class="can-charts m3" id="main"></div>
             </div>
         </div>
+        <div class="title-line m2">
+            @Localizer["Candidate List"]
+            <a class="tab-btn float-right d-none d-xl-block" data-toggle="modal" data-target="#exampleModal"><span class="iconfont">&#xe607;</span> @Localizer["Fill in the information"]</a>
+        </div>
+        <div class="row">
+            <ul class="col-sm-12 table-list">
+                <li>
+                    <div class="tr-con">
+                        <span class="pub-key">@Localizer["Public Key Of Candidates"]</span>
+                        <span class="can-votes">@Localizer["Votes"]</span>
+                        <span class="can-consensus">@Localizer["Current state"]</span>
+                        <span class="can-connect">@Localizer["Connection"]</span>
+                        <span class="can-more">@Localizer["More Info"]</span>
+                    </div>
+                </li>
+            </ul>
+            <ul class="col-sm-12 table-list" id="tableList">
+
+            </ul>
+        </div>
+        @*<div class="title-line m2">
+            @Localizer["Seed Nodes List"]
+            <span class="float-right d-none d-xl-block" data-toggle="modal" data-target="#exampleModal">@Localizer["Fill in the information"]</span>
+        </div>
+        <div class="row">
+            <ul class="col-sm-12 table-list" id="tableList">
+                <li>
+                    <div class="tr-con">
+                        <span class="pub-key">@Localizer["Server location"]</span>
+                        <span class="can-votes">@Localizer["Endpoint"]</span>
+                        <span class="can-consensus">@Localizer["Current state"]</span>
+                        <span class="can-connect">@Localizer["Connection"]</span>
+                        <span class="can-more">@Localizer["More Info"]</span>
+                    </div>
+                </li>
+            </ul>
+        </div>*@
     </div>
-    <div class="title-line m2">
-        @Localizer["Candidate List"]
-        <span class="float-right d-none d-xl-block" data-toggle="modal" data-target="#exampleModal">@Localizer["Fill in the information"]</span>
-    </div>
-    <div class="row">
-        <ul class="col-sm-12 table-list" id="tableList">
-            <li>
-                <div class="tr-con">
-                    <span class="pub-key">@Localizer["Public Key Of Candidates"]</span>
-                    <span class="can-votes">@Localizer["Votes"]</span>
-                    <span class="can-consensus">@Localizer["Current state"]</span>
-                    <span class="can-connect">@Localizer["Connection"]</span>
-                    <span class="can-more">@Localizer["More Info"]</span>
-                </div>
-            </li>
-        </ul>
-    </div>
-    @*<div class="title-line m2">
-        @Localizer["Seed Nodes List"]
-        <span class="float-right d-none d-xl-block" data-toggle="modal" data-target="#exampleModal">@Localizer["Fill in the information"]</span>
-    </div>
-    <div class="row">
-        <ul class="col-sm-12 table-list" id="tableList">
-            <li>
-                <div class="tr-con">
-                    <span class="pub-key">@Localizer["Server location"]</span>
-                    <span class="can-votes">@Localizer["Endpoint"]</span>
-                    <span class="can-consensus">@Localizer["Current state"]</span>
-                    <span class="can-connect">@Localizer["Connection"]</span>
-                    <span class="can-more">@Localizer["More Info"]</span>
-                </div>
-            </li>
-        </ul>
-    </div>*@
-</div>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -242,6 +245,8 @@
             var msg = "candidate" + $("#Email").val() + $("#IP").val() + $("#Website").val() + $("#Details").val() + $('#countryId option:selected').val() + $("#SocialAccount").val() + $("#Telegram").val() + $("#Summary").val();
             $("#hash").val(sha256(msg));
         }
+        var block_s = '@Localizer["Block Size"]';
+        var tx_v = '@Localizer["Block Size"]';
         var error = '@ViewBag.Message';
         if (error.length > 0) {
             $('#exampleModal').modal();

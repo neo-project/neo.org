@@ -31,7 +31,7 @@ function blockInfo() {
             if (block_height != data.result - 1) {
                 lastt = new Date();
                 block_height = data.result - 1;
-                //getListdata();
+                getListdata();
                 $("#blohei").html(block_height);
             }
             countDown(lastt);
@@ -41,8 +41,6 @@ function blockInfo() {
         }
     });
 }
-
-//获取时间
 
 //倒计时函数
 function countDown(time) {
@@ -70,7 +68,7 @@ function getListdata() {
         $("#connum").html(flag);
         
         //竞选个数
-        var html = $("#tableList").html();
+        var html = "";
         for (var j in _list) {
             html += template('test', _list[j]);
         }
@@ -108,7 +106,7 @@ function showCharts(data) {
             itemWidth: 14,
             itemHeight: 14,
             itemGap: 14,
-            data: ['交易量', '区块大小'],
+            data: ['交易量', block_s],
             right: '0',
             textStyle: {
                 fontSize: 12,
@@ -206,7 +204,7 @@ function showCharts(data) {
             },
             data: data.TxCountList
         }, {
-            name: '区块大小',
+            name: block_s,
             type: 'line',
             smooth: true,
             showSymbol: false,

@@ -3,6 +3,7 @@ html,body{
     background: linear-gradient(#BAD531,#62BD49);
     background-size:cover;
     color:#888888;
+    font-family:'Microsoft Himalaya',sans-serif';
 }
 body {
     background-image: url('../images/backbg.png'),url('../images/backbg.png');
@@ -21,10 +22,12 @@ body {
 }
 
 .title-line{
-    border-left: 4px solid #ffffff;
-    padding-left: 15px;
+    border-left: 6px solid #ffffff;
+    padding-left: 12px;
     color: #ffffff;
     margin-bottom: 15px;
+    font-size:20px;
+    font-weight:bold;
 }
 .block-info{
     font-size:0px;
@@ -32,7 +35,7 @@ body {
 }
 .block-info .info-cont {
     background: #F9FBF2;
-    font-size:20px;
+    font-size:18px;
     margin: auto;
     padding: 20px;
     text-align: center;
@@ -81,15 +84,19 @@ body {
     background:#F9FBF2;
     padding:20px;
 }
-.tab-change {
-    
-}
-.tab-change .tab-btn{
+.tab-btn{
     display:inline-block;
-    margin-right:10px;
     padding:2px 8px;
     min-width:60px;
     cursor:pointer;
+    background:#F9FBF2;
+    color:#888888!important;
+    font-size:14px;
+    letter-spacing:1px;
+    font-weight:bold;
+}
+.tab-change .tab-btn{
+    margin-right:10px;
 }
 .tab-selected {
     background:#BBBBBB;
@@ -103,10 +110,11 @@ body {
 
 .table-list{
     list-style: none;
+    margin-bottom:0;
 }
 .table-list li{
-    margin-bottom:10px;
-    padding: 10px 20px;
+    margin-bottom:5px;
+    padding: 10px 18px;
     line-height: 2;
     background:#F9FBF2;
 }
@@ -119,10 +127,10 @@ body {
     display: inline-table;
     word-break: break-all;
     padding-right:10px;
-    font-size:15px;
+    font-size:14px;
 }
 .tr-con .iconfont{
-    font-size: 15px;
+    font-size: 14px;
     vertical-align: middle;
     padding-left: 5px;
 }
@@ -177,10 +185,11 @@ body {
 }
 .modal-title {
     color:#888888;
-    border-left:4px solid #8AC73C;
-    padding-left:5px;
-    font-size:18px;
-    line-height:1.2;
+    border-left: 4px solid #8AC73C;
+    padding-left: 8px;
+    font-size: 18px;
+    line-height:1.4;
+    font-weight:bold;
 }
 .modal-header .close{
     color:#8AC73C;
@@ -266,19 +275,29 @@ body {
         max-width:50%;
         padding: 5px;
     }
+    .title-line {
+        font-size:16px;
+        border-left: 4px solid #ffffff;
+        padding-left: 8px;
+        margin-bottom:10px;
+    }
     .block-info {
         display:block;
-        padding:10px;
+        padding:0 10px;
     }
     .block-info .info-cont{
         padding: 10px;
+        font-size:15px;
     }
     .block-info .data_show{
-        height: 80px;
-        width: 80px;
-        line-height:70px;
+        height: 90px;
+        width: 90px;
+        line-height: 80px;
         padding: 5px;
         font-size: 14px;
+    }
+    .block-data {
+        padding:10px;
     }
     .can-charts {
         height: 200px;
