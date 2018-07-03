@@ -154,7 +154,7 @@ function showCharts(data) {
         }, {
             type: 'value',
             scale: true,
-            name: 'B',
+            name: 'Byte',
             axisLine: {
                 lineStyle: {
                     color: '#CCC'
