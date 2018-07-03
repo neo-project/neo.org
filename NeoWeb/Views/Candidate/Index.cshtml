@@ -70,7 +70,6 @@
                         <span class="pub-key">@Localizer["Public Key Of Candidates"]</span>
                         <span class="can-votes">@Localizer["Votes"]</span>
                         <span class="can-consensus">@Localizer["Current state"]</span>
-                        <span class="can-connect">@Localizer["Connection"]</span>
                         <span class="can-more">@Localizer["More Info"]</span>
                     </div>
                 </li>
@@ -111,34 +110,13 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
                         <label for="PublicKey" class="control-label">@Localizer["Public Key"]<span class="red-text"> * </span></label>
-                        <input asp-for="PublicKey" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct public key in the HEX format"]" />
+                        <input asp-for="PublicKey" placeholder=@Localizer["Public Key"] class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct public key in the HEX format"]" />
                         <span asp-validation-for="PublicKey" class="text-danger"></span>
                     </div>
                     <div class="row">
                         <div class="col-6 form-group">
-                            <label asp-for="IP" class="control-label">@Localizer["Server IP"]<span class="red-text"> * </span></label>
-                            <input asp-for="IP" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct IP address format"]" />
-                            <span asp-validation-for="IP" class="text-danger"></span>
-                        </div>
-                        <div class="col-6 form-group">
-                            <label asp-for="Country" class="control-label">@Localizer["Server location"]<span class="red-text"> * </span></label>
-                            <select name="countryId" id="countryId" class="form-control">
-                                @if (Model?.Country != null)
-                                {
-                                    <option value="@Model.Country.Id">@Model.Country.Name - @Model.Country.ZhName</option>
-                                }
-                                @foreach (var item in ViewBag.Countries as List<NeoWeb.Models.Country>)
-                                {
-                                    <option value="@item.Id">@item.Name - @item.ZhName</option>
-                                }
-                            </select>
-                            <span asp-validation-for="Country" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 form-group">
                             <label asp-for="Website" class="control-label">@Localizer["Website"]<span class="red-text"> * </span></label>
-                            <input asp-for="Website" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct website format"]" />
+                            <input asp-for="Website" placeholder="" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct website format"]" />
                             <span asp-validation-for="Website" class="text-danger"></span>
                         </div>
                         <div class="col-6 form-group">
@@ -147,22 +125,10 @@
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-6 form-group">
-                            <label asp-for="SocialAccount" class="control-label">@Localizer["Social media account"]</label>
-                            <input asp-for="SocialAccount" class="form-control" />
-                            <span asp-validation-for="SocialAccount" class="text-danger"></span>
-                        </div>
-                        <div class="col-6 form-group">
-                            <label asp-for="Telegram" class="control-label">@Localizer["Telegram account"]</label>
-                            <input asp-for="Telegram" class="form-control" />
-                            <span asp-validation-for="Telegram" class="text-danger"></span>
-                        </div>
-                    </div>
                     <div class="form-group">
-                        <label asp-for="Details" class="control-label">@Localizer["Server type"]</label>
-                        <input asp-for="Details" class="form-control" />
-                        <span asp-validation-for="Details" class="text-danger"></span>
+                        <label asp-for="SocialAccount" class="control-label">@Localizer["Social media account"]</label>
+                        <input asp-for="SocialAccount" placeholder="Twitter:neo_blockchain" class="form-control" />
+                        <span asp-validation-for="SocialAccount" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Summary" class="control-label">@Localizer["Summary"]</label>
@@ -204,11 +170,6 @@
                 {{if Active}}@Localizer["Consensus Node"]{{/if}}
                 {{if !Active}}@Localizer["Candidate Node"]{{/if}}
             </span>
-            <span class="can-connect">
-                {{if State==0 }}<span class="connect-text green-text">@Localizer["Online"]</span><span class="iconfont green-text">&#xe605;</span>{{/if}}
-                {{if State==1 }}<span class="connect-text">@Localizer["Offline"]</span><span class="iconfont">&#xe603;</span>{{/if}}
-                {{if State==2 }}<span class="connect-text">@Localizer["Not Filled"]</span><span class="iconfont">&#xe607;</span>{{/if}}
-            </span>
             <span class="can-more">
                 {{if Info}}<a class="more-info iconfont" onclick="showDetail($(this));">&#xe606;</a>{{/if}}
                 {{if !Info}}<a class="more-info iconfont" data-toggle="modal" data-target="#exampleModal">&#xe608;</a>{{/if}}
@@ -219,11 +180,8 @@
         <div class="can-detail">
             <div class="detail-left">
                 {{if Info.Website}}<span>@Localizer["Website"]: </span><a href={{Info.Website}} target="_blank">{{Info.Website}}</a><br>{{/if}}
-                {{if Info.Email}}<span>@Localizer["Email"]: {{Info.Email}}</span><br>{{/if}}
-                {{if Info.Country}}<span>@Localizer["Server location"]: </span>{{Info.Country}}<br>{{/if}}
-                {{if Info.Details}}<span>@Localizer["Server type"]: </span>{{Info.Details}}<br>{{/if}}
+                {{if Info.Email}}<span>@Localizer["E-mail"]: {{Info.Email}}</span><br>{{/if}}
                 {{if Info.SocialAccount}}<span>@Localizer["Social media account"]: </span>{{Info.SocialAccount}}<br>{{/if}}
-                {{if Info.Telegram}}<span>@Localizer["Telegram account"]: </span>{{Info.Telegram}}<br>{{/if}}
             </div>
             <div class="detail-right">
                 {{if Info.Summary}}<span>@Localizer["Summary"]: </span>{{Info.Summary}}<br>{{/if}}

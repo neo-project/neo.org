@@ -18,7 +18,6 @@ function showDetail(ele) {
     ele.parents(".tr-con").next(".can-detail").toggle("fast");
 }
 
-
 //获取区块高度、出块时间计算
 function blockInfo() {
     var json = { 'jsonrpc': '2.0', 'method': 'getblockcount', 'params': [], 'id': 1 };
