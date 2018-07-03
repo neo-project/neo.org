@@ -7,7 +7,7 @@ var block_height = 0;
 var seed_url;
 var lastt = 0;
 
-seed_url = "http://seed2.neo.org:10332";
+seed_url = "https://seed1.switcheo.network:10331";
 
 setInterval(function () {
     blockInfo();
@@ -25,7 +25,7 @@ function blockInfo() {
     var str = JSON.stringify(json);
     $.ajax({
         type: 'POST',
-        url: "http://seed3.aphelion-neo.com:10332",
+        url: seed_url,
         data: str,
         success: function (data) {
             if (block_height != data.result - 1) {
