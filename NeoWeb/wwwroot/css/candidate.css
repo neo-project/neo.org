@@ -3,7 +3,6 @@ html,body{
     background: linear-gradient(#BAD531,#62BD49);
     background-size:cover;
     color:#888888;
-    font-family:'Microsoft Himalaya',sans-serif';
 }
 body {
     background-image: url('../images/backbg.png'),url('../images/backbg.png');
@@ -135,17 +134,13 @@ body {
     padding-left: 5px;
 }
 .tr-con .pub-key{
-    width: 55%;
+    width: 58%;
 }
 .tr-con .can-votes{
-    width: 12%;
+    width: 15%;
 }
 .tr-con .can-consensus {
-    width: 13%;
-}
-.tr-con .can-connect{
-    width: 10%;
-    text-align: center;
+    width: 15%;
 }
 .tr-con .can-more{
     width: 10%;
@@ -169,12 +164,12 @@ body {
 }
 .detail-left{
     display: inline-table;
-    width: 60%;
+    width: 58%;
     font-size:15px;
 }
 .detail-right{
     display: inline-table;
-    width: 43%;
+    width: 50%;
     font-size:15px;
 }
 
@@ -208,6 +203,13 @@ body {
 .form-control:focus {
     border-color: #8AC73C;
     box-shadow: 0 0 0 0.2rem rgba(138, 199, 60, 0.25);
+}
+
+.form-control::-webkit-input-placeholder,
+.form-control::-moz-placeholder,
+.form-control:-moz-placeholder,
+.form-control:-ms-input-placeholder{
+    color:#BBBBBB;
 }
 
 .form-group {
@@ -248,20 +250,16 @@ body {
         width:300px;
     }
     .tr-con .pub-key{
-        width: 50%;
+        width: 49%;
     }
     .tr-con .can-votes{
-        width: 15%;
+        width: 17%;
     }
     .tr-con .can-consensus {
-        width: 13%;
-    }
-    .tr-con .can-connect{
-        width: 10%;
-        text-align: center;
+        width: 20%;
     }
     .tr-con .can-more{
-        width: 10%;
+        width: 12%;
         text-align: center;
     }
 }
@@ -311,18 +309,14 @@ body {
     .tr-con .pub-key {
         width:75%;
     }
-    .tr-con .can-connect {
+    .tr-con .can-votes {
         width:25%;
     }
     .tr-con .text-ellipsis{
         width:200px;
     }
-    .tr-con .can-votes,
     .tr-con .can-more,
     .tr-con .can-consensus{
-        display:none;
-    }
-    .can-connect .connect-text{
         display:none;
     }
 }
