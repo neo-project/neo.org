@@ -177,7 +177,6 @@
   <data name="Public Key Of Candidates" xml:space="preserve">
     <value>竞选人公钥</value>
   </data>
-  </data>
   <data name="Signature" xml:space="preserve">
     <value>签名</value>
   </data>
@@ -189,7 +188,6 @@
   </data>
   <data name="Summary" xml:space="preserve">
     <value>简介</value>
-  </data>
   </data>
   <data name="This field is required" xml:space="preserve">
     <value>必填项</value>
