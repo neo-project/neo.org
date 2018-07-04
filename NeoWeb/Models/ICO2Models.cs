@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace NeoWeb.Models
 {
+    //Abandoned
     public class ICO2
     {
         [Key]
         public string NeoAddress { get; set; }
 
         [Required]
-        public decimal GiveBackCNY { get; set; }
+        public double GiveBackCNY { get; set; }
 
         [NotMapped]
         public Choose Choose { get; set; }

@@ -117,52 +117,118 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About this website" xml:space="preserve">
-    <value>关于本网站</value>
+  <data name="Block Height" xml:space="preserve">
+    <value>区块高度</value>
   </data>
-  <data name="Blog" xml:space="preserve">
-    <value>博客</value>
+  <data name="Blockchain indicator" xml:space="preserve">
+    <value>区块指标</value>
   </data>
-  <data name="Client" xml:space="preserve">
-    <value>客户端</value>
+  <data name="Blockchain Info" xml:space="preserve">
+    <value>区块信息</value>
   </data>
-  <data name="Developer" xml:space="preserve">
-    <value>开发者</value>
+  <data name="Candidate Count" xml:space="preserve">
+    <value>竞选节点数量</value>
   </data>
-  <data name="Document" xml:space="preserve">
-    <value>技术文档</value>
+  <data name="Candidate List" xml:space="preserve">
+    <value>竞选节点</value>
   </data>
-  <data name="Download Logo" xml:space="preserve">
-    <value>Logo下载</value>
+  <data name="Candidate Node" xml:space="preserve">
+    <value>候选节点</value>
   </data>
-  <data name="Explorer" xml:space="preserve">
-    <value>区块链浏览器</value>
+  <data name="Connection" xml:space="preserve">
+    <value>连接状况</value>
   </data>
-  <data name="Home" xml:space="preserve">
-    <value>首页</value>
+  <data name="Consensus Count" xml:space="preserve">
+    <value>共识节点数量</value>
   </data>
-  <data name="Huodongxing" xml:space="preserve">
-    <value>活动行</value>
+  <data name="Consensus Node" xml:space="preserve">
+    <value>共识节点</value>
   </data>
-  <data name="NEO is a non-profit community-based blockchain project that utilizes blockchain technology and digital identity to digitize assets, to automate the management of digital assets using smart contracts, and to realize a &quot;smart economy&quot; with a distributed network." xml:space="preserve">
-    <value>NEO是一个非盈利的社区化的区块链项目，是利用区块链技术和数字身份进行资产数字化，利用智能合约对数字资产进行自动化管理，实现“智能经济”的一种分布式网络。</value>
+  <data name="Current state" xml:space="preserve">
+    <value>目前状态</value>
   </data>
-  <data name="NEO Smart Economy" xml:space="preserve">
-    <value>NEO 智能经济</value>
+  <data name="E-mail" xml:space="preserve">
+    <value>邮箱</value>
   </data>
-  <data name="Weibo" xml:space="preserve">
-    <value>微博</value>
+  <data name="Provide Info" xml:space="preserve">
+    <value>填写信息</value>
   </data>
-  <data name="Competition" xml:space="preserve">
-    <value>开发者大赛</value>
+  <data name="Genarate Hash" xml:space="preserve">
+    <value>生成散列值</value>
   </data>
-  <data name="Sponsor Giveback" xml:space="preserve">
-    <value>资助者回馈</value>
+  <data name="Candidate Info" xml:space="preserve">
+    <value>填写候选人信息</value>
   </data>
-  <data name="Event" xml:space="preserve">
-    <value>活动</value>
+  <data name="Last Time" xml:space="preserve">
+    <value>上次出块时间</value>
+  </data>
+  <data name="More Info" xml:space="preserve">
+    <value>更多信息</value>
+  </data>
+  <data name="Nodes distribution" xml:space="preserve">
+    <value>节点分布</value>
+  </data>
+  <data name="Please enter the correct website format" xml:space="preserve">
+    <value>请输入正确的网址</value>
+  </data>
+  <data name="Public Key" xml:space="preserve">
+    <value>公钥</value>
+  </data>
+  <data name="Public Key Of Candidates" xml:space="preserve">
+    <value>竞选人公钥</value>
+  </data>
+  <data name="Signature" xml:space="preserve">
+    <value>签名</value>
+  </data>
+  <data name="Social media account" xml:space="preserve">
+    <value>社交账号</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>提交</value>
+  </data>
+  <data name="Summary" xml:space="preserve">
+    <value>简介</value>
+  </data>
+  <data name="This field is required" xml:space="preserve">
+    <value>必填项</value>
+  </data>
+  <data name="Charts" xml:space="preserve">
+    <value>趋势图</value>
+  </data>
+  <data name="Votes" xml:space="preserve">
+    <value>票数</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>公共网站</value>
+  </data>
+  <data name="Please enter the correct public key in the HEX format" xml:space="preserve">
+    <value>请输入正确的 16 进制的公钥</value>
+  </data>
+  <data name="Block Size" xml:space="preserve">
+    <value>区块大小</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>邮箱</value>
+  </data>
+  <data name="Not Filled" xml:space="preserve">
+    <value>未填写</value>
+  </data>
+  <data name="Offline" xml:space="preserve">
+    <value>不在线</value>
+  </data>
+  <data name="Online" xml:space="preserve">
+    <value>在线</value>
+  </data>
+  <data name="Seed Nodes List" xml:space="preserve">
+    <value>种子节点</value>
+  </data>
+  <data name="Tx Volume" xml:space="preserve">
+    <value>交易量</value>
   </data>
   <data name="Consensus Nodes" xml:space="preserve">
     <value>共识节点</value>
+  </data>
+  <data name="Please sign the above hash with your private key." xml:space="preserve">
+    <value>请使用私钥对上述 Hash 进行签名</value>
   </data>
 </root>

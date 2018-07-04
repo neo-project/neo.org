@@ -1,0 +1,205 @@
+﻿@model NeoWeb.Models.Candidate
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = @Localizer["Consensus Nodes"];
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/consensus.min.css" />
+}
+
+<div class="container">
+    <div class="title-line t1 m2">@Localizer["Blockchain Info"]</div>
+    <div class="row block-info">
+        <div class="col-sm-3">
+            <div class="info-cont">
+                <p>@Localizer["Block Height"]</p>
+                <p class="data_show">
+                    <span id="blohei">--</span>
+                </p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="info-cont">
+                <p>@Localizer["Last Time"]</p>
+                <p class="data_show">
+                    <span id="lastime">--</span>
+                </p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="info-cont">
+                <p>@Localizer["Candidate Count"]</p>
+                <p class="data_show">
+                    <span id="cannum">--</span>
+                </p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="info-cont">
+                <p>@Localizer["Consensus Count"]</p>
+                <p class="data_show">
+                    <span id="connum">--</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="title-line m2">@Localizer["Blockchain indicator"]</div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="block-data">
+                <div class="tab-change">
+                    <a class="tab-btn tab-selected">@Localizer["Charts"]</a>
+                    @*<a class="tab-btn">@Localizer["Nodes distribution"]</a>*@
+                </div>
+                <div class="can-charts m3" id="main"></div>
+            </div>
+        </div>
+    </div>
+    <div class="title-line m2">
+        @Localizer["Candidate List"]
+        <a class="tab-btn float-right d-none d-xl-block" data-toggle="modal" data-target="#exampleModal"><span class="iconfont green-text">&#xe608;</span> @Localizer["Provide Info"]</a>
+    </div>
+    <div class="row">
+        <ul class="col-sm-12 table-list">
+            <li>
+                <div class="tr-con">
+                    <span class="pub-key">@Localizer["Public Key Of Candidates"]</span>
+                    <span class="can-votes">@Localizer["Votes"]</span>
+                    <span class="can-consensus">@Localizer["Current state"]</span>
+                    <span class="can-more">@Localizer["More Info"]</span>
+                </div>
+            </li>
+        </ul>
+        <ul class="col-sm-12 table-list" id="tableList"></ul>
+    </div>
+    <form id="form_language" method="post" action="/home/SetLanguage">
+        <p class="m3">
+            <a class="text-white" href="javascript:" onclick="setLanguage('en-us')">English</a>
+            <a class="text-white p4" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+            <a class="text-white" href="javascript:" onclick="setLanguage('de-de')">Deutsch</a>
+        </p>
+    </form>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">@Localizer["Candidate Info"]</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label for="PublicKey" class="control-label">@Localizer["Public Key"]<span class="red-text"> * </span></label>
+                        <select asp-for="PublicKey" class="form-control">
+                            @foreach (var item in ViewBag.PubKeys as List<string>)
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label asp-for="Website" class="control-label">@Localizer["Website"]<span class="red-text"> * </span></label>
+                            <input asp-for="Website" placeholder="" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct website format"]" />
+                            <span asp-validation-for="Website" class="text-danger"></span>
+                        </div>
+                        <div class="col-6 form-group">
+                            <label asp-for="Email" class="control-label">@Localizer["E-mail"]<span class="red-text"> * </span></label>
+                            <input asp-for="Email" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct E-mail format"]" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SocialAccount" class="control-label">@Localizer["Social media account"]</label>
+                        <input asp-for="SocialAccount" placeholder="Twitter:neo_blockchain;Facebook:NEOSmartEcon;" class="form-control" />
+                        <span asp-validation-for="SocialAccount" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Summary" class="control-label">@Localizer["Summary"]</label>
+                        <textarea asp-for="Summary" class="form-control"></textarea>
+                        <span asp-validation-for="Summary" class="text-danger"></span>
+                    </div>
+                    <hr class="m3" />
+                    <div class="form-group">
+                        <label class="control-label">Hash</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-outline-secondary" type="button" onclick="hashInfo()">@Localizer["Genarate Hash"]</button>
+                            </div>
+                            <input id="hash" type="text" readonly="readonly" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signature" class="control-label">@Localizer["Signature"]</label>
+                        <input name="signature" id="signature" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" />
+                        <small class="form-text text-muted">@Localizer["Please sign the above hash with your private key."]</small>
+                        <span data-valmsg-for="signature" class="text-danger"></span>
+                        <span class="text-danger">@ViewBag.Message</span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="@Localizer["Submit"]" class="btn btn-default float-right" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="test" type="text/html">
+    <li>
+        <div class="tr-con">
+            <span class="pub-key"><span class="text-ellipsis">{{PublicKey}}</span></span>
+            <span class="can-votes">{{Votes}}</span>
+            <span class="can-consensus">
+                {{if Active}}@Localizer["Consensus Node"]{{/if}}
+                {{if !Active}}@Localizer["Candidate Node"]{{/if}}
+            </span>
+            <span class="can-more">
+                {{if Info}}<a class="more-info iconfont green-text" onclick="showDetail($(this));">&#xe606;</a>{{/if}}
+                {{if !Info}}<a class="more-info iconfont unclick-btn">&#xe606;</a>{{/if}}
+            </span>
+        </div>
+        {{if Info}}
+        {{each Info value i}}
+        <div class="can-detail">
+            <div class="detail-left">
+                {{if Info.Website}}<span>@Localizer["Website"]: </span><a href={{Info.Website}} target="_blank">{{Info.Website}}</a><br>{{/if}}
+                {{if Info.Email}}<span>@Localizer["E-mail"]: {{Info.Email}}</span><br>{{/if}}
+                {{if Info.SocialAccount}}<span>@Localizer["Social media account"]: </span>{{Info.SocialAccount}}<br>{{/if}}
+            </div>
+            <div class="detail-right">
+                {{if Info.Summary}}<span>@Localizer["Summary"]: </span>{{Info.Summary}}<br>{{/if}}
+            </div>
+        </div>
+        {{/each}}
+        {{/if}}
+    </li>
+</script>
+
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript" src="~/js/echarts.js"></script>
+    <script src="~/js/template.js"></script>
+    <script type="text/javascript" src="~/js/consensus.js"></script>
+    <script type="text/javascript" src="~/js/getseed.js"></script>
+    <script src="https://cdn.bootcss.com/js-sha256/0.9.0/sha256.min.js"></script>
+    <script>
+        function hashInfo() {
+            var msg = "candidate" + $("#Email").val() + $("#Website").val() + $("#SocialAccount").val() + $("#Summary").val();
+            $("#hash").val(sha256(msg));
+        }
+        var block_s = '@Localizer["Block Size"]';
+        var tx_v = '@Localizer["Tx Volume"]';
+        var error = '@ViewBag.Message';
+        if (error.length > 0) {
+            $('#exampleModal').modal();
+        }
+    </script>
+}

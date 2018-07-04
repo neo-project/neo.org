@@ -3,19 +3,21 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NeoWeb.Data;
 
 namespace NeoWeb.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180625090850_Candidate")]
+    partial class Candidate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.1-rtm-30846")
+                .HasAnnotation("ProductVersion", "2.1.0-rtm-30799")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -216,14 +218,26 @@ namespace NeoWeb.Data.Migrations
                     b.Property<string>("PublicKey")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Details")
+                        .HasMaxLength(100);
+
                     b.Property<string>("Email")
                         .IsRequired();
+
+                    b.Property<string>("IP")
+                        .IsRequired();
+
+                    b.Property<string>("Location")
+                        .HasMaxLength(50);
 
                     b.Property<string>("SocialAccount")
                         .HasMaxLength(50);
 
                     b.Property<string>("Summary")
                         .HasMaxLength(100);
+
+                    b.Property<string>("Telegram")
+                        .HasMaxLength(50);
 
                     b.Property<string>("Website")
                         .IsRequired()

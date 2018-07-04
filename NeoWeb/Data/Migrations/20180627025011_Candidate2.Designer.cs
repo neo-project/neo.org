@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NeoWeb.Data;
 
 namespace NeoWeb.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180627025011_Candidate2")]
+    partial class Candidate2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -216,7 +218,15 @@ namespace NeoWeb.Data.Migrations
                     b.Property<string>("PublicKey")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int?>("CountryId");
+
+                    b.Property<string>("Details")
+                        .HasMaxLength(100);
+
                     b.Property<string>("Email")
+                        .IsRequired();
+
+                    b.Property<string>("IP")
                         .IsRequired();
 
                     b.Property<string>("SocialAccount")
@@ -225,11 +235,16 @@ namespace NeoWeb.Data.Migrations
                     b.Property<string>("Summary")
                         .HasMaxLength(100);
 
+                    b.Property<string>("Telegram")
+                        .HasMaxLength(50);
+
                     b.Property<string>("Website")
                         .IsRequired()
                         .HasMaxLength(50);
 
                     b.HasKey("PublicKey");
+
+                    b.HasIndex("CountryId");
 
                     b.ToTable("Candidates");
                 });
@@ -460,6 +475,13 @@ namespace NeoWeb.Data.Migrations
                     b.HasOne("NeoWeb.Models.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("NeoWeb.Models.Candidate", b =>
+                {
+                    b.HasOne("NeoWeb.Models.Country", "Country")
+                        .WithMany()
+                        .HasForeignKey("CountryId");
                 });
 
             modelBuilder.Entity("NeoWeb.Models.Event", b =>

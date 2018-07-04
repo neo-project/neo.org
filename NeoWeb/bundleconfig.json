@@ -57,6 +57,10 @@
     "inputFiles": [ "wwwroot/css/contest.css" ]
   },
   {
+    "outputFileName": "wwwroot/css/consensus.min.css",
+    "inputFiles": [ "wwwroot/css/consensus.css" ]
+  },
+  {
     "outputFileName": "wwwroot/js/site.min.js",
     "inputFiles": [
       "wwwroot/js/site.js"
@@ -71,6 +75,17 @@
     "outputFileName": "wwwroot/js/blog.min.js",
     "inputFiles": [
       "wwwroot/js/blog.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/js/consensus.min.js",
+    "inputFiles": [
+      "wwwroot/js/consensus.js"
     ],
     "minify": {
       "enabled": true,
