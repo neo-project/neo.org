@@ -19,6 +19,9 @@ body {
 .green-text {
     color:#62BD49!important;
 }
+.main-footer .lang-select {
+    display:none!important;
+}
 
 .title-line{
     border-left: 6px solid #ffffff;

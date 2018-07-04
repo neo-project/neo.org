@@ -230,5 +230,7 @@ function showCharts(data) {
             data: data.SizeList
         }]
     };
+    window.onresize = myChart.resize; 
     myChart.setOption(option);
 }
+

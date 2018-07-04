@@ -76,23 +76,13 @@
         </ul>
         <ul class="col-sm-12 table-list" id="tableList"></ul>
     </div>
-    @*<div class="title-line m2">
-            @Localizer["Seed Nodes List"]
-            <span class="float-right d-none d-xl-block" data-toggle="modal" data-target="#exampleModal">@Localizer["Fill in the information"]</span>
-        </div>
-        <div class="row">
-            <ul class="col-sm-12 table-list" id="tableList">
-                <li>
-                    <div class="tr-con">
-                        <span class="pub-key">@Localizer["Server location"]</span>
-                        <span class="can-votes">@Localizer["Endpoint"]</span>
-                        <span class="can-consensus">@Localizer["Current state"]</span>
-                        <span class="can-connect">@Localizer["Connection"]</span>
-                        <span class="can-more">@Localizer["More Info"]</span>
-                    </div>
-                </li>
-            </ul>
-        </div>*@
+    <form id="form_language" method="post" action="/home/SetLanguage">
+        <p class="m3">
+            <a class="text-white" href="javascript:" onclick="setLanguage('en-us')">English</a>
+            <a class="text-white p4" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+            <a class="text-white" href="javascript:" onclick="setLanguage('de-de')">Deutsch</a>
+        </p>
+    </form>
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
