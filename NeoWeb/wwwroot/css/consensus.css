@@ -174,7 +174,7 @@ body {
     display: inline-table;
     width: 38%;
     font-size:15px;
-    word-break: break-all;
+    word-break: normal;
 }
 
 
