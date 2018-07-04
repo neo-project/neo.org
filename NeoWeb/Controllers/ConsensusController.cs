@@ -18,14 +18,12 @@ using NeoWeb.Models;
 
 namespace NeoWeb.Controllers
 {
-    [Route("consensus")]
-    [Route("candidate")]
-    public class CandidateController : Controller
+    public class ConsensusController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly IStringLocalizer<CandidateController> _localizer;
+        private readonly IStringLocalizer<ConsensusController> _localizer;
 
-        public CandidateController(ApplicationDbContext context, IStringLocalizer<CandidateController> localizer)
+        public ConsensusController(ApplicationDbContext context, IStringLocalizer<ConsensusController> localizer)
         {
             _context = context;
             _localizer = localizer;

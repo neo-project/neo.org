@@ -58,7 +58,7 @@ function countDown(time) {
 
 //获取节点数据
 function getListdata() {
-    $.get("../../candidate/getvalidators", []).done(function (data) {
+    $.get("../../consensus/getvalidators", []).done(function (data) {
         var _list = JSON.parse(data);
         var flag = 0;
         $("#cannum").html(_list.length);
@@ -78,7 +78,7 @@ function getListdata() {
 
 //图表数据展示
 function getVolue(){
-    $.get("../../candidate/gettxcount", []).done(function (data) {
+    $.get("../../consensus/gettxcount", []).done(function (data) {
         var _list = JSON.parse(data);
         showCharts(_list);
     });

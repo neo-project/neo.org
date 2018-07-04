@@ -3,11 +3,11 @@
 @inject IViewLocalizer Localizer
 
 @{
-    ViewData["Title"] = "Candidate";
+    ViewData["Title"] = @Localizer["Consensus Nodes"];
 }
 
 @section Styles{
-    <link rel="stylesheet" href="~/css/candidate.css" />
+    <link rel="stylesheet" href="~/css/consensus.min.css" />
 }
 
     <div class="container">
@@ -196,7 +196,7 @@
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script type="text/javascript" src="~/js/echarts.js"></script>
     <script src="~/js/template.js"></script>
-    <script type="text/javascript" src="~/js/candidate.js"></script>
+    <script type="text/javascript" src="~/js/consensus.min.js"></script>
     <script src="https://cdn.bootcss.com/js-sha256/0.9.0/sha256.min.js"></script>
     <script>
         function hashInfo() {

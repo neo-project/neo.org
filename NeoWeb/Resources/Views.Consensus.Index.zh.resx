@@ -225,4 +225,7 @@
   <data name="Tx Volume" xml:space="preserve">
     <value>交易量</value>
   </data>
+  <data name="Consensus Nodes" xml:space="preserve">
+    <value>共识节点</value>
+  </data>
 </root>
