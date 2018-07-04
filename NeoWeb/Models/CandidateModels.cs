@@ -21,7 +21,7 @@ namespace NeoWeb.Models
         [MaxLength(50)]
         public string SocialAccount { get; set; }
 
-        [MaxLength(100)]
+        [MaxLength(500)]
         public string Summary { get; set; }
 
     }
