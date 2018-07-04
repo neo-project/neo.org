@@ -98,8 +98,12 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
                         <label for="PublicKey" class="control-label">@Localizer["Public Key"]<span class="red-text"> * </span></label>
-                        <input asp-for="PublicKey" placeholder=@Localizer["Public Key"] class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct public key in the HEX format"]" />
-                        <span asp-validation-for="PublicKey" class="text-danger"></span>
+                        <select asp-for="PublicKey" class="form-control">
+                            @foreach (var item in ViewBag.PubKeys as List<string>)
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        </select>
                     </div>
                     <div class="row">
                         <div class="col-6 form-group">
@@ -136,9 +140,8 @@
                     <div class="form-group">
                         <label for="signature" class="control-label">@Localizer["Signature"]</label>
                         <input name="signature" id="signature" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" />
+                        <small class="form-text text-muted">@Localizer["Please sign the above hash with your private key."]</small>
                         <span data-valmsg-for="signature" class="text-danger"></span>
-                    </div>
-                    <div>
                         <span class="text-danger">@ViewBag.Message</span>
                     </div>
                     <div class="form-group">

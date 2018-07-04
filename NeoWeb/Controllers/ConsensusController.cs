@@ -33,6 +33,12 @@ namespace NeoWeb.Controllers
         public IActionResult Index()
         {
             ViewBag.Countries = _context.Countries.ToList();
+            JArray list = (JArray)JObject.Parse(System.IO.File.ReadAllText("CandidateBackgrounder/validators.json"));
+            ViewBag.PubKeys = new List<string>();
+            foreach (JObject item in list)
+            {
+                ViewBag.PubKeys.Add(item["PublicKey"].AsString());
+            }
             return View();
         }
 
@@ -56,6 +62,12 @@ namespace NeoWeb.Controllers
             if (ModelState.IsValid)
             {
                 ViewBag.Countries = _context.Countries.ToList();
+                JArray list = (JArray)JObject.Parse(System.IO.File.ReadAllText("CandidateBackgrounder/validators.json"));
+                ViewBag.PubKeys = new List<string>();
+                foreach (JObject item in list)
+                {
+                    ViewBag.PubKeys.Add(item["PublicKey"].AsString());
+                }
                 //VerifySignature
                 var message = ("candidate" + c.Email + c.Website + c.SocialAccount + c.Summary).Sha256().ToLower();
                 if (!Helper.VerifySignature(message, signature, c.PublicKey))
