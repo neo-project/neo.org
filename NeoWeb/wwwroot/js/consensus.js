@@ -1,13 +1,10 @@
+var block_height = 0;
+var send_url = "http://seed3.aphelion-neo.com:10332";;
+var lastt = 0;
+
 blockInfo();
 getVolue();
 getListdata();
-
-
-var block_height = 0;
-var seed_url;
-var lastt = 0;
-
-
 
 setInterval(function () {
     blockInfo();
@@ -22,10 +19,9 @@ function showDetail(ele) {
 function blockInfo() {
     var json = { 'jsonrpc': '2.0', 'method': 'getblockcount', 'params': [], 'id': 1 };
     var str = JSON.stringify(json);
-    seed_url = "https://seed1.switcheo.network:10331";
     $.ajax({
         type: 'POST',
-        url: seed_url,
+        url: send_url,
         data: str,
         success: function (data) {
             if (block_height != data.result - 1) {
@@ -37,7 +33,7 @@ function blockInfo() {
             countDown(lastt);
         },
         fail: function () {
-            alert("fail");
+            
         }
     });
 }

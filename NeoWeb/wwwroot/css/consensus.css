@@ -5,10 +5,10 @@ html,body{
     color:#888888;
 }
 body {
-    background-image: url('../images/backbg.png'),url('../images/backbg.png');
+    background-image: url('../images/topbg.svg'),url('../images/bottombg.svg');
     background-size: contain,contain;
     background-repeat:no-repeat;
-    background-position:left -15%,right 110%;
+    background-position:top center,bottom center;
 }
 .navbar {
     background:#F9FBF2;
@@ -17,7 +17,7 @@ body {
     display:none;
 }
 .green-text {
-    color:#62BD49;
+    color:#62BD49!important;
 }
 
 .title-line{
@@ -160,17 +160,18 @@ body {
 }
 .more-info {
     cursor:pointer;
-    color:#62BD49!important;
 }
 .detail-left{
     display: inline-table;
     width: 58%;
     font-size:15px;
+    word-break: break-all;
 }
 .detail-right{
     display: inline-table;
-    width: 50%;
+    width: 38%;
     font-size:15px;
+    word-break: break-all;
 }
 
 
