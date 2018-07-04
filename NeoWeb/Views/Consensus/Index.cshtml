@@ -61,7 +61,7 @@
     </div>
     <div class="title-line m2">
         @Localizer["Candidate List"]
-        <a class="tab-btn float-right d-none d-xl-block" data-toggle="modal" data-target="#exampleModal"><span class="iconfont green-text">&#xe608;</span> @Localizer["Provide Info"]</a>
+        <a class="tab-btn float-right d-none d-xl-block" data-toggle="modal" data-target="#exampleModal"><span class="iconfont green-text">&#xe608;</span> @Localizer["Provide Candidate Info"]</a>
     </div>
     <div class="row">
         <ul class="col-sm-12 table-list">
@@ -106,7 +106,8 @@
                     <div class="row">
                         <div class="col-6 form-group">
                             <label asp-for="Website" class="control-label">@Localizer["Website"]<span class="red-text"> * </span></label>
-                            <input asp-for="Website" placeholder="" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct website format"]" />
+                            <input asp-for="Website" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct website format"]" />
+                            <small class="form-text text-muted">@Localizer["Relevant information about NEO should be displayed."]</small>
                             <span asp-validation-for="Website" class="text-danger"></span>
                         </div>
                         <div class="col-6 form-group">
@@ -123,6 +124,7 @@
                     <div class="form-group">
                         <label asp-for="Summary" class="control-label">@Localizer["Summary"]</label>
                         <textarea asp-for="Summary" class="form-control"></textarea>
+                        <small class="form-text text-muted">@Localizer["Brief introduction about team"]</small>
                         <span asp-validation-for="Summary" class="text-danger"></span>
                     </div>
                     <hr class="m3" />
