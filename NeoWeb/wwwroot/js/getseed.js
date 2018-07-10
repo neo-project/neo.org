@@ -1,4 +1,4 @@
-﻿getSeed();
+﻿setTimeout(getSeed, 2000);
 function getSeed() {
     $.ajax({
         type: "GET",

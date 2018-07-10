@@ -150,10 +150,10 @@
   <data name="E-mail" xml:space="preserve">
     <value>邮箱</value>
   </data>
-  <data name="Provide Info" xml:space="preserve">
-    <value>填写信息</value>
+  <data name="Provide Candidate Info" xml:space="preserve">
+    <value>竞选人信息填写</value>
   </data>
-  <data name="Genarate Hash" xml:space="preserve">
+  <data name="Generate Hash" xml:space="preserve">
     <value>生成散列值</value>
   </data>
   <data name="Candidate Info" xml:space="preserve">
@@ -230,5 +230,11 @@
   </data>
   <data name="Please sign the above hash with your private key." xml:space="preserve">
     <value>请使用私钥对上述 Hash 进行签名</value>
+  </data>
+  <data name="Brief introduction about team" xml:space="preserve">
+    <value>针对团队的简单介绍</value>
+  </data>
+  <data name="Relevant information about NEO should be displayed." xml:space="preserve">
+    <value>网页需显示NEO相关信息</value>
   </data>
 </root>

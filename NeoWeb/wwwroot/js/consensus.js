@@ -1,6 +1,6 @@
 var block_height = 0;
-var send_url = "http://seed3.aphelion-neo.com:10332";;
-var lastt = 0;
+var send_url = "https://seed3.switcheo.network:10331";;
+var lastt = new Date();
 
 blockInfo();
 getVolue();
@@ -19,6 +19,7 @@ function showDetail(ele) {
 function blockInfo() {
     var json = { 'jsonrpc': '2.0', 'method': 'getblockcount', 'params': [], 'id': 1 };
     var str = JSON.stringify(json);
+    countDown(lastt);
     $.ajax({
         type: 'POST',
         url: send_url,
@@ -30,7 +31,6 @@ function blockInfo() {
                 getListdata();
                 $("#blohei").html(block_height);
             }
-            countDown(lastt);
         },
         fail: function () {
             

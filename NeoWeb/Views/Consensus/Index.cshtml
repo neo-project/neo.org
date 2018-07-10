@@ -61,7 +61,7 @@
     </div>
     <div class="title-line m2">
         @Localizer["Candidate List"]
-        <a class="tab-btn float-right d-none d-xl-block" data-toggle="modal" data-target="#exampleModal"><span class="iconfont green-text">&#xe608;</span> @Localizer["Provide Info"]</a>
+        <a class="tab-btn float-right d-none d-xl-block" data-toggle="modal" data-target="#exampleModal"><span class="iconfont green-text">&#xe608;</span> @Localizer["Provide Candidate Info"]</a>
     </div>
     <div class="row">
         <ul class="col-sm-12 table-list">
@@ -76,13 +76,10 @@
         </ul>
         <ul class="col-sm-12 table-list" id="tableList"></ul>
     </div>
-    <form id="form_language" method="post" action="/home/SetLanguage">
-        <p class="m3">
-            <a class="text-white" href="javascript:" onclick="setLanguage('en-us')">English</a>
-            <a class="text-white p4" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
-            <a class="text-white" href="javascript:" onclick="setLanguage('de-de')">Deutsch</a>
-        </p>
-    </form>
+    <p class="m3">
+        <a class="text-white" href="javascript:" onclick="setLanguage('en-us')">English</a>
+        <a class="text-white p4" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+    </p>
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
@@ -108,7 +105,8 @@
                     <div class="row">
                         <div class="col-6 form-group">
                             <label asp-for="Website" class="control-label">@Localizer["Website"]<span class="red-text"> * </span></label>
-                            <input asp-for="Website" placeholder="" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct website format"]" />
+                            <input asp-for="Website" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct website format"]" />
+                            <small class="form-text text-muted">@Localizer["Relevant information about NEO should be displayed."]</small>
                             <span asp-validation-for="Website" class="text-danger"></span>
                         </div>
                         <div class="col-6 form-group">
@@ -125,6 +123,7 @@
                     <div class="form-group">
                         <label asp-for="Summary" class="control-label">@Localizer["Summary"]</label>
                         <textarea asp-for="Summary" class="form-control"></textarea>
+                        <small class="form-text text-muted">@Localizer["Brief introduction about team"]</small>
                         <span asp-validation-for="Summary" class="text-danger"></span>
                     </div>
                     <hr class="m3" />
@@ -132,7 +131,7 @@
                         <label class="control-label">Hash</label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <button class="btn btn-outline-secondary" type="button" onclick="hashInfo()">@Localizer["Genarate Hash"]</button>
+                                <button class="btn btn-outline-secondary" type="button" onclick="hashInfo()">@Localizer["Generate Hash"]</button>
                             </div>
                             <input id="hash" type="text" readonly="readonly" class="form-control">
                         </div>
