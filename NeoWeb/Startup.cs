@@ -62,8 +62,7 @@ namespace NeoWeb
                 new CultureInfo("en-GB"),
                 new CultureInfo("en"),
                 new CultureInfo("zh-CN"),
-                new CultureInfo("zh"),
-                new CultureInfo("de")
+                new CultureInfo("zh")
             };
 
             // 用户通过查询字符串来手动指定语言，如 http://localhost:5000/?culture=en-US

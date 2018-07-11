@@ -36,21 +36,7 @@ namespace NeoWeb.Controllers
         [AllowAnonymous]
         public IActionResult Index(string k = null, int c = 0, int d = 0, string z = null)
         {
-            var models = _context.Events.OrderBy(o => o.StartTime).Select(p => new
-            {
-                p.Id,
-                p.Name,
-                p.Type,
-                p.Country,
-                p.City,
-                p.Address,
-                p.StartTime,
-                p.EndTime,
-                p.Cover,
-                p.Organizers,
-                p.IsFree,
-                p.ThirdPartyLink
-            }).ToList().Select(p => new Event()
+            var models = _context.Events.OrderBy(o => o.StartTime).Select(p => new Event()
             {
                 Id = p.Id,
                 Name = p.Name,

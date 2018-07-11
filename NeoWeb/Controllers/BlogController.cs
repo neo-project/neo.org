@@ -34,29 +34,49 @@ namespace NeoWeb.Controllers
 
         // GET: Blog
         [AllowAnonymous]
-        public IActionResult Index(int? y = null, int? m = null, string lang = null)
+        public IActionResult Index(int? y = null, int? m = null, string k = null, string lang = null)
         {
-            var models = _context.Blogs.OrderByDescending(o => o.CreateTime).Select(p => new
+            IQueryable<Blog> models = null;
+
+            if (k != null) //搜索
             {
-                p.Id,
-                p.Title,
-                p.Summary,
-                p.CreateTime,
-                p.EditTime,
-                p.ReadCount,
-                p.Lang,
-                p.User
-            }).ToList().Select(p => new Blog()
+                var keywords = k.Split(" ");
+                foreach (var item in keywords) //对关键词进行搜索
+                {
+                    if (models == null)
+                        models = _context.Blogs.Where(p => p.Title.Contains(item, StringComparison.OrdinalIgnoreCase) || p.Content.Contains(item, StringComparison.OrdinalIgnoreCase));
+                    else
+                        models = models.Where(p => p.Title.Contains(item, StringComparison.OrdinalIgnoreCase) || p.Content.Contains(item, StringComparison.OrdinalIgnoreCase));
+                    if (models == null) break;
+                }
+                models = models.OrderByDescending(o => o.CreateTime).Select(p => new Blog()
+                {
+                    Id = p.Id,
+                    Title = p.Title,
+                    Summary = p.Summary,
+                    CreateTime = p.CreateTime,
+                    EditTime = p.EditTime,
+                    ReadCount = p.ReadCount,
+                    Lang = p.Lang,
+                    User = p.User,
+                    IsShow = p.IsShow
+                });
+            }
+            else //无搜索
             {
-                Id = p.Id,
-                Title = p.Title,
-                Summary = p.Summary,
-                CreateTime = p.CreateTime,
-                EditTime = p.EditTime,
-                ReadCount = p.ReadCount,
-                Lang = p.Lang,
-                User = p.User
-            });
+                models = _context.Blogs.OrderByDescending(o => o.CreateTime).Select(p => new Blog()
+                {
+                    Id = p.Id,
+                    Title = p.Title,
+                    Summary = p.Summary,
+                    CreateTime = p.CreateTime,
+                    EditTime = p.EditTime,
+                    ReadCount = p.ReadCount,
+                    Lang = p.Lang,
+                    User = p.User,
+                    IsShow = p.IsShow
+                });
+            }
 
             ViewBag.CreateTime = models.Select(p => new BlogDateTimeViewModels
             {
@@ -149,7 +169,7 @@ namespace NeoWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Content,Summary,Lang")] Blog blog)
+        public async Task<IActionResult> Create([Bind("Id,Title,Content,Summary,Lang,IsShow")] Blog blog)
         {
             if (ModelState.IsValid)
             {
@@ -186,7 +206,7 @@ namespace NeoWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Lang,Content")] Blog blog)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Lang,Content,IsShow")] Blog blog)
         {
             if (id != blog.Id)
             {
@@ -202,6 +222,7 @@ namespace NeoWeb.Controllers
                     item.Content = Convert(blog.Content);
                     item.Summary = blog.Content.ClearHtmlTag(150);
                     item.Lang = blog.Lang;
+                    item.IsShow = blog.IsShow;
                     item.EditTime = DateTime.Now;
                     _context.Update(item);
                     await _context.SaveChangesAsync();
@@ -279,9 +300,12 @@ namespace NeoWeb.Controllers
 
         private string Convert(string input)
         {
-            var deleteMso = Regex.Replace(input, @"<!\-\-\[if gte mso 9\]>[\s\S]*<!\[endif\]\-\->", "");
-            var deleteRel = Regex.Replace(deleteMso, "src=\".*/upload", "src=\"/upload");
-            return deleteRel;
+            input = Regex.Replace(input, @"<!\-\-\[if gte mso 9\]>[\s\S]*<!\[endif\]\-\->", ""); //删除 ms office 注解
+            input = Regex.Replace(input, "src=\".*/upload", "src=\"/upload"); //替换上传图片的链接
+            input = Regex.Replace(input, @"<p>((&nbsp;\s)|(&nbsp;)|\s)+", "<p>"); //删除段首由空格造成的缩进
+            input = Regex.Replace(input, @"\sstyle="".*?""", ""); //删除 Style 样式
+            input = Regex.Replace(input, @"\sclass="".*?""", ""); //删除 Class 样式
+            return input;
         }
     }
 }
