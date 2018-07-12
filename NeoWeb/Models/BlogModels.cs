@@ -30,6 +30,8 @@ namespace NeoWeb.Models
         public int ReadCount { get; set; }
 
         public virtual ApplicationUser User { get; set; }
+
+        public bool IsShow { get; set; }
     }
 }
 

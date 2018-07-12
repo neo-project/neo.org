@@ -30,9 +30,6 @@
     <EmbeddedResource Update="Resources\Views.Blog.Details.zh.resx">
       <Generator></Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Views.DApps.Index.zh.resx">
-      <Generator></Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Views.Event.Index.zh.resx">
       <Generator></Generator>
     </EmbeddedResource>
