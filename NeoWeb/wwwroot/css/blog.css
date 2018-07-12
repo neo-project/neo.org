@@ -141,7 +141,10 @@ a{
     padding-bottom: 20px;
     color: #6C6C6C;
 }
-.artical-content p{
+.artical-content a {
+    color: #58bf00;
+}
+.artical-content p, .blog-content ul{
     margin:0;
     text-indent:0!important;
     text-align:left;
@@ -155,7 +158,6 @@ a{
 .blog-content img {
     max-width:100%;
 }
-
 .nav-artical a {
     display:inline-block;
     height:inherit;

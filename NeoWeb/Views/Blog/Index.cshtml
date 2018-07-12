@@ -62,8 +62,8 @@
 
                     <li class="m3">
                         <h2><a asp-action="details" class="blog-title" asp-route-id="@item.Id">@item.Title</a></h2>
-                        <p class="t2 m3 @Localizer["d-none"]">由作者 <span class="bold-font">@item.User</span> 于 <span class="bold-font">@item.CreateTime.ToShortDateString()</span> 发布 <small class="float-right">@item.ReadCount 次阅读</small></p>
-                        <p class="t2 m3 @Localizer["d-none-zh"]">Author <span class="bold-font">@item.User</span> posted on <span class="bold-font">@item.CreateTime.ToShortDateString()</span> <small class="float-right">@item.ReadCount Times read</small></p>
+                        <p class="t2 m3 @Localizer["d-none"]"><small class="bold-font">@item.CreateTime.ToShortDateString()  发布</small> <small class="float-right">@item.ReadCount 次阅读</small></p>
+                        <p class="t2 m3 @Localizer["d-none-zh"]"><small class="bold-font">Posted on @item.CreateTime.ToShortDateString()</small> <small class="float-right">@item.ReadCount Times read</small></p>
                         <a class="blog-summary" asp-action="details" asp-route-id="@item.Id">
                             <p class="t2">@item.Summary.Substring(0, Math.Min(item.Summary.Length, item.Lang == "zh" || item.Lang == "ko" ? 100 : 150))…</p>
                         </a>

@@ -54,8 +54,8 @@
         <div class="artical-content">
             <div>
                 <h2>@Model.Title</h2>
-                <p class="light-text t2 m3 @Localizer["d-none"]">由作者 <span class="bold-font">@Model.User.UserName</span> 于 <span class="bold-font">@Model.CreateTime.ToShortDateString()</span> 发布</p>
-                <p class="light-text t2 m3 @Localizer["d-none-zh"]">Author <span class="bold-font">@Model.User.UserName</span> posted on <span class="bold-font">@Model.CreateTime.ToShortDateString()</span></p>
+                <p class="light-text t2 m3 @Localizer["d-none"]"><span class="bold-font">@Model.CreateTime.ToShortDateString()</span> 发布</p>
+                <p class="light-text t2 m3 @Localizer["d-none-zh"]">Posted on <span class="bold-font">@Model.CreateTime.ToShortDateString()</span></p>
                 <div class="float-right qrcode-div"><i class="iconfont">&#xe79b;</i><div id="qrcode"></div></div>
                 <p>
                     @if (ViewBag.UserRules)
