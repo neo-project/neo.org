@@ -369,4 +369,25 @@
   <data name="Include wide range of assets" xml:space="preserve">
     <value>币种全面的资产展示</value>
   </data>
+  <data name="developed an Android wallet with excellent user experience" xml:space="preserve">
+    <value>开发的一个用户体验极佳的安卓钱包</value>
+  </data>
+  <data name="developed a iOS wallet with excellent user experience" xml:space="preserve">
+    <value>开发的一个用户体验极佳的iOS钱包</value>
+  </data>
+  <data name="Good interaction, secure design, easy management of NEP5 assets" xml:space="preserve">
+    <value>良好的交互，安全的设计，轻松管理NEP5资产</value>
+  </data>
+  <data name="Light wallet，no block synchronization" xml:space="preserve">
+    <value>轻钱包，不用同步区块</value>
+  </data>
+  <data name="Log in via WIF private key、wallet file、NEP2" xml:space="preserve">
+    <value>通过WIF私钥、钱包文件、NEP2登录</value>
+  </data>
+  <data name="Support import of private keys, transfer, claim GAS/ONG, no block synchronization" xml:space="preserve">
+    <value>支持导入私钥，转账，提取GAS\ONG，不用同步区块</value>
+  </data>
+  <data name="Also an smart exchange" xml:space="preserve">
+    <value>它同时也是一个智能交易所</value>
+  </data>
 </root>
