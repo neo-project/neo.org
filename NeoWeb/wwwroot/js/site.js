@@ -8,7 +8,7 @@
         var preShowItem = $("#more_list li:first");
         $("#dropdown_btn").before(preShowItem);
         preShowItem.addClass("nav-item");
-        if ($("#more_list li").length == 0) {
+        if ($("#more_list li").length === 0) {
             $("#dropdown_btn").hide();
         }
     }

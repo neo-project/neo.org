@@ -29,6 +29,7 @@ namespace NeoWeb.Controllers
             }
             catch (Exception)
             {
+                ViewBag.News = new List<News>();
                 //网站第一次运行，未创建数据库时会有异常
             }
             return View();
