@@ -109,7 +109,7 @@ footer {
     left:0;
     width:100%;
     height:100%;
-    background: url(../images/home-bg.png);
+    background: url('https://neo-cdn.azureedge.net/images/home-bg.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size:cover;
@@ -163,19 +163,19 @@ footer {
     background-position: center bottom;
 }
 .home-scroll.scroll-fri {
-    background: url(../images/home-back-1.png) repeat-x;
+    background: url('https://neo-cdn.azureedge.net/images/home-back-1.png') repeat-x;
 }
 .home-scroll.scroll-sec {
-    background: url(../images/home-back-2.png) repeat-x;
+    background: url('https://neo-cdn.azureedge.net/images/home-back-2.png') repeat-x;
 }
 .home-scroll.scroll-thr {
-    background: url(../images/home-back-3.png) repeat-x;
+    background: url('https://neo-cdn.azureedge.net/images/home-back-3.png') repeat-x;
 }
 .home-scroll.scroll-four {
-    background: url(../images/home-back-4.png) repeat-x;
+    background: url('https://neo-cdn.azureedge.net/images/home-back-4.png') repeat-x;
 }
 .home-scroll.scroll-five {
-    background: url(../images/home-back-5.png) repeat-x;
+    background: url('https://neo-cdn.azureedge.net/images/home-back-5.png') repeat-x;
 }
 .scroll-acr,
 .scroll-acr-en,
@@ -192,21 +192,21 @@ footer {
     background-size: contain;
 }
 .scroll-page.city-back .scroll-acr {
-    background-image:url(../images/home-bg-1.png);
+    background-image:url('https://neo-cdn.azureedge.net/images/home-bg-1.png');
     background-position: 40% center;
     background-position: center 5%;
 }
 .scroll-page.city-back .scroll-ver-fri {
-    background-image:url(../images/home-bg-2.png);
+    background-image:url('https://neo-cdn.azureedge.net/images/home-bg-2.png');
     background-position: 40% center;
 }
 .scroll-page.city-back .scroll-ver-sec {
-    background-image:url(../images/home-bg-3.png);
+    background-image:url('https://neo-cdn.azureedge.net/images/home-bg-3.png');
     background-position: 60% center;
 }
 
 .city-back .home-scroll.scroll-top {
-    background: url(../images/home-back-top.png) repeat-x;
+    background: url('https://neo-cdn.azureedge.net/images/home-back-top.png') repeat-x;
     background-size: contain;
     height:inherit;
 }
@@ -341,7 +341,7 @@ footer {
 }
 /*开发者页面 - Developer page*/
 .home-developer {
-    background-image: url(../images/deve-bg-1.png);
+    background-image: url('https://neo-cdn.azureedge.net/images/deve-bg-1.png');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: -50px center;

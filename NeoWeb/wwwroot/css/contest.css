@@ -57,7 +57,7 @@ a {
 }
 
 .banner {
-    background-image: url(../images/contest/bg.jpg);
+    background-image: url(https://neo-cdn.azureedge.net/images/contest/bg.jpg);
     background-position: center;
     background-size: cover;
     color:#FFFFFF;
@@ -175,7 +175,7 @@ a {
 }
 
 .comp-rules {
-    background:url(../images/contest/bg2.png) repeat-x;
+    background:url(https://neo-cdn.azureedge.net/images/contest/bg2.png) repeat-x;
     background-size: contain;
 }
 .rules-intro {
@@ -499,7 +499,7 @@ a {
 .awards-title::after{
     content:"";
     display:inline-block;
-    background:url(../images/contest/award.png) no-repeat;
+    background:url(https://neo-cdn.azureedge.net/images/contest/award.png) no-repeat;
     background-size:cover;
     width:60px;
     height:28px;
