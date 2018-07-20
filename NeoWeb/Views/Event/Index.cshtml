@@ -6,17 +6,17 @@
 }
 @section Styles{
     <environment include="Development">
-        <link rel="stylesheet" href="~/css/event.css" />
+        <link rel="stylesheet" href="https://neo-cdn.azureedge.net/css/event.css" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="~/css/event.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="https://neo-cdn.azureedge.net/css/event.min.css" asp-append-version="true" />
     </environment>
 }
 
 <div class="event-banner">
     <div class="container">
         <div class="search-div text-center">
-            <img class="img-fluid search-group mt-3 mb-5" src="~/images/event/h1.jpg" />
+            <img class="img-fluid search-group mt-3 mb-5" src="https://neo-cdn.azureedge.net/images/event/h1.jpg" />
             <form asp-action="index" method="get">
                 <div class="input-group search-group">
                     <select name="k" class="form-control">
@@ -157,7 +157,7 @@
     </div>
 </div>
 @section Scripts{
-    <script src="~/js/jquery.lazyload.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
     <script>
         $(function () {
             var url = window.location.search;
