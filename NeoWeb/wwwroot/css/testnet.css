@@ -197,8 +197,6 @@
     width: 80%;
     margin: 20px auto;
 }
-
-
 @media only screen and (max-width : 1200px) {
     .content-border {
         padding: 100px 40px;
