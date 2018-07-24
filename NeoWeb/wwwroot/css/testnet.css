@@ -32,6 +32,7 @@
     text-align: center;
     letter-spacing:1px;
     color:#FFFFFF;
+    min-height:100%;
 }
 .center-area {
     padding: 0 20px;
