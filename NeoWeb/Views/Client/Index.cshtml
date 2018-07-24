@@ -6,10 +6,10 @@
 }
 @section Styles{
     <environment include="Development">
-        <link rel="stylesheet" href="~/css/client.css" />
+        <link rel="stylesheet" href="https://neo-cdn.azureedge.net/css/client.css" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="~/css/client.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="https://neo-cdn.azureedge.net/css/client.min.css" asp-append-version="true" />
     </environment>
 }
 
@@ -18,204 +18,17 @@
         <h1 class="m3">@Localizer["Get Client"]</h1>
     </div>
     <ul class="nav-download m3 t1" id="downTab">
-        <li><a class="iconfont">&#xe64b;</a>@Localizer["Mobile"]</li>
         <li><a class="iconfont">&#xe632;</a>@Localizer["Desktop"]</li>
+        <li><a class="iconfont">&#xe64b;</a>@Localizer["Mobile"]</li>
         <li><a class="iconfont">&#xe63c;</a>@Localizer["Web"]</li>
         <li><a class="iconfont">&#xe688;</a>@Localizer["Hardware"]</li>
     </ul>
     <div class="row download-container">
 
-        <ul class="download-ul download-mobile">
-            <li class="down-box">
-                <div class="picture">
-                    <img src="~/images/client/o3-android.jpg" />
-                </div>
-                <h2>O3 - @Localizer["Android version"]<small>1.10.0</small></h2>
-                <p class="desc">
-                    - <a href="https://github.com/O3Labs/O3Android" target="_blank">O3 Labs</a> @Localizer["developed a native Android application"]<br />
-                    - @Localizer["Manage your assets in a simple and secure way"]<br />
-                    - @Localizer["Send assets, Claim GAS, top up from a cold storage wallet"]<br />
-                    - @Localizer["Support"] NEP-2, NEP-5 <br />
-                </p>
-                <p class="info">
-                    @Localizer["Languages"]: @Localizer["English"]<br />
-                    @Localizer["Supported OS"]: Android 6.0 @Localizer["or later"]<br />
-                    @Localizer["License"]: <a href="https://github.com/O3Labs/O3Android/blob/master/LICENSE" target="_blank">MIT</a><br />
-                </p>
-                <p class="down-time">2018-7-9</p>
-                <a class="down-btn" href="https://play.google.com/store/apps/details?id=network.o3.o3wallet" target="_blank">@Localizer["Download"]</a>
-                <a class="down-btn" href="https://o3.network/" target="_blank">@Localizer["Website"]</a>
-            </li>
-            <li class="down-box">
-                <div class="picture">
-                    <img src="~/images/client/o3-ios.jpg" />
-                </div>
-                <h2>O3 - @Localizer["iOS version"]<small>1.6.1</small></h2>
-                <p class="desc">
-                    - <a href="https://github.com/CityOfZion/OzoneWalletIOS" target="_blank">O3 Labs</a> @Localizer["developed a native iOS application"]<br />
-                    - @Localizer["Contacts, Claim GAS, Sending/receiving assets"]<br />
-                    - @Localizer["Protected by TouchID and pincode"]<br />
-                    - @Localizer["Support"] NEP-2, NEP-5 <br />
-                </p>
-                <p class="info">
-                    @Localizer["Languages"]: @Localizer["English/Chinese"]<br />
-                    @Localizer["Supported OS"]: iOS 11.0 @Localizer["or later"]<br />
-                    @Localizer["License"]: <a href="https://github.com/CityOfZion/OzoneWalletIOS/blob/master/LICENSE" target="_blank">MIT</a><br />
-                </p>
-                <p class="down-time">2018-7-12</p>
-                <a class="down-btn" href="https://itunes.apple.com/app/id1336781023" target="_blank">@Localizer["Download"]</a>
-                <a class="down-btn" href="https://o3.network/" target="_blank">@Localizer["Website"]</a>
-            </li>
-            <li class="down-box">
-                <div class="picture">
-                    <img src="~/images/client/sea-android.jpg" />
-                </div>
-                <h2>SEA - @Localizer["Android version"]</h2>
-                <p class="desc">
-                    - <a href="https://github.com/OTCGO/sea-app" target="_blank">SEA</a> @Localizer["developed an Android wallet with excellent user experience"]<br />
-                    - @Localizer["Good interaction, secure design, easy management of NEP5 assets"]<br />
-                    - @Localizer["Support import of private keys, transfer, claim GAS/ONG, no block synchronization"]<br />
-                    - @Localizer["Support"] NEP-2, NEP-5 <br />
-                </p>
-                <p class="info">
-                    @Localizer["Languages"]: @Localizer["English/Chinese"]<br />
-                    @Localizer["Supported OS"]: Android 6.0 @Localizer["or later"]<br />
-                    @Localizer["License"]: <a href="https://github.com/OTCGO/sea-app/blob/master/LICENSE" target="_blank">MIT</a><br />
-                </p>
-                <p class="down-time">2018-7-16</p>
-                <a class="down-btn" href="https://www.pgyer.com/mCWD" target="_blank">@Localizer["Download"]</a>
-                <a class="down-btn" href="https://otcgo.cn/#/" target="_blank">@Localizer["Website"]</a>
-            </li>
-            <li class="down-box">
-                <div class="picture">
-                    <img src="~/images/client/sea-ios.jpg" />
-                </div>
-                <h2>SEA - @Localizer["iOS version"]</h2>
-                <p class="desc">
-                    - <a href="https://github.com/OTCGO/sea-app" target="_blank">SEA</a> @Localizer["developed a iOS wallet with excellent user experience"]<br />
-                    - @Localizer["Good interaction, secure design, easy management of NEP5 assets"]<br />
-                    - @Localizer["Support import of private keys, transfer, claim GAS/ONG, no block synchronization"]<br />
-                    - @Localizer["Support"] NEP-2, NEP-5 <br />
-                </p>
-                <p class="info">
-                    @Localizer["Languages"]: @Localizer["English/Chinese"]<br />
-                    @Localizer["Supported OS"]: iOS 10.0 @Localizer["or later"]<br />
-                    @Localizer["License"]: <a href="https://github.com/OTCGO/sea-app/blob/master/LICENSE" target="_blank">MIT</a><br />
-                </p>
-                <p class="down-time">2018-7-16</p>
-                <a class="down-btn" href="https://www.pgyer.com/TngD?sig=CNWpBxeW36zHH056M3bA6Ye1nLJgGcudNMRGOU2mZV6GIJvGPgUBeUTsHdakxtsq" target="_blank">@Localizer["Download"]</a>
-                <a class="down-btn" href="https://otcgo.cn/#/" target="_blank">@Localizer["Website"]</a>
-            </li>
-            <li class="down-box">
-                <div class="picture">
-                    <img src="~/images/client/in-android.jpg" />
-                </div>
-                <h2>InWeCrypto - @Localizer["Android version"]<small>2.0.1</small></h2>
-                <p class="desc">
-                    - <a href="https://github.com/InWeCrypto/wallet_android" target="_blank">InWeCrypto</a> @Localizer["developed efficient smart wallet"]<br />
-                    - @Localizer["Multi-dimension display project dynamic"]<br />
-                    - @Localizer["Wallet file is stored locally, support transfer, claim gas"]<br />
-                    - @Localizer["Support"] NEO, GAS, ETH, ERC20 <br />
-                    - @Localizer["Support"] NEP-5 <br />
-                </p>
-                <p class="info">
-                    @Localizer["Languages"]: @Localizer["English/Chinese"]<br />
-                    @Localizer["Supported OS"]: Android 4.4 @Localizer["or later"]<br />
-                    @Localizer["License"]: <a href="https://github.com/InWeCrypto/wallet_android/blob/master/LICENSE" target="_blank">MIT</a><br />
-                </p>
-                <p class="down-time">2018-4-19</p>
-                <a class="down-btn" href="http://inwecrypto.com/en/platform" target="_blank">@Localizer["Download"]</a>
-                <a class="down-btn" href="http://inwecrypto.com/en/download" target="_blank">@Localizer["Website"]</a>
-            </li>
-            <li class="down-box">
-                <div class="picture">
-                    <img src="~/images/client/in-ios.jpg" />
-                </div>
-                <h2>InWeCrypto - @Localizer["iOS version"]<small>2.0.1</small></h2>
-                <p class="desc">
-                    - <a href="https://github.com/InWeCrypto/wallet_ios" target="_blank">InWeCrypto</a> @Localizer["developed efficient smart wallet"]<br />
-                    - @Localizer["Multi-dimension display project dynamic"]<br />
-                    - @Localizer["Wallet file is stored locally, support transfer, claim gas"]<br />
-                    - @Localizer["Support"] NEO, GAS, ETH, ERC20 <br />
-                    - @Localizer["Support"] NEP-5 <br />
-                </p>
-                <p class="info">
-                    @Localizer["Languages"]: @Localizer["English/Chinese"]<br />
-                    @Localizer["Supported OS"]: iOS 9.0 @Localizer["or later"]<br />
-                    @Localizer["License"]: <a href="https://github.com/InWeCrypto/wallet_ios/blob/master/LICENSE" target="_blank">MIT</a><br />
-                </p>
-                <p class="down-time">2018-4-19</p>
-                <a class="down-btn" href="http://inwecrypto.com/en/platform" target="_blank">@Localizer["Download"]</a>
-                <a class="down-btn" href="http://inwecrypto.com/en/download" target="_blank">@Localizer["Website"]</a>
-            </li>
-            <li class="down-box">
-                <div class="picture">
-                    <img src="~/images/client/iWallic.jpg" />
-                </div>
-                <h2>
-                    iWallic - @Localizer["Android version"]<small>0.0.8</small>
-                </h2>
-                <p class="desc">
-                    - <a href="https://github.com/ext-studio/iwallic" target="_blank">e-studio </a> @Localizer["developed Android wallet"]<br />
-                    - @Localizer["Include wide range of assets"]<br />
-                    - @Localizer["Send assets, Claim GAS, top up from a cold storage wallet"]<br />
-                    - @Localizer["Support"] NEP-2, NEP-5, NEP-6 <br />
-                </p>
-                <p class="info">
-                    @Localizer["Languages"]: @Localizer["English/Chinese"]<br />
-                    @Localizer["Supported OS"]: Android 4.4 @Localizer["or later"]<br />
-                    @Localizer["License"]: <a href="https://github.com/ext-studio/iwallic/blob/master/LICENSE" target="_blank">GPL-3.0 </a><br />
-                </p>
-                <p class="down-time">2018-6-29</p>
-                <a class="down-btn" href="https://iwallic.com" target="_blank">@Localizer["Website"]</a>
-            </li>
-            <li class="down-box">
-                <div class="picture">
-                    <img src="~/images/client/aphelion-mobile.jpg" />
-                </div>
-                <h2>
-                    Aphelion - @Localizer["Android version"]<small>1.0</small>
-                </h2>
-                <p class="desc">
-                    - <a href="https://github.com/aphtoken/aph-mobile-wallet" target="_blank">Aphtoken</a> @Localizer["developed Android wallet"]<br />
-                    - @Localizer["A cutting edge user interface"]<br />
-                    - @Localizer["Real-time trading chart data"]<br />
-                    - @Localizer["Address book and complete Nep5 token integration"]<br />
-                    - @Localizer["Support"] NEP-5 <br />
-                </p>
-                <p class="info">
-                    @Localizer["Languages"]: @Localizer["English"]<br />
-                    @Localizer["Supported OS"]: Android 4.4 @Localizer["or later"]<br />
-                    @Localizer["License"]: <a href="https://github.com/aphtoken/aph-mobile-wallet/blob/development/LICENSE" target="_blank">MIT</a><br />
-                </p>
-                <p class="down-time">2018-6-25</p>
-                <a class="down-btn" href="https://play.google.com/store/apps/details?id=com.aphelion.wallet" target="_blank">@Localizer["Download"]</a>
-                <a class="down-btn" href="https://aphelion.org" target="_blank">@Localizer["Website"]</a>
-            </li>
-            <li class="down-box">
-                <div class="picture">
-                    <img src="~/images/client/app.jpg" />
-                </div>
-                <h2>NEO APP - @Localizer["Android version"]<small>1.2.2</small></h2>
-                <p class="desc">
-                    - <a href="https://github.com/PeterLinX/neowallet.cn" target="_blank">PeterLinX</a> @Localizer["developed Android wallet"]<br />
-                    - @Localizer["Light wallet, without sync block"]<br />
-                    - @Localizer["Wallet file is stored locally, log in via password"]<br />
-                </p>
-                <p class="info">
-                    @Localizer["Languages"]: @Localizer["English/Chinese"]<br />
-                    @Localizer["Supported OS"]: Android 5 @Localizer["or later"]<br />
-                    @Localizer["License"]: <a href="https://github.com/PeterLinX/neowallet.cn/blob/master/LICENSE" target="_blank">MIT</a><br />
-                </p>
-                <p class="down-time">2018-3-5</p>
-                <a class="down-btn" href="@Localizer["https://play.google.com/store/apps/details?id=neo.app"]" target="_blank">@Localizer["Website"]</a>
-            </li>
-        </ul>
-
         <ul class="download-ul download-desktop">
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/client/gui.jpg" />
+                    <img src="https://neo-cdn.azureedge.net/images/client/gui.jpg" />
                 </div>
                 <h2>NEO-GUI<small>2.7.6</small></h2>
                 <p class="desc">
@@ -238,7 +51,7 @@
             </li>
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/client/cli.jpg" />
+                    <img src="https://neo-cdn.azureedge.net/images/client/cli.jpg" />
                 </div>
                 <h2>NEO-CLI<small>2.7.6.1</small></h2>
                 <p class="desc">
@@ -260,7 +73,7 @@
             </li>
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/client/neon.jpg" />
+                    <img src="https://neo-cdn.azureedge.net/images/client/neon.jpg" />
                 </div>
                 <h2>Neon Wallet<small>0.2.6</small></h2>
                 <p class="desc">
@@ -281,7 +94,7 @@
             </li>
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/client/sea-pc.jpg" />
+                    <img src="https://neo-cdn.azureedge.net/images/client/sea-pc.jpg" />
                 </div>
                 <h2>SEA Wallet</h2>
                 <p class="desc">
@@ -301,7 +114,7 @@
             </li>
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/client/in-pc.jpg" />
+                    <img src="https://neo-cdn.azureedge.net/images/client/in-pc.jpg" />
                 </div>
                 <h2>InWe Wallet<small>1.0.0</small></h2>
                 <p class="desc">
@@ -322,7 +135,7 @@
             </li>
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/client/aphelion.jpg" />
+                    <img src="https://neo-cdn.azureedge.net/images/client/aphelion.jpg" />
                 </div>
                 <h2>Aphelion Wallet<small>1.7.0</small></h2>
                 <p class="desc">
@@ -343,10 +156,197 @@
             </li>
         </ul>
 
+        <ul class="download-ul download-mobile">
+            <li class="down-box">
+                <div class="picture">
+                    <img src="https://neo-cdn.azureedge.net/images/client/o3-android.jpg" />
+                </div>
+                <h2>O3 - @Localizer["Android version"]<small>1.10.0</small></h2>
+                <p class="desc">
+                    - <a href="https://github.com/O3Labs/O3Android" target="_blank">O3 Labs</a> @Localizer["developed a native Android application"]<br />
+                    - @Localizer["Manage your assets in a simple and secure way"]<br />
+                    - @Localizer["Send assets, Claim GAS, top up from a cold storage wallet"]<br />
+                    - @Localizer["Support"] NEP-2, NEP-5 <br />
+                </p>
+                <p class="info">
+                    @Localizer["Languages"]: @Localizer["English"]<br />
+                    @Localizer["Supported OS"]: Android 6.0 @Localizer["or later"]<br />
+                    @Localizer["License"]: <a href="https://github.com/O3Labs/O3Android/blob/master/LICENSE" target="_blank">MIT</a><br />
+                </p>
+                <p class="down-time">2018-7-9</p>
+                <a class="down-btn" href="https://play.google.com/store/apps/details?id=network.o3.o3wallet" target="_blank">@Localizer["Download"]</a>
+                <a class="down-btn" href="https://o3.network/" target="_blank">@Localizer["Website"]</a>
+            </li>
+            <li class="down-box">
+                <div class="picture">
+                    <img src="https://neo-cdn.azureedge.net/images/client/o3-ios.jpg" />
+                </div>
+                <h2>O3 - @Localizer["iOS version"]<small>1.6.1</small></h2>
+                <p class="desc">
+                    - <a href="https://github.com/CityOfZion/OzoneWalletIOS" target="_blank">O3 Labs</a> @Localizer["developed a native iOS application"]<br />
+                    - @Localizer["Contacts, Claim GAS, Sending/receiving assets"]<br />
+                    - @Localizer["Protected by TouchID and pincode"]<br />
+                    - @Localizer["Support"] NEP-2, NEP-5 <br />
+                </p>
+                <p class="info">
+                    @Localizer["Languages"]: @Localizer["English/Chinese"]<br />
+                    @Localizer["Supported OS"]: iOS 11.0 @Localizer["or later"]<br />
+                    @Localizer["License"]: <a href="https://github.com/CityOfZion/OzoneWalletIOS/blob/master/LICENSE" target="_blank">MIT</a><br />
+                </p>
+                <p class="down-time">2018-7-12</p>
+                <a class="down-btn" href="https://itunes.apple.com/app/id1336781023" target="_blank">@Localizer["Download"]</a>
+                <a class="down-btn" href="https://o3.network/" target="_blank">@Localizer["Website"]</a>
+            </li>
+            <li class="down-box">
+                <div class="picture">
+                    <img src="https://neo-cdn.azureedge.net/images/client/sea-android.jpg" />
+                </div>
+                <h2>SEA - @Localizer["Android version"]</h2>
+                <p class="desc">
+                    - <a href="https://github.com/OTCGO/sea-app" target="_blank">SEA</a> @Localizer["developed an Android wallet with excellent user experience"]<br />
+                    - @Localizer["Good interaction, secure design, easy management of NEP5 assets"]<br />
+                    - @Localizer["Support import of private keys, transfer, claim GAS/ONG, no block synchronization"]<br />
+                    - @Localizer["Support"] NEP-2, NEP-5 <br />
+                </p>
+                <p class="info">
+                    @Localizer["Languages"]: @Localizer["English/Chinese"]<br />
+                    @Localizer["Supported OS"]: Android 6.0 @Localizer["or later"]<br />
+                    @Localizer["License"]: <a href="https://github.com/OTCGO/sea-app/blob/master/LICENSE" target="_blank">MIT</a><br />
+                </p>
+                <p class="down-time">2018-7-16</p>
+                <a class="down-btn" href="https://www.pgyer.com/mCWD" target="_blank">@Localizer["Download"]</a>
+                <a class="down-btn" href="https://otcgo.cn/#/" target="_blank">@Localizer["Website"]</a>
+            </li>
+            <li class="down-box">
+                <div class="picture">
+                    <img src="https://neo-cdn.azureedge.net/images/client/sea-ios.jpg" />
+                </div>
+                <h2>SEA - @Localizer["iOS version"]</h2>
+                <p class="desc">
+                    - <a href="https://github.com/OTCGO/sea-app" target="_blank">SEA</a> @Localizer["developed a iOS wallet with excellent user experience"]<br />
+                    - @Localizer["Good interaction, secure design, easy management of NEP5 assets"]<br />
+                    - @Localizer["Support import of private keys, transfer, claim GAS/ONG, no block synchronization"]<br />
+                    - @Localizer["Support"] NEP-2, NEP-5 <br />
+                </p>
+                <p class="info">
+                    @Localizer["Languages"]: @Localizer["English/Chinese"]<br />
+                    @Localizer["Supported OS"]: iOS 10.0 @Localizer["or later"]<br />
+                    @Localizer["License"]: <a href="https://github.com/OTCGO/sea-app/blob/master/LICENSE" target="_blank">MIT</a><br />
+                </p>
+                <p class="down-time">2018-7-16</p>
+                <a class="down-btn" href="https://www.pgyer.com/TngD?sig=CNWpBxeW36zHH056M3bA6Ye1nLJgGcudNMRGOU2mZV6GIJvGPgUBeUTsHdakxtsq" target="_blank">@Localizer["Download"]</a>
+                <a class="down-btn" href="https://otcgo.cn/#/" target="_blank">@Localizer["Website"]</a>
+            </li>
+            <li class="down-box">
+                <div class="picture">
+                    <img src="https://neo-cdn.azureedge.net/images/client/in-android.jpg" />
+                </div>
+                <h2>InWeCrypto - @Localizer["Android version"]<small>2.0.1</small></h2>
+                <p class="desc">
+                    - <a href="https://github.com/InWeCrypto/wallet_android" target="_blank">InWeCrypto</a> @Localizer["developed efficient smart wallet"]<br />
+                    - @Localizer["Multi-dimension display project dynamic"]<br />
+                    - @Localizer["Wallet file is stored locally, support transfer, claim gas"]<br />
+                    - @Localizer["Support"] NEO, GAS, ETH, ERC20 <br />
+                    - @Localizer["Support"] NEP-5 <br />
+                </p>
+                <p class="info">
+                    @Localizer["Languages"]: @Localizer["English/Chinese"]<br />
+                    @Localizer["Supported OS"]: Android 4.4 @Localizer["or later"]<br />
+                    @Localizer["License"]: <a href="https://github.com/InWeCrypto/wallet_android/blob/master/LICENSE" target="_blank">MIT</a><br />
+                </p>
+                <p class="down-time">2018-4-19</p>
+                <a class="down-btn" href="http://inwecrypto.com/en/platform" target="_blank">@Localizer["Download"]</a>
+                <a class="down-btn" href="http://inwecrypto.com/en/download" target="_blank">@Localizer["Website"]</a>
+            </li>
+            <li class="down-box">
+                <div class="picture">
+                    <img src="https://neo-cdn.azureedge.net/images/client/in-ios.jpg" />
+                </div>
+                <h2>InWeCrypto - @Localizer["iOS version"]<small>2.0.1</small></h2>
+                <p class="desc">
+                    - <a href="https://github.com/InWeCrypto/wallet_ios" target="_blank">InWeCrypto</a> @Localizer["developed efficient smart wallet"]<br />
+                    - @Localizer["Multi-dimension display project dynamic"]<br />
+                    - @Localizer["Wallet file is stored locally, support transfer, claim gas"]<br />
+                    - @Localizer["Support"] NEO, GAS, ETH, ERC20 <br />
+                    - @Localizer["Support"] NEP-5 <br />
+                </p>
+                <p class="info">
+                    @Localizer["Languages"]: @Localizer["English/Chinese"]<br />
+                    @Localizer["Supported OS"]: iOS 9.0 @Localizer["or later"]<br />
+                    @Localizer["License"]: <a href="https://github.com/InWeCrypto/wallet_ios/blob/master/LICENSE" target="_blank">MIT</a><br />
+                </p>
+                <p class="down-time">2018-4-19</p>
+                <a class="down-btn" href="http://inwecrypto.com/en/platform" target="_blank">@Localizer["Download"]</a>
+                <a class="down-btn" href="http://inwecrypto.com/en/download" target="_blank">@Localizer["Website"]</a>
+            </li>
+            <li class="down-box">
+                <div class="picture">
+                    <img src="https://neo-cdn.azureedge.net/images/client/iWallic.jpg" />
+                </div>
+                <h2>
+                    iWallic - @Localizer["Android version"]<small>0.0.8</small>
+                </h2>
+                <p class="desc">
+                    - <a href="https://github.com/ext-studio/iwallic" target="_blank">e-studio </a> @Localizer["developed Android wallet"]<br />
+                    - @Localizer["Include wide range of assets"]<br />
+                    - @Localizer["Send assets, Claim GAS, top up from a cold storage wallet"]<br />
+                    - @Localizer["Support"] NEP-2, NEP-5, NEP-6 <br />
+                </p>
+                <p class="info">
+                    @Localizer["Languages"]: @Localizer["English/Chinese"]<br />
+                    @Localizer["Supported OS"]: Android 4.4 @Localizer["or later"]<br />
+                    @Localizer["License"]: <a href="https://github.com/ext-studio/iwallic/blob/master/LICENSE" target="_blank">GPL-3.0 </a><br />
+                </p>
+                <p class="down-time">2018-6-29</p>
+                <a class="down-btn" href="https://iwallic.com" target="_blank">@Localizer["Website"]</a>
+            </li>
+            <li class="down-box">
+                <div class="picture">
+                    <img src="https://neo-cdn.azureedge.net/images/client/aphelion-mobile.jpg" />
+                </div>
+                <h2>
+                    Aphelion - @Localizer["Android version"]<small>1.0</small>
+                </h2>
+                <p class="desc">
+                    - <a href="https://github.com/aphtoken/aph-mobile-wallet" target="_blank">Aphtoken</a> @Localizer["developed Android wallet"]<br />
+                    - @Localizer["A cutting edge user interface"]<br />
+                    - @Localizer["Real-time trading chart data"]<br />
+                    - @Localizer["Address book and complete Nep5 token integration"]<br />
+                    - @Localizer["Support"] NEP-5 <br />
+                </p>
+                <p class="info">
+                    @Localizer["Languages"]: @Localizer["English"]<br />
+                    @Localizer["Supported OS"]: Android 4.4 @Localizer["or later"]<br />
+                    @Localizer["License"]: <a href="https://github.com/aphtoken/aph-mobile-wallet/blob/development/LICENSE" target="_blank">MIT</a><br />
+                </p>
+                <p class="down-time">2018-6-25</p>
+                <a class="down-btn" href="https://play.google.com/store/apps/details?id=com.aphelion.wallet" target="_blank">@Localizer["Download"]</a>
+                <a class="down-btn" href="https://aphelion.org" target="_blank">@Localizer["Website"]</a>
+            </li>
+            <li class="down-box">
+                <div class="picture">
+                    <img src="https://neo-cdn.azureedge.net/images/client/app.jpg" />
+                </div>
+                <h2>NEO APP - @Localizer["Android version"]<small>1.2.2</small></h2>
+                <p class="desc">
+                    - <a href="https://github.com/PeterLinX/neowallet.cn" target="_blank">PeterLinX</a> @Localizer["developed Android wallet"]<br />
+                    - @Localizer["Light wallet, without sync block"]<br />
+                    - @Localizer["Wallet file is stored locally, log in via password"]<br />
+                </p>
+                <p class="info">
+                    @Localizer["Languages"]: @Localizer["English/Chinese"]<br />
+                    @Localizer["Supported OS"]: Android 5 @Localizer["or later"]<br />
+                    @Localizer["License"]: <a href="https://github.com/PeterLinX/neowallet.cn/blob/master/LICENSE" target="_blank">MIT</a><br />
+                </p>
+                <p class="down-time">2018-3-5</p>
+                <a class="down-btn" href="@Localizer["https://play.google.com/store/apps/details?id=neo.app"]" target="_blank">@Localizer["Website"]</a>
+            </li>
+        </ul>
+
         <ul class="download-ul download-web">
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/client/tracker.jpg" />
+                    <img src="https://neo-cdn.azureedge.net/images/client/tracker.jpg" />
                 </div>
                 <h2>NEO Tracker</h2>
                 <p class="desc">
@@ -364,7 +364,7 @@
             </li>
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/client/sea-pc.jpg" />
+                    <img src="https://neo-cdn.azureedge.net/images/client/sea-pc.jpg" />
                 </div>
                 <h2>SEA</h2>
                 <p class="desc">
@@ -382,7 +382,7 @@
             </li>
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/client/wallet.jpg" />
+                    <img src="https://neo-cdn.azureedge.net/images/client/wallet.jpg" />
                 </div>
                 <h2>NEO WALLET</h2>
                 <p class="desc">
@@ -398,7 +398,7 @@
             </li>
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/client/ansy.jpg" />
+                    <img src="https://neo-cdn.azureedge.net/images/client/ansy.jpg" />
                 </div>
                 <h2>Ansy</h2>
                 <p class="desc">
@@ -415,7 +415,7 @@
             </li>
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/client/iWallic-web.jpg" />
+                    <img src="https://neo-cdn.azureedge.net/images/client/iWallic-web.jpg" />
                 </div>
                 <h2>iWallic</h2>
                 <p class="desc">
@@ -436,7 +436,7 @@
         <ul class="download-ul download-hardware">
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/client/ledger-blue.jpg" />
+                    <img src="https://neo-cdn.azureedge.net/images/client/ledger-blue.jpg" />
                 </div>
                 <h2>Ledger Blue</h2>
                 <p class="desc">
@@ -455,7 +455,7 @@
             </li>
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/client/ledger-nano.jpg" />
+                    <img src="https://neo-cdn.azureedge.net/images/client/ledger-nano.jpg" />
                 </div>
                 <h2>Ledger Nano S</h2>
                 <p class="desc">
@@ -473,7 +473,7 @@
             </li>
             <li class="down-box">
                 <div class="picture">
-                    <img src="~/images/client/neodun.jpg" />
+                    <img src="https://neo-cdn.azureedge.net/images/client/neodun.jpg" />
                 </div>
                 <h2>@Localizer["NEODUN"]</h2>
                 <p class="desc">
@@ -498,8 +498,8 @@
         $(function () {
             var test = window.location.hash.substr(1);
             var num = parseInt(test);
-            $("#downTab li").eq(num ? num - 1 : 1).addClass("downtab-select");
-            $(".download-container ul").eq(num ? num - 1 : 1).addClass("down-select");
+            $("#downTab li").eq(num ? num - 1 : 0).addClass("downtab-select");
+            $(".download-container ul").eq(num ? num - 1 : 0).addClass("down-select");
 
             $("#downTab li").click(function () {
                 $(".downtab-select").removeClass("downtab-select");

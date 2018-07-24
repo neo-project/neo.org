@@ -5,7 +5,7 @@ html,body{
     color:#888888;
 }
 body {
-    background-image: url('../images/topbg.svg'),url('../images/bottombg.svg');
+    background-image: url('https://neo-cdn.azureedge.net/images/topbg.svg'),url('https://neo-cdn.azureedge.net/images/bottombg.svg');
     background-size: contain,contain;
     background-repeat:no-repeat;
     background-position:top center,bottom center;

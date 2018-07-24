@@ -242,7 +242,7 @@ ul,li{
 }
 .calender .had-event{
     color:#222222;
-    background:url(../images/event/circle.png) no-repeat center;
+    background:url('https://neo-cdn.azureedge.net/images/event/circle.png') no-repeat center;
     background-size:contain;
     border-radius:100%;
 }
