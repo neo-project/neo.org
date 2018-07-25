@@ -127,5 +127,20 @@ namespace NeoWeb
                 return ecdsa.VerifyData(message, signature, HashAlgorithmName.SHA256);
             }
         }
+
+        public static string CDN
+        {
+            get
+            {
+#if DEBUG
+                return "";
+#endif
+
+#if !DEBUG
+            return "https://neo-cdn.azureedge.net";
+#endif
+            }
+        }
+    
     }
 }
