@@ -5,10 +5,10 @@
 }
 @section Styles{
     <environment include="Development">
-        <link rel="stylesheet" href="https://neo-cdn.azureedge.net/css/giveback.css" />
+        <link rel="stylesheet" href="/css/giveback.css" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="https://neo-cdn.azureedge.net/css/giveback.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="@Helper.CDN/css/giveback.min.css" asp-append-version="true" />
     </environment>
 }
 <div class="container completed-content">

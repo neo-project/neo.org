@@ -10,10 +10,10 @@
 }
 @section Styles{
     <environment include="Development">
-        <link rel="stylesheet" href="https://neo-cdn.azureedge.net/css/account.css" />
+        <link rel="stylesheet" href="/css/account.css" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="https://neo-cdn.azureedge.net/css/account.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="@Helper.CDN/css/account.min.css" asp-append-version="true" />
     </environment>
 }
 <div class="container account-container">

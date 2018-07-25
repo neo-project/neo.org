@@ -35,21 +35,21 @@
         <meta name="twitter:description" content="@ViewData["Details"]" />
     }
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://neo-cdn.azureedge.net/images/twitter-img.jpg" />
-    <link rel="apple-touch-icon" href="https://neo-cdn.azureedge.net/images/favicon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="https://neo-cdn.azureedge.net/images/favicon.png">
-    <link rel="icon" type="image/x-icon" href="https://neo-cdn.azureedge.net/images/favicon.png">
-    <link rel="bookmark" type="image/x-icon" href="https://neo-cdn.azureedge.net/images/favicon.png" />
+    <meta name="twitter:image" content="@Helper.CDN/images/twitter-img.jpg" />
+    <link rel="apple-touch-icon" href="@Helper.CDN/images/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="@Helper.CDN/images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="@Helper.CDN/images/favicon.png">
+    <link rel="bookmark" type="image/x-icon" href="@Helper.CDN/images/favicon.png" />
 
     <environment include="Development">
-        <link rel="stylesheet" href="https://neo-cdn.azureedge.net/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="https://neo-cdn.azureedge.net/css/site.css" />
-        <link rel="stylesheet" href="https://neo-cdn.azureedge.net/css/navigation.css" />
-        <link rel="stylesheet" href="https://neo-cdn.azureedge.net/css/common.css" />
+        <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="/css/site.css" />
+        <link rel="stylesheet" href="/css/navigation.css" />
+        <link rel="stylesheet" href="/css/common.css" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="https://neo-cdn.azureedge.net/lib/bootstrap/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="https://neo-cdn.azureedge.net/css/site.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="@Helper.CDN/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="@Helper.CDN/css/site.min.css" asp-append-version="true" />
     </environment>
     @Html.Raw(snippet.FullScript)   
     @RenderSection("Styles", required: false)
@@ -59,7 +59,7 @@
         <div id="nav_container" class="container">
             <div id="logo_div" class="pull-left">
                 <a class="navbar-brand" href="/">
-                    <img src="https://neo-cdn.azureedge.net/images/neo_logo.svg" />
+                    <img src="@Helper.CDN/images/neo_logo.svg" />
                 </a>
             </div>
             <ul id="menu_list" class="navbar-nav float-right t2">
@@ -118,7 +118,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12 footer-logo m3">
-                        <img src="/images/neo_logo.svg">
+                        <img src="@Helper.CDN/images/neo_logo.svg">
                     </div>
                 </div>
                 <div class="row copyright">
@@ -136,14 +136,14 @@
     </footer>
 
     <environment include="Development">
-        <script src="https://neo-cdn.azureedge.net/lib/jquery/dist/jquery.js"></script>
-        <script src="https://neo-cdn.azureedge.net/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="https://neo-cdn.azureedge.net/js/site.js"></script>
+        <script src="/lib/jquery/dist/jquery.js"></script>
+        <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="/js/site.js"></script>
     </environment>
     <environment exclude="Development">
-        <script src="https://neo-cdn.azureedge.net/lib/jquery/dist/jquery.min.js"></script>
-        <script src="https://neo-cdn.azureedge.net/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="https://neo-cdn.azureedge.net/js/site.min.js"></script>
+        <script src="@Helper.CDN/lib/jquery/dist/jquery.min.js"></script>
+        <script src="@Helper.CDN/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="@Helper.CDN/js/site.min.js"></script>
     </environment>
 
     @RenderSection("Scripts", required: false)
