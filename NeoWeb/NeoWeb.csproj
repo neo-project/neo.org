@@ -45,7 +45,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\team\" />
     <Folder Include="wwwroot\upload\" />
   </ItemGroup>
 
