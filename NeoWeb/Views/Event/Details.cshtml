@@ -3,6 +3,14 @@
 @inject IViewLocalizer Localizer
 @{
     ViewData["Title"] = @Model.Name;
+    if (String.IsNullOrEmpty(Model.Cover))
+    {
+        ViewData["Image"] = @String.Format(Helper.CDN + "/images/event/{0}.jpg", Model.Type).ToLower();
+    }
+    else
+    {
+        ViewData["Image"] = @String.Format("https://neo.org/upload/{0}", Model.Cover);
+    }
 }
 @section Styles{
     <environment include="Development">
@@ -18,11 +26,11 @@
             <div class="col-12 col-sm-5 col-md-4">
                 @if (String.IsNullOrEmpty(Model.Cover))
                 {
-                    <img class="img-thumbnail type-img mb-2" src="@String.Format("/images/event/{0}.jpg", Model.Type)">
+                    <img class="img-thumbnail type-img mb-2" src="@String.Format(Helper.CDN + "/images/event/{0}.jpg", Model.Type).ToLower()">
                 }
                 else
                 {
-                    <img class="img-thumbnail type-img mb-2" src="@String.Format("/upload/{0}", Model.Cover)">
+                    <img class="img-thumbnail type-img mb-2" src="@String.Format("/upload/{0}", Model.Cover).ToLower()">
                 }
             </div>
             <div class="col-12 col-sm-7 col-md-8">
