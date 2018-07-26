@@ -165,4 +165,7 @@
   <data name="Consensus Nodes" xml:space="preserve">
     <value>共识节点</value>
   </data>
+  <data name="WeChat" xml:space="preserve">
+    <value>微信</value>
+  </data>
 </root>

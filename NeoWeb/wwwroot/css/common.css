@@ -75,6 +75,19 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
     border-radius: 0;
     text-decoration: none;
 }
+.pop-up {
+    position:relative;
+}
+.pop-hide {
+    position:absolute;
+    z-index:99;
+    left: 0;
+    right: 0;
+    display:none;
+}
+.pop-up:hover .pop-hide{
+    display:block;
+}
 
 @media only screen and (max-width : 1199px) {
     .link2 {font-size:17px;}
