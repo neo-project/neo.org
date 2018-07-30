@@ -166,8 +166,8 @@
   <data name="NEO Client" xml:space="preserve">
     <value>NEO 客户端</value>
   </data>
-  <data name="NEO is a non-profit community-based blockchain project that utilizes blockchain technology and digital identity to digitize assets, to automate the management of digital assets using smart contracts, and to realize a &quot;smart economy&quot; with a distributed network." xml:space="preserve">
-    <value>NEO是一个非盈利的社区化的区块链项目，是利用区块链技术和数字身份进行资产数字化，利用智能合约对数字资产进行自动化管理，实现“智能经济”的一种分布式网络。</value>
+  <data name="NEO is a non-profit community-driven blockchain project. It utilizes blockchain technology and digital identity to digitize assets and automate the management of digital assets using smart contracts. Using a distributed network, it aims to create a &quot;Smart Economy&quot;." xml:space="preserve">
+    <value>NEO是一个非盈利的社区化的区块链项目。它是利用区块链技术和数字身份进行资产数字化，利用智能合约对数字资产进行自动化管理，实现“智能经济”的一种分布式网络。</value>
   </data>
   <data name="NEO Technical Features" xml:space="preserve">
     <value>NEO 技术特性</value>
@@ -178,8 +178,8 @@
   <data name="Neo Virtual Machine (NeoVM): NEO's lightweight stack-based virtual machine provides shorter startup times with efficient execution. Deterministic calling tree-technology allows NEO to achieve unlimited theoretical scalability." xml:space="preserve">
     <value>NeoVM：NEO轻量级基于堆栈的虚拟机，拥有快速的启动时间和较高的执行效率，配合“确定性调用树”技术，可以实现理论上无限的扩展性。</value>
   </data>
-  <data name="NEO was founded in 2014 and was real-time open source on GitHub in June 2015. Since its inception, the NEO team has experienced the upsurge and boom of the blockchain industry and the frenzy and cooling of the digital money market. We believe technology drives progress and together we can create the future. Motivated by this, NEO has been created to shift our traditional economy into the new era of the &quot;Smart Economy&quot;." xml:space="preserve">
-    <value>NEO于2014年正式立项，2015年6月在Github上实时开源，自成立以来，NEO团队亲历了区块链行业的高潮与低谷，数字货币市场的狂热与冷却。我们相信，科技是这个时代变迁的原动力，在这股动力的推动下，我们将迈入新的“智能经济”时代。</value>
+  <data name="NEO was founded in 2014 and was open sourced on GitHub in June 2015. NEO believes that community development is its top priority. NEO has a huge developer community around the world, such as CoZ, NEL and NeoResearch, who continuously contribute to NEO development. Millions of community members are active on Reddit, Discord, Github and Twitter." xml:space="preserve">
+    <value>NEO于2014年正式立项，自2015年6月起在GitHub上实时开源。NEO非常重视社区的发展，拥有庞大的全球开发者社区，以CoZ、NEL和NeoResearch为代表，长期以来为NEO的开发提供支持。NEO社区规模庞大，拥有数百万社区成员，长期活跃在Reddit、Discord、GitHub与Twitter等频道。</value>
   </data>
   <data name="NEO - An Open Network For Smart Economy" xml:space="preserve">
     <value>NEO  一种智能经济分布式网络</value>

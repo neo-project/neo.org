@@ -12,7 +12,7 @@
     font-weight:100;
 }
 .navbar-expand .navbar-nav a:hover {
-    color:#beeb00;
+    color:rgb(88, 191, 0);
 }
 #more_list li {
     color:#FFFFFF;
@@ -172,6 +172,11 @@
 .apply-content .form-control {
     padding:5px;
     font-size:16px;
+    border-radius:0;
+}
+.apply-content .form-control:focus {
+    border-color:#aedb00;
+    box-shadow:0 0 10px 0.2rem rgba(175, 220, 0, 0.25);
 }
 .apply-content textarea {
     min-height: 70px;

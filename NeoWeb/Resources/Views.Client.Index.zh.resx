@@ -159,9 +159,6 @@
   <data name="OTCGO" xml:space="preserve">
     <value>蓝鲸淘</value>
   </data>
-  <data name="Supported Browser" xml:space="preserve">
-    <value>支持浏览器</value>
-  </data>
   <data name="Languages" xml:space="preserve">
     <value>语言</value>
   </data>
@@ -389,5 +386,17 @@
   </data>
   <data name="Also an smart exchange" xml:space="preserve">
     <value>它同时也是一个智能交易所</value>
+  </data>
+  <data name="developed a decentralized full-currency wallet." xml:space="preserve">
+    <value>开发的一款去中心化的全币种轻钱包</value>
+  </data>
+  <data name="Restore wallet with mnemonic words, TouchID supported" xml:space="preserve">
+    <value>支持助记词恢复钱包、Touch ID</value>
+  </data>
+  <data name="Supported Browser" xml:space="preserve">
+    <value>支持浏览器</value>
+  </data>
+  <data name="Supports NEO, NEOGAS, BTC, ETH, BCH, ERC20" xml:space="preserve">
+    <value>支持NEO、GAS、BTC、ETH、BCH、ERC20</value>
   </data>
 </root>

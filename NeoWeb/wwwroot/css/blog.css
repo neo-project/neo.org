@@ -15,6 +15,22 @@ a{
     text-decoration:none;
     word-break: break-word;
 }
+.form-control {
+    border-radius:0;
+}
+.btn-success {
+    background:#58BF00;
+    border-color:#58BF00;
+    border-radius:0;
+    padding: 0.375rem 1rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    font-weight:600;
+}
+.btn-success:hover{
+    background:#48AF00;
+    border-color:#48AF00;
+}
 
 .blog_title {
     font-weight: 100;
