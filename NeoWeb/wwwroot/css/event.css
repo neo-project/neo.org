@@ -8,7 +8,7 @@ select.form-control {
 }
 
 .btn {
-    background: #9ACA3D;
+    background: #51bc00;
     color:#FFFFFF;
     border: none;
     border-radius: 0;
@@ -33,7 +33,7 @@ select.form-control {
 
 .event-btn{
     display:inline-block;
-    background:#9ACA3D;
+    background:#51bc00;
     margin:10px;
     padding:5px 12px;
     color:#FFFFFF!important;
@@ -120,7 +120,7 @@ select.form-control {
 
 .event-detail .iconfont {
     vertical-align:middle;
-    color:#8ABA2D;
+    color:#51bc00;
     font-weight:100;
 }
 
@@ -128,8 +128,8 @@ select.form-control {
     position:absolute;
     width:0px;
     height:0px;
-    border-left:23px solid #9ACA3D;
-    border-top: 23px solid #9ACA3D;
+    border-left:23px solid #51bc00;
+    border-top: 23px solid #51bc00;
     border-bottom:23px solid transparent;
     border-right:23px solid transparent;
 }
@@ -168,7 +168,7 @@ select.form-control {
 
 .e-detail-title:after{
     content:" ";
-    border-bottom:2px solid #9ACA3D;
+    border-bottom:2px solid #51bc00;
     display:block;
     margin-top:5px;
 }
@@ -213,7 +213,7 @@ ul,li{
     width:33%;
 }
 .calender hr {
-    border-top-color:#9ACA3D;
+    border-top-color:#51bc00;
     border-width:20px;
 }
 .calender ul{
@@ -292,6 +292,7 @@ ul,li{
 
 .event-banner {
     background-image: url(/images/event/homepage_hero_banner.jpg);
+    background-size:cover;
     padding: 300px 0 50px;
     margin-bottom: 80px;
 }
