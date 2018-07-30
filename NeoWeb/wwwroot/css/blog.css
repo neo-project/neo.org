@@ -39,7 +39,7 @@ a{
 }
 .search-form {
     max-width: 400px;
-    margin-right: auto;
+    margin: auto;
 }
 .blog_date::before,
 .blog_date::after{
