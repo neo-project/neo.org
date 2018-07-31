@@ -3,12 +3,12 @@
 
 @section Styles{
     <environment include="Development">
-        <link rel="stylesheet" href="/css/homepage.css" />
-        <link href="/lib/wow/css/libs/animate.css" rel="stylesheet" />
+        <link href="/css/homepage.css" rel="stylesheet" />
+        <link href="/lib/animate.css/animate.css" rel="stylesheet" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.CDN/css/homepage.min.css" asp-append-version="true" />
-        <link href="@Helper.CDN/lib/wow/css/libs/animate.min.css" rel="stylesheet" />
+        <link href="@Helper.CDN/css/homepage.min.css" rel="stylesheet" />
+        <link href="@Helper.CDN/lib/animate.css/animate.min.css" rel="stylesheet" />
     </environment>
 }
 @* loading页面 - loading page *@ 
@@ -219,7 +219,7 @@
 </div>
 
 @section Scripts{
-    <script type="text/javascript" src="@Helper.CDN/lib/wow/dist/wow.min.js"></script>
+    <script type="text/javascript" src="@Helper.CDN/lib/wow/wow.min.js"></script>
     <script type="text/javascript" src="@Helper.CDN/js/skrollr.min.js"></script>
 
     <script type="text/javascript">
@@ -228,8 +228,7 @@
             navColor();
             new WOW().init();
 
-            if (/Mobile|Windows Phone|Lumia|Android|webOS|iPhone|iPod|Blackberry|PlayBook|BB10|Opera Mini|\bCrMo\/|Opera Mobi/i.test(navigator.userAgent)) {
-            } else {
+            if (!/Mobile|Windows Phone|Lumia|Android|webOS|iPhone|iPod|Blackberry|PlayBook|BB10|Opera Mini|\bCrMo\/|Opera Mobi/i.test(navigator.userAgent)) {
                 skrollr.init({
                     edgeStrategy: 'set',
                     easing: {
