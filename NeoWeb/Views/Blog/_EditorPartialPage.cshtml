@@ -1,14 +1,12 @@
 ﻿@model NeoWeb.Models.Blog
 <textarea asp-for="Content" class="form-control" autocomplete="off" rows=10></textarea>
 <script src="/lib/tinymce/tinymce.min.js"></script>
-<script src="/lib/tinymce/langs/zh_CN.js"></script>
 <script>
     tinymce.init({
         selector: 'textarea',
         height: 500,
         menubar: true,
         theme: 'modern',
-        language: 'zh_CN',
         plugins: [
             'advlist autolink lists link image charmap print preview hr anchor pagebreak',
             'searchreplace wordcount visualblocks visualchars code fullscreen',
