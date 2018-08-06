@@ -2,14 +2,7 @@
 
 @{
     ViewData["Title"] = "删除";
-}
-@section Styles{
-    <environment include="Development">
-        <link rel="stylesheet" href="/css/testnet-list.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.CDN/css/testnet-list.min.css" asp-append-version="true" />
-    </environment>
+    Layout = "_LayoutTestnet.cshtml";
 }
 <div class="container">
     <h1 class="m2">删除</h1>
