@@ -1,5 +1,5 @@
 var block_height = 0;
-var send_url = "https://seed3.switcheo.network:10331";;
+var send_url = "https://pyrpc2.narrative.org:443";
 var lastt = new Date();
 
 blockInfo();
@@ -33,7 +33,7 @@ function blockInfo() {
             }
         },
         fail: function () {
-            
+            getSeed();
         }
     });
 }
@@ -41,7 +41,7 @@ function blockInfo() {
 //倒计时函数
 function countDown(time) {
     var _left = new Date() - time;
-    if (_left>=0) {
+    if (_left >= 0) {
         var hh = parseInt(_left / 1000 / 60 / 60 % 24, 10);
         var mm = parseInt(_left / 1000 / 60 % 60, 10);
         var ss = parseInt(_left / 1000 % 60, 10);
@@ -62,7 +62,7 @@ function getListdata() {
             if (_list[i].Active) flag++;
         }
         $("#connum").html(flag);
-        
+
         //竞选个数
         var html = "";
         for (var j in _list) {
@@ -73,7 +73,7 @@ function getListdata() {
 }
 
 //图表数据展示
-function getVolue(){
+function getVolue() {
     $.get("../../consensus/gettxcount", []).done(function (data) {
         var _list = JSON.parse(data);
         showCharts(_list);
@@ -230,7 +230,7 @@ function showCharts(data) {
             data: data.SizeList
         }]
     };
-    window.onresize = myChart.resize; 
+    window.onresize = myChart.resize;
     myChart.setOption(option);
 }
 
