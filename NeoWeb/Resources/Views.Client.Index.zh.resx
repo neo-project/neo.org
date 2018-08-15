@@ -132,8 +132,8 @@
   <data name="Client Downloads" xml:space="preserve">
     <value>客户端下载</value>
   </data>
-  <data name="Offline synchronized data(Main Net)" xml:space="preserve">
-    <value>离线同步数据包(主网)</value>
+  <data name="Download offline synchronized package" xml:space="preserve">
+    <value>下载离线同步包</value>
   </data>
   <data name="English" xml:space="preserve">
     <value>英文</value>
