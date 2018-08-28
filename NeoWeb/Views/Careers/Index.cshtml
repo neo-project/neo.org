@@ -17,94 +17,35 @@
     </div>
     <div class="row m2">
         <ul class="careers-tab">
-            <li class="selected">全部</li>
-            <li>R&D</li>
-            <li>Marketing</li>
-            <li>Ecosystem Growth</li>
-            <li>HR & Admin</li>
+            <li class="selected"><a>@Localizer["All"]</a></li>
+            <li><a>R&D</a></li>
+            <li><a>Marketing</a></li>
+            <li><a>Ecosystem Growth</a></li>
+            <li><a>HR & Admin</a></li>
         </ul>
     </div>
-
-
+    @if (ViewBag.UserRules)
+    {
+    <a asp-action="Create">新增</a>
+    }
     @* lang、description、Need、Title *@
     <div class="row">
-        <div class="careers-content m3 p2 wow fadeInDown" data-wow-duration="0.2s" data-wow-delay="100ms">
-            <a href="#" class="car-apply t3">@Localizer["APPLY"]</a>
-            <div class="white-sha t2">
-                <a class="more-info">More Info</a>
+        @foreach (var item in Model)
+        {
+            @if (item.IsShow)
+            {
+            <div class="careers-content m3 p2" careers-type="@item.Type">
+                @if (ViewBag.UserRules)
+                {
+                    <a asp-action="Edit" asp-route-id="@item.Id">编辑</a>
+                }
+                <a href="#" class="car-apply t3">@Localizer["APPLY"]</a>
+                <div class="white-sha t2"><a class="more-info">@Localizer["More Info"]</a></div>
+                <p class="t1">@item.Title</p>
+                <div>@Html.Raw(item.Description)</div>
             </div>
-
-            <p class="t1">区块链开发工程师 – Python</p>
-            <div>
-                <p><strong>职位描述</strong></p>
-                <ul>
-                    <li>深入理解研究现有的区块链技术以及进行测试和开发</li>
-                    <li>核心协议和相关应用开发</li>
-                    <li>参与全球区块链社区，共同实施与整合新产品的迭代</li>
-                    <li>根据项目任务计划按时完成软件研发和测试，按开发流程编写设计文档</li>
-                </ul>
-                <p><strong>岗位技能要求</strong></p>
-                <ul>
-                    <li>计算机相关专业本科及以上学历，3 年以上 Python 开发经验</li>
-                    <li>精通Python语言，熟练使用Python标准库和流行的第三方库</li>
-                    <li>熟悉TCP/IP协议及HTTP协议，UDP协议，精通网络编程、多线程编程</li>
-                    <li>熟悉Tornado/Flask/Gevent/Django等常用开发框架，至少有其中一个的最佳实践或深入研究过其源码及机制</li>
-                    <li>了解基本的前端技术，HTML、CSS、JS、Ajax等</li>
-                    <li>了解一些主流NoSQL数据库的原理与使用，至少熟悉 mongodb，mysql，redis 中的一个，另外对LevelDB，RocksDB有一定了解</li>
-                    <li>悉linux操作系统，能写简单的shell脚本，掌握Docker容器技术的原理，部署和使用优化</li>
-                    <li>了解Bitcoin, Ethereum, HyperLedger Fabric, NEO的区块链相关机制与原理</li>
-                    <li>了解各类主流的共识算法，包括不限于dBFT, PoW, PoS, DPoS, PBFT, Paxos, Raft等</li>
-                    <li>良好的编码风格，具备创造力与分析能力，有深入研究复杂问题、得到较好解决方案并解决问题的能力</li>
-                    <li>良好的工作文档习惯，及时按要求撰写、更新工作流程及技术文档</li>
-                    <li>良好的沟通能力和团队合作精神，英语6级及以上</li>
-                </ul>
-                <p><strong>加分项</strong></p>
-                <ul>
-                    <li>有过编译器开发经验优先</li>
-                    <li>有开发过迅雷下载、BT等P2P下载工具或流媒体传输、直播分发、CDN开发者优先</li>
-                    <li>参加过开源项目的优先</li>
-                </ul>
-            </div>
-        </div>
-        <div class="careers-content m3 p2 wow fadeInDown" data-wow-duration="0.2s" data-wow-delay="100ms">
-            <a href="#" class="car-apply t3">@Localizer["APPLY"]</a>
-            <div class="white-sha t2">
-                <a class="more-info">More Info</a>
-            </div>
-
-            <p class="t1">区块链开发工程师 – Python</p>
-            <div>
-                <p><strong>职位描述</strong></p>
-                <ul>
-                    <li>深入理解研究现有的区块链技术以及进行测试和开发</li>
-                    <li>核心协议和相关应用开发</li>
-                    <li>参与全球区块链社区，共同实施与整合新产品的迭代</li>
-                    <li>根据项目任务计划按时完成软件研发和测试，按开发流程编写设计文档</li>
-                </ul>
-                <p><strong>岗位技能要求</strong></p>
-                <ul>
-                    <li>计算机相关专业本科及以上学历，3 年以上 Python 开发经验</li>
-                    <li>精通Python语言，熟练使用Python标准库和流行的第三方库</li>
-                    <li>熟悉TCP/IP协议及HTTP协议，UDP协议，精通网络编程、多线程编程</li>
-                    <li>熟悉Tornado/Flask/Gevent/Django等常用开发框架，至少有其中一个的最佳实践或深入研究过其源码及机制</li>
-                    <li>了解基本的前端技术，HTML、CSS、JS、Ajax等</li>
-                    <li>了解一些主流NoSQL数据库的原理与使用，至少熟悉 mongodb，mysql，redis 中的一个，另外对LevelDB，RocksDB有一定了解</li>
-                    <li>悉linux操作系统，能写简单的shell脚本，掌握Docker容器技术的原理，部署和使用优化</li>
-                    <li>了解Bitcoin, Ethereum, HyperLedger Fabric, NEO的区块链相关机制与原理</li>
-                    <li>了解各类主流的共识算法，包括不限于dBFT, PoW, PoS, DPoS, PBFT, Paxos, Raft等</li>
-                    <li>良好的编码风格，具备创造力与分析能力，有深入研究复杂问题、得到较好解决方案并解决问题的能力</li>
-                    <li>良好的工作文档习惯，及时按要求撰写、更新工作流程及技术文档</li>
-                    <li>良好的沟通能力和团队合作精神，英语6级及以上</li>
-                </ul>
-                <p><strong>加分项</strong></p>
-                <ul>
-                    <li>有过编译器开发经验优先</li>
-                    <li>有开发过迅雷下载、BT等P2P下载工具或流媒体传输、直播分发、CDN开发者优先</li>
-                    <li>参加过开源项目的优先</li>
-                </ul>
-            </div>
-
-        </div>
+            }
+        }
     </div>
 
 </div>

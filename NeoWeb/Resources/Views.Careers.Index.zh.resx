@@ -120,6 +120,9 @@
   <data name="APPLY" xml:space="preserve">
     <value>立即申请</value>
   </data>
+  <data name="More Info" xml:space="preserve">
+    <value>更多信息</value>
+  </data>
   <data name="NGD (NEO Global Development) is an organization founded under NEO Foundation (NF) in March 2018 on the execution side of NF strategies on technology R&amp;D, marketing and community development. Since NEO is a non-profit international open-source blockchain project seeking interaction and collaboration with the global community, NGD will liaise with organizations and members of the community on behalf of NF. NGD is dedicated to realizing NEO’s vision - the implementation of NEO Smart Economy, a new economic model empowered by technical innovation by converging the community forces." xml:space="preserve">
     <value>NGD（NEO Global Development）是NEO基金会下设的执行机构，成立于2018年3月，负责执行NEO基金会制定的战略，致力于技术研发、市场运营及社区拓展。NEO作为一个国际化、非盈利性的开源区块链项目，将与遍布全球各类社区社区组织进行互动与协作。因此，NGD将会成为NEO Foundation与各社区组织及成员沟通的桥梁，NGD的使命是为实现NEO的愿景不懈努力，带领NEO社区力量共同打造基于技术创新的新经济模式：NEO智能经济。NGD Github地址：https://github.com/neo-ngd/。</value>
   </data>
