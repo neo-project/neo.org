@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.EntityFrameworkCore;
 using NeoWeb.Data;
 using NeoWeb.Models;
@@ -17,10 +18,12 @@ namespace NeoWeb.Controllers
     {
         private readonly ApplicationDbContext _context;
         private string _userId;
-        private bool _userRules;
+        private readonly bool _userRules;
+        private readonly IHtmlLocalizer<CareersController> _localizer;
 
-        public  CareersController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
+        public  CareersController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IHtmlLocalizer<CareersController> localizer)
         {
+            _localizer = localizer;
             _context = context;
             _userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (_userId != null)
@@ -37,12 +40,13 @@ namespace NeoWeb.Controllers
             {
                 Id = p.Id,
                 Title = p.Title,
-                Lang = p.Lang,
+                Lang = p.Title.GetLanguage(),
                 IsShow = p.IsShow,
                 Type = p.Type,
                 Description = p.Description
             });
             ViewBag.UserRules = _userRules;
+            ViewBag.Lang = _localizer;
             return View(models);
         }
 
@@ -99,15 +103,10 @@ namespace NeoWeb.Controllers
 
             if (ModelState.IsValid)
             {
-                var item = _context.Careers.FirstOrDefault(p => p.Id == careers.Id);
                 try
                 {
-                    item.Title = careers.Title;
-                    item.Lang = careers.Lang;
-                    item.IsShow = careers.IsShow;
-                    item.Type = careers.Type;
-                    item.Description = Convert(careers.Description);
-                    _context.Update(item);
+                    careers.Description = Convert(careers.Description);
+                    _context.Update(careers);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

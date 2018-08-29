@@ -26,28 +26,27 @@
     </div>
     @if (ViewBag.UserRules)
     {
-    <a asp-action="Create">新增</a>
+        <a asp-action="Create">新增</a>
     }
     @* lang、description、Need、Title *@
     <div class="row">
-        @foreach (var item in Model)
+        @foreach (var item in (Model as IEnumerable<NeoWeb.Models.Careers>)@*.Where(p => p.Lang == ViewBag.Lang)*@)
         {
             @if (item.IsShow)
             {
-            <div class="careers-content m3 p2" careers-type="@item.Type">
-                @if (ViewBag.UserRules)
-                {
-                    <a asp-action="Edit" asp-route-id="@item.Id">编辑</a>
-                }
-                <a href="#" class="car-apply t3">@Localizer["APPLY"]</a>
-                <div class="white-sha t2"><a class="more-info">@Localizer["More Info"]</a></div>
-                <p class="t1">@item.Title</p>
-                <div>@Html.Raw(item.Description)</div>
-            </div>
+                <div class="careers-content m3 p2" careers-type="@item.Type">
+                    @if (ViewBag.UserRules)
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.Id">编辑</a>
+                    }
+                    <a href="mailto:join@neo.org?subject=@item.Title" class="car-apply t3">@Localizer["APPLY"]</a>
+                    <div class="white-sha t2"><a class="more-info">@Localizer["More Info"]</a></div>
+                    <p class="t1">@item.Title</p>
+                    <div>@Html.Raw(item.Description)</div>
+                </div>
             }
         }
     </div>
-
 </div>
 
 @section Scripts{

@@ -39,6 +39,17 @@ namespace NeoWeb
             return html;
         }
 
+        public static string GetLanguage(this string text)
+        {
+            var lang = "en";
+            foreach (var c in text)
+            {
+                if (c >= 0x4e00 && c <= 0x9fbb)
+                    return "zh";
+            }
+            return lang;
+        }
+
         public static string ToMonth(this int month)
         {
             string[] months = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };

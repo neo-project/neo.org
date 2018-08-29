@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,11 +15,11 @@ namespace NeoWeb.Models
         [Required]
         public string Title { get; set; }
 
-        [Required]
+        [NotMapped]
         public string Lang { get; set; }
 
         [Required]
-        public Boolean IsShow { get; set; }
+        public bool IsShow { get; set; }
 
         [Required]
         public CareersType Type { get; set; }
