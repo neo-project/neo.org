@@ -29,12 +29,11 @@ namespace NeoWeb.Models
 
     }
 
-
     public enum CareersType
     {
         RandD,
         Marketing,
-        Ecosystem,
-        HR
+        EcosystemGrowth,
+        HRandAdmin
     }
 }

@@ -27,6 +27,7 @@
     width:100%;
     padding:20px 0;
     color: #333;
+    cursor:pointer;
 }
 .careers-tab .active {
     background:#51bc00;

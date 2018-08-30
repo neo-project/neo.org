@@ -16,12 +16,12 @@
         </p>
     </div>
     <div class="row m2">
-        <ul class="careers-tab nav nav-pills" id="pills-tab" role="tablist">
-            <li><a class="active" id="pills-home-tab" data-toggle="pill" href="#pills-all" role="tab" aria-controls="pills-home" aria-selected="true">@Localizer["All"]</a></li>
-            <li><a id="pills-profile-tab" data-toggle="pill" href="#pills-a" role="tab" aria-controls="pills-profile" aria-selected="false">R &amp; D</a></li>
-            <li><a id="pills-contact-tab" data-toggle="pill" href="#pills-b" role="tab" aria-controls="pills-contact" aria-selected="false">Marketing</a></li>
-            <li><a id="pills-contact-tab" data-toggle="pill" href="#pills-c" role="tab" aria-controls="pills-contact" aria-selected="false">Ecosystem Growth</a></li>
-            <li><a id="pills-contact-tab" data-toggle="pill" href="#pills-d" role="tab" aria-controls="pills-contact" aria-selected="false">HR &amp; Admin</a></li>
+        <ul class="careers-tab">
+            <li class="active"><a onclick="showDes()">@Localizer["All"]</a></li>
+            <li><a onclick="showDes('0')">R &amp; D</a></li>
+            <li><a onclick="showDes('1')">Marketing</a></li>
+            <li><a onclick="showDes('2')">Ecosystem Growth</a></li>
+            <li><a onclick="showDes('3')">HR &amp; Admin</a></li>
         </ul>
     </div>
     @if (ViewBag.UserRules)
@@ -29,162 +29,42 @@
         <a asp-action="Create">新增</a>
     }
 
-    <div class="tab-content row" id="pills-tabContent">
-        <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-home-tab">
-            @foreach (var item in (Model as IEnumerable<NeoWeb.Models.Careers>).Where(p => p.Lang == Localizer["en"].Value))
+    <div class="row">
+        @if (!ViewBag.UserRules)
+        {
+        @foreach (var item in (Model as IEnumerable<NeoWeb.Models.Careers>).Where(p => p.Lang == Localizer["en"].Value))
+        {
+            @if (item.IsShow)
             {
-                @if (item.IsShow)
-                {
-                    <div class="careers-content m3 p2" careers-type="@item.Type">
-                        @if (ViewBag.UserRules)
-                        {
-                            <a asp-action="Edit" asp-route-id="@item.Id">编辑</a>
-                        }
-                        <a href="mailto:join@neo.org?subject=@item.Title" class="car-apply t3">@Localizer["APPLY"]</a>
-                        <div class="white-sha t2"><a class="more-info">@Localizer["More Info"]</a></div>
-                        <p class="t1">@item.Title</p>
-                        <div>@Html.Raw(item.Description)</div>
-                    </div>
-                }
-                @if (ViewBag.UserRules && !item.IsShow)
-                {
-                    <div class="careers-content m3 p2" careers-type="@item.Type">
+                <div class="careers-content m3 p2" careers-type="@Convert.ToInt32(item.Type)">
+                    @if (ViewBag.UserRules)
+                    {
                         <a asp-action="Edit" asp-route-id="@item.Id">编辑</a>
-                        <p class="text-danger">
-                            未发布状态，仅管理员可见。
-                        </p>
-                        <a href="mailto:join@neo.org?subject=@item.Title" class="car-apply t3">@Localizer["APPLY"]</a>
-                        <div class="white-sha t2"><a class="more-info">@Localizer["More Info"]</a></div>
-                        <p class="t1">@item.Title</p>
-                        <div>@Html.Raw(item.Description)</div>
-                    </div>
-                }
+                    }
+                    <a href="mailto:join@neo.org?subject=@item.Title" class="car-apply t3">@Localizer["APPLY"]</a>
+                    <div class="white-sha t2"><a class="more-info">@Localizer["More Info"]</a></div>
+                    <p class="t1">@item.Title</p>
+                    <div>@Html.Raw(item.Description)</div>
+                </div>
             }
-        </div>
-        <div class="tab-pane fade" id="pills-a" role="tabpanel" aria-labelledby="pills-profile-tab">
-            @foreach (var item in (Model as IEnumerable<NeoWeb.Models.Careers>).Where(p => p.Lang == Localizer["en"].Value && p.Type == CareersType.RandD))
-            {
-                @if (item.IsShow)
+        }
+        }
+        else
+        {
+        @foreach (var item in Model)
+        {
+            <div class="careers-content m3 p2" careers-type="@item.Type">
+                <a asp-action="Edit" asp-route-id="@item.Id">编辑</a>
+                @if (!item.IsShow)
                 {
-                    <div class="careers-content m3 p2" careers-type="@item.Type">
-                        @if (ViewBag.UserRules)
-                        {
-                            <a asp-action="Edit" asp-route-id="@item.Id">编辑</a>
-                        }
-                        <a href="mailto:join@neo.org?subject=@item.Title" class="car-apply t3">@Localizer["APPLY"]</a>
-                        <div class="white-sha t2"><a class="more-info">@Localizer["More Info"]</a></div>
-                        <p class="t1">@item.Title</p>
-                        <div>@Html.Raw(item.Description)</div>
-                    </div>
+                    <p class="text-danger">未发布状态，仅管理员可见。</p>
                 }
-                @if (ViewBag.UserRules && !item.IsShow)
-                {
-                    <div class="careers-content m3 p2" careers-type="@item.Type">
-                        <a asp-action="Edit" asp-route-id="@item.Id">编辑</a>
-                        <p class="text-danger">
-                            未发布状态，仅管理员可见。
-                        </p>
-                        <a href="mailto:join@neo.org?subject=@item.Title" class="car-apply t3">@Localizer["APPLY"]</a>
-                        <div class="white-sha t2"><a class="more-info">@Localizer["More Info"]</a></div>
-                        <p class="t1">@item.Title</p>
-                        <div>@Html.Raw(item.Description)</div>
-                    </div>
-                }
-            }
-        </div>
-        <div class="tab-pane fade" id="pills-b" role="tabpanel" aria-labelledby="pills-contact-tab">
-            @foreach (var item in (Model as IEnumerable<NeoWeb.Models.Careers>).Where(p => p.Lang == Localizer["en"].Value && p.Type == CareersType.Marketing))
-            {
-                @if (item.IsShow)
-                {
-                    <div class="careers-content m3 p2" careers-type="@item.Type">
-                        @if (ViewBag.UserRules)
-                        {
-                            <a asp-action="Edit" asp-route-id="@item.Id">编辑</a>
-                        }
-                        <a href="mailto:join@neo.org?subject=@item.Title" class="car-apply t3">@Localizer["APPLY"]</a>
-                        <div class="white-sha t2"><a class="more-info">@Localizer["More Info"]</a></div>
-                        <p class="t1">@item.Title</p>
-                        <div>@Html.Raw(item.Description)</div>
-                    </div>
-                }
-                @if (ViewBag.UserRules && !item.IsShow)
-                {
-                    <div class="careers-content m3 p2" careers-type="@item.Type">
-                        <a asp-action="Edit" asp-route-id="@item.Id">编辑</a>
-                        <p class="text-danger">
-                            未发布状态，仅管理员可见。
-                        </p>
-                        <a href="mailto:join@neo.org?subject=@item.Title" class="car-apply t3">@Localizer["APPLY"]</a>
-                        <div class="white-sha t2"><a class="more-info">@Localizer["More Info"]</a></div>
-                        <p class="t1">@item.Title</p>
-                        <div>@Html.Raw(item.Description)</div>
-                    </div>
-                }
-            }
-        </div>
-        <div class="tab-pane fade" id="pills-c" role="tabpanel" aria-labelledby="pills-contact-tab">
-            @foreach (var item in (Model as IEnumerable<NeoWeb.Models.Careers>).Where(p => p.Lang == Localizer["en"].Value && p.Type == CareersType.Ecosystem))
-            {
-                @if (item.IsShow)
-                {
-                    <div class="careers-content m3 p2" careers-type="@item.Type">
-                        @if (ViewBag.UserRules)
-                        {
-                            <a asp-action="Edit" asp-route-id="@item.Id">编辑</a>
-                        }
-                        <a href="mailto:join@neo.org?subject=@item.Title" class="car-apply t3">@Localizer["APPLY"]</a>
-                        <div class="white-sha t2"><a class="more-info">@Localizer["More Info"]</a></div>
-                        <p class="t1">@item.Title</p>
-                        <div>@Html.Raw(item.Description)</div>
-                    </div>
-                }
-                @if (ViewBag.UserRules && !item.IsShow)
-                {
-                    <div class="careers-content m3 p2" careers-type="@item.Type">
-                        <a asp-action="Edit" asp-route-id="@item.Id">编辑</a>
-                        <p class="text-danger">
-                            未发布状态，仅管理员可见。
-                        </p>
-                        <a href="mailto:join@neo.org?subject=@item.Title" class="car-apply t3">@Localizer["APPLY"]</a>
-                        <div class="white-sha t2"><a class="more-info">@Localizer["More Info"]</a></div>
-                        <p class="t1">@item.Title</p>
-                        <div>@Html.Raw(item.Description)</div>
-                    </div>
-                }
-            }
-        </div>
-        <div class="tab-pane fade" id="pills-d" role="tabpanel" aria-labelledby="pills-contact-tab">
-            @foreach (var item in (Model as IEnumerable<NeoWeb.Models.Careers>).Where(p => p.Lang == Localizer["en"].Value && p.Type == CareersType.HR))
-            {
-                @if (item.IsShow)
-                {
-                    <div class="careers-content m3 p2" careers-type="@item.Type">
-                        @if (ViewBag.UserRules)
-                        {
-                            <a asp-action="Edit" asp-route-id="@item.Id">编辑</a>
-                        }
-                        <a href="mailto:join@neo.org?subject=@item.Title" class="car-apply t3">@Localizer["APPLY"]</a>
-                        <div class="white-sha t2"><a class="more-info">@Localizer["More Info"]</a></div>
-                        <p class="t1">@item.Title</p>
-                        <div>@Html.Raw(item.Description)</div>
-                    </div>
-                }
-                @if (ViewBag.UserRules && !item.IsShow)
-                {
-                    <div class="careers-content m3 p2" careers-type="@item.Type">
-                        <a asp-action="Edit" asp-route-id="@item.Id">编辑</a>
-                        <p class="text-danger">
-                            未发布状态，仅管理员可见。
-                        </p>
-                        <a href="mailto:join@neo.org?subject=@item.Title" class="car-apply t3">@Localizer["APPLY"]</a>
-                        <div class="white-sha t2"><a class="more-info">@Localizer["More Info"]</a></div>
-                        <p class="t1">@item.Title</p>
-                        <div>@Html.Raw(item.Description)</div>
-                    </div>
-                }
-            }
-        </div>
+                <div class="white-sha t2"><a class="more-info">@Localizer["More Info"]</a></div>
+                <p class="t1">@item.Title</p>
+                <div>@Html.Raw(item.Description)</div>
+            </div>
+        }
+        }
     </div>
 </div>
 
@@ -193,5 +73,17 @@
         $(".more-info").click(function () {
             $(this).parents(".careers-content").addClass("unfold");
         });
+        function showDes(st) {
+            $(".careers-content").hide();
+            if (st) {
+                $(".careers-content").each(function () {
+                    if ($(this).attr("careers-type") === st) {
+                        $(this).show();
+                    };
+                });
+            } else {
+                $(".careers-content").show();
+            }
+        }
     </script>
 }
