@@ -2,7 +2,12 @@
 @inject IViewLocalizer Localizer
 
 @section Styles{
-    <link rel="stylesheet" href="/css/careers.css" />
+    <environment include="Development">
+        <link rel="stylesheet" href="/css/careers.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="@Helper.CDN/css/careers.min.css" asp-append-version="true" />
+    </environment>
 }
 <div class="banner m2 p2">
     <h1 class="m2 p3">JOIN US<br />加入我们</h1>
@@ -79,7 +84,7 @@
                 $(".careers-content").each(function () {
                     if ($(this).attr("careers-type") === st) {
                         $(this).show();
-                    };
+                    }
                 });
             } else {
                 $(".careers-content").show();
