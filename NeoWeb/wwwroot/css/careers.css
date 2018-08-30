@@ -19,11 +19,16 @@
 .careers-tab li{
     display:inline-block;
     width:20%;
-    padding:20px 0;
     font-size:15px;
     text-align:center;
 }
-.careers-tab .selected {
+.careers-tab li a{
+    display:inline-block;
+    width:100%;
+    padding:20px 0;
+    color: #333;
+}
+.careers-tab .active {
     background:#51bc00;
     color:#FFFFFF;
 }

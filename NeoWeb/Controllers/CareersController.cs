@@ -19,11 +19,9 @@ namespace NeoWeb.Controllers
         private readonly ApplicationDbContext _context;
         private string _userId;
         private readonly bool _userRules;
-        private readonly IHtmlLocalizer<CareersController> _localizer;
 
         public  CareersController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IHtmlLocalizer<CareersController> localizer)
         {
-            _localizer = localizer;
             _context = context;
             _userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (_userId != null)
@@ -46,7 +44,6 @@ namespace NeoWeb.Controllers
                 Description = p.Description
             });
             ViewBag.UserRules = _userRules;
-            ViewBag.Lang = _localizer;
             return View(models);
         }
 
