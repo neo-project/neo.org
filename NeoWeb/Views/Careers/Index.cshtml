@@ -2,7 +2,12 @@
 @inject IViewLocalizer Localizer
 
 @section Styles{
-    <link rel="stylesheet" href="/css/careers.css" />
+    <environment include="Development">
+        <link rel="stylesheet" href="/css/careers.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="@Helper.CDN/css/careers.min.css" asp-append-version="true" />
+    </environment>
 }
 <div class="banner m2 p2">
     <h1 class="m2 p3">JOIN US<br />加入我们</h1>
@@ -32,38 +37,38 @@
     <div class="row">
         @if (!ViewBag.UserRules)
         {
-        @foreach (var item in (Model as IEnumerable<NeoWeb.Models.Careers>).Where(p => p.Lang == Localizer["en"].Value))
+            @foreach (var item in (Model as IEnumerable<NeoWeb.Models.Careers>).Where(p => p.Lang == Localizer["en"].Value))
+            {
+                @if (item.IsShow)
+                {
+                    <div class="careers-content m3 p2" careers-type="@Convert.ToInt32(item.Type)">
+                        @if (ViewBag.UserRules)
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.Id">编辑</a>
+                        }
+                        <a href="mailto:join@neo.org?subject=@item.Title" class="car-apply t3">@Localizer["APPLY"]</a>
+                        <div class="white-sha t2"><a class="more-info">@Localizer["More Info"]</a></div>
+                        <p class="t1">@item.Title</p>
+                        <div>@Html.Raw(item.Description)</div>
+                    </div>
+                }
+            }
+        }
+        else
         {
-            @if (item.IsShow)
+            @foreach (var item in Model)
             {
                 <div class="careers-content m3 p2" careers-type="@Convert.ToInt32(item.Type)">
-                    @if (ViewBag.UserRules)
+                    <a asp-action="Edit" asp-route-id="@item.Id">编辑</a>
+                    @if (!item.IsShow)
                     {
-                        <a asp-action="Edit" asp-route-id="@item.Id">编辑</a>
+                        <p class="text-danger">未发布状态，仅管理员可见。</p>
                     }
-                    <a href="mailto:join@neo.org?subject=@item.Title" class="car-apply t3">@Localizer["APPLY"]</a>
                     <div class="white-sha t2"><a class="more-info">@Localizer["More Info"]</a></div>
                     <p class="t1">@item.Title</p>
                     <div>@Html.Raw(item.Description)</div>
                 </div>
             }
-        }
-        }
-        else
-        {
-        @foreach (var item in Model)
-        {
-            <div class="careers-content m3 p2" careers-type="@item.Type">
-                <a asp-action="Edit" asp-route-id="@item.Id">编辑</a>
-                @if (!item.IsShow)
-                {
-                    <p class="text-danger">未发布状态，仅管理员可见。</p>
-                }
-                <div class="white-sha t2"><a class="more-info">@Localizer["More Info"]</a></div>
-                <p class="t1">@item.Title</p>
-                <div>@Html.Raw(item.Description)</div>
-            </div>
-        }
         }
     </div>
 </div>

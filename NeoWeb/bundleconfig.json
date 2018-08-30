@@ -29,6 +29,10 @@
     "inputFiles": [ "wwwroot/css/client.css" ]
   },
   {
+    "outputFileName": "wwwroot/css/careers.min.css",
+    "inputFiles": [ "wwwroot/css/careers.css" ]
+  },
+  {
     "outputFileName": "wwwroot/css/giveback.min.css",
     "inputFiles": [ "wwwroot/css/giveback.css" ]
   },
