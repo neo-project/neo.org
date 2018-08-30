@@ -17,11 +17,11 @@
     </div>
     <div class="row m2">
         <ul class="careers-tab">
-            <li class="active"><a onclick="showDes()">@Localizer["All"]</a></li>
-            <li><a onclick="showDes('0')">R &amp; D</a></li>
-            <li><a onclick="showDes('1')">Marketing</a></li>
-            <li><a onclick="showDes('2')">Ecosystem Growth</a></li>
-            <li><a onclick="showDes('3')">HR &amp; Admin</a></li>
+            <li class="active"><a onclick="showDes(this)">@Localizer["All"]</a></li>
+            <li><a onclick="showDes(this)">R &amp; D</a></li>
+            <li><a onclick="showDes(this)">Marketing</a></li>
+            <li><a onclick="showDes(this)">Ecosystem Growth</a></li>
+            <li><a onclick="showDes(this)">HR &amp; Admin</a></li>
         </ul>
     </div>
     @if (ViewBag.UserRules)
@@ -73,13 +73,16 @@
         $(".more-info").click(function () {
             $(this).parents(".careers-content").addClass("unfold");
         });
-        function showDes(st) {
+        function showDes(e) {
+            var _num = $(e).parent().index() - 1;
+            $(e).parent().siblings().removeClass("active");
+            $(e).parent().addClass("active");
             $(".careers-content").hide();
-            if (st) {
+            if (_num>=0) {
                 $(".careers-content").each(function () {
-                    if ($(this).attr("careers-type") === st) {
+                    if ($(this).attr("careers-type") == _num) {
                         $(this).show();
-                    };
+                    }
                 });
             } else {
                 $(".careers-content").show();
