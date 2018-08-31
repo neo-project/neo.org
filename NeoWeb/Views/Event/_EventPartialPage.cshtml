@@ -6,7 +6,7 @@
         <div class="col-12 col-sm-4 col-md-3 text-center">
             @if (String.IsNullOrEmpty(Model.Cover))
             {
-                <img class="type-img mb-2" data-original="@String.Format("../images/event/{0}.jpg", Model.Type)">
+                <img class="type-img mb-2" data-original="@String.Format(@Helper.CDN + "/images/event/{0}.jpg", Model.Type.ToString().ToLower())">
             }
             else
             {
