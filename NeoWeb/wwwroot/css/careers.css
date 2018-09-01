@@ -1,0 +1,106 @@
+﻿body {
+    font-family: STHeiti,Tahoma, "Microsoft YaHei",arial, sans-serif;
+    letter-spacing:2px;
+    line-height:2;
+}
+.banner {
+    background:url(../images/joinbg.svg) center no-repeat;
+    background-size:contain;
+    text-align:center;
+}
+
+.careers-tab {
+    background:#fff;
+    padding:0;
+    width:100%;
+    font-size:0;
+    letter-spacing:0;
+}
+.careers-tab li{
+    display:inline-block;
+    width:20%;
+    font-size:15px;
+    text-align:center;
+}
+.careers-tab li a{
+    display:inline-block;
+    width:100%;
+    padding:20px 0;
+    color: #333;
+    cursor:pointer;
+}
+.careers-tab .active {
+    background:#51bc00;
+    color:#FFFFFF;
+}
+.careers-content {
+    position:relative;
+    margin-left:15px;
+    margin-right:15px;
+    background:#FFFFFF;
+    width:100%;
+    line-height:2.3;
+    height:430px;
+    overflow:hidden;
+}
+.careers-content.unfold {
+    transition:height 1s;
+    height:auto;
+}
+.unfold .white-sha{
+    display: none;
+}
+.white-sha {
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    height:100px;
+    background:url(../images/white-sha.png);
+    text-align:center;
+}
+.white-sha a {
+    display: inline-block;
+    padding: 15px;
+    margin-top:25px;
+    cursor: pointer;
+    color:#51bc00!important;
+}
+.white-sha a:hover{
+    color:#408b08!important;
+}
+.car-apply {
+    float: right;
+    margin-right: -40px;
+    background:url(../images/apply.png) no-repeat;
+    display:inline-block;
+    min-width:130px;
+    text-align:center;
+    color:#FFFFFF;
+}
+.car-apply:hover{
+    color:#FFFFFF;
+    text-shadow:0px 0px 2px rgba(255,255,255,0.5);
+}
+.careers-content p strong{
+    font-size:18px;
+    color:#555;
+}
+.careers-content ul {
+    padding-left:0px;
+    font-size:16px;
+}
+.careers-content ul,
+.careers-content li {
+}
+
+@media only screen and (max-width:1199px) {
+    .car-apply {
+        margin-right:-20px;
+    }
+}
+@media only screen and (max-width:768px) {
+    .careers-tab{
+        display:none;
+    }
+}

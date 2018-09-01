@@ -31,6 +31,8 @@ namespace NeoWeb.Data
 
         public DbSet<Candidate> Candidates { get; set; }
 
+        public DbSet<Careers> Careers { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

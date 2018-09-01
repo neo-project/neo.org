@@ -117,58 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About this website" xml:space="preserve">
-    <value>关于本网站</value>
+  <data name="APPLY" xml:space="preserve">
+    <value>立即申请</value>
   </data>
-  <data name="Blog" xml:space="preserve">
-    <value>博客</value>
+  <data name="en" xml:space="preserve">
+    <value>zh</value>
   </data>
-  <data name="Client" xml:space="preserve">
-    <value>客户端</value>
+  <data name="More Info" xml:space="preserve">
+    <value>更多信息</value>
   </data>
-  <data name="Developer" xml:space="preserve">
-    <value>开发者</value>
-  </data>
-  <data name="Document" xml:space="preserve">
-    <value>技术文档</value>
-  </data>
-  <data name="Download Logo" xml:space="preserve">
-    <value>Logo下载</value>
-  </data>
-  <data name="Explorer" xml:space="preserve">
-    <value>区块链浏览器</value>
-  </data>
-  <data name="Home" xml:space="preserve">
-    <value>首页</value>
-  </data>
-  <data name="Huodongxing" xml:space="preserve">
-    <value>活动行</value>
-  </data>
-  <data name="NEO is a non-profit community-based blockchain project that utilizes blockchain technology and digital identity to digitize assets, to automate the management of digital assets using smart contracts, and to realize a &quot;smart economy&quot; with a distributed network." xml:space="preserve">
-    <value>NEO是一个非盈利的社区化的区块链项目，是利用区块链技术和数字身份进行资产数字化，利用智能合约对数字资产进行自动化管理，实现“智能经济”的一种分布式网络。</value>
-  </data>
-  <data name="NEO Smart Economy" xml:space="preserve">
-    <value>NEO 智能经济</value>
-  </data>
-  <data name="Weibo" xml:space="preserve">
-    <value>微博</value>
-  </data>
-  <data name="Competition" xml:space="preserve">
-    <value>开发者大赛</value>
-  </data>
-  <data name="Sponsor Giveback" xml:space="preserve">
-    <value>资助者回馈</value>
-  </data>
-  <data name="Event" xml:space="preserve">
-    <value>活动</value>
-  </data>
-  <data name="Consensus Nodes" xml:space="preserve">
-    <value>共识节点</value>
-  </data>
-  <data name="WeChat" xml:space="preserve">
-    <value>微信</value>
-  </data>
-  <data name="Careers" xml:space="preserve">
-    <value>招聘</value>
+  <data name="NGD (NEO Global Development) is an organization founded under NEO Foundation (NF) in March 2018 on the execution side of NF strategies on technology R&amp;D, marketing and community development. Since NEO is a non-profit international open-source blockchain project seeking interaction and collaboration with the global community, NGD will liaise with organizations and members of the community on behalf of NF. NGD is dedicated to realizing NEO’s vision - the implementation of NEO Smart Economy, a new economic model empowered by technical innovation by converging the community forces." xml:space="preserve">
+    <value>NGD（NEO Global Development）是NEO基金会下设的执行机构，成立于2018年3月，负责执行NEO基金会制定的战略，致力于技术研发、市场运营及社区拓展。NEO作为一个国际化、非盈利性的开源区块链项目，将与遍布全球各类社区社区组织进行互动与协作。因此，NGD将会成为NEO Foundation与各社区组织及成员沟通的桥梁，NGD的使命是为实现NEO的愿景不懈努力，带领NEO社区力量共同打造基于技术创新的新经济模式：NEO智能经济。NGD Github地址：https://github.com/neo-ngd/。</value>
   </data>
 </root>
