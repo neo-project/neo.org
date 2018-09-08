@@ -26,6 +26,10 @@ h3,.h3 {font-size: 16px;font-weight:bold;}
 .m2 {margin:42px auto;}
 .m3 {margin:20px auto;}
 .m4 {margin:10px auto;}
+.mt0 {margin-top:0px!important;}
+.ml0 {margin-left:0px!important;}
+.mb0 {margin-bottom:0px!important;}
+.mr0 {margin-right:0px!important;}
 .padding_normal {padding:initial 100px;}
 .p1 {padding:60px;}
 .p2 {padding:40px;}
@@ -42,13 +46,19 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
 .desktop-show {display:inline-block!important;}
 .mobile-show {display:none!important;}
 .light-text {color:#AAAAAA;}
+.gray-text {color:#333333;}
 .green-text{color:#00ae1d;}
 .red-text{color:#dc3545!important;}
 .text-ellipsis {overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.lh1 {line-height:2.5;}
+.lh2 {line-height:2;}
+.lh3 {line-height:1.7;}
+.flo-r {float:right;}
 .midpoint {position:absolute;top:0;left:0;right:0;bottom:0;margin:auto;}
 .posi-rela {position:relative;}
 .posi-fixed {position:fixed;}
 .text-white {color:#FFFFFF;}
+.text-yellow{color:#EDCB00;}
 .dis-table {display:table;}
 .dis-table-row {display:table-row;}
 .dis-table-cell {display:table-cell;vertical-align:middle;}
