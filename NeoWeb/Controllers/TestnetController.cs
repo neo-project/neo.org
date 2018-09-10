@@ -24,7 +24,9 @@ namespace NeoWeb.Controllers
             _localizer = localizer;
         }
 
-        // GET: Testnet
+        // GET: dev
+        [Route("dev")]
+        [Route("developer")]
         [AllowAnonymous]
         public IActionResult Index()
         {

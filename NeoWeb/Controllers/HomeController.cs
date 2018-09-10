@@ -35,6 +35,7 @@ namespace NeoWeb.Controllers
             return View();
         }
 
+        [Route("team")]
         public IActionResult Team()
         {
             return View();
