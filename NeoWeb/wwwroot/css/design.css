@@ -35,6 +35,7 @@
 }
 a, a:active{
     color:#FFFFFF;
+    cursor:pointer;
 }
 a:hover {
     color:#ECEDEC;
@@ -81,7 +82,7 @@ small, .small {
     z-index:5;
 }
 /*飞机*/
-.des-style-fri::before{
+.des-style-fri::after{
     content:"";
     width:100%;
     height:100%;
@@ -90,18 +91,20 @@ small, .small {
     background-position: right -150px ,0 0;
     background-size:110px;
     background-repeat:repeat-y;
+    z-index:-1;
     left:0;
+    top:0;
 }
 .des-style-fri.container{
     padding:0 9%;
 }
-.des-style-fri.des-requir::before {
+.des-style-fri.des-requir::after {
     background-position: right -360px ,0 0px;
 }
-.des-style-fri.des-notes::before {
+.des-style-fri.des-notes::after {
     background-position: right 0px ,0 -400px;
 }
-.des-style-fri.des-rewards::before {
+.des-style-fri.des-rewards::after {
     background-position: right 515px ,0 640px;
 }
 /*动画*/
@@ -143,9 +146,16 @@ small, .small {
     background:#ECEDEC;
     border-radius:20px;
     box-shadow:0px 8px 0px #A3A3A3;
+    color:#333333!important;
 }
 .theme-content h2 {
     margin-top:0;
+}
+.theme-content a{
+    color:#388513;
+}
+.theme-content a:hover{
+    color:#3F8A1A;
 }
 .img-bg3-1{
     margin-top:-15px;
@@ -213,7 +223,7 @@ small, .small {
     opacity:0.9;
 }
 @media only screen and (max-width : 992px) {
-    .des-style-fri::before {
+    .des-style-fri::after {
         opacity:0.8;
     }
     .time-content img{
@@ -231,7 +241,7 @@ small, .small {
     .design-con {
         padding:20px 0;
     }
-    .des-style-fri::before {
+    .des-style-fri::after {
         opacity:0.3;
     }
     .time-content li {

@@ -29,5 +29,5 @@
     <Folder Include="wwwroot\images\新文件夹\" />
   </ItemGroup>
 
-  <ProjectExtensions><VisualStudio><UserProperties wwwroot_4js_4zh_1json__JSONSchema="http://json.schemastore.org/ansible-stable-2.5" wwwroot_4js_4en_1json__JSONSchema="http://json.schemastore.org/commands" /></VisualStudio></ProjectExtensions>
+  <ProjectExtensions><VisualStudio><UserProperties wwwroot_4js_4zh_1json__JSONSchema="http://json.schemastore.org/appveyor" wwwroot_4js_4en_1json__JSONSchema="http://json.schemastore.org/commands" /></VisualStudio></ProjectExtensions>
 </Project>
