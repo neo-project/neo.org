@@ -8,9 +8,10 @@
     font-weight:100;
 }
 .navbar {
-    position: fixed;
+    position: absolute;
     z-index: 99;
-    background: url(../images/design/nav-bg.png);
+    /*background:rgb(43,100,15);*/
+    background:url(../images/design/nav-bg.png);
     width: 100%;
 }
 .navbar-nav li{
@@ -31,6 +32,12 @@
 }
 .navbar-nav li small{
     display:none;
+}
+a, a:active{
+    color:#FFFFFF;
+}
+a:hover {
+    color:#ECEDEC;
 }
 h2 {
     text-align:center;
