@@ -50,19 +50,13 @@
 	.st145{fill:#276401;}
 	.st146{fill:#009045;}
 	.st147{fill:#E0AE00;}
-	.aniFri {
-		animation: aniFri infinite linear;
-	}
-	.aniSec{
-		animation: aniSec infinite linear;
-	}
-	.aniThi{
-		animation: aniThi infinite linear;
-	}
-	.slowAni{animation-duration: 10s;}
-	.normalAni{animation-duration: 7s;}
-	.fastAni{animation-duration: 4s;}
-	@keyframes aniFri {
+	.aF{animation:aF infinite linear;}
+	.aS{animation:aS infinite linear;}
+	.aT{animation:aT infinite linear;}
+	.sA{animation-duration:10s;}
+	.nA{animation-duration:7s;}
+	.fA{animation-duration:4s;}
+	@keyframes aF {
 		from {
 			-webkit-transform: translate(0, 0);
 			transform: translate(0, 0);
@@ -80,7 +74,7 @@
 			transform: translate(0, 0);
 		}
 	}
-	@keyframes aniSec {
+	@keyframes aS {
 	  from {
 		-webkit-transform: rotate3d(0, 0, 0);
 		transform: rotate3d(0, 0, 0);
@@ -94,7 +88,7 @@
 		transform: rotate3d(0, 0, 0);
 	  }
 	}
-	@-webkit-keyframes aniThi{
+	@-webkit-keyframes aT{
 	  from {
 		-webkit-transform: translate(0,0) rotate3d(0, 0, 0, 0);
 		transform: translate(0,0) rotate3d(0, 0, 0, 0);
@@ -112,17 +106,17 @@
 <g>
 	<path class="st0" d="M2217.1,2340.6c0,0-96.1,31.8-61.6,80.9c34.5,49.1,88.1,81.9,136,94.2c48,12.3,99.3,13.1,99.3,13.1   s-10.5,62.6,23.7,85.5s161.9,40.2,190,34.4c28.1-5.7,123.8-41.6,123.8-41.6l28.8-32.2l113.3,32.2c0,0,28.9,7.9,43.1,19.7   c14.2,11.8,52.7,0,64.4,3s86.8,19.5,102.4,20.1c15.7,0.6,57.1-5.3,80.7-23c23.6-17.7,0-51.9,0-51.9l-95.1-74.6   c0,0,92.5-53,105.6-66.7c13.1-13.7-13.5-69.8-13.5-69.8L2217.1,2340.6z"/>
 	<g>
-		<g class="st108 aniFri slowAni">
+		<g class="st108 aF sA">
 			<polygon class="st109" points="2155.5,275.7 2008.6,395 1861.8,260.9 2008.7,141.6  "/>
 			<polygon class="st99" points="1861.8,260.9 1880.7,162.4 2027.6,43.1 2008.7,141.6  "/>
 			<polygon class="st1" points="2008.7,141.6 2027.6,43.1 2174.4,177.3 2155.5,275.7  "/>
 		</g>
-		<g class="aniSec fastAni">
+		<g class="aS fA">
 			<polygon class="st102" points="3896.6,260.9 3921.5,324.6 3863.7,417.9 3838.8,354.1  "/>
 			<polygon class="st103" points="3957.3,452.7 3863.7,417.9 3921.5,324.6 4015.1,359.4  "/>
 			<polygon class="st98" points="4015.1,359.4 3921.5,324.6 3896.6,260.9 3990.2,295.7  "/>
 		</g>
-		<g class="aniFri normalAni">
+		<g class="aF nA">
 			<polygon class="st102" points="482.3,747.2 507.2,811 449.4,904.3 424.5,840.5  "/>
 			<polygon class="st103" points="543,939.1 449.4,904.3 507.2,811 600.8,845.8  "/>
 			<polygon class="st98" points="600.8,845.8 507.2,811 482.3,747.2 575.9,782.1  "/>
@@ -131,7 +125,7 @@
 			<polygon class="st1" points="2391.4,1731.8 2341.7,1446.4 2459,1361.7 2508.6,1647"/>
 			<polygon class="st3" points="2092.1,1460.9 2341.7,1446.4 2391.4,1731.8 2141.8,1746.3"/>
 		</g>
-		<g class="aniSec slowAni">
+		<g class="aS sA">
 			<polygon class="st4" points="2504.3,1877.4 2355.5,1821.2 2284.5,1576.4 2433.3,1632.6"/>
 			<polygon class="st5" points="2078.8,1683.7 2284.5,1576.4 2355.5,1821.2 2149.8,1928.5"/>
 			<polygon class="st6" points="2149.8,1928.5 2355.5,1821.2 2504.3,1877.4 2298.5,1984.7"/>
@@ -141,12 +135,12 @@
 			<polygon class="st2" points="2947.1,917.5 2670.2,746.2 2576.6,592 2853.4,763.2  "/>
 			<polygon class="st99" points="2717.9,1221.9 2441,1050.6 2670.2,746.2 2947.1,917.5  "/>
 		</g>
-		<g class="aniThi slowAni">
+		<g class="aT sA">
 			<polygon class="st105" points="3926.9,1550.7 3694.3,1661.8 3506.6,1585.4 3739.2,1474.3"/>
 			<polygon class="st106" points="3546.1,1835.5 3506.6,1585.4 3694.3,1661.8 3733.8,1911.9"/>
 			<polygon class="st107" points="3733.8,1911.9 3694.3,1661.8 3926.9,1550.7 3966.4,1800.8"/>
 		</g>
-		<g class="aniThi normalAni">
+		<g class="aT nA">
 			<polygon class="st96" points="3283.7,1767.5 3340.2,1468.5 3461.8,1545.9 3405.2,1844.8  "/>
 			<polygon class="st1" points="3024.9,1742.6 3283.7,1767.5 3405.2,1844.8 3146.5,1820  "/>
 			<polygon class="st99" points="3081.4,1443.7 3340.2,1468.5 3283.7,1767.5 3024.9,1742.6  "/>
@@ -156,7 +150,7 @@
 			<polygon class="st102" points="1737.2,1682.8 1663.7,1453.8 1835.9,1033.8 1909.3,1262.8  "/>
 			<polygon class="st1" points="1909.3,1262.8 1835.9,1033.8 2299.2,1147.5 2372.6,1376.6  "/>
 		</g>
-		<g class="aniSec normalAni">
+		<g class="aS nA">
 			<polygon class="st111" points="2216.4,727.2 2387.5,653 2489.7,837.8 2318.5,912.1"/>
 			<polygon class="st112" points="2489.7,837.8 2416.9,910.7 2245.8,984.9 2318.5,912.1"/>
 			<polygon class="st113" points="2318.5,912.1 2245.8,984.9 2143.7,800 2216.4,727.2"/>
@@ -171,12 +165,12 @@
 			<polygon class="st120" points="1918.3,868.1 1747.3,891.2 1439.4,875.3 1610.4,852.2   "/>
 			<polygon class="st121" points="1610.4,852.2 1439.4,875.3 1440.2,517.5 1611.2,494.4   "/>
 		</g>
-		<g class="aniThi fastAni">
+		<g class="aT fA">
 			<polygon class="st122" points="1473.6,994.7 1474.4,1260.4 1228.4,1296.3 1227.5,1030.5"/>
 			<polygon class="st123" points="1228.4,1296.3 1111.2,1233.3 1110.4,967.6 1227.5,1030.5"/>
 			<polygon class="st124" points="1227.5,1030.5 1110.4,967.6 1356.5,931.7 1473.6,994.7"/>
 		</g>
-		<g class="aniSec normalAni">
+		<g class="aS nA">
 			<polygon class="st102" points="1649.1,1243.1 1646.3,1353.2 1502.1,1455.5 1505,1345.3  "/>
 			<polygon class="st103" points="1619.3,1565.8 1502.1,1455.5 1646.3,1353.2 1763.4,1463.5  "/>
 			<polygon class="st98" points="1763.4,1463.5 1646.3,1353.2 1649.1,1243.1 1766.3,1353.3  "/>
@@ -186,7 +180,7 @@
 			<polygon class="st2" points="3699,985.1 3925.1,1252.4 3731.7,1192.3 3505.6,925  "/>
 			<polygon class="st3" points="3505.6,925 3731.7,1192.3 3453.7,1487.8 3227.7,1220.4  "/>
 		</g>
-		<g class="aniThi normalAni">
+		<g class="aT nA">
 			<polygon class="st109" points="2273.3,1065.6 2411.8,1435.9 2275.9,1579.1 2137.4,1208.8  "/>
 			<polygon class="st98" points="2607,1496.7 2275.9,1579.1 2411.8,1435.9 2742.9,1353.5  "/>
 			<polygon class="st2" points="2742.9,1353.5 2411.8,1435.9 2273.3,1065.6 2604.4,983.2  "/>
