@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\css\careers.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\design.min.css" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,5 +25,15 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
   </ItemGroup>
 
-  <ProjectExtensions><VisualStudio><UserProperties wwwroot_4js_4en_1json__JSONSchema="http://json.schemastore.org/commands" /></VisualStudio></ProjectExtensions>
+  <ItemGroup>
+    <Folder Include="wwwroot\images\新文件夹\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\css\design.min.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties wwwroot_4js_4zh_1json__JSONSchema="http://json.schemastore.org/appveyor" wwwroot_4js_4en_1json__JSONSchema="http://json.schemastore.org/commands" /></VisualStudio></ProjectExtensions>
 </Project>

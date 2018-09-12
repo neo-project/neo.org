@@ -1,4 +1,3 @@
-﻿// More info at https://go.microsoft.com/fwlink/?LinkId=808241
 [
   {
     "outputFileName": "wwwroot/css/site.min.css",
@@ -10,59 +9,87 @@
   },
   {
     "outputFileName": "wwwroot/css/account.min.css",
-    "inputFiles": [ "wwwroot/css/account.css" ]
+    "inputFiles": [
+      "wwwroot/css/account.css"
+    ]
   },
   {
     "outputFileName": "wwwroot/css/blog.min.css",
-    "inputFiles": [ "wwwroot/css/blog.css" ]
+    "inputFiles": [
+      "wwwroot/css/blog.css"
+    ]
   },
   {
     "outputFileName": "wwwroot/css/event.min.css",
-    "inputFiles": [ "wwwroot/css/event.css" ]
+    "inputFiles": [
+      "wwwroot/css/event.css"
+    ]
   },
   {
     "outputFileName": "wwwroot/css/team.min.css",
-    "inputFiles": [ "wwwroot/css/team.css" ]
+    "inputFiles": [
+      "wwwroot/css/team.css"
+    ]
   },
   {
     "outputFileName": "wwwroot/css/client.min.css",
-    "inputFiles": [ "wwwroot/css/client.css" ]
+    "inputFiles": [
+      "wwwroot/css/client.css"
+    ]
   },
   {
     "outputFileName": "wwwroot/css/careers.min.css",
-    "inputFiles": [ "wwwroot/css/careers.css" ]
+    "inputFiles": [
+      "wwwroot/css/careers.css"
+    ]
   },
   {
     "outputFileName": "wwwroot/css/giveback.min.css",
-    "inputFiles": [ "wwwroot/css/giveback.css" ]
+    "inputFiles": [
+      "wwwroot/css/giveback.css"
+    ]
   },
   {
     "outputFileName": "wwwroot/css/homepage.min.css",
-    "inputFiles": [ "wwwroot/css/homepage.css" ]
+    "inputFiles": [
+      "wwwroot/css/homepage.css"
+    ]
   },
   {
     "outputFileName": "wwwroot/css/team.min.css",
-    "inputFiles": [ "wwwroot/css/team.css" ]
+    "inputFiles": [
+      "wwwroot/css/team.css"
+    ]
   },
   {
     "outputFileName": "wwwroot/css/logo.min.css",
-    "inputFiles": [ "wwwroot/css/logo.css" ]
+    "inputFiles": [
+      "wwwroot/css/logo.css"
+    ]
   },
   {
     "outputFileName": "wwwroot/css/testnet.min.css",
-    "inputFiles": [ "wwwroot/css/testnet.css" ]
+    "inputFiles": [
+      "wwwroot/css/testnet.css"
+    ]
   },
   {
     "outputFileName": "wwwroot/css/testnet-list.min.css",
-    "inputFiles": [ "wwwroot/css/testnet-list.css" ]
+    "inputFiles": [
+      "wwwroot/css/testnet-list.css"
+    ]
   },
   {
     "outputFileName": "wwwroot/css/contest.min.css",
-    "inputFiles": [ "wwwroot/css/contest.css" ]
+    "inputFiles": [
+      "wwwroot/css/contest.css"
+    ]
   },
   {
     "outputFileName": "wwwroot/css/consensus.min.css",
-    "inputFiles": [ "wwwroot/css/consensus.css" ]
+    "inputFiles": [
+      "wwwroot/css/consensus.css"
+    ]
   },
   {
     "outputFileName": "wwwroot/js/site.min.js",
@@ -72,8 +99,7 @@
     "minify": {
       "enabled": true,
       "renameLocals": true
-    },
-    "sourceMap": false
+    }
   },
   {
     "outputFileName": "wwwroot/js/blog.min.js",
@@ -83,8 +109,7 @@
     "minify": {
       "enabled": true,
       "renameLocals": true
-    },
-    "sourceMap": false
+    }
   },
   {
     "outputFileName": "wwwroot/js/consensus.min.js",
@@ -94,7 +119,12 @@
     "minify": {
       "enabled": true,
       "renameLocals": true
-    },
-    "sourceMap": false
+    }
+  },
+  {
+    "outputFileName": "wwwroot/css/design.min.css",
+    "inputFiles": [
+      "wwwroot/css/design.css"
+    ]
   }
 ]

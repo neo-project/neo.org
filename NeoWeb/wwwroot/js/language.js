@@ -99,7 +99,7 @@ function loadDict() {
     $.ajax({
         async: false,
         type: "GET",
-        url: "https://neo-cdn.azureedge.net/js/" + lang + ".json" + "?v=" + Math.random(),
+        url: "/js/" + lang + ".json" + "?v=" + Math.random(),
         success: function (msg) {
             dict = eval(msg);
         }
