@@ -153,9 +153,7 @@ small, .small {
     background:#ECEDEC;
     border-radius:20px;
     box-shadow:0px 8px 0px #A3A3A3;
-}
-.des-theme .theme-content p{
-    color:#333333!important;
+    color:#333333;
 }
 .theme-content h2 {
     margin-top:0;
