@@ -29,5 +29,11 @@
     <Folder Include="wwwroot\images\新文件夹\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="wwwroot\css\design.min.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
   <ProjectExtensions><VisualStudio><UserProperties wwwroot_4js_4zh_1json__JSONSchema="http://json.schemastore.org/appveyor" wwwroot_4js_4en_1json__JSONSchema="http://json.schemastore.org/commands" /></VisualStudio></ProjectExtensions>
 </Project>
