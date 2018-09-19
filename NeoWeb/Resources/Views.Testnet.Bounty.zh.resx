@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="NEO Vulnerability Bounty Program" xml:space="preserve">
+    <value>NEO 漏洞奖励计划</value>
+  </data>
+  <data name="The purpose of NEO vulnerability bounty program is to be proactive about blockchain security by providing a channel for security researchers to report potential security vulnerabilities identified related to our underlying infrastructure. Everyone who find the vulnerabilities can send email to &lt;a href='mailto:erik@neo.org'&gt;erik@neo.org&lt;/a&gt;. We will try our best to investigate those eligible vulnerabilities and fix the validity issues. All rewards will be paid in the equivalent amount of NEO." xml:space="preserve">
+    <value>NEO Vulnerability Bounty Program 成立的目的在于保障 NEO 区块链系统的安全性，给广大的社区安全专家们提供一个通道，如果发现关于我们的区块链底层的潜在安全性问题或者威胁，都可通过发送邮件至 &lt;a href='mailto:erik@neo.org'&gt;erik@neo.org&lt;/a&gt;，我们将调查所有合格的漏洞报告，并尽最大努力迅速解决问题。奖励将以美元等值的 NEO 的形式发放。</value>
+  </data>
+  <data name="Note: Higher rewards will be paid out in case of vulnerabilities of certain interest and criticality. Before reporting any issues, please check the following disclosures on responsibilities, program rules and reporting manner notice." xml:space="preserve">
+    <value>注意：根据评定的漏洞严重程度等级，漏洞的严重程度、影响度越高，奖励越高。在报告任何安全漏洞之前，请查看本页了解我们的责任披露政策、奖励方式以及编写报告内容的注意事项。</value>
+  </data>
+  <data name="Level of vulnerabilities will undergo evaluation by the NEO R&amp;D team based on severity, influence and other dimensions. As we will prioritize report assessment by risks and other factors, it may take time for our response. Time to first response (from report submission) will be 5 business days; time to triage (from report submission) will be 10 business days. NEO will regularly update the feedback on its website and social media channels. Rewards will be distributed within 3 days following official announcement. NEO reserves the right of final interpretation of the event." xml:space="preserve">
+    <value>安全漏洞的等级评估将会由 NEO 内部工程师根据严重程度、影响程度等多个维度进行判定打分。我们会根据风险和其他因素按优先顺序评估报告，因此可能需要一段时间才能回复您。第一个响应时间（从提交开始）为 5 个工作日，漏洞评估的时间（从提交开始）为 10 个工作日。NEO 将会定期在官网以及社交媒体上发布项目反馈，获得奖励的参与者可在官方宣布结果的 3 天内收到奖金。最终解释权归 NEO 所有。</value>
+  </data>
+  <data name="Program Rules" xml:space="preserve">
+    <value>项目规则</value>
+  </data>
+  <data name="Asset - What software asset the vulnerability is related to (e.g. NEO core software/products)" xml:space="preserve">
+    <value>Asset - 与威胁漏洞相关的项目，详见 漏洞奖励计划范畴。</value>
+  </data>
+  <data name="Base bounty amounts which related with severity are as follows:" xml:space="preserve">
+    <value>与严重程度等级相关的奖金发放如下规则：</value>
+  </data>
+  <data name="Bounties are paid out after a risk assessment (&lt;a href='https://www.owasp.org/index.php/OWASP_Risk_Rating_Methodology' target='_blank'&gt;OWASP&lt;/a&gt; risk rating methodology) has been made by our R&amp;D team. There are four rates of severity, Critical, High, Medium, Low. All rewards will be paid in the equivalent amount of NEO. Roughly speaking, we calculate the severity of an issue with the following formula:" xml:space="preserve">
+    <value>我们将通过 &lt;a href='https://www.owasp.org/index.php/OWASP_Risk_Rating_Methodology' target='_blank'&gt;OWASP&lt;/a&gt; 风险评级方法对问题的严重程度进行评级，根据报告问题进行风险评估，分为 Critical, High, Medium, Low 四个等级，奖金将以等值的 NEO 发放，问题的严重程度由下列等式计算：</value>
+  </data>
+  <data name="Description -&#x1F; Any additional details about this vulnerability" xml:space="preserve">
+    <value>Description -­ 对问题的任何额外描述</value>
+  </data>
+  <data name="For those who report the same vulnerability, the reward goes to whom comes first." xml:space="preserve">
+    <value>若多人提交重复报告，我们只会将奖金授予第一个提交问题的团队或个人。</value>
+  </data>
+  <data name="If you unveil such vulnerabilities before NEO fixes or publish them, the reward becomes null and void." xml:space="preserve">
+    <value>提交者在 NEO 修复之前公布漏洞，奖励将视为无效。</value>
+  </data>
+  <data name="Impact - What security impact could an attacker achieve?" xml:space="preserve">
+    <value>Impact - 影响程度，攻击者会造成何种程度的安全影响</value>
+  </data>
+  <data name="Investigating and reporting vulnerabilities" xml:space="preserve">
+    <value>报告提交标准</value>
+  </data>
+  <data name="Issues lead to all network fail" xml:space="preserve">
+    <value>导致全网发生瘫痪的问题</value>
+  </data>
+  <data name="Issues lead to severe asset loss" xml:space="preserve">
+    <value>导致用户资产发生损失的问题</value>
+  </data>
+  <data name="Only issues related to stability and security with design and implementation is within the scope, vulnerabilities with NEO website and related infrastructure on the NEO blockchain is out of the scope. Find more details at the Scope of Bug Bounty Program." xml:space="preserve">
+    <value>只有影响区块链稳定性或安全性的设计或实施问题才属于该计划的范围，NEO 区块链上的相关设施（网站、文档、第三方客户端、区块链浏览器、开发工具等）不属于奖励范畴，详见下文漏洞奖励计划范畴。</value>
+  </data>
+  <data name="Other validity issues" xml:space="preserve">
+    <value>其他非 medium, high, critical 的有效问题</value>
+  </data>
+  <data name="Participants who use submitted vulnerabilities to damage NEO ecosystem, infringe on users' interest and perform pilferage on users' assets will be disqualified for rewards; meanwhile, NEO is rightful to resort to justice." xml:space="preserve">
+    <value>提交者利用已提交的 bug 破坏 NEO 生态，侵犯用户的利益，窃取用户资产，将取消奖励的资格；与此同时，NEO 有权对此采取司法手段。</value>
+  </data>
+  <data name="Please include following in your report:" xml:space="preserve">
+    <value>请将下列要求内容添加在邮件报告中：</value>
+  </data>
+  <data name="Please, never attempt to access anyone else's data and do not engage in any activity that would be disruptive or damaging to NEO production network and testing network, you can investigate with your own built private chain." xml:space="preserve">
+    <value>请不要试图修改任何用户的数据或攻击 NEO 主网和测试网，您可以在自己搭建的私有链上查找漏洞。</value>
+  </data>
+  <data name="Rewards" xml:space="preserve">
+    <value>奖励规则</value>
+  </data>
+  <data name="Scope of Bug Bounty Program" xml:space="preserve">
+    <value>漏洞奖励计划范畴</value>
+  </data>
+  <data name="Security vulnerabilities of the following projects must be addressed in the report to be eligible for the rewards:" xml:space="preserve">
+    <value>要符合获得奖励的资格，必须报告以下项目中存在的安全漏洞：</value>
+  </data>
+  <data name="Serial vulnerabilities caused by one vulnerability will be considered as one vulnerability, e.g., a series of computing errors caused by data overflow." xml:space="preserve">
+    <value>对于由一个漏洞引起的系列问题，均视为同一个漏洞，例如由于数据溢出引起的一系列计算错误。</value>
+  </data>
+  <data name="Severity - Your opinion on the severity of the issue (e.g. high, moderate, low)" xml:space="preserve">
+    <value>Severity - 严重程度，对问题的严重程度预估（高级 / 中等 / 低级）</value>
+  </data>
+  <data name="Single node failure" xml:space="preserve">
+    <value>单个 Node 节点故障</value>
+  </data>
+  <data name="Steps - Steps to reproduce, getting NEO staff or technical team clearly informed of every detailed step." xml:space="preserve">
+    <value>Steps - 可重现步骤，要求 NEO 内部人员或者相关技术人员可清楚每一个步骤细节</value>
+  </data>
+  <data name="Submitted reports should contain detailed reproduction procedures, in the absence of which, the reports will be excluded from the rewarding list. The more detailed about the proof of vulnerabilities and the descriptions are, the higher your reward will be." xml:space="preserve">
+    <value>提交的漏洞需要有详细的重现步骤，如果报告的问题没有详细的细节，将不予与奖励。对漏洞搜集的证据和问题的定位越详细，奖励越高。</value>
+  </data>
+  <data name="Summary - &#x1F;Add summary of the vulnerability" xml:space="preserve">
+    <value>Summary - ­对问题的总结描述</value>
+  </data>
+  <data name="Supporting Material/References &#x1F;- Source code to replicate, list any additional material (e.g. screenshots, logs, etc.)" xml:space="preserve">
+    <value>Supporting Material / References ­- 相关引用和支持材料，可以使复制的源代码，截图，日志信息等等</value>
+  </data>
+  <data name="Those published or known ones are not eligible for rewards." xml:space="preserve">
+    <value>已经公布的或者已知的漏洞不属于奖励的范畴。</value>
+  </data>
+  <data name="To finally achieve the self-worthy reward the submitters should abide by the following event rules:" xml:space="preserve">
+    <value>要得到最终的奖励需要满足以下规则：</value>
+  </data>
+  <data name="Vulnerabilities fitting in any of the following descriptions will not be eligible for the rewards:" xml:space="preserve">
+    <value>以下规则不属于奖励的范畴：</value>
+  </data>
+  <data name="Your name and country." xml:space="preserve">
+    <value>Your name and country - 请注明您的姓名和国家</value>
+  </data>
+</root>
