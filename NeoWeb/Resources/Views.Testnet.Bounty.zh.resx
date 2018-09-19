@@ -120,7 +120,7 @@
   <data name="NEO Vulnerability Bounty Program" xml:space="preserve">
     <value>NEO 漏洞奖励计划</value>
   </data>
-  <data name="The purpose of NEO vulnerability bounty program is to be proactive about blockchain security by providing a channel for security researchers to report potential security vulnerabilities identified related to our underlying infrastructure. Everyone who find the vulnerabilities can send email to &lt;a href='mailto:erik@neo.org'&gt;erik@neo.org&lt;/a&gt;. We will try our best to investigate those eligible vulnerabilities and fix the validity issues. All rewards will be paid in the equivalent amount of NEO." xml:space="preserve">
+  <data name="The purpose of NEO vulnerability bounty program is to be proactive about blockchain security by providing a channel for security researchers to report potential security vulnerabilities identified related to our underlying infrastructure. Everyone who find the vulnerabilities can send email to &lt;a href='mailto:erik@neo.org'&gt;erik@neo.org&lt;/a&gt;. We will try our best to investigate those eligible vulnerabilities and fix the valid issues. All rewards will be paid in the equivalent amount of NEO." xml:space="preserve">
     <value>NEO Vulnerability Bounty Program 成立的目的在于保障 NEO 区块链系统的安全性，给广大的社区安全专家们提供一个通道，如果发现关于我们的区块链底层的潜在安全性问题或者威胁，都可通过发送邮件至 &lt;a href='mailto:erik@neo.org'&gt;erik@neo.org&lt;/a&gt;，我们将调查所有合格的漏洞报告，并尽最大努力迅速解决问题。奖励将以美元等值的 NEO 的形式发放。</value>
   </data>
   <data name="Note: Higher rewards will be paid out in case of vulnerabilities of certain interest and criticality. Before reporting any issues, please check the following disclosures on responsibilities, program rules and reporting manner notice." xml:space="preserve">
@@ -165,7 +165,7 @@
   <data name="Only issues related to stability and security with design and implementation is within the scope, vulnerabilities with NEO website and related infrastructure on the NEO blockchain is out of the scope. Find more details at the Scope of Bug Bounty Program." xml:space="preserve">
     <value>只有影响区块链稳定性或安全性的设计或实施问题才属于该计划的范围，NEO 区块链上的相关设施（网站、文档、第三方客户端、区块链浏览器、开发工具等）不属于奖励范畴，详见下文漏洞奖励计划范畴。</value>
   </data>
-  <data name="Other validity issues" xml:space="preserve">
+  <data name="Other valid issues" xml:space="preserve">
     <value>其他非 medium, high, critical 的有效问题</value>
   </data>
   <data name="Participants who use submitted vulnerabilities to damage NEO ecosystem, infringe on users' interest and perform pilferage on users' assets will be disqualified for rewards; meanwhile, NEO is rightful to resort to justice." xml:space="preserve">
