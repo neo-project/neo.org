@@ -28,10 +28,12 @@
     padding:20px 0;
     color: #333;
     cursor:pointer;
+    
 }
 .careers-tab .active {
     background:#51bc00;
     color:#FFFFFF;
+    transition: background .5s ease-in-out,color .2s ease-in-out;
 }
 .careers-content {
     position:relative;
@@ -70,15 +72,34 @@
     color:#408b08!important;
 }
 .car-apply {
+    position:relative;
     float: right;
     margin-right: -40px;
     background:url(../images/apply.png) no-repeat;
     display:inline-block;
     min-width:130px;
     text-align:center;
+    overflow:hidden;
     color:#FFFFFF;
 }
-.car-apply:hover{
+.car-apply:before {
+    content: " ";
+    display: block;
+    width: 100px;
+    height: 40px;
+    background: #fff;
+    opacity:0.2;
+    position: absolute;
+    top: 0px;
+    left: -100px;
+    transform: rotate(-45deg);
+    transition: left .15s ease-in-out;
+}
+.car-apply:hover:before {
+    left: 180px;
+}
+.car-apply:hover,
+.car-apply:focus{
     color:#FFFFFF;
     text-shadow:0px 0px 2px rgba(255,255,255,0.5);
 }
