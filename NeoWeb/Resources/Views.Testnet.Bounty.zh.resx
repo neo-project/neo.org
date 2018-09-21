@@ -141,7 +141,7 @@
   <data name="Bounties are paid out after a risk assessment (&lt;a href='https://www.owasp.org/index.php/OWASP_Risk_Rating_Methodology' target='_blank'&gt;OWASP&lt;/a&gt; risk rating methodology) has been made by our R&amp;D team. There are four rates of severity, Critical, High, Medium, Low. All rewards will be paid in the equivalent amount of NEO. Roughly speaking, we calculate the severity of an issue with the following formula:" xml:space="preserve">
     <value>我们将通过 &lt;a href='https://www.owasp.org/index.php/OWASP_Risk_Rating_Methodology' target='_blank'&gt;OWASP&lt;/a&gt; 风险评级方法对问题的严重程度进行评级，根据报告问题进行风险评估，分为 Critical, High, Medium, Low 四个等级，奖金将以等值的 NEO 发放，问题的严重程度由下列等式计算：</value>
   </data>
-  <data name="Description -&#x1F; Any additional details about this vulnerability" xml:space="preserve">
+  <data name="Description - Any additional details about this vulnerability" xml:space="preserve">
     <value>Description -­ 对问题的任何额外描述</value>
   </data>
   <data name="For those who report the same vulnerability, the reward goes to whom comes first." xml:space="preserve">
@@ -201,7 +201,7 @@
   <data name="Submitted reports should contain detailed reproduction procedures, in the absence of which, the reports will be excluded from the rewarding list. The more detailed about the proof of vulnerabilities and the descriptions are, the higher your reward will be." xml:space="preserve">
     <value>提交的漏洞需要有详细的重现步骤，如果报告的问题没有详细的细节，将不予与奖励。对漏洞搜集的证据和问题的定位越详细，奖励越高。</value>
   </data>
-  <data name="Summary - &#x1F;Add summary of the vulnerability" xml:space="preserve">
+  <data name="Summary -  Add summary of the vulnerability" xml:space="preserve">
     <value>Summary - ­对问题的总结描述</value>
   </data>
   <data name="Supporting Material/References &#x1F;- Source code to replicate, list any additional material (e.g. screenshots, logs, etc.)" xml:space="preserve">
