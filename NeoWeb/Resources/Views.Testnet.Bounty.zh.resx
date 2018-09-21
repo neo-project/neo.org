@@ -204,7 +204,7 @@
   <data name="Summary -  Add summary of the vulnerability" xml:space="preserve">
     <value>Summary - ­对问题的总结描述</value>
   </data>
-  <data name="Supporting Material/References &#x1F;- Source code to replicate, list any additional material (e.g. screenshots, logs, etc.)" xml:space="preserve">
+  <data name="Supporting Material/References - Source code to replicate, list any additional material (e.g. screenshots, logs, etc.)" xml:space="preserve">
     <value>Supporting Material / References ­- 相关引用和支持材料，可以使复制的源代码，截图，日志信息等等</value>
   </data>
   <data name="Those published or known ones are not eligible for rewards." xml:space="preserve">
