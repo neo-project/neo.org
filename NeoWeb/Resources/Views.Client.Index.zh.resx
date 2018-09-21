@@ -405,4 +405,7 @@
   <data name="Support for multiple languages" xml:space="preserve">
     <value>支持</value>
   </data>
+  <data name="Download plugin" xml:space="preserve">
+    <value>下载插件</value>
+  </data>
 </root>
