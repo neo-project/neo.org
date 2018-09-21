@@ -175,6 +175,15 @@ namespace NeoWeb.Controllers
             return RedirectToAction(nameof(List));
         }
 
+        // GET: dev
+        [Route("dev/bounty")]
+        [AllowAnonymous]
+        public IActionResult Bounty()
+        {
+            return View();
+        }
+
+
         private bool TestnetExists(int id)
         {
             return _context.Testnets.Any(e => e.Id == id);

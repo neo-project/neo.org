@@ -126,5 +126,11 @@
     "inputFiles": [
       "wwwroot/css/design.css"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/css/bounty.min.css",
+    "inputFiles": [
+      "wwwroot/css/bounty.css"
+    ]
   }
 ]

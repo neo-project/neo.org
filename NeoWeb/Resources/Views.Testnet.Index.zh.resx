@@ -132,4 +132,7 @@
   <data name="Open link" xml:space="preserve">
     <value>访问链接</value>
   </data>
+  <data name="Security Bounty" xml:space="preserve">
+    <value>安全奖励</value>
+  </data>
 </root>

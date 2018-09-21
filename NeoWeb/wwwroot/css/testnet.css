@@ -25,10 +25,12 @@
 .main-footer {
     background:#3F3F3F;
 }
-
+.row .col-sm-6{
+    overflow:hidden;
+}
 .content-border {
-    margin: 30px auto 0;
-    padding: 100px 50px;
+    margin: 30px auto 0px;
+    padding: 90px 50px;
     text-align: center;
     letter-spacing:1px;
     color:#FFFFFF;
@@ -135,6 +137,20 @@
 .docu-back .btneo-sec:hover {
     color: #3F3F3F;
     background: rgba(115,162,255,.75);
+    border: none;
+}
+.bounty-back {
+    background:url('https://neo-cdn.azureedge.net/images/deve-bounty.jpg') no-repeat center;
+    background-size:cover;
+    color:#beeb00;
+}
+.bounty-back .btneo-sec {
+    border:1px solid #beeb00;
+    color:#beeb00;
+}
+.bounty-back .btneo-sec:hover {
+    color: #3F3F3F;
+    background: rgba(190,230,0,.75);
     border: none;
 }
 /*申请内部的表部分 - Application form*/
