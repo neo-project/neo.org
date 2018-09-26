@@ -33,7 +33,7 @@
         </div>
         <div class="form-group">
             <label asp-for="Description" class="col-form-label">职位描述</label>
-            @Html.Partial("_EditorPartialPage", Model)
+            <textarea name="Description" class="form-control" autocomplete="off" rows=15>@Model.Description.Replace("<br/>", "\r\n")</textarea>
         </div>
 
         <div class="form-group">

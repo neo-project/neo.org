@@ -32,8 +32,8 @@
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="Description" class="col-form-label"></label>
-            @Html.Partial("_EditorPartialPage", Model)
+            <label asp-for="Description" class="col-form-label">职位描述</label>
+            <textarea name="Description" class="form-control" autocomplete="off" rows=15></textarea>
         </div>
 
         <div class="form-group">

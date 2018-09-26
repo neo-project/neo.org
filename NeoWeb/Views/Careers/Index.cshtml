@@ -49,7 +49,7 @@
                         <a href="mailto:join@neo.org?subject=@item.Title" class="car-apply t3">@Localizer["APPLY"]</a>
                         <div class="white-sha t2"><a class="more-info">@Localizer["More Info"]</a></div>
                         <p class="t1">@item.Title</p>
-                        <div>@Html.Raw(item.Description)</div>
+                        <div>@Html.Raw(item.Description.Replace("\r\n", "<br />"))</div>
                     </div>
                 }
             }

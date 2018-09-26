@@ -129,11 +129,7 @@ namespace NeoWeb.Controllers
 
         private string Convert(string input)
         {
-            input = Regex.Replace(input, @"<!\-\-\[if gte mso 9\]>[\s\S]*<!\[endif\]\-\->", ""); //删除 ms office 注解
-            input = Regex.Replace(input, "src=\".*/upload", "src=\"/upload"); //替换上传图片的链接
-            input = Regex.Replace(input, @"<p>((&nbsp;\s)|(&nbsp;)|\s)+", "<p>"); //删除段首由空格造成的缩进
-            input = Regex.Replace(input, @"\sstyle="".*?""", ""); //删除 Style 样式
-            input = Regex.Replace(input, @"\sclass="".*?""", ""); //删除 Class 样式
+            input = input.Replace("\r\n", "<br/>"); 
             return input;
         }
     }
