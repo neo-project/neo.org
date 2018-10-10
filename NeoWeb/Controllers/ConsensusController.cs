@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Timers;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -57,7 +58,7 @@ namespace NeoWeb.Controllers
         // POST: Candidate/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(string signature, [Bind("PublicKey,Email,Website,SocialAccount,Summary,")] Candidate c)
+        public async Task<IActionResult> Create(string signature, [Bind("PublicKey,Organization,Email,Website,SocialAccount,Summary,")] Candidate c, IFormFile logo)
         {
             if (ModelState.IsValid)
             {
@@ -75,6 +76,10 @@ namespace NeoWeb.Controllers
                     ViewBag.Message = _localizer["Signature Verification Failure"];
                     return View("Index", c);
                 }
+                if (logo != null)
+                {
+                    c.Logo = "~/upload/" + Upload(logo);
+                }
                 //Insert or Update
                 if (_context.Candidates.Any(p => p.PublicKey == c.PublicKey))
                 {
@@ -89,7 +94,22 @@ namespace NeoWeb.Controllers
             }
             return View("Index", c);
         }
-        
-        
+
+        public string Upload(IFormFile cover)
+        {
+            var random = new Random();
+            var bytes = new byte[10];
+            random.NextBytes(bytes);
+            var newName = bytes.ToHexString() + Path.GetExtension(cover.FileName);
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", newName);
+            if (cover.Length > 0)
+            {
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    cover.CopyTo(stream);
+                }
+            }
+            return newName;
+        }
     }
 }

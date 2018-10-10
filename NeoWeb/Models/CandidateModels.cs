@@ -10,6 +10,12 @@ namespace NeoWeb.Models
         public string PublicKey { get; set; }
 
         [Required]
+        [MaxLength(50)]
+        public string Organization { get; set; }
+
+        public string Logo { get; set; }
+
+        [Required]
         [EmailAddress]
         public string Email { get; set; }
         
