@@ -237,4 +237,7 @@
   <data name="Relevant information about NEO should be displayed." xml:space="preserve">
     <value>网页需显示NEO相关信息</value>
   </data>
+  <data name="Organization" xml:space="preserve">
+    <value>组织名称</value>
+  </data>
 </root>

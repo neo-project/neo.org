@@ -86,7 +86,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form asp-action="Create">
+                <form asp-action="Create" enctype="multipart/form-data">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
                         <label for="PublicKey" class="control-label">@Localizer["Public Key"]<span class="red-text"> * </span></label>
@@ -96,6 +96,19 @@
                                 <option value="@item">@item</option>
                             }
                         </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label asp-for="Organization" class="control-label">@Localizer["Organization"]<span class="red-text"> * </span></label>
+                            <input asp-for="Organization" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct website format"]" />
+                            <small class="form-text text-muted">@Localizer["Relevant information about NEO should be displayed."]</small>
+                            <span asp-validation-for="Organization" class="text-danger"></span>
+                        </div>
+                        <div class="col-6 form-group">
+                            <label asp-for="Logo" class="control-label">@Localizer["Logo"]</label>
+                            <input type="hidden" asp-for="Logo" name="oldLogo" />
+                            <input type="file" name="logo" id="logo" class="form-control" />
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-6 form-group">
