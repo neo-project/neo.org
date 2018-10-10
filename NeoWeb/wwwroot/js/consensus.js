@@ -1,6 +1,6 @@
 var block_height = 0;
 var send_url = "https://pyrpc2.narrative.org:443";
-var lastt = new Date();
+var lastt = new Date(),conNum = 0;
 
 blockInfo();
 getVolue();
@@ -56,19 +56,23 @@ function countDown(time) {
 function getListdata() {
     $.get("../../consensus/getvalidators", []).done(function (data) {
         var _list = JSON.parse(data);
-        var flag = 0;
-        $("#cannum").html(_list.length);
-        for (var i = 0; i < _list.length; i++) {
-            if (_list[i].Active) flag++;
-        }
-        $("#connum").html(flag);
 
-        //竞选个数
-        var html = "";
-        for (var j in _list) {
-            html += template('test', _list[j]);
+        if (conNum != _list.length) {
+            var flag = 0;
+            $("#cannum").html(_list.length);
+            for (var i = 0; i < _list.length; i++) {
+                if (_list[i].Active) flag++;
+            }
+            $("#connum").html(flag);
+
+            //竞选个数
+            var html = "";
+            for (var j in _list) {
+                html += template('test', _list[j]);
+            }
+            document.getElementById('tableList').innerHTML = html;
+            conNum = _list.length;
         }
-        document.getElementById('tableList').innerHTML = html;
     });
 }
 

@@ -115,12 +115,12 @@ body {
     margin-bottom:0;
 }
 .table-list li{
-    margin-bottom:10px;
-    padding: 10px 18px;
+    margin-bottom:16px;
     line-height: 2;
     background:#F9FBF2;
 }
 .can-th {
+    
 }
 .can-th>span{
     display:inline-block;
@@ -131,16 +131,16 @@ body {
 }
 .can-th .can-votes{
     width:20%;
-    padding-left:12px;
 }
 .can-th .pub-key{
-    width:54%;
+    width:78%;
+    text-align:right;
     white-space:nowrap;
 }
 .can-detail{
     width: 100%;
-    border-top: 1px solid #ECECEC;
     padding-top:10px;
+    border-top:2px solid rgba(230,230,230,0.4);
 }
 .text-ellipsis{
     vertical-align:middle;
@@ -149,24 +149,29 @@ body {
 }
 .detail-left{
     display: inline-block;
-    width: 25%;
-    max-width:200px;
+    width: 30%;
+    max-width:120px;
     word-break: break-all;
     vertical-align:top;
+    text-align:center;
 }
 .detail-left img{
-    max-width:150px;
+    width: 120px;
+    height: 120px;
+    padding: 10px;
+    background: #EEE;
 }
 .detail-right{
     display: inline-block;
-    width: 70%;
-    padding-left:12px;
+    width: calc(100% - 125px);
+    padding-left:30px;
     word-break: normal;
     vertical-align:top;
 }
 .detail-right>span {
     display:inline-block;
     width:100px;
+    vertical-align: initial;
 }
 
 
@@ -298,9 +303,6 @@ body {
     }
     .table-list li {
         margin-bottom:8px;
-    }
-    .table-list li {
-        padding:8px 0px 8px 10px;
     }
     .tr-con .pub-key {
         width:75%;

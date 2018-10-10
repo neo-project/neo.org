@@ -89,7 +89,12 @@ namespace NeoWeb.Controllers
             }
             return View("Index", c);
         }
-        
-        
+
+        // GET: Candidate
+        public IActionResult Apply()
+        {
+            return View();
+        }
+
     }
 }
