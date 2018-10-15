@@ -1,107 +1,80 @@
-html,body{
+ï»¿html,body{
     height:auto;
-    background: linear-gradient(#BAD531,#62BD49);
-    background-size:cover;
+    background: #ECECEC;
     color:#888888;
+    font-weight:100;
 }
-body {
-    background-image: url('https://neo-cdn.azureedge.net/images/topbg.svg'),url('https://neo-cdn.azureedge.net/images/bottombg.svg');
-    background-size: contain,contain;
-    background-repeat:no-repeat;
-    background-position:top center,bottom center;
+.p1 {
+    padding:100px;
 }
 .navbar {
-    background:#F9FBF2;
+    background:#F3F3F3;
 }
 .main-footer .container{
     display:none;
 }
 .green-text {
-    color:#62BD49!important;
+    color: #AED858!important;
 }
 .main-footer .lang-select {
     display:none!important;
 }
+.gray-back {
+    background:#888888;
+    color:#ffffff;
+}
 
 .title-line{
-    border-left: 6px solid #ffffff;
-    padding-left: 12px;
-    color: #ffffff;
-    margin-bottom: 15px;
-    font-size:20px;
-    font-weight:bold;
+    color: #666666;
+    text-align: center;
+    font-weight: 100;
 }
 .block-info{
     font-size:0px;
     text-align: center;
+    margin: auto;
 }
 .block-info .info-cont {
-    background: #F9FBF2;
-    font-size:18px;
-    margin: auto;
+    background: #F3F3F3;
     padding: 20px;
     text-align: center;
-    border-radius:10px;
-    box-shadow:0 5px 15px rgba(80, 166, 57, 0.5);
-}
-.block-info .data_show{
-    position: relative;
+    width: calc(25% - 4px);
+    margin: 2px;
     display: inline-block;
-    background: linear-gradient(#CFEA4C,#70BC3E);
-    border-radius: 50%;
-    font-size: 20px;
-    font-weight: bold;
-    width: 146px;
-    height: 146px;
-    line-height:130px;
-    padding:8px;
-    transform: rotate(0deg);
-    transition: transform .5s;
+    transition: transform .1s,background .2s;
 }
-.block-info .data_show span{
-    display: inline-block;
-    background: #F9FBF2;
-    border-radius: 50%;
-    width: 100%;
-    height: 100%;
-    transform: rotate(0deg);
-    transition: transform .5s;
+.info-icon {
+    font-size:65px;
+    color:#AEDB58;
+    transition: color .2s;
 }
 .block-info .info-cont:hover{
-    color:#333333;
-    background:#ffffff;
-    box-shadow:#7E9E00 0 0 12px;
+    color:#ffffff;
+    background: linear-gradient(45deg,#BFDC18,#9ED990);
+    box-shadow: #BBBBBB 0 0 20px;
     transform: scale(1.02);
     transition: transform .1s,background .2s;
 }
-.block-info .info-cont:hover .data_show{
-    transform: rotate(360deg);
-    transition: transform .7s;
-}
-.block-info .info-cont:hover .data_show span{
-    background:#ffffff;
-    transform: rotate(-360deg);
-    transition: transform .7s,background .2s;
+.block-info .info-cont:hover .info-icon{
+    color:#ffffff;
+    transition: color .2s;
 }
 
 .block-data {
-    background:#F9FBF2;
-    border-radius:10px;
-    box-shadow:0 5px 15px rgba(80, 166, 57, 0.5);
+    background:#F3F3F3;
     padding:20px;
 }
 .tab-btn{
     display:inline-block;
-    padding:2px 8px;
+    padding: 10px 24px;
     min-width:60px;
     cursor:pointer;
-    background:#F9FBF2;
-    color:#888888!important;
+    background: transparent;
     font-size:14px;
     letter-spacing:1px;
-    font-weight:bold;
-    border-radius:10px;
-    border-right:5px solid #4a9f33;
+    font-weight:100;
+    border-radius: 35px;
+    border: 1px solid #AEDB58;
 }
 .tab-change .tab-btn{
     margin-right:10px;
@@ -121,11 +94,9 @@ body {
     margin-bottom:0;
 }
 .table-list li{
-    margin: 10px auto 25px;
+    margin: 8px auto 8px;
     line-height: 2;
-    background:#F9FBF2;
-    border-radius:10px;
-    box-shadow:0 5px 15px rgba(80, 166, 57, 0.5);
+    background:#F3F3F3;
 }
 .can-th {
     
@@ -151,30 +122,30 @@ body {
     border-top:2px solid rgba(230,230,230,0.4);
 }
 .text-ellipsis{
-    vertical-align:middle;
+    vertical-align:top;
     display:inline-block;
     white-space:normal;
+    word-break: break-all;
+    text-align:left;
 }
 .detail-left{
     display: inline-block;
     width: 30%;
-    max-width:150px;
+    max-width: 195px;
     word-break: break-all;
-    vertical-align:top;
+    vertical-align: top;
 }
 .detail-left img{
-    width: 120px;
-    height: 120px;
-    padding: 10px;
-    background: #e6e6e6;
-    border-radius:10px;
+    width: 100%;
+    max-width: 200px;
+    margin-top: 10px;
 }
 .detail-right{
     display: inline-block;
-    width: calc(100% - 150px);
+    width: calc(100% - 200px);
     padding-left:30px;
     word-break: normal;
-    vertical-align:top;
+    vertical-align: sub;
 }
 .detail-right>span {
     display:inline-block;
@@ -182,8 +153,6 @@ body {
     vertical-align: initial;
 }
 
-
-/*Ä£Ì¬¿ò*/
 .modal-content {
     border-radius:0;
 }
@@ -244,10 +213,27 @@ body {
     .tr-con .text-ellipsis{
         width:400px;
     }
+    .detail-left{
+        max-width:165px;
+    }
+    .detail-right {   
+        width: 100%;
+        padding: 0;
+    }
+    .detail-right .can-votes,
+    .detail-right .pub-key {
+        display: block;
+        width: 88%;
+        text-align:left;
+    }
 }
 @media (max-width: 990px){
     .container {
         max-width: 990px;
+    }
+    .tab-btn {
+        padding:5px 15px;
+        font-size: 12px;
     }
     .block-info .data_show{
         height: 110px;
@@ -271,12 +257,20 @@ body {
         width: 12%;
         text-align: center;
     }
+    .detail-left{
+        display: block;
+        width: auto;
+        max-width: none;
+    }
+    .detail-left img{
+        margin: 20px 0;
+    }
 }
 @media (max-width: 767px){
     .container {
         max-width: 450px;
     }
-    .col-sm-3 {
+    .info-cont {
         display: inline-block;
         width: 50%;
         max-width:50%;
@@ -284,17 +278,12 @@ body {
     }
     .title-line {
         font-size:16px;
-        border-left: 4px solid #ffffff;
-        padding-left: 8px;
-        margin-bottom:10px;
     }
     .block-info {
-        display:block;
-        padding:0 10px;
+    margin: 0 -2px;
     }
     .block-info .info-cont{
-        padding: 10px;
-        font-size:15px;
+        width: calc(50% - 4px);
     }
     .block-info .data_show{
         height: 90px;
@@ -324,5 +313,11 @@ body {
     .tr-con .can-more,
     .tr-con .can-consensus{
         display:none;
+    }
+    .detail-left{
+        max-width:165px;
+    }
+    .detail-right {
+    
     }
 }

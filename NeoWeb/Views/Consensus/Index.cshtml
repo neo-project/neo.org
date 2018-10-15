@@ -8,71 +8,60 @@
 
 @section Styles{
     @*<link rel="stylesheet" href="@Helper.CDN/css/consensus.min.css" />*@
-    <link rel="stylesheet" href="/css/consensus.min.css" />
+    <link rel="stylesheet" href="~/css/common.css" />
+    <link rel="stylesheet" href="~/css/consensus.css" />
 }
 
 <div class="container">
     <div class="title-line t1 m2">@Localizer["Blockchain Info"]</div>
     <div class="row block-info">
-        <div class="col-sm-3">
-            <div class="info-cont">
-                <p>@Localizer["Block Height"]</p>
-                <p class="data_show">
-                    <span id="blohei">--</span>
-                </p>
-            </div>
+        <div class="info-cont">
+            <p class="info-icon gray-text"><i class="iconfont">&#xe681;</i></p>
+            <p class="t2">@Localizer["Block Height"]</p>
+            <span class="t1" id="blohei">--</span>
         </div>
-        <div class="col-sm-3">
-            <div class="info-cont">
-                <p>@Localizer["Last Time"]</p>
-                <p class="data_show">
-                    <span id="lastime">--</span>
-                </p>
-            </div>
+        <div class="info-cont">
+            <p class="t2">@Localizer["Last Time"]</p>
+            <span class="t1" id="lastime">--</span>
         </div>
-        <div class="col-sm-3">
-            <div class="info-cont">
-                <p>@Localizer["Candidate Count"]</p>
-                <p class="data_show">
-                    <span id="cannum">--</span>
-                </p>
-            </div>
+        <div class="info-cont">
+            <p class="t2">@Localizer["Candidate Count"]</p>
+            <span class="t1" id="cannum">--</span>
         </div>
-        <div class="col-sm-3">
-            <div class="info-cont">
-                <p>@Localizer["Consensus Count"]</p>
-                <p class="data_show">
-                    <span id="connum">--</span>
-                </p>
-            </div>
+        <div class="info-cont">
+            <p class="t2">@Localizer["Consensus Count"]</p>
+            <span class="t1" id="connum">--</span>
         </div>
     </div>
-
-    <div class="title-line m2">@Localizer["Blockchain indicator"]</div>
+    <div class="title-line t1 m2">@Localizer["Blockchain indicator"]</div>
     <div class="row">
         <div class="col-sm-12">
             <div class="block-data">
-                <div class="can-charts m3" id="main"></div>
+                <div class="can-charts" id="main"></div>
             </div>
         </div>
     </div>
-    <div class="title-line m2">
-        @Localizer["Candidate List"]
-        <a class="tab-btn float-right d-none d-xl-block" data-toggle="modal" data-target="#exampleModal"><span class="iconfont green-text">&#xe608;</span> @Localizer["Provide Candidate Info"]</a>
+    <div class="title-line t1 m2">
+        链下治理
     </div>
-    <div class="m2">
-        @Localizer["Candidate List"]
+    <div class="gray-back p2 text-center">
+        <p class="m3">
+            更多详细信息见文档：<a class="text-white" href="">XXXXXXX</a>
+        </p>
+        <a class="tab-btn text-white m3" href="#">链下治理申请</a>
     </div>
-    <div class="title-line m2">
-        @Localizer["Candidate List"]
-        <a class="tab-btn float-right d-none d-xl-block" data-toggle="modal" data-target="#exampleModal"><span class="iconfont green-text">&#xe608;</span> @Localizer["Provide Candidate Info"]</a>
+    <div class="title-line t1 m2 mb0">
+        链上治理
+    </div>
+    <div class="flo-clear m3">
+        <a class="tab-btn float-right d-none d-xl-block" data-toggle="modal" data-target="#exampleModal">@Localizer["Provide Candidate Info"]</a>
     </div>
     <div class="row">
         <ul class="col-sm-12 table-list" id="tableList"></ul>
     </div>
     <p class="m3">
-        <a class="text-white" href="javascript:" onclick="setLanguage('en-us')">English</a>
-        <a class="text-white p4" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+        <a href="javascript:" onclick="setLanguage('en-us')">English</a>
+        <a class="p4" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
     </p>
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -159,10 +148,10 @@
     </div>
 </div>
 <script id="test" type="text/html">
-    <li>
+    <li class="p4 pt0 pr0">
         <div class="can-th p4">
-            {{if Active}}<span class="detail-left t3 bold-font green-text">@Localizer["Consensus Node"]</span>{{/if}}
-            {{if !Active}}<span class="detail-left t3 bold-font">@Localizer["Candidate Node"]</span>{{/if}}
+            {{if Active}}<span class="detail-left t2 green-text">@Localizer["Consensus Node"]</span>{{/if}}
+            {{if !Active}}<span class="detail-left t3">@Localizer["Candidate Node"]</span>{{/if}}
             <div class="detail-right">
                 <span class="can-votes">@Localizer["Votes"]: {{Votes}}</span>
                 <span class="pub-key ">@Localizer["Public Key"]: <span class="text-ellipsis">{{PublicKey}}</span></span>
@@ -174,7 +163,7 @@
                 <img src="~/images/neo_logo.svg" />
             </div>
             <div class="detail-right">
-                <strong class="green-text t2">City Of Zion</strong><br>
+                <p class="green-text t2 pt0">City Of Zion</p>
                 {{if Info.Website}}<span>@Localizer["Website"]: </span><a href={{Info.Website}} target="_blank">{{Info.Website}}</a><br>{{/if}}
                 {{if Info.Email}}<span>@Localizer["E-mail"]: </span>{{Info.Email}}<br>{{/if}}
                 {{if Info.SocialAccount}}<span>@Localizer["Social media account"]: </span>{{Info.SocialAccount}}<br>{{/if}}
@@ -182,7 +171,6 @@
             </div>
         </div>
         {{/if}}
-    </li>
 </script>
 
 @section Scripts{

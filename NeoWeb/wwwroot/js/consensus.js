@@ -69,7 +69,9 @@ function getListdata() {
             var html = "";
             for (var j in _list) {
                 html += template('test', _list[j]);
+                html += "<p>社交账号</p></li>"
             }
+
             document.getElementById('tableList').innerHTML = html;
             conNum = _list.length;
         }
@@ -86,7 +88,7 @@ function getVolue() {
 function showCharts(data) {
     var myChart = echarts.init(document.getElementById('main'));
     option = {
-        backgroundColor: '#F9FBF2',
+        backgroundColor: '#F3F3F3',
         tooltip: {
             trigger: 'axis',
             backgroundColor: 'rgba(255,255,255,1)',
@@ -132,43 +134,44 @@ function showCharts(data) {
         }],
         yAxis: [{
             type: 'value',
+            boundaryGap: false,
             axisTick: {
                 show: false
             },
             axisLine: {
-                lineStyle: {
-                    color: '#CCC'
-                }
+                show: false
             },
             axisLabel: {
                 margin: 10,
                 textStyle: {
+                    color: '#CCC',
                     fontSize: 14
                 }
             },
             splitLine: {
                 lineStyle: {
-                    color: '#ECECEC'
+                    color: '#EAEAEA'
                 }
             }
         }, {
             type: 'value',
-            scale: true,
-            name: 'Byte',
+            boundaryGap: false,
+            axisTick: {
+                show: false
+            },
             axisLine: {
-                lineStyle: {
-                    color: '#CCC'
-                }
+                show: false
             },
             axisLabel: {
                 margin: 10,
                 textStyle: {
+                    color: '#CCC',
                     fontSize: 14
                 }
             },
             splitLine: {
                 lineStyle: {
-                    color: '#ECECEC'
+                    color: '#EAEAEA'
                 }
             }
         }],
@@ -180,20 +183,10 @@ function showCharts(data) {
             yAxisIndex: 0,
             lineStyle: {
                 normal: {
-                    width: 2
-                }
-            },
-            areaStyle: {
-                normal: {
-                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                        offset: 0,
-                        color: 'rgba(190,220,25, 0.8)'
-                    }, {
-                        offset: 0.8,
-                        color: 'rgba(210, 220, 25, 0)'
-                    }], false),
-                    shadowColor: 'rgba(0, 0, 0, 0.1)',
-                    shadowBlur: 10
+                    width: 2,
+                    shadowColor: 'rgba(80,80,80,0.1)',
+                    shadowBlur: 15,
+                    shadowOffsetY: 30
                 }
             },
             itemStyle: {
@@ -210,20 +203,10 @@ function showCharts(data) {
             yAxisIndex: 1,
             lineStyle: {
                 normal: {
-                    width: 2
-                }
-            },
-            areaStyle: {
-                normal: {
-                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                        offset: 0,
-                        color: 'rgba(148,207,134, 0.8)'
-                    }, {
-                        offset: 0.8,
-                        color: 'rgba(158,217,144, 0)'
-                    }], false),
-                    shadowColor: 'rgba(0, 0, 0, 0.1)',
-                    shadowBlur: 10
+                    width: 2,
+                    shadowColor: 'rgba(80,80,80,0.1)',
+                    shadowBlur: 15,
+                    shadowOffsetY: 30
                 }
             },
             itemStyle: {
