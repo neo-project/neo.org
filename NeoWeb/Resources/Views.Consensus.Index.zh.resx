@@ -243,17 +243,14 @@
   <data name="How To Become A Consensus Node" xml:space="preserve">
     <value>如何成为共识节点</value>
   </data>
-  <data name="https://github.com/taomo-eo/docs/blob/master/Becoming_Consensus_Node/How%20To%20Become%20A%20Consensus%20Nodev1.2.md" xml:space="preserve">
-    <value>https://github.com/taomo-eo/docs/blob/master/Becoming_Consensus_Node/%E5%A6%82%E4%BD%95%E6%88%90%E4%B8%BA%E5%85%B1%E8%AF%86%E8%8A%82%E7%82%B9v1.2.md</value>
-  </data>
   <data name="Off-Chain Governance" xml:space="preserve">
     <value>链下治理</value>
   </data>
   <data name="On-Chain Governance" xml:space="preserve">
     <value>链上治理</value>
   </data>
-  <data name="Apply for Off-Chain Governance" xml:space="preserve">
-    <value>链下治理申请</value>
+  <data name="Apply" xml:space="preserve">
+    <value>申请</value>
   </data>
   <data name="For more details, see the documentation:" xml:space="preserve">
     <value>更多详细信息见文档：</value>
