@@ -7,7 +7,7 @@
     padding:100px;
 }
 .navbar {
-    background:#F3F3F3;
+    background:#fff;
 }
 .main-footer .container{
     display:none;
@@ -19,14 +19,16 @@
     display:none!important;
 }
 .gray-back {
-    background:#888888;
+    background-image: url(../images/sblack.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     color:#ffffff;
 }
 
 .title-line{
-    color: #666666;
+    color: #333;
     text-align: center;
-    font-weight: 100;
 }
 .block-info{
     font-size:0px;
@@ -34,10 +36,10 @@
     margin: auto;
 }
 .block-info .info-cont {
-    background: #F3F3F3;
+    background: #fff;
     padding: 20px;
     text-align: center;
-    width: calc(25% - 4px);
+    width: calc(25% - 5px);
     margin: 2px;
     display: inline-block;
     transition: transform .1s,background .2s;
@@ -51,7 +53,7 @@
     color:#ffffff;
     background: linear-gradient(45deg,#BFDC18,#9ED990);
     box-shadow: #BBBBBB 0 0 20px;
-    transform: scale(1.02);
+    transform: scale(1.05);
     transition: transform .1s,background .2s;
 }
 .block-info .info-cont:hover .info-icon{
@@ -60,7 +62,7 @@
 }
 
 .block-data {
-    background:#F3F3F3;
+    background:#fff;
     padding:20px;
 }
 .tab-btn{

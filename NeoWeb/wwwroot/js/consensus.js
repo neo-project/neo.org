@@ -105,7 +105,7 @@ function getVolue() {
 function showCharts(data) {
     var myChart = echarts.init(document.getElementById('main'));
     option = {
-        backgroundColor: '#F3F3F3',
+        backgroundColor: '#fff',
         tooltip: {
             trigger: 'axis',
             backgroundColor: 'rgba(255,255,255,1)',

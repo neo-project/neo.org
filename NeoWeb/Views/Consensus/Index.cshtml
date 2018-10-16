@@ -45,16 +45,16 @@
         </div>
     </div>
     <div class="title-line t1 m2">
-        链下治理
+        @Localizer["Off-Chain Governance"]
     </div>
     <div class="gray-back p2 text-center">
         <p class="m3">
-            更多详细信息见文档：<a class="text-white" href="">XXXXXXX</a>
+            @Localizer["For more details, see the documentation:"]<a class="text-white" href="@Localizer["https://github.com/taomo-eo/docs/blob/master/Becoming_Consensus_Node/How%20To%20Become%20A%20Consensus%20Nodev1.2.md"]">@Localizer["How To Become A Consensus Node"]</a>
         </p>
-        <a class="tab-btn text-white m3" href="#">链下治理申请</a>
+        <a class="tab-btn text-white m3" href="mailto:consensus@neo.org">@Localizer["Apply for Off-Chain Governance"]</a>
     </div>
     <div class="title-line t1 m2 mb0">
-        链上治理
+        @Localizer["On-Chain Governance"]
     </div>
     <div class="flo-clear m3">
         <a class="tab-btn float-right d-none d-xl-block" data-toggle="modal" data-target="#exampleModal">@Localizer["Provide Candidate Info"]</a>
@@ -83,7 +83,7 @@
                         <label for="PublicKey" class="control-label">@Localizer["Public Key"]<span class="red-text"> * </span></label>
                         <select asp-for="PublicKey" class="form-control">
                             @foreach (var item in ViewBag.PubKeys as List<string>)
-                            {
+                    {
                                 <option value="@item">@item</option>
                             }
                         </select>
