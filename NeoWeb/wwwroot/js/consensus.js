@@ -56,7 +56,6 @@ function countDown(time) {
 function getListdata() {
     $.get("../../consensus/getvalidators", []).done(function (data) {
         var _list = JSON.parse(data);
-        console.log(_list[2].Info.SocialAccount);
         if (conNum != _list.length) {
             var flag = 0;
             $("#cannum").html(_list.length);
@@ -69,7 +68,25 @@ function getListdata() {
             var html = "";
             for (var j in _list) {
                 html += template('test', _list[j]);
-                html += "<p>社交账号</p></li >";
+
+                if (_list[j].Info != null && _list[j].Info.SocialAccount != null) {
+                    var accountList = _list[j].Info.SocialAccount.split(';');
+                    var socialAccount = "";
+                    for (var i = 0; i < accountList.length; i++) {
+                        var account = accountList[i].split(':');
+                        var accountName = account[0];
+                        var accountLink = account[1];
+                        if (accountName.toLowerCase() == "twitter")
+                            socialAccount += "<a href=https://twitter.com/" + accountLink + "><i class=\"iconfont\">&#xe60a;</i></a>";
+                        if (accountName.toLowerCase() == "facebook")
+                            socialAccount += "<a href=https://www.facebook.com/" + accountLink + "><i class=\"iconfont\">&#xe87d;</i></a>";
+                        if (accountName.toLowerCase() == "weibo")
+                            socialAccount += "<a href=https://weibo.com/" + accountLink + "><i class=\"iconfont\">&#xe610;</i></a>";
+                        if (accountName.toLowerCase() == "github")
+                            socialAccount += "<a href=https://github.com/" + accountLink + "><i class=\"iconfont\">&#xee67;</i></a>";
+                    }
+                    html += "<p class=\"social-icon\">" + socialAccount + "<p/>";
+                }
             }
             
             document.getElementById('tableList').innerHTML = html;

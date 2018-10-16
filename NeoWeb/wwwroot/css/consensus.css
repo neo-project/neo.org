@@ -1,8 +1,7 @@
 ﻿html,body{
     height:auto;
     background: #ECECEC;
-    color:#888888;
-    font-weight:100;
+    color:#333;
 }
 .p1 {
     padding:100px;
@@ -96,7 +95,7 @@
 .table-list li{
     margin: 8px auto 8px;
     line-height: 2;
-    background:#F3F3F3;
+    background:#fff;
 }
 .can-th {
     
@@ -120,6 +119,12 @@
     width: 100%;
     padding-top:10px;
     border-top:2px solid rgba(230,230,230,0.4);
+    border-bottom:2px solid rgba(230,230,230,0.4);
+}
+.can-detail .detail-left {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 .text-ellipsis{
     vertical-align:top;
@@ -135,11 +140,6 @@
     word-break: break-all;
     vertical-align: top;
 }
-.detail-left img{
-    width: 100%;
-    max-width: 200px;
-    margin-top: 10px;
-}
 .detail-right{
     display: inline-block;
     width: calc(100% - 200px);
@@ -151,6 +151,14 @@
     display:inline-block;
     margin-right:5px;
     vertical-align: initial;
+}
+.social-icon {
+    text-align: right;
+    padding: 0 .5em .5em 0;
+    font-size: 22px;
+}
+.social-icon a {
+    padding: 0 8px;
 }
 
 .modal-content {
@@ -260,7 +268,6 @@
     .detail-left{
         display: block;
         width: auto;
-        max-width: none;
     }
     .detail-left img{
         margin: 20px 0;

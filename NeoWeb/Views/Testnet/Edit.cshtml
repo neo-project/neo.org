@@ -2,12 +2,10 @@
 
 @{
     ViewData["Title"] = "备注";
-    Layout = "_LayoutTestnet.cshtml";
 }
 <div class="container">
-    <h1 class="m1">备注</h1>
     <div class="row coin-back">
-        <h4 class="m3">添加备注</h4>
+        <h2 class="m3">添加备注</h2>
         <div class="col-md-12">
             <form asp-action="Edit">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -17,10 +15,10 @@
                 </div>
                 <div class="form-group m3">
                     <label asp-for="Remark"></label>
-                    <textarea asp-for="Remark" ></textarea>
+                    <textarea class="form-control" asp-for="Remark" ></textarea>
                     <span asp-validation-for="Remark" class="text-danger"></span>
                 </div>
-                <div class="text-center m3">
+                <div class="m3">
                     <input type="submit" value="保存" class="btn btn-secondary" />
                 </div>
             </form>

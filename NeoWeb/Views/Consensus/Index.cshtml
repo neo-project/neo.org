@@ -16,19 +16,22 @@
     <div class="title-line t1 m2">@Localizer["Blockchain Info"]</div>
     <div class="row block-info">
         <div class="info-cont">
-            <p class="info-icon gray-text"><i class="iconfont">&#xe681;</i></p>
+            <p class="info-icon gray-text"><i class="iconfont">&#xe619;</i></p>
             <p class="t2">@Localizer["Block Height"]</p>
             <span class="t1" id="blohei">--</span>
         </div>
         <div class="info-cont">
+            <p class="info-icon gray-text"><i class="iconfont">&#xe6c1;</i></p>
             <p class="t2">@Localizer["Last Time"]</p>
             <span class="t1" id="lastime">--</span>
         </div>
         <div class="info-cont">
+            <p class="info-icon gray-text"><i class="iconfont">&#xe61c;</i></p>
             <p class="t2">@Localizer["Candidate Count"]</p>
             <span class="t1" id="cannum">--</span>
         </div>
         <div class="info-cont">
+            <p class="info-icon gray-text"><i class="iconfont">&#xe609;</i></p>
             <p class="t2">@Localizer["Consensus Count"]</p>
             <span class="t1" id="connum">--</span>
         </div>
@@ -148,7 +151,7 @@
     </div>
 </div>
 <script id="test" type="text/html">
-    <li class="p4 pt0 pr0">
+    <li class="pt0 pr0">
         <div class="can-th p4">
             {{if Active}}<span class="detail-left t2 green-text">@Localizer["Consensus Node"]</span>{{/if}}
             {{if !Active}}<span class="detail-left t3">@Localizer["Candidate Node"]</span>{{/if}}
@@ -159,14 +162,14 @@
         </div>
         {{if Info}}
         <div class="can-detail p4">
-            <div class="detail-left">
-                <img src="~/images/neo_logo.svg" />
+            <div class="detail-left" style="background-image:url(/upload/{{Info.Logo}})">
+                {{if Info.Logo}}<div style="padding-top:100%"></div>{{/if}}
             </div>
             <div class="detail-right">
-                <p class="green-text t2 pt0">City Of Zion</p>
+                <p class="green-text t2 pt0">{{if Info.Organization}}{{Info.Organization}}{{/if}}</p>
                 {{if Info.Website}}<span>@Localizer["Website"]: </span><a href={{Info.Website}} target="_blank">{{Info.Website}}</a><br>{{/if}}
                 {{if Info.Email}}<span>@Localizer["E-mail"]: </span>{{Info.Email}}<br>{{/if}}
-                {{if Info.SocialAccount}}<span>@Localizer["Social media account"]: </span>{{Info.SocialAccount}}<br>{{/if}}
+
                 {{if Info.Summary}}<span>@Localizer["Summary"]: </span>{{Info.Summary}}<br>{{/if}}
             </div>
         </div>
