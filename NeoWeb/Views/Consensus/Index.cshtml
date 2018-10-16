@@ -7,9 +7,7 @@
 }
 
 @section Styles{
-    @*<link rel="stylesheet" href="@Helper.CDN/css/consensus.min.css" />*@
-    <link rel="stylesheet" href="~/css/common.css" />
-    <link rel="stylesheet" href="~/css/consensus.css" />
+    <link rel="stylesheet" href="@Helper.CDN/css/consensus.css" />
 }
 
 <div class="container">
@@ -180,8 +178,7 @@
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script src="@Helper.CDN/js/echarts.js"></script>
     <script src="@Helper.CDN/js/template.js"></script>
-    @*<script src="@Helper.CDN/js/consensus.js"></script>*@
-    <script src="/js/consensus.js"></script>
+    <script src="@Helper.CDN/js/consensus.min.js"></script>
     <script src="@Helper.CDN/js/getseed.js"></script>
     <script src="@Helper.CDN/js/sha256.min.js"></script>
     <script>
