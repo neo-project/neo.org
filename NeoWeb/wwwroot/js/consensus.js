@@ -56,7 +56,7 @@ function countDown(time) {
 function getListdata() {
     $.get("../../consensus/getvalidators", []).done(function (data) {
         var _list = JSON.parse(data);
-
+        console.log(_list[2].Info.SocialAccount);
         if (conNum != _list.length) {
             var flag = 0;
             $("#cannum").html(_list.length);
@@ -69,9 +69,9 @@ function getListdata() {
             var html = "";
             for (var j in _list) {
                 html += template('test', _list[j]);
-                html += "<p>社交账号</p></li>"
+                html += "<p>社交账号</p></li >";
             }
-
+            
             document.getElementById('tableList').innerHTML = html;
             conNum = _list.length;
         }

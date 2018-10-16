@@ -149,7 +149,7 @@
 }
 .detail-right>span {
     display:inline-block;
-    width:100px;
+    margin-right:5px;
     vertical-align: initial;
 }
 
