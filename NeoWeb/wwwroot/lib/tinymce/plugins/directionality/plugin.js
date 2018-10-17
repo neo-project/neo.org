@@ -20,17 +20,17 @@ var directionality = (function () {
       editor.nodeChanged();
     }
   };
-  var $_a3fuqb4jk26xj18 = { setDir: setDir };
+  var $_a0sz3yb3jm0ofycb = { setDir: setDir };
 
   var register = function (editor) {
     editor.addCommand('mceDirectionLTR', function () {
-      $_a3fuqb4jk26xj18.setDir(editor, 'ltr');
+      $_a0sz3yb3jm0ofycb.setDir(editor, 'ltr');
     });
     editor.addCommand('mceDirectionRTL', function () {
-      $_a3fuqb4jk26xj18.setDir(editor, 'rtl');
+      $_a0sz3yb3jm0ofycb.setDir(editor, 'rtl');
     });
   };
-  var $_e0o7db3jk26xj17 = { register: register };
+  var $_a21zaib2jm0ofyc9 = { register: register };
 
   var generateSelector = function (dir) {
     var selector = [];
@@ -51,11 +51,11 @@ var directionality = (function () {
       stateSelector: generateSelector('rtl')
     });
   };
-  var $_e6f6e1b6jk26xj1a = { register: register$1 };
+  var $_dnu9wqb5jm0ofycc = { register: register$1 };
 
   global.add('directionality', function (editor) {
-    $_e0o7db3jk26xj17.register(editor);
-    $_e6f6e1b6jk26xj1a.register(editor);
+    $_a21zaib2jm0ofyc9.register(editor);
+    $_dnu9wqb5jm0ofycc.register(editor);
   });
   function Plugin () {
   }

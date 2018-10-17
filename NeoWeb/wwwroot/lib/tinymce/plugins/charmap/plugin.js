@@ -7,13 +7,13 @@ var charmap = (function () {
   var fireInsertCustomChar = function (editor, chr) {
     return editor.fire('insertCustomChar', { chr: chr });
   };
-  var $_e7247a9qjk26xitz = { fireInsertCustomChar: fireInsertCustomChar };
+  var $_1lh8ev9pjm0ofy5m = { fireInsertCustomChar: fireInsertCustomChar };
 
   var insertChar = function (editor, chr) {
-    var evtChr = $_e7247a9qjk26xitz.fireInsertCustomChar(editor, chr).chr;
+    var evtChr = $_1lh8ev9pjm0ofy5m.fireInsertCustomChar(editor, chr).chr;
     editor.execCommand('mceInsertContent', false, evtChr);
   };
-  var $_explz69pjk26xity = { insertChar: insertChar };
+  var $_4kycsa9ojm0ofy5l = { insertChar: insertChar };
 
   var global$1 = tinymce.util.Tools.resolve('tinymce.util.Tools');
 
@@ -23,7 +23,7 @@ var charmap = (function () {
   var getCharMapAppend = function (editor) {
     return editor.settings.charmap_append;
   };
-  var $_b1hvs89tjk26xiu7 = {
+  var $_aw1nk89sjm0ofy5t = {
     getCharMap: getCharMap,
     getCharMapAppend: getCharMapAppend
   };
@@ -1096,11 +1096,11 @@ var charmap = (function () {
     return [];
   };
   var extendCharMap = function (editor, charmap) {
-    var userCharMap = $_b1hvs89tjk26xiu7.getCharMap(editor);
+    var userCharMap = $_aw1nk89sjm0ofy5t.getCharMap(editor);
     if (userCharMap) {
       charmap = getCharsFromSetting(userCharMap);
     }
-    var userCharMapAppend = $_b1hvs89tjk26xiu7.getCharMapAppend(editor);
+    var userCharMapAppend = $_aw1nk89sjm0ofy5t.getCharMapAppend(editor);
     if (userCharMapAppend) {
       return [].concat(charmap).concat(getCharsFromSetting(userCharMapAppend));
     }
@@ -1109,21 +1109,21 @@ var charmap = (function () {
   var getCharMap$1 = function (editor) {
     return extendCharMap(editor, getDefaultCharMap());
   };
-  var $_c01sm49rjk26xiu1 = { getCharMap: getCharMap$1 };
+  var $_chveh89qjm0ofy5o = { getCharMap: getCharMap$1 };
 
   var get = function (editor) {
     var getCharMap = function () {
-      return $_c01sm49rjk26xiu1.getCharMap(editor);
+      return $_chveh89qjm0ofy5o.getCharMap(editor);
     };
     var insertChar = function (chr) {
-      $_explz69pjk26xity.insertChar(editor, chr);
+      $_4kycsa9ojm0ofy5l.insertChar(editor, chr);
     };
     return {
       getCharMap: getCharMap,
       insertChar: insertChar
     };
   };
-  var $_2w1mgm9ojk26xitv = { get: get };
+  var $_11mull9njm0ofy5k = { get: get };
 
   var getHtml = function (charmap) {
     var gridHtml, x, y;
@@ -1148,7 +1148,7 @@ var charmap = (function () {
     gridHtml += '</tbody></table>';
     return gridHtml;
   };
-  var $_etb8o69wjk26xiui = { getHtml: getHtml };
+  var $_eyauk69vjm0ofy64 = { getHtml: getHtml };
 
   var getParentTd = function (elm) {
     while (elm) {
@@ -1162,7 +1162,7 @@ var charmap = (function () {
     var win;
     var charMapPanel = {
       type: 'container',
-      html: $_etb8o69wjk26xiui.getHtml($_c01sm49rjk26xiu1.getCharMap(editor)),
+      html: $_eyauk69vjm0ofy64.getHtml($_chveh89qjm0ofy5o.getCharMap(editor)),
       onclick: function (e) {
         var target = e.target;
         if (/^(TD|DIV)$/.test(target.nodeName)) {
@@ -1171,7 +1171,7 @@ var charmap = (function () {
             var charCodeString = charDiv.getAttribute('data-chr');
             var charCode = parseInt(charCodeString, 10);
             if (!isNaN(charCode)) {
-              $_explz69pjk26xity.insertChar(editor, String.fromCharCode(charCode));
+              $_4kycsa9ojm0ofy5l.insertChar(editor, String.fromCharCode(charCode));
             }
             if (!e.ctrlKey) {
               win.close();
@@ -1237,14 +1237,14 @@ var charmap = (function () {
         }]
     });
   };
-  var $_fskos79vjk26xiu9 = { open: open };
+  var $_c6j7vw9ujm0ofy5v = { open: open };
 
   var register = function (editor) {
     editor.addCommand('mceShowCharmap', function () {
-      $_fskos79vjk26xiu9.open(editor);
+      $_c6j7vw9ujm0ofy5v.open(editor);
     });
   };
-  var $_18rdr29ujk26xiu8 = { register: register };
+  var $_1bywb99tjm0ofy5u = { register: register };
 
   var register$1 = function (editor) {
     editor.addButton('charmap', {
@@ -1259,12 +1259,12 @@ var charmap = (function () {
       context: 'insert'
     });
   };
-  var $_5gbcyy9xjk26xiuj = { register: register$1 };
+  var $_39lae9wjm0ofy65 = { register: register$1 };
 
   global.add('charmap', function (editor) {
-    $_18rdr29ujk26xiu8.register(editor);
-    $_5gbcyy9xjk26xiuj.register(editor);
-    return $_2w1mgm9ojk26xitv.get(editor);
+    $_1bywb99tjm0ofy5u.register(editor);
+    $_39lae9wjm0ofy65.register(editor);
+    return $_11mull9njm0ofy5k.get(editor);
   });
   function Plugin () {
   }
