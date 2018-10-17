@@ -156,12 +156,12 @@
 .social-icon {
     position: absolute;
     right: 30px;
-    font-size: 22px;
-    margin-top: -56px;
+    font-size: 18px;
+    margin-top: -44px;
 }
 .social-icon a {
     padding: 3px 7px;
-    margin: 0 8px;
+    margin: 0 10px;
     border: 1px solid #fff;
     border-radius: 50%;
 }
