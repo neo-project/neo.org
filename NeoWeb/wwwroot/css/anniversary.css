@@ -5,6 +5,10 @@
     padding-top:0;
 }
 
+.navbar {
+    background:#F2F2F2;
+}
+
 .anni-title {
     margin-bottom: 10px;
     z-index: 1;
@@ -40,6 +44,16 @@
 .title-sty3 {
     color:#036003;
     text-shadow: 3px 0px 0px #fffc00;
+}
+.title-sty4 {
+    color:#036003;
+    text-shadow: 3px 0px 0px #fffc00;
+}
+.title-sty4:before{
+    background: #fffc00;
+    width: 40px;
+    height: 40px;
+    top: -15px;
 }
 
 .anni-con {
@@ -223,6 +237,7 @@ i.iconfont {
     overflow: hidden;
     top: 0;
     width: 100%;
+    margin-left:-15px;
 }
 
 .block img {
@@ -254,7 +269,7 @@ i.iconfont {
 }
 
 .block img[data-num="5"] {
-    right: 0px;
+    right: 12px;
     top: 241px;
     transform: rotate(167deg) scale(0.8, 0.8);
 }
@@ -272,7 +287,7 @@ i.iconfont {
 }
 
 .block img[data-num="8"] {
-    right: -35px;
+    right: 5px;
     top: 498px;
     transform: rotate(7deg) scale(0.8, 0.8);
 }
@@ -295,7 +310,8 @@ i.iconfont {
     left: 0;
     right: 0;
     margin: auto;
-    height: 14px;
+    height: 50%;
+    padding: 0 15px;
 }
 
 .bs-img {
@@ -328,9 +344,9 @@ i.iconfont {
 
 .cross-bar {
     height: 50px;
-    width: 620px;
+    width: 690px;
     position: absolute;
-    left: -16px;
+    left: -20px;
     top: 120px;
 }
 
@@ -408,7 +424,7 @@ b {
 
 .docs-awards img{
     width:100%;
-    max-width:800px;
+    max-width:500px;
 }
 
 .bonus {
@@ -442,6 +458,9 @@ b {
         top: -23px;
         right: 0;
     }
+    .mt-90 {
+        margin-top: 50px;
+    }
 
     .download-text {
         padding:0 10px;
@@ -465,7 +484,7 @@ b {
     }
 
     .cross-bar-text {
-        font-size: 14px;
+        font-size: 12px;
         top: 129px;
         margin-left: -6px;
     }
