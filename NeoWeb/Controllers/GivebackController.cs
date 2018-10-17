@@ -11,6 +11,7 @@ using System.Security.Cryptography;
 using Neo;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Localization;
+using Neo.Wallets;
 
 namespace NeoWeb.Controllers
 {
@@ -98,7 +99,7 @@ namespace NeoWeb.Controllers
                 {
                     try
                     {
-                        Neo.Wallets.Wallet.ToScriptHash(giveback.GivebackNeoAddress);
+                        giveback.GivebackNeoAddress.ToScriptHash();
                     }
                     catch (Exception)
                     {
@@ -154,7 +155,7 @@ namespace NeoWeb.Controllers
                 {
                     try
                     {
-                        Neo.Wallets.Wallet.ToScriptHash(giveback.GivebackNeoAddress);
+                        giveback.GivebackNeoAddress.ToScriptHash();
                     }
                     catch (Exception)
                     {

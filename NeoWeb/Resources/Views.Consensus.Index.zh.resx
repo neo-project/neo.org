@@ -237,4 +237,22 @@
   <data name="Relevant information about NEO should be displayed." xml:space="preserve">
     <value>网页需显示NEO相关信息</value>
   </data>
+  <data name="Organization" xml:space="preserve">
+    <value>组织名称</value>
+  </data>
+  <data name="How To Become A Consensus Node" xml:space="preserve">
+    <value>如何成为共识节点</value>
+  </data>
+  <data name="Off-Chain Governance" xml:space="preserve">
+    <value>链下治理</value>
+  </data>
+  <data name="On-Chain Governance" xml:space="preserve">
+    <value>链上治理</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>申请</value>
+  </data>
+  <data name="For more details, see the documentation:" xml:space="preserve">
+    <value>更多详细信息见文档：</value>
+  </data>
 </root>
