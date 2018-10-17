@@ -18,7 +18,7 @@
       ]
     },
     {
-      "library": "jquery-validation-unobtrusive@3.2.10",
+      "library": "jquery-validation-unobtrusive@3.2.11",
       "destination": "wwwroot/lib/jquery-validation-unobtrusive/",
       "files": [
         "jquery.validate.unobtrusive.min.js"
@@ -33,7 +33,7 @@
     },
     {
       "provider": "cdnjs",
-      "library": "tinymce@4.8.1",
+      "library": "tinymce@4.8.3",
       "destination": "wwwroot/lib/tinymce/"
     },
     {
