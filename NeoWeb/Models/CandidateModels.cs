@@ -24,7 +24,7 @@ namespace NeoWeb.Models
         [RegularExpression("^(?=^.{3,255}$)(http(s)?:\\/\\/)?(www\\.)?[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+(:\\d+)*(\\/\\w+\\.\\w+)*$")]
         public string Website { get; set; }
 
-        [MaxLength(50)]
+        [MaxLength(200)]
         public string SocialAccount { get; set; }
 
         [MaxLength(500)]

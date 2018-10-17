@@ -7,7 +7,7 @@
 }
 
 @section Styles{
-    <link rel="stylesheet" href="@Helper.CDN/css/consensus.css" />
+    <link rel="stylesheet" href="@Helper.CDN/css/consensus.min.css" />
 }
 
 <div class="container">
@@ -46,8 +46,8 @@
         @Localizer["Off-Chain Governance"]
     </div>
     <div class="gray-back p2 text-center">
-        <p class="m3">
-            @Localizer["For more details, see the documentation:"]<a class="text-white" href="https://github.com/neo-ngd/reference/blob/master/How%20To%20Become%20A%20Consensus%20Nodev1.2.md">@Localizer["How To Become A Consensus Node"]</a>
+        <p class="m3 t2">
+            @Localizer["For more details, see the documentation:"] <a class="text-white" href="https://github.com/neo-ngd/reference/blob/master/How%20To%20Become%20A%20Consensus%20Nodev1.2.md">@Localizer["How To Become A Consensus Node"]</a>
         </p>
         <a class="tab-btn text-white m3" href="mailto:consensus@neo.org">@Localizer["Apply"]</a>
     </div>
@@ -192,5 +192,7 @@
         if (error.length > 0) {
             $('#exampleModal').modal();
         }
+        $("#menu_list a").css("border-bottom", "none")
+        $("#menu_list li.nav-item [href='/consensus']").css("border-bottom", "2px solid #58bf00")
     </script>
 }
