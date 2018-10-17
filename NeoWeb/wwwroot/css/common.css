@@ -45,6 +45,7 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
 .body-content {padding-bottom:50px;}
 .desktop-show {display:inline-block!important;}
 .mobile-show {display:none!important;}
+.gray-back {background:#888888;}
 .light-text {color:#AAAAAA;}
 .gray-text {color:#333333;}
 .green-text{color:#00ae1d;}
@@ -54,6 +55,12 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
 .lh2 {line-height:2;}
 .lh3 {line-height:1.7;}
 .flo-r {float:right;}
+.flo-clear:before,
+.flo-clear:after {
+    content:" ";
+    display:block;
+    clear:both;
+}
 .midpoint {position:absolute;top:0;left:0;right:0;bottom:0;margin:auto;}
 .posi-rela {position:relative;}
 .posi-fixed {position:fixed;}

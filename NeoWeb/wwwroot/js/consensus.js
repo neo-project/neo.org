@@ -1,6 +1,6 @@
 var block_height = 0;
 var send_url = "https://pyrpc2.narrative.org:443";
-var lastt = new Date();
+var lastt = new Date(),conNum = 0;
 
 blockInfo();
 getVolue();
@@ -56,19 +56,42 @@ function countDown(time) {
 function getListdata() {
     $.get("../../consensus/getvalidators", []).done(function (data) {
         var _list = JSON.parse(data);
-        var flag = 0;
-        $("#cannum").html(_list.length);
-        for (var i = 0; i < _list.length; i++) {
-            if (_list[i].Active) flag++;
-        }
-        $("#connum").html(flag);
+        if (conNum != _list.length) {
+            var flag = 0;
+            $("#cannum").html(_list.length);
+            for (var i = 0; i < _list.length; i++) {
+                if (_list[i].Active) flag++;
+            }
+            $("#connum").html(flag);
 
-        //竞选个数
-        var html = "";
-        for (var j in _list) {
-            html += template('test', _list[j]);
+            //竞选个数
+            var html = "";
+            for (var j in _list) {
+                html += template('test', _list[j]);
+
+                if (_list[j].Info != null && _list[j].Info.SocialAccount != null) {
+                    var accountList = _list[j].Info.SocialAccount.split(';');
+                    var socialAccount = "";
+                    for (var i = 0; i < accountList.length; i++) {
+                        var account = accountList[i].split(':');
+                        var accountName = account[0];
+                        var accountLink = account[1];
+                        if (accountName.toLowerCase() == "twitter")
+                            socialAccount += "<a href=https://twitter.com/" + accountLink + "><i class=\"iconfont\">&#xe60a;</i></a>";
+                        if (accountName.toLowerCase() == "facebook")
+                            socialAccount += "<a href=https://www.facebook.com/" + accountLink + "><i class=\"iconfont\">&#xe87d;</i></a>";
+                        if (accountName.toLowerCase() == "weibo")
+                            socialAccount += "<a href=https://weibo.com/" + accountLink + "><i class=\"iconfont\">&#xe610;</i></a>";
+                        if (accountName.toLowerCase() == "github")
+                            socialAccount += "<a href=https://github.com/" + accountLink + "><i class=\"iconfont\">&#xee67;</i></a>";
+                    }
+                    html += "<p class=\"social-icon\">" + socialAccount + "<p/>";
+                }
+            }
+            
+            document.getElementById('tableList').innerHTML = html;
+            conNum = _list.length;
         }
-        document.getElementById('tableList').innerHTML = html;
     });
 }
 
@@ -82,7 +105,7 @@ function getVolue() {
 function showCharts(data) {
     var myChart = echarts.init(document.getElementById('main'));
     option = {
-        backgroundColor: '#F9FBF2',
+        backgroundColor: '#fff',
         tooltip: {
             trigger: 'axis',
             backgroundColor: 'rgba(255,255,255,1)',
@@ -128,43 +151,44 @@ function showCharts(data) {
         }],
         yAxis: [{
             type: 'value',
+            boundaryGap: false,
             axisTick: {
                 show: false
             },
             axisLine: {
-                lineStyle: {
-                    color: '#CCC'
-                }
+                show: false
             },
             axisLabel: {
                 margin: 10,
                 textStyle: {
+                    color: '#CCC',
                     fontSize: 14
                 }
             },
             splitLine: {
                 lineStyle: {
-                    color: '#ECECEC'
+                    color: '#EAEAEA'
                 }
             }
         }, {
             type: 'value',
-            scale: true,
-            name: 'Byte',
+            boundaryGap: false,
+            axisTick: {
+                show: false
+            },
             axisLine: {
-                lineStyle: {
-                    color: '#CCC'
-                }
+                show: false
             },
             axisLabel: {
                 margin: 10,
                 textStyle: {
+                    color: '#CCC',
                     fontSize: 14
                 }
             },
             splitLine: {
                 lineStyle: {
-                    color: '#ECECEC'
+                    color: '#EAEAEA'
                 }
             }
         }],
@@ -176,20 +200,10 @@ function showCharts(data) {
             yAxisIndex: 0,
             lineStyle: {
                 normal: {
-                    width: 2
-                }
-            },
-            areaStyle: {
-                normal: {
-                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                        offset: 0,
-                        color: 'rgba(190,220,25, 0.8)'
-                    }, {
-                        offset: 0.8,
-                        color: 'rgba(210, 220, 25, 0)'
-                    }], false),
-                    shadowColor: 'rgba(0, 0, 0, 0.1)',
-                    shadowBlur: 10
+                    width: 2,
+                    shadowColor: 'rgba(80,80,80,0.1)',
+                    shadowBlur: 15,
+                    shadowOffsetY: 30
                 }
             },
             itemStyle: {
@@ -206,20 +220,10 @@ function showCharts(data) {
             yAxisIndex: 1,
             lineStyle: {
                 normal: {
-                    width: 2
-                }
-            },
-            areaStyle: {
-                normal: {
-                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                        offset: 0,
-                        color: 'rgba(148,207,134, 0.8)'
-                    }, {
-                        offset: 0.8,
-                        color: 'rgba(158,217,144, 0)'
-                    }], false),
-                    shadowColor: 'rgba(0, 0, 0, 0.1)',
-                    shadowBlur: 10
+                    width: 2,
+                    shadowColor: 'rgba(80,80,80,0.1)',
+                    shadowBlur: 15,
+                    shadowOffsetY: 30
                 }
             },
             itemStyle: {

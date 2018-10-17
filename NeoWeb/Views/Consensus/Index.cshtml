@@ -7,78 +7,62 @@
 }
 
 @section Styles{
-    <link rel="stylesheet" href="@Helper.CDN/css/consensus.min.css" />
+    <link rel="stylesheet" href="@Helper.CDN/css/consensus.css" />
 }
 
 <div class="container">
     <div class="title-line t1 m2">@Localizer["Blockchain Info"]</div>
     <div class="row block-info">
-        <div class="col-sm-3">
-            <div class="info-cont">
-                <p>@Localizer["Block Height"]</p>
-                <p class="data_show">
-                    <span id="blohei">--</span>
-                </p>
-            </div>
+        <div class="info-cont">
+            <p class="info-icon gray-text"><i class="iconfont">&#xe619;</i></p>
+            <p class="t2">@Localizer["Block Height"]</p>
+            <span class="t1" id="blohei">--</span>
         </div>
-        <div class="col-sm-3">
-            <div class="info-cont">
-                <p>@Localizer["Last Time"]</p>
-                <p class="data_show">
-                    <span id="lastime">--</span>
-                </p>
-            </div>
+        <div class="info-cont">
+            <p class="info-icon gray-text"><i class="iconfont">&#xe6c1;</i></p>
+            <p class="t2">@Localizer["Last Time"]</p>
+            <span class="t1" id="lastime">--</span>
         </div>
-        <div class="col-sm-3">
-            <div class="info-cont">
-                <p>@Localizer["Candidate Count"]</p>
-                <p class="data_show">
-                    <span id="cannum">--</span>
-                </p>
-            </div>
+        <div class="info-cont">
+            <p class="info-icon gray-text"><i class="iconfont">&#xe61c;</i></p>
+            <p class="t2">@Localizer["Candidate Count"]</p>
+            <span class="t1" id="cannum">--</span>
         </div>
-        <div class="col-sm-3">
-            <div class="info-cont">
-                <p>@Localizer["Consensus Count"]</p>
-                <p class="data_show">
-                    <span id="connum">--</span>
-                </p>
-            </div>
+        <div class="info-cont">
+            <p class="info-icon gray-text"><i class="iconfont">&#xe609;</i></p>
+            <p class="t2">@Localizer["Consensus Count"]</p>
+            <span class="t1" id="connum">--</span>
         </div>
     </div>
-
-    <div class="title-line m2">@Localizer["Blockchain indicator"]</div>
+    <div class="title-line t1 m2">@Localizer["Blockchain indicator"]</div>
     <div class="row">
         <div class="col-sm-12">
             <div class="block-data">
-                <div class="tab-change">
-                    <a class="tab-btn tab-selected">@Localizer["Charts"]</a>
-                    @*<a class="tab-btn">@Localizer["Nodes distribution"]</a>*@
-                </div>
-                <div class="can-charts m3" id="main"></div>
+                <div class="can-charts" id="main"></div>
             </div>
         </div>
     </div>
-    <div class="title-line m2">
-        @Localizer["Candidate List"]
-        <a class="tab-btn float-right d-none d-xl-block" data-toggle="modal" data-target="#exampleModal"><span class="iconfont green-text">&#xe608;</span> @Localizer["Provide Candidate Info"]</a>
+    <div class="title-line t1 m2">
+        @Localizer["Off-Chain Governance"]
+    </div>
+    <div class="gray-back p2 text-center">
+        <p class="m3">
+            @Localizer["For more details, see the documentation:"]<a class="text-white" href="https://github.com/neo-ngd/reference/blob/master/How%20To%20Become%20A%20Consensus%20Nodev1.2.md">@Localizer["How To Become A Consensus Node"]</a>
+        </p>
+        <a class="tab-btn text-white m3" href="mailto:consensus@neo.org">@Localizer["Apply"]</a>
+    </div>
+    <div class="title-line t1 m2 mb0">
+        @Localizer["On-Chain Governance"]
+    </div>
+    <div class="flo-clear m3">
+        <a class="tab-btn float-right d-none d-xl-block" data-toggle="modal" data-target="#exampleModal">@Localizer["Provide Candidate Info"]</a>
     </div>
     <div class="row">
-        <ul class="col-sm-12 table-list">
-            <li>
-                <div class="tr-con">
-                    <span class="pub-key">@Localizer["Public Key Of Candidates"]</span>
-                    <span class="can-votes">@Localizer["Votes"]</span>
-                    <span class="can-consensus">@Localizer["Current state"]</span>
-                    <span class="can-more">@Localizer["More Info"]</span>
-                </div>
-            </li>
-        </ul>
         <ul class="col-sm-12 table-list" id="tableList"></ul>
     </div>
     <p class="m3">
-        <a class="text-white" href="javascript:" onclick="setLanguage('en-us')">English</a>
-        <a class="text-white p4" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+        <a href="javascript:" onclick="setLanguage('en-us')">English</a>
+        <a class="p4" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
     </p>
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -91,16 +75,29 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form asp-action="Create">
+                <form asp-action="Index" enctype="multipart/form-data">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
                         <label for="PublicKey" class="control-label">@Localizer["Public Key"]<span class="red-text"> * </span></label>
                         <select asp-for="PublicKey" class="form-control">
                             @foreach (var item in ViewBag.PubKeys as List<string>)
-                            {
+                    {
                                 <option value="@item">@item</option>
                             }
                         </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label asp-for="Organization" class="control-label">@Localizer["Organization"]<span class="red-text"> * </span></label>
+                            <input asp-for="Organization" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct website format"]" />
+                            <small class="form-text text-muted">@Localizer["Relevant information about NEO should be displayed."]</small>
+                            <span asp-validation-for="Organization" class="text-danger"></span>
+                        </div>
+                        <div class="col-6 form-group">
+                            <label asp-for="Logo" class="control-label">@Localizer["Logo"]</label>
+                            <input type="hidden" asp-for="Logo" name="oldLogo" />
+                            <input type="file" name="logo" id="logo" class="form-control" />
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-6 form-group">
@@ -152,41 +149,36 @@
     </div>
 </div>
 <script id="test" type="text/html">
-    <li>
-        <div class="tr-con">
-            <span class="pub-key"><span class="text-ellipsis">{{PublicKey}}</span></span>
-            <span class="can-votes">{{Votes}}</span>
-            <span class="can-consensus">
-                {{if Active}}@Localizer["Consensus Node"]{{/if}}
-                {{if !Active}}@Localizer["Candidate Node"]{{/if}}
-            </span>
-            <span class="can-more">
-                {{if Info}}<a class="more-info iconfont green-text" onclick="showDetail($(this));">&#xe606;</a>{{/if}}
-                {{if !Info}}<a class="more-info iconfont unclick-btn">&#xe606;</a>{{/if}}
-            </span>
+    <li class="pt0 pr0">
+        <div class="can-th p4">
+            {{if Active}}<span class="detail-left t2 green-text">@Localizer["Consensus Node"]</span>{{/if}}
+            {{if !Active}}<span class="detail-left t3">@Localizer["Candidate Node"]</span>{{/if}}
+            <div class="detail-right">
+                <span class="can-votes">@Localizer["Votes"]: {{Votes}}</span>
+                <span class="pub-key ">@Localizer["Public Key"]: <span class="text-ellipsis">{{PublicKey}}</span></span>
+            </div>
         </div>
         {{if Info}}
-        {{each Info value i}}
-        <div class="can-detail">
-            <div class="detail-left">
-                {{if Info.Website}}<span>@Localizer["Website"]: </span><a href={{Info.Website}} target="_blank">{{Info.Website}}</a><br>{{/if}}
-                {{if Info.Email}}<span>@Localizer["E-mail"]: {{Info.Email}}</span><br>{{/if}}
-                {{if Info.SocialAccount}}<span>@Localizer["Social media account"]: </span>{{Info.SocialAccount}}<br>{{/if}}
+        <div class="can-detail p4">
+            <div class="detail-left" style="background-image:url(/upload/{{Info.Logo}})">
+                {{if Info.Logo}}<div style="padding-top:100%"></div>{{/if}}
             </div>
             <div class="detail-right">
+                <p class="green-text t2 pt0">{{if Info.Organization}}{{Info.Organization}}{{/if}}</p>
+                {{if Info.Website}}<span>@Localizer["Website"]: </span><a href={{Info.Website}} target="_blank">{{Info.Website}}</a><br>{{/if}}
+                {{if Info.Email}}<span>@Localizer["E-mail"]: </span>{{Info.Email}}<br>{{/if}}
+
                 {{if Info.Summary}}<span>@Localizer["Summary"]: </span>{{Info.Summary}}<br>{{/if}}
             </div>
         </div>
-        {{/each}}
         {{/if}}
-    </li>
 </script>
 
 @section Scripts{
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script src="@Helper.CDN/js/echarts.js"></script>
     <script src="@Helper.CDN/js/template.js"></script>
-    <script src="@Helper.CDN/js/consensus.js"></script>
+    <script src="@Helper.CDN/js/consensus.min.js"></script>
     <script src="@Helper.CDN/js/getseed.js"></script>
     <script src="@Helper.CDN/js/sha256.min.js"></script>
     <script>

@@ -33,7 +33,9 @@ namespace NeoWeb.Controllers
             return View();
         }
 
-        // GET: Testnet/List
+        // GET: testcoin/List
+        [Route("testcoin/list")]
+        [Route("testnet/list")]
         public async Task<IActionResult> List()
         {
             return View(await _context.Testnets.ToListAsync());
@@ -57,9 +59,11 @@ namespace NeoWeb.Controllers
             return View(testnet);
         }
 
-        // GET: Testnet/Create
+        // GET: testcoin/apply
+        [Route("testcoin/apply")]
+        [Route("testnet/create")]
         [AllowAnonymous]
-        public IActionResult Create()
+        public IActionResult Apply()
         {
             return View();
         }
@@ -70,7 +74,9 @@ namespace NeoWeb.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Email,Phone,QQ,Company,Reason,ANSCount,ANCCount,PubKey,Remark")] Testnet testnet)
+        [Route("testcoin/apply")]
+        [Route("testnet/create")]
+        public async Task<IActionResult> Apply([Bind("Id,Name,Email,Phone,QQ,Company,Reason,ANSCount,ANCCount,PubKey,Remark")] Testnet testnet)
         {
             if (ModelState.IsValid)
             {
@@ -95,6 +101,7 @@ namespace NeoWeb.Controllers
         //}
 
         // GET: Testnet/Edit/5
+        [Route("testcoin/edit")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -115,6 +122,7 @@ namespace NeoWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("testcoin/edit")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Remark")] Testnet testnet)
         {
             if (id != testnet.Id)
@@ -147,6 +155,7 @@ namespace NeoWeb.Controllers
         }
 
         // GET: Testnet/Delete/5
+        [Route("testcoin/delete")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -165,6 +174,7 @@ namespace NeoWeb.Controllers
         }
 
         // POST: Testnet/Delete/5
+        [Route("testcoin/delete")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -177,6 +187,7 @@ namespace NeoWeb.Controllers
 
         // GET: dev
         [Route("dev/bounty")]
+        [Route("testnet/bounty")]
         [AllowAnonymous]
         public IActionResult Bounty()
         {
