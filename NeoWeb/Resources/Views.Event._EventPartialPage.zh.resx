@@ -132,4 +132,7 @@
   <data name="Show details" xml:space="preserve">
     <value>查看详情</value>
   </data>
+  <data name="Organizers:" xml:space="preserve">
+    <value>主办方：</value>
+  </data>
 </root>
