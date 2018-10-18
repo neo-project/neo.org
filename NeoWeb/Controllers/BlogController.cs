@@ -141,6 +141,12 @@ namespace NeoWeb.Controllers
             {
                 return NotFound();
             }
+            
+            if(string.IsNullOrEmpty(Request.Cookies[blog.Id.ToString()]))
+            {
+                blog.ReadCount++;
+            }
+            await _context.SaveChangesAsync();
 
             var content = blog.Content.Replace("<div>", "").Replace("<p>", "");
             var match = Regex.Match(content, "\\A\\W*<img.*/>");
@@ -149,11 +155,6 @@ namespace NeoWeb.Controllers
                 ViewBag.Cover = match.Value.Insert(4, " class=\"img-cover\" ");
                 blog.Content = blog.Content.Replace(match.Value, "");
             }
-            if(String.IsNullOrEmpty(Request.Cookies[blog.Id.ToString()]))
-            {
-                blog.ReadCount++;
-            }
-            await _context.SaveChangesAsync();
 
             return View(blog);
         }
