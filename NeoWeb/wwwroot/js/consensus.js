@@ -77,13 +77,13 @@ function getListdata() {
                         var accountName = account[0];
                         var accountLink = account[1];
                         if (accountName.toLowerCase() == "twitter")
-                            socialAccount += "<a href=https://twitter.com/" + accountLink + "><i class=\"iconfont\">&#xe60a;</i></a>";
+                            socialAccount += "<a target=\"_blank\" href=https://twitter.com/" + accountLink + "><i class=\"iconfont\">&#xe60a;</i></a>";
                         if (accountName.toLowerCase() == "facebook")
-                            socialAccount += "<a href=https://www.facebook.com/" + accountLink + "><i class=\"iconfont\">&#xe87d;</i></a>";
+                            socialAccount += "<a target=\"_blank\" href=https://www.facebook.com/" + accountLink + "><i class=\"iconfont\">&#xe87d;</i></a>";
                         if (accountName.toLowerCase() == "weibo")
-                            socialAccount += "<a href=https://weibo.com/" + accountLink + "><i class=\"iconfont\">&#xe610;</i></a>";
+                            socialAccount += "<a target=\"_blank\" href=https://weibo.com/" + accountLink + "><i class=\"iconfont\">&#xe610;</i></a>";
                         if (accountName.toLowerCase() == "github")
-                            socialAccount += "<a href=https://github.com/" + accountLink + "><i class=\"iconfont\">&#xee67;</i></a>";
+                            socialAccount += "<a target=\"_blank\" href=https://github.com/" + accountLink + "><i class=\"iconfont\">&#xee67;</i></a>";
                     }
                     html += "<p class=\"social-icon\">" + socialAccount + "<p/>";
                 }

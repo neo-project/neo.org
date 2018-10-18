@@ -121,7 +121,6 @@
     width: 100%;
     padding-top:10px;
     border-top:2px solid rgba(230,230,230,0.4);
-    border-bottom:2px solid rgba(230,230,230,0.4);
 }
 .can-detail .detail-left {
     background-position: center;
@@ -155,12 +154,21 @@
     vertical-align: initial;
 }
 .social-icon {
-    text-align: right;
-    padding: 0 .5em .5em 0;
-    font-size: 22px;
+    position: absolute;
+    right: 30px;
+    font-size: 18px;
+    margin-top: -44px;
 }
 .social-icon a {
-    padding: 0 8px;
+    padding: 3px 7px;
+    margin: 0 10px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+}
+
+.social-icon a:hover {
+    border: 1px solid #AED858;
+    color: #AED858;
 }
 
 .modal-content {
@@ -292,7 +300,7 @@
     margin: 0 -2px;
     }
     .block-info .info-cont{
-        width: calc(50% - 4px);
+        width: calc(50% - 5px);
     }
     .block-info .data_show{
         height: 90px;

@@ -255,4 +255,7 @@
   <data name="For more details, see the documentation:" xml:space="preserve">
     <value>更多详细信息见文档：</value>
   </data>
+  <data name="https://github.com/neo-ngd/reference/blob/master/How%20To%20Become%20A%20Consensus%20Nodev1.2.md" xml:space="preserve">
+    <value>https://github.com/neo-ngd/reference/blob/master/如何成为共识节点v1.2.md</value>
+  </data>
 </root>
