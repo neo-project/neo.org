@@ -300,7 +300,7 @@
     margin: 0 -2px;
     }
     .block-info .info-cont{
-        width: calc(50% - 4px);
+        width: calc(50% - 5px);
     }
     .block-info .data_show{
         height: 90px;
