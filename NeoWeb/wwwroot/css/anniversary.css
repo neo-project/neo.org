@@ -342,25 +342,22 @@ i.iconfont {
 }
 
 .cross-bar {
+    position:absolute;
+    z-index:-1;
     height: 50px;
     width: 690px;
-    position: absolute;
-    left: -20px;
-    top: 120px;
+    left:-20%;
 }
 
 .cross-bar-text {
-    position: absolute;
-    top: 124px;
-    padding: 0 9%;
-    margin-left: 30px;
-    font-size: 20px;
     font-weight: 600;
     color: #036003;
+    line-height:1.5;
 }
 
 .relative {
     position: relative;
+    z-index:2;
 }
 
 .download-text {
@@ -430,6 +427,12 @@ b {
     width: 100%;
 }
 
+@media only screen and (min-width: 1380px) {
+    .cross-bar {
+        left:-200px;
+    }
+}
+
 @media only screen and (max-width: 1199px) {
     .video-img {
         top: -45px;
@@ -442,14 +445,6 @@ b {
 
     .modular-2 {
         margin-top: 100px;
-    }
-    .cross-bar {
-        top: 142px;
-    }
-
-    .cross-bar-text {
-        top: 145px;
-        padding: 0 6%;
     }
 }
 @media screen and (max-width: 780px) {
@@ -482,12 +477,6 @@ b {
         height:40px;
     }
 
-    .cross-bar-text {
-        font-size: 12px;
-        top: 129px;
-        margin-left: -6px;
-    }
-
     .time-text, .time-green {
         font-size: 16px;
     }
@@ -500,14 +489,9 @@ b {
         z-index: 0;
     }
 
+     
     .cross-bar {
-        top:120px;
-        width: 100%;
-        left: -15px;
-    }
-
-    .cross-bar-text {
-        top: 125px;
+        width: 125%;
     }
 
     .anni-box {
