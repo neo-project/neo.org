@@ -158,6 +158,7 @@
 </div>
 @section Scripts{
     <script src="@Helper.CDN/js/jquery.lazyload.min.js"></script>
+    <script src="@Helper.CDN/js/text-autospace.js"></script>
     <script>
         $(function () {
             var url = window.location.search;
@@ -242,5 +243,6 @@
             threshold: 200,
             effect: "fadeIn"
         });
+        text_replace(".with-space");
     </script>
-}、
+}

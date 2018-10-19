@@ -34,10 +34,10 @@
                 }
             </div>
             <div class="col-12 col-sm-7 col-md-8">
-                <h2>@Model.Name</h2>
+                <h2 class="with-space">@Model.Name</h2>
                 <div class="mt-2">
                     <i class="iconfont">&#xe620;</i><span class="@Localizer["d-none-zh"]">@Model.Country.Name</span><span class="@Localizer["d-none"]">@Model.Country.ZhName</span> - <span>@Model.City</span>
-                    <div>@Html.Raw(Model.Address)</div>
+                    <div class="with-space">@Html.Raw(Model.Address)</div>
                 </div>
                 <div class="mt-2">
                     <span>@Model.StartTime.ToString("yyyy-MM-dd HH:mm") ~ @Model.EndTime.ToString("yyyy-MM-dd HH:mm")</span>
@@ -76,7 +76,7 @@
             </div>
             <hr />
         }
-        <div>
+        <div class="with-space">
             @if (String.IsNullOrEmpty(Model.Details))
             {
                 <span>@Localizer["Details of the event are being edited, please look forward to."]</span>
@@ -91,3 +91,9 @@
         <a asp-action="Index">@Localizer["Back to List"]</a>
     </div>
 </div>
+@section Scripts{
+    <script src="@Helper.CDN/js/text-autospace.js"></script>
+    <script>
+        text_replace(".with-space");
+    </script>
+}
