@@ -68,7 +68,9 @@
             </div>
             <div class="blog-content">
                 @Html.Raw(ViewBag.Cover)
-                @Html.Raw(Model.Content)
+                <div class="with-space">
+                    @Html.Raw(Model.Content)
+                </div>
             </div>
         </div>
 
