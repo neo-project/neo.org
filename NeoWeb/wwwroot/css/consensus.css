@@ -154,10 +154,8 @@
     vertical-align: initial;
 }
 .social-icon {
-    position: absolute;
-    right: 30px;
+    text-align: right;
     font-size: 18px;
-    margin-top: -44px;
 }
 .social-icon a {
     padding: 3px 7px;

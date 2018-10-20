@@ -7,7 +7,12 @@
 }
 
 @section Styles{
-    <link rel="stylesheet" href="@Helper.CDN/css/consensus.min.css?v=20181018" />
+    <environment include="Development">
+        <link rel="stylesheet" href="@Helper.CDN/css/consensus.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="@Helper.CDN/css/consensus.min.css?v=20181020.1" />
+    </environment>
 }
 
 <div class="container">
@@ -81,7 +86,7 @@
                         <label for="PublicKey" class="control-label">@Localizer["Public Key"]<span class="red-text"> * </span></label>
                         <select asp-for="PublicKey" class="form-control">
                             @foreach (var item in ViewBag.PubKeys as List<string>)
-                    {
+                            {
                                 <option value="@item">@item</option>
                             }
                         </select>
@@ -160,7 +165,7 @@
         </div>
         {{if Info}}
         <div class="can-detail p4">
-            <div class="detail-left" style="background-image:url(/upload/{{Info.Logo}})">
+            <div class="detail-left" style="background-image:url({{Info.Logo}})">
                 {{if Info.Logo}}<div style="padding-top:100%"></div>{{/if}}
             </div>
             <div class="detail-right">
@@ -176,11 +181,21 @@
 
 @section Scripts{
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script src="@Helper.CDN/js/echarts.js"></script>
-    <script src="@Helper.CDN/js/template.js"></script>
-    <script src="@Helper.CDN/js/consensus.min.js"></script>
-    <script src="@Helper.CDN/js/getseed.js"></script>
-    <script src="@Helper.CDN/js/sha256.min.js"></script>
+<environment include="Development">
+    <script src="/js/echarts.js"></script>
+    <script src="/js/template.js"></script>
+    <script src="/js/getseed.js"></script>
+    <script src="/js/sha256.min.js"></script>
+    <script src="/js/consensus.js"></script>
+</environment>
+    <environment exclude="Development">
+        <script src="@Helper.CDN/js/echarts.js"></script>
+        <script src="@Helper.CDN/js/template.js"></script>
+        <script src="@Helper.CDN/js/getseed.js"></script>
+        <script src="@Helper.CDN/js/sha256.min.js"></script>
+        <script src="@Helper.CDN/js/consensus.min.js?v=20181020"></script>
+    </environment>
+    
     <script>
         function hashInfo() {
             var msg = "candidate" + $("#Email").val() + $("#Website").val() + $("#SocialAccount").val() + $("#Summary").val();
