@@ -97,5 +97,13 @@
   "More-4": "logo 下载：<a target='_blank' href='https://neo.org/logo'>https://neo.org/logo</a>",
   "More-5": "behance：<a target='_blank' href='http://www.behance.net/designneo'>http://www.behance.net/designneo</a>",
   "WeChat": "微信",
-  "Media": "<span class='text-yellow'>支</span>持媒体 <small>(排名不分先后)</small>"
+  "Media": "<span class='text-yellow'>支</span>持媒体 <small>(排名不分先后)</small>",
+  "Winner-Tit": "<span class='text-yellow'>获</span>奖名单",
+  "Winner-Intro": "经历了一个月的XXX，我们恭喜XXX",
+  "Winner-F-1": "一等奖",
+  "Winner-F-2": "",
+  "Winner-S-1": "二等奖",
+  "Winner-S-2": "",
+  "Winner-T-1": "三等奖",
+  "Winner-T-2": ""
 }
