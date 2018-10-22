@@ -173,13 +173,6 @@ small, .small {
     margin-right:-20px;
 }
 
-.des-winner {
-    padding:0 8%;
-}
-.des-winner {
-    padding:0 8%;
-}
-
 /*Time*/
 .time-content {
     text-align:center;
@@ -219,6 +212,24 @@ small, .small {
     border-radius:20px;
 }
 
+/* design-win*/
+.des-winner {
+    padding:0 8%;
+}
+.design-win co{
+
+}
+.design-win a {
+    display:inline-block;
+    width:100%;
+} 
+.design-win img {
+    width:100%;
+    max-width:550px;
+}
+.win-con {
+    box-shadow:0 0 10px #265b01;
+}
 /*Require*/
 /*Notes*/
 /*More*/
