@@ -67,6 +67,8 @@ function getListdata() {
             //竞选个数
             var html = "";
             for (var j in _list) {
+                if (_list[j].Info != null && _list[j].Info.Logo != null)
+                    _list[j].Info.Logo = _list[j].Info.Logo.replace("~", "");
                 html += template('test', _list[j]);
 
                 if (_list[j].Info != null && _list[j].Info.SocialAccount != null) {

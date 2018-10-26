@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="/css/event.css" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.CDN/css/event.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="@Helper.CDN/css/event.min.css?v=20181019" asp-append-version="true" />
     </environment>
 }
 
@@ -158,6 +158,7 @@
 </div>
 @section Scripts{
     <script src="@Helper.CDN/js/jquery.lazyload.min.js"></script>
+    <script src="@Helper.CDN/js/text-autospace.js"></script>
     <script>
         $(function () {
             var url = window.location.search;
@@ -242,5 +243,6 @@
             threshold: 200,
             effect: "fadeIn"
         });
+        text_replace(".with-space");
     </script>
-}、
+}

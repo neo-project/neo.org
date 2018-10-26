@@ -145,8 +145,6 @@ select.form-control {
 
 .event-detail img.type-img {
     width:100%;
-    max-width: 150px;
-    max-height:150px;
     min-width:125px;
     min-height:125px;
 }
@@ -155,10 +153,6 @@ select.form-control {
     color:#222222;
     font-weight:600;
     letter-spacing:2px;
-}
-
-.event-detail a:hover{
-    color:#8ABA2D;
 }
 
 .event-detail a:active,
