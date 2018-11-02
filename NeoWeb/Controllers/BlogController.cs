@@ -12,6 +12,10 @@ using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using System.IO;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Processing;
+using SixLabors.Primitives;
+using SixLabors.ImageSharp.PixelFormats;
 
 namespace NeoWeb.Controllers
 {
@@ -282,13 +286,22 @@ namespace NeoWeb.Controllers
             random.NextBytes(bytes);
             var newName = bytes.ToHexString() + Path.GetExtension(file.FileName);
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", newName);
-
             if (file.Length > 0)
             {
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
                     file.CopyTo(stream);
                 }
+            }
+
+            using (Image<Rgba32> image = Image.Load(filePath))
+            {
+                image.Mutate(x => x.Resize(new ResizeOptions
+                {
+                    Size = new Size(1600, 1600 * image.Height / image.Width),
+                    Mode = ResizeMode.Max
+                }));
+                image.Save(filePath);
             }
             return $"{{\"location\":\"/upload/{newName}\"}}";
         }
