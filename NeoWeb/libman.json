@@ -14,7 +14,8 @@
       "destination": "wwwroot/lib/bootstrap/",
       "files": [
         "js/bootstrap.min.js",
-        "css/bootstrap.min.css"
+        "css/bootstrap.min.css",
+        "css/bootstrap.min.css.map"
       ]
     },
     {
