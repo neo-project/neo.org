@@ -1,4 +1,4 @@
-﻿@model NeoWeb.Models.Testnet
+﻿@model NeoWeb.Models.TestCoin
 
 @{
     ViewData["Title"] = "测试币申请详情";
@@ -52,16 +52,16 @@
                 @Html.DisplayFor(model => model.Reason)
             </div>
             <div class="col-3 text-right font-weight-bold">
-                @Html.DisplayNameFor(model => model.ANSCount)
+                @Html.DisplayNameFor(model => model.NeoCount)
             </div>
             <div class="col-9">
-                @Html.DisplayFor(model => model.ANSCount)
+                @Html.DisplayFor(model => model.NeoCount)
             </div>
             <div class="col-3 text-right font-weight-bold">
-                @Html.DisplayNameFor(model => model.ANCCount)
+                @Html.DisplayNameFor(model => model.GasCount)
             </div>
             <div class="col-9">
-                @Html.DisplayFor(model => model.ANCCount)
+                @Html.DisplayFor(model => model.GasCount)
             </div>
             <div class="col-3 text-right font-weight-bold">
                 @Html.DisplayNameFor(model => model.PubKey)
@@ -128,8 +128,8 @@
         var lista = {
             name: "@Html.DisplayFor(model => model.Name)",
             key: "@Html.DisplayFor(model => model.PubKey)",
-            neo: "@Html.DisplayFor(model => model.ANSCount)",
-            gas: "@Html.DisplayFor(model => model.ANCCount)"
+            neo: "@Html.DisplayFor(model => model.NeoCount)",
+            gas: "@Html.DisplayFor(model => model.GasCount)"
         };
 
         sessionStorage.setItem("list" + flag, JSON.stringify(lista));

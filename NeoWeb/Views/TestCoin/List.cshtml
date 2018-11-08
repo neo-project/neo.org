@@ -1,4 +1,4 @@
-﻿@model IEnumerable<NeoWeb.Models.Testnet>
+﻿@model IEnumerable<NeoWeb.Models.TestCoin>
 
 @{
     ViewData["Title"] = "测试币申请列表";
@@ -26,10 +26,10 @@
                     @Html.DisplayNameFor(model => model.Company)
                 </th>
                 <th width="8%">
-                    @Html.DisplayNameFor(model => model.ANSCount)
+                    @Html.DisplayNameFor(model => model.NeoCount)
                 </th>
                 <th width="8%">
-                    @Html.DisplayNameFor(model => model.ANCCount)
+                    @Html.DisplayNameFor(model => model.GasCount)
                 </th>
                 <th width="10%">
                     @Html.DisplayNameFor(model => model.Time)
@@ -54,10 +54,10 @@
                         @Html.DisplayFor(modelItem => item.Company)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ANSCount)
+                        @Html.DisplayFor(modelItem => item.NeoCount)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ANCCount)
+                        @Html.DisplayFor(modelItem => item.GasCount)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Time)
