@@ -236,7 +236,7 @@ ul,li{
 }
 .calender .had-event{
     color:#222222;
-    background:url('https://neo-cdn.azureedge.net/images/event/circle.png') no-repeat center;
+    background:url(https://neo-cdn.azureedge.net/images/event/circle.png) no-repeat center;
     background-size:contain;
     border-radius:100%;
 }
@@ -285,7 +285,7 @@ ul,li{
 }
 
 .event-banner {
-    background-image: url(/images/event/homepage_hero_banner.jpg);
+    background-image: url(https://neo-cdn.azureedge.net/images/event/homepage_hero_banner.jpg);
     background-size:cover;
     padding: 300px 0 50px;
     margin-bottom: 80px;

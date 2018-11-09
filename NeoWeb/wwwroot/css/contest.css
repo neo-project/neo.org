@@ -330,7 +330,7 @@ a {
     background:#111111;
     color:#FFFFFF;
     padding:30px 0;
-    background-image: url('https://neo-cdn.azureedge.net/images/contest/footer-bg.svg'),url('https://neo-cdn.azureedge.net/images/contest/footer-bg.svg');
+    background-image: url(https://neo-cdn.azureedge.net/images/contest/footer-bg.svg),url(https://neo-cdn.azureedge.net/images/contest/footer-bg.svg);
     background-position: -50px bottom,bottom right -50px;
     background-size: 300px;
     background-repeat:no-repeat;
@@ -482,7 +482,7 @@ a {
         display:block;
     }
     .footer {
-        background-image: url('https://neo-cdn.azureedge.net/images/contest/footer-bg.svg');
+        background-image: url(https://neo-cdn.azureedge.net/images/contest/footer-bg.svg);
         background-position: bottom right -60px;
     }
     .foo-title {

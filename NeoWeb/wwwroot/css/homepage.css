@@ -18,7 +18,7 @@ footer {
 }
 .main-footer {
     background: #FFFFFF;
-    background-image: url('https://neo-cdn.azureedge.net/images/home-developer.svg'),url('https://neo-cdn.azureedge.net/images/home-developer.svg'),linear-gradient(rgba(255,255,255,0.95),rgba(255,255,255,0.5));
+    background-image: url(https://neo-cdn.azureedge.net/images/home-developer.svg),url(https://neo-cdn.azureedge.net/images/home-developer.svg),linear-gradient(rgba(255,255,255,0.95),rgba(255,255,255,0.5));
     background-position: top left,center right,center;
     background-size: 200px;
     background-repeat:no-repeat;
@@ -109,7 +109,7 @@ footer {
     left:0;
     width:100%;
     height:100%;
-    background: url('https://neo-cdn.azureedge.net/images/home-bg.png');
+    background: url(https://neo-cdn.azureedge.net/images/home-bg.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size:cover;
@@ -163,19 +163,19 @@ footer {
     background-position: center bottom;
 }
 .home-scroll.scroll-fri {
-    background: url('https://neo-cdn.azureedge.net/images/home-back-1.png') repeat-x;
+    background: url(https://neo-cdn.azureedge.net/images/home-back-1.png) repeat-x;
 }
 .home-scroll.scroll-sec {
-    background: url('https://neo-cdn.azureedge.net/images/home-back-2.png') repeat-x;
+    background: url(https://neo-cdn.azureedge.net/images/home-back-2.png) repeat-x;
 }
 .home-scroll.scroll-thr {
-    background: url('https://neo-cdn.azureedge.net/images/home-back-3.png') repeat-x;
+    background: url(https://neo-cdn.azureedge.net/images/home-back-3.png) repeat-x;
 }
 .home-scroll.scroll-four {
-    background: url('https://neo-cdn.azureedge.net/images/home-back-4.png') repeat-x;
+    background: url(https://neo-cdn.azureedge.net/images/home-back-4.png) repeat-x;
 }
 .home-scroll.scroll-five {
-    background: url('https://neo-cdn.azureedge.net/images/home-back-5.png') repeat-x;
+    background: url(https://neo-cdn.azureedge.net/images/home-back-5.png) repeat-x;
 }
 .scroll-acr,
 .scroll-acr-en,
@@ -192,21 +192,21 @@ footer {
     background-size: contain;
 }
 .scroll-page.city-back .scroll-acr {
-    background-image:url('https://neo-cdn.azureedge.net/images/home-bg-1.png');
+    background-image:url(https://neo-cdn.azureedge.net/images/home-bg-1.png);
     background-position: 40% center;
     background-position: center 5%;
 }
 .scroll-page.city-back .scroll-ver-fri {
-    background-image:url('https://neo-cdn.azureedge.net/images/home-bg-2.png');
+    background-image:url(https://neo-cdn.azureedge.net/images/home-bg-2.png);
     background-position: 40% center;
 }
 .scroll-page.city-back .scroll-ver-sec {
-    background-image:url('https://neo-cdn.azureedge.net/images/home-bg-3.png');
+    background-image:url(https://neo-cdn.azureedge.net/images/home-bg-3.png);
     background-position: 60% center;
 }
 
 .city-back .home-scroll.scroll-top {
-    background: url('https://neo-cdn.azureedge.net/images/home-back-top.png') repeat-x;
+    background: url(https://neo-cdn.azureedge.net/images/home-back-top.png) repeat-x;
     background-size: contain;
     height:inherit;
 }
@@ -280,7 +280,7 @@ footer {
     z-index:15;
     min-height:600px;
     background:#E4E4E4;
-    background-image:url("../images/home-down.png"),linear-gradient(144deg, #F4F4F4 0%, #E4E4E4 93%);
+    background-image:url(https://neo-cdn.azureedge.net/images/home-down.png),linear-gradient(144deg, #F4F4F4 0%, #E4E4E4 93%);
     background-repeat:no-repeat;
     background-position:top right;
     background-size: contain;
@@ -341,7 +341,7 @@ footer {
 }
 /*开发者页面 - Developer page*/
 .home-developer {
-    background-image: url('https://neo-cdn.azureedge.net/images/deve-bg-1.png');
+    background-image: url(https://neo-cdn.azureedge.net/images/deve-bg-1.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: -50px center;
@@ -428,7 +428,7 @@ footer {
     }
     .home-down {
         padding-top: 50%;
-        background-image:url("../images/home-down-mobile.png"),linear-gradient(144deg, #F4F4F4 0%, #E4E4E4 93%);
+        background-image:url(https://neo-cdn.azureedge.net/images/home-down-mobile.png),linear-gradient(144deg, #F4F4F4 0%, #E4E4E4 93%);
         background-position: left -50px,left center;
     }
     .home-down-tab .iconfont {
