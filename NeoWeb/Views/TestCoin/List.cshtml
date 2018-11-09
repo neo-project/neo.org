@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="@Helper.CDN/css/testnet-list.min.css" asp-append-version="true" />
     </environment>
 }
-<div class="container">
+<div class="container-fluid">
     <h1 class="m1 text-center">测试币申请列表</h1>
     <table class="apply-list table-striped">
         <thead>
@@ -26,51 +26,51 @@
                     @Html.DisplayNameFor(model => model.Company)
                 </th>
                 <th width="8%">
-                    @Html.DisplayNameFor(model => model.NeoCount)
-                </th>
-                <th width="8%">
-                    @Html.DisplayNameFor(model => model.GasCount)
+                    申请数量 NEO/GAS
                 </th>
                 <th width="10%">
                     @Html.DisplayNameFor(model => model.Time)
                 </th>
-                <th width="30%">
+                <th width="18%">
+                    @Html.DisplayNameFor(model => model.PubKey)
+                </th>
+                <th width="20%">
                     @Html.DisplayNameFor(model => model.Remark)
                 </th>
                 <th width="14%">操作</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.OrderByDescending(p => p.Time).Where(p => DateTime.Now - p.Time < new TimeSpan(30, 0, 0, 0)))
+            @foreach (var item in Model.OrderByDescending(p => p.Time).Where(p => DateTime.Now - p.Time < new TimeSpan(15, 0, 0, 0)))
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Email)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Company)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NeoCount)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.GasCount)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Time)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Remark)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">备注</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">详情</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">删除</a>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Company)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NeoCount) / @Html.DisplayFor(modelItem => item.GasCount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Time)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PubKey)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remark)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">备注</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">详情</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">删除</a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>
