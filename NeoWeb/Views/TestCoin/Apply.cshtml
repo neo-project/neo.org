@@ -1,6 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
-@model NeoWeb.Models.Testnet
+@model NeoWeb.Models.TestCoin
 @{
     ViewData["Title"] = Localizer["Developer"];
     Layout = "_LayoutTestnet.cshtml";
@@ -48,16 +48,16 @@
                         <span asp-validation-for="Reason" class="text-danger"></span>
                     </div>
                     <div class="form-group col-md-4">
-                        <label asp-for="ANSCount">@Localizer["Amount Of NEO"]</label><br />
-                        <input class="form-control" asp-for="ANSCount" id="NEOCount" type="text"
+                        <label asp-for="NeoCount">@Localizer["Amount Of NEO"]</label><br />
+                        <input class="form-control" asp-for="NeoCount" id="NEOCount" type="text"
                                data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex-pattern="\d+" data-val-regex="@Localizer["Please enter a valid number"]" />
-                        <span asp-validation-for="ANSCount" class="text-danger"></span>
+                        <span asp-validation-for="NeoCount" class="text-danger"></span>
                     </div>
                     <div class="form-group col-md-4">
-                        <label asp-for="ANCCount">@Localizer["Amount Of GAS"]</label><br />
-                        <input class="form-control" asp-for="ANCCount" id="GASCount" type="text"
+                        <label asp-for="GasCount">@Localizer["Amount Of GAS"]</label><br />
+                        <input class="form-control" asp-for="GasCount" id="GASCount" type="text"
                                data-val="true" data-val-regex-pattern="\d+" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter a valid number"]" />
-                        <span asp-validation-for="ANCCount" class="text-danger"></span>
+                        <span asp-validation-for="GasCount" class="text-danger"></span>
                     </div>
                     <div class="form-group col-md-4">
                         <label asp-for="PubKey">@Localizer["NEO Public Key"]</label><br />

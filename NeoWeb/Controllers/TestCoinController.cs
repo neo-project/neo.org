@@ -13,35 +13,24 @@ using Microsoft.Extensions.Localization;
 namespace NeoWeb.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class TestnetController : Controller
+    public class TestCoinController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly IStringLocalizer<TestnetController> _localizer;
+        private readonly IStringLocalizer<TestCoinController> _localizer;
 
-        public TestnetController(ApplicationDbContext context, IStringLocalizer<TestnetController> localizer)
+        public TestCoinController(ApplicationDbContext context, IStringLocalizer<TestCoinController> localizer)
         {
             _context = context;
             _localizer = localizer;
         }
 
-        // GET: dev
-        [Route("dev")]
-        [Route("developer")]
-        [AllowAnonymous]
-        public IActionResult Index()
-        {
-            return View();
-        }
-
         // GET: testcoin/List
-        [Route("testcoin/list")]
-        [Route("testnet/list")]
         public async Task<IActionResult> List()
         {
-            return View(await _context.Testnets.ToListAsync());
+            return View(await _context.TestCoins.ToListAsync());
         }
 
-        // GET: Testnet/Details/5
+        // GET: testcoin/details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -49,59 +38,45 @@ namespace NeoWeb.Controllers
                 return NotFound();
             }
 
-            var testnet = await _context.Testnets
+            var testcoin = await _context.TestCoins
                 .SingleOrDefaultAsync(m => m.Id == id);
-            if (testnet == null)
+            if (testcoin == null)
             {
                 return NotFound();
             }
 
-            return View(testnet);
+            return View(testcoin);
         }
 
         // GET: testcoin/apply
-        [Route("testcoin/apply")]
-        [Route("testnet/create")]
         [AllowAnonymous]
         public IActionResult Apply()
         {
             return View();
         }
 
-        // POST: Testnet/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: testcoin/create
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        [Route("testcoin/apply")]
-        [Route("testnet/create")]
-        public async Task<IActionResult> Apply([Bind("Id,Name,Email,Phone,QQ,Company,Reason,ANSCount,ANCCount,PubKey,Remark")] Testnet testnet)
+        public async Task<IActionResult> Apply([Bind("Id,Name,Email,Phone,QQ,Company,Reason,NeoCount,GasCount,PubKey,Remark")] TestCoin testcoin)
         {
             if (ModelState.IsValid)
             {
-                if (_context.Testnets.Any(p => p.PubKey == testnet.PubKey))
+                if (_context.TestCoins.Any(p => p.PubKey == testcoin.PubKey))
                 {
                     ModelState.AddModelError("PubKey", _localizer["Please do not repeat the request."]);
                     return View();
                 }
-                testnet.Time = DateTime.Now;
-                _context.Add(testnet);
+                testcoin.Time = DateTime.Now;
+                _context.Add(testcoin);
                 await _context.SaveChangesAsync();
                 return View("completed");
             }
-            return View(testnet);
+            return View(testcoin);
         }
 
-        //// GET: Testnet/Completed
-        //[AllowAnonymous]
-        //public IActionResult Completed()
-        //{
-        //    return View();
-        //}
-
-        // GET: Testnet/Edit/5
-        [Route("testcoin/edit")]
+        // GET: testcoin/edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -109,38 +84,35 @@ namespace NeoWeb.Controllers
                 return NotFound();
             }
 
-            var testnet = await _context.Testnets.SingleOrDefaultAsync(m => m.Id == id);
-            if (testnet == null)
+            var testcoin = await _context.TestCoins.SingleOrDefaultAsync(m => m.Id == id);
+            if (testcoin == null)
             {
                 return NotFound();
             }
-            return View(testnet);
+            return View(testcoin);
         }
 
-        // POST: Testnet/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: testcoin/edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Route("testcoin/edit")]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Remark")] Testnet testnet)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Remark")] TestCoin testcoin)
         {
-            if (id != testnet.Id)
+            if (id != testcoin.Id)
             {
                 return NotFound();
             }
-            var item = _context.Testnets.FirstOrDefault(p => p.Id == testnet.Id);
+            var item = _context.TestCoins.FirstOrDefault(p => p.Id == testcoin.Id);
             if (item != null)
             {
                 try
                 {
-                    item.Remark = testnet.Remark;
+                    item.Remark = testcoin.Remark;
                     _context.Update(item);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TestnetExists(testnet.Id))
+                    if (!TestCoinExists(testcoin.Id))
                     {
                         return NotFound();
                     }
@@ -151,11 +123,10 @@ namespace NeoWeb.Controllers
                 }
                 return RedirectToAction(nameof(List));
             }
-            return View(testnet);
+            return View(testcoin);
         }
 
-        // GET: Testnet/Delete/5
-        [Route("testcoin/delete")]
+        // GET: testcoin/delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -163,31 +134,28 @@ namespace NeoWeb.Controllers
                 return NotFound();
             }
 
-            var testnet = await _context.Testnets
+            var testcoin = await _context.TestCoins
                 .SingleOrDefaultAsync(m => m.Id == id);
-            if (testnet == null)
+            if (testcoin == null)
             {
                 return NotFound();
             }
 
-            return View(testnet);
+            return View(testcoin);
         }
 
-        // POST: Testnet/Delete/5
-        [Route("testcoin/delete")]
+        // POST: testcoin/delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var testnet = await _context.Testnets.SingleOrDefaultAsync(m => m.Id == id);
-            _context.Testnets.Remove(testnet);
+            var testcoin = await _context.TestCoins.SingleOrDefaultAsync(m => m.Id == id);
+            _context.TestCoins.Remove(testcoin);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(List));
         }
 
-        // GET: dev
-        [Route("dev/bounty")]
-        [Route("testnet/bounty")]
+        // GET: dev/bounty
         [AllowAnonymous]
         public IActionResult Bounty()
         {
@@ -195,9 +163,9 @@ namespace NeoWeb.Controllers
         }
 
 
-        private bool TestnetExists(int id)
+        private bool TestCoinExists(int id)
         {
-            return _context.Testnets.Any(e => e.Id == id);
+            return _context.TestCoins.Any(e => e.Id == id);
         }
     }
 }

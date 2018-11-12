@@ -4,7 +4,7 @@
     line-height:2;
 }
 .banner {
-    background:url(../images/joinbg.svg) center no-repeat;
+    background:url(https://neo-cdn.azureedge.net/images/joinbg.svg) center no-repeat;
     background-size:contain;
     text-align:center;
 }
@@ -58,7 +58,7 @@
     bottom:0;
     width:100%;
     height:100px;
-    background:url(../images/white-sha.png);
+    background:url(https://neo-cdn.azureedge.net/images/white-sha.png);
     text-align:center;
 }
 .white-sha a {
@@ -75,7 +75,7 @@
     position:relative;
     float: right;
     margin-right: -40px;
-    background:url(../images/apply.png) no-repeat;
+    background:url(https://neo-cdn.azureedge.net/images/apply.png) no-repeat;
     display:inline-block;
     min-width:130px;
     text-align:center;

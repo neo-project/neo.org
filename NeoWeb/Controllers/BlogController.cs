@@ -23,8 +23,8 @@ namespace NeoWeb.Controllers
     public class BlogController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private string _userId;
-        private bool _userRules;
+        private readonly string _userId;
+        private readonly bool _userRules;
 
         public BlogController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
         {
@@ -243,7 +243,7 @@ namespace NeoWeb.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("Details", new { id = id });
+                return RedirectToAction("Details", new { id });
             }
             return View(blog);
         }

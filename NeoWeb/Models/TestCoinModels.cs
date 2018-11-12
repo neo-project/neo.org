@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace NeoWeb.Models
 {
-    public class Testnet
+    public class TestCoin
     {
         public int Id { get; set; }
 
@@ -35,12 +35,12 @@ namespace NeoWeb.Models
         [Required]
         [Display(Name = "申请数量 (NEO)")]
         [RegularExpression("\\d+", ErrorMessage = "申请数量必须为整数")]
-        public string ANSCount { get; set; }
+        public string NeoCount { get; set; }
 
         [Required]
         [Display(Name = "申请数量 (GAS)")]
         [RegularExpression("\\d+", ErrorMessage = "申请数量必须为整数")]
-        public string ANCCount { get; set; }
+        public string GasCount { get; set; }
 
         [Display(Name = "申请日期")]
         public DateTime Time { get; set; }

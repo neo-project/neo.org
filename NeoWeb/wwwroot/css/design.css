@@ -10,7 +10,7 @@
 .navbar {
     position: absolute;
     z-index: 99;
-    background:url(../images/design/nav-bg.png);
+    background:url(https://neo-cdn.azureedge.net/images/design/nav-bg.png);
     width: 100%;
     background-size: contain;
 }
@@ -94,7 +94,7 @@ small, .small {
     width:100%;
     height:100%;
     position:absolute;
-    background:url(../images/design/airplane.png),url(../images/design/airplane.png);
+    background:url(https://neo-cdn.azureedge.net/images/design/airplane.png),url(https://neo-cdn.azureedge.net/images/design/airplane.png);
     background-position: right -150px ,0 0;
     background-size:110px;
     background-repeat:repeat-y;
@@ -263,7 +263,7 @@ small, .small {
 @media only screen and (max-width : 768px) {
     .navbar {
         background: rgb(59,132,36);
-        background-image: url(../images/design/nav-bg.png),rgba(59,132,36,0.9);
+        background-image: url(https://neo-cdn.azureedge.net/images/design/nav-bg.png),rgba(59,132,36,0.9);
     }
     .navbar-nav li {
         border-right:2px solid #edcb00;

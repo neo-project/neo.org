@@ -40,6 +40,8 @@ namespace NeoWeb
 
             services.AddLocalization(options => options.ResourcesPath = "Resources");
 
+            services.AddRouting(options => options.LowercaseUrls = true);
+
             services.AddMvc().AddViewLocalization().AddDataAnnotationsLocalization();
 
             services.Configure<IdentityOptions>(options =>
@@ -109,7 +111,7 @@ namespace NeoWeb
             {
                 //网站第一次运行，未创建数据库时会有异常
             }
-
+            
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

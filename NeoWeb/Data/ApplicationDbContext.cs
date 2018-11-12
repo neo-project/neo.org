@@ -19,13 +19,9 @@ namespace NeoWeb.Data
 
         public DbSet<Country> Countries { get; set; }
 
-        public DbSet<Testnet> Testnets { get; set; }
+        public DbSet<TestCoin> TestCoins { get; set; }
 
         public DbSet<News> News { get; set; }
-
-        public DbSet<ICO1> ICO1 { get; set; }
-
-        public DbSet<ICO2> ICO2 { get; set; }
 
         public DbSet<Event> Events { get; set; }
 
@@ -36,10 +32,6 @@ namespace NeoWeb.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            // Customize the ASP.NET Identity model and override the defaults if needed.
-            // For example, you can rename the ASP.NET Identity table names and more.
-            // Add your customizations after calling base.OnModelCreating(builder);
         }
-
     }
 }
