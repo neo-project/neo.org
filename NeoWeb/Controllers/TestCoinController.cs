@@ -155,14 +155,6 @@ namespace NeoWeb.Controllers
             return RedirectToAction(nameof(List));
         }
 
-        // GET: dev/bounty
-        [AllowAnonymous]
-        public IActionResult Bounty()
-        {
-            return View();
-        }
-
-
         private bool TestCoinExists(int id)
         {
             return _context.TestCoins.Any(e => e.Id == id);

@@ -12,5 +12,10 @@ namespace NeoWeb.Controllers
         {
             return View();
         }
+
+        public IActionResult Bounty()
+        {
+            return View();
+        }
     }
 }
