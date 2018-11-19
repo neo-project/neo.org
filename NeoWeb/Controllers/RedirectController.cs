@@ -28,6 +28,7 @@ namespace NeoWeb.Controllers
             return RedirectToAction("index", "client");
         }
 
+        [Route("testcoin")]
         [Route("testnet/create")]
         [Route("testnet/apply")]
         public IActionResult TestCoinApply()
@@ -45,6 +46,13 @@ namespace NeoWeb.Controllers
         public IActionResult Team()
         {
             return RedirectToAction("index", "team");
+        }
+
+        [Route("dapp")]
+        [Route("dapps")]
+        public IActionResult Dapps()
+        {
+            return Redirect("http://ndapp.org");
         }
     }
 }

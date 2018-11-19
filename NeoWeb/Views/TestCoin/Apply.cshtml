@@ -8,6 +8,7 @@
 <div class="container body-content">
     <div class="apply-content m2">
         <form asp-action="Apply">
+            @Html.AntiForgeryToken()
             <div class="container">
                 <h1 class="apply-title m2 text-center">@Localizer["Apply For TestNet NEO&GAS"]</h1>
                 <div class="row">
