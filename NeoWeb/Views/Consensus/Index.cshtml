@@ -52,7 +52,7 @@
     </div>
     <div class="gray-back p2 text-center">
         <p class="m3 t2">
-            @Localizer["For more details, see the documentation:"]<a class="green-text" href="@Localizer["https://github.com/neo-ngd/reference/blob/master/How%20To%20Become%20A%20Consensus%20Nodev1.2.md"]"> @Localizer["How To Become A Consensus Node"]</a>
+            @Localizer["For more details, see the documentation:"]<a class="green-text" href="@Localizer["https://github.com/neo-ngd/reference/blob/master/How-To-Become-NEO-Consensus-Nodev1.3.md"]"> @Localizer["How To Become A Consensus Node"]</a>
         </p>
         <a class="tab-btn text-white m3" href="mailto:consensus@neo.org">@Localizer["Apply"]</a>
     </div>
@@ -81,6 +81,7 @@
             </div>
             <div class="modal-body">
                 <form asp-action="Index" enctype="multipart/form-data">
+                    @Html.AntiForgeryToken()
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
                         <label for="PublicKey" class="control-label">@Localizer["Public Key"]<span class="red-text"> * </span></label>
