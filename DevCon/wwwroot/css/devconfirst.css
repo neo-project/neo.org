@@ -9,10 +9,10 @@
 }
 .dev-container.bg-green{
     background:url(../images/bg-green.png) repeat-x;
-    background:url(../images/background/back-1.png),url(../images/background/back-1.png),linear-gradient(-25deg,#43993E 55%,#A5C22E);
+    background:url(../images/left.svg),url(../images/right.svg),url(../images/bg-green.png);
     background-repeat:no-repeat,no-repeat,repeat-x;
-    background-position: -70% center,160% center,center;
-    background-size:60%,60%,contain;
+    background-position:bottom left,bottom right,center;
+    background-size:28%,20%,contain;
 }
 .dev-content {
     position:relative;
@@ -47,11 +47,12 @@ a:hover{
     text-align: left;
 }
 .coming-logo img{
-    width:120px;
+    max-width:280px;
+    width:40%;
 }
 .dev-title img{
-    width:110%;
-    margin-left:-5%;
+    max-width:450px;
+    width:40%;
 }
 .ver-year {
     writing-mode: tb;
@@ -61,8 +62,38 @@ a:hover{
     letter-spacing:2px;
 }
 /*第一个页面*/
-.dev-year {
-    background:url(../images/background/back-1.png);
+.count-down {
+    font-size:0px;
+    margin:auto;
+    padding:0px;
+    text-align:center;
+    width:80%;
+}
+.count-down li{
+    display:inline-block;
+    width:24%;
+    padding: 10px 1px;
+    border-left:3px solid #FFFFFF;
+    letter-spacing:2px;
+    font-weight:900;
+}
+.count-down li:first-child {
+    border:none;
+}
+.dev-updates {
+    overflow:hidden;
+}
+.move-a {
+    width:100%;
+}
+.move-a a{
+    display:block;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    padding:0 25px;
+    text-decoration:underline;
+    margin-top:10px;
 }
 
 /*第二个页面*/
