@@ -408,4 +408,10 @@
   <data name="Download plugin" xml:space="preserve">
     <value>下载插件</value>
   </data>
+  <data name="Supports multiple time zones, MainNet/TestNet switch" xml:space="preserve">
+    <value>支持多时区、主网和测试网的切换</value>
+  </data>
+  <data name="Supports NNS auction and transaction information view" xml:space="preserve">
+    <value>支持NNS竞拍、交易信息查看</value>
+  </data>
 </root>
