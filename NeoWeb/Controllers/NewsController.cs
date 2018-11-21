@@ -21,13 +21,14 @@ namespace NeoWeb.Controllers
             _context = context;
         }
 
-        // GET: News
+        // GET: news
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             return View(await _context.News.ToListAsync());
         }
 
-        // GET: News/Details/5
+        // GET: news/details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -45,13 +46,13 @@ namespace NeoWeb.Controllers
             return View(news);
         }
 
-        // GET: News/Create
+        // GET: news/create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: News/Create
+        // POST: news/create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -68,7 +69,7 @@ namespace NeoWeb.Controllers
             return View(news);
         }
 
-        // GET: News/Edit/5
+        // GET: news/edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -84,7 +85,7 @@ namespace NeoWeb.Controllers
             return View(news);
         }
 
-        // POST: News/Edit/5
+        // POST: news/edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -120,7 +121,7 @@ namespace NeoWeb.Controllers
             return View(news);
         }
 
-        // GET: News/Delete/5
+        // GET: news/delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -138,7 +139,7 @@ namespace NeoWeb.Controllers
             return View(news);
         }
 
-        // POST: News/Delete/5
+        // POST: news/delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

@@ -408,4 +408,16 @@
   <data name="Download plugin" xml:space="preserve">
     <value>下载插件</value>
   </data>
+  <data name="developed unhackable wallet" xml:space="preserve">
+    <value>开发的加密货币的防黑客钱包</value>
+  </data>
+  <data name="Distributed signature of transactions" xml:space="preserve">
+    <value>对交易进行分布式签名</value>
+  </data>
+  <data name="Implements a flexible &quot;authorization tree&quot; method" xml:space="preserve">
+    <value>实现了一种灵活的“授权树”方法</value>
+  </data>
+  <data name="Spatium hardware wallet compatible with biometric recognition" xml:space="preserve">
+    <value>兼容生物识别的 Spatium 硬件钱包</value>
+  </data>
 </root>
