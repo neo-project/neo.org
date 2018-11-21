@@ -50,12 +50,6 @@
     ]
   },
   {
-    "outputFileName": "wwwroot/css/giveback.min.css",
-    "inputFiles": [
-      "wwwroot/css/giveback.css"
-    ]
-  },
-  {
     "outputFileName": "wwwroot/css/homepage.min.css",
     "inputFiles": [
       "wwwroot/css/homepage.css"

@@ -36,7 +36,8 @@ namespace NeoWeb.Controllers
             }
         }
 
-        // GET: Blog
+        // GET: blog
+        [HttpGet]
         [AllowAnonymous]
         public IActionResult Index(int? y = null, int? m = null, string k = null, string lang = null)
         {
@@ -108,11 +109,19 @@ namespace NeoWeb.Controllers
             return View(models);
         }
 
-        // GET: Blog/Details/5
+        // GET: blog/details/5
+        [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            var blog = await _context.Blogs.Include(m => m.User)
+                .SingleOrDefaultAsync(m => m.Id == id);
+            if (blog == null)
             {
                 return RedirectToAction("Index");
             }
@@ -137,14 +146,8 @@ namespace NeoWeb.Controllers
                 Month = p.CreateTime.Month
             }).Distinct();
 
-            var blog = await _context.Blogs.Include(m => m.User)
-                .SingleOrDefaultAsync(m => m.Id == id);
             ViewBag.UserId = _userId;
             ViewBag.UserRules = _userRules;
-            if (blog == null)
-            {
-                return NotFound();
-            }
             
             if(string.IsNullOrEmpty(Request.Cookies[blog.Id.ToString()]))
             {
@@ -164,12 +167,11 @@ namespace NeoWeb.Controllers
         }
 
         // GET: Blog/Create
-
         public IActionResult Create()
         {
             return View();
         }
-        // POST: Blog/Create
+        // POST: blog/create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -190,7 +192,7 @@ namespace NeoWeb.Controllers
             return View(blog);
         }
 
-        // GET: Blog/Edit/5
+        // GET: blog/edit/5
         public IActionResult Edit(int? id)
         {
             if (id == null)
@@ -206,7 +208,7 @@ namespace NeoWeb.Controllers
             return View(blog);
         }
 
-        // POST: Blog/Edit/5
+        // POST: blog/edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -248,7 +250,7 @@ namespace NeoWeb.Controllers
             return View(blog);
         }
 
-        // GET: Blog/Delete/5
+        // GET: blog/delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -266,7 +268,7 @@ namespace NeoWeb.Controllers
             return View(blog);
         }
 
-        // POST: Blog/Delete/5
+        // POST: blog/delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -277,7 +279,7 @@ namespace NeoWeb.Controllers
             return RedirectToAction("Index");
         }
 
-        // POST: Blog/Upload
+        // POST: blog/upload
         [HttpPost]
         public string Upload(IFormFile file)
         {

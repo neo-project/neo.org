@@ -32,7 +32,8 @@ namespace NeoWeb.Controllers
             }
         }
 
-        // GET: Event
+        // GET: event
+        [HttpGet]
         [AllowAnonymous]
         public IActionResult Index(string k = null, int c = 0, int d = 0, string z = null)
         {
@@ -130,7 +131,7 @@ namespace NeoWeb.Controllers
             return timespan < 7 && timespan < dayOfWeek;
         }
 
-        // GET: Event/Details/5
+        // GET: event/details/5
         [AllowAnonymous]
         public async Task<IActionResult> Details(int? id)
         {
@@ -149,14 +150,14 @@ namespace NeoWeb.Controllers
             return View(@event);
         }
 
-        // GET: Event/Create
+        // GET: event/create
         public IActionResult Create()
         {
             ViewBag.Countries = _context.Countries.ToList();
             return View();
         }
 
-        // POST: Event/Create
+        // POST: event/create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -191,7 +192,7 @@ namespace NeoWeb.Controllers
             return View(@event);
         }
 
-        public string Upload(IFormFile cover)
+        private string Upload(IFormFile cover)
         {
             var random = new Random();
             var bytes = new byte[10];
@@ -208,7 +209,7 @@ namespace NeoWeb.Controllers
             return newName;
         }
 
-        // GET: Event/Edit/5
+        // GET: event/edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             ViewBag.Countries = _context.Countries.ToList();
@@ -225,7 +226,7 @@ namespace NeoWeb.Controllers
             return View(@event);
         }
 
-        // POST: Event/Edit/5
+        // POST: event/edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -285,7 +286,7 @@ namespace NeoWeb.Controllers
             return View(@event);
         }
 
-        // GET: Event/Delete/5
+        // GET: event/delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -303,7 +304,7 @@ namespace NeoWeb.Controllers
             return View(@event);
         }
 
-        // POST: Event/Delete/5
+        // POST: event/delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

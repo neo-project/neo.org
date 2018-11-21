@@ -21,6 +21,7 @@ namespace NeoWeb.Controllers
             _context = context;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             try
@@ -41,8 +42,11 @@ namespace NeoWeb.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult SetLanguage(string culture, string returnUrl)
         {
+            if (string.IsNullOrEmpty(culture) || string.IsNullOrEmpty(returnUrl))
+                return RedirectToAction("Index");
             Response.Cookies.Append(
                 CookieRequestCultureProvider.DefaultCookieName,
                 CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
