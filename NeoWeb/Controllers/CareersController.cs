@@ -30,6 +30,8 @@ namespace NeoWeb.Controllers
             }
         }
 
+        // GET: careers
+        [HttpGet]
         [AllowAnonymous]
         public IActionResult Index()
         {
@@ -47,13 +49,14 @@ namespace NeoWeb.Controllers
             return View(models);
         }
 
-        // GET: Careers/Create
+        // GET: careers/create
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Careers/Create
+        // POST: careers/create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -70,7 +73,7 @@ namespace NeoWeb.Controllers
             return View(careers);
         }
 
-        // GET: Careers/Edit/5
+        // GET: careers/edit/5
         public IActionResult Edit(int? id)
         {
             if (id == null)
@@ -86,7 +89,7 @@ namespace NeoWeb.Controllers
             return View(careers);
         }
 
-        // POST: Careers/Edit/5
+        // POST: careers/edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]

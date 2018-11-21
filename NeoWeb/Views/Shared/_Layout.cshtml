@@ -73,10 +73,10 @@
                 <li class="nav-item"><a class="nav-link" asp-controller="dev" asp-action="index">@Localizer["Developer"]</a></li>
                 <li class="nav-item"><a class="nav-link" asp-controller="client" asp-action="index">@Localizer["Client"]</a></li>
                 <li class="nav-item"><a class="nav-link" asp-controller="blog" asp-action="index">@Localizer["Blog"]</a></li>
-                <li class="nav-item"><a class="nav-link" href="~/anniversary.html">@Localizer["MainNet Anniversary"]</a></li>
                 <li class="nav-item"><a class="nav-link" asp-controller="event" asp-action="index">@Localizer["Event"]</a></li>
                 <li class="nav-item"><a class="nav-link" asp-controller="consensus" asp-action="index">@Localizer["Consensus Nodes"]</a></li>
                 @*<li class="nav-item"><a class="nav-link" asp-controller="careers" asp-action="index">@Localizer["Careers"]</a></li>*@
+                <li class="nav-item"><a class="nav-link" href="~/anniversary.html" target="_blank">@Localizer["MainNet Anniversary"]</a></li>
                 <li class="nav-item"><a class="nav-link" href="http://ndapp.org" target="_blank">@Localizer["dApps"]</a></li>
                 <li id="dropdown_btn" style="display:none">
                     <a class="iconfont nav-link" href="javascript:" onclick="$('#more_list').toggle()">&#xe675;</a>
@@ -90,6 +90,7 @@
         <div class="main-footer">
             <div class="lang-select d-none d-md-block">
                 <form id="form_language" asp-action="SetLanguage" asp-controller="home" method="post">
+                    @Html.AntiForgeryToken()
                     <p>
                         <input type="hidden" id="culture" name="culture" />
                         <input type="hidden" id="returnUrl" name="returnUrl" />

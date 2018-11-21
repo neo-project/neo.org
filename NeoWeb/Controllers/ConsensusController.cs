@@ -30,7 +30,8 @@ namespace NeoWeb.Controllers
             _localizer = localizer;
         }
 
-        // GET: Candidate
+        // GET: consensus
+        [HttpGet]
         public IActionResult Index()
         {
             ViewBag.Countries = _context.Countries.ToList();
@@ -55,7 +56,7 @@ namespace NeoWeb.Controllers
             return System.IO.File.ReadAllText("CandidateBackgrounder/txcount.json");
         }
 
-        // POST: Candidate/Create
+        // POST: consensus/create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Index(string signature, [Bind("PublicKey,Organization,Email,Website,SocialAccount,Summary,")] Candidate c, IFormFile logo)
@@ -95,7 +96,7 @@ namespace NeoWeb.Controllers
             return View("Index", c);
         }
 
-        public string Upload(IFormFile cover)
+        private string Upload(IFormFile cover)
         {
             var random = new Random();
             var bytes = new byte[10];
