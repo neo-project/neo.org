@@ -9,6 +9,7 @@ using NeoWeb.Data;
 using NeoWeb.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Localization;
+using Microsoft.AspNetCore.Http;
 
 namespace NeoWeb.Controllers
 {
@@ -16,11 +17,13 @@ namespace NeoWeb.Controllers
     public class TestCoinController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IHttpContextAccessor _accessor;
         private readonly IStringLocalizer<TestCoinController> _localizer;
 
-        public TestCoinController(ApplicationDbContext context, IStringLocalizer<TestCoinController> localizer)
+        public TestCoinController(ApplicationDbContext context, IStringLocalizer<TestCoinController> localizer, IHttpContextAccessor accessor)
         {
             _context = context;
+            _accessor = accessor;
             _localizer = localizer;
         }
 
@@ -68,6 +71,8 @@ namespace NeoWeb.Controllers
                     ModelState.AddModelError("PubKey", _localizer["Please do not repeat the request."]);
                     return View();
                 }
+                if (!Helper.CCAttack(_accessor.HttpContext.Connection.RemoteIpAddress, "testcoin_apply", 86400, 5))
+                    return Content("Protecting from overposting attacks now!");
                 testcoin.Time = DateTime.Now;
                 _context.Add(testcoin);
                 await _context.SaveChangesAsync();

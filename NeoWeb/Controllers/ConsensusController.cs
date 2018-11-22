@@ -22,11 +22,13 @@ namespace NeoWeb.Controllers
     public class ConsensusController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IHttpContextAccessor _accessor;
         private readonly IStringLocalizer<ConsensusController> _localizer;
 
-        public ConsensusController(ApplicationDbContext context, IStringLocalizer<ConsensusController> localizer)
+        public ConsensusController(ApplicationDbContext context, IStringLocalizer<ConsensusController> localizer, IHttpContextAccessor accessor)
         {
             _context = context;
+            _accessor = accessor;
             _localizer = localizer;
         }
 
@@ -61,8 +63,10 @@ namespace NeoWeb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Index(string signature, [Bind("PublicKey,Organization,Email,Website,SocialAccount,Summary,")] Candidate c, IFormFile logo)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && !string.IsNullOrEmpty(signature))
             {
+                if(!Helper.CCAttack(_accessor.HttpContext.Connection.RemoteIpAddress, "consensus_post", 3600, 5))
+                    return Content("Protecting from overposting attacks now!");
                 ViewBag.Countries = _context.Countries.ToList();
                 JArray list = (JArray)JObject.Parse(System.IO.File.ReadAllText("CandidateBackgrounder/validators.json"));
                 ViewBag.PubKeys = new List<string>();

@@ -9,6 +9,7 @@ using NeoWeb.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Http;
+using System.Globalization;
 
 namespace NeoWeb.Controllers
 {
@@ -47,11 +48,22 @@ namespace NeoWeb.Controllers
         {
             if (string.IsNullOrEmpty(culture) || string.IsNullOrEmpty(returnUrl))
                 return RedirectToAction("Index");
-            Response.Cookies.Append(
-                CookieRequestCultureProvider.DefaultCookieName,
-                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
-                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
-            );
+            try
+            {
+                Response.Cookies.Append(
+                        CookieRequestCultureProvider.DefaultCookieName,
+                        CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                        new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
+                    );
+            }
+            catch (InvalidOperationException)
+            {
+                return RedirectToAction("Index"); ;
+            }
+            catch (CultureNotFoundException)
+            {
+                return RedirectToAction("Index");
+            }
 
             return LocalRedirect(returnUrl);
         }
