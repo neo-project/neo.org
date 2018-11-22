@@ -88,6 +88,30 @@ namespace NeoWeb
             return "";
         }
 
+        class IPItem
+        {
+            public string IP;
+            public string Action;
+            public DateTime Time;
+        }
+
+        private static List<IPItem> IPList = new List<IPItem>();
+
+        internal static bool CCAttack(IPAddress ip, string action, int interval, int times)
+        {
+            for (int i = 0; i < IPList.Count; i++)
+            {
+                var item = IPList[i];
+                if ((DateTime.Now - item.Time).TotalSeconds > interval)
+                    IPList.RemoveAt(i--);
+            }
+            var ipv4 = ip.MapToIPv4().ToString();
+            IPList.Add(new IPItem() { IP = ipv4, Action = action, Time = DateTime.Now });
+            if (IPList.Count(p => p.IP == ipv4 && p.Action == action) > times)
+                return false;
+            return true;
+        }
+
         public static string ToHexString(this byte[] bytes) => BitConverter.ToString(bytes).Replace("-", "");
 
         public static bool VerifySignature(string message, string signature, string pubkey)
