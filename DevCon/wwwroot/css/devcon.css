@@ -1,7 +1,11 @@
-﻿html,body {
+﻿@font-face {
+    font-family:"Mono";
+    src:url("font/OverpassMono-Regular.ttf");
+}
+html,body {
     margin:0;
     padding:0;
-    font-family:"Poppins-Light","Microsoft Sans Serif";
+    font-family:"Mono","Microsoft Sans Serif";
     letter-spacing:2px;
 }
 .dev-container {
@@ -9,7 +13,7 @@
 }
 .dev-container.bg-green{
     background:url(../images/bg-green.png) repeat-x;
-    background:url(../images/background/back-1.png),url(../images/background/back-1.png),linear-gradient(-25deg,#43993E 55%,#A5C22E);
+    background:url(../images/background/back-1.png),url(../images/background/back-1.png),linear-gradient(-35deg,#43993E 45%,#A0C02F 80%,#A6C22F);
     background-repeat:no-repeat,no-repeat,repeat-x;
     background-position: -70% center,160% center,center;
     background-size:60%,60%,contain;
@@ -57,12 +61,26 @@ a:hover{
     writing-mode: tb;
 }
 .dev-headline {
-    font-family:"Poppins-Bloder";
+    font-family:"Mono";
     letter-spacing:2px;
 }
 /*第一个页面*/
 .dev-year {
-    background:url(../images/background/back-1.png);
+    background:url(../images/background/2019.png) no-repeat center;
+    background-size:contain;
+    max-height:140px;
+    line-height:140px;
+    text-shadow: 0px 0px 25px #000;
+    font-weight: 600;
+}
+.dev-btn {
+    display:inline-block;
+    min-width:200px;
+    margin:20px;
+    padding:15px 30px;
+    border:1px solid #EAFF00;
+    border-radius:30px;
+    box-shadow:0px 0px 5px #EAFF00,inset 0px 0px 5px #EAFF00;
 }
 
 /*第二个页面*/
@@ -311,7 +329,7 @@ a:hover{
 
 .font-xl {font-size:70px;}
 .font-l {font-size:55px;}
-.font-m {font-size:40px;}
+.font-m {font-size:30px;}
 .font-s {font-size:24px;}
 .font-xs {font-size:16px;}
 .op-30{opacity:0.3;}
