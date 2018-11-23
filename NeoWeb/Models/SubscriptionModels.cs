@@ -9,6 +9,7 @@ namespace NeoWeb.Models
     public class Subscription
     {
         [Key]
+        [Required]
         [EmailAddress]
         public string Email { get; set; }
 
