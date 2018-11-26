@@ -75,6 +75,7 @@
                 <li class="nav-item"><a class="nav-link" asp-controller="blog" asp-action="index">@Localizer["Blog"]</a></li>
                 <li class="nav-item"><a class="nav-link" asp-controller="event" asp-action="index">@Localizer["Event"]</a></li>
                 <li class="nav-item"><a class="nav-link" asp-controller="consensus" asp-action="index">@Localizer["Consensus Nodes"]</a></li>
+                <li class="nav-item"><a class="nav-link" href="http://docs.neo.org" target="_blank">@Localizer["Document"]</a></li>
                 @*<li class="nav-item"><a class="nav-link" asp-controller="careers" asp-action="index">@Localizer["Careers"]</a></li>*@
                 <li class="nav-item"><a class="nav-link" href="~/anniversary.html" target="_blank">@Localizer["MainNet Anniversary"]</a></li>
                 <li class="nav-item"><a class="nav-link" href="http://ndapp.org" target="_blank">@Localizer["dApps"]</a></li>
@@ -159,9 +160,9 @@
     </environment>
     <environment exclude="Development">
         <script src="@Helper.CDN/js/site.min.js"></script>
+        @Html.Raw(snippet.FullScript)
     </environment>
 
     @RenderSection("Scripts", required: false)
-    @Html.Raw(snippet.FullScript)
 </body>
 </html>

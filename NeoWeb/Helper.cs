@@ -99,16 +99,21 @@ namespace NeoWeb
 
         internal static bool CCAttack(IPAddress ip, string action, int interval, int times)
         {
+            var ipv4 = ip.MapToIPv4().ToString();
             for (int i = 0; i < IPList.Count; i++)
             {
                 var item = IPList[i];
-                if ((DateTime.Now - item.Time).TotalSeconds > interval)
-                    IPList.RemoveAt(i--);
+                if (item.Action == action && item.IP == ipv4)
+                {
+                    if ((DateTime.Now - item.Time).TotalSeconds > interval)
+                        IPList.RemoveAt(i--);
+                    else
+                        continue;
+                }
             }
-            var ipv4 = ip.MapToIPv4().ToString();
-            IPList.Add(new IPItem() { IP = ipv4, Action = action, Time = DateTime.Now });
             if (IPList.Count(p => p.IP == ipv4 && p.Action == action) > times)
                 return false;
+            IPList.Add(new IPItem() { IP = ipv4, Action = action, Time = DateTime.Now });
             return true;
         }
 

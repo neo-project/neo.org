@@ -21,19 +21,9 @@ namespace NeoWeb.Controllers
         {
             _context = context;
         }
-
-        [HttpGet]
+        
         public IActionResult Index()
         {
-            try
-            {
-                ViewBag.News = _context.News.OrderByDescending(p => p.Time).Take(3).ToList();
-            }
-            catch (Exception)
-            {
-                ViewBag.News = new List<News>();
-                //网站第一次运行，未创建数据库时会有异常
-            }
             return View();
         }
 

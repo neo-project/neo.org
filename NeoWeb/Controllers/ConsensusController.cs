@@ -63,17 +63,18 @@ namespace NeoWeb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Index(string signature, [Bind("PublicKey,Organization,Email,Website,SocialAccount,Summary,")] Candidate c, IFormFile logo)
         {
+            if (!Helper.CCAttack(_accessor.HttpContext.Connection.RemoteIpAddress, "consensus_post", 3600, 5))
+                return Content("Protecting from overposting attacks now!");
+
+            JArray list = (JArray)JObject.Parse(System.IO.File.ReadAllText("CandidateBackgrounder/validators.json"));
+            ViewBag.PubKeys = new List<string>();
+            foreach (JObject item in list)
+            {
+                ViewBag.PubKeys.Add(item["PublicKey"].AsString());
+            }
+
             if (ModelState.IsValid && !string.IsNullOrEmpty(signature))
             {
-                if(!Helper.CCAttack(_accessor.HttpContext.Connection.RemoteIpAddress, "consensus_post", 3600, 5))
-                    return Content("Protecting from overposting attacks now!");
-                ViewBag.Countries = _context.Countries.ToList();
-                JArray list = (JArray)JObject.Parse(System.IO.File.ReadAllText("CandidateBackgrounder/validators.json"));
-                ViewBag.PubKeys = new List<string>();
-                foreach (JObject item in list)
-                {
-                    ViewBag.PubKeys.Add(item["PublicKey"].AsString());
-                }
                 //VerifySignature
                 var message = ("candidate" + c.Email + c.Website + c.SocialAccount + c.Summary).Sha256().ToLower();
                 if (!Helper.VerifySignature(message, signature, c.PublicKey))
