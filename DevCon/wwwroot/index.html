@@ -6,7 +6,7 @@
     <title>NEO DEVCON</title>
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" href="css/site.min.css" />
-    <link rel="stylesheet" href="css/devcon.min.css" />
+    <link rel="stylesheet" href="css/devcon.css" />
     <link rel="apple-touch-icon" href="~/images/favicon.png">
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
     <link rel="icon" type="image/x-icon" href="images/favicon.png">
@@ -16,16 +16,40 @@
     <div class="dev-container page-size bg-green">
         <div class="dev-content container">
             <p class="coming-logo"><a href="https://neo.org/"><img src="images/neo-logo-white.svg" /></a></p>
-            <p class="ma-m dev-title"><img src="images/background/dev.png" /></p>
-            <h3 class="ma-xs font-m sec-intro dev-year">February 15-17</h3>
-            <p class="ma-l">
-                <a href="#" class="dev-btn">按钮1</a>
-                <a href="#" class="dev-btn">按钮2</a>
+            <p class="ma-l dev-title"><img src="images/background/dev.png" /></p>
+            <h3 class="ma-xs font-m p-2 sec-intro dev-year">February 15-17</h3>
+            <p class="ma-m">
+                <a href="#" class="dev-btn-1 font-xs">Ticket Sale</a>
+                <a href="#" class="dev-btn-1 font-xs">Ticket Sale</a>
             </p>
+            <p class="ma-s dev-ticket">
+                <input type="email" id="em" class="sub-email font-xs" placeholder="Please submit your email here" />
+                <a onclick="submitE();" class="dev-btn-2 font-xs">Submit</a>
+            </p>
+        </div>
+        <div class="bg-animate">
+            <img src="images/background/back-2.png" class="dev-1-bg" />
+            <img src="images/background/back-2.png" class="dev-2-bg" />
+            <img src="images/background/back-3.png" class="dev-3-bg" />
+            <img src="images/background/back-3.png" class="dev-4-bg" />
+            <img src="images/background/back-4.png" class="dev-5-bg" />
+            <img src="images/background/back-4.png" class="dev-6-bg" />
+            <img src="images/background/back-4.png" class="dev-7-bg" />
+        </div>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p>11</p>
+                </div>
+            </div>
         </div>
     </div>
 
     <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/devcon.js"></script>
     <script type="text/javascript">
         pageSize();
 
@@ -33,25 +57,12 @@
             $(".page-size").each(function () {
                 $(this).css("width", $(window).width());
                 $(this).css("min-height", $(window).height());
-            })
+            });
         }
-        
+
         $(window).resize(function () {
             pageSize();
         });
-
-        function initMap() {
-            var uluru = { lat: 37.7819117000, lng: -122.4046539000 };
-            document.getElementById('map').style.height = "350px";
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 15,
-                center: uluru
-            });
-            var marker = new google.maps.Marker({
-                position: uluru,
-                map: map
-            });
-        }
 
         var _hmt = _hmt || [];
         (function () {
@@ -60,9 +71,6 @@
             var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(hm, s);
         })();
-    </script>
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCi7pz5L6PwGZgNo_n0nbmxw5i77LYYkRw&callback=initMap">
     </script>
 </body>
 </html>
