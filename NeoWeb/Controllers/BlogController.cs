@@ -16,6 +16,7 @@ using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
 using SixLabors.Primitives;
 using SixLabors.ImageSharp.PixelFormats;
+using Microsoft.Extensions.Localization;
 
 namespace NeoWeb.Controllers
 {
@@ -25,10 +26,12 @@ namespace NeoWeb.Controllers
         private readonly ApplicationDbContext _context;
         private readonly string _userId;
         private readonly bool _userRules;
+        private readonly IStringLocalizer<BlogController> _localizer;
 
-        public BlogController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
+        public BlogController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IStringLocalizer<BlogController> localizer)
         {
             _context = context;
+            _localizer = localizer;
             _userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (_userId != null)
             {
@@ -39,19 +42,19 @@ namespace NeoWeb.Controllers
         // GET: blog
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult Index(int? y = null, int? m = null, string k = null, string lang = null)
+        public IActionResult Index(int? y = null, int? m = null, string k = null, string t = null)
         {
             IQueryable<Blog> models = null;
 
-            if (k != null) //搜索
+            if (k != null) //搜索，显示所有语言博客
             {
                 var keywords = k.Split(" ");
                 foreach (var item in keywords) //对关键词进行搜索
                 {
                     if (models == null)
-                        models = _context.Blogs.Where(p => p.Title.Contains(item, StringComparison.OrdinalIgnoreCase) || p.Content.Contains(item, StringComparison.OrdinalIgnoreCase));
+                        models = _context.Blogs.Where(p => p.Title.Contains(item, StringComparison.OrdinalIgnoreCase) || p.Content.Contains(item, StringComparison.OrdinalIgnoreCase) || p.Tags.Contains(item, StringComparison.OrdinalIgnoreCase));
                     else
-                        models = models.Where(p => p.Title.Contains(item, StringComparison.OrdinalIgnoreCase) || p.Content.Contains(item, StringComparison.OrdinalIgnoreCase));
+                        models = models.Where(p => p.Title.Contains(item, StringComparison.OrdinalIgnoreCase) || p.Content.Contains(item, StringComparison.OrdinalIgnoreCase) || p.Tags.Contains(item, StringComparison.OrdinalIgnoreCase));
                     if (models == null) break;
                 }
                 models = models.OrderByDescending(o => o.CreateTime).Select(p => new Blog()
@@ -62,14 +65,15 @@ namespace NeoWeb.Controllers
                     CreateTime = p.CreateTime,
                     EditTime = p.EditTime,
                     ReadCount = p.ReadCount,
+                    Tags = p.Tags,
                     Lang = p.Lang,
                     User = p.User,
                     IsShow = p.IsShow
                 });
             }
-            else //无搜索
+            else //无搜索，仅显示当前语言博客
             {
-                models = _context.Blogs.OrderByDescending(o => o.CreateTime).Select(p => new Blog()
+                models = _context.Blogs.Where(p => p.Lang == _localizer["en"]).OrderByDescending(o => o.CreateTime).Select(p => new Blog()
                 {
                     Id = p.Id,
                     Title = p.Title,
@@ -77,10 +81,16 @@ namespace NeoWeb.Controllers
                     CreateTime = p.CreateTime,
                     EditTime = p.EditTime,
                     ReadCount = p.ReadCount,
+                    Tags = p.Tags,
                     Lang = p.Lang,
                     User = p.User,
                     IsShow = p.IsShow
                 });
+            }
+            //筛选标签
+            if (t != null)
+            {
+                models = models.Where(p => p.Tags != null && p.Tags.Contains(t, StringComparison.OrdinalIgnoreCase));
             }
 
             ViewBag.CreateTime = models.Select(p => new BlogDateTimeViewModels
@@ -97,14 +107,7 @@ namespace NeoWeb.Controllers
                     models = models.Where(p => p.CreateTime.Month == m);
                 }
             }
-            if (lang != null)
-            {
-                models = models.Where(p => p.Lang == lang).Take(30);
-            }
-            else
-            {
-                models = models.Take(30);
-            }
+            models = models.Take(30);
             ViewBag.UserRules = _userRules;
             return View(models);
         }
@@ -176,7 +179,7 @@ namespace NeoWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Content,Summary,Lang,IsShow")] Blog blog)
+        public async Task<IActionResult> Create([Bind("Id,Title,Content,Summary,Lang,IsShow,Tags")] Blog blog)
         {
             if (ModelState.IsValid)
             {
@@ -185,6 +188,7 @@ namespace NeoWeb.Controllers
                 blog.CreateTime = DateTime.Now;
                 blog.EditTime = DateTime.Now;
                 blog.User = _context.Users.Find(_userId);
+                blog.Tags = blog.Tags.Replace(", ",",").Replace("，", ",").Replace("， ", ",");
                 _context.Add(blog);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -213,7 +217,7 @@ namespace NeoWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Lang,Content,IsShow")] Blog blog)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Lang,Content,IsShow,Tags")] Blog blog)
         {
             if (id != blog.Id)
             {
@@ -231,6 +235,7 @@ namespace NeoWeb.Controllers
                     item.Lang = blog.Lang;
                     item.IsShow = blog.IsShow;
                     item.EditTime = DateTime.Now;
+                    item.Tags = blog.Tags.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
                     _context.Update(item);
                     await _context.SaveChangesAsync();
                 }

@@ -20,6 +20,8 @@ namespace NeoWeb.Models
 
         public string Summary { get; set; }
 
+        public string Tags { get; set; }
+
         [Display(Name = "博客语言")]
         public string Lang { get; set; }         
         

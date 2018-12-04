@@ -67,6 +67,15 @@
                         <a class="blog-summary" asp-action="details" asp-route-id="@item.Id">
                             <p class="t2 with-space">@item.Summary.Substring(0, Math.Min(item.Summary.Length, item.Lang == "zh" || item.Lang == "ko" ? 100 : 150))…</p>
                         </a>
+                        <div>
+                            @if (item.Tags != null)
+                            {
+                                foreach (var tag in item.Tags.Split(","))
+                                {
+                                    <a class="blog-tag" href="/blog?t=@tag">@tag</a>
+                                }
+                            }
+                        </div>
                     </li>
                 }
                 @if (ViewBag.UserRules && !item.IsShow)
@@ -82,6 +91,15 @@
                         <a class="blog-summary" asp-action="details" asp-route-id="@item.Id">
                             <p class="t2 with-space">@item.Summary.Substring(0, Math.Min(item.Summary.Length, item.Lang == "zh" || item.Lang == "ko" ? 100 : 150))…</p>
                         </a>
+                        <div>
+                            @if (item.Tags != null)
+                            {
+                                foreach (var tag in item.Tags.Split(","))
+                                {
+                                    <a class="blog-tag" href="/blog?t=@tag">@tag</a>
+                                }
+                            }
+                        </div>
                     </li>
                 }
 
