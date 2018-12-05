@@ -187,7 +187,7 @@ namespace NeoWeb.Controllers
                 blog.CreateTime = DateTime.Now;
                 blog.EditTime = DateTime.Now;
                 blog.User = _context.Users.Find(_userId);
-                blog.Tags = blog.Tags.Replace(", ",",").Replace("£¬", ",").Replace("£¬ ", ",");
+                blog.Tags = blog.Tags?.Replace(", ",",").Replace("£¬", ",").Replace("£¬ ", ",");
                 _context.Add(blog);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -234,7 +234,7 @@ namespace NeoWeb.Controllers
                     item.Lang = blog.Lang;
                     item.IsShow = blog.IsShow;
                     item.EditTime = DateTime.Now;
-                    item.Tags = blog.Tags.Replace(", ", ",").Replace("£¬", ",").Replace("£¬ ", ",");
+                    item.Tags = blog.Tags?.Replace(", ", ",").Replace("£¬", ",").Replace("£¬ ", ",");
                     _context.Update(item);
                     await _context.SaveChangesAsync();
                 }
