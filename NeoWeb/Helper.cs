@@ -1,16 +1,12 @@
-﻿using NeoWeb.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Net.Http;
 using System.Text;
 using static System.Text.RegularExpressions.Regex;
-using NeoWeb.Data;
 using System.IO;
 using System.Net;
 using System.Linq;
 using System.Security.Cryptography;
-using Neo;
 
 namespace NeoWeb
 {
@@ -121,7 +117,7 @@ namespace NeoWeb
 
         public static bool VerifySignature(string message, string signature, string pubkey)
         {
-            var msg = System.Text.Encoding.Default.GetBytes(message);
+            var msg = Encoding.Default.GetBytes(message);
             try
             {
                 return VerifySignature(msg, signature.HexToBytes(), pubkey.HexToBytes());
@@ -132,6 +128,18 @@ namespace NeoWeb
             }
         }
 
+        public static byte[] HexToBytes(this string value)
+        {
+            if (value == null || value.Length == 0)
+                return new byte[0];
+            if (value.Length % 2 == 1)
+                throw new FormatException();
+            byte[] result = new byte[value.Length / 2];
+            for (int i = 0; i < result.Length; i++)
+                result[i] = byte.Parse(value.Substring(i * 2, 2), NumberStyles.AllowHexSpecifier);
+            return result;
+        }
+
         //reference https://github.com/neo-project/neo/blob/master/neo/Cryptography/Crypto.cs
         public static bool VerifySignature(byte[] message, byte[] signature, byte[] pubkey)
         {
@@ -139,7 +147,7 @@ namespace NeoWeb
             {
                 try
                 {
-                    pubkey = Neo.Cryptography.ECC.ECPoint.DecodePoint(pubkey, Neo.Cryptography.ECC.ECCurve.Secp256r1).EncodePoint(false).Skip(1).ToArray();
+                    pubkey = ThinNeo.Cryptography.ECC.ECPoint.DecodePoint(pubkey, ThinNeo.Cryptography.ECC.ECCurve.Secp256r1).EncodePoint(false).Skip(1).ToArray();
                 }
                 catch
                 {

@@ -1,7 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using NeoWeb.Data;
 using System.Linq;
 

@@ -7,11 +7,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using NeoWeb.Data;
 using NeoWeb.Models;
-using Newtonsoft.Json;
 
 namespace NeoWeb.Controllers
 {
