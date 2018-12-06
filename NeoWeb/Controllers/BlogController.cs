@@ -39,7 +39,6 @@ namespace NeoWeb.Controllers
         }
 
         // GET: blog
-        [HttpGet]
         [AllowAnonymous]
         public IActionResult Index(int? y = null, int? m = null, string k = null, string t = null)
         {
@@ -51,9 +50,9 @@ namespace NeoWeb.Controllers
                 foreach (var item in keywords) //对关键词进行搜索
                 {
                     if (models == null)
-                        models = _context.Blogs.Where(p => p.Title.Contains(item, StringComparison.OrdinalIgnoreCase) || p.Content.Contains(item, StringComparison.OrdinalIgnoreCase) || p.Tags.Contains(item, StringComparison.OrdinalIgnoreCase));
+                        models = _context.Blogs.Where(p => p.Title.Contains(item, StringComparison.OrdinalIgnoreCase) || p.Content.Contains(item, StringComparison.OrdinalIgnoreCase) || p.Tags != null && p.Tags.Contains(item, StringComparison.OrdinalIgnoreCase));
                     else
-                        models = models.Where(p => p.Title.Contains(item, StringComparison.OrdinalIgnoreCase) || p.Content.Contains(item, StringComparison.OrdinalIgnoreCase) || p.Tags.Contains(item, StringComparison.OrdinalIgnoreCase));
+                        models = models.Where(p => p.Title.Contains(item, StringComparison.OrdinalIgnoreCase) || p.Content.Contains(item, StringComparison.OrdinalIgnoreCase) || p.Tags != null && p.Tags.Contains(item, StringComparison.OrdinalIgnoreCase));
                     if (models == null) break;
                 }
                 models = models.OrderByDescending(o => o.CreateTime).Select(p => new Blog()
