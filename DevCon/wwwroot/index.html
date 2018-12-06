@@ -17,10 +17,10 @@
         <div class="dev-content container">
             <p class="coming-logo"><a href="https://neo.org/"><img src="images/neo-logo-white.svg" /></a></p>
             <p class="ma-l dev-title"><img src="images/background/dev.png" /></p>
-            <h3 class="ma-xs font-m p-2 sec-intro dev-year">February 15-17</h3>
+            <h3 class="ma-xs font-m p-2 sec-intro dev-year">February 16-17</h3>
             <p class="ma-m">
-                <a href="#" class="dev-btn-1 font-xs">Ticket Sale</a>
-                <a href="#" class="dev-btn-1 font-xs">Ticket Sale</a>
+                <a href="#" class="dev-btn-1 font-xs">Buy Ticket<small> (with $) </small></a>
+                <a href="#" class="dev-btn-1 font-xs">Buy Ticket<small> (with NEO) </small></a>
             </p>
             <p class="ma-s dev-ticket">
                 <input type="email" id="em" class="sub-email font-xs" placeholder="Please submit your email here" />
@@ -35,13 +35,49 @@
             <img src="images/background/back-4.png" class="dev-5-bg" />
             <img src="images/background/back-4.png" class="dev-6-bg" />
             <img src="images/background/back-4.png" class="dev-7-bg" />
+            <img src="images/background/star.svg" class="dev-1-svg f-blink" />
+            <img src="images/background/star.svg" class="dev-2-svg s-blink" />
+            <img src="images/background/star.svg" class="dev-3-svg n-blink" />
         </div>
     </div>
+
+    <div class="dev-container dev-bg">
+        <div class="dev-content container text-left font-xs">
+            <h1 class="ma-m text-center font-l dev-conti yellow-text"><span>ContiNEO</span></h1>
+            <div class="text-center font-xs yellow-text">we never ever stop</div>
+            <p class="ma-s yellow-text font-s title-line">
+                <span>About NEO Devcon 2019</span>
+            </p>
+            <p>
+                NEO’s pioneering non-profit community driven blockchain platform was founded in 2014, and today its 1K+ contributors, and 500K+ community members are powering a movement towards the new Smart Economy.
+            </p>
+            <p>
+                NEO DevCon is our annual developer conference. With the huge success of the first NEO DevCon in 2018 (500+ attendees) in San Francisco, NEO DevCon 2019 is coming to Seattle on Feb 16<small>th</small> and 17<small>th</small>.
+            </p>
+            <p>
+                NEO founders will share our roadmap and platform innovations, showcasing how the global NEO blockchain community is bringing the Smart Economy vision to life.
+            </p>
+            <p>
+                NEO DevCon will enable you to connect and engage with the worldwide NEO community, and provide access to resources that will help you build and realize value from the next generation of blockchain applications.
+            </p>
+            <div class="bg-animate">
+                <img src="images/background/bg2-1.png" class="dev-8-bg"/>
+                <img src="images/background/bg2-2.png" class="dev-9-bg"/>
+                <img src="images/background/bg2-3.png" class="dev-10-bg"/>
+                <img src="images/background/bg2-3.png" class="dev-11-bg"/>
+                <img src="images/background/bg2-3.png" class="dev-12-bg"/>
+            </div>
+        </div>
+        <div class="bg-animate">
+
+        </div>
+    </div>
+
     <div class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-body">
-                    <p>11</p>
+                    <p class="text-center" id="hintDev">11</p>
                 </div>
             </div>
         </div>
@@ -50,27 +86,13 @@
     <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/devcon.js"></script>
-    <script type="text/javascript">
-        pageSize();
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-        function pageSize() {
-            $(".page-size").each(function () {
-                $(this).css("width", $(window).width());
-                $(this).css("min-height", $(window).height());
-            });
-        }
-
-        $(window).resize(function () {
-            pageSize();
-        });
-
-        var _hmt = _hmt || [];
-        (function () {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?89c4ec96535ab0e5578edff466ccb91a";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
+        gtag('config', 'UA-130525731-1');
     </script>
 </body>
 </html>
