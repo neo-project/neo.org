@@ -355,15 +355,7 @@ a:hover{
     }
     .dev-conti span:before,
     .dev-conti span:after{
-        width: 50px;
-        height: 3px;
-        top: 3px;
-    }
-    .dev-conti span:before{
-        left: -60px;
-    }
-    .dev-conti span:after{
-        right: -60px;
+        visibility: hidden;
     }
     .dev-bg .container p{
         margin: 10px 15px;
