@@ -1,4 +1,11 @@
-﻿function submitE() {
+﻿$("#em").bind('keypress',function(event){ 
+    if(event.keyCode == 13)
+    {
+        submitE();
+    }
+});
+
+function submitE() {
     var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
     var _em = $("#em").val();
     if(_em === ""){

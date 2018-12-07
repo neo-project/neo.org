@@ -11,8 +11,7 @@ html,body {
     background: #43993E;
 }
 .modal-content{
-    height: 60px;
-    line-height: 35px;
+    line-height: 2;
     width: 280px;
     border-radius: 30px;
     background: #4BA545;
