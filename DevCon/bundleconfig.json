@@ -20,5 +20,11 @@
     "inputFiles": [
       "wwwroot/css/devcon.css"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/js/devcon.min.js",
+    "inputFiles": [
+      "wwwroot/js/devcon.js"
+    ]
   }
 ]
