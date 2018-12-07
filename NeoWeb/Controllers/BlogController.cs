@@ -55,41 +55,31 @@ namespace NeoWeb.Controllers
                         models = models.Where(p => p.Title.Contains(item, StringComparison.OrdinalIgnoreCase) || p.Content.Contains(item, StringComparison.OrdinalIgnoreCase) || p.Tags != null && p.Tags.Contains(item, StringComparison.OrdinalIgnoreCase));
                     if (models == null) break;
                 }
-                models = models.OrderByDescending(o => o.CreateTime).Select(p => new Blog()
-                {
-                    Id = p.Id,
-                    Title = p.Title,
-                    Summary = p.Summary,
-                    CreateTime = p.CreateTime,
-                    EditTime = p.EditTime,
-                    ReadCount = p.ReadCount,
-                    Tags = p.Tags,
-                    Lang = p.Lang,
-                    User = p.User,
-                    IsShow = p.IsShow
-                });
             }
-            else //无搜索，仅显示当前语言博客
+            if (t != null) //筛选标签
             {
-                models = _context.Blogs.Where(p => p.Lang == _localizer["en"]).OrderByDescending(o => o.CreateTime).Select(p => new Blog()
-                {
-                    Id = p.Id,
-                    Title = p.Title,
-                    Summary = p.Summary,
-                    CreateTime = p.CreateTime,
-                    EditTime = p.EditTime,
-                    ReadCount = p.ReadCount,
-                    Tags = p.Tags,
-                    Lang = p.Lang,
-                    User = p.User,
-                    IsShow = p.IsShow
-                });
+                if (models == null)
+                    models = _context.Blogs.Where(p => p.Tags != null && p.Tags.Contains(t, StringComparison.OrdinalIgnoreCase));
+                else
+                    models = models.Where(p => p.Tags != null && p.Tags.Contains(t, StringComparison.OrdinalIgnoreCase));
             }
-            //筛选标签
-            if (t != null)
+            if (k == null && t == null) //仅显示当前语言博客，有搜索或标签的除外
             {
-                models = models.Where(p => p.Tags != null && p.Tags.Contains(t, StringComparison.OrdinalIgnoreCase));
+                models = _context.Blogs.Where(p => p.Lang == _localizer["en"]);
             }
+            models = models.OrderByDescending(o => o.CreateTime).Select(p => new Blog()
+            {
+                Id = p.Id,
+                Title = p.Title,
+                Summary = p.Summary,
+                CreateTime = p.CreateTime,
+                EditTime = p.EditTime,
+                ReadCount = p.ReadCount,
+                Tags = p.Tags,
+                Lang = p.Lang,
+                User = p.User,
+                IsShow = p.IsShow
+            });
 
             ViewBag.CreateTime = models.Select(p => new BlogDateTimeViewModels
             {
