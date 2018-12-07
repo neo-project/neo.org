@@ -2,11 +2,11 @@
     var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
     var _em = $("#em").val();
     if(_em === ""){
-        $("#hintDev").html("输出不能为空");
+        $("#hintDev").html("Please check you email format and entry again.");
         $(".modal").modal('show');
         return false;
     }else if(!reg.test(_em)){
-        $("#hintDev").html("请检查格式后重新输入");
+        $("#hintDev").html("Please check you email format and entry again.");
         $(".modal").modal('show');
         return false;
     }else{
@@ -15,7 +15,7 @@
             type: "GET",
             success: function (data) {
                 if(data=="true"){
-                    $("#hintDev").html("提交成功！");
+                    $("#hintDev").html("Email sucessfully sumbitted!");
                     $(".modal").modal('show');
                 }else{
                     $("#hintDev").html("请勿多次重复提交！");
@@ -23,7 +23,7 @@
                 }
             },
             error:function () {
-                $("#hintDev").html("提交失败，请刷新页面后重试！");
+                $("#hintDev").html("Failed to submit. Please refresh the webpage and retry.");
                 $(".modal").modal('show');
             }
         });

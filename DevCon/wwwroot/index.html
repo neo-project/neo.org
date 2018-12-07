@@ -18,12 +18,24 @@
             <p class="coming-logo"><a href="https://neo.org/"><img src="images/neo-logo-white.svg" /></a></p>
             <p class="ma-l dev-title"><img src="images/background/dev.png" /></p>
             <h3 class="ma-xs font-m p-2 sec-intro dev-year">February 16-17</h3>
-            <p class="ma-m">
-                <a href="#" class="dev-btn-1 font-xs">Buy Ticket<small> (with $) </small></a>
-                <a href="#" class="dev-btn-1 font-xs">Buy Ticket<small> (with NEO) </small></a>
-            </p>
+            <div class="ma-m">
+                <a href="https://www.eventbrite.co.uk/e/neo-devcon-2019-tickets-52953372964" class="dev-btn-1 font-xs"><img src="images/background/buy1.png"></a>
+                <div class="dev-btn-1 font-xs">
+                    <form action="https://www.coinpayments.net/index.php" method="post">
+                        <input type="hidden" name="cmd" value="_pay_simple">
+                        <input type="hidden" name="reset" value="1">
+                        <input type="hidden" name="merchant" value="7008a29980d2140caf348ffa74613b45">
+                        <input type="hidden" name="item_name" value="NEO DevCon Ticket Promo Code">
+                        <input type="hidden" name="item_desc" value="You will receive an instant confirmation email from Coinpayments after successful payment. You will receive a second email from devcon@neo.org within 24 hours, with instructions how to redeem your tickets with the promo code.">
+                        <input type="hidden" name="currency" value="USD">
+                        <input type="hidden" name="amountf" value="149.00000000">
+                        <input type="hidden" name="want_shipping" value="0">
+                        <input type="image" src="images/background/buy2.png" value="Buy Ticket (with NEO) " alt="Buy Now with CoinPayments.net">
+                    </form>
+                </div>
+            </div>
             <p class="ma-s dev-ticket">
-                <input type="email" id="em" class="sub-email font-xs" placeholder="Please submit your email here" />
+                <input type="email" id="em" class="sub-email font-xs" placeholder="leave email to subscribe to newsletter." />
                 <a onclick="submitE();" class="dev-btn-2 font-xs">Submit</a>
             </p>
         </div>
