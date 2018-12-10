@@ -46,7 +46,7 @@ namespace NeoWeb.Controllers
                 _context.SaveChanges();
                 return "Email sucessfully sumbitted!"; //成功
             }
-            return "Please check you email format and entry again."; //格式错误
+            return "Please check your email format and entry again."; //格式错误
         }
     }
 }
