@@ -5,10 +5,8 @@ using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.EntityFrameworkCore;
 using NeoWeb.Data;
 using NeoWeb.Models;
-using System;
 using System.Linq;
 using System.Security.Claims;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace NeoWeb.Controllers

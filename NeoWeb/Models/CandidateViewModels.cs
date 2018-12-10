@@ -1,4 +1,4 @@
-﻿using Neo.IO.Json;
+﻿using Newtonsoft.Json.Linq;
 using System;
 
 namespace NeoWeb.Models
@@ -17,9 +17,9 @@ namespace NeoWeb.Models
         {
             return new CandidateViewModels()
             {
-                PublicKey = obj["publickey"].AsString(),
+                PublicKey = obj["publickey"].ToString(),
                 Votes = Convert.ToInt32(obj["votes"].ToString().Trim('"')),
-                Active = obj["active"].AsBoolean()
+                Active = (bool)obj["active"]
             };
         }
 

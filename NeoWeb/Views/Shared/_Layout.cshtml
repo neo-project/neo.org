@@ -10,11 +10,17 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="robots" content="index,follow">
     <meta name="description" content='@Localizer["NEO is a non-profit community-based blockchain project that utilizes blockchain technology and digital identity to digitize assets, to automate the management of digital assets using smart contracts, and to realize a \"smart economy\" with a distributed network."]'>
-    <meta name="keywords" content="NEO,Blockchain,智能经济,antshares,小蚁,区块链">
     <meta name="author" content="neo-project">
     <meta name="application-name" content="neo.org">
     <meta name="renderer" content="ie-stand">
-
+    @if (ViewData["keywords"] == null)
+    {
+        <meta name="keywords" content="NEO,Blockchain,智能经济,antshares,小蚁,区块链">
+    }
+    else
+    {
+        <meta name="keywords" content="@string.Format("{0},", ViewData["keywords"])NEO,Blockchain,智能经济,antshares,小蚁,区块链">
+    }
 
     @if (ViewData["Title"] == null)
     {
@@ -46,7 +52,7 @@
     <link type="image/x-icon" href="@Helper.CDN/images/favicon.png" rel="apple-touch-icon">
     <link type="image/x-icon" href="@Helper.CDN/images/favicon.png" rel="shortcut icon">
     <link type="image/x-icon" href="@Helper.CDN/images/favicon.png" rel="icon">
-    <link type="image/x-icon" href="@Helper.CDN/images/favicon.png" rel="bookmark"/>
+    <link type="image/x-icon" href="@Helper.CDN/images/favicon.png" rel="bookmark" />
 
     <environment include="Development">
         <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
