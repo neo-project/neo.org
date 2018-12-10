@@ -9,11 +9,11 @@ function submitE() {
     var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
     var _em = $("#em").val();
     if(_em === ""){
-        $("#hintDev").html("Please check you email format and entry again.");
+        $("#hintDev").html("Please check your email format and entry again.");
         $(".modal").modal('show');
         return false;
     }else if(!reg.test(_em)){
-        $("#hintDev").html("Please check you email format and entry again.");
+        $("#hintDev").html("Please check your email format and entry again.");
         $(".modal").modal('show');
         return false;
     }else{
