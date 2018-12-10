@@ -191,6 +191,12 @@ a{
 .icon-left {
     margin-right:20px;
 }
+/*博客标签*/
+.blog-tag {
+    margin-right: 3px;
+    font-size: 14px;
+}
+
 /*列表页面login部分距离调整*/
 .login-part {
     margin-top:10px;

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace NeoWeb.Models
+﻿namespace NeoWeb.Models
 {
     public class Country
     {
