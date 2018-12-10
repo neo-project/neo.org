@@ -456,4 +456,13 @@ footer {
         background-position: top left;
     }
 }
-
+.bottom-dev {
+    position: absolute;
+    bottom: 0px;
+    height:50px;
+    width: 100%;
+    letter-spacing: 0.2em;
+    padding-left: 0;
+    font-size: 16px;
+    background:linear-gradient(-35deg,#43993e 58%,#a0c02f 75%,#a6c22f);
+}

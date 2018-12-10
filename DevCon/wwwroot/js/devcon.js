@@ -21,13 +21,8 @@ function submitE() {
             url: 'https://neo.org/subscription/add?email='+_em,
             type: "GET",
             success: function (data) {
-                if(data=="true"){
-                    $("#hintDev").html("Email sucessfully sumbitted!");
-                    $(".modal").modal('show');
-                }else{
-                    $("#hintDev").html("请勿多次重复提交！");
-                    $(".modal").modal('show');
-                }
+                $("#hintDev").html(data);
+                $(".modal").modal('show');
             },
             error:function () {
                 $("#hintDev").html("Failed to submit. Please refresh the webpage and retry.");
