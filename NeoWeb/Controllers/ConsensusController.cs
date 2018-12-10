@@ -22,15 +22,18 @@ namespace NeoWeb.Controllers
     public class ConsensusController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IHttpContextAccessor _accessor;
         private readonly IStringLocalizer<ConsensusController> _localizer;
 
-        public ConsensusController(ApplicationDbContext context, IStringLocalizer<ConsensusController> localizer)
+        public ConsensusController(ApplicationDbContext context, IStringLocalizer<ConsensusController> localizer, IHttpContextAccessor accessor)
         {
             _context = context;
+            _accessor = accessor;
             _localizer = localizer;
         }
 
-        // GET: Candidate
+        // GET: consensus
+        [HttpGet]
         public IActionResult Index()
         {
             ViewBag.Countries = _context.Countries.ToList();
@@ -55,20 +58,23 @@ namespace NeoWeb.Controllers
             return System.IO.File.ReadAllText("CandidateBackgrounder/txcount.json");
         }
 
-        // POST: Candidate/Create
+        // POST: consensus/create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Index(string signature, [Bind("PublicKey,Organization,Email,Website,SocialAccount,Summary,")] Candidate c, IFormFile logo)
         {
-            if (ModelState.IsValid)
+            if (!Helper.CCAttack(_accessor.HttpContext.Connection.RemoteIpAddress, "consensus_post", 3600, 5))
+                return Content("Protecting from overposting attacks now!");
+
+            JArray list = (JArray)JObject.Parse(System.IO.File.ReadAllText("CandidateBackgrounder/validators.json"));
+            ViewBag.PubKeys = new List<string>();
+            foreach (JObject item in list)
             {
-                ViewBag.Countries = _context.Countries.ToList();
-                JArray list = (JArray)JObject.Parse(System.IO.File.ReadAllText("CandidateBackgrounder/validators.json"));
-                ViewBag.PubKeys = new List<string>();
-                foreach (JObject item in list)
-                {
-                    ViewBag.PubKeys.Add(item["PublicKey"].AsString());
-                }
+                ViewBag.PubKeys.Add(item["PublicKey"].AsString());
+            }
+
+            if (ModelState.IsValid && !string.IsNullOrEmpty(signature))
+            {
                 //VerifySignature
                 var message = ("candidate" + c.Email + c.Website + c.SocialAccount + c.Summary).Sha256().ToLower();
                 if (!Helper.VerifySignature(message, signature, c.PublicKey))
@@ -95,7 +101,7 @@ namespace NeoWeb.Controllers
             return View("Index", c);
         }
 
-        public string Upload(IFormFile cover)
+        private string Upload(IFormFile cover)
         {
             var random = new Random();
             var bytes = new byte[10];

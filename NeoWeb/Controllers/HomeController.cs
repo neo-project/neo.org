@@ -9,6 +9,7 @@ using NeoWeb.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Http;
+using System.Globalization;
 
 namespace NeoWeb.Controllers
 {
@@ -20,18 +21,9 @@ namespace NeoWeb.Controllers
         {
             _context = context;
         }
-
+        
         public IActionResult Index()
         {
-            try
-            {
-                ViewBag.News = _context.News.OrderByDescending(p => p.Time).Take(3).ToList();
-            }
-            catch (Exception)
-            {
-                ViewBag.News = new List<News>();
-                //网站第一次运行，未创建数据库时会有异常
-            }
             return View();
         }
 
@@ -41,13 +33,27 @@ namespace NeoWeb.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult SetLanguage(string culture, string returnUrl)
         {
-            Response.Cookies.Append(
-                CookieRequestCultureProvider.DefaultCookieName,
-                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
-                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
-            );
+            if (string.IsNullOrEmpty(culture) || string.IsNullOrEmpty(returnUrl))
+                return RedirectToAction("Index");
+            try
+            {
+                Response.Cookies.Append(
+                        CookieRequestCultureProvider.DefaultCookieName,
+                        CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                        new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
+                    );
+            }
+            catch (InvalidOperationException)
+            {
+                return RedirectToAction("Index"); ;
+            }
+            catch (CultureNotFoundException)
+            {
+                return RedirectToAction("Index");
+            }
 
             return LocalRedirect(returnUrl);
         }

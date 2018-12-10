@@ -1,0 +1,37 @@
+﻿@model IEnumerable<NeoWeb.Models.Subscription>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container">
+    <h2>Index</h2>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SubscriptionTime)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SubscriptionTime)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -29,6 +29,8 @@ namespace NeoWeb.Data
 
         public DbSet<Careers> Careers { get; set; }
 
+        public DbSet<Subscription> Subscription { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
