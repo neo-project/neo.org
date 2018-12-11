@@ -39,16 +39,33 @@ namespace NeoWeb.Controllers
             return View();
         }
 
+        static string validators;
+        static string txcount;
+
         [HttpGet]
         public string Getvalidators()
         {
-            return System.IO.File.ReadAllText("CandidateBackgrounder/validators.json");
+            try
+            {
+                validators = System.IO.File.ReadAllText("CandidateBackgrounder/validators.json");
+            }
+            catch (IOException)
+            {
+            }
+            return validators;
         }
 
         [HttpGet]
         public string GetTxCount()
         {
-            return System.IO.File.ReadAllText("CandidateBackgrounder/txcount.json");
+            try
+            {
+                txcount = System.IO.File.ReadAllText("CandidateBackgrounder/txcount.json");
+            }
+            catch (IOException)
+            {
+            }
+            return txcount;
         }
 
         // POST: consensus/create

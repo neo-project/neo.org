@@ -3,7 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEO DEVCON</title>
+    <title>NEO DevCon 2019</title>
+    <meta name="description" content="At NEO DevCon, you'll be able to connect and engage with the worldwide NEO community, and access resources that will help you build and realize the value of the next generation of blockchain applications." />
+    <meta name="twitter:title" content="NEO DevCon 2019" />
+    <meta name="twitter:description" content="At NEO DevCon, you'll be able to connect and engage with the worldwide NEO community, and access resources that will help you build and realize the value of the next generation of blockchain applications." />
+    <meta name="twitter:image" content="/images/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="keywords" content="NEO,Blockchain,智能经济,antshares,小蚁,区块链">
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" href="css/site.min.css" />
     <link rel="stylesheet" href="css/devcon.min.css" />
@@ -16,358 +22,95 @@
     <div class="dev-container page-size bg-green">
         <div class="dev-content container">
             <p class="coming-logo"><a href="https://neo.org/"><img src="images/neo-logo-white.svg" /></a></p>
-            <p class="ma-m dev-title"><img src="images/dev.svg" /></p>
-            <h1 class="ma-m font-l dev-headline">SAN FRANCISCO</h1>
-            <h3 class="ma-xs font-m sec-intro">JANUARY 30th-31st , 2018</h3>
-            <ul class="ma-m count-down">
-                <li>
-                    <p class="font-xl" id="dayCount">00</p>
-                    <div class="font-xs">DAYS</div>
-                </li>
-                <li>
-                    <p class="font-xl" id="hourCount">00</p>
-                    <div class="font-xs">HOURS</div>
-                </li>
-                <li>
-                    <p class="font-xl" id="minCount">00</p>
-                    <div class="font-xs">MINUTES</div>
-                </li>
-                <li>
-                    <p class="font-xl" id="secCount">00</p>
-                    <div class="font-xs">SECONDS</div>
-                </li>
-            </ul>
-            <p class="ma-l font-m dev-headline">Recent updates</p>
-            <div class="font-s dev-updates">
-                <div class="move-a">
-                    <a id="skipDown" href="#downArea">Updated DevCon Program, Speaker and Project Profiles</a>
-                    <a href="javascript:">For Day1 workshop, please prepare your laptop with the latest version of Docker and Python 3.5</a>
+            <p class="ma-l dev-title"><img src="images/background/dev.png" /></p>
+            <h3 class="ma-xs font-m p-2 sec-intro dev-year">February 16-17</h3>
+            <div class="ma-m">
+                <a href="https://www.eventbrite.co.uk/e/neo-devcon-2019-tickets-52953372964" class="dev-btn-1 font-xs"><img src="images/background/buy1.png"></a>
+                <div class="dev-btn-1 font-xs">
+                    <form action="https://www.coinpayments.net/index.php" method="post">
+                        <input type="hidden" name="cmd" value="_pay_simple">
+                        <input type="hidden" name="reset" value="1">
+                        <input type="hidden" name="merchant" value="7008a29980d2140caf348ffa74613b45">
+                        <input type="hidden" name="item_name" value="NEO DevCon Ticket Promo Code">
+                        <input type="hidden" name="item_desc" value="You will receive confirmation email from devcon@neo.org within 24 hours, with instructions to redeem tickets with Promo Code.">
+                        <input type="hidden" name="currency" value="USD">
+                        <input type="hidden" name="amountf" value="149.00000000">
+                        <input type="hidden" name="want_shipping" value="0">
+                        <input type="image" src="images/background/buy2.png" value="Buy Ticket (with NEO) " alt="Buy Now with CoinPayments.net">
+                    </form>
                 </div>
             </div>
+            <p class="ma-s dev-ticket">
+                <input type="email" id="em" class="sub-email font-xs" placeholder="contact@neo.org" />
+                <a onclick="submitE();" class="dev-btn-2 font-xs">Get updates</a>
+            </p>
         </div>
         <div class="bg-animate">
-            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" version="1.1">
-                <line class="svg-line fast-line op-30" x1="11%" y1="10%" x2="11%" y2="60%" />
-                <line class="svg-line fast-line op-50" x1="2%" y1="40%" x2="18%" y2="40%" />
-                <line class="svg-line green-line op-80" x1="6%" y1="27%" x2="6%" y2="75%" />
-                <line class="svg-line" x1="3%" y1="48%" x2="20%" y2="48%" />
-                <line class="svg-line green-line normal-line" x1="88%" y1="42%" x2="88%" y2="75%" />
-                <line class="svg-line green-line slow-line" x1="82%" y1="27%" x2="82%" y2="68%" />
-                <line class="svg-line green-line fast-line op-70" x1="93%" y1="23%" x2="93%" y2="72%" />
-                <line class="svg-line slow-line op-80" x1="85%" y1="59%" x2="98%" y2="59%" />
-                <line class="svg-line normal-line op-60" x1="79%" y1="64%" x2="100%" y2="64%" />
-                <line class="svg-line fast-line op-30" x1="88%" y1="83%" x2="100%" y2="83%" />
-            </svg>
-        </div>
-    </div>
-    <div class="dev-container dev-intro">
-        <div class="dev-content container">
-            <h1 class="font-xl dev-headline">About the Event</h1>
-            <p class="ma-s font-s text-left">
-                &nbsp;&nbsp;&nbsp;&nbsp;Neo Smart Economy is excited to announce the first NEO Developers Conference which will take place on <span class="bold-text">January 30-31, in San Francisco</span>.
-            </p>
-            <p class="ma-s font-s text-left">
-                &nbsp;&nbsp;&nbsp;&nbsp;With multiple sessions and workshops NEO DevCon is bringing the NEO community together for a 2-day conference full of innovative ideas and projects, featuring many top speakers from the Blockchain space.
-            </p>
-            <p class="ma-s font-s text-left">
-                &nbsp;&nbsp;&nbsp;&nbsp;Come and join us to learn about the existing and upcoming NEO based projects, meet leading developers from different parts of the world and become a member of the global NEO community！
-            </p>
-        </div>
-    </div>
-    <div class="dev-container dev-speaker">
-        <div class="dev-content container">
-            <h1 class="font-xl dev-headline">A Sneak Peek of the Speakers</h1>
-            <ul class="ma-m speaker-detail">
-                <li class="font-xs">
-                    <img src="images/1-1.jpg" />
-                    <p class="ma-s">DA Hongfei</p>
-                    <p class="ma-xs">Founder, NEO</p>
-                </li>
-                <li class="font-xs">
-                    <img src="images/1-2.jpg" />
-                    <p class="ma-s">Erik Zhang</p>
-                    <p class="ma-xs">Co-Founder, NEO</p>
-                </li>
-                <li class="font-xs">
-                    <img src="images/1-3.jpg" />
-                    <p class="ma-s">Fabio C. Canesin</p>
-                    <p class="ma-xs">Founder, CoZ</p>
-                </li>
-                <li class="font-xs">
-                    <img src="images/1-4.jpg" />
-                    <p class="ma-s">Li Jun</p>
-                    <p class="ma-xs">Founder, Ontology Network</p>
-                    <p class="ma-xs">Co-Founder, Onchain</p>
-                </li>
-                <li class="font-xs">
-                    <img src="images/2-1.jpg" />
-                    <p class="ma-s">Roland Sun</p>
-                    <p class="ma-xs">Counsel, Fenbushi Capital</p>
-                </li>
-                <li class="font-xs">
-                    <img src="images/2-2.jpg" />
-                    <p class="ma-s">Sun Fengda</p>
-                    <p class="ma-xs">NEO community researcher</p>
-                </li>
-                <li class="font-xs">
-                    <img src="images/2-3.jpg" />
-                    <p class="ma-s">Li Jianying</p>
-                    <p class="ma-xs">Core developer, NEO</p>
-                </li>
-                <li class="font-xs">
-                    <img src="images/2-4.jpg" />
-                    <p class="ma-s">Thomas A Saunders</p>
-                    <p class="ma-xs">CoZ Council/Developer</p>
-                </li>
-                <li class="font-xs">
-                    <img src="images/3-1.jpg" />
-                    <p class="ma-s">Ethan Fast</p>
-                    <p class="ma-xs">CoZ Council/Developer</p>
-                </li>
-                <li class="font-xs">
-                    <img src="images/3-2.jpg" />
-                    <p class="ma-s">Peter Lin</p>
-                    <p class="ma-xs">Developer, NEO</p>
-                </li>
-                <li class="font-xs">
-                    <img src="images/3-3.jpg" />
-                    <p class="ma-s">Li Yanbo</p>
-                    <p class="ma-xs">Founder, NKN</p>
-                    <p class="ma-xs">Co-Founder, Onchain</p>
-                </li>
-                <li class="font-xs">
-                    <img src="images/default-photo.jpg" />
-                    <p class="ma-xs">more coming soon...</p>
-                </li>
-            </ul>
-            <div class="row ma-m font-s" id="downArea">
-                <div class="col-sm-6 ma-s">
-                    <div class="down-area">
-                        <p>NEO DEVCON<br />AGENDA</p>
-                        <a class="ma-s down-btn" href="file/DevCon.pdf" download="DEVCON 2-DAY CONFERENCE AGENDA.pdf">DOWNLOAD</a>
-                    </div>
-                </div>
-                <div class="col-sm-6 ma-s">
-                    <div class="down-area">
-                        <p>SPEAKER & PROJECT<br /> DETAILS</p>
-                        <a class="ma-s down-btn" href="file/Introduction Profile.pdf" download="SPEAKERS & PROJECTS DETAILS.pdf">DOWNLOAD</a>
-                    </div>
-                </div>
-            </div>
-            <div class="wait-info ma-m"><a href="https://neo.org/blog/details/3058"><span class="iconfont">&#xe761;</span>  CODE OF CONDUCT</a></div>
+            <img src="images/background/back-2.png" class="dev-1-bg" />
+            <img src="images/background/back-2.png" class="dev-2-bg" />
+            <img src="images/background/back-3.png" class="dev-3-bg" />
+            <img src="images/background/back-3.png" class="dev-4-bg" />
+            <img src="images/background/back-4.png" class="dev-5-bg" />
+            <img src="images/background/back-4.png" class="dev-6-bg" />
+            <img src="images/background/back-4.png" class="dev-7-bg" />
+            <img src="images/background/star.svg" class="dev-1-svg f-blink" />
+            <img src="images/background/star.svg" class="dev-2-svg s-blink" />
+            <img src="images/background/star.svg" class="dev-3-svg n-blink" />
         </div>
     </div>
 
-    <div class="dev-container dev-ticket bg-green">
-        <div class="dev-content container">
-            <h1 class="font-xl ma-s dev-headline">Tickets</h1>
-            <h3 class="font-m ma-s bold-text">JANUARY 30th-31st</h3>
-            <a class="font-m ma-l bold-text ticket-btn" href="https://www.eventbrite.com/e/neo-devcon-tickets-41567708134" target="_blank">ORDER NOW</a>
-        </div>
-        <div class="bg-animate">
-            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" version="1.1">
-                <line class="svg-line fast-line green-line op-30" x1="11%" y1="2%" x2="11%" y2="60%" />
-                <line class="svg-line slow-line op-30" x1="0%" y1="75%" x2="29%" y2="75%" />
-                <line class="svg-line fast-line op-50" x1="0%" y1="80%" x2="25%" y2="80%" />
-                <line class="svg-line fast-line op-50" x1="2%" y1="35%" x2="25%" y2="35%" />
-                <line class="svg-line green-line op-80" x1="6%" y1="27%" x2="6%" y2="75%" />
-                <!--<line class="svg-line green-line op-80" x1="6%" y1="27%" x2="6%" y2="75%" />-->
-                <line class="svg-line slow-line green-line op-30" x1="93%" y1="5%" x2="93%" y2="75%" />
-                <line class="svg-line fast-line op-30" x1="80%" y1="13%" x2="99%" y2="13%" />
-                <line class="svg-line green-line op-50" x1="88%" y1="2%" x2="88%" y2="50%" />
-                <line class="svg-line" x1="73%" y1="22%" x2="100%" y2="22%" />
-                <line class="svg-line op-50" x1="80%" y1="80%" x2="100%" y2="80%" />
-            </svg>
-        </div>
-    </div>
-
-    <div class="dev-container dev-venue">
-        <div class="dev-content container">
-            <h1 class="font-xl dev-headline">The Venue</h1>
-            <p class="ma-s font-s">InterContinental Hotel</p>
-            <p class="ma-xs font-xs">InterContinental San Francisco, 888 Howard St,San Francisco,CA 94103</p>
-            <p class="ma-m map-area" id="map">
-                <img src="images/map.jpg" />
+    <div class="dev-container dev-bg">
+        <div class="dev-content container text-left font-xs">
+            <h1 class="ma-m text-center font-l dev-conti yellow-text"><span>ContiNEO</span></h1>
+            <div class="text-center font-xs yellow-text">We keep on going</div>
+            <p class="ma-s yellow-text font-s title-line">
+                <span>About NEO DevCon 2019</span>
             </p>
-            <div class="row ma-m">
-                <div class="col-sm-6 ma-s">
-                    <div class="nearby-hint">
-                        <p class="iconfont">&#xe693;</p>
-                        <h3 class="ma-s font-m">NEARBY HOTELS</h3>
-                        <div class="hint-detail ma-m font-xs">
-                            <p class="ma-s font-s">Hilton Parc 55 San Francisco Union Square</p>
-                            <span class="ma-xs">
-                                Address: 55 Cyril Magnin Street, San Francisco
-                            </span>
-                            <p class="ma-s font-s">Hotel Nikko San Francisco</p>
-                            <span class="ma-xs">
-                                Address: 222 Mason Street, San Francisco
-                            </span>
-                            <p class="ma-s font-s">Marines' Memorial Club & Hotel Union Square</p>
-                            <span class="ma-xs">
-                                Address: 609 Sutter Street, San Francisco
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 ma-s">
-                    <div class="nearby-hint">
-                        <p class="iconfont">&#xe6f2;</p>
-                        <h3 class="ma-s font-m">TRANSPORTATION</h3>
-                        <div class="hint-detail ma-m font-xs">
-                            <p class="ma-s font-s">Taxi</p>
-                            <span class="ma-xs">
-                                San Francisco International Airport-13.7 miles<br />
-                                Oakland International Airport-19.5 miles
-                            </span>
-                            <p class="ma-s font-s">Bus</p>
-                            <span class="ma-xs">
-                                You can take Bus to <i>Market St & 5th St</i> and then walk 6 minutes to the venue.
-                            </span>
-                            <p class="ma-s font-s">Subway</p>
-                            <span class="ma-xs">
-                                You can take the BART to the <i>Powell Street BART Station</i> and then walk 6 minutes to the venue.
-                            </span>
-                        </div>
-                    </div>
-                </div>
+            <p>
+                NEO’s pioneering non-profit, community-driven blockchain platform was founded in 2014, and today its 1K+ contributors and 500K+ community members are powering a movement towards the new Smart Economy.
+            </p>
+            <p>
+                NEO DevCon is our annual developer conference. Following the huge success of the 2018 NEO DevCon, NEO DevCon 2019 is coming to Seattle on February 16th and 17th.
+            </p>
+            <p>
+                NEO founders will share our new roadmap and platform innovations, and showcase how the global NEO blockchain community is bringing the Smart Economy vision to life.
+            </p>
+            <p>
+                At NEO DevCon, you'll be able to connect and engage with the worldwide NEO community, and access resources that will help you build and realize the value of the next generation of blockchain applications.
+            </p>
+            <p class="ma-s yellow-text font-xs">
+                #NEOdevcon
+            </p>
+            <div class="bg-animate">
+                <img src="images/background/bg2-1.png" class="dev-8-bg"/>
+                <img src="images/background/bg2-2.png" class="dev-9-bg"/>
+                <img src="images/background/bg2-3.png" class="dev-10-bg"/>
+                <img src="images/background/bg2-3.png" class="dev-11-bg"/>
+                <img src="images/background/bg2-3.png" class="dev-12-bg"/>
             </div>
         </div>
     </div>
-    <div class="dev-organizer">
-        <div class="dev-content container">
-            <h1 class="font-xl dev-headline">Organizer</h1>
-            <p class="font-xl ma-m"><a href="https://neo.org/">NEO COUNCIL</a></p>
-            <p class="ma-m"><a href="https://neo.org/"><img class="org-logo" src="images/neo_logo.svg" /></a></p>
-        </div>
-    </div>
-    <div class="dev-container dev-schedule bg-green">
-        <div class="dev-content container">
-            <h1 class="font-l dev-headline">Official News Channel</h1>
-            <p class="ma-m"><a><img class="org-logo nnt-img" src="images/nnt.svg" title="NEO NEWS TODAY" /></a></p>
-            <p class="font-s ma-m bold-text">JANUARY 31st</p>
-            <p class="font-s"><span class="dev-headline"><span class="iconfont">&#xe614;</span> Twitter :</span><a class="bold-text" href="https://twitter.com/NEOnewstoday" target="_blank"> @NEOnewstoday</a></p>
-            <p class="schedule-img ma-m"><img src="images/livestream.png" /></p>
-        </div>
-        <div class="bg-animate">
-            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" version="1.1">
-                <line class="svg-line fast-line green-line op-30" x1="11%" y1="2%" x2="11%" y2="60%"></line>
-                <line class="svg-line slow-line op-30" x1="0%" y1="75%" x2="29%" y2="75%"></line>
-                <line class="svg-line fast-line op-50" x1="0%" y1="80%" x2="25%" y2="80%"></line>
-                <line class="svg-line fast-line op-50" x1="2%" y1="35%" x2="25%" y2="35%"></line>
-                <line class="svg-line green-line op-80" x1="6%" y1="27%" x2="6%" y2="75%"></line>
-                <!--<line class="svg-line green-line op-80" x1="6%" y1="27%" x2="6%" y2="75%" />-->
-                <line class="svg-line slow-line green-line op-30" x1="93%" y1="5%" x2="93%" y2="75%"></line>
-                <line class="svg-line fast-line op-30" x1="80%" y1="13%" x2="99%" y2="13%"></line>
-                <line class="svg-line green-line op-50" x1="88%" y1="2%" x2="88%" y2="50%"></line>
-                <line class="svg-line" x1="73%" y1="22%" x2="100%" y2="22%"></line>
-                <line class="svg-line op-50" x1="80%" y1="80%" x2="100%" y2="80%"></line>
-            </svg>
-        </div>
-    </div>
-    <div class="dev-organizer">
-        <div class="dev-content container ma-l">
-            <h1 class="font-l dev-headline ma-l">Sponsors</h1>
-            <ul class="spon-img ma-m">
-                <li><img src="images/github.png" title="GitHub" /></li>
-                <li><img src="images/microsoft.png" title="Microsoft" /></li>
-                <li><img src="images/ontology.png" title="Ontology" /></li>
-                <li><img src="images/adex.png" title="Adex" /></li>
-                <li><img src="images/zeepin.png" title="Zeepin" /></li>
-                <li><img src="images/loopring.png" title="Loopring" /></li>
-                <li><img src="images/trinity.png" title="Trinity" /></li>
-                <li><img src="images/redpulse.png" title="RedPulse" /></li>
-                <li><img src="images/echolink.png" title="Echolink" /></li>
-                <li><img src="images/inwecrypto.png" title="InweCrypto" /></li>
-                <li><img src="images/moonlight.png" title="MoonLight" /></li>
-                <li><img src="images/rypto.png" title="RYPTO ARENCY" /></li>
-            </ul>
-        </div>
-        <div class="dev-content container ma-l">
-            <h1 class="font-l dev-headline">Media Partners</h1>
-            <ul class="spon-img ma-m">
-                <li><a href="https://coincentral.com/upcoming-event-neo-devcon-san-francisco/"><img src="images/coincentral.png" title="CoinCentral" /></a></li>
-                <li><a href="javascript:void(0)"><img src="images/svinsight.png" title="硅谷密探" /></a></li>
-                <li><a href="javascript:void(0)"><img src="images/boxmining.png" title="BOXMINING" /></a></li>
-                <li><a href="javascript:void(0)"><img src="images/themerkle.png" title="TheMerkle" /></a></li>
-                <li><a href="javascript:void(0)"><img src="images/iconnie.png" title="幣勝客" /></a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="dev-container dev-footer">
-        <div class="dev-content container">
-            <dl>
-                <dt class="font-l">Contact us</dt>
-                <dd class="font-s"><a href="mailto:devcon@neo.org">devcon@neo.org</a></dd>
-            </dl>
-            <dl>
-                <dt class="font-l">Follow us</dt>
-                <dd class="font-s"><a href="https://twitter.com/NEO_DevCon" target="_blank"><span class="iconfont">&#xe614;</span>twitter</a></dd>
-            </dl>
-        </div>
-        <div class="dev-content container ma-m font-xs copyright">
-            <p>Copyright©NEO Team 2014-2017</p>
+
+    <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body font-xs">
+                    <span class="text-center" id="hintDev"></span>
+                </div>
+            </div>
         </div>
     </div>
 
     <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="js/site.min.js"></script>
-    <script type="text/javascript">
-        pageSize();
-        timeShow();
+    <script type="text/javascript" src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/devcon.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-        function pageSize() {
-            $(".page-size").each(function () {
-                $(this).css("width", $(window).width());
-                $(this).css("min-height", $(window).height());
-            })
-        }
-
-        $('#skipDown').on('click', function () {
-            $('html, body').animate({ scrollTop: $(this.hash).offset().top - 5 }, 500);
-            return false;
-        });
-
-        //倒计时方法
-        var deadline = new Date("2018/01/30 09:30:00 GMT-0800(CST)");
-
-        var now = new Date();
-        if (deadline > now) { setInterval(timeShow, 1000); }
-
-        function timeShow() {
-            var counttime = new CountTime(deadline);
-            $("#dayCount").html(counttime.fomate(counttime.day()));
-            $("#hourCount").html(counttime.fomate(counttime.hour()));
-            $("#minCount").html(counttime.fomate(counttime.minute()));
-            $("#secCount").html(counttime.fomate(counttime.second()));
-        }
-
-        $(window).resize(function () {
-            pageSize();
-        });
-
-        function initMap() {
-            var uluru = { lat: 37.7819117000, lng: -122.4046539000 };
-            document.getElementById('map').style.height = "350px";
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 15,
-                center: uluru
-            });
-            var marker = new google.maps.Marker({
-                position: uluru,
-                map: map
-            });
-        }
-        var _hmt = _hmt || [];
-        (function () {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?89c4ec96535ab0e5578edff466ccb91a";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCi7pz5L6PwGZgNo_n0nbmxw5i77LYYkRw&callback=initMap">
+        gtag('config', 'UA-130525731-1');
     </script>
 </body>
 </html>

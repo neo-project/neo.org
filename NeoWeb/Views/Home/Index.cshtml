@@ -33,6 +33,21 @@
             <h1>@Localizer["NEO - An Open Network For Smart Economy"]</h1>
         </div>
     </div>
+    @*<ul class="news">
+        @foreach (var item in (ViewBag.News as List<NeoWeb.Models.News>))
+        {
+            <li>
+                <a href="@item.Link" target="_blank">@item.Title</a>
+            </li>
+        }
+    </ul>*@
+    <div class="bottom-dev">
+        <div class="container">
+            <a href="https://devcon.neo.org/" class="dev-a">
+                <img class="dev-img" src="@Helper.CDN/images/neodev.jpg" />
+            </a>
+        </div>
+    </div>
 </div>
 <div class="home-page-content">
     <div class="container body-content  home-neo-intro">
