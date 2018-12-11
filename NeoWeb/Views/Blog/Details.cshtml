@@ -5,6 +5,7 @@
     ViewData["Title"] = Model.Title;
     ViewData["Details"] = Model.Summary;
     Layout = "_LayoutBlog.cshtml";
+    ViewData["keywords"] = Model.Tags;
 }
 
 @section Styles{
@@ -71,6 +72,16 @@
                 <div class="with-space">
                     @Html.Raw(Model.Content)
                 </div>
+            </div>
+            <hr />
+            <div>
+                @if (Model.Tags != null)
+                {
+                    foreach (var tag in Model.Tags.Split(","))
+                    {
+                        <a class="blog-tag" href="/blog?t=@tag">@tag</a>
+                    }
+                }
             </div>
         </div>
 

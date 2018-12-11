@@ -1,5 +1,3 @@
-using System;
-
 namespace NeoWeb.Models
 {
     public class ErrorViewModel

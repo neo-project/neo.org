@@ -26,7 +26,7 @@
       ]
     },
     {
-      "library": "jquery-validate@1.17.0",
+      "library": "jquery-validate@1.19.0",
       "destination": "wwwroot/lib/jquery-validate/",
       "files": [
         "jquery.validate.min.js"
@@ -34,7 +34,7 @@
     },
     {
       "provider": "cdnjs",
-      "library": "tinymce@4.8.3",
+      "library": "tinymce@4.9.0",
       "destination": "wwwroot/lib/tinymce/"
     },
     {

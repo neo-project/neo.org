@@ -34,6 +34,11 @@
         <label asp-for="Content" class="col-form-label"></label>
         @Html.Partial("_EditorPartialPage", Model)
     </div>
+    <div class="form-group">
+        <label asp-for="Tags" class="col-form-label">博客标签，用逗号分隔</label>
+        <input asp-for="Tags" class="form-control" />
+        <span asp-validation-for="Tags" class="text-danger"></span>
+    </div>
 
     <div class="form-group">
         <input type="submit" value="Create" class="btn btn-secondary" />

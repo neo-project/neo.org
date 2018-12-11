@@ -2,20 +2,13 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net.Sockets;
-using System.Security.Cryptography;
 using System.Threading.Tasks;
-using System.Timers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
-using Microsoft.Extensions.Options;
-using Neo;
-using Neo.IO.Json;
 using NeoWeb.Data;
 using NeoWeb.Models;
+using Newtonsoft.Json.Linq;
 
 namespace NeoWeb.Controllers
 {
@@ -37,25 +30,42 @@ namespace NeoWeb.Controllers
         public IActionResult Index()
         {
             ViewBag.Countries = _context.Countries.ToList();
-            JArray list = (JArray)JObject.Parse(System.IO.File.ReadAllText("CandidateBackgrounder/validators.json"));
+            JArray list = JArray.Parse(System.IO.File.ReadAllText("CandidateBackgrounder/validators.json"));
             ViewBag.PubKeys = new List<string>();
             foreach (JObject item in list)
             {
-                ViewBag.PubKeys.Add(item["PublicKey"].AsString());
+                ViewBag.PubKeys.Add(item["PublicKey"].ToString());
             }
             return View();
         }
 
+        static string validators;
+        static string txcount;
+
         [HttpGet]
         public string Getvalidators()
         {
-            return System.IO.File.ReadAllText("CandidateBackgrounder/validators.json");
+            try
+            {
+                validators = System.IO.File.ReadAllText("CandidateBackgrounder/validators.json");
+            }
+            catch (IOException)
+            {
+            }
+            return validators;
         }
 
         [HttpGet]
         public string GetTxCount()
         {
-            return System.IO.File.ReadAllText("CandidateBackgrounder/txcount.json");
+            try
+            {
+                txcount = System.IO.File.ReadAllText("CandidateBackgrounder/txcount.json");
+            }
+            catch (IOException)
+            {
+            }
+            return txcount;
         }
 
         // POST: consensus/create
@@ -66,11 +76,11 @@ namespace NeoWeb.Controllers
             if (!Helper.CCAttack(_accessor.HttpContext.Connection.RemoteIpAddress, "consensus_post", 3600, 5))
                 return Content("Protecting from overposting attacks now!");
 
-            JArray list = (JArray)JObject.Parse(System.IO.File.ReadAllText("CandidateBackgrounder/validators.json"));
+            JArray list = JArray.Parse(System.IO.File.ReadAllText("CandidateBackgrounder/validators.json"));
             ViewBag.PubKeys = new List<string>();
             foreach (JObject item in list)
             {
-                ViewBag.PubKeys.Add(item["PublicKey"].AsString());
+                ViewBag.PubKeys.Add(item["PublicKey"].ToString());
             }
 
             if (ModelState.IsValid && !string.IsNullOrEmpty(signature))
