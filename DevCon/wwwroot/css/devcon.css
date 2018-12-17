@@ -223,6 +223,14 @@ a:hover{
     vertical-align:top;
     border-bottom:5px solid #43993E;
 }
+.speaker-detail li:before{
+    content:" ";
+    position:absolute;
+    width:100%;
+    height:100%;
+    z-index:1;
+    background:linear-gradient(transparent 60%,rgba(0,0,0,0.4));
+}
 .speaker-detail li img{
     width:100%;
     height:auto;
@@ -233,6 +241,9 @@ a:hover{
     color:#FFFFFF;
     text-align:left;
     padding-left:10px;
+    font-size:12px;
+    z-index:2;
+    margin-bottom:0.5rem;
 }
 .sp-intro b{
     font-family:'Microsoft YaHei';
@@ -244,6 +255,11 @@ a:hover{
     background-image:linear-gradient(#FFFFFF 50%,transparent 50%),linear-gradient(90deg,#87B936,#499E3E,#43993e);
     background-position:top,bottom;
     background-size:100%,100%;
+    line-height:1.5;
+    margin-top:-2px;
+}
+.dev-venue p{
+    margin-bottom:0.8rem;
 }
 .dev-venue .dev-content{
     background:#6AA853;
@@ -255,13 +271,15 @@ a:hover{
     box-shadow:10px 10px 35px rgba(0,0,0,0.1);
 }
 .map-area{
-    width:140%;
+    width:120%;
     height:450px;
 }
 .map-area img{
     width:100%;
+    height:100%;
 }
 .venue-content .venue-detail {
+    letter-spacing:0px;
     background:#A1C693;
     border-radius:30px 30px 0px 30px;
     box-shadow:10px 10px 35px #408f39;
@@ -354,7 +372,7 @@ a:hover{
         padding: 8px 20px;
     }
     .map-area{
-        max-width:130%;
+        max-width:115%;
     }
 }
 @media only screen and (max-width:1200px) {
@@ -370,21 +388,6 @@ a:hover{
     .coming-logo img{
         width:80px;
     }
-    .dev-year {
-    }
-    .dev-btn-1 {
-    }
-    .dev-btn-2 {
-    }
-    .dev-ticket {
-    }
-    .sub-email {
-    }
-}
-@media only screen and (max-width:992px) {
-    .coming-logo img{
-        width:80px;
-    }
     .map-area{
         max-width:100%;
         overflow:hidden;
@@ -393,6 +396,14 @@ a:hover{
     }
     .venue-content .venue-detail {
         box-shadow:none;
+    }
+}
+@media only screen and (max-width:992px) {
+    .coming-logo img{
+        width:80px;
+    }
+    .speaker-detail li{
+        width:30%;
     }
 }
 @media only screen and (max-width: 768px) {
@@ -439,7 +450,8 @@ a:hover{
         position: absolute;
     }
     .speaker-detail li{
-        width:30%;
+        width:43%;
+        margin:5px;
     }
 }
 @media only screen and (max-width: 320px) {
