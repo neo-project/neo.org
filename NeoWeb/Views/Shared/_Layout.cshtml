@@ -1,4 +1,5 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
+﻿@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @using Microsoft.ApplicationInsights.AspNetCore
 @inject JavaScriptSnippet snippet
@@ -65,6 +66,7 @@
         <link href="@Helper.CDN/css/site.min.css?v=20181018" rel="stylesheet" />
     </environment>
     @RenderSection("Styles", required: false)
+    @Html.Raw(JavaScriptSnippet.FullScript)
 </head>
 <body>
     <nav class="navbar navbar-expand fixed-top">
@@ -81,9 +83,8 @@
                 <li class="nav-item"><a class="nav-link" asp-controller="blog" asp-action="index">@Localizer["Blog"]</a></li>
                 <li class="nav-item"><a class="nav-link" asp-controller="event" asp-action="index">@Localizer["Event"]</a></li>
                 <li class="nav-item"><a class="nav-link" asp-controller="consensus" asp-action="index">@Localizer["Consensus Nodes"]</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://devcon.neo.org" target="_blank">DevCon</a></li>
                 <li class="nav-item"><a class="nav-link" href="http://docs.neo.org" target="_blank">@Localizer["Document"]</a></li>
-                @*<li class="nav-item"><a class="nav-link" asp-controller="careers" asp-action="index">@Localizer["Careers"]</a></li>*@
-                <li class="nav-item"><a class="nav-link" href="~/anniversary.html" target="_blank">@Localizer["MainNet Anniversary"]</a></li>
                 <li class="nav-item"><a class="nav-link" href="http://ndapp.org" target="_blank">@Localizer["dApps"]</a></li>
                 <li id="dropdown_btn" style="display:none">
                     <a class="iconfont nav-link" href="javascript:" onclick="$('#more_list').toggle()">&#xe675;</a>
@@ -92,7 +93,9 @@
             </ul>
         </div>
     </nav>
-    @RenderBody()
+    <div class="container layout-container">
+        @RenderBody()
+    </div>
     <footer>
         <div class="main-footer">
             <div class="lang-select d-none d-md-block">

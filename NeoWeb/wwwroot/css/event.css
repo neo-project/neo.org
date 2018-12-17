@@ -24,6 +24,12 @@ select.form-control {
     color:#FFFFFF;
 }
 
+.layout-container {
+    max-width: none;
+    padding: 0;
+    margin: 0;
+}
+
 .event-line{
 	border-bottom: 3px solid #D6D6D6;
 	position: relative;

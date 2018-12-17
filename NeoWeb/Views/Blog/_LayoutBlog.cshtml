@@ -4,13 +4,11 @@
 @section Styles{
     @RenderSection("Styles", required: false)
 }
-<div class="container">
-    @RenderBody()
-    <div class="row">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-11">
-            @await Html.PartialAsync("_LoginPartial")
-        </div>
+@RenderBody()
+<div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-11">
+        @await Html.PartialAsync("_LoginPartial")
     </div>
 </div>
 

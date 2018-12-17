@@ -127,6 +127,11 @@ footer {
     text-align:center;
     line-height:1.5;
 }
+.layout-container {
+    max-width: none;
+    padding: 0;
+    margin: 0;
+}
 /*首页固定背景滚动样式*/
 .scroll-page {
     position:relative;

@@ -3,79 +3,77 @@
 @{
     ViewData["Title"] = "删除";
 }
-<div class="container">
-    <h1 class="m2">删除</h1>
-    <div class="coin-back apply-detail">
-        <p class="t1 m3">你确认删除这条吗？</p>
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Name)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Name)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.Email)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Email)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.Phone)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Phone)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.QQ)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.QQ)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.Company)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Company)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.Reason)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Reason)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.NeoCount)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.NeoCount)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.GasCount)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.GasCount)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.PubKey)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.PubKey)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.Remark)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Remark)
-            </dd>
-        </dl>
+<h1 class="m2">删除</h1>
+<div class="coin-back apply-detail">
+    <p class="t1 m3">你确认删除这条吗？</p>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.QQ)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.QQ)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Company)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Company)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Reason)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Reason)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NeoCount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NeoCount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GasCount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GasCount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PubKey)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PubKey)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Remark)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Remark)
+        </dd>
+    </dl>
 
-        <form asp-action="Delete" >
-            <div class="back-to-list">
-                <input type="hidden" asp-for="Id" />
-                <input type="submit" value="删除" class="btn btn-secondary" /> 
-                <a asp-action="List">返回列表</a>
-            </div>
-        </form>
-    </div>
+    <form asp-action="Delete">
+        <div class="back-to-list">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="删除" class="btn btn-secondary" />
+            <a asp-action="List">返回列表</a>
+        </div>
+    </form>
 </div>

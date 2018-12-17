@@ -16,6 +16,7 @@ using SixLabors.ImageSharp.Processing;
 using SixLabors.Primitives;
 using SixLabors.ImageSharp.PixelFormats;
 using Microsoft.Extensions.Localization;
+using Microsoft.AspNetCore.Hosting;
 
 namespace NeoWeb.Controllers
 {
@@ -26,15 +27,18 @@ namespace NeoWeb.Controllers
         private readonly string _userId;
         private readonly bool _userRules;
         private readonly IStringLocalizer<BlogController> _localizer;
+        private readonly IHostingEnvironment _env;
 
-        public BlogController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IStringLocalizer<BlogController> localizer)
+        public BlogController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IStringLocalizer<BlogController> localizer, IHostingEnvironment env)
         {
             _context = context;
             _localizer = localizer;
             _userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            _env = env;
             if (_userId != null)
             {
                 _userRules = _context.UserRoles.Any(p => p.UserId == _userId);
+                var asfs = _context.UserRoles.Where(p => p.UserId == _userId).ToList();
             }
         }
 
@@ -140,11 +144,11 @@ namespace NeoWeb.Controllers
             ViewBag.UserId = _userId;
             ViewBag.UserRules = _userRules;
             
-            if(string.IsNullOrEmpty(Request.Cookies[blog.Id.ToString()]))
-            {
-                blog.ReadCount++;
-            }
-            await _context.SaveChangesAsync();
+            //if(string.IsNullOrEmpty(Request.Cookies[blog.Id.ToString()]) && Request.Cookies.Count >= 3)
+            //{
+            //    blog.ReadCount++;
+            //}
+            //await _context.SaveChangesAsync();
 
             var content = blog.Content.Replace("<div>", "").Replace("<p>", "");
             var match = Regex.Match(content, "\\A\\W*<img.*/>");
@@ -280,7 +284,7 @@ namespace NeoWeb.Controllers
             var bytes = new byte[10];
             random.NextBytes(bytes);
             var newName = bytes.ToHexString() + Path.GetExtension(file.FileName);
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", newName);
+            var filePath = Path.Combine(_env.ContentRootPath, "wwwroot/upload", newName);
             if (file.Length > 0)
             {
                 using (var stream = new FileStream(filePath, FileMode.Create))
