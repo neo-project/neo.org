@@ -163,7 +163,6 @@ a:hover{
 }
 .dev-conti span{
     position: relative;
-    text-shadow: 0 0 5px #F6FF02;
 }
 .dev-conti span:before,
 .dev-conti span:after{
@@ -189,16 +188,84 @@ a:hover{
     position: relative;
     overflow: hidden;
 }
-.title-line span{
-}
 .title-line:after{
     content: " ";
     position: absolute;
     width: 100%;
     border-bottom: 1px solid #F6FF02;
-    margin-left: 15px;
-    margin-top: 15px;
+    margin:auto;
     box-shadow: 0 0 6px #F6FF02;
+    height:1px;
+    top:0;
+    bottom:0;
+    margin-left:10px;
+}
+/*the speaker*/
+.dev-speaker {
+
+}
+.speaker-detail {
+    margin:auto;
+    padding:0;
+    font-size:0;
+    text-align:center;
+    letter-spacing:0;
+}
+.speaker-detail li{
+    position:relative;
+    list-style:none;
+    display:inline-block;
+    width:22%;
+    height:auto;
+    margin:10px;
+    color:#3C3C3C;
+    text-align:center;
+    vertical-align:top;
+    border-bottom:5px solid #43993E;
+}
+.speaker-detail li img{
+    width:100%;
+    height:auto;
+}
+.sp-intro {
+    position:absolute;
+    bottom:0;
+    color:#FFFFFF;
+    text-align:left;
+    padding-left:10px;
+}
+.sp-intro b{
+    font-family:'Microsoft YaHei';
+}
+
+/*the venue*/
+.dev-venue {
+    background:#FFFFFF;
+    background-image:linear-gradient(#FFFFFF 50%,transparent 50%),linear-gradient(90deg,#87B936,#499E3E,#43993e);
+    background-position:top,bottom;
+    background-size:100%,100%;
+}
+.dev-venue .dev-content{
+    background:#6AA853;
+    box-shadow:10px 10px 35px #408f39;
+    box-shadow:10px 10px 35px rgba(0,0,0,0.1);
+}
+.map-area{
+    box-shadow:10px 10px 35px #408f39;
+    box-shadow:10px 10px 35px rgba(0,0,0,0.1);
+}
+.map-area{
+    width:140%;
+    height:450px;
+}
+.map-area img{
+    width:100%;
+}
+.venue-content .venue-detail {
+    background:#A1C693;
+    border-radius:30px 30px 0px 30px;
+    box-shadow:10px 10px 35px #408f39;
+    box-shadow:10px 10px 35px rgba(0,0,0,0.1);
 }
 
 
@@ -216,8 +283,14 @@ a:hover{
 .ma-m {margin-top:60px;margin-bottom:0px;}
 .ma-s {margin-top:20px;margin-bottom:0px;}
 .ma-xs {margin-top:10px;margin-bottom:0px;}
+.p-l {padding:60px;margin-bottom:0px;}
+.p-m {padding:40px;margin-bottom:0px;}
+.p-s {padding:12px;margin-bottom:0px;}
+.p-xs {padding:8px;margin-bottom:0px;}
 .bold-text {font-weight:900;}
-.yellow-text {color:#F6FF02;}
+.yellow-text {color:#F6FF02;text-shadow: 0 0 5px #F6FF02;}
+.gray-text {color:#000;}
+.green-text {color:#43993E;}
 
 @media only screen and (max-width:1550px) {
     .font-xl {font-size:70px;}
@@ -280,6 +353,9 @@ a:hover{
     .sub-email {
         padding: 8px 20px;
     }
+    .map-area{
+        max-width:130%;
+    }
 }
 @media only screen and (max-width:1200px) {
     .font-xl {font-size:70px;}
@@ -289,7 +365,7 @@ a:hover{
     .font-xs {font-size:16px;}
     .ma-l {margin-top: 90px;margin-bottom:0px;}
     .ma-m {margin-top: 45px;margin-bottom:0px;}
-    .ma-s {margin-top: 18px;margin-bottom:0px;}
+    .ma-s {margin-top: 25px;margin-bottom:0px;}
     .ma-xs {margin-top:10px;margin-bottom:0px;}
     .coming-logo img{
         width:80px;
@@ -309,15 +385,14 @@ a:hover{
     .coming-logo img{
         width:80px;
     }
-    .dev-year {
+    .map-area{
+        max-width:100%;
+        overflow:hidden;
+        border-radius:30px 30px 0px 30px;
+        box-shadow:none;
     }
-    .dev-btn-1 {
-    }
-    .dev-btn-2 {
-    }
-    .dev-ticket {
-    }
-    .sub-email {
+    .venue-content .venue-detail {
+        box-shadow:none;
     }
 }
 @media only screen and (max-width: 768px) {
@@ -328,7 +403,7 @@ a:hover{
     .font-xs {font-size:12px;}
     .ma-l {margin-top: 80px;margin-bottom:0px;}
     .ma-m {margin-top: 20px;margin-bottom:0px;}
-    .ma-s {margin-top: 10px;margin-bottom:0px;}
+    .ma-s {margin-top: 15px;margin-bottom:0px;}
     .ma-xs {margin-top:10px;margin-bottom:0px;}
     .dev-container {
         padding:50px 0;
@@ -360,25 +435,19 @@ a:hover{
     .dev-bg .container p{
         margin: 10px 15px;
     }
-    .title-line:after{
-        margin-top: 12px;
-        margin-left: 5px;
-    }
     .modal {
         position: absolute;
     }
+    .speaker-detail li{
+        width:30%;
+    }
 }
 @media only screen and (max-width: 320px) {
-    .dev-year {
-    }
-    .dev-btn-1 {
-    }
-    .dev-btn-2 {
-    }
     .dev-ticket {
         width: 300px;
     }
-    .sub-email {
+    .speaker-detail li{
+        width:42%;
     }
 }
 

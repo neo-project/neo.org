@@ -82,12 +82,115 @@
                 #NEOdevcon
             </p>
             <div class="bg-animate">
-                <img src="images/background/bg2-1.png" class="dev-8-bg"/>
-                <img src="images/background/bg2-2.png" class="dev-9-bg"/>
-                <img src="images/background/bg2-3.png" class="dev-10-bg"/>
-                <img src="images/background/bg2-3.png" class="dev-11-bg"/>
-                <img src="images/background/bg2-3.png" class="dev-12-bg"/>
+                <img src="images/background/bg2-1.png" class="dev-8-bg" />
+                <img src="images/background/bg2-2.png" class="dev-9-bg" />
+                <img src="images/background/bg2-3.png" class="dev-10-bg" />
+                <img src="images/background/bg2-3.png" class="dev-11-bg" />
+                <img src="images/background/bg2-3.png" class="dev-12-bg" />
             </div>
+        </div>
+    </div>
+
+    <div class="dev-container dev-speaker bg-white">
+        <div class="dev-content container font-xs">
+            <p class="ma-s font-l green-text">
+                Speakers
+            </p>
+            <ul class="ma-m speaker-detail">
+                <li class="font-xs">
+                    <img src="images/team/1.jpg" />
+                    <p class="sp-intro"><b class="font-xs">Da Hongfei</b><br />Co-Founder, NEO</p>
+                </li>
+                <li class="font-xs">
+                    <img src="images/team/2.jpg" />
+                    <p class="sp-intro"><b class="font-xs">Erik Zhang</b><br /></p>
+                </li>
+                <li class="font-xs">
+                    <img src="images/team/3.jpg" />
+                    <p class="sp-intro"><b class="font-xs">Steven Guggenheimer</b><br /></p>
+                </li>
+                <li class="font-xs">
+                    <img src="images/team/4.jpg" />
+                    <p class="sp-intro"><b class="font-xs">Miha Kralj</b><br /></p>
+                </li>
+                <li class="font-xs">
+                    <img src="images/team/5.jpg" />
+                    <p class="sp-intro"><b class="font-xs">Joseph Williams</b><br /></p>
+                </li>
+                <li class="font-xs">
+                    <img src="images/team/6.jpg" />
+                    <p class="sp-intro"><b class="font-xs">Ted Neward</b><br /></p>
+                </li>
+                <li class="font-xs">
+                    <img src="images/team/7.jpg" />
+                    <p class="sp-intro"><b class="font-xs">Harry Pierson</b><br /></p>
+                </li>
+                <li class="font-xs">
+                    <img src="images/team/8.jpg" />
+                    <p class="sp-intro"><b class="font-xs">Zhiniang Peng</b><br /></p>
+                </li>
+                <li class="font-xs">
+                    <img src="images/team/9.jpg" />
+                    <p class="sp-intro"><b class="font-xs">Johnson Zhao</b><br /></p>
+                </li>
+                <li class="font-xs">
+                    <img src="images/team/10.jpg" />
+                    <p class="sp-intro"><b class="font-xs">Sergei Liubich</b><br /></p>
+                </li>
+                <li class="font-xs">
+                    <img src="images/team/11.jpg" />
+                    <p class="sp-intro"><b class="font-xs">Anatoly Bogatyrev</b><br /></p>
+                </li>
+                <li class="font-xs">
+                    <img src="images/team/12.jpg" />
+                    <p class="sp-intro"><b class="font-xs">Wayne Zhu</b><br /></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="dev-container dev-venue">
+        <div class="dev-content container text-left font-xs">
+            <div class="venue-content p-m">
+                <p class="ma-s yellow-text font-l title-line">
+                    <span>The Venue</span>
+                </p>
+                <p class="ma-s font-s">InterContinental Hotel</p>
+                <p class="ma-xs font-xs">InterContinental San Francisco, 888 Howard St,San Francisco,CA 94103</p>
+                <div class="row ma-s">
+                    <div class="col-lg-4 ma-s">
+                        <div class="venue-detail p-s">
+                            <p class="iconfont font-l text-center green-text">&#xe693;</p>
+                            <p class="text-center">Nearby Hotels</p>
+                            <b>Lorem</b><br />
+                            <p>Leadin gLeading Leadin gLeadi ng Leading</p>
+                            <b>Lorem</b><br />
+                            <p>LeadingLeading Leadi ngLeadin gLeading</p>
+                            <b>Lorem</b><br />
+                            <p>Leadi ngLeadingLeadin gLe adingLead ing</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 ma-s">
+                        <div class="venue-detail p-s">
+                            <p class="iconfont font-l text-center green-text">&#xe693;</p>
+                            <p class="text-center">Nearby Hotels</p>
+                            <b>Lorem</b><br />
+                            <p>Leadin gLeading Leadin gLeadi ng Leading</p>
+                            <b>Lorem</b><br />
+                            <p>LeadingLeading Leadi ngLeadin gLeading</p>
+                            <b>Lorem</b><br />
+                            <p>Leadi ngLeadingLeadin gLe adingLead ing</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 ma-s">
+                        <p class="map-area" id="map">
+                            <img src="images/map.jpg" />
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-animate">
         </div>
     </div>
 
@@ -106,11 +209,26 @@
     <script type="text/javascript" src="js/devcon.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-1"></script>
     <script>
+
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'UA-130525731-1');
+
+        function initMap() {
+            var uluru = { lat: 47.6143663, lng: 122.3340549 };
+            document.getElementById('map').style.height = "470px";
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: uluru
+            });
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+            });
+        }
     </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCi7pz5L6PwGZgNo_n0nbmxw5i77LYYkRw&callback=initMap"></script>
 </body>
 </html>
