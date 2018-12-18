@@ -294,7 +294,6 @@ a:hover{
     height:450px;
 }
 .map-area img{
-    width:100%;
     height:100%;
 }
 .venue-content .venue-detail {
@@ -407,6 +406,7 @@ a:hover{
     }
     .map-area{
         max-width:115%;
+        height:435px;
     }
 }
 @media only screen and (max-width:1200px) {
@@ -425,6 +425,7 @@ a:hover{
     .map-area{
         max-width:100%;
         box-shadow:none;
+        height: 480px;
     }
     .venue-content .venue-detail {
         box-shadow:none;
@@ -467,8 +468,6 @@ a:hover{
         margin: 8px;
         max-width: 200px;
     }
-    .dev-btn-2 {
-    }
     .dev-ticket {
         width: 315px;
     }
@@ -504,6 +503,9 @@ a:hover{
     }
     .dev-btn-3 {
         margin-right: 15px;
+    }
+    .map-area{
+        height: 350px;
     }
 }
 @media only screen and (max-width: 320px) {
