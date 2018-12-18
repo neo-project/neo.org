@@ -120,7 +120,6 @@ a:hover{
     color: #fff;
     background: #5EB44B;
     border-radius: 30px;
-    margin-right: 45px;
 }
 .dev-ticket {
     position: relative;
@@ -265,7 +264,7 @@ a:hover{
     margin-bottom:0.5rem;
 }
 .sp-intro b{
-    font-family:'Microsoft YaHei';
+    font-family:'Microsoft YaHei','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /*the venue*/
@@ -500,9 +499,6 @@ a:hover{
     }
     .dev-venue p {
         margin-bottom:0.3rem;
-    }
-    .dev-btn-3 {
-        margin-right: 15px;
     }
     .map-area{
         height: 350px;
