@@ -81,8 +81,19 @@ namespace NeoWeb
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
             app.UseAuthentication();
+
+            try
+            {
+                using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+                {
+                    serviceScope.ServiceProvider.GetService<ApplicationDbContext>().SeedUser();
+                }
+            }
+            catch (Exception)
+            {
+                //网站第一次运行，未创建数据库时会有异常
+            }
 
             app.UseMvc(routes =>
             {
