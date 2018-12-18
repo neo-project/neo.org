@@ -9,6 +9,11 @@
     {
       "library": "twitter-bootstrap@4.1.3",
       "destination": "wwwroot/lib/bootstrap/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "Swiper@4.4.5",
+      "destination": "wwwroot/lib/Swiper/"
     }
   ]
 }

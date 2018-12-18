@@ -211,6 +211,19 @@ a:hover{
     text-align:center;
     letter-spacing:0;
 }
+.speaker-detail::-webkit-scrollbar{
+    width: 8px;
+    height: 10px;
+}
+.speaker-detail::-webkit-scrollbar-track{
+    border-radius: 10px;
+}
+.speaker-detail::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    height:20px;
+    background-color: #43993E;
+}
+
 .speaker-detail li{
     position:relative;
     list-style:none;
@@ -269,8 +282,8 @@ a:hover{
 .map-area{
     box-shadow:10px 10px 35px #408f39;
     box-shadow:10px 10px 35px rgba(0,0,0,0.1);
-}
-.map-area{
+    overflow:hidden;
+    border-radius:30px 30px 0px 30px;
     width:120%;
     height:450px;
 }
@@ -383,15 +396,13 @@ a:hover{
     .font-xs {font-size:16px;}
     .ma-l {margin-top: 90px;margin-bottom:0px;}
     .ma-m {margin-top: 45px;margin-bottom:0px;}
-    .ma-s {margin-top: 25px;margin-bottom:0px;}
+    .ma-s {margin-top: 22px;margin-bottom:0px;}
     .ma-xs {margin-top:10px;margin-bottom:0px;}
     .coming-logo img{
         width:80px;
     }
     .map-area{
         max-width:100%;
-        overflow:hidden;
-        border-radius:30px 30px 0px 30px;
         box-shadow:none;
     }
     .venue-content .venue-detail {
@@ -412,10 +423,14 @@ a:hover{
     .font-m {font-size: 22px;}
     .font-s {font-size: 15px;}
     .font-xs {font-size:12px;}
-    .ma-l {margin-top: 80px;margin-bottom:0px;}
+    .ma-l {margin-top: 70px;margin-bottom:0px;}
     .ma-m {margin-top: 20px;margin-bottom:0px;}
-    .ma-s {margin-top: 15px;margin-bottom:0px;}
-    .ma-xs {margin-top:10px;margin-bottom:0px;}
+    .ma-s {margin-top: 12px;margin-bottom:0px;}
+    .ma-xs {margin-top:8px;margin-bottom:0px;}
+    .p-l {padding:40px;margin-bottom:0px;}
+    .p-m {padding:20px;margin-bottom:0px;}
+    .p-s {padding:10px;margin-bottom:0px;}
+    .p-xs {padding:6px;margin-bottom:0px;}
     .dev-container {
         padding:50px 0;
     }
@@ -449,9 +464,20 @@ a:hover{
     .modal {
         position: absolute;
     }
+    .speaker-detail{
+        line-height:1.2;
+    }
     .speaker-detail li{
-        width:43%;
+        width:45%;
         margin:5px;
+        max-width:155px;
+    }
+    .sp-intro {
+        margin-bottom:0.2rem;
+        padding-left:8px;
+    }
+    .dev-venue p {
+        margin-bottom:0.3rem;
     }
 }
 @media only screen and (max-width: 320px) {

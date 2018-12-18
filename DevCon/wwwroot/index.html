@@ -99,7 +99,7 @@
             <p class="text-right">
                 <a class="gray-text">Download</a>
             </p>
-            <ul class="ma-m speaker-detail">
+            <ul class="ma-m speaker-detail swiper-container">
                 <li class="font-xs">
                     <img src="images/team/1.jpg" />
                     <p class="sp-intro"><b class="font-xs">Da Hongfei</b><br />Founder, NEO</p>
@@ -118,7 +118,7 @@
                 </li>
                 <li class="font-xs">
                     <img src="images/team/5.jpg" />
-                    <p class="sp-intro"><b class="font-xs">Joseph Williams</b><br />Gov Jay Inslee's ICT industry Sector Lead & State of Washington ICT Economic Development Director </p>
+                    <p class="sp-intro"><b class="font-xs">Joseph Williams</b><br />Gov Jay Inslee's ICT industry Sector Lead</p>
                 </li>
                 <li class="font-xs">
                     <img src="images/team/6.jpg" />
@@ -198,6 +198,7 @@
     <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/devcon.min.js"></script>
+    <script type="text/javascript" src="lib/Swiper/js/swiper.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-1"></script>
     <script>
 
@@ -219,6 +220,29 @@
                 map: map
             });
         }
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 4,
+            slidesPerColumn: 3,
+            spaceBetween: 30,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 15,
+                },
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 10,
+                }
+            }
+        });
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCi7pz5L6PwGZgNo_n0nbmxw5i77LYYkRw&callback=initMap"></script>
 </body>
