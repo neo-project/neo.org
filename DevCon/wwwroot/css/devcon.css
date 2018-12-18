@@ -113,6 +113,15 @@ a:hover{
     right: 0;
     top: 0;
 }
+.dev-btn-3 {
+    display: inline-block;
+    min-width: 165px;
+    padding: 4px 12px;
+    color: #fff;
+    background: #5EB44B;
+    border-radius: 30px;
+    margin-right: 45px;
+}
 .dev-ticket {
     position: relative;
     width: 500px;
@@ -201,9 +210,6 @@ a:hover{
     margin-left:10px;
 }
 /*the speaker*/
-.dev-speaker {
-
-}
 .speaker-detail {
     margin:auto;
     padding:0;
@@ -295,10 +301,25 @@ a:hover{
     letter-spacing:0px;
     background:#A1C693;
     border-radius:30px 30px 0px 30px;
-    box-shadow:10px 10px 35px #408f39;
+    box-shadow:10px 10px 35px #5EB44B;
     box-shadow:10px 10px 35px rgba(0,0,0,0.1);
 }
-
+.show-more {
+   color:#5EB44B!important;
+   display:inline-block;
+   position:relative;
+   padding:0 50px;
+   cursor:pointer;
+}
+.show-more:before{
+    content:"";
+    position:absolute;
+    background:linear-gradient(90deg,transparent,#5EB44B,transparent);
+    width:100%;
+    height:1px;
+    margin-top:-10px;
+    left:0;
+}
 
 .font-xl {font-size:70px;}
 .font-l {font-size:50px;}
@@ -430,7 +451,7 @@ a:hover{
     .p-l {padding:40px;margin-bottom:0px;}
     .p-m {padding:20px;margin-bottom:0px;}
     .p-s {padding:10px;margin-bottom:0px;}
-    .p-xs {padding:6px;margin-bottom:0px;}
+    .p-xs {padding:8px;margin-bottom:0px;}
     .dev-container {
         padding:50px 0;
     }
@@ -465,6 +486,8 @@ a:hover{
         position: absolute;
     }
     .speaker-detail{
+        height:680px;
+        overflow:hidden;
         line-height:1.2;
     }
     .speaker-detail li{
@@ -478,6 +501,9 @@ a:hover{
     }
     .dev-venue p {
         margin-bottom:0.3rem;
+    }
+    .dev-btn-3 {
+        margin-right: 15px;
     }
 }
 @media only screen and (max-width: 320px) {
@@ -510,19 +536,13 @@ a:hover{
 @media only screen and (max-width:1368px) {
     .dev-1-bg {right:0;top:0;bottom:0;}
     .dev-2-bg {left:-100px;top:0;bottom: 100px;opacity: 0.8;}
-    .dev-3-bg {width:18%;right:0;top:-30%;}
-    .dev-4-bg {width:20%;bottom:-30%;}
     .dev-5-bg {width:15%;top: -12%;left: -5%;}
-    .dev-6-bg {width:8%;left:20%;top: -8%;}
-    .dev-7-bg {width:10%;right:10%;top: -8%;}
 }
 @media only screen and (max-width: 768px) {
     .dev-1-bg,.dev-2-bg {opacity:0.8;}
     .dev-3-bg {width:28%;right:0;top:-25%;}
     .dev-4-bg {width:25%;bottom:-20%;}
     .dev-5-bg {width:15%;}
-    .dev-6-bg {width:8%;left:20%;}
-    .dev-7-bg {width:10%;right:10%;}
     .dev-11-bg{right: 0;}
 }
 @media only screen and (max-width: 480px) {
@@ -530,9 +550,6 @@ a:hover{
     .dev-2-bg {left:-100px;top:0;bottom:300px;}
     .dev-3-bg {width:18%;right:0;top:-30%;}
     .dev-4-bg {width:20%;bottom:-30%;}
-    .dev-5-bg {width:15%;}
-    .dev-6-bg {width:8%;left:20%;}
-    .dev-7-bg {width:10%;right:10%;}
 }
 /*animate*/
 .f-blink {

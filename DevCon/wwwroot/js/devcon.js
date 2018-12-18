@@ -32,3 +32,25 @@ function submitE() {
         return true;
     }
 }
+
+function showSp(e) {
+    $(e).hide();
+    var _out = $(".speaker-detail");
+    var _in = $('.speaker-detail li:last');
+    _out.height("auto");
+    _in.is("hidden");
+}
+
+speakerBtn();
+$(window).resize(function () {
+    speakerBtn();
+});
+
+function speakerBtn() {
+    var _out = $(".speaker-detail");
+    var _in = $('.speaker-detail li:last');
+    var _len = _out.offset().top + _out.height() - _in.offset().top - _in.height();
+    if (_len > 0) {
+        $(".show-more").hide();
+    }
+}

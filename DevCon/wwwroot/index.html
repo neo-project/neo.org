@@ -97,9 +97,9 @@
                 Speakers
             </p>
             <p class="text-right">
-                <a class="gray-text">Download</a>
+                <a class="dev-btn-3 text-center">Download</a>
             </p>
-            <ul class="ma-m speaker-detail swiper-container">
+            <ul class="ma-s speaker-detail">
                 <li class="font-xs">
                     <img src="images/team/1.jpg" />
                     <p class="sp-intro"><b class="font-xs">Da Hongfei</b><br />Founder, NEO</p>
@@ -149,6 +149,7 @@
                     <p class="sp-intro"><b class="font-xs">Wayne Zhu</b><br />Founding Partner，NGC</p>
                 </li>
             </ul>
+            <p><a class="show-more ma-m" onclick="showSp(this);">More Speakers</a></p>
         </div>
     </div>
 
@@ -163,7 +164,7 @@
                 <div class="row ma-s">
                     <div class="col-lg-5 ma-s">
                         <div class="venue-detail p-s">
-                            <p class="iconfont font-l text-center green-text">&#xe693;</p>
+                            <p class="iconfont font-l text-center green-text">&#xe6f2;</p>
                             <p class="text-center font-m">Transportation</p>
                             <b>Taxi</b><br />
                             <p>15 miles taxi ride from Seattle–Tacoma International Airport.</p>
@@ -181,8 +182,6 @@
                 </div>
             </div>
         </div>
-        <div class="bg-animate">
-        </div>
     </div>
 
     <div class="modal" tabindex="-1" role="dialog">
@@ -198,10 +197,8 @@
     <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/devcon.min.js"></script>
-    <script type="text/javascript" src="lib/Swiper/js/swiper.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-1"></script>
     <script>
-
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
@@ -220,29 +217,6 @@
                 map: map
             });
         }
-        var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 4,
-            slidesPerColumn: 3,
-            spaceBetween: 30,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                1024: {
-                    slidesPerView: 4,
-                    spaceBetween: 20,
-                },
-                768: {
-                    slidesPerView: 3,
-                    spaceBetween: 15,
-                },
-                640: {
-                    slidesPerView: 2,
-                    spaceBetween: 10,
-                }
-            }
-        });
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCi7pz5L6PwGZgNo_n0nbmxw5i77LYYkRw&callback=initMap"></script>
 </body>
