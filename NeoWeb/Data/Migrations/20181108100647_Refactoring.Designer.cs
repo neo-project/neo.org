@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NeoWeb.Data;
 
 namespace NeoWeb.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181108100647_Refactoring")]
+    partial class Refactoring
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -201,8 +203,6 @@ namespace NeoWeb.Data.Migrations
 
                     b.Property<string>("Summary");
 
-                    b.Property<string>("Tags");
-
                     b.Property<string>("Title")
                         .IsRequired();
 
@@ -344,20 +344,6 @@ namespace NeoWeb.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("News");
-                });
-
-            modelBuilder.Entity("NeoWeb.Models.Subscription", b =>
-                {
-                    b.Property<string>("Email")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<bool>("IsSubscription");
-
-                    b.Property<DateTime>("SubscriptionTime");
-
-                    b.HasKey("Email");
-
-                    b.ToTable("Subscription");
                 });
 
             modelBuilder.Entity("NeoWeb.Models.TestCoin", b =>

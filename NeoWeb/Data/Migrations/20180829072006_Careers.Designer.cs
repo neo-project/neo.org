@@ -3,19 +3,21 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NeoWeb.Data;
 
 namespace NeoWeb.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180829072006_Careers")]
+    partial class Careers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
+                .HasAnnotation("ProductVersion", "2.1.1-rtm-30846")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -201,8 +203,6 @@ namespace NeoWeb.Data.Migrations
 
                     b.Property<string>("Summary");
 
-                    b.Property<string>("Tags");
-
                     b.Property<string>("Title")
                         .IsRequired();
 
@@ -223,14 +223,8 @@ namespace NeoWeb.Data.Migrations
                     b.Property<string>("Email")
                         .IsRequired();
 
-                    b.Property<string>("Logo");
-
-                    b.Property<string>("Organization")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
                     b.Property<string>("SocialAccount")
-                        .HasMaxLength(200);
+                        .HasMaxLength(50);
 
                     b.Property<string>("Summary")
                         .HasMaxLength(500);
@@ -327,6 +321,60 @@ namespace NeoWeb.Data.Migrations
                     b.ToTable("Events");
                 });
 
+            modelBuilder.Entity("NeoWeb.Models.ICO1", b =>
+                {
+                    b.Property<string>("RedeemCode")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("BankAccount")
+                        .HasMaxLength(19);
+
+                    b.Property<string>("BankName")
+                        .HasMaxLength(30);
+
+                    b.Property<DateTime?>("CommitTime");
+
+                    b.Property<string>("Email");
+
+                    b.Property<double>("GiveBackCNY");
+
+                    b.Property<string>("GivebackNeoAddress");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(8);
+
+                    b.HasKey("RedeemCode");
+
+                    b.ToTable("ICO1");
+                });
+
+            modelBuilder.Entity("NeoWeb.Models.ICO2", b =>
+                {
+                    b.Property<string>("NeoAddress")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("BankAccount")
+                        .HasMaxLength(19);
+
+                    b.Property<string>("BankName")
+                        .HasMaxLength(30);
+
+                    b.Property<DateTime?>("CommitTime");
+
+                    b.Property<string>("Email");
+
+                    b.Property<double>("GiveBackCNY");
+
+                    b.Property<string>("GivebackNeoAddress");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(8);
+
+                    b.HasKey("NeoAddress");
+
+                    b.ToTable("ICO2");
+                });
+
             modelBuilder.Entity("NeoWeb.Models.News", b =>
                 {
                     b.Property<int>("Id")
@@ -346,25 +394,17 @@ namespace NeoWeb.Data.Migrations
                     b.ToTable("News");
                 });
 
-            modelBuilder.Entity("NeoWeb.Models.Subscription", b =>
-                {
-                    b.Property<string>("Email")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<bool>("IsSubscription");
-
-                    b.Property<DateTime>("SubscriptionTime");
-
-                    b.HasKey("Email");
-
-                    b.ToTable("Subscription");
-                });
-
-            modelBuilder.Entity("NeoWeb.Models.TestCoin", b =>
+            modelBuilder.Entity("NeoWeb.Models.Testnet", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ANCCount")
+                        .IsRequired();
+
+                    b.Property<string>("ANSCount")
+                        .IsRequired();
 
                     b.Property<string>("Company")
                         .IsRequired();
@@ -372,13 +412,7 @@ namespace NeoWeb.Data.Migrations
                     b.Property<string>("Email")
                         .IsRequired();
 
-                    b.Property<string>("GasCount")
-                        .IsRequired();
-
                     b.Property<string>("Name")
-                        .IsRequired();
-
-                    b.Property<string>("NeoCount")
                         .IsRequired();
 
                     b.Property<string>("Phone");
@@ -398,7 +432,7 @@ namespace NeoWeb.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TestCoins");
+                    b.ToTable("Testnets");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
