@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace NeoWeb.Models
@@ -29,7 +30,7 @@ namespace NeoWeb.Models
 
         public int ReadCount { get; set; }
 
-        public virtual ApplicationUser User { get; set; }
+        public virtual IdentityUser User { get; set; }
 
         public bool IsShow { get; set; }
     }

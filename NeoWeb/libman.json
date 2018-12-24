@@ -34,11 +34,6 @@
     },
     {
       "provider": "cdnjs",
-      "library": "tinymce@4.9.0",
-      "destination": "wwwroot/lib/tinymce/"
-    },
-    {
-      "provider": "cdnjs",
       "library": "wow@1.1.2",
       "destination": "wwwroot/lib/wow/",
       "files": [
@@ -48,6 +43,10 @@
     {
       "library": "animate.css@3.7.0",
       "destination": "wwwroot/lib/animate.css/"
+    },
+    {
+      "library": "tinymce@4.9.2",
+      "destination": "wwwroot/tinymce/"
     }
   ]
 }
