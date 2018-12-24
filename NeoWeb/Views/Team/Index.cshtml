@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "NEO Contributors";
 }
 @section Styles{
@@ -10,6 +9,7 @@
         <link rel="stylesheet" href="@Helper.CDN/css/team.min.css" asp-append-version="true" />
     </environment>
 }
+
 <h2 class="text-center m3">NEO Foundation</h2>
 <p class="text-center">Setting NEO's Vision and Strategy.</p>
 <div class="team nf">
@@ -541,6 +541,20 @@
         </div>
     </div>
     <div class="card">
+        <img class="card-img-top" data-original="@Helper.CDN/images/team/vitor.jpg" />
+        <div class="card-body">
+            <div class="card-title">Vitor N. Coelho</div>
+            <div class="card-text">NeoResearch Co-Founder</div>
+        </div>
+    </div>
+    <div class="card">
+        <img class="card-img-top" data-original="@Helper.CDN/images/team/igor.jpg" />
+        <div class="card-body">
+            <div class="card-title">Igor M. Coelho</div>
+            <div class="card-text">NeoResearch Co-Founder</div>
+        </div>
+    </div>
+    <div class="card">
         <a target="_blank" href="https://github.com/neo-project/neo.org/blob/master/NeoWeb/Views/Team/contributor.md">
             <img class="card-img-top" data-original="@Helper.CDN/images/team/add.jpg" />
         </a>
@@ -550,12 +564,13 @@
         </div>
     </div>
 </div>
+
 @section Scripts{
     <script src="@Helper.CDN/js/jquery.lazyload.min.js"></script>
     <script>
         $('[data-original]').lazyload({
-            threshold: 200,
-            effect: "fadeIn"
+                    threshold: 200,
+                    effect: "fadeIn"
         });
     </script>
 }
