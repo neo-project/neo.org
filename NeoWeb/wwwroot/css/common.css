@@ -40,7 +40,7 @@ h3,.h3 {font-size: 16px;font-weight:bold;}
 .pb0 {padding-bottom:0px!important;}
 .pr0 {padding-right:0px!important;}
 a, a:active, .btn-link, .btn-link:active { color:#6c6c6c; text-decoration: none }
-a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decoration: none; outline: none }
+a:hover, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decoration: none; outline: none }
 .bold-font {font-weight:600;}
 .body-content {padding-bottom:50px;}
 .desktop-show {display:inline-block!important;}

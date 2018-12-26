@@ -2,142 +2,80 @@
     margin:0;
     padding:0;
 }
-.download-container {
+.nav-client {
     text-align:center;
+    margin-top: 20px;
+    border-bottom: 1px solid #58bf00;
 }
-.nav-download {
-    text-align:center;
-}
-.nav-download li{
+.nav-client li{
     display:inline-block;
+    font-weight: normal;
     width:7em;
     color:#AAAAAA;
     cursor:pointer;
+    padding: 10px;
 }
-.nav-download li a{
-    display:block;
-    color:#AAAAAA;
+.nav-client li.selected {
+    background-color: #58bf00;
+    color: white;
+    border-radius: 10px 10px 0 0;
+}
+.nav-client li .iconfont{
     font-style:normal;
-    font-size:35px;
+    font-size:22px;
+    margin-right: 10px;
     height:50px;
 }
-.nav-download .downtab-select {
+.nav-client .tab-select {
     color:#58BF00;
 }
-.nav-download li.downtab-select a, .nav-download li a:hover {
+.nav-client li.tab-select a, .nav-client li a:hover {
     color:#58BF00;
 }
-.download-ul {
-    text-align: center;
-    font-weight:100;
+.layout-container {
+    max-width: none;
+    padding: 0;
+}
+.client-ul {
+    background-color: white;
+    text-align:center;
     width: 100%;
-    display:none;
+    padding: 20px;
+    border-bottom: 1px solid #58bf00;
 }
-.download-ul li {
+.client-ul li {
     display: inline-block;
-    max-width: 360px;
-    margin: 20px 8px;
-    line-height:1.5;
-    vertical-align:top;
+    width: 200px;
+    margin: 20px;
+    padding: 20px 10px;
+    border: 1px solid lightgray;
 }
-.download-ul a {
+.client-ul li:hover {
+    background-color: #f8f8f8;
+}
+.client-ul a {
     color: #51BC00;
     font-weight: 400;
     cursor:pointer;
 }
-.down-box {
-    background:#FFFFFF;
-    overflow:hidden;
+.client-ul a img {
+    width: 72px;
+    height: 72px;
+    border-radius: 13px;
 }
-.download-web .desc {
-    min-height: 130px;
+.client-ul header {
+    line-height: 2.5;
 }
-.download-mobile .desc {
-    min-height: 130px;
-}
-.download-desktop .desc {
-    min-height: 170px;
-}
-.download-hardware .desc {
-    min-height: 150px;
-}
-.down-box .info {
-    margin-bottom: 30px;
-}
-.down-box h2 {
-    text-align: center;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 3;
-}
-.down-box h2 small {
-    font-size: 14px;
-    margin-left: 20px;
-}
-.down-box .picture{
-    width:100%;
-    position: relative;
-}
-.down-box .picture img{
-    width:100%;
-}
-.down-box .picture::after{
-    content: ' ';
-    z-index: 100;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 30px;
-    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.1));
-}
-.down-box p{
-    padding:0 20px;
-    color:#6C6C6C;
-    text-align:left;
-}
-
-.down-box p.bold-font,
-.down-box p.bold-font a{
-    color:#6C6C6C;
-    line-height:2;
-    min-height:initial;
-}
-.down-box p.bold-font a:hover{
-    color:#333333;
-    text-decoration:none;
-}
-
-.down-box .down-btn {
-    display: inline-block;
-    margin: 10px auto 20px;
-    width: 150px;
-    line-height: 40px;
-    background:#58bf00;
-    color:#FFFFFF;
-    font-size:18px;
-    text-align:center;
-}
-.down-box .down-btn.disabled {
-    background:#999;
-}
-.down-box .down-btn.disabled:hover {
+.client-ul .iconfont {
     cursor: default;
-}
-.down-box p.down-time {
-    text-align: center;
-    font-size: 14px;
-
-}
-.down-time {
-    margin-bottom:0;
+    margin: 0 3px;
 }
 
-.down-select {
+.client-select {
     display:block;
 }
 
-.down-hint {
+.client-hint {
     width: 50%;
     background: #D8D8D8;
     color: #6C6C6C;
@@ -145,47 +83,47 @@
     line-height: 2;
 }
 
+.modal-header img {
+    width: 72px;
+    height: 72px;
+    margin-right: 12px;
+    border-radius: 13px;
+}
+.modal-header .developer {
+    margin-top: 5px;
+}
+
 @media only screen and (max-width : 992px) {
-    .down-hint {
+    .client-hint {
         width:100%;
         max-width:none;
     }
 }
 
 @media only screen and (max-width : 768px) {
-    .download-ul li:first-child{
+    .client-ul li:first-child{
         margin-top:0;
     }
-    .down-box p{
-        padding:0 14px;
-    }
-    .nav-download {
+    .nav-client {
         width: 100%;
         max-width:340px;
     }
-    /*.nav-download li em{
+    /*.nav-client li em{
         display:none;
     }*/
-    .download-ul{
+    .client-ul{
         max-width:360px;
         margin:auto;
     }
-    .download-ul .down-box{
-        max-width:340px;
-        margin:20px 0;
-    }
-    .down-box p{
-        min-height:initial;
-    }
-    .down-hint {
+    .client-hint {
         max-width:330px;
     }
-    .nav-download li{
+    .nav-client li{
         width:4em;
         font-size:16px;
         margin-bottom:10px;
     }
-    .nav-download li .iconfont {
+    .nav-client li .iconfont {
         font-size:30px;
         height:40px;
     }

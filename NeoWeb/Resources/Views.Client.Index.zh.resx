@@ -426,4 +426,13 @@
   <data name="Spatium hardware wallet compatible with biometric recognition" xml:space="preserve">
     <value>兼容生物识别的 Spatium 硬件钱包</value>
   </data>
+  <data name="Go to Web Wallet" xml:space="preserve">
+    <value>打开网页钱包</value>
+  </data>
+  <data name="No open source License" xml:space="preserve">
+    <value>未声名开源许可</value>
+  </data>
+  <data name="Not open source" xml:space="preserve">
+    <value>非开源</value>
+  </data>
 </root>
