@@ -92,6 +92,10 @@
 .modal-header .developer {
     margin-top: 5px;
 }
+.modal-body img {
+    display: block;
+    max-width: 100%;
+}
 
 @media only screen and (max-width : 992px) {
     .client-hint {
