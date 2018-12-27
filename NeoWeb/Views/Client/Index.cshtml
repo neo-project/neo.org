@@ -33,8 +33,7 @@
         <div class="desc d-none">
             <img data-src="@Helper.CDN/images/client/gui.png" />
             <p>NEO-GUI 是一个全节点的 NEO 客户端，它包含了 NEO 网络的所有基本功能，拥有极高的安全性。缺点初始化同步时间长，占用磁盘和内存，且稳定性欠佳。</p>
-            <p>通过下载 NGD 提供的 <a href="http://sync.ngd.network/" target="_blank">离线同步包</a> 可以加快初始化同步速度。</p>
-            <p>需要安装 <a href="https://www.microsoft.com/net/download/dotnet-framework-runtime" target="_blank">.NetFramework 4.7.1</a> 和 <a href="https://www.microsoft.com/en-us/download/details.aspx?id=14632" target="_blank">VC++ 2010 Redist x64</a>/<a href="https://www.microsoft.com/en-us/download/details.aspx?id=5555" target="_blank">x86</a><br />
+            <p>需要安装 <a href="https://www.microsoft.com/net/download/dotnet-framework-runtime" target="_blank">.NetFramework 4.7.1</a> 和 <a href="https://www.microsoft.com/en-us/download/details.aspx?id=14632" target="_blank">VC++ 2010 Redist x64</a>/<a href="https://www.microsoft.com/en-us/download/details.aspx?id=5555" target="_blank">x86</a>
             <p>更多信息请参见：<a href="http://docs.neo.org/zh-cn/node/gui.html" target="_blank">使用说明</a></p>
             <div>
                 <div class="card">
@@ -59,6 +58,7 @@
                         <div class="card-body">
                             该客户端是一个全节点，它存储 NEO 区块链中的所有数据。这意味着当验证支付或者执行合约的时候，不需要信任第三方。
                             全节点提供了最高级别的安全性并且是保护网络不可或缺的元素。然而，它需要更多的硬盘空间（15GB）、更大的带宽和一个更长的初始化同步时间。
+                            通过下载 NGD 提供的 <a href="http://sync.ngd.network/" target="_blank">离线同步包</a> 可以加快初始化同步速度。
                         </div>
                     </div>
                 </div>
@@ -115,56 +115,56 @@
             <a href="@Localizer[" http://docs.neo.org/en-us/node/cli/setup.html"]" target="_blank">@Localizer["Instructions for use"]</a><br />
             <a href="https://github.com/neo-project/neo-cli/blob/master/CHANGELOG.md" target="_blank">@Localizer["Changelog"]</a><br />
             @*<div id="accordion2">
-                <div class="card">
-                    <div class="card-header" id="headingOne">
-                        <a class="text-success" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            完全的资金掌控权
-                        </a>
-                    </div>
-                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion2">
-                        <div class="card-body">
-                            该客户端让你拥有对数字资产的完全掌控权。私钥是通过钱包文件和密码加密存储的。但你仍需注意在安全的电脑上使用，并注意将钱包文件安全备份和妥善保管。
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <a class="text-success" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                完全的资金掌控权
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion2">
+                            <div class="card-body">
+                                该客户端让你拥有对数字资产的完全掌控权。私钥是通过钱包文件和密码加密存储的。但你仍需注意在安全的电脑上使用，并注意将钱包文件安全备份和妥善保管。
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" id="headingTwo">
-                        <a class="text-success" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            全面验证
-                        </a>
-                    </div>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion2">
-                        <div class="card-body">
-                            该客户端是一个全节点，它存储 NEO 区块链中的所有数据。这意味着当验证支付或者执行合约的时候，不需要信任第三方。
-                            全节点提供了最高级别的安全性并且是保护网络不可或缺的元素。然而，它需要更多的硬盘空间（15GB）、更大的带宽和一个更长的初始化同步时间。
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <a class="text-success" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                全面验证
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion2">
+                            <div class="card-body">
+                                该客户端是一个全节点，它存储 NEO 区块链中的所有数据。这意味着当验证支付或者执行合约的时候，不需要信任第三方。
+                                全节点提供了最高级别的安全性并且是保护网络不可或缺的元素。然而，它需要更多的硬盘空间（15GB）、更大的带宽和一个更长的初始化同步时间。
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" id="headingThree">
-                        <a class="text-success" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            完全透明度
-                        </a>
-                    </div>
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion2">
-                        <div class="card-body">
-                            该客户端是开源软件，这意味着世界上所有的开发人员都可以审查它的编码并确保最后的软件没有隐藏任何秘密。
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <a class="text-success" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                完全透明度
+                            </a>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion2">
+                            <div class="card-body">
+                                该客户端是开源软件，这意味着世界上所有的开发人员都可以审查它的编码并确保最后的软件没有隐藏任何秘密。
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" id="headingFour">
-                        <a class="text-warning" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                            脆弱的环境
-                        </a>
-                    </div>
-                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion2">
-                        <div class="card-body">
-                            该客户端在电脑上运行。电脑容易受恶意软件攻击。你可以通过使用一个安全性高的密码口令、把你的大部分资金转移到冷储存来保证电脑安全。
+                    <div class="card">
+                        <div class="card-header" id="headingFour">
+                            <a class="text-warning" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                脆弱的环境
+                            </a>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion2">
+                            <div class="card-body">
+                                该客户端在电脑上运行。电脑容易受恶意软件攻击。你可以通过使用一个安全性高的密码口令、把你的大部分资金转移到冷储存来保证电脑安全。
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>*@
+                </div>*@
             @Localizer["Support"] NEP-5, NEP-6 <br />
             @Localizer["Languages"]: @Localizer["English"]<br />
             @Localizer["Get source code"]: <a href="https://github.com/neo-project/neo-cli" target="_blank">GitHub</a>
@@ -528,14 +528,14 @@
             $(".client-ul .client-logo").click(function () {
                 zoomin(this);
             });
-            //$(".card-header a").attr("onclick", "$(this).parent().parent().find('.collapse').addClass('show');");
-            $(".card-header a").click(function () {
-                alert();
-                $(this).parent().parent().find('.collapse').addClass('show');
-            });
+            $(".card-header a").attr("onclick", "showDetails(this)");
         })
-        function showPlatform(obj, name)
-        {
+        function showDetails(obj){
+            var col = $(obj).parent().parent().find('.collapse');
+            $(".collapse").not(col).hide('fast');
+            col.toggle('fast');
+        }
+        function showPlatform(obj, name){
             if (name) {
                 $('.client-ul li').hide();
                 $('.' + name).show();
@@ -545,8 +545,7 @@
             $('.nav-client li').removeClass("selected");
             $(obj).addClass("selected");
         }
-        function zoomin(obj)
-        {
+        function zoomin(obj){
             var img = $(obj).parent().find("img");
             var name = $(obj).parent().find("header");
             var developer = $(obj).parent().find(".developer");
