@@ -171,4 +171,7 @@
   <data name="Support" xml:space="preserve">
     <value>支持</value>
   </data>
+  <data name="Supported Browser" xml:space="preserve">
+    <value>支持浏览器</value>
+  </data>
 </root>

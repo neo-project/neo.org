@@ -70,6 +70,7 @@
 .client-ul img {
     width: 72px;
     height: 72px;
+    cursor: pointer;
     border-radius: 13px;
 }
 
@@ -109,7 +110,9 @@
     display: block;
     max-width: 100%;
 }
-
+.modal-body p {
+    margin: .5em 0;
+}
 .modal-body a {
     color: #51BC00;
     font-weight: 400;
