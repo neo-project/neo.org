@@ -32,7 +32,7 @@
         <div class="developer d-none"><a href="https://github.com/neo-project/neo-gui" target="_blank">NEO Project</a></div>
         <div class="desc d-none">
             <img data-src="@Helper.CDN/images/client/gui.png" />
-            <p>NEO-GUI 是一个全节点的 NEO 客户端，它包含了 NEO 网络的所有基本功能，拥有极高的安全性。缺点初始化同步时间长，占用磁盘和内存，且稳定性欠佳。</p>
+            <p>NEO-GUI 是一个全节点的 NEO 客户端，它包含了 NEO 网络的所有基本功能，软件交互较为专业，面向高级用户，拥有极高的安全性。缺点是初始化同步时间长，占用磁盘和内存，且稳定性欠佳。</p>
             <p>需要安装 <a href="https://www.microsoft.com/net/download/dotnet-framework-runtime" target="_blank">.NetFramework 4.7.1</a> 和 <a href="https://www.microsoft.com/en-us/download/details.aspx?id=14632" target="_blank">VC++ 2010 Redist x64</a>/<a href="https://www.microsoft.com/en-us/download/details.aspx?id=5555" target="_blank">x86</a>
             <p>更多信息请参见：<a href="http://docs.neo.org/zh-cn/node/gui.html" target="_blank">使用说明</a></p>
             <div>
@@ -122,7 +122,7 @@
             <img data-src="@Helper.CDN/images/client/cli.png" />
             <p>
                 NEO-CLI 是一个全节点的命令行客户端，可以跨平台上运行，它可以提供 API 供开发者调用，也可以作为区块链中的共识节点参与共识。
-                它拥有较高的安全性和稳定性。缺点初始化同步时间长，占用磁盘和内存。
+                软件交互较为专业，面向开发者，不建议小白用户使用。它拥有较高的安全性和稳定性。缺点是初始化同步时间长，占用磁盘和内存。
             </p>
             <p>更多信息请参见：<a href="@Localizer["http://docs.neo.org/en-us/node/cli/setup.html"]" target="_blank">使用说明</a>, <a href="https://github.com/neo-project/neo-cli/blob/master/CHANGELOG.md" target="_blank">更新日志</a></p>
             <div>
@@ -247,10 +247,14 @@
         <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
         <div class="developer d-none"><a href="https://o3.network/" target="_blank">O3 Labs</a></div>
         <div class="desc d-none">
-            <img data-src="@Helper.CDN/images/client/o3.png" />
+            <div class="text-center">
+                <a href="javascript:" onclick="$('.o3desktop').hide(); $('.o3mobile').show();">手机</a>
+                <a href="javascript:" onclick="$('.o3mobile').hide(); $('.o3desktop').show(); ">桌面</a>
+            </div>
+            <img class="o3mobile" data-src="@Helper.CDN/images/client/o3.png" />
+            <img class="o3desktop" style="display:none;" data-src="@Helper.CDN/images/client/o3-desktop.png" />
             <p>
-                Interacting with the blockchain has never been this simple. O3 is a gateway that provides access to the NEO blockchain.
-                You will be able to manage your digital assets in a simple and secure way directly from your mobile device.
+                O3 Labs 开发的跨平台客户端，几乎支持所有主流平台，软件的界面设计和用户体验都很友好，它拥有较高的安全性和稳定性。该客户端更新比较快，能及时支持 NEO 网络中的新特性。
             </p>
             <div>
                 <div class="card">
@@ -319,7 +323,7 @@
         <div class="developer d-none"><a href="https://github.com/CityOfZion/neon-wallet" target="_blank">City of Zion</a></div>
         <div class="desc d-none">
             <img data-src="@Helper.CDN/images/client/neon.png" />
-            <p>An open source cross-platform light walletfor the NEO blockchain available on Windows, Mac OS, and Linux.</p>
+            <p>NEO 英文开发者社区 City of Zion 开发的跨平台的客户端，支持 Windows、 macOS 和 Linux，新版拥有全新的视觉和简约的界面设计。</p>
             <div>
                 <div class="card">
                     <div class="card-header">
@@ -389,10 +393,14 @@
         <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Web">&#xe63c;</i>
         <div class="developer d-none"><a href="https://aphelion.org" target="_blank">Aphelion, Ltd</a></div>
         <div class="desc d-none">
-            <img data-src="@Helper.CDN/images/client/aphelion.png" />
+            <div class="text-center">
+                <a href="javascript:" onclick="$('.apheliondesktop').hide(); $('.aphelionmobile').show();">手机</a>
+                <a href="javascript:" onclick="$('.aphelionmobile').hide(); $('.apheliondesktop').show(); ">桌面</a>
+            </div>
+            <img class="aphelionmobile" data-src="@Helper.CDN/images/client/aphelion.png" />
+            <img class="apheliondesktop" style="display:none;" data-src="@Helper.CDN/images/client/aphelion-desktop.png" />
             <p>
-                It's NEO Desktop Wallet with Ledger Support and mobile wallet. It showcases a cutting edge user interface,
-                real-time trading chart data, customizable address book and complete Nep5 token integration.
+                一个跨平台的客户端，几乎支持所有主流平台，并且支持通讯录和完整的 NEP-5 ，支持和 Ledger 硬件钱包结合使用。 软件的界面设计和用户体验都很友好。
             </p>
             <div>
                 <div class="card">
@@ -462,8 +470,8 @@
         <div class="desc d-none">
             <img data-src="@Helper.CDN/images/client/anybit.png" />
             <p>
-                去中心化设计，私钥纯本地保存，一切从完全安全开始。
-                三层安全防御体系，在用户行为安全、手机安全防御和资产安全管理三个关键领域全方位安全管控，最大化地保护用户的数字资产安全，避免出现资产损失。
+                第一个支持 NEO 的冷热结合的钱包客户端，助词词及私钥本地保存，该客户端分为常规模式和隔离模式。
+                在隔离模式下，使用设备需要完全隔离网络，功能简单，在交易时，需使用热钱包进行交易请求及广播。缺点是为了安全性而牺牲了部分用户体验。
             </p>
             <div>
                 <div class="card">
@@ -604,9 +612,7 @@
         <div class="desc d-none">
             <img src="@Helper.CDN/images/client/spatium.png" />
             <p>
-                Spatium ™ wallet is an ultra-secure software and hardware wallet that supports over 100 digitаl assеts.
-                Its breakthrough is in the signing of transactions without storing any private keys - making the wallet
-                unhackable and bringing true security to the cryptоsphеre.
+                CaspianTechnologies 开发的数字货币钱包，对交易进行分布式签名，兼容生物识别的 Spatium 硬件钱包，拥有极高的安全性。据开发者说可以有效防止黑客攻击。缺点是为了安全性而牺牲了用户体验。
             </p>
             <div>
                 <div class="card">
@@ -669,7 +675,7 @@
         <div class="developer d-none"><a href="https://cobo.com/about" target="_blank">Cobo</a></div>
         <div class="desc d-none">
             <img src="@Helper.CDN/images/client/cobo.png" />
-            <p>Cobo 是专业的数字资产管理钱包，帮您安全储存资产。通过智能投票、DPOS 票池、POS 挖矿的数字资产增益矩阵为您提供稳定收益</p>
+            <p>Cobo 是专业的数字资产管理钱包，帮您安全储存资产。通过智能投票、DPOS 票池、POS 挖矿的数字资产增益矩阵为您提供稳定收益。</p>
             <div>
                 <div class="card">
                     <div class="card-header">
@@ -1117,7 +1123,7 @@
         <div class="developer d-none"><a href="https://github.com/LedgerHQ" target="_blank">Ledger SAS</a></div>
         <div class="desc d-none">
             <img src="@Helper.CDN/images/client/ledgernanos.png" />
-            <p>Protect your crypto assets with the most popular multicurrency hardware wallet in the market. The Ledger Nano S is built around a secure chip, ensuring optimal security.</p>
+            <p>一个支持 NEO 的多币种的硬件钱包，私钥存储在硬件芯片中，拥有极高的安全性。并且官方的 APP 也有着不错的用户体验。</p>
             <div>
                 <div class="card">
                     <div class="card-header">
@@ -1179,8 +1185,7 @@
         <div class="desc d-none">
             <img src="@Helper.CDN/images/client/ledgerblue.png" />
             <p>
-                Ledger Blue is a premium hardware wallet with an advanced user experience thanks to a large touchscreen interface.
-                It is built around a Secure Element and includes all the security features you’d expect from a Ledger device.
+                一个支持 NEO 的多币种的硬件钱包，私钥存储在硬件芯片中，拥有极高的安全性。并且官方的 APP 也有着不错的用户体验。
             </p>
             <div>
                 <div class="card">
@@ -1307,8 +1312,10 @@
             $("#model_dev").html("");
             $("#model_desc").html("");
             $("#model_link").html("");
-            var screenshots = desc.find(img);
-            screenshots.attr("src", screenshots.data("src"));
+            desc.find("img").each(function () {
+                $(this).attr("src", $(this).data("src"));
+            });;
+
             $("#model_img").attr("src", img.attr("src"));
             $("#model_name").html(name.html());
             $("#model_dev").html(developer.html());
