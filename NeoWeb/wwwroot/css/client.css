@@ -55,6 +55,16 @@
     border-bottom: 1px solid #58bf00;
 }
 
+.client-ul ul {
+    margin: auto;
+    max-width: 1600px;
+}
+
+ .client-ul .alert {
+    margin: auto;
+    max-width: 800px;
+}
+
 .client-ul li {
     display: inline-block;
     width: 200px;

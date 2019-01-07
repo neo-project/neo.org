@@ -174,4 +174,13 @@
   <data name="Supported Browser" xml:space="preserve">
     <value>支持浏览器</value>
   </data>
+  <data name="All Client" xml:space="preserve">
+    <value>所有平台</value>
+  </data>
+  <data name="Safety Tips!" xml:space="preserve">
+    <value>安全提示</value>
+  </data>
+  <data name="Wallets are developed by a third party/community. Please contact the corresponding parties for technical support." xml:space="preserve">
+    <value>这些客户端是由社区进行开发和维护的，如果遇到问题请直接联系相应开发者。</value>
+  </data>
 </root>

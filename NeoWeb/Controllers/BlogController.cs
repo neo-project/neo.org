@@ -144,7 +144,7 @@ namespace NeoWeb.Controllers
             ViewBag.UserId = _userId;
             ViewBag.UserRules = _userRules;
 
-            if (string.IsNullOrEmpty(Request.Cookies[blog.Id.ToString()]) && Request.Cookies.Count >= 3)
+            if (string.IsNullOrEmpty(Request.Cookies[blog.Id.ToString()]) && Request.Cookies.Count >= 1)
             {
                 blog.ReadCount++;
             }

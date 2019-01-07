@@ -1,9 +1,16 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using System.Xml;
 @inject IViewLocalizer Localizer
 @model NeoWeb.Models.Blog
 @{
     ViewData["Title"] = Model.Title;
     ViewData["Details"] = Model.Summary;
+    if (ViewBag.Cover != null)
+    {
+        XmlDocument doc = new XmlDocument();
+        doc.LoadXml((string)ViewBag.Cover);
+        ViewData["Image"] = "https://neo.org" + doc.FirstChild.Attributes["src"].Value;
+    }
     Layout = "_LayoutBlog.cshtml";
     ViewData["keywords"] = Model.Tags;
 }
@@ -109,6 +116,6 @@
         }
         setCookie(@Model.Id, "Read");
         $('#qrcode').qrcode(location.href);
-        
+
     </script>
 }
