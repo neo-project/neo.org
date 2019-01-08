@@ -9,12 +9,16 @@
         <link rel="stylesheet" href="/css/client.css" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.CDN/css/client.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="/css/client.min.css" asp-append-version="true" />
     </environment>
 }
 
 <div class="text-center">
     <h1 class="m3">@Localizer["Get Client"]</h1>
+    <p>本页面展示的客户端均为 NEO 社区的开发团队或个人开发者所开发。如在使用过程中遇到问题请联系开发者。</p>
+    <p>其中部分为开源客户端，部分为不开源客户端，在使用本页面的部分客户端时，您有可能对您的 NEO 资产失去掌控权，请酌情选择。</p>
+    <p>在使用客户端过程中，请以安全方式备份私钥，私钥是您 NEO 资产掌控的唯一方式。</p>
+
 </div>
 <ul class="nav-client t1">
     <li class="selected" onclick="showPlatform(this)"><i class="iconfont"></i>@Localizer["All Client"]</li>
@@ -24,15 +28,15 @@
     <li onclick="showPlatform(this, 'hardware')"><i class="iconfont">&#xe688;</i><span>@Localizer["Hardware"]</span></li>
 </ul>
 <div class="client-ul">
-    <div class="container">
+    <div>
         <ul>
             <li class="desktop">
-                <img class="client-logo" src="@Helper.CDN/images/client/logo/gui.png" />
+                <img class="client-logo" src="/images/client/logo/gui.png" />
                 <header>NEO-GUI</header>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Windows">&#xe898;</i>
                 <div class="developer d-none"><a href="https://github.com/neo-project/neo-gui" target="_blank">NEO Project</a></div>
                 <div class="desc d-none">
-                    <img data-src="@Helper.CDN/images/client/gui.png" />
+                    <img data-src="/images/client/gui.png" />
                     <p>NEO-GUI 是一个全节点的 NEO 客户端，它包含了 NEO 网络的所有基本功能，软件交互较为专业，面向高级用户，拥有极高的安全性。缺点是初始化同步时间长，占用磁盘和内存，且稳定性欠佳。</p>
                     <p>需要安装 <a href="https://www.microsoft.com/net/download/dotnet-framework-runtime" target="_blank">.NetFramework 4.7.1</a> 和 <a href="https://www.microsoft.com/en-us/download/details.aspx?id=14632" target="_blank">VC++ 2010 Redist x64</a>/<a href="https://www.microsoft.com/en-us/download/details.aspx?id=5555" target="_blank">x86</a>
                     <p>更多信息请参见：<a href="http://docs.neo.org/zh-cn/node/gui.html" target="_blank">使用说明</a></p>
@@ -113,14 +117,14 @@
                 </div>
             </li>
             <li class="desktop">
-                <img class="client-logo" src="@Helper.CDN/images/client/logo/cli.png" />
+                <img class="client-logo" src="/images/client/logo/cli.png" />
                 <header>NEO-CLI</header>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Windows">&#xe898;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Linux">&#xf1e8;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="macOS">&#xe61b;</i>
                 <div class="developer d-none"><a href="https://github.com/neo-project/neo-cli" target="_blank">NEO Project</a></div>
                 <div class="desc d-none">
-                    <img data-src="@Helper.CDN/images/client/cli.png" />
+                    <img data-src="/images/client/cli.png" />
                     <p>
                         NEO-CLI 是一个全节点的命令行客户端，可以跨平台上运行，它可以提供 API 供开发者调用，也可以作为区块链中的共识节点参与共识。
                         软件交互较为专业，面向开发者。拥有较高的安全性和稳定性。缺点是初始化同步时间长，占用磁盘和内存。
@@ -239,7 +243,7 @@
                 </div>
             </li>
             <li class="desktop mobile">
-                <img class="client-logo" src="@Helper.CDN/images/client/logo/o3.png" />
+                <img class="client-logo" src="/images/client/logo/o3.png" />
                 <header>O3 Wallet</header>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Windows">&#xe898;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Linux">&#xf1e8;</i>
@@ -252,8 +256,8 @@
                         <a href="javascript:" onclick="$('.o3desktop').hide(); $('.o3mobile').show();">@Localizer["Mobile"]</a>
                         <a href="javascript:" onclick="$('.o3mobile').hide(); $('.o3desktop').show();">@Localizer["Desktop"]</a>
                     </div>
-                    <img class="o3mobile" data-src="@Helper.CDN/images/client/o3.png" />
-                    <img class="o3desktop" style="display:none;" data-src="@Helper.CDN/images/client/o3-desktop.png" />
+                    <img class="o3mobile" data-src="/images/client/o3.png" />
+                    <img class="o3desktop" style="display:none;" data-src="/images/client/o3-desktop.png" />
                     <p>
                         O3 Labs 开发的跨平台客户端，支持大部分主流操作系统。该客户端保持高更新频率，能及时支持 NEO 网络更新与特性。
                     </p>
@@ -316,14 +320,14 @@
                 </div>
             </li>
             <li class="desktop">
-                <img class="client-logo" src="@Helper.CDN/images/client/logo/neon.png" />
+                <img class="client-logo" src="/images/client/logo/neon.png" />
                 <header>Neon Wallet</header>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Windows">&#xe898;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Linux">&#xf1e8;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="macOS">&#xe61b;</i>
                 <div class="developer d-none"><a href="https://github.com/CityOfZion/neon-wallet" target="_blank">City of Zion</a></div>
                 <div class="desc d-none">
-                    <img data-src="@Helper.CDN/images/client/neon.png" />
+                    <img data-src="/images/client/neon.png" />
                     <p>NEO 英文开发者社区 City of Zion 开发的跨平台的客户端，支持 Windows、 macOS 和 Linux，新版拥有全新的视觉和简约的界面设计。</p>
                     <div>
                         <div class="card">
@@ -384,7 +388,7 @@
                 </div>
             </li>
             <li class="desktop mobile web">
-                <img class="client-logo" src="@Helper.CDN/images/client/logo/aphelion.png" />
+                <img class="client-logo" src="/images/client/logo/aphelion.png" />
                 <header>Aphelion Wallet</header>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Windows">&#xe898;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Linux">&#xf1e8;</i>
@@ -398,8 +402,8 @@
                         <a href="javascript:" onclick="$('.apheliondesktop').hide(); $('.aphelionmobile').show();">@Localizer["Mobile"]</a>
                         <a href="javascript:" onclick="$('.aphelionmobile').hide(); $('.apheliondesktop').show();">@Localizer["Desktop"]</a>
                     </div>
-                    <img class="aphelionmobile" data-src="@Helper.CDN/images/client/aphelion.png" />
-                    <img class="apheliondesktop" style="display:none;" data-src="@Helper.CDN/images/client/aphelion-desktop.png" />
+                    <img class="aphelionmobile" data-src="/images/client/aphelion.png" />
+                    <img class="apheliondesktop" style="display:none;" data-src="/images/client/aphelion-desktop.png" />
                     <p>
                         一个跨平台的客户端，几乎支持所有主流操作系统，并且支持通讯录和完整的 NEP-5 ，支持和 Ledger 硬件钱包结合使用。
                     </p>
@@ -463,13 +467,13 @@
                 </div>
             </li>
             <li class="mobile">
-                <img class="client-logo" src="@Helper.CDN/images/client/logo/anybit.png" />
+                <img class="client-logo" src="/images/client/logo/anybit.png" />
                 <header>AnyBit</header>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe633;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
                 <div class="developer d-none"><a href="https://www.anybit.io/" target="_blank">AnyBit</a></div>
                 <div class="desc d-none">
-                    <img data-src="@Helper.CDN/images/client/anybit.png" />
+                    <img data-src="/images/client/anybit.png" />
                     <p>
                         首个支持 NEO 的冷热结合钱包客户端，助记词及私钥本地保存，该客户端分为常规模式和隔离模式。
                         在隔离模式下，使用设备需要完全隔离网络，功能简单，在交易时，需使用热钱包进行交易请求及广播。
@@ -533,7 +537,7 @@
                 </div>
             </li>
             <li class="desktop mobile web">
-                <img class="client-logo" src="@Helper.CDN/images/client/logo/sea.png" />
+                <img class="client-logo" src="/images/client/logo/sea.png" />
                 <header>SEA Wallet</header>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Windows">&#xe898;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="macOS">&#xe61b;</i>
@@ -542,7 +546,7 @@
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Web">&#xe63c;</i>
                 <div class="developer d-none"><a href="https://otcgo.cn/" target="_blank">SEA</a></div>
                 <div class="desc d-none">
-                    <img src="@Helper.CDN/images/client/sea.png" />
+                    <img src="/images/client/sea.png" />
                     <p>SEA 开发的一个钱包，包含基本的功能，如导入私钥，转账，提取 GAS 等。</p>
                     <div>
                         <div class="card">
@@ -604,14 +608,14 @@
                 </div>
             </li>
             <li class="mobile hardware">
-                <img class="client-logo" src="@Helper.CDN/images/client/logo/spatium.png" />
+                <img class="client-logo" src="/images/client/logo/spatium.png" />
                 <header>Spatium</header>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe633;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Hardware">&#xe688;</i>
                 <div class="developer d-none"><a href="http://spatium.net/" target="_blank">CaspianTechnologies</a></div>
                 <div class="desc d-none">
-                    <img src="@Helper.CDN/images/client/spatium.png" />
+                    <img src="/images/client/spatium.png" />
                     <p>
                         CaspianTechnologies 开发的数字货币钱包，对交易进行多方签名，兼容生物识别的 Spatium 硬件钱包，注重安全性。
                     </p>
@@ -669,13 +673,13 @@
                 </div>
             </li>
             <li class="mobile">
-                <img class="client-logo" src="@Helper.CDN/images/client/logo/cobo.png" />
+                <img class="client-logo" src="/images/client/logo/cobo.png" />
                 <header>Cobo Wallet - 云端钱包</header>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe633;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
                 <div class="developer d-none"><a href="https://cobo.com/about" target="_blank">Cobo</a></div>
                 <div class="desc d-none">
-                    <img src="@Helper.CDN/images/client/cobo.png" />
+                    <img src="/images/client/cobo.png" />
                     <p>Cobo 是支持多种数字资产管理的钱包。</p>
                     <div>
                         <div class="card">
@@ -730,13 +734,13 @@
                 </div>
             </li>
             <li class="mobile">
-                <img class="client-logo" src="@Helper.CDN/images/client/logo/math.png" />
+                <img class="client-logo" src="/images/client/logo/math.png" />
                 <header>麦子钱包</header>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe633;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
                 <div class="developer d-none"><a href="http://www.mathwallet.org" target="_blank">Math Labs</a></div>
                 <div class="desc d-none">
-                    <img src="@Helper.CDN/images/client/math.png" />
+                    <img src="/images/client/math.png" />
                     <p>Math Labs 开发的多种数字资产钱包客户端，同时支持BTC系、ETH系、NEO系、EOS系等生态，支持人脸、活体等多种生物识别技术。</p>
                     <div>
                         <div class="card">
@@ -796,13 +800,13 @@
                 </div>
             </li>
             <li class="mobile">
-                <img class="client-logo" src="@Helper.CDN/images/client/logo/infinito.png" />
+                <img class="client-logo" src="/images/client/logo/infinito.png" />
                 <header>infinito wallet</header>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe633;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
                 <div class="developer d-none"><a href="https://www.infinitowallet.io" target="_blank">Infinito Blockchain Labs</a></div>
                 <div class="desc d-none">
-                    <img src="@Helper.CDN/images/client/infinito.png" />
+                    <img src="/images/client/infinito.png" />
                     <p>Infinito 区块链实验室开发的多币种钱包客户端，同时支持BTC系、ETH系、NEO系、EOS系等生态，支持 10 种以上语言，支持指纹识别密码。</p>
                     <div>
                         <div class="card">
@@ -862,13 +866,13 @@
                 </div>
             </li>
             <li class="mobile web">
-                <img class="client-logo" src="@Helper.CDN/images/client/logo/iwallic.png" />
+                <img class="client-logo" src="/images/client/logo/iwallic.png" />
                 <header>iWallic</header>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe633;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Web">&#xe63c;</i>
                 <div class="developer d-none"><a href="https://github.com/ext-studio" target="_blank">e-studio</a></div>
                 <div class="desc d-none">
-                    <img src="@Helper.CDN/images/client/iwallic.png" />
+                    <img src="/images/client/iwallic.png" />
                     <p>e-studio 开发的安卓钱包，包含基本的功能，如导入私钥，转账等。</p>
                     <div>
                         <div class="card">
@@ -930,13 +934,13 @@
                 </div>
             </li>
             <li class="mobile web">
-                <img class="client-logo" src="@Helper.CDN/images/client/logo/neowallet.png" />
+                <img class="client-logo" src="/images/client/logo/neowallet.png" />
                 <header>NEO WALLET</header>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe633;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Web">&#xe63c;</i>
                 <div class="developer d-none"><a href="https://github.com/PeterLinX/" target="_blank">PeterLinX</a></div>
                 <div class="desc d-none">
-                    <img src="@Helper.CDN/images/client/neowallet.png" />
+                    <img src="/images/client/neowallet.png" />
                     <p>PeterLinX 开发的一个钱包，包含基本的功能，如导入私钥，转账，提取 GAS 等。</p>
                     <div>
                         <div class="card">
@@ -994,12 +998,12 @@
                 </div>
             </li>
             <li class="web">
-                <img class="client-logo" src="@Helper.CDN/images/client/logo/neotracker.png" />
+                <img class="client-logo" src="/images/client/logo/neotracker.png" />
                 <header>NEO Tracker</header>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Web">&#xe63c;</i>
                 <div class="developer d-none"><a href="https://github.com/neotracker/" target="_blank">NEO Tracker</a></div>
                 <div class="desc d-none">
-                    <img src="@Helper.CDN/images/client/neotracker.png" />
+                    <img src="/images/client/neotracker.png" />
                     <p>NEO Tracker 开发的在线钱包，用私钥或者密钥存储登录，同时也是一个区块链浏览器。</p>
                     <div>
                         <div class="card">
@@ -1061,12 +1065,12 @@
                 </div>
             </li>
             <li class="web">
-                <img class="client-logo" src="@Helper.CDN/images/client/logo/nelwallet.png" />
+                <img class="client-logo" src="/images/client/logo/nelwallet.png" />
                 <header>NEL Wallet</header>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Web">&#xe63c;</i>
                 <div class="developer d-none"><a href="https://nel.group/" target="_blank">NewEconoLabs</a></div>
                 <div class="desc d-none">
-                    <img src="@Helper.CDN/images/client/nelwallet.png" />
+                    <img src="/images/client/nelwallet.png" />
                     <p>NEL 开发的在线钱包，支持NNS竞拍、交易信息查看，同时也是一个区块链浏览器。</p>
                     <div>
                         <div class="card">
@@ -1128,12 +1132,12 @@
                 </div>
             </li>
             <li class="web">
-                <img class="client-logo" src="@Helper.CDN/images/client/logo/ansy.png" />
+                <img class="client-logo" src="/images/client/logo/ansy.png" />
                 <header>Ansy</header>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Web">&#xe63c;</i>
                 <div class="developer d-none"><a href="https://github.com/snowypowers/" target="_blank">Snowypowers</a></div>
                 <div class="desc d-none">
-                    <img src="@Helper.CDN/images/client/ansy.png" />
+                    <img src="/images/client/ansy.png" />
                     <p>Snowypowers 开发的简单的纸钱包生成器，仅支持私钥的加密解密，不支持转账等功能。</p>
                     <div>
                         <div class="card">
@@ -1183,12 +1187,12 @@
                 </div>
             </li>
             <li class="hardware">
-                <img class="client-logo" src="@Helper.CDN/images/client/logo/ledger.png" />
+                <img class="client-logo" src="/images/client/logo/ledger.png" />
                 <header>Ledger Nano S</header>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Hardware">&#xe688;</i>
                 <div class="developer d-none"><a href="https://github.com/LedgerHQ" target="_blank">Ledger SAS</a></div>
                 <div class="desc d-none">
-                    <img src="@Helper.CDN/images/client/ledgernanos.png" />
+                    <img src="/images/client/ledgernanos.png" />
                     <p> </p>
                     <div>
                         <div class="card">
@@ -1244,12 +1248,12 @@
                 </div>
             </li>
             <li class="hardware">
-                <img class="client-logo" src="@Helper.CDN/images/client/logo/ledger.png" />
+                <img class="client-logo" src="/images/client/logo/ledger.png" />
                 <header>Ledger Blue</header>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Hardware">&#xe688;</i>
                 <div class="developer d-none"><a href="https://github.com/LedgerHQ" target="_blank">Ledger SAS</a></div>
                 <div class="desc d-none">
-                    <img src="@Helper.CDN/images/client/ledgerblue.png" />
+                    <img src="/images/client/ledgerblue.png" />
                     <p>
                         一个支持 NEO 的多币种的硬件钱包，私钥存储在硬件芯片中，注重安全性。
                     </p>
@@ -1307,7 +1311,7 @@
                 </div>
             </li>
             <li class="desktop mobile">
-                <img class="client-logo" src="@Helper.CDN/images/client/logo/inwe.png" />
+                <img class="client-logo" src="/images/client/logo/inwe.png" />
                 <header>InWe Wallet</header>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Windows">&#xe898;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Linux">&#xf1e8;</i>
@@ -1375,7 +1379,7 @@
                 </div>
             </li>
             <li class="hardware">
-                <img class="client-logo" src="@Helper.CDN/images/client/logo/neodun.png" />
+                <img class="client-logo" src="/images/client/logo/neodun.png" />
                 <header>NEODUN</header>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Hardware">&#xe688;</i>
                 <div class="developer d-none"><a href="https://nel.group/" target="_blank">NewEconoLabs</a></div>
@@ -1390,15 +1394,6 @@
                 </div>
             </li>
         </ul>
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>
-                @Localizer["Safety Tips!"]
-            </strong>
-            @Localizer["Wallets are developed by a third party/community. Please contact the corresponding parties for technical support."]
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
     </div>
 </div>
 
