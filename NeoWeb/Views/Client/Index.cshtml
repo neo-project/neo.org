@@ -15,10 +15,9 @@
 
 <div class="text-center">
     <h1 class="m3">@Localizer["Get Client"]</h1>
-    <p>本页面展示的客户端均为 NEO 社区的开发团队或个人开发者所开发。如在使用过程中遇到问题请联系开发者。</p>
-    <p>其中部分为开源客户端，部分为不开源客户端，在使用本页面的部分客户端时，您有可能对您的 NEO 资产失去掌控权，请酌情选择。</p>
-    <p>在使用客户端过程中，请以安全方式备份私钥，私钥是您 NEO 资产掌控的唯一方式。</p>
-
+    <p>@Localizer["The wallets shown on this page are all developed by the development teams or individual developers of the NEO community. Please contact the developer if you encounter any problems during use."]</p>
+    <p>@Localizer["As some wallets are open-source while some are not, you may lose control of your own NEO assets when using some wallets that shown on this page. Please choose the wallets as appropriate."]</p>
+    <p>@Localizer["When using the wallet, please back up the private key in a secure manner. The private key is the only way to control your own NEO assets."]</p>
 </div>
 <ul class="nav-client t1">
     <li class="selected" onclick="showPlatform(this)"><i class="iconfont"></i>@Localizer["All Client"]</li>
@@ -37,45 +36,43 @@
                 <div class="developer d-none"><a href="https://github.com/neo-project/neo-gui" target="_blank">NEO Project</a></div>
                 <div class="desc d-none">
                     <img data-src="/images/client/gui.png" />
-                    <p>NEO-GUI 是一个全节点的 NEO 客户端，它包含了 NEO 网络的所有基本功能，软件交互较为专业，面向高级用户，拥有极高的安全性。缺点是初始化同步时间长，占用磁盘和内存，且稳定性欠佳。</p>
-                    <p>需要安装 <a href="https://www.microsoft.com/net/download/dotnet-framework-runtime" target="_blank">.NetFramework 4.7.1</a> 和 <a href="https://www.microsoft.com/en-us/download/details.aspx?id=14632" target="_blank">VC++ 2010 Redist x64</a>/<a href="https://www.microsoft.com/en-us/download/details.aspx?id=5555" target="_blank">x86</a>
-                    <p>更多信息请参见：<a href="http://docs.neo.org/zh-cn/node/gui.html" target="_blank">使用说明</a></p>
+                    <p>@Localizer["NEO-GUI is a full-node NEO client, which contains all the basic functions of NEO network. This wallet is designed for advanced users, with professional software interaction and extremely high security. However, it takes a long time to initialize synchronization, occupies disk and memory, and has poor stability."]</p>
+                    <p>@Localizer["Need to install"] <a href="https://www.microsoft.com/net/download/dotnet-framework-runtime" target="_blank">.NetFramework 4.7.1</a> @Localizer["and"] <a href="https://www.microsoft.com/en-us/download/details.aspx?id=14632" target="_blank">VC++ 2010 Redist x64</a>/<a href="https://www.microsoft.com/en-us/download/details.aspx?id=5555" target="_blank">x86</a>
+                    <p>@Localizer["For more information, see:"]<a href="http://docs.neo.org/zh-cn/node/gui.html" target="_blank">@Localizer["Instructions for use"]</a></p>
                     <div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    数字资产掌控权 - 高
+                                    @Localizer["Degree of Digital Asset Control - High Level"] 
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端让用户拥有对数字资产的高度掌控权。私钥是通过钱包文件和密码加密存储的。但仍需注意在安全的设备上使用，并注意钱包文件的安全备份和妥善保管。
+                                    @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the private key."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    全面验证
+                                    @Localizer["Comprehensive Verification"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端是一个全节点，它存储 NEO 区块链中的所有数据。这意味着当验证支付或者执行合约的时候，不需要信任第三方。
-                                    全节点提供了最高级别的安全性并且是保护网络不可或缺的元素。然而，它需要更多的硬盘空间（15GB）、更大的带宽和一个更长的初始化同步时间。
-                                    通过下载 NGD 提供的 <a href="http://sync.ngd.network/" target="_blank">离线同步包</a> 可以加快初始化同步速度。
+                                    @Localizer["This wallet is a full node that stores all the data in the NEO blockchain, which means that there is no need to trust a third party when verifying payments or executing contracts. The full node provides the highest level of security and is an integral part of protecting the network. However, it requires more hard disk space (15GB), greater bandwidth, and a longer initialization synchronization time. The initialization synchronization speed can be accelerated by downloading the <a href=\"http://sync.ngd.network/\" target=\"_blank\">offline synchronization package</a> provided by NGD."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    透明度 - 高
+                                    @Localizer["Transparency - High Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端是开源软件，这意味着所有开发者都可以审查其编码并确保最后的软件没有隐藏任何秘密。
+                                    @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."]
                                     @Localizer["Get source code"]: <a href="https://github.com/neo-project/neo-gui" target="_blank">GitHub</a>
                                 </div>
                             </div>
@@ -83,17 +80,17 @@
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    支持插件功能
+                                    @Localizer["Support Plugins"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    <p>NEO-GUI 支持插件功能，以下是常用插件列表</p>
+                                    <p>NEO-GUI @Localizer["supports plugins. The following is a list of commonly-used plug-in components."]</p>
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th scope="col">插件</th>
-                                                <th scope="col">简介</th>
+                                                <th scope="col">@Localizer["Plugin"]</th>
+                                                <th scope="col">@Localizer["Introduction"]</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -101,7 +98,7 @@
                                                 <th scope="row">
                                                     <a href="https://github.com/neo-project/neo-plugins/releases/">ImportBlocks</a>
                                                 </th>
-                                                <td>同步离线包，已默认安装。</td>
+                                                <td>@Localizer["Synchronizes the client using offline packages. Installed by default."]</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -126,46 +123,43 @@
                 <div class="desc d-none">
                     <img data-src="/images/client/cli.png" />
                     <p>
-                        NEO-CLI 是一个全节点的命令行客户端，可以跨平台上运行，它可以提供 API 供开发者调用，也可以作为区块链中的共识节点参与共识。
-                        软件交互较为专业，面向开发者。拥有较高的安全性和稳定性。缺点是初始化同步时间长，占用磁盘和内存。
+                        @Localizer["NEO-CLI is a full-node command-line client that can run across platforms. It can provide APIs for developers to call, or participate in the consensus mechanism as a consensus node in the block chain. This wallet is designed for developers, with professional software interaction, as well as higher security and stability. The disadvantages of this wallet are that it takes a long time to initialize synchronization, and it takes up disk and memory."]
                     </p>
-                    <p>更多信息请参见：<a href="@Localizer["http://docs.neo.org/en-us/node/cli/setup.html"]" target="_blank">使用说明</a>, <a href="https://github.com/neo-project/neo-cli/blob/master/CHANGELOG.md" target="_blank">更新日志</a></p>
+                    <p>@Localizer["For more information, see:"]<a href="@Localizer["http://docs.neo.org/en-us/node/cli/setup.html"]" target="_blank">@Localizer["Instructions for use"]</a>, <a href="https://github.com/neo-project/neo-cli/blob/master/CHANGELOG.md" target="_blank">@Localizer["Instructions for use"]</a></p>
                     <div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    数字资产掌控权 - 高
+                                    @Localizer["Degree of Digital Asset Control - High Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端让用户拥有对数字资产的高度掌控权。私钥是通过钱包文件和密码加密存储的。但仍需注意在安全的设备上使用，并注意钱包文件的安全备份和妥善保管。
+                                    @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the private key."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    全面验证
+                                    @Localizer["Comprehensive Verification"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端是一个全节点，它存储 NEO 区块链中的所有数据。这意味着当验证支付或者执行合约的时候，不需要信任第三方。
-                                    全节点提供了最高级别的安全性并且是保护网络不可或缺的元素。然而，它需要更多的硬盘空间（15GB）、更大的带宽和一个更长的初始化同步时间。
-                                    通过下载 NGD 提供的 <a href="http://sync.ngd.network/" target="_blank">离线同步包</a> 可以加快初始化同步速度。
+                                    @Localizer["This wallet is a full node that stores all the data in the NEO blockchain, which means that there is no need to trust a third party when verifying payments or executing contracts. The full node provides the highest level of security and is an integral part of protecting the network. However, it requires more hard disk space (15GB), greater bandwidth, and a longer initialization synchronization time. The initialization synchronization speed can be accelerated by downloading the <a href=\"http://sync.ngd.network/\" target=\"_blank\">offline synchronization package</a> provided by NGD."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    透明度 - 高
+                                    @Localizer["Transparency - High Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端是开源软件，这意味着所有开发者都可以审查其编码并确保最后的软件没有隐藏任何秘密。
+                                    @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."]
                                     @Localizer["Get source code"]: <a href="https://github.com/neo-project/neo-cli" target="_blank">GitHub</a>
                                 </div>
                             </div>
@@ -173,17 +167,17 @@
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    支持插件功能
+                                    @Localizer["Support Plugins"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    <p>NEO-CLI 支持插件功能，以下是常用插件列表</p>
+                                    <p>NEO-CLI @Localizer["supports plugins. The following is a list of commonly-used plug-in components."]</p>
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th scope="col">插件</th>
-                                                <th scope="col">简介</th>
+                                                <th scope="col">@Localizer["Plugin"]</th>
+                                                <th scope="col">@Localizer["Introduction"]</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -191,31 +185,31 @@
                                                 <th scope="row">
                                                     <a href="https://github.com/neo-project/neo-plugins/releases/">ApplicationLogs</a>
                                                 </th>
-                                                <td>存储智能合约日志（ApplicationLogs），交易所必选。</td>
+                                                <td>@Localizer["Synchronizes the smart contract log (ApplicationLogs) automatically in RPC mode. Mandatory for exchanges."]</td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">
                                                     <a href="https://github.com/neo-project/neo-plugins/releases/">ImportBlocks</a>
                                                 </th>
-                                                <td>同步离线包，已默认安装。</td>
+                                                <td>@Localizer["Synchronizes the client using offline packages. Installed by default."]</td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">
                                                     <a href="https://github.com/neo-project/neo-plugins/releases/">RpcSecurity</a>
                                                 </th>
-                                                <td>提升 RPC 安全，可选。</td>
+                                                <td>@Localizer["Improves RPC security. Optional."]</td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">
                                                     <a href="https://github.com/neo-project/neo-plugins/releases/">SimplePolicy</a>
                                                 </th>
-                                                <td>启用共识的简单策略，搭建私链必选。</td>
+                                                <td>@Localizer["Enables policies for consensus. Mandatory for building private chain."]</td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">
                                                     <a href="https://github.com/neo-project/neo-plugins/releases/">StatesDumper</a>
                                                 </th>
-                                                <td>导出 NEO-CLI 状态数据，可选。</td>
+                                                <td>@Localizer["Exports NEO-CLI status data. Optional."]</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -225,7 +219,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    支持的 NEO 特性
+                                    @Localizer["Supported NEP"]
                                 </a>
                             </div>
                             <div class="collapse">
@@ -259,42 +253,42 @@
                     <img class="o3mobile" data-src="/images/client/o3.png" />
                     <img class="o3desktop" style="display:none;" data-src="/images/client/o3-desktop.png" />
                     <p>
-                        O3 Labs 开发的跨平台客户端，支持大部分主流操作系统。该客户端保持高更新频率，能及时支持 NEO 网络更新与特性。
+                        @Localizer["It's a cross-platform wallet developed by O3 Labs. This wallet supports most mainstream operating systems, maintains a high update frequency and can support NEO network updates and features in a timely manner."]
                     </p>
                     <div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    数字资产掌控权 - 高
+                                    @Localizer["Degree of Digital Asset Control - High Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端让你拥有对数字资产的高度掌控权。私钥是通过 Encrypted Key 和密码加密存储的。但用户仍需注意在安全的设备上使用，并注意 Encrypted Key 的安全备份和妥善保管。
+                                    @Localizer["This wallet gives you a high degree of control over digital assets. The private key is encrypted and stored by the Encrypted Key and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the Encrypted Key."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-warning">
-                                    集中验证
+                                    @Localizer["Centralized Verification"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    轻钱包，这个钱包依赖于一个中心的服务，使用时无需同步区块数据。但需要信任第三方不会隐藏和模拟支付。
+                                    @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    透明度 - 较高
+                                    @Localizer["Transparency - Higher Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端是开源软件，这意味着世界上所有的开发人员都可以审查它的编码并确保最后的软件没有隐藏任何秘密。不过，当你安装或更新软件时，你还是需要信任该客户端的开发者。
+                                    @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."]
                                     @Localizer["Get source code"]: <a href="https://github.com/O3Labs" target="_blank">GitHub</a>
                                 </div>
                             </div>
@@ -302,7 +296,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    支持的 NEP
+                                    @Localizer["Supported NEP"]
                                 </a>
                             </div>
                             <div class="collapse">
@@ -328,41 +322,41 @@
                 <div class="developer d-none"><a href="https://github.com/CityOfZion/neon-wallet" target="_blank">City of Zion</a></div>
                 <div class="desc d-none">
                     <img data-src="/images/client/neon.png" />
-                    <p>NEO 英文开发者社区 City of Zion 开发的跨平台的客户端，支持 Windows、 macOS 和 Linux，新版拥有全新的视觉和简约的界面设计。</p>
+                    <p>@Localizer["It's a cross-platform wallet developed by NEO developer community City of Zion. This wallet supports mainstream operating systems such as Windows, macOS and Linux, and focuses on UE and UI."]</p>
                     <div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    数字资产掌控权 - 高
+                                    @Localizer["Degree of Digital Asset Control - High Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端让用户拥有对数字资产的完全掌控权。私钥是通过钱包文件和密码加密存储的。但仍需注意在安全的设备上使用，并注意私钥的安全备份和妥善保管。
+                                    @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of wallet files."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-warning">
-                                    集中验证
+                                    @Localizer["Centralized Verification"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    轻钱包，这个钱包依赖于一个中心的服务，使用时无需同步区块数据。但需要信任第三方不会隐藏和模拟支付。
+                                    @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    透明度 - 高
+                                    @Localizer["Transparency - High Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端是开源软件，这意味着所有开发者都可以审查其编码并确保最后的软件没有隐藏任何秘密。
+                                    @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."]
                                     @Localizer["Get source code"]: <a href="https://github.com/CityOfZion/neon-wallet" target="_blank">GitHub</a>
                                 </div>
                             </div>
@@ -370,7 +364,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    支持的 NEP
+                                    @Localizer["Supported NEP"]
                                 </a>
                             </div>
                             <div class="collapse">
@@ -405,42 +399,42 @@
                     <img class="aphelionmobile" data-src="/images/client/aphelion.png" />
                     <img class="apheliondesktop" style="display:none;" data-src="/images/client/aphelion-desktop.png" />
                     <p>
-                        一个跨平台的客户端，几乎支持所有主流操作系统，并且支持通讯录和完整的 NEP-5 ，支持和 Ledger 硬件钱包结合使用。
+                        @Localizer["It's a cross-platform wallet that supports almost all mainstream operating systems, and it also supports contacts and complete NEP-5. This wallet can be used in conjunction with the Ledger hardware wallet."]
                     </p>
                     <div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    数字资产掌控权 - 高
+                                    @Localizer["Degree of Digital Asset Control - High Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端让用户拥有对数字资产的完全掌控权。私钥是通过钱包文件和密码加密存储的。但仍需注意在安全的设备上使用，并注意私钥的安全备份和妥善保管。
+                                    @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the private key."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-warning">
-                                    集中验证
+                                    @Localizer["Centralized Verification"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    轻钱包，这个钱包依赖于一个中心的服务，使用时无需同步区块数据。但需要信任第三方不会隐藏和模拟支付。
+                                    @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    透明度 - 较高
+                                    @Localizer["Transparency - Higher Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端是开源软件，这意味着所有开发者都可以审查其编码并确保最后的软件没有隐藏任何秘密。但当你安装或更新软件时，需信任该客户端的开发者。
+                                    @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software."]
                                     @Localizer["Get source code"]: <a href="https://github.com/aphtoken/aph-wallet-gui" target="_blank">GitHub</a>
                                 </div>
                             </div>
@@ -448,7 +442,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    支持的 NEP
+                                    @Localizer["Supported NEP"]
                                 </a>
                             </div>
                             <div class="collapse">
@@ -475,43 +469,42 @@
                 <div class="desc d-none">
                     <img data-src="/images/client/anybit.png" />
                     <p>
-                        首个支持 NEO 的冷热结合钱包客户端，助记词及私钥本地保存，该客户端分为常规模式和隔离模式。
-                        在隔离模式下，使用设备需要完全隔离网络，功能简单，在交易时，需使用热钱包进行交易请求及广播。
+                        @Localizer["It's a the first hot and cold combined wallet that supports NEO. The mnemonic and private key are stored locally. This wallet is divided into general mode and isolation mode. In the isolation mode, the devices used need to be completely isolated from the network. This wallet is simple in functions, and when transaction happens, the hot wallet needs to be used for transaction request and broadcast."]
                     </p>
                     <div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    数字资产掌控权 - 高
+                                    @Localizer["Degree of Digital Asset Control - High Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端让用户拥有对数字资产的高度掌控权。私钥或助词本地保存。更支持冷热钱包双重模式配合，离线签名授权，在线资产观察。完全隔离网络环境，更安全地存储资产。
+                                    @Localizer["This wallet gives users a high degree of control over digital assets. The private key or the mnemonic are stored locally. This wallet gives more support to the cold and hot wallet dual mode cooperation, offline signature authorization and online asset observation. It is completely isolated from the network environment so as to store assets more securely."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-warning">
-                                    集中验证
+                                    @Localizer["Centralized Verification"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    轻钱包，这个钱包依赖于一个中心的服务，使用时无需同步区块数据。但需要信任第三方不会隐藏和模拟支付。
+                                    @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    透明度 - 较高
+                                    @Localizer["Transparency - Higher Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端是开源软件，这意味着所有开发者都可以审查其编码并确保最后的软件没有隐藏任何秘密。但当你安装或更新软件时，需信任该客户端的开发者。
+                                    @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software."]
                                     @Localizer["Get source code"]: <a href="https://github.com/AnyBitIO/anybit-Android" target="_blank">GitHub</a>
                                 </div>
                             </div>
@@ -519,7 +512,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    支持的 NEP
+                                    @Localizer["Supported NEP"]
                                 </a>
                             </div>
                             <div class="collapse">
@@ -547,41 +540,41 @@
                 <div class="developer d-none"><a href="https://otcgo.cn/" target="_blank">SEA</a></div>
                 <div class="desc d-none">
                     <img src="/images/client/sea.png" />
-                    <p>SEA 开发的一个钱包，包含基本的功能，如导入私钥，转账，提取 GAS 等。</p>
+                    <p>@Localizer["It's a wallet developed by SEA. This wallet contains basic functions such as importing private keys, transferring assets, retrieving GAS, etc."]</p>
                     <div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    数字资产掌控权 - 高
+                                    @Localizer["Degree of Digital Asset Control - High Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端让用户拥有对数字资产的高度掌控权。私钥是通过钱包文件和密码加密存储的。但仍需注意在安全的设备上使用，并注意私钥的安全备份和妥善保管。
+                                    @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the private key."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-warning">
-                                    集中验证
+                                    @Localizer["Centralized Verification"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    轻钱包，这个钱包依赖于一个中心的服务，使用时无需同步区块数据。但需要信任第三方不会隐藏和模拟支付。
+                                    @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    透明度 - 较高
+                                    @Localizer["Transparency - Higher Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端是开源软件，这意味着所有开发者都可以审查其编码并确保最后的软件没有隐藏任何秘密。但当你安装或更新软件时，需信任该客户端的开发者。
+                                    @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software."]
                                     @Localizer["Get source code"]: <a href="https://github.com/OTCGO/sea-app" target="_blank">GitHub</a>
                                 </div>
                             </div>
@@ -589,7 +582,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    支持的 NEP
+                                    @Localizer["Supported NEP"]
                                 </a>
                             </div>
                             <div class="collapse">
@@ -617,42 +610,42 @@
                 <div class="desc d-none">
                     <img src="/images/client/spatium.png" />
                     <p>
-                        CaspianTechnologies 开发的数字货币钱包，对交易进行多方签名，兼容生物识别的 Spatium 硬件钱包，注重安全性。
+                        @Localizer["It's a digital currency wallet developed by CaspianTechnologies. This wallet needs signatures from multiple parties on transactions, and it is compatible with the Spatium hardware wallet, which possesses the biological recognition technologies. It also focuses on the security."]
                     </p>
                     <div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    数字资产掌控权 - 高
+                                    @Localizer["Degree of Digital Asset Control - High Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端让用户拥有对数字资产的高度掌控权。私钥是通过硬件钱包加密存储的，有极高的安全性。
+                                    @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the hardware wallet, so it has extremely high security."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-warning">
-                                    集中验证
+                                    @Localizer["Centralized Verification"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    轻钱包，这个钱包依赖于一个中心的服务，使用时无需同步区块数据。但需要信任第三方不会隐藏和模拟支付。
+                                    @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    透明度 - 较高
+                                    @Localizer["Transparency - Higher Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端是开源软件，这意味着所有开发者都可以审查其编码并确保最后的软件没有隐藏任何秘密。但当你安装或更新软件时，需信任该客户端的开发者。
+                                    @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software."]
                                     @Localizer["Get source code"]: <a href="https://github.com/CaspianTechnologies" target="_blank">GitHub</a>
                                 </div>
                             </div>
@@ -660,7 +653,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-warning">
-                                    不支持更多 NEP
+                                    @Localizer["Fail to support more NEP"]
                                 </a>
                             </div>
                         </div>
@@ -674,54 +667,54 @@
             </li>
             <li class="mobile">
                 <img class="client-logo" src="/images/client/logo/cobo.png" />
-                <header>Cobo Wallet - 云端钱包</header>
+                <header>Cobo Wallet - @Localizer["Cloud Wallet"]</header>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe633;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
                 <div class="developer d-none"><a href="https://cobo.com/about" target="_blank">Cobo</a></div>
                 <div class="desc d-none">
                     <img src="/images/client/cobo.png" />
-                    <p>Cobo 是支持多种数字资产管理的钱包。</p>
+                    <p>@Localizer["Cobo is a wallet that supports multiple digital asset management."]</p>
                     <div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-warning">
-                                    数字资产掌控权 - 低
+                                    @Localizer["Degree of Digital Asset Control - Low Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    与数字资产交易所类似，你的资产托管在其服务器中。在服务器受到攻击的情况下你的资产有可能会被盗。同时你也需要十分信任钱包开发者。
+                                    @Localizer["Similar to a digital asset exchange, your assets are hosted on its servers. Your assets may be stolen in the event of an attack on your server. However, you also need to trust the developers of this wallet."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-warning">
-                                    集中验证
+                                    @Localizer["Centralized Verification"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    轻钱包，这个钱包依赖于一个中心的服务，使用时无需同步区块数据。但需要信任第三方不会隐藏和模拟支付。
+                                    @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-danger">
-                                    非开源软件
+                                    @Localizer["Non-open Source Software"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端是非开源软件，这意味着需要十分信任这个钱包的开发者。NEO Foundation、NGD 不为该客户端进行背书。
+                                    @Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The NEO Foundation and NGD do not endorse this client."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-warning">
-                                    不支持更多 NEP
+                                    @Localizer["Fail to support more NEP"]
                                 </a>
                             </div>
                         </div>
@@ -735,54 +728,54 @@
             </li>
             <li class="mobile">
                 <img class="client-logo" src="/images/client/logo/math.png" />
-                <header>麦子钱包</header>
+                <header>@Localizer["Math Wallet"]</header>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe633;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
                 <div class="developer d-none"><a href="http://www.mathwallet.org" target="_blank">Math Labs</a></div>
                 <div class="desc d-none">
                     <img src="/images/client/math.png" />
-                    <p>Math Labs 开发的多种数字资产钱包客户端，同时支持BTC系、ETH系、NEO系、EOS系等生态，支持人脸、活体等多种生物识别技术。</p>
+                    <p>@Localizer["It's a multiple digital asset wallet developed by Math Labs. This wallet supports BTC, ETH, NEO, EOS and other ecosystems, as well as face recognition, living body recognition and other biometric recognition technologies."]</p>
                     <div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    数字资产掌控权 - 高
+                                    @Localizer["Degree of Digital Asset Control - High Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端让用户拥有对数字资产的高度掌控权。私钥是通过钱包文件和密码加密存储的。但仍需注意在安全的设备上使用，并注意私钥的安全备份和妥善保管。
+                                    @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the private key."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-warning">
-                                    集中验证
+                                    @Localizer["Centralized Verification"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    轻钱包，这个钱包依赖于一个中心的服务，使用时无需同步区块数据。但需要信任第三方不会隐藏和模拟支付。
+                                    @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-danger">
-                                    非开源软件
+                                    @Localizer["Non-open Source Software"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端是非开源软件，这意味着需要十分信任这个钱包的开发者。NEO Foundation、NGD 不为该客户端进行背书。
+                                    @Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The NEO Foundation and NGD do not endorse this client."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    支持的 NEP
+                                    @Localizer["Supported NEP"]
                                 </a>
                             </div>
                             <div class="collapse">
@@ -807,48 +800,48 @@
                 <div class="developer d-none"><a href="https://www.infinitowallet.io" target="_blank">Infinito Blockchain Labs</a></div>
                 <div class="desc d-none">
                     <img src="/images/client/infinito.png" />
-                    <p>Infinito 区块链实验室开发的多币种钱包客户端，同时支持BTC系、ETH系、NEO系、EOS系等生态，支持 10 种以上语言，支持指纹识别密码。</p>
+                    <p>@Localizer["It's a multi-token wallet developed by Infinito Blockchain Labs . This wallet supports BTC, ETH, NEO, EOS and other ecosystems. It has more than 10 languages for alternatives and supports fingerprint identification."]</p>
                     <div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    数字资产掌控权 - 高
+                                    @Localizer["Degree of Digital Asset Control - High Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端让用户拥有对数字资产的高度掌控权。私钥是通过钱包文件和密码加密存储的。但仍需注意在安全的设备上使用，并注意私钥的安全备份和妥善保管。
+                                    @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the private key."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-warning">
-                                    集中验证
+                                    @Localizer["Centralized Verification"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    轻钱包，这个钱包依赖于一个中心的服务，使用时无需同步区块数据。但需要信任第三方不会隐藏和模拟支付。
+                                    @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-danger">
-                                    非开源软件
+                                    @Localizer["Non-open Source Software"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端是非开源软件，这意味着需要十分信任这个钱包的开发者。NEO Foundation、NGD 不为该客户端进行背书。
+                                    @Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The NEO Foundation and NGD do not endorse this client."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    支持的 NEP
+                                    @Localizer["Supported NEP"]
                                 </a>
                             </div>
                             <div class="collapse">
@@ -873,41 +866,41 @@
                 <div class="developer d-none"><a href="https://github.com/ext-studio" target="_blank">e-studio</a></div>
                 <div class="desc d-none">
                     <img src="/images/client/iwallic.png" />
-                    <p>e-studio 开发的安卓钱包，包含基本的功能，如导入私钥，转账等。</p>
+                    <p>@Localizer["It's an Android wallet developed by e-studio. This wallet contains basic functions such as importing private keys, transferring assets, etc."]</p>
                     <div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    数字资产掌控权 - 高
+                                    @Localizer["Degree of Digital Asset Control - High Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端让用户拥有对数字资产的高度掌控权。私钥是通过钱包文件和密码加密存储的。但仍需注意在安全的设备上使用，并注意钱包文件的安全备份和妥善保管。
+                                    @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the private key."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-warning">
-                                    集中验证
+                                    @Localizer["Centralized Verification"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    轻钱包，这个钱包依赖于一个中心的服务，使用时无需同步区块数据。但需要信任第三方不会隐藏和模拟支付。
+                                    @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    透明度 - 较高
+                                    @Localizer["Transparency - Higher Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端是开源软件，这意味着所有开发者都可以审查其编码并确保最后的软件没有隐藏任何秘密。但当你安装或更新软件时，需信任该客户端的开发者。
+                                    @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software."]
                                     @Localizer["Get source code"]: <a href="https://github.com/ext-studio/iwallic" target="_blank">GitHub</a>
                                 </div>
                             </div>
@@ -915,7 +908,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    支持的 NEP
+                                    @Localizer["Supported NEP"]
                                 </a>
                             </div>
                             <div class="collapse">
@@ -941,41 +934,41 @@
                 <div class="developer d-none"><a href="https://github.com/PeterLinX/" target="_blank">PeterLinX</a></div>
                 <div class="desc d-none">
                     <img src="/images/client/neowallet.png" />
-                    <p>PeterLinX 开发的一个钱包，包含基本的功能，如导入私钥，转账，提取 GAS 等。</p>
+                    <p>@Localizer["It's a wallet developed by PeterLinX. This wallet contains basic functions such as importing private keys, transferring assets, retrieving GAS, etc."]</p>
                     <div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    数字资产掌控权 - 高
+                                    @Localizer["Degree of Digital Asset Control - High Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端让你拥有对数字资产的高度掌控权。私钥是通过钱包文件和密码加密存储的。但你仍需注意在安全的设备上使用，并注意钱包文件的安全备份和妥善保管。
+                                    @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the wallet file."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-warning">
-                                    集中验证
+                                    @Localizer["Centralized Verification"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    轻钱包，这个钱包依赖于一个中心的服务，使用时无需同步区块数据。但需要信任第三方。
+                                    @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    透明度 - 较高
+                                    @Localizer["Transparency - Higher Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端是开源软件，这意味着所有开发者都可以审查其编码并确保最后的软件没有隐藏任何秘密。但当你安装或更新软件时，需信任该客户端的开发者。
+                                    @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software."]
                                     @Localizer["Get source code"]: <a href="https://github.com/PeterLinX/neowallet.cn" target="_blank">GitHub</a>
                                 </div>
                             </div>
@@ -983,7 +976,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-warning">
-                                    不支持更多 NEP
+                                    @Localizer["Fail to support more NEP"]
                                 </a>
                             </div>
                         </div>
@@ -1004,41 +997,41 @@
                 <div class="developer d-none"><a href="https://github.com/neotracker/" target="_blank">NEO Tracker</a></div>
                 <div class="desc d-none">
                     <img src="/images/client/neotracker.png" />
-                    <p>NEO Tracker 开发的在线钱包，用私钥或者密钥存储登录，同时也是一个区块链浏览器。</p>
+                    <p>@Localizer["It's an online wallet developed by NEO Tracker. This wallet is logged in with the private key or key storage, and is also a blockchain browser."]</p>
                     <div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    数字资产掌控权 - 高
+                                    @Localizer["Degree of Digital Asset Control - High Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端让你拥有对数字资产的高度掌控权。私钥是通过钱包文件和密码加密存储的。但你仍需注意在安全的设备上使用，并注意钱包文件的安全备份和妥善保管。
+                                    @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the wallet file."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-warning">
-                                    集中验证
+                                    @Localizer["Centralized Verification"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    轻钱包，这个钱包依赖于一个中心的服务，使用时无需同步区块数据。但需要信任第三方不会隐藏和模拟支付。
+                                    @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    透明度 - 较高
+                                    @Localizer["Transparency - Higher Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端是开源软件，这意味着所有开发者都可以审查其编码并确保最后的软件没有隐藏任何秘密。但当你安装或更新软件时，需信任该客户端的开发者。
+                                    @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when when you visit a web wallet."]
                                     @Localizer["Get source code"]: <a href="https://github.com/neotracker/neotracker-wallet" target="_blank">GitHub</a>
                                 </div>
                             </div>
@@ -1046,7 +1039,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    支持的 NEP
+                                    @Localizer["Supported NEP"]
                                 </a>
                             </div>
                             <div class="collapse">
@@ -1071,41 +1064,41 @@
                 <div class="developer d-none"><a href="https://nel.group/" target="_blank">NewEconoLabs</a></div>
                 <div class="desc d-none">
                     <img src="/images/client/nelwallet.png" />
-                    <p>NEL 开发的在线钱包，支持NNS竞拍、交易信息查看，同时也是一个区块链浏览器。</p>
+                    <p>@Localizer["It's an online wallet developed by NEL. This wallet supports NNS auction, transaction information viewing, and is also a blockchain browser."]</p>
                     <div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    数字资产掌控权 - 高
+                                    @Localizer["Degree of Digital Asset Control - High Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端让用户拥有对数字资产的高度掌控权。私钥是通过钱包文件和密码加密存储的。但仍需注意在安全的设备上使用，并注意钱包文件的安全备份和妥善保管。
+                                    @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the private key."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-warning">
-                                    集中验证
+                                    @Localizer["Centralized Verification"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    轻钱包，这个钱包依赖于一个中心的服务，使用时无需同步区块数据。但需要信任第三方不会隐藏和模拟支付。
+                                    @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    透明度 - 较高
+                                    @Localizer["Transparency - Higher Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端是开源软件，这意味着世界上所有的开发人员都可以审查它的编码并确保最后的软件没有隐藏任何秘密。不过，当你访问网页钱包时，你还是需要信任该客户端的开发者。
+                                    @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when when you visit a web wallet."]
                                     @Localizer["Get source code"]: <a href="https://github.com/NewEconoLab/NELBrowser-Web-React" target="_blank">GitHub</a>
                                 </div>
                             </div>
@@ -1113,7 +1106,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    支持的 NEP
+                                    @Localizer["Supported NEP"]
                                 </a>
                             </div>
                             <div class="collapse">
@@ -1138,29 +1131,29 @@
                 <div class="developer d-none"><a href="https://github.com/snowypowers/" target="_blank">Snowypowers</a></div>
                 <div class="desc d-none">
                     <img src="/images/client/ansy.png" />
-                    <p>Snowypowers 开发的简单的纸钱包生成器，仅支持私钥的加密解密，不支持转账等功能。</p>
+                    <p>@Localizer["It's a simple paper wallet generator developed by Snowypowers. This wallet only supports the encryption and decryption of private keys. It fails to support other functions like transferring assets."]</p>
                     <div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    数字资产掌控权 - 高
+                                    @Localizer["Degree of Digital Asset Control - High Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端支持将私钥进行加密和解密，以便将其安全存储。网站本身不存储私钥，请注意私钥的安全备份和妥善保管。
+                                    @Localizer["This wallet supports the encryption and decryption of the private key for secure storage. The website itself does not store the private key, so please pay attention to the safe backup and safekeeping of the private key."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    透明度 - 较高
+                                    @Localizer["Transparency - Higher Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端是开源软件，这意味着所有开发者都可以审查其编码并确保最后的软件没有隐藏任何秘密。但当你安装或更新软件时，需信任该客户端的开发者。
+                                    @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when when you visit a web wallet."]
                                     @Localizer["Get source code"]: <a href="https://github.com/snowypowers/ansy" target="_blank">GitHub</a>
                                 </div>
                             </div>
@@ -1168,7 +1161,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    支持的 NEP
+                                    @Localizer["Supported NEP"]
                                 </a>
                             </div>
                             <div class="collapse">
@@ -1193,41 +1186,41 @@
                 <div class="developer d-none"><a href="https://github.com/LedgerHQ" target="_blank">Ledger SAS</a></div>
                 <div class="desc d-none">
                     <img src="/images/client/ledgernanos.png" />
-                    <p> </p>
+                    <p>@Localizer["It's a multi-currency hardware wallet that supports NEO. This wallet’s private key is stored in the hardware chip and it focuses on the security."]</p>
                     <div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    数字资产掌控权 - 高
+                                    @Localizer["Degree of Digital Asset Control - High Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端让用户拥有对数字资产的高度掌控权。私钥是通过硬件钱包加密存储的，有极高的安全性。
+                                    @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the hardware wallet, so it has extremely high security."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-warning">
-                                    集中验证
+                                    @Localizer["Centralized Verification"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    轻钱包，这个钱包依赖于一个中心的服务，使用时无需同步区块数据。但需要信任第三方。
+                                    @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    透明度 - 较高
+                                    @Localizer["Transparency - Higher Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端是开源软件，这意味着所有开发者都可以审查其编码并确保最后的软件没有隐藏任何秘密。但当你安装或更新软件时，需信任该客户端的开发者。
+                                    @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software."]
                                     @Localizer["Get source code"]: <a href="https://github.com/LedgerHQ" target="_blank">GitHub</a>
                                 </div>
                             </div>
@@ -1235,7 +1228,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-warning">
-                                    不支持更多 NEP
+                                    @Localizer["Fail to support more NEP"]
                                 </a>
                             </div>
                         </div>
@@ -1255,42 +1248,42 @@
                 <div class="desc d-none">
                     <img src="/images/client/ledgerblue.png" />
                     <p>
-                        一个支持 NEO 的多币种的硬件钱包，私钥存储在硬件芯片中，注重安全性。
+                        @Localizer["It's a multi-currency hardware wallet that supports NEO. This wallet’s private key is stored in the hardware chip and it focuses on the security."]
                     </p>
                     <div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    数字资产掌控权 - 高
+                                    @Localizer["Degree of Digital Asset Control - High Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端让用户拥有对数字资产的高度掌控权。私钥是通过硬件钱包加密存储的，有极高的安全性。
+                                    @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the hardware wallet, so it has extremely high security."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-warning">
-                                    集中验证
+                                    @Localizer["Centralized Verification"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    轻钱包，这个钱包依赖于一个中心的服务，使用时无需同步区块数据。但需要信任第三方。
+                                    @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    透明度 - 较高
+                                    @Localizer["Transparency - Higher Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端是开源软件，这意味着所有开发者都可以审查其编码并确保最后的软件没有隐藏任何秘密。但当你安装或更新软件时，需信任该客户端的开发者。
+                                    @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software."]
                                     @Localizer["Get source code"]: <a href="https://github.com/LedgerHQ" target="_blank">GitHub</a>
                                 </div>
                             </div>
@@ -1298,7 +1291,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-warning">
-                                    不支持更多 NEP
+                                    @Localizer["Fail to support more NEP"]
                                 </a>
                             </div>
                         </div>
@@ -1319,41 +1312,41 @@
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
                 <div class="developer d-none"><a href="http://inwecrypto.com" target="_blank">InWeCrypto</a></div>
                 <div class="desc d-none">
-                    <p>InWeCrypto 钱包是一款 HD 钱包的移动端数字资产钱包，支持多种数字资产。</p>
+                    <p>@Localizer["InWeCrypto Wallet is a mobile digital asset wallet for HD Wallets that supports multiple digital assets."]</p>
                     <div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    数字资产掌控权 - 高
+                                    @Localizer["Degree of Digital Asset Control - High Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端让用户拥有对数字资产的高度掌控权。私钥是通过钱包文件和密码加密存储的。但仍需注意在安全的设备上使用，并注意私钥的安全备份和妥善保管。
+                                    @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the private key."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-warning">
-                                    集中验证
+                                    @Localizer["Centralized Verification"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    轻钱包，这个钱包依赖于一个中心的服务，使用时无需同步区块数据。但需要信任第三方不会隐藏和模拟支付。
+                                    @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    透明度 - 较高
+                                    @Localizer["Transparency - Higher Level"]
                                 </a>
                             </div>
                             <div class="collapse">
                                 <div class="card-body">
-                                    该客户端是开源软件，这意味着所有开发者都可以审查其编码并确保最后的软件没有隐藏任何秘密。但当你安装或更新软件时，需信任该客户端的开发者。
+                                    @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software."]
                                     @Localizer["Get source code"]: <a href="https://github.com/InWeCrypto/wallet_Android" target="_blank">GitHub</a>
                                 </div>
                             </div>
@@ -1361,7 +1354,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <a class="text-success">
-                                    支持的 NEP
+                                    @Localizer["Supported NEP"]
                                 </a>
                             </div>
                             <div class="collapse">
@@ -1384,7 +1377,7 @@
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Hardware">&#xe688;</i>
                 <div class="developer d-none"><a href="https://nel.group/" target="_blank">NewEconoLabs</a></div>
                 <div class="desc d-none">
-                    NewEconoLabs 开发的硬件钱包，支持私钥导入及多私钥管理。OLED 屏幕，Type-C / 蓝牙，多币种，支持 NEO / GAS，可使用其它扩展应用。
+                    <p>@Localizer["It's a hardware wallet developed by NewEconoLabs that supports private key import and multi-private key management. Its features include OLED screen, Type-C/Bluetooth and multiple tokens, and it also supports NEO/GAS. Other extended applications can also be used."]</p>
                     <p>@Localizer["Languages"]: English / 简体中文</p>
                     @Localizer["Get source code"]: <a href="https://github.com/NewEconoLab/NeoDun" target="_blank">GitHub</a>
                 </div>
@@ -1423,10 +1416,10 @@
             $(".client-ul .client-logo").click(function () {
                 zoomin(this);
             });
-            $(".card-header a").attr("onclick", "showDetails(this)");
+            $(".card-header").attr("onclick", "showDetails(this)");
         })
         function showDetails(obj){
-            var col = $(obj).parent().parent().find('.collapse');
+            var col = $(obj).parent().find('.collapse');
             $(".collapse").not(col).hide('fast');
             col.toggle('fast');
         }

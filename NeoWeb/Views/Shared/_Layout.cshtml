@@ -64,8 +64,8 @@
     <environment exclude="Development">
         <link href="@Helper.CDN/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
         <link href="@Helper.CDN/css/site.min.css?v=20181018" rel="stylesheet" />
+        @RenderSection("Styles", required: false)
     </environment>
-    @RenderSection("Styles", required: false)
     @Html.Raw(JavaScriptSnippet.FullScript)
 </head>
 <body>
