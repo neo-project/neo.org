@@ -69,31 +69,51 @@
     @Html.Raw(JavaScriptSnippet.FullScript)
 </head>
 <body>
-    <nav class="navbar navbar-expand fixed-top">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div id="nav_container" class="container">
             <div id="logo_div" class="pull-left">
                 <a class="navbar-brand" href="/">
                     <img src="@Helper.CDN/images/neo_logo.svg" />
                 </a>
             </div>
-            <ul id="menu_list" class="navbar-nav float-right t2">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <ul class="collapse navbar-collapse t2" id="collapsibleNavbar">
                 <li class="nav-item"><a class="nav-link" asp-controller="home" asp-action="index">@Localizer["Home"]</a></li>
-                <li class="nav-item"><a class="nav-link" asp-controller="dev" asp-action="index">@Localizer["Developer"]</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" asp-controller="dev" asp-action="index" data-toggle="dropdown">
+                        开发者
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Apply Testnet NEO/GAS</a>
+                        <a class="dropdown-item" href="http://docs.neo.org" target="_blank">@Localizer["Document"]</a>
+                        <a class="dropdown-item" href="#">Github</a>
+                        <a class="dropdown-item" href="#">Security Bounty</a>
+                    </div>
+                </li>
                 <li class="nav-item"><a class="nav-link" asp-controller="client" asp-action="index">@Localizer["Client"]</a></li>
                 <li class="nav-item"><a class="nav-link" asp-controller="blog" asp-action="index">@Localizer["Blog"]</a></li>
                 <li class="nav-item"><a class="nav-link" asp-controller="event" asp-action="index">@Localizer["Event"]</a></li>
                 <li class="nav-item"><a class="nav-link" asp-controller="consensus" asp-action="index">@Localizer["Consensus Nodes"]</a></li>
-                <li class="nav-item"><a class="nav-link" href="https://devcon.neo.org" target="_blank">DevCon</a></li>
-                <li class="nav-item"><a class="nav-link" href="http://docs.neo.org" target="_blank">@Localizer["Document"]</a></li>
-                <li class="nav-item"><a class="nav-link" href="http://ndapp.org" target="_blank">@Localizer["dApps"]</a></li>
-                <li id="dropdown_btn" style="display:none">
-                    <a class="iconfont nav-link" href="javascript:" onclick="$('#more_list').toggle()">&#xe675;</a>
-                    <ul id="more_list"></ul>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                        其他
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">DAPPS</a>
+                        <a class="dropdown-item" href="~/team">NEO Contributors</a>
+                        <a class="dropdown-item" href="/logo">@Localizer["Download Logo"]</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="javascript:" onclick="setLanguage('en-us')">English</a>/
+                    <a href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
                 </li>
             </ul>
         </div>
     </nav>
-    <div class="container layout-container">
+    <div>
         @RenderBody()
     </div>
     <footer>
@@ -149,12 +169,7 @@
                 </div>
                 <div class="row copyright">
                     <div class="col-sm-12 m3 t3">
-                        <p class="d-block d-md-none">
-                            <a href="javascript:" onclick="setLanguage('en-us')">English</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a href="javascript:" onclick="setLanguage('zh-cn')">中文</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </p>
-                        <p><a href="mailto:contact@neo.org">E-mail: contact@neo.org</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/logo">@Localizer["Download Logo"]</a></p>
-                        <p><a href="~/team">NEO Contributors</a></p>
+                        <p><a href="mailto:contact@neo.org">E-mail: contact@neo.org</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                         <p>Copyright © NEO Team 2014-@DateTime.Now.Year &nbsp;&nbsp;<a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">沪ICP备15040337号</a></p>
                     </div>
                 </div>

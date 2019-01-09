@@ -1,11 +1,11 @@
 ﻿body {
     overflow-x:hidden;
-    background-position: top left;
+    background-position:top center;
     background-size: cover;
-    background-attachment:fixed;
     background-repeat: no-repeat;
     min-height:100%;
     padding-top:0;
+    background-image:url(../images/home-bg.png);
 }
 .zindex {position:relative;z-index:10;}
 .navbar {
@@ -23,6 +23,7 @@ footer {
     background-size: 200px;
     background-repeat:no-repeat;
 }
+
 /*loading页面 - loading page*/
 .load-page{
     width: 100%;
@@ -103,141 +104,18 @@ footer {
     100%{ box-shadow: inset 0 -40px 0 0 rgba(90,188,0,1);}
 }
 
-.back-mask {
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background: url(https://neo-cdn.azureedge.net/images/home-bg.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size:cover;
-}
 .home-page-content {
     position:relative;
     text-align:center;
 }
 .home-text-fir {
     width:90%;
-    height:60%;
+    height:30%;
+    max-height:300px;
 }
 .home-text-fir h1,
 .home-text-fir h2{
-    text-align:center;
-    line-height:1.5;
-}
-.layout-container {
-    max-width: none;
-    padding: 0;
-    margin: 0;
-}
-/*首页固定背景滚动样式*/
-.scroll-page {
-    position:relative;
-    position:initial;
-}
-.scroll-page div.home-scroll{
-    position:absolute;
-    z-index:1;
-    top:100px;
-    left:0;
-    width:100%;
-    background-position: center;
-    background-size:100%;
-}
-.scroll-page.city-back{
-    position:fixed;
-    z-index:-1;
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    opacity:1;
-}
-.scroll-page.city-back .home-scroll {
-    top:auto;
-    bottom:0px;
-    width:180%;
-    height:50%;
-}
-.home-scroll {
-    text-align:center;
-}
-.scroll-page.city-back .home-scroll {
-    background-size: contain;
-    background-position: center bottom;
-}
-.home-scroll.scroll-fri {
-    background: url(https://neo-cdn.azureedge.net/images/home-back-1.png) repeat-x;
-}
-.home-scroll.scroll-sec {
-    background: url(https://neo-cdn.azureedge.net/images/home-back-2.png) repeat-x;
-}
-.home-scroll.scroll-thr {
-    background: url(https://neo-cdn.azureedge.net/images/home-back-3.png) repeat-x;
-}
-.home-scroll.scroll-four {
-    background: url(https://neo-cdn.azureedge.net/images/home-back-4.png) repeat-x;
-}
-.home-scroll.scroll-five {
-    background: url(https://neo-cdn.azureedge.net/images/home-back-5.png) repeat-x;
-}
-.scroll-acr,
-.scroll-acr-en,
-.scroll-ver-fri,
-.scroll-ver-fri-en,
-.scroll-ver-sec,
-.scroll-ver-sec-en {
-    position: absolute;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-}
-.scroll-page.city-back .scroll-acr {
-    background-image:url(https://neo-cdn.azureedge.net/images/home-bg-1.png);
-    background-position: 40% center;
-    background-position: center 5%;
-}
-.scroll-page.city-back .scroll-ver-fri {
-    background-image:url(https://neo-cdn.azureedge.net/images/home-bg-2.png);
-    background-position: 40% center;
-}
-.scroll-page.city-back .scroll-ver-sec {
-    background-image:url(https://neo-cdn.azureedge.net/images/home-bg-3.png);
-    background-position: 60% center;
-}
 
-.city-back .home-scroll.scroll-top {
-    background: url(https://neo-cdn.azureedge.net/images/home-back-top.png) repeat-x;
-    background-size: contain;
-    height:inherit;
-}
-
-.news {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    letter-spacing: 0.2em;
-    padding-left: 0;
-    font-size: 16px;
-}
-.news a {
-    color: #333;
-}
-
-/*什么是neo页面 - About NEO page*/
-.home-neo-intro {
-    height:60%;
-    line-height:2;
-    text-align:center;
-}
-
-.home-neo-intro .col-sm-6.p2{
-    padding-top:0px;
-    /*letter-spacing:1px;*/
 }
 .home-neo-intro .col-sm-9{
     background-image: linear-gradient(-177deg, rgba(244,244,244,0.8), rgb(188,188,188));
@@ -357,54 +235,12 @@ footer {
     padding-left:20%;
 }
 
-/*屏幕样式适配 - Scroll effect*/
-@media only screen and (min-width: 1800px) {
-    .scroll-page.city-back .scroll-ver-fri {
-        background-position: 41% 100px;
-    }
-    .scroll-page.city-back .scroll-ver-sec {
-        background-position: 57% center;
-    }
-}
-@media only screen and (max-width: 1800px) {
-    .scroll-page.city-back .scroll-ver-fri {
-        background-position: 42% 100px;
-    }
-    .scroll-page.city-back .scroll-ver-sec {
-        background-position: 60% center;
-    }
-}
-@media only screen and (max-width: 1400px) {
-    .scroll-page.city-back .home-scroll {
-        width:200%;
-    }
-    .scroll-page.city-back .scroll-ver-fri {
-        background-position: 43% center;
-    }
-    .scroll-page.city-back .scroll-ver-sec {
-        background-position: 56% center;
-    }
-}
-@media only screen and (max-width: 1200px) {
-    .scroll-page.city-back .home-scroll {
-        width:250%;
-    }
-    .scroll-page.city-back .scroll-ver-fri {
-        background-position: 40% 40px;
-    }
-    .scroll-page.city-back .scroll-ver-sec {
-        background-position: 59% center;
-    }
-}
 @media only screen and (max-width: 768px) {
     body {
         padding-top: 0;
     }
     .main-footer {
         background: #FFFFFF;
-    }
-    .scroll-page.city-back .home-scroll {
-        width:340%;
     }
     .home-page-content {
         overflow-x: hidden;
@@ -415,9 +251,6 @@ footer {
         height:fit-content;
         padding:20px 0px;
         line-height:1.5;
-    }
-    .home-neo-intro .col-sm-9 {
-        margin: auto 20px;
     }
     .home-detail {
         padding: 30px 30px;
@@ -448,9 +281,6 @@ footer {
         width: 85%;
         height: 60%;
     }
-    .scroll-page.city-back .home-scroll {
-        width:420%;
-    }
     .home-neo-intro {
         height:100%;
     }
@@ -461,56 +291,4 @@ footer {
         background-position: top left;
     }
 }
-.bottom-dev {
-    position: absolute;
-    bottom: 0px;
-    height:90px;
-    width: 100%;
-    letter-spacing: 0.2em;
-    padding-left: 0;
-    font-size: 16px;
-    background:#2B2B2B;
-}
-.dev-a {
-    position:relative;
-}
-.dev-a:before,
-.dev-a:after{
-    content: " ";
-    position: absolute;
-    top: 0;
-    bottom: 0px;
-    margin: auto;
-    width: 120px;
-    height: 4px;
-    opacity: .6;
-    border-radius: 2px;
-}
-.dev-a:after {
-    right: -130px;
-    background: linear-gradient(-90deg,transparent,#C6E55D);
-}
-.dev-a:before {
-    left: -130px;
-    background: linear-gradient(90deg,transparent,#C6E55D);
-}
-@media only screen and (max-width: 480px) {
-    .bottom-dev {
-        height:70px;
-    }
-    .dev-a img{
-        height:70px;
-    }
-    .dev-a:before,
-    .dev-a:after{
-        width: 80px;
-    }
-    .dev-a:after {
-        right: -90px;
-        background: linear-gradient(-90deg,transparent,#C6E55D);
-    }
-    .dev-a:before {
-        left: -90px;
-        background: linear-gradient(90deg,transparent,#C6E55D);
-    }
-}
+
