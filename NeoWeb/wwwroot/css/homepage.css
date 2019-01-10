@@ -7,7 +7,10 @@
     padding-top:0;
     background-image:url(../images/home-bg.png);
 }
-.zindex {position:relative;z-index:10;}
+.zindex {
+    position:relative;
+    z-index:10;
+}
 .navbar {
     background: #f2f2f2;
     transition:background 1s;
@@ -107,6 +110,7 @@ footer {
 .home-page-content {
     position:relative;
     text-align:center;
+    padding:50px 0;
 }
 .home-text-fir {
     width:90%;
@@ -135,7 +139,29 @@ footer {
     white-space:nowrap;
 }
 
+/*NEO intro*/
+.home-intro {
+    background:#FFFFFF;
+    background:linear-gradient(211deg, transparent 10%,#FFFFFF 10%);
+}
+
+
 /*NEO技术特点 - NEO Technical Features*/
+html, body {
+    position: relative;
+    height: 100%;
+}
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+.swiper-slide {
+    min-height:100px;
+}
+.swiper-slide img{
+    width:80px;
+    margin-bottom:10px;
+}
 .modal-content {
     border-radius: 0;
 }
@@ -163,12 +189,10 @@ footer {
     z-index:15;
     min-height:600px;
     background:#E4E4E4;
-    background-image:url(https://neo-cdn.azureedge.net/images/home-down.png),linear-gradient(144deg, #F4F4F4 0%, #E4E4E4 93%);
+    background-image:url(../images/home-down-1.png),linear-gradient(-40deg,#EEF4EE,#FFFFFF 30%);
     background-repeat:no-repeat;
-    background-position:top right;
-    background-size: contain;
-    box-shadow: 0 0 30px #666;
-    box-shadow: 0 2px 4px 2px rgba(0,0,0,0.50);
+    background-position:left bottom,top right;
+    background-size: 100%,contain;
 }
 
 .home-down-tab .iconfont {
@@ -196,8 +220,6 @@ footer {
     width:100%;
 }
 .home-detail {
-    padding:50px 0;
-    line-height:1.5;
 }
 .home-detail:before,
 .home-detail:after{
@@ -235,6 +257,13 @@ footer {
     padding-left:20%;
 }
 
+@media only screen and (max-width: 1368px) {
+}
+@media only screen and (max-width: 968px) {
+    .home-intro {
+        background:linear-gradient(211deg, transparent 60px,#FFFFFF 60px);
+    }
+}
 @media only screen and (max-width: 768px) {
     body {
         padding-top: 0;
@@ -253,7 +282,6 @@ footer {
         line-height:1.5;
     }
     .home-detail {
-        padding: 30px 30px;
     }
     .home-detail .detail-text {
         width:100%;
@@ -265,9 +293,7 @@ footer {
         max-width:350px;
     }
     .home-down {
-        padding-top: 50%;
-        background-image:url(https://neo-cdn.azureedge.net/images/home-down-mobile.png),linear-gradient(144deg, #F4F4F4 0%, #E4E4E4 93%);
-        background-position: left -50px,left center;
+        background-position: -60px bottom,left center;
     }
     .home-down-tab .iconfont {
         font-size:40px;
@@ -275,6 +301,7 @@ footer {
     .news {
         bottom: 10px;
     }
+
 }
 @media only screen and (max-width: 350px) {
     .home-text-fir {
@@ -287,8 +314,8 @@ footer {
     .home-neo-intro .col-sm-9{
         padding:5px;
     }
-    .home-down {
+    /*.home-down {
         background-position: top left;
-    }
+    }*/
 }
 
