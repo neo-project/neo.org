@@ -256,6 +256,44 @@ html, body {
 .developer-text {
     padding-left:20%;
 }
+/*blog&event*/
+.blog-con {
+    
+}
+.event-con {
+    height:100%;
+}
+.event-con img{
+    max-height:211px;
+}
+
+/*community*/
+.comm-ul {
+    padding:0;
+}
+.comm-ul li{
+    display:inline-block;
+    padding:10px;
+    width:28%;
+    max-width:300px;
+    min-width:100px;
+}
+.comm-ul li a{
+    width:100%;
+    display:inline-block;
+}
+.comm-ul li img{
+    width:100%;
+    max-width:150px;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    opacity:0.8;
+}
+.comm-ul li a:hover img{
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+    opacity:1;
+}
 
 @media only screen and (max-width: 1368px) {
 }
