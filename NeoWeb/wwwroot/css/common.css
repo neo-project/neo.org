@@ -57,7 +57,7 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
 .text-ellipsis {overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
 .lh1 {line-height:2.5;}
 .lh2 {line-height:2;}
-.lh3 {line-height:1.7;}
+.lh3 {line-height:1.8;}
 .flo-r {float:right;}
 .flo-clear:before,
 .flo-clear:after {
@@ -219,7 +219,7 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
 .btn1:after{border-right: 26px solid #FFFFFF;}
 .btn2 {
     background: #A4A4A4;
-    background: linear-gradient(-30deg,transparent 5%,#A4A4A4 5%,#A4A4A4 95%,transparent 95%);
+    background: linear-gradient(-30deg,transparent 5%,#4A4A4A 5%,#4A4A4A 95%,transparent 95%);
     box-shadow: none;
     color: #EEF4EE!important;
     letter-spacing: 2px;
@@ -234,8 +234,8 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
     border:none;
 }
 .btn2:hover {
-    color: #666666!important;
-    background: linear-gradient(-30deg,transparent 5%,#ACACAC 5%,#ACACAC 95%,transparent 95%);
+    color: #333333!important;
+    background: linear-gradient(-30deg,transparent 5%,#4F4F4F 5%,#4F4F4F 95%,transparent 95%);
 }
 .btn2:active {
     box-shadow: none;
@@ -278,10 +278,10 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
     .t2 {font-size: 20px;}
     .t3 {font-size: 13px;}
     .link2 {font-size:17px;}
-    .m1 {margin:26px auto;}
-    .m2 {margin:20px auto;}
-    .m3 {margin:12px auto;}
-    .m4 {margin:8px auto;}
+    .m1 {margin:26px auto 0!important;}
+    .m2 {margin:20px auto 0!important;}
+    .m3 {margin:12px auto 0!important;}
+    .m4 {margin:8px auto 0!important;}
     .padding_normal {padding:initial 22px;}
     .p1 {padding:40px;}
     .p2 {padding:20px;}

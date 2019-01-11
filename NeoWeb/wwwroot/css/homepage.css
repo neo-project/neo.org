@@ -15,17 +15,6 @@
     background: #f2f2f2;
     transition:background 1s;
 }
-footer {
-    padding-top: 50px;
-    background: #FFFFFF;
-}
-.main-footer {
-    background: #FFFFFF;
-    background-image: url(https://neo-cdn.azureedge.net/images/home-developer.svg),url(https://neo-cdn.azureedge.net/images/home-developer.svg),linear-gradient(rgba(255,255,255,0.95),rgba(255,255,255,0.5));
-    background-position: top left,center right,center;
-    background-size: 200px;
-    background-repeat:no-repeat;
-}
 
 /*loading页面 - loading page*/
 .load-page{
@@ -184,15 +173,15 @@ html, body {
 }
 
 /*客户端下载部分页面 - Client Download page*/
-.home-down {
+.home-client {
     position:relative;
     z-index:15;
     min-height:600px;
     background:#E4E4E4;
-    background-image:url(../images/home-down-1.png),linear-gradient(-40deg,#EEF4EE,#FFFFFF 30%);
+    background-image:url(../images/client-1.svg),url(../images/client-2.svg),linear-gradient(-40deg,#EEF4EE,#FFFFFF 30%);
     background-repeat:no-repeat;
-    background-position:left bottom,top right;
-    background-size: 100%,contain;
+    background-position:left top,right top,bottom right;
+    /*background-size: 100%,100%,contain;*/
 }
 
 .home-down-tab .iconfont {
@@ -208,11 +197,11 @@ html, body {
     text-decoration:none;
 }
 
-/*技术详细介绍页面 - Technical Details page*/
+/*开发者页面-dev*/
 .home-deve {
     position:relative;
-    background:#E4E4E4;
-    background:linear-gradient(98deg, #A5A5A5 1%, #6D6D6D 100%, #6C6C6C 100%);
+    background:url(../images/home-dev-1.svg) no-repeat;
+    background-size:cover;
     overflow:hidden;
     padding-top:40px;
 }
@@ -296,18 +285,23 @@ html, body {
 }
 
 @media only screen and (max-width: 1368px) {
+    .home-client {
+        background-size: auto,15%,100%;
+        background-position: -120px top,right bottom,center;
+    }
 }
 @media only screen and (max-width: 968px) {
     .home-intro {
         background:linear-gradient(211deg, transparent 60px,#FFFFFF 60px);
     }
+    .home-client {
+        background-size: 70%,20%,100%;
+        background-position: -115px top,right bottom,center;
+    }
 }
 @media only screen and (max-width: 768px) {
     body {
         padding-top: 0;
-    }
-    .main-footer {
-        background: #FFFFFF;
     }
     .home-page-content {
         overflow-x: hidden;
@@ -330,11 +324,9 @@ html, body {
         width:100%;
         max-width:350px;
     }
-    .home-down {
-        background-position: -60px bottom,left center;
-    }
-    .home-down-tab .iconfont {
-        font-size:40px;
+    .home-client {
+        background-size: 56%,25%,100%;
+        background-position: -100px top,right bottom,center;
     }
     .news {
         bottom: 10px;
@@ -352,8 +344,9 @@ html, body {
     .home-neo-intro .col-sm-9{
         padding:5px;
     }
-    /*.home-down {
-        background-position: top left;
-    }*/
+    .home-client {
+        background-size: 65%,36%,100%;
+        background-position: -80px top,right bottom,center;
+    }
 }
 

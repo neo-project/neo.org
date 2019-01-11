@@ -49,8 +49,7 @@
 
 .main-footer {
     position: relative;
-    padding: 35px 0 0; 
-    color: #6C6C6C; 
+    padding: 35px 0 0;  
     width:100%;
     text-align:center;
 }
@@ -66,26 +65,29 @@
 }
 .footer-link {
     padding:0;
+    text-align:right;
 }
 .footer-link li {
     display:inline-block;
-    width:19%;
-    line-height:2.5;
+    width:16%;
+    line-height:1.8;
 }
 .footer-link li i.iconfont{
     font-style: normal;
     vertical-align:middle;
-    font-size:40px;
+    font-size:34px;
+    color:#9A9A9A;
 }
 .footer-link li span{
     display: inline-block;
     width: 100px;
 }
-.footer-logo{
-    height:70px;
+.footer-logo {
+    text-align:left;
+    letter-spacing:2px;
 }
 .footer-logo img{
-    height:inherit;
+    height:70px;
 }
 .navbar-nav ul.dropdown-menu {
     background-color: white;
@@ -129,15 +131,16 @@
     .main-footer {
         padding: 20px 0; 
     }
-    .footer-link li {
-        width:48%;
-        line-height:1.8;
+    .footer-link{
+        text-align:center;
     }
-    /*调整页面footer的icon大小*/
     .footer-link li i.iconfont{
-        font-size:28px;
+        font-size:26px;
     }
-    .footer-logo{
+    .footer-logo {
+        text-align:center;
+    }
+    .footer-logo img{
         height:50px;
     }
 }

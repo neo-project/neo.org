@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440px" height="643px" viewBox="0 0 1440 643" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Developer</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="14.3286133%" y1="0%" x2="100%" y2="97.8993395%" id="linearGradient-1">
+            <stop stop-color="#BAD36E" offset="0%"></stop>
+            <stop stop-color="#85CD47" offset="100%"></stop>
+        </linearGradient>
+        <polygon id="path-2" points="0 0.319473165 1118.40247 0.319473165 1439.25189 0.319473165 1439.25189 652 0 652"></polygon>
+        <radialGradient cx="50%" cy="50.6905692%" fx="50%" fy="50.6905692%" r="65.7800818%" gradientTransform="translate(0.500000,0.506906),scale(1.000000,0.749610),rotate(90.000000),translate(-0.500000,-0.506906)" id="radialGradient-4">
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.3" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="50%" cy="50.6905692%" fx="50%" fy="50.6905692%" r="65.7800818%" gradientTransform="translate(0.500000,0.506906),scale(1.000000,0.749610),rotate(90.000000),translate(-0.500000,-0.506906)" id="radialGradient-5">
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.3" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="50%" cy="50.6905692%" fx="50%" fy="50.6905692%" r="64.5739738%" gradientTransform="translate(0.500000,0.506906),scale(1.000000,0.749610),rotate(90.000000),translate(-0.500000,-0.506906)" id="radialGradient-6">
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.296337183" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-3">
+            <g id="Developer">
+                <g id="download_background">
+                    <mask id="mask-3" fill="white">
+                        <use xlink:href="#path-2"></use>
+                    </mask>
+                    <use id="Mask" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+                    <g id="circles" opacity="0.3" mask="url(#mask-3)">
+                        <g transform="translate(119.937658, -526.000000)" id="outline">
+                            <ellipse fill="url(#radialGradient-4)" cx="599.688288" cy="800" rx="599.688288" ry="800"></ellipse>
+                            <ellipse fill="url(#radialGradient-5)" cx="599.688288" cy="666.666667" rx="499.74024" ry="666.666667"></ellipse>
+                            <ellipse fill="url(#radialGradient-6)" cx="599.688288" cy="533.333333" rx="399.792192" ry="533.333333"></ellipse>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
