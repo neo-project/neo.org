@@ -5,27 +5,37 @@
 
 .nav-client {
     text-align: center;
-    margin-top: 20px;
-    border-bottom: 1px solid #58bf00;
+    background-color: white;
+    clip-path: polygon(10px 0, 100% 0, 100% 100%, 0 100%, 0 5px);
+    margin-bottom: 5px;
 }
 
 .nav-client li {
     display: inline-block;
-    font-weight: normal;
-    color: #AAAAAA;
     margin: 0 10px;
     cursor: pointer;
     padding: 10px 30px;
 }
-
 .nav-client li span {
     margin-left: 10px;
 }
 
 .nav-client li.selected {
-    background-color: #58bf00;
-    color: white;
+    color: #58bf00;
     border-radius: 10px 10px 0 0;
+}.nav-client li:before {
+    content: "- ";
+    color: white;
+}
+.nav-client li:after {
+    content: "  ";
+    color: white;
+}
+.nav-client li.selected:before {
+    color: #58bf00;
+}
+.nav-client li.selected:after {
+    color: #58bf00;
 }
 
 .nav-client li .iconfont {
@@ -46,17 +56,19 @@
     max-width: none;
     padding: 0;
 }
+.client-note {
+    max-width: 700px;
+    text-align: center;
+    margin: auto;
+}
 
 .client-ul {
     background-color: white;
     text-align: center;
     width: 100%;
     padding: 20px;
-    border-bottom: 1px solid #58bf00;
-}
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 5px), calc(100% - 10px) 100%, 0 100%, 0 0);
 
-.client-ul li {
-    position: relative;
 }
 
 .client-ul ul {
@@ -64,55 +76,57 @@
     max-width: 1600px;
 }
 
- .client-ul .alert {
+.client-ul .alert {
     margin: auto;
     max-width: 800px;
 }
 
-.client-ul li {
-    display: inline-block;
-    width: 200px;
-    margin: 20px;
-    padding: 20px 10px;
+.client-ul li > div {
+    position: relative;
+    margin-bottom: 20px;
+    height: 120px;
     border: 1px solid #58bf00;
 }
 
-.client-ul li:hover {
+.client-ul li > div:hover {
     background-color: #f8f8f8;
 }
 
+.client-ul li > div .open-source {
+    position: absolute;
+    display: inline-block;
+    border: 1px solid gray;
+    right: 22px;
+    bottom: 15px;
+    font-size: 10px;
+    padding: 6px 10px;
+}
+
 .client-ul img {
-    width: 72px;
-    height: 72px;
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    width: 85px;
+    height: 85px;
     cursor: pointer;
     border-radius: 13px;
 }
 
+.client-ul .platform {
+    position: absolute;
+    left: 120px;
+    top: 45px;
+}
+
 .client-ul header {
-    line-height: 2.5;
+    position: absolute;
+    left: 120px;
+    top: 22px;
 }
 
 .client-ul .iconfont {
     cursor: default;
-    margin: 0 3px;
-}
-
-.client-ul a.iconfont.open-source {
-    display: block;
-    width: 40px;
-    height: 40px;
-    text-align: right;
-    line-height: 25px;
-    padding-right: 5px;
-    cursor: pointer;
-    position: absolute;
-    border-radius: 0 0 0 100%;
-    right: 0;
-    top: 0;
-    margin: 0;
-    background: linear-gradient(-135deg, #58bf00 0, #58bf00 50%,  transparent 50%, transparent 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
-    color: #fff;
+    margin-right: 3px;
 }
 
 .client-select {
