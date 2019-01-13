@@ -7,6 +7,7 @@
     text-align: center;
     background-color: white;
     clip-path: polygon(10px 0, 100% 0, 100% 100%, 0 100%, 0 5px);
+    background: linear-gradient(150deg,transparent 0, transparent 4px, #fff 4px,  #fff 100%);
     margin-bottom: 5px;
 }
 
@@ -28,7 +29,7 @@
     color: white;
 }
 .nav-client li:after {
-    content: "  ";
+    content: " -";
     color: white;
 }
 .nav-client li.selected:before {
@@ -51,11 +52,6 @@
 .nav-client li.tab-select a, .nav-client li a:hover {
     color: #58BF00;
 }
-
-.layout-container {
-    max-width: none;
-    padding: 0;
-}
 .client-note {
     max-width: 700px;
     text-align: center;
@@ -68,7 +64,7 @@
     width: 100%;
     padding: 20px;
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 5px), calc(100% - 10px) 100%, 0 100%, 0 0);
-
+    background: linear-gradient(150deg,#fff 0, #fff calc(100% - 4px), transparent calc(100% - 4px),  transparent 100%);
 }
 
 .client-ul ul {
@@ -96,32 +92,64 @@
     position: absolute;
     display: inline-block;
     border: 1px solid gray;
-    right: 22px;
-    bottom: 15px;
+    right: 20px;
+    bottom: 14px;
     font-size: 10px;
     padding: 6px 10px;
+    background: linear-gradient(150deg, #d4eb21 0, #68a136 100%);
+    border: none;
+    color: #58bf00;
+    clip-path: polygon(7px 0, 100% 0, 100% calc(100% - 3.5px), calc(100% - 7px) 100%, 0 100%, 0 3.5px);
+}
+
+.client-ul li > div .open-source::before {
+    content: " ";
+    position: absolute;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    left: 1px;
+    top: 1px;
+    background-color: #fff;
+    clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 3px), calc(100% - 6px) 100%, 0 100%, 0 3px);
+}
+
+.client-ul li > div .open-source::after {
+    content: "GitHub";
+    display: block;
+    padding: 5px 9px;
+    font-size: 10px;
+    position: absolute;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    left: 1px;
+    top: 1px;
 }
 
 .client-ul img {
     position: absolute;
     left: 14px;
     top: 14px;
-    width: 85px;
-    height: 85px;
+    width: 33%;
     cursor: pointer;
     border-radius: 13px;
 }
 
 .client-ul .platform {
     position: absolute;
-    left: 120px;
-    top: 45px;
+    text-align: left;
+    left: 33%;
+    top: 42px;
+    margin-left: 28px;
 }
 
 .client-ul header {
     position: absolute;
-    left: 120px;
-    top: 22px;
+    text-align: left;
+    height: 1.5em;
+    overflow: hidden;
+    left: 33%;
+    top: 18px;
+    margin-left: 28px;
 }
 
 .client-ul .iconfont {
@@ -164,34 +192,17 @@
     font-weight: 400;
     cursor: pointer;
 }
+@media only screen and (max-width: 576px) {
 
-@media only screen and (max-width : 992px) {
-    .client-hint {
-        width: 100%;
-        max-width: none;
+    .client-ul img {
+        width: 85px;
     }
-    .nav-client li {
-        padding: 10px 20px;
-    }
-    .client-ul li {
-        width: 180px;
-    }
-}
 
-@media only screen and (max-width: 768px) {
-    .nav-client li {
-        padding: 5px 15px;
-        margin: 0;
+    .client-ul .platform {
+        left: 85px;
     }
-    .nav-client li span {
-        display: none;
-    }
-    .client-ul {
-        padding: 10px 0;
-    }
-    .client-ul li {
-        width: 160px;
-        margin: 10px;
-        padding: 10px 5px;
+
+    .client-ul header {
+        left: 85px;
     }
 }
