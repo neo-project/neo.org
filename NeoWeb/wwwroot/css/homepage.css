@@ -1,11 +1,11 @@
 ﻿body {
     overflow-x:hidden;
-    background-position:top center;
+    background-position:center 20px;
     background-size: cover;
     background-repeat: no-repeat;
     min-height:100%;
     padding-top:0;
-    background-image:url(../images/home-bg.png);
+    background-image:url(../images/home-bg.svg);
 }
 .zindex {
     position:relative;
@@ -101,6 +101,9 @@
     text-align:center;
     padding:50px 0;
 }
+#homeFri {
+    height:100vh;
+}
 .home-text-fir {
     width:90%;
     height:30%;
@@ -131,7 +134,7 @@
 /*NEO intro*/
 .home-intro {
     background:#FFFFFF;
-    background:linear-gradient(211deg, transparent 10%,#FFFFFF 10%);
+    background: linear-gradient(206deg, transparent 6%,#FFFFFF 6%);
 }
 
 
@@ -201,7 +204,10 @@ html, body {
 .home-deve {
     position:relative;
     background:url(../images/home-dev-1.svg) no-repeat;
-    background-size:cover;
+    background:url(../images/home-dev-2.svg),url(../images/home-dev-1.svg);
+    background-repeat:no-repeat;
+    background-position:center,center;
+    background-size:cover,cover;
     overflow:hidden;
     padding-top:40px;
 }
@@ -257,13 +263,15 @@ html, body {
 }
 
 /*community*/
+.home-comm {
+    margin-top:80px;
+}
 .comm-ul {
     padding:0;
 }
 .comm-ul li{
     display:inline-block;
-    padding:10px;
-    width:28%;
+    padding: 8px 20px;
     max-width:300px;
     min-width:100px;
 }
@@ -272,16 +280,19 @@ html, body {
     display:inline-block;
 }
 .comm-ul li img{
-    width:100%;
     max-width:150px;
+    max-height:60px;
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
     opacity:0.8;
+    cursor:pointer;
+    transition:all 1s;
 }
 .comm-ul li a:hover img{
     -webkit-filter: grayscale(0%);
     filter: grayscale(0%);
     opacity:1;
+    transition:all 0.5s;
 }
 
 @media only screen and (max-width: 1368px) {

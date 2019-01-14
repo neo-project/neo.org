@@ -73,6 +73,8 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
 .dis-table {display:table;}
 .dis-table-row {display:table-row;}
 .dis-table-cell {display:table-cell;vertical-align:middle;}
+.dis-inblock {display:inline-block;}
+.dis-block {display:block;}
 .unclick-btn {cursor:not-allowed!important;}
 .btneo {
     display: block;

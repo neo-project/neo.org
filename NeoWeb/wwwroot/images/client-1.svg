@@ -1,8 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="689px" height="633px" viewBox="0 0 689 633" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
-    <title>Group 34</title>
-    <desc>Created with Sketch.</desc>
+  <style>
+    #g1{animation: m1 2s alternate linear infinite;}
+    #g2{animation: m1 1.5s alternate linear infinite;}
+    #g3{animation: m2 2s alternate linear infinite;}
+    #g4{animation: m3 1.5s alternate linear infinite;}
+    @keyframes m1{
+    0%{transform: translate(18.719963px, -6px);}
+    100%{transform: translate(18.719963px, 0.031604px);}
+    }
+    @keyframes m2{
+    0%{transform: translate(10.651877px, 0.017983px);}
+    100%{transform: translate(10.651877px, -3px);}
+    }
+    @keyframes m3{
+    0%{transform: translate(13.439019px, 0.022688px);}
+    100%{transform: translate(13.439019px, -5px);}
+    }
+    #g5{animation: m4 1.8s alternate linear infinite;}
+    @keyframes m4{
+    0%{transform:translate(499.397752px, 454.262518px);}
+    100%{transform: translate(499.397752px, 440.262518px);}
+    }
+    #g6{animation: m5 3s alternate linear infinite;}
+    @keyframes m5{
+    0%{transform:translate(18.551878px, 359px);}
+    100%{transform:translate(18.551878px, 369.973429px);}
+    }
+  </style>
     <defs>
         <polygon id="path-1" points="5.09409676 45.8795776 0.294694204 55.7678727 37.1924909 77.8495679 78.4228675 61.2000645 81.5827246 51.225521 46.5931395 29.2300741"></polygon>
         <filter x="-15.4%" y="-15.4%" width="125.8%" height="143.2%" filterUnits="objectBoundingBox" id="filter-2">
@@ -108,7 +134,7 @@
                                         <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
                                     </g>
                                     <polygon id="Path-14" fill="#D3D9CE" opacity="0.669698661" filter="url(#filter-3)" points="19.2813525 47.897491 19.2813525 54.9388729 38.9204833 65.4660211 66.3995251 54.9388729 66.3995251 50.8552055 43.9494289 36.7424375"></polygon>
-                                    <g id="Group-19" transform="translate(18.719963, 0.031604)">
+                                    <g id="g1" transform="translate(18.719963, 0.031604)">
                                         <polygon id="Path-15" fill="#8AD500" points="0 10.727553 18.9126315 19.7815734 18.9126315 57.6519759 0 48.5575675"></polygon>
                                         <polygon id="Path-16" fill="#50AC02" points="19.5449533 19.6400047 19.5449533 57.5605091 47.7551206 47.7739628 47.7551206 9.38762452"></polygon>
                                         <polygon id="Path-17" fill="#58BF00" points="0.654539966 10.2383891 19.3295945 19.2624028 47.3776396 8.74675187 28.8896861 0.0849142503"></polygon>
@@ -120,7 +146,7 @@
                                         <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-4"></use>
                                     </g>
                                     <polygon id="Path-14" fill="#D3D9CE" opacity="0.669698661" filter="url(#filter-6)" points="19.8057344 49.2001267 19.8057344 56.4330083 39.9789774 67.2464563 68.2053481 56.4330083 68.2053481 52.2382801 45.1446918 37.7416967"></polygon>
-                                    <g id="Group-19" transform="translate(19.229078, 0.032463)">
+                                    <g id="g2" transform="translate(19.229078, 0.032463)">
                                         <polygon id="Path-15" fill="#8AD500" points="0 11.019303 19.4269855 20.3195595 19.4269855 59.2198977 0 49.8781548"></polygon>
                                         <polygon id="Path-16" fill="#50AC02" points="20.0765042 20.1741406 20.0765042 59.1259434 49.0538843 49.0732389 49.0538843 9.6429334"></polygon>
                                         <polygon id="Path-17" fill="#58BF00" points="0.672341047 10.5168356 19.8552884 19.7862693 48.6661372 8.98463136 29.6753794 0.0872236058"></polygon>
@@ -132,7 +158,7 @@
                                         <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-7"></use>
                                     </g>
                                     <polygon id="Path-14" fill="#D3D9CE" opacity="0.669698661" filter="url(#filter-9)" points="10.9713137 27.2542293 10.9713137 31.2608574 22.1462075 37.2509271 37.7821018 31.2608574 37.7821018 28.9372031 25.007736 20.9068741"></polygon>
-                                    <g id="Group-19" transform="translate(10.651877, 0.017983)">
+                                    <g id="g3" transform="translate(10.651877, 0.017983)">
                                         <polygon id="Path-15" fill="#8AD500" points="0 6.10410239 10.7615072 11.2559453 10.7615072 32.8046445 0 27.6298204"></polygon>
                                         <polygon id="Path-16" fill="#50AC02" points="11.1213057 11.175391 11.1213057 32.7525989 27.1732188 27.1839402 27.1732188 5.34166749"></polygon>
                                         <polygon id="Path-17" fill="#58BF00" points="0.37244085 5.82576243 10.998764 10.9605311 26.9584277 4.9770035 16.4385673 0.0483171956"></polygon>
@@ -154,7 +180,7 @@
                             </g>
                             <polygon id="Path-14" fill="#D3D9CE" opacity="0.669698661" filter="url(#filter-15)" points="24.4990146 24.1504426 24.4990146 33.0972692 49.4526247 46.4731337 84.3676778 33.0972692 84.3676778 27.9085342 55.8424364 9.97675737"></polygon>
                         </g>
-                        <g id="Group-12" transform="translate(18.551878, 369.973429)">
+                        <g id="g6" transform="translate(18.551878, 369.973429)">
                             <g id="dizuo-" transform="translate(7.808746, 49.053743)">
                                 <polygon id="Path-26" fill="#8AD500" points="0.79766425 14.0150848 21.7787226 24.2599123 21.7787226 24.9342825 0.79766425 14.6140984"></polygon>
                                 <polygon id="Path-27" fill="#64D10E" points="0.63237176 13.6848934 21.8021631 24.048382 22.3603821 23.3873276 1.58072379 12.8766794"></polygon>
@@ -253,7 +279,7 @@
                             <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-18"></use>
                         </g>
                         <polygon id="Path-14" fill="#D3D9CE" opacity="0.669698661" filter="url(#filter-20)" points="13.8420385 34.3854983 13.8420385 39.4404902 27.9409252 46.9979056 47.6680659 39.4404902 47.6680659 36.5088347 31.5511937 26.3773111"></polygon>
-                        <g id="Group-19" transform="translate(13.439019, 0.022688)">
+                        <g id="g4" transform="translate(13.439019, 0.022688)">
                             <polygon id="Path-15" fill="#8AD500" points="0 7.70128557 13.5773345 14.2011459 13.5773345 41.3882205 0 34.8593657"></polygon>
                             <polygon id="Path-16" fill="#50AC02" points="14.0312769 14.099514 14.0312769 41.3225567 34.2832909 34.2968177 34.2832909 6.73935399"></polygon>
                             <polygon id="Path-17" fill="#58BF00" points="0.469892732 7.35011592 13.8766713 13.8284345 34.0122982 6.27927299 20.739839 0.0609597444"></polygon>
@@ -267,7 +293,7 @@
                         <polygon id="Path-14" fill="#D3D9CE" opacity="0.669698661" filter="url(#filter-23)" points="11.2297465 21.2379896 11.2297465 24.7286935 20.9656749 29.9474358 57.6029052 14.1758934 57.6029052 12.1514507 46.4734651 5.1551686"></polygon>
                     </g>
                 </g>
-                <g id="55" transform="translate(499.397752, 454.262518)">
+                <g id="g5" transform="translate(499.397752, 454.262518)">
                     <g id="Group-5" transform="translate(49.237087, 10.899759) scale(-1, -1) rotate(180.000000) translate(-49.237087, -10.899759) translate(46.237087, 5.899759)">
                         <polygon id="Path-30" fill="#98E41C" points="0.282128561 0.254869576 3.94153191 2.0857186 3.94153191 8.108671 0.282128561 6.37256063"></polygon>
                         <polygon id="Path-32" fill="#79B40C" points="4.01135151 2.12305767 5.10174219 3.67849936 5.10174219 9.50485054 4.01135151 8.13872445"></polygon>

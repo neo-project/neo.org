@@ -17,9 +17,9 @@
 <div class="home-page-content" id="homeFri">
     <div class="row">
         <div class="midpoint home-text-fir">
-            <h1><span class="back-static">NEO</span></h1>
-            <h3 class="m3"><span class="back-static">@Localizer["NEO - An Open Network For Smart Economy"]</span></h3>
-            <div class="m2"><a class="btn-static t2">NEO Devcon</a></div>
+            <h1><span class="back-static p3 lh3">NEO</span></h1>
+            <h3 class="m3"><span class="back-static p3 lh3">@Localizer["NEO - An Open Network For Smart Economy"]</span></h3>
+            <div class="m2"><span class="back-static p2"><a class="btn-static t3">NEO Devcon</a></span></div>
         </div>
     </div>
 </div>
@@ -133,7 +133,7 @@
                 <p class="t2 m2 back-white">
                     @Localizer["The NEO Team and community have created various wallets for different platforms. You can download the wallets or access the web wallets below."]
                 </p>
-                <p class="m3"><a class="btn-static btn1 t2" href="~/client" target="_blank">@Localizer["Go to client page"]</a></p>
+                <p class="m3"><a class="btn-static btn1 t3" href="~/client" target="_blank">@Localizer["Go to client page"]</a></p>
                 <p class="home-down-tab m3">
                     <a class="iconfont" title="@Localizer["Desktop"]" href="~/client#1" target="_blank">&#xe632;</a>
                     <a class="iconfont" title="@Localizer["Mobile"]" href="~/client#2" target="_blank">&#xe64b;</a>
@@ -151,6 +151,12 @@
             <div class="col-sm-12">
                 <h2 class="m2">@Localizer["If you are a developer"]</h2>
                 <p class="t2 m3 p2">@Localizer["Participate in our project, get NEO and GAS for development testing, or view our technical documentation"]</p>
+                <ul class="t2 bold-font">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
                 <a class="btn-static btn2 t3" href="~/dev">@Localizer["Go to developer page"]</a>
             </div>
         </div>
@@ -161,44 +167,58 @@
     <div class="container home-detail zindex">
         <h2 class="m1">@Localizer["Blog & Event"]</h2>
         <div class="row text-left m2">
-            <div class="col-md-6 m3">
-                <div class="blog-con border-static back-white p3">
-                    <p class="bolder-font">NEO Global Development Monthly Report - December, 2018</p>
-                    <p class="m4 gray-text">2018 has been a year of ups and downs, however, with the help of the community NEO has achieved steadfast progress. At the beggining of the year, we h…</p>
-                    <p class="m4"><i class="iconfont t2 green-text">&#xe64c;</i> 2018 / 12 / 31</p>
-                </div>
-                <div class="blog-con border-static back-white p3 m3">
-                    <p class="bolder-font">NEO Global Development Monthly Report - December, 2018</p>
-                    <p class="m4 lh2 gray-text">时光老人从不言语，只默默把我们送往该去的地方。在社区的陪伴下，NEO 在 2018 年取得了长足的发展，年初的首届 NEO DevCon 作为起点开启了 2018 年，巧合的是，在 NEO DevCon 2019 的紧…</p>
-                    <p class="m4"><i class="iconfont t2 green-text">&#xe64c;</i> 2018 / 12 / 31</p>
-                </div>
+            <div class="col-md-6">
+                @if (ViewBag.Blog != null)
+                {
+                    foreach (var item in ViewBag.Blog as IEnumerable<NeoWeb.Models.Blog>)
+                    {
+                        <div class="blog-con border-static back-white m3 p3">
+                            <p class="bolder-font">@item.Title</p>
+                            <p class="m4 gray-text">@item.Summary.Substring(0, Math.Min(item.Summary.Length, 100))…</p>
+                            <p class="m4"><i class="iconfont t2 green-text">&#xe64c;</i> @item.EditTime.ToString()</p>
+                        </div>
+                    }
+                }
+                <p class="m3 text-center"><a class="btn-static t3" href="~/dev">@Localizer["Blog Page"]</a></p>
             </div>
             <div class="col-md-6 m3">
-                <div class="event-con border-static back-white p3">
-                    <p class="m4"><img src="https://neo.org/upload/CC5217AE9EC37CF0CFEC.png" width="100%" /></p>
-                    <p class="m4 bolder-font">NEO 区块链公开课（6）：区块链游戏的设计与开发</p>
-                    <p class="m4 lh3 gray-text">
-                        <i class="iconfont t2 green-text">&#xe64c;</i> 2018-11-17 13:30 ~ 2018-11-17 17:00<br />
-                        <i class="iconfont t2 green-text">&#xe64e;</i> China - 上海<br />
-                        <i class="iconfont t2 green-text">&#xe60b;</i> Organizers: NGD<br />
-                    </p>
-                    <a class="btn-static btn3 m3">Github</a>
-                </div>
+                @if (ViewBag.Event != null)
+                {
+                    foreach (var item in ViewBag.Event as IEnumerable<NeoWeb.Models.Event>)
+                    {
+                        <div class="event-con border-static back-white p3">
+                            @if (string.IsNullOrEmpty(item.Cover))
+                            {
+                                <p class="m4"><img src="@String.Format(Helper.CDN + "/images/event/{0}.jpg", item.Type).ToLower()" width="100%" /></p>
+                            }
+                            else
+                            {
+                                <p class="m4"><img src="@String.Format("/upload/{0}", item.Cover).ToLower()" width="100%" /></p>
+                            }
+                            <p class="m4 bolder-font">@item.Name</p>
+                            <p class="m4 lh3 gray-text">
+                                <i class="iconfont t2 green-text">&#xe64c;</i> @item.StartTime.ToString() ~ @item.EndTime.ToString()<br />
+                                <i class="iconfont t2 green-text">&#xe64e;</i> @item.Country?.ZhName - @item.City<br />
+                                <i class="iconfont t2 green-text">&#xe60b;</i> Organizers: @item.Organizers<br />
+                            </p>
+                            <a class="btn-static btn3 m3" href="/event/details/@item.Id">More</a>
+                        </div>
+                    }
+                }
+                <p class="m3 text-center"><a class="btn-static t3" href="~/dev">@Localizer["Event Page"]</a></p>
             </div>
         </div>
     </div>
-</div>
-
-
-<div class="home-page-content home-comm">
-    <h2 class="m2">@Localizer["Community"]</h2>
-    <div class="container">
-        <ul class="comm-ul m1">
-            <li class="p3"><img src="~/images/neo_logo.svg" /></li>
-            <li class="p3"><img src="~/images/neo_logo.svg" /></li>
-            <li class="p3"><img src="~/images/neo_logo.svg" /></li>
-            <li class="p3"><img src="~/images/neo_logo.svg" /></li>
-            <li class="p3"><img src="~/images/neo_logo.svg" /></li>
+    
+    <div class="container home-comm">
+        <h2 class="m1 p1">@Localizer["Community"]</h2>
+        <ul class="comm-ul">
+            <li class="p3"><a><img src="~/images/community/coz.png" /></a></li>
+            <li class="p3"><a><img src="~/images/community/nel.png" /></a></li>
+            <li class="p3"><a><img src="~/images/community/nnt.png" /></a></li>
+            <li class="p3"><a><img src="~/images/community/neor.png" /></a></li>
+            <li class="p3"><a><img src="~/images/community/neoone.png" /></a></li>
+            <li class="p3"><a><img src="~/images/community/red.png" /></a></li>
         </ul>
     </div>
 </div>

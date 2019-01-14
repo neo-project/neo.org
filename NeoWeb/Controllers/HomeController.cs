@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NeoWeb.Data;
 using NeoWeb.Models;
 
@@ -23,6 +24,8 @@ namespace NeoWeb.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Blog = _context.Blogs.OrderByDescending(p => p.CreateTime).Take(2);
+            ViewBag.Event = _context.Events.Include(m => m.Country).OrderByDescending(p => p.EndTime).Take(1);
             return View();
         }
 

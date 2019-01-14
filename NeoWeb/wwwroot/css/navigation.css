@@ -75,8 +75,11 @@
 .footer-link li i.iconfont{
     font-style: normal;
     vertical-align:middle;
-    font-size:34px;
+    font-size:32px;
     color:#9A9A9A;
+}
+.footer-link li a:hover i.iconfont{
+    color:#58bf00;
 }
 .footer-link li span{
     display: inline-block;
@@ -135,7 +138,7 @@
         text-align:center;
     }
     .footer-link li i.iconfont{
-        font-size:26px;
+        font-size:24px;
     }
     .footer-logo {
         text-align:center;
