@@ -21,8 +21,9 @@ h1,.h1 {font-size: 60px;}
 h2,.h2 {font-size: 40px;}
 h3,.h3 {font-size: 25px;}
 .t1 {font-size: 36px;}
-.t2 {font-size: 22px;}
-.t3 {font-size: 14px;}
+.t2 {font-size: 20px;}
+.t3 {font-size: 16px;}
+.t4 {font-size: 14px;}
 .link2 {font-size:17px;}
 .link2:hover{text-decoration:none;}
 .m1 {margin:60px auto 0!important;}
@@ -58,6 +59,7 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
 .lh1 {line-height:2.5;}
 .lh2 {line-height:2;}
 .lh3 {line-height:1.8;}
+.flo-l {float:left;}
 .flo-r {float:right;}
 .flo-clear:before,
 .flo-clear:after {
@@ -168,6 +170,12 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
     border-top: 20px solid transparent;
     border-right: 40px solid #EEF4EE;
 }
+.border-static2:before{
+    border-left: 36px solid #FFFFFF;
+}
+.border-static2:after{
+    border-right: 40px solid #FFFFFF;
+}
 
 /*基础按钮样式*/
 .btn-static {
@@ -181,7 +189,7 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
     box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.1);
     color: #EEF4EE!important;
     letter-spacing: 2px;
-    min-width: 230px;
+    min-width: 210px;
     text-align:center;
     vertical-align:middle;
     cursor: pointer;
@@ -225,7 +233,6 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
     box-shadow: none;
     color: #EEF4EE!important;
     letter-spacing: 2px;
-    min-width: 230px;
     vertical-align:middle;
     cursor: pointer;
 }
@@ -277,8 +284,9 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
     h2,.h2 {font-size: 35px;}
     h3,.h3 {font-size: 22px;}
     .t1 {font-size: 32px;}
-    .t2 {font-size: 20px;}
-    .t3 {font-size: 13px;}
+    .t2 {font-size: 18px;}
+    .t3 {font-size: 15px;}
+    .t4 {font-size: 12px;}
     .link2 {font-size:17px;}
     .m1 {margin:26px auto 0!important;}
     .m2 {margin:20px auto 0!important;}

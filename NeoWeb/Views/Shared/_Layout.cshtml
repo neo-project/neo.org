@@ -113,6 +113,51 @@
             </ul>
         </div>
     </nav>
+
+    <div class="res-menu">
+        <div id="" class="container">
+            <div class="flo-clear">
+                <a class="navbar-brand" href="/">
+                    <img src="@Helper.CDN/images/neo_logo.svg" />
+                </a>
+                <a id="closebtn" class="navbar-brand flo-r flo-clear">
+                    <img src="https://www.crazycall.com/wp-content/uploads/img/close-menu.png" alt="menu">
+                </a>
+            </div>
+            <ul class="t2">
+                <li class="nav-item"><a asp-controller="home" asp-action="index">@Localizer["Home"]</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" asp-controller="dev" asp-action="index" data-toggle="dropdown">
+                        开发者
+                    </a>
+                    <ul>
+                        <li><a href="~/dev">Apply Testnet NEO/GAS</a></li>
+                        <li><a href="http://docs.neo.org" target="_blank">@Localizer["Document"]</a></li>
+                        <li><a href="~/dev">Github</a></li>
+                        <li><a href="~/dev">Security Bounty</a></li>
+                    </ul>
+                </li>
+                <li><a asp-controller="client" asp-action="index">@Localizer["Client"]</a></li>
+                <li><a asp-controller="blog" asp-action="index">@Localizer["Blog"]</a></li>
+                <li><a asp-controller="event" asp-action="index">@Localizer["Event"]</a></li>
+                <li><a asp-controller="consensus" asp-action="index">@Localizer["Consensus Nodes"]</a></li>
+                <li>
+                    <a>其他</a>
+                    <ul>
+                        <li><a href="http://ndapp.org">DAPPS</a></li>
+                        <li><a href="~/team">NEO Contributors</a></li>
+                        <li><a href="/logo">@Localizer["Download Logo"]</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="javascript:" onclick="setLanguage('en-us')">English</a>/
+                    <a href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
     <div>
         @RenderBody()
     </div>

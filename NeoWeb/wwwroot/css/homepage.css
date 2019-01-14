@@ -109,10 +109,6 @@
     height:30%;
     max-height:300px;
 }
-.home-text-fir h1,
-.home-text-fir h2{
-
-}
 .home-neo-intro .col-sm-9{
     background-image: linear-gradient(-177deg, rgba(244,244,244,0.8), rgb(188,188,188));
     float:none;
@@ -134,7 +130,12 @@
 /*NEO intro*/
 .home-intro {
     background:#FFFFFF;
-    background: linear-gradient(206deg, transparent 6%,#FFFFFF 6%);
+    background: linear-gradient(206deg, transparent 6%,#FFFFFF 6%),url(../images/home-intro-1.svg);
+}
+.intro-img img{
+    width:80%;
+    max-width:500px;
+    margin:30px auto;
 }
 
 
@@ -151,8 +152,8 @@ html, body {
     min-height:100px;
 }
 .swiper-slide img{
-    width:80px;
-    margin-bottom:10px;
+    width:60px;
+    margin-bottom:25px;
 }
 .modal-content {
     border-radius: 0;
@@ -187,17 +188,18 @@ html, body {
     /*background-size: 100%,100%,contain;*/
 }
 
-.home-down-tab .iconfont {
+.home-down-tab a {
     display:inline-block;
-    width:1.5em;
-    font-size:48px;
-    color:#AAAAAA;
-    cursor:pointer;
-    text-decoration:none;
 }
-.home-down-tab .iconfont:hover{
-    color:#58BF00;
-    text-decoration:none;
+.home-down-tab img{
+    width:100%;
+    filter:grayscale(100%);
+    transition:all 0.2s;
+}
+.home-down-tab a:hover img{
+    display:inline-block;
+    filter:grayscale(0%);
+    transition:all 0.3s;
 }
 
 /*开发者页面-dev*/
@@ -252,8 +254,11 @@ html, body {
     padding-left:20%;
 }
 /*blog&event*/
-.blog-con {
-    
+.home-blog-event {
+    background:url(../images/home-com-1.svg),url(../images/home-com-2.svg);
+    background-repeat:no-repeat;
+    background-position: 140% 40px, -40% bottom;
+    background-size: 40%,40%;
 }
 .event-con {
     height:100%;
@@ -339,10 +344,18 @@ html, body {
         background-size: 56%,25%,100%;
         background-position: -100px top,right bottom,center;
     }
+    .home-down-tab a {
+        width:15%;
+        min-width:50px;
+        max-width:80px;
+    }
     .news {
         bottom: 10px;
     }
-
+    .home-blog-event {
+        background-position: 120% 20px, -60% bottom;
+        background-size: 80%,80%;
+    }
 }
 @media only screen and (max-width: 350px) {
     .home-text-fir {

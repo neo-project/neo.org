@@ -5,6 +5,7 @@
     padding-top:20px;
     padding-bottom:20px;
     height:60px;
+    margin-right:0;
 }
 .navbar-nav {
     position:relative;
@@ -146,4 +147,15 @@
     .footer-logo img{
         height:50px;
     }
+}
+
+
+/*响应式navbar*/
+.res-menu {
+    /*position:fixed;
+    z-index:1099;
+    height:100vh;
+    width:100vw;
+    background:#EEF4EE;
+    overflow:scroll;*/
 }

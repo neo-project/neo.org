@@ -17,7 +17,7 @@
 <div class="home-page-content" id="homeFri">
     <div class="row">
         <div class="midpoint home-text-fir">
-            <h1><span class="back-static p3 lh3">NEO</span></h1>
+            <h1><span class="back-static p3">NEO</span></h1>
             <h3 class="m3"><span class="back-static p3 lh3">@Localizer["NEO - An Open Network For Smart Economy"]</span></h3>
             <div class="m2"><span class="back-static p2"><a class="btn-static t3">NEO Devcon</a></span></div>
         </div>
@@ -34,18 +34,49 @@
     </div>
     <div class="container">
         <div class="row wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
-            <div class="col-sm-12 green-text m1 h2 bold-font">
-                <span>@Localizer["Digital Assets"]</span> + <span>@Localizer["Digital Identity"]</span> + <span>@Localizer["Smart Contract"]</span><br />
-                = <span class="green-text">@Localizer["Smart Economy"]</span>
+            <div class="col-sm-12 m1 intro-img w600 back-static border-static border-static2">
+                <img src="~/images/home-intro-2.svg"/>
             </div>
         </div>
-        <div class="swiper-container text-center m2 t3">
-            <div class="swiper-wrapper gray-text">
-                <div class="swiper-slide p2">
-                    <img src="@Helper.CDN/images/coin.svg" /><br />
+        <div class="swiper-container text-center m1 p4 t3">
+            <div class="swiper-wrapper gray-text m1">
+                <div class="swiper-slide p4">
+                    <img src="~/images/coin.svg" /><br />
                     @Localizer["The technology underlying NEO supports multiple types of digital assets. Users can register, transfer and trade at will on NEO."]
                 </div>
-                <div class="swiper-slide p2">
+                <div class="swiper-slide p4">
+                    <img src="~/images/bank.svg" /><br />
+                    @Localizer["Digital certificates are supported, placing trust into the public chain. This provides full legal protection for all assets digitized through the NEO platform."]
+                </div>
+                <div class="swiper-slide p4">
+                    <img src="~/images/networking.svg" /><br />
+                    @Localizer["Facilitate P2P exchange of digital assets. Buyers and sellers of digital assets and currencies will be handled peer-to-peer without the need for third party exchanges."]
+                </div>
+                <div class="swiper-slide p4">
+                    <img src="~/images/contract.svg" /><br />
+                    @Localizer["Turing-complete smart contract, which will have high certainty and finality, support parallel operation, sharding and unlimited scalability when run in NeoVM."]
+                </div>
+                <div class="swiper-slide p4">
+                    <img src="~/images/startup.svg" /><br />
+                    @Localizer["NeoContract supports multiple programming languages such as C#, Java, and Python. Developers can rapidly develop smart contracts based on the NEO platform without learning a unique language."]
+                </div>
+                <div class="swiper-slide p4">
+                    <img src="~/images/think.svg" /><br />
+                    @Localizer["Neo Virtual Machine (NeoVM): NEO's lightweight stack-based virtual machine provides shorter startup times with efficient execution. Deterministic calling tree-technology allows NEO to achieve unlimited theoretical scalability."]
+                </div>
+                <div class="swiper-slide p4">
+                    <img src="~/images/teamwork.svg" /><br />
+                    @Localizer["Consensus nodes use Byzantine Fault Tolerance Algorithm to reach consensus and ensure the finality of transactions. It also ensures that the system keeps its finality and availability as long as Byzantine fault occurs on less than 1/3 of the nodes."]
+                </div>
+                <div class="swiper-slide p4">
+                    <img src="@Helper.CDN/images/networking2.svg" /><br />
+                    @Localizer["Comprises Cross-chain Assets Swap Protocol and Cross-chain distributed transaction protocol and can achieve atomic assets swap and guarantee the operation consistency of smart contracts executed on different chains."]
+                </div>
+                <div class="swiper-slide p4">
+                    <img src="@Helper.CDN/images/flask.svg" /><br />
+                    @Localizer["Introduced Lattice cryptography-based signing and encryption technique to avoid quantum crisis by Turing encryption and decryption problem into the Shortest Vector Problem (SVP), which cannot be solved by current quantum computers."]
+                </div>
+                <div class="swiper-slide p4">
                     <img src="@Helper.CDN/images/coin.svg" /><br />
                     @Localizer["The technology underlster, transfer and trade at will on NEO."]
                 </div>
@@ -135,10 +166,10 @@
                 </p>
                 <p class="m3"><a class="btn-static btn1 t3" href="~/client" target="_blank">@Localizer["Go to client page"]</a></p>
                 <p class="home-down-tab m3">
-                    <a class="iconfont" title="@Localizer["Desktop"]" href="~/client#1" target="_blank">&#xe632;</a>
-                    <a class="iconfont" title="@Localizer["Mobile"]" href="~/client#2" target="_blank">&#xe64b;</a>
-                    <a class="iconfont" title="@Localizer["Web"]" href="~/client#3" target="_blank">&#xe63c;</a>
-                    <a class="iconfont" title="@Localizer["Hardware"]" href="~/client#4" target="_blank">&#xe688;</a>
+                    <a class="p4" title="@Localizer["Desktop"]" href="~/client#1" target="_blank"><img src="~/images/desktop.svg" /></a>
+                    <a class="p4" title="@Localizer["Mobile"]" href="~/client#2" target="_blank"><img src="~/images/mobile.svg" /></a>
+                    <a class="p4" title="@Localizer["Web"]" href="~/client#3" target="_blank"><img src="~/images/web.svg" /></a>
+                    <a class="p4" title="@Localizer["Hardware"]" href="~/client#4" target="_blank"><img src="~/images/hardware.svg" /></a>
                 </p>
             </div>
         </div>
@@ -150,14 +181,14 @@
         <div class="row">
             <div class="col-sm-12">
                 <h2 class="m2">@Localizer["If you are a developer"]</h2>
-                <p class="t2 m3 p2">@Localizer["Participate in our project, get NEO and GAS for development testing, or view our technical documentation"]</p>
-                <ul class="t2 bold-font">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                <p class="t3 m3 w600">@Localizer["Participate in our project, get NEO and GAS for development testing, or view our technical documentation"]</p>
+                <ul class="t2 bold-font p4 m3">
+                    <li>Participate in our project</li>
+                    <li>Participate in our project</li>
+                    <li>Participate in our project</li>
+                    <li>Participate in our project</li>
                 </ul>
-                <a class="btn-static btn2 t3" href="~/dev">@Localizer["Go to developer page"]</a>
+                <a class="btn-static btn2 t3 m2" href="~/dev">@Localizer["Go to developer page"]</a>
             </div>
         </div>
     </div>
@@ -167,45 +198,47 @@
     <div class="container home-detail zindex">
         <h2 class="m1">@Localizer["Blog & Event"]</h2>
         <div class="row text-left m2">
-            <div class="col-md-6">
+            <div class="col-md-6 m2">
                 @if (ViewBag.Blog != null)
                 {
                     foreach (var item in ViewBag.Blog as IEnumerable<NeoWeb.Models.Blog>)
                     {
                         <div class="blog-con border-static back-white m3 p3">
                             <p class="bolder-font">@item.Title</p>
-                            <p class="m4 gray-text">@item.Summary.Substring(0, Math.Min(item.Summary.Length, 100))…</p>
+                            <p class="m4 t4 gray-text">@item.Summary.Substring(0, Math.Min(item.Summary.Length, 100))…</p>
                             <p class="m4"><i class="iconfont t2 green-text">&#xe64c;</i> @item.EditTime.ToString()</p>
                         </div>
                     }
                 }
                 <p class="m3 text-center"><a class="btn-static t3" href="~/dev">@Localizer["Blog Page"]</a></p>
             </div>
-            <div class="col-md-6 m3">
-                @if (ViewBag.Event != null)
-                {
-                    foreach (var item in ViewBag.Event as IEnumerable<NeoWeb.Models.Event>)
+            <div class="col-md-6 m2">
+                <div class="event-con">
+                    @if (ViewBag.Event != null)
                     {
-                        <div class="event-con border-static back-white p3">
-                            @if (string.IsNullOrEmpty(item.Cover))
-                            {
-                                <p class="m4"><img src="@String.Format(Helper.CDN + "/images/event/{0}.jpg", item.Type).ToLower()" width="100%" /></p>
-                            }
-                            else
-                            {
-                                <p class="m4"><img src="@String.Format("/upload/{0}", item.Cover).ToLower()" width="100%" /></p>
-                            }
-                            <p class="m4 bolder-font">@item.Name</p>
-                            <p class="m4 lh3 gray-text">
-                                <i class="iconfont t2 green-text">&#xe64c;</i> @item.StartTime.ToString() ~ @item.EndTime.ToString()<br />
-                                <i class="iconfont t2 green-text">&#xe64e;</i> @item.Country?.ZhName - @item.City<br />
-                                <i class="iconfont t2 green-text">&#xe60b;</i> Organizers: @item.Organizers<br />
-                            </p>
-                            <a class="btn-static btn3 m3" href="/event/details/@item.Id">More</a>
-                        </div>
+                        foreach (var item in ViewBag.Event as IEnumerable<NeoWeb.Models.Event>)
+                        {
+                            <div class="border-static back-white m3 p3">
+                                @if (string.IsNullOrEmpty(item.Cover))
+                                {
+                                    <p class="m4"><img src="@String.Format(Helper.CDN + "/images/event/{0}.jpg", item.Type).ToLower()" width="100%" /></p>
+                                }
+                                else
+                                {
+                                    <p class="m4"><img src="@String.Format("/upload/{0}", item.Cover).ToLower()" width="100%" /></p>
+                                }
+                                <p class="m4 bolder-font">@item.Name</p>
+                                <p class="m4 t4 lh3 gray-text">
+                                    <i class="iconfont t2 green-text">&#xe64c;</i> @item.StartTime.ToString() ~ @item.EndTime.ToString()<br />
+                                    <i class="iconfont t2 green-text">&#xe64e;</i> @item.Country?.ZhName - @item.City<br />
+                                    <i class="iconfont t2 green-text">&#xe60b;</i> Organizers: @item.Organizers<br />
+                                </p>
+                                <a class="btn-static btn3 m3" href="/event/details/@item.Id">More</a>
+                            </div>
+                        }
                     }
-                }
-                <p class="m3 text-center"><a class="btn-static t3" href="~/dev">@Localizer["Event Page"]</a></p>
+                    <p class="m3 text-center"><a class="btn-static t3" href="~/dev">@Localizer["Event Page"]</a></p>
+                </div>
             </div>
         </div>
     </div>
@@ -230,7 +263,7 @@
     <script>
         var swiper = new Swiper('.swiper-container', {
             slidesPerView: 4,
-            spaceBetween: 50,
+            spaceBetween: 30,
             pagination: {
                 el: '.swiper-pagination',
                 dynamicBullets: true,
