@@ -10,22 +10,11 @@
 .navbar-nav {
     position:relative;
 }
-.navbar-expand .navbar-nav .nav-link{
-    display:inline-block;
-    padding: 20px 15px;
-    color:#6C6C6C;
-    line-height:20px;
-    vertical-align:middle;
-}
-.navbar-nav>li a.nav-link.strong{
-    color:#58bf00;
-    font-weight: bold;
-}
 .navbar-nav>li a:hover{
     background:transparent;
     color:#58bf00;
 }
-.navbar-nav .nav-link{
+.navbar-nav a{
     white-space: nowrap;
 }
 .navbar {
@@ -38,6 +27,22 @@
 }
 #nav_container {
     background:#FFFFFF;
+    background:rgba(255,255,255,0.9);
+}
+.collapse {
+    margin:8px 0;
+}
+.collapse li{
+    line-height:2.5;
+}
+.fixed-top {
+    top:20px;
+}
+.nav-item a {
+    padding: 8px 10px;
+}
+.navbar-dark .navbar-toggler-icon {
+    background-image:url(../images/drop.svg);
 }
 
 /*弹出框样式调整 - Pop-up box style adjustment*/
@@ -45,6 +50,8 @@
     background:transparent;
     border: none;
     box-shadow:none;
+    padding-top: 15px;
+    margin-top: -2px;
 }
 .dropdown-menu a{
     width:100%;
@@ -126,6 +133,26 @@
 }
 .navbar-brand img {
     height: 100%;
+    vertical-align:top;
+}
+.dropdown-toggle {
+
+}
+.dropdown-item {
+    font-weight:100;
+}
+@media only screen and (max-width : 990px) {
+    .fixed-top {
+        top:10px;
+    }
+    .dropdown-menu {
+        position:relative;
+        float: none;
+        display: block!important;
+        padding-top: 0px;
+        line-height: 1.8;
+        margin-left: 15px;
+    }
 }
 @media only screen and (max-width : 780px) {
     .navbar-brand {
@@ -149,5 +176,13 @@
     }
     .footer-logo img{
         height:50px;
+    }
+}
+@media only screen and (max-width : 576px) {
+    .fixed-top {
+        top:0px;
+    }
+    .navbar-brand img {
+        height:30px;
     }
 }

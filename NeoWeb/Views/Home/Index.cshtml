@@ -29,19 +29,18 @@
         <h2 class="m1">@Localizer["What is NEO"]</h2>
         <div class="m2">
             @Localizer["NEO is an open source project driven by the community. It utilizes blockchain technology and digital identities to digitize assets and automate the management of digital assets using smart contracts. Using a distributed network, it aims to create a \"Smart Economy\"."]<br />
-            @Localizer["NEO was founded in 2014 and open sourced on GitHub in June 2015. Its MainNet was released in October 2016 and has been running in stable capacity for two years. Its vision of a \"smart economy\" was set up along with the project rebranding in 2017."]<br />
-        <p class="text-left">
-            NEO is committed to its goal of being the most developer-friendly public chain:<br />
-            Infrastructure friendliness: a comprehensive toolkit for underlying infrastructure development; a mature NeoContract system; multi mainstream programming language support in NeoVM<br />
-            Community friendliness: a global map of developer communities, distributed in the US, Europe, Japan and Korea, etc.; active community voices from social media<br />
-            Ecosystem friendliness: NGD and NGC, as execution and investment arms of NEO Foundation provide technical support, advertising campaigns and funding for eco-projects; nearly 100 dApps within NEO ecosystem
-        </p>
+            @Localizer["NEO was founded in 2014 and open sourced on GitHub in June 2015. Its MainNet was released in October 2016 and has been running in stable capacity for two years. Its vision of a \"smart economy\" was set up along with the project rebranding in 2017.<br />NEO is committed to its goal of being the most developer-friendly public chain:"]
+            <p class="lh3">
+                @Localizer["Infrastructure friendliness: a comprehensive toolkit for underlying infrastructure development; a mature NeoContract system; multi mainstream programming language support in NeoVM"]<br />
+                @Localizer["Community friendliness: a global map of developer communities, distributed in the US, Europe, Japan and Korea, etc.; active community voices from social media"]<br />
+                @Localizer["Ecosystem friendliness: NGD and NGC, as execution and investment arms of NEO Foundation provide technical support, advertising campaigns and funding for eco-projects; nearly 100 dApps within NEO ecosystem"]
+            </p>
         </div>
     </div>
     <div class="container">
         <div class="row wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
             <div class="col-sm-12 m1 intro-img w600 back-static border-static border-static2">
-                <img src="~/images/home-intro-2.svg"/>
+                <img src="~/images/home-intro-3.svg"/>
             </div>
         </div>
         <div class="swiper-container text-center m1 p4 t3">
@@ -118,12 +117,12 @@
         <div class="row">
             <div class="col-sm-12">
                 <h2 class="m2">@Localizer["If you are a developer"]</h2>
-                <p class="t3 m3 w600">@Localizer["Participate in our project, get NEO and GAS for development testing, or view our technical documentation"]</p>
+                <p class="t3 m3 w600">@Localizer["NeoContract supports multiple programming languages such as C#, Java, and Python. Developers can rapidly develop smart contracts based on the NEO platform without learning a unique language."]</p>
                 <ul class="t2 bold-font p4 m3">
-                    <li>Join our project</li>
-                    <li>View technical docs</li>
-                    <li>Claim NEO/GAS for TestNet use</li>
-                    <li>Participate in NEO Bug Bounty Program</li>
+                    <li>@Localizer["Join our project"]</li>
+                    <li>@Localizer["View technical docs"]</li>
+                    <li>@Localizer["Claim NEO/GAS for TestNet use"]</li>
+                    <li>@Localizer["Participate in NEO Bounty Program"]</li>
                 </ul>
                 <a class="btn-static btn2 t3 m2" href="~/dev">@Localizer["Go to developer page"]</a>
             </div>
@@ -149,8 +148,7 @@
                 }
                 <p class="m3 text-center"><a class="btn-static t3" href="~/dev">@Localizer["Blog Page"]</a></p>
             </div>
-            <div class="col-md-6 m2">
-                <div class="event-con">
+            <div class="col-md-6 m2 event-con">
                     @if (ViewBag.Event != null)
                     {
                         foreach (var item in ViewBag.Event as IEnumerable<NeoWeb.Models.Event>)
@@ -170,12 +168,11 @@
                                     <i class="iconfont t2 green-text">&#xe64e;</i> @item.Country?.ZhName - @item.City<br />
                                     <i class="iconfont t2 green-text">&#xe60b;</i> Organizers: @item.Organizers<br />
                                 </p>
-                                <a class="btn-static btn3 m3" href="/event/details/@item.Id">More</a>
+                                <a class="btn-static btn3 m3" href="/event/details/@item.Id">@Localizer["Detail"]</a>
                             </div>
                         }
                     }
                     <p class="m3 text-center"><a class="btn-static t3" href="~/dev">@Localizer["Event Page"]</a></p>
-                </div>
             </div>
         </div>
     </div>
@@ -183,12 +180,12 @@
     <div class="container home-comm">
         <h2 class="m1 p1">@Localizer["Community"]</h2>
         <ul class="comm-ul">
-            <li class="p3 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.1s"><a><img src="~/images/community/coz.png" /></a></li>
-            <li class="p3 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.2s"><a><img src="~/images/community/nel.png" /></a></li>
-            <li class="p3 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.3s"><a><img src="~/images/community/nnt.png" /></a></li>
-            <li class="p3 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.4s"><a><img src="~/images/community/neor.png" /></a></li>
-            <li class="p3 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.5s"><a><img src="~/images/community/neoone.png" /></a></li>
-            <li class="p3 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.6s"><a><img src="~/images/community/red.png" /></a></li>
+            <li class="p3"><a><img src="~/images/community/coz.png" /></a></li>
+            <li class="p3"><a><img src="~/images/community/nel.png" /></a></li>
+            <li class="p3"><a><img src="~/images/community/nnt.png" /></a></li>
+            <li class="p3"><a><img src="~/images/community/neor.png" /></a></li>
+            <li class="p3"><a><img src="~/images/community/neoone.png" /></a></li>
+            <li class="p3"><a><img src="~/images/community/red.png" /></a></li>
         </ul>
     </div>
 </div>
@@ -248,7 +245,6 @@
         });
         $(document).scroll(function () { navColor() });
 
-
         function pageSize() {
             $("#homeFri").each(function () {
                 $(this).css("width", $(window).width());
@@ -264,6 +260,8 @@
             if (scrnum <= 100) {
                 $nav.removeAttr('style');
             } else {
+                $nav.css("background", "#FFF");
+                $nav.css("top", "0px");
             }
         }
     </script>

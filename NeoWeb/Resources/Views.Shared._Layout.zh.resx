@@ -129,7 +129,7 @@
   <data name="Developer" xml:space="preserve">
     <value>开发者</value>
   </data>
-  <data name="Document" xml:space="preserve">
+  <data name="Technical Documents" xml:space="preserve">
     <value>技术文档</value>
   </data>
   <data name="Download Logo" xml:space="preserve">
@@ -176,5 +176,17 @@
   </data>
   <data name="MainNet Anniversary" xml:space="preserve">
     <value>2 周年</value>
+  </data>
+  <data name="Apply Testnet NEO/GAS" xml:space="preserve">
+    <value>申请测试网的NEO/GAS</value>
+  </data>
+  <data name="More" xml:space="preserve">
+    <value>更多</value>
+  </data>
+  <data name="NEO Contributors" xml:space="preserve">
+    <value>贡献者</value>
+  </data>
+  <data name="Security Bounty" xml:space="preserve">
+    <value>安全奖励</value>
   </data>
 </root>

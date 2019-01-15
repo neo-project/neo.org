@@ -69,7 +69,7 @@
     @Html.Raw(JavaScriptSnippet.FullScript)
 </head>
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div id="nav_container" class="container">
             <div id="logo_div" class="pull-left">
                 <a class="navbar-brand" href="/">
@@ -80,35 +80,34 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <ul class="collapse navbar-collapse t4" id="collapsibleNavbar">
-                <li class="nav-item"><a class="nav-link" asp-controller="home" asp-action="index">@Localizer["Home"]</a></li>
+                <li class="nav-item"><a asp-controller="home" asp-action="index">@Localizer["Home"]</a></li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" asp-controller="dev" asp-action="index" data-toggle="dropdown">
-                        开发者
+                    <a class="dropdown-toggle" asp-controller="dev" asp-action="index" data-toggle="dropdown">
+                        @Localizer["Developer"]
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Apply Testnet NEO/GAS</a>
-                        <a class="dropdown-item" href="http://docs.neo.org" target="_blank">@Localizer["Document"]</a>
-                        <a class="dropdown-item" href="#">Github</a>
-                        <a class="dropdown-item" href="#">Security Bounty</a>
-                    </div>
+                        <a class="dropdown-item t4" href="#">@Localizer["Apply Testnet NEO/GAS"]</a>
+                        <a class="dropdown-item t4" href="http://docs.neo.org" target="_blank">@Localizer["Technical Documents"]</a>
+                        <a class="dropdown-item t4" href="#">@Localizer["Github"]</a>
+                        <a class="dropdown-item t4" href="#">@Localizer["Security Bounty"]</a>
+</div>
                 </li>
-                <li class="nav-item"><a class="nav-link" asp-controller="client" asp-action="index">@Localizer["Client"]</a></li>
-                <li class="nav-item"><a class="nav-link" asp-controller="blog" asp-action="index">@Localizer["Blog"]</a></li>
-                <li class="nav-item"><a class="nav-link" asp-controller="event" asp-action="index">@Localizer["Event"]</a></li>
-                <li class="nav-item"><a class="nav-link" asp-controller="consensus" asp-action="index">@Localizer["Consensus Nodes"]</a></li>
+                <li class="nav-item"><a asp-controller="client" asp-action="index">@Localizer["Client"]</a></li>
+                <li class="nav-item"><a asp-controller="blog" asp-action="index">@Localizer["Blog"]</a></li>
+                <li class="nav-item"><a asp-controller="event" asp-action="index">@Localizer["Event"]</a></li>
+                <li class="nav-item"><a asp-controller="consensus" asp-action="index">@Localizer["Consensus Nodes"]</a></li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                        其他
+                    <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                        @Localizer["More"]
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">DAPPS</a>
-                        <a class="dropdown-item" href="~/team">NEO Contributors</a>
-                        <a class="dropdown-item" href="/logo">@Localizer["Download Logo"]</a>
+                        <a class="dropdown-item t4" href="#">DAPPS</a>
+                        <a class="dropdown-item t4" href="~/team">@Localizer["NEO Contributors"]</a>
+                        <a class="dropdown-item t4" href="/logo">@Localizer["Download Logo"]</a>
                     </div>
                 </li>
-                <li class="nav-item flo-r">
-                    <a href="javascript:" onclick="setLanguage('en-us')">EN</a>/
-                    <a href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+                <li class="nav-item">
+                    <a href="javascript:" onclick="setLanguage('en-us')">EN</a>/<a href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
                 </li>
             </ul>
         </div>
@@ -154,10 +153,11 @@
             </div>
         </div>
     </footer>
-    <form id="form_language" method="post" action="/home/setlanguage">
+    <form id="form_language" asp-action="SetLanguage" asp-controller="home" method="post">
+        @Html.AntiForgeryToken()
         <p>
-            <input type="hidden" id="culture" name="culture">
-            <input type="hidden" id="returnUrl" name="returnUrl">
+            <input type="hidden" id="culture" name="culture" />
+            <input type="hidden" id="returnUrl" name="returnUrl" />
         </p>
         <script>
             function setLanguage(culture) {
@@ -169,6 +169,17 @@
     </form>
     <script src="@Helper.CDN/lib/jquery/jquery.min.js"></script>
     <script src="@Helper.CDN/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        $(".dropdown-toggle").hover(function () {
+            $(this).next(".dropdown-menu").toggle();
+        })
+
+        $('.dropdown-menu').hover(function () {
+            $(this).toggle();
+        });
+
+    </script>
+
     <environment include="Development">
         <script src="/js/site.js"></script>
     </environment>
