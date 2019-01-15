@@ -272,12 +272,6 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
 }
 
 @media only screen and (max-width : 1550px) {
-    h1,.h1 {font-size: 60px;}
-    h2,.h2 {font-size: 40px;}
-    h3,.h3 {font-size: 25px;}
-    .t1 {font-size: 36px;}
-    .t2 {font-size: 22px;}
-    .t3 {font-size: 14px;}
 }
 @media only screen and (max-width : 1199px) {
     h1,.h1 {font-size: 50px;}

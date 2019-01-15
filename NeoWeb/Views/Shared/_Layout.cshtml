@@ -79,7 +79,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <ul class="collapse navbar-collapse t2" id="collapsibleNavbar">
+            <ul class="collapse navbar-collapse t4" id="collapsibleNavbar">
                 <li class="nav-item"><a class="nav-link" asp-controller="home" asp-action="index">@Localizer["Home"]</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" asp-controller="dev" asp-action="index" data-toggle="dropdown">
@@ -106,57 +106,13 @@
                         <a class="dropdown-item" href="/logo">@Localizer["Download Logo"]</a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a href="javascript:" onclick="setLanguage('en-us')">English</a>/
+                <li class="nav-item flo-r">
+                    <a href="javascript:" onclick="setLanguage('en-us')">EN</a>/
                     <a href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
                 </li>
             </ul>
         </div>
     </nav>
-
-    <div class="res-menu">
-        <div id="" class="container">
-            <div class="flo-clear">
-                <a class="navbar-brand" href="/">
-                    <img src="@Helper.CDN/images/neo_logo.svg" />
-                </a>
-                <a id="closebtn" class="navbar-brand flo-r flo-clear">
-                    <img src="https://www.crazycall.com/wp-content/uploads/img/close-menu.png" alt="menu">
-                </a>
-            </div>
-            <ul class="t2">
-                <li class="nav-item"><a asp-controller="home" asp-action="index">@Localizer["Home"]</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" asp-controller="dev" asp-action="index" data-toggle="dropdown">
-                        开发者
-                    </a>
-                    <ul>
-                        <li><a href="~/dev">Apply Testnet NEO/GAS</a></li>
-                        <li><a href="http://docs.neo.org" target="_blank">@Localizer["Document"]</a></li>
-                        <li><a href="~/dev">Github</a></li>
-                        <li><a href="~/dev">Security Bounty</a></li>
-                    </ul>
-                </li>
-                <li><a asp-controller="client" asp-action="index">@Localizer["Client"]</a></li>
-                <li><a asp-controller="blog" asp-action="index">@Localizer["Blog"]</a></li>
-                <li><a asp-controller="event" asp-action="index">@Localizer["Event"]</a></li>
-                <li><a asp-controller="consensus" asp-action="index">@Localizer["Consensus Nodes"]</a></li>
-                <li>
-                    <a>其他</a>
-                    <ul>
-                        <li><a href="http://ndapp.org">DAPPS</a></li>
-                        <li><a href="~/team">NEO Contributors</a></li>
-                        <li><a href="/logo">@Localizer["Download Logo"]</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:" onclick="setLanguage('en-us')">English</a>/
-                    <a href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-
 
     <div>
         @RenderBody()
@@ -198,7 +154,19 @@
             </div>
         </div>
     </footer>
-
+    <form id="form_language" method="post" action="/home/setlanguage">
+        <p>
+            <input type="hidden" id="culture" name="culture">
+            <input type="hidden" id="returnUrl" name="returnUrl">
+        </p>
+        <script>
+            function setLanguage(culture) {
+                $("#culture").val(culture);
+                $("#returnUrl").val(window.location.pathname);
+                $("#form_language").submit();
+            }
+        </script>
+    </form>
     <script src="@Helper.CDN/lib/jquery/jquery.min.js"></script>
     <script src="@Helper.CDN/lib/bootstrap/js/bootstrap.min.js"></script>
     <environment include="Development">
