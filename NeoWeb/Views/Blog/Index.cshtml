@@ -15,102 +15,106 @@
 }
 <h1 class="blog_title m2 text-center">@Localizer["Blog posts list"]</h1>
 
-<div class="text-center m3">
-    @if (ViewBag.UserRules)
-    {
-        <a class="btn btn-sm btn-success" asp-action="Create">发布新博客</a>
-    }
-</div>
-<form asp-controller="blog" asp-action="index" method="get" class="search-form">
-    <div class="input-group mb-3">
-        <input name="k" type="text" class="form-control">
-        <div class="input-group-append">
-            <button class="btn btn-success" type="submit">Search</button>
-        </div>
+<div class="container">
+    <div class="text-center m3">
+        @if (ViewBag.UserRules)
+        {
+            <a class="btn btn-sm btn-success" asp-action="Create">发布新博客</a>
+        }
     </div>
-</form>
-<div class="row">
-    <ul class="col-lg-1 blog_date desktop-show" id="blogDate">
-        @foreach (var item in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Select(p => p.Year).Distinct())
-        {
-            <li class="m3">
-                <a class="h2 year">@item</a>
-                <ul>
-                    @foreach (var m in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Where(p => p.Year == item).Select(p => p.Month).Distinct())
-                    {
-                        <li><a class="month" href="~/blog?y=@item&m=@m">@m.ToMonth().ToUpper()</a></li>
-                    }
-                </ul>
-            </li>
-        }
-    </ul>
-    <ul class="mobile-show blog_date">
-        @foreach (var item in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Select(p => p.Year).Distinct())
-        {
-            <li>
-                <a class="h2 year" href="~/blog?y=@item">@item</a>
-            </li>
-        }
-    </ul>
-
-    <div class="col-lg-11 blog_scroll" id="blogScroll">
-        <ul class="blog-list">
-            @foreach (var item in Model)
-            {
-                @if (item.IsShow)
-                {
-
-                    <li class="m3">
-                        <h2><a asp-action="details" class="blog-title with-space" asp-route-id="@item.Id">@item.Title</a></h2>
-                        <p class="t2 m3 @Localizer["d-none"]"><small class="bold-font">@item.CreateTime.ToShortDateString()  发布</small> <small class="float-right">@item.ReadCount 次阅读</small></p>
-                        <p class="t2 m3 @Localizer["d-none-zh"]"><small class="bold-font">Posted on @item.CreateTime.ToShortDateString()</small> <small class="float-right">@item.ReadCount Times read</small></p>
-                        <a class="blog-summary" asp-action="details" asp-route-id="@item.Id">
-                            <p class="t2 with-space">@item.Summary.Substring(0, Math.Min(item.Summary.Length, item.Lang == "zh" || item.Lang == "ko" ? 100 : 150))…</p>
-                        </a>
-                        <div>
-                            @if (item.Tags != null)
-                            {
-                                foreach (var tag in item.Tags.Split(","))
-                                {
-                                    <a class="blog-tag" href="/blog?t=@tag">@tag</a>
-                                }
-                            }
-                        </div>
-                    </li>
-                }
-                @if (ViewBag.UserRules && !item.IsShow)
-                {
-
-                    <li class="m3">
-                        <h2><a asp-action="details" class="blog-title with-space" asp-route-id="@item.Id">@item.Title</a></h2>
-                        <p class="text-danger">
-                            未发布状态，仅管理员可见。
-                        </p>
-                        <p class="t2 m3 @Localizer["d-none"]">由作者 <span class="bold-font">@item.User</span> 于 <span class="bold-font">@item.CreateTime.ToShortDateString()</span> 发布 <small class="float-right">@item.ReadCount 次阅读</small></p>
-                        <p class="t2 m3 @Localizer["d-none-zh"]">Author <span class="bold-font">@item.User</span> posted on <span class="bold-font">@item.CreateTime.ToShortDateString()</span> <small class="float-right">@item.ReadCount Times read</small></p>
-                        <a class="blog-summary" asp-action="details" asp-route-id="@item.Id">
-                            <p class="t2 with-space">@item.Summary.Substring(0, Math.Min(item.Summary.Length, item.Lang == "zh" || item.Lang == "ko" ? 100 : 150))…</p>
-                        </a>
-                        <div>
-                            @if (item.Tags != null)
-                            {
-                                foreach (var tag in item.Tags.Split(","))
-                                {
-                                    <a class="blog-tag" href="/blog?t=@tag">@tag</a>
-                                }
-                            }
-                        </div>
-                    </li>
-                }
-
-            }
-            @if (Model.Count() == 0)
+    <form asp-controller="blog" asp-action="index" method="get" class="search-form">
+        <div class="input-group mb-3">
+            <input name="k" type="text" class="form-control">
+            <div class="input-group-append">
+                <button class="btn btn-success" type="submit">Search</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="container">
+    <div class="row">
+        <ul class="col-lg-1 blog_date desktop-show" id="blogDate">
+            @foreach (var item in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Select(p => p.Year).Distinct())
             {
                 <li class="m3">
-                    <h2>Coming Soon</h2>
+                    <a class="h2 year">@item</a>
+                    <ul>
+                        @foreach (var m in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Where(p => p.Year == item).Select(p => p.Month).Distinct())
+                        {
+                            <li><a class="month" href="~/blog?y=@item&m=@m">@m.ToMonth().ToUpper()</a></li>
+                        }
+                    </ul>
                 </li>
             }
         </ul>
+        <ul class="mobile-show blog_date">
+            @foreach (var item in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Select(p => p.Year).Distinct())
+            {
+                <li>
+                    <a class="h2 year" href="~/blog?y=@item">@item</a>
+                </li>
+            }
+        </ul>
+
+        <div class="col-lg-11 blog_scroll" id="blogScroll">
+            <ul class="blog-list">
+                @foreach (var item in Model)
+                {
+                    @if (item.IsShow)
+                    {
+
+                        <li class="m3">
+                            <h2><a asp-action="details" class="blog-title with-space" asp-route-id="@item.Id">@item.Title</a></h2>
+                            <p class="t2 m3 @Localizer["d-none"]"><small class="bold-font">@item.CreateTime.ToShortDateString()  发布</small> <small class="float-right">@item.ReadCount 次阅读</small></p>
+                            <p class="t2 m3 @Localizer["d-none-zh"]"><small class="bold-font">Posted on @item.CreateTime.ToShortDateString()</small> <small class="float-right">@item.ReadCount Times read</small></p>
+                            <a class="blog-summary" asp-action="details" asp-route-id="@item.Id">
+                                <p class="t2 with-space">@item.Summary.Substring(0, Math.Min(item.Summary.Length, item.Lang == "zh" || item.Lang == "ko" ? 100 : 150))…</p>
+                            </a>
+                            <div>
+                                @if (item.Tags != null)
+                                {
+                                    foreach (var tag in item.Tags.Split(","))
+                                    {
+                                        <a class="blog-tag" href="/blog?t=@tag">@tag</a>
+                                    }
+                                }
+                            </div>
+                        </li>
+                    }
+                    @if (ViewBag.UserRules && !item.IsShow)
+                    {
+
+                        <li class="m3">
+                            <h2><a asp-action="details" class="blog-title with-space" asp-route-id="@item.Id">@item.Title</a></h2>
+                            <p class="text-danger">
+                                未发布状态，仅管理员可见。
+                            </p>
+                            <p class="t2 m3 @Localizer["d-none"]">由作者 <span class="bold-font">@item.User</span> 于 <span class="bold-font">@item.CreateTime.ToShortDateString()</span> 发布 <small class="float-right">@item.ReadCount 次阅读</small></p>
+                            <p class="t2 m3 @Localizer["d-none-zh"]">Author <span class="bold-font">@item.User</span> posted on <span class="bold-font">@item.CreateTime.ToShortDateString()</span> <small class="float-right">@item.ReadCount Times read</small></p>
+                            <a class="blog-summary" asp-action="details" asp-route-id="@item.Id">
+                                <p class="t2 with-space">@item.Summary.Substring(0, Math.Min(item.Summary.Length, item.Lang == "zh" || item.Lang == "ko" ? 100 : 150))…</p>
+                            </a>
+                            <div>
+                                @if (item.Tags != null)
+                                {
+                                    foreach (var tag in item.Tags.Split(","))
+                                    {
+                                        <a class="blog-tag" href="/blog?t=@tag">@tag</a>
+                                    }
+                                }
+                            </div>
+                        </li>
+                    }
+
+                }
+                @if (Model.Count() == 0)
+                {
+                    <li class="m3">
+                        <h2>Coming Soon</h2>
+                    </li>
+                }
+            </ul>
+        </div>
     </div>
 </div>
 

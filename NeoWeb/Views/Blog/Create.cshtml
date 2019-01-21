@@ -4,48 +4,50 @@
     ViewData["Title"] = "发布博客";
     Layout = "_LayoutBlog.cshtml";
 }
+<div class="container">
 
-<h2 class="m2">发布博客</h2>
+    <h2 class="m2">发布博客</h2>
 
-<form asp-action="Create">
-    <div class="form-group">
-        <label asp-for="Title" class="col-form-label"></label>
-        <input asp-for="Title" class="form-control" />
-        <span asp-validation-for="Title" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Lang" class="col-form-label"></label>
-        <select asp-for="Lang" class="custom-select">
-            <option value="zh">中文</option>
-            <option value="en">English</option>
-            <option value="es">Español</option>
-            <option value="fr">Français</option>
-            <option value="ko">한국어</option>
-            <option value="ja">日本語</option>
-        </select>
-    </div>
-    <div class="from-group">
-        <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" asp-for="IsShow" checked="checked">
-            <label class="custom-control-label" asp-for="IsShow">在博客列表中显示</label>
+    <form asp-action="Create">
+        <div class="form-group">
+            <label asp-for="Title" class="col-form-label"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
         </div>
-    </div>
-    <div class="form-group">
-        <label asp-for="Content" class="col-form-label"></label>
-        @Html.Partial("_EditorPartialPage", Model)
-    </div>
-    <div class="form-group">
-        <label asp-for="Tags" class="col-form-label">博客标签，用逗号分隔</label>
-        <input asp-for="Tags" class="form-control" />
-        <span asp-validation-for="Tags" class="text-danger"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="Lang" class="col-form-label"></label>
+            <select asp-for="Lang" class="custom-select">
+                <option value="zh">中文</option>
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="ko">한국어</option>
+                <option value="ja">日本語</option>
+            </select>
+        </div>
+        <div class="from-group">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" asp-for="IsShow" checked="checked">
+                <label class="custom-control-label" asp-for="IsShow">在博客列表中显示</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Content" class="col-form-label"></label>
+            @Html.Partial("_EditorPartialPage", Model)
+        </div>
+        <div class="form-group">
+            <label asp-for="Tags" class="col-form-label">博客标签，用逗号分隔</label>
+            <input asp-for="Tags" class="form-control" />
+            <span asp-validation-for="Tags" class="text-danger"></span>
+        </div>
 
-    <div class="form-group">
-        <input type="submit" value="Create" class="btn btn-secondary" />
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-secondary" />
+        </div>
+    </form>
+    <div>
+        <a asp-action="index">Back to List</a>
     </div>
-</form>
-<div>
-    <a asp-action="index">Back to List</a>
 </div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
