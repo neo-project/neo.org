@@ -77,15 +77,25 @@
     max-width: 800px;
 }
 
-.client-ul li > div {
+.client-ul li .clip1 {
     position: relative;
     margin-bottom: 20px;
     height: 120px;
-    border: 1px solid #58bf00;
+    background: #58bf00;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 10px) 100%, 0 100%, 0 5px);
+    background: linear-gradient(150deg,transparent 0,transparent 5px, #58bf00 5px, #58bf00 calc(100% - 5px), transparent calc(100% - 5px),  transparent 100%);
 }
 
-.client-ul li > div:hover {
-    background-color: #f8f8f8;
+.client-ul li .clip2 {
+    position: relative;
+    margin-bottom: 20px;
+    top: 1px;
+    left: 1px;
+    height: 118px;
+    width: calc(100% - 2px);
+    background: #fff;
+    clip-path: polygon(9px 0, 100% 0, 100% calc(100% - 4.5px), calc(100% - 9px) 100%, 0 100%, 0 4.5px);
+    background: linear-gradient(150deg,transparent 0,transparent 5px, #fff 5px, #fff calc(100% - 5px), transparent calc(100% - 5px),  transparent 100%);
 }
 
 .client-ul li > div .open-source {
@@ -96,7 +106,7 @@
     bottom: 14px;
     font-size: 10px;
     padding: 6px 10px;
-    background: linear-gradient(150deg, #d4eb21 0, #68a136 100%);
+    background: linear-gradient(150deg,transparent 0,transparent 3px, #d4eb21 3px, #68a136 calc(100% - 3px), transparent calc(100% - 3px),  transparent 100%);
     border: none;
     color: #58bf00;
     clip-path: polygon(7px 0, 100% 0, 100% calc(100% - 3.5px), calc(100% - 7px) 100%, 0 100%, 0 3.5px);
@@ -110,6 +120,7 @@
     left: 1px;
     top: 1px;
     background-color: #fff;
+    background: linear-gradient(150deg,transparent 0,transparent 3px, #fff 3px, #fff calc(100% - 3px), transparent calc(100% - 3px),  transparent 100%);
     clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 3px), calc(100% - 6px) 100%, 0 100%, 0 3px);
 }
 
@@ -177,13 +188,13 @@
 }
 .metrics {
     padding: 10px 0;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid #e0e0e0;
 }
 .metrics:last-child {
     padding-bottom: 0;
     border-bottom: none;
 }
-.modal-body a.text-success, .modal-body a.text-success, .modal-body a.text-success {
+.modal-body a.text-success, .modal-body a.text-warning, .modal-body a.text-danger {
     font-weight: bold;
     line-height: 2;
 }
@@ -199,6 +210,7 @@
     clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 10px) 100%, 0 100%, 0 5px);
 }
 .modal-footer {
+    padding-top: 0;
     border-top: none;
 }
 @media (min-width: 992px) {
