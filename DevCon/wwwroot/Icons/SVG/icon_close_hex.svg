@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="74px" height="69px" viewBox="0 0 74 69" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>CLOSE ICON</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="24 0 44.7846097 12 44.7846097 36 24 48 3.21539031 36 3.21539031 12"></polygon>
+        <filter x="-37.1%" y="-43.8%" width="174.1%" height="187.5%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="7" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.27 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="DESKTOP-1440PX---RSVP---#1-Form-Error" transform="translate(-996.000000, -30.000000)">
+            <g id="MODAL" transform="translate(417.000000, 41.000000)">
+                <g id="CLOSE-ICON" transform="translate(592.000000, 0.000000)">
+                    <g id="Polygon" transform="translate(24.000000, 24.000000) rotate(90.000000) translate(-24.000000, -24.000000) ">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use fill="#4AAD3E" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                    <path d="M32.3839493,28.1339252 C32.3839493,28.468747 32.2500206,28.8035688 32.0089488,29.0446405 L30.1875181,30.8660713 C29.9464464,31.107143 29.6116246,31.2410717 29.2768027,31.2410717 C28.9419809,31.2410717 28.6071591,31.107143 28.3660874,30.8660713 L24.4285827,26.9285666 L20.491078,30.8660713 C20.2500063,31.107143 19.9151844,31.2410717 19.5803626,31.2410717 C19.2455408,31.2410717 18.9107189,31.107143 18.6696472,30.8660713 L16.8482165,29.0446405 C16.6071448,28.8035688 16.473216,28.468747 16.473216,28.1339252 C16.473216,27.7991033 16.6071448,27.4642815 16.8482165,27.2232098 L20.7857212,23.2857051 L16.8482165,19.3482004 C16.6071448,19.1071287 16.473216,18.7723069 16.473216,18.437485 C16.473216,18.1026632 16.6071448,17.7678414 16.8482165,17.5267697 L18.6696472,15.7053389 C18.9107189,15.4642672 19.2455408,15.3303385 19.5803626,15.3303385 C19.9151844,15.3303385 20.2500063,15.4642672 20.491078,15.7053389 L24.4285827,19.6428436 L28.3660874,15.7053389 C28.6071591,15.4642672 28.9419809,15.3303385 29.2768027,15.3303385 C29.6116246,15.3303385 29.9464464,15.4642672 30.1875181,15.7053389 L32.0089488,17.5267697 C32.2500206,17.7678414 32.3839493,18.1026632 32.3839493,18.437485 C32.3839493,18.7723069 32.2500206,19.1071287 32.0089488,19.3482004 L28.0714442,23.2857051 L32.0089488,27.2232098 C32.2500206,27.4642815 32.3839493,27.7991033 32.3839493,28.1339252 Z" id="Times---FontAwesome" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
