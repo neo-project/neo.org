@@ -209,8 +209,8 @@
                         <div class="developer d-none"><a href="https://o3.network/" target="_blank">O3 Labs</a></div>
                         <div class="desc d-none">
                             <div class="text-center">
-                                <a href="javascript:" onclick="$('.o3desktop').hide(); $('.o3mobile').show();">@Localizer["Mobile"]</a>
-                                <a href="javascript:" onclick="$('.o3mobile').hide(); $('.o3desktop').show();">@Localizer["Desktop"]</a>
+                                <a class="plat-btn" href="javascript:" onclick="$('.o3desktop').hide(); $('.o3mobile').show();">@Localizer["Mobile"]</a>
+                                <a class="plat-btn" href="javascript:" onclick="$('.o3mobile').hide(); $('.o3desktop').show();">@Localizer["Desktop"]</a>
                             </div>
                             <img class="o3mobile" data-src="@Helper.CDN/images/client/o3.png" />
                             <img class="o3desktop" style="display:none;" data-src="@Helper.CDN/images/client/o3-desktop.png" />
@@ -307,8 +307,8 @@
                         <div class="developer d-none"><a href="https://aphelion.org" target="_blank">Aphelion, Ltd</a></div>
                         <div class="desc d-none">
                             <div class="text-center">
-                                <a href="javascript:" onclick="$('.apheliondesktop').hide(); $('.aphelionmobile').show();">@Localizer["Mobile"]</a>
-                                <a href="javascript:" onclick="$('.aphelionmobile').hide(); $('.apheliondesktop').show();">@Localizer["Desktop"]</a>
+                                <a class="plat-btn" href="javascript:" onclick="$('.apheliondesktop').hide(); $('.aphelionmobile').show();">@Localizer["Mobile"]</a>
+                                <a class="plat-btn" href="javascript:" onclick="$('.aphelionmobile').hide(); $('.apheliondesktop').show();">@Localizer["Desktop"]</a>
                             </div>
                             <img class="aphelionmobile" data-src="@Helper.CDN/images/client/aphelion.png" />
                             <img class="apheliondesktop" style="display:none;" data-src="@Helper.CDN/images/client/aphelion-desktop.png" />
@@ -1015,15 +1015,17 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <img id="model_img" />
-                <div>
-                    <h2 class="modal-title" id="model_name"></h2>
-                    <div class="developer" id="model_platform"></div>
-                    <div class="developer" id="model_dev"></div>
+                <div class="modal-hr">
+                    <img id="model_img" />
+                    <div>
+                        <h2 class="modal-title" id="model_name"></h2>
+                        <div class="developer" id="model_platform"></div>
+                        <div class="developer" id="model_dev"></div>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
             </div>
             <div class="modal-body" id="model_desc"></div>
             <div class="modal-footer" id="model_link"></div>
@@ -1042,11 +1044,11 @@
         })
         function showPlatform(obj, name){
             if (name) {
-                $('.client-ul li').hide();
-                $('.' + name).show();
+                $('.client-ul li').not('.' + name).hide();
+                $('.' + name).show("fast");
             }
             else
-                $('.client-ul li').show();
+                $('.client-ul li').show("fast");
             $('.nav-client li').removeClass("selected");
             $(obj).addClass("selected");
         }

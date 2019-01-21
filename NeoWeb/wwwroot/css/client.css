@@ -180,19 +180,69 @@
     line-height: 2;
 }
 
-.modal-header img {
-    width: 72px;
-    height: 72px;
-    margin-right: 12px;
-    border-radius: 13px;
-}
 .metrics {
-    padding: 10px 0;
+    padding: 15px 0;
     border-bottom: 1px solid #e0e0e0;
 }
 .metrics:last-child {
     padding-bottom: 0;
     border-bottom: none;
+}
+.modal-body {
+    color: gray;
+}
+
+.modal-header {
+    padding: 2.5em 2.5em 0 2.5em;
+    border: none;
+}
+.modal-header .developer {
+    margin-top: 5px;
+    font-size: 14px;
+}
+.modal-header .modal-title {
+    line-height: 1.2;
+}
+.modal-hr {
+    display: flex;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: .5em;
+    width: 100%;
+    padding-bottom: 2em;
+}
+.modal-header img {
+    width: 85px;
+    height: 85px;
+    margin-right: 20px;
+    border-radius: 13px;
+}
+.modal-body {
+    padding: .5em 2.5em 0 2.5em;
+    font-size: 13px;
+}
+.modal-body .plat-btn {
+    padding: 0 5px;
+    line-height: 2;
+}
+.modal-body img {
+    display: block;
+    max-width: 100%;
+}
+.modal-body p {
+    margin: .5em 0;
+}
+.modal-body a {
+    color: #51BC00;
+    font-weight: 400;
+    cursor: pointer;
+}
+.modal-body .btn-secondary {
+    font-size: 14px;
+}
+.modal-footer {
+    padding: 0 2.5em 2.5em 2.5em;
+    padding-top: 0;
+    border-top: none;
 }
 .modal-body a.text-success, .modal-body a.text-warning, .modal-body a.text-danger {
     font-weight: bold;
@@ -209,39 +259,12 @@
     border: none;
     clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 10px) 100%, 0 100%, 0 5px);
 }
-.modal-footer {
-    padding-top: 0;
-    border-top: none;
-}
 @media (min-width: 992px) {
     .modal-lg {
         max-width: 768px;
     }
 }
 
-.modal-body {
-    color: gray;
-}
-
-.modal-header .developer {
-    margin-top: 2px;
-    font-size: 13px;
-}
-.modal-header .modal-title {
-    font-size: 20px;
-}
-.modal-body img {
-    display: block;
-    max-width: 100%;
-}
-.modal-body p {
-    margin: .5em 0;
-}
-.modal-body a {
-    color: #51BC00;
-    font-weight: 400;
-    cursor: pointer;
-}
 @media only screen and (max-width: 576px) {
 
     .client-ul img {
