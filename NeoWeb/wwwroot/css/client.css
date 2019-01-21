@@ -175,11 +175,49 @@
     margin-right: 12px;
     border-radius: 13px;
 }
-
-.modal-header .developer {
-    margin-top: 5px;
+.metrics {
+    padding: 10px 0;
+    border-bottom: 1px solid lightgray;
+}
+.metrics:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+.modal-body a.text-success, .modal-body a.text-success, .modal-body a.text-success {
+    font-weight: bold;
+    line-height: 2;
+}
+.modal-content {
+    border-radius: 0;
+    border: none;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 10px) 100%, 0 100%, 0 5px);
+}
+.btn-secondary {
+    border-radius: 0;
+    padding: 8px 20px;
+    border: none;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 10px) 100%, 0 100%, 0 5px);
+}
+.modal-footer {
+    border-top: none;
+}
+@media (min-width: 992px) {
+    .modal-lg {
+        max-width: 768px;
+    }
 }
 
+.modal-body {
+    color: gray;
+}
+
+.modal-header .developer {
+    margin-top: 2px;
+    font-size: 13px;
+}
+.modal-header .modal-title {
+    font-size: 20px;
+}
 .modal-body img {
     display: block;
     max-width: 100%;
