@@ -128,17 +128,12 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
 }
 
 /*最大宽度设置*/
-.w600 {
+.w800 {
     width:100%;
-    max-width:600px;
+    max-width:800px;
     margin:auto;
 }
 @media only screen and (min-width : 1550px) {
-    .w600 {
-        width:100%;
-        max-width:800px;
-        margin:auto;
-    }
 }
 @media only screen and (max-width : 780px) {
     .w300 {

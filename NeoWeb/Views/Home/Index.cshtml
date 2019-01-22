@@ -25,9 +25,9 @@
 </div>
 
 <div class="home-page-content home-intro">
-    <div class="container text-center w600">
+    <div class="container text-center w800">
         <h2 class="m1">@Localizer["What is NEO"]</h2>
-        <div class="m2">
+        <div class="m2 t3">
             @Localizer["NEO is an open source project driven by the community. It utilizes blockchain technology and digital identities to digitize assets and automate the management of digital assets using smart contracts. Using a distributed network, it aims to create a \"Smart Economy\"."]<br />
             @Localizer["NEO was founded in 2014 and open sourced on GitHub in June 2015. Its MainNet was released in October 2016 and has been running in stable capacity for two years. Its vision of a \"smart economy\" was set up along with the project rebranding in 2017.<br />NEO is committed to its goal of being the most developer-friendly public chain:"]
             <p class="lh3">
@@ -39,11 +39,11 @@
     </div>
     <div class="container">
         <div class="row wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
-            <div class="col-sm-12 m1 intro-img w600 back-static border-static border-static2">
+            <div class="col-sm-12 m1 intro-img w800 back-static border-static border-static2">
                 <img src="~/images/home-intro-3.svg"/>
             </div>
         </div>
-        <div class="swiper-container text-center m1 p4 t3">
+        <div class="swiper-container text-center m1 p4 t4">
             <div class="swiper-wrapper gray-text m1">
                 <div class="swiper-slide p4 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.1s">
                     <img src="~/images/coin.svg" /><br />
@@ -140,7 +140,7 @@
                     foreach (var item in ViewBag.Blog as IEnumerable<NeoWeb.Models.Blog>)
                     {
                         <div class="blog-con border-static back-white m3 p3">
-                            <p class="bolder-font">@item.Title</p>
+                            <p class="bolder-font t3">@item.Title</p>
                             <p class="m4 t4 gray-text">@item.Summary.Substring(0, Math.Min(item.Summary.Length, 100))…</p>
                             <p class="m4"><i class="iconfont t2 green-text">&#xe64c;</i> @item.EditTime.ToString()</p>
                         </div>
@@ -149,30 +149,30 @@
                 <p class="m3 text-center"><a class="btn-static t3" href="~/dev">@Localizer["Blog Page"]</a></p>
             </div>
             <div class="col-md-6 m2 event-con">
-                    @if (ViewBag.Event != null)
+                @if (ViewBag.Event != null)
+                {
+                    foreach (var item in ViewBag.Event as IEnumerable<NeoWeb.Models.Event>)
                     {
-                        foreach (var item in ViewBag.Event as IEnumerable<NeoWeb.Models.Event>)
-                        {
-                            <div class="border-static back-white m3 p3">
-                                @if (string.IsNullOrEmpty(item.Cover))
-                                {
-                                    <p class="m4"><img src="@String.Format(Helper.CDN + "/images/event/{0}.jpg", item.Type).ToLower()" width="100%" /></p>
-                                }
-                                else
-                                {
-                                    <p class="m4"><img src="@String.Format("/upload/{0}", item.Cover).ToLower()" width="100%" /></p>
-                                }
-                                <p class="m4 bolder-font">@item.Name</p>
-                                <p class="m4 t4 lh3 gray-text">
-                                    <i class="iconfont t2 green-text">&#xe64c;</i> @item.StartTime.ToString() ~ @item.EndTime.ToString()<br />
-                                    <i class="iconfont t2 green-text">&#xe64e;</i> @item.Country?.ZhName - @item.City<br />
-                                    <i class="iconfont t2 green-text">&#xe60b;</i> Organizers: @item.Organizers<br />
-                                </p>
-                                <a class="btn-static btn3 m3" href="/event/details/@item.Id">@Localizer["Detail"]</a>
-                            </div>
-                        }
+                        <div class="border-static back-white m3 p3">
+                            @if (string.IsNullOrEmpty(item.Cover))
+                            {
+                                <p class="m4"><img src="@String.Format(Helper.CDN + "/images/event/{0}.jpg", item.Type).ToLower()" width="100%" /></p>
+                            }
+                            else
+                            {
+                                <p class="m4"><img src="@String.Format("/upload/{0}", item.Cover).ToLower()" width="100%" /></p>
+                            }
+                            <p class="m4 bolder-font t3">@item.Name</p>
+                            <p class="m4 t4 lh3 gray-text">
+                                <i class="iconfont t2 green-text">&#xe64c;</i> @item.StartTime.ToString() ~ @item.EndTime.ToString()<br />
+                                <i class="iconfont t2 green-text">&#xe64e;</i> @item.Country?.ZhName - @item.City<br />
+                                <i class="iconfont t2 green-text">&#xe60b;</i> Organizers: @item.Organizers<br />
+                            </p>
+                            <a class="btn-static btn3 m3" href="/event/details/@item.Id">@Localizer["Detail"]</a>
+                        </div>
                     }
-                    <p class="m3 text-center"><a class="btn-static t3" href="~/dev">@Localizer["Event Page"]</a></p>
+                }
+                <p class="m3 text-center"><a class="btn-static t3" href="~/dev">@Localizer["Event Page"]</a></p>
             </div>
         </div>
     </div>
