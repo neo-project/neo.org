@@ -64,9 +64,9 @@
     <environment exclude="Development">
         <link href="@Helper.CDN/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
         <link href="@Helper.CDN/css/site.min.css?v=20181018" rel="stylesheet" />
+        @Html.Raw(JavaScriptSnippet.FullScript)
     </environment>
     @RenderSection("Styles", required: false)
-    @Html.Raw(JavaScriptSnippet.FullScript)
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">

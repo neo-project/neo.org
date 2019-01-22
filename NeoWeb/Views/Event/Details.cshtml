@@ -5,7 +5,7 @@
     ViewData["Title"] = @Model.Name;
     if (String.IsNullOrEmpty(Model.Cover))
     {
-        ViewData["Image"] = @String.Format(Helper.CDN + "/images/event/{0}.jpg", Model.Type).ToLower();
+        ViewData["Image"] = @String.Format(Helper.CDN + "/images/event/twitter-{0}.jpg", Model.Type).ToLower();
     }
     else
     {

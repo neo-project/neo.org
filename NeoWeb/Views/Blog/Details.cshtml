@@ -1,9 +1,16 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using System.Xml;
 @inject IViewLocalizer Localizer
 @model NeoWeb.Models.Blog
 @{
     ViewData["Title"] = Model.Title;
     ViewData["Details"] = Model.Summary;
+    if (ViewBag.Cover != null)
+    {
+        XmlDocument doc = new XmlDocument();
+        doc.LoadXml((string)ViewBag.Cover);
+        ViewData["Image"] = "https://neo.org" + doc.FirstChild.Attributes["src"].Value;
+    }
     Layout = "_LayoutBlog.cshtml";
     ViewData["keywords"] = Model.Tags;
 }
@@ -102,14 +109,14 @@
     <script src="@Helper.CDN/js/blog.min.js"></script>
     <script src="@Helper.CDN/js/jquery.qrcode.min.js"></script>
     <script>
-function setCookie(name, value) {
-    var Days = 30;
-    var exp = new Date();
-    exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
-    document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
-}
-setCookie(@Model.Id, "Read");
-$('#qrcode').qrcode(location.href);
+        function setCookie(name, value) {
+            var Days = 30;
+            var exp = new Date();
+            exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+            document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
+        }
+        setCookie(@Model.Id, "Read");
+        $('#qrcode').qrcode(location.href);
 
     </script>
 }

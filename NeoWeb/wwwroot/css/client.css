@@ -5,27 +5,38 @@
 
 .nav-client {
     text-align: center;
-    margin-top: 20px;
-    border-bottom: 1px solid #58bf00;
+    background-color: white;
+    clip-path: polygon(10px 0, 100% 0, 100% 100%, 0 100%, 0 5px);
+    background: linear-gradient(150deg,transparent 0, transparent 4px, #fff 4px,  #fff 100%);
+    margin-bottom: 5px;
 }
 
 .nav-client li {
     display: inline-block;
-    font-weight: normal;
-    color: #AAAAAA;
     margin: 0 10px;
     cursor: pointer;
     padding: 10px 30px;
 }
-
 .nav-client li span {
     margin-left: 10px;
 }
 
 .nav-client li.selected {
-    background-color: #58bf00;
-    color: white;
+    color: #58bf00;
     border-radius: 10px 10px 0 0;
+}.nav-client li:before {
+    content: "- ";
+    color: white;
+}
+.nav-client li:after {
+    content: " -";
+    color: white;
+}
+.nav-client li.selected:before {
+    color: #58bf00;
+}
+.nav-client li.selected:after {
+    color: #58bf00;
 }
 
 .nav-client li .iconfont {
@@ -41,10 +52,10 @@
 .nav-client li.tab-select a, .nav-client li a:hover {
     color: #58BF00;
 }
-
-.layout-container {
-    max-width: none;
-    padding: 0;
+.client-note {
+    max-width: 700px;
+    text-align: center;
+    margin: auto;
 }
 
 .client-ul {
@@ -52,34 +63,109 @@
     text-align: center;
     width: 100%;
     padding: 20px;
-    border-bottom: 1px solid #58bf00;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 5px), calc(100% - 10px) 100%, 0 100%, 0 0);
+    background: linear-gradient(150deg,#fff 0, #fff calc(100% - 4px), transparent calc(100% - 4px),  transparent 100%);
 }
 
-.client-ul li {
+.client-ul ul {
+    margin: auto;
+    max-width: 1600px;
+}
+
+.client-ul .alert {
+    margin: auto;
+    max-width: 800px;
+}
+
+.client-ul li .clip1 {
+    position: relative;
+    margin-bottom: 20px;
+    height: 120px;
+    background: #58bf00;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 10px) 100%, 0 100%, 0 5px);
+    background: linear-gradient(150deg,transparent 0,transparent 5px, #58bf00 5px, #58bf00 calc(100% - 5px), transparent calc(100% - 5px),  transparent 100%);
+}
+
+.client-ul li .clip2 {
+    position: relative;
+    margin-bottom: 20px;
+    top: 1px;
+    left: 1px;
+    height: 118px;
+    width: calc(100% - 2px);
+    background: #fff;
+    clip-path: polygon(9px 0, 100% 0, 100% calc(100% - 4.5px), calc(100% - 9px) 100%, 0 100%, 0 4.5px);
+    background: linear-gradient(150deg,transparent 0,transparent 5px, #fff 5px, #fff calc(100% - 5px), transparent calc(100% - 5px),  transparent 100%);
+}
+
+.client-ul li > div .open-source {
+    position: absolute;
     display: inline-block;
-    width: 200px;
-    margin: 20px;
-    padding: 20px 10px;
-    border: 1px solid lightgray;
+    border: 1px solid gray;
+    right: 20px;
+    bottom: 14px;
+    font-size: 10px;
+    padding: 6px 10px;
+    background: linear-gradient(150deg,transparent 0,transparent 3px, #d4eb21 3px, #68a136 calc(100% - 3px), transparent calc(100% - 3px),  transparent 100%);
+    border: none;
+    color: #58bf00;
+    clip-path: polygon(7px 0, 100% 0, 100% calc(100% - 3.5px), calc(100% - 7px) 100%, 0 100%, 0 3.5px);
 }
 
-.client-ul li:hover {
-    background-color: #f8f8f8;
+.client-ul li > div .open-source::before {
+    content: " ";
+    position: absolute;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    left: 1px;
+    top: 1px;
+    background-color: #fff;
+    background: linear-gradient(150deg,transparent 0,transparent 3px, #fff 3px, #fff calc(100% - 3px), transparent calc(100% - 3px),  transparent 100%);
+    clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 3px), calc(100% - 6px) 100%, 0 100%, 0 3px);
+}
+
+.client-ul li > div .open-source::after {
+    content: "GitHub";
+    display: block;
+    padding: 5px 9px;
+    font-size: 10px;
+    position: absolute;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    left: 1px;
+    top: 1px;
 }
 
 .client-ul img {
-    width: 72px;
-    height: 72px;
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    width: 33%;
+    cursor: pointer;
     border-radius: 13px;
 }
 
+.client-ul .platform {
+    position: absolute;
+    text-align: left;
+    left: 33%;
+    top: 42px;
+    margin-left: 28px;
+}
+
 .client-ul header {
-    line-height: 2.5;
+    position: absolute;
+    text-align: left;
+    height: 1.5em;
+    overflow: hidden;
+    left: 33%;
+    top: 18px;
+    margin-left: 28px;
 }
 
 .client-ul .iconfont {
     cursor: default;
-    margin: 0 3px;
+    margin-right: 3px;
 }
 
 .client-select {
@@ -94,55 +180,102 @@
     line-height: 2;
 }
 
-.modal-header img {
-    width: 72px;
-    height: 72px;
-    margin-right: 12px;
-    border-radius: 13px;
+.metrics {
+    padding: 15px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+.metrics:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+.modal-body {
+    color: gray;
 }
 
+.modal-header {
+    padding: 2.5em 2.5em 0 2.5em;
+    border: none;
+}
 .modal-header .developer {
     margin-top: 5px;
+    font-size: 14px;
 }
-
+.modal-header .modal-title {
+    line-height: 1.2;
+}
+.modal-hr {
+    display: flex;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: .5em;
+    width: 100%;
+    padding-bottom: 2em;
+}
+.modal-header img {
+    width: 85px;
+    height: 85px;
+    margin-right: 20px;
+    border-radius: 13px;
+}
+.modal-body {
+    padding: .5em 2.5em 0 2.5em;
+    font-size: 13px;
+}
+.modal-body .plat-btn {
+    padding: 0 5px;
+    line-height: 2;
+}
 .modal-body img {
     display: block;
     max-width: 100%;
 }
-
+.modal-body p {
+    margin: .5em 0;
+}
 .modal-body a {
     color: #51BC00;
     font-weight: 400;
     cursor: pointer;
 }
-
-@media only screen and (max-width : 992px) {
-    .client-hint {
-        width: 100%;
-        max-width: none;
-    }
-    .nav-client li {
-        padding: 10px 20px;
-    }
-    .client-ul li {
-        width: 180px;
+.modal-body .btn-secondary {
+    font-size: 14px;
+}
+.modal-footer {
+    padding: 0 2.5em 2.5em 2.5em;
+    padding-top: 0;
+    border-top: none;
+}
+.modal-body a.text-success, .modal-body a.text-warning, .modal-body a.text-danger {
+    font-weight: bold;
+    line-height: 2;
+}
+.modal-content {
+    border-radius: 0;
+    border: none;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 10px) 100%, 0 100%, 0 5px);
+}
+.btn-secondary {
+    border-radius: 0;
+    padding: 8px 20px;
+    border: none;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 10px) 100%, 0 100%, 0 5px);
+}
+@media (min-width: 992px) {
+    .modal-lg {
+        max-width: 768px;
     }
 }
 
-@media only screen and (max-width: 768px) {
-    .nav-client li {
-        padding: 5px 15px;
-        margin: 0;
+@media only screen and (max-width: 576px) {
+
+    .client-ul img {
+        width: 85px;
     }
-    .nav-client li span {
-        display: none;
+
+    .client-ul .platform {
+        left: 85px;
     }
-    .client-ul {
-        padding: 10px 0;
-    }
-    .client-ul li {
-        width: 160px;
-        margin: 10px;
-        padding: 10px 5px;
+
+    .client-ul header {
+        left: 85px;
     }
 }
