@@ -1,7 +1,6 @@
 ﻿html,body{
     height:auto;
-    background: #ECECEC;
-    color:#333;
+    color:#4A4A4A;
 }
 .p1 {
     padding:100px;
@@ -25,6 +24,17 @@
     background-size: cover;
     color:#ffffff;
 }
+/*.border-static {
+    box-shadow:none;
+}*/
+/*.border-static:before{
+    top:-1px;
+    left:-1px;
+}
+.border-static:after{
+    bottom:-1px;
+    left:1px;
+}*/
 
 .title-line{
     color: #333;
@@ -36,13 +46,14 @@
     margin: auto;
 }
 .block-info .info-cont {
-    background: #fff;
+    background:#FFF;
     padding: 20px;
     text-align: center;
     width: calc(25% - 5px);
     margin: 2px;
     display: inline-block;
     transition: transform .1s,background .2s;
+    box-shadow: -2px 4px 10px rgba(0, 0, 0, 0.1);
 }
 .info-icon {
     font-size:65px;
