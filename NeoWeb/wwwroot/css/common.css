@@ -49,6 +49,7 @@ h3,.h3 {font-size: 25px;}
 .pr0 {padding-right:0px!important;}
 a, a:active, .btn-link, .btn-link:active { color:#6c6c6c; text-decoration: none }
 a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decoration: none; outline: none }
+.top-line {border-top:1px solid #DDDDDD;}
 .bold-font {font-weight:400;}
 .bolder-font {font-weight:900;}
 .body-content {padding:50px 0;}
@@ -57,7 +58,7 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
 .gray-back {background:#888888;}
 .light-text {color:#AAAAAA;}
 .gray-text {color:#555555;}
-.green-text{color:#00ae1d;}
+.green-text{color:#478E0A;}
 .red-text{color:#dc3545!important;}
 .text-ellipsis {overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
 .lh1 {line-height:2.5;}
@@ -221,7 +222,7 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
 }
 .btn-static:hover {
     background-position:80%;
-    color:#4ca104!important;
+    color:#478E0A!important;
     transition: all 0.3s;
 }
 .btn-static:active {
@@ -257,7 +258,7 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
     background:url(../images/btn3.svg) no-repeat;
     background-size:cover;
     box-shadow:none;
-    color: #58bf00!important;
+    color: #478E0A!important;
     min-width: 105px;
     height: 47px;
     line-height: 40px;
