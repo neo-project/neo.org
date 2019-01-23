@@ -101,13 +101,13 @@ html, body {
     background-size: 40%,40%;
 }
 .blog-con {
-    min-height:242px;
+    min-height:240px;
 }
 .event-con {
     height:100%;
 }
 .event-con .border-static {
-    min-height:494px;
+    min-height:492px;
 }
 .event-con img{
     max-height:211px;

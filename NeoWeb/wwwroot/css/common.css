@@ -33,6 +33,7 @@ h3,.h3 {font-size: 25px;}
 .m2 {margin:42px auto 0!important;}
 .m3 {margin:20px auto 0!important;}
 .m4 {margin:10px auto 0!important;}
+.m5 {margin:6px auto 0!important;}
 .mt0 {margin-top:0px!important;}
 .ml0 {margin-left:0px!important;}
 .mb0 {margin-bottom:0px!important;}
@@ -128,6 +129,11 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
 }
 
 /*最大宽度设置*/
+.w600 {
+    width:100%;
+    max-width:600px;
+    margin:auto;
+}
 .w800 {
     width:100%;
     max-width:800px;
@@ -284,6 +290,7 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
     .m2 {margin:20px auto 0!important;}
     .m3 {margin:12px auto 0!important;}
     .m4 {margin:8px auto 0!important;}
+    .m5 {margin:4px auto 0!important;}
     .padding_normal {padding:initial 22px;}
     .p1 {padding:40px;}
     .p2 {padding:20px;}

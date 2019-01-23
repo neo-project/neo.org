@@ -3,28 +3,52 @@
     padding: 0;
 }
 
+.client-con {
+    background-image: url(../images/client-1.svg),url(../images/client-1.svg);
+    background-position: -20% top,130% top;
+    background-repeat: no-repeat;
+    background-size: 38%;
+}
+
 .nav-client {
     text-align: center;
     background-color: white;
     clip-path: polygon(10px 0, 100% 0, 100% 100%, 0 100%, 0 5px);
     background: linear-gradient(150deg,transparent 0, transparent 4px, #fff 4px,  #fff 100%);
-    margin-bottom: 5px;
 }
 
 .nav-client li {
     display: inline-block;
-    margin: 0 10px;
     cursor: pointer;
-    padding: 10px 30px;
+    padding: 10px;
+    width: 19%;
 }
+
+.nav-client li:hover{
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px;
+    width: 19%;
+}
+.nav-client li:hover::before {
+    content: "- ";
+    color: white;
+}
+.nav-client li:hover ::after {
+    content: " -";
+    color: white;
+}
+
 .nav-client li span {
     margin-left: 10px;
 }
 
 .nav-client li.selected {
-    color: #58bf00;
+    color: #478E0A;
     border-radius: 10px 10px 0 0;
-}.nav-client li:before {
+    font-weight:500;
+}
+.nav-client li:before {
     content: "- ";
     color: white;
 }
@@ -33,10 +57,10 @@
     color: white;
 }
 .nav-client li.selected:before {
-    color: #58bf00;
+    color: #478E0A;
 }
 .nav-client li.selected:after {
-    color: #58bf00;
+    color: #478E0A;
 }
 
 .nav-client li .iconfont {
@@ -46,16 +70,17 @@
 }
 
 .nav-client .tab-select {
-    color: #58BF00;
+    color: #478E0A;
 }
 
 .nav-client li.tab-select a, .nav-client li a:hover {
-    color: #58BF00;
+    color: #478E0A;
 }
 .client-note {
     max-width: 700px;
     text-align: center;
     margin: auto;
+    background:#EEF4EE;
 }
 
 .client-ul {
@@ -81,9 +106,12 @@
     position: relative;
     margin-bottom: 20px;
     height: 120px;
-    background: #58bf00;
-    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 10px) 100%, 0 100%, 0 5px);
-    background: linear-gradient(150deg,transparent 0,transparent 5px, #58bf00 5px, #58bf00 calc(100% - 5px), transparent calc(100% - 5px),  transparent 100%);
+    background: #478E0A;
+    background: linear-gradient(150deg,transparent 3%, #EEEEEE 3%, #EEEEEE 97%, transparent 97%);
+}
+
+.client-ul li:hover .clip1 {
+    background:linear-gradient(150deg,transparent 3.2%, #478E0A 3.2%, #478E0A 96.9%, transparent 96.9%);
 }
 
 .client-ul li .clip2 {
@@ -94,8 +122,7 @@
     height: 118px;
     width: calc(100% - 2px);
     background: #fff;
-    clip-path: polygon(9px 0, 100% 0, 100% calc(100% - 4.5px), calc(100% - 9px) 100%, 0 100%, 0 4.5px);
-    background: linear-gradient(150deg,transparent 0,transparent 5px, #fff 5px, #fff calc(100% - 5px), transparent calc(100% - 5px),  transparent 100%);
+    background:linear-gradient(150deg,transparent 3.2%, #FFF 3.2%, #FFF 96.9%, transparent 96.9%);
 }
 
 .client-ul li > div .open-source {
@@ -105,8 +132,8 @@
     right: 20px;
     bottom: 14px;
     font-size: 10px;
-    padding: 6px 10px;
-    background: linear-gradient(150deg,transparent 0,transparent 3px, #d4eb21 3px, #68a136 calc(100% - 3px), transparent calc(100% - 3px),  transparent 100%);
+    padding: 1px 10px;
+    background: linear-gradient(150deg,transparent 0,transparent 3px, #B5E200 3px, #58BF00 calc(100% - 3px), transparent calc(100% - 3px),  transparent 100%);
     border: none;
     color: #58bf00;
     clip-path: polygon(7px 0, 100% 0, 100% calc(100% - 3.5px), calc(100% - 7px) 100%, 0 100%, 0 3.5px);
@@ -127,7 +154,7 @@
 .client-ul li > div .open-source::after {
     content: "GitHub";
     display: block;
-    padding: 5px 9px;
+    padding: 0px 9px;
     font-size: 10px;
     position: absolute;
     width: calc(100% - 2px);
@@ -140,9 +167,11 @@
     position: absolute;
     left: 14px;
     top: 14px;
+    max-width:80px;
     width: 33%;
     cursor: pointer;
     border-radius: 13px;
+    padding:5px;
 }
 
 .client-ul .platform {
@@ -165,7 +194,8 @@
 
 .client-ul .iconfont {
     cursor: default;
-    margin-right: 3px;
+    font-size:12px;
+    margin-right: 1px;
 }
 
 .client-select {
@@ -264,18 +294,19 @@
         max-width: 768px;
     }
 }
-
+@media only screen and (max-width: 1550px) {
+    .client-con {
+        background-position: -30% top,150% top;
+        background-size: 43%;
+    }
+}
 @media only screen and (max-width: 576px) {
-
-    .client-ul img {
-        width: 85px;
+    .client-con {
+        background-position: -68% top,186% top;
+        background-size: 60%;
     }
-
-    .client-ul .platform {
-        left: 85px;
-    }
-
+    .client-ul .platform,
     .client-ul header {
-        left: 85px;
+        left: 60px;
     }
 }
