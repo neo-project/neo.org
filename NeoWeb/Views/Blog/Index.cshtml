@@ -13,25 +13,24 @@
         <link rel="stylesheet" href="@Helper.CDN/css/blog.min.css" asp-append-version="true" />
     </environment>
 }
-<h1 class="blog_title m2 text-center">@Localizer["Blog posts list"]</h1>
-
-<div class="container">
+<div class="container p2">
+    <h2 class="blog_title m1 text-center">@Localizer["Blog posts list"]</h2>
     <div class="text-center m3">
         @if (ViewBag.UserRules)
         {
-            <a class="btn btn-sm btn-success" asp-action="Create">发布新博客</a>
+            <a class="btn-static" asp-action="Create">发布新博客</a>
         }
     </div>
     <form asp-controller="blog" asp-action="index" method="get" class="search-form">
-        <div class="input-group mb-3">
-            <input name="k" type="text" class="form-control">
+        <div class="input-group m2">
+            <div class="dis-inblock border-input"><input name="k" type="text" class="form-control"></div>
             <div class="input-group-append">
-                <button class="btn btn-success" type="submit">Search</button>
+                <button class="btn btn-input" type="submit">SEARCH</button>
             </div>
         </div>
     </form>
 </div>
-<div class="container">
+<div class="container m2">
     <div class="row">
         <ul class="col-lg-1 blog_date desktop-show" id="blogDate">
             @foreach (var item in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Select(p => p.Year).Distinct())
@@ -62,20 +61,19 @@
                 {
                     @if (item.IsShow)
                     {
-
-                        <li class="m3">
-                            <h2><a asp-action="details" class="blog-title with-space" asp-route-id="@item.Id">@item.Title</a></h2>
-                            <p class="t2 m3 @Localizer["d-none"]"><small class="bold-font">@item.CreateTime.ToShortDateString()  发布</small> <small class="float-right">@item.ReadCount 次阅读</small></p>
-                            <p class="t2 m3 @Localizer["d-none-zh"]"><small class="bold-font">Posted on @item.CreateTime.ToShortDateString()</small> <small class="float-right">@item.ReadCount Times read</small></p>
+                        <li class="m3 border-static">
+                            <h3><a asp-action="details" class="blog-title with-space" asp-route-id="@item.Id">@item.Title</a></h3>
+                            <p class="t4 m3 green-text blog-date @Localizer["d-none"] bold-font">@item.CreateTime.ToShortDateString() <span class="float-right">@item.ReadCount 次阅读</span></p>
+                            <p class="t4 m4 green-text blog-date @Localizer["d-none-zh"] bold-font">@item.CreateTime.ToShortDateString() <span class="float-right">@item.ReadCount Times read</span></p>
                             <a class="blog-summary" asp-action="details" asp-route-id="@item.Id">
-                                <p class="t2 with-space">@item.Summary.Substring(0, Math.Min(item.Summary.Length, item.Lang == "zh" || item.Lang == "ko" ? 100 : 150))…</p>
+                                <p class="t3 m4 with-space">@item.Summary.Substring(0, Math.Min(item.Summary.Length, item.Lang == "zh" || item.Lang == "ko" ? 100 : 150))…</p>
                             </a>
-                            <div>
+                            <div class="top-line m3">
                                 @if (item.Tags != null)
                                 {
                                     foreach (var tag in item.Tags.Split(","))
                                     {
-                                        <a class="blog-tag" href="/blog?t=@tag">@tag</a>
+                                        <a class="blog-tag green-text" href="/blog?t=@tag">@tag</a>
                                     }
                                 }
                             </div>
@@ -83,18 +81,17 @@
                     }
                     @if (ViewBag.UserRules && !item.IsShow)
                     {
-
-                        <li class="m3">
-                            <h2><a asp-action="details" class="blog-title with-space" asp-route-id="@item.Id">@item.Title</a></h2>
+                        <li class="m3 border-static">
+                            <h3><a asp-action="details" class="blog-title with-space" asp-route-id="@item.Id">@item.Title</a></h3>
                             <p class="text-danger">
                                 未发布状态，仅管理员可见。
                             </p>
-                            <p class="t2 m3 @Localizer["d-none"]">由作者 <span class="bold-font">@item.User</span> 于 <span class="bold-font">@item.CreateTime.ToShortDateString()</span> 发布 <small class="float-right">@item.ReadCount 次阅读</small></p>
-                            <p class="t2 m3 @Localizer["d-none-zh"]">Author <span class="bold-font">@item.User</span> posted on <span class="bold-font">@item.CreateTime.ToShortDateString()</span> <small class="float-right">@item.ReadCount Times read</small></p>
+                            <p class="t4 mb0 @Localizer["d-none"]"><small class="bold-font">@item.CreateTime.ToShortDateString()  发布</small> <small class="float-right">@item.ReadCount 次阅读</small></p>
+                            <p class="t4 @Localizer["d-none-zh"]"><small class="bold-font">Posted on @item.CreateTime.ToShortDateString()</small> <small class="float-right">@item.ReadCount Times read</small></p>
                             <a class="blog-summary" asp-action="details" asp-route-id="@item.Id">
-                                <p class="t2 with-space">@item.Summary.Substring(0, Math.Min(item.Summary.Length, item.Lang == "zh" || item.Lang == "ko" ? 100 : 150))…</p>
+                                <p class="t3 with-space">@item.Summary.Substring(0, Math.Min(item.Summary.Length, item.Lang == "zh" || item.Lang == "ko" ? 100 : 150))…</p>
                             </a>
-                            <div>
+                            <div class="top-line">
                                 @if (item.Tags != null)
                                 {
                                     foreach (var tag in item.Tags.Split(","))

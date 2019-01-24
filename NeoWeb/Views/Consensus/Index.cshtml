@@ -18,6 +18,27 @@
 <div class="container">
     <div class="title-line t1 m2">@Localizer["Blockchain Info"]</div>
     <div class="row block-info">
+        @*<div class="info-cont border-static">
+            <p class="info-icon gray-text"><i class="iconfont">&#xe619;</i></p>
+            <p class="t2">@Localizer["Block Height"]</p>
+            <span class="t1" id="blohei">--</span>
+        </div>
+        <div class="info-cont border-static">
+            <p class="info-icon gray-text"><i class="iconfont">&#xe6c1;</i></p>
+            <p class="t2">@Localizer["Last Time"]</p>
+            <span class="t1" id="lastime">--</span>
+        </div>
+        <div class="info-cont border-static">
+            <p class="info-icon gray-text"><i class="iconfont">&#xe61c;</i></p>
+            <p class="t2">@Localizer["Candidate Count"]</p>
+            <span class="t1" id="cannum">--</span>
+        </div>
+        <div class="info-cont">
+            <p class="info-icon gray-text"><i class="iconfont">&#xe609;</i></p>
+            <p class="t2">@Localizer["Consensus Count"]</p>
+            <span class="t1" id="connum">--</span>
+        </div>*@
+
         <div class="info-cont">
             <p class="info-icon gray-text"><i class="iconfont">&#xe619;</i></p>
             <p class="t2">@Localizer["Block Height"]</p>
@@ -42,7 +63,7 @@
     <div class="title-line t1 m2">@Localizer["Blockchain indicator"]</div>
     <div class="row">
         <div class="col-sm-12">
-            <div class="block-data">
+            <div class="block-data border-static">
                 <div class="can-charts" id="main"></div>
             </div>
         </div>
@@ -50,7 +71,7 @@
     <div class="title-line t1 m2">
         @Localizer["Off-Chain Governance"]
     </div>
-    <div class="gray-back p2 text-center">
+    <div class="gray-back p2 text-center border-static">
         <p class="m3 t2">
             @Localizer["For more details, see the documentation:"]<a class="green-text" href="@Localizer["https://neo-ngd.github.io/reference/How-To-Become-NEO-Consensus-Node.html"]"> @Localizer["How To Become A Consensus Node"]</a>
         </p>
@@ -155,7 +176,7 @@
     </div>
 </div>
 <script id="test" type="text/html">
-    <li class="pt0 pr0">
+    <li class="pt0 pr0 border-static">
         <div class="can-th p4">
             {{if Active}}<span class="detail-left t2 green-text">@Localizer["Consensus Node"]</span>{{/if}}
             {{if !Active}}<span class="detail-left t3">@Localizer["Candidate Node"]</span>{{/if}}
