@@ -12,9 +12,6 @@
 
 .nav-client {
     text-align: center;
-    background-color: white;
-    clip-path: polygon(10px 0, 100% 0, 100% 100%, 0 100%, 0 5px);
-    background: linear-gradient(150deg,transparent 0, transparent 4px, #fff 4px,  #fff 100%);
 }
 
 .nav-client li {
@@ -84,12 +81,9 @@
 }
 
 .client-ul {
-    background-color: white;
     text-align: center;
     width: 100%;
     padding: 20px;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 5px), calc(100% - 10px) 100%, 0 100%, 0 0);
-    background: linear-gradient(150deg,#fff 0, #fff calc(100% - 4px), transparent calc(100% - 4px),  transparent 100%);
 }
 
 .client-ul ul {
@@ -246,6 +240,9 @@
     margin-right: 20px;
     border-radius: 13px;
 }
+.modal-header .close {
+    height: 50px;
+}
 .modal-body {
     padding: .5em 2.5em 0 2.5em;
     font-size: 13px;
@@ -282,12 +279,14 @@
     border-radius: 0;
     border: none;
     clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 10px) 100%, 0 100%, 0 5px);
+    background: linear-gradient(150deg,transparent 0, transparent 5px, #fff 0, #fff calc(100% - 5px), transparent calc(100% - 5px),  transparent 100%);
 }
 .btn-secondary {
     border-radius: 0;
     padding: 8px 20px;
     border: none;
     clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 10px) 100%, 0 100%, 0 5px);
+    background: linear-gradient(150deg,transparent 0, transparent 5px, #5a6268 0, #5a6268 calc(100% - 5px), transparent calc(100% - 5px),  transparent 100%);
 }
 @media (min-width: 992px) {
     .modal-lg {
