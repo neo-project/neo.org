@@ -175,6 +175,12 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
     border-top: 20px solid transparent;
     border-right: 40px solid #EEF4EE;
 }
+.border-static2:before{
+    border-left: 36px solid #FFFFFF;
+}
+.border-static2:after{
+    border-right: 40px solid #FFFFFF;
+}
 .border-static-title {
     background-color: white;
     background: linear-gradient(152deg,transparent 0, transparent 8px, #fff 8px,  #fff 100%);
@@ -251,7 +257,7 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
     border:none;
 }
 .btn2:hover {
-    color: #333333!important;
+    color: #EEEEEE!important;
     background: linear-gradient(-30deg,transparent 5%,#4F4F4F 5%,#4F4F4F 95%,transparent 95%);
 }
 .btn2:active {
