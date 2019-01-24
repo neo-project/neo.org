@@ -15,11 +15,26 @@
 
 <div class="event-banner">
     <div class="container">
-        <div class="search-div text-center">
-            <img class="img-fluid search-group mt-3 mb-5" src="@Helper.CDN/images/event/h1.jpg" />
+        <div class="search-div border-static back-white m3 p3 text-center">
+            <img class="img-fluid search-group mt-3 mb-5" src="@Helper.CDN/images/event/h1.svg" />
             <form asp-action="index" method="get">
                 <div class="input-group search-group">
-                    <select name="k" class="form-control">
+                    <div class="dropdown show">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuk" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Categories
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <div class="border-static">
+                                <a href="#" onclick="setselect('k', this)" value="">Categories</a>
+                                @foreach (var item in ViewBag.Types as IEnumerable<EventType>)
+                                {
+                                    <a href="#" onclick="setselect('k', this)" value="@item">@item</a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <select name="k" id="k" class="d-none">
                         <option value="">Categories</option>
                         @foreach (var item in ViewBag.Types as IEnumerable<EventType>)
                         {
@@ -33,7 +48,22 @@
                             }
                         }
                     </select>
-                    <select name="c" class="form-control d-none d-sm-block">
+                    <div class="dropdown show">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuc" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            All Country
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <div class="border-static">
+                                <a href="#" onclick="setselect('c', this)" value="">All Country</a>
+                                @foreach (var item in ViewBag.Countries as IEnumerable<Country>)
+                                {
+                                    <a href="#" onclick="setselect('c', this)" value="@item.Id">@item.Name</a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <select name="c" id="c" class="d-none">
                         <option value="0">All Country</option>
                         @foreach (var item in ViewBag.Countries as IEnumerable<Country>)
                         {
@@ -47,7 +77,23 @@
                             }
                         }
                     </select>
-                    <select name="d" class="form-control d-none d-sm-block">
+
+                    <div class="dropdown show">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenud" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            All Dates
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <div class="border-static">
+                                <a href="#" onclick="setselect('d', this)" value="">All Dates</a>
+                                @for (int i = 0; i < (ViewBag.Dates as string[]).Length; i++)
+                                {
+                                    <a href="#" onclick="setselect('d', this)" value="@i">@ViewBag.Dates[i]</a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <select name="d" id="d" class="d-none">
                         @for (int i = 0; i < (ViewBag.Dates as string[]).Length; i++)
                         {
                             @if (i == ViewBag.Date)
@@ -61,7 +107,7 @@
                         }
                     </select>
                     <div class="input-group-append">
-                        <button class="btn btn-success" type="submit">@Localizer["Search"]</button>
+                        <button class="btn-static search-btn t3" type="submit">@Localizer["Search"]</button>
                     </div>
                 </div>
             </form>
@@ -80,7 +126,7 @@
     <div class="row">
         <div class="col-12 col-lg-8 text-center">
             @* 先显示未来的活动 *@
-            <div class="event-line"><span class="h2 bold-font ">COMING EVENTS</span></div>
+            <div class="border-static-title back-white">COMING EVENTS</div>
             @foreach (var item in Model.Where(p => p.EndTime >= DateTime.Now))
             {
                 await Html.RenderPartialAsync("_EventPartialPage", item);
@@ -89,7 +135,7 @@
             {
                 <div class="m-2 mb-5 text-left">@Localizer["No matching search results."] <a href="~/event">@Localizer["View other events."]</a></div>
             }
-            <div class="event-line"><span class="h2 bold-font ">PAST EVENTS</span></div>
+                <div class="border-static-title back-white">PAST EVENTS</div>
             @* 再显示过去的活动 *@
             @foreach (var item in Model.Where(p => p.EndTime < DateTime.Now).OrderByDescending(p => p.StartTime).Take(10))
             {
@@ -103,13 +149,13 @@
             @await Html.PartialAsync("_LoginPartial")
         </div>
         <div class="d-none d-lg-block col-md-4">
-            <div class="t1 bold-font text-left">Events Dates</div>
-            <div class="calender m3 alert-light">
+            <div class="border-static-title">Events Dates</div>
+            <div class="calender border-static-body">
                 <div class="dis-table t2">
                     <div class="dis-table-cell text-right">
                         <a class="change-date" onclick="monthChange(-1)"><i class="iconfont">&#xeaa5;</i></a>
                     </div>
-                    <div class="dis-table-cell text-center t1">
+                    <div class="dis-table-cell text-center">
                         <span id="chooseY">@DateTime.Now.Year</span>  <span id="chooseM">@DateTime.Now.Month</span>
                     </div>
                     <div class="dis-table-cell text-left">
@@ -237,6 +283,24 @@
                 calender(date);
                 addNews(data, date);
                 addToday(date);
+            });
+        }
+        $(function () {
+            $("#dropdownMenuk").html($("#k option[selected]").html());
+            $("#dropdownMenuc").html($("#c option[selected]").html());
+            $("#dropdownMenud").html($("#d option[selected]").html());
+        });
+
+        function setselect(id, obj) {
+            var options = $("#" + id + " option");
+            options.removeAttr("selected");
+            var selected_val = $(obj).attr("value");
+            var selected_html = $(obj).html();
+            $("#" + id + " option").each(function () {
+                if ($(this).val() == selected_val) {
+                    $(this).attr("selected", "selected");
+                    $("#dropdownMenu" + id).html(selected_html);
+                }
             });
         }
         $('[data-original]').lazyload({

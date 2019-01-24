@@ -174,11 +174,13 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
     border-top: 20px solid transparent;
     border-right: 40px solid #EEF4EE;
 }
-.border-static2:before{
-    border-left: 36px solid #FFFFFF;
+.border-static-title {
+    background-color: white;
+    background: linear-gradient(152deg,transparent 0, transparent 8px, #fff 8px,  #fff 100%);
 }
-.border-static2:after{
-    border-right: 40px solid #FFFFFF;
+.border-static-body {
+    background-color: white;
+    background: linear-gradient(152deg,#fff 0, #fff calc(100% - 8px), transparent calc(100% - 7px),  transparent 100%);
 }
 
 /*基础按钮样式*/
@@ -191,6 +193,7 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
     background-size:150%;
     background-position:0;
     box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.1);
+    border: none;
     color: #EEF4EE!important;
     letter-spacing: 2px;
     min-width: 210px;

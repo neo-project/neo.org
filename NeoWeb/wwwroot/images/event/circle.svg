@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="93" height="93" viewBox="0 0 93 93">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #51bc00;
+      }
+
+      .cls-2 {
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <rect id="矩形_2" data-name="矩形 2" class="cls-1" y="16" width="4" height="99"/>
+  <rect id="矩形_2_拷贝" data-name="矩形 2 拷贝" class="cls-1" x="89" y="-24" width="4" height="101"/>
+  <rect id="矩形_2_拷贝_2" data-name="矩形 2 拷贝 2" class="cls-1" x="29" width="98" height="4"/>
+  <rect id="矩形_2_拷贝_3" data-name="矩形 2 拷贝 3" class="cls-1" x="-34" y="89" width="99" height="4"/>
+  <path id="矩形_2_拷贝_4" data-name="矩形 2 拷贝 4" class="cls-2" d="M119.154,64.75L30.859,111.7l-1.878-3.532,88.295-46.947Z"/>
+  <path id="矩形_2_拷贝_5" data-name="矩形 2 拷贝 5" class="cls-2" d="M58.154-11.25L-30.141,35.7l-1.878-3.532L56.276-14.782Z"/>
+</svg>
