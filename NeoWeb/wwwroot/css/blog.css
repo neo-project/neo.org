@@ -4,6 +4,9 @@
 ul, ol {
     margin-bottom: 0;
 }
+.h4, h4 {
+    font-size:1.2rem;
+}
 /*blog页面 - Blog page*/
 .blog-container {
     text-align:center;
@@ -176,7 +179,9 @@ a{
     text-indent:0!important;
     text-align:left;
     padding-top:0;
-    padding-bottom:20px;
+    padding-bottom:10px;
+}
+.blog-content p{
 }
 .blog-content :first-child img{
     width:100%;
@@ -194,42 +199,46 @@ a{
     text-decoration:none;
 }
 .nav-artical .iconfont{
-    font-size:22px;
+    font-size:18px;
     font-style:normal;
     color:#AAAAAA;
     margin:0 3px;
+    vertical-align:top;
 }
 .icon-left {
     margin-right:20px;
 }
 /*博客标签*/
 .blog-date {
-
+    line-height:1;
 }
 .blog-date:before{
     content:"";
     display:inline-block;
-    width:25px;
+    width: 30px;
     height: 15px;
-    background:url(/images/networking.svg);
+    background:url(/images/date.svg);
     background-size:contain;
     background-repeat: no-repeat;
+    vertical-align: bottom;
 }
 .blog-tag {
-    margin-right: 8px;
+    margin-right: 12px;
     font-size: 14px;
     display: inline-block;
-    margin-top: 8px;
+    margin-top: 15px;
     font-weight: 500;
+    line-height:1;
 }
 .blog-tag:before{
     content:"";
     display:inline-block;
-    width:18px;
-    height: 15px;
-    background:url(/images/networking.svg);
+    width: 20px;
+    height: 14px;
+    background:url(/images/tag.svg);
     background-size:contain;
     background-repeat: no-repeat;
+    vertical-align:bottom;
 }
 
 /*列表页面login部分距离调整*/
@@ -267,7 +276,7 @@ a{
 /*调整相应式样式*/
 @media only screen and (max-width : 1199px) {
     body {
-        padding-top: 84px;
+        padding-top: 50px;
     }
     .blog_title {
         letter-spacing:2px;

@@ -23,7 +23,7 @@
         <link rel="stylesheet" href="@Helper.CDN/css/blog.min.css" asp-append-version="true" />
     </environment>
 }
-<div class="container">
+<div class="container m1">
     <div class="row">
         <ul class="col-lg-1 blog_date artical-date desktop-show" id="blogDate">
             @foreach (var item in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Select(p => p.Year).Distinct())
@@ -42,31 +42,31 @@
 
         <div class="col-lg-11 artical-container">
 
-            <div class="nav-artical nav-artical-top p2">
-                <div class="text-left"><a class="t2" href="~/blog"><i class="iconfont">&#xeaa4;</i><span class="desktop-show">@Localizer["Back to list"]</span></a></div>
+            <div class="nav-artical nav-artical-top t3 p2">
+                <div class="text-left"><a href="~/blog"><i class="iconfont">&#xeaa4;</i><span class="desktop-show">@Localizer["Back to list"]</span></a></div>
                 <div>
                     <ul class="blog_date mobile-show">
                         @foreach (var item in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Select(p => p.Year).Distinct())
                         {
                             <li>
-                                <a class="h2 year" href="~/blog/index?y=@item">@item</a>
+                                <a class="h3 year" href="~/blog/index?y=@item">@item</a>
                             </li>
                         }
                     </ul>
                 </div>
                 <div class="text-right">
-                    <a class="t2 icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xeaa5;</i><span class="desktop-show">@Localizer["Previous article"]</span></a>
-                    <a class="t2" href="~/blog/details/@ViewBag.NextBlogId"><span class="desktop-show">@Localizer["Next article"]</span><i class="iconfont">&#xeaa3;</i></a>
+                    <a class="icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xe6b8;</i><span class="desktop-show">@Localizer["Previous article"]</span></a>
+                    <a href="~/blog/details/@ViewBag.NextBlogId"><span class="desktop-show">@Localizer["Next article"]</span><i class="iconfont">&#xe6b7;</i></a>
                 </div>
             </div>
 
             <div class="artical-content">
                 <div>
-                    <h2>@Model.Title</h2>
-                    <p class="light-text t2 m3 @Localizer["d-none"]"><span class="bold-font">@Model.CreateTime.ToShortDateString()</span> 发布</p>
-                    <p class="light-text t2 m3 @Localizer["d-none-zh"]">Posted on <span class="bold-font">@Model.CreateTime.ToShortDateString()</span></p>
-                    <div class="float-right qrcode-div"><i class="iconfont">&#xe79b;</i><div id="qrcode"></div></div>
-                    <p>
+                    <h3 class="bold-font">@Model.Title</h3>
+                    <p class="t3 m3 @Localizer["d-none"] green-text blog-date bold-font"><span class="bold-font">@Model.CreateTime.ToShortDateString()</span></p>
+                    <p class="t3 m3 @Localizer["d-none-zh"] green-text blog-date bold-font"><span class="bold-font">@Model.CreateTime.ToShortDateString()</span></p>
+                    <div class="float-right qrcode-div"><i class="iconfont green-text">&#xe79b;</i><div id="qrcode"></div></div>
+                    <p class="t3">
                         @if (ViewBag.UserRules)
                         {
                             <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
@@ -75,7 +75,7 @@
                         }
                     </p>
                 </div>
-                <div class="blog-content">
+                <div class="blog-content t3 m3">
                     @Html.Raw(ViewBag.Cover)
                     <div class="with-space">
                         @Html.Raw(Model.Content)
@@ -93,12 +93,12 @@
                 </div>
             </div>
 
-            <div class="nav-artical nav-artical-bottom">
-                <div class="text-left"><a class="t2" href="~/blog"><i class="iconfont">&#xeaa4;</i><span class="desktop-show">@Localizer["Back to list"]</span></a></div>
-                <div class="text-center"><a class="t2 back-to-top"><i class="iconfont">&#xe600;</i><span class="desktop-show">@Localizer["Back to top"]</span></a></div>
+            <div class="nav-artical nav-artical-bottom t3">
+                <div class="text-left"><a href="~/blog"><i class="iconfont">&#xeaa4;</i><span class="desktop-show">@Localizer["Back to list"]</span></a></div>
+                <div class="text-center"><a class="back-to-top"><i class="iconfont">&#xe65a;</i><span class="desktop-show">@Localizer["Back to top"]</span></a></div>
                 <div class="text-right">
-                    <a class="t2 icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xeaa5;</i><span class="desktop-show">@Localizer["Previous article"]</span></a>
-                    <a class="t2" href="~/blog/details/@ViewBag.NextBlogId"><span class="desktop-show">@Localizer["Next article"]</span><i class="iconfont">&#xeaa3;</i></a>
+                    <a class="icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xe6b8;</i><span class="desktop-show">@Localizer["Previous article"]</span></a>
+                    <a href="~/blog/details/@ViewBag.NextBlogId"><span class="desktop-show">@Localizer["Next article"]</span><i class="iconfont">&#xe6b7;</i></a>
                 </div>
             </div>
         </div>

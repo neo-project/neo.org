@@ -64,9 +64,9 @@
                         <li class="m3 border-static">
                             <h3><a asp-action="details" class="blog-title with-space" asp-route-id="@item.Id">@item.Title</a></h3>
                             <p class="t4 m3 green-text blog-date @Localizer["d-none"] bold-font">@item.CreateTime.ToShortDateString() <span class="float-right">@item.ReadCount 次阅读</span></p>
-                            <p class="t4 m4 green-text blog-date @Localizer["d-none-zh"] bold-font">@item.CreateTime.ToShortDateString() <span class="float-right">@item.ReadCount Times read</span></p>
+                            <p class="t4 m3 green-text blog-date @Localizer["d-none-zh"] bold-font">@item.CreateTime.ToShortDateString() <span class="float-right">@item.ReadCount Times read</span></p>
                             <a class="blog-summary" asp-action="details" asp-route-id="@item.Id">
-                                <p class="t3 m4 with-space">@item.Summary.Substring(0, Math.Min(item.Summary.Length, item.Lang == "zh" || item.Lang == "ko" ? 100 : 150))…</p>
+                                <p class="t3 m3 with-space">@item.Summary.Substring(0, Math.Min(item.Summary.Length, item.Lang == "zh" || item.Lang == "ko" ? 100 : 150))…</p>
                             </a>
                             <div class="top-line m3">
                                 @if (item.Tags != null)
@@ -86,17 +86,17 @@
                             <p class="text-danger">
                                 未发布状态，仅管理员可见。
                             </p>
-                            <p class="t4 mb0 @Localizer["d-none"]"><small class="bold-font">@item.CreateTime.ToShortDateString()  发布</small> <small class="float-right">@item.ReadCount 次阅读</small></p>
-                            <p class="t4 @Localizer["d-none-zh"]"><small class="bold-font">Posted on @item.CreateTime.ToShortDateString()</small> <small class="float-right">@item.ReadCount Times read</small></p>
+                            <p class="t4 m3 green-text blog-date @Localizer["d-none"] bold-font">@item.CreateTime.ToShortDateString() <span class="float-right">@item.ReadCount 次阅读</span></p>
+                            <p class="t4 m3 green-text blog-date @Localizer["d-none-zh"] bold-font">@item.CreateTime.ToShortDateString() <span class="float-right">@item.ReadCount Times read</span></p>
                             <a class="blog-summary" asp-action="details" asp-route-id="@item.Id">
-                                <p class="t3 with-space">@item.Summary.Substring(0, Math.Min(item.Summary.Length, item.Lang == "zh" || item.Lang == "ko" ? 100 : 150))…</p>
+                                <p class="t3 m3 with-space">@item.Summary.Substring(0, Math.Min(item.Summary.Length, item.Lang == "zh" || item.Lang == "ko" ? 100 : 150))…</p>
                             </a>
-                            <div class="top-line">
+                            <div class="top-line m3">
                                 @if (item.Tags != null)
                                 {
                                     foreach (var tag in item.Tags.Split(","))
                                     {
-                                        <a class="blog-tag" href="/blog?t=@tag">@tag</a>
+                                        <a class="blog-tag green-text" href="/blog?t=@tag">@tag</a>
                                     }
                                 }
                             </div>
