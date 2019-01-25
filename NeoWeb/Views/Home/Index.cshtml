@@ -81,10 +81,6 @@
                     <img src="@Helper.CDN/images/flask.svg" /><br />
                     @Localizer["Introduced Lattice cryptography-based signing and encryption technique to avoid quantum crisis by Turing encryption and decryption problem into the Shortest Vector Problem (SVP), which cannot be solved by current quantum computers."]
                 </div>
-                <div class="swiper-slide p4">
-                    <img src="@Helper.CDN/images/coin.svg" /><br />
-                    @Localizer["The technology underlster, transfer and trade at will on NEO."]
-                </div>
             </div>
             <div class="swiper-pagination"></div>
         </div>
@@ -140,7 +136,7 @@
                     foreach (var item in ViewBag.Blog as IEnumerable<NeoWeb.Models.Blog>)
                     {
                         <div class="blog-con border-static back-white m3 p3">
-                            <p class="bolder-font t3">@item.Title</p>
+                            <p class="bolder-font t3 text-ellipsis">@item.Title</p>
                             <p class="m4 t4 gray-text">@item.Summary.Substring(0, Math.Min(item.Summary.Length, 100))…</p>
                             <p class="m4"><i class="iconfont t2 green-text">&#xe64c;</i> @item.EditTime.ToString()</p>
                         </div>
@@ -162,7 +158,7 @@
                             {
                                 <p class="m4"><img src="@String.Format("/upload/{0}", item.Cover).ToLower()" width="100%" /></p>
                             }
-                            <p class="m4 bolder-font t3">@item.Name</p>
+                            <p class="m4 bolder-font t3 text-ellipsis">@item.Name</p>
                             <p class="m4 t4 lh3 gray-text">
                                 <i class="iconfont t2 green-text">&#xe64c;</i> @item.StartTime.ToString() ~ @item.EndTime.ToString()<br />
                                 <i class="iconfont t2 green-text">&#xe64e;</i> @item.Country?.ZhName - @item.City<br />

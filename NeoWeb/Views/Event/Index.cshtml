@@ -117,12 +117,12 @@
 
 <div class="container text-center" style="position: relative;">
 
-    <div class="text-left m3">
+    <p class="text-left">
         @if (ViewBag.UserRules)
         {
-            <a asp-action="Create" class="btn-static">@Localizer["Create a new event"]</a>
+            <a asp-action="Create" class="btn-static m3">@Localizer["Create a new event"]</a>
         }
-    </div>
+    </p>
     <div class="row">
         <div class="col-12 col-lg-8 text-center">
             @* 先显示未来的活动 *@
