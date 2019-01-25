@@ -284,7 +284,12 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
 .btn2:active {
     text-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
 }
-
+.modal-content {
+    border-radius: 0;
+    border: none;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 10px) 100%, 0 100%, 0 5px);
+    background: linear-gradient(150deg,transparent 0, transparent 5px, #fff 0, #fff calc(100% - 5px), transparent calc(100% - 5px),  transparent 100%);
+}
 @media only screen and (max-width : 1550px) {
 }
 @media only screen and (max-width : 1199px) {

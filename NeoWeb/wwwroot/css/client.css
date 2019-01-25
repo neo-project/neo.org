@@ -281,12 +281,7 @@ ul, li {
     font-weight: bold;
     line-height: 2;
 }
-.modal-content {
-    border-radius: 0;
-    border: none;
-    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 10px) 100%, 0 100%, 0 5px);
-    background: linear-gradient(150deg,transparent 0, transparent 5px, #fff 0, #fff calc(100% - 5px), transparent calc(100% - 5px),  transparent 100%);
-}
+
 .btn-secondary {
     border-radius: 0;
     padding: 8px 20px;

@@ -26,6 +26,10 @@
     display:inline-block;
 }
 #nav_container {
+    display: flex;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
     background:#FFFFFF;
     background:rgba(255,255,255,0.9);
 }
@@ -36,7 +40,10 @@
     line-height:2.5;
 }
 .fixed-top {
-    top:20px;
+    top:35px;
+}
+.nav-item {
+    margin: 0 5px;
 }
 .nav-item a {
     padding: 8px 10px;
@@ -44,10 +51,16 @@
 .navbar-dark .navbar-toggler-icon {
     background-image:url(../images/drop.svg);
 }
+.navbar-toggler {
+    height: 50px;
+}
+.navbar-toggler-icon {
+    height: auto;
+    color: #58bf00;
+}
 
 /*弹出框样式调整 - Pop-up box style adjustment*/
 .dropdown-menu {
-    background:transparent;
     border: none;
     box-shadow:none;
     padding-top: 15px;
@@ -129,7 +142,7 @@
     background:rgba(228,228,228,0.95);
 }
 .navbar-brand {
-    padding: 5px 15px;
+    padding: 10px 15px;
 }
 .navbar-brand img {
     height: 100%;
@@ -157,10 +170,6 @@
 @media only screen and (max-width : 780px) {
     .navbar-brand {
         padding: 10px;
-    }
-    .navbar-nav {
-        text-align:center;
-        /*margin:0 -15px;*/
     }
     .main-footer {
         padding: 20px 0; 
