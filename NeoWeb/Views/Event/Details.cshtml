@@ -19,9 +19,24 @@
     <environment exclude="Development">
         <link rel="stylesheet" href="@Helper.CDN/css/event.min.css?v=20181019" asp-append-version="true" />
     </environment>
+    <style>
+        body {
+            padding-top: 140px;
+        }
+        .event-content {
+            background-color: #f9fbf8;
+            padding: 30px;
+        }
+        .event-btn-signup{
+            bottom: 10px;
+        }
+        .event-btn-signup::after {
+            content: "@Localizer["Sign Up"]";
+        }
+    </style>
 }
 <div class="container">
-    <div class="event-detail">
+    <div class="event-content border-static">
         <div class="row mt-3">
             <div class="col-12 col-sm-5 col-md-4">
                 @if (String.IsNullOrEmpty(Model.Cover))
@@ -36,11 +51,11 @@
             <div class="col-12 col-sm-7 col-md-8">
                 <h2 class="with-space">@Model.Name</h2>
                 <div class="mt-2">
-                    <i class="iconfont">&#xe620;</i><span class="@Localizer["d-none-zh"]">@Model.Country.Name</span><span class="@Localizer["d-none"]">@Model.Country.ZhName</span> - <span>@Model.City</span>
-                    <div class="with-space">@Html.Raw(Model.Address)</div>
+                    <img src="@Helper.CDN/images/event/time.svg" /> <span>@Model.StartTime.ToString("yyyy-MM-dd HH:mm") ~ @Model.EndTime.ToString("yyyy-MM-dd HH:mm")</span>
                 </div>
                 <div class="mt-2">
-                    <span>@Model.StartTime.ToString("yyyy-MM-dd HH:mm") ~ @Model.EndTime.ToString("yyyy-MM-dd HH:mm")</span>
+                    <img src="@Helper.CDN/images/event/addr.svg" /> <span class="@Localizer["d-none-zh"]">@Model.Country.Name</span><span class="@Localizer["d-none"]">@Model.Country.ZhName</span> - <span>@Model.City</span>
+                    <span class="with-space">@Html.Raw(Model.Address)</span>
                 </div>
                 <div class="mt-2">
                     @if (Model.IsFree)
@@ -60,12 +75,11 @@
                 }
             </div>
         </div>
-        <hr />
 
         @if (!String.IsNullOrEmpty(Model.ThirdPartyLink))
         {
-            <div>
-                <a class="btn btn-success" href="@Model.ThirdPartyLink">@Localizer["Sign Up"]</a>
+            <div class="third-party">
+                <a class="event-btn event-btn-signup" href="@Model.ThirdPartyLink">@Localizer["Sign Up"]</a>
             </div>
             <hr />
         }

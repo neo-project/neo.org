@@ -46,7 +46,7 @@ select.form-control {
     display: inline-block;
     border: 1px solid gray;
     right: 20px;
-    bottom: 14px;
+    bottom: -25px;
     font-size: 10px;
     padding: 5px 10px;
     background: linear-gradient(150deg,transparent 0,transparent 3px, #B5E200 3px, #58BF00 calc(100% - 3px), transparent calc(100% - 3px),  transparent 100%);
@@ -78,6 +78,10 @@ select.form-control {
     left: 1px;
     top: 1px;
 }
+.third-party {
+    position: relative;
+}
+
 .event-line span{
     letter-spacing:3px;
     background-color:#F2F2F2;
@@ -140,18 +144,16 @@ select.form-control {
     border: 2px solid #EBEBEB;
 }
 
-.event-detail .row {
-    font-weight: bold;
-}
 .event-detail {
     margin: 5px 0 15px;
+    padding: 30px;
     font-weight:normal;
 }
 
-.event-detail .iconfont {
-    vertical-align:middle;
-    color:#51bc00;
-    font-weight:100;
+.event-detail img {
+    margin-right: 5px;
+    height: 15px;
+    width: 20px;
 }
 
 .event-detail .ticket-free {
@@ -209,7 +211,7 @@ select.form-control {
     padding: 8px 20px;
 }
 .border-static-body {
-    padding: 10px 20px;
+    padding: 10px 20px 50px;
     text-align: left;
 }
 .event-detail img.type-img {
@@ -284,8 +286,8 @@ ul,li{
 }
 .calender .had-event{
     background:url(https://neo-cdn.azureedge.net/images/event/circle.svg) no-repeat center;
-    background-size:90%;
-    background-position: center;
+    background-size:70%;
+    background-position: 8px;
 }
 .calender .today-mark {
     color:#00A04A;
@@ -332,8 +334,7 @@ ul,li{
     position: relative;
     background-image: url(https://neo-cdn.azureedge.net/images/event/homepage_hero_banner.svg);
     background-size:cover;
-    padding: 300px 0 50px;
-    margin-bottom: 80px;
+    padding: 300px 0 0;
 }
 .event-banner::before {
     position: absolute;
@@ -358,7 +359,9 @@ ul,li{
 .left-to-center {
     text-align:right;
 }
-
+.third-party {
+    
+}
 @media only screen and (max-width: 992px) {
     .search-group {
         width: 90%;

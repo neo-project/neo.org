@@ -1,4 +1,10 @@
-﻿ul, li {
+﻿.layout-container {
+    max-width: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul, li {
     margin: 0;
     padding: 0;
 }
