@@ -99,15 +99,17 @@ html,body {
 .venue-info {
     width: 46vw;
     height: 40vw;
-    max-width: 46vw;
+    max-width: 470px;
+    max-height: 470px;
     padding: 2vw;
     text-align: left;
 }
 
 .venue-map {
     width: 46vw;
-    height: 40vw;
-    max-width: 46vw;
+    height: 46vw;
+    max-width: 470px;
+    max-height: 470px;
     padding: 2vw;
 }
 
