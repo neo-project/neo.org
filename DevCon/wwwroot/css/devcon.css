@@ -353,6 +353,13 @@ a {
 .yellow-text {color:#F6FF02;}
 .black-text {color:#000000;}
 
+@media only screen and (min-width:1024px) {
+    .dev-content {
+        max-width: 1024px;
+        margin: auto;
+    }
+}
+
 @media only screen and (max-width:1550px) {
     .font-xl {font-size:70px;}
     .font-l {font-size:45px;}
@@ -375,14 +382,6 @@ a {
     .dev-year {
         height: 120px;
         line-height: 110px;
-    }
-    .dev-btn-1 {
-    }
-    .dev-btn-2 {
-    }
-    .dev-ticket {
-    }
-    .sub-email {
     }
 }
 @media only screen and (max-width:1368px) {
