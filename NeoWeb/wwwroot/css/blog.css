@@ -21,23 +21,22 @@ a{
 .form-control {
     border-radius:0;
 }
-.border-input {
-    position:relative;
-    background: #EEF4EE;
-    border:0;
-    background: #EEF4EE;
-    background: linear-gradient(150deg,transparent 3%, #A4DC00 3%, #58BF00);
+.border-static:before,
+.border-static:after{
+    z-index:5;
 }
-.border-input input{
-    /*position:absolute;
-    top:-1px;
-    bottom:-1px;
-    right:-1px;*/
-    border:0;
-    background: linear-gradient(150deg,transparent 3%, #FFFFFF 3%);
+.border-static input,
+.border-static input:focus{
+    border:none;
+    border-radius:0;
+    box-shadow:none;
 }
-.btn-input {
+.btn-input,
+.btn-input:hover,
+.btn-input:focus{
     border:0;
+    border-radius:0;
+    box-shadow:none;
     background: linear-gradient(150deg,#58BF00, #A4DC00 90%,transparent 90%);
     color:#FFFFFF;
 }

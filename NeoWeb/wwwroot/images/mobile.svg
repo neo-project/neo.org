@@ -1,29 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="64px" height="76px" viewBox="0 0 64 76" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
-    <title>Group 3</title>
+    <title>Group 2</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Artboard-6" transform="translate(-17.000000, -18.000000)">
-            <g id="Group-3" transform="translate(17.000000, 15.000000)">
-                <g id="Group-2">
-                    <g id="Group" transform="translate(0.518902, 0.998571)">
-                        <path d="M62.607433,63.9344113 L62.607433,15.6897555 L46.5369601,24.6458837" id="Stroke-902" stroke="#E6E6E6" stroke-dasharray="4,4" transform="translate(54.572197, 39.812083) scale(1, -1) translate(-54.572197, -39.812083) "></path>
-                        <path d="M24.7989604,36.0569374 L24.7989604,16.4568398 L0.00387007571,28.4911555 L0.00387007571,76.7194108 L16.6679065,68.9670441" id="Stroke-902" stroke="#E3E3E3" stroke-dasharray="4,4" transform="translate(12.401415, 46.588125) scale(1, -1) translate(-12.401415, -46.588125) "></path>
-                        <path d="M62.3073801,12.3716882 L25.2630208,2.72195475 L0.85642466,16.6417445 L20.0521638,23.2609754" id="Stroke-101" stroke="#E3E3E3" stroke-dasharray="4" transform="translate(31.581902, 12.991465) scale(-1, 1) rotate(5.000000) translate(-31.581902, -12.991465) "></path>
-                    </g>
+            <g id="Group-2" transform="translate(17.000000, 15.000000)">
+                <g id="Group" transform="translate(20.500000, 25.000000)" stroke="#4A940A">
+                    <polygon id="Path-21" points="1.49133673 3.14835888 6.59469829 0.670172242 23.8779214 0.670172242 23.8779214 29.8079109 1.49133673 29.8079109"></polygon>
+                    <path d="M8.57227337,26.8018909 L16.7969848,26.8018909" id="Path-22"></path>
+                    <polyline id="Path-23" points="23.9660103 4.03787726 25.3263253 5.14250511 25.3263253 7.96177347 23.9660103 6.75463151"></polyline>
+                    <polyline id="Path-23" points="23.9660103 8.18560517 25.3263253 9.29023302 25.3263253 12.1095014 23.9660103 10.9023594"></polyline>
+                    <polyline id="Path-23" transform="translate(0.970371, 24.861534) scale(-1, -1) translate(-0.970371, -24.861534) " points="0.449404898 22.9211763 1.49133673 23.9826225 1.49133673 26.8018909 0.449404898 25.6379306"></polyline>
+                    <polygon id="Path-24" points="4.96511046 5.12699002 20.4041477 5.12699002 20.4041477 23.9685172 4.96511046 23.9685172"></polygon>
                 </g>
-                <g id="移动端2" transform="translate(18.000000, 28.500000)"></g>
-                <g id="Group-17" transform="translate(18.256383, 28.540227)">
-                    <polygon id="Path-21" stroke="#4A940A" points="2.18176328 1.99804402 6.22576297 0.0342823217 28.1040376 0.0342823217 28.1040376 23.1235745 2.18176328 23.1235745"></polygon>
-                    <polyline id="Path-23" stroke="#4A940A" points="28.3746641 2.70291512 29.4526033 3.57824301 29.4526033 5.81228429 28.3746641 4.85572229"></polyline>
-                    <polyline id="Path-23" stroke="#4A940A" points="28.3746641 6.98965273 29.4526033 7.86498062 29.4526033 10.0990219 28.3746641 9.14245991"></polyline>
-                    <polyline id="Path-23" stroke="#4A940A" transform="translate(1.370845, 19.205089) scale(-1, -1) translate(-1.370845, -19.205089) " points="0.870845146 17.6675136 1.69649153 18.5086235 1.69649153 20.7426648 0.870845146 19.8203208"></polyline>
-                    <polygon id="Path-24" stroke="#4A940A" points="4.65420146 5.81228429 25.6315994 5.81228429 25.6315994 20.7426648 4.65420146 20.7426648"></polygon>
-                    <polygon id="Rectangle-6" fill="#B4E700" points="4.5576785 3.13346384 5.49886837 3.13346384 5.25264802 3.7556153 4.25456545 3.7556153"></polygon>
-                    <polygon id="Rectangle-6" fill="#B4E700" points="6.42413288 3.13346384 7.36532274 3.13346384 7.11910239 3.7556153 6.12101982 3.7556153"></polygon>
-                    <polygon id="Rectangle-6" fill="#B4E700" points="8.29058725 3.13346384 9.23177711 3.13346384 8.98555676 3.7556153 7.9874742 3.7556153"></polygon>
+                <g id="Group" transform="translate(0.518902, 0.998571)">
+                    <path d="M62.607433,63.9344113 L62.607433,15.6897555 L46.5369601,24.6458837" id="Stroke-902" stroke="#E6E6E6" stroke-dasharray="4,4" transform="translate(54.572197, 39.812083) scale(1, -1) translate(-54.572197, -39.812083) "></path>
+                    <path d="M24.7989604,36.0569374 L24.7989604,16.4568398 L0.00387007571,28.4911555 L0.00387007571,76.7194108 L16.6679065,68.9670441" id="Stroke-902" stroke="#E3E3E3" stroke-dasharray="4,4" transform="translate(12.401415, 46.588125) scale(1, -1) translate(-12.401415, -46.588125) "></path>
+                    <path d="M62.3073801,12.3716882 L25.2630208,2.72195475 L0.85642466,16.6417445 L20.0521638,23.2609754" id="Stroke-101" stroke="#E3E3E3" stroke-dasharray="4" transform="translate(31.581902, 12.991465) scale(-1, 1) rotate(5.000000) translate(-31.581902, -12.991465) "></path>
                 </g>
             </g>
         </g>
