@@ -5,7 +5,11 @@
 body {
     height:auto;
     min-height:100%;
-    background-image: linear-gradient(144deg, #AAAAAA 0%, #E4E4E4 100%);
+}
+.layout-container {
+    max-width: none;
+    padding: 0;
+    margin: 0;
 }
 .main-footer {
     display:none;
@@ -23,25 +27,6 @@ body {
     text-align:right;
     margin:20px 0;
 }
-.back-to-list a{
-    display: inline-block;
-    margin-left: 10px;
-    min-width: 90px;
-    background: #FFFFFF;
-    padding: 6px 15px;
-    border-radius: 5px;
-    color: #6C6C6C;
-    text-align: center;
-    border: 1px solid #ccc;
-    vertical-align: middle;
-    text-decoration:none;
-    cursor:pointer;
-}
-.back-to-list a:hover{
-    background-color: #e6e6e6;
-    border-color: #adadad;
-}
-
 
 
 /*申请列表 - Application list*/

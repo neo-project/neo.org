@@ -82,13 +82,13 @@
         </div>
     </div>
     <div class="text-right">
-        <a class="btn btn-primary" onclick="copyData();" href="">复制</a>
-        <a class="btn btn-secondary" onclick="copytable();" data-toggle="modal" data-target="#myModal">查看复制</a>
+        <a class="btn-static btn1" onclick="copyData();" href="">复制</a>
+        <a class="btn-static btn1" onclick="copytable();" data-toggle="modal" data-target="#myModal">查看复制</a>
     </div>
 </div>
 <div class="back-to-list">
-    <a asp-action="Edit" asp-route-id="@Model.Id">备注</a>
-    <a onclick="document.referrer === '' ?
+    <a class="btn-static" asp-action="Edit" asp-route-id="@Model.Id">备注</a>
+    <a class="btn-static" onclick="document.referrer === '' ?
           window.location.pathname = '/Testnet/list' :
           window.history.back();">返回上一页</a>
 </div>

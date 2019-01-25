@@ -33,43 +33,41 @@
     <a asp-action="Create">新增</a>
 }
 
-<div class="row">
-    @if (!ViewBag.UserRules)
+@if (!ViewBag.UserRules)
+{
+    @foreach (var item in (Model as IEnumerable<NeoWeb.Models.Careers>).Where(p => p.Lang == Localizer["en"].Value))
     {
-        @foreach (var item in (Model as IEnumerable<NeoWeb.Models.Careers>).Where(p => p.Lang == Localizer["en"].Value))
-        {
-            @if (item.IsShow)
-            {
-                <div class="careers-content m3 p2" careers-type="@Convert.ToInt32(item.Type)">
-                    @if (ViewBag.UserRules)
-                    {
-                        <a asp-action="Edit" asp-route-id="@item.Id">编辑</a>
-                    }
-                    <a href="mailto:join@neo.org?subject=@item.Title" class="car-apply t3">@Localizer["APPLY"]</a>
-                    <div class="white-sha t2"><a class="more-info">@Localizer["More Info"]</a></div>
-                    <p class="t1">@item.Title</p>
-                    <div>@Html.Raw(item.Description.Replace("\r\n", "<br />"))</div>
-                </div>
-            }
-        }
-    }
-    else
-    {
-        @foreach (var item in Model)
+        @if (item.IsShow)
         {
             <div class="careers-content m3 p2" careers-type="@Convert.ToInt32(item.Type)">
-                <a asp-action="Edit" asp-route-id="@item.Id">编辑</a>
-                @if (!item.IsShow)
+                @if (ViewBag.UserRules)
                 {
-                    <p class="text-danger">未发布状态，仅管理员可见。</p>
+                    <a asp-action="Edit" asp-route-id="@item.Id">编辑</a>
                 }
+                <a href="mailto:join@neo.org?subject=@item.Title" class="car-apply t3">@Localizer["APPLY"]</a>
                 <div class="white-sha t2"><a class="more-info">@Localizer["More Info"]</a></div>
                 <p class="t1">@item.Title</p>
-                <div>@Html.Raw(item.Description)</div>
+                <div>@Html.Raw(item.Description.Replace("\r\n", "<br />"))</div>
             </div>
         }
     }
-</div>
+}
+else
+{
+    @foreach (var item in Model)
+    {
+        <div class="careers-content m3 p2" careers-type="@Convert.ToInt32(item.Type)">
+            <a asp-action="Edit" asp-route-id="@item.Id">编辑</a>
+            @if (!item.IsShow)
+            {
+                <p class="text-danger">未发布状态，仅管理员可见。</p>
+            }
+            <div class="white-sha t2"><a class="more-info">@Localizer["More Info"]</a></div>
+            <p class="t1">@item.Title</p>
+            <div>@Html.Raw(item.Description)</div>
+        </div>
+    }
+}
 
 @section Scripts{
     <script type="text/javascript">

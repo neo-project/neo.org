@@ -1,20 +1,4 @@
-﻿html, body {
-    background:#3f3f3f;
-}
-/*顶部样式 - Header style*/
-.navbar {
-    background:#3F3F3F;
-    background:rgba(63,63,63,0.9);
-    border-top:none;
-}
-.navbar-expand .navbar-nav .nav-link{
-    color:#FFFFFF;
-    font-weight:100;
-}
-.navbar-expand .navbar-nav a:hover {
-    color:rgb(88, 191, 0);
-}
-#more_list li {
+﻿#more_list li {
     color:#FFFFFF;
     background: #3F3F3F;
     background: rgba(63,63,63,0.9);

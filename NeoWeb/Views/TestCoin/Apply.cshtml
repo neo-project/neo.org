@@ -5,7 +5,7 @@
     ViewData["Title"] = Localizer["Developer"];
     Layout = "_LayoutTestnet.cshtml";
 }
-<div class="apply-content m2">
+<div class="apply-content mt-5 mb-5">
     <form asp-action="Apply">
         @Html.AntiForgeryToken()
         <div class="container">
@@ -67,7 +67,7 @@
                     <p class="pub-key-hint t3">@Localizer["Please enter your own NEO public key. If the application succeeds, we will send Neo/GAS to a multiple signature address and tell you how to use it."]</p>
                 </div>
             </div>
-            <p class="apply-btn-p m1"><input type="submit" class="btneo-fri t1" value=@Localizer["Submit Application"]></p>
+            <p class="apply-btn-p m1"><input type="submit" class="btneo-fri t2" value=@Localizer["Submit Application"]></p>
         </div>
     </form>
 </div>

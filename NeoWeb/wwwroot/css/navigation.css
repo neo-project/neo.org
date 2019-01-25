@@ -26,6 +26,8 @@
     display:inline-block;
 }
 #nav_container {
+    display: flex;
+    width: 100%;
     background:#FFFFFF;
     background:rgba(255,255,255,0.9);
 }
