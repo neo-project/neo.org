@@ -13,64 +13,62 @@
     <h1 class="m2 p3">JOIN US<br />加入我们</h1>
 </div>
 
-<div class="container">
-    <div class="row m2">
-        <p class="t1">@Localizer["About NGD"]</p>
-<p class="t2">
-            @Localizer["NEO Global Development (NGD) is an organization that was founded by the NEO Foundation (NF) in March of 2018. Its purpose is to focus on the execution of NF strategies surrounding technological R&D, marketing, and community development. As NEO is a non-profit, international, open-source blockchain project seeking interaction and collaboration with the global community, NGD will liaise with organizations and members of the community on behalf of NF. NGD is dedicated to realizing NEO’s vision - the implementation of the NEO Smart Economy, a new economic model empowered by technical innovation and the convergence of community forces."]
-        </p>
-    </div>
-    <div class="row m2">
-        <ul class="careers-tab">
-            <li class="active"><a onclick="showDes(this)">@Localizer["All"]</a></li>
-            <li><a onclick="showDes(this)">R &amp; D</a></li>
-            <li><a onclick="showDes(this)">Marketing</a></li>
-            <li><a onclick="showDes(this)">Ecosystem Growth</a></li>
-            <li><a onclick="showDes(this)">HR &amp; Admin</a></li>
-        </ul>
-    </div>
-    @if (ViewBag.UserRules)
-    {
-        <a asp-action="Create">新增</a>
-    }
+<div class="row m2">
+    <p class="t1">@Localizer["About NGD"]</p>
+    <p class="t2">
+        @Localizer["NEO Global Development (NGD) is an organization that was founded by the NEO Foundation (NF) in March of 2018. Its purpose is to focus on the execution of NF strategies surrounding technological R&D, marketing, and community development. As NEO is a non-profit, international, open-source blockchain project seeking interaction and collaboration with the global community, NGD will liaise with organizations and members of the community on behalf of NF. NGD is dedicated to realizing NEO’s vision - the implementation of the NEO Smart Economy, a new economic model empowered by technical innovation and the convergence of community forces."]
+    </p>
+</div>
+<div class="row m2">
+    <ul class="careers-tab">
+        <li class="active"><a onclick="showDes(this)">@Localizer["All"]</a></li>
+        <li><a onclick="showDes(this)">R &amp; D</a></li>
+        <li><a onclick="showDes(this)">Marketing</a></li>
+        <li><a onclick="showDes(this)">Ecosystem Growth</a></li>
+        <li><a onclick="showDes(this)">HR &amp; Admin</a></li>
+    </ul>
+</div>
+@if (ViewBag.UserRules)
+{
+    <a asp-action="Create">新增</a>
+}
 
-    <div class="row">
-        @if (!ViewBag.UserRules)
+<div class="row">
+    @if (!ViewBag.UserRules)
+    {
+        @foreach (var item in (Model as IEnumerable<NeoWeb.Models.Careers>).Where(p => p.Lang == Localizer["en"].Value))
         {
-            @foreach (var item in (Model as IEnumerable<NeoWeb.Models.Careers>).Where(p => p.Lang == Localizer["en"].Value))
-            {
-                @if (item.IsShow)
-                {
-                    <div class="careers-content m3 p2" careers-type="@Convert.ToInt32(item.Type)">
-                        @if (ViewBag.UserRules)
-                        {
-                            <a asp-action="Edit" asp-route-id="@item.Id">编辑</a>
-                        }
-                        <a href="mailto:join@neo.org?subject=@item.Title" class="car-apply t3">@Localizer["APPLY"]</a>
-                        <div class="white-sha t2"><a class="more-info">@Localizer["More Info"]</a></div>
-                        <p class="t1">@item.Title</p>
-                        <div>@Html.Raw(item.Description.Replace("\r\n", "<br />"))</div>
-                    </div>
-                }
-            }
-        }
-        else
-        {
-            @foreach (var item in Model)
+            @if (item.IsShow)
             {
                 <div class="careers-content m3 p2" careers-type="@Convert.ToInt32(item.Type)">
-                    <a asp-action="Edit" asp-route-id="@item.Id">编辑</a>
-                    @if (!item.IsShow)
+                    @if (ViewBag.UserRules)
                     {
-                        <p class="text-danger">未发布状态，仅管理员可见。</p>
+                        <a asp-action="Edit" asp-route-id="@item.Id">编辑</a>
                     }
+                    <a href="mailto:join@neo.org?subject=@item.Title" class="car-apply t3">@Localizer["APPLY"]</a>
                     <div class="white-sha t2"><a class="more-info">@Localizer["More Info"]</a></div>
                     <p class="t1">@item.Title</p>
-                    <div>@Html.Raw(item.Description)</div>
+                    <div>@Html.Raw(item.Description.Replace("\r\n", "<br />"))</div>
                 </div>
             }
         }
-    </div>
+    }
+    else
+    {
+        @foreach (var item in Model)
+        {
+            <div class="careers-content m3 p2" careers-type="@Convert.ToInt32(item.Type)">
+                <a asp-action="Edit" asp-route-id="@item.Id">编辑</a>
+                @if (!item.IsShow)
+                {
+                    <p class="text-danger">未发布状态，仅管理员可见。</p>
+                }
+                <div class="white-sha t2"><a class="more-info">@Localizer["More Info"]</a></div>
+                <p class="t1">@item.Title</p>
+                <div>@Html.Raw(item.Description)</div>
+            </div>
+        }
+    }
 </div>
 
 @section Scripts{

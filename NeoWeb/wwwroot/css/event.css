@@ -81,9 +81,7 @@ select.form-control {
 .third-party {
     position: relative;
 }
-.event-btn-signup::after {
-    content: "Sign Up";
-}
+
 .event-line span{
     letter-spacing:3px;
     background-color:#F2F2F2;

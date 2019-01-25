@@ -69,7 +69,7 @@
     @RenderSection("Styles", required: false)
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-lg  fixed-top">
         <div id="nav_container" class="container">
             <div id="logo_div" class="pull-left">
                 <a class="navbar-brand" href="/">
@@ -90,7 +90,7 @@
                         <a class="dropdown-item t4" href="http://docs.neo.org" target="_blank">@Localizer["Technical Documents"]</a>
                         <a class="dropdown-item t4" href="#">@Localizer["Github"]</a>
                         <a class="dropdown-item t4" href="#">@Localizer["Security Bounty"]</a>
-</div>
+                    </div>
                 </li>
                 <li class="nav-item"><a asp-controller="client" asp-action="index">@Localizer["Client"]</a></li>
                 <li class="nav-item"><a asp-controller="blog" asp-action="index">@Localizer["Blog"]</a></li>
@@ -113,7 +113,7 @@
         </div>
     </nav>
 
-    <div>
+    <div class="container layout-container">
         @RenderBody()
     </div>
     <footer>

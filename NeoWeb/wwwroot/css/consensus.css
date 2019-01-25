@@ -2,11 +2,9 @@
     height:auto;
     color:#4A4A4A;
 }
+
 .p1 {
     padding:100px;
-}
-.navbar {
-    background:#fff;
 }
 .main-footer .container{
     display:none;
@@ -24,17 +22,6 @@
     background-size: cover;
     color:#ffffff;
 }
-/*.border-static {
-    box-shadow:none;
-}*/
-/*.border-static:before{
-    top:-1px;
-    left:-1px;
-}
-.border-static:after{
-    bottom:-1px;
-    left:1px;
-}*/
 
 .title-line{
     color: #333;
