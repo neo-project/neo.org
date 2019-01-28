@@ -75,6 +75,9 @@
                 <a class="navbar-brand" href="/">
                     <img src="@Helper.CDN/images/neo_logo.svg" />
                 </a>
+                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#neoNnavbarToggler" aria-controls="neoNnavbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon iconfont">&#xe629;</span>
+                </button>
                 <div class="collapse navbar-collapse" id="neoNnavbarToggler">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a asp-controller="home" asp-action="index">@Localizer["Home"]</a></li>
@@ -108,9 +111,6 @@
                         </li>
                     </ul>
                 </div>
-                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#neoNnavbarToggler" aria-controls="neoNnavbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon iconfont">&#xe629;</span>
-                </button>
             </div>
         </div>
     </nav>

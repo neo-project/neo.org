@@ -208,6 +208,7 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
     vertical-align:middle;
     cursor: pointer;
     transition: background 0.3s;
+    line-height:2;
 }
 .btn-static:before{
     content: "";

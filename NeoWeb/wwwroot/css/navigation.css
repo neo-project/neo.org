@@ -60,15 +60,20 @@
 }
 
 /*弹出框样式调整 - Pop-up box style adjustment*/
-.dropdown-menu {
+.navbar-nav .dropdown-menu {
+    background:#FFFFFF;
+    background:rgba(255,255,255,0);
     border: none;
     box-shadow:none;
     padding-top: 15px;
     margin-top: -2px;
 }
-.dropdown-menu a{
+.navbar-nav .dropdown-menu a{
     width:100%;
-    background:white;
+    background:#FFFFFF;
+}
+.navbar-nav .dropdown-menu a:hover {
+    background:#F9F9F9;
 }
 
 .main-footer {

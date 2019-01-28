@@ -11,39 +11,55 @@
         <link rel="stylesheet" href="@Helper.CDN/css/testnet.min.css" asp-append-version="true" />
     </environment>
 }
-<div class="row content-border link-apply">
-    <div class="col-md-6 neo-bg"></div>
-    <div class="col-md-6">
-        <p class="h1 m2">@Localizer["Apply For NEO/GAS in Testnet"]</p>
-        <p class="t2 apply-intro">@(Localizer["If you are developing a NEO ecosystem application project, and need NEO/GAS in the <b>TestNet</b>, please fill in the following application form and send it. Once your application has been processed, you will receive an email notification."])</p>
-        <p class="m2">
-            <a class="btneo-fri t1" asp-controller="testcoin" asp-action="apply">@Localizer["Apply for NEO/GAS"]</a>
+<div class="dev-banner">
+    <div class="container m1">
+        <h2 class="p1">Developer</h2>
+        <p class="m3 t3">
+            <a class="btn-static btn2">快速开始</a>
+            <a class="btn-static btn2">下载</a>
         </p>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-6">
-        <div class="content-border github-back">
-            <h1 class="m1">GitHub</h1>
-            <p class="center-area m2"><a href="https://github.com/neo-project" target="_blank" class="btneo-sec t1">@Localizer["Open link"]</a></p>
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <div class="content-border docu-back">
-            <h1 class="m1">@Localizer["Technical Documents"]</h1>
-            <p class="center-area m2"><a href="http://docs.neo.org" target="_blank" class="btneo-sec t1">@Localizer["Open link"]</a></p>
+        <div class="dev-git m1">
+            <a href="https://github.com/neo-project">
+                <img src="images/neo-logo/72.png" />
+                <span>The Neo Project</span>
+            </a>
+            <a class="btn-static flo-r" href="https://github.com/neo-project">fork on Github</a>
         </div>
     </div>
 </div>
+
+<div class="dev-content container">
+    <ul class="dev-intro t4">
+        <li>
+            <img class="p4" src="~/images/mobile.svg" /><br />
+            <span>NEO客户端由NEO团队及NEO社区开发，支持多种平台，您可以选择最合适的进行下载或访问。</span>
+        </li>
+        <li>
+            <img class="p4" src="~/images/mobile.svg" /><br />
+            <span>NEO客户端由NEO团队及NEO社区开发，支持多种平台，您可以选择最合适的进行下载或访问。</span>
+        </li>
+        <li>
+            <img class="p4" src="~/images/mobile.svg" /><br />
+            <span>NEO客户端由NEO团队及NEO社区开发，支持多种平台，您可以选择最合适的进行下载或访问。</span>
+        </li>
+        <li>
+            <img class="p4" src="~/images/mobile.svg" /><br />
+            <span>NEO客户端由NEO团队及NEO社区开发，支持多种平台，您可以选择最合适的进行下载或访问。</span>
+        </li>
+        <li>
+            <img class="p4" src="~/images/mobile.svg" /><br />
+            <span>NEO客户端由NEO团队及NEO社区开发，支持多种平台，您可以选择最合适的进行下载或访问。</span>
+        </li>
+        <li>
+            <img class="p4" src="~/images/mobile.svg" /><br />
+            <span>NEO客户端由NEO团队及NEO社区开发，支持多种平台，您可以选择最合适的进行下载或访问。</span>
+        </li>
+    </ul>
+</div>
+
 <div class="row">
-    <div class="col-sm-6">
-        <div class="content-border bounty-back">
-            <h1 class="m1">@Localizer["Security Bounty"]</h1>
-            <p class="center-area m2">
-                <a class="btneo-sec t1" href="dev/bounty">@Localizer["Open link"]</a>
-            </p>
-        </div>
-    </div>
+</div>
+<div class="row">
 </div>
 @section Scripts{
     <script>

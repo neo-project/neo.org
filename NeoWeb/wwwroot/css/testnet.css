@@ -1,236 +1,75 @@
-﻿#more_list li {
-    color:#FFFFFF;
-    background: #3F3F3F;
-    background: rgba(63,63,63,0.9);
-}
-.navbar-collapse {
-    box-shadow:none;
-}
-.main-footer {
-    background:#3F3F3F;
-}
-.row .col-sm-6{
-    overflow:hidden;
-}
-.content-border {
-    margin: 30px auto 0px;
-    padding: 90px 50px;
-    text-align: center;
-    letter-spacing:1px;
-    color:#FFFFFF;
-    min-height:100%;
-}
-.center-area {
-    padding: 0 20px;
-}
-[class*=btneo] {
-    margin:auto;
-    height: 55px;
-    line-height: 55px;
-    vertical-align: middle;
-    border-radius: 0;
-    font-weight:100;
-}
-
-.btneo-fri {
-    display: block;
-    width:100%;
-    max-width:300px;
-    color: #333;
-    background: #beeb00;
-    border:none;
-    padding:0 20px;
-}
-.btneo-fri:hover {
-    color: #222222;
-    background: #aedb00;
-    border-radius: 0;
-    text-decoration:none;
-}
-.btneo-fri:active {
-    color: #222222;
-    background: #beeb00;
-    border-radius: 0;
-    box-shadow: 0px 0px 8px rgb(150,200,0);
-}
-
-.btneo-sec {
-    display: block;
-    max-width: 300px;
-    color: #F8F8F8;
-    background: transparent;
-    border: 1px solid #FFFFFF;
-    cursor:pointer;
-}
-.btneo-sec:hover {
-    color: #F8F8F8;
-    background: rgba(22,22,22,0.2);
-    border-radius: 0;
-    text-decoration:none;
-}
-
-.btneo-sec:active {
-    color: #F8F8F8;
-    background: rgba(22,22,22,0.2);
-    border-radius: 0;
-    box-shadow: 0px 0px 8px rgb(150,200,0);
-}
-
-/*申请块 - Application block*/
-.link-apply {
-    background-image: linear-gradient(140deg, #A5A5A5 0%, #6D6D6D 100%, #6C6C6C 100%);
-    background-image: url(https://neo-cdn.azureedge.net/images/deve-bg-1.png),linear-gradient(140deg, #A5A5A5 0%, #6D6D6D 100%, #6C6C6C 100%);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: -50px center,left center;
-    color: #FFFFFF;
-    font-weight: 100;
-}
-.link-apply .h1{
-    color:#BEEB00;
-    font-weight:100;
-}
-.link-apply .apply-intro {
-    line-height: 2;
-    padding: 0px 12px;
-    text-align: left;
-}
-.github-back {
-    background:url(https://neo-cdn.azureedge.net/images/deve-git.jpg) no-repeat center;
-    background-size:cover;
-    color:#86E991;
-}
-.github-back .btneo-sec {
-    border:1px solid #86E991;
-    color:#86E991;
-}
-.github-back .btneo-sec:hover {
-    color: #3F3F3F;
-    background: rgba(134,233,145,.7);
-    border: none;
-}
-.docu-back {
-    background:url(https://neo-cdn.azureedge.net/images/deve-docu.jpg) no-repeat center;
-    background-size:cover;
-    color:#73A2FF;
-}
-.docu-back .btneo-sec {
-    border:1px solid #73A2FF;
-    color:#73A2FF;
-}
-.docu-back .btneo-sec:hover {
-    color: #3F3F3F;
-    background: rgba(115,162,255,.75);
-    border: none;
-}
-.bounty-back {
-    background:url(https://neo-cdn.azureedge.net/images/deve-bounty.jpg) no-repeat center;
-    background-size:cover;
-    color:#beeb00;
-}
-.bounty-back .btneo-sec {
-    border:1px solid #beeb00;
-    color:#beeb00;
-}
-.bounty-back .btneo-sec:hover {
-    color: #3F3F3F;
-    background: rgba(190,230,0,.75);
-    border: none;
-}
-/*申请内部的表部分 - Application form*/
-.apply-content {
-    background: #6c6c6c;
-    color:#FFFFFF;
+﻿body {
+    padding-top: 0;
     text-align:center;
-    letter-spacing:1px;
-    font-weight:100;
-    padding: 18px 0px;
 }
-.apply-title {
-    color:#BEEB00;
+.layout-container {
+    max-width: none;
+    padding: 0;
+    margin: 0;
 }
-.apply-content {
+.btn-static {
+    min-width:180px;
+    margin:10px;
+}
+.btn-static::before {
+    border-left: 24px solid #FFF;
+}
+.btn-static::after{
+    border-right: 26px solid #FFF;
+}
+
+/*banner*/
+.dev-banner {
+    background: url(../images/home-dev-1.svg) no-repeat;
+    background: url(../images/home-dev-2.svg),url(../images/home-dev-1.svg);
+    background-repeat: no-repeat;
+    background-position: center,center;
+    background-size: cover,cover;
+    padding-top: 40px;
+}
+.dev-git {
+    position:relative;
+    bottom:-20px;
+    background:#FFFFFF;
+    background:linear-gradient(-30deg,transparent 2%,#FFFFFF 2%,#FFFFFF 98%,transparent 98%);
     text-align:left;
 }
-.apply-content ul{
-    padding:0;
+.dev-git img{
+    padding:15px;
+    max-width:80px;
+    margin-left:15px;
 }
-.apply-content ul::before,
-.apply-content ul::after {
-    content: " ";
-    display: table;
-}
-.apply-content ul::after {
-    clear: both;
-}
-.apply-content ul label {
-    margin-bottom: 10px;
-    color:#d8d8d8;
-    font-size:14px;
-    font-weight:100;
-}
-.apply-content .form-control {
-    padding:5px;
-    font-size:16px;
-    border-radius:0;
-}
-.apply-content .form-control:focus {
-    border-color:#aedb00;
-    box-shadow:0 0 10px 0.2rem rgba(175, 220, 0, 0.25);
-}
-.apply-content textarea {
-    min-height: 70px;
-}
-.apply-btn-p {
-    margin-top:12px;
-}
-.pub-key-hint {
-    margin-top:10px;
-}
-.completed-content {
-    background: #6c6c6c;
-    color: #ffffff;
-    text-align: center;
-    letter-spacing: 1px;
-    font-weight: 100;
-    padding: 50px 0px 80px;
-    font-size: 18px;
-    line-height: 2;
+.dev-git .flo-r{
+    margin-top:20px;
+    margin-right:30px;
 }
 
-.alert-text {
-    width: 80%;
-    margin: 20px auto;
+/*公用*/
+.dev-content {
+    padding:60px 0 30px;
 }
+/*第一屏*/
+.dev-intro {
+    padding:0;
+}
+.dev-intro li{
+    display: inline-block;
+    width: 32%;
+    margin-bottom: 10px;
+    padding: 0px 50px;
+}
+
 @media only screen and (max-width : 1200px) {
-    .content-border {
-        padding: 100px 40px;
-        margin-top:15px;
-    }
-    .btneo-sec {
-        max-width:200px;
+
+}
+@media only screen and (max-width : 998px) {
+    .dev-intro li{
+        padding: 0px 15px;
     }
 }
 @media only screen and (max-width : 576px) {
-    .link-apply {
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-size: 200px, 100%;
-        background-position: center -160px,left top;
-    }
-    .content-border {
-        padding: 100px 30px 60px;
-        max-width: 355px;
-    }
-    .github-back,
-    .docu-back{
-        padding: 80px 30px;
-    }
-    [class*=btneo] {
-        height: 45px;
-        line-height: 45px;
-    }
-    .btneo-fri {
-        max-width:200px;
+    .dev-intro li{
+        width:49%;
+        padding: 0px 10px;
     }
 }
