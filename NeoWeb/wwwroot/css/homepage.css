@@ -89,11 +89,12 @@ html, body {
 /*开发者页面-dev*/
 .home-deve {
     position:relative;
-    background:url(../images/home-dev-1.svg) no-repeat;
-    background:url(../images/home-dev-2.svg),url(../images/home-dev-1.svg);
+    background:#8ECE4B;
+    background:linear-gradient(125deg,#B8D36C,#8ECE4B);
+    background: url(../images/home-dev-2.svg),url(../images/home-dev-1.svg),linear-gradient(125deg,#B8D36C,#8ECE4B);
     background-repeat:no-repeat;
-    background-position:center,center;
-    background-size:cover,cover;
+    background-position:center;
+    background-size:cover;
     overflow:hidden;
     padding-top:40px;
 }

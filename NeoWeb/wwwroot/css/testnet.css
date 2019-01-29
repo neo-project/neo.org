@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 0;
     text-align:center;
+    color:#4A4A4A;
 }
 .layout-container {
     max-width: none;
@@ -14,11 +15,16 @@
     min-width:180px;
     margin:10px;
 }
+/*公用*/
+.dev-content {
+    padding-top:60px;
+}
 
 /*banner*/
 .dev-banner {
-    background: url(../images/home-dev-1.svg) no-repeat;
-    background: url(../images/home-dev-2.svg),url(../images/home-dev-1.svg);
+    background:#8ECE4B;
+    background:linear-gradient(125deg,#B8D36C,#8ECE4B);
+    background: url(../images/home-dev-2.svg),url(../images/home-dev-1.svg),linear-gradient(125deg,#B8D36C,#8ECE4B);
     background-repeat: no-repeat;
     background-position: center,center;
     background-size: cover,cover;
@@ -28,7 +34,7 @@
     position:relative;
     bottom:-20px;
     background:#FFFFFF;
-    background:linear-gradient(-30deg,transparent 2%,#FFFFFF 2%,#FFFFFF 98%,transparent 98%);
+    background:linear-gradient(-30deg,transparent 1.5%,#FFFFFF 1.5%,#FFFFFF 98.5%,transparent 98.5%);
     text-align:left;
 }
 .dev-git img{
@@ -41,10 +47,6 @@
     margin-right:30px;
 }
 
-/*公用*/
-.dev-content {
-    padding:60px 0 30px;
-}
 /*第一屏*/
 .dev-intro {
     padding:0;
@@ -54,6 +56,29 @@
     width: 32%;
     margin-bottom: 10px;
     padding: 0px 50px;
+}
+/*Doc*/
+.dev-doc {
+    background: url(../images/dev-doc-1.svg),url(../images/dev-doc-2.svg);
+    background-position: bottom left,top right;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-bottom:50px;
+}
+/*github*/
+.dev-github {
+    background:#4A4A4A;
+    background:url(../images/home-dev-3.svg),#4A4A4A;
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    padding-bottom:50px;
+}
+.dev-github .btn-static:before{
+    border-left: 24px solid #505050;
+}
+.dev-github .btn-static:after{
+    border-right: 26px solid #505050;
 }
 
 /*testcoin*/
@@ -103,5 +128,8 @@
     .dev-intro li{
         width:49%;
         padding: 0px 10px;
+    }
+    .dev-doc {
+        background-size: 30%;
     }
 }
