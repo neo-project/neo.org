@@ -282,6 +282,12 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
 .btn3:hover {
     background-position:top;
 }
+.btn4::before {
+    border-left: 24px solid #FFF;
+}
+.btn4::after{
+    border-right: 26px solid #FFF;
+}
 .btn2:active {
     text-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
 }

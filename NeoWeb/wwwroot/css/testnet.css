@@ -7,15 +7,12 @@
     padding: 0;
     margin: 0;
 }
+.border-static {
+    background:#FFFFFF;
+}
 .btn-static {
     min-width:180px;
     margin:10px;
-}
-.btn-static::before {
-    border-left: 24px solid #FFF;
-}
-.btn-static::after{
-    border-right: 26px solid #FFF;
 }
 
 /*banner*/
@@ -57,6 +54,41 @@
     width: 32%;
     margin-bottom: 10px;
     padding: 0px 50px;
+}
+
+/*testcoin*/
+.form-group {
+    margin-top:10px;
+    margin-bottom:0;
+}
+.label {
+    margin-bottom:5px;
+}
+.apply-content {
+    padding-top:30px;
+}
+.form-control {
+    border-radius:0;
+}
+.form-control:focus {
+    border-color:#beeb00;
+    box-shadow:none;
+}
+.btn-static .submit{
+    border: none;
+    background: none;
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.submit:focus{
+    border: none;
+    background: none;
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    outline: none;
 }
 
 @media only screen and (max-width : 1200px) {
