@@ -23,10 +23,10 @@
     border-left:8px solid #51bc00;
 }
 .bounty-bg1 {
-    background:#D0D0D0;
+    background:#FFFFFF;
 }
-.bounty-bg1::before{
-    content:"";
+.dot{
+    display:inline-block;
     background: #51bc00;
     display:block;
     width: 30px;
@@ -37,20 +37,18 @@
     background:#D0D0D0;
 }
 .bounty-table {
-    background:#D0D0D0;
+    background:#FFFFFF;
     width:100%;
     text-align:center;
-}
-.bounty-table tr{
-    
+    margin-top:10px;
 }
 .bounty-table th{
-    border-bottom:10px solid #E4E4E4;
+    border-bottom:5px solid #EEF4EE;
     padding:10px 5px;
 }
 .bounty-table td{
     padding:10px 5px;
-    border-bottom:8px solid #E4E4E4;
+    border-top:5px solid #EEF4EE;
 }
 .bounty-ul li{
     list-style:disc;
