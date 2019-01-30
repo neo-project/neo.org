@@ -10,6 +10,8 @@ namespace NeoWeb.Models
         [EmailAddress]
         public string Email { get; set; }
 
+        public string Group { get; set; }
+
         public bool IsSubscription { get; set; }
         
         public DateTime SubscriptionTime { get; set; }
