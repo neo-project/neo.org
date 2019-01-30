@@ -30,7 +30,7 @@ namespace NeoWeb.Controllers
 
         [HttpGet]
         [HttpPost]
-        public string Add([Bind("Email, Group")] Subscription subscription)
+        public string Add([Bind("Id, Email, Group")] Subscription subscription)
         {
             if (ModelState.IsValid)
             {
