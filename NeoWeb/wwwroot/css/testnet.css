@@ -74,6 +74,9 @@
     font-size:12px;
     line-height:1.6;
 }
+.dev-apply img{
+    width:100%;
+}
 /*Doc*/
 .dev-doc {
     background: url(../images/dev-doc-1.svg),url(../images/dev-doc-2.svg);
@@ -110,6 +113,8 @@
 .down-table th,
 .down-table td{
     border:1px solid #DEDEDE;
+    line-height:1.6;
+    padding:5px 0;
 }
 /*github*/
 .dev-github {

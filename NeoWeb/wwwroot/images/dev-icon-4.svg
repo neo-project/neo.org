@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="111px" height="131px" viewBox="0 0 111 131" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 4</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-389.000000, -895.000000)">
+            <g id="Group-4" transform="translate(389.000000, 895.000000)">
+                <g id="Group-3" stroke="#979797" stroke-dasharray="3" stroke-linecap="square">
+                    <g id="Group-2">
+                        <g id="Group">
+                            <path d="M44.9316796,104.428104 L44.9316796,129.754003 L0.5,109.966429 L0.5,24.5 L65.5,0.5 L109.995258,21.3185583 L109.995258,107.808743 L84.6924744,93.7985945" id="Line-20"></path>
+                            <path d="M0.5,24.6895455 L31.5,39.6895455 M78.1995296,33.9126604 L109.634326,21.633091" id="Line-21"></path>
+                        </g>
+                    </g>
+                </g>
+                <g id="游戏" transform="translate(29.000000, 39.500000)">
+                    <rect id="Rectangle-2" fill="#B4E700" x="36.4449951" y="23.7252971" width="3.14690937" height="3.14690937"></rect>
+                    <rect id="Rectangle-2" fill="#B4E700" x="23.5203155" y="3.91683031" width="1.95936908" height="1.95936908"></rect>
+                    <rect id="Rectangle-2" fill="#B4E700" transform="translate(43.230012, 25.298752) rotate(45.000000) translate(-43.230012, -25.298752) " x="41.6565575" y="23.7252971" width="3.14690937" height="3.14690937"></rect>
+                    <rect id="Rectangle-2" fill="#B4E700" x="36.4449951" y="29.0801498" width="3.14690937" height="3.14690937"></rect>
+                    <rect id="Rectangle-2" fill="#B4E700" x="41.6565575" y="29.0801498" width="3.14690937" height="3.14690937"></rect>
+                    <polyline id="Path-21" stroke="#478E0A" stroke-width="2" points="7.32842579 50.1812229 3.6991876 50.1812229 0.779353065 50.1812229 0.779353065 19.8424427 8.39506522 16.1442614 51.0147694 16.1442614 51.0147694 50.1812229 45.0183151 50.1812229"></polyline>
+                    <polygon id="Path-24" stroke="#478E0A" stroke-width="2" points="8.76252185 24.6907299 15.4012763 24.6907299 15.4012763 31.4091676 8.76252185 31.4091676"></polygon>
+                    <path d="M14.3630319,48.9299461 L6.91516321,36.9600397" id="Line-3" stroke="#478E0A" stroke-width="2" stroke-linecap="square" transform="translate(10.624231, 43.356214) scale(1, -1) translate(-10.624231, -43.356214) "></path>
+                    <path d="M45.3630319,48.9299461 L37.9151632,36.9600397" id="Line-3" stroke="#478E0A" stroke-width="2" stroke-linecap="square" transform="translate(41.624231, 43.356214) scale(-1, -1) translate(-41.624231, -43.356214) "></path>
+                    <path d="M14.9628328,37.4092107 L37.2785284,37.4092107" id="Line-11" stroke="#478E0A" stroke-width="2" stroke-linecap="square"></path>
+                    <path d="M24.5,15.5 L24.5,9.5" id="Line-12" stroke="#478E0A" stroke-width="2" stroke-linecap="square"></path>
+                    <path d="M29.7095683,15.5 L29.7095683,0.997091651" id="Line-12" stroke="#478E0A" stroke-width="2" stroke-linecap="square"></path>
+                    <path d="M1.5,46.5 L7.5,46.5" id="Line-13" stroke="#478E0A" stroke-width="2" stroke-linecap="square"></path>
+                    <path d="M44.108161,46.5 L50.108161,46.5" id="Line-13" stroke="#478E0A" stroke-width="2" stroke-linecap="square"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
