@@ -8,12 +8,21 @@
     padding: 0;
     margin: 0;
 }
-.border-static {
-    background:#FFFFFF;
-}
 .btn-static {
     min-width:180px;
     margin:10px;
+}
+.swiper-container {
+    width: 100%;
+    height: 100%;
+    padding:15px!important;
+}
+.swiper-slide {
+    min-height:100px;
+}
+.swiper-slide img{
+    width:50px;
+    margin-bottom:25px;
 }
 /*公用*/
 .dev-content {
@@ -57,6 +66,14 @@
     margin-bottom: 10px;
     padding: 0px 50px;
 }
+.dev-intro img{
+    max-width:90px;
+}
+.dev-intro span{
+    display:inline-block;
+    font-size:12px;
+    line-height:1.6;
+}
 /*Doc*/
 .dev-doc {
     background: url(../images/dev-doc-1.svg),url(../images/dev-doc-2.svg);
@@ -64,6 +81,35 @@
     background-repeat: no-repeat;
     background-size: contain;
     padding-bottom:50px;
+}
+.swiper-slide p {
+    margin-bottom:0;
+}
+.dev-lan {
+    font-size:0;
+    margin-top:3px;
+}
+.dev-lan div{
+    display:inline-block;
+    width:50%;
+}
+.dev-down {
+    margin-bottom:-40px;
+}
+.dev-down .border-static:after{
+    bottom: 0px;
+    left: 0px;
+    border-top: 10px solid transparent;
+    border-right: 20px solid #4A4A4A;
+}
+.down-table {
+    width:100%;
+    border:2px solid #FFFFFF;
+    color:#888888;
+}
+.down-table th,
+.down-table td{
+    border:1px solid #DEDEDE;
 }
 /*github*/
 .dev-github {
@@ -79,6 +125,13 @@
 }
 .dev-github .btn-static:after{
     border-right: 26px solid #505050;
+}
+/*bounty*/
+.dev-bounty {
+    background: url(../images/home-com-1.svg),url(../images/home-com-2.svg);
+    background-repeat: no-repeat;
+    background-position: 115% -100px, -40% bottom;
+    background-size: 28%,40%;
 }
 
 /*testcoin*/

@@ -10,6 +10,7 @@
     <environment exclude="Development">
         <link rel="stylesheet" href="@Helper.CDN/css/testnet.min.css" asp-append-version="true" />
     </environment>
+    <link href="~/lib/Swiper/css/swiper.min.css" rel="stylesheet" />
 }
 <div class="dev-banner">
     <div class="container m1">
@@ -29,13 +30,14 @@
 </div>
 
 <div class="dev-content container">
-    <ul class="dev-intro t4">
+    <h3 class="m3 bold-font p4">@Localizer["What you can build"]</h3>
+    <ul class="dev-intro t4 m3">
         <li>
-            <img class="p4" src="~/images/mobile.svg" /><br />
+            <img class="p4" src="~/images/dev-icon-1.svg" /><br />
             <span>NEO客户端由NEO团队及NEO社区开发，支持多种平台，您可以选择最合适的进行下载或访问。</span>
         </li>
         <li>
-            <img class="p4" src="~/images/mobile.svg" /><br />
+            <img class="p4" src="~/images/dev-icon-1.svg" /><br />
             <span>NEO客户端由NEO团队及NEO社区开发，支持多种平台，您可以选择最合适的进行下载或访问。</span>
         </li>
         <li>
@@ -57,11 +59,11 @@
     </ul>
 </div>
 <div class="dev-content container">
-    <div class="border-static">
+    <div class="border-static back-white">
         <div class="row">
             <div class="col-md-4"></div>
-            <div class="col-md-7 text-left">
-                <h3 class="m2 bold-font p4">@Localizer["Apply For NEO/GAS in Testnet"]</h3>
+            <div class="col-md-8 text-left p1">
+                <h3 class="m3 bold-font p4">@Localizer["Apply For NEO/GAS in Testnet"]</h3>
                 <p class="p4">
                     @Localizer["If you are developing a NEO ecosystem application project, and need NEO/GAS in the <b>TestNet</b>, please fill in the following application form and send it. Once your application has been processed, you will receive an email notification."]
                 </p>
@@ -70,16 +72,15 @@
                     <a class="btn-static btn3">Testnet2</a>
                 </p>
             </div>
-            <div class="col-md-1"></div>
         </div>
     </div>
 </div>
 <div class="dev-content dev-doc">
     <div class="w600">
         <h3 class="m2 bold-font p4"><span class="back-static">@Localizer["Documentation"]</span></h3>
-        <p class="p4">
+        <p class="m3 p4">
             <span class="back-static">
-                @Localizer["If you are developing a NEO ecosystem application project, and need NEO/GAS in the <b>TestNet</b>, please fill in the following application form and send it. Once your application has been processed, you will receive an email notification."]
+                @Localizer["NEO technical documents provide comprehensive tutorials that contain beginner’s guides including NEO introduction, NEO node client user guide and development environment setup as well as advanced contents such as development tools, smart contract tutorials and examples and API documents for your reference."]
             </span>
         </p>
         <p class="">
@@ -87,18 +88,95 @@
             <a class="p4 green-text back-static" href="https://docs.neo.org/zh-cn/whitepaper.html">Consensus</a>
         </p>
         <p>
-            <a class="btn-static" href="https://docs.neo.org/">Documentation</a>
+            <a class="btn-static" href="https://docs.neo.org/">@Localizer["Open link"]</a>
         </p>
     </div>
 </div>
 
 <div class="dev-content container">
+    <h3 class="m3 bold-font p4">Quick Start</h3>
     <div class="row">
-        <div class="col-md-6">c#</div>
-        <div class="col-md-6">Python</div>
+        <div class="swiper-container m3">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide border-static">
+                    <p class="t2 bold-font back-white lh1">C#</p>
+                    <div class="dev-lan back-white p2">
+                        <p><a class="btn-static btn4 t3">Quick Start</a></p>
+                        <div class="lan-left t3 m3">
+                            <span class="bold-font">常用文档</span><br />
+                            <a class="m4">api</a><br />
+                            <a>node</a><br />
+                            <a>wallet</a><br />
+                            <a>smart contract</a><br />
+                            <a>plugin</a><br />
+                        </div>
+                        <div class="lan-right t3">
+                            <span class="bold-font">常用文档</span><br />
+                            <a class="m4">api</a><br />
+                            <a>node</a><br />
+                            <a>wallet</a><br />
+                            <a>smart contract</a><br />
+                            <a>plugin</a><br />
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide border-static">
+                    <p class="t2 bold-font back-white lh1">C#</p>
+                    <div class="dev-lan back-white p2">
+                        <p><a class="btn-static btn4 t3">Quick Start</a></p>
+                        <div class="lan-left t3 m3">
+                            <span class="bold-font">常用文档</span><br />
+                            <a class="m4">api</a><br />
+                            <a>node</a><br />
+                            <a>wallet</a><br />
+                            <a>smart contract</a><br />
+                            <a>plugin</a><br />
+                        </div>
+                        <div class="lan-right t3">
+                            <span class="bold-font">Download</span><br />
+                            <a class="m4">api</a><br />
+                            <a>node</a><br />
+                            <a>wallet</a><br />
+                            <a>smart contract</a><br />
+                            <a>plugin</a><br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="row">
-        <div class="col-md-12">Download</div>
+        <div class="col-md-12 dev-down">
+            <div class="border-static back-white m2 p3">
+                <p class="t2 bold-font lh1">Download</p>
+                <table class="down-table m3">
+                    <tr>
+                        <th></th>
+                        <th>Environment</th>
+                        <th>IDE</th>
+                        <th>Dev Pack</th>
+                        <th>Compiler</th>
+                        <th>Others</th>
+                    </tr>
+                    <tr>
+                        <td>C# Developer</td>
+                        <td><a>.NET Core</a></td>
+                        <td><a>Visual Studio</a></td>
+                        <td><a>Neo ContactPugin</a></td>
+                        <td><a>neon</a></td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Java Developer</td>
+                        <td><a>.NET Core</a></td>
+                        <td><a>Visual Studio</a></td>
+                        <td><a>Neo ContactPugin</a></td>
+                        <td><a>neon</a></td>
+                        <td>-</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -109,31 +187,45 @@
             NEO uses digital identity and blockchain technology to digitize assets and leverages smart contracts for autonomously managed digital assets to create a "smart economy" within a decentralized network.
         </p>
         <p>
-            <a class="btn-static" href="https://docs.neo.org/">GitHub</a>
+            <a class="btn-static" href="https://docs.neo.org/">@Localizer["Open link"]</a>
         </p>
     </div>
 </div>
 
 <div class="dev-content dev-bounty">
     <div class="w600">
-        <h3 class="m2 bold-font p4"><span class="back-static">@Localizer["Apply For NEO/GAS in Testnet"]</span></h3>
+        <h3 class="m2 bold-font p4"><span class="back-static">@Localizer["Security Bounty"]</span></h3>
         <p class="p4">
             <span class="back-static">
-                @Localizer["If you are developing a NEO ecosystem application project, and need NEO/GAS in the <b>TestNet</b>, please fill in the following application form and send it. Once your application has been processed, you will receive an email notification."]
+                NEO Vulnerability Bounty Program 成立的目的在于保障 NEO 区块链系统的安全性，如果发现关于我们的区块链底层的潜在安全性问题或者威胁，请尽快联系并反馈给我们。我们将调查所有合格的漏洞报告，并尽最大努力迅速解决问题。
             </span>
         </p>
-        <p class="">
-            <a class="p4 green-text back-static" href="https://docs.neo.org/zh-cn/whitepaper.html">Whitepaper</a>
-            <a class="p4 green-text back-static" href="https://docs.neo.org/zh-cn/whitepaper.html">Consensus</a>
-        </p>
-        <p>
-            <a class="btn-static" href="https://docs.neo.org/">Documentation</a>
+        <p class="m3">
+            <a class="btn-static" href="https://docs.neo.org/">@Localizer["Open link"]</a>
         </p>
     </div>
 </div>
 
 
 @section Scripts{
+    <script src="~/lib/Swiper/js/swiper.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 2,
+            spaceBetween: 30,
+            pagination: {
+                el: '.swiper-pagination',
+                dynamicBullets: true,
+                clickable: true,
+            },
+            breakpoints: {
+                480: {
+                    slidesPerView: 1,
+                    spaceBetween: 15,
+                }
+            }
+        });
+    </script>
     <script>
         $("#menu_list a").css("border-bottom", "none");
         $("#menu_list li.nav-item [href='/testnet']").css("border-bottom", "2px solid #58bf00");
