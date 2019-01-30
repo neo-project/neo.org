@@ -171,13 +171,16 @@ html,body {
     text-align:center;
 }
 .dev-content h1 {
-    font-size: 5vw;
+    font-size: calc(15px + 2.5vw);
     text-align: center;
 }
+
 .dev-organizer h1 {
-    color: black;
-    font-size: 5vw;
-    padding: 30px 10vw;
+    padding-bottom: 50px;
+}
+
+.dev-venue h1 {
+    padding-bottom: 50px;
 }
 
 a {
