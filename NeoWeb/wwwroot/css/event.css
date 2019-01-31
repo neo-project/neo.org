@@ -34,6 +34,15 @@ select.form-control {
     margin: 0;
 }
 
+.dropdown-menu .border-static{
+    background: linear-gradient(-30deg,transparent 4%,#EEF4EE 4%,#EEF4EE 96%,transparent 96%);
+    box-shadow: none;
+}
+.dropdown-menu .border-static:before,
+.dropdown-menu .border-static:after{
+    border:none;
+}
+
 .event-line{
 	border-bottom: 3px solid #D6D6D6;
 	position: relative;
@@ -190,9 +199,14 @@ select.form-control {
     margin-right: 20px;
     line-height: 3;
 }
+.search-group .dropdown-menu {
+    box-shadow: none;
+    border: none;
+    background: transparent; 
+}
 .search-group .dropdown-menu .border-static {
     padding: 20px;
-    background-color: #EEF4EE;
+    background-color: transparent;
 }
 .search-group .dropdown-menu .border-static::before{
     border-left: 36px solid #fff;
@@ -377,11 +391,26 @@ ul,li{
     }
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 768px) {
+    .search-group .dropdown {
+        width: 60%;
+        min-width:100px;
+    }
+    .search-group .dropdown-toggle {
+        font-size: 14px;
+    }
+    .search-btn {
+        min-width:80px;
+        font-size:12px;
+        line-height:20px;
+        height:30px;
+        margin-top:5px;
+    }
+}
+@media only screen and (max-width: 578px) {
     .search-div img{
         margin-bottom: 30px!important;
     }
-    
     .event-banner .search-div {
         padding:20px;
     }

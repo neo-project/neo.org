@@ -163,7 +163,7 @@
     .fixed-top {
         top:10px;
     }
-    .dropdown-menu {
+    .top-nav .dropdown-menu {
         position:relative;
         float: none;
         display: block!important;
