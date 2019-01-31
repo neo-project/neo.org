@@ -3,10 +3,10 @@
 @{
     ViewData["Title"] = "删除";
 }
-<h1 class="m2">删除</h1>
-<div class="coin-back apply-detail">
-    <p class="t1 m3">你确认删除这条吗？</p>
-    <dl class="dl-horizontal">
+<h2 class="m2">删除</h2>
+<div class="border-static back-white p3 m2">
+    <p class="t2">你确认删除这条吗？</p>
+    <dl class="dl-horizontal m4">
         <dt>
             @Html.DisplayNameFor(model => model.Name)
         </dt>
@@ -72,8 +72,8 @@
     <form asp-action="Delete">
         <div class="back-to-list">
             <input type="hidden" asp-for="Id" />
-            <input type="submit" value="删除" class="btn btn-secondary" />
-            <a asp-action="List">返回列表</a>
+            <input type="submit" value="删除"  class="btn-static btn3" />
+            <a class="btn-static btn3" asp-action="List">返回列表</a>
         </div>
     </form>
 </div>

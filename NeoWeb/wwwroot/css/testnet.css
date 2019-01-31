@@ -65,6 +65,7 @@
     width: 32%;
     margin-bottom: 10px;
     padding: 0px 50px;
+    vertical-align: text-top;
 }
 .dev-intro img{
     max-width:90px;
@@ -123,7 +124,7 @@
     background-repeat:no-repeat;
     background-size:cover;
     background-position:center;
-    padding-bottom:50px;
+    padding:100px 0;
 }
 .dev-github .btn-static:before{
     border-left: 24px solid #505050;
@@ -189,5 +190,8 @@
     }
     .dev-doc {
         background-size: 30%;
+    }
+    .dev-github {
+        padding:60px 0 40px;
     }
 }
