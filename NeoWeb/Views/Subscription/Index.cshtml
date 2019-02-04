@@ -12,6 +12,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Group)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Email)
             </th>
             <th>
@@ -23,6 +26,9 @@
         @foreach (var item in Model)
         {
             <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Group)
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Email)
                 </td>
