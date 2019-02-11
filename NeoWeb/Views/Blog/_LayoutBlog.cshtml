@@ -6,12 +6,6 @@
 }
 @RenderBody()
 
-<div class="row">
-    <div class="col-lg-12">
-        @await Html.PartialAsync("_LoginPartial")
-    </div>
-</div>
-
 @section Scripts{
     @RenderSection("Scripts", required: false)
     <script src="@Helper.CDN/js/text-autospace.js"></script>

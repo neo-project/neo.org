@@ -27,19 +27,13 @@ ul, li {
     width: 19%;
 }
 
-.nav-client li:hover{
-    display: inline-block;
-    cursor: pointer;
-    padding: 10px;
-    width: 19%;
-}
 .nav-client li:hover::before {
     content: "- ";
-    color: white;
+    color: #478e0a;
 }
-.nav-client li:hover ::after {
+.nav-client li:hover::after {
     content: " -";
-    color: white;
+    color: #478e0a;
 }
 
 .nav-client li span {
@@ -277,7 +271,7 @@ ul, li {
     padding-top: 0;
     border-top: none;
 }
-.modal-body a.text-success, .modal-body a.text-warning, .modal-body a.text-danger {
+.modal-body .text-success, .modal-body .text-warning, .modal-body .text-danger {
     font-weight: bold;
     line-height: 2;
 }
@@ -287,7 +281,7 @@ ul, li {
     padding: 8px 20px;
     border: none;
     clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 10px) 100%, 0 100%, 0 5px);
-    background: linear-gradient(150deg,transparent 0, transparent 5px, #5a6268 0, #5a6268 calc(100% - 5px), transparent calc(100% - 5px),  transparent 100%);
+    background: linear-gradient(150deg,transparent 0, transparent 5%, #5a6268 5%, #5a6268 95%, transparent 95%,  transparent 100%);
 }
 @media (min-width: 992px) {
     .modal-lg {
@@ -307,6 +301,9 @@ ul, li {
     }
     .client-ul .platform,
     .client-ul header {
-        left: 60px;
+        left: 70px;
+    }
+    .nav-client li {
+        width: 100%;
     }
 }

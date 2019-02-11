@@ -371,4 +371,10 @@
   <data name="open-source" xml:space="preserve">
     <value>开源软件</value>
   </data>
+  <data name="https://docs.neo.org/en-us/node/gui/install.html" xml:space="preserve">
+    <value>https://docs.neo.org/zh-cn/node/gui/install.html</value>
+  </data>
+  <data name="Change log" xml:space="preserve">
+    <value>更新日志</value>
+  </data>
 </root>

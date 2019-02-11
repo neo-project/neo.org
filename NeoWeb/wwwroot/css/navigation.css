@@ -28,16 +28,18 @@
 #nav_container {
     display: flex;
     width: 100%;
+    text-align: left;
     padding-left: 15px;
     padding-right: 15px;
     background:#FFFFFF;
     background:rgba(255,255,255,0.9);
 }
-.collapse {
+.navbar .collapse {
     margin:8px 0;
 }
-.collapse li{
+.navbar .collapse li{
     line-height:2.5;
+    color: #212529;
 }
 .fixed-top {
     top:35px;
@@ -170,6 +172,10 @@
         padding-top: 0px;
         line-height: 1.8;
         margin-left: 15px;
+        top: 0;
+    }
+    .navbar-nav .dropdown-menu a{
+        background:none;
     }
 }
 @media only screen and (max-width : 780px) {
