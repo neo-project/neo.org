@@ -1,9 +1,8 @@
 ﻿html, body {
     line-height:1.7;
+    background-color: #EEF4EE;
 }
-.bounty {
 
-}
 .bounty-title1 {
     position:relative;
     z-index:1;
