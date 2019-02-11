@@ -161,7 +161,7 @@
 .dropdown-item {
     font-weight:100;
 }
-@media only screen and (max-width : 990px) {
+@media only screen and (max-width : 992px) {
     .fixed-top {
         top:10px;
     }
@@ -176,6 +176,9 @@
     }
     .navbar-nav .dropdown-menu a{
         background:none;
+    }
+    .navbar .collapse {
+        margin-top: 50px;
     }
 }
 @media only screen and (max-width : 780px) {
