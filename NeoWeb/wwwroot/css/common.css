@@ -29,11 +29,11 @@ h3,.h3 {font-size: 25px;}
 .t4 {font-size: 14px;}
 .link2 {font-size:17px;}
 .link2:hover{text-decoration:none;}
-.m1 {margin:60px auto 0!important;}
-.m2 {margin:42px auto 0!important;}
-.m3 {margin:20px auto 0!important;}
-.m4 {margin:10px auto 0!important;}
-.m5 {margin:6px auto 0!important;}
+.m1 {margin-top:60px!important;}
+.m2 {margin-top:42px!important;}
+.m3 {margin-top:20px!important;}
+.m4 {margin-top:10px!important;}
+.m5 {margin-top:6px!important;}
 .mt0 {margin-top:0px!important;}
 .ml0 {margin-left:0px!important;}
 .mb0 {margin-bottom:0px!important;}
@@ -124,6 +124,9 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
 /*基础背景颜色*/
 .back-static {
     background:#EEF4EE;
+}
+.back-trans {
+    background:transparent;
 }
 .back-white {
     background:#FFFFFF;
@@ -319,11 +322,11 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
     .t3 {font-size: 15px;}
     .t4 {font-size: 12px;}
     .link2 {font-size:17px;}
-    .m1 {margin:26px auto 0!important;}
-    .m2 {margin:20px auto 0!important;}
-    .m3 {margin:12px auto 0!important;}
-    .m4 {margin:8px auto 0!important;}
-    .m5 {margin:4px auto 0!important;}
+    .m1 {margin-top:26px!important;}
+    .m2 {margin-top:20px!important;}
+    .m3 {margin-top:12px!important;}
+    .m4 {margin-top:8px!important;}
+    .m5 {margin-top:4px!important;}
     .padding_normal {padding:initial 22px;}
     .p1 {padding:40px;}
     .p2 {padding:20px;}

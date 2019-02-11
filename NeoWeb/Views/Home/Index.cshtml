@@ -135,14 +135,14 @@
                 {
                     foreach (var item in ViewBag.Blog as IEnumerable<NeoWeb.Models.Blog>)
                     {
-                        <div class="blog-con border-static back-white m3 p3">
-                            <p class="bolder-font t3 text-ellipsis"><a href="/blog/details/@item.Id">@item.Title</a></p>
-                            <p class="m4 t4 gray-text">@item.Summary.Substring(0, Math.Min(item.Summary.Length, 100))…</p>
-                            <p class="m4"><img src="~/images/event/time.svg" /> @item.EditTime.ToString()</p>
+                        <div class="blog-con border-static back-white m3 mb0 p3">
+                            <p class="bolder-font mb0 t3 text-ellipsis"><a href="/blog/details/@item.Id">@item.Title</a></p>
+                            <p class="m4 mb0 t4 gray-text">@item.Summary.Substring(0, Math.Min(item.Summary.Length, 100))…</p>
+                            <p class="m4 mb0"><img src="~/images/event/time.svg" /> @item.EditTime.ToString()</p>
                         </div>
                     }
                 }
-                <p class="m3 text-center"><a class="btn-static t3" href="~/blog">@Localizer["Blog Page"]</a></p>
+                <p class="m3 mb0 text-center"><a class="btn-static t3" href="~/blog">@Localizer["Blog Page"]</a></p>
             </div>
             <div class="col-md-6 m2 event-con">
                 @if (ViewBag.Event != null)
@@ -152,14 +152,14 @@
                         <div class="border-static back-white m3 p3">
                             @if (string.IsNullOrEmpty(item.Cover))
                             {
-                                <p class="m4"><img src="@String.Format(Helper.CDN + "/images/event/twitter-{0}.jpg", item.Type).ToLower()" width="100%" /></p>
+                                <p class="m4 mb0"><img src="@String.Format(Helper.CDN + "/images/event/twitter-{0}.jpg", item.Type).ToLower()" width="100%" /></p>
                             }
                             else
                             {
-                                <p class="m4"><img src="@String.Format("/upload/{0}", item.Cover).ToLower()" width="100%" /></p>
+                                <p class="m4 mb0"><img src="@String.Format("/upload/{0}", item.Cover).ToLower()" width="100%" /></p>
                             }
-                            <p class="m4 bolder-font t3 text-ellipsis">@item.Name</p>
-                            <p class="m4 t4 lh3 gray-text">
+                            <p class="m4 mb0 bolder-font t3 text-ellipsis">@item.Name</p>
+                            <p class="m4 mb0 t4 lh3 gray-text">
                                 <img src="~/images/event/time.svg" /> @item.StartTime.ToString() ~ @item.EndTime.ToString()<br />
                                 <img src="~/images/event/addr.svg" /> @item.Country?.ZhName - @item.City<br />
                                 <img src="~/images/event/organizers.svg" /> Organizers: @item.Organizers<br />

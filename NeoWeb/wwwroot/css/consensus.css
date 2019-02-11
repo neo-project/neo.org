@@ -3,9 +3,6 @@
     color:#4A4A4A;
 }
 
-.p1 {
-    padding:100px;
-}
 .main-footer .container{
     display:none;
 }
@@ -41,9 +38,10 @@
     display: inline-block;
     transition: transform .1s,background .2s;
     box-shadow: -2px 4px 10px rgba(0, 0, 0, 0.1);
+    line-height:1.5;
 }
 .info-icon {
-    font-size:65px;
+    font-size:60px;
     color:#AEDB58;
     transition: color .2s;
 }
@@ -63,17 +61,9 @@
     background:#fff;
     padding:20px;
 }
-.tab-btn{
-    display:inline-block;
-    padding: 10px 24px;
-    min-width:60px;
-    cursor:pointer;
-    background: transparent;
-    font-size:14px;
-    letter-spacing:1px;
-    font-weight:100;
-    border-radius: 35px;
-    border: 1px solid #AEDB58;
+.btn-static.btn3:before{
+    background:#EEF4EE;
+    background:linear-gradient(150deg,transparent 4.3%,#EEF4EE 4%,#EEF4EE 95.8%,transparent 96%)
 }
 .tab-change .tab-btn{
     margin-right:10px;
