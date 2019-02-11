@@ -35,7 +35,7 @@ select.form-control {
 }
 
 .dropdown-menu .border-static{
-    background: linear-gradient(-30deg,transparent 4%,#EEF4EE 4%,#EEF4EE 96%,transparent 96%);
+    background: linear-gradient(-30deg,transparent 5px,#EEF4EE 5px,#EEF4EE calc(100% - 5px),transparent calc(100% - 5px), transparent 100%);
     box-shadow: none;
 }
 .dropdown-menu .border-static:before,

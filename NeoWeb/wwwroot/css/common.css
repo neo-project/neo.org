@@ -187,7 +187,7 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
 }
 .border-static-body {
     background-color: white;
-    background: linear-gradient(152deg,#fff 0, #fff calc(100% - 8px), transparent calc(100% - 7px),  transparent 100%);
+    background: linear-gradient(-28deg,transparent 0, transparent 8px, #fff 8px,  #fff 100%);
 }
 
 /*基础按钮样式*/
@@ -306,7 +306,8 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
 .modal-content {
     border-radius: 0;
     border: none;
-    background: linear-gradient(150deg,transparent 0, transparent 5px, #fff 0, #fff calc(100% - 5px), transparent calc(100% - 5px),  transparent 100%);
+    background: white;
+    background: linear-gradient(150deg, transparent 0, transparent 0.4%, #fff 0.4%, #fff 99.6%, transparent 99.6%, transparent 100%);
     clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 10px) 100%, 0 100%, 0 5px);
 }
 @media only screen and (max-width : 1199px) {

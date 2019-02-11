@@ -26,9 +26,9 @@
             <li onclick="showPlatform(this, 'desktop')">@Localizer["Desktop"]</li>
             <li onclick="showPlatform(this, 'mobile')">@Localizer["Mobile"]</li>
             <li onclick="showPlatform(this, 'web')">@Localizer["Web"]</li>
-            <li onclick="showPlatform(this, 'hardware')">@Localizer["Hardware"]</></li>
+            <li onclick="showPlatform(this, 'hardware')">@Localizer["Hardware"]</li>
         </ul>
-        <div class="client-ul border-static-title m4">
+        <div class="client-ul border-static-body m4">
             <div>
                 <ul class="row gray-text">
                     <li class="col-12 col-sm-6 col-md-4 col-lg-3 desktop">
@@ -45,23 +45,23 @@
                                     <img data-src="@Helper.CDN/images/client/gui.png" />
                                     <p>@Localizer["NEO-GUI is a full-node NEO client, which contains all the basic functions of NEO network. This wallet is designed for advanced users, with professional software interaction and extremely high security. However, it takes a long time to initialize synchronization, occupies disk and memory, and has poor stability."]</p>
                                     <p>@Localizer["Need to install"] <a href="https://www.microsoft.com/net/download/dotnet-framework-runtime" target="_blank">.NetFramework 4.7.1</a> @Localizer["and"] <a href="https://www.microsoft.com/en-us/download/details.aspx?id=14632" target="_blank">VC++ 2010 Redist x64</a>/<a href="https://www.microsoft.com/en-us/download/details.aspx?id=5555" target="_blank">x86</a>
-                                    <p>@Localizer["For more information, see:"]<a href="http://docs.neo.org/zh-cn/node/gui.html" target="_blank">@Localizer["Instructions for use"]</a></p>
+                                    <p>@Localizer["For more information, see:"]<a href="@Localizer["https://docs.neo.org/en-us/node/gui/install.html"]" target="_blank">@Localizer["Instructions for use"]</a></p>
                                     <p>@Localizer["Languages"]: English / 简体中文</p>
                                     <div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</a>
+                                            <span class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</span>
                                             <div>@Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the private key."]</div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Comprehensive Verification"]</a>
+                                            <span class="text-success">@Localizer["Comprehensive Verification"]</span>
                                             <div>@Localizer["This wallet is a full node that stores all the data in the NEO blockchain, which means that there is no need to trust a third party when verifying payments or executing contracts. The full node provides the highest level of security and is an integral part of protecting the network. However, it requires more hard disk space (15GB), greater bandwidth, and a longer initialization synchronization time. The initialization synchronization speed can be accelerated by downloading the <a href=\"http://sync.ngd.network/\" target=\"_blank\">offline synchronization package</a> provided by NGD."]</div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Transparency - High Level"]</a>
+                                            <span class="text-success">@Localizer["Transparency - High Level"]</span>
                                             <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."]@Localizer["Get source code"]: <a href="https://github.com/neo-project/neo-gui" target="_blank">GitHub</a></div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Support Plugins"]</a>
+                                            <span class="text-success">@Localizer["Support Plugins"]</span>
                                             <div>
                                                 <div>
                                                     <p>NEO-GUI @Localizer["supports plugins. The following is a list of commonly-used plug-in components."]</p>
@@ -75,7 +75,7 @@
                                                         <tbody>
                                                             <tr>
                                                                 <th scope="row">
-                                                                    <a href="https://github.com/neo-project/neo-plugins/releases/">ImportBlocks</a>
+                                                                    <a href="https://github.com/neo-project/neo-plugins/releases/" target="_blank">ImportBlocks</a>
                                                                 </th>
                                                                 <td>@Localizer["Synchronizes the client using offline packages. Installed by default."]</td>
                                                             </tr>
@@ -85,7 +85,7 @@
                                             </div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Supported NEP"]</a>
+                                            <span class="text-success">@Localizer["Supported NEP"]</span>
                                             <div>
                                                 <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki" target="_blank">NEP-5</a>, <a href="https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki" target="_blank">NEP-6</a> </p>
                                             </div>
@@ -116,25 +116,25 @@
                                     <p>
                                         @Localizer["NEO-CLI is a full-node command-line client that can run across platforms. It can provide APIs for developers to call, or participate in the consensus mechanism as a consensus node in the block chain. This wallet is designed for developers, with professional software interaction, as well as higher security and stability. The disadvantages of this wallet are that it takes a long time to initialize synchronization, and it takes up disk and memory."]
                                     </p>
-                                    <p>@Localizer["For more information, see:"] <a href="@Localizer["http://docs.neo.org/en-us/node/cli/setup.html"]" target="_blank">@Localizer["Instructions for use"]</a>, <a href="https://github.com/neo-project/neo-cli/blob/master/CHANGELOG.md" target="_blank">@Localizer["Instructions for use"]</a></p>
+                                    <p>@Localizer["For more information, see:"] <a href="@Localizer["http://docs.neo.org/en-us/node/cli/setup.html"]" target="_blank">@Localizer["Instructions for use"]</a>, <a href="https://github.com/neo-project/neo-cli/blob/master/CHANGELOG.md" target="_blank">@Localizer["Change log"]</a></p>
                                     <p>@Localizer["Languages"]: English</p>
                                     <div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</a>
+                                            <span class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</span>
                                             <div>
                                                 @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the private key."]
                                             </div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Comprehensive Verification"]</a>
+                                            <span class="text-success">@Localizer["Comprehensive Verification"]</span>
                                             <div>@Localizer["This wallet is a full node that stores all the data in the NEO blockchain, which means that there is no need to trust a third party when verifying payments or executing contracts. The full node provides the highest level of security and is an integral part of protecting the network. However, it requires more hard disk space (15GB), greater bandwidth, and a longer initialization synchronization time. The initialization synchronization speed can be accelerated by downloading the <a href=\"http://sync.ngd.network/\" target=\"_blank\">offline synchronization package</a> provided by NGD."]</div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Transparency - High Level"]</a>
+                                            <span class="text-success">@Localizer["Transparency - High Level"]</span>
                                             <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."]@Localizer["Get source code"]: <a href="https://github.com/neo-project/neo-cli" target="_blank">GitHub</a></div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Support Plugins"]</a>
+                                            <span class="text-success">@Localizer["Support Plugins"]</span>
                                             <div>
                                                 <div>
                                                     <p>NEO-CLI @Localizer["supports plugins. The following is a list of commonly-used plug-in components."]</p>
@@ -148,31 +148,31 @@
                                                         <tbody class="table table-bordered table-sm">
                                                             <tr>
                                                                 <th scope="row">
-                                                                    <a href="https://github.com/neo-project/neo-plugins/releases/">ApplicationLogs</a>
+                                                                    <a href="https://github.com/neo-project/neo-plugins/releases/" target="_blank">ApplicationLogs</a>
                                                                 </th>
                                                                 <td>@Localizer["Synchronizes the smart contract log (ApplicationLogs) automatically in RPC mode. Mandatory for exchanges."]</td>
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">
-                                                                    <a href="https://github.com/neo-project/neo-plugins/releases/">ImportBlocks</a>
+                                                                    <a href="https://github.com/neo-project/neo-plugins/releases/" target="_blank">ImportBlocks</a>
                                                                 </th>
                                                                 <td>@Localizer["Synchronizes the client using offline packages. Installed by default."]</td>
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">
-                                                                    <a href="https://github.com/neo-project/neo-plugins/releases/">RpcSecurity</a>
+                                                                    <a href="https://github.com/neo-project/neo-plugins/releases/" target="_blank">RpcSecurity</a>
                                                                 </th>
                                                                 <td>@Localizer["Improves RPC security. Optional."]</td>
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">
-                                                                    <a href="https://github.com/neo-project/neo-plugins/releases/">SimplePolicy</a>
+                                                                    <a href="https://github.com/neo-project/neo-plugins/releases/" target="_blank">SimplePolicy</a>
                                                                 </th>
                                                                 <td>@Localizer["Enables policies for consensus. Mandatory for building private chain."]</td>
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">
-                                                                    <a href="https://github.com/neo-project/neo-plugins/releases/">StatesDumper</a>
+                                                                    <a href="https://github.com/neo-project/neo-plugins/releases/" target="_blank">StatesDumper</a>
                                                                 </th>
                                                                 <td>@Localizer["Exports NEO-CLI status data. Optional."]</td>
                                                             </tr>
@@ -182,7 +182,7 @@
                                             </div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Supported NEP"]</a>
+                                            <span class="text-success">@Localizer["Supported NEP"]</span>
                                             <div>
                                                 <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki" target="_blank">NEP-5</a>, <a href="https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki" target="_blank">NEP-6</a> </p>
                                             </div>
@@ -223,19 +223,19 @@
                                     <p>@Localizer["Languages"]: English</p>
                                     <div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</a>
+                                            <span class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</span>
                                             <div>@Localizer["This wallet gives you a high degree of control over digital assets. The private key is encrypted and stored by the Encrypted Key and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the Encrypted Key."]</div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-warning">@Localizer["Centralized Verification"]</a>
+                                            <span class="text-warning">@Localizer["Centralized Verification"]</span>
                                             <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Transparency - Higher Level"]</a>
+                                            <span class="text-success">@Localizer["Transparency - Higher Level"]</span>
                                             <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."]@Localizer["Get source code"]: <a href="https://github.com/O3Labs" target="_blank">GitHub</a></div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Supported NEP"]</a>
+                                            <span class="text-success">@Localizer["Supported NEP"]</span>
                                             <div>
                                                 <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki" target="_blank">NEP-2</a>, <a href="https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki" target="_blank">NEP-5</a>, <a href="https://github.com/neo-project/proposals/blob/master/nep-9.mediawiki" target="_blank">NEP-9</a></p>
                                             </div>
@@ -267,19 +267,19 @@
                                     <p>@Localizer["Languages"]: English</p>
                                     <div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</a>
+                                            <span class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</span>
                                             <div>@Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of wallet files."]</div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-warning">@Localizer["Centralized Verification"]</a>
+                                            <span class="text-warning">@Localizer["Centralized Verification"]</span>
                                             <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Transparency - High Level"]</a>
+                                            <span class="text-success">@Localizer["Transparency - High Level"]</span>
                                             <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."]@Localizer["Get source code"]: <a href="https://github.com/CityOfZion/neon-wallet" target="_blank">GitHub</a></div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Supported NEP"]</a>
+                                            <span class="text-success">@Localizer["Supported NEP"]</span>
                                             <div>
                                                 <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki" target="_blank">NEP-2</a>, <a href="https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki" target="_blank">NEP-5</a> </p>
                                             </div>
@@ -321,19 +321,19 @@
                                     <p>@Localizer["Languages"]: English / 简体中文 / Deutsch / 日本語 / 한국어 / Nederlands / Русский</p>
                                     <div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</a>
+                                            <span class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</span>
                                             <div>@Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the private key."]</div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-warning">@Localizer["Centralized Verification"]</a>
+                                            <span class="text-warning">@Localizer["Centralized Verification"]</span>
                                             <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Transparency - Higher Level"]</a>
+                                            <span class="text-success">@Localizer["Transparency - Higher Level"]</span>
                                             <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software."]@Localizer["Get source code"]: <a href="https://github.com/aphtoken/aph-wallet-gui" target="_blank">GitHub</a></div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Supported NEP"]</a>
+                                            <span class="text-success">@Localizer["Supported NEP"]</span>
                                             <div>
                                                 <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki" target="_blank">NEP-5</a></p>
                                             </div>
@@ -367,19 +367,19 @@
                                     <p>@Localizer["Languages"]: English / 简体中文</p>
                                     <div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</a>
+                                            <span class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</span>
                                             <div>@Localizer["This wallet gives users a high degree of control over digital assets. The private key or the mnemonic are stored locally. This wallet gives more support to the cold and hot wallet dual mode cooperation, offline signature authorization and online asset observation. It is completely isolated from the network environment so as to store assets more securely."]</div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-warning">@Localizer["Centralized Verification"]</a>
+                                            <span class="text-warning">@Localizer["Centralized Verification"]</span>
                                             <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Transparency - Higher Level"]</a>
+                                            <span class="text-success">@Localizer["Transparency - Higher Level"]</span>
                                             <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software."]@Localizer["Get source code"]: <a href="https://github.com/AnyBitIO/anybit-Android" target="_blank">GitHub</a></div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Supported NEP"]</a>
+                                            <span class="text-success">@Localizer["Supported NEP"]</span>
                                             <div>
                                                 <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki" target="_blank">NEP-5</a></p>
                                             </div>
@@ -413,19 +413,19 @@
                                     <p>@Localizer["Languages"]: 简体中文</p>
                                     <div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</a>
+                                            <span class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</span>
                                             <div>@Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the private key."]</div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-warning">@Localizer["Centralized Verification"]</a>
+                                            <span class="text-warning">@Localizer["Centralized Verification"]</span>
                                             <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Transparency - Higher Level"]</a>
+                                            <span class="text-success">@Localizer["Transparency - Higher Level"]</span>
                                             <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software."]@Localizer["Get source code"]: <a href="https://github.com/OTCGO/sea-app" target="_blank">GitHub</a></div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Supported NEP"]</a>
+                                            <span class="text-success">@Localizer["Supported NEP"]</span>
                                             <div>
                                                 <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki" target="_blank">NEP-2</a>, <a href="https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki" target="_blank">NEP-5</a> </p>
                                             </div>
@@ -460,19 +460,19 @@
                                     <p>@Localizer["Languages"]: English / 简体中文</p>
                                     <div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</a>
+                                            <span class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</span>
                                             <div>@Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the hardware wallet, so it has extremely high security."]</div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-warning">@Localizer["Centralized Verification"]</a>
+                                            <span class="text-warning">@Localizer["Centralized Verification"]</span>
                                             <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Transparency - Higher Level"]</a>
+                                            <span class="text-success">@Localizer["Transparency - Higher Level"]</span>
                                             <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software."]@Localizer["Get source code"]: <a href="https://github.com/CaspianTechnologies" target="_blank">GitHub</a></div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-warning">@Localizer["Fail to support more NEP"]</a>
+                                            <span class="text-warning">@Localizer["Fail to support more NEP"]</span>
                                         </div>
                                     </div>
                                 </div>
@@ -499,24 +499,24 @@
                                     <p>@Localizer["Languages"]: English / 简体中文</p>
                                     <div>
                                         <div class="metrics">
-                                            <a class="text-warning">@Localizer["Degree of Digital Asset Control - Low Level"]</a>
+                                            <span class="text-warning">@Localizer["Degree of Digital Asset Control - Low Level"]</span>
                                             <div>@Localizer["Similar to a digital asset exchange, your assets are hosted on its servers. Your assets may be stolen in the event of an attack on your server. However, you also need to trust the developers of this wallet."]</div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-warning">@Localizer["Centralized Verification"]</a>
+                                            <span class="text-warning">@Localizer["Centralized Verification"]</span>
                                             <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-danger">@Localizer["Non-open Source Software"]</a>
+                                            <span class="text-danger">@Localizer["Non-open Source Software"]</span>
                                             <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The NEO Foundation and NGD do not endorse this client."]</div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-warning">@Localizer["Fail to support more NEP"]</a>
+                                            <span class="text-warning">@Localizer["Fail to support more NEP"]</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="link d-none">
-                                    <a class="text-danger" href="javascript:" target="_blank">@Localizer["Non-open Source Software"]</a>
+                                    <span class="text-danger" href="javascript:" target="_blank">@Localizer["Non-open Source Software"]</span>
                                     <a class="btn btn-secondary" href="https://cobo.com/" target="_blank">@Localizer["Website"]</a>
                                 </div>
                             </div>
@@ -538,19 +538,19 @@
                                     <p>@Localizer["Languages"]: English / 简体中文 / 한국어</p>
                                     <div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</a>
+                                            <span class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</span>
                                             <div>@Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the private key."]</div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-warning">@Localizer["Centralized Verification"]</a>
+                                            <span class="text-warning">@Localizer["Centralized Verification"]</span>
                                             <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-danger">@Localizer["Non-open Source Software"]</a>
+                                            <span class="text-danger">@Localizer["Non-open Source Software"]</span>
                                             <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The NEO Foundation and NGD do not endorse this client."]</div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Supported NEP"]</a>
+                                            <span class="text-success">@Localizer["Supported NEP"]</span>
                                             <div>
                                                 <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki" target="_blank">NEP-5</a> </p>
                                             </div>
@@ -558,7 +558,7 @@
                                     </div>
                                 </div>
                                 <div class="link d-none">
-                                    <a class="text-danger" href="javascript:" target="_blank">@Localizer["Not open source"]</a>
+                                    <span class="text-danger" href="javascript:" target="_blank">@Localizer["Not open source"]</span>
                                     <a class="btn btn-secondary" href="http://www.mathwallet.org" target="_blank">@Localizer["Website"]</a>
                                 </div>
                             </div>
@@ -580,19 +580,19 @@
                                     <p>@Localizer["Languages"]: English / 简体中文 / Tiếng Việt / 日本語 / 한국어 / Italiano / Русский / Español</p>
                                     <div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</a>
+                                            <span class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</span>
                                             <div>@Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the private key."]</div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-warning">@Localizer["Centralized Verification"]</a>
+                                            <span class="text-warning">@Localizer["Centralized Verification"]</span>
                                             <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-danger">@Localizer["Non-open Source Software"]</a>
+                                            <span class="text-danger">@Localizer["Non-open Source Software"]</span>
                                             <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The NEO Foundation and NGD do not endorse this client."]</div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Supported NEP"]</a>
+                                            <span class="text-success">@Localizer["Supported NEP"]</span>
                                             <div>
                                                 <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki" target="_blank">NEP-5</a> </p>
                                             </div>
@@ -600,7 +600,7 @@
                                     </div>
                                 </div>
                                 <div class="link d-none">
-                                    <a class="text-danger" href="javascript:" target="_blank">@Localizer["Not open source"]</a>
+                                    <span class="text-danger" href="javascript:" target="_blank">@Localizer["Not open source"]</span>
                                     <a class="btn btn-secondary" href="https://www.infinitowallet.io" target="_blank">@Localizer["Website"]</a>
                                 </div>
                             </div>
@@ -623,19 +623,19 @@
                                     <p>@Localizer["Languages"]: English / 简体中文</p>
                                     <div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</a>
+                                            <span class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</span>
                                             <div>@Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the private key."]</div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-warning">@Localizer["Centralized Verification"]</a>
+                                            <span class="text-warning">@Localizer["Centralized Verification"]</span>
                                             <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Transparency - Higher Level"]</a>
+                                            <span class="text-success">@Localizer["Transparency - Higher Level"]</span>
                                             <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software."]@Localizer["Get source code"]: <a href="https://github.com/ext-studio/iwallic" target="_blank">GitHub</a></div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Supported NEP"]</a>
+                                            <span class="text-success">@Localizer["Supported NEP"]</span>
                                             <div>
                                                 <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki" target="_blank">NEP-5</a>, <a href="https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki" target="_blank">NEP-6</a> </p>
                                             </div>
@@ -643,7 +643,7 @@
                                     </div>
                                 </div>
                                 <div class="link d-none">
-                                    <a class="text-warning" href="javascript:" target="_blank">@Localizer["No open source License"]</a>
+                                    <span class="text-warning" href="javascript:" target="_blank">@Localizer["No open source License"]</span>
                                     <a class="btn btn-secondary" href="https://iwallic.com" target="_blank">@Localizer["Website"]</a>
                                     <a class="btn btn-secondary" href="https://app.iwallic.com/" target="_blank">@Localizer["Go to Web Wallet"]</a>
                                 </div>
@@ -667,26 +667,26 @@
                                     <p>@Localizer["Languages"]: English / 简体中文</p>
                                     <div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</a>
+                                            <span class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</span>
                                             <div>
                                                 @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the wallet file."]
                                             </div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-warning">@Localizer["Centralized Verification"]</a>
+                                            <span class="text-warning">@Localizer["Centralized Verification"]</span>
                                             <div>
                                                 @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
                                             </div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Transparency - Higher Level"]</a>
+                                            <span class="text-success">@Localizer["Transparency - Higher Level"]</span>
                                             <div>
                                                 @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software."]
                                                 @Localizer["Get source code"]: <a href="https://github.com/PeterLinX/neowallet.cn" target="_blank">GitHub</a>
                                             </div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-warning">@Localizer["Fail to support more NEP"]</a>
+                                            <span class="text-warning">@Localizer["Fail to support more NEP"]</span>
                                         </div>
                                     </div>
                                 </div>
@@ -715,26 +715,26 @@
                                     <p>@Localizer["Languages"]: English</p>
                                     <div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</a>
+                                            <span class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</span>
                                             <div>
                                                 @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the wallet file."]
                                             </div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-warning">@Localizer["Centralized Verification"]</a>
+                                            <span class="text-warning">@Localizer["Centralized Verification"]</span>
                                             <div>
                                                 @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
                                             </div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Transparency - Higher Level"]</a>
+                                            <span class="text-success">@Localizer["Transparency - Higher Level"]</span>
                                             <div>
                                                 @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when when you visit a web wallet."]
                                                 @Localizer["Get source code"]: <a href="https://github.com/neotracker/neotracker-wallet" target="_blank">GitHub</a>
                                             </div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Supported NEP"]</a>
+                                            <span class="text-success">@Localizer["Supported NEP"]</span>
                                             <div>
                                                 <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki" target="_blank">NEP-2</a>, <a href="https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki" target="_blank">NEP-5</a> </p>
                                             </div>
@@ -766,26 +766,26 @@
                                     <p>@Localizer["Supported Browser"]: Chrome/Edge</p>
                                     <div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</a>
+                                            <span class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</span>
                                             <div>
                                                 @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the private key."]
                                             </div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-warning">@Localizer["Centralized Verification"]</a>
+                                            <span class="text-warning">@Localizer["Centralized Verification"]</span>
                                             <div>
                                                 @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
                                             </div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Transparency - Higher Level"]</a>
+                                            <span class="text-success">@Localizer["Transparency - Higher Level"]</span>
                                             <div>
                                                 @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when when you visit a web wallet."]
                                                 @Localizer["Get source code"]: <a href="https://github.com/NewEconoLab/NELBrowser-Web-React" target="_blank">GitHub</a>
                                             </div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Supported NEP"]</a>
+                                            <span class="text-success">@Localizer["Supported NEP"]</span>
                                             <div>
                                                 <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki" target="_blank">NEP-5</a>, <a href="https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki" target="_blank">NEP-6</a> </p>
                                             </div>
@@ -816,20 +816,20 @@
                                     <p>@Localizer["Supported Browser"]: Chrome/Edge</p>
                                     <div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</a>
+                                            <span class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</span>
                                             <div>
                                                 @Localizer["This wallet supports the encryption and decryption of the private key for secure storage. The website itself does not store the private key, so please pay attention to the safe backup and safekeeping of the private key."]
                                             </div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Transparency - Higher Level"]</a>
+                                            <span class="text-success">@Localizer["Transparency - Higher Level"]</span>
                                             <div>
                                                 @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when when you visit a web wallet."]
                                                 @Localizer["Get source code"]: <a href="https://github.com/snowypowers/ansy" target="_blank">GitHub</a>
                                             </div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Supported NEP"]</a>
+                                            <span class="text-success">@Localizer["Supported NEP"]</span>
                                             <div>
                                                 <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki" target="_blank">NEP-2</a></p>
                                             </div>
@@ -859,26 +859,26 @@
                                     <p>@Localizer["Languages"]: English</p>
                                     <div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</a>
+                                            <span class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</span>
                                             <div>
                                                 @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the hardware wallet, so it has extremely high security."]
                                             </div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-warning">@Localizer["Centralized Verification"]</a>
+                                            <span class="text-warning">@Localizer["Centralized Verification"]</span>
                                             <div>
                                                 @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
                                             </div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Transparency - Higher Level"]</a>
+                                            <span class="text-success">@Localizer["Transparency - Higher Level"]</span>
                                             <div>
                                                 @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software."]
                                                 @Localizer["Get source code"]: <a href="https://github.com/LedgerHQ" target="_blank">GitHub</a>
                                             </div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-warning">@Localizer["Fail to support more NEP"]</a>
+                                            <span class="text-warning">@Localizer["Fail to support more NEP"]</span>
                                         </div>
                                     </div>
                                 </div>
@@ -907,26 +907,26 @@
                                     <p>@Localizer["Languages"]: English</p>
                                     <div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</a>
+                                            <span class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</span>
                                             <div>
                                                 @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the hardware wallet, so it has extremely high security."]
                                             </div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-warning">@Localizer["Centralized Verification"]</a>
+                                            <span class="text-warning">@Localizer["Centralized Verification"]</span>
                                             <div>
                                                 @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
                                             </div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Transparency - Higher Level"]</a>
+                                            <span class="text-success">@Localizer["Transparency - Higher Level"]</span>
                                             <div>
                                                 @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software."]
                                                 @Localizer["Get source code"]: <a href="https://github.com/LedgerHQ" target="_blank">GitHub</a>
                                             </div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-warning">@Localizer["Fail to support more NEP"]</a>
+                                            <span class="text-warning">@Localizer["Fail to support more NEP"]</span>
                                         </div>
                                     </div>
                                 </div>
@@ -955,26 +955,26 @@
                                     <p>@Localizer["Languages"]: English / 简体中文</p>
                                     <div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</a>
+                                            <span class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</span>
                                             <div>
                                                 @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the private key."]
                                             </div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-warning">@Localizer["Centralized Verification"]</a>
+                                            <span class="text-warning">@Localizer["Centralized Verification"]</span>
                                             <div>
                                                 @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
                                             </div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Transparency - Higher Level"]</a>
+                                            <span class="text-success">@Localizer["Transparency - Higher Level"]</span>
                                             <div>
                                                 @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software."]
                                                 @Localizer["Get source code"]: <a href="https://github.com/InWeCrypto/wallet_Android" target="_blank">GitHub</a>
                                             </div>
                                         </div>
                                         <div class="metrics">
-                                            <a class="text-success">@Localizer["Supported NEP"]</a>
+                                            <span class="text-success">@Localizer["Supported NEP"]</span>
                                             <div>
                                                 <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki" target="_blank">NEP-5</a></p>
                                             </div>
