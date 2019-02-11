@@ -110,7 +110,7 @@ html, body {
     width: 100%;
 }
 .blog-con {
-    min-height:240px;
+    min-height:236px;
 }
 .event-con {
     height:100%;
@@ -168,6 +168,12 @@ html, body {
     .home-client {
         background-size: 70%,20%,100%;
         background-position: -115px top,right bottom,center;
+    }
+    .blog-con {
+        min-height:204px;
+    }
+    .event-con .border-static {
+        min-height:420px;
     }
 }
 @media only screen and (max-width: 768px) {
