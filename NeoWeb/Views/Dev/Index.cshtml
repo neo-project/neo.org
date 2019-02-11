@@ -73,10 +73,10 @@
             <div class="col-md-7 text-left m1">
                 <h3 class="m3 bold-font p4">@Localizer["Apply For NEO/GAS in Testnet"]</h3>
                 <p class="p4">
-                    @Localizer["If you are developing a NEO ecosystem application project, and need NEO/GAS in the <b>TestNet</b>, please fill in the following application form and send it. Once your application has been processed, you will receive an email notification."]
+                    @Localizer["If you are developing a NEO ecosystem application project, and need NEO/GAS in the <b>TestNet</b>, please fill in an application for the original Testnet1 or use the faucet for Testnet2."]
                 </p>
                 <p>
-                    <a class="btn-static btn3" href="/testcoin/apply">Apply</a>
+                    <a class="btn-static btn3" href="/testcoin/apply">Testnet1</a>
                     <a class="btn-static btn3">Testnet2</a>
                 </p>
             </div>
@@ -156,31 +156,45 @@
     </div>
     <div class="row d-none d-lg-block d-xl-block">
         <div class="col-md-12 dev-down">
-            <div class="border-static back-white m2 p3">
+            <div class="border-static back-white m2 p2">
                 <p class="t2 bold-font lh1">Download</p>
-                <table class="down-table m3">
+                <table class="down-table m2">
                     <tr>
-                        <th></th>
-                        <th>Environment</th>
-                        <th>IDE</th>
-                        <th>Dev Pack</th>
-                        <th>Compiler</th>
-                        <th>Others</th>
+                        <th width="16.5%"></th>
+                        <th width="16.5%">Environment</th>
+                        <th width="16.5%">IDE</th>
+                        <th width="16.5%">Dev Pack</th>
+                        <th width="16.5%">Compiler</th>
+                        <th width="16.5%">Others</th>
                     </tr>
                     <tr>
                         <td>C# Developer</td>
-                        <td><a>.NET Core</a></td>
-                        <td><a>Visual Studio</a></td>
-                        <td><a>Neo ContactPugin</a></td>
-                        <td><a>neon</a></td>
+                        <td><a href="https://dotnet.microsoft.com/download">.NET Core</a></td>
+                        <td><a href="https://visualstudio.microsoft.com/">Visual Studio</a></td>
+                        <td><a href="https://github.com/neo-project/neo-plugins/releases">Neo ContactPugin</a></td>
+                        <td><a href="https://github.com/neo-project/neo-compiler">neon</a></td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Python Developer</td>
+                        <td><a href="https://www.python.org/downloads/">Python 3.0+</a></td>
+                        <td>-</td>
+                        <td colspan="2"><a href="https://github.com/CityOfZion/neo-boa">neo-boa</a></td>
                         <td>-</td>
                     </tr>
                     <tr>
                         <td>Java Developer</td>
-                        <td><a>.NET Core</a></td>
-                        <td><a>Visual Studio</a></td>
-                        <td><a>Neo ContactPugin</a></td>
-                        <td><a>neon</a></td>
+                        <td><a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">JDK</a></td>
+                        <td><a href="https://www.eclipse.org/downloads/packages/installer">Eclipse</a></td>
+                        <td><a href="https://github.com/neo-project/neo-devpack-java">neo-devpack-java</a></td>
+                        <td><a href="https://github.com/neo-project/neo-compiler">neoj</a></td>
+                        <td><a href="http://maven.apache.org/docs/history.html">Maven</a></td>
+                    </tr>
+                    <tr>
+                        <td>Golang Developer</td>
+                        <td><a href="https://golang.org/dl/">Go</a></td>
+                        <td>-</td>
+                        <td colspan="2"><a href="https://github.com/CityOfZion/neo-storm">neo-storm</a></td>
                         <td>-</td>
                     </tr>
                 </table>
@@ -196,7 +210,7 @@
             NEO uses digital identity and blockchain technology to digitize assets and leverages smart contracts for autonomously managed digital assets to create a "smart economy" within a decentralized network.
         </p>
         <p>
-            <a class="btn-static" href="https://docs.neo.org/">@Localizer["Open link"]</a>
+            <a class="btn-static" href="https://github.com/neo-project">@Localizer["Open link"]</a>
         </p>
     </div>
 </div>
