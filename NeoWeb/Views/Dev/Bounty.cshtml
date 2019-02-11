@@ -4,7 +4,12 @@
     ViewData["Title"] = @Localizer["NEO Vulnerability Bounty Program"];
 }
 @section Styles{
-    <link rel="stylesheet" href="@Helper.CDN/css/bounty.min.css" />
+    <environment include="Development">
+        <link rel="stylesheet" href="/css/bounty.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="@Helper.CDN/css/bounty.min.css" />
+    </environment>
 }
 <div class="m1">
     <h2 class="m1 p3 text-center bounty-title1 bold-font"> @Localizer["NEO Vulnerability Bounty Program"]</h2>
