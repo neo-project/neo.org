@@ -96,6 +96,7 @@
 .dev-lan div{
     display:inline-block;
     width:50%;
+    vertical-align:top;
 }
 .dev-down {
     margin-bottom:-40px;
