@@ -377,4 +377,7 @@
   <data name="Change log" xml:space="preserve">
     <value>更新日志</value>
   </data>
+  <data name="http://docs.neo.org/en-us/node/cli/setup.html" xml:space="preserve">
+    <value>http://docs.neo.org/zh-cn/node/cli/setup.html</value>
+  </data>
 </root>
