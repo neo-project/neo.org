@@ -96,10 +96,11 @@
         <p>
             <a class="p4 green-text" href="https://docs.neo.org/zh-cn/whitepaper.html">Whitepaper</a>
             <a class="p4 green-text" href="https://docs.neo.org/zh-cn/basic/consensus/whitepaper.html">Consensus</a>
-            <a class="p4 green-text" href="https://docs.neo.org/zh-cn/exchange/v2.9.4.html">Document for Exchange Developers</a>
+            <a class="p4 green-text" href="https://docs.neo.org/zh-cn/exchange/v2.9.4.html">Exchange Integration</a>
         </p>
         <p>
             <a class="btn-static" href="https://docs.neo.org/">@Localizer["Open link"]</a>
+            <a class="btn-static" href="https://docs.neo.org/">@Localizer["开发指南"]</a>
         </p>
     </div>
 </div>
@@ -107,26 +108,27 @@
 <div class="dev-content container">
     <h3 class="bold-font">Quick Start</h3>
     <div class="row">
-        <div class="swiper-container m1">
+        @*<div class="swiper-container m1">
             <div class="swiper-wrapper">
                 <div class="swiper-slide border-static">
                     <p class="t2 bold-font back-white lh1">C#</p>
                     <div class="dev-lan back-white p2">
                         <p><a class="btn-static btn4 t3" >Quick Start</a></p>
-                        <div class="lan-left t3 m3">
-                            <span class="bold-font">常用文档</span><br />
-                            <a class="m4">api</a><br />
-                            <a>node</a><br />
+                        <div class="lan-left t4 m3">
+                            <span class="bold-font t3">常用文档</span><br />
+                            <a class="m4" href="https://docs.neo.org/zh-cn/node/cli/apigen.html">api</a><br />
+                            <a href="https://docs.neo.org/zh-cn/node/introduction.html">node</a><br />
+                            <a href="https://docs.neo.org/zh-cn/utility/sdk/introduction.html">sdk</a><br />
                             <a>wallet</a><br />
-                            <a>smart contract</a><br />
-                            <a>plugin</a><br />
+                            <a href="https://docs.neo.org/zh-cn/sc/introduction.html">smart contract</a><br />
+                            <a href="https://docs.neo.org/zh-cn/node/plugin.html">plugin</a><br />
                         </div>
-                        <div class="lan-right t3 m3">
-                            <span class="bold-font">Download</span><br />
-                            <a class="m4">.NET Core</a><br />
-                            <a>Visual Studio</a><br />
-                            <a>NeoContractPlugin</a><br />
-                            <a>neon</a><br />
+                        <div class="lan-right t4 m3">
+                            <span class="bold-font t3">Download</span><br />
+                            <a class="m4" href="https://dotnet.microsoft.com/download">.NET Core</a><br />
+                            <a href="https://visualstudio.microsoft.com/">Visual Studio</a><br />
+                            <a href="https://github.com/neo-project/neo-plugins/releases">NeoContractPlugin</a><br />
+                            <a href="https://github.com/neo-project/neo-compiler">neon</a><br />
                         </div>
                     </div>
                 </div>
@@ -134,22 +136,59 @@
                     <p class="t2 bold-font back-white lh1">Python</p>
                     <div class="dev-lan back-white p2">
                         <p><a class="btn-static btn4 t3" href="https://github.com/neo-ngd/neo-python-workshop">Quick Start</a></p>
-                        <div class="lan-left t3 m3">
-                            <span class="bold-font">常用文档</span><br />
+                        <div class="lan-left t4 m3">
+                            <span class="bold-font t3">常用文档</span><br />
                             <a class="m4">sdk</a><br />
                             <a>api</a><br />
                             <a>node</a><br />
                             <a>wallet</a><br />
                             <a>smart contract</a><br />
                         </div>
-                        <div class="lan-right t3 m3">
-                            <span class="bold-font">Download</span><br />
+                        <div class="lan-right t4 m3">
+                            <span class="bold-font t3">Download</span><br />
                             <a class="m4">Python3.0+</a><br />
                             <a>NEO Python</a><br />
                             <a>Neo Local</a><br />
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>*@
+        <div class="col-md-12">
+            <div class="border-static back-white m2 p2">
+                <p class="bold-font lh1">
+                    <a class="btn-static btn4 t4" href="https://github.com/neo-ngd/neo-python-workshop">C#</a>
+                    <a class="btn-static btn4 t4" href="https://github.com/neo-ngd/neo-python-workshop">Python</a>
+                </p>
+                <table class="down-table m2">
+                    <tr>
+                        <th width="12%"></th>
+                        <th width="14%">Sdk</th>
+                        <th width="14%">Api</th>
+                        <th width="14%">Node</th>
+                        <th width="14%">Wallet</th>
+                        <th width="15%">Smart contract</th>
+                        <th width="14%">Plugin</th>
+                    </tr>
+                    <tr>
+                        <td>C#</td>
+                        <td><span class="iconfont green-text">&#xeaf1;</span></td>
+                        <td><span class="iconfont green-text">&#xeaf1;</span></td>
+                        <td><span class="iconfont green-text">&#xeaf1;</span></td>
+                        <td><span class="iconfont green-text">&#xeaf1;</span></td>
+                        <td><span class="iconfont green-text">&#xeaf1;</span></td>
+                        <td><span class="iconfont green-text">&#xeaf1;</span></td>
+                    </tr>
+                    <tr>
+                        <td>Python</td>
+                        <td><span class="iconfont green-text">&#xeaf1;</span></td>
+                        <td><span class="iconfont green-text">&#xeaf1;</span></td>
+                        <td><span class="iconfont green-text">&#xeaf1;</span></td>
+                        <td><span class="iconfont green-text">&#xeaf1;</span></td>
+                        <td><span class="iconfont green-text">&#xeaf1;</span></td>
+                        <td><span class="iconfont">&#xe616;</span></td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>

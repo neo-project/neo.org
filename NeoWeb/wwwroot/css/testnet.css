@@ -195,4 +195,7 @@
     .dev-github {
         padding:60px 0 40px;
     }
+    .dev-git .flo-r {
+        display:none;
+    }
 }

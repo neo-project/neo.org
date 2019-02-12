@@ -345,4 +345,8 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
     .t2 {font-size: 16px;}
     .t3 {font-size: 14px;}
     .p1 {padding:20px;}
+    .btn-static {
+        max-width:175px;
+        padding:3px 15px;
+    }
 }
