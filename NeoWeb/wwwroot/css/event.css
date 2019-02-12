@@ -296,7 +296,7 @@ ul,li{
 }
 .cal-head li{
     font-size:12px;
-    font-weight:100;
+    font-weight:300;
 }
 .calender .had-event{
     background:url(https://neo-cdn.azureedge.net/images/event/circle.svg) no-repeat center;

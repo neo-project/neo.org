@@ -14,7 +14,7 @@ body {
 }
 h1, .h1, h2, .h2, h3, .h3 {
     margin:0;
-    font-weight:100;
+    font-weight:300;
 }
 button:focus {
     outline:none;
@@ -87,7 +87,7 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
     display: block;
     margin: auto;
     border-radius: 0;
-    font-weight: 100;
+    font-weight: 300;
     height: 55px;
     line-height: 55px;
     width: 100%;

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -235,7 +235,7 @@
     <value>针对团队的简单介绍</value>
   </data>
   <data name="Relevant information about NEO should be displayed." xml:space="preserve">
-    <value>网页需显示NEO相关信息</value>
+    <value>网页需显示 NEO 相关信息</value>
   </data>
   <data name="Organization" xml:space="preserve">
     <value>组织名称</value>

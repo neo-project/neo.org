@@ -34,10 +34,7 @@
     background:#FFFFFF;
     background:rgba(255,255,255,0.9);
 }
-.navbar .collapse {
-    margin:8px 0;
-}
-.navbar .collapse li{
+.navbar li a{
     line-height:2.5;
     color: #212529;
 }
@@ -159,8 +156,9 @@
 
 }
 .dropdown-item {
-    font-weight:100;
+    font-weight:300;
 }
+/*点击导航栏汉堡包按钮展开时*/
 @media only screen and (max-width : 992px) {
     .fixed-top {
         top:10px;
@@ -169,22 +167,43 @@
         position:relative;
         float: none;
         display: block!important;
-        padding-top: 0px;
+        padding: 0;
         line-height: 1.8;
-        margin-left: 15px;
+        margin-left: 20px;
         top: 0;
+    }
+    .nav-item a {
+        padding: 2px 10px;
     }
     .navbar-nav .dropdown-menu a{
         background:none;
     }
-    .navbar .collapse {
+    #nav_container {
+        background:#FFFFFF;
+        position: relative;
+    }
+    #neoNnavbarToggler {
+        background:#FFFFFF;
         margin-top: 50px;
+        position: absolute;
+        width: 100%;
+        padding: 0 25px;
+        left: 0;
+        top: 0;
+    }
+    .navbar-nav > li:not(.nav-lang) a{
+        display: inline-block;
+        width: 100%;
+        background: none;
+    }
+    .navbar-nav .dropdown-menu a:hover {
+        background: none;
+    }
+    .navbar-nav > li:not(.nav-lang) a::after {
+        display: none;
     }
 }
 @media only screen and (max-width : 780px) {
-    .navbar-brand {
-        padding: 10px;
-    }
     .main-footer {
         padding: 20px 0; 
     }
