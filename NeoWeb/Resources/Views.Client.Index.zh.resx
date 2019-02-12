@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -184,7 +184,7 @@
     <value>和</value>
   </data>
   <data name="As some wallets are open-source while some are not, you may lose control of your own NEO assets when using some wallets that shown on this page. Please choose the wallets as appropriate." xml:space="preserve">
-    <value>其中部分为开源客户端，部分为不开源客户端，在使用本页面的部分客户端时，您有可能对您的NEO资产失去掌控权，请酌情选择。</value>
+    <value>其中部分为开源客户端，部分为不开源客户端，在使用本页面的部分客户端时，您有可能对您的 NEO 资产失去掌控权，请酌情选择。</value>
   </data>
   <data name="Centralized Verification" xml:space="preserve">
     <value>集中验证</value>
@@ -226,7 +226,7 @@
     <value>InWeCrypto 钱包是一款 HD 钱包的移动端数字资产钱包，支持多种数字资产。</value>
   </data>
   <data name="It's a multi-token wallet developed by Infinito Blockchain Labs . This wallet supports BTC, ETH, NEO, EOS and other ecosystems. It has more than 10 languages for alternatives and supports fingerprint identification." xml:space="preserve">
-    <value>Infinito 区块链实验室开发的多币种钱包客户端，同时支持BTC系、ETH系、NEO系、EOS系等生态，支持 10 种以上语言，支持指纹识别密码。</value>
+    <value>Infinito 区块链实验室开发的多币种钱包客户端，同时支持 BTC 系、ETH 系、NEO 系、EOS 系等生态，支持 10 种以上语言，支持指纹识别密码。</value>
   </data>
   <data name="It's a wallet developed by PeterLinX. This wallet contains basic functions such as importing private keys, transferring assets, retrieving GAS, etc." xml:space="preserve">
     <value>PeterLinX 开发的一个钱包，包含基本的功能，如导入私钥，转账，提取 GAS 等。</value>
@@ -247,13 +247,13 @@
     <value>CaspianTechnologies 开发的数字货币钱包，对交易进行多方签名，兼容生物识别的 Spatium 硬件钱包，注重安全性。</value>
   </data>
   <data name="It's a hardware wallet developed by NewEconoLabs that supports private key import and multi-private key management. Its features include OLED screen, Type-C/Bluetooth and multiple tokens, and it also supports NEO/GAS. Other extended applications can also be used." xml:space="preserve">
-    <value>NewEconoLabs 开发的硬件钱包，支持私钥导入及多私钥管理。OLED 屏幕，Type-C/蓝牙，多币种，支持NEO/GAS，可使用其它扩展应用。</value>
+    <value>NewEconoLabs 开发的硬件钱包，支持私钥导入及多私钥管理。OLED 屏幕，Type-C/ 蓝牙，多币种，支持 NEO/GAS，可使用其它扩展应用。</value>
   </data>
   <data name="It's a multi-currency hardware wallet that supports NEO. This wallet’s private key is stored in the hardware chip and it focuses on the security." xml:space="preserve">
     <value>一个支持 NEO 的多币种的硬件钱包，私钥存储在硬件芯片中，注重安全性。</value>
   </data>
   <data name="It's a multiple digital asset wallet developed by Math Labs. This wallet supports BTC, ETH, NEO, EOS and other ecosystems, as well as face recognition, living body recognition and other biometric recognition technologies." xml:space="preserve">
-    <value>Math Labs 开发的多种数字资产钱包客户端，同时支持BTC系、ETH系、NEO系、EOS系等生态，支持人脸、活体等多种生物识别技术。</value>
+    <value>Math Labs 开发的多种数字资产钱包客户端，同时支持 BTC 系、ETH 系、NEO 系、EOS 系等生态，支持人脸、活体等多种生物识别技术。</value>
   </data>
   <data name="It's a simple paper wallet generator developed by Snowypowers. This wallet only supports the encryption and decryption of private keys. It fails to support other functions like transferring assets." xml:space="preserve">
     <value>Snowypowers 开发的简单的纸钱包生成器，仅支持私钥的加密解密，不支持转账等功能。</value>
@@ -265,7 +265,7 @@
     <value>SEA 开发的一个钱包，包含基本的功能，如导入私钥，转账，提取 GAS 等。</value>
   </data>
   <data name="It's an online wallet developed by NEL. This wallet supports NNS auction, transaction information viewing, and is also a blockchain browser." xml:space="preserve">
-    <value>NEL 开发的在线钱包，支持NNS竞拍、交易信息查看，同时也是一个区块链浏览器。</value>
+    <value>NEL 开发的在线钱包，支持 NNS 竞拍、交易信息查看，同时也是一个区块链浏览器。</value>
   </data>
   <data name="It's an online wallet developed by NEO Tracker. This wallet is logged in with the private key or key storage, and is also a blockchain browser." xml:space="preserve">
     <value>NEO Tracker 开发的在线钱包，用私钥或者密钥存储登录，同时也是一个区块链浏览器。</value>
@@ -310,7 +310,7 @@
     <value>存储智能合约日志（ApplicationLogs），交易所必选。</value>
   </data>
   <data name="The wallets shown on this page are all developed by the development teams or individual developers of the NEO community. Please contact the developer if you encounter any problems during use." xml:space="preserve">
-    <value>本页面展示的客户端均为NEO社区的开发团队或个人开发者所开发。如在使用过程中遇到问题请联系开发者。</value>
+    <value>本页面展示的客户端均为 NEO 社区的开发团队或个人开发者所开发。如在使用过程中遇到问题请联系开发者。</value>
   </data>
   <data name="This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the hardware wallet, so it has extremely high security." xml:space="preserve">
     <value>该客户端让用户拥有对数字资产的高度掌控权。私钥是通过硬件钱包加密存储的，有极高的安全性。</value>
@@ -333,7 +333,7 @@
   <data name="This wallet is a full node that stores all the data in the NEO blockchain, which means that there is no need to trust a third party when verifying payments or executing contracts. The full node provides the highest level of security and is an integral part of protecting the network. However, it requires more hard disk space (15GB), greater bandwidth, and a longer initialization synchronization time. The initialization synchronization speed can be accelerated by downloading the &lt;a href=&quot;http://sync.ngd.network/&quot; target=&quot;_blank&quot;&gt;offline synchronization package&lt;/a&gt; provided by NGD." xml:space="preserve">
     <value>该客户端是一个全节点，它存储 NEO 区块链中的所有数据。这意味着当验证支付或者执行合约的时候，不需要信任第三方。
                                     全节点提供了最高级别的安全性并且是保护网络不可或缺的元素。然而，它需要更多的硬盘空间（15GB）、更大的带宽和一个更长的初始化同步时间。
-                                    通过下载 NGD 提供的 &lt;a href="http://sync.ngd.network/" target="_blank"&gt;离线同步包&lt;/a&gt; 可以加快初始化同步速度。</value>
+                                    通过下载 NGD 提供的 &lt;a href="http://sync.ngd.network/" target="_blank"&gt;离线同步包 &lt;/a&gt; 可以加快初始化同步速度。</value>
   </data>
   <data name="This wallet is a full node that stores all the data in the NEO blockchain, which means that there is no need to trust a third party when verifying payments or executing contracts. The full node provides the highest level of security and is an integral part of protecting the network. However, it requires more hard disk space (15GB), greater bandwidth, and a longer initialization synchronization time. The initialization synchronization speed can be accelerated by downloading the offline synchronization package provided by NGD." xml:space="preserve">
     <value>该客户端是一个全节点，它存储 NEO 区块链中的所有数据。这意味着当验证支付或者执行合约的时候，不需要信任第三方。全节点提供了最高级别的安全性并且是保护网络不可或缺的元素。然而，它需要更多的硬盘空间（15GB）、更大的带宽和一个更长的初始化同步时间。通过下载 NGD 提供的离线同步包可以加快初始化同步速度。</value>
@@ -360,7 +360,7 @@
     <value>透明度 - 较高</value>
   </data>
   <data name="When using the wallet, please back up the private key in a secure manner. The private key is the only way to control your own NEO assets." xml:space="preserve">
-    <value>在使用客户端过程中，请以安全方式备份私钥，私钥是您NEO资产掌控的唯一方式。</value>
+    <value>在使用客户端过程中，请以安全方式备份私钥，私钥是您 NEO 资产掌控的唯一方式。</value>
   </data>
   <data name="Cloud Wallet" xml:space="preserve">
     <value>云端钱包</value>

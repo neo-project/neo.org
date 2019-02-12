@@ -11,7 +11,7 @@ ul, ol {
 .blog-container {
     text-align:center;
     color:#6C6C6C;
-    font-weight:100;
+    font-weight:300;
 }
 a{
     cursor:pointer;
@@ -42,7 +42,7 @@ a{
 }
 
 .blog_title {
-    font-weight: 100;
+    font-weight: 300;
     letter-spacing:3px;
     text-align:center;
 }
