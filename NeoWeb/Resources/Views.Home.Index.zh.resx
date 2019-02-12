@@ -259,4 +259,10 @@
   <data name="&lt;img src='/images/home-intro-2.svg'/&gt;" xml:space="preserve">
     <value>&lt;img src='/images/home-intro-3.svg'/&gt;</value>
   </data>
+  <data name="Blog &amp; Event" xml:space="preserve">
+    <value>博客 &amp; 活动</value>
+  </data>
+  <data name="Community" xml:space="preserve">
+    <value>社区</value>
+  </data>
 </root>
