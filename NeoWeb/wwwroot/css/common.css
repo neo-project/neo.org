@@ -138,6 +138,11 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
     max-width:600px;
     margin:auto;
 }
+.w650 {
+    width:100%;
+    max-width:650px;
+    margin:auto;
+}
 .w800 {
     width:100%;
     max-width:800px;
