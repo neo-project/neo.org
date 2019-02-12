@@ -9,8 +9,11 @@
     margin: 0;
 }
 .btn-static {
-    min-width:180px;
+    min-width:175px;
     margin:10px;
+}
+.dev-doc .btn-static {
+    min-width:215px;
 }
 .swiper-container {
     width: 100%;
@@ -23,6 +26,9 @@
 .swiper-slide img{
     width:50px;
     margin-bottom:25px;
+}
+.mb10 {
+    margin-bottom:20px;
 }
 /*公用*/
 .dev-content {

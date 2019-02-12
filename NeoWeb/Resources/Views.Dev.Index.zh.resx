@@ -147,8 +147,14 @@
   <data name="Develop wallets that suport NEO, GAS, and other NEP-5 assets" xml:space="preserve">
     <value />
   </data>
+  <data name="Developer Guide" xml:space="preserve">
+    <value>开发指南</value>
+  </data>
   <data name="Document for Exchange Developers" xml:space="preserve">
     <value />
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>下载</value>
   </data>
   <data name="Exchange Integration" xml:space="preserve">
     <value />
