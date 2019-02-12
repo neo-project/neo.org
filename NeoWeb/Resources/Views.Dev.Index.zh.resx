@@ -192,4 +192,10 @@
   <data name="Whitepaper" xml:space="preserve">
     <value>白皮书</value>
   </data>
+  <data name="&lt;a class='p4 green-text' href='https://neo-ngd.github.io/reference/Becoming_Core_Dev/How-to-Become-A-NEO-Core-Developer-V2.0.html'&gt;How to Become A NEO Core Developer&lt;/a&gt;" xml:space="preserve">
+    <value>&lt;a class='p4 green-text' href='https://neo-ngd.github.io/reference/Becoming_Core_Dev/如何成为核心开发者V2.0.html'&gt;如何成为核心开发者&lt;/a&gt;</value>
+  </data>
+  <data name="Our code base is entirely open-source, including suggestions and discussions on NEO's Enhancement Protocols. We welcome Pull Requests and Issues from all developers. Developers with outstanding contributions will be given rewards through the Core Developers Program." xml:space="preserve">
+    <value>我们所有的代码都是在 GitHub 上开源的，NEO 的改进建议也在 GitHub 上讨论。欢迎广大开发者提交 Pull Request 或者 Issue，对于贡献较大的开发者，我们会通过核心开发者计划给予一定的回报。</value>
+  </data>
 </root>
