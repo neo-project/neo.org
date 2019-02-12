@@ -136,40 +136,40 @@
     <value>安全奖励</value>
   </data>
   <data name="Building blockchain games in NEO" xml:space="preserve">
-    <value />
+    <value>在 NEO 上开发区块链游戏</value>
   </data>
   <data name="Building decentralized apps in the form of smart contracts" xml:space="preserve">
-    <value />
+    <value>使用智能合约开发去中心化的 App</value>
   </data>
   <data name="Consensus" xml:space="preserve">
     <value>共识机制</value>
   </data>
   <data name="Develop wallets that suport NEO, GAS, and other NEP-5 assets" xml:space="preserve">
-    <value />
+    <value>开发支持 NEO、GAS 和其它 NEP-5 资产的钱包客户端</value>
   </data>
   <data name="Developer Guide" xml:space="preserve">
     <value>开发指南</value>
   </data>
   <data name="Document for Exchange Developers" xml:space="preserve">
-    <value />
+    <value>交易所开发文档</value>
   </data>
   <data name="Download" xml:space="preserve">
     <value>下载</value>
   </data>
   <data name="Exchange Integration" xml:space="preserve">
-    <value />
+    <value>交易所对接</value>
   </data>
   <data name="Explorer, monitor, compiler and other blockchain tools" xml:space="preserve">
-    <value />
+    <value>开发区块链浏览器，节点监控，编译器和其它区块链工具</value>
   </data>
   <data name="Gaming" xml:space="preserve">
-    <value />
+    <value>游戏</value>
   </data>
   <data name="Learn how to use smart contracts for mint NEP-5 Tokens" xml:space="preserve">
-    <value />
+    <value>学习如何使用智能合约发行 NEP-5 资产</value>
   </data>
   <data name="Mint NEP-5 Tokens" xml:space="preserve">
-    <value />
+    <value>发行 NEP-5 资产</value>
   </data>
   <data name="NEO technical documents provide comprehensive tutorials that contain beginner’s guides including NEO introduction, NEO node client user guide and development environment setup as well as advanced contents such as development tools, smart contract tutorials and examples and API documents for your reference." xml:space="preserve">
     <value>NEO 技术文档为开发者提供全面基础的开发指导，内容覆盖帮助初级开发者入门的 NEO 相关知识介绍、NEO 节点客户端的使用指南以及开发环境的搭建，还有适合初中级开发者进阶的开发工具、智能合约教程、示例和 API 文档可供参考。</value>
@@ -178,16 +178,16 @@
     <value>快速开始</value>
   </data>
   <data name="Smart Contract" xml:space="preserve">
-    <value />
+    <value>智能合约</value>
   </data>
   <data name="The targeted readers of Developer Guide are mainly blockchain technicians. After reading this document, you can understand the technical details of NEO and you can quickly participate in the construction of NEO's economic ecosystem." xml:space="preserve">
     <value>开发指南，面向的读者主要是区块链的技术人员，通过阅读本文档以后，能够理解掌握 NEO 的技术细节，从而可以快速的参与 NEO 的经济生态系统的建设。</value>
   </data>
   <data name="Tools" xml:space="preserve">
-    <value />
+    <value>工具</value>
   </data>
   <data name="Wallet" xml:space="preserve">
-    <value />
+    <value>钱包</value>
   </data>
   <data name="Whitepaper" xml:space="preserve">
     <value>白皮书</value>
