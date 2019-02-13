@@ -201,6 +201,9 @@
   <data name="Developer" xml:space="preserve">
     <value>开发者</value>
   </data>
+  <data name="Document for Exchange Developers" xml:space="preserve">
+    <value>交易所开发文档</value>
+  </data>
   <data name="Documentation" xml:space="preserve">
     <value>技术文档</value>
   </data>
