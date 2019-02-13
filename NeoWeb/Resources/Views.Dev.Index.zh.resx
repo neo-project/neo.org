@@ -150,9 +150,6 @@
   <data name="Developer Guide" xml:space="preserve">
     <value>开发指南</value>
   </data>
-  <data name="Document for Exchange Developers" xml:space="preserve">
-    <value>交易所开发文档</value>
-  </data>
   <data name="Download" xml:space="preserve">
     <value>下载</value>
   </data>
@@ -200,5 +197,11 @@
   </data>
   <data name="The goal of the Program is to ensure the safety of NEO's Blockchain infrastructure. If you find potential security vulnerabilities and threats, please contact us as soon as possible. We will try our best to investigate those eligible vulnerabilities and fix valid issues." xml:space="preserve">
     <value>NEO Vulnerability Bounty Program 的目的在于保障 NEO 区块链系统的安全，如果发现关于我们的区块链底层的潜在安全性问题或者威胁，请尽快联系并反馈给我们。我们将调查所有合格的漏洞报告，并尽最大努力迅速解决问题。</value>
+  </data>
+  <data name="Developer" xml:space="preserve">
+    <value>开发者</value>
+  </data>
+  <data name="Documentation" xml:space="preserve">
+    <value>技术文档</value>
   </data>
 </root>
