@@ -1,8 +1,4 @@
-﻿body {
-    padding-top: 0;
-}
-
-select.form-control {
+﻿select.form-control {
     border-radius:0px;
     margin-right:10px;
 }
@@ -18,14 +14,6 @@ select.form-control {
 
 .search-btn::after {
     border-right: 26px solid #fff;
-}
-
-.btn:focus,
-.btn:hover,
-.btn:active{
-    background: #8ABA2D!important;
-    box-shadow:none!important;
-    color:#FFFFFF;
 }
 
 .layout-container {
