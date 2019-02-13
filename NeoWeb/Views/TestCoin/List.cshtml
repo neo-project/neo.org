@@ -11,38 +11,37 @@
         <link rel="stylesheet" href="@Helper.CDN/css/testnet-list.min.css" asp-append-version="true" />
     </environment>
 }
-<div class="container">
-    <h2 class="m1 text-center">测试币申请列表</h2>
-    <table class="m2 apply-list table-striped">
-        <thead>
-            <tr class="t4">
-                <th width="10%">
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th width="10%">
-                    @Html.DisplayNameFor(model => model.Email)
-                </th>
-                <th width="10%">
-                    @Html.DisplayNameFor(model => model.Company)
-                </th>
-                <th width="8%">
-                    申请数量 NEO/GAS
-                </th>
-                <th width="10%">
-                    @Html.DisplayNameFor(model => model.Time)
-                </th>
-                <th width="18%">
-                    @Html.DisplayNameFor(model => model.PubKey)
-                </th>
-                <th width="20%">
-                    @Html.DisplayNameFor(model => model.Remark)
-                </th>
-                <th width="14%">操作</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.OrderByDescending(p => p.Time).Where(p => DateTime.Now - p.Time < new TimeSpan(15, 0, 0, 0)))
-            {
+<h2 class="m1 text-center">测试币申请列表</h2>
+<table class="m2 apply-list table-striped">
+    <thead>
+        <tr class="t4">
+            <th width="10%">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th width="10%">
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th width="10%">
+                @Html.DisplayNameFor(model => model.Company)
+            </th>
+            <th width="8%">
+                申请数量 NEO/GAS
+            </th>
+            <th width="10%">
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+            <th width="18%">
+                @Html.DisplayNameFor(model => model.PubKey)
+            </th>
+            <th width="20%">
+                @Html.DisplayNameFor(model => model.Remark)
+            </th>
+            <th width="14%">操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OrderByDescending(p => p.Time).Where(p => DateTime.Now - p.Time < new TimeSpan(15, 0, 0, 0)))
+        {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
@@ -71,10 +70,9 @@
                     <a asp-action="Delete" asp-route-id="@item.Id">删除</a>
                 </td>
             </tr>
-            }
-        </tbody>
-    </table>
-</div>
+        }
+    </tbody>
+</table>
 @section Scripts{
     <script>
         $("#menu_list a").css("border-bottom", "none");

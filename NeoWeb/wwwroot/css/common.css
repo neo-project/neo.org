@@ -19,6 +19,13 @@ h1, .h1, h2, .h2, h3, .h3 {
 button:focus {
     outline:none;
 }
+.btn-light:not(:disabled):not(.disabled):focus,
+.btn-light:not(:disabled):not(.disabled):hover,
+.btn-light:not(:disabled):not(.disabled):active{
+    background: #8ABA2D!important;
+    box-shadow:none!important;
+    color:#FFFFFF;
+}
 
 h1,.h1 {font-size: 60px;}
 h2,.h2 {font-size: 40px;}

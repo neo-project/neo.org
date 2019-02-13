@@ -200,13 +200,6 @@
 .control-label {
     margin-bottom:.3rem;
 }
-.form-group .btn-outline-secondary,
-.form-group .btn-default{
-    border:1px solid #8AC73C;
-    background:#8AC73C;
-    border-radius:0;
-    color:#FFFFFF;
-}
 
 @media (max-width: 1200px){
     .block-info .data_show{

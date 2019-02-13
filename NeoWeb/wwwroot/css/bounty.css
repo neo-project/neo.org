@@ -2,22 +2,6 @@
     line-height:1.7;
     background-color: #EEF4EE;
 }
-
-.bounty-title1 {
-    position:relative;
-    z-index:1;
-
-}
-.bounty-title1::before{
-    content:"";
-    position:absolute;
-    background:#51bc00;
-    height:10px;
-    width:80%;
-    z-index:-1;
-    left:10%;
-    top:50%;
-}
 .bounty-title2 {
     border-left:8px solid #51bc00;
 }
@@ -51,10 +35,4 @@
 }
 .bounty-ul li{
     list-style:disc;
-}
-
-@media only screen and (max-width: 576px) {
-    .bounty-title1::before{
-        top:80%;
-    }
 }
