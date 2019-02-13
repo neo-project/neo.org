@@ -2,7 +2,7 @@
 
 **For English translation, see bottom of page.**
 
-本网站由 NEO Project 开发，由 NEO 理事会负责运营维护，网站代码在 GitHub 上开源，允许社区成员开发和修改。
+本网站由 NEO Project 开发，由 NEO Global Development 负责运营维护，网站代码在 GitHub 上开源，允许社区成员开发和修改。
 
 ### 关于所使用的浏览器
 
