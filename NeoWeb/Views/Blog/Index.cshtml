@@ -13,23 +13,23 @@
         <link rel="stylesheet" href="@Helper.CDN/css/blog.min.css" asp-append-version="true" />
     </environment>
 }
-<div class="container p2">
-    <h2 class="blog_title m1 text-center">@Localizer["Blog posts list"]</h2>
-    <div class="text-center m3">
+    <div class="container p2">
+        <h2 class="m1 text-center">@Localizer["Blog posts list"]</h2>
         @if (ViewBag.UserRules)
         {
-            <a class="btn-static" asp-action="Create">发布新博客</a>
-        }
-    </div>
-    <form asp-controller="blog" asp-action="index" method="get" class="search-form">
-        <div class="input-group m2 border-static">
-            <input name="k" type="text" class="form-control">
-            <div class="input-group-append">
-                <button class="btn btn-input" type="submit">SEARCH</button>
+            <div class="text-center m2">
+                <a class="btn-static" asp-action="Create">发布新博客</a>
             </div>
-        </div>
-    </form>
-</div>
+        }
+        <form asp-controller="blog" asp-action="index" method="get" class="search-form m2">
+            <div class="input-group m2 border-static">
+                <input name="k" type="text" class="form-control">
+                <div class="input-group-append">
+                    <button class="btn btn-input" type="submit">SEARCH</button>
+                </div>
+            </div>
+        </form>
+    </div>
 <div class="container m2">
     <div class="row">
         <ul class="col-lg-1 blog_date desktop-show" id="blogDate">

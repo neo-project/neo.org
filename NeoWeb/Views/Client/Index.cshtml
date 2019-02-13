@@ -12,14 +12,12 @@
         <link rel="stylesheet" href="@Helper.CDN/css/client.min.css" asp-append-version="true" />
     </environment>
 }
-<div class="client-con p1">
-    <div class="container">
-        <div class="m1">
-            <h2 class="text-center m1">@Localizer["Get Client"]</h2>
-            <p class="client-note m2">@Localizer["The wallets shown on this page are all developed by the development teams or individual developers of the NEO community. Please contact the developer if you encounter any problems during use."]</p>
-            <p class="client-note">@Localizer["As some wallets are open-source while some are not, you may lose control of your own NEO assets when using some wallets that shown on this page. Please choose the wallets as appropriate."]</p>
-            <p class="client-note">@Localizer["When using the wallet, please back up the private key in a secure manner. The private key is the only way to control your own NEO assets."]</p>
-        </div>
+<div class="client-con">
+    <div class="container p2">
+        <h2 class="text-center m1">@Localizer["Get Client"]</h2>
+        <p class="client-note m2">@Localizer["The wallets shown on this page are all developed by the development teams or individual developers of the NEO community. Please contact the developer if you encounter any problems during use."]</p>
+        <p class="client-note">@Localizer["As some wallets are open-source while some are not, you may lose control of your own NEO assets when using some wallets that shown on this page. Please choose the wallets as appropriate."]</p>
+        <p class="client-note">@Localizer["When using the wallet, please back up the private key in a secure manner. The private key is the only way to control your own NEO assets."]</p>
         <div class="p4">&nbsp;</div>
         <ul class="nav-client border-static-title m1">
             <li class="selected" onclick="showPlatform(this)">@Localizer["All Client"]</li>

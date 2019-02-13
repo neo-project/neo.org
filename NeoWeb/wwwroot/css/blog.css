@@ -41,11 +41,6 @@ a{
     color:#FFFFFF;
 }
 
-.blog_title {
-    font-weight: 300;
-    letter-spacing:3px;
-    text-align:center;
-}
 .search-form {
     max-width: 400px;
     margin: auto;
