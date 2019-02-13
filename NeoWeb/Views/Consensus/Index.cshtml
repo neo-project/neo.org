@@ -15,56 +15,54 @@
     </environment>
 }
 
-<div class="container">
-    <div class="title-line h3 m1">@Localizer["Blockchain Info"]</div>
-    <div class="row block-info m2">
-        <div class="info-cont">
-            <p class="info-icon gray-text"><i class="iconfont">&#xe619;</i></p>
-            <p class="t3">@Localizer["Block Height"]</p>
-            <span class="t2" id="blohei">--</span>
-        </div>
-        <div class="info-cont">
-            <p class="info-icon gray-text"><i class="iconfont">&#xe6c1;</i></p>
-            <p class="t3">@Localizer["Last Time"]</p>
-            <span class="t2" id="lastime">--</span>
-        </div>
-        <div class="info-cont">
-            <p class="info-icon gray-text"><i class="iconfont">&#xe61c;</i></p>
-            <p class="t3">@Localizer["Candidate Count"]</p>
-            <span class="t2" id="cannum">--</span>
-        </div>
-        <div class="info-cont">
-            <p class="info-icon gray-text"><i class="iconfont">&#xe609;</i></p>
-            <p class="t3">@Localizer["Consensus Count"]</p>
-            <span class="t2" id="connum">--</span>
-        </div>
+<div class="title-line h3 m1">@Localizer["Blockchain Info"]</div>
+<div class="row block-info m2">
+    <div class="info-cont">
+        <p class="info-icon gray-text"><i class="iconfont">&#xe619;</i></p>
+        <p class="t3">@Localizer["Block Height"]</p>
+        <span class="t2" id="blohei">--</span>
     </div>
-    <div class="title-line h3 m1">@Localizer["Blockchain indicator"]</div>
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="block-data border-static m2">
-                <div class="can-charts" id="main"></div>
-            </div>
+    <div class="info-cont">
+        <p class="info-icon gray-text"><i class="iconfont">&#xe6c1;</i></p>
+        <p class="t3">@Localizer["Last Time"]</p>
+        <span class="t2" id="lastime">--</span>
+    </div>
+    <div class="info-cont">
+        <p class="info-icon gray-text"><i class="iconfont">&#xe61c;</i></p>
+        <p class="t3">@Localizer["Candidate Count"]</p>
+        <span class="t2" id="cannum">--</span>
+    </div>
+    <div class="info-cont">
+        <p class="info-icon gray-text"><i class="iconfont">&#xe609;</i></p>
+        <p class="t3">@Localizer["Consensus Count"]</p>
+        <span class="t2" id="connum">--</span>
+    </div>
+</div>
+<div class="title-line h3 m1">@Localizer["Blockchain indicator"]</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="block-data border-static m2">
+            <div class="can-charts" id="main"></div>
         </div>
     </div>
-    <div class="title-line h3 m1">
-        @Localizer["Off-Chain Governance"]
-    </div>
-    <div class="gray-back p2 text-center border-static m2 p1">
-        <p class="t3">
-            @Localizer["For more details, see the documentation:"]<a class="green-text" href="@Localizer["https://neo-ngd.github.io/reference/How-To-Become-NEO-Consensus-Node.html"]"> @Localizer["How To Become A Consensus Node"]</a>
-        </p>
-        <a class="btn-static btn3 m3" href="mailto:consensus@neo.org">@Localizer["Apply"]</a>
-    </div>
-    <div class="title-line h3 m1">
-        @Localizer["On-Chain Governance"]
-    </div>
-    <div class="flo-clear m3">
-        <a class="btn-static btn3 float-right d-none d-xl-block" data-toggle="modal" data-target="#exampleModal">@Localizer["Provide Candidate Info"]</a>
-    </div>
-    <div class="row">
-        <ul class="col-sm-12 table-list m3" id="tableList"></ul>
-    </div>
+</div>
+<div class="title-line h3 m1">
+    @Localizer["Off-Chain Governance"]
+</div>
+<div class="gray-back p2 text-center border-static m2 p1">
+    <p class="t3">
+        @Localizer["For more details, see the documentation:"]<a class="green-text" href="@Localizer["https://neo-ngd.github.io/reference/How-To-Become-NEO-Consensus-Node.html"]"> @Localizer["How To Become A Consensus Node"]</a>
+    </p>
+    <a class="btn-static btn3 m3" href="mailto:consensus@neo.org">@Localizer["Apply"]</a>
+</div>
+<div class="title-line h3 m1">
+    @Localizer["On-Chain Governance"]
+</div>
+<div class="flo-clear m3">
+    <a class="btn-static btn3 float-right d-none d-xl-block" data-toggle="modal" data-target="#exampleModal">@Localizer["Provide Candidate Info"]</a>
+</div>
+<div class="row">
+    <ul class="col-sm-12 table-list m3" id="tableList"></ul>
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
@@ -178,13 +176,13 @@
 
 @section Scripts{
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-<environment include="Development">
-    <script src="/js/echarts.js"></script>
-    <script src="/js/template.js"></script>
-    <script src="/js/getseed.js"></script>
-    <script src="/js/sha256.min.js"></script>
-    <script src="/js/consensus.js"></script>
-</environment>
+    <environment include="Development">
+        <script src="/js/echarts.js"></script>
+        <script src="/js/template.js"></script>
+        <script src="/js/getseed.js"></script>
+        <script src="/js/sha256.min.js"></script>
+        <script src="/js/consensus.js"></script>
+    </environment>
     <environment exclude="Development">
         <script src="@Helper.CDN/js/echarts.js"></script>
         <script src="@Helper.CDN/js/template.js"></script>
@@ -192,7 +190,7 @@
         <script src="@Helper.CDN/js/sha256.min.js"></script>
         <script src="@Helper.CDN/js/consensus.min.js?v=20181020"></script>
     </environment>
-    
+
     <script>
         function hashInfo() {
             var msg = "candidate" + $("#Email").val() + $("#Website").val() + $("#SocialAccount").val() + $("#Summary").val();
