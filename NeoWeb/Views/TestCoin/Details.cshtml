@@ -82,10 +82,6 @@
                 @Html.DisplayFor(model => model.Time)
             </div>
         </div>
-        <div class="text-right m3">
-            <a class="btn-static btn3" onclick="copyData();" href="">复制</a>
-            <a class="btn-static btn3" onclick="copytable();" data-toggle="modal" data-target="#myModal">查看复制</a>
-        </div>
     </div>
     <div class="back-to-list m2">
         <a class="btn-static btn3" asp-action="Edit" asp-route-id="@Model.Id">备注</a>
@@ -117,40 +113,3 @@
         </div>
     </div>
 </div>
-
-@section Scripts{
-    <script>
-    function copyData() {
-        var item = sessionStorage.length,flag = 1;
-        if (item>1) {
-            flag = item;
-        }
-        var lista = {
-            name: "@Html.DisplayFor(model => model.Name)",
-            key: "@Html.DisplayFor(model => model.PubKey)",
-            neo: "@Html.DisplayFor(model => model.NeoCount)",
-            gas: "@Html.DisplayFor(model => model.GasCount)"
-        };
-
-        sessionStorage.setItem("list" + flag, JSON.stringify(lista));
-
-    }
-
-    function  copytable() {
-        var flag = sessionStorage.length;
-        var html = "";
-        if (flag > 0) {
-            for (var i = 1; i < flag; i++) {
-                var lis = JSON.parse(sessionStorage.getItem("list" + i));
-                console.log(lis);
-                html += "<tr><td>" + lis.name + "</td>" +
-                    "<td>" + lis.key + "</td>" +
-                    "<td></td>" +
-                    "<td>" + lis.neo + "</td>" +
-                    "<td>" + lis.gas + "</td></tr>";
-            }
-            $("#tBody").html(html);
-        }
-    }
-    </script>
-}
