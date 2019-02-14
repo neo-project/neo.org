@@ -218,8 +218,10 @@
 }
 .event-detail img.type-img {
     width:100%;
+    height:auto;
     min-width:125px;
     min-height:125px;
+    max-width: 200px;
 }
 .e-detail-title:after{
     content:" ";
