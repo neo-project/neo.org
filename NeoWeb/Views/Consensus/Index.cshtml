@@ -13,6 +13,7 @@
     <environment exclude="Development">
         <link rel="stylesheet" href="@Helper.CDN/css/consensus.min.css?v=20181020.1" />
     </environment>
+    <link href="~/lib/bootstrap-fileinput/css/fileinput.css" rel="stylesheet" />
 }
 
 <div class="title-line h3 m1">@Localizer["Blockchain Info"]</div>
@@ -96,7 +97,7 @@
                         <div class="col-6 form-group">
                             <label asp-for="Logo" class="control-label">@Localizer["Logo"]</label>
                             <input type="hidden" asp-for="Logo" name="oldLogo" />
-                            <input type="file" name="logo" id="logo" class="form-control" />
+                            <input type="file" name="logo" id="logo" class="form-control" data-show-preview="false" />
                         </div>
                     </div>
                     <div class="row">
@@ -190,8 +191,14 @@
         <script src="@Helper.CDN/js/sha256.min.js"></script>
         <script src="@Helper.CDN/js/consensus.min.js?v=20181020"></script>
     </environment>
-
+    <script src="~/lib/bootstrap-fileinput/js/fileinput.min.js"></script>
+    <script src="~/lib/bootstrap-fileinput/js/locales/zh.js"></script>
     <script>
+        $("#logo").fileinput({
+            language: '@Localizer["en"]',
+            showUpload: false,
+            allowedFileExtensions: ['jpg', 'png', 'gif'],
+        });
         function hashInfo() {
             var msg = "candidate" + $("#Email").val() + $("#Website").val() + $("#SocialAccount").val() + $("#Summary").val();
             $("#hash").val(sha256(msg));

@@ -207,4 +207,7 @@
   <data name="Documentation" xml:space="preserve">
     <value>技术文档</value>
   </data>
+  <data name="en-us" xml:space="preserve">
+    <value>zh-cn</value>
+  </data>
 </root>
