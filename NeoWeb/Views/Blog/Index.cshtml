@@ -7,7 +7,7 @@
 }
 @section Styles{
     <environment include="Development">
-        <link rel="stylesheet" href="/css/blog.css" />
+        <link rel="stylesheet" href="/css/blog.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="@Helper.CDN/css/blog.min.css" asp-append-version="true" />
@@ -116,5 +116,5 @@
 </div>
 
 @section Scripts{
-    <script src="@Helper.CDN/js/blog.min.js"></script>
+    <script src="@Helper.CDN/js/blog.min.js" asp-append-version="true"></script>
 }

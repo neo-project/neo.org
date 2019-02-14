@@ -5,7 +5,7 @@
 }
 @section Styles{
     <environment include="Development">
-        <link rel="stylesheet" href="/css/team.css" />
+        <link rel="stylesheet" href="/css/team.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="@Helper.CDN/css/team.min.css" asp-append-version="true" />
@@ -132,7 +132,7 @@
             </div>
         </div>
         @section Scripts{
-            <script src="@Helper.CDN/js/jquery.lazyload.min.js"></script>
+            <script src="@Helper.CDN/js/jquery.lazyload.min.js" asp-append-version="true"></script>
             <script>
         $('[data-original]').lazyload({
                     threshold: 200,

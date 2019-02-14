@@ -6,10 +6,10 @@
 }
 @section Styles{
     <environment include="Development">
-        <link rel="stylesheet" href="/css/event.css" />
+        <link rel="stylesheet" href="/css/event.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.CDN/css/event.min.css?v=20181222" asp-append-version="true" />
+        <link rel="stylesheet" href="@Helper.CDN/css/event.min.css" asp-append-version="true" />
     </environment>
     <style>
         body {
@@ -206,8 +206,8 @@
     </div>
 </div>
 @section Scripts{
-    <script src="@Helper.CDN/js/jquery.lazyload.min.js"></script>
-    <script src="@Helper.CDN/js/text-autospace.js"></script>
+    <script src="@Helper.CDN/js/jquery.lazyload.min.js" asp-append-version="true"></script>
+    <script src="@Helper.CDN/js/text-autospace.js" asp-append-version="true"></script>
     <script>
         $(function () {
             var url = window.location.search;

@@ -48,7 +48,7 @@
     padding: 8px 10px;
 }
 .navbar-dark .navbar-toggler-icon {
-    background-image:url(../images/drop.svg);
+    background-image:url(https://neo-cdn.azureedge.net/images/drop.svg);
 }
 .navbar-toggler {
     height: 50px;

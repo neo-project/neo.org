@@ -5,7 +5,7 @@
     background-repeat: no-repeat;
     min-height:100%;
     padding-top:0;
-    background-image:url(../images/home-bg.svg);
+    background-image:url(https://neo-cdn.azureedge.net/images/home-bg.svg);
 }
 .zindex {
     position:relative;
@@ -34,7 +34,7 @@
 /*NEO intro*/
 .home-intro {
     background:#FFFFFF;
-    background:url(../images/home-intro-1.svg),url(../images/home-intro-1.svg),linear-gradient(206deg, transparent 6%,#FFFFFF 6%);
+    background:url(https://neo-cdn.azureedge.net/images/home-intro-1.svg),url(https://neo-cdn.azureedge.net/images/home-intro-1.svg),linear-gradient(206deg, transparent 6%,#FFFFFF 6%);
     background-repeat:no-repeat;
     background-position: -80% 150px,180% 180px,center;
 }
@@ -67,7 +67,7 @@ html, body {
     position:relative;
     z-index:15;
     background:#E4E4E4;
-    background-image:url(../images/client-1.svg),url(../images/client-2.svg),linear-gradient(-40deg,#EEF4EE,#FFFFFF 30%);
+    background-image:url(https://neo-cdn.azureedge.net/images/client-1.svg),url(https://neo-cdn.azureedge.net/images/client-2.svg),linear-gradient(-40deg,#EEF4EE,#FFFFFF 30%);
     background-repeat:no-repeat;
     background-position:left top,right top,bottom right;
 }
@@ -91,7 +91,7 @@ html, body {
     position:relative;
     background:#8ECE4B;
     background:linear-gradient(125deg,#B8D36C,#8ECE4B);
-    background: url(../images/home-dev-2.svg),url(../images/home-dev-1.svg),linear-gradient(125deg,#B8D36C,#8ECE4B);
+    background: url(https://neo-cdn.azureedge.net/images/home-dev-2.svg),url(https://neo-cdn.azureedge.net/images/home-dev-1.svg),linear-gradient(125deg,#B8D36C,#8ECE4B);
     background-repeat:no-repeat;
     background-position:center;
     background-size:cover;
@@ -101,7 +101,7 @@ html, body {
 
 /*blog&event*/
 .home-blog-event {
-    background:url(../images/home-com-1.svg),url(../images/home-com-2.svg);
+    background:url(https://neo-cdn.azureedge.net/images/home-com-1.svg),url(https://neo-cdn.azureedge.net/images/home-com-2.svg);
     background-repeat:no-repeat;
     background-position: 140% 40px, -40% bottom;
     background-size: 40%,40%;

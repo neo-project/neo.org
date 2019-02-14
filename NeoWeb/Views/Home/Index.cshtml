@@ -3,14 +3,14 @@
 
 @section Styles{
     <environment include="Development">
-        <link href="/css/homepage.css" rel="stylesheet" />
-        <link href="/lib/animate.css/animate.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/css/homepage.css" asp-append-version="true" />
+        <link rel="stylesheet" href="/lib/animate.css/animate.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
-        @*<link href="@Helper.CDN/css/homepage.min.css?v=20181221" rel="stylesheet" />
-            <link href="@Helper.CDN/lib/animate.css/animate.min.css?v=20181109" rel="stylesheet" />*@
+        <link href="@Helper.CDN/css/homepage.min.css" rel="stylesheet" asp-append-version="true" />
+        <link href="@Helper.CDN/lib/animate.css/animate.min.css" rel="stylesheet" asp-append-version="true" />
     </environment>
-    <link href="~/lib/Swiper/css/swiper.min.css" rel="stylesheet"/>
+    <link href="@Helper.CDN/lib/Swiper/css/swiper.min.css" rel="stylesheet"/>
 }
 
 @* 基本块 - Home page *@
@@ -46,31 +46,31 @@
         <div class="swiper-container text-center m1 p4 t4">
             <div class="swiper-wrapper gray-text m1">
                 <div class="swiper-slide p4 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.1s">
-                    <img src="~/images/coin.svg" /><br />
+                    <img src="@Helper.CDN/images/coin.svg" /><br />
                     @Localizer["The technology underlying NEO supports multiple types of digital assets. Users can register, transfer and trade at will on NEO."]
                 </div>
                 <div class="swiper-slide p4 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.2s">
-                    <img src="~/images/bank.svg" /><br />
+                    <img src="@Helper.CDN/images/bank.svg" /><br />
                     @Localizer["Digital certificates are supported, placing trust into the public chain. This provides full legal protection for all assets digitized through the NEO platform."]
                 </div>
                 <div class="swiper-slide p4 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
-                    <img src="~/images/networking.svg" /><br />
+                    <img src="@Helper.CDN/images/networking.svg" /><br />
                     @Localizer["Facilitate P2P exchange of digital assets. Buyers and sellers of digital assets and currencies will be handled peer-to-peer without the need for third party exchanges."]
                 </div>
                 <div class="swiper-slide p4 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.4s">
-                    <img src="~/images/contract.svg" /><br />
+                    <img src="@Helper.CDN/images/contract.svg" /><br />
                     @Localizer["Turing-complete smart contract, which will have high certainty and finality, support parallel operation, sharding and unlimited scalability when run in NeoVM."]
                 </div>
                 <div class="swiper-slide p4">
-                    <img src="~/images/startup.svg" /><br />
+                    <img src="@Helper.CDN/images/startup.svg" /><br />
                     @Localizer["NeoContract supports multiple programming languages such as C#, Java, and Python. Developers can rapidly develop smart contracts based on the NEO platform without learning a unique language."]
                 </div>
                 <div class="swiper-slide p4">
-                    <img src="~/images/think.svg" /><br />
+                    <img src="@Helper.CDN/images/think.svg" /><br />
                     @Localizer["Neo Virtual Machine (NeoVM): NEO's lightweight stack-based virtual machine provides shorter startup times with efficient execution. Deterministic calling tree-technology allows NEO to achieve unlimited theoretical scalability."]
                 </div>
                 <div class="swiper-slide p4">
-                    <img src="~/images/teamwork.svg" /><br />
+                    <img src="@Helper.CDN/images/teamwork.svg" /><br />
                     @Localizer["Consensus nodes use Byzantine Fault Tolerance Algorithm to reach consensus and ensure the finality of transactions. It also ensures that the system keeps its finality and availability as long as Byzantine fault occurs on less than 1/3 of the nodes."]
                 </div>
                 <div class="swiper-slide p4">
@@ -98,10 +98,10 @@
                 </p>
                 <p class="m3"><a class="btn-static btn1 t3" href="~/client" target="_blank">@Localizer["Go to client page"]</a></p>
                 <p class="home-down-tab m3">
-                    <a class="p4" title="@Localizer["Desktop"]" href="~/client#1desktop" target="_blank"><img src="~/images/desktop.svg" /></a>
-                    <a class="p4" title="@Localizer["Mobile"]" href="~/client#2mobile" target="_blank"><img src="~/images/mobile.svg" /></a>
-                    <a class="p4" title="@Localizer["Web"]" href="~/client#3web" target="_blank"><img src="~/images/web.svg" /></a>
-                    <a class="p4" title="@Localizer["Hardware"]" href="~/client#4hardware" target="_blank"><img src="~/images/hardware.svg" /></a>
+                    <a class="p4" title="@Localizer["Desktop"]" href="~/client#1desktop" target="_blank"><img src="@Helper.CDN/images/desktop.svg" /></a>
+                    <a class="p4" title="@Localizer["Mobile"]" href="~/client#2mobile" target="_blank"><img src="@Helper.CDN/images/mobile.svg" /></a>
+                    <a class="p4" title="@Localizer["Web"]" href="~/client#3web" target="_blank"><img src="@Helper.CDN/images/web.svg" /></a>
+                    <a class="p4" title="@Localizer["Hardware"]" href="~/client#4hardware" target="_blank"><img src="@Helper.CDN/images/hardware.svg" /></a>
                 </p>
             </div>
         </div>
@@ -138,7 +138,7 @@
                         <div class="blog-con border-static back-white m3 mb0 p3">
                             <p class="bolder-font mb0 t3 text-ellipsis"><a href="/blog/details/@item.Id">@item.Title</a></p>
                             <p class="m4 mb0 t4 gray-text">@item.Summary.Substring(0, Math.Min(item.Summary.Length, 100))…</p>
-                            <p class="m4 mb0"><img src="~/images/event/time.svg" /> @item.EditTime.ToString()</p>
+                            <p class="m4 mb0"><img src="@Helper.CDN/images/event/time.svg" /> @item.EditTime.ToString()</p>
                         </div>
                     }
                 }
@@ -160,9 +160,9 @@
                             }
                             <p class="m4 mb0 bolder-font t3 text-ellipsis">@item.Name</p>
                             <p class="m4 mb0 t4 lh3 gray-text">
-                                <img src="~/images/event/time.svg" /> @item.StartTime.ToString() ~ @item.EndTime.ToString()<br />
-                                <img src="~/images/event/addr.svg" /> @item.Country?.ZhName - @item.City<br />
-                                <img src="~/images/event/organizers.svg" /> Organizers: @item.Organizers<br />
+                                <img src="@Helper.CDN/images/event/time.svg" /> @item.StartTime.ToString() ~ @item.EndTime.ToString()<br />
+                                <img src="@Helper.CDN/images/event/addr.svg" /> @item.Country?.ZhName - @item.City<br />
+                                <img src="@Helper.CDN/images/event/organizers.svg" /> Organizers: @item.Organizers<br />
                             </p>
                             <a class="btn-static btn3 m3" href="/event/details/@item.Id">@Localizer["Detail"]</a>
                         </div>
@@ -176,20 +176,20 @@
     <div class="container home-comm">
         <h2 class="m1 p1">@Localizer["Community"]</h2>
         <ul class="comm-ul">
-            <li class="p3"><a target="_blank" href="https://cityofzion.io/"><img src="~/images/community/coz.png" /></a></li>
-            <li class="p3"><a target="_blank" href="https://nel.group/"><img src="~/images/community/nel.png" /></a></li>
-            <li class="p3"><a target="_blank" href="https://neonewstoday.com/"><img src="~/images/community/nnt.png" /></a></li>
-            <li class="p3"><a target="_blank" href="https://neoresearch.io/"><img src="~/images/community/neor.png" /></a></li>
-            <li class="p3"><a target="_blank" href="https://neo-one.io/"><img src="~/images/community/neoone.png" /></a></li>
-            <li class="p3"><a target="_blank" href="https://red4sec.com/"><img src="~/images/community/red.png" /></a></li>
+            <li class="p3"><a target="_blank" href="https://cityofzion.io/"><img src="@Helper.CDN/images/community/coz.png" /></a></li>
+            <li class="p3"><a target="_blank" href="https://nel.group/"><img src="@Helper.CDN/images/community/nel.png" /></a></li>
+            <li class="p3"><a target="_blank" href="https://neonewstoday.com/"><img src="@Helper.CDN/images/community/nnt.png" /></a></li>
+            <li class="p3"><a target="_blank" href="https://neoresearch.io/"><img src="@Helper.CDN/images/community/neor.png" /></a></li>
+            <li class="p3"><a target="_blank" href="https://neo-one.io/"><img src="@Helper.CDN/images/community/neoone.png" /></a></li>
+            <li class="p3"><a target="_blank" href="https://red4sec.com/"><img src="@Helper.CDN/images/community/red.png" /></a></li>
         </ul>
     </div>
 </div>
 
 @section Scripts{
-    <script src="@Helper.CDN/lib/wow/wow.min.js"></script>
-    <script src="@Helper.CDN/js/skrollr.min.js"></script>
-    <script src="~/lib/Swiper/js/swiper.min.js"></script>
+    <script src="@Helper.CDN/lib/wow/wow.min.js" asp-append-version="true"></script>
+    <script src="@Helper.CDN/js/skrollr.min.js" asp-append-version="true"></script>
+    <script src="@Helper.CDN/lib/Swiper/js/swiper.min.js" asp-append-version="true"></script>
     <script>
         var swiper = new Swiper('.swiper-container', {
             slidesPerView: 4,

@@ -5,12 +5,12 @@
 }
 @section Styles{
     <environment include="Development">
-        <link rel="stylesheet" href="/css/testnet.css" />
+        <link rel="stylesheet" href="/css/testnet.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="@Helper.CDN/css/testnet.min.css" asp-append-version="true" />
     </environment>
-    <link href="~/lib/Swiper/css/swiper.min.css" rel="stylesheet" />
+    <link href="@Helper.CDN/lib/Swiper/css/swiper.min.css" rel="stylesheet" asp-append-version="true" />
 }
 
 <div class="dev-banner">
@@ -22,7 +22,7 @@
         </p>
         <div class="dev-git m1">
             <a href="https://github.com/neo-project">
-                <img src="images/neo-logo/72.png" />
+                <img src="@Helper.CDN/images/neo-logo/72.png" />
                 <span>The Neo Project</span>
             </a>
             <a class="btn-static btn4 flo-r" href="https://github.com/neo-project">fork on GitHub</a>
@@ -34,32 +34,32 @@
     <h3 class="m3 bold-font p4">@Localizer["What you can build"]</h3>
     <ul class="dev-intro t4 m3">
         <li>
-            <img class="p4" src="~/images/dev-icon-1.svg" /><br />
+            <img class="p4" src="@Helper.CDN/images/dev-icon-1.svg" /><br />
             <strong>@Localizer["Smart Contract"]</strong><br />
             <span>@Localizer["Building decentralized apps in the form of smart contracts"]</span>
         </li>
         <li>
-            <img class="p4" src="~/images/dev-icon-2.svg" /><br />
+            <img class="p4" src="@Helper.CDN/images/dev-icon-2.svg" /><br />
             <strong>@Localizer["Wallet"]</strong><br />
             <span>@Localizer["Develop wallets that suport NEO, GAS, and other NEP-5 assets"]</span>
         </li>
         <li>
-            <img class="p4" src="~/images/dev-icon-3.svg" /><br />
+            <img class="p4" src="@Helper.CDN/images/dev-icon-3.svg" /><br />
             <strong>@Localizer["Tools"]</strong><br />
             <span>@Localizer["Explorer, monitor, compiler and other blockchain tools"]</span>
         </li>
         <li>
-            <img class="p4" src="~/images/dev-icon-4.svg" /><br />
+            <img class="p4" src="@Helper.CDN/images/dev-icon-4.svg" /><br />
             <strong>@Localizer["Gaming"]</strong><br />
             <span>@Localizer["Building blockchain games in NEO"]</span>
         </li>
         <li>
-            <img class="p4" src="~/images/dev-icon-5.svg" /><br />
+            <img class="p4" src="@Helper.CDN/images/dev-icon-5.svg" /><br />
             <strong>@Localizer["Mint NEP-5 Tokens"]</strong><br />
             <span>@Localizer["Learn how to use smart contracts for mint NEP-5 Tokens"]</span>
         </li>
         <li>
-            <img class="p4" src="~/images/dev-icon-6.svg" /><br />
+            <img class="p4" src="@Helper.CDN/images/dev-icon-6.svg" /><br />
             <strong>@Localizer["Exchange Integration"]</strong><br />
             <span>@Localizer["Document for Exchange Developers"]</span>
         </li>
@@ -69,7 +69,7 @@
     <div class="border-static back-white">
         <div class="row">
             <div class="col-md-4">
-                <img src="~/images/dev-apply.svg" />
+                <img src="@Helper.CDN/images/dev-apply.svg" />
             </div>
             <div class="col-md-7 text-left m1">
                 <h3 class="m3 bold-font p4">@Localizer["Apply For NEO/GAS in Testnet"]</h3>
@@ -227,7 +227,7 @@
 
 
 @section Scripts{
-    <script src="~/lib/Swiper/js/swiper.min.js"></script>
+    <script src="@Helper.CDN/lib/Swiper/js/swiper.min.js" asp-append-version="true"></script>
     <script>
         var swiper = new Swiper('.swiper-container', {
             slidesPerView: 2,
