@@ -210,4 +210,10 @@
   <data name="en-us" xml:space="preserve">
     <value>zh-cn</value>
   </data>
+  <data name="d-none" xml:space="preserve">
+    <value />
+  </data>
+  <data name="d-none-zh" xml:space="preserve">
+    <value>d-none</value>
+  </data>
 </root>
