@@ -1,6 +1,34 @@
 ﻿.team {
     text-align: center;
 }
+.team .border-static.card {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+}
+.team .border-static .card-img-top {
+    float: left;
+    width: 15%;
+}
+.team .border-static .card-body {
+    float: left;
+    width: 85%;
+    font-size: 14px;
+    text-align: left;
+    padding: 0 10px;
+}
+.team .border-static .card-body .card-title {
+    font-size: 16px;
+    margin-top: 0;
+    line-height: 1.5;
+}
+.team .border-static .card-body .card-title a{
+    float:right;
+    margin: 0 5px;
+}
+.team .border-static .card-body .card-text {
+    font-size: 14px;
+}
 
 .team .card {
     display: inline-block;
@@ -15,11 +43,6 @@
     border-radius: 0;
 }
 
-.nf.team .card {
-    width: 180px;
-    height: 280px;
-}
-
 .team .card-body {
     padding: 5px 0;
 }
@@ -30,6 +53,5 @@
 }
 .team .card-text {
     margin: 5px 0;
-    color: gray;
     font-size: .7em;
 }

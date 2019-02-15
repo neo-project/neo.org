@@ -24,6 +24,7 @@
     </data>
     <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
     </data>
                 
     There are any number of "resheader" rows that contain simple 
@@ -155,7 +156,7 @@
   <data name="Phone Number" xml:space="preserve">
     <value>电话</value>
   </data>
-  <data name="Please enter your own NEO public key. If the application succeeds, we will send Neo/GAS to a multiple signature address and tell you how to use it." xml:space="preserve">
+  <data name="Please enter your own NEO public key. If the application succeedsis successful, we will send Neo/GAS to a multiple multi-signature address and tell you how to use it." xml:space="preserve">
     <value>请填写你自己的 NEO 公钥，如果申请成功，我们会将 NEO / GAS 发到一个多重签名的地址中，并告诉你如何使用。</value>
   </data>
   <data name="QQ" xml:space="preserve">
