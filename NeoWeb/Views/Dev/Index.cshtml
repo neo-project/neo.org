@@ -17,15 +17,15 @@
     <div class="container p2">
         <h2 class="m1">@Localizer["Developer"]</h2>
         <p class="m2 t3">
-            <a class="btn-static btn2">@Localizer["Quick Start"]</a>
-            <a class="btn-static btn2">@Localizer["Download"]</a>
+            <a class="btn-static btn2" href="#quickstart">@Localizer["Quick Start"]</a>
+            <a class="btn-static btn2" href="#download">@Localizer["Download"]</a>
         </p>
         <div class="dev-git m1">
-            <a href="https://github.com/neo-project">
+            <a href="https://github.com/neo-project" target="_blank">
                 <img src="images/neo-logo/72.png" />
                 <span>The Neo Project</span>
             </a>
-            <a class="btn-static btn4 flo-r" href="https://github.com/neo-project">fork on GitHub</a>
+            <a class="btn-static btn4 flo-r" href="https://github.com/neo-project" target="_blank">Fork me on GitHub</a>
         </div>
     </div>
 </div>
@@ -77,8 +77,8 @@
                     @Localizer["If you are developing a project in the NEO ecosystem, you'll need NEO/GAS for development. You can click the Apply button to fill out an application form, or get them automatically through our Faucet."]
                 </p>
                 <p>
-                    <a class="btn-static btn3" href="/testcoin/apply">@Localizer["Apply"]</a>
-                    <a class="btn-static btn3">@Localizer["Testnet Faucet"]</a>
+                    <a class="btn-static btn3" href="/testcoin/apply">@Localizer["Manual Entry"]</a>
+                    <a class="btn-static btn3" href="http://47.254.91.93">@Localizer["Automatic Entry"]</a>
                 </p>
             </div>
             <div class="col-md-1"></div>
@@ -107,6 +107,7 @@
 </div>
 
 <div class="dev-content container">
+    <a name="quickstart" style="margin-top: -100px; padding-top: 100px; display: block"></a>
     <h3 class="bold-font">@Localizer["Quick Start"]</h3>
     <div class="row">
         <div class="col-md-12">
@@ -150,6 +151,7 @@
         </div>
     </div>
     <div class="row d-none d-lg-block d-xl-block">
+        <a name="download" style="margin-top: -50px; padding-top: 50px; display: block"></a>
         <div class="col-md-12 dev-down">
             <div class="border-static back-white m2 p2">
                 <p class="t2 bold-font lh1">@Localizer["Download"]</p>

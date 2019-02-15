@@ -124,7 +124,7 @@
     <value>申请测试网的 NEO/GAS</value>
   </data>
   <data name="If you are developing a project in the NEO ecosystem, you'll need NEO/GAS for development. You can click the Apply button to fill out an application form, or get them automatically through our Faucet." xml:space="preserve">
-    <value>如果你正在创建NEO生态的项目，需要 测试网 的 NEO 或 GAS，可以点击申请按钮填写表单人工申请，或者通过我们的Testnet Faucet自动申请。</value>
+    <value>如果你正在创建 NEO 生态的项目，需要 测试网 的 NEO 或 GAS，可以点击申请按钮填写表单人工申请，或者通过我们的 Testnet Faucet 自动申请。</value>
   </data>
   <data name="Technical Documents" xml:space="preserve">
     <value>技术文档</value>
@@ -215,5 +215,14 @@
   </data>
   <data name="d-none-zh" xml:space="preserve">
     <value>d-none</value>
+  </data>
+  <data name="Automatic Entry" xml:space="preserve">
+    <value>自动申请通道</value>
+  </data>
+  <data name="Manual Entry" xml:space="preserve">
+    <value>人工通道</value>
+  </data>
+  <data name="What you can build" xml:space="preserve">
+    <value>我可以使用 NEO 开发什么？</value>
   </data>
 </root>
