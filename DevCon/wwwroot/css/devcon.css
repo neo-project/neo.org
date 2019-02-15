@@ -147,6 +147,10 @@ html,body {
     box-shadow: 5px 5px 10px #3A8435;
     border-radius: 5px;
     padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 .dev-container.bg-white{
     background: white;
