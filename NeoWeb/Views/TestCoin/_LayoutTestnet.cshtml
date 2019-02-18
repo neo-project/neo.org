@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="/css/testnet.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.CDN/css/testnet.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="@Helper.ToCDN("/css/testnet.min.css")" />
     </environment>
 }
 @RenderBody()

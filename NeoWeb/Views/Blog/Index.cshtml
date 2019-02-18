@@ -10,26 +10,26 @@
         <link rel="stylesheet" href="/css/blog.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.CDN/css/blog.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="@Helper.ToCDN("/css/blog.min.css")" />
     </environment>
 }
-    <div class="container p2">
-        <h2 class="m1 text-center">@Localizer["Blog posts list"]</h2>
-        @if (ViewBag.UserRules)
-        {
-            <div class="text-center m2">
-                <a class="btn-static" asp-action="Create">发布新博客</a>
+<div class="container p2">
+    <h2 class="m1 text-center">@Localizer["Blog posts list"]</h2>
+    @if (ViewBag.UserRules)
+    {
+        <div class="text-center m2">
+            <a class="btn-static" asp-action="Create">发布新博客</a>
+        </div>
+    }
+    <form asp-controller="blog" asp-action="index" method="get" class="search-form m2">
+        <div class="input-group m2 border-static">
+            <input name="k" type="text" class="form-control">
+            <div class="input-group-append">
+                <button class="btn btn-input" type="submit">SEARCH</button>
             </div>
-        }
-        <form asp-controller="blog" asp-action="index" method="get" class="search-form m2">
-            <div class="input-group m2 border-static">
-                <input name="k" type="text" class="form-control">
-                <div class="input-group-append">
-                    <button class="btn btn-input" type="submit">SEARCH</button>
-                </div>
-            </div>
-        </form>
-    </div>
+        </div>
+    </form>
+</div>
 <div class="container m2">
     <div class="row">
         <ul class="col-lg-1 blog_date desktop-show" id="blogDate">
@@ -116,5 +116,5 @@
 </div>
 
 @section Scripts{
-    <script src="@Helper.CDN/js/blog.min.js" asp-append-version="true"></script>
+    <script src="@Helper.ToCDN("/js/blog.min.js")"></script>
 }

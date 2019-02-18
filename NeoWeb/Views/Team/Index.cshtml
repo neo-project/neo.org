@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="/css/team.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.CDN/css/team.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="@Helper.ToCDN("/css/team.min.css")" />
     </environment>
 }
     <div class="container text-center p2">
@@ -298,7 +298,7 @@
             </div>
         </div>
         @section Scripts{
-            <script src="@Helper.CDN/js/jquery.lazyload.min.js" asp-append-version="true"></script>
+            <script src="@Helper.CDN/js/jquery.lazyload.min.js"></script>
             <script>
         $('[data-original]').lazyload({
                     threshold: 200,

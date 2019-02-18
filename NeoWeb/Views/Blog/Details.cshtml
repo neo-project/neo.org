@@ -20,7 +20,7 @@
         <link rel="stylesheet" href="/css/blog.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.CDN/css/blog.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="@Helper.ToCDN("/css/blog.min.css")" />
     </environment>
 }
 <div class="container m1">
@@ -118,8 +118,8 @@
 </div>
 
 @section Scripts{
-    <script src="@Helper.CDN/js/blog.min.js" asp-append-version="true"></script>
-    <script src="@Helper.CDN/js/jquery.qrcode.min.js" asp-append-version="true"></script>
+    <script src="@Helper.ToCDN("/js/blog.min.js")"></script>
+    <script src="@Helper.CDN/js/jquery.qrcode.min.js"></script>
     <script>
         function setCookie(name, value) {
             var Days = 30;

@@ -7,8 +7,8 @@
         <link rel="stylesheet" href="/lib/animate.css/animate.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
-        <link href="@Helper.CDN/css/homepage.min.css" rel="stylesheet" asp-append-version="true" />
-        <link href="@Helper.CDN/lib/animate.css/animate.min.css" rel="stylesheet" asp-append-version="true" />
+        <link rel="stylesheet" href="@Helper.ToCDN("/css/homepage.min.css")" />
+        <link href="@Helper.CDN/lib/animate.css/animate.min.css" rel="stylesheet" />
     </environment>
     <link href="@Helper.CDN/lib/Swiper/css/swiper.min.css" rel="stylesheet"/>
 }
@@ -189,9 +189,9 @@
 </div>
 
 @section Scripts{
-    <script src="@Helper.CDN/lib/wow/wow.min.js" asp-append-version="true"></script>
-    <script src="@Helper.CDN/js/skrollr.min.js" asp-append-version="true"></script>
-    <script src="@Helper.CDN/lib/Swiper/js/swiper.min.js" asp-append-version="true"></script>
+    <script src="@Helper.CDN/lib/wow/wow.min.js"></script>
+    <script src="@Helper.CDN/js/skrollr.min.js"></script>
+    <script src="@Helper.CDN/lib/Swiper/js/swiper.min.js"></script>
     <script>
         var swiper = new Swiper('.swiper-container', {
             slidesPerView: 4,

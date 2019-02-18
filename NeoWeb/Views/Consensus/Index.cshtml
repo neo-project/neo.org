@@ -8,12 +8,12 @@
 
 @section Styles{
     <environment include="Development">
-        <link rel="stylesheet" href="@Helper.CDN/css/consensus.css" asp-append-version="true" />
+        <link rel="stylesheet" href="/css/consensus.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.CDN/css/consensus.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="@Helper.ToCDN("/css/consensus.min.css")" />
     </environment>
-    <link href="@Helper.CDN/lib/bootstrap-fileinput/css/fileinput.css" rel="stylesheet" asp-append-version="true" />
+    <link rel="stylesheet" href="@Helper.CDN/lib/bootstrap-fileinput/css/fileinput.css" />
 }
 
 <div class="title-line h3 m1">@Localizer["Blockchain Info"]</div>
@@ -184,14 +184,14 @@
         <script src="/js/consensus.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">
-        <script src="@Helper.CDN/js/echarts.js" asp-append-version="true"></script>
-        <script src="@Helper.CDN/js/template.js" asp-append-version="true"></script>
-        <script src="@Helper.CDN/js/sha256.min.js" asp-append-version="true"></script>
-        <script src="@Helper.CDN/js/consensus.min.js" asp-append-version="true"></script>
+        <script src="@Helper.CDN/js/echarts.js"></script>
+        <script src="@Helper.CDN/js/template.js"></script>
+        <script src="@Helper.CDN/js/sha256.min.js"></script>
+        <script src="@Helper.ToCDN("/js/consensus.min.js")"></script>
     </environment>
     <script src="/js/getseed.js" asp-append-version="true"></script>
-    <script src="@Helper.CDN/lib/bootstrap-fileinput/js/fileinput.min.js" asp-append-version="true"></script>
-    <script src="@Helper.CDN/lib/bootstrap-fileinput/js/locales/zh.js" asp-append-version="true"></script>
+    <script src="@Helper.CDN/lib/bootstrap-fileinput/js/fileinput.min.js"></script>
+    <script src="@Helper.CDN/lib/bootstrap-fileinput/js/locales/zh.js"></script>
     <script>
         $("#logo").fileinput({
             language: '@Localizer["en"]',

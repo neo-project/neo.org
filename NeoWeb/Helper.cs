@@ -12,6 +12,8 @@ namespace NeoWeb
 {
     public static class Helper
     {
+        public static string CurrentDirectory;
+
         public static string ClearHtmlTag(this string html)
         {
             html = Replace(html, @"<!\-\-\[if gte mso 9\]>[\s\S]*<!\[endif\]\-\->", "");
@@ -54,7 +56,7 @@ namespace NeoWeb
 
         public static string Sha256(this string input)
         {
-            System.Security.Cryptography.SHA256 obj = System.Security.Cryptography.SHA256.Create();
+            SHA256 obj = SHA256.Create();
             return BitConverter.ToString(obj.ComputeHash(Encoding.UTF8.GetBytes(input))).Replace("-", "");
         }
 
@@ -189,6 +191,17 @@ namespace NeoWeb
 #endif
             }
         }
-    
+
+
+        public static string ToCDN(string url)
+        {
+            var path = CurrentDirectory + "/wwwroot" + url;
+            if (File.Exists(path))
+            {
+                return $"{CDN}{url}?v={File.ReadAllText(path).Sha256()}";
+            }
+            return url;
+        }
+
     }
 }

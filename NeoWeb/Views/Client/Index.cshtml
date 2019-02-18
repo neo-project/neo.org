@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="/css/client.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.CDN/css/client.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="@Helper.ToCDN("/css/client.min.css")" />
     </environment>
 }
 <div class="client-con">
