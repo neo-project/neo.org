@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="/css/team.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.ToCDN("/css/team.min.css")" />
+        <link rel="stylesheet" href="@Helper.ToCDN("/css/team.min.css", true)" />
     </environment>
 }
     <div class="container text-center p2">
@@ -20,7 +20,7 @@
             </h3>
             <div class="team">
                 <div class="card border-static">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/erik.jpg" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/erik.jpg")" />
                     <div class="card-body">
                         <div class="card-title">
                             Erik Zhang<br />张铮文
@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="card border-static">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/Lijy.jpg" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/Lijy.jpg")" />
                     <div class="card-body">
                         <div class="card-title">
                             Jianying Li<br />李剑英
@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <div class="card border-static">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/ashley.jpg" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/ashley.jpg")" />
                     <div class="card-body">
                         <div class="card-title">
                             Ashley Rolleston
@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="card border-static">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/shargon.jpg" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/shargon.jpg")" />
                     <div class="card-body">
                         <div class="card-title">
                             Fernando Díaz Toledano
@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <div class="card border-static">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/Jeff.jpg?v=2" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/Jeff.jpg?v=2")" />
                     <div class="card-body">
                         <div class="card-title">
                             Jeff Solinsky
@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <div class="card border-static d-none">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/Igormcoelho.jpg" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/Igormcoelho.jpg")" />
                     <div class="card-body">
                         <div class="card-title">
                             Igormcoelho
@@ -85,7 +85,7 @@
                     </div>
                 </div>
                 <div class="card border-static">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/ThomasSaunders.jpg" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/ThomasSaunders.jpg")" />
                     <div class="card-body">
                         <div class="card-title">
                             Thomas Saunders
@@ -96,7 +96,7 @@
                     </div>
                 </div>
                 <div class="card border-static">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/vitor.jpg" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/vitor.jpg")" />
                     <div class="card-body">
                         <div class="card-title">
                             Vitor Nazario Coelho
@@ -107,7 +107,7 @@
                     </div>
                 </div>
                 <div class="card border-static">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/jaime.jpg" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/jaime.jpg")" />
                     <div class="card-body">
                         <div class="card-title">
                             Jaime Kindelan Alonso
@@ -124,7 +124,7 @@
             <p class="m3 d-none">NEO Foundation 简介</p>
             <div class="team">
                 <div class="card border-static">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/da.jpg" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/da.jpg")" />
                     <div class="card-body">
                         <div class="card-title">
                             Da Hongfei<br />达鸿飞
@@ -135,7 +135,7 @@
                     </div>
                 </div>
                 <div class="card border-static">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/erik.jpg" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/erik.jpg")" />
                     <div class="card-body">
                         <div class="card-title">
                             Erik Zhang<br />张铮文
@@ -152,7 +152,7 @@
             <p class="m3">@Localizer["NEO Global Development (NGD) is an organization that was founded by the NEO Foundation (NF) in March of 2018. Its purpose is to focus on the execution of NF strategies surrounding technological R&D, marketing, and community development."]</p>
             <div class="team">
                 <div class="card border-static">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/zc.jpg" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/zc.jpg")" />
                     <div class="card-body">
                         <div class="card-title">
                             Johnson Zhao<br />赵晨
@@ -162,7 +162,7 @@
                     </div>
                 </div>
                 <div class="card border-static">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/peter.jpg" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/peter.jpg")" />
                     <div class="card-body">
                         <div class="card-title">
                             Peter Lin<br />林鹏涛
@@ -173,7 +173,7 @@
                     </div>
                 </div>
                 <div class="card border-static">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/gao.jpg" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/gao.jpg")" />
                     <div class="card-body">
                         <div class="card-title">
                             Lemonie Gao <br />高童文
@@ -192,104 +192,104 @@
             </h3>
             <div class="team">
                 <div class="card">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/canesin.png" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/canesin.png")" />
                     <div class="card-body">
                         <div class="card-title">Fábio César Canesin</div>
                         <div class="card-text">City of Zion Co-Founder</div>
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/chris-hager.jpg" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/chris-hager.jpg")" />
                     <div class="card-body">
                         <div class="card-title">Chris Hager<div class="card-text">    City of Zion Developer</div></div>
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/tba.png" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/tba.png")" />
                     <div class="card-body">
                         <div class="card-title">Tyler B Adams</div>
                         <div class="card-text">City of Zion Co-Founder</div>
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/erik-vd-brink.jpg" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/erik-vd-brink.jpg")" />
                     <div class="card-body">
                         <div class="card-title">Erik van den Brink</div>
                         <div class="card-text">City of Zion Developer</div>
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/Luciano.jpg" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/Luciano.jpg")" />
                     <div class="card-body">
                         <div class="card-title">Luciano Engel</div>
                         <div class="card-text">City of Zion Co-Founder</div>
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/Dean.jpg" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/Dean.jpg")" />
                     <div class="card-body">
                         <div class="card-title">Dean Jeffs</div>
                         <div class="card-text">NEO News Today founder</div>
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/DeanvanDugteren.jpg" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/DeanvanDugteren.jpg")" />
                     <div class="card-body">
                         <div class="card-title">Dean van Dugteren</div>
                         <div class="card-text">Developer and workshop host/instructor</div>
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/wingyung.jpg" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/wingyung.jpg")" />
                     <div class="card-body">
                         <div class="card-title">Wing Yung Chan</div>
                         <div class="card-text">NeoResearch Developer</div>
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/zadra.jpg" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/zadra.jpg")" />
                     <div class="card-body">
                         <div class="card-title">Zdravko Georgiev</div>
                         <div class="card-text">Bulgarian NEO development</div>
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/yasen.jpg" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/yasen.jpg")" />
                     <div class="card-body">
                         <div class="card-title">Yasen Mihailov</div>
                         <div class="card-text">Bulgarian NEO development</div>
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/Anthony.jpg" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/Anthony.jpg")" />
                     <div class="card-body">
                         <div class="card-title">Anthony De Meulemeester</div>
                         <div class="card-text">creator and project maintainer of neo-go and neo-storm</div>
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/Ethan.png" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/Ethan.png")" />
                     <div class="card-body">
                         <div class="card-title">Ethan Fast</div>
                         <div class="card-text">City of Zion Co-Founder</div>
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/afong.jpg" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/afong.jpg")" />
                     <div class="card-body">
                         <div class="card-title">Alan Fong</div>
                         <div class="card-text">City of Zion Co-Founder</div>
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/Liuyx.jpg" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/Liuyx.jpg")" />
                     <div class="card-body">
                         <div class="card-title">Liu Yongxin<br />刘永新</div>
                         <div class="card-text">NewEconoLabs Co-Founder</div>
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/AlexD.jpg" />
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/AlexD.jpg")" />
                     <div class="card-body">
                         <div class="card-title">Alex Dicarlo</div>
                         <div class="card-text">Founder of Neotracker, Founder of NEO·ONE</div>
@@ -298,7 +298,7 @@
             </div>
         </div>
         @section Scripts{
-            <script src="@Helper.CDN/js/jquery.lazyload.min.js"></script>
+            <script src="@Helper.ToCDN("/js/jquery.lazyload.min.js")"></script>
             <script>
         $('[data-original]').lazyload({
                     threshold: 200,

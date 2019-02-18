@@ -193,12 +193,12 @@ namespace NeoWeb
         }
 
 
-        public static string ToCDN(string url)
+        public static string ToCDN(string url, bool appendVersion = false)
         {
             var path = CurrentDirectory + "/wwwroot" + url;
             if (File.Exists(path))
             {
-                return $"{CDN}{url}?v={File.ReadAllText(path).Sha256()}";
+                return appendVersion ? $"{CDN}{url}?v={File.ReadAllText(path).Sha256()}" : $"{CDN}{url}";
             }
             return url;
         }

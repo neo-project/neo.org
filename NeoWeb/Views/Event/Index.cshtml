@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="/css/event.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.ToCDN("/css/event.min.css")" />
+        <link rel="stylesheet" href="@Helper.ToCDN("/css/event.min.css", true)" />
     </environment>
     <style>
         body {
@@ -21,7 +21,7 @@
 <div class="event-banner">
     <div class="container">
         <div class="search-div border-static back-white m3 p3 text-center">
-            <img class="img-fluid search-group mt-3 mb-5" src="@Helper.CDN/images/event/h1.svg" />
+            <img class="img-fluid search-group mt-3 mb-5" src="@Helper.ToCDN("/images/event/h1.svg")" />
             <form asp-action="index" method="get">
                 <div class="input-group search-group">
                     <div class="dropdown show">
@@ -206,8 +206,8 @@
     </div>
 </div>
 @section Scripts{
-    <script src="@Helper.CDN/js/jquery.lazyload.min.js"></script>
-    <script src="@Helper.CDN/js/text-autospace.js"></script>
+    <script src="@Helper.ToCDN("/js/jquery.lazyload.min.js")"></script>
+    <script src="@Helper.ToCDN("/js/text-autospace.js")"></script>
     <script>
         $(function () {
             var url = window.location.search;
