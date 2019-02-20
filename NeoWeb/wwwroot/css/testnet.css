@@ -42,7 +42,7 @@
 .dev-banner {
     background:#8ECE4B;
     background:linear-gradient(125deg,#B8D36C,#8ECE4B);
-    background: url(../images/home-dev-2.svg),url(../images/home-dev-1.svg),linear-gradient(125deg,#B8D36C,#8ECE4B);
+    background: url(https://neo-cdn.azureedge.net/images/home-dev-2.svg),url(https://neo-cdn.azureedge.net/images/home-dev-1.svg),linear-gradient(125deg,#B8D36C,#8ECE4B);
     background-repeat: no-repeat;
     background-position: center,center;
     background-size: cover,cover;
@@ -89,7 +89,7 @@
 }
 /*Doc*/
 .dev-doc {
-    background: url(../images/dev-doc-1.svg),url(../images/dev-doc-2.svg);
+    background: url(https://neo-cdn.azureedge.net/images/dev-doc-1.svg),url(https://neo-cdn.azureedge.net/images/dev-doc-2.svg);
     background-position: bottom left,top right;
     background-repeat: no-repeat;
     background-size: contain;
@@ -130,7 +130,7 @@
 /*github*/
 .dev-github {
     background:#4A4A4A;
-    background:url(../images/home-dev-3.svg),#4A4A4A;
+    background:url(https://neo-cdn.azureedge.net/images/home-dev-3.svg),#4A4A4A;
     background-repeat:no-repeat;
     background-size:cover;
     background-position:center;
@@ -144,7 +144,7 @@
 }
 /*bounty*/
 .dev-bounty {
-    background: url(../images/home-com-1.svg),url(../images/home-com-2.svg);
+    background: url(https://neo-cdn.azureedge.net/images/home-com-1.svg),url(https://neo-cdn.azureedge.net/images/home-com-2.svg);
     background-repeat: no-repeat;
     background-position: 115% -100px, -40% bottom;
     background-size: 28%,40%;

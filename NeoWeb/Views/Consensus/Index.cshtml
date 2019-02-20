@@ -8,12 +8,12 @@
 
 @section Styles{
     <environment include="Development">
-        <link rel="stylesheet" href="@Helper.CDN/css/consensus.css" />
+        <link rel="stylesheet" href="/css/consensus.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.CDN/css/consensus.min.css?v=20181020.1" />
+        <link rel="stylesheet" href="@Helper.ToCDN("/css/consensus.min.css", true)" />
     </environment>
-    <link href="~/lib/bootstrap-fileinput/css/fileinput.css" rel="stylesheet" />
+    <link rel="stylesheet" href="@Helper.ToCDN("/lib/bootstrap-fileinput/css/fileinput.css")" />
 }
 
 <div class="title-line h3 m1">@Localizer["Blockchain Info"]</div>
@@ -178,21 +178,20 @@
 @section Scripts{
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <environment include="Development">
-        <script src="/js/echarts.js"></script>
-        <script src="/js/template.js"></script>
-        <script src="/js/getseed.js"></script>
-        <script src="/js/sha256.min.js"></script>
-        <script src="/js/consensus.js"></script>
+        <script src="/js/echarts.js" asp-append-version="true"></script>
+        <script src="/js/template.js" asp-append-version="true"></script>
+        <script src="/js/sha256.min.js" asp-append-version="true"></script>
+        <script src="/js/consensus.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">
-        <script src="@Helper.CDN/js/echarts.js"></script>
-        <script src="@Helper.CDN/js/template.js"></script>
-        <script src="/js/getseed.js"></script>
-        <script src="@Helper.CDN/js/sha256.min.js"></script>
-        <script src="@Helper.CDN/js/consensus.min.js?v=20181020"></script>
+        <script src="@Helper.ToCDN("/js/echarts.js")"></script>
+        <script src="@Helper.ToCDN("/js/template.js")"></script>
+        <script src="@Helper.ToCDN("/js/sha256.min.js")"></script>
+        <script src="@Helper.ToCDN("/js/consensus.min.js", true)"></script>
     </environment>
-    <script src="~/lib/bootstrap-fileinput/js/fileinput.min.js"></script>
-    <script src="~/lib/bootstrap-fileinput/js/locales/zh.js"></script>
+    <script src="/js/getseed.js" asp-append-version="true"></script>
+    <script src="@Helper.ToCDN("/lib/bootstrap-fileinput/js/fileinput.min.js")"></script>
+    <script src="@Helper.ToCDN("/lib/bootstrap-fileinput/js/locales/zh.js")"></script>
     <script>
         $("#logo").fileinput({
             language: '@Localizer["en"]',

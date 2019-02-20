@@ -3,10 +3,10 @@
 
 @section Styles{
     <environment include="Development">
-        <link rel="stylesheet" href="/css/careers.css" />
+        <link rel="stylesheet" href="/css/careers.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.CDN/css/careers.min.css?v=20181109" asp-append-version="true" />
+        <link rel="stylesheet" href="@Helper.ToCDN("/css/careers.min.css", true)" />
     </environment>
 }
 <div class="banner m2 p2">

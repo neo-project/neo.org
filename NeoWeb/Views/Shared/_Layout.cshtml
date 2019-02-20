@@ -56,27 +56,27 @@ https://github.com/neo-project/neo.org
     }
     @if (ViewData["Image"] == null)
     {
-        <meta name="twitter:image" content="@Helper.CDN/images/twitter-img.jpg" />
+        <meta name="twitter:image" content="@Helper.ToCDN("/images/twitter-img.jpg")" />
     }
     else
     {
         <meta name="twitter:image" content="@ViewData["Image"]" />
     }
     <meta name="twitter:card" content="summary_large_image" />
-    <link type="image/x-icon" href="@Helper.CDN/images/favicon.png" rel="apple-touch-icon">
-    <link type="image/x-icon" href="@Helper.CDN/images/favicon.png" rel="shortcut icon">
-    <link type="image/x-icon" href="@Helper.CDN/images/favicon.png" rel="icon">
-    <link type="image/x-icon" href="@Helper.CDN/images/favicon.png" rel="bookmark" />
+    <link type="image/x-icon" href="@Helper.ToCDN("/images/favicon.png")" rel="apple-touch-icon">
+    <link type="image/x-icon" href="@Helper.ToCDN("/images/favicon.png")" rel="shortcut icon">
+    <link type="image/x-icon" href="@Helper.ToCDN("/images/favicon.png")" rel="icon">
+    <link type="image/x-icon" href="@Helper.ToCDN("/images/favicon.png")" rel="bookmark" />
 
     <environment include="Development">
-        <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="/css/site.css" rel="stylesheet" />
-        <link href="/css/navigation.css" rel="stylesheet" />
-        <link href="/css/common.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="/css/site.css" asp-append-version="true" />
+        <link rel="stylesheet" href="/css/navigation.css" asp-append-version="true" />
+        <link rel="stylesheet" href="/css/common.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
-        <link href="@Helper.CDN/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="@Helper.CDN/css/site.min.css?v=20181018" rel="stylesheet" />
+        <link href="@Helper.ToCDN("/lib/bootstrap/css/bootstrap.min.css")" rel="stylesheet" />
+        <link href="@Helper.ToCDN("/css/site.min.css", true)" rel="stylesheet" />
         @Html.Raw(JavaScriptSnippet.FullScript)
     </environment>
     @RenderSection("Styles", required: false)
@@ -86,7 +86,7 @@ https://github.com/neo-project/neo.org
         <div class="container">
             <div id="nav_container">
                 <a class="navbar-brand" href="/">
-                    <img src="@Helper.CDN/images/neo_logo.svg" />
+                    <img src="@Helper.ToCDN("/images/neo_logo.svg")" />
                 </a>
                 <div class="collapse navbar-collapse" id="neoNnavbarToggler">
                     <ul id="menu_list" class="navbar-nav top-nav ml-auto">
@@ -136,7 +136,7 @@ https://github.com/neo-project/neo.org
             <div class="container">
                 <div class="row">
                     <div class="col-md-5 footer-logo m1 lh3 t4">
-                        <img src="@Helper.CDN/images/neo_logo.svg">
+                        <img src="@Helper.ToCDN("/images/neo_logo.svg")">
                         <p class="m4 mb0">Contact: <a class="gray-text" href="mailto:contact@neo.org">contact@neo.org</a></p>
                         <p class="mb0">Marketing: <a class="gray-text" href="mailto:marketing@neo.org">marketing@neo.org</a></p>
                     </div>
@@ -149,11 +149,11 @@ https://github.com/neo-project/neo.org
                             <li><a target="_blank" href="https://medium.com/neo-smart-economy"><i class="iconfont">&#xe7e8;</i></a></li>
                             <li><a target="_blank" href="https://www.youtube.com/channel/UCl1AwEDN0w5lTmfJEMsY5Vw/videos"><i class="iconfont">&#xe612;</i></a></li>
                             <li><a target="_blank" href="https://www.facebook.com/NEOSmartEcon/"><i class="iconfont">&#xe681;</i></a></li>
-                            <li><a target="_blank" href="http://www.huodongxing.com/org/240661560945"><i class="iconfont">&#xe602;</i></a></li>
+                            <li><a target="_blank" href="@Localizer["https://t.me/NEO_EN"]"><i class="iconfont">&#xe731;</i></a></li>
                             <li class="pop-up">
                                 <a href="javascript:void(0);"><i class="iconfont">&#xe638;</i></a>
                                 <div class="pop-hide">
-                                    <img src="@Helper.CDN/images/qrcode.png" width="120" height="120" />
+                                    <img src="@Helper.ToCDN("/images/qrcode.png")" width="120" height="120" />
                                 </div>
                             </li>
                             <li><a target="_blank" href="https://weibo.com/neosmarteconomy"><i class="iconfont">&#xe64a;</i></a></li>
@@ -182,9 +182,9 @@ https://github.com/neo-project/neo.org
             }
         </script>
     </form>
-    <script src="@Helper.CDN/lib/jquery/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="@Helper.CDN/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="@Helper.ToCDN("/lib/jquery/jquery.min.js")"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" asp-append-version="true"></script>
+    <script src="@Helper.ToCDN("/lib/bootstrap/js/bootstrap.min.js")"></script>
     <script>
         $(".dropdown-toggle").hover(function () {
             $(this).next(".dropdown-menu").toggle();
@@ -197,10 +197,10 @@ https://github.com/neo-project/neo.org
     </script>
 
     <environment include="Development">
-        <script src="/js/site.js"></script>
+        <script src="/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">
-        <script src="@Helper.CDN/js/site.min.js"></script>
+        <script src="@Helper.ToCDN("/js/site.min.js", true)"></script>
         @Html.Raw(snippet.FullScript)
     </environment>
 

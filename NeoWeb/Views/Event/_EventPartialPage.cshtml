@@ -6,7 +6,7 @@
         <div class="col-12 col-sm-4 col-md-3 text-center">
             @if (String.IsNullOrEmpty(Model.Cover))
             {
-                <img class="type-img mb-2" data-original="@String.Format(@Helper.CDN + "/images/event/{0}.jpg", Model.Type.ToString().ToLower())">
+                <img class="type-img mb-2" data-original="@String.Format(@Helper.ToCDN(" + ")"/images/event/{0}.jpg", Model.Type.ToString().ToLower())">
             }
             else
             {
@@ -18,13 +18,13 @@
                 <a class="t2 with-space" href="~/event/details/@Model.Id">@Model.Name</a>
             </p>
             <div class="mt-1">
-                <img src="@Helper.CDN/images/event/time.svg" /> <span>@Model.StartTime.ToString("yyyy-MM-dd HH:mm") ~ @Model.EndTime.ToString("yyyy-MM-dd HH:mm")</span>
+                <img src="@Helper.ToCDN("/images/event/time.svg")" /> <span>@Model.StartTime.ToString("yyyy-MM-dd HH:mm") ~ @Model.EndTime.ToString("yyyy-MM-dd HH:mm")</span>
             </div>
             <div class="mt-1">
-                <img src="@Helper.CDN/images/event/addr.svg" /> <span class="@Localizer["d-none-zh"]">@Model.Country.Name</span><span class="@Localizer["d-none"]">@Model.Country.ZhName</span> - <span>@Model.City</span>
+                <img src="@Helper.ToCDN("/images/event/addr.svg")" /> <span class="@Localizer["d-none-zh"]">@Model.Country.Name</span><span class="@Localizer["d-none"]">@Model.Country.ZhName</span> - <span>@Model.City</span>
             </div>
             <div>
-                <img src="@Helper.CDN/images/event/organizers.svg" /> <span>@Localizer["Organizers:"]</span> <span>@Model.Organizers</span>
+                <img src="@Helper.ToCDN("/images/event/organizers.svg")" /> <span>@Localizer["Organizers:"]</span> <span>@Model.Organizers</span>
             </div>
             <div class="mt-1 left-to-center">
                 <a class="event-btn" href="~/event/details/@Model.Id">More Info</a>

@@ -347,6 +347,9 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
     .desktop-show {display:none!important;}
     .mobile-show {display:inline-block!important;}
 }
+@media only screen and (max-width : 992px) {
+    .dis-m-none {display:none;}
+}
 @media only screen and (max-width : 780px) {
     body {padding-top: 60px;}
     .body-content {padding-bottom:20px;}

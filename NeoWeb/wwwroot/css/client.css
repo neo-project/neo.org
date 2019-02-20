@@ -10,7 +10,7 @@ ul, li {
 }
 
 .client-con {
-    background-image: url(../images/client-1.svg),url(../images/client-1.svg);
+    background-image: url(https://neo-cdn.azureedge.net/images/client-1.svg),url(https://neo-cdn.azureedge.net/images/client-1.svg);
     background-position: -20% top,130% top;
     background-repeat: no-repeat;
     background-size: 38%;

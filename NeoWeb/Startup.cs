@@ -15,6 +15,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Globalization;
 using Microsoft.Extensions.Logging;
+using NeoWeb.Controllers;
 
 namespace NeoWeb
 {
@@ -94,6 +95,7 @@ namespace NeoWeb
             {
                 //网站第一次运行，未创建数据库时会有异常
             }
+            Helper.CurrentDirectory = Configuration["CurrentDirectory"];
 
             app.UseMvc(routes =>
             {
