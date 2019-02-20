@@ -243,11 +243,11 @@
   <data name="How To Become A Consensus Node" xml:space="preserve">
     <value>如何成为共识节点</value>
   </data>
-  <data name="Off-Chain Governance" xml:space="preserve">
-    <value>链下治理</value>
+  <data name="Node List" xml:space="preserve">
+    <value>节点列表</value>
   </data>
-  <data name="On-Chain Governance" xml:space="preserve">
-    <value>链上治理</value>
+  <data name="On-Chain &amp; Off-Chain Governance" xml:space="preserve">
+    <value>链上与链下治理</value>
   </data>
   <data name="Apply" xml:space="preserve">
     <value>申请</value>
@@ -260,5 +260,8 @@
   </data>
   <data name="en" xml:space="preserve">
     <value>zh</value>
+  </data>
+  <data name="Off-chain governance relies on the continued support from NEO Foundation. Candidates establish a strategic partnership with the NEO Foundation and receive votes from the Foundation.&lt;br /&gt;On-chain governance relies on the mechanisms of the NEO blockchain itself. Candidates become a consensus node through the votes of NEO holders and maintain it independently." xml:space="preserve">
+    <value>链下治理依靠NEO Foundation的持续支持。候选人与NEO Foundation建立战略合作关系，并获得NEO Foundation的投票。&lt;br /&gt;链上治理依靠NEO区块链本身的机制实现管理。候选人独立运维共识节点，获得NEO社区持有者的投票。</value>
   </data>
 </root>

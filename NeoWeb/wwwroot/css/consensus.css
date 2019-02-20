@@ -38,9 +38,10 @@
     line-height:1.5;
 }
 .info-icon {
-    font-size:60px;
+    font-size:50px;
     color:#AEDB58;
     transition: color .2s;
+    margin-bottom:0;
 }
 .block-info .info-cont:hover{
     color:#ffffff;
