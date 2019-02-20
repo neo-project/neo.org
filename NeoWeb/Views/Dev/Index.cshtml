@@ -5,49 +5,232 @@
 }
 @section Styles{
     <environment include="Development">
-        <link rel="stylesheet" href="/css/testnet.css" />
+        <link rel="stylesheet" href="/css/testnet.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.CDN/css/testnet.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="@Helper.ToCDN("/css/testnet.min.css", true)" />
     </environment>
+    <link rel="stylesheet" href="@Helper.ToCDN("/lib/Swiper/css/swiper.min.css")" />
 }
-<div class="row content-border link-apply">
-    <div class="col-md-6 neo-bg"></div>
-    <div class="col-md-6">
-        <p class="h1 m2">@Localizer["Apply For NEO/GAS in Testnet"]</p>
-        <p class="t2 apply-intro">@(Localizer["If you are developing a NEO ecosystem application project, and need NEO/GAS in the <b>TestNet</b>, please fill in the following application form and send it. Once your application has been processed, you will receive an email notification."])</p>
-        <p class="m2">
-            <a class="btneo-fri t1" asp-controller="testcoin" asp-action="apply">@Localizer["Apply for NEO/GAS"]</a>
+
+<div class="dev-banner">
+    <div class="container p2">
+        <h2 class="m1">@Localizer["Developer"]</h2>
+        <p class="m2 t3">
+            <a class="btn-static btn2" href="#qs">@Localizer["Quick Start"]</a>
+            <a class="btn-static btn2 dis-m-none" href="#down">@Localizer["Download"]</a>
+        </p>
+        <div class="dev-git m1">
+            <a href="https://github.com/neo-project" target="_blank">
+                <img src="@Helper.ToCDN("/images/neo-logo/72.png")" />
+                <span>The Neo Project</span>
+            </a>
+            <a class="btn-static btn4 flo-r" href="https://github.com/neo-project" target="_blank">Fork me on GitHub</a>
+        </div>
+    </div>
+</div>
+
+<div class="dev-content container">
+    <h3 class="m3 bold-font p4">@Localizer["What you can build"]</h3>
+    <ul class="dev-intro t4 m3">
+        <li>
+            <img class="p4" src="@Helper.ToCDN("/images/dev-icon-1.svg")" /><br />
+            <strong>@Localizer["Smart Contract"]</strong><br />
+            <span>@Localizer["Building decentralized apps in the form of smart contracts"]</span>
+        </li>
+        <li>
+            <img class="p4" src="@Helper.ToCDN("/images/dev-icon-2.svg")" /><br />
+            <strong>@Localizer["Wallet"]</strong><br />
+            <span>@Localizer["Develop wallets that suport NEO, GAS, and other NEP-5 assets"]</span>
+        </li>
+        <li>
+            <img class="p4" src="@Helper.ToCDN("/images/dev-icon-3.svg")" /><br />
+            <strong>@Localizer["Tools"]</strong><br />
+            <span>@Localizer["Explorer, monitor, compiler and other blockchain tools"]</span>
+        </li>
+        <li>
+            <img class="p4" src="@Helper.ToCDN("/images/dev-icon-4.svg")" /><br />
+            <strong>@Localizer["Gaming"]</strong><br />
+            <span>@Localizer["Building blockchain games in NEO"]</span>
+        </li>
+        <li>
+            <img class="p4" src="@Helper.ToCDN("/images/dev-icon-5.svg")" /><br />
+            <strong>@Localizer["Mint NEP-5 Tokens"]</strong><br />
+            <span>@Localizer["Learn how to use smart contracts for mint NEP-5 Tokens"]</span>
+        </li>
+        <li>
+            <img class="p4" src="@Helper.ToCDN("/images/dev-icon-6.svg")" /><br />
+            <strong>@Localizer["Exchange Integration"]</strong><br />
+            <span>@Localizer["Document for Exchange Developers"]</span>
+        </li>
+    </ul>
+</div>
+<div class="dev-content container dev-apply">
+    <div class="border-static back-white">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="@Helper.ToCDN("/images/dev-apply.svg")" />
+            </div>
+            <div class="col-md-7 text-left m1">
+                <h3 class="m3 bold-font p4">@Localizer["Apply For NEO/GAS in Testnet"]</h3>
+                <p class="p4">
+                    @Localizer["If you are developing a project in the NEO ecosystem, you'll need NEO/GAS for development. You can click the Apply button to fill out an application form, or get them automatically through our Faucet."]
+                </p>
+                <p>
+                    <a class="btn-static btn3" href="/testcoin/apply">@Localizer["Manual Entry"]</a>
+                    <a class="btn-static btn3" href="http://47.254.91.93">@Localizer["Automatic Entry"]</a>
+                </p>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+</div>
+<div class="dev-content dev-doc">
+    <div class="w600">
+        <h3 class="m2 bold-font p4"><span class="back-static">@Localizer["Documentation"]</span></h3>
+        <p class="m3 p4">
+            <span class="back-static">
+                @Localizer["The Technical Documentation provides developers with a comprehensive foundation. Its content includes basic NEO knowledge and client manuals to help new developers get started; development tools, Smart Contract examples & API documentation suitable for intermediate developers; and more."]<br />
+                @Localizer["If you are a Blockchain Developer or wish to learn more technical details on NEO, head to the Developer's Guide in the Documentation. It helps readers to quickly start participating in the construction of NEO ecosystem's infrastructures."]
+            </span>
+        </p>
+        <p>
+            <a class="p4 green-text" href="https://docs.neo.org/@Localizer["en-us"]/whitepaper.html">@Localizer["Whitepaper"]</a>
+            <a class="p4 green-text" href="https://docs.neo.org/@Localizer["en-us"]/basic/consensus/whitepaper.html">@Localizer["Consensus"]</a>
+            <a class="p4 green-text" href="https://docs.neo.org/@Localizer["en-us"]/exchange/v2.9.4.html">@Localizer["Exchange Integration"]</a>
+        </p>
+        <p>
+            <a class="btn-static" href="https://docs.neo.org/">@Localizer["Technical Documents"]</a><br />
+            <a class="btn-static" href="https://docs.neo.org/developerguide/index.html">@Localizer["Developer Guide"]</a>
         </p>
     </div>
 </div>
-<div class="row">
-    <div class="col-sm-6">
-        <div class="content-border github-back">
-            <h1 class="m1">GitHub</h1>
-            <p class="center-area m2"><a href="https://github.com/neo-project" target="_blank" class="btneo-sec t1">@Localizer["Open link"]</a></p>
+
+<div class="dev-content container" id="qs">
+    <h3 class="bold-font">@Localizer["Quick Start"]</h3>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="border-static back-white m2 p2 mb10">
+                <p class="bold-font lh1">
+                    <a class="btn-static btn4 t4 @Localizer["d-none-zh"]" href="https://github.com/neo-ngd/NEO-Tutorial/blob/master/neo_docs_SmartContract_QuickStart/SmartContract_quickstart_en.md">C#</a>
+                    <a class="btn-static btn4 t4 @Localizer["d-none"]" href="https://github.com/neo-ngd/NEO-Tutorial/blob/master/neo_docs_SmartContract_QuickStart/SmartContract_quickStart_cn.md">C#</a>
+                    <a class="btn-static btn4 t4 @Localizer["d-none-zh"]" href="https://github.com/HandsomeJeff/neo-python-workshop/blob/master/part1_setup.md">Python</a>
+                    <a class="btn-static btn4 t4 @Localizer["d-none"]" href="https://github.com/neo-ngd/NEO-Tutorial/blob/master/neo_docs_neopython_tutorial/neo_python_quickstart_cn.md">Python</a>
+                </p>
+                <table class="down-table m2">
+                    <tr>
+                        <th width="12%"></th>
+                        <th width="14%">SDK</th>
+                        <th width="14%">API</th>
+                        <th width="14%">Node</th>
+                        <th width="14%">Wallet</th>
+                        <th width="15%">Smart contract</th>
+                        <th width="14%">Plugin</th>
+                    </tr>
+                    <tr>
+                        <td>C#</td>
+                        <td><span class="iconfont green-text">&#xeaf1;</span></td>
+                        <td><span class="iconfont green-text">&#xeaf1;</span></td>
+                        <td><span class="iconfont green-text">&#xeaf1;</span></td>
+                        <td><span class="iconfont green-text">&#xeaf1;</span></td>
+                        <td><span class="iconfont green-text">&#xeaf1;</span></td>
+                        <td><span class="iconfont green-text">&#xeaf1;</span></td>
+                    </tr>
+                    <tr>
+                        <td>Python</td>
+                        <td><span class="iconfont green-text">&#xeaf1;</span></td>
+                        <td><span class="iconfont green-text">&#xeaf1;</span></td>
+                        <td><span class="iconfont green-text">&#xeaf1;</span></td>
+                        <td><span class="iconfont green-text">&#xeaf1;</span></td>
+                        <td><span class="iconfont green-text">&#xeaf1;</span></td>
+                        <td><span class="iconfont">&#xe616;</span></td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
-    <div class="col-sm-6">
-        <div class="content-border docu-back">
-            <h1 class="m1">@Localizer["Technical Documents"]</h1>
-            <p class="center-area m2"><a href="http://docs.neo.org" target="_blank" class="btneo-sec t1">@Localizer["Open link"]</a></p>
+    <div class="row d-none d-lg-block d-xl-block" id="down">
+        <div class="col-md-12 dev-down">
+            <div class="border-static back-white m2 p2">
+                <p class="t2 bold-font lh1">@Localizer["Download"]</p>
+                <table class="down-table m2">
+                    <tr>
+                        <th width="16.5%"></th>
+                        <th width="16.5%">Environment</th>
+                        <th width="16.5%">IDE</th>
+                        <th width="16.5%">Dev Pack</th>
+                        <th width="16.5%">Compiler</th>
+                        <th width="16.5%">Others</th>
+                    </tr>
+                    <tr>
+                        <td>C# Developer</td>
+                        <td><a href="https://dotnet.microsoft.com/download">.NET Core</a></td>
+                        <td><a href="https://visualstudio.microsoft.com/">Visual Studio</a></td>
+                        <td><a href="https://github.com/neo-project/neo-plugins/releases">Neo ContactPlugin</a></td>
+                        <td><a href="https://github.com/neo-project/neo-compiler">neon</a></td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Python Developer</td>
+                        <td><a href="https://www.python.org/downloads/">Python 3.0+</a></td>
+                        <td>-</td>
+                        <td colspan="2"><a href="https://github.com/CityOfZion/neo-boa">neo-boa</a></td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Java Developer</td>
+                        <td><a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">JDK</a></td>
+                        <td><a href="https://www.eclipse.org/downloads/packages/installer">Eclipse</a></td>
+                        <td><a href="https://github.com/neo-project/neo-devpack-java">neo-devpack-java</a></td>
+                        <td><a href="https://github.com/neo-project/neo-compiler">neoj</a></td>
+                        <td><a href="http://maven.apache.org/docs/history.html">Maven</a></td>
+                    </tr>
+                    <tr>
+                        <td>Golang Developer</td>
+                        <td><a href="https://golang.org/dl/">Go</a></td>
+                        <td>-</td>
+                        <td colspan="2"><a href="https://github.com/CityOfZion/neo-storm">neo-storm</a></td>
+                        <td>-</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-sm-6">
-        <div class="content-border bounty-back">
-            <h1 class="m1">@Localizer["Security Bounty"]</h1>
-            <p class="center-area m2">
-                <a class="btneo-sec t1" href="dev/bounty">@Localizer["Open link"]</a>
-            </p>
-        </div>
+
+<div class="dev-content dev-github text-white">
+    <div class="w600">
+        <h3 class="m3 bold-font p4">GitHub</h3>
+        <p class="p4">
+            @Localizer["Our code base is entirely open-source, including suggestions and discussions on NEO's Enhancement Protocols. We welcome Pull Requests and Issues from all developers. Developers with outstanding contributions will be given rewards through the Core Developers Program."]
+        </p>
+        <p>
+            @Localizer["<a class='p4 green-text' href='https://neo-ngd.github.io/reference/Becoming_Core_Dev/How-to-Become-A-NEO-Core-Developer-V2.0.html'>How to Become A NEO Core Developer</a>"]
+        </p>
+        <p>
+            <a class="btn-static" href="https://github.com/neo-project">@Localizer["Open link"]</a>
+        </p>
     </div>
 </div>
+
+<div class="dev-content dev-bounty">
+    <div class="w600">
+        <h3 class="m2 bold-font p4"><span class="back-static">@Localizer["Security Bounty"]</span></h3>
+        <p class="p4">
+            <span class="back-static">
+                @Localizer["The goal of the Program is to ensure the safety of NEO's Blockchain infrastructure. If you find potential security vulnerabilities and threats, please contact us as soon as possible. We will try our best to investigate those eligible vulnerabilities and fix valid issues."]
+            </span>
+        </p>
+        <p class="m3">
+            <a class="btn-static" href="~/dev/bounty">@Localizer["Open link"]</a>
+        </p>
+    </div>
+</div>
+
+
 @section Scripts{
     <script>
         $("#menu_list a").css("border-bottom", "none");
-        $("#menu_list li.nav-item [href='/testnet']").css("border-bottom", "2px solid #58bf00");
+        $("#menu_list li.nav-item [href='/dev']").css("border-bottom", "2px solid #58bf00");
     </script>
 }

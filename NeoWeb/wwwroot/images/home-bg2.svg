@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1996px" height="1143px" viewBox="0 0 1996 1143" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="5.46932413 49.259033 0.316401159 59.8756925 39.932062 83.5839089 84.1994373 65.7080155 87.5920472 54.9987546 50.0251554 31.3831396"></polygon>
+        <filter x="-14.3%" y="-14.4%" width="124.1%" height="140.2%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="-2" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.842026753   0 0 0 0 0.933620323   0 0 0 0 0.740957985  0 0 0 0.643823596 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <filter x="-17.8%" y="-29.2%" width="135.6%" height="158.4%" filterUnits="objectBoundingBox" id="filter-3">
+            <feGaussianBlur stdDeviation="3" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-2" transform="translate(-106.000000, -39.000000)">
+            <g id="虚线背景" transform="translate(-222.000000, -44.000000)">
+                <g id="Group-2" transform="translate(329.000000, 85.000000)">
+                    <g id="三角形左边">
+                        <polygon id="Fill-85" stroke="#B4EE73" stroke-width="2" points="0.0457152431 543.387842 0.0457152431 0.293949843 670.003116 306.649033"></polygon>
+                        <polygon id="Fill-85" stroke-opacity="0.57458673" stroke="#B4EE73" points="36.4056375 505.809697 36.4056375 40.5683927 610.324548 303.007431"></polygon>
+                        <polygon id="Fill-85" stroke-opacity="0.460909194" stroke="#B4EE73" points="80.9260923 468.833492 80.9260923 82.3861238 557.645271 300.378109"></polygon>
+                        <polygon id="Fill-85" stroke-opacity="0.161713089" stroke="#B4EE73" points="78.1225045 435.177928 78.1225045 119.463221 467.586294 297.555457"></polygon>
+                        <polygon id="Fill-85" stroke-opacity="0.154495018" stroke="#B4EE73" points="86.5282787 449.213378 86.5282787 105.427771 510.620162 299.354585"></polygon>
+                        <polygon id="Fill-85" points="28.7811555 457.773479 28.7811555 94.3117896 477.145337 299.33773"></polygon>
+                    </g>
+                    <g id="三角形右边" transform="translate(1336.000000, 500.000000)" opacity="0.76015625" stroke="#76CB2D">
+                        <polygon id="Fill-85" stroke-width="2" transform="translate(298.165147, 255.667923) scale(-1, -1) translate(-298.165147, -255.667923) " points="0.479620088 511.283328 0.479620088 0.0525173609 595.850673 289.372974"></polygon>
+                        <polygon id="Fill-85" stroke-opacity="0.457795516" transform="translate(310.268808, 253.528214) scale(-1, -1) translate(-310.268808, -253.528214) " points="40.4294788 485.232759 40.4294788 21.8236686 580.108138 284.080416"></polygon>
+                        <polygon id="Fill-85" stroke-opacity="0.2518399" transform="translate(323.814639, 250.638279) scale(-1, -1) translate(-323.814639, -250.638279) " points="82.9482152 457.464486 82.9482152 43.8120708 564.681063 277.910062"></polygon>
+                        <polygon id="Fill-85" stroke-opacity="0.151437953" transform="translate(336.749729, 247.637147) scale(-1, -1) translate(-336.749729, -247.637147) " points="126.170433 428.456526 126.170433 66.8177682 547.329024 271.47971"></polygon>
+                        <polygon id="Fill-85" stroke-opacity="0.118970788" transform="translate(351.876457, 244.357385) scale(-1, -1) translate(-351.876457, -244.357385) " points="176.046955 395.337952 176.046955 93.3768194 527.705958 264.265449"></polygon>
+                    </g>
+                    <g id="Group-21" transform="translate(1304.000000, 659.771360)">
+                        <g id="Path-14">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                            <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        </g>
+                        <polygon id="Path-14" fill="#D3D9CE" opacity="0.669698661" filter="url(#filter-3)" points="20.7016025 51.4255845 20.7016025 58.9856293 41.787337 70.2881994 71.2904646 58.9856293 71.2904646 54.6011619 47.186711 39.448858"></polygon>
+                        <g id="Group-19" transform="translate(20.098862, 0.033932)">
+                            <polygon id="Path-15" fill="#8AD500" points="0 11.5177366 20.3057218 21.2386694 20.3057218 61.8985773 0 52.1342817"></polygon>
+                            <polygon id="Path-16" fill="#50AC02" points="20.98462 21.0866727 20.98462 61.8003732 51.2727271 51.2929572 51.2727271 10.0791099"></polygon>
+                            <polygon id="Path-17" fill="#58BF00" points="0.702752891 10.9925412 20.753398 20.681257 50.8674411 9.39103108 31.0176788 0.0911689706"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

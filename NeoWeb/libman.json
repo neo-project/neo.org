@@ -10,7 +10,7 @@
       ]
     },
     {
-      "library": "twitter-bootstrap@4.1.3",
+      "library": "twitter-bootstrap@4.2.1",
       "destination": "wwwroot/lib/bootstrap/",
       "files": [
         "js/bootstrap.min.js",
@@ -46,7 +46,49 @@
     },
     {
       "library": "tinymce@4.9.2",
-      "destination": "wwwroot/tinymce/"
+      "destination": "wwwroot/lib/tinymce/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "bootstrap-fileinput@4.5.2",
+      "destination": "wwwroot/lib/bootstrap-fileinput/",
+      "files": [
+        "css/fileinput-rtl.css",
+        "css/fileinput-rtl.min.css",
+        "css/fileinput.css",
+        "css/fileinput.min.css",
+        "img/loading-sm.gif",
+        "img/loading.gif",
+        "js/locales/zh.js",
+        "js/locales/zh.min.js",
+        "js/locales/zh.min.js.map",
+        "js/plugins/piexif.js",
+        "js/plugins/piexif.min.js",
+        "js/plugins/purify.js",
+        "js/plugins/purify.min.js",
+        "js/plugins/sortable.js",
+        "js/plugins/sortable.min.js",
+        "js/fileinput.js",
+        "js/fileinput.min.js",
+        "themes/explorer/theme.css",
+        "themes/explorer/theme.js",
+        "themes/explorer/theme.min.css",
+        "themes/explorer/theme.min.js",
+        "themes/explorer-fa/theme.css",
+        "themes/explorer-fa/theme.js",
+        "themes/explorer-fa/theme.min.css",
+        "themes/explorer-fa/theme.min.js",
+        "themes/explorer-fas/theme.css",
+        "themes/explorer-fas/theme.js",
+        "themes/explorer-fas/theme.min.css",
+        "themes/explorer-fas/theme.min.js",
+        "themes/fa/theme.js",
+        "themes/fa/theme.min.js",
+        "themes/fas/theme.js",
+        "themes/fas/theme.min.js",
+        "themes/gly/theme.js",
+        "themes/gly/theme.min.js"
+      ]
     }
   ]
 }

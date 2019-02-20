@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="791px" height="336px" viewBox="0 0 791 336" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-5" transform="translate(-30.000000, -60.000000)">
+            <g id="Group" transform="translate(22.000000, 43.000000)">
+                <g id="Group-35" transform="translate(0.930701, 0.755629)">
+                    <g id="Group-29">
+                        <text id="Smart-Economy" font-family="PingFangSC-Medium, PingFang SC" font-size="48" font-weight="400" letter-spacing="4" fill="#4A4A4A">
+                            <tspan x="192.206106" y="51.009515">Smart Economy</tspan>
+                        </text>
+                        <path d="M382.592167,84.4617137 L400.657152,218.915109" id="Stroke-101" stroke="#B1BAC9" stroke-width="2" stroke-dasharray="10" transform="translate(391.399050, 151.443949) scale(1, -1) rotate(8.000000) translate(-391.399050, -151.443949) "></path>
+                        <path d="M57.9894015,186.54491 L69.4450222,268.055887 L397.775078,221.39939 L725.836715,174.796223 L714.520267,94.2755142" id="Stroke-101" stroke="#B1BAC9" stroke-width="2" stroke-dasharray="10" transform="translate(391.913058, 181.165701) scale(1, -1) rotate(8.000000) translate(-391.913058, -181.165701) "></path>
+                        <text id="Digital-Assets" font-family="PingFangSC-Medium, PingFang SC" font-size="36" font-weight="400" letter-spacing="3" fill="#4A4A4A">
+                            <tspan x="7.834" y="293.733053">Digital </tspan>
+                            <tspan x="7.156" y="343.733053">Assets</tspan>
+                        </text>
+                        <text id="Digital-Identity" font-family="PingFangSC-Medium, PingFang SC" font-size="36" font-weight="400" letter-spacing="3" fill="#4A4A4A">
+                            <tspan x="328.834" y="293.733053">Digital </tspan>
+                            <tspan x="319" y="343.733053">Identity</tspan>
+                        </text>
+                        <text id="Smart-Contract" font-family="PingFangSC-Medium, PingFang SC" font-size="36" font-weight="400" letter-spacing="3" fill="#4A4A4A">
+                            <tspan x="656.65" y="293.733053">Smart</tspan>
+                            <tspan x="628.786" y="343.733053">Contract</tspan>
+                        </text>
+                    </g>
+                </g>
+                <polygon id="Path-7" stroke="#478E0A" transform="translate(154.481439, 35.914452) scale(-1, 1) rotate(90.000000) translate(-154.481439, -35.914452) " points="146.251314 27.2684088 154.521033 32.7582918 162.711563 27.2684088 162.711563 38.974739 154.521033 44.5604946 146.251314 38.974739"></polygon>
+                <polygon id="Path-7" stroke="#478E0A" transform="translate(638.208789, 36.202171) rotate(90.000000) translate(-638.208789, -36.202171) " points="629.978664 27.5561283 638.248384 33.0460113 646.438914 27.5561283 646.438914 39.2624584 638.248384 44.848214 629.978664 39.2624584"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

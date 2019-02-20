@@ -129,11 +129,11 @@
   <data name="Developer" xml:space="preserve">
     <value>开发者</value>
   </data>
-  <data name="Document" xml:space="preserve">
+  <data name="Technical Documents" xml:space="preserve">
     <value>技术文档</value>
   </data>
   <data name="Download Logo" xml:space="preserve">
-    <value>Logo下载</value>
+    <value>Logo 下载</value>
   </data>
   <data name="Explorer" xml:space="preserve">
     <value>区块链浏览器</value>
@@ -145,7 +145,7 @@
     <value>活动行</value>
   </data>
   <data name="NEO is a non-profit community-based blockchain project that utilizes blockchain technology and digital identity to digitize assets, to automate the management of digital assets using smart contracts, and to realize a &quot;smart economy&quot; with a distributed network." xml:space="preserve">
-    <value>NEO是一个非盈利的社区化的区块链项目，是利用区块链技术和数字身份进行资产数字化，利用智能合约对数字资产进行自动化管理，实现“智能经济”的一种分布式网络。</value>
+    <value>NEO 是一个非盈利的社区化的区块链项目，是利用区块链技术和数字身份进行资产数字化，利用智能合约对数字资产进行自动化管理，实现“智能经济”的一种分布式网络。</value>
   </data>
   <data name="NEO Smart Economy" xml:space="preserve">
     <value>NEO 智能经济</value>
@@ -176,5 +176,23 @@
   </data>
   <data name="MainNet Anniversary" xml:space="preserve">
     <value>2 周年</value>
+  </data>
+  <data name="Apply Testnet NEO/GAS" xml:space="preserve">
+    <value>申请测试网的 NEO/GAS</value>
+  </data>
+  <data name="More" xml:space="preserve">
+    <value>更多</value>
+  </data>
+  <data name="NEO Contributors" xml:space="preserve">
+    <value>贡献者</value>
+  </data>
+  <data name="Security Bounty" xml:space="preserve">
+    <value>安全奖励</value>
+  </data>
+  <data name="Site Map" xml:space="preserve">
+    <value>站点地图</value>
+  </data>
+  <data name="https://t.me/NEO_EN" xml:space="preserve">
+    <value>https://t.me/NEO_Chinese</value>
   </data>
 </root>

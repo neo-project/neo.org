@@ -4,7 +4,7 @@
     ViewData["Title"] = "备注";
 }
 <div class="row coin-back">
-    <h2 class="m3">添加备注</h2>
+    <h2 class="col-md-12 m1">添加备注</h2>
     <div class="col-md-12">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -18,13 +18,13 @@
                 <span asp-validation-for="Remark" class="text-danger"></span>
             </div>
             <div class="m3">
-                <input type="submit" value="保存" class="btn btn-secondary" />
+                <input type="submit" value="保存" class="btn-static btn3" />
             </div>
         </form>
     </div>
 </div>
 
-<div class="back-to-list">
+<div class="back-to-list m3">
     <a onclick="document.referrer === '' ?
           window.location.pathname = '/Testnet/list' :
           window.history.back();">返回上一页</a>

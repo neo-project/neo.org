@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewData["Title"] = "站点地图";
+}
+<style>
+    .map-container {
+        background-color: white;
+        color: #7f7f7f;
+        padding-bottom: 50px;
+    }
+
+    .map-container a {
+        margin-right: 15px;
+    }
+
+    .map-container span {
+        background: #dd1b1b;
+        color: #fff;
+        border-radius: 5px;
+        padding: 2px 4px;
+        font-size: 12px;
+    }
+</style>
+<div class="text-center p2">
+    <h2 class="m1">站点地图</h2>
+</div>
+<div class="container map-container border-static p2">
+    <a href="~/">首页</a>
+    <hr />
+    <a href="~/dev">开发者</a>
+    <a href="http://docs.neo.org/">技术文档 <i class="iconfont">&#xe6f4;</i></a>
+    <a href="https://docs.neo.org/developerguide">开发指南 <i class="iconfont">&#xe6f4;</i></a>
+    <a href="https://github.com/neo-project">GitHub <i class="iconfont">&#xe6f4;</i></a>
+    <a href="~/dev/bounty">安全奖励</a>
+    <hr />
+    <a href="~/testcoin/apply">测试币申请</a>
+    <a href="~/testcoin/list"><span>Admin</span> 测试币列表</a> <a title="请在测试币列表页面点击" href="javascript:"><span>Admin</span> 备注</a> <a title="请在测试币列表页面点击" href="javascript:"><span>Admin</span> 删除</a> <a title="请在测试币列表页面点击" href="javascript:"><span>Admin</span> 详情</a>
+    <hr />
+    <a href="~/client">客户端</a>
+    <hr />
+    <a href="~/blog">博客</a>
+    <a title="请在博客页面点击" href="javascript:">博客详情</a> <a title="请在博客页面点击" href="~/blog/create"><span>Admin</span> 发布</a> <a title="请在博客页面点击" href="javascript:"><span>Admin</span> 编辑</a> <a title="请在博客页面点击" href="javascript:"><span>Admin</span> 删除</a>
+    <hr />
+    <a href="~/event">活动</a>
+    <a title="请在活动页面点击" href="javascript:">活动详情</a> <a href="~/event/create"><span>Admin</span> 发布</a> <a title="请在活动页面点击" href="javascript:"><span>Admin</span> 编辑</a> <a title="请在活动页面点击" href="javascript:"><span>Admin</span> 删除</a>
+    <a href="https://devcon.neo.org/">DevCon <i class="iconfont">&#xe6f4;</i></a>
+    <hr />
+    <a href="~/consensus">共识节点</a>
+    <hr />
+    <a href="~/team">贡献者</a>
+    <hr />
+    <a href="~/logo">LOGO 下载</a>
+    <hr />
+    <a href="~/map">站点地图</a>
+    <hr />
+    <a href="~/careers">加入我们</a> <a href="~/careers/create"><span>Admin</span> 发布</a> <a title="请在加入我们页面点击" href="javascript:"><span>Admin</span> 编辑</a>
+    <hr />
+    <a href="~/subscription"><span>Admin</span> 邮件订阅列表</a>
+    <hr />
+    <a href="~/identity/account/register">注册</a> <a href="~/identity/account/login">登录</a> <a href="~/identity/account/manage">账户管理</a> <a href="~/identity/account/manage/changepassword">修改密码</a> <a href="~/identity/account/manage/twofactorauthentication">二次验证</a> <a href="~/identity/account/manage/personaldata">个人信息</a> <a title="暂不可用" href="~/identity/account/forgotpassword">忘记密码</a>
+    <hr />
+    <a href="http://ndapp.org/">DAPPS <i class="iconfont">&#xe6f4;</i></a>
+</div>
+@await Html.PartialAsync("_LoginPartial")
+

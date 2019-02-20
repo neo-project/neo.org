@@ -121,17 +121,14 @@ namespace NeoWeb.Controllers
                 return RedirectToAction("Index");
             }
 
-            var blogs = _context.Blogs.OrderByDescending(o => o.CreateTime).Select(p => new
-            {
-                p.Id,
-                p.CreateTime
-            }).ToList().Select(p => new Blog()
+            var blogs = _context.Blogs.OrderByDescending(o => o.CreateTime).Select(p => new Blog()
             {
                 Id = p.Id,
-                CreateTime = p.CreateTime
+                CreateTime = p.CreateTime,
+                Lang = p.Lang
             });
 
-            var idList = blogs.Select(p => p.Id).ToList();
+            var idList = blogs.Where(p => p.Lang == _localizer["en"]).Select(p => p.Id).ToList();
             ViewBag.NextBlogId = idList[Math.Max(idList.IndexOf((int)id) - 1, 0)];
             ViewBag.PrevBlogId = idList[Math.Min(idList.IndexOf((int)id) + 1, idList.Count - 1)];
 
@@ -144,7 +141,7 @@ namespace NeoWeb.Controllers
             ViewBag.UserId = _userId;
             ViewBag.UserRules = _userRules;
 
-            if (string.IsNullOrEmpty(Request.Cookies[blog.Id.ToString()]) && Request.Cookies.Count >= 3)
+            if (string.IsNullOrEmpty(Request.Cookies[blog.Id.ToString()]) && Request.Cookies.Count >= 1)
             {
                 blog.ReadCount++;
             }

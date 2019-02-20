@@ -8,67 +8,65 @@
 
 @section Styles{
     <environment include="Development">
-        <link rel="stylesheet" href="@Helper.CDN/css/consensus.css" />
+        <link rel="stylesheet" href="/css/consensus.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.CDN/css/consensus.min.css?v=20181020.1" />
+        <link rel="stylesheet" href="@Helper.ToCDN("/css/consensus.min.css", true)" />
     </environment>
+    <link rel="stylesheet" href="@Helper.ToCDN("/lib/bootstrap-fileinput/css/fileinput.css")" />
 }
 
-<div class="container">
-    <div class="title-line t1 m2">@Localizer["Blockchain Info"]</div>
-    <div class="row block-info">
-        <div class="info-cont">
-            <p class="info-icon gray-text"><i class="iconfont">&#xe619;</i></p>
-            <p class="t2">@Localizer["Block Height"]</p>
-            <span class="t1" id="blohei">--</span>
-        </div>
-        <div class="info-cont">
-            <p class="info-icon gray-text"><i class="iconfont">&#xe6c1;</i></p>
-            <p class="t2">@Localizer["Last Time"]</p>
-            <span class="t1" id="lastime">--</span>
-        </div>
-        <div class="info-cont">
-            <p class="info-icon gray-text"><i class="iconfont">&#xe61c;</i></p>
-            <p class="t2">@Localizer["Candidate Count"]</p>
-            <span class="t1" id="cannum">--</span>
-        </div>
-        <div class="info-cont">
-            <p class="info-icon gray-text"><i class="iconfont">&#xe609;</i></p>
-            <p class="t2">@Localizer["Consensus Count"]</p>
-            <span class="t1" id="connum">--</span>
-        </div>
+<div class="title-line h3 m1">@Localizer["Blockchain Info"]</div>
+<div class="row block-info m2">
+    <div class="info-cont">
+        <p class="info-icon gray-text"><i class="iconfont">&#xe619;</i></p>
+        <p class="t3">@Localizer["Block Height"]</p>
+        <span class="t2" id="blohei">--</span>
     </div>
-    <div class="title-line t1 m2">@Localizer["Blockchain indicator"]</div>
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="block-data">
-                <div class="can-charts" id="main"></div>
-            </div>
+    <div class="info-cont">
+        <p class="info-icon gray-text"><i class="iconfont">&#xe6c1;</i></p>
+        <p class="t3">@Localizer["Last Time"]</p>
+        <span class="t2" id="lastime">--</span>
+    </div>
+    <div class="info-cont">
+        <p class="info-icon gray-text"><i class="iconfont">&#xe61c;</i></p>
+        <p class="t3">@Localizer["Candidate Count"]</p>
+        <span class="t2" id="cannum">--</span>
+    </div>
+    <div class="info-cont">
+        <p class="info-icon gray-text"><i class="iconfont">&#xe609;</i></p>
+        <p class="t3">@Localizer["Consensus Count"]</p>
+        <span class="t2" id="connum">--</span>
+    </div>
+</div>
+<div class="title-line h3 m1">@Localizer["Blockchain indicator"]</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="block-data border-static m2">
+            <div class="can-charts" id="main"></div>
         </div>
     </div>
-    <div class="title-line t1 m2">
-        @Localizer["Off-Chain Governance"]
-    </div>
-    <div class="gray-back p2 text-center">
-        <p class="m3 t2">
-            @Localizer["For more details, see the documentation:"]<a class="green-text" href="@Localizer["https://neo-ngd.github.io/reference/How-To-Become-NEO-Consensus-Node.html"]"> @Localizer["How To Become A Consensus Node"]</a>
-        </p>
-        <a class="tab-btn text-white m3" href="mailto:consensus@neo.org">@Localizer["Apply"]</a>
-    </div>
-    <div class="title-line t1 m2 mb0">
-        @Localizer["On-Chain Governance"]
-    </div>
-    <div class="flo-clear m3">
-        <a class="tab-btn float-right d-none d-xl-block" data-toggle="modal" data-target="#exampleModal">@Localizer["Provide Candidate Info"]</a>
-    </div>
-    <div class="row">
-        <ul class="col-sm-12 table-list" id="tableList"></ul>
-    </div>
-    <p class="m3">
-        <a href="javascript:" onclick="setLanguage('en-us')">English</a>
-        <a class="p4" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+</div>
+<div class="title-line h3 m1">
+    @Localizer["On-Chain & Off-Chain Governance"]
+</div>
+<div class="gray-back p2 text-center border-static m2 p1">
+    <p class="t4 w800 m3">
+        @Localizer["Off-chain governance relies on the continued support from NEO Foundation. Candidates establish a strategic partnership with the NEO Foundation and receive votes from the Foundation.<br />On-chain governance relies on the mechanisms of the NEO blockchain itself. Candidates become a consensus node through the votes of NEO holders and maintain it independently."]<br />
     </p>
+    <p class="t4 w800 m3">
+        @Localizer["For more details, see the documentation:"]<a class="green-text" href="@Localizer["https://neo-ngd.github.io/reference/How-To-Become-NEO-Consensus-Node.html"]"> @Localizer["How To Become A Consensus Node"]</a>
+    </p>
+    <a class="btn-static btn5 m3" href="mailto:consensus@neo.org">@Localizer["Apply"]</a>
+</div>
+<div class="title-line h3 m1">
+    @Localizer["Node List"]
+</div>
+<div class="flo-clear m3">
+    <a class="btn-static btn3 float-right d-none d-xl-block" data-toggle="modal" data-target="#exampleModal">@Localizer["Provide Candidate Info"]</a>
+</div>
+<div class="row">
+    <ul class="col-sm-12 table-list m3" id="tableList"></ul>
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
@@ -102,7 +100,7 @@
                         <div class="col-6 form-group">
                             <label asp-for="Logo" class="control-label">@Localizer["Logo"]</label>
                             <input type="hidden" asp-for="Logo" name="oldLogo" />
-                            <input type="file" name="logo" id="logo" class="form-control" />
+                            <input type="file" name="logo" id="logo" class="form-control" data-show-preview="false" />
                         </div>
                     </div>
                     <div class="row">
@@ -147,7 +145,7 @@
                         <span class="text-danger">@ViewBag.Message</span>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="@Localizer["Submit"]" class="btn btn-default float-right" />
+                        <input type="submit" value="@Localizer["Submit"]" class="btn btn-light float-right" />
                     </div>
                 </form>
             </div>
@@ -155,10 +153,10 @@
     </div>
 </div>
 <script id="test" type="text/html">
-    <li class="pt0 pr0">
+    <li class="pt0 pr0 border-static">
         <div class="can-th p4">
-            {{if Active}}<span class="detail-left t2 green-text">@Localizer["Consensus Node"]</span>{{/if}}
-            {{if !Active}}<span class="detail-left t3">@Localizer["Candidate Node"]</span>{{/if}}
+            {{if Active}}<span class="detail-left t3 bold-font green-text">@Localizer["Consensus Node"]</span>{{/if}}
+            {{if !Active}}<span class="detail-left t4">@Localizer["Candidate Node"]</span>{{/if}}
             <div class="detail-right">
                 <span class="can-votes">@Localizer["Votes"]: {{Votes}}</span>
                 <span class="pub-key ">@Localizer["Public Key"]: <span class="text-ellipsis">{{PublicKey}}</span></span>
@@ -182,22 +180,27 @@
 
 @section Scripts{
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-<environment include="Development">
-    <script src="/js/echarts.js"></script>
-    <script src="/js/template.js"></script>
-    <script src="/js/getseed.js"></script>
-    <script src="/js/sha256.min.js"></script>
-    <script src="/js/consensus.js"></script>
-</environment>
-    <environment exclude="Development">
-        <script src="@Helper.CDN/js/echarts.js"></script>
-        <script src="@Helper.CDN/js/template.js"></script>
-        <script src="/js/getseed.js"></script>
-        <script src="@Helper.CDN/js/sha256.min.js"></script>
-        <script src="@Helper.CDN/js/consensus.min.js?v=20181020"></script>
+    <environment include="Development">
+        <script src="/js/echarts.js" asp-append-version="true"></script>
+        <script src="/js/template.js" asp-append-version="true"></script>
+        <script src="/js/sha256.min.js" asp-append-version="true"></script>
+        <script src="/js/consensus.js" asp-append-version="true"></script>
     </environment>
-    
+    <environment exclude="Development">
+        <script src="@Helper.ToCDN("/js/echarts.js")"></script>
+        <script src="@Helper.ToCDN("/js/template.js")"></script>
+        <script src="@Helper.ToCDN("/js/sha256.min.js")"></script>
+        <script src="@Helper.ToCDN("/js/consensus.min.js", true)"></script>
+    </environment>
+    <script src="/js/getseed.js" asp-append-version="true"></script>
+    <script src="@Helper.ToCDN("/lib/bootstrap-fileinput/js/fileinput.min.js")"></script>
+    <script src="@Helper.ToCDN("/lib/bootstrap-fileinput/js/locales/zh.js")"></script>
     <script>
+        $("#logo").fileinput({
+            language: '@Localizer["en"]',
+            showUpload: false,
+            allowedFileExtensions: ['jpg', 'png', 'gif'],
+        });
         function hashInfo() {
             var msg = "candidate" + $("#Email").val() + $("#Website").val() + $("#SocialAccount").val() + $("#Summary").val();
             $("#hash").val(sha256(msg));

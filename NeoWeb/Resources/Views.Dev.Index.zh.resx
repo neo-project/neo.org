@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Apply for NEO/GAS" xml:space="preserve">
-    <value>申请NEO/GAS</value>
+    <value>申请 NEO/GAS</value>
   </data>
   <data name="Apply For NEO/GAS in Testnet" xml:space="preserve">
-    <value>申请测试网的NEO/GAS</value>
+    <value>申请测试网的 NEO/GAS</value>
   </data>
-  <data name="If you are developing a NEO ecosystem application project, and need NEO/GAS in the &lt;b&gt;TestNet&lt;/b&gt;, please fill in the following application form and send it. Once your application has been processed, you will receive an email notification." xml:space="preserve">
-    <value>如果你正在创建NEO生态的项目，需要 &lt;b&gt;测试网&lt;/b&gt; 的 NEO 或 GAS，请填写下面的表单进行申请，申请通过后会收到邮件通知。</value>
+  <data name="If you are developing a project in the NEO ecosystem, you'll need NEO/GAS for development. You can click the Apply button to fill out an application form, or get them automatically through our Faucet." xml:space="preserve">
+    <value>如果你正在创建 NEO 生态的项目，需要 测试网 的 NEO 或 GAS，可以点击申请按钮填写表单人工申请，或者通过我们的 Testnet Faucet 自动申请。</value>
   </data>
   <data name="Technical Documents" xml:space="preserve">
     <value>技术文档</value>
@@ -134,5 +134,95 @@
   </data>
   <data name="Security Bounty" xml:space="preserve">
     <value>安全奖励</value>
+  </data>
+  <data name="Building blockchain games in NEO" xml:space="preserve">
+    <value>在 NEO 上开发区块链游戏</value>
+  </data>
+  <data name="Building decentralized apps in the form of smart contracts" xml:space="preserve">
+    <value>使用智能合约开发去中心化的 App</value>
+  </data>
+  <data name="Consensus" xml:space="preserve">
+    <value>共识机制</value>
+  </data>
+  <data name="Develop wallets that suport NEO, GAS, and other NEP-5 assets" xml:space="preserve">
+    <value>开发支持 NEO、GAS 和其它 NEP-5 资产的钱包客户端</value>
+  </data>
+  <data name="Developer Guide" xml:space="preserve">
+    <value>开发指南</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>下载</value>
+  </data>
+  <data name="Exchange Integration" xml:space="preserve">
+    <value>交易所对接</value>
+  </data>
+  <data name="Explorer, monitor, compiler and other blockchain tools" xml:space="preserve">
+    <value>开发区块链浏览器，节点监控，编译器和其它区块链工具</value>
+  </data>
+  <data name="Gaming" xml:space="preserve">
+    <value>游戏</value>
+  </data>
+  <data name="Learn how to use smart contracts for mint NEP-5 Tokens" xml:space="preserve">
+    <value>学习如何使用智能合约发行 NEP-5 资产</value>
+  </data>
+  <data name="Mint NEP-5 Tokens" xml:space="preserve">
+    <value>发行 NEP-5 资产</value>
+  </data>
+  <data name="The Technical Documentation provides developers with a comprehensive foundation. Its content includes basic NEO knowledge and client manuals to help new developers get started; development tools, Smart Contract examples &amp; API documentation suitable for intermediate developers; and more." xml:space="preserve">
+    <value>NEO 技术文档为开发者提供全面基础的开发指导，内容覆盖帮助初级开发者入门的 NEO 相关知识介绍、NEO 节点客户端的使用指南以及开发环境的搭建，还有适合初中级开发者进阶的开发工具、智能合约教程、示例和 API 文档可供参考。</value>
+  </data>
+  <data name="Quick Start" xml:space="preserve">
+    <value>快速开始</value>
+  </data>
+  <data name="Smart Contract" xml:space="preserve">
+    <value>智能合约</value>
+  </data>
+  <data name="If you are a Blockchain Developer or wish to learn more technical details on NEO, head to the Developer's Guide in the Documentation. It helps readers to quickly start participating in the construction of NEO ecosystem's infrastructures." xml:space="preserve">
+    <value>如果你是区块链技术人员，或者想要了解NEO底层的技术细节，可以参阅文档中的开发指南。 本文档可以帮助开发者快速地参与 NEO 的经济生态系统的建设。</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>工具</value>
+  </data>
+  <data name="Wallet" xml:space="preserve">
+    <value>钱包</value>
+  </data>
+  <data name="Whitepaper" xml:space="preserve">
+    <value>白皮书</value>
+  </data>
+  <data name="&lt;a class='p4 green-text' href='https://neo-ngd.github.io/reference/Becoming_Core_Dev/How-to-Become-A-NEO-Core-Developer-V2.0.html'&gt;How to Become A NEO Core Developer&lt;/a&gt;" xml:space="preserve">
+    <value>&lt;a class='p4 green-text' href='https://neo-ngd.github.io/reference/Becoming_Core_Dev/如何成为核心开发者V2.0.html'&gt;如何成为核心开发者&lt;/a&gt;</value>
+  </data>
+  <data name="Our code base is entirely open-source, including suggestions and discussions on NEO's Enhancement Protocols. We welcome Pull Requests and Issues from all developers. Developers with outstanding contributions will be given rewards through the Core Developers Program." xml:space="preserve">
+    <value>我们所有的代码都是在 GitHub 上开源的，NEO 的改进建议也在 GitHub 上讨论。欢迎广大开发者提交 Pull Request 或者 Issue，对于贡献较大的开发者，我们会通过核心开发者计划给予一定的回报。</value>
+  </data>
+  <data name="The goal of the Program is to ensure the safety of NEO's Blockchain infrastructure. If you find potential security vulnerabilities and threats, please contact us as soon as possible. We will try our best to investigate those eligible vulnerabilities and fix valid issues." xml:space="preserve">
+    <value>NEO Vulnerability Bounty Program 的目的在于保障 NEO 区块链系统的安全，如果发现关于我们的区块链底层的潜在安全性问题或者威胁，请尽快联系并反馈给我们。我们将调查所有合格的漏洞报告，并尽最大努力迅速解决问题。</value>
+  </data>
+  <data name="Developer" xml:space="preserve">
+    <value>开发者</value>
+  </data>
+  <data name="Document for Exchange Developers" xml:space="preserve">
+    <value>交易所开发文档</value>
+  </data>
+  <data name="Documentation" xml:space="preserve">
+    <value>技术文档</value>
+  </data>
+  <data name="en-us" xml:space="preserve">
+    <value>zh-cn</value>
+  </data>
+  <data name="d-none" xml:space="preserve">
+    <value />
+  </data>
+  <data name="d-none-zh" xml:space="preserve">
+    <value>d-none</value>
+  </data>
+  <data name="Automatic Entry" xml:space="preserve">
+    <value>自动申请通道</value>
+  </data>
+  <data name="Manual Entry" xml:space="preserve">
+    <value>人工通道</value>
+  </data>
+  <data name="What you can build" xml:space="preserve">
+    <value>我可以使用 NEO 开发什么？</value>
   </data>
 </root>
