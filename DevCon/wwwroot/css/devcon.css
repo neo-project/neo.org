@@ -99,15 +99,17 @@ html,body {
 .venue-info {
     width: 46vw;
     height: 40vw;
-    max-width: 46vw;
+    max-width: 470px;
+    max-height: 470px;
     padding: 2vw;
     text-align: left;
 }
 
 .venue-map {
     width: 46vw;
-    height: 40vw;
-    max-width: 46vw;
+    height: 46vw;
+    max-width: 470px;
+    max-height: 470px;
     padding: 2vw;
 }
 
@@ -145,6 +147,10 @@ html,body {
     box-shadow: 5px 5px 10px #3A8435;
     border-radius: 5px;
     padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 .dev-container.bg-white{
     background: white;
@@ -169,13 +175,16 @@ html,body {
     text-align:center;
 }
 .dev-content h1 {
-    font-size: 5vw;
+    font-size: calc(15px + 2.5vw);
     text-align: center;
 }
+
 .dev-organizer h1 {
-    color: black;
-    font-size: 5vw;
-    padding: 30px 10vw;
+    padding-bottom: 50px;
+}
+
+.dev-venue h1 {
+    padding-bottom: 50px;
 }
 
 a {
@@ -353,6 +362,13 @@ a {
 .yellow-text {color:#F6FF02;}
 .black-text {color:#000000;}
 
+@media only screen and (min-width:1024px) {
+    .dev-content {
+        max-width: 1024px;
+        margin: auto;
+    }
+}
+
 @media only screen and (max-width:1550px) {
     .font-xl {font-size:70px;}
     .font-l {font-size:45px;}
@@ -375,14 +391,6 @@ a {
     .dev-year {
         height: 120px;
         line-height: 110px;
-    }
-    .dev-btn-1 {
-    }
-    .dev-btn-2 {
-    }
-    .dev-ticket {
-    }
-    .sub-email {
     }
 }
 @media only screen and (max-width:1368px) {

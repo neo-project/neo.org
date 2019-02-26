@@ -30,11 +30,11 @@ namespace NeoWeb.Controllers
 
         [HttpGet]
         [HttpPost]
-        public string Add([Bind("Email")] Subscription subscription)
+        public string Add([Bind("Id, Email, Group")] Subscription subscription)
         {
             if (ModelState.IsValid)
             {
-                if (_context.Subscription.Any(e => e.Email == subscription.Email))
+                if (_context.Subscription.Any(e => e.Email == subscription.Email && e.Group == subscription.Group))
                     return "Email has been submitted, do not repeat the submission."; //重复提交
                 if (!Helper.CCAttack(_accessor.HttpContext.Connection.RemoteIpAddress, "consensus_post", 3600, 10))
                     return "Protecting from overposting attacks now!"; //IP被禁止访问
