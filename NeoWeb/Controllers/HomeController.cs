@@ -1,31 +1,35 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
-using NeoWeb.Models;
-using NeoWeb.Data;
-using Microsoft.AspNetCore.Localization;
-using Microsoft.AspNetCore.Http;
 using System.Globalization;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
+using NeoWeb.Data;
+using NeoWeb.Models;
 
 namespace NeoWeb.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IStringLocalizer<HomeController> _localizer;
 
-        public HomeController(ApplicationDbContext context)
+        public HomeController(ApplicationDbContext context, IStringLocalizer<HomeController> localizer)
         {
             _context = context;
-        }
-        
-        public IActionResult Index()
-        {
-            return View();
+            _localizer = localizer;
         }
 
-        public IActionResult Error()
+        public IActionResult Index()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            ViewBag.Blog = _context.Blogs.Where(p => p.Lang == _localizer["en"]).OrderByDescending(p => p.CreateTime).Take(2);
+            ViewBag.Event = _context.Events.Include(m => m.Country).OrderByDescending(p => p.EndTime).Take(1);
+            return View();
         }
 
         [HttpPost]
@@ -52,6 +56,12 @@ namespace NeoWeb.Controllers
             }
 
             return LocalRedirect(returnUrl);
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

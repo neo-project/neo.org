@@ -8,43 +8,188 @@ html,body {
     font-family:"Mono","Microsoft Sans Serif";
     line-height: 1.8;
     letter-spacing:1px;
-    background: #43993E;
 }
-.modal-content{
-    line-height: 2;
-    width: 280px;
-    border-radius: 30px;
-    background: #4BA545;
-    color: #FFFFFF;
-    font-weight: 400;
+
+.dev-footer {
+    background: #f6f9f4;
+}
+
+.dev-footer .dev-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: left;
+    padding: 0 20px;
+}
+
+.dev-footer h3{
+    font-weight: bolder;
+    padding-bottom: 2vw;
+    padding-top: 3vw;
+}
+
+.dev-footer h5{
+    padding-bottom: 2vw;
+}
+
+.dev-footer a{
+    color: green;
+}
+
+.dev-footer ul,
+.dev-footer li{
+    list-style:none;
+    padding-left: 0;
+    text-decoration: underline;
+}
+
+.dev-footer .link-box{
+    max-width: 350px;
+    padding-right: 2vw;
+    padding-left: 1vw;
+}
+
+.dev-footer .contact-us .icon-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 18vw;
+    min-width: 180px;
+}
+
+.dev-footer .contact-us .icon-container div {
+    width: 3vw;
+    height: 3vw;
+    background: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5vw;
+    min-width: 30px;
+    min-height: 30px;
+}
+
+.dev-footer .contact-us .icon-container a {
+    display: flex;
+}
+
+
+.nav-header {
+    position:fixed;
+    height: 10vh;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.react-container {
+}
+
+.venue-sub-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.venue-sub-container img {
+    max-width: 46vw;
+}
+
+.venue-info {
+    width: 46vw;
+    height: 40vw;
+    max-width: 470px;
+    max-height: 470px;
+    padding: 2vw;
+    text-align: left;
+}
+
+.venue-map {
+    width: 46vw;
+    height: 46vw;
+    max-width: 470px;
+    max-height: 470px;
+    padding: 2vw;
+}
+
+.count-down {
+    display: flex;
+    color: #fff;
+    font-size: 0;
     margin: auto;
+    padding: 0;
+    text-align: center;
+}   
+.count-down li {
+    padding: 3px 2px;
+    border-left: 1px solid #fff;
+    display: inline-block;
+    width: 24%;
+    letter-spacing: 2px;
+    font-weight: 900
 }
+.count-down li:first-child {
+    border: none
+}
+
 .dev-container {
     padding:100px 0 120px;
     position: relative;
+    box-shadow: 5px 5px 10px #3A8435;
+}
+.about-container{
+    background:linear-gradient(0deg, #9CD026, 50%, #56B23A);
+    box-shadow: 5px 5px 10px #3A8435;
+}
+.about-container .dev-content {
+    background: white;
+    box-shadow: 5px 5px 10px #3A8435;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.dev-container.bg-white{
+    background: white;
 }
 .dev-container.bg-green{
-    background:url(../images/bg-green.png) repeat-x;
-    background:url(../images/background/back-1.png),url(../images/background/back-1.png),linear-gradient(-35deg,#43993E 58%,#A0C02F 75%,#A6C22F);
-    background-repeat:no-repeat,no-repeat,repeat-x;
+    background: url(../images/bg-green.png);
+    background: url(../images/background/back-1.png),url(../images/background/back-1.png),linear-gradient(-236deg,#9CD026 10%,#56B23A);
+    background-repeat: no-repeat,no-repeat,no-repeat;
     background-position: -70% center,160% center,center;
-    background-size:60%,60%,contain;
+    background-size: 60%,60%,contain
+}
+.home-container {
+    padding: 20px 0;
+    background:url(../Photos/ganapathy-kumar-113604-unsplash.jpg) no-repeat center;
+    background-size:100% 100%;
+    background-size: cover;
 }
 .dev-content {
     position:relative;
     z-index:3;
-    color:#FFFFFF;
+    color:#000000;
     text-align:center;
 }
+.dev-content h1 {
+    font-size: calc(15px + 2.5vw);
+    text-align: center;
+}
+
+.dev-organizer h1 {
+    padding-bottom: 50px;
+}
+
+.dev-venue h1 {
+    padding-bottom: 50px;
+}
+
 a {
     color:#FFFFFF;
     cursor:pointer;
-}
-a:visited,
-a:focus,
-a:hover{
-    color:#EEEEEE;
-    text-decoration:none;
 }
 .iconfont {
     font-size:22px;
@@ -71,12 +216,9 @@ a:hover{
     width:120px;
 }
 .dev-title img{
-    width:106%;
-    margin-left:-3%;
+    width:80%;
 }
 .dev-headline {
-    font-family:"Mono";
-    letter-spacing:2px;
 }
 
 /*第一个页面*/
@@ -218,6 +360,14 @@ a:hover{
 .ma-xs {margin-top:10px;margin-bottom:0px;}
 .bold-text {font-weight:900;}
 .yellow-text {color:#F6FF02;}
+.black-text {color:#000000;}
+
+@media only screen and (min-width:1024px) {
+    .dev-content {
+        max-width: 1024px;
+        margin: auto;
+    }
+}
 
 @media only screen and (max-width:1550px) {
     .font-xl {font-size:70px;}
@@ -235,9 +385,6 @@ a:hover{
     .dev-btn-1 {
         margin:5px 20px;
     }
-    .dev-title img{
-        margin-top: -15px;
-    }
     .coming-logo img{
         width:100px;
     }
@@ -245,19 +392,8 @@ a:hover{
         height: 120px;
         line-height: 110px;
     }
-    .dev-btn-1 {
-    }
-    .dev-btn-2 {
-    }
-    .dev-ticket {
-    }
-    .sub-email {
-    }
 }
 @media only screen and (max-width:1368px) {
-    .dev-title img{
-        margin-top: -50px;
-    }
     .coming-logo img{
         width:80px;
     }
@@ -363,9 +499,6 @@ a:hover{
     .title-line:after{
         margin-top: 12px;
         margin-left: 5px;
-    }
-    .modal {
-        position: absolute;
     }
 }
 @media only screen and (max-width: 320px) {

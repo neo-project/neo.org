@@ -1,15 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using NeoWeb.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using NeoWeb.Data;
-using NeoWeb.Models;
-using NeoWeb.Services;
 using System.Globalization;
 using Microsoft.Extensions.Logging;
+using NeoWeb.Controllers;
 
 namespace NeoWeb
 {
@@ -25,30 +31,22 @@ namespace NeoWeb
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-            services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders();
-
-            // Add application services.
-            services.AddTransient<IEmailSender, EmailSender>();
-
-            services.AddLocalization(options => options.ResourcesPath = "Resources");
-
-            services.AddRouting(options => options.LowercaseUrls = true);
-
-            services.AddMvc().AddViewLocalization().AddDataAnnotationsLocalization();
-
-            services.Configure<IdentityOptions>(options =>
+            services.Configure<CookiePolicyOptions>(options =>
             {
-                options.Password.RequireDigit = true;
-                options.Password.RequiredLength = 6;
-                options.Password.RequireLowercase = true;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = false;
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => false;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+            services.AddLocalization(options => options.ResourcesPath = "Resources");
+            services.AddRouting(options => options.LowercaseUrls = true);
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection")));
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddDefaultUI(UIFramework.Bootstrap4)
+                .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddMvc().AddViewLocalization().AddDataAnnotationsLocalization().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,10 +61,6 @@ namespace NeoWeb
                 new CultureInfo("zh-CN"),
                 new CultureInfo("zh")
             };
-
-            // 用户通过查询字符串来手动指定语言，如 http://localhost:5000/?culture=en-US
-            // 在 ASP.NET Core 1.0 有个 Bug，该设置仅在英文系统中可用，中文系统设置 ?culture=en-US 不起任何作用。
-            // 此 Bug 在 ASP.NET Core 2.0 版本中已修复，但在本地化方面仍然有其它 Bug。
             app.UseRequestLocalization(new RequestLocalizationOptions
             {
                 SupportedCultures = supportedCultures,
@@ -76,25 +70,18 @@ namespace NeoWeb
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
                 app.UseDatabaseErrorPage();
             }
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
             }
 
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
-
-            app.Use(async (context, next) =>
-            {
-                await next();
-            });
-
-
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseCookiePolicy();
             app.UseAuthentication();
 
             try
@@ -108,7 +95,8 @@ namespace NeoWeb
             {
                 //网站第一次运行，未创建数据库时会有异常
             }
-            
+            Helper.CurrentDirectory = Configuration["CurrentDirectory"];
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

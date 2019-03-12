@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1455px" height="652px" viewBox="0 0 1455 652" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="50%" cy="50.6905692%" fx="50%" fy="50.6905692%" r="65.0681149%" gradientTransform="translate(0.500000,0.506906),scale(1.000000,0.757813),rotate(90.000000),translate(-0.500000,-0.506906)" id="radialGradient-1">
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.3" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="50%" cy="50.6905692%" fx="50%" fy="50.6905692%" r="65.0681149%" gradientTransform="translate(0.500000,0.506906),scale(1.000000,0.757813),rotate(90.000000),translate(-0.500000,-0.506906)" id="radialGradient-2">
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.3" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="50%" cy="50.6905692%" fx="50%" fy="50.6905692%" r="63.8750611%" gradientTransform="translate(0.500000,0.506906),scale(1.000000,0.757813),rotate(90.000000),translate(-0.500000,-0.506906)" id="radialGradient-3">
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.296337183" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.1">
+        <g id="Artboard-3" transform="translate(-1410.000000, -993.000000)">
+            <g id="Group" transform="translate(1410.000000, 993.000000)">
+                <g id="download_background">
+                    <g id="circles" transform="translate(121.250000, -526.000000)">
+                        <ellipse id="outline" fill="url(#radialGradient-1)" cx="606.25" cy="800" rx="606.25" ry="800"></ellipse>
+                        <ellipse id="outline" fill="url(#radialGradient-2)" cx="606.25" cy="666.666667" rx="505.208333" ry="666.666667"></ellipse>
+                        <ellipse id="outline" fill="url(#radialGradient-3)" cx="606.25" cy="533.333333" rx="404.166667" ry="533.333333"></ellipse>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

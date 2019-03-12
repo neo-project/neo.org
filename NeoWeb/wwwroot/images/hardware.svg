@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="76px" viewBox="0 0 64 76" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 5</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-6" transform="translate(-17.000000, -18.000000)">
+            <g id="Group-5" transform="translate(17.000000, 15.000000)">
+                <g id="Group-4">
+                    <g id="Group-3">
+                        <g id="Group-2">
+                            <g id="Group" transform="translate(0.518902, 0.998571)">
+                                <path d="M62.607433,63.9344113 L62.607433,15.6897555 L46.5369601,24.6458837" id="Stroke-902" stroke="#E6E6E6" stroke-dasharray="4,4" transform="translate(54.572197, 39.812083) scale(1, -1) translate(-54.572197, -39.812083) "></path>
+                                <path d="M24.7989604,36.0569374 L24.7989604,16.4568398 L0.00387007571,28.4911555 L0.00387007571,76.7194108 L16.6679065,68.9670441" id="Stroke-902" stroke="#E3E3E3" stroke-dasharray="4,4" transform="translate(12.401415, 46.588125) scale(1, -1) translate(-12.401415, -46.588125) "></path>
+                                <path d="M62.3073801,12.3716882 L25.2630208,2.72195475 L0.85642466,16.6417445 L20.0521638,23.2609754" id="Stroke-101" stroke="#E3E3E3" stroke-dasharray="4" transform="translate(31.581902, 12.991465) scale(-1, 1) rotate(5.000000) translate(-31.581902, -12.991465) "></path>
+                            </g>
+                        </g>
+                        <g id="移动端2" transform="translate(18.000000, 28.500000)"></g>
+                    </g>
+                </g>
+                <g id="移动端3" transform="translate(20.000000, 27.500000)" stroke="#75AC45">
+                    <g id="Group-17" transform="translate(0.682728, 0.040215)">
+                        <polyline id="Path-21" points="0.388392294 22.9440545 0.388392294 2.57193642 0.388392294 2.57193642 4.2881684 0.678209522"></polyline>
+                        <polyline id="Path-21" transform="translate(2.338280, 14.553159) scale(1, -1) translate(-2.338280, -14.553159) " points="0.388392294 25.6860817 0.388392294 5.31396367 0.388392294 5.31396367 4.2881684 3.42023678"></polyline>
+                        <path d="M16.2567862,4.36879706 L8.03070441,21.5064674" id="Line-5" stroke-linecap="square"></path>
+                        <g id="Group-22" transform="translate(22.863752, 13.000000) scale(-1, 1) translate(-22.863752, -13.000000) translate(20.363752, 0.000000)">
+                            <polyline id="Path-21" points="0.388392294 22.9440545 0.388392294 2.57193642 0.388392294 2.57193642 4.2881684 0.678209522"></polyline>
+                            <polyline id="Path-21" transform="translate(2.338280, 14.553159) scale(1, -1) translate(-2.338280, -14.553159) " points="0.388392294 25.6860817 0.388392294 5.31396367 0.388392294 5.31396367 4.2881684 3.42023678"></polyline>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

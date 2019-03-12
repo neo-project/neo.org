@@ -5,14 +5,14 @@
 }
 @section Styles{
     <environment include="Development">
-        <link rel="stylesheet" href="/css/event.css" />
+        <link rel="stylesheet" href="/css/event.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.CDN/css/event.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="@Helper.ToCDN("/css/event.min.css", true)" />
     </environment>
 }
 <div class="container">
-    <h2 class="text-center">发布新活动</h2>
+    <h2 class="m2">发布新活动</h2>
     <form asp-action="Create" class="form-horizontal" enctype="multipart/form-data">
         @Html.Partial("_CreatePartialPage", Model)
     </form>

@@ -1,563 +1,317 @@
-﻿
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 @{
     ViewData["Title"] = "NEO Contributors";
 }
 @section Styles{
     <environment include="Development">
-        <link rel="stylesheet" href="/css/team.css" />
+        <link rel="stylesheet" href="/css/team.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.CDN/css/team.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="@Helper.ToCDN("/css/team.min.css", true)" />
     </environment>
 }
-    <div class="container">
-        <h2 class="text-center m3">NEO Foundation</h2>
-        <p class="text-center">Setting NEO's Vision and Strategy.</p>
-        <div class="team nf">
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/da.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Da Hongfei<br />达鸿飞</div>
-                    <div class="card-text">Co-Chair</div>
+    <div class="container text-center p2">
+        <h2 class="m1">@Localizer["NEO Contributors"]</h2>
+        <p class="m2">@Localizer["This page presents some NEO contributors, which are divided into the following four parts: NEO core developers, NEO Foundation key members, NGD key members, and NEO community outstanding contributors.Thank them for their outstanding contribution to the ecosystem of NEO."]</p>
+        <div class="m2">
+            <h3>
+                @Localizer["NEO Core Developers"]
+            </h3>
+            <div class="team">
+                <div class="card border-static">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/erik.jpg")" />
+                    <div class="card-body">
+                        <div class="card-title">
+                            Erik Zhang<br />张铮文
+                            <a href="https://www.linkedin.com/in/erik-zhang-5a6b14ab/" target="_blank"><i class="iconfont">&#xe698;</i></a>
+                            <a href="https://github.com/erikzhang" target="_blank"><i class="iconfont">&#xe6ed;</i></a>
+                        </div>
+                        <div class="card-text">Erik is founder and core developer of NEO, author to dBFT consensus mechanism, expert on blockchain technology and computer security and a certified information system auditor (CISA). Previously he was engaged in Shanda Games and www.huobi.com where he specialised in information security and R&D in digital currency.</div>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/erik.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Erik Zhang<br />张铮文</div>
-                    <div class="card-text">Co-Chair</div>
+                <div class="card border-static">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/Lijy.jpg")" />
+                    <div class="card-body">
+                        <div class="card-title">
+                            Jianying Li<br />李剑英
+                            <a href="https://www.linkedin.com/in/lightsever/" target="_blank"><i class="iconfont">&#xe698;</i></a>
+                            <a href="https://github.com/lightszero" target="_blank"><i class="iconfont">&#xe6ed;</i></a>
+                        </div>
+                        <div class="card-text">A programmer who enjoys being challenged by difficult research topics starts to develop an interest in blockchain technology after getting to know NEO.</div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <hr />
-        <h2 class="text-center m3">NEO Global Development (NGD)</h2>
-        <p class="text-center">Realizing NEO's Vision, Executing NEO's Strategy.</p>
-        <div class="team">
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/zc.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Johnson Zhao<br />赵晨</div>
-                    <div class="card-text">General Manager</div>
+                <div class="card border-static">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/ashley.jpg")" />
+                    <div class="card-body">
+                        <div class="card-title">
+                            Ashley Rolleston
+                            <a href="https://www.linkedin.com/in/ashleyrolleston/" target="_blank"><i class="iconfont">&#xe698;</i></a>
+                            <a href="https://github.com/AshRolls" target="_blank"><i class="iconfont">&#xe6ed;</i></a>
+                        </div>
+                        <div class="card-text"> Ashley is a co-founder of City of Zion and a talented software engineer with fifteen years industry experience. Ashley has advanced technical experience in the full software development life-cycle, including a broad variety of experience in other computing disciplines.</div>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/peter.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Peter Lin<br />林鹏涛</div>
-                    <div class="card-text">Director of R&D</div>
+                <div class="card border-static">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/shargon.jpg")" />
+                    <div class="card-body">
+                        <div class="card-title">
+                            Fernando Díaz Toledano
+                            <a href="https://www.linkedin.com/in/erik-zhang-5a6b14ab/" target="_blank"><i class="iconfont">&#xe698;</i></a>
+                            <a href="https://github.com/erikzhang" target="_blank"><i class="iconfont">&#xe6ed;</i></a>
+                        </div>
+                        <div class="card-text">Founder of Red4Sec, expert in security, blockchain and smart contracts. Responsible for the audit of several blockchains.</div>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/qiaoling.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Sharlyne<br />李巧伶</div>
-                    <div class="card-text">Senior Manager, Marketing</div>
+                <div class="card border-static">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/Jeff.jpg?v=2")" />
+                    <div class="card-body">
+                        <div class="card-title">
+                            Jeff Solinsky
+                            <a href="https://www.linkedin.com/in/jeffsolinsky" target="_blank"><i class="iconfont">&#xe698;</i></a>
+                            <a href="https://github.com/jsolman" target="_blank"><i class="iconfont">&#xe6ed;</i></a>
+                        </div>
+                        <div class="card-text">Born in 1983, Jeff has been programming since age 11 and had software jobs since before attending college at DeVry University, where he received a full tuition scholarship and graduated with a 4.0 GPA. He has designed and developed software systems professionally targeting a wide range of devices from embedded to huge clusters in AWS. His early interest in Blockchain blossomed from a hobby to a full time career. Jeff highly values family, and when he is not working, he enjoys hanging out with his wife and children, studying the Christian Bible, and being involved in his faith.</div>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/malcolm.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Malcolm Lerider<br /><br /></div>
-                    <div class="card-text">Senior Manager, Ecosystem growth</div>
+                <div class="card border-static d-none">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/Igormcoelho.jpg")" />
+                    <div class="card-body">
+                        <div class="card-title">
+                            Igormcoelho
+                            <a href="https://github.com/igormcoelho" target="_blank"><i class="iconfont">&#xe6ed;</i></a>
+                        </div>
+                        <div class="card-text">Anonymous</div>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/chris.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Chris Chen<br />陈志同</div>
-                    <div class="card-text">Senior Engineer</div>
+                <div class="card border-static">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/ThomasSaunders.jpg")" />
+                    <div class="card-body">
+                        <div class="card-title">
+                            Thomas Saunders
+                            <a href="https://www.linkedin.com/in/moderncarpentry/" target="_blank"><i class="iconfont">&#xe698;</i></a>
+                            <a href="https://github.com/localhuman" target="_blank"><i class="iconfont">&#xe6ed;</i></a>
+                        </div>
+                        <div class="card-text">Thomas is the author of neo-python and the Python compiler for NEO.  He spends most of his time as a founder and Chief of Engineering at Nash.</div>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/shou.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Ray Fan<br />樊收收</div>
-                    <div class="card-text">Engineer, Test</div>
+                <div class="card border-static">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/vitor.jpg")" />
+                    <div class="card-body">
+                        <div class="card-title">
+                            Vitor Nazario Coelho
+                            <a href="https://www.linkedin.com/in/vitor-naz%C3%A1rio-coelho-b76511a1/" target="_blank"><i class="iconfont">&#xe698;</i></a>
+                            <a href="https://github.com/vncoelho" target="_blank"><i class="iconfont">&#xe6ed;</i></a>
+                        </div>
+                        <div class="card-text">Vitor Nazario Coelho is doctor in Electrical Engineering, in the field of Computational Intelligence, by Universidade Federal de Minas Gerais (UFMG), finishing his PhD in 2 years, with 25 years old, without attending Master studies. His thesis was awarded as the best one in the Engineering area in the year of 2016 of UFMG. For two years he was Post-Doctorate researcher at Universidade Federal Fluminense, supported by the outstanding program PDR-10/FAPERJ program. He has been mostly contributing in the field of Mono/Multi-Objective Optimization and Metaheuristics. Currently, he acts as an autonomous developer, researcher, investor and partner of different projects.</div>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/yan.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Mingxia Yan<br />严明夏</div>
-                    <div class="card-text">Engineer, Front End</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/huang.jpg" />
-                <div class="card-body">
-                    <div class="card-title">JC Huang<br />黄书熹</div>
-                    <div class="card-text">Community Operation</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/fang.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Robin Fang<br />方宇婷</div>
-                    <div class="card-text">Translator</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/zeng.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Kris Zeng<br />曾程</div>
-                    <div class="card-text">Community Operations</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/yu.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Celia Yu<br />郁焰</div>
-                    <div class="card-text">Senior Engineer, Documentation</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/simiao.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Nikkor Wang<br />王思邈</div>
-                    <div class="card-text">Community Operations</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/tamar.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Tamar Salant<br /><br /></div>
-                    <div class="card-text">Manager, Ecosystem growth</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/mikihayama.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Miki Hayama<br /><br /></div>
-                    <div class="card-text">Director, Ecosystem growth</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/miles.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Miles Graham<br /><br /></div>
-                    <div class="card-text">Global Regulatory Affairs Officer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/Grace.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Grace Gui<br />桂海芳</div>
-                    <div class="card-text">Global Marketing</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/rita.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Rita Zhang<br />张孖涵</div>
-                    <div class="card-text">Assistant, HR & Administrative</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/john.jpg" />
-                <div class="card-body">
-                    <div class="card-title">John Wang<br />王佳超</div>
-                    <div class="card-text">Manager, Ecosystem growth</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/gao.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Lemonie Gao <br />高童文</div>
-                    <div class="card-text">Manager, HR & Administrative</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/xue.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Chris Xue<br />薛慧静</div>
-                    <div class="card-text">Accountant, Finance</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/tianli.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Li Tian<br />田力</div>
-                    <div class="card-text">Senior R&D Manager</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/xiaoli.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Ellie Li <br />李小莉</div>
-                    <div class="card-text">UI Designer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/hong.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Zhihong Zhang <br />张志宏</div>
-                    <div class="card-text">Senior Engineer,Software </div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/tao.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Tao Zhang <br />张涛</div>
-                    <div class="card-text">Senior Engineer,Software </div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/stacey.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Stacey Li<br />李雅君</div>
-                    <div class="card-text">Media Manager</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/liumy.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Mengyu Liu<br />刘梦雨</div>
-                    <div class="card-text">Software developer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/luxy.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Xinyi Lu<br />陆心怡</div>
-                    <div class="card-text">Quality assurance engineer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/zhangsy.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Shuyun Zhang<br />章淑云</div>
-                    <div class="card-text">Senior quality assurance engineer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/suyy.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Yuyang Su<br />苏瑜阳</div>
-                    <div class="card-text">Quality assurance engineer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/denis.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Denis Suslov<br /><br /></div>
-                    <div class="card-text">Associate manager, Ecosystem growth</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/songp.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Sara Song<br />宋萍</div>
-                    <div class="card-text">Associate Manager, Ecosystem growth</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/jinq.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Qiao Jin<br />金桥</div>
-                    <div class="card-text">Software Developer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/luc.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Chuan Lu<br />卢川</div>
-                    <div class="card-text">Senior Software Developer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/wanglf.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Longfei Wang<br />王龙飞</div>
-                    <div class="card-text">Software Developer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/liurd.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Rendong Liu<br />刘仁栋</div>
-                    <div class="card-text">Software Developer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/quesp.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Songping Que<br />阙耸萍</div>
-                    <div class="card-text">Community Operation Specialist</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/qianz.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Zhuo Qian<br />钱卓</div>
-                    <div class="card-text">Software Developer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/gaoy.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Yuan Gao<br />高原</div>
-                    <div class="card-text">Senior Marketing Manager</div>
+                <div class="card border-static">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/jaime.jpg")" />
+                    <div class="card-body">
+                        <div class="card-title">
+                            Jaime Kindelan Alonso
+                            <a href="https://www.linkedin.com/in/jaime-kindelan/" target="_blank"><i class="iconfont">&#xe698;</i></a>
+                            <a href="https://github.com/belane" target="_blank"><i class="iconfont">&#xe6ed;</i></a>
+                        </div>
+                        <div class="card-text">IT security consultant and security analyst with more than 13 years of experience as a Development Operations & Security Project Manager leading Information Security teams for international corporations. Currently developer and part of the City of Zion Council, co-founder of Red4Sec Cybersecurity.</div>
+                    </div>
                 </div>
             </div>
         </div>
-        <hr />
-        <h2 class="text-center m3">NEO Community</h2>
-        <p class="text-center"></p>
-        <div class="team">
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/jianying.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Li Jianying</div>
-                    <div class="card-text">Core Developer</div>
+        <div class="m2">
+            <h3>NEO Foundation @Localizer["key members"]</h3>
+            <p class="m3 d-none">NEO Foundation 简介</p>
+            <div class="team">
+                <div class="card border-static">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/da.jpg")" />
+                    <div class="card-body">
+                        <div class="card-title">
+                            Da Hongfei<br />达鸿飞
+                            <a href="https://www.linkedin.com/in/dahongfei/" target="_blank"><i class="iconfont">&#xe698;</i></a>
+                            <a class="d-none" href="https://github.com/dahongfei" target="_blank"><i class="iconfont">&#xe6ed;</i></a>
+                        </div>
+                        <div class="card-text">Founder of NEO, Co-Chair of NEO Foundation.</div>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/canesin.png" />
-                <div class="card-body">
-                    <div class="card-title">Fabio C. Canesin</div>
-                    <div class="card-text">City of Zion Co-Founder</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/ethan.png" />
-                <div class="card-body">
-                    <div class="card-title">Ethan Fast</div>
-                    <div class="card-text">City of Zion Co-Founder</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/tsaunders.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Thomas Saunders</div>
-                    <div class="card-text">City of Zion Co-Founder</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/Luciano.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Luciano Engel</div>
-                    <div class="card-text">City of Zion Co-Founder</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/tba.png" />
-                <div class="card-body">
-                    <div class="card-title">Tyler B Adams</div>
-                    <div class="card-text">City of Zion Co-Founder</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/afong.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Alan Fong</div>
-                    <div class="card-text">City of Zion Co-Founder</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/joe.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Joe Stewart</div>
-                    <div class="card-text">City of Zion Developer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/chris-hager.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Chris Hager<div class="card-text">    City of Zion Developer</div></div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/david_s.jpg" />
-                <div class="card-body">
-                    <div class="card-title">David Schwartz</div>
-                    <div class="card-text">City of Zion Developer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/jason.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Jason L Perry</div>
-                    <div class="card-text">City of Zion Developer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/yjx.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Yak Jun Xiang</div>
-                    <div class="card-text">City of Zion Developer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/erik-vd-brink.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Erik van den Brink</div>
-                    <div class="card-text">City of Zion Developer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/travis.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Travis Lin</div>
-                    <div class="card-text">City of Zion Developer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/jlgaffney.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Justin Gaffney</div>
-                    <div class="card-text">City of Zion Developer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/deanpress.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Dean van Dugteren</div>
-                    <div class="card-text">City of Zion Developer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/jaime.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Jaime Kindelan</div>
-                    <div class="card-text">Security Team</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/shargon.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Fernando Díaz Toledano</div>
-                    <div class="card-text">Security Team</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/sa.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Silas Albrecht</div>
-                    <div class="card-text">City of Zion Developer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/Luke.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Luke Plaster</div>
-                    <div class="card-text">City of Zion Developer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/charlie.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Charlie Revett</div>
-                    <div class="card-text">City of Zion Developer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/nikolajkuntner.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Nikolaj Kuntner</div>
-                    <div class="card-text">Gentleman Scientist</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/evgenyboxer.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Evgeny Boxer</div>
-                    <div class="card-text">City of Zion Developer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/PauloAboimPinto.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Paulo Aboim Pinto</div>
-                    <div class="card-text">City of Zion Developer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/sergioflores.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Sérgio Flores</div>
-                    <div class="card-text">City of Zion Developer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/matt.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Matt Huggins</div>
-                    <div class="card-text">City of Zion Developer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/kurisu.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Christopher Colomb</div>
-                    <div class="card-text">City of Zion Translator</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/benjamin-jj-de-bos.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Benjamin J.J. de Bos</div>
-                    <div class="card-text">City of Zion Developer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/guba.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Alex Guba</div>
-                    <div class="card-text">City of Zion Developer</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/mo.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Tom Mo<br />莫韬</div>
-                    <div class="card-text">Developer Intern</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/luoxue.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Luo Xue<br />罗雪</div>
-                    <div class="card-text">Developer Intern</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/Jonathan.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Jonathan Lim<br />林威杰</div>
-                    <div class="card-text">Developer Intern</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/steveface.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Steveface<br />叶凡</div>
-                    <div class="card-text">Developer Intern</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" data-original="@Helper.CDN/images/team/miryam.jpg" />
-                <div class="card-body">
-                    <div class="card-title">Miryam Amsili<br />米雅</div>
-                    <div class="card-text">Developer Intern</div>
-                </div>
-            </div>
-            <div class="card">
-                <a target="_blank" href="https://github.com/neo-project/neo.org/blob/master/NeoWeb/Views/Team/contributor.md">
-                    <img class="card-img-top" data-original="@Helper.CDN/images/team/add.jpg" />
-                </a>
-                <div class="card-body">
-                    <div class="card-title"><a target="_blank" href="https://github.com/neo-project/neo.org/blob/master/NeoWeb/Views/Team/contributor.md">Add Your Photo</a></div>
-                    <div class="card-text">NEO contributor</div>
+                <div class="card border-static">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/erik.jpg")" />
+                    <div class="card-body">
+                        <div class="card-title">
+                            Erik Zhang<br />张铮文
+                            <a href="https://www.linkedin.com/in/erik-zhang-5a6b14ab/" target="_blank"><i class="iconfont">&#xe698;</i></a>
+                            <a href="https://github.com/erikzhang" target="_blank"><i class="iconfont">&#xe6ed;</i></a>
+                        </div>
+                        <div class="card-text">Erik is founder and core developer of NEO, author to dBFT consensus mechanism, expert on blockchain technology and computer security and a certified information system auditor (CISA). Previously he was engaged in Shanda Games and www.huobi.com where he specialised in information security and R&D in digital currency.</div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-@section Scripts{
-    <script src="@Helper.CDN/js/jquery.lazyload.min.js"></script>
-    <script>
+        <div class="m2">
+            <h3>NEO Global Development (NGD) @Localizer["key members"]</h3>
+            <p class="m3">@Localizer["NEO Global Development (NGD) is an organization that was founded by the NEO Foundation (NF) in March of 2018. Its purpose is to focus on the execution of NF strategies surrounding technological R&D, marketing, and community development."]</p>
+            <div class="team">
+                <div class="card border-static">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/zc.jpg")" />
+                    <div class="card-body">
+                        <div class="card-title">
+                            Johnson Zhao<br />赵晨
+                            <a href="https://www.linkedin.com/in/zhao-chen-07a4674/" target="_blank"><i class="iconfont">&#xe698;</i></a>
+                        </div>
+                        <div class="card-text">General Manager at NEO Global Development. Hong Kong University postgraduate. Rich cross-discipline experiences in banking and the international financial service industry. Dedicated to inter-industry communication, building the developer community, refining business models, and integrating blockchain use cases with technical expertise and understanding.</div>
+                    </div>
+                </div>
+                <div class="card border-static">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/peter.jpg")" />
+                    <div class="card-body">
+                        <div class="card-title">
+                            Peter Lin<br />林鹏涛
+                            <a href="https://www.linkedin.com/in/pengtao-lin-453653b4/" target="_blank"><i class="iconfont">&#xe698;</i></a>
+                            <a href="https://github.com/peterlinx" target="_blank"><i class="iconfont">&#xe6ed;</i></a>
+                        </div>
+                        <div class="card-text">Director of R&D, NEO Global Development (NGD), one of the early NEO developers.He has 6 years of experience in internet technology development, engaged in the development of blockchain applications in the public chain and alliance chain.</div>
+                    </div>
+                </div>
+                <div class="card border-static">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/gao.jpg")" />
+                    <div class="card-body">
+                        <div class="card-title">
+                            Lemonie Gao <br />高童文
+                            <a href="https://www.linkedin.com/in/lemonie/" target="_blank"><i class="iconfont">&#xe698;</i></a>
+                        </div>
+                        <div class="card-text">Manager of HR & Administrative. Our team is growing rapidly! We are so excited about being one part of this world-changing game. If you are the person who are constantly looking for more fun and challenges, NGD will be a great place to work.</div>
+                    </div>
+                </div>
+            </div>
+            <p class="m3">@Localizer["In addition, there are more than 50 full-time employees and interns in NGD, which are not listed here."]</p>
+        </div>
+        <div class="m2">
+            <h3>
+                @Localizer["NEO Community Outstanding Contributors"]
+            </h3>
+            <p class="m3">@Localizer["The names are listed in no particular order."]</p>
+            <div class="team m3">
+                <div class="card">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/canesin.png")" />
+                    <div class="card-body">
+                        <div class="card-title">Fábio César Canesin</div>
+                        <div class="card-text">City of Zion Co-Founder</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/chris-hager.jpg")" />
+                    <div class="card-body">
+                        <div class="card-title">Chris Hager<div class="card-text">    City of Zion Developer</div></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/tba.png")" />
+                    <div class="card-body">
+                        <div class="card-title">Tyler B Adams</div>
+                        <div class="card-text">City of Zion Co-Founder</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/erik-vd-brink.jpg")" />
+                    <div class="card-body">
+                        <div class="card-title">Erik van den Brink</div>
+                        <div class="card-text">City of Zion Developer</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/Luciano.jpg")" />
+                    <div class="card-body">
+                        <div class="card-title">Luciano Engel</div>
+                        <div class="card-text">City of Zion Co-Founder</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/Dean.jpg")" />
+                    <div class="card-body">
+                        <div class="card-title">Dean Jeffs</div>
+                        <div class="card-text">NEO News Today founder</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/DeanvanDugteren.jpg")" />
+                    <div class="card-body">
+                        <div class="card-title">Dean van Dugteren</div>
+                        <div class="card-text">Developer and workshop host/instructor</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/wingyung.jpg")" />
+                    <div class="card-body">
+                        <div class="card-title">Wing Yung Chan</div>
+                        <div class="card-text">NeoResearch Developer</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/zadra.jpg")" />
+                    <div class="card-body">
+                        <div class="card-title">Zdravko Georgiev</div>
+                        <div class="card-text">Bulgarian NEO development</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/yasen.jpg")" />
+                    <div class="card-body">
+                        <div class="card-title">Yasen Mihailov</div>
+                        <div class="card-text">Bulgarian NEO development</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/Anthony.jpg")" />
+                    <div class="card-body">
+                        <div class="card-title">Anthony De Meulemeester</div>
+                        <div class="card-text">creator and project maintainer of neo-go and neo-storm</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/Ethan.png")" />
+                    <div class="card-body">
+                        <div class="card-title">Ethan Fast</div>
+                        <div class="card-text">City of Zion Co-Founder</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/afong.jpg")" />
+                    <div class="card-body">
+                        <div class="card-title">Alan Fong</div>
+                        <div class="card-text">City of Zion Co-Founder</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/Liuyx.jpg")" />
+                    <div class="card-body">
+                        <div class="card-title">Liu Yongxin<br />刘永新</div>
+                        <div class="card-text">NewEconoLabs Co-Founder</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/AlexD.jpg")" />
+                    <div class="card-body">
+                        <div class="card-title">Alex Dicarlo</div>
+                        <div class="card-text">Founder of Neotracker, Founder of NEO·ONE</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" data-original="@Helper.ToCDN("/images/team/Fabian.jpg")" />
+                    <div class="card-body">
+                        <div class="card-title">Fabian Wahle</div>
+                        <div class="card-text">Co-Founder City of Zion<br />Founder NSPCC</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @section Scripts{
+            <script src="@Helper.ToCDN("/js/jquery.lazyload.min.js")"></script>
+            <script>
         $('[data-original]').lazyload({
-            threshold: 200,
-            effect: "fadeIn"
+                    threshold: 200,
+                    effect: "fadeIn"
         });
-    </script>
-}
+            </script>
+        }
+    </div>
+

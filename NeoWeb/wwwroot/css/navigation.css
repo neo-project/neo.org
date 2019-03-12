@@ -4,53 +4,80 @@
 .navbar-brand {
     padding-top:20px;
     padding-bottom:20px;
-    height:60px;
+    height:50px;
+    margin-right:0;
 }
 .navbar-nav {
     position:relative;
-}
-.navbar-expand .navbar-nav .nav-link{
-    display:inline-block;
-    padding: 20px 15px;
-    color:#6C6C6C;
-    line-height:20px;
-    vertical-align:middle;
-}
-.navbar-nav>li a.nav-link.strong{
-    color:#58bf00;
-    font-weight: bold;
 }
 .navbar-nav>li a:hover{
     background:transparent;
     color:#58bf00;
 }
-.navbar-nav .nav-link{
+.navbar-nav a{
     white-space: nowrap;
 }
 .navbar {
     padding: 0;
-    background:#e4e4e4;
-    background:rgba(228,228,228,0.95);
+    background:transparent;
     border:none;
 }
 .nav > li {
     display:inline-block;
 }
+#nav_container {
+    display: flex;
+    width: 100%;
+    text-align: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    background:#FFFFFF;
+    background:rgba(255,255,255,0.9);
+}
+.navbar li a{
+    line-height:2.5;
+    color: #212529;
+}
+.fixed-top {
+    top:35px;
+}
+.nav-item {
+    margin: 0 5px;
+}
+.nav-item a {
+    padding: 8px 10px;
+}
+.navbar-dark .navbar-toggler-icon {
+    background-image:url(https://neo-cdn.azureedge.net/images/drop.svg);
+}
+.navbar-toggler {
+    height: 50px;
+}
+.navbar-toggler-icon {
+    height: auto;
+    color: #58bf00;
+}
 
 /*弹出框样式调整 - Pop-up box style adjustment*/
-.dropdown-menu {
-    background:transparent;
+.navbar-nav .dropdown-menu {
+    background:#FFFFFF;
+    background:rgba(255,255,255,0);
     border: none;
     box-shadow:none;
+    padding-top: 15px;
+    margin-top: -2px;
 }
-.dropdown-menu li a{
+.navbar-nav .dropdown-menu a{
     width:100%;
+    background:#FFFFFF;
+}
+.navbar-nav .dropdown-menu a:hover {
+    background:#F9F9F9;
 }
 
 .main-footer {
     position: relative;
-    padding: 35px 0 0; 
-    color: #6C6C6C; 
+    padding: 35px 0 0;  
     width:100%;
     text-align:center;
 }
@@ -66,26 +93,32 @@
 }
 .footer-link {
     padding:0;
+    text-align:right;
 }
 .footer-link li {
     display:inline-block;
-    width:19%;
-    line-height:2.5;
+    width:16%;
+    line-height:1.8;
 }
 .footer-link li i.iconfont{
     font-style: normal;
     vertical-align:middle;
-    font-size:40px;
+    font-size:32px;
+    color:#9A9A9A;
+}
+.footer-link li a:hover i.iconfont{
+    color:#58bf00;
 }
 .footer-link li span{
     display: inline-block;
     width: 100px;
 }
-.footer-logo{
-    height:70px;
+.footer-logo {
+    text-align:left;
+    letter-spacing:2px;
 }
 .footer-logo img{
-    height:inherit;
+    height:70px;
 }
 .navbar-nav ul.dropdown-menu {
     background-color: white;
@@ -113,31 +146,85 @@
     background:rgba(228,228,228,0.95);
 }
 .navbar-brand {
-    padding: 5px 15px;
+    padding: 10px 15px;
 }
 .navbar-brand img {
     height: 100%;
+    vertical-align:top;
+}
+.dropdown-toggle {
+
+}
+.dropdown-item {
+    font-weight:300;
+}
+/*点击导航栏汉堡包按钮展开时*/
+@media only screen and (max-width : 992px) {
+    .fixed-top {
+        top:10px;
+    }
+    .top-nav .dropdown-menu {
+        position:relative;
+        float: none;
+        display: block!important;
+        padding: 0;
+        line-height: 1.8;
+        margin-left: 20px;
+        top: 0;
+    }
+    .nav-item a {
+        padding: 2px 10px;
+    }
+    .navbar-nav .dropdown-menu a{
+        background:none;
+    }
+    #nav_container {
+        background:#FFFFFF;
+        position: relative;
+    }
+    #neoNnavbarToggler {
+        background:#FFFFFF;
+        margin-top: 50px;
+        position: absolute;
+        width: 100%;
+        padding: 0 25px;
+        left: 0;
+        top: 0;
+    }
+    .navbar-nav > li:not(.nav-lang) a{
+        display: inline-block;
+        width: 100%;
+        background: none;
+    }
+    .navbar-nav .dropdown-menu a:hover {
+        background: none;
+    }
+    .navbar-nav > li:not(.nav-lang) a::after {
+        display: none;
+    }
 }
 @media only screen and (max-width : 780px) {
-    .navbar-brand {
-        padding: 10px;
-    }
-    .navbar-nav {
-        text-align:center;
-        /*margin:0 -15px;*/
-    }
     .main-footer {
         padding: 20px 0; 
     }
-    .footer-link li {
-        width:48%;
-        line-height:1.8;
+    .footer-link{
+        text-align:center;
     }
-    /*调整页面footer的icon大小*/
     .footer-link li i.iconfont{
-        font-size:28px;
+        font-size:24px;
     }
-    .footer-logo{
+    .footer-logo {
+        text-align:center;
+    }
+    .footer-logo img{
         height:50px;
+    }
+}
+@media only screen and (max-width : 576px) {
+    .fixed-top {
+        top:0px;
+    }
+    .navbar-brand img {
+        height:30px;
     }
 }

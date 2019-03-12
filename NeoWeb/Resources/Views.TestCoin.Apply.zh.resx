@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -124,10 +124,10 @@
     <value>申请数量（NEO）</value>
   </data>
   <data name="Apply For TestNet NEO&amp;GAS" xml:space="preserve">
-    <value>测试NEO&amp;GAS申请</value>
+    <value>测试 NEO&amp;GAS 申请</value>
   </data>
   <data name="Company Name/Project Name" xml:space="preserve">
-    <value>公司名/项目名</value>
+    <value>公司名 / 项目名</value>
   </data>
   <data name="Developer" xml:space="preserve">
     <value>开发者</value>
@@ -148,7 +148,7 @@
     <value>姓名</value>
   </data>
   <data name="NEO Public Key" xml:space="preserve">
-    <value>NEO公钥</value>
+    <value>NEO 公钥</value>
   </data>
   <data name="NEO Smart economy" xml:space="preserve">
     <value>NEO 智能经济</value>
@@ -156,8 +156,8 @@
   <data name="Phone Number" xml:space="preserve">
     <value>电话</value>
   </data>
-  <data name="Please enter your own NEO public key. If the application succeeds, we will send Neo/GAS to a multiple signature address and tell you how to use it." xml:space="preserve">
-    <value>请填写你自己的NEO公钥，如果申请成功，我们会将 NEO / GAS 发到一个多重签名的地址中，并告诉你如何使用。</value>
+  <data name="Please enter your own NEO public key. If the application succeedsis successful, we will send Neo/GAS to a multiple multi-signature address and tell you how to use it." xml:space="preserve">
+    <value>请填写你自己的 NEO 公钥，如果申请成功，我们会将 NEO / GAS 发到一个多重签名的地址中，并告诉你如何使用。</value>
   </data>
   <data name="QQ" xml:space="preserve">
     <value>QQ</value>
@@ -169,7 +169,7 @@
     <value>提交申请</value>
   </data>
   <data name="Application reason at least 50 characters, up to 300 characters" xml:space="preserve">
-    <value>申请理由至少50字，最多300字</value>
+    <value>申请理由至少 50 字，最多 300 字</value>
   </data>
   <data name="Please enter a valid E-mail address" xml:space="preserve">
     <value>请输入正确的邮件地址</value>

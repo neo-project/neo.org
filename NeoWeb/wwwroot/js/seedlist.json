@@ -2,10 +2,6 @@
   "name": "MainNet",
   "sites": [
     {
-      "url": "https://pyrpc4.narrative.org",
-      "port": "443"
-    },
-    {
       "url": "https://seed1.switcheo.network",
       "port": "10331"
     },
@@ -16,9 +12,5 @@
     {
       "url": "https://seed2.redpulse.com",
       "port": "10331"
-    },
-    {
-      "url": "https://seed1.spotcoin.com",
-      "port": "10332"
     }
   ]}

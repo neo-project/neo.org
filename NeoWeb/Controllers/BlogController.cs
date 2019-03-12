@@ -16,6 +16,7 @@ using SixLabors.ImageSharp.Processing;
 using SixLabors.Primitives;
 using SixLabors.ImageSharp.PixelFormats;
 using Microsoft.Extensions.Localization;
+using Microsoft.AspNetCore.Hosting;
 
 namespace NeoWeb.Controllers
 {
@@ -26,15 +27,18 @@ namespace NeoWeb.Controllers
         private readonly string _userId;
         private readonly bool _userRules;
         private readonly IStringLocalizer<BlogController> _localizer;
+        private readonly IHostingEnvironment _env;
 
-        public BlogController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IStringLocalizer<BlogController> localizer)
+        public BlogController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IStringLocalizer<BlogController> localizer, IHostingEnvironment env)
         {
             _context = context;
             _localizer = localizer;
             _userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            _env = env;
             if (_userId != null)
             {
                 _userRules = _context.UserRoles.Any(p => p.UserId == _userId);
+                var asfs = _context.UserRoles.Where(p => p.UserId == _userId).ToList();
             }
         }
 
@@ -117,17 +121,14 @@ namespace NeoWeb.Controllers
                 return RedirectToAction("Index");
             }
 
-            var blogs = _context.Blogs.OrderByDescending(o => o.CreateTime).Select(p => new
-            {
-                p.Id,
-                p.CreateTime
-            }).ToList().Select(p => new Blog()
+            var blogs = _context.Blogs.OrderByDescending(o => o.CreateTime).Select(p => new Blog()
             {
                 Id = p.Id,
-                CreateTime = p.CreateTime
+                CreateTime = p.CreateTime,
+                Lang = p.Lang
             });
 
-            var idList = blogs.Select(p => p.Id).ToList();
+            var idList = blogs.Where(p => p.Lang == _localizer["en"]).Select(p => p.Id).ToList();
             ViewBag.NextBlogId = idList[Math.Max(idList.IndexOf((int)id) - 1, 0)];
             ViewBag.PrevBlogId = idList[Math.Min(idList.IndexOf((int)id) + 1, idList.Count - 1)];
 
@@ -139,8 +140,8 @@ namespace NeoWeb.Controllers
 
             ViewBag.UserId = _userId;
             ViewBag.UserRules = _userRules;
-            
-            if(string.IsNullOrEmpty(Request.Cookies[blog.Id.ToString()]))
+
+            if (string.IsNullOrEmpty(Request.Cookies[blog.Id.ToString()]) && Request.Cookies.Count >= 1)
             {
                 blog.ReadCount++;
             }
@@ -280,7 +281,7 @@ namespace NeoWeb.Controllers
             var bytes = new byte[10];
             random.NextBytes(bytes);
             var newName = bytes.ToHexString() + Path.GetExtension(file.FileName);
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", newName);
+            var filePath = Path.Combine(_env.ContentRootPath, "wwwroot/upload", newName);
             if (file.Length > 0)
             {
                 using (var stream = new FileStream(filePath, FileMode.Create))

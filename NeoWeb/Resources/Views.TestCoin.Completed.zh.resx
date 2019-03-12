@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -121,6 +121,6 @@
     <value>申请已提交</value>
   </data>
   <data name="Your NEO/GAS application has been submitted, and if approved, we will send NEO/GAS to a multiple-signature address within 3 business days and notify you by email of how to add the address to the NEO wallet and how to use it. Please wait patiently." xml:space="preserve">
-    <value>您的 NEO/GAS 申请已经提交，如果审核通过，我们会在3个工作日内将 NEO/GAS 发到一个多重签名的地址中，并通过邮件等方式通知你如何在NEO钱包中添加该地址以及使用方法，请耐心等待并注意查收邮件。</value>
+    <value>您的 NEO/GAS 申请已经提交，如果审核通过，我们会在 3 个工作日内将 NEO/GAS 发到一个多重签名的地址中，并通过邮件等方式通知你如何在 NEO 钱包中添加该地址以及使用方法，请耐心等待并注意查收邮件。</value>
   </data>
 </root>

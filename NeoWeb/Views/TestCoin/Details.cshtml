@@ -5,93 +5,89 @@
 }
 @section Styles{
     <environment include="Development">
-        <link rel="stylesheet" href="/css/testnet-list.css" />
+        <link rel="stylesheet" href="/css/testnet-list.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.CDN/css/testnet-list.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="@Helper.ToCDN("/css/testnet-list.min.css", true)" />
     </environment>
 }
+<h2 class="m1 text-center">测试币申请详情</h2>
 <div class="container">
-    <h1 class="m1 text-center">测试币申请详情</h1>
-    <div class="coin-back apply-detail">
-        <div class="row">
-            <div class="col-3 text-right font-weight-bold">
+    <div class="border-static back-white p4 m3">
+        <div class="row m3">
+            <div class="col-1 text-right font-weight-bold">
                 @Html.DisplayNameFor(model => model.Name)
             </div>
-            <div class="col-9">
+            <div class="col-11">
                 @Html.DisplayFor(model => model.Name)
             </div>
-            <div class="col-3 text-right font-weight-bold">
+            <div class="col-1 text-right font-weight-bold">
                 @Html.DisplayNameFor(model => model.Email)
             </div>
-            <div class="col-9">
+            <div class="col-11">
                 @Html.DisplayFor(model => model.Email)
             </div>
-            <div class="col-3 text-right font-weight-bold">
+            <div class="col-1 text-right font-weight-bold">
                 @Html.DisplayNameFor(model => model.Phone)
             </div>
-            <div class="col-9">
+            <div class="col-11">
                 @Html.DisplayFor(model => model.Phone)
             </div>
-            <div class="col-3 text-right font-weight-bold">
+            <div class="col-1 text-right font-weight-bold">
                 @Html.DisplayNameFor(model => model.QQ)
             </div>
-            <div class="col-9">
+            <div class="col-11">
                 @Html.DisplayFor(model => model.QQ)
             </div>
-            <div class="col-3 text-right font-weight-bold">
+            <div class="col-1 text-right font-weight-bold">
                 @Html.DisplayNameFor(model => model.Company)
             </div>
-            <div class="col-9">
+            <div class="col-11">
                 @Html.DisplayFor(model => model.Company)
             </div>
-            <div class="col-3 text-right font-weight-bold">
+            <div class="col-1 text-right font-weight-bold">
                 @Html.DisplayNameFor(model => model.Reason)
             </div>
-            <div class="col-9">
+            <div class="col-11">
                 @Html.DisplayFor(model => model.Reason)
             </div>
-            <div class="col-3 text-right font-weight-bold">
+            <div class="col-1 text-right font-weight-bold">
                 @Html.DisplayNameFor(model => model.NeoCount)
             </div>
-            <div class="col-9">
+            <div class="col-11">
                 @Html.DisplayFor(model => model.NeoCount)
             </div>
-            <div class="col-3 text-right font-weight-bold">
+            <div class="col-1 text-right font-weight-bold">
                 @Html.DisplayNameFor(model => model.GasCount)
             </div>
-            <div class="col-9">
+            <div class="col-11">
                 @Html.DisplayFor(model => model.GasCount)
             </div>
-            <div class="col-3 text-right font-weight-bold">
+            <div class="col-1 text-right font-weight-bold">
                 @Html.DisplayNameFor(model => model.PubKey)
             </div>
-            <div class="col-9">
+            <div class="col-11">
                 @Html.DisplayFor(model => model.PubKey)
             </div>
-            <div class="col-3 text-right font-weight-bold">
+            <div class="col-1 text-right font-weight-bold">
                 @Html.DisplayNameFor(model => model.Remark)
             </div>
-            <div class="col-9">
+            <div class="col-11">
                 @Html.DisplayFor(model => model.Remark)
             </div>
-            <div class="col-3 text-right font-weight-bold">
+            <div class="col-1 text-right font-weight-bold">
                 @Html.DisplayNameFor(model => model.Time)
             </div>
-            <div class="col-9">
+            <div class="col-11">
                 @Html.DisplayFor(model => model.Time)
             </div>
         </div>
-        <div class="text-right">
-            <a class="btn btn-primary" onclick="copyData();" href="">复制</a>
-            <a class="btn btn-secondary" onclick="copytable();" data-toggle="modal" data-target="#myModal">查看复制</a>
-        </div>
     </div>
-    <div class="back-to-list">
-        <a asp-action="Edit" asp-route-id="@Model.Id">备注</a>
-        <a onclick="document.referrer === '' ?
-          window.location.pathname = '/Testnet/list' :
-          window.history.back();">返回上一页</a>
+    <div class="back-to-list m2">
+        <a class="btn-static btn3" asp-action="Edit" asp-route-id="@Model.Id">备注</a>
+        <a class="btn-static btn3" onclick="document.referrer === '' ?
+              window.location.pathname = '/Testnet/list' :
+              window.history.back();">返回上一页</a>
     </div>
 </div>
 
@@ -112,45 +108,8 @@
                 <tbody id="tBody"></tbody>
             </table>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
-
-@section Scripts{
-    <script>
-    function copyData() {
-        var item = sessionStorage.length,flag = 1;
-        if (item>1) {
-            flag = item;
-        }
-        var lista = {
-            name: "@Html.DisplayFor(model => model.Name)",
-            key: "@Html.DisplayFor(model => model.PubKey)",
-            neo: "@Html.DisplayFor(model => model.NeoCount)",
-            gas: "@Html.DisplayFor(model => model.GasCount)"
-        };
-
-        sessionStorage.setItem("list" + flag, JSON.stringify(lista));
-
-    }
-
-    function  copytable() {
-        var flag = sessionStorage.length;
-        var html = "";
-        if (flag > 0) {
-            for (var i = 1; i < flag; i++) {
-                var lis = JSON.parse(sessionStorage.getItem("list" + i));
-                console.log(lis);
-                html += "<tr><td>" + lis.name + "</td>" +
-                    "<td>" + lis.key + "</td>" +
-                    "<td></td>" +
-                    "<td>" + lis.neo + "</td>" +
-                    "<td>" + lis.gas + "</td></tr>";
-            }
-            $("#tBody").html(html);
-        }
-    }
-    </script>
-}
