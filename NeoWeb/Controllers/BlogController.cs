@@ -129,8 +129,16 @@ namespace NeoWeb.Controllers
             });
 
             var idList = blogs.Where(p => p.Lang == _localizer["en"]).Select(p => p.Id).ToList();
-            ViewBag.NextBlogId = idList[Math.Max(idList.IndexOf((int)id) - 1, 0)];
-            ViewBag.PrevBlogId = idList[Math.Min(idList.IndexOf((int)id) + 1, idList.Count - 1)];
+            if (idList.Count == 0)
+            {
+                ViewBag.NextBlogId = 1;
+                ViewBag.PrevBlogId = 1;
+            }
+            else
+            {
+                ViewBag.NextBlogId = idList[Math.Max(idList.IndexOf((int)id) - 1, 0)];
+                ViewBag.PrevBlogId = idList[Math.Min(idList.IndexOf((int)id) + 1, idList.Count - 1)];
+            }
 
             ViewBag.CreateTime = blogs.Select(p => new BlogDateTimeViewModels
             {
