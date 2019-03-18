@@ -287,7 +287,7 @@ namespace NeoWeb.Controllers
         [HttpPost]
         public string Upload(IFormFile file)
         {
-            var filePath = Helper.UploadMedia(file);
+            var filePath = Helper.UploadMedia(file, _env);
 
             using (Image<Rgba32> image = Image.Load(filePath))
             {

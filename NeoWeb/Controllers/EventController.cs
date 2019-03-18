@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -19,11 +20,13 @@ namespace NeoWeb.Controllers
         private readonly ApplicationDbContext _context;
         private string _userId;
         private bool _userRules;
+        private readonly IHostingEnvironment _env;
 
-        public EventController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
+        public EventController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IHostingEnvironment env)
         {
             _context = context;
             _userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            _env = env;
             if (_userId != null)
             {
                 _userRules = _context.UserRoles.Any(p => p.UserId == _userId);
@@ -180,7 +183,7 @@ namespace NeoWeb.Controllers
             {
                 if (cover != null)
                 {
-                    @event.Cover = Helper.UploadMedia(cover);
+                    @event.Cover = Helper.UploadMedia(cover, _env);
                 }
                 _context.Add(@event);
                 await _context.SaveChangesAsync();
@@ -241,7 +244,7 @@ namespace NeoWeb.Controllers
                     {
                         if (!String.IsNullOrEmpty(@event.Cover))
                             System.IO.File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", @event.Cover));
-                        @event.Cover = Helper.UploadMedia(cover);
+                        @event.Cover = Helper.UploadMedia(cover, _env);
                     }
                     else
                     {
