@@ -129,6 +129,8 @@ namespace NeoWeb.Controllers
             });
 
             var idList = blogs.Where(p => p.Lang == _localizer["en"]).Select(p => p.Id).ToList();
+            idList.Clear();
+
             if (idList.Count == 0)
             {
                 ViewBag.NextBlogId = blog.Id;
