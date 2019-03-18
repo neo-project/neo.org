@@ -287,18 +287,7 @@ namespace NeoWeb.Controllers
         [HttpPost]
         public string Upload(IFormFile file)
         {
-            var random = new Random();
-            var bytes = new byte[10];
-            random.NextBytes(bytes);
-            var newName = bytes.ToHexString() + Path.GetExtension(file.FileName);
-            var filePath = Path.Combine(_env.ContentRootPath, "wwwroot/upload", newName);
-            if (file.Length > 0)
-            {
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    file.CopyTo(stream);
-                }
-            }
+            var filePath = Helper.UploadMedia(file);
 
             using (Image<Rgba32> image = Image.Load(filePath))
             {
@@ -309,7 +298,8 @@ namespace NeoWeb.Controllers
                 }));
                 image.Save(filePath);
             }
-            return $"{{\"location\":\"/upload/{newName}\"}}";
+
+            return $"{{\"location\":\"/upload/{Path.GetFileName(filePath)}\"}}";
         }
 
 
