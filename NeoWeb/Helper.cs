@@ -50,7 +50,7 @@ namespace NeoWeb
                     cover.CopyTo(stream);
                 }
             }
-            return filePath;
+            return newName;
         }
 
         public static bool Contains(this string source, string toCheck, StringComparison comp)

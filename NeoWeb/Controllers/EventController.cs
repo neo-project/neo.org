@@ -11,6 +11,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NeoWeb.Data;
 using NeoWeb.Models;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Processing;
+using SixLabors.Primitives;
 
 namespace NeoWeb.Controllers
 {
@@ -183,7 +187,7 @@ namespace NeoWeb.Controllers
             {
                 if (cover != null)
                 {
-                    @event.Cover = Helper.UploadMedia(cover, _env);
+                    @event.Cover = Upload(cover);
                 }
                 _context.Add(@event);
                 await _context.SaveChangesAsync();
@@ -191,6 +195,24 @@ namespace NeoWeb.Controllers
             }
             ViewBag.Countries = _context.Countries.ToList();
             return View(@event);
+        }
+
+        private string Upload(IFormFile cover)
+        {
+            var fileName = Helper.UploadMedia(cover, _env);
+            Task.Run(()=> {
+                var filePath = Path.Combine(_env.ContentRootPath, "wwwroot/upload", fileName);
+                using (Image<Rgba32> image = Image.Load(filePath))
+                {
+                    image.Mutate(x => x.Resize(new ResizeOptions
+                    {
+                        Size = new Size(600, 600 * image.Height / image.Width),
+                        Mode = ResizeMode.Max
+                    }));
+                    image.Save(filePath);
+                }
+            });
+            return fileName;
         }
 
         // GET: event/edit/5
@@ -244,7 +266,7 @@ namespace NeoWeb.Controllers
                     {
                         if (!String.IsNullOrEmpty(@event.Cover))
                             System.IO.File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", @event.Cover));
-                        @event.Cover = Helper.UploadMedia(cover, _env);
+                        @event.Cover = Upload(cover);
                     }
                     else
                     {
