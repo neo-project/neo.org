@@ -33,7 +33,7 @@ namespace NeoWeb.Controllers
         public IActionResult Index()
         {
             ViewBag.Countries = _context.Countries.ToList();
-            JArray list = JArray.Parse(System.IO.File.ReadAllText(Path.Combine(_env.ContentRootPath,"CandidateBackgrounder/validators.json")));
+            JArray list = JArray.Parse(System.IO.File.ReadAllText(Path.Combine(_env.ContentRootPath, "CandidateBackgrounder/validators.json")));
             ViewBag.PubKeys = new List<string>();
             foreach (JObject item in list)
             {
@@ -97,7 +97,7 @@ namespace NeoWeb.Controllers
                 }
                 if (logo != null)
                 {
-                    c.Logo = "~/upload/" + Upload(logo);
+                    c.Logo = "~/upload/" + Helper.UploadMedia(logo);
                 }
                 //Insert or Update
                 if (_context.Candidates.Any(p => p.PublicKey == c.PublicKey))
@@ -112,23 +112,6 @@ namespace NeoWeb.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View("Index", c);
-        }
-
-        private string Upload(IFormFile cover)
-        {
-            var random = new Random();
-            var bytes = new byte[10];
-            random.NextBytes(bytes);
-            var newName = bytes.ToHexString() + Path.GetExtension(cover.FileName);
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", newName);
-            if (cover.Length > 0)
-            {
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    cover.CopyTo(stream);
-                }
-            }
-            return newName;
         }
     }
 }

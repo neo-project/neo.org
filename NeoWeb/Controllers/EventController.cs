@@ -180,7 +180,7 @@ namespace NeoWeb.Controllers
             {
                 if (cover != null)
                 {
-                    @event.Cover = Upload(cover);
+                    @event.Cover = Helper.UploadMedia(cover);
                 }
                 _context.Add(@event);
                 await _context.SaveChangesAsync();
@@ -188,23 +188,6 @@ namespace NeoWeb.Controllers
             }
             ViewBag.Countries = _context.Countries.ToList();
             return View(@event);
-        }
-
-        private string Upload(IFormFile cover)
-        {
-            var random = new Random();
-            var bytes = new byte[10];
-            random.NextBytes(bytes);
-            var newName = bytes.ToHexString() + Path.GetExtension(cover.FileName);
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", newName);
-            if (cover.Length > 0)
-            {
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    cover.CopyTo(stream);
-                }
-            }
-            return newName;
         }
 
         // GET: event/edit/5
@@ -258,7 +241,7 @@ namespace NeoWeb.Controllers
                     {
                         if (!String.IsNullOrEmpty(@event.Cover))
                             System.IO.File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", @event.Cover));
-                        @event.Cover = Upload(cover);
+                        @event.Cover = Helper.UploadMedia(cover);
                     }
                     else
                     {

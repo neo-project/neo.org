@@ -7,6 +7,7 @@ using System.IO;
 using System.Net;
 using System.Linq;
 using System.Security.Cryptography;
+using Microsoft.AspNetCore.Http;
 
 namespace NeoWeb
 {
@@ -20,6 +21,35 @@ namespace NeoWeb
             html = Replace(html, "<[^>]+>", "");
             html = Replace(html, "&[^;]+;", "");
             return html;
+        }
+
+        public static string UploadMedia(IFormFile cover)
+        {
+            if (cover.Length > 1024 * 1024 * 25 || // 25Mb
+                !new string[]
+                {
+                    ".gif",
+                    ".jpg",
+                    ".png"
+                }
+                .Contains(Path.GetExtension(cover.Name).ToLowerInvariant()))
+            {
+                throw new ArgumentException(nameof(cover));
+            }
+
+            var random = new Random();
+            var bytes = new byte[10];
+            random.NextBytes(bytes);
+            var newName = bytes.ToHexString() + Path.GetExtension(cover.FileName);
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", newName);
+            if (cover.Length > 0)
+            {
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    cover.CopyTo(stream);
+                }
+            }
+            return newName;
         }
 
         public static bool Contains(this string source, string toCheck, StringComparison comp)
