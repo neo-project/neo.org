@@ -48,10 +48,10 @@ namespace NeoWeb.Controllers
         {
             IQueryable<Blog> models = null;
 
-            if (k != null) //ËÑË÷£¬ÏÔÊ¾ËùÓĞÓïÑÔ²©¿Í
+            if (k != null) //æœç´¢ï¼Œæ˜¾ç¤ºæ‰€æœ‰è¯­è¨€åšå®¢
             {
                 var keywords = k.Split(" ");
-                foreach (var item in keywords) //¶Ô¹Ø¼ü´Ê½øĞĞËÑË÷
+                foreach (var item in keywords) //å¯¹å…³é”®è¯è¿›è¡Œæœç´¢
                 {
                     if (models == null)
                         models = _context.Blogs.Where(p => p.Title.Contains(item, StringComparison.OrdinalIgnoreCase) || p.Content.Contains(item, StringComparison.OrdinalIgnoreCase) || p.Tags != null && p.Tags.Contains(item, StringComparison.OrdinalIgnoreCase));
@@ -60,14 +60,14 @@ namespace NeoWeb.Controllers
                     if (models == null) break;
                 }
             }
-            if (t != null) //É¸Ñ¡±êÇ©
+            if (t != null) //ç­›é€‰æ ‡ç­¾
             {
                 if (models == null)
                     models = _context.Blogs.Where(p => p.Tags != null && p.Tags.Contains(t, StringComparison.OrdinalIgnoreCase));
                 else
                     models = models.Where(p => p.Tags != null && p.Tags.Contains(t, StringComparison.OrdinalIgnoreCase));
             }
-            if (k == null && t == null) //½öÏÔÊ¾µ±Ç°ÓïÑÔ²©¿Í£¬ÓĞËÑË÷»ò±êÇ©µÄ³ıÍâ
+            if (k == null && t == null) //ä»…æ˜¾ç¤ºå½“å‰è¯­è¨€åšå®¢ï¼Œæœ‰æœç´¢æˆ–æ ‡ç­¾çš„é™¤å¤–
             {
                 models = _context.Blogs.Where(p => p.Lang == _localizer["en"]);
             }
@@ -129,8 +129,18 @@ namespace NeoWeb.Controllers
             });
 
             var idList = blogs.Where(p => p.Lang == _localizer["en"]).Select(p => p.Id).ToList();
-            ViewBag.NextBlogId = idList[Math.Max(idList.IndexOf((int)id) - 1, 0)];
-            ViewBag.PrevBlogId = idList[Math.Min(idList.IndexOf((int)id) + 1, idList.Count - 1)];
+            idList.Clear();
+
+            if (idList.Count == 0)
+            {
+                ViewBag.NextBlogId = blog.Id;
+                ViewBag.PrevBlogId = blog.Id;
+            }
+            else
+            {
+                ViewBag.NextBlogId = idList[Math.Max(idList.IndexOf((int)id) - 1, 0)];
+                ViewBag.PrevBlogId = idList[Math.Min(idList.IndexOf((int)id) + 1, idList.Count - 1)];
+            }
 
             ViewBag.CreateTime = blogs.Select(p => new BlogDateTimeViewModels
             {
@@ -177,7 +187,7 @@ namespace NeoWeb.Controllers
                 blog.CreateTime = DateTime.Now;
                 blog.EditTime = DateTime.Now;
                 blog.User = _context.Users.Find(_userId);
-                blog.Tags = blog.Tags?.Replace(", ", ",").Replace("£¬", ",").Replace("£¬ ", ",");
+                blog.Tags = blog.Tags?.Replace(", ",",").Replace("ï¼Œ", ",").Replace("ï¼Œ ", ",");
                 _context.Add(blog);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -224,7 +234,7 @@ namespace NeoWeb.Controllers
                     item.Lang = blog.Lang;
                     item.IsShow = blog.IsShow;
                     item.EditTime = DateTime.Now;
-                    item.Tags = blog.Tags?.Replace(", ", ",").Replace("£¬", ",").Replace("£¬ ", ",");
+                    item.Tags = blog.Tags?.Replace(", ", ",").Replace("ï¼Œ", ",").Replace("ï¼Œ ", ",");
                     _context.Update(item);
                     await _context.SaveChangesAsync();
                 }
@@ -277,7 +287,18 @@ namespace NeoWeb.Controllers
         [HttpPost]
         public string Upload(IFormFile file)
         {
-            var filePath = Helper.UploadMedia(file);
+            var random = new Random();
+            var bytes = new byte[10];
+            random.NextBytes(bytes);
+            var newName = bytes.ToHexString() + Path.GetExtension(file.FileName);
+            var filePath = Path.Combine(_env.ContentRootPath, "wwwroot/upload", newName);
+            if (file.Length > 0)
+            {
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+            }
 
             using (Image<Rgba32> image = Image.Load(filePath))
             {
@@ -288,8 +309,7 @@ namespace NeoWeb.Controllers
                 }));
                 image.Save(filePath);
             }
-
-            return $"{{\"location\":\"/upload/{Path.GetFileName(filePath)}\"}}";
+            return $"{{\"location\":\"/upload/{newName}\"}}";
         }
 
 
@@ -300,11 +320,11 @@ namespace NeoWeb.Controllers
 
         private string Convert(string input)
         {
-            input = Regex.Replace(input, @"<!\-\-\[if gte mso 9\]>[\s\S]*<!\[endif\]\-\->", ""); //É¾³ı ms office ×¢½â
-            input = Regex.Replace(input, "src=\".*/upload", "src=\"/upload"); //Ìæ»»ÉÏ´«Í¼Æ¬µÄÁ´½Ó
-            input = Regex.Replace(input, @"<p>((&nbsp;\s)|(&nbsp;)|\s)+", "<p>"); //É¾³ı¶ÎÊ×ÓÉ¿Õ¸ñÔì³ÉµÄËõ½ø
-            input = Regex.Replace(input, @"\sstyle="".*?""", ""); //É¾³ı Style ÑùÊ½
-            input = Regex.Replace(input, @"\sclass="".*?""", ""); //É¾³ı Class ÑùÊ½
+            input = Regex.Replace(input, @"<!\-\-\[if gte mso 9\]>[\s\S]*<!\[endif\]\-\->", ""); //åˆ é™¤ ms office æ³¨è§£
+            input = Regex.Replace(input, "src=\".*/upload", "src=\"/upload"); //æ›¿æ¢ä¸Šä¼ å›¾ç‰‡çš„é“¾æ¥
+            input = Regex.Replace(input, @"<p>((&nbsp;\s)|(&nbsp;)|\s)+", "<p>"); //åˆ é™¤æ®µé¦–ç”±ç©ºæ ¼é€ æˆçš„ç¼©è¿›
+            input = Regex.Replace(input, @"\sstyle="".*?""", ""); //åˆ é™¤ Style æ ·å¼
+            input = Regex.Replace(input, @"\sclass="".*?""", ""); //åˆ é™¤ Class æ ·å¼
             return input;
         }
     }
