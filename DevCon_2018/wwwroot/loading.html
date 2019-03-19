@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEO DEVCON</title>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="css/site.css" />
+    <link rel="stylesheet" href="css/devcon.css" />
+    <link rel="stylesheet" href="css/loading.css" />
+    <link rel="apple-touch-icon" href="~/images/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+    <link rel="bookmark" type="image/x-icon" href="images/favicon.png" />
+</head>
+<body>
+    <div class="dev-container bg-green">
+        <div class="dev-content container">
+            <p class="ma-l coming-logo"><img src="images/neo-logo-white.svg" /></p>
+            <p class="ma-m dev-title"><img src="images/dev.svg" /></p>
+            <h1 class="ma-m fri-intro">SILICON VALLEY</h1>
+            <h3 class="ma-xs sec-intro">END OF JANUARY</h3>
+            <h1 class="ma-m thr-intro">STAY TUNED</h1>
+            <h2 class="ma-xs four-intro">LAUNCHING SOON!</h2>
+            <h4 class="ma-l five-intro">FOLLOW US FOR MORE INFO:<a href="https://twitter.com/NEO_DevCon" target="_blank"><span class="iconfont">&#xe614;</span>twitter</a></h4>
+            <h4 class="ma-xs five-intro">Email:<a href="mailto:devcon@neo.org">devcon@neo.org</a></h4>
+        </div>
+        <div class="bg-animate">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" version="1.1">
+                <line class="svg-line green-line fast-line op-30" x1="10%" y1="10%" x2="10%" y2="60%" />
+                <line class="svg-line fast-line op-50" x1="5%" y1="40%" x2="23%" y2="40%" />
+                <line class="svg-line normal-line op-80" x1="0%" y1="43%" x2="31%" y2="43%" />
+                <line class="svg-line fast-line" x1="8%" y1="48%" x2="27%" y2="48%" />
+                <line class="svg-line green-line op-80" x1="18%" y1="27%" x2="18%" y2="75%" />
+                <line class="svg-line" x1="4%" y1="59%" x2="20%" y2="59%" />
+                <text x="78%" y="23%" fill="white" class="thr-intro ver-year">2018</text>
+                <line class="svg-line green-line slow-line" x1="76%" y1="20%" x2="76%" y2="61%" />
+                <line class="svg-line green-line normal-line" x1="84%" y1="45%" x2="84%" y2="68%" />
+                <line class="svg-line green-line fast-line op-70" x1="90%" y1="38%" x2="90%" y2="64%" />
+                <line class="svg-line slow-line op-80" x1="70%" y1="59%" x2="98%" y2="59%" />
+                <line class="svg-line normal-line op-60" x1="75%" y1="80%" x2="100%" y2="80%" />
+                <line class="svg-line fast-line op-30" x1="82%" y1="84%" x2="99%" y2="84%" />
+            </svg>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="lib/jquery/dist/jquery.js"></script>
+    <script type="text/javascript">
+        pageSize();
+        $(window).resize(function () {
+            pageSize();
+        });
+        function pageSize() {
+            $(".dev-container").each(function () {
+                $(this).css("width", $(window).width());
+                $(this).css("min-height", $(window).height());
+            })
+        }
+    </script>
+</body>
+</html>

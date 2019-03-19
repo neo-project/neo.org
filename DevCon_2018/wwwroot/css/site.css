@@ -1,0 +1,62 @@
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+@font-face {
+    font-family:"Poppins";
+    src:url("font/Poppins-Medium.ttf");
+}
+@font-face {
+    font-family:"Poppins-Light";
+    src:url("font/Poppins-Light.ttf");
+}
+@font-face {
+    font-family:"Poppins-Bloder";
+    src:url("font/Poppins-Bold.ttf");
+}
+@font-face {
+    font-family:"ShareTechMono";
+    src:url("font/ShareTechMono-Regular.ttf");
+}
+@font-face {
+  font-family: 'iconfont';  /* project id 412214 */
+  src: url('//at.alicdn.com/t/font_412214_dcd9nfex555ng66r.eot');
+  src: url('//at.alicdn.com/t/font_412214_dcd9nfex555ng66r.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_412214_dcd9nfex555ng66r.woff') format('woff'),
+  url('//at.alicdn.com/t/font_412214_dcd9nfex555ng66r.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_412214_dcd9nfex555ng66r.svg#iconfont') format('svg');
+}
+.iconfont {
+    font-family:iconfont;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
