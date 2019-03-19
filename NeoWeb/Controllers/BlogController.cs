@@ -151,11 +151,11 @@ namespace NeoWeb.Controllers
             ViewBag.UserId = _userId;
             ViewBag.UserRules = _userRules;
 
-            if (string.IsNullOrEmpty(Request.Cookies[blog.Id.ToString()]) && Request.Cookies.Count >= 1)
+            if (blog.ReadCount < int.MaxValue && string.IsNullOrEmpty(Request.Cookies[blog.Id.ToString()]) && Request.Cookies.Count >= 1)
             {
                 blog.ReadCount++;
+                await _context.SaveChangesAsync();
             }
-            await _context.SaveChangesAsync();
 
             var content = blog.Content.Replace("<div>", "").Replace("<p>", "");
             var match = Regex.Match(content, "\\A\\W*<img.*/>");
