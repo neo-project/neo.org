@@ -8,6 +8,7 @@ using System.Net;
 using System.Linq;
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
 
 namespace NeoWeb
 {
@@ -23,7 +24,7 @@ namespace NeoWeb
             return html;
         }
 
-        public static string UploadMedia(IFormFile cover)
+        public static string UploadMedia(IFormFile cover, IHostingEnvironment env)
         {
             if (cover.Length > 1024 * 1024 * 25 || // 25Mb
                 !new string[]
@@ -32,7 +33,7 @@ namespace NeoWeb
                     ".jpg",
                     ".png"
                 }
-                .Contains(Path.GetExtension(cover.Name).ToLowerInvariant()))
+                .Contains(Path.GetExtension(cover.FileName).ToLowerInvariant()))
             {
                 throw new ArgumentException(nameof(cover));
             }
@@ -41,7 +42,7 @@ namespace NeoWeb
             var bytes = new byte[10];
             random.NextBytes(bytes);
             var newName = bytes.ToHexString() + Path.GetExtension(cover.FileName);
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", newName);
+            var filePath = Path.Combine(env.ContentRootPath, "wwwroot/upload", newName);
             if (cover.Length > 0)
             {
                 using (var stream = new FileStream(filePath, FileMode.Create))
