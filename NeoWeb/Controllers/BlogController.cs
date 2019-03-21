@@ -116,7 +116,7 @@ namespace NeoWeb.Controllers
 
             var blog = await _context.Blogs.Include(m => m.User)
                 .SingleOrDefaultAsync(m => m.Id == id);
-            if (blog == null)
+            if (blog == null || (!blog.IsShow && !_userRules))
             {
                 return RedirectToAction("Index");
             }
