@@ -18,35 +18,33 @@
     <div class="row">
         <div class="midpoint home-text-fir">
             <h1><span class="back-static p3">NEO</span></h1>
-            <h3 class="m3"><span class="back-static p3 lh3">@Localizer["NEO - An Open Network For Smart Economy"]</span></h3>
-            <div class="m2"><span class="back-static p2"><a class="btn-static t3" href="https://devcon.neo.org/" target="_blank">NEO Devcon</a></span></div>
+            <h3 class="m3"><span class="back-static p3 lh3 green-text">@Localizer["NEO - An Open Network For Smart Economy"]</span></h3>
         </div>
     </div>
 </div>
 
 <div class="home-page-content home-intro">
-    <div class="container w800">
-        <h2 class="m1">@Localizer["What is NEO"]</h2>
-        <div class="m2 t3">
-            @Localizer["NEO is an open source project driven by the community. It utilizes blockchain technology and digital identities to digitize assets and automate the management of digital assets using smart contracts. Using a distributed network, it aims to create a \"Smart Economy\"."]<br />
-            @Localizer["NEO was founded in 2014 and open sourced on GitHub in June 2015. Its MainNet was released in October 2016 and has been running in stable capacity for two years. Its vision of a \"smart economy\" was set up along with the project rebranding in 2017.<br />NEO is committed to its goal of being the most developer-friendly public chain:"]
-            <p class="lh2 m3 t4 text-left w650">
-                🥇 @Localizer["Infrastructure friendliness: a comprehensive toolkit for underlying infrastructure development; a mature NeoContract system; multi mainstream programming language support in NeoVM"]<br />
-                🥇 @Localizer["Community friendliness: a global map of developer communities, distributed in the US, Europe, Japan and Korea, etc.; active community voices from social media"]<br />
-                🥇 @Localizer["Ecosystem friendliness: NGD and NGC, as execution and investment arms of NEO Foundation provide technical support, advertising campaigns and funding for eco-projects; nearly 100 dApps within NEO ecosystem"]
-            </p>
-        </div>
-    </div>
     <div class="container">
-        <div class="row wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
-            <div class="col-sm-12 m1 intro-img w800 back-static border-static border-static2">
-                @Localizer["<img src='/images/home-intro-2.svg'/>"]
+        <div class="row">
+            <div class="col-md-6"><img src='/images/home-intro-2.svg' /></div>
+            <div class="col-md-6">
+                <h2 class="m1">@Localizer["What is NEO"]</h2>
+                <div class="m2 t3 text-left">
+                    @Localizer["NEO is an open source project driven by the community. It utilizes blockchain technology and digital identities to digitize assets and automate the management of digital assets using smart contracts. Using a distributed network, it aims to create a \"Smart Economy\"."]<br />
+                    @Localizer["NEO was founded in 2014 and open sourced on GitHub in June 2015. Its MainNet was released in October 2016 and has been running in stable capacity for two years. Its vision of a \"smart economy\" was set up along with the project rebranding in 2017."]
+                </div>
             </div>
         </div>
-        <div class="swiper-container text-center m1 p4 t4">
-            <div class="swiper-wrapper gray-text m1">
+    </div>
+    <div class="intro-img m2">
+        @Localizer["<img src='/images/home-intro-3.svg'/>"]
+    </div>
+    <div class="container">
+        <div class="swiper-container text-center m2 p4 t4">
+            <div class="swiper-wrapper gray-text m2">
                 <div class="swiper-slide p4 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.1s">
                     <img src="@Helper.ToCDN("/images/coin.svg")" /><br />
+                    <strong>数字资产</strong><br />
                     @Localizer["The underlying infrastructure of NEO supports multiple types of digital assets. Users can register, transfer and trade assets at their own discretion on NEO."]
                 </div>
                 <div class="swiper-slide p4 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.2s">
@@ -193,7 +191,7 @@
     <script src="@Helper.ToCDN("/lib/Swiper/js/swiper.min.js")"></script>
     <script>
         var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 4,
+            slidesPerView: 3,
             spaceBetween: 30,
             pagination: {
                 el: '.swiper-pagination',

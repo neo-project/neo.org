@@ -178,7 +178,7 @@
   <data name="Neo Virtual Machine (NeoVM) - NEO's lightweight stack-based virtual machine provides shorter startup times with efficient execution. Deterministic calling tree-technology allows NEO to achieve theoretically unlimited scalability." xml:space="preserve">
     <value>NeoVM：NEO 轻量级基于堆栈的虚拟机，拥有快速的启动时间和较高的执行效率，配合“确定性调用树”技术，可以实现理论上无限的扩展性。</value>
   </data>
-  <data name="NEO was founded in 2014 and open sourced on GitHub in June 2015. Its MainNet was released in October 2016 and has been running in stable capacity for two years. Its vision of a &quot;smart economy&quot; was set up along with the project rebranding in 2017.&lt;br /&gt;NEO is committed to its goal of being the most developer-friendly public chain:" xml:space="preserve">
+  <data name="NEO was founded in 2014 and open sourced on GitHub in June 2015. Its MainNet was released in October 2016 and has been running in stable capacity for two years. Its vision of a &quot;smart economy&quot; was set up along with the project rebranding in 2017." xml:space="preserve">
     <value>NEO 于 2014 年正式立项，自 2015 年 6 月起在 GitHub 上实时开源。NEO 非常重视社区的发展，拥有庞大的全球开发者社区，以 CoZ、NEL 和 NeoResearch 为代表，长期以来为 NEO 的开发提供支持。NEO 社区规模庞大，拥有数百万社区成员，长期活跃在 Reddit、Discord、GitHub 与 Twitter 等频道。</value>
   </data>
   <data name="NEO - An Open Network For Smart Economy" xml:space="preserve">
@@ -232,20 +232,11 @@
   <data name="Claim NEO/GAS for TestNet use" xml:space="preserve">
     <value>领取测试网的 NEO / GAS</value>
   </data>
-  <data name="Community friendliness: a global map of developer communities, distributed in the US, Europe, Japan and Korea, etc.; active community voices from social media" xml:space="preserve">
-    <value>社区友好：社区成员覆盖全球，多个开发者社区分布于欧美、日韩等，社交媒体拥有高社区活跃度。</value>
-  </data>
   <data name="Detail" xml:space="preserve">
     <value>查看详情</value>
   </data>
-  <data name="Ecosystem friendliness: NGD and NGC, as execution and investment arms of NEO Foundation provide technical support, advertising campaigns and funding for eco-projects; nearly 100 dApps within NEO ecosystem" xml:space="preserve">
-    <value>生态友好：NEO Foundation 下属的 NGD 和 NGC 分别作为执行机构和投资机构为生态项目提供技术支持、宣传推广、资金支持等，至今 NEO 生态内已有近百个 dApp。</value>
-  </data>
   <data name="Event Page" xml:space="preserve">
     <value>活动页面</value>
-  </data>
-  <data name="Infrastructure friendliness: a comprehensive toolkit for underlying infrastructure development; a mature NeoContract system; multi mainstream programming language support in NeoVM" xml:space="preserve">
-    <value>基础设施友好：底层开发工具配套齐全，智能合约体系强大，NeoVM 支持多种主流编程语言。</value>
   </data>
   <data name="Join our project" xml:space="preserve">
     <value>参与我们的项目</value>

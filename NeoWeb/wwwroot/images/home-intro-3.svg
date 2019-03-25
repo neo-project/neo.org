@@ -1,28 +1,54 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="791px" height="336px" viewBox="0 0 791 336" version="1.1">
-  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-    <g id="Artboard-5" transform="translate(-30.000000, -60.000000)">
-      <g id="Group" transform="translate(22.000000, 43.000000)">
-        <g id="Group-35" transform="translate(0.930701, 0.755629)">
-          <g id="Group-29">
-            <text id="Smart-Economy" font-size="45" font-weight="400" letter-spacing="4" fill="#4A4A4A">
-              <tspan x="297.206106" y="67.009515">智能经济</tspan>
-            </text>
-            <path d="M382.592167,84.4617137 L400.657152,218.915109" id="Stroke-101" stroke="#B1BAC9" stroke-width="2" stroke-dasharray="10" transform="translate(391.399050, 151.443949) scale(1, -1) rotate(8.000000) translate(-391.399050, -151.443949) "/>
-            <path d="M57.9894015,186.54491 L69.4450222,268.055887 L397.775078,221.39939 L725.836715,174.796223 L714.520267,94.2755142" id="Stroke-101" stroke="#B1BAC9" stroke-width="2" stroke-dasharray="10" transform="translate(391.913058, 181.165701) scale(1, -1) rotate(8.000000) translate(-391.913058, -181.165701) "/>
-            <text id="Digital-Assets" font-family="PingFangSC-Medium, PingFang SC" font-size="34" font-weight="400" letter-spacing="3" fill="#4A4A4A">
-              <tspan x="11.834" y="293.733053">数字资产</tspan>
-            </text>
-            <text id="Digital-Identity" font-family="PingFangSC-Medium, PingFang SC" font-size="34" font-weight="400" letter-spacing="3" fill="#4A4A4A">
-              <tspan x="328.834" y="293.733053">数字身份</tspan>
-            </text>
-            <text id="Smart-Contract" font-family="PingFangSC-Medium, PingFang SC" font-size="34" font-weight="400" letter-spacing="3" fill="#4A4A4A">
-              <tspan x="644.65" y="293.733053">智能合约</tspan>
-            </text>
-          </g>
-        </g>
-        <polygon id="Path-7" stroke="#478E0A" transform="translate(242.481439, 50.914452) scale(-1, 1) rotate(90.000000) translate(-154.481439, -35.914452) " points="146.251314 27.2684088 154.521033 32.7582918 162.711563 27.2684088 162.711563 38.974739 154.521033 44.5604946 146.251314 38.974739"/>
-        <polygon id="Path-7" stroke="#478E0A" transform="translate(540.208789, 52.202171) rotate(90.000000) translate(-638.208789, -36.202171) " points="629.978664 27.5561283 638.248384 33.0460113 646.438914 27.5561283 646.438914 39.2624584 638.248384 44.848214 629.978664 39.2624584"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1240px" height="151px" viewBox="0 0 1240 151" version="1.1">
+  <style>
+    .ani1{
+    stroke-dasharray: 1240;
+    stroke-dashoffset: 0;
+    animation: light 6s;
+    }
+    @keyframes light{
+    0%{stroke-dashoffset: 1240;}
+    100%{stroke-dashoffset: 0;}
+    }
+  </style>
+  <g xmlns="http://www.w3.org/2000/svg" id="Group-56">
+    <path d="M0,20.5 L1250,20.5" id="lAni" class="ani1" stroke="#979797"/>
+    <rect stroke="#50AC02" stroke-width="0.5" fill="#FFFFFF" x="100.449893" y="1.10238228" width="42.7138861" height="42.7138861"/>
+    <g id="Group-54" transform="translate(105.121719, 7.000000)">
+      <rect stroke="#50AC02" fill="#FFFFFF" x="1.29985168" y="0.51279912" width="30.5609026" height="30.5609026"/>
+      <rect stroke="#50AC02" stroke-width="4" fill="#50AC02" x="8.55899129" y="7.77193873" width="16.0426234" height="16.0426234"/>
+      <rect stroke="#808080" stroke-width="4" fill="#FFFFFF" x="336.107535" y="7.77193873" width="16.0426234" height="16.0426234"/>
+      <rect stroke="#808080" stroke-width="4" fill="#FFFFFF" x="663.656078" y="7.77193873" width="16.0426234" height="16.0426234"/>
+      <rect stroke="#808080" stroke-width="4" fill="#FFFFFF" x="991.204622" y="7.77193873" width="16.0426234" height="16.0426234"/>
+    </g>
+    <text id="da" font-family="PingFangSC-Medium, PingFang SC" font-size="30" font-weight="400" fill="#50AC02">
+      <tspan x="60" y="100">DIGITAL</tspan>
+      <tspan x="50" y="150">ASSESTS</tspan>
+    </text>
+    <text id="di" font-family="PingFangSC-Medium, PingFang SC" font-size="30" font-weight="400" fill="#808080">
+      <tspan x="401.592" y="100.753571">DIGITAL</tspan>
+      <tspan x="389.874" y="150.753571">IDENTITY</tspan>
+    </text>
+    <text id="sc" font-family="PingFangSC-Medium, PingFang SC" font-size="30" font-weight="400" fill="#808080">
+      <tspan x="725" y="100.753571">SMART</tspan>
+      <tspan x="700" y="150.753571">CONTRACT</tspan>
+    </text>
+    <text id="se" font-family="PingFangSC-Medium, PingFang SC" font-size="30" font-weight="400" fill="#808080">
+      <tspan x="1055" y="100">SMART</tspan>
+      <tspan x="1030" y="150">ECONOMY</tspan>
+    </text>
+    <g id="Group-55" transform="translate(282, 92)" fill="#50AC02">
+      <g id="Group-57" transform="translate(11.640452, 0.792580)">
+        <rect x="0.247779776" y="0.539968585" width="6.40158706" height="28.9407374"/>
       </g>
+      <g id="Group-57" transform="translate(15.004060, 15.578339) rotate(-90.000000) translate(-15.004060, -15.578339) translate(11.504060, 0.578339)">
+        <rect x="0.247779776" y="0.539968585" width="6.40158706" height="28.9407374"/>
+      </g>
+    </g>
+    <g id="Group-55" transform="translate(605, 92)" fill="#808080">
+      <rect x="11" y="0" width="6" height="28"/>
+      <rect transform="translate(15, 14) rotate(-90) translate(-15.014397, -14.629766) " x="11.8136035" y="0.159397268" width="6.40158706" height="28.9407374"/>
+      <rect transform="translate(348, 5) rotate(-90) translate(-348.177054, -5.533343) " x="344.976261" y="-8.93702611" width="6.40158706" height="28.9407374"/>
+      <rect transform="translate(348, 16) rotate(-90) translate(-348.177054, -16.830560) " x="344.976261" y="2.3601908" width="6.40158706" height="28.9407374"/>
     </g>
   </g>
 </svg>

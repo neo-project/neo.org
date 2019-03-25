@@ -27,8 +27,8 @@
 }
 .home-text-fir {
     width:90%;
-    height:30%;
-    max-height:300px;
+    height:20%;
+    max-height:250px;
 }
 
 /*NEO intro*/
@@ -38,12 +38,27 @@
     background-repeat:no-repeat;
     background-position: -80% 150px,180% 180px,center;
 }
-.intro-img img{
-    width:80%;
-    max-width:500px;
-    margin:30px auto;
+.intro-img{
+    background: url(/images/home-intro-4.svg);
+    background-repeat: repeat-x;
 }
-
+.svg-line {
+    stroke: #000;
+    stroke-width: 1px;
+    stroke-dasharray: 8 8;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation: nor 15s linear infinite;
+}
+.intro-img img{
+    max-width:1240px;
+    width:100%;
+}
+@media only screen and (max-width: 1240px) {
+    .intro-img{
+        background: none;
+    }
+}
 
 /*NEO技术特点 - NEO Technical Features*/
 html, body {
@@ -58,7 +73,7 @@ html, body {
     min-height:100px;
 }
 .swiper-slide img{
-    width:50px;
+    max-width:90px;
     margin-bottom:25px;
 }
 
@@ -184,7 +199,6 @@ html, body {
         overflow-x: hidden;
     }
     .intro-img img {
-        width:95%;
     }
     .home-client {
         background-size: 56%,25%,100%;
