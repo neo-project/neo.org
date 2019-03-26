@@ -122,15 +122,17 @@ namespace NeoWeb.Controllers
             }
 
             #region Previous article and  Next article
-            var blogs = _context.Blogs.OrderByDescending(o => o.CreateTime).Select(p => new Blog()
+            var blogs = _context.Blogs.Where(p => p.Lang == _localizer["en"]).Select(p => new Blog()
             {
                 Id = p.Id,
                 CreateTime = p.CreateTime,
                 Lang = p.Lang
-            });
+            }).ToList();
+            if(blog.Lang != _localizer["en"])
+                blogs.Add(blog);
+            blogs = blogs.OrderByDescending(o => o.CreateTime).ToList();
 
-            var idList = blogs.Where(p => p.Lang == _localizer["en"]).Select(p => p.Id).ToList();
-
+            var idList = blogs.Select(p => p.Id).ToList();
             if (idList.Count == 0)
             {
                 ViewBag.NextBlogId = blog.Id;
@@ -142,7 +144,8 @@ namespace NeoWeb.Controllers
                 ViewBag.PrevBlogId = idList[Math.Min(idList.IndexOf((int)id) + 1, idList.Count - 1)];
             }
             #endregion
-
+            
+            var wrongBrotherBlogId = false;
             if (!_userRules && blog.Lang != _localizer["en"] && blog.BrotherBlogId != null)
             {
                 var brotherBlog = _context.Blogs.FirstOrDefault(p => p.Id == blog.BrotherBlogId);
@@ -152,7 +155,13 @@ namespace NeoWeb.Controllers
                     blog.Summary = brotherBlog.Summary;
                     blog.Content = brotherBlog.Content;
                 }
+                else
+                {
+                    wrongBrotherBlogId = true;
+                }
             }
+            ViewBag.IsAdminEdit = _userRules && blog.Lang != _localizer["en"];
+            ViewBag.NoCurrentLanguragBlog = blog.Lang != _localizer["en"] && blog.BrotherBlogId == null || wrongBrotherBlogId;
 
             ViewBag.CreateTime = blogs.Select(p => new BlogDateTimeViewModels
             {
