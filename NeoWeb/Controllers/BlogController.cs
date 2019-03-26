@@ -121,6 +121,7 @@ namespace NeoWeb.Controllers
                 return RedirectToAction("Index");
             }
 
+            #region Previous article and  Next article
             var blogs = _context.Blogs.OrderByDescending(o => o.CreateTime).Select(p => new Blog()
             {
                 Id = p.Id,
@@ -129,7 +130,6 @@ namespace NeoWeb.Controllers
             });
 
             var idList = blogs.Where(p => p.Lang == _localizer["en"]).Select(p => p.Id).ToList();
-            idList.Clear();
 
             if (idList.Count == 0)
             {
@@ -140,6 +140,18 @@ namespace NeoWeb.Controllers
             {
                 ViewBag.NextBlogId = idList[Math.Max(idList.IndexOf((int)id) - 1, 0)];
                 ViewBag.PrevBlogId = idList[Math.Min(idList.IndexOf((int)id) + 1, idList.Count - 1)];
+            }
+            #endregion
+
+            if (!_userRules && blog.Lang != _localizer["en"] && blog.BrotherBlogId != null)
+            {
+                var brotherBlog = _context.Blogs.FirstOrDefault(p => p.Id == blog.BrotherBlogId);
+                if (brotherBlog != null && brotherBlog.IsShow)
+                {
+                    blog.Title = brotherBlog.Title;
+                    blog.Summary = brotherBlog.Summary;
+                    blog.Content = brotherBlog.Content;
+                }
             }
 
             ViewBag.CreateTime = blogs.Select(p => new BlogDateTimeViewModels
@@ -178,14 +190,26 @@ namespace NeoWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Content,Summary,Lang,IsShow,Tags")] Blog blog)
+        public async Task<IActionResult> Create([Bind("Id,Title,Content,BrotherBlogId,Summary,IsShow,Tags")] Blog blog)
         {
             if (ModelState.IsValid)
             {
+                //Verify same content blog in other languages
+                if (blog.BrotherBlogId != null)
+                {
+                    var brotherBlog = _context.Blogs.FirstOrDefault(p => p.Id == blog.BrotherBlogId);
+                    if (brotherBlog == null)
+                    {
+                        ModelState.AddModelError("BrotherBlogId", "This blog does not exist!");
+                        return View(blog);
+                    }
+                }
+
                 blog.Content = Convert(blog.Content);
                 blog.Summary = blog.Content.ClearHtmlTag(150);
                 blog.CreateTime = DateTime.Now;
                 blog.EditTime = DateTime.Now;
+                blog.Lang = GetLanguage(blog);
                 blog.User = _context.Users.Find(_userId);
                 blog.Tags = blog.Tags?.Replace(", ",",").Replace("，", ",").Replace("， ", ",");
                 _context.Add(blog);
@@ -193,6 +217,12 @@ namespace NeoWeb.Controllers
                 return RedirectToAction("Index");
             }
             return View(blog);
+        }
+
+        private string GetLanguage(Blog blog)
+        {
+            Regex regChina = new Regex("[\u4e00-\u9fa5]");
+            return regChina.IsMatch(blog.Title + blog.Content) ? "zh" : "en";
         }
 
         // GET: blog/edit/5
@@ -216,7 +246,7 @@ namespace NeoWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Lang,Content,IsShow,Tags")] Blog blog)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Content,BrotherBlogId,IsShow,Tags")] Blog blog)
         {
             if (id != blog.Id)
             {
@@ -225,16 +255,28 @@ namespace NeoWeb.Controllers
 
             if (ModelState.IsValid)
             {
+                //Verify same content blog in other languages
+                if (blog.BrotherBlogId != null)
+                {
+                    var brotherBlog = _context.Blogs.FirstOrDefault(p => p.Id == blog.BrotherBlogId);
+                    if (brotherBlog == null)
+                    {
+                        ModelState.AddModelError("BrotherBlogId", "This blog does not exist!");
+                        return View(blog);
+                    }
+                }
+
                 var item = _context.Blogs.FirstOrDefault(p => p.Id == blog.Id);
                 try
                 {
                     item.Title = blog.Title;
                     item.Content = Convert(blog.Content);
                     item.Summary = blog.Content.ClearHtmlTag(150);
-                    item.Lang = blog.Lang;
+                    item.Lang = GetLanguage(blog);
                     item.IsShow = blog.IsShow;
                     item.EditTime = DateTime.Now;
                     item.Tags = blog.Tags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
+                    item.BrotherBlogId = blog.BrotherBlogId;
                     _context.Update(item);
                     await _context.SaveChangesAsync();
                 }
