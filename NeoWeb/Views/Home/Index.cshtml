@@ -26,7 +26,7 @@
 <div class="home-page-content home-intro">
     <div class="container">
         <div class="row">
-            <div class="col-md-6"><img src='/images/home-intro-2.svg' /></div>
+            <div class="col-md-6"><img class="img-neo m2" src='/images/home-intro-2.svg' /></div>
             <div class="col-md-6">
                 <h2 class="m1">@Localizer["What is NEO"]</h2>
                 <div class="m2 t3 text-left">
@@ -36,51 +36,53 @@
             </div>
         </div>
     </div>
-    <div class="intro-img m2">
+    <div class="intro-img m1">
         @Localizer["<img src='/images/home-intro-3.svg'/>"]
     </div>
     <div class="container">
         <div class="swiper-container text-center m2 p4 t4">
             <div class="swiper-wrapper gray-text m2">
-                <div class="swiper-slide p4 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.1s">
+                <div class="swiper-slide p3 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.1s">
                     <img src="@Helper.ToCDN("/images/coin.svg")" /><br />
                     <strong>数字资产</strong><br />
                     @Localizer["The underlying infrastructure of NEO supports multiple types of digital assets. Users can register, transfer and trade assets at their own discretion on NEO."]
                 </div>
-                <div class="swiper-slide p4 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.2s">
+                <div class="swiper-slide p3 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.2s">
                     <img src="@Helper.ToCDN("/images/bank.svg")" /><br />
                     @Localizer["Digital certificates are supported to build trust into the public chain. This provides full legal protection for all assets digitized through the NEO platform."]
                 </div>
-                <div class="swiper-slide p4 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+                <div class="swiper-slide p3 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
                     <img src="@Helper.ToCDN("/images/networking.svg")" /><br />
                     @Localizer["Facilitate P2P trustless exchange of digital assets. Buyers and sellers of digital assets and currencies will be matched peer-to-peer without the need for third party exchanges."]
                 </div>
-                <div class="swiper-slide p4 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.4s">
+                <div class="swiper-slide p3 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.4s">
                     <img src="@Helper.ToCDN("/images/contract.svg")" /><br />
                     @Localizer["Turing-complete smart contract, which has high certainty and finality, support concurrent operation, sharding and unlimited scalability when running in NeoVM."]
                 </div>
-                <div class="swiper-slide p4">
+                <div class="swiper-slide p3">
                     <img src="@Helper.ToCDN("/images/startup.svg")" /><br />
                     @Localizer["NeoContract supports multiple programming languages such as C#, Java, and Python. Developers can rapidly develop smart contracts based on the NEO platform without learning a unique language."]
                 </div>
-                <div class="swiper-slide p4">
+                <div class="swiper-slide p3">
                     <img src="@Helper.ToCDN("/images/think.svg")" /><br />
                     @Localizer["Neo Virtual Machine (NeoVM) - NEO's lightweight stack-based virtual machine provides shorter startup times with efficient execution. Deterministic calling tree-technology allows NEO to achieve theoretically unlimited scalability."]
                 </div>
-                <div class="swiper-slide p4">
+                <div class="swiper-slide p3">
                     <img src="@Helper.ToCDN("/images/teamwork.svg")" /><br />
                     @Localizer["Consensus nodes use Byzantine Fault Tolerance Algorithm to reach consensus and ensure the finality of transactions. It also ensures that the system keeps its finality and availability as long as Byzantine fault occurs on less than 1/3 of the nodes."]
                 </div>
-                <div class="swiper-slide p4">
+                <div class="swiper-slide p3">
                     <img src="@Helper.ToCDN("/images/networking2.svg")" /><br />
                     @Localizer["Comprises Cross-chain Assets Swap Protocol and Cross-chain Distributed Transaction Protocol and can achieve atomic assets swap and guarantee the operation consistency of smart contracts executed on different chains."]
                 </div>
-                <div class="swiper-slide p4">
+                <div class="swiper-slide p3">
                     <img src="@Helper.ToCDN("/images/flask.svg")" /><br />
                     @Localizer["Introduced Lattice cryptography-based signing and encryption technique to avoid quantum crisis by Turing encryption and decryption problem into the Shortest Vector Problem (SVP), which cannot be solved by current quantum computers."]
                 </div>
             </div>
             <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
     </div>
 </div>
@@ -192,7 +194,13 @@
     <script>
         var swiper = new Swiper('.swiper-container', {
             slidesPerView: 3,
-            spaceBetween: 30,
+            spaceBetween: 10,
+            slidesPerGroup: 3,
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
             pagination: {
                 el: '.swiper-pagination',
                 dynamicBullets: true,
@@ -201,15 +209,17 @@
             breakpoints: {
                 1024: {
                     slidesPerView: 3,
-                    spaceBetween: 20,
+                    spaceBetween: 10,
                 },
                 768: {
                     slidesPerView: 2,
                     spaceBetween: 10,
+                    slidesPerGroup: 2,
                 },
                 480: {
                     slidesPerView: 1,
-                    spaceBetween: 15,
+                    spaceBetween: 10,
+                    slidesPerGroup: 1,
                 }
             }
         });

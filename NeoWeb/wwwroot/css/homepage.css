@@ -32,11 +32,15 @@
 }
 
 /*NEO intro*/
+.img-neo {
+    max-width:700px;
+    margin-left:-200px;
+}
 .home-intro {
     background:#FFFFFF;
-    background:url(https://neo-cdn.azureedge.net/images/home-intro-1.svg),url(https://neo-cdn.azureedge.net/images/home-intro-1.svg),linear-gradient(206deg, transparent 6%,#FFFFFF 6%);
+    background:linear-gradient(206deg, transparent 6%,#FFFFFF 6%);
     background-repeat:no-repeat;
-    background-position: -80% 150px,180% 180px,center;
+    background-position:center;
 }
 .intro-img{
     background: url(/images/home-intro-4.svg);
@@ -176,9 +180,18 @@ html, body {
         background-position: -120px top,right bottom,center;
     }
 }
+@media only screen and (max-width: 1200px) {
+    .img-neo {
+        max-width:600px;
+        margin-left:-200px;
+    }
+}
 @media only screen and (max-width: 968px) {
     .home-intro {
         background:linear-gradient(211deg, transparent 60px,#FFFFFF 60px);
+    }
+    .img-neo {
+        margin-left:-300px;
     }
     .home-client {
         background-size: 70%,20%,100%;
@@ -198,7 +211,11 @@ html, body {
     .home-page-content {
         overflow-x: hidden;
     }
-    .intro-img img {
+    .img-neo {
+        max-width: 500px;
+        margin-left: -465px;
+        opacity: 0.3;
+        position: absolute;
     }
     .home-client {
         background-size: 56%,25%,100%;
