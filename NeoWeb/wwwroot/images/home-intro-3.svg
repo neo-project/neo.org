@@ -1,54 +1,78 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1240px" height="151px" viewBox="0 0 1240 151" version="1.1">
   <style>
     .ani1{
-    stroke-dasharray: 1240;
-    stroke-dashoffset: 0;
-    animation: light 6s;
+      stroke-dasharray: 1240;
+      stroke-dashoffset: 0;
+      animation: light 6s 1s;
     }
     @keyframes light{
-    0%{stroke-dashoffset: 1240;}
-    100%{stroke-dashoffset: 0;}
+      0%{stroke-dashoffset: 1240;}
+      100%{stroke-dashoffset: 0;}
     }
+    .rect{stroke:#808080;fill:#FFFFFF;}
+    .rect-1{animation: color 1s forwards 1s;}
+    .rect-2{animation: color 1s forwards 2s;}
+    .rect-3{animation: color 1s forwards 3s;}
+    .rect-4{animation: color 1s forwards 4s;}
+    @keyframes color {
+      from {stroke:#808080;fill:#FFFFFF;}
+      to {stroke:#50AC02;fill:#50AC02;}
+    }
+    .text{fill:#808080;}
+    .text-1{animation: textcolor 0.5s forwards 1s;}
+    .text-2{animation: textcolor 0.5s forwards 2s;}
+    .text-3{animation: textcolor 0.5s forwards 3s;}
+    .text-4{animation: textcolor 0.5s forwards 4s;}
+    @keyframes textcolor {
+      from {fill:#808080;}
+      to {fill:#50AC02;}
+    }
+    .sign{fill:#808080;}
+    .sign-1{animation: textcolor 0.2s forwards 1.2s;}
+    .sign-2{animation: textcolor 0.2s forwards 2.4s;}
+    .sign-3{animation: textcolor 0.2s forwards 3.6s;}
   </style>
   <g xmlns="http://www.w3.org/2000/svg" id="Group-56">
-    <path d="M110,20.5 L1100,20.5" id="lAni" class="ani1" stroke="#979797"/>
-    <rect stroke="#50AC02" stroke-width="0.5" fill="#FFFFFF" x="100.449893" y="1.10238228" width="42.7138861" height="42.7138861"/>
-    <g id="Group-54" transform="translate(105.121719, 7.000000)">
-      <rect stroke="#50AC02" fill="#FFFFFF" x="1.29985168" y="0.51279912" width="30.5609026" height="30.5609026"/>
-      <rect stroke="#50AC02" stroke-width="4" fill="#50AC02" x="8.55899129" y="7.77193873" width="16.0426234" height="16.0426234"/>
-      <rect stroke="#808080" stroke-width="4" fill="#FFFFFF" x="336.107535" y="7.77193873" width="16.0426234" height="16.0426234"/>
-      <rect stroke="#808080" stroke-width="4" fill="#FFFFFF" x="663.656078" y="7.77193873" width="16.0426234" height="16.0426234"/>
-      <rect stroke="#808080" stroke-width="4" fill="#FFFFFF" x="991.204622" y="7.77193873" width="16.0426234" height="16.0426234"/>
+    <path d="M120,20.5 L1100,20.5" id="lAni" class="ani1" stroke="#50AC02"/>
+    <g class="intro-text" id="diAs">
+      <rect class="rect rect-1" transform="translate(105, 7)" stroke-width="4" x="8" y="8" width="16" height="16"/>
+      <text class="text text-1" id="da" font-family="PingFangSC-Medium, PingFang SC" font-size="30" font-weight="400">
+        <tspan x="60" y="100">DIGITAL</tspan>
+        <tspan x="50" y="150">ASSESTS</tspan>
+      </text>
     </g>
-    <text id="da" font-family="PingFangSC-Medium, PingFang SC" font-size="30" font-weight="400" fill="#50AC02">
-      <tspan x="60" y="100">DIGITAL</tspan>
-      <tspan x="50" y="150">ASSESTS</tspan>
-    </text>
-    <text id="di" font-family="PingFangSC-Medium, PingFang SC" font-size="30" font-weight="400" fill="#808080">
-      <tspan x="401.592" y="100.753571">DIGITAL</tspan>
-      <tspan x="389.874" y="150.753571">IDENTITY</tspan>
-    </text>
-    <text id="sc" font-family="PingFangSC-Medium, PingFang SC" font-size="30" font-weight="400" fill="#808080">
-      <tspan x="725" y="100.753571">SMART</tspan>
-      <tspan x="700" y="150.753571">CONTRACT</tspan>
-    </text>
-    <text id="se" font-family="PingFangSC-Medium, PingFang SC" font-size="30" font-weight="400" fill="#808080">
-      <tspan x="1055" y="100">SMART</tspan>
-      <tspan x="1030" y="150">ECONOMY</tspan>
-    </text>
-    <g id="Group-55" transform="translate(282, 92)" fill="#50AC02">
-      <g id="Group-57" transform="translate(11.640452, 0.792580)">
-        <rect x="0.247779776" y="0.539968585" width="6.40158706" height="28.9407374"/>
-      </g>
-      <g id="Group-57" transform="translate(15.004060, 15.578339) rotate(-90.000000) translate(-15.004060, -15.578339) translate(11.504060, 0.578339)">
-        <rect x="0.247779776" y="0.539968585" width="6.40158706" height="28.9407374"/>
-      </g>
+    <g class="intro-text" id="diId">
+      <rect class="rect rect-2" transform="translate(105, 7)" stroke-width="4" x="336" y="8" width="16" height="16"/>
+      <text class="text text-2" id="di" font-family="PingFangSC-Medium, PingFang SC" font-size="30" font-weight="400">
+        <tspan x="401" y="100">DIGITAL</tspan>
+        <tspan x="389" y="150">IDENTITY</tspan>
+      </text>
     </g>
-    <g id="Group-55" transform="translate(605, 92)" fill="#808080">
-      <rect x="11" y="0" width="6" height="28"/>
-      <rect transform="translate(15, 14) rotate(-90) translate(-15.014397, -14.629766) " x="11.8136035" y="0.159397268" width="6.40158706" height="28.9407374"/>
-      <rect transform="translate(348, 5) rotate(-90) translate(-348.177054, -5.533343) " x="344.976261" y="-8.93702611" width="6.40158706" height="28.9407374"/>
-      <rect transform="translate(348, 16) rotate(-90) translate(-348.177054, -16.830560) " x="344.976261" y="2.3601908" width="6.40158706" height="28.9407374"/>
+    <g class="intro-text" id="smCo">
+      <rect class="rect rect-3" transform="translate(105, 7)" stroke-width="4" x="663" y="8" width="16" height="16"/>
+      <text class="text text-3" id="sc" font-family="PingFangSC-Medium, PingFang SC" font-size="30" font-weight="400">
+        <tspan x="725" y="100">SMART</tspan>
+        <tspan x="700" y="150">CONTRACT</tspan>
+      </text>
+    </g>
+    <g class="intro-text" id="smEc">
+      <rect class="rect rect-4" transform="translate(105, 7)" stroke-width="4" x="991" y="8" width="16" height="16"/>
+      <text class="text text-4" id="se" font-family="PingFangSC-Medium, PingFang SC" font-size="30" font-weight="400">
+        <tspan x="1055" y="100">SMART</tspan>
+        <tspan x="1030" y="150">ECONOMY</tspan>
+      </text>
+    </g>
+    <g class="sign sign-1" transform="translate(270, 92)">
+      <rect x="12" y="0" width="6" height="29"/>
+      <rect x="0" y="11" width="29" height="6"/>
+    </g>
+    <g class="sign sign-2" transform="translate(605, 92)">
+      <rect x="12" y="0" width="6" height="29"/>
+      <rect x="0" y="11" width="29" height="6"/>
+    </g>
+    <g class="sign sign-3" transform="translate(915, 95)">
+      <rect x="12" y="0" width="29" height="6"/>
+      <rect x="12" y="11" width="29" height="6"/>
     </g>
   </g>
 </svg>

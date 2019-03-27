@@ -1,3 +1,78 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1800px" height="151px" viewBox="0 0 1800 151" version="1.1">
-  <path d="M0,20.5 L1800.5,20.5" id="Line-37" stroke="#979797" stroke-dasharray="8"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1240px" height="151px" viewBox="0 0 1240 151" version="1.1">
+  <style>
+    .ani1{
+    stroke-dasharray: 1240;
+    stroke-dashoffset: 0;
+    animation: light 6s 1s;
+    }
+    @keyframes light{
+    0%{stroke-dashoffset: 1240;}
+    100%{stroke-dashoffset: 0;}
+    }
+    .rect{stroke:#808080;fill:#FFFFFF;}
+    .rect-1{animation: color 1s forwards 1s;}
+    .rect-2{animation: color 1s forwards 2s;}
+    .rect-3{animation: color 1s forwards 3s;}
+    .rect-4{animation: color 1s forwards 4s;}
+    @keyframes color {
+    from {stroke:#808080;fill:#FFFFFF;}
+    to {stroke:#50AC02;fill:#50AC02;}
+    }
+    .text{fill:#808080;}
+    .text-1{animation: textcolor 0.5s forwards 1s;}
+    .text-2{animation: textcolor 0.5s forwards 2s;}
+    .text-3{animation: textcolor 0.5s forwards 3s;}
+    .text-4{animation: textcolor 0.5s forwards 4s;}
+    @keyframes textcolor {
+    from {fill:#808080;}
+    to {fill:#50AC02;}
+    }
+    .sign{fill:#808080;}
+    .sign-1{animation: textcolor 0.2s forwards 1.2s;}
+    .sign-2{animation: textcolor 0.2s forwards 2.4s;}
+    .sign-3{animation: textcolor 0.2s forwards 3.6s;}
+  </style>
+  <g xmlns="http://www.w3.org/2000/svg" id="Group-56">
+    <path d="M120,20.5 L1100,20.5" id="lAni" class="ani1" stroke="#50AC02"/>
+    <g class="intro-text" id="diAs">
+      <rect class="rect rect-1" transform="translate(105, 7)" stroke-width="4" x="8" y="8" width="16" height="16"/>
+      <text class="text text-1" id="da" font-family="PingFangSC-Medium, PingFang SC" font-size="30" font-weight="100">
+        <tspan x="90" y="90">数字</tspan>
+        <tspan x="90" y="130">资产</tspan>
+      </text>
+    </g>
+    <g class="intro-text" id="diId">
+      <rect class="rect rect-2" transform="translate(105, 7)" stroke-width="4" x="336" y="8" width="16" height="16"/>
+      <text class="text text-2" id="di" font-family="PingFangSC-Medium, PingFang SC" font-size="30" font-weight="100">
+        <tspan x="420" y="90">数字</tspan>
+        <tspan x="420" y="130">身份</tspan>
+      </text>
+    </g>
+    <g class="intro-text" id="smCo">
+      <rect class="rect rect-3" transform="translate(105, 7)" stroke-width="4" x="663" y="8" width="16" height="16"/>
+      <text class="text text-3" id="sc" font-family="PingFangSC-Medium, PingFang SC" font-size="30" font-weight="100">
+        <tspan x="745" y="90">智能</tspan>
+        <tspan x="745" y="130">合约</tspan>
+      </text>
+    </g>
+    <g class="intro-text" id="smEc">
+      <rect class="rect rect-4" transform="translate(105, 7)" stroke-width="4" x="991" y="8" width="16" height="16"/>
+      <text class="text text-4" id="se" font-family="PingFangSC-Medium, PingFang SC" font-size="30" font-weight="100">
+        <tspan x="1075" y="90">智能</tspan>
+        <tspan x="1075" y="130">经济</tspan>
+      </text>
+    </g>
+    <g class="sign sign-1" transform="translate(270, 92)">
+      <rect x="12" y="0" width="6" height="29"/>
+      <rect x="0" y="11" width="29" height="6"/>
+    </g>
+    <g class="sign sign-2" transform="translate(605, 92)">
+      <rect x="12" y="0" width="6" height="29"/>
+      <rect x="0" y="11" width="29" height="6"/>
+    </g>
+    <g class="sign sign-3" transform="translate(915, 95)">
+      <rect x="12" y="0" width="29" height="6"/>
+      <rect x="12" y="11" width="29" height="6"/>
+    </g>
+  </g>
 </svg>
