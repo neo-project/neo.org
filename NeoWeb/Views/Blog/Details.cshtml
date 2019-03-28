@@ -69,15 +69,22 @@
             <div class="artical-content">
                 <div>
                     <h3 class="bold-font">@Model.Title</h3>
-                    <p class="t3 m3 @Localizer["d-none"] green-text blog-date bold-font"><span class="bold-font">@Model.CreateTime.ToShortDateString()</span></p>
-                    <p class="t3 m3 @Localizer["d-none-zh"] green-text blog-date bold-font"><span class="bold-font">@Model.CreateTime.ToShortDateString()</span></p>
+                    <p class="t3 m3 green-text blog-date bold-font"><span class="bold-font">@Model.CreateTime.ToShortDateString()</span></p>
                     <div class="float-right qrcode-div"><i class="iconfont green-text">&#xe79b;</i><div id="qrcode"></div></div>
                     <p class="t3">
                         @if (ViewBag.UserRules)
                         {
+                            @if (ViewBag.IsAdminEdit)
+                            {
+                                <div class="text-danger">@Localizer["Admin mode, does not automatically display blogs that correspond to the language of the site"]</div>
+                            }
                             <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
                             <span>|</span>
                             <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+                        }
+                        @if (!ViewBag.UserRules && ViewBag.NoCurrentLanguragBlog)
+                        {
+                            <div class="text-danger">@Localizer["There is no other language version of this blog"]</div>
                         }
                     </p>
                 </div>

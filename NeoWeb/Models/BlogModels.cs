@@ -9,6 +9,9 @@ namespace NeoWeb.Models
         [Key]
         public int Id { get; set; }
 
+        [Display(Name = "同内容其它语言的博客ID")]
+        public int? BrotherBlogId { get; set; }
+
         [Required(ErrorMessage = "必须填写博客标题")]
         [Display(Name = "文章标题")]
         public string Title { get; set; }
