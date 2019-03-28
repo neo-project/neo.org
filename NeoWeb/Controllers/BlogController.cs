@@ -48,10 +48,10 @@ namespace NeoWeb.Controllers
         {
             IQueryable<Blog> models = null;
 
-            if (k != null) //À—À˜£¨œ‘ æÀ˘”–”Ô—‘≤©øÕ
+            if (k != null) //ÊêúÁ¥¢ÔºåÊòæÁ§∫ÊâÄÊúâËØ≠Ë®ÄÂçöÂÆ¢
             {
                 var keywords = k.Split(" ");
-                foreach (var item in keywords) //∂‘πÿº¸¥ Ω¯––À—À˜
+                foreach (var item in keywords) //ÂØπÂÖ≥ÈîÆËØçËøõË°åÊêúÁ¥¢
                 {
                     if (models == null)
                         models = _context.Blogs.Where(p => p.Title.Contains(item, StringComparison.OrdinalIgnoreCase) || p.Content.Contains(item, StringComparison.OrdinalIgnoreCase) || p.Tags != null && p.Tags.Contains(item, StringComparison.OrdinalIgnoreCase));
@@ -60,14 +60,14 @@ namespace NeoWeb.Controllers
                     if (models == null) break;
                 }
             }
-            if (t != null) //…∏—°±Í«©
+            if (t != null) //Á≠õÈÄâÊ†áÁ≠æ
             {
                 if (models == null)
                     models = _context.Blogs.Where(p => p.Tags != null && p.Tags.Contains(t, StringComparison.OrdinalIgnoreCase));
                 else
                     models = models.Where(p => p.Tags != null && p.Tags.Contains(t, StringComparison.OrdinalIgnoreCase));
             }
-            if (k == null && t == null) //Ωˆœ‘ æµ±«∞”Ô—‘≤©øÕ£¨”–À—À˜ªÚ±Í«©µƒ≥˝Õ‚
+            if (k == null && t == null) //‰ªÖÊòæÁ§∫ÂΩìÂâçËØ≠Ë®ÄÂçöÂÆ¢ÔºåÊúâÊêúÁ¥¢ÊàñÊ†áÁ≠æÁöÑÈô§Â§ñ
             {
                 models = _context.Blogs.Where(p => p.Lang == _localizer["en"]);
             }
@@ -116,21 +116,54 @@ namespace NeoWeb.Controllers
 
             var blog = await _context.Blogs.Include(m => m.User)
                 .SingleOrDefaultAsync(m => m.Id == id);
-            if (blog == null)
+            if (blog == null || (!blog.IsShow && !_userRules))
             {
                 return RedirectToAction("Index");
             }
 
-            var blogs = _context.Blogs.OrderByDescending(o => o.CreateTime).Select(p => new Blog()
+            #region Previous article and  Next article
+            var blogs = _context.Blogs.Where(p => p.Lang == _localizer["en"]).Select(p => new Blog()
             {
                 Id = p.Id,
                 CreateTime = p.CreateTime,
                 Lang = p.Lang
-            });
+            }).ToList();
+            if(blog.Lang != _localizer["en"])
+                blogs.Add(blog);
+            blogs = blogs.OrderByDescending(o => o.CreateTime).ToList();
 
-            var idList = blogs.Where(p => p.Lang == _localizer["en"]).Select(p => p.Id).ToList();
-            ViewBag.NextBlogId = idList[Math.Max(idList.IndexOf((int)id) - 1, 0)];
-            ViewBag.PrevBlogId = idList[Math.Min(idList.IndexOf((int)id) + 1, idList.Count - 1)];
+            var idList = blogs.Select(p => p.Id).ToList();
+            if (idList.Count == 0)
+            {
+                ViewBag.NextBlogId = blog.Id;
+                ViewBag.PrevBlogId = blog.Id;
+            }
+            else
+            {
+                ViewBag.NextBlogId = idList[Math.Max(idList.IndexOf((int)id) - 1, 0)];
+                ViewBag.PrevBlogId = idList[Math.Min(idList.IndexOf((int)id) + 1, idList.Count - 1)];
+            }
+            #endregion
+
+            #region Choose the same blog language as the site language
+            var wrongBrotherBlogId = false;
+            if (!_userRules && blog.Lang != _localizer["en"] && blog.BrotherBlogId != null)
+            {
+                var brotherBlog = _context.Blogs.FirstOrDefault(p => p.Id == blog.BrotherBlogId);
+                if (brotherBlog != null && brotherBlog.IsShow)
+                {
+                    blog.Title = brotherBlog.Title;
+                    blog.Summary = brotherBlog.Summary;
+                    blog.Content = brotherBlog.Content;
+                }
+                else
+                {
+                    wrongBrotherBlogId = true;
+                }
+            }
+            ViewBag.IsAdminEdit = _userRules && blog.Lang != _localizer["en"];
+            ViewBag.NoCurrentLanguragBlog = blog.Lang != _localizer["en"] && blog.BrotherBlogId == null || wrongBrotherBlogId;
+            #endregion
 
             ViewBag.CreateTime = blogs.Select(p => new BlogDateTimeViewModels
             {
@@ -141,11 +174,11 @@ namespace NeoWeb.Controllers
             ViewBag.UserId = _userId;
             ViewBag.UserRules = _userRules;
 
-            if (string.IsNullOrEmpty(Request.Cookies[blog.Id.ToString()]) && Request.Cookies.Count >= 1)
+            if (blog.ReadCount < int.MaxValue && string.IsNullOrEmpty(Request.Cookies[blog.Id.ToString()]) && Request.Cookies.Count >= 1)
             {
                 blog.ReadCount++;
+                await _context.SaveChangesAsync();
             }
-            await _context.SaveChangesAsync();
 
             var content = blog.Content.Replace("<div>", "").Replace("<p>", "");
             var match = Regex.Match(content, "\\A\\W*<img.*/>");
@@ -168,21 +201,39 @@ namespace NeoWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Content,Summary,Lang,IsShow,Tags")] Blog blog)
+        public async Task<IActionResult> Create([Bind("Id,Title,Content,BrotherBlogId,Summary,IsShow,Tags")] Blog blog)
         {
             if (ModelState.IsValid)
             {
+                //Verify same content blog in other languages
+                if (blog.BrotherBlogId != null)
+                {
+                    var brotherBlog = _context.Blogs.FirstOrDefault(p => p.Id == blog.BrotherBlogId);
+                    if (brotherBlog == null)
+                    {
+                        ModelState.AddModelError("BrotherBlogId", "This blog does not exist!");
+                        return View(blog);
+                    }
+                }
+
                 blog.Content = Convert(blog.Content);
                 blog.Summary = blog.Content.ClearHtmlTag(150);
                 blog.CreateTime = DateTime.Now;
                 blog.EditTime = DateTime.Now;
+                blog.Lang = GetLanguage(blog);
                 blog.User = _context.Users.Find(_userId);
-                blog.Tags = blog.Tags?.Replace(", ", ",").Replace("£¨", ",").Replace("£¨ ", ",");
+                blog.Tags = blog.Tags?.Replace(", ",",").Replace("Ôºå", ",").Replace("Ôºå ", ",");
                 _context.Add(blog);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             return View(blog);
+        }
+
+        private string GetLanguage(Blog blog)
+        {
+            Regex regChina = new Regex("[\u4e00-\u9fa5]");
+            return regChina.IsMatch(blog.Title + blog.Content) ? "zh" : "en";
         }
 
         // GET: blog/edit/5
@@ -206,7 +257,7 @@ namespace NeoWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Lang,Content,IsShow,Tags")] Blog blog)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Content,BrotherBlogId,IsShow,Tags")] Blog blog)
         {
             if (id != blog.Id)
             {
@@ -215,16 +266,28 @@ namespace NeoWeb.Controllers
 
             if (ModelState.IsValid)
             {
+                //Verify same content blog in other languages
+                if (blog.BrotherBlogId != null)
+                {
+                    var brotherBlog = _context.Blogs.FirstOrDefault(p => p.Id == blog.BrotherBlogId);
+                    if (brotherBlog == null)
+                    {
+                        ModelState.AddModelError("BrotherBlogId", "This blog does not exist!");
+                        return View(blog);
+                    }
+                }
+
                 var item = _context.Blogs.FirstOrDefault(p => p.Id == blog.Id);
                 try
                 {
                     item.Title = blog.Title;
                     item.Content = Convert(blog.Content);
                     item.Summary = blog.Content.ClearHtmlTag(150);
-                    item.Lang = blog.Lang;
+                    item.Lang = GetLanguage(blog);
                     item.IsShow = blog.IsShow;
                     item.EditTime = DateTime.Now;
-                    item.Tags = blog.Tags?.Replace(", ", ",").Replace("£¨", ",").Replace("£¨ ", ",");
+                    item.Tags = blog.Tags?.Replace(", ", ",").Replace("Ôºå", ",").Replace("Ôºå ", ",");
+                    item.BrotherBlogId = blog.BrotherBlogId;
                     _context.Update(item);
                     await _context.SaveChangesAsync();
                 }
@@ -277,19 +340,20 @@ namespace NeoWeb.Controllers
         [HttpPost]
         public string Upload(IFormFile file)
         {
-            var filePath = Helper.UploadMedia(file);
-
-            using (Image<Rgba32> image = Image.Load(filePath))
-            {
-                image.Mutate(x => x.Resize(new ResizeOptions
+            var fileName = Helper.UploadMedia(file, _env);
+            Task.Run(() => {
+                var filePath = Path.Combine(_env.ContentRootPath, "wwwroot/upload", fileName);
+                using (Image<Rgba32> image = Image.Load(filePath))
                 {
-                    Size = new Size(1600, 1600 * image.Height / image.Width),
-                    Mode = ResizeMode.Max
-                }));
-                image.Save(filePath);
-            }
-
-            return $"{{\"location\":\"/upload/{Path.GetFileName(filePath)}\"}}";
+                    image.Mutate(x => x.Resize(new ResizeOptions
+                    {
+                        Size = new Size(1600, 1600 * image.Height / image.Width),
+                        Mode = ResizeMode.Max
+                    }));
+                    image.Save(filePath);
+                }
+            });
+            return $"{{\"location\":\"/upload/{fileName}\"}}";
         }
 
 
@@ -300,11 +364,11 @@ namespace NeoWeb.Controllers
 
         private string Convert(string input)
         {
-            input = Regex.Replace(input, @"<!\-\-\[if gte mso 9\]>[\s\S]*<!\[endif\]\-\->", ""); //…æ≥˝ ms office ◊¢Ω‚
-            input = Regex.Replace(input, "src=\".*/upload", "src=\"/upload"); //ÃÊªª…œ¥´Õº∆¨µƒ¡¥Ω”
-            input = Regex.Replace(input, @"<p>((&nbsp;\s)|(&nbsp;)|\s)+", "<p>"); //…æ≥˝∂Œ ◊”…ø’∏Ò‘Ï≥…µƒÀıΩ¯
-            input = Regex.Replace(input, @"\sstyle="".*?""", ""); //…æ≥˝ Style —˘ Ω
-            input = Regex.Replace(input, @"\sclass="".*?""", ""); //…æ≥˝ Class —˘ Ω
+            input = Regex.Replace(input, @"<!\-\-\[if gte mso 9\]>[\s\S]*<!\[endif\]\-\->", ""); //Âà†Èô§ ms office Ê≥®Ëß£
+            input = Regex.Replace(input, "src=\".*/upload", "src=\"/upload"); //ÊõøÊç¢‰∏ä‰º†ÂõæÁâáÁöÑÈìæÊé•
+            input = Regex.Replace(input, @"<p>((&nbsp;\s)|(&nbsp;)|\s)+", "<p>"); //Âà†Èô§ÊÆµÈ¶ñÁî±Á©∫Ê†ºÈÄ†ÊàêÁöÑÁº©Ëøõ
+            input = Regex.Replace(input, @"\sstyle="".*?""", ""); //Âà†Èô§ Style Ê†∑Âºè
+            input = Regex.Replace(input, @"\sclass="".*?""", ""); //Âà†Èô§ Class Ê†∑Âºè
             return input;
         }
     }

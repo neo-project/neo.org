@@ -186,6 +186,8 @@ namespace NeoWeb.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("BrotherBlogId");
+
                     b.Property<string>("Content")
                         .IsRequired();
 

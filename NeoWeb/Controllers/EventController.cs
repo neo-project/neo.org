@@ -5,11 +5,16 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NeoWeb.Data;
 using NeoWeb.Models;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Processing;
+using SixLabors.Primitives;
 
 namespace NeoWeb.Controllers
 {
@@ -19,11 +24,13 @@ namespace NeoWeb.Controllers
         private readonly ApplicationDbContext _context;
         private string _userId;
         private bool _userRules;
+        private readonly IHostingEnvironment _env;
 
-        public EventController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
+        public EventController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IHostingEnvironment env)
         {
             _context = context;
             _userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            _env = env;
             if (_userId != null)
             {
                 _userRules = _context.UserRoles.Any(p => p.UserId == _userId);
@@ -180,7 +187,7 @@ namespace NeoWeb.Controllers
             {
                 if (cover != null)
                 {
-                    @event.Cover = Helper.UploadMedia(cover);
+                    @event.Cover = Upload(cover);
                 }
                 _context.Add(@event);
                 await _context.SaveChangesAsync();
@@ -188,6 +195,24 @@ namespace NeoWeb.Controllers
             }
             ViewBag.Countries = _context.Countries.ToList();
             return View(@event);
+        }
+
+        private string Upload(IFormFile cover)
+        {
+            var fileName = Helper.UploadMedia(cover, _env);
+            Task.Run(()=> {
+                var filePath = Path.Combine(_env.ContentRootPath, "wwwroot/upload", fileName);
+                using (Image<Rgba32> image = Image.Load(filePath))
+                {
+                    image.Mutate(x => x.Resize(new ResizeOptions
+                    {
+                        Size = new Size(600, 600 * image.Height / image.Width),
+                        Mode = ResizeMode.Max
+                    }));
+                    image.Save(filePath);
+                }
+            });
+            return fileName;
         }
 
         // GET: event/edit/5
@@ -241,7 +266,7 @@ namespace NeoWeb.Controllers
                     {
                         if (!String.IsNullOrEmpty(@event.Cover))
                             System.IO.File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", @event.Cover));
-                        @event.Cover = Helper.UploadMedia(cover);
+                        @event.Cover = Upload(cover);
                     }
                     else
                     {

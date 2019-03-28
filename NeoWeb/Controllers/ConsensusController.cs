@@ -97,7 +97,7 @@ namespace NeoWeb.Controllers
                 }
                 if (logo != null)
                 {
-                    c.Logo = "~/upload/" + Helper.UploadMedia(logo);
+                    c.Logo = "~/upload/" + Helper.UploadMedia(logo, _env);
                 }
                 //Insert or Update
                 if (_context.Candidates.Any(p => p.PublicKey == c.PublicKey))

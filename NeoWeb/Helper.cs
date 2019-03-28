@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
-using static System.Text.RegularExpressions.Regex;
 using System.IO;
-using System.Net;
 using System.Linq;
+using System.Net;
 using System.Security.Cryptography;
+using System.Text;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using static System.Text.RegularExpressions.Regex;
 
 namespace NeoWeb
 {
@@ -23,7 +24,7 @@ namespace NeoWeb
             return html;
         }
 
-        public static string UploadMedia(IFormFile cover)
+        public static string UploadMedia(IFormFile cover, IHostingEnvironment env)
         {
             if (cover.Length > 1024 * 1024 * 25 || // 25Mb
                 !new string[]
@@ -32,7 +33,7 @@ namespace NeoWeb
                     ".jpg",
                     ".png"
                 }
-                .Contains(Path.GetExtension(cover.Name).ToLowerInvariant()))
+                .Contains(Path.GetExtension(cover.FileName).ToLowerInvariant()))
             {
                 throw new ArgumentException(nameof(cover));
             }
@@ -41,7 +42,7 @@ namespace NeoWeb
             var bytes = new byte[10];
             random.NextBytes(bytes);
             var newName = bytes.ToHexString() + Path.GetExtension(cover.FileName);
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", newName);
+            var filePath = Path.Combine(env.ContentRootPath, "wwwroot/upload", newName);
             if (cover.Length > 0)
             {
                 using (var stream = new FileStream(filePath, FileMode.Create))
@@ -88,32 +89,6 @@ namespace NeoWeb
         {
             SHA256 obj = SHA256.Create();
             return BitConverter.ToString(obj.ComputeHash(Encoding.UTF8.GetBytes(input))).Replace("-", "");
-        }
-
-        public static string PostWebRequest(string postUrl, string paramData)
-        {
-            try
-            {
-                byte[] byteArray = Encoding.UTF8.GetBytes(paramData);
-                WebRequest webReq = WebRequest.Create(postUrl);
-                webReq.Method = "POST";
-                using (Stream newStream = webReq.GetRequestStream())
-                {
-                    newStream.Write(byteArray, 0, byteArray.Length);
-                }
-                using (WebResponse response = webReq.GetResponse())
-                {
-                    using (StreamReader sr = new StreamReader(response.GetResponseStream(), Encoding.UTF8))
-                    {
-                        return sr.ReadToEnd();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            return "";
         }
 
         class IPItem
