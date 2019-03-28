@@ -3,34 +3,34 @@
     .ani1{
       stroke-dasharray: 1240;
       stroke-dashoffset: 0;
-      animation: light 6s 1s;
+      animation: light 4s 1s;
     }
     @keyframes light{
       0%{stroke-dashoffset: 1240;}
       100%{stroke-dashoffset: 0;}
     }
     .rect{stroke:#808080;fill:#FFFFFF;}
-    .rect-1{animation: color 1s forwards 1s;}
-    .rect-2{animation: color 1s forwards 2s;}
-    .rect-3{animation: color 1s forwards 3s;}
-    .rect-4{animation: color 1s forwards 4s;}
+    .rect-1{animation: color 0.5s forwards 0.5s;}
+    .rect-2{animation: color 0.5s forwards 1.5s;}
+    .rect-3{animation: color 0.5s forwards 2.5s;}
+    .rect-4{animation: color 0.5s forwards 3s;}
     @keyframes color {
       from {stroke:#808080;fill:#FFFFFF;}
       to {stroke:#50AC02;fill:#50AC02;}
     }
     .text{fill:#808080;}
-    .text-1{animation: textcolor 0.5s forwards 1s;}
-    .text-2{animation: textcolor 0.5s forwards 2s;}
-    .text-3{animation: textcolor 0.5s forwards 3s;}
-    .text-4{animation: textcolor 0.5s forwards 4s;}
+    .text-1{animation: textcolor 0.3s forwards 0.5s;}
+    .text-2{animation: textcolor 0.3s forwards 1.5s;}
+    .text-3{animation: textcolor 0.3s forwards 2.5s;}
+    .text-4{animation: textcolor 0.3s forwards 3s;}
     @keyframes textcolor {
       from {fill:#808080;}
       to {fill:#50AC02;}
     }
     .sign{fill:#808080;}
-    .sign-1{animation: textcolor 0.2s forwards 1.2s;}
-    .sign-2{animation: textcolor 0.2s forwards 2.4s;}
-    .sign-3{animation: textcolor 0.2s forwards 3.6s;}
+    .sign-1{animation: textcolor 0.2s forwards 1s;}
+    .sign-2{animation: textcolor 0.2s forwards 1.9s;}
+    .sign-3{animation: textcolor 0.2s forwards 2.8s;}
   </style>
   <g xmlns="http://www.w3.org/2000/svg" id="Group-56">
     <path d="M120,20.5 L1100,20.5" id="lAni" class="ani1" stroke="#50AC02"/>

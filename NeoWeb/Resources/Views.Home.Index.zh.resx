@@ -256,4 +256,19 @@
   <data name="Community" xml:space="preserve">
     <value>社区</value>
   </data>
+  <data name="Anti-quantum Crisis" xml:space="preserve">
+    <value>抗量子危机</value>
+  </data>
+  <data name="Cross-chain Interoperability Protocol" xml:space="preserve">
+    <value>跨链互操作协议</value>
+  </data>
+  <data name="Digital Certificate" xml:space="preserve">
+    <value>数字证书</value>
+  </data>
+  <data name="Multi-language Development" xml:space="preserve">
+    <value>多语言开发</value>
+  </data>
+  <data name="Transaction Mechanism" xml:space="preserve">
+    <value>超导交易机制</value>
+  </data>
 </root>
