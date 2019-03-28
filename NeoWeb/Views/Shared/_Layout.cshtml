@@ -92,7 +92,7 @@ https://github.com/neo-project/neo.org
                     <ul id="menu_list" class="navbar-nav top-nav ml-auto">
                         <li class="nav-item"><a asp-controller="home" asp-action="index">@Localizer["Home"]</a></li>
                         <li class="nav-item dropdown">
-                            <a class="dropdown-toggle" asp-controller="dev" asp-action="index" data-toggle="dropdown" onclick="window.location = '/dev'">
+                            <a style="cursor: pointer" class="dropdown-toggle" data-toggle="dropdown" onclick="window.location = '/dev'">
                                 @Localizer["Developer"]
                             </a>
                             <div class="dropdown-menu">

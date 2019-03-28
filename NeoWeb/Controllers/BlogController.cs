@@ -144,7 +144,8 @@ namespace NeoWeb.Controllers
                 ViewBag.PrevBlogId = idList[Math.Min(idList.IndexOf((int)id) + 1, idList.Count - 1)];
             }
             #endregion
-            
+
+            #region Choose the same blog language as the site language
             var wrongBrotherBlogId = false;
             if (!_userRules && blog.Lang != _localizer["en"] && blog.BrotherBlogId != null)
             {
@@ -162,6 +163,7 @@ namespace NeoWeb.Controllers
             }
             ViewBag.IsAdminEdit = _userRules && blog.Lang != _localizer["en"];
             ViewBag.NoCurrentLanguragBlog = blog.Lang != _localizer["en"] && blog.BrotherBlogId == null || wrongBrotherBlogId;
+            #endregion
 
             ViewBag.CreateTime = blogs.Select(p => new BlogDateTimeViewModels
             {
