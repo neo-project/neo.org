@@ -36,28 +36,28 @@
     <path d="M120,20.5 L1100,20.5" id="lAni" class="ani1" stroke="#50AC02"/>
     <g class="intro-text" id="diAs">
       <rect class="rect rect-1" transform="translate(105, 7)" stroke-width="4" x="8" y="8" width="16" height="16"/>
-      <text class="text text-1" id="da" font-family="PingFangSC-Medium, PingFang SC" font-size="30" font-weight="400">
+      <text class="text text-1" id="da" font-family="Microsoft YaHei,PingFangSC-Medium, PingFang SC" font-size="30" font-weight="100">
         <tspan x="60" y="100">DIGITAL</tspan>
         <tspan x="50" y="150">ASSESTS</tspan>
       </text>
     </g>
     <g class="intro-text" id="diId">
       <rect class="rect rect-2" transform="translate(105, 7)" stroke-width="4" x="336" y="8" width="16" height="16"/>
-      <text class="text text-2" id="di" font-family="PingFangSC-Medium, PingFang SC" font-size="30" font-weight="400">
+      <text class="text text-2" id="di" font-family="Microsoft YaHei,PingFangSC-Medium, PingFang SC" font-size="30" font-weight="100">
         <tspan x="401" y="100">DIGITAL</tspan>
         <tspan x="389" y="150">IDENTITY</tspan>
       </text>
     </g>
     <g class="intro-text" id="smCo">
       <rect class="rect rect-3" transform="translate(105, 7)" stroke-width="4" x="663" y="8" width="16" height="16"/>
-      <text class="text text-3" id="sc" font-family="PingFangSC-Medium, PingFang SC" font-size="30" font-weight="400">
+      <text class="text text-3" id="sc" font-family="Microsoft YaHei,PingFangSC-Medium, PingFang SC" font-size="30" font-weight="100">
         <tspan x="725" y="100">SMART</tspan>
         <tspan x="700" y="150">CONTRACT</tspan>
       </text>
     </g>
     <g class="intro-text" id="smEc">
       <rect class="rect rect-4" transform="translate(105, 7)" stroke-width="4" x="991" y="8" width="16" height="16"/>
-      <text class="text text-4" id="se" font-family="PingFangSC-Medium, PingFang SC" font-size="30" font-weight="400">
+      <text class="text text-4" id="se" font-family="Microsoft YaHei,PingFangSC-Medium, PingFang SC" font-size="30" font-weight="100">
         <tspan x="1055" y="100">SMART</tspan>
         <tspan x="1030" y="150">ECONOMY</tspan>
       </text>
