@@ -195,12 +195,12 @@ namespace NeoWeb.Controllers
                 await _context.SaveChangesAsync();
             }
 
-            var content = blog.Content.Replace("<div>", "").Replace("<p>", "");
+            var content = temp.Content.Replace("<div>", "").Replace("<p>", "");
             var match = Regex.Match(content, "\\A\\W*<img.*/>");
             if (match.Success && match.Value.Length > 0)
             {
                 ViewBag.Cover = match.Value.Insert(4, " class=\"img-cover\" ");
-                temp.Content = blog.Content.Replace(match.Value, "");
+                temp.Content = temp.Content.Replace(match.Value, "");
             }
 
             return View(temp);
