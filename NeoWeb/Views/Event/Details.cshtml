@@ -104,7 +104,7 @@
     <div class="mt-2">
         <a asp-action="Index">@Localizer["Back to List"]</a>
     </div>
-    <a class="iconfont t1 gray-text" id="toTop" onclick="scroll()">&#xe637;</a>
+    <a id="toTop"><span class="iconfont t1 gray-text">&#xe637;</span></a>
 </div>
 @section Scripts{
 <script src="@Helper.ToCDN("/js/text-autospace.js")"></script>
@@ -122,8 +122,6 @@
 
         function topShow() {
             var _l = $(window).scrollTop() - $(window).height();
-            console.log(_l);
-            console.log($(window).height() / 2);
             if (_l > -$(window).height()/2) {
                 $("#toTop").show();
             } else {
@@ -131,8 +129,8 @@
             }
         }
 
-        function scroll() {
+        $("#toTop").click(function () {
             $("html").animate({ scrollTop: 0 }, 200);
-        }
+        })
     </script>
 }

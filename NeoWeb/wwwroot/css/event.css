@@ -370,6 +370,12 @@ ul,li{
     bottom: 20%;
     color:#777777;
     display:none;
+    cursor:pointer;
+    z-index:99;
+}
+#toTop span{
+    position:relative;
+    z-index:-1;
 }
 
 @media only screen and (max-width: 1600px) {
