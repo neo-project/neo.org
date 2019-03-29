@@ -183,6 +183,11 @@ namespace NeoWeb
             }
         }
 
+        /// <summary>
+        /// 发布测试版本：在.pubxml文件中添加EnvironmentName元素，并使用Debug模式发布
+        /// 发布正式版本：移除.pubxml中的EnvironmentName元素，并使用Release模式发布
+        /// http://t.cn/EJ3a5d3
+        /// </summary>
         public static string CDN
         {
             get
