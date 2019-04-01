@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="@Helper.ToCDN("/css/homepage.min.css", true)" />
         <link href="@Helper.ToCDN("/lib/animate.css/animate.min.css")" rel="stylesheet" />
     </environment>
-    <link href="@Helper.ToCDN("/lib/Swiper/css/swiper.min.css")" rel="stylesheet"/>
+    <link href="@Helper.ToCDN("/lib/Swiper/css/swiper.min.css")" rel="stylesheet" />
 }
 
 @* 基本块 - Home page *@
@@ -18,71 +18,79 @@
     <div class="row">
         <div class="midpoint home-text-fir">
             <h1><span class="back-static p3">NEO</span></h1>
-            <h3 class="m3"><span class="back-static p3 lh3">@Localizer["NEO - An Open Network For Smart Economy"]</span></h3>
-            <div class="m2"><span class="back-static p2"><a class="btn-static t3" href="https://devcon.neo.org/" target="_blank">NEO Devcon</a></span></div>
+            <h3 class="m3"><span class="back-static p3 lh3 green-text">@Localizer["NEO - An Open Network For Smart Economy"]</span></h3>
         </div>
     </div>
 </div>
 
 <div class="home-page-content home-intro">
-    <div class="container w800">
-        <h2 class="m1">@Localizer["What is NEO"]</h2>
-        <div class="m2 t3">
-            @Localizer["NEO is an open source project driven by the community. It utilizes blockchain technology and digital identities to digitize assets and automate the management of digital assets using smart contracts. Using a distributed network, it aims to create a \"Smart Economy\"."]<br />
-            @Localizer["NEO was founded in 2014 and open sourced on GitHub in June 2015. Its MainNet was released in October 2016 and has been running in stable capacity for two years. Its vision of a \"smart economy\" was set up along with the project rebranding in 2017.<br />NEO is committed to its goal of being the most developer-friendly public chain:"]
-            <p class="lh2 m3 t4 text-left w650">
-                🥇 @Localizer["Infrastructure friendliness: a comprehensive toolkit for underlying infrastructure development; a mature NeoContract system; multi mainstream programming language support in NeoVM"]<br />
-                🥇 @Localizer["Community friendliness: a global map of developer communities, distributed in the US, Europe, Japan and Korea, etc.; active community voices from social media"]<br />
-                🥇 @Localizer["Ecosystem friendliness: NGD and NGC, as execution and investment arms of NEO Foundation provide technical support, advertising campaigns and funding for eco-projects; nearly 100 dApps within NEO ecosystem"]
-            </p>
-        </div>
-    </div>
     <div class="container">
-        <div class="row wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
-            <div class="col-sm-12 m1 intro-img w800 back-static border-static border-static2">
-                @Localizer["<img src='https://neo-cdn.azureedge.net/images/home-intro-2.svg'/>"]
+        <div class="row">
+            <div class="col-md-6"><img class="img-neo m2" src='/images/home-intro-2.svg' /></div>
+            <div class="col-md-6">
+                <h2 class="m1">@Localizer["What is NEO"]</h2>
+                <div class="m2 t3 text-left">
+                    @Localizer["NEO is an open source project driven by the community. It utilizes blockchain technology and digital identities to digitize assets and automate the management of digital assets using smart contracts. Using a distributed network, it aims to create a \"Smart Economy\"."]<br />
+                    @Localizer["NEO was founded in 2014 and open sourced on GitHub in June 2015. Its MainNet was released in October 2016 and has been running in stable capacity for two years. Its vision of a \"smart economy\" was set up along with the project rebranding in 2017."]
+                </div>
             </div>
         </div>
-        <div class="swiper-container text-center m1 p4 t4">
-            <div class="swiper-wrapper gray-text m1">
-                <div class="swiper-slide p4 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.1s">
+    </div>
+    <div class="intro-img m1">
+        @Localizer["<img  data-original='/images/home-intro-3.svg'/>"]
+    </div>
+    <div class="container">
+        <div class="swiper-container text-center m2 p4 t4">
+            <div class="swiper-wrapper gray-text m2">
+                <div class="swiper-slide p3 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.1s">
                     <img src="@Helper.ToCDN("/images/coin.svg")" /><br />
+                    <strong>@Localizer["Digital Assets"]</strong><br />
                     @Localizer["The underlying infrastructure of NEO supports multiple types of digital assets. Users can register, transfer and trade assets at their own discretion on NEO."]
                 </div>
-                <div class="swiper-slide p4 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.2s">
+                <div class="swiper-slide p3 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.2s">
                     <img src="@Helper.ToCDN("/images/bank.svg")" /><br />
+                    <strong>@Localizer["Digital Certificate"]</strong><br />
                     @Localizer["Digital certificates are supported to build trust into the public chain. This provides full legal protection for all assets digitized through the NEO platform."]
                 </div>
-                <div class="swiper-slide p4 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+                <div class="swiper-slide p3 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
                     <img src="@Helper.ToCDN("/images/networking.svg")" /><br />
+                    <strong>@Localizer["Transaction Mechanism"]</strong><br />
                     @Localizer["Facilitate P2P trustless exchange of digital assets. Buyers and sellers of digital assets and currencies will be matched peer-to-peer without the need for third party exchanges."]
                 </div>
-                <div class="swiper-slide p4 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.4s">
+                <div class="swiper-slide p3 wow bounceInUp" data-wow-duration="0.5s" data-wow-delay="0.4s">
                     <img src="@Helper.ToCDN("/images/contract.svg")" /><br />
+                    <strong>@Localizer["Smart Contract"]</strong><br />
                     @Localizer["Turing-complete smart contract, which has high certainty and finality, support concurrent operation, sharding and unlimited scalability when running in NeoVM."]
                 </div>
-                <div class="swiper-slide p4">
+                <div class="swiper-slide p3">
                     <img src="@Helper.ToCDN("/images/startup.svg")" /><br />
+                    <strong>@Localizer["Multi-language Development"]</strong><br />
                     @Localizer["NeoContract supports multiple programming languages such as C#, Java, and Python. Developers can rapidly develop smart contracts based on the NEO platform without learning a unique language."]
                 </div>
-                <div class="swiper-slide p4">
+                <div class="swiper-slide p3">
                     <img src="@Helper.ToCDN("/images/think.svg")" /><br />
+                    <strong>NEO VM</strong><br />
                     @Localizer["Neo Virtual Machine (NeoVM) - NEO's lightweight stack-based virtual machine provides shorter startup times with efficient execution. Deterministic calling tree-technology allows NEO to achieve theoretically unlimited scalability."]
                 </div>
-                <div class="swiper-slide p4">
+                <div class="swiper-slide p3">
                     <img src="@Helper.ToCDN("/images/teamwork.svg")" /><br />
+                    <strong>dBFT</strong><br />
                     @Localizer["Consensus nodes use Byzantine Fault Tolerance Algorithm to reach consensus and ensure the finality of transactions. It also ensures that the system keeps its finality and availability as long as Byzantine fault occurs on less than 1/3 of the nodes."]
                 </div>
-                <div class="swiper-slide p4">
+                <div class="swiper-slide p3">
                     <img src="@Helper.ToCDN("/images/networking2.svg")" /><br />
+                    <strong>@Localizer["Cross-chain Interoperability Protocol"]</strong><br />
                     @Localizer["Comprises Cross-chain Assets Swap Protocol and Cross-chain Distributed Transaction Protocol and can achieve atomic assets swap and guarantee the operation consistency of smart contracts executed on different chains."]
                 </div>
-                <div class="swiper-slide p4">
+                <div class="swiper-slide p3">
                     <img src="@Helper.ToCDN("/images/flask.svg")" /><br />
+                    <strong>@Localizer["Anti-quantum Crisis"]</strong><br />
                     @Localizer["Introduced Lattice cryptography-based signing and encryption technique to avoid quantum crisis by Turing encryption and decryption problem into the Shortest Vector Problem (SVP), which cannot be solved by current quantum computers."]
                 </div>
             </div>
             <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
     </div>
 </div>
@@ -117,7 +125,7 @@
                 <ul class="t3 m3 pl0">
                     <li><a class="text-white" href="https://github.com/neo-project" target="_blank">@Localizer["Join our project"]</a></li>
                     <li><a class="text-white" href="http://docs.neo.org/" target="_blank">@Localizer["View technical docs"]</a></li>
-                    <li><a class="text-white" href="/testcoin/apply" target="_blank">@Localizer["Claim NEO/GAS for TestNet use"]</a></li>
+                    <li><a class="text-white" href="/dev#testcoin" target="_blank">@Localizer["Claim NEO/GAS for TestNet use"]</a></li>
                     <li><a class="text-white" href="/dev/bounty" target="_blank">@Localizer["Participate in NEO Bounty Program"]</a></li>
                 </ul>
                 <a class="btn-static btn2 t3 m3" href="~/dev">@Localizer["Go to developer page"]</a>
@@ -172,7 +180,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="container home-comm">
         <h2 class="m1 p1">@Localizer["Community"]</h2>
         <ul class="comm-ul">
@@ -193,8 +201,14 @@
     <script src="@Helper.ToCDN("/lib/Swiper/js/swiper.min.js")"></script>
     <script>
         var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 4,
-            spaceBetween: 30,
+            slidesPerView: 3,
+            spaceBetween: 10,
+            slidesPerGroup: 3,
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
             pagination: {
                 el: '.swiper-pagination',
                 dynamicBullets: true,
@@ -203,15 +217,17 @@
             breakpoints: {
                 1024: {
                     slidesPerView: 3,
-                    spaceBetween: 20,
+                    spaceBetween: 10,
                 },
                 768: {
                     slidesPerView: 2,
                     spaceBetween: 10,
+                    slidesPerGroup: 2,
                 },
                 480: {
                     slidesPerView: 1,
-                    spaceBetween: 15,
+                    spaceBetween: 10,
+                    slidesPerGroup: 1,
                 }
             }
         });
@@ -240,7 +256,6 @@
             pageSize();
         });
         
-
         function pageSize() {
             $("#homeFri").each(function () {
                 $(this).css("width", $(window).width());
@@ -250,5 +265,12 @@
         $("#menu_list a").css("border-bottom", "none")
         $("#menu_list li.nav-item [href='/']").css("border-bottom", "2px solid #58bf00")
 
+    </script>
+    <script src="@Helper.ToCDN("/js/jquery.lazyload.min.js")"></script>
+    <script>
+        $('[data-original]').lazyload({
+            threshold: 200,
+            effect: "fadeIn"
+        });
     </script>
 }

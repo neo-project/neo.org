@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1240px" height="151px" viewBox="0 0 1240 151" version="1.1">
   <style>
     .ani1{
-      stroke-dasharray: 1240;
-      stroke-dashoffset: 0;
-      animation: light 4s 1s;
+    stroke-dasharray: 1240;
+    stroke-dashoffset: 0;
+    animation: light 4s 1s;
     }
     @keyframes light{
-      0%{stroke-dashoffset: 1240;}
-      100%{stroke-dashoffset: 0;}
+    0%{stroke-dashoffset: 1240;}
+    100%{stroke-dashoffset: 0;}
     }
     .rect{stroke:#808080;fill:#FFFFFF;}
     .rect-1{animation: color 0.5s forwards 0.5s;}
@@ -15,8 +15,8 @@
     .rect-3{animation: color 0.5s forwards 2.5s;}
     .rect-4{animation: color 0.5s forwards 3s;}
     @keyframes color {
-      from {stroke:#808080;fill:#FFFFFF;}
-      to {stroke:#50AC02;fill:#50AC02;}
+    from {stroke:#808080;fill:#FFFFFF;}
+    to {stroke:#50AC02;fill:#50AC02;}
     }
     .text{fill:#808080;}
     .text-1{animation: textcolor 0.3s forwards 0.5s;}
@@ -24,8 +24,8 @@
     .text-3{animation: textcolor 0.3s forwards 2.5s;}
     .text-4{animation: textcolor 0.3s forwards 3s;}
     @keyframes textcolor {
-      from {fill:#808080;}
-      to {fill:#50AC02;}
+    from {fill:#808080;}
+    to {fill:#50AC02;}
     }
     .sign{fill:#808080;}
     .sign-1{animation: textcolor 0.2s forwards 1s;}
@@ -36,30 +36,30 @@
     <path d="M120,20.5 L1100,20.5" id="lAni" class="ani1" stroke="#50AC02"/>
     <g class="intro-text" id="diAs">
       <rect class="rect rect-1" transform="translate(105, 7)" stroke-width="4" x="8" y="8" width="16" height="16"/>
-      <text class="text text-1" id="da" font-family="Microsoft YaHei,PingFangSC-Medium, PingFang SC" font-size="30" font-weight="300">
-        <tspan x="60" y="100">DIGITAL</tspan>
-        <tspan x="50" y="150">ASSESTS</tspan>
+      <text class="text text-1" id="da" font-family="Microsoft YaHei,PingFangSC-Medium, PingFang SC" font-size="30" font-weight="100">
+        <tspan x="90" y="90">数字</tspan>
+        <tspan x="90" y="130">资产</tspan>
       </text>
     </g>
     <g class="intro-text" id="diId">
       <rect class="rect rect-2" transform="translate(105, 7)" stroke-width="4" x="336" y="8" width="16" height="16"/>
-      <text class="text text-2" id="di" font-family="Microsoft YaHei,PingFangSC-Medium, PingFang SC" font-size="30" font-weight="300">
-        <tspan x="401" y="100">DIGITAL</tspan>
-        <tspan x="389" y="150">IDENTITY</tspan>
+      <text class="text text-2" id="di" font-family="Microsoft YaHei,PingFangSC-Medium, PingFang SC" font-size="30" font-weight="100">
+        <tspan x="420" y="90">数字</tspan>
+        <tspan x="420" y="130">身份</tspan>
       </text>
     </g>
     <g class="intro-text" id="smCo">
       <rect class="rect rect-3" transform="translate(105, 7)" stroke-width="4" x="663" y="8" width="16" height="16"/>
-      <text class="text text-3" id="sc" font-family="Microsoft YaHei,PingFangSC-Medium, PingFang SC" font-size="30" font-weight="300">
-        <tspan x="725" y="100">SMART</tspan>
-        <tspan x="700" y="150">CONTRACT</tspan>
+      <text class="text text-3" id="sc" font-family="Microsoft YaHei,PingFangSC-Medium, PingFang SC" font-size="30" font-weight="100">
+        <tspan x="745" y="90">智能</tspan>
+        <tspan x="745" y="130">合约</tspan>
       </text>
     </g>
     <g class="intro-text" id="smEc">
       <rect class="rect rect-4" transform="translate(105, 7)" stroke-width="4" x="991" y="8" width="16" height="16"/>
-      <text class="text text-4" id="se" font-family="Microsoft YaHei,PingFangSC-Medium, PingFang SC" font-size="30" font-weight="300">
-        <tspan x="1055" y="100">SMART</tspan>
-        <tspan x="1030" y="150">ECONOMY</tspan>
+      <text class="text text-4" id="se" font-family="Microsoft YaHei,PingFangSC-Medium, PingFang SC" font-size="30" font-weight="100">
+        <tspan x="1075" y="90">智能</tspan>
+        <tspan x="1075" y="130">经济</tspan>
       </text>
     </g>
     <g class="sign sign-1" transform="translate(270, 92)">

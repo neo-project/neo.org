@@ -146,15 +146,29 @@ namespace NeoWeb.Controllers
             #endregion
 
             #region Choose the same blog language as the site language
+            var temp = new Blog() {
+                Id = blog.Id,
+                BrotherBlogId = blog.BrotherBlogId,
+                Content = blog.Content,
+                CreateTime = blog.CreateTime,
+                EditTime = blog.EditTime,
+                IsShow = blog.IsShow,
+                Lang = blog.Lang,
+                ReadCount = blog.ReadCount,
+                Summary = blog.Summary,
+                Tags = blog.Tags,
+                Title = blog.Title,
+                User = blog.User
+            };
             var wrongBrotherBlogId = false;
             if (!_userRules && blog.Lang != _localizer["en"] && blog.BrotherBlogId != null)
             {
                 var brotherBlog = _context.Blogs.FirstOrDefault(p => p.Id == blog.BrotherBlogId);
                 if (brotherBlog != null && brotherBlog.IsShow)
                 {
-                    blog.Title = brotherBlog.Title;
-                    blog.Summary = brotherBlog.Summary;
-                    blog.Content = brotherBlog.Content;
+                    temp.Title = brotherBlog.Title;
+                    temp.Summary = brotherBlog.Summary;
+                    temp.Content = brotherBlog.Content;
                 }
                 else
                 {
@@ -177,18 +191,19 @@ namespace NeoWeb.Controllers
             if (blog.ReadCount < int.MaxValue && string.IsNullOrEmpty(Request.Cookies[blog.Id.ToString()]) && Request.Cookies.Count >= 1)
             {
                 blog.ReadCount++;
+                _context.Update(blog);
                 await _context.SaveChangesAsync();
             }
 
-            var content = blog.Content.Replace("<div>", "").Replace("<p>", "");
+            var content = temp.Content.Replace("<div>", "").Replace("<p>", "");
             var match = Regex.Match(content, "\\A\\W*<img.*/>");
             if (match.Success && match.Value.Length > 0)
             {
                 ViewBag.Cover = match.Value.Insert(4, " class=\"img-cover\" ");
-                blog.Content = blog.Content.Replace(match.Value, "");
+                temp.Content = temp.Content.Replace(match.Value, "");
             }
 
-            return View(blog);
+            return View(temp);
         }
 
         // GET: Blog/Create
