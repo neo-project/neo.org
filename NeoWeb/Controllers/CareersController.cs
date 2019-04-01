@@ -30,7 +30,7 @@ namespace NeoWeb.Controllers
 
         // GET: careers
         [HttpGet]
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public IActionResult Index()
         {
             IQueryable<Careers> models = null;
