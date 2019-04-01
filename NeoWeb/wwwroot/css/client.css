@@ -184,6 +184,7 @@ ul, li {
     left: 33%;
     top: 18px;
     margin-left: 28px;
+    cursor: pointer;
 }
 
 .client-ul .iconfont {
