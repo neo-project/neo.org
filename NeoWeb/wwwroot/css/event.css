@@ -363,8 +363,25 @@ ul,li{
 .left-to-center {
     text-align:right;
 }
-.third-party {
-    
+
+#toTop {
+    position:fixed;
+    right:15%;
+    bottom: 20%;
+    color:#777777;
+    display:none;
+    cursor:pointer;
+    z-index:99;
+}
+#toTop span{
+    position:relative;
+    z-index:-1;
+}
+
+@media only screen and (max-width: 1600px) {
+    #toTop {
+        right:calc(1% + 20px);
+    }
 }
 @media only screen and (max-width: 992px) {
     .search-group {
