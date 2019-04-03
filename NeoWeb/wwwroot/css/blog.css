@@ -206,16 +206,16 @@ a{
 .blog-date {
     line-height:1;
 }
-.blog-date:before{
-    content:"";
-    display:inline-block;
-    width: 30px;
-    height: 15px;
-    background:url(/images/date.svg);
-    background-size:contain;
-    background-repeat: no-repeat;
-    vertical-align: bottom;
-}
+    .blog-date:before {
+        content: "";
+        display: inline-block;
+        width: 30px;
+        height: 15px;
+        background: url(https://neo-cdn.azureedge.net/images/date.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        vertical-align: bottom;
+    }
 .blog-tag {
     margin-right: 12px;
     font-size: 14px;
@@ -224,16 +224,16 @@ a{
     font-weight: 500;
     line-height:1;
 }
-.blog-tag:before{
-    content:"";
-    display:inline-block;
-    width: 20px;
-    height: 14px;
-    background:url(/images/tag.svg);
-    background-size:contain;
-    background-repeat: no-repeat;
-    vertical-align:bottom;
-}
+    .blog-tag:before {
+        content: "";
+        display: inline-block;
+        width: 20px;
+        height: 14px;
+        background: url(https://neo-cdn.azureedge.net/images/tag.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        vertical-align: bottom;
+    }
 
 /*列表页面login部分距离调整*/
 .login-part {

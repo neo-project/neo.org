@@ -42,8 +42,8 @@
     background-repeat:no-repeat;
     background-position:center;
 }
-.intro-img{
-    background: url(/images/home-intro-5.svg);
+.intro-img {
+    background: url(https://neo-cdn.azureedge.net/images/home-intro-5.svg);
     background-repeat: repeat-x;
 }
 .svg-line {
