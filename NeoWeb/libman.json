@@ -89,6 +89,13 @@
         "themes/gly/theme.js",
         "themes/gly/theme.min.js"
       ]
+    },
+    {
+      "library": "popper.js@1.14.7",
+      "destination": "wwwroot/lib/popper.js/",
+      "files": [
+        "popper.min.js"
+      ]
     }
   ]
 }
