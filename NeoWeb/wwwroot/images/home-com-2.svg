@@ -1,17 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="740px" height="801px" viewBox="0 0 740 801" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
-    <title>Group 28</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Artboard-7" transform="translate(-725.000000, -971.000000)" stroke="#92D45A">
-            <g id="Group-28" transform="translate(613.000000, 934.000000)">
-                <polygon id="Path-43" transform="translate(482.433389, 436.378658) rotate(106.000000) translate(-482.433389, -436.378658) " points="144.542754 174.580283 553.608721 32.2776669 820.324024 160.902575 820.324024 704.751622 414.565372 840.479649 144.542754 704.751622"></polygon>
-                <polygon id="Path-43" opacity="0.6" transform="translate(461.894420, 439.804079) rotate(106.000000) translate(-461.894420, -439.804079) " points="146.461365 195.405885 528.339151 62.5612769 777.327474 182.637253 777.327474 690.339888 398.537186 817.046881 146.461365 690.339888"></polygon>
-                <polygon id="Path-43" opacity="0.3" transform="translate(445.933767, 439.804079) rotate(106.000000) translate(-445.933767, -439.804079) " points="155.263258 214.591957 507.162366 92.1760931 736.604276 202.825705 736.604276 670.671993 387.550287 787.432065 155.263258 670.671993"></polygon>
-                <polygon id="Path-43" opacity="0.1" transform="translate(453.457588, 435.729085) rotate(106.000000) translate(-453.457588, -435.729085) " points="205.706427 243.770965 505.645394 139.430581 701.208748 233.742075 701.208748 632.507884 403.694799 732.027589 205.706427 632.507884"></polygon>
-            </g>
-        </g>
-    </g>
-</svg>
+<svg width="740" height="801" xmlns="http://www.w3.org/2000/svg"><g stroke="#92D45A" fill="none" fill-rule="evenodd"><path d="M715.23 146.74l24.03 432.44L542.1 800.11 19.32 650.21.7 222.75 205.6.6z"/><path opacity=".6" d="M671.77 166.96l22.44 403.7L510.15 776.9 22.12 636.96 4.72 237.92 196.02 30.53z"/><path opacity=".3" d="M630.54 185.47l20.68 372.01-169.6 190.05L31.88 618.58 15.86 250.86l176.27-191.1z"/><path opacity=".1" d="M594.27 213.49l17.62 317.08-144.56 161.99L84.01 582.64 70.35 269.22 220.6 106.34z"/></g></svg>

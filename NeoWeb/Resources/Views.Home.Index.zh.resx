@@ -247,8 +247,8 @@
   <data name="View technical docs" xml:space="preserve">
     <value>查看技术文档</value>
   </data>
-  <data name="&lt;img  data-original='/images/home-intro-3.svg'/&gt;" xml:space="preserve">
-    <value>&lt;img  data-original='/images/home-intro-4.svg'/&gt;</value>
+  <data name="home-intro-3.svg" xml:space="preserve">
+    <value>home-intro-4.svg</value>
   </data>
   <data name="Blog &amp; Event" xml:space="preserve">
     <value>博客 &amp; 活动</value>

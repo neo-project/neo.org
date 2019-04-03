@@ -26,7 +26,7 @@
 <div class="home-page-content home-intro">
     <div class="container">
         <div class="row">
-            <div class="col-md-6"><img class="img-neo m2" src='/images/home-intro-2.svg' /></div>
+            <div class="col-md-6"><img class="img-neo m2" data-original='@Helper.ToCDN("/images/home-intro-2.svg")' /></div>
             <div class="col-md-6">
                 <h2 class="m1">@Localizer["What is NEO"]</h2>
                 <div class="m2 t3 text-left">
@@ -37,7 +37,7 @@
         </div>
     </div>
     <div class="intro-img m1">
-        @Localizer["<img  data-original='/images/home-intro-3.svg'/>"]
+        <img data-original='@Helper.CDN/images/@Localizer["home-intro-3.svg"]' />
     </div>
     <div class="container">
         <div class="swiper-container text-center m2 p4 t4">
@@ -106,10 +106,10 @@
                 </p>
                 <p class="m3"><a class="btn-static btn1 t3" href="~/client" target="_blank">@Localizer["Go to client page"]</a></p>
                 <p class="home-down-tab m3">
-                    <a class="p4" title="@Localizer["Desktop"]" href="~/client#1desktop" target="_blank"><img src="@Helper.ToCDN("/images/desktop.svg")" /></a>
-                    <a class="p4" title="@Localizer["Mobile"]" href="~/client#2mobile" target="_blank"><img src="@Helper.ToCDN("/images/mobile.svg")" /></a>
-                    <a class="p4" title="@Localizer["Web"]" href="~/client#3web" target="_blank"><img src="@Helper.ToCDN("/images/web.svg")" /></a>
-                    <a class="p4" title="@Localizer["Hardware"]" href="~/client#4hardware" target="_blank"><img src="@Helper.ToCDN("/images/hardware.svg")" /></a>
+                    <a class="p4" title="@Localizer["Desktop"]" href="~/client#1desktop" target="_blank"><img data-original="@Helper.ToCDN("/images/desktop.svg")" /></a>
+                    <a class="p4" title="@Localizer["Mobile"]" href="~/client#2mobile" target="_blank"><img data-original="@Helper.ToCDN("/images/mobile.svg")" /></a>
+                    <a class="p4" title="@Localizer["Web"]" href="~/client#3web" target="_blank"><img data-original="@Helper.ToCDN("/images/web.svg")" /></a>
+                    <a class="p4" title="@Localizer["Hardware"]" href="~/client#4hardware" target="_blank"><img data-original="@Helper.ToCDN("/images/hardware.svg")" /></a>
                 </p>
             </div>
         </div>
@@ -146,7 +146,7 @@
                         <div class="blog-con border-static back-white m3 mb0 p3">
                             <p class="bolder-font mb0 t3 text-ellipsis"><a href="/blog/details/@item.Id">@item.Title</a></p>
                             <p class="m4 mb0 t4 gray-text">@item.Summary.Substring(0, Math.Min(item.Summary.Length, 100))…</p>
-                            <p class="m4 mb0"><img src="@Helper.ToCDN("/images/event/time.svg")" /> @item.EditTime.ToString()</p>
+                            <p class="m4 mb0"><img data-original="@Helper.ToCDN("/images/event/time.svg")" /> @item.EditTime.ToString()</p>
                         </div>
                     }
                 }
@@ -160,17 +160,17 @@
                         <div class="border-static back-white m3 p3">
                             @if (string.IsNullOrEmpty(item.Cover))
                             {
-                                <p class="m4 mb0"><img src="@String.Format(Helper.CDN + "/images/event/twitter-{0}.jpg", item.Type).ToLower()" width="100%" /></p>
+                                <p class="m4 mb0"><img data-original="@String.Format(Helper.CDN + "/images/event/twitter-{0}.jpg", item.Type).ToLower()" width="100%" /></p>
                             }
                             else
                             {
-                                <p class="m4 mb0"><img src="@String.Format("/upload/{0}", item.Cover).ToLower()" width="100%" /></p>
+                                <p class="m4 mb0"><img data-original="@String.Format("/upload/{0}", item.Cover).ToLower()" width="100%" /></p>
                             }
                             <p class="m4 mb0 bolder-font t3 text-ellipsis">@item.Name</p>
                             <p class="m4 mb0 t4 lh3 gray-text">
-                                <img src="@Helper.ToCDN("/images/event/time.svg")" /> @item.StartTime.ToString() ~ @item.EndTime.ToString()<br />
-                                <img src="@Helper.ToCDN("/images/event/addr.svg")" /> @item.Country?.ZhName - @item.City<br />
-                                <img src="@Helper.ToCDN("/images/event/organizers.svg")" /> Organizers: @item.Organizers<br />
+                                <img data-original="@Helper.ToCDN("/images/event/time.svg")" /> @item.StartTime.ToString() ~ @item.EndTime.ToString()<br />
+                                <img data-original="@Helper.ToCDN("/images/event/addr.svg")" /> @item.Country?.ZhName - @item.City<br />
+                                <img data-original="@Helper.ToCDN("/images/event/organizers.svg")" /> Organizers: @item.Organizers<br />
                             </p>
                             <a class="btn-static btn3 m3" href="/event/details/@item.Id">@Localizer["Detail"]</a>
                         </div>
@@ -184,13 +184,11 @@
     <div class="container home-comm">
         <h2 class="m1 p1">@Localizer["Community"]</h2>
         <ul class="comm-ul">
-            <li class="p3"><a target="_blank" title="City of Zion" href="https://cityofzion.io/"><img src="@Helper.ToCDN("/images/community/coz.png")" /></a></li>
-            <li class="p3"><a target="_blank" title="NewEconoLabs 新经济实验室" href="https://nel.group/"><img src="@Helper.ToCDN("/images/community/nel.png")" /></a></li>
-            <li class="p3"><a target="_blank" title="NEO News Today" href="https://neonewstoday.com/"><img src="@Helper.ToCDN("/images/community/nnt.png")" /></a></li>
-            <li class="p3"><a target="_blank" title="NEO Research" href="https://neoresearch.io/"><img src="@Helper.ToCDN("/images/community/neor.png")" /></a></li>
-            @*<li class="p3 d-none"><a target="_blank" title="NEO-ONE" href="https://neo-one.io/"><img src="@Helper.ToCDN("/images/community/neoone.png")" /></a></li>*@
-            <li class="p3"><a target="_blank" title="NEOFANS" href="http://neofans.org/"><img src="@Helper.ToCDN("/images/community/neofans.png")" /></a></li>
-            @*<li class="p3"><a target="_blank" title="NEO Beginner" href="https://www.neonbeginner.com/"><img src="@Helper.ToCDN("/images/community/neob.png")" /></a></li>*@
+            <li class="p3"><a target="_blank" title="City of Zion" href="https://cityofzion.io/"><img data-original="@Helper.ToCDN("/images/community/coz.png")" /></a></li>
+            <li class="p3"><a target="_blank" title="NewEconoLabs 新经济实验室" href="https://nel.group/"><img data-original="@Helper.ToCDN("/images/community/nel.png")" /></a></li>
+            <li class="p3"><a target="_blank" title="NEO News Today" href="https://neonewstoday.com/"><img data-original="@Helper.ToCDN("/images/community/nnt.png")" /></a></li>
+            <li class="p3"><a target="_blank" title="NEO Research" href="https://neoresearch.io/"><img data-original="@Helper.ToCDN("/images/community/neor.png")" /></a></li>
+            <li class="p3"><a target="_blank" title="NEOFANS" href="http://neofans.org/"><img data-original="@Helper.ToCDN("/images/community/neofans.png")" /></a></li>
         </ul>
     </div>
 </div>

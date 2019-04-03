@@ -1,13 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="1128px" height="196px" viewBox="0 0 1128 196" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
-    <title>Path 10</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="0.184754303">
-        <g id="Artboard-9" transform="translate(-131.000000, -1.000000)" fill="#417505">
-            <polygon id="Path-10" opacity="0.568136161" points="131.377323 -70.6571109 131.377323 81.1745054 1009.08069 182.550476 1258.94528 32.0711948 1258.94528 -70.6571109"></polygon>
-            <polygon id="Path-10" opacity="0.477845982" points="131.365263 1.95305192 1258.63474 1.95305192 1258.63474 80.7907618 1045.42215 196.274433 131.365263 118.474558"></polygon>
-        </g>
-    </g>
-</svg>
+<svg width="1128" height="196" xmlns="http://www.w3.org/2000/svg"><g fill="#417505" fill-rule="evenodd" fill-opacity=".18"><path opacity=".57" d="M.38-71.66V80.17l877.7 101.38 249.87-150.48V-71.66z"/><path opacity=".48" d="M.37.95h1127.26V79.8l-213.2 115.48L.36 117.47z"/></g></svg>
