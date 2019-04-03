@@ -1,13 +1,13 @@
 /*!
- * bootstrap-fileinput v4.5.2
+ * bootstrap-fileinput v5.0.1
  * http://plugins.krajee.com/file-input
  *
  * Font Awesome 5 icon theme configuration for bootstrap-fileinput. Requires font awesome 5 assets to be loaded.
  *
  * Author: Kartik Visweswaran
- * Copyright: 2014 - 2018, Kartik Visweswaran, Krajee.com
+ * Copyright: 2014 - 2019, Kartik Visweswaran, Krajee.com
  *
- * Licensed under the BSD 3-Clause
+ * Licensed under the BSD-3-Clause
  * https://github.com/kartik-v/bootstrap-fileinput/blob/master/LICENSE.md
  */
 (function ($) {
@@ -41,6 +41,7 @@
         browseIcon: '<i class="fas fa-folder-open"></i>',
         removeIcon: '<i class="fas fa-trash-alt"></i>',
         cancelIcon: '<i class="fas fa-ban"></i>',
+        pauseIcon: '<i class="fas fa-pause"></i>',
         uploadIcon: '<i class="fas fa-upload"></i>',
         msgValidationErrorIcon: '<i class="fas fa-exclamation-circle"></i> '
     };

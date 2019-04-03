@@ -1,5 +1,5 @@
 /*!
- * bootstrap-fileinput v4.5.2
+ * bootstrap-fileinput v5.0.1
  * http://plugins.krajee.com/file-input
  *
  * Krajee Explorer Font Awesome theme configuration for bootstrap-fileinput. 
@@ -7,15 +7,15 @@
  * font awesome assets and CSS are loaded on the page as well.
  *
  * Author: Kartik Visweswaran
- * Copyright: 2014 - 2018, Kartik Visweswaran, Krajee.com
+ * Copyright: 2014 - 2019, Kartik Visweswaran, Krajee.com
  *
- * Licensed under the BSD 3-Clause
+ * Licensed under the BSD-3-Clause
  * https://github.com/kartik-v/bootstrap-fileinput/blob/master/LICENSE.md
  */
 (function ($) {
     "use strict";
     var teTagBef = '<tr class="file-preview-frame {frameClass}" id="{previewId}" data-fileindex="{fileindex}"' +
-        ' data-template="{template}"', teContent = '<td class="kv-file-content">\n';
+        ' data-fileid="{fileid}" data-template="{template}"', teContent = '<td class="kv-file-content">\n';
     $.fn.fileinputThemes['explorer-fa'] = {
         layoutTemplates: {
             preview: '<div class="file-preview {class}">\n' +
@@ -81,6 +81,7 @@
         browseIcon: '<i class="fa fa-folder-open"></i>',
         removeIcon: '<i class="fa fa-trash"></i>',
         cancelIcon: '<i class="fa fa-ban"></i>',
+        pauseIcon: '<i class="fa fa-pause"></i>',
         uploadIcon: '<i class="fa fa-upload"></i>',
         msgValidationErrorIcon: '<i class="fa fa-exclamation-circle"></i> '
     };

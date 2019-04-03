@@ -1,5 +1,13 @@
+/**
+ * Copyright (c) Tiny Technologies, Inc. All rights reserved.
+ * Licensed under the LGPL or a commercial license.
+ * For LGPL see License.txt in the project root for license information.
+ * For commercial licenses see https://www.tiny.cloud/
+ *
+ * Version: 5.0.3 (2019-03-19)
+ */
 (function () {
-var paste = (function () {
+var paste = (function (domGlobals) {
     'use strict';
 
     var Cell = function (initial) {
@@ -24,8 +32,8 @@ var paste = (function () {
 
     var hasProPlugin = function (editor) {
       if (/(^|[ ,])powerpaste([, ]|$)/.test(editor.settings.plugins) && global.get('powerpaste')) {
-        if (typeof window.console !== 'undefined' && window.console.log) {
-          window.console.log('PowerPaste is incompatible with Paste plugin! Remove \'paste\' from the \'plugins\' option.');
+        if (typeof domGlobals.window.console !== 'undefined' && domGlobals.window.console.log) {
+          domGlobals.window.console.log('PowerPaste is incompatible with Paste plugin! Remove \'paste\' from the \'plugins\' option.');
         }
         return true;
       } else {
@@ -69,98 +77,21 @@ var paste = (function () {
       firePaste: firePaste
     };
 
-    var shouldPlainTextInform = function (editor) {
-      return editor.getParam('paste_plaintext_inform', true);
-    };
-    var shouldBlockDrop = function (editor) {
-      return editor.getParam('paste_block_drop', false);
-    };
-    var shouldPasteDataImages = function (editor) {
-      return editor.getParam('paste_data_images', false);
-    };
-    var shouldFilterDrop = function (editor) {
-      return editor.getParam('paste_filter_drop', true);
-    };
-    var getPreProcess = function (editor) {
-      return editor.getParam('paste_preprocess');
-    };
-    var getPostProcess = function (editor) {
-      return editor.getParam('paste_postprocess');
-    };
-    var getWebkitStyles = function (editor) {
-      return editor.getParam('paste_webkit_styles');
-    };
-    var shouldRemoveWebKitStyles = function (editor) {
-      return editor.getParam('paste_remove_styles_if_webkit', true);
-    };
-    var shouldMergeFormats = function (editor) {
-      return editor.getParam('paste_merge_formats', true);
-    };
-    var isSmartPasteEnabled = function (editor) {
-      return editor.getParam('smart_paste', true);
-    };
-    var isPasteAsTextEnabled = function (editor) {
-      return editor.getParam('paste_as_text', false);
-    };
-    var getRetainStyleProps = function (editor) {
-      return editor.getParam('paste_retain_style_properties');
-    };
-    var getWordValidElements = function (editor) {
-      var defaultValidElements = '-strong/b,-em/i,-u,-span,-p,-ol,-ul,-li,-h1,-h2,-h3,-h4,-h5,-h6,' + '-p/div,-a[href|name],sub,sup,strike,br,del,table[width],tr,' + 'td[colspan|rowspan|width],th[colspan|rowspan|width],thead,tfoot,tbody';
-      return editor.getParam('paste_word_valid_elements', defaultValidElements);
-    };
-    var shouldConvertWordFakeLists = function (editor) {
-      return editor.getParam('paste_convert_word_fake_lists', true);
-    };
-    var shouldUseDefaultFilters = function (editor) {
-      return editor.getParam('paste_enable_default_filters', true);
-    };
-    var Settings = {
-      shouldPlainTextInform: shouldPlainTextInform,
-      shouldBlockDrop: shouldBlockDrop,
-      shouldPasteDataImages: shouldPasteDataImages,
-      shouldFilterDrop: shouldFilterDrop,
-      getPreProcess: getPreProcess,
-      getPostProcess: getPostProcess,
-      getWebkitStyles: getWebkitStyles,
-      shouldRemoveWebKitStyles: shouldRemoveWebKitStyles,
-      shouldMergeFormats: shouldMergeFormats,
-      isSmartPasteEnabled: isSmartPasteEnabled,
-      isPasteAsTextEnabled: isPasteAsTextEnabled,
-      getRetainStyleProps: getRetainStyleProps,
-      getWordValidElements: getWordValidElements,
-      shouldConvertWordFakeLists: shouldConvertWordFakeLists,
-      shouldUseDefaultFilters: shouldUseDefaultFilters
-    };
-
-    var shouldInformUserAboutPlainText = function (editor, userIsInformedState) {
-      return userIsInformedState.get() === false && Settings.shouldPlainTextInform(editor);
-    };
-    var displayNotification = function (editor, message) {
-      editor.notificationManager.open({
-        text: editor.translate(message),
-        type: 'info'
-      });
-    };
-    var togglePlainTextPaste = function (editor, clipboard, userIsInformedState) {
+    var togglePlainTextPaste = function (editor, clipboard) {
       if (clipboard.pasteFormat.get() === 'text') {
         clipboard.pasteFormat.set('html');
         Events.firePastePlainTextToggle(editor, false);
       } else {
         clipboard.pasteFormat.set('text');
         Events.firePastePlainTextToggle(editor, true);
-        if (shouldInformUserAboutPlainText(editor, userIsInformedState)) {
-          displayNotification(editor, 'Paste is now in plain text mode. Contents will now be pasted as plain text until you toggle this option off.');
-          userIsInformedState.set(true);
-        }
       }
       editor.focus();
     };
     var Actions = { togglePlainTextPaste: togglePlainTextPaste };
 
-    var register = function (editor, clipboard, userIsInformedState) {
+    var register = function (editor, clipboard) {
       editor.addCommand('mceTogglePlainTextPaste', function () {
-        Actions.togglePlainTextPaste(editor, clipboard, userIsInformedState);
+        Actions.togglePlainTextPaste(editor, clipboard);
       });
       editor.addCommand('mceInsertClipboardContent', function (ui, value) {
         if (value.content) {
@@ -255,6 +186,66 @@ var paste = (function () {
 
     var global$9 = tinymce.util.Tools.resolve('tinymce.html.Serializer');
 
+    var shouldBlockDrop = function (editor) {
+      return editor.getParam('paste_block_drop', false);
+    };
+    var shouldPasteDataImages = function (editor) {
+      return editor.getParam('paste_data_images', false);
+    };
+    var shouldFilterDrop = function (editor) {
+      return editor.getParam('paste_filter_drop', true);
+    };
+    var getPreProcess = function (editor) {
+      return editor.getParam('paste_preprocess');
+    };
+    var getPostProcess = function (editor) {
+      return editor.getParam('paste_postprocess');
+    };
+    var getWebkitStyles = function (editor) {
+      return editor.getParam('paste_webkit_styles');
+    };
+    var shouldRemoveWebKitStyles = function (editor) {
+      return editor.getParam('paste_remove_styles_if_webkit', true);
+    };
+    var shouldMergeFormats = function (editor) {
+      return editor.getParam('paste_merge_formats', true);
+    };
+    var isSmartPasteEnabled = function (editor) {
+      return editor.getParam('smart_paste', true);
+    };
+    var isPasteAsTextEnabled = function (editor) {
+      return editor.getParam('paste_as_text', false);
+    };
+    var getRetainStyleProps = function (editor) {
+      return editor.getParam('paste_retain_style_properties');
+    };
+    var getWordValidElements = function (editor) {
+      var defaultValidElements = '-strong/b,-em/i,-u,-span,-p,-ol,-ul,-li,-h1,-h2,-h3,-h4,-h5,-h6,' + '-p/div,-a[href|name],sub,sup,strike,br,del,table[width],tr,' + 'td[colspan|rowspan|width],th[colspan|rowspan|width],thead,tfoot,tbody';
+      return editor.getParam('paste_word_valid_elements', defaultValidElements);
+    };
+    var shouldConvertWordFakeLists = function (editor) {
+      return editor.getParam('paste_convert_word_fake_lists', true);
+    };
+    var shouldUseDefaultFilters = function (editor) {
+      return editor.getParam('paste_enable_default_filters', true);
+    };
+    var Settings = {
+      shouldBlockDrop: shouldBlockDrop,
+      shouldPasteDataImages: shouldPasteDataImages,
+      shouldFilterDrop: shouldFilterDrop,
+      getPreProcess: getPreProcess,
+      getPostProcess: getPostProcess,
+      getWebkitStyles: getWebkitStyles,
+      shouldRemoveWebKitStyles: shouldRemoveWebKitStyles,
+      shouldMergeFormats: shouldMergeFormats,
+      isSmartPasteEnabled: isSmartPasteEnabled,
+      isPasteAsTextEnabled: isPasteAsTextEnabled,
+      getRetainStyleProps: getRetainStyleProps,
+      getWordValidElements: getWordValidElements,
+      shouldConvertWordFakeLists: shouldConvertWordFakeLists,
+      shouldUseDefaultFilters: shouldUseDefaultFilters
+    };
+
     function filter(content, items) {
       global$3.each(items, function (v) {
         if (v.constructor === RegExp) {
@@ -273,18 +264,18 @@ var paste = (function () {
       var ignoreElements = global$3.makeMap('script noscript style textarea video audio iframe object', ' ');
       var blockElements = schema.getBlockElements();
       function walk(node) {
-        var name$$1 = node.name, currentNode = node;
-        if (name$$1 === 'br') {
+        var name = node.name, currentNode = node;
+        if (name === 'br') {
           text += '\n';
           return;
         }
-        if (name$$1 === 'wbr') {
+        if (name === 'wbr') {
           return;
         }
-        if (shortEndedElements[name$$1]) {
+        if (shortEndedElements[name]) {
           text += ' ';
         }
-        if (ignoreElements[name$$1]) {
+        if (ignoreElements[name]) {
           text += ' ';
           return;
         }
@@ -298,9 +289,9 @@ var paste = (function () {
             } while (node = node.next);
           }
         }
-        if (blockElements[name$$1] && currentNode.next) {
+        if (blockElements[name] && currentNode.next) {
           text += '\n';
-          if (name$$1 === 'p') {
+          if (name === 'p') {
             text += '\n';
           }
         }
@@ -335,7 +326,7 @@ var paste = (function () {
       };
     }
     var isMsEdge = function () {
-      return navigator.userAgent.indexOf(' Edge/') !== -1;
+      return domGlobals.navigator.userAgent.indexOf(' Edge/') !== -1;
     };
     var Utils = {
       filter: filter,
@@ -754,6 +745,342 @@ var paste = (function () {
       insertContent: insertContent
     };
 
+    var constant = function (value) {
+      return function () {
+        return value;
+      };
+    };
+    var never = constant(false);
+    var always = constant(true);
+
+    var never$1 = never;
+    var always$1 = always;
+    var none = function () {
+      return NONE;
+    };
+    var NONE = function () {
+      var eq = function (o) {
+        return o.isNone();
+      };
+      var call = function (thunk) {
+        return thunk();
+      };
+      var id = function (n) {
+        return n;
+      };
+      var noop = function () {
+      };
+      var nul = function () {
+        return null;
+      };
+      var undef = function () {
+        return undefined;
+      };
+      var me = {
+        fold: function (n, s) {
+          return n();
+        },
+        is: never$1,
+        isSome: never$1,
+        isNone: always$1,
+        getOr: id,
+        getOrThunk: call,
+        getOrDie: function (msg) {
+          throw new Error(msg || 'error: getOrDie called on none.');
+        },
+        getOrNull: nul,
+        getOrUndefined: undef,
+        or: id,
+        orThunk: call,
+        map: none,
+        ap: none,
+        each: noop,
+        bind: none,
+        flatten: none,
+        exists: never$1,
+        forall: always$1,
+        filter: none,
+        equals: eq,
+        equals_: eq,
+        toArray: function () {
+          return [];
+        },
+        toString: constant('none()')
+      };
+      if (Object.freeze)
+        Object.freeze(me);
+      return me;
+    }();
+    var some = function (a) {
+      var constant_a = function () {
+        return a;
+      };
+      var self = function () {
+        return me;
+      };
+      var map = function (f) {
+        return some(f(a));
+      };
+      var bind = function (f) {
+        return f(a);
+      };
+      var me = {
+        fold: function (n, s) {
+          return s(a);
+        },
+        is: function (v) {
+          return a === v;
+        },
+        isSome: always$1,
+        isNone: never$1,
+        getOr: constant_a,
+        getOrThunk: constant_a,
+        getOrDie: constant_a,
+        getOrNull: constant_a,
+        getOrUndefined: constant_a,
+        or: self,
+        orThunk: self,
+        map: map,
+        ap: function (optfab) {
+          return optfab.fold(none, function (fab) {
+            return some(fab(a));
+          });
+        },
+        each: function (f) {
+          f(a);
+        },
+        bind: bind,
+        flatten: constant_a,
+        exists: bind,
+        forall: bind,
+        filter: function (f) {
+          return f(a) ? me : NONE;
+        },
+        equals: function (o) {
+          return o.is(a);
+        },
+        equals_: function (o, elementEq) {
+          return o.fold(never$1, function (b) {
+            return elementEq(a, b);
+          });
+        },
+        toArray: function () {
+          return [a];
+        },
+        toString: function () {
+          return 'some(' + a + ')';
+        }
+      };
+      return me;
+    };
+    var from = function (value) {
+      return value === null || value === undefined ? NONE : some(value);
+    };
+    var Option = {
+      some: some,
+      none: none,
+      from: from
+    };
+
+    var typeOf = function (x) {
+      if (x === null)
+        return 'null';
+      var t = typeof x;
+      if (t === 'object' && Array.prototype.isPrototypeOf(x))
+        return 'array';
+      if (t === 'object' && String.prototype.isPrototypeOf(x))
+        return 'string';
+      return t;
+    };
+    var isType = function (type) {
+      return function (value) {
+        return typeOf(value) === type;
+      };
+    };
+    var isFunction = isType('function');
+
+    var map = function (xs, f) {
+      var len = xs.length;
+      var r = new Array(len);
+      for (var i = 0; i < len; i++) {
+        var x = xs[i];
+        r[i] = f(x, i, xs);
+      }
+      return r;
+    };
+    var each = function (xs, f) {
+      for (var i = 0, len = xs.length; i < len; i++) {
+        var x = xs[i];
+        f(x, i, xs);
+      }
+    };
+    var filter$1 = function (xs, pred) {
+      var r = [];
+      for (var i = 0, len = xs.length; i < len; i++) {
+        var x = xs[i];
+        if (pred(x, i, xs)) {
+          r.push(x);
+        }
+      }
+      return r;
+    };
+    var slice = Array.prototype.slice;
+    var from$1 = isFunction(Array.from) ? Array.from : function (x) {
+      return slice.call(x);
+    };
+
+    var nu = function (baseFn) {
+      var data = Option.none();
+      var callbacks = [];
+      var map = function (f) {
+        return nu(function (nCallback) {
+          get(function (data) {
+            nCallback(f(data));
+          });
+        });
+      };
+      var get = function (nCallback) {
+        if (isReady())
+          call(nCallback);
+        else
+          callbacks.push(nCallback);
+      };
+      var set = function (x) {
+        data = Option.some(x);
+        run(callbacks);
+        callbacks = [];
+      };
+      var isReady = function () {
+        return data.isSome();
+      };
+      var run = function (cbs) {
+        each(cbs, call);
+      };
+      var call = function (cb) {
+        data.each(function (x) {
+          domGlobals.setTimeout(function () {
+            cb(x);
+          }, 0);
+        });
+      };
+      baseFn(set);
+      return {
+        get: get,
+        map: map,
+        isReady: isReady
+      };
+    };
+    var pure = function (a) {
+      return nu(function (callback) {
+        callback(a);
+      });
+    };
+    var LazyValue = {
+      nu: nu,
+      pure: pure
+    };
+
+    var bounce = function (f) {
+      return function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+          args[_i] = arguments[_i];
+        }
+        var me = this;
+        domGlobals.setTimeout(function () {
+          f.apply(me, args);
+        }, 0);
+      };
+    };
+
+    var nu$1 = function (baseFn) {
+      var get = function (callback) {
+        baseFn(bounce(callback));
+      };
+      var map = function (fab) {
+        return nu$1(function (callback) {
+          get(function (a) {
+            var value = fab(a);
+            callback(value);
+          });
+        });
+      };
+      var bind = function (aFutureB) {
+        return nu$1(function (callback) {
+          get(function (a) {
+            aFutureB(a).get(callback);
+          });
+        });
+      };
+      var anonBind = function (futureB) {
+        return nu$1(function (callback) {
+          get(function (a) {
+            futureB.get(callback);
+          });
+        });
+      };
+      var toLazy = function () {
+        return LazyValue.nu(get);
+      };
+      var toCached = function () {
+        var cache = null;
+        return nu$1(function (callback) {
+          if (cache === null) {
+            cache = toLazy();
+          }
+          cache.get(callback);
+        });
+      };
+      return {
+        map: map,
+        bind: bind,
+        anonBind: anonBind,
+        toLazy: toLazy,
+        toCached: toCached,
+        get: get
+      };
+    };
+    var pure$1 = function (a) {
+      return nu$1(function (callback) {
+        callback(a);
+      });
+    };
+    var Future = {
+      nu: nu$1,
+      pure: pure$1
+    };
+
+    var par = function (asyncValues, nu) {
+      return nu(function (callback) {
+        var r = [];
+        var count = 0;
+        var cb = function (i) {
+          return function (value) {
+            r[i] = value;
+            count++;
+            if (count >= asyncValues.length) {
+              callback(r);
+            }
+          };
+        };
+        if (asyncValues.length === 0) {
+          callback([]);
+        } else {
+          each(asyncValues, function (asyncValue, i) {
+            asyncValue.get(cb(i));
+          });
+        }
+      });
+    };
+
+    var par$1 = function (futures) {
+      return par(futures, Future.nu);
+    };
+    var mapM = function (array, fn) {
+      var futures = map(array, fn);
+      return par$1(futures);
+    };
+
     var pasteHtml$1 = function (editor, html, internalFlag) {
       var internal = internalFlag ? internalFlag : InternalHtml.isMarked(html);
       var args = ProcessFilters.process(editor, InternalHtml.unmark(html), internal);
@@ -817,17 +1144,12 @@ var paste = (function () {
       return m ? editor.dom.encode(m[1]) : null;
     };
     var uniqueId = Utils.createIdGenerator('mceclip');
-    var pasteImage = function (editor, rng, reader, blob) {
-      if (rng) {
-        editor.selection.setRng(rng);
-        rng = null;
-      }
-      var dataUri = reader.result;
-      var base64 = getBase64FromUri(dataUri);
+    var pasteImage = function (editor, imageItem) {
+      var base64 = getBase64FromUri(imageItem.uri);
       var id = uniqueId();
-      var name$$1 = editor.settings.images_reuse_filename && blob.name ? extractFilename(editor, blob.name) : id;
-      var img = new Image();
-      img.src = dataUri;
+      var name = editor.settings.images_reuse_filename && imageItem.blob.name ? extractFilename(editor, imageItem.blob.name) : id;
+      var img = new domGlobals.Image();
+      img.src = imageItem.uri;
       if (isValidDataUriImage(editor.settings, img)) {
         var blobCache = editor.editorUpload.blobCache;
         var blobInfo = void 0, existingBlobInfo = void 0;
@@ -835,45 +1157,66 @@ var paste = (function () {
           return cachedBlobInfo.base64() === base64;
         });
         if (!existingBlobInfo) {
-          blobInfo = blobCache.create(id, blob, base64, name$$1);
+          blobInfo = blobCache.create(id, imageItem.blob, base64, name);
           blobCache.add(blobInfo);
         } else {
           blobInfo = existingBlobInfo;
         }
         pasteHtml$1(editor, '<img src="' + blobInfo.blobUri() + '">', false);
       } else {
-        pasteHtml$1(editor, '<img src="' + dataUri + '">', false);
+        pasteHtml$1(editor, '<img src="' + imageItem.uri + '">', false);
       }
     };
-    var isClipboardEvent = function (event$$1) {
-      return event$$1.type === 'paste';
+    var isClipboardEvent = function (event) {
+      return event.type === 'paste';
+    };
+    var readBlobsAsDataUris = function (items) {
+      return mapM(items, function (item) {
+        return Future.nu(function (resolve) {
+          var blob = item.getAsFile ? item.getAsFile() : item;
+          var reader = new window.FileReader();
+          reader.onload = function () {
+            resolve({
+              blob: blob,
+              uri: reader.result
+            });
+          };
+          reader.readAsDataURL(blob);
+        });
+      });
+    };
+    var getImagesFromDataTransfer = function (dataTransfer) {
+      var items = dataTransfer.items ? map(from$1(dataTransfer.items), function (item) {
+        return item.getAsFile();
+      }) : [];
+      var files = dataTransfer.files ? from$1(dataTransfer.files) : [];
+      var images = filter$1(items.length > 0 ? items : files, function (file) {
+        return /^image\/(jpeg|png|gif|bmp)$/.test(file.type);
+      });
+      return images;
     };
     var pasteImageData = function (editor, e, rng) {
       var dataTransfer = isClipboardEvent(e) ? e.clipboardData : e.dataTransfer;
-      function processItems(items) {
-        var i, item, reader, hadImage = false;
-        if (items) {
-          for (i = 0; i < items.length; i++) {
-            item = items[i];
-            if (/^image\/(jpeg|png|gif|bmp)$/.test(item.type)) {
-              var blob = item.getAsFile ? item.getAsFile() : item;
-              reader = new window.FileReader();
-              reader.onload = pasteImage.bind(null, editor, rng, reader, blob);
-              reader.readAsDataURL(blob);
-              e.preventDefault();
-              hadImage = true;
-            }
-          }
-        }
-        return hadImage;
-      }
       if (editor.settings.paste_data_images && dataTransfer) {
-        return processItems(dataTransfer.items) || processItems(dataTransfer.files);
+        var images = getImagesFromDataTransfer(dataTransfer);
+        if (images.length > 0) {
+          e.preventDefault();
+          readBlobsAsDataUris(images).get(function (blobResults) {
+            if (rng) {
+              editor.selection.setRng(rng);
+            }
+            each(blobResults, function (result) {
+              pasteImage(editor, result);
+            });
+          });
+          return true;
+        }
       }
+      return false;
     };
     var isBrokenAndroidClipboardEvent = function (e) {
       var clipboardData = e.clipboardData;
-      return navigator.userAgent.indexOf('Android') !== -1 && clipboardData && clipboardData.items && clipboardData.items.length === 0;
+      return domGlobals.navigator.userAgent.indexOf('Android') !== -1 && clipboardData && clipboardData.items && clipboardData.items.length === 0;
     };
     var isKeyboardPasteEvent = function (e) {
       return global$4.metaKeyPressed(e) && e.keyCode === 86 || e.shiftKey && e.keyCode === 45;
@@ -889,7 +1232,7 @@ var paste = (function () {
         }
         if (isKeyboardPasteEvent(e) && !e.isDefaultPrevented()) {
           keyboardPastePlainTextState = e.shiftKey && e.keyCode === 86;
-          if (keyboardPastePlainTextState && global$1.webkit && navigator.userAgent.indexOf('Version/') !== -1) {
+          if (keyboardPastePlainTextState && global$1.webkit && domGlobals.navigator.userAgent.indexOf('Version/') !== -1) {
             return;
           }
           e.stopImmediatePropagation();
@@ -989,7 +1332,7 @@ var paste = (function () {
     var registerEventsAndFilters = function (editor, pasteBin, pasteFormat) {
       registerEventHandlers(editor, pasteBin, pasteFormat);
       var src;
-      editor.parser.addNodeFilter('img', function (nodes, name$$1, args) {
+      editor.parser.addNodeFilter('img', function (nodes, name, args) {
         var isPasteInsert = function (args) {
           return args.data && args.data.paste === true;
         };
@@ -1022,7 +1365,7 @@ var paste = (function () {
     };
 
     var getPasteBinParent = function (editor) {
-      return global$1.ie && editor.inline ? document.body : editor.getBody();
+      return global$1.ie && editor.inline ? domGlobals.document.body : editor.getBody();
     };
     var isExternalPasteBin = function (editor) {
       return getPasteBinParent(editor) !== editor.getBody();
@@ -1208,7 +1551,7 @@ var paste = (function () {
         var offscreenRange = editor.dom.createRng();
         offscreenRange.selectNodeContents(inner);
         editor.selection.setRng(offscreenRange);
-        setTimeout(function () {
+        global$2.setTimeout(function () {
           editor.selection.setRng(range);
           outer.parentNode.removeChild(outer);
           done();
@@ -1231,7 +1574,7 @@ var paste = (function () {
       return function (evt) {
         if (hasSelectedContent(editor)) {
           setClipboardData(evt, getData(editor), fallback(editor), function () {
-            setTimeout(function () {
+            global$2.setTimeout(function () {
               editor.execCommand('Delete');
             }, 0);
           });
@@ -1442,56 +1785,46 @@ var paste = (function () {
     };
     var Quirks = { setup: setup$2 };
 
-    function curry(fn) {
-      var initialArgs = [];
-      for (var _i = 1; _i < arguments.length; _i++) {
-        initialArgs[_i - 1] = arguments[_i];
-      }
-      return function () {
-        var restArgs = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-          restArgs[_i] = arguments[_i];
-        }
-        var all = initialArgs.concat(restArgs);
-        return fn.apply(null, all);
+    var makeSetupHandler = function (editor, clipboard) {
+      return function (api) {
+        api.setActive(clipboard.pasteFormat.get() === 'text');
+        var pastePlainTextToggleHandler = function (e) {
+          return api.setActive(e.state);
+        };
+        editor.on('PastePlainTextToggle', pastePlainTextToggleHandler);
+        return function () {
+          return editor.off('PastePlainTextToggle', pastePlainTextToggleHandler);
+        };
       };
-    }
-
-    var stateChange = function (editor, clipboard, e) {
-      var ctrl = e.control;
-      ctrl.active(clipboard.pasteFormat.get() === 'text');
-      editor.on('PastePlainTextToggle', function (e) {
-        ctrl.active(e.state);
-      });
     };
     var register$2 = function (editor, clipboard) {
-      var postRender = curry(stateChange, editor, clipboard);
-      editor.addButton('pastetext', {
+      editor.ui.registry.addToggleButton('pastetext', {
         active: false,
-        icon: 'pastetext',
+        icon: 'paste-text',
         tooltip: 'Paste as text',
-        cmd: 'mceTogglePlainTextPaste',
-        onPostRender: postRender
+        onAction: function () {
+          return editor.execCommand('mceTogglePlainTextPaste');
+        },
+        onSetup: makeSetupHandler(editor, clipboard)
       });
-      editor.addMenuItem('pastetext', {
+      editor.ui.registry.addToggleMenuItem('pastetext', {
         text: 'Paste as text',
-        selectable: true,
-        active: clipboard.pasteFormat,
-        cmd: 'mceTogglePlainTextPaste',
-        onPostRender: postRender
+        onAction: function () {
+          return editor.execCommand('mceTogglePlainTextPaste');
+        },
+        onSetup: makeSetupHandler(editor, clipboard)
       });
     };
     var Buttons = { register: register$2 };
 
     global.add('paste', function (editor) {
       if (DetectProPlugin.hasProPlugin(editor) === false) {
-        var userIsInformedState = Cell(false);
         var draggingInternallyState = Cell(false);
         var pasteFormat = Cell(Settings.isPasteAsTextEnabled(editor) ? 'text' : 'html');
         var clipboard = Clipboard(editor, pasteFormat);
         var quirks = Quirks.setup(editor);
         Buttons.register(editor, clipboard);
-        Commands.register(editor, clipboard, userIsInformedState);
+        Commands.register(editor, clipboard);
         PrePostProcess.setup(editor);
         CutCopy.register(editor);
         DragDrop.setup(editor, clipboard, draggingInternallyState);
@@ -1503,5 +1836,5 @@ var paste = (function () {
 
     return Plugin;
 
-}());
+}(window));
 })();
