@@ -9,7 +9,7 @@
     {
         XmlDocument doc = new XmlDocument();
         doc.LoadXml((string)ViewBag.Cover);
-        ViewData["Image"] = "https://neo.org" + doc.FirstChild.Attributes["src"].Value;
+        ViewData["Image"] = "https://neo.org" + doc.FirstChild.Attributes["data-original"]?.Value;
     }
     Layout = "_LayoutBlog.cshtml";
     ViewData["keywords"] = Model.Tags;
