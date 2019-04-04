@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.Claims;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
@@ -189,6 +190,7 @@ namespace NeoWeb.Controllers
                 {
                     @event.Cover = Upload(cover);
                 }
+                @event.Details = EventConvert(@event.Details);
                 _context.Add(@event);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -272,6 +274,7 @@ namespace NeoWeb.Controllers
                     {
                         @event.Cover = oldCover;
                     }
+                    @event.Details = EventConvert(@event.Details);
                     _context.Update(@event);
                     await _context.SaveChangesAsync();
                 }
@@ -324,6 +327,13 @@ namespace NeoWeb.Controllers
         private bool EventExists(int id)
         {
             return _context.Events.Any(e => e.Id == id);
+        }
+
+        private string EventConvert(string input)
+        {
+            input = Regex.Replace(input, @"<!\-\-\[if gte mso 9\]>[\s\S]*<!\[endif\]\-\->", ""); //删除 ms office 注解
+            input = Regex.Replace(input, "src=\".*/upload", "data-original=\"/upload"); //替换上传图片的链接
+            return input;
         }
     }
 }
