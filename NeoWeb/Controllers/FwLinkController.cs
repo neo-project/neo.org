@@ -35,7 +35,6 @@ namespace NeoWeb.Controllers
             return Redirect(link.Link);
         }
 
-        [AllowAnonymous]
         public async Task<IActionResult> List()
         {
             return View(await _context.FwLInk.ToListAsync());
