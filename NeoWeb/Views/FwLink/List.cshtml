@@ -20,14 +20,17 @@
     <table class="m3 apply-list table-striped">
         <thead>
             <tr>
-                <th width="40%">
+                <th width="30%">
                     链接（右键复制短链接）
                 </th>
                 <th width="30%">
                     名称
                 </th>
-                <th width="20%">
-                    生成时间
+                <th width="15%">
+                    创建时间
+                </th>
+                <th width="15%">
+                    最后编辑时间
                 </th>
                 <th width="10%"></th>
             </tr>
@@ -44,6 +47,9 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.CreateTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EditTime)
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

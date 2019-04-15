@@ -20,5 +20,6 @@ namespace NeoWeb.Models
         public virtual IdentityUser User { get; set; }
 
         public DateTime CreateTime { get; set; }
+        public DateTime EditTime { get; set; }
     }
 }

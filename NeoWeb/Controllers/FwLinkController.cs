@@ -55,8 +55,19 @@ namespace NeoWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (_context.FwLInk.Any(p => p.Id != fwLink.Id && p.Link == fwLink.Link))
+                {
+                    ModelState.AddModelError("Link", "链接已存在");
+                    return View(fwLink);
+                }
+                if (_context.FwLInk.Any(p => p.Id != fwLink.Id && p.Name == fwLink.Name))
+                {
+                    ModelState.AddModelError("Name", "链接名称已存在");
+                    return View(fwLink);
+                }
                 fwLink.User = _context.Users.Find(_userId);
                 fwLink.CreateTime = DateTime.Now;
+                fwLink.EditTime = fwLink.CreateTime;
                 _context.Add(fwLink);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(List));
@@ -94,9 +105,23 @@ namespace NeoWeb.Controllers
 
             if (ModelState.IsValid)
             {
+                if (_context.FwLInk.Any(p => p.Id != fwLink.Id && p.Link == fwLink.Link))
+                {
+                    ModelState.AddModelError("Link", "链接已存在");
+                    return View(fwLink);
+                }
+                if (_context.FwLInk.Any(p => p.Id != fwLink.Id && p.Name == fwLink.Name))
+                {
+                    ModelState.AddModelError("Name", "链接名称已存在");
+                    return View(fwLink);
+                }
+                var item = _context.FwLInk.FirstOrDefault(p => p.Id == fwLink.Id);
                 try
                 {
-                    _context.Update(fwLink);
+                    item.Link = fwLink.Link;
+                    item.Name = fwLink.Name;
+                    item.EditTime = DateTime.Now;
+                    _context.Update(item);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
