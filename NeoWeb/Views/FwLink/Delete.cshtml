@@ -1,0 +1,38 @@
+﻿@model NeoWeb.Models.FwLink
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2 class="m1 text-center">删除</h2>
+
+<p class="m3 text-center">你确定要删除这条链接吗，删除后所有使用该外链的链接都将失效。</p>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            链接
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Link)
+        </dd>
+        <dt class="col-sm-2">
+            链接名称
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            创建时间
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CreateTime)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="删除" class="btn btn-danger" /> |
+        <a asp-action="List">返回列表</a>
+    </form>
+</div>

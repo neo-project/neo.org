@@ -28,7 +28,7 @@ namespace NeoWeb.Controllers
         // GET: testcoin/List
         public async Task<IActionResult> List()
         {
-            return View(await _context.TestCoins.ToListAsync());
+            return View(await _context.TestCoins.OrderByDescending(p => p.Time).Where(p => DateTime.Now - p.Time < new TimeSpan(15, 0, 0, 0)).ToListAsync());
         }
 
         // GET: testcoin/details/5

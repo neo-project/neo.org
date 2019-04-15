@@ -333,6 +333,7 @@ namespace NeoWeb.Controllers
         {
             input = Regex.Replace(input, @"<!\-\-\[if gte mso 9\]>[\s\S]*<!\[endif\]\-\->", ""); //删除 ms office 注解
             input = Regex.Replace(input, "src=\".*/upload", "data-original=\"/upload"); //替换上传图片的链接
+            input = Regex.Replace(input, "<img src=", "<img data-original="); //替换外部图片的链接
             return input;
         }
     }
