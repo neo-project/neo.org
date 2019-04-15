@@ -1,16 +1,24 @@
 {
   "name": "MainNet",
   "sites": [
-    {
-      "url": "https://seed1.switcheo.network",
-      "port": "10331"
-    },
-    {
-      "url": "https://seed2.switcheo.network",
-      "port": "10331"
-    },
-    {
-      "url": "https://seed2.redpulse.com",
-      "port": "10331"
-    }
-  ]}
+  {
+    "url": "https://seed1.neo.org",
+    "port": "10331"
+  },
+  {
+    "url": "https://seed3.cityofzion.io",
+    "port": "443"
+  },
+  {
+    "url": "https://seed7.cityofzion.io",
+    "port": "443"
+  },
+  {
+    "url": "https://seed3.switcheo.network",
+    "port": "10331"
+  },
+  {
+    "url": "https://seed4.switcheo.network",
+    "port": "10331"
+  }
+]}
