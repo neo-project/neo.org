@@ -1,5 +1,5 @@
 var block_height = 0;
-var send_url = "https://pyrpc2.narrative.org:443";
+var send_url = "https://seed1.cityofzion.io:443";
 var lastt = new Date(),conNum = 0;
 
 blockInfo();
