@@ -161,7 +161,7 @@ namespace NeoWeb.Controllers
                 User = blog.User
             };
             var wrongBrotherBlogId = false;
-            if (!_userRules && blog.Lang.Contains(_localizer["en"]) && blog.BrotherBlogId != null)
+            if (!_userRules && !blog.Lang.Contains(_localizer["en"]) && blog.BrotherBlogId != null)
             {
                 var brotherBlog = _context.Blogs.FirstOrDefault(p => p.Id == blog.BrotherBlogId);
                 if (brotherBlog != null && brotherBlog.IsShow)
