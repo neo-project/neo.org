@@ -3,7 +3,7 @@
   "defaultProvider": "cdnjs",
   "libraries": [
     {
-      "library": "jquery@3.3.1",
+      "library": "jquery@3.4.1",
       "destination": "wwwroot/lib/jquery/",
       "files": [
         "jquery.min.js"
@@ -45,12 +45,12 @@
       "destination": "wwwroot/lib/animate.css/"
     },
     {
-      "library": "tinymce@5.0.3",
+      "library": "tinymce@5.0.5",
       "destination": "wwwroot/lib/tinymce/"
     },
     {
       "provider": "cdnjs",
-      "library": "bootstrap-fileinput@5.0.1",
+      "library": "bootstrap-fileinput@5.0.2",
       "destination": "wwwroot/lib/bootstrap-fileinput/",
       "files": [
         "css/fileinput-rtl.css",
