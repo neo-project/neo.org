@@ -80,10 +80,17 @@ namespace NeoWeb.Controllers
                 return Content("Protecting from overposting attacks now!");
 
             JArray list = JArray.Parse(System.IO.File.ReadAllText(Path.Combine(_env.ContentRootPath, "CandidateBackgrounder/validators.json")));
-            ViewBag.PubKeys = new List<string>();
+            var pubKeys = new List<string>();
             foreach (JObject item in list)
             {
-                ViewBag.PubKeys.Add(item["PublicKey"].ToString());
+                pubKeys.Add(item["PublicKey"].ToString());
+            }
+
+            ViewBag.PubKeys = pubKeys;
+            if (!pubKeys.Any(p => p == c.PublicKey))
+            {
+                ViewBag.Message = _localizer["Only candidates can upload information."];
+                return View("Index", c);
             }
 
             if (ModelState.IsValid && !string.IsNullOrEmpty(signature))
@@ -97,7 +104,15 @@ namespace NeoWeb.Controllers
                 }
                 if (logo != null)
                 {
-                    c.Logo = "~/upload/" + Helper.UploadMedia(logo, _env);
+                    try
+                    {
+                        c.Logo = "~/upload/" + Helper.UploadMedia(logo, _env);
+                    }
+                    catch (ArgumentException)
+                    {
+                        ViewBag.Message = _localizer["Logo Upload Failure"];
+                        return View("Index", c);
+                    }
                 }
                 //Insert or Update
                 if (_context.Candidates.Any(p => p.PublicKey == c.PublicKey))

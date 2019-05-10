@@ -201,20 +201,29 @@ namespace NeoWeb.Controllers
 
         private string Upload(IFormFile cover)
         {
-            var fileName = Helper.UploadMedia(cover, _env);
-            Task.Run(()=> {
-                var filePath = Path.Combine(_env.ContentRootPath, "wwwroot/upload", fileName);
-                using (Image<Rgba32> image = Image.Load(filePath))
+            try
+            {
+                var fileName = Helper.UploadMedia(cover, _env);
+                Task.Run(() =>
                 {
-                    image.Mutate(x => x.Resize(new ResizeOptions
+                    var filePath = Path.Combine(_env.ContentRootPath, "wwwroot/upload", fileName);
+                    using (Image<Rgba32> image = Image.Load(filePath))
                     {
-                        Size = new Size(600, 600 * image.Height / image.Width),
-                        Mode = ResizeMode.Max
-                    }));
-                    image.Save(filePath);
-                }
-            });
-            return fileName;
+                        image.Mutate(x => x.Resize(new ResizeOptions
+                        {
+                            Size = new Size(600, 600 * image.Height / image.Width),
+                            Mode = ResizeMode.Max
+                        }));
+                        image.Save(filePath);
+                    }
+                });
+                return fileName;
+            }
+            catch (ArgumentException)
+            {
+                Response.StatusCode = 502;
+                return "";
+            }
         }
 
         // GET: event/edit/5
