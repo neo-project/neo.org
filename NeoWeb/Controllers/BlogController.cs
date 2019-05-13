@@ -69,7 +69,7 @@ namespace NeoWeb.Controllers
             }
             if (k == null && t == null) //仅显示当前语言博客，有搜索或标签的除外
             {
-                models = _context.Blogs.Where(p => p.Lang == _localizer["en"]);
+                models = _context.Blogs.Where(p => p.Lang.Contains(_localizer["en"]));
             }
             models = models.OrderByDescending(o => o.CreateTime).Select(p => new Blog()
             {
@@ -122,13 +122,13 @@ namespace NeoWeb.Controllers
             }
 
             #region Previous article and  Next article
-            var blogs = _context.Blogs.Where(p => p.Lang == _localizer["en"]).Select(p => new Blog()
+            var blogs = _context.Blogs.Where(p => p.Lang.Contains(_localizer["en"])).Select(p => new Blog()
             {
                 Id = p.Id,
                 CreateTime = p.CreateTime,
                 Lang = p.Lang
             }).ToList();
-            if(blog.Lang != _localizer["en"])
+            if(!blog.Lang.Contains(_localizer["en"]))
                 blogs.Add(blog);
             blogs = blogs.OrderByDescending(o => o.CreateTime).ToList();
 
@@ -161,7 +161,7 @@ namespace NeoWeb.Controllers
                 User = blog.User
             };
             var wrongBrotherBlogId = false;
-            if (!_userRules && blog.Lang != _localizer["en"] && blog.BrotherBlogId != null)
+            if (!_userRules && !blog.Lang.Contains(_localizer["en"]) && blog.BrotherBlogId != null)
             {
                 var brotherBlog = _context.Blogs.FirstOrDefault(p => p.Id == blog.BrotherBlogId);
                 if (brotherBlog != null && brotherBlog.IsShow)
@@ -175,8 +175,8 @@ namespace NeoWeb.Controllers
                     wrongBrotherBlogId = true;
                 }
             }
-            ViewBag.IsAdminEdit = _userRules && blog.Lang != _localizer["en"];
-            ViewBag.NoCurrentLanguragBlog = blog.Lang != _localizer["en"] && blog.BrotherBlogId == null || wrongBrotherBlogId;
+            ViewBag.IsAdminEdit = _userRules && !blog.Lang.Contains(_localizer["en"]);
+            ViewBag.NoCurrentLanguragBlog = !blog.Lang.Contains(_localizer["en"]) && blog.BrotherBlogId == null || wrongBrotherBlogId;
             #endregion
 
             ViewBag.CreateTime = blogs.Select(p => new BlogDateTimeViewModels
@@ -247,8 +247,33 @@ namespace NeoWeb.Controllers
 
         private string GetLanguage(Blog blog)
         {
-            Regex regChina = new Regex("[\u4e00-\u9fa5]");
-            return regChina.IsMatch(blog.Title + blog.Content) ? "zh" : "en";
+            var analysis = blog.Title + blog.Content;
+            Regex regCh = new Regex("[\u4e00-\u9fa5]");
+            Regex regEn = new Regex("[a-zA-Z]");
+            Regex regKo = new Regex("[\x3130-\x318F|\xAC00-\xD7A3]");
+            Regex regJp = new Regex("[\u0800-\u4e00]");
+            double sumEn = 0;
+            double sumZh = 0;
+            double sumKo = 0;
+            double sumJp = 0;
+            foreach (var item in analysis)
+            {
+                if (regCh.IsMatch(item.ToString())) sumZh++;
+                if (regEn.IsMatch(item.ToString())) sumEn++;
+                if (regKo.IsMatch(item.ToString())) sumKo++;
+                if (regJp.IsMatch(item.ToString())) sumJp++;
+            }
+            double sum = analysis.Length;
+            var result = "";
+            if (sumEn / sum > 0.6)
+                result += "en";
+            if (sumZh / sum > 0.1)
+                result = string.IsNullOrEmpty(result)? "zh" : result + ",zh";
+            if (sumKo / sum > 0.1)
+                result = string.IsNullOrEmpty(result) ? "ko" : result + ",ko";
+            if (sumJp / sum > 0.1)
+                result = string.IsNullOrEmpty(result) ? "jp" : result + ",jp";
+            return result;
         }
 
         // GET: blog/edit/5
@@ -355,20 +380,29 @@ namespace NeoWeb.Controllers
         [HttpPost]
         public string Upload(IFormFile file)
         {
-            var fileName = Helper.UploadMedia(file, _env);
-            Task.Run(() => {
-                var filePath = Path.Combine(_env.ContentRootPath, "wwwroot/upload", fileName);
-                using (Image<Rgba32> image = Image.Load(filePath))
+            try
+            {
+                var fileName = Helper.UploadMedia(file, _env);
+                Task.Run(() =>
                 {
-                    image.Mutate(x => x.Resize(new ResizeOptions
+                    var filePath = Path.Combine(_env.ContentRootPath, "wwwroot/upload", fileName);
+                    using (Image<Rgba32> image = Image.Load(filePath))
                     {
-                        Size = new Size(1600, 1600 * image.Height / image.Width),
-                        Mode = ResizeMode.Max
-                    }));
-                    image.Save(filePath);
-                }
-            });
-            return $"{{\"location\":\"/upload/{fileName}\"}}";
+                        image.Mutate(x => x.Resize(new ResizeOptions
+                        {
+                            Size = new Size(1000, 1000 * image.Height / image.Width),
+                            Mode = ResizeMode.Max
+                        }));
+                        image.Save(filePath);
+                    }
+                });
+                return $"{{\"location\":\"/upload/{fileName}\"}}";
+            }
+            catch (ArgumentException)
+            {
+                Response.StatusCode = 502;
+                return "";
+            }
         }
 
 
