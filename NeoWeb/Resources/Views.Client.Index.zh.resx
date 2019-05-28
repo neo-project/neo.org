@@ -318,12 +318,6 @@
   <data name="This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the private key." xml:space="preserve">
     <value>该客户端让用户拥有对数字资产的高度掌控权。私钥是通过钱包文件和密码加密存储的。但仍需注意在安全的设备上使用，并注意私钥的安全备份和妥善保管。</value>
   </data>
-  <data name="This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the wallet file." xml:space="preserve">
-    <value>该客户端让你拥有对数字资产的高度掌控权。私钥是通过钱包文件和密码加密存储的。但你仍需注意在安全的设备上使用，并注意钱包文件的安全备份和妥善保管。</value>
-  </data>
-  <data name="This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of wallet files." xml:space="preserve">
-    <value>该客户端让用户拥有对数字资产的高度掌控权。私钥是通过钱包文件和密码加密存储的。但仍需注意在安全的设备上使用，并注意钱包文件的安全备份和妥善保管。</value>
-  </data>
   <data name="This wallet gives users a high degree of control over digital assets. The private key or the mnemonic are stored locally. This wallet gives more support to the cold and hot wallet dual mode cooperation, offline signature authorization and online asset observation. It is completely isolated from the network environment so as to store assets more securely." xml:space="preserve">
     <value>该客户端让用户拥有对数字资产的高度掌控权。私钥或助词本地保存。更支持冷热钱包双重模式配合，离线签名授权，在线资产观察。完全隔离网络环境，更安全地存储资产。</value>
   </data>
@@ -331,12 +325,7 @@
     <value>该客户端让你拥有对数字资产的高度掌控权。私钥是通过 Encrypted Key 和密码加密存储的。但用户仍需注意在安全的设备上使用，并注意 Encrypted Key 的安全备份和妥善保管。</value>
   </data>
   <data name="This wallet is a full node that stores all the data in the NEO blockchain, which means that there is no need to trust a third party when verifying payments or executing contracts. The full node provides the highest level of security and is an integral part of protecting the network. However, it requires more hard disk space (15GB), greater bandwidth, and a longer initialization synchronization time. The initialization synchronization speed can be accelerated by downloading the &lt;a href=&quot;http://sync.ngd.network/&quot; target=&quot;_blank&quot;&gt;offline synchronization package&lt;/a&gt; provided by NGD." xml:space="preserve">
-    <value>该客户端是一个全节点，它存储 NEO 区块链中的所有数据。这意味着当验证支付或者执行合约的时候，不需要信任第三方。
-                                    全节点提供了最高级别的安全性并且是保护网络不可或缺的元素。然而，它需要更多的硬盘空间（15GB）、更大的带宽和一个更长的初始化同步时间。
-                                    通过下载 NGD 提供的 &lt;a href="http://sync.ngd.network/" target="_blank"&gt;离线同步包 &lt;/a&gt; 可以加快初始化同步速度。</value>
-  </data>
-  <data name="This wallet is a full node that stores all the data in the NEO blockchain, which means that there is no need to trust a third party when verifying payments or executing contracts. The full node provides the highest level of security and is an integral part of protecting the network. However, it requires more hard disk space (15GB), greater bandwidth, and a longer initialization synchronization time. The initialization synchronization speed can be accelerated by downloading the offline synchronization package provided by NGD." xml:space="preserve">
-    <value>该客户端是一个全节点，它存储 NEO 区块链中的所有数据。这意味着当验证支付或者执行合约的时候，不需要信任第三方。全节点提供了最高级别的安全性并且是保护网络不可或缺的元素。然而，它需要更多的硬盘空间（15GB）、更大的带宽和一个更长的初始化同步时间。通过下载 NGD 提供的离线同步包可以加快初始化同步速度。</value>
+    <value>该客户端是一个全节点，它存储 NEO 区块链中的所有数据。这意味着当验证支付或者执行合约的时候，不需要信任第三方。全节点提供了最高级别的安全性并且是保护网络不可或缺的元素。然而，它需要更多的硬盘空间（15GB）、更大的带宽和一个更长的初始化同步时间。通过下载 NGD 提供的 &lt;a href="http://sync.ngd.network/" target="_blank"&gt;离线同步包 &lt;/a&gt; 可以加快初始化同步速度。</value>
   </data>
   <data name="This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The NEO Foundation and NGD do not endorse this client." xml:space="preserve">
     <value>该客户端是非开源软件，这意味着需要十分信任这个钱包的开发者。NEO Foundation、NGD 不为该客户端进行背书。</value>
@@ -388,5 +377,8 @@
   </data>
   <data name="Provides wallet-specific RPC functionalities." xml:space="preserve">
     <value>提供钱包相关的 RPC 功能。</value>
+  </data>
+  <data name="This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the wallet file." xml:space="preserve">
+    <value>该客户端让你拥有对数字资产的高度掌控权。私钥是通过钱包文件和密码加密存储的。但你仍需注意在安全的设备上使用，并注意钱包文件的安全备份和妥善保管。</value>
   </data>
 </root>
