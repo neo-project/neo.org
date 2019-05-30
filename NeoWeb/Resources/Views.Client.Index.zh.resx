@@ -378,7 +378,7 @@
   <data name="This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the wallet file." xml:space="preserve">
     <value>该客户端让你拥有对数字资产的高度掌控权。私钥是通过钱包文件和密码加密存储的。但你仍需注意在安全的设备上使用，并注意钱包文件的安全备份和妥善保管。</value>
   </data>
-  <data name="Bitkeep is a decentralized multi-chain digital wallet that supports thousands of digital assets such as BTC, ETH, EOS, NEO, USDT, ONT, multi-wallet management, aggregation transactions, exchange asset docking and more." xml:space="preserve">
-    <value>Bitkeep 是一款去中心化多链数字钱包，支持数千种数字资产，如BTC，ETH，EOS，NEO，USDT，ONT，多钱包管理，汇总交易，交换资产对接等。</value>
+  <data name="BitKeep is a decentralized multi-chain digital wallet that supports thousands of digital assets such as BTC, ETH, EOS, NEO, USDT, ONT, multi-wallet management, aggregation transactions, exchange asset docking and more." xml:space="preserve">
+    <value>BitKeep 是一款去中心化多链数字钱包，支持数千种数字资产，如BTC，ETH，EOS，NEO，USDT，ONT，多钱包管理，汇总交易，交换资产对接等。</value>
   </data>
 </root>
