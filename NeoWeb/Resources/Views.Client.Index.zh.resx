@@ -381,4 +381,7 @@
   <data name="Bitkeep is a decentralized multi-chain digital wallet that supports thousands of digital assets such as BTC, ETH, EOS, NEO, USDT, ONT, multi-wallet management, aggregation transactions, exchange asset docking and more." xml:space="preserve">
     <value>Bitkeep 是一款去中心化多链数字钱包，支持数千种数字资产，如BTC，ETH，EOS，NEO，USDT，ONT，多钱包管理，汇总交易，交换资产对接等。</value>
   </data>
+  <data name="YEZ Wallet is a NEP-5 Wallet. We focuses on easy on-boarding with Google/Facebook Login integration.User can send/receive YEZ and see transaction history on one screen." xml:space="preserve">
+    <value>YEZ 钱包是 NEP-5 钱包，需要通过 Google / Facebook 登录集成，用户可以进行 YEZ Coin 转账并查看交易历史记录。</value>
+  </data>
 </root>

@@ -7,9 +7,15 @@
     ViewData["Details"] = Model.Summary;
     if (ViewBag.Cover != null)
     {
-        XmlDocument doc = new XmlDocument();
-        doc.LoadXml((string)ViewBag.Cover);
-        ViewData["Image"] = "https://neo.org" + doc.FirstChild.Attributes["data-original"]?.Value;
+        try
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml((string)ViewBag.Cover);
+            ViewData["Image"] = "https://neo.org" + doc.FirstChild.Attributes["data-original"]?.Value;
+        }
+        catch (Exception)
+        {
+        }
     }
     Layout = "_LayoutBlog.cshtml";
     ViewData["keywords"] = Model.Tags;
