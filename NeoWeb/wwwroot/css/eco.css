@@ -1,6 +1,6 @@
 ﻿body {
     padding-top: 0;
-    line-height: 2;
+    line-height: 1.7;
     font-weight: 300;
     background: #F0F0F0;
     letter-spacing: 1px;
@@ -15,11 +15,13 @@
 }
 
 .layout-container .container {
-    padding: 70px 0 100px;
+    padding: 100px 0;
 }
 
+h2,.h2 {font-size:48px;}
+
 .eco-bannner {
-    background: url(/images/eco-banner.jpg);
+    background: url(/images/eco-banner.jpg) center;
     background-size:cover;
     color:#FFFFFF;
     padding-top: 40px;
@@ -58,6 +60,7 @@
     vertical-align:top;
     list-style:none;
     width:32%;
+    margin-bottom:20px;
 }
 
 .eco-detail {
@@ -87,3 +90,17 @@
     text-decoration:underline!important;
 }
 
+@media only screen and (max-width : 1199px) {
+    h2, .h2 {
+        font-size: 40px;
+    }
+}
+
+@media only screen and (max-width : 780px) {
+    h2, .h2 {
+        font-size: 34px;
+    }
+    .eco-intro li {
+        width: 100%;
+    }
+}
