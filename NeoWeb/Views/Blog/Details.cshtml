@@ -9,7 +9,7 @@
     {
         try
         {
-            XmlDocument doc = new XmlDocument();
+            XmlDocument doc = new XmlDocument() { XmlResolver = null };
             doc.LoadXml((string)ViewBag.Cover);
             ViewData["Image"] = "https://neo.org" + doc.FirstChild.Attributes["data-original"]?.Value;
         }
