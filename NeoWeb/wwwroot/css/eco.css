@@ -1,4 +1,11 @@
 ﻿body {
+    padding-top: 0;
+    line-height: 2;
+    font-weight: 300;
+    background: #F0F0F0;
+    letter-spacing: 1px;
+    text-align:center;
+    color:#4F4F4F;
 }
 
 .layout-container {
@@ -7,6 +14,76 @@
     margin: 0;
 }
 
-.eco-bannner {
-    background: url(https://devcon.neo.org/Photos/ganapathy-kumar-113604-unsplash.jpg);
+.layout-container .container {
+    padding: 70px 0 100px;
 }
+
+.eco-bannner {
+    background: url(/images/eco-banner.jpg);
+    background-size:cover;
+    color:#FFFFFF;
+    padding-top: 40px;
+}
+
+.eco-bannner > div.container {
+    padding-top:80px;
+}
+
+.eco-btn {
+    display: inline-block;
+    background: #EFF1EF;
+    border: 1px solid #EFF1EF;
+    min-width: 130px;
+    color: #4F4F4F !important;
+    padding: 5px 30px 3px;
+    vertical-align: middle;
+    cursor: pointer;
+    transition:background .3s,color .3s;
+}
+
+.eco-btn:hover {
+    background: transparent;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF !important;
+    transition:background .3s,color .3s;
+}
+
+.eco-intro {
+    width:100%;
+    padding:0;
+}
+
+.eco-intro li {
+    display:inline-block;
+    vertical-align:top;
+    list-style:none;
+    width:32%;
+}
+
+.eco-detail {
+    max-width:250px;
+    margin:auto;
+}
+
+.eco-intro li .iconfont {
+    display: inline-block;
+    background: url(../images/icon-bg.svg) center;
+    background-size: contain;
+    width: 108px;
+    height: 128px;
+    line-height: 128px;
+    vertical-align: middle;
+    font-size: 45px;
+    color: #478E0A;
+}
+
+.eco-link {
+    color: #478E0A!important;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.eco-link:hover{
+    text-decoration:underline!important;
+}
+
