@@ -1,4 +1,7 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@{
     ViewData["Title"] = "EcoBoost";
 }
 @section Styles{
@@ -7,78 +10,74 @@
 
 <div class="eco-bannner">
     <div class="container p2">
-        <h2 class="m1 w650">NEO EcoBoost Partner Recruitment Official Launch</h2>
-        <p class="t2 m2 mb0">Stage1: EcoBoost Partner Recruitment launch</p>
-        <p class="t3 m4">Stage2: EcoBoost Official Launch</p>
-        <a class="eco-btn m3" href="mailto:eg@neo.org">JOIN NOW</a>
+        <h2 class="m1 w650">@Localizer["NEO EcoBoost Partner Recruitment Official Launch"]</h2>
+        <p class="t2 m2 mb0">@Localizer["Stage1:EcoBoost Partner Recruitment launch"]</p>
+        <p class="t3 m4">@Localizer["Stage2:EcoBoost Official Launch"]</p>
+        <a class="eco-btn m3" href="mailto:eg@neo.org">@Localizer["JOIN NOW"]</a>
     </div>
 </div>
 <div class="bg-white">
     <div class="container p2">
-        <h3>Highlights of NEO EcoBoost</h3>
+        <h3>@Localizer["Highlights of NEO Ecoboost"]</h3>
         <ul class="eco-intro m2">
             <li>
                 <span class="iconfont">&#xe660;</span><br />
                 <p class="bold-font t2 m3 mb0">Funding</p>
-                <p class="t1 mb0 lh3">$100M</p>
+                <p class="t1 m4 mb0 lh3">$100M</p>
             </li>
             <li>
                 <span class="iconfont">&#xe659;</span><br />
                 <p class="bold-font t2 m3 mb0">Goal</p>
-                <p class="t4 mb0 lh3">
+                <p class="t4 m4 mb0 lh3">
                     Seed Project Activation<br />dApps Growth Support<br />Infrastructure Development<br />Institutional Collaboration
                 </p>
             </li>
             <li>
                 <span class="iconfont">&#xe61d;</span><br />
                 <p class="bold-font t2 m3 mb0">Life Cycle Support</p>
-                <p class="t4 mb0 lh3">
+                <p class="t4 m4 mb0 lh3">
                     Funding<br />Tech Support<br />Community Synergy<br />Promotion
                 </p>
             </li>
         </ul>
-        <p class="t4 m3 lh3 w800 p4">NEO Eco Boost is designed to provide life cycle support for developers, dApps, infrastructure etc. within the NEO ecosystem. With an aim to help support the growth and development of NEO ecosystem.<br />As such, we will first launch the NEO Eco Boost Partner Recruitment program. Subsequently, to foster and support high-quality projects within the NEO Ecosystem, NEO will share resources with all partners. Parties interested to be a long-term partner of NEO Eco Boost, are always welcome to contact us at <a class="eco-link" href="mailto:eg@neo.org">eg@neo.org</a>.</p>
+        <p class="t4 m3 lh3 w800 p4">@Localizer["NEO Eco Boost is designed to provide life cycle support for developers, dApps, infrastructure etc. within the NEO ecosystem. With an aim to help support the growth and development of NEO ecosystem.<br />As such, we will first launch the NEO Eco Boost Partner Recruitment program. Subsequently, to foster and support high-quality projects within the NEO Ecosystem, NEO will share resources with all partners. Parties interested to be a long-term partner of NEO Eco Boost, are always welcome to contact us at <a class='eco-link' href='mailto:eg@neo.org'>eg@neo.org</a>."]</p>
     </div>
 </div>
 <div class="container p2">
-    <h3>Who are we looking for</h3>
+    <h3>@Localizer["Who are we looking for"]</h3>
     <ul class="eco-intro m2">
         <li>
             <span class="iconfont">&#xe621;</span><br />
-            <p class="bold-font t2 m3 mb0">Media</p>
-            <p class="eco-detail t4 mb0 lh3">To assist in the publicity, reporting and branding of the projects within NEO ecosystem</p>
+            <p class="bold-font t2 m3 mb0">@Localizer["Media"]</p>
+            <p class="eco-detail t4 m4 mb0 lh3">@Localizer["To assist in the publicity, reporting and branding of the projects within NEO ecosystem"]</p>
         </li>
         <li>
             <span class="iconfont">&#xe634;</span><br />
-            <p class="bold-font t2 m3 mb0">Platforms</p>
-            <p class="eco-detail t4 mb0 lh3">
-                To drive greater traffic into the projects within NEO ecosystem and stimulate greater liquidity as well as application scenarios
-            </p>
+            <p class="bold-font t2 m3 mb0">@Localizer["Platforms"]</p>
+            <p class="eco-detail t4 m4 mb0 lh3">@Localizer["To drive greater traffic into the projects within NEO ecosystem and stimulate greater liquidity as well as application scenarios"]</p>
         </li>
         <li>
             <span class="iconfont">&#xe618;</span><br />
-            <p class="bold-font t2 m3 mb0">Institution</p>
-            <p class="eco-detail t4 mb0 lh3">
-                To provide industry resources and support to improve the liquidity of the projects within the NEO ecosystem
-            </p>
+            <p class="bold-font t2 m3 mb0">@Localizer["Institution"]</p>
+            <p class="eco-detail t4 m4 mb0 lh3">@Localizer["To provide industry resources and support to improve the liquidity of the projects within the NEO ecosystem"]</p>
         </li>
     </ul>
 </div>
 <div class="bg-white">
     <div class="container p2">
-        <h3>Benefits for NEO Eco Boost partners</h3>
+        <h3>@Localizer["Benefits for NEO Eco Boost partners"]</h3>
         <ul class="eco-intro m2">
             <li>
                 <span class="iconfont">&#xe602;</span><br />
-                <p class="eco-detail t4 m3 mb0 lh3">Establish long-term partnership with NEO ecosystem</p>
+                <p class="eco-detail t4 m3 mb0 lh3">@Localizer["Establish long-term partnership with NEO ecosystem"]</p>
             </li>
             <li>
                 <span class="iconfont">&#xe6ba;</span><br />
-                <p class="eco-detail t4 m3 mb0 lh3">Receive strong support from NGD</p>
+                <p class="eco-detail t4 m3 mb0 lh3">@Localizer["Receive strong support from NGD"]</p>
             </li>
             <li>
                 <span class="iconfont">&#xe61e;</span><br />
-                <p class="eco-detail t4 m3 mb0 lh3">Gain access to NEO global community network</p>
+                <p class="eco-detail t4 m3 mb0 lh3">@Localizer["Gain access to NEO global community network"]</p>
             </li>
         </ul>
     </div>
