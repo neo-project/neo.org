@@ -68,9 +68,13 @@ h2,.h2 {font-size:48px;}
     margin-bottom:20px;
 }
 
+.eco-intro .t1{
+    font-size:28px;
+}
+
 .eco-detail {
-    max-width:250px;
-    margin:auto;
+    max-width: 250px;
+    margin: auto;
 }
 
 .eco-intro li .iconfont {
