@@ -46,6 +46,7 @@ h2,.h2 {font-size:48px;}
     vertical-align: middle;
     cursor: pointer;
     transition:background .3s,color .3s;
+    margin-bottom:30px;
 }
 
 .eco-btn:hover {
@@ -58,6 +59,7 @@ h2,.h2 {font-size:48px;}
 .eco-intro {
     width:100%;
     padding:0;
+    margin-bottom:0;
 }
 
 .eco-intro li {
@@ -65,7 +67,7 @@ h2,.h2 {font-size:48px;}
     vertical-align:top;
     list-style:none;
     width:32%;
-    margin-bottom:20px;
+    margin-top:20px;
 }
 
 .eco-intro .t1{
@@ -108,6 +110,9 @@ h2,.h2 {font-size:48px;}
 @media only screen and (max-width : 780px) {
     h2, .h2 {
         font-size: 34px;
+    }
+    .layout-container .container {
+        padding: 60px 0;
     }
     .eco-intro li {
         width: 100%;
