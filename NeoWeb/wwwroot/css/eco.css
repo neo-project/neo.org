@@ -36,17 +36,25 @@ h2,.h2 {font-size:48px;}
     letter-spacing:2px;
 }
 
+.eco-t1 {
+    font-size:24px;
+}
+
+.eco-t2 {
+    font-size:14px;
+}
+
 .eco-btn {
     display: inline-block;
     background: #EFF1EF;
     border: 1px solid #EFF1EF;
     min-width: 130px;
     color: #4F4F4F !important;
-    padding: 5px 30px 3px;
+    padding: 5px 30px;
     vertical-align: middle;
     cursor: pointer;
-    transition:background .3s,color .3s;
-    margin-bottom:30px;
+    transition: background .3s,color .3s;
+    margin-bottom: 30px;
 }
 
 .eco-btn:hover {
@@ -93,6 +101,7 @@ h2,.h2 {font-size:48px;}
 
 .eco-link {
     color: #478E0A!important;
+    font-size:20px;
     font-weight:600;
     cursor:pointer;
 }
@@ -114,7 +123,16 @@ h2,.h2 {font-size:48px;}
     .layout-container .container {
         padding: 60px 0;
     }
+    .eco-t1 {
+        font-size: 22px;
+    }
+    .eco-t2 {
+        font-size: 12px;
+    }
     .eco-intro li {
         width: 100%;
+    }
+    .eco-link {
+        font-size:16px;
     }
 }
