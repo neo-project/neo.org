@@ -132,5 +132,11 @@
     "inputFiles": [
       "wwwroot/css/bounty.css"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/css/eco.min.css",
+    "inputFiles": [
+      "wwwroot/css/eco.css"
+    ]
   }
 ]

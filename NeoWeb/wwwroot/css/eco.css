@@ -21,9 +21,9 @@
 h2,.h2 {font-size:48px;}
 
 .eco-bannner {
-    background: url(/images/eco-banner.jpg) center;
-    background-size:cover;
-    color:#FFFFFF;
+    background: url(https://neo-cdn.azureedge.net/images/eco-banner.jpg) center;
+    background-size: cover;
+    color: #FFFFFF;
     padding-top: 40px;
 }
 
@@ -81,7 +81,7 @@ h2,.h2 {font-size:48px;}
 
 .eco-intro li .iconfont {
     display: inline-block;
-    background: url(../images/icon-bg.svg) center;
+    background: url(https://neo-cdn.azureedge.net/images/icon-bg.svg) center;
     background-size: contain;
     width: 108px;
     height: 128px;
