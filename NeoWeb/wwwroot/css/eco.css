@@ -38,6 +38,8 @@ h2,.h2 {font-size:48px;}
 
 .eco-t1 {
     font-size:24px;
+    text-decoration:underline;
+    cursor:pointer;
 }
 
 .eco-t2 {
@@ -108,6 +110,31 @@ h2,.h2 {font-size:48px;}
 
 .eco-link:hover{
     text-decoration:underline!important;
+}
+
+.eco-modal .modal-title {
+    width:100%;
+    max-width: 700px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align:left;
+}
+.modal-content {
+    padding: 1em 2.5em;
+}
+.modal-header {
+    padding: 1em 0 1.5em 0;
+}
+.eco-modal .modal-body {
+    padding: 1.5em 0 2em 0;
+    line-height: 2.1;
+}
+.eco-modal .modal-body p{
+    margin:5px 0 10px;
+}
+.eco-modal .modal-body span {
+    font-weight:600;
 }
 
 @media only screen and (max-width : 1199px) {

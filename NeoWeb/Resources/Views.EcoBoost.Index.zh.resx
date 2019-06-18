@@ -120,9 +120,8 @@
   <data name="Highlights of NEO Ecoboost" xml:space="preserve">
     <value>关于NEO EcoBoost</value>
   </data>
-  <data name="NEO Eco Boost is designed to provide life cycle support for developers, dApps, infrastructure etc. within the NEO ecosystem. With an aim to help support the growth and development of NEO ecosystem.&lt;br /&gt;As such, we will first launch the NEO Eco Boost Partner Recruitment program. Subsequently, to foster and support high-quality projects within the NEO Ecosystem, NEO will share resources with all partners. Parties interested to be a long-term partner of NEO Eco Boost, are always welcome to contact us at &lt;a class='eco-link' href='mailto:eg@neo.org'&gt;eg@neo.org&lt;/a&gt;." xml:space="preserve">
-    <value>NEO Eco Boost旨在为NEO生态内的开发者、dApps、基础设施等提供全生命周期的培育和支持，助力其成长，共建NEO生态。
-NEO Eco Boost合作伙伴招募计划现全面开启，NEO将整合生态内的优势资源，联同媒体、渠道、机构等合作伙伴，共同培育与支持NEO生态内项目。欢迎有意向成为NEO Eco Boost合作伙伴，愿意与NEO生态长期合作的项目方通过 &lt;a class='eco-link' href='mailto:eg@neo.org'&gt;eg@neo.org&lt;/a&gt; 邮箱与我们取得联系。</value>
+  <data name="NEO Eco Boost is designed to provide life cycle support for developers, dApps, and infrastructure to help support the growth and development of the NEO ecosystem.&lt;br /&gt;Stage One of NEO Eco Boost is the Partner Recruitment program, which seeks to build relationships with media, platforms, and institutions.  NEO Global Development will share resources with partners to help them support high-quality projects within the NEO Ecosystem. Parties interested in becoming a long-term partner of the NEO Eco Boost program, are invited to contact us at eg@neo.org." xml:space="preserve">
+    <value>NEO EcoBoost 旨在为NEO生态内的开发者、dApps、基础设施等提供全生命周期的培育和支持，助力其成长，共建NEO生态。 &lt;br /&gt;NEO EcoBoost第一阶段——合作伙伴招募现全面开启，合作伙伴类别包括媒体、流量渠道、机构等，在第一阶段招募到数量足够的优质合作伙伴后，我们将正式启动NEO EcoBoost第二阶段，第二阶段中NEO将整合生态内的优势资源，联同媒体、渠道、机构等合作伙伴，共同培育与支持NEO生态内项目。&lt;br /&gt;欢迎有意向成为NEO Eco Boost合作伙伴，愿意与NEO生态长期合作的项目方通过 eg@neo.org 邮箱与我们取得联系。</value>
   </data>
   <data name="Stage1:EcoBoost Partner Recruitment launch" xml:space="preserve">
     <value>第一阶段：生态合作伙伴招募</value>
@@ -142,8 +141,8 @@ NEO Eco Boost合作伙伴招募计划现全面开启，NEO将整合生态内的�
   <data name="Platforms" xml:space="preserve">
     <value>渠道</value>
   </data>
-  <data name="NEO EcoBoost Partner Recruitment Official Launch" xml:space="preserve">
-    <value>NEO EcoBoost合作伙伴招募正式启动</value>
+  <data name="NEO EcoBoost Phase One Official Launch: Partner Recruitment" xml:space="preserve">
+    <value>NEO EcoBoost第一阶段正式启动：合作伙伴招募</value>
   </data>
   <data name="$100M" xml:space="preserve">
     <value>共计1亿美元</value>
@@ -186,5 +185,26 @@ NEO Eco Boost合作伙伴招募计划现全面开启，NEO将整合生态内的�
   </data>
   <data name="To provide industry resources and support to improve the liquidity of the projects within the NEO ecosystem" xml:space="preserve">
     <value>为NEO生态项目提供行业资源，提升项目市值与流动性</value>
+  </data>
+  <data name="After enrolling a sufficient number of eco-partners, the NEO eco-project recruitment will be launched, which will be aimed at seed-stage projects, developers/development teams, dApps, infrastructure projects, etc. This phase will go on after the EcoBoost launch." xml:space="preserve">
+    <value>在招募到足质足量的生态合作伙伴后，将启动NEO生态项目的报名，该阶段主要面向NEO生态内的种子项目、开发者/开发团队、dApp、基础设施等进行招募，该阶段将持续进行。</value>
+  </data>
+  <data name="At this stage, the recruitment targets are media platforms, wallets, dApp distribution channels, traders, universities, security auditors, and more. The eco-partners and NEO share resources to support the projects within NEO ecosystem. For details of this stage, please refer to the first-level page. After this phase is completed, we still welcome partners who are looking to cooperate with NEO to join us, and the application portal will remain open." xml:space="preserve">
+    <value>该阶段招募对象为媒体、钱包、dApp分发渠道、交易机构、学校、安全审计机构等，生态合作项目方与NEO共用资源对NEO生态内的项目进行支持，该阶段详情请见一级页面，在该阶段完成后我们仍然欢迎期望与NEO进行合作的伙伴加入我们，申请入口将持续开放。</value>
+  </data>
+  <data name="NEO EcoBoost program is created to stimulate and support developers and project participants in the NEO ecosystem. In this process, multiple resources will be combined to provide full-cycle funding, technology and marketing support for eco-projects. The NEO EcoBoost program is divided into three phases – the eco-partner recruitment phase, the NEO eco-project registration phase, and the EcoBoost full-speed launch phase." xml:space="preserve">
+    <value>NEO EcoBoost是一个针对NEO生态内的开发者与项目方进行激励与扶持培育的计划，在这个过程中，将会联合多方资源，为生态项目提供全生命周期的资金、技术、市场等层面的支持，NEO EcoBoost 计划分为三个阶段———生态合作伙伴招募阶段、NEO生态项目报名阶段、EcoBoost全速启动阶段。</value>
+  </data>
+  <data name="Phase 1 (in progress): EcoBoost partner recruitment" xml:space="preserve">
+    <value>第一阶段（进行中）：生态合作伙伴招募</value>
+  </data>
+  <data name="Phase 2: NEO EcoBoost project registration" xml:space="preserve">
+    <value>第二阶段：NEO生态项目报名</value>
+  </data>
+  <data name="Phase 3: EcoBoost full-speed launch" xml:space="preserve">
+    <value>第三阶段：EcoBoosr全速启动</value>
+  </data>
+  <data name="This phase will carefully match the needs of the projects in the NEO ecosystem and the resources provided by eco-partners to accelerate the development of NEO eco-projects." xml:space="preserve">
+    <value>这一阶段将会精准匹配NEO生态项目的需求与生态合作伙伴提供的资源，共同加速NEO生态项目的培育。</value>
   </data>
 </root>
