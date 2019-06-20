@@ -120,7 +120,7 @@ h2,.h2 {font-size:48px;}
     text-align:left;
 }
 .eco-click {
-    text-decoration: solid !important;
+    text-decoration: underline !important;
 }
 
 .modal-content {
