@@ -37,8 +37,7 @@ h2,.h2 {font-size:48px;}
 }
 
 .eco-t1 {
-    font-size:24px;
-    text-decoration:underline;
+    font-size:22px;
     cursor:pointer;
 }
 
@@ -120,6 +119,10 @@ h2,.h2 {font-size:48px;}
     text-overflow: ellipsis;
     text-align:left;
 }
+.eco-click {
+    text-decoration: solid !important;
+}
+
 .modal-content {
     padding: 1em 2.5em;
 }
