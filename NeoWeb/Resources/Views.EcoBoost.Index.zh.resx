@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Highlights of NEO EcoBoost" xml:space="preserve">
+    <value>关于 NEO EcoBoost</value>
+  </data>
+  <data name="NEO EcoBoost is designed to provide life cycle support for developers, dApps, and infrastructure to help support the growth and development of the NEO ecosystem.&lt;br /&gt;Stage One of NEO EcoBoost is the Partner Recruitment program, which seeks to build relationships with media, platforms, and institutions.  NEO Global Development will share resources with partners to help them support high-quality projects within the NEO Eco System. Parties interested in becoming a long-term partner of the NEO EcoBoost program, are invited to contact us at &lt;a class='eco-link' href='mailto:eg@neo.org'&gt;eg@neo.org&lt;/a&gt;." xml:space="preserve">
+    <value>NEO EcoBoost 旨在为 NEO 生态内的开发者、dApps、基础设施等提供全生命周期的培育和支持，助力其成长，共建 NEO 生态。 &lt;br /&gt;NEO EcoBoost 第一阶段——合作伙伴招募现全面开启，合作伙伴类别包括媒体、流量渠道、机构等，在第一阶段招募到数量足够的优质合作伙伴后，我们将正式启动NEO EcoBoost 第二阶段，第二阶段中 NEO 将整合生态内的优势资源，联同媒体、渠道、机构等合作伙伴，共同培育与支持 NEO 生态内项目。&lt;br /&gt;欢迎有意向成为 NEO EcoBoost 合作伙伴，愿意与 NEO 生态长期合作的项目方通过 &lt;a class='eco-link' href='mailto:eg@neo.org'&gt;eg@neo.org&lt;/a&gt; 邮箱与我们取得联系。</value>
+  </data>
+  <data name="Stage 1:EcoBoost Partner Recruitment launch" xml:space="preserve">
+    <value>第一阶段：生态合作伙伴招募</value>
+  </data>
+  <data name="Who are we looking for" xml:space="preserve">
+    <value>我们在寻找谁</value>
+  </data>
+  <data name="Media" xml:space="preserve">
+    <value>媒体</value>
+  </data>
+  <data name="To assist in the publicity, reporting and branding of the projects within NEO ecosystem" xml:space="preserve">
+    <value>对 NEO 生态项目进行报道与品牌宣传，协助其完善宣发</value>
+  </data>
+  <data name="Platforms" xml:space="preserve">
+    <value>渠道</value>
+  </data>
+  <data name="NEO EcoBoost Phase One Official Launch: Partner Recruitment" xml:space="preserve">
+    <value>NEO EcoBoost 第一阶段正式启动：合作伙伴招募</value>
+  </data>
+  <data name="$100M" xml:space="preserve">
+    <value>共计 1 亿美元</value>
+  </data>
+  <data name="Benefits for NEO EcoBoost partners" xml:space="preserve">
+    <value>成为生态合作伙伴将收获什么</value>
+  </data>
+  <data name="Establish long-term partnership with NEO ecosystem" xml:space="preserve">
+    <value>与 NEO 生态建立长期合作</value>
+  </data>
+  <data name="Funding" xml:space="preserve">
+    <value>计划金额</value>
+  </data>
+  <data name="Funding&lt;br /&gt;Tech Support&lt;br /&gt;Community Synergy&lt;br /&gt;Promotion" xml:space="preserve">
+    <value>资金支持&lt;br /&gt;技术支持&lt;br /&gt;社区协作&lt;br /&gt;市场推广</value>
+  </data>
+  <data name="Gain access to NEO global community network" xml:space="preserve">
+    <value>NEO 全球社区资源联动</value>
+  </data>
+  <data name="Goal" xml:space="preserve">
+    <value>目标群体</value>
+  </data>
+  <data name="Institution" xml:space="preserve">
+    <value>机构</value>
+  </data>
+  <data name="JOIN NOW" xml:space="preserve">
+    <value>申请加入</value>
+  </data>
+  <data name="Life Cycle Support" xml:space="preserve">
+    <value>全周期支持</value>
+  </data>
+  <data name="Receive strong support from NGD" xml:space="preserve">
+    <value>来自 NGD 的强力支持</value>
+  </data>
+  <data name="Seed Project Activation&lt;br /&gt;dApps Growth Support&lt;br /&gt;Infrastructure Development&lt;br /&gt;Institutional Collaboration" xml:space="preserve">
+    <value>种子项目早期培育&lt;br /&gt;dApps 发展支持&lt;br /&gt;基础设施项目&lt;br /&gt;各类机构合作</value>
+  </data>
+  <data name="To drive greater traffic into the projects within NEO ecosystem and stimulate greater liquidity as well as application scenarios" xml:space="preserve">
+    <value>为 NEO 生态项目提供流量入口，激发流动性与使用场景</value>
+  </data>
+  <data name="To provide industry resources and support to improve the liquidity of the projects within the NEO ecosystem" xml:space="preserve">
+    <value>为 NEO 生态项目提供行业资源，提升项目市值与流动性</value>
+  </data>
+  <data name="After enrolling a sufficient number of eco-partners, the NEO eco-project recruitment will be launched, which will be aimed at seed-stage projects, developers/development teams, dApps, infrastructure projects, etc. This phase will go on after the EcoBoost launch." xml:space="preserve">
+    <value>在招募到足质足量的生态合作伙伴后，将启动 NEO 生态项目的报名，该阶段主要面向 NEO 生态内的种子项目、开发者/开发团队、dApp、基础设施等进行招募，该阶段将持续进行。</value>
+  </data>
+  <data name="At this stage, the recruitment targets are media platforms, wallets, dApp distribution channels, traders, universities, security auditors, and more. The eco-partners and NEO share resources to support the projects within NEO ecosystem. For details of this stage, please refer to the first-level page. After this phase is completed, we still welcome partners who are looking to cooperate with NEO to join us, and the application portal will remain open." xml:space="preserve">
+    <value>该阶段招募对象为媒体、钱包、dApp 分发渠道、交易机构、学校、安全审计机构等，生态合作项目方与 NEO 共用资源对 NEO 生态内的项目进行支持，该阶段详情请见一级页面，在该阶段完成后我们仍然欢迎期望与 NEO 进行合作的伙伴加入我们，申请入口将持续开放。</value>
+  </data>
+  <data name="NEO EcoBoost program is created to stimulate and support developers and project participants in the NEO ecosystem. In this process, multiple resources will be combined to provide full-cycle funding, technology and marketing support for eco-projects. The NEO EcoBoost program is divided into three phases – the eco-partner recruitment phase, the NEO eco-project registration phase, and the EcoBoost full-speed launch phase." xml:space="preserve">
+    <value>NEO EcoBoost 是一个针对 NEO 生态内的开发者与项目方进行激励与扶持培育的计划，在这个过程中，将会联合多方资源，为生态项目提供全生命周期的资金、技术、市场等层面的支持，NEO EcoBoost 计划分为三个阶段———生态合作伙伴招募阶段、NEO 生态项目报名阶段、EcoBoost 全速启动阶段。</value>
+  </data>
+  <data name="Phase 1 (in progress): EcoBoost partner recruitment" xml:space="preserve">
+    <value>第一阶段（进行中）：生态合作伙伴招募</value>
+  </data>
+  <data name="Phase 2: NEO EcoBoost project registration" xml:space="preserve">
+    <value>第二阶段：NEO 生态项目报名</value>
+  </data>
+  <data name="Phase 3: EcoBoost full-speed launch" xml:space="preserve">
+    <value>第三阶段：EcoBoost 全速启动</value>
+  </data>
+  <data name="This phase will carefully match the needs of the projects in the NEO ecosystem and the resources provided by eco-partners to accelerate the development of NEO eco-projects." xml:space="preserve">
+    <value>这一阶段将会精准匹配 NEO 生态项目的需求与生态合作伙伴提供的资源，共同加速 NEO 生态项目的培育。</value>
+  </data>
+  <data name="Click Here!" xml:space="preserve">
+    <value>了解详情</value>
+  </data>
+  <data name="Phase 1: EcoBoost partner recruitment" xml:space="preserve">
+    <value>第一阶段：生态合作伙伴招募</value>
+  </data>
+</root>

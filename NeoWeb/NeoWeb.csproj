@@ -7,6 +7,7 @@
     <MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
     <ApplicationInsightsResourceId>/subscriptions/38c81c65-cf37-419b-9931-011da5e1c1d7/resourcegroups/neo-ai/providers/microsoft.insights/components/neo-ai</ApplicationInsightsResourceId>
     <ApplicationInsightsAnnotationResourceId>/subscriptions/38c81c65-cf37-419b-9931-011da5e1c1d7/resourcegroups/neo-ai/providers/microsoft.insights/components/neo-ai</ApplicationInsightsAnnotationResourceId>
+    <LangVersion>7.2</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

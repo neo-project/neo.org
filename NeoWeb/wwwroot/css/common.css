@@ -29,9 +29,9 @@ button:focus {
 
 h1,.h1 {font-size: 60px;}
 h2,.h2 {font-size: 40px;}
-h3,.h3 {font-size: 25px;}
+h3,.h3 {font-size: 26px;}
 .t1 {font-size: 36px;}
-.t2 {font-size: 20px;}
+.t2 {font-size: 22px;}
 .t3 {font-size: 16px;}
 .t4 {font-size: 14px;}
 .link2 {font-size:17px;}
@@ -154,6 +154,11 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {color:#58bf00; text-decorati
     width:100%;
     max-width:800px;
     margin:auto;
+}
+.w900 {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
 }
 @media only screen and (min-width : 1550px) {
 }
