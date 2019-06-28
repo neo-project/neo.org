@@ -141,7 +141,7 @@ a{
     background:#FFFFFF;
     padding:42px 100px;
     font-family:"Source-Han-Light","Microsoft YaHei",PingFangSC-Light,"PingHei","Lucida Grande","STHeitiSC-Light","BBAlpha Sans","S60 Sans","Hiragino Sans GB","Microsoft YaHei Light","Verdana",SimHei,"WenQuanYi Micro Hei",sans-serif;
-    font-size: 18px;
+    font-size: 14px;
 }
 @media only screen and (max-width : 780px) {
     .artical-content {
@@ -160,13 +160,62 @@ a{
     color: #6C6C6C;
     letter-spacing: 1px;
 }
+.artical-content h1 {
+    line-height: 2;
+    color: #212529;
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: .06em;
+}
 .artical-content h2 {
     line-height: 2;
-    padding-bottom: 20px;
-    color: #6C6C6C;
+    color: #212529;
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: .06em;
+}
+.artical-content h3 {
+    line-height: 2;
+    color: #212529;
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: .06em;
+}
+.artical-content h4 {
+    line-height: 2;
+    color: #212529;
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: .06em;
+}
+.artical-content h5 {
+    line-height: 2;
+    color: #212529;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: .06em;
+}
+.artical-content h6 {
+    line-height: 2;
+    color: #212529;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: .06em;
+}
+.artical-content h1 b, .artical-content h1 strong,
+.artical-content h2 b, .artical-content h2 strong,
+.artical-content h3 b, .artical-content h3 strong,
+.artical-content h4 b, .artical-content h4 strong,
+.artical-content h5 b, .artical-content h5 strong,
+.artical-content h6 b, .artical-content h6 strong {
+    font-weight: 500;
 }
 .artical-content a {
     color: #58bf00;
+}
+.artical-content p, .artical-content li {
+    line-height: 2;
+    letter-spacing: .06em;
 }
 .artical-content p, .blog-content ul{
     margin:0;
@@ -174,6 +223,7 @@ a{
     text-align:left;
     padding-top:0;
     padding-bottom:10px;
+    font-size: .9rem;
 }
 .blog-content p{
 }
