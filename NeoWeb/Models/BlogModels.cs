@@ -9,24 +9,30 @@ namespace NeoWeb.Models
         [Key]
         public int Id { get; set; }
 
-        [Display(Name = "同内容其它语言的博客ID")]
-        public int? BrotherBlogId { get; set; }
+        [Required(ErrorMessage = "必须填写博客中文标题")]
+        [Display(Name = "中文标题")]
+        public string ChineseTitle { get; set; }
 
-        [Required(ErrorMessage = "必须填写博客标题")]
-        [Display(Name = "文章标题")]
-        public string Title { get; set; }
+        [Display(Name = "中文正文")]
+        [Required(ErrorMessage = "必须填写博客中文正文")]
+        public string ChineseContent { get; set; }
 
-        [Display(Name = "文章正文")]
-        [Required(ErrorMessage = "必须填写博客正文")]
-        public string Content { get; set; }
+        public string ChineseSummary { get; set; }
 
-        public string Summary { get; set; }
+        public string ChineseTags { get; set; }
 
-        public string Tags { get; set; }
+        [Required(ErrorMessage = "必须填写博客英文标题")]
+        [Display(Name = "英文标题")]
+        public string EnglishTitle { get; set; }
 
-        [Display(Name = "博客语言")]
-        public string Lang { get; set; }         
-        
+        [Display(Name = "英文正文")]
+        [Required(ErrorMessage = "必须填写博客英文正文")]
+        public string EnglishContent { get; set; }
+
+        public string EnglishSummary { get; set; }
+
+        public string EnglishTags { get; set; }
+
         public DateTime CreateTime { get; set; }
 
         public DateTime EditTime { get; set; }
@@ -36,6 +42,8 @@ namespace NeoWeb.Models
         public virtual IdentityUser User { get; set; }
 
         public bool IsShow { get; set; }
+
+        public int? OldId { get; set; }
     }
 }
 
