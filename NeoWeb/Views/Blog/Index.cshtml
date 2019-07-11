@@ -54,6 +54,16 @@
         </ul>
 
         <div class="col-lg-11 blog_scroll" id="blogScroll">
+            <div class="text-right blog-list">
+                @if (ViewBag.Language == "zh")
+                {
+                    <a href="/blog/rss?language=zh" title="RSS" class="iconfont">&#xf09c;</a>
+                }
+                else
+                {
+                    <a href="/blog/rss" title="RSS" class="iconfont">&#xf09c;</a>
+                }
+            </div>
             <ul class="blog-list">
                 @foreach (var item in Model)
                 {

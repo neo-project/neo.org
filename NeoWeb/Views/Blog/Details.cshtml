@@ -73,8 +73,8 @@
             </div>
             @if(ViewBag.Language == "zh")
             {
-                <div class="artical-content">
-                    <div>
+                <article class="artical-content">
+                    <header>
                         <h3 class="bold-font with-space">@Model.ChineseTitle</h3>
                         <p class="t3 m3 green-text blog-date bold-font"><span class="bold-font">@Model.CreateTime.ToShortDateString()</span></p>
                         <div class="float-right qrcode-div"><i class="iconfont green-text">&#xe79b;</i><div id="qrcode"></div></div>
@@ -86,13 +86,13 @@
                                 <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
                             }
                         </p>
-                    </div>
-                    <div class="blog-content t3 m3">
+                    </header>
+                    <section class="blog-content t3 m3">
                         @Html.Raw(ViewBag.Cover)
                         <div class="with-space">
                             @Html.Raw(Model.ChineseContent)
                         </div>
-                    </div>
+                    </section>
                     <hr />
                     <div>
                         @if (Model.ChineseTags != null)
@@ -103,12 +103,12 @@
                             }
                         }
                     </div>
-                </div>
+                </article>
             }
             else
             {
-                <div class="artical-content">
-                    <div>
+                <article class="artical-content">
+                    <header>
                         <h3 class="bold-font with-space">@Model.EnglishTitle</h3>
                         <p class="t3 m3 green-text blog-date bold-font"><span class="bold-font">@Model.CreateTime.ToShortDateString()</span></p>
                         <div class="float-right qrcode-div"><i class="iconfont green-text">&#xe79b;</i><div id="qrcode"></div></div>
@@ -120,13 +120,13 @@
                                 <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
                             }
                         </p>
-                    </div>
-                    <div class="blog-content t3 m3">
+                    </header>
+                    <section class="blog-content t3 m3">
                         @Html.Raw(ViewBag.Cover)
                         <div class="with-space">
                             @Html.Raw(Model.EnglishContent)
                         </div>
-                    </div>
+                    </section>
                     <hr />
                     <div>
                         @if (Model.EnglishTags != null)
@@ -137,7 +137,7 @@
                             }
                         }
                     </div>
-                </div>
+                </article>
             }
 
 

@@ -17,6 +17,7 @@ using SixLabors.Primitives;
 using SixLabors.ImageSharp.PixelFormats;
 using Microsoft.Extensions.Localization;
 using Microsoft.AspNetCore.Hosting;
+using System.Xml;
 
 namespace NeoWeb.Controllers
 {
@@ -55,14 +56,14 @@ namespace NeoWeb.Controllers
                 {
                     if (models == null)
                         models = _context.Blogs.Where(p => p.ChineseTitle.Contains(item, StringComparison.OrdinalIgnoreCase)
-                        || p.ChineseContent.Contains(item, StringComparison.OrdinalIgnoreCase) 
+                        || p.ChineseContent.Contains(item, StringComparison.OrdinalIgnoreCase)
                         || p.ChineseTags != null && p.ChineseTags.Contains(item, StringComparison.OrdinalIgnoreCase)
                         || p.EnglishTitle.Contains(item, StringComparison.OrdinalIgnoreCase)
                         || p.EnglishContent.Contains(item, StringComparison.OrdinalIgnoreCase)
                         || p.EnglishTags != null && p.EnglishTags.Contains(item, StringComparison.OrdinalIgnoreCase));
                     else
                         models = models.Where(p => p.ChineseTitle.Contains(item, StringComparison.OrdinalIgnoreCase)
-                        || p.ChineseContent.Contains(item, StringComparison.OrdinalIgnoreCase) 
+                        || p.ChineseContent.Contains(item, StringComparison.OrdinalIgnoreCase)
                         || p.ChineseTags != null && p.ChineseTags.Contains(item, StringComparison.OrdinalIgnoreCase)
                         || p.EnglishTitle.Contains(item, StringComparison.OrdinalIgnoreCase)
                         || p.EnglishContent.Contains(item, StringComparison.OrdinalIgnoreCase));
@@ -122,7 +123,7 @@ namespace NeoWeb.Controllers
         // GET: blog/details/5
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? id, string language = null)
         {
             if (id == null)
             {
@@ -171,7 +172,10 @@ namespace NeoWeb.Controllers
                 _context.Update(blog);
                 await _context.SaveChangesAsync();
             }
-            ViewBag.Language = _localizer["en"];
+            if (!string.IsNullOrEmpty(language))
+                ViewBag.Language = language;
+            else
+                ViewBag.Language = _localizer["en"];
             return View(blog);
         }
 
@@ -194,12 +198,13 @@ namespace NeoWeb.Controllers
                 blog.ChineseSummary = blog.ChineseContent.ClearHtmlTag(150);
                 blog.EnglishSummary = blog.EnglishContent.ClearHtmlTag(150);
                 blog.ChineseTags = blog.ChineseTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
-                blog.EnglishTags = blog.EnglishTags?.Replace(", ",",").Replace("，", ",").Replace("， ", ",");
+                blog.EnglishTags = blog.EnglishTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
                 blog.CreateTime = DateTime.Now;
                 blog.EditTime = DateTime.Now;
                 blog.User = _context.Users.Find(_userId);
                 _context.Add(blog);
                 await _context.SaveChangesAsync();
+                UpdateRSS();
                 return RedirectToAction("Index");
             }
             return View(blog);
@@ -248,6 +253,7 @@ namespace NeoWeb.Controllers
                     blog.EditTime = DateTime.Now;
                     _context.Update(item);
                     await _context.SaveChangesAsync();
+                    UpdateRSS();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -292,6 +298,164 @@ namespace NeoWeb.Controllers
             _context.Blogs.Remove(blog);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
+        }
+        private void UpdateRSS()
+        {
+            UpdateRssChinese();
+            UpdateRssEnglish();
+        }
+
+        private void UpdateRssChinese()
+        {
+            var xml = new XmlDocument();
+            XmlDeclaration xmldecl = xml.CreateXmlDeclaration("1.0", "utf-8", null);
+            XmlElement root = xml.DocumentElement;
+            xml.InsertBefore(xmldecl, root);
+
+            var rss = xml.CreateElement("rss");
+            var version = xml.CreateAttribute("version");
+            version.Value = "2.0";
+            rss.Attributes.Append(version);
+
+            var channel = xml.CreateElement("channel");
+
+            var title = xml.CreateElement("title");
+            title.InnerText = "NEO blog posts list";
+            channel.AppendChild(title);
+
+            var link = xml.CreateElement("link");
+            link.InnerText = "https://neo.org/blog";
+            channel.AppendChild(link);
+
+            var pubDate = xml.CreateElement("pubDate");
+            pubDate.InnerText = DateTime.Now.ToPubDate();
+            channel.AppendChild(pubDate);
+
+            var description = xml.CreateElement("description");
+            description.InnerText = "Latest posts from NEO blog";
+            channel.AppendChild(description);
+
+            var blogs = _context.Blogs.OrderByDescending(p => p.CreateTime).Take(20).Select(p => new Blog()
+            {
+                ChineseTitle = XmlEncode(p.ChineseTitle),
+                ChineseSummary = XmlEncode(p.ChineseSummary) + "...",
+                ChineseTags = XmlEncode(p.ChineseTags),
+                Id = p.Id,
+                CreateTime = p.CreateTime
+            });
+            foreach (var blog in blogs)
+            {
+                var blogItem = xml.CreateElement("item");
+
+                var blogTitle = xml.CreateElement("title");
+                blogTitle.InnerText = blog.ChineseTitle;
+                blogItem.AppendChild(blogTitle);
+
+                var blogLink = xml.CreateElement("link");
+                blogLink.InnerText = $"https://neo.org/blog/details/{blog.Id}?language=zh";
+                blogItem.AppendChild(blogLink);
+
+                var blogDescription = xml.CreateElement("description");
+                blogDescription.InnerText = blog.ChineseSummary;
+                blogItem.AppendChild(blogDescription);
+
+                var category = xml.CreateElement("category");
+                category.InnerText = blog.ChineseTags;
+                blogItem.AppendChild(category);
+
+                var blogPubDate = xml.CreateElement("pubDate");
+                blogPubDate.InnerText = blog.CreateTime.ToPubDate();
+                blogItem.AppendChild(blogPubDate);
+
+                channel.AppendChild(blogItem);
+            }
+            rss.AppendChild(channel);
+            xml.AppendChild(rss);
+            RssModel.Chinese = xml.OuterXml;
+            
+        }
+
+        private void UpdateRssEnglish()
+        {
+            var xml = new XmlDocument();
+            XmlDeclaration xmldecl = xml.CreateXmlDeclaration("1.0", "utf-8", null);
+            XmlElement root = xml.DocumentElement;
+            xml.InsertBefore(xmldecl, root);
+
+            var rss = xml.CreateElement("rss");
+            var version = xml.CreateAttribute("version");
+            version.Value = "2.0";
+            rss.Attributes.Append(version);
+
+            var channel = xml.CreateElement("channel");
+
+            var title = xml.CreateElement("title");
+            title.InnerText = "NEO blog posts list";
+            channel.AppendChild(title);
+
+            var link = xml.CreateElement("link");
+            link.InnerText = "https://neo.org/blog";
+            channel.AppendChild(link);
+
+            var pubDate = xml.CreateElement("pubDate");
+            pubDate.InnerText = DateTime.Now.ToPubDate();
+            channel.AppendChild(pubDate);
+
+            var description = xml.CreateElement("description");
+            description.InnerText = "Latest posts from NEO blog";
+            channel.AppendChild(description);
+
+            var blogs = _context.Blogs.OrderByDescending(p => p.CreateTime).Take(20).Select(p => new Blog()
+            {
+                EnglishTitle = XmlEncode(p.EnglishTitle),
+                EnglishSummary = XmlEncode(p.EnglishSummary) + "...",
+                EnglishTags = XmlEncode(p.EnglishTags),
+                Id = p.Id,
+                CreateTime = p.CreateTime
+            });
+            foreach (var blog in blogs)
+            {
+                var blogItem = xml.CreateElement("item");
+
+                var blogTitle = xml.CreateElement("title");
+                blogTitle.InnerText = blog.EnglishTitle;
+                blogItem.AppendChild(blogTitle);
+
+                var blogLink = xml.CreateElement("link");
+                blogLink.InnerText = $"https://neo.org/blog/details/{blog.Id}?language=en";
+                blogItem.AppendChild(blogLink);
+
+                var blogDescription = xml.CreateElement("description");
+                blogDescription.InnerText = blog.EnglishSummary;
+                blogItem.AppendChild(blogDescription);
+
+                var category = xml.CreateElement("category");
+                category.InnerText = blog.EnglishTags;
+                blogItem.AppendChild(category);
+
+                var blogPubDate = xml.CreateElement("pubDate");
+                blogPubDate.InnerText = blog.CreateTime.ToPubDate();
+                blogItem.AppendChild(blogPubDate);
+
+                channel.AppendChild(blogItem);
+            }
+            rss.AppendChild(channel);
+            xml.AppendChild(rss);
+            RssModel.English = xml.OuterXml;
+        }
+        [AllowAnonymous]
+        public IActionResult RSS(string language)
+        {
+            if (string.IsNullOrEmpty(RssModel.Chinese) || string.IsNullOrEmpty(RssModel.English))
+                UpdateRSS();
+            if (language == "zh")
+            {
+                return Content(RssModel.Chinese, "text/xml");
+            }
+            else
+            {
+                return Content(RssModel.English, "text/xml");
+            }
         }
 
         // POST: blog/upload
@@ -338,6 +502,11 @@ namespace NeoWeb.Controllers
             input = Regex.Replace(input, @"\sstyle="".*?""", ""); //删除 Style 样式
             input = Regex.Replace(input, @"\sclass="".*?""", ""); //删除 Class 样式
             return input;
+        }
+
+        private string XmlEncode(string input)
+        {
+            return input?.Replace(">", "&gt;").Replace("<", "&lt;").Replace("&", "&amp;").Replace("'", "&apos;").Replace("\"", "&quot;");
         }
     }
 }
