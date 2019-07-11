@@ -1,0 +1,97 @@
+﻿body {
+    padding-top: 40px;
+    text-align: center;
+    background: #F0F0F0;
+    color:#4F4F4F;
+}
+
+.layout-container {
+    max-width: none;
+    padding: 0;
+    margin: 0;
+}
+
+.w500 {
+    max-width:500px;
+}
+.dev-dis {
+    margin-left: 35px;
+    margin-right: 35px;
+}
+
+.dev-content {
+    padding: 100px 0;
+}
+
+.dev-btn {
+    display:inline-block;
+    background:#4F4F4F;
+    margin-top:10px;
+    margin-right:25px;
+    font-size:16px;
+    min-width:130px;
+    height:30px;
+    line-height:30px;
+    text-align:center;
+    color:#FFFFFF;
+}
+
+.dev-head {
+    margin-top: 100px!important;
+}
+
+.link-title {
+    margin-bottom:20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #4F4F4F;
+    line-height: 1;
+}
+
+.link-title span{
+    display:inline-block;
+    vertical-align:middle;
+    padding-bottom:5px;
+    margin-right:10px;
+}
+
+.dev-link {
+    padding: 0;
+    margin-bottom:50px;
+}
+
+.dev-link li {
+    list-style: none;
+    font-weight: 400;
+}
+
+.dev-link li a{
+    display:inline-block;
+    color:#58BF00;
+    line-height:24px;
+    margin-bottom:3px;
+    border-bottom:1.5px solid transparent;
+}
+
+.dev-link li a:hover{
+    color: #4F4F4F;
+    border-bottom:1.5px solid #4F4F4F;
+    box-sizing:content-box;
+}
+
+.link-tools {
+    font-size:0;
+}
+
+.link-tools > li {
+    display: inline-block;
+    width: 16.6%;
+    font-size:14px;
+}
+
+.link-tools ul {
+    padding: 0;
+}
+
+.comm-ul {
+    padding:0;
+}
