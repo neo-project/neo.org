@@ -11,7 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.6.1" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.7.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
@@ -139,14 +139,8 @@
     <_ContentIncludedByDefault Remove="Views\Blog\Details.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Blog\Edit.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Blog\Index.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Blog\_EditorPartialPage.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Blog\_LayoutBlog.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Team\Index.cshtml" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Views\Blog\_EditorPartialPage.cshtml" />
   </ItemGroup>
 
 

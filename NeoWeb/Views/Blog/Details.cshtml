@@ -3,8 +3,8 @@
 @inject IViewLocalizer Localizer
 @model NeoWeb.Models.Blog
 @{
-    ViewData["Title"] = Model.Title;
-    ViewData["Details"] = Model.Summary;
+    ViewData["Title"] = Model.EnglishTitle;
+    ViewData["Details"] = Model.EnglishSummary;
     if (ViewBag.Cover != null)
     {
         try
@@ -18,7 +18,7 @@
         }
     }
     Layout = "_LayoutBlog.cshtml";
-    ViewData["keywords"] = Model.Tags;
+    ViewData["keywords"] = Model.EnglishTags;
 }
 
 @section Styles{
@@ -34,15 +34,15 @@
         <ul class="col-lg-1 blog_date artical-date desktop-show" id="blogDate">
             @foreach (var item in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Select(p => p.Year).Distinct())
             {
-                <li class="m3">
-                    <a class="h2 year">@item</a>
-                    <ul>
-                        @foreach (var m in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Where(p => p.Year == item).Select(p => p.Month).Distinct())
+            <li class="m3">
+                <a class="h2 year">@item</a>
+                <ul>
+                    @foreach (var m in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Where(p => p.Year == item).Select(p => p.Month).Distinct())
                         {
-                            <li><a class="month" href="~/blog/index?y=@item&m=@m">@m.ToMonth().ToUpper()</a></li>
+                    <li><a class="month" href="~/blog/index?y=@item&m=@m">@m.ToMonth().ToUpper()</a></li>
                         }
-                    </ul>
-                </li>
+                </ul>
+            </li>
             }
         </ul>
 
@@ -54,63 +54,92 @@
                     <ul class="blog_date mobile-show">
                         @foreach (var item in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Select(p => p.Year).Distinct())
                         {
-                            <li>
-                                <a class="h3 year" href="~/blog/index?y=@item">@item</a>
-                            </li>
+                        <li>
+                            <a class="h3 year" href="~/blog/index?y=@item">@item</a>
+                        </li>
                         }
                     </ul>
                 </div>
                 <div class="text-right">
                     @if (@ViewBag.PrevBlogId != Model.Id)
                     {
-                        <a class="icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xe6b8;</i><span class="desktop-show">@Localizer["Previous article"]</span></a>
+                    <a class="icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xe6b8;</i><span class="desktop-show">@Localizer["Previous article"]</span></a>
                     }
                     @if (@ViewBag.NextBlogId != Model.Id)
                     {
-                        <a href="~/blog/details/@ViewBag.NextBlogId"><span class="desktop-show">@Localizer["Next article"]</span><i class="iconfont">&#xe6b7;</i></a>
+                    <a href="~/blog/details/@ViewBag.NextBlogId"><span class="desktop-show">@Localizer["Next article"]</span><i class="iconfont">&#xe6b7;</i></a>
                     }
                 </div>
             </div>
-
-            <div class="artical-content">
-                <div>
-                    <h3 class="bold-font with-space">@Model.Title</h3>
-                    <p class="t3 m3 green-text blog-date bold-font"><span class="bold-font">@Model.CreateTime.ToShortDateString()</span></p>
-                    <div class="float-right qrcode-div"><i class="iconfont green-text">&#xe79b;</i><div id="qrcode"></div></div>
-                    <p class="t3">
-                        @if (ViewBag.UserRules)
-                        {
-                            @if (ViewBag.IsAdminEdit)
+            @if(ViewBag.Language == "zh")
+            {
+                <article class="artical-content">
+                    <header>
+                        <h3 class="bold-font with-space">@Model.ChineseTitle</h3>
+                        <p class="t3 m3 green-text blog-date bold-font"><span class="bold-font">@Model.CreateTime.ToShortDateString()</span></p>
+                        <div class="float-right qrcode-div"><i class="iconfont green-text">&#xe79b;</i><div id="qrcode"></div></div>
+                        <p class="t3">
+                            @if (ViewBag.UserRules)
                             {
-                                <div class="text-danger">@Localizer["Admin mode, does not automatically display blogs that correspond to the language of the site"]</div>
+                                <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                                <span>|</span>
+                                <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
                             }
-                            <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-                            <span>|</span>
-                            <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
-                        }
-                        @if (!ViewBag.UserRules && ViewBag.NoCurrentLanguragBlog)
+                        </p>
+                    </header>
+                    <section class="blog-content t3 m3">
+                        @Html.Raw(ViewBag.Cover)
+                        <div class="with-space">
+                            @Html.Raw(Model.ChineseContent)
+                        </div>
+                    </section>
+                    <hr />
+                    <div>
+                        @if (Model.ChineseTags != null)
                         {
-                            <div class="text-danger">@Localizer["There is no other language version of this blog"]</div>
+                            foreach (var tag in Model.ChineseTags.Split(","))
+                            {
+                                <a class="blog-tag" href="/blog?t=@tag">@tag</a>
+                            }
                         }
-                    </p>
-                </div>
-                <div class="blog-content t3 m3">
-                    @Html.Raw(ViewBag.Cover)
-                    <div class="with-space">
-                        @Html.Raw(Model.Content)
                     </div>
-                </div>
-                <hr />
-                <div>
-                    @if (Model.Tags != null)
-                    {
-                        foreach (var tag in Model.Tags.Split(","))
+                </article>
+            }
+            else
+            {
+                <article class="artical-content">
+                    <header>
+                        <h3 class="bold-font with-space">@Model.EnglishTitle</h3>
+                        <p class="t3 m3 green-text blog-date bold-font"><span class="bold-font">@Model.CreateTime.ToShortDateString()</span></p>
+                        <div class="float-right qrcode-div"><i class="iconfont green-text">&#xe79b;</i><div id="qrcode"></div></div>
+                        <p class="t3">
+                            @if (ViewBag.UserRules)
+                            {
+                                <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                                <span>|</span>
+                                <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+                            }
+                        </p>
+                    </header>
+                    <section class="blog-content t3 m3">
+                        @Html.Raw(ViewBag.Cover)
+                        <div class="with-space">
+                            @Html.Raw(Model.EnglishContent)
+                        </div>
+                    </section>
+                    <hr />
+                    <div>
+                        @if (Model.EnglishTags != null)
                         {
-                            <a class="blog-tag" href="/blog?t=@tag">@tag</a>
+                            foreach (var tag in Model.EnglishTags.Split(","))
+                            {
+                                <a class="blog-tag" href="/blog?t=@tag">@tag</a>
+                            }
                         }
-                    }
-                </div>
-            </div>
+                    </div>
+                </article>
+            }
+
 
             <div class="nav-artical nav-artical-bottom t3">
                 <div class="text-left"><a href="~/blog"><i class="iconfont">&#xeaa4;</i><span class="desktop-show">@Localizer["Back to list"]</span></a></div>
@@ -118,11 +147,11 @@
                 <div class="text-right">
                     @if (@ViewBag.PrevBlogId != Model.Id)
                     {
-                        <a class="icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xe6b8;</i><span class="desktop-show">@Localizer["Previous article"]</span></a>
+                    <a class="icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xe6b8;</i><span class="desktop-show">@Localizer["Previous article"]</span></a>
                     }
                     @if (@ViewBag.NextBlogId != Model.Id)
                     {
-                        <a href="~/blog/details/@ViewBag.NextBlogId"><span class="desktop-show">@Localizer["Next article"]</span><i class="iconfont">&#xe6b7;</i></a>
+                    <a href="~/blog/details/@ViewBag.NextBlogId"><span class="desktop-show">@Localizer["Next article"]</span><i class="iconfont">&#xe6b7;</i></a>
                     }
                 </div>
             </div>

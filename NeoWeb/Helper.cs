@@ -24,6 +24,16 @@ namespace NeoWeb
             return html;
         }
 
+        public static string ToPubDate(this DateTime Date)
+        {
+            string ReturnString = Date.DayOfWeek.ToString().Substring(0, 3) + ", ";
+            ReturnString += Date.Day + " ";
+            ReturnString += CultureInfo.CreateSpecificCulture("en-us").DateTimeFormat.GetAbbreviatedMonthName(Date.Month) + " ";
+            ReturnString += Date.Year + " ";
+            ReturnString += $"{Date.TimeOfDay.Hours}:{Date.TimeOfDay.Minutes}:{Date.TimeOfDay.Seconds} GMT";
+            return ReturnString;
+        }
+
         public static string UploadMedia(IFormFile cover, IHostingEnvironment env)
         {
             if (cover.Length > 1024 * 1024 * 25 || // 25Mb

@@ -27,7 +27,7 @@ namespace NeoWeb.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.Blog = _context.Blogs.Where(p => p.Lang == _localizer["en"]).OrderByDescending(p => p.CreateTime).Take(2);
+            ViewBag.Blog = _context.Blogs.OrderByDescending(p => p.CreateTime).Take(2);
             ViewBag.Event = _context.Events.Include(m => m.Country).OrderByDescending(p => p.EndTime).Take(1);
             return View();
         }
