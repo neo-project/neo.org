@@ -24,7 +24,7 @@ ul, li {
     display: inline-block;
     cursor: pointer;
     padding: 10px;
-    width: 19%;
+    width: 16%;
 }
 
 .nav-client li:hover::before {
