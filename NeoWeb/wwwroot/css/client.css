@@ -18,13 +18,13 @@ ul, li {
 
 .nav-client {
     text-align: center;
+    display: flex;
+    justify-content: space-around;
 }
 
 .nav-client li {
-    display: inline-block;
     cursor: pointer;
     padding: 10px;
-    width: 16%;
 }
 
 .nav-client li:hover::before {
@@ -185,6 +185,10 @@ ul, li {
     top: 18px;
     margin-left: 28px;
     cursor: pointer;
+    user-select: none;
+    -moz-user-select:none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
 }
 
 .client-ul .iconfont {
