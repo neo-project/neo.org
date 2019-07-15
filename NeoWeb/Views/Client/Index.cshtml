@@ -25,6 +25,7 @@
             <li onclick="showPlatform(this, 'desktop')">@Localizer["Desktop"]</li>
             <li onclick="showPlatform(this, 'mobile')">@Localizer["Mobile"]</li>
             <li onclick="showPlatform(this, 'web')">@Localizer["Web"]</li>
+            <li onclick="showPlatform(this, 'extension')">@Localizer["Extension"]</li>
             <li onclick="showPlatform(this, 'hardware')">@Localizer["Hardware"]</li>
         </ul>
         <div class="client-ul border-static-body m4">
@@ -708,6 +709,90 @@
                                 <div class="link d-none">
                                     <span class="text-danger" href="javascript:" target="_blank">@Localizer["Non-open Source Software"]</span>
                                     <a class="btn3 btn-static" href="https://atomicwallet.io/" target="_blank">@Localizer["Website"]</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-12 col-sm-6 col-md-4 col-lg-3 extension">
+                        <div class="clip1">
+                            <div class="clip2">
+                                <a class="open-source" href="https://github.com/NeoNextClub/neoline" target="_blank">GitHub</a>
+                                <img class="client-logo" data-original="@Helper.ToCDN("/images/client/logo/neoline.png")" />
+                                <header>NEO Line</header>
+                                <div class="platform">
+                                    <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="extension">&#xe68b;</i>
+                                </div>
+                                <div class="developer d-none"><a href="https://github.com/NeoNextClub" target="_blank">NeoNext</a></div>
+                                <div class="desc d-none">
+                                    <img data-data-original="@Helper.ToCDN("/images/client/neoline.png")" />
+                                    <p>@Localizer["NEOLine is a browser extension wallet of NEO. We intend to provide a secure and convenient digital asset wallet. It offers comprehensive wallet capabilities and a wide range of dAPIs for developers."]</p>
+                                    <p>@Localizer["Languages"]: English / 中文</p>
+                                    <div>
+                                        <div class="metrics">
+                                            <span class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</span>
+                                            <div>@Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the private key."]</div>
+                                        </div>
+                                        <div class="metrics">
+                                            <span class="text-warning">@Localizer["Centralized Verification"]</span>
+                                            <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
+                                        </div>
+                                        <div class="metrics">
+                                            <span class="text-success">@Localizer["Transparency - Higher Level"]</span>
+                                            <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."]@Localizer["Get source code"]: <a href="https://github.com/NeoNextClub/neoline" target="_blank">GitHub</a></div>
+                                        </div>
+                                        <div class="metrics">
+                                            <span class="text-success">@Localizer["Supported NEP"]</span>
+                                            <div>
+                                                <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki" target="_blank">NEP-5</a>, <a href="https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki" target="_blank">NEP-6</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="link d-none">
+                                    <a href="https://github.com/NeoNextClub/neoline/blob/master/LICENSE" target="_blank">MIT License</a>
+                                    <a class="btn3 btn-static" href="https://neoline.cn" target="_blank">@Localizer["Website"]</a>
+                                    <a class="btn3 btn-static" href="https://chrome.google.com/webstore/detail/neoline/cphhlgmgameodnhkjdmkpanlelnlohao" target="_blank">@Localizer["Download"]</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-12 col-sm-6 col-md-4 col-lg-3 extension">
+                        <div class="clip1">
+                            <div class="clip2">
+                                <a class="open-source" href="https://github.com/NewEconoLab/TeemoWallet" target="_blank">GitHub</a>
+                                <img class="client-logo" data-original="@Helper.ToCDN("/images/client/logo/teemo.png")" />
+                                <header>Teemo Wallet</header>
+                                <div class="platform">
+                                    <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="extension">&#xe68b;</i>
+                                </div>
+                                <div class="developer d-none"><a href="https://github.com/NewEconoLab" target="_blank">NewEconoLab</a></div>
+                                <div class="desc d-none">
+                                    <img data-data-original="@Helper.ToCDN("/images/client/teemo.png")" />
+                                    <p>@Localizer["Teemo is a browser extension wallet of NEO.<br/>The extension injects the NEO DApp API into every website's JavaScript context, so that DApps can interact with the blockchain."]</p>
+                                    <p>@Localizer["Languages"]: English / 中文</p>
+                                    <div>
+                                        <div class="metrics">
+                                            <span class="text-success">@Localizer["Degree of Digital Asset Control - High Level"]</span>
+                                            <div>@Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the private key."]</div>
+                                        </div>
+                                        <div class="metrics">
+                                            <span class="text-warning">@Localizer["Centralized Verification"]</span>
+                                            <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
+                                        </div>
+                                        <div class="metrics">
+                                            <span class="text-success">@Localizer["Transparency - Higher Level"]</span>
+                                            <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."]@Localizer["Get source code"]: <a href="https://github.com/NewEconoLab/TeemoWallet" target="_blank">GitHub</a></div>
+                                        </div>
+                                        <div class="metrics">
+                                            <span class="text-success">@Localizer["Supported NEP"]</span>
+                                            <div>
+                                                <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki" target="_blank">NEP-5</a>, <a href="https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki" target="_blank">NEP-6</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="link d-none">
+                                    <a class="btn3 btn-static" href="https://chrome.google.com/webstore/detail/teemo-wallet/faddjfhplkcfackpcjnmmeapchnkobjk" target="_blank">@Localizer["Download"]</a>
                                 </div>
                             </div>
                         </div>
