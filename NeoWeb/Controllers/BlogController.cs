@@ -244,13 +244,14 @@ namespace NeoWeb.Controllers
                 var item = _context.Blogs.FirstOrDefault(p => p.Id == blog.Id);
                 try
                 {
-                    blog.ChineseContent = Convert(blog.ChineseContent);
-                    blog.EnglishContent = Convert(blog.EnglishContent);
-                    blog.ChineseSummary = blog.ChineseContent.ClearHtmlTag(150);
-                    blog.EnglishSummary = blog.EnglishContent.ClearHtmlTag(150);
-                    blog.ChineseTags = blog.ChineseTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
-                    blog.EnglishTags = blog.EnglishTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
-                    blog.EditTime = DateTime.Now;
+                    item.ChineseContent = Convert(blog.ChineseContent);
+                    item.EnglishContent = Convert(blog.EnglishContent);
+                    item.ChineseSummary = blog.ChineseContent.ClearHtmlTag(150);
+                    item.EnglishSummary = blog.EnglishContent.ClearHtmlTag(150);
+                    item.ChineseTags = blog.ChineseTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
+                    item.EnglishTags = blog.EnglishTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
+                    item.EditTime = DateTime.Now;
+                    item.IsShow = blog.IsShow;
                     _context.Update(item);
                     await _context.SaveChangesAsync();
                     UpdateRSS();
