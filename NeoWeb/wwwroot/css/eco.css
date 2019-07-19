@@ -119,6 +119,7 @@ h2,.h2 {font-size:48px;}
 .eco-tag li {
     display: inline-block;
     padding: 5px 30px;
+    cursor:pointer;
 }
 
 .eco-tag li.selected {
