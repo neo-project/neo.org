@@ -35,7 +35,7 @@
     vertical-align: top;
     width: 150px;
     margin: 10px;
-    height: 250px;
+    min-height: 250px;
     border: none;
     border-radius: 0;
 }
@@ -54,4 +54,5 @@
 .team .card-text {
     margin: 5px 0;
     font-size: .7em;
+    line-height:1.7;
 }
