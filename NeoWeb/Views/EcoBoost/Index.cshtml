@@ -15,98 +15,171 @@
 
 <div class="eco-bannner">
     <div class="container p2">
-        <h2 class="eco-title m1 mb-5 w900">@Localizer["NEO EcoBoost Phase One Official Launch: Partner Recruitment"]</h2>
-        <p>@Localizer["Phase 1: EcoBoost partner recruitment"]</p>
-        <p>@Localizer["Phase 2: NEO EcoBoost project registration"]</p>
-        <p>@Localizer["Phase 3: EcoBoost full-speed launch"]</p>
-        <p><a class="eco-click" href="javascript:" data-toggle="modal" data-target="#EcoBoost">@Localizer["Click Here!"]</a></p>
-        <a class="eco-btn m3" href="mailto:eg@neo.org">@Localizer["JOIN NOW"]</a>
+        <h2 class="eco-title m1 mb-5 w900">@Localizer["NEO EcoBoost Initiative"]</h2>
+        <p>@Localizer["If you`re a developer or start-up with an idea, join us to build a Smart Economy"]</p>
+        <p><a class="eco-btn m3" href="javascript:" data-toggle="modal" data-target="#EcoReg">@Localizer["Apply Now"]</a></p>
+
+    </div>
+</div>
+
+<div class="bg-white">
+    <div class="container p2">
+        <h3 class="bold-font">@Localizer["What NEO EcoBoost Can Provide"]</h3>
+        <ul class="eco-intro m3">
+            <li>
+                <span class="iconfont">&#xe621;</span><br />
+                <p class="bold-font t2 m3 mb0">@Localizer["EcoBoost Partners'<br />Support"]</p>
+                <p class="eco-detail t4 m4 mb0 lh3">@Localizer["Marketing Promotion<br />Wallet Intergration<br />Liquidity Solution<br />Security Auditing<br />Payment Gateaway"]</p>
+            </li>
+            <li>
+                <span class="iconfont">&#xe634;</span><br />
+                <p class="bold-font t2 m3 mb0">@Localizer["NEO Community<br />Engagement"]</p>
+                <p class="eco-detail t4 m4 mb0 lh3">@Localizer["Millions Community Members<br />Over 2 Million Wallet Addresses<br />Global Developer Communities<br />100+ Eco Projects Growing Together"]</p>
+            </li>
+            <li>
+                <span class="iconfont">&#xe641;</span><br />
+                <p class="bold-font t2 m3 mb0">@Localizer["Funding<br />Support"]</p>
+                <p class="eco-detail t4 m4 mb0 lh3">@Localizer["EcoFund Investment<br />Smart Contract Fees Subsidies<br />Developer Grants"]</p>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="container">
+    <h3 class="bold-font">@Localizer["NEO EcoBoost Partners"]</h3>
+    <ul class="eco-tag m2">
+        <li class="selected" onclick="showEco('Liquidity')">@Localizer["Liquidity"]</li>
+        <li onclick="showEco('Wallets')">@Localizer["Wallets"]</li>
+        <li onclick="showEco('Media')">@Localizer["Media"]</li>
+        <li onclick="showEco('Channels')">@Localizer["Channels"]</li>
+        <li onclick="showEco('Community')">@Localizer["Community"]</li>
+        <li onclick="showEco('Security')">@Localizer["Security"]</li>
+    </ul>
+    <div class="back-white">
+        <ul class="eco-logo">
+            <li class="Liquidity"><img data-original="@Helper.ToCDN("/images/eco/li_bibox.png")" /></li>
+            <li class="Liquidity"><img data-original="@Helper.ToCDN("/images/eco/li_bitmart.png")" /></li>
+            <li class="Liquidity"><img data-original="@Helper.ToCDN("/images/eco/li_bitmax.png")" /></li>
+            <li class="Liquidity"><img data-original="@Helper.ToCDN("/images/eco/li_bittrex.png")" /></li>
+            <li class="Liquidity"><img data-original="@Helper.ToCDN("/images/eco/li_coin.png")" /></li>
+            <li class="Liquidity"><img data-original="@Helper.ToCDN("/images/eco/li_dex.png")" /></li>
+            <li class="Liquidity"><img data-original="@Helper.ToCDN("/images/eco/li_digi.png")" /></li>
+            <li class="Liquidity"><img data-original="@Helper.ToCDN("/images/eco/li_indo.png")" /></li>
+            <li class="Liquidity"><img data-original="@Helper.ToCDN("/images/eco/li_kucoin.png")" /></li>
+            <li class="Liquidity"><img data-original="@Helper.ToCDN("/images/eco/li_nash.png")" /></li>
+            <li class="Liquidity"><img data-original="@Helper.ToCDN("/images/eco/li_switch.png")" /></li>
+            <li class="Liquidity"></li>
+
+            <li class="Wallets"><img data-original="@Helper.ToCDN("/images/eco/wa_arkane.png")" /></li>
+            <li class="Wallets"><img data-original="@Helper.ToCDN("/images/eco/wa_bitkeep.png")" /></li>
+            <li class="Wallets"><img data-original="@Helper.ToCDN("/images/eco/wa_cobo.png")" /></li>
+            <li class="Wallets"><img data-original="@Helper.ToCDN("/images/eco/wa_line.png")" /></li>
+            <li class="Wallets"><img data-original="@Helper.ToCDN("/images/eco/wa_math.png")" /></li>
+            <li class="Wallets"><img data-original="@Helper.ToCDN("/images/eco/wa_o3.png")" /></li>
+            <li class="Wallets"><img data-original="@Helper.ToCDN("/images/eco/wa_teemo.png")" /></li>
+            <li class="Wallets"><img data-original="@Helper.ToCDN("/images/eco/wa_trust.png")" /></li>
+            <li class="Wallets"><img data-original="@Helper.ToCDN("/images/eco/wa_zelcore.png")" /></li>
+
+            <li class="Media"><img data-original="@Helper.ToCDN("/images/eco/me_ba.png")" /></li>
+            <li class="Media"><img data-original="@Helper.ToCDN("/images/eco/me_bcgamer.png")" /></li>
+            <li class="Media"><img data-original="@Helper.ToCDN("/images/eco/me_bi.png")" /></li>
+            <li class="Media"><img data-original="@Helper.ToCDN("/images/eco/me_bitkan.png")" /></li>
+            <li class="Media"><img data-original="@Helper.ToCDN("/images/eco/me_chain.png")" /></li>
+            <li class="Media"><img data-original="@Helper.ToCDN("/images/eco/me_dgaming.png")" /></li>
+            <li class="Media"><img data-original="@Helper.ToCDN("/images/eco/me_egamer.png")" /></li>
+            <li class="Media"><img data-original="@Helper.ToCDN("/images/eco/me_huo.png")" /></li>
+            <li class="Media"><img data-original="@Helper.ToCDN("/images/eco/me_lian.png")" /></li>
+            <li class="Media"><img data-original="@Helper.ToCDN("/images/eco/me_nnt.png")" /></li>
+            <li class="Media"><img data-original="@Helper.ToCDN("/images/eco/me_panews.png")" /></li>
+            <li class="Media"><img data-original="@Helper.ToCDN("/images/eco/me_xingqiu.png")" /></li>
+
+            <li class="Channels"><img data-original="@Helper.ToCDN("/images/eco/ch_bee.png")" /></li>
+            <li class="Channels"><img data-original="@Helper.ToCDN("/images/eco/ch_birds.png")" /></li>
+            <li class="Channels"><img data-original="@Helper.ToCDN("/images/eco/ch_dapp.png")" /></li>
+            <li class="Channels"><img data-original="@Helper.ToCDN("/images/eco/ch_review.png")" /></li>
+            <li class="Channels"><img data-original="@Helper.ToCDN("/images/eco/ch_state.png")" /></li>
+            <li class="Channels"><img data-original="@Helper.ToCDN("/images/eco/ch_total.png")" /></li>
+
+            <li class="Community"><img data-original="@Helper.ToCDN("/images/eco/co_alche.png")" /></li>
+            <li class="Community"><img data-original="@Helper.ToCDN("/images/eco/co_archon.png")" /></li>
+            <li class="Community"><img data-original="@Helper.ToCDN("/images/eco/co_bridge.png")" /></li>
+            <li class="Community"><img data-original="@Helper.ToCDN("/images/eco/co_changelly.png")" /></li>
+            <li class="Community"><img data-original="@Helper.ToCDN("/images/eco/co_coinpay.png")" /></li>
+            <li class="Community"><img data-original="@Helper.ToCDN("/images/eco/co_contents.png")" /></li>
+            <li class="Community"><img data-original="@Helper.ToCDN("/images/eco/co_coz.png")" /></li>
+            <li class="Community"><img data-original="@Helper.ToCDN("/images/eco/co_higg.png")" /></li>
+            <li class="Community"><img data-original="@Helper.ToCDN("/images/eco/co_lique.png")" /></li>
+            <li class="Community"><img data-original="@Helper.ToCDN("/images/eco/co_mixmarvel.png")" /></li>
+            <li class="Community"><img data-original="@Helper.ToCDN("/images/eco/co_nel.png")" /></li>
+            <li class="Community"><img data-original="@Helper.ToCDN("/images/eco/co_neo3j.png")" /></li>
+            <li class="Community"><img data-original="@Helper.ToCDN("/images/eco/co_neone.png")" /></li>
+            <li class="Community"><img data-original="@Helper.ToCDN("/images/eco/co_next.png")" /></li>
+            <li class="Community"><img data-original="@Helper.ToCDN("/images/eco/co_nns.png")" /></li>
+            <li class="Community"><img data-original="@Helper.ToCDN("/images/eco/co_nspcc.png")" /></li>
+            <li class="Community"><img data-original="@Helper.ToCDN("/images/eco/co_onchain.png")" /></li>
+            <li class="Community"><img data-original="@Helper.ToCDN("/images/eco/co_theb.png")" /></li>
+            <li class="Community"><img data-original="@Helper.ToCDN("/images/eco/co_travala.png")" /></li>
+            <li class="Community"><img data-original="@Helper.ToCDN("/images/eco/co_trinity.png")" /></li>
+            <li class="Community"><img data-original="@Helper.ToCDN("/images/eco/co_world.png")" /></li>
+
+            <li class="Security"><img data-original="@Helper.ToCDN("/images/eco/se_beosin.png")" height="30" /></li>
+            <li class="Security"><img data-original="@Helper.ToCDN("/images/eco/se_certik.png")" height="30" /></li>
+            <li class="Security"><img data-original="@Helper.ToCDN("/images/eco/se_red.png")" height="30" /></li>
+            <li class="Security"><img data-original="@Helper.ToCDN("/images/eco/se_secbit.png")" height="30" /></li>
+            <li class="Security"><img data-original="@Helper.ToCDN("/images/eco/se_slow.png")" height="30" /></li>
+            <li class="Security"></li>
+        </ul>
     </div>
 </div>
 <div class="bg-white">
     <div class="container p2">
-        <h3>@Localizer["Highlights of NEO EcoBoost"]</h3>
+        <h3 class="bold-font">@Localizer["About NEO EcoBoost"]</h3>
         <ul class="eco-intro m3">
             <li>
                 <span class="iconfont">&#xe660;</span><br />
                 <p class="bold-font t2 m3 mb0">@Localizer["Funding"]</p>
-                <p class="t1 m4 mb0 lh3">@Localizer["$100M"]</p>
+                <p class="t1 m4 mb0 lh3">@Localizer["100 Million USD"]</p>
             </li>
             <li>
                 <span class="iconfont">&#xe659;</span><br />
-                <p class="bold-font t2 m3 mb0">@Localizer["Goal"]</p>
-                <p class="t4 m4 mb0 lh3">@Localizer["Seed Project Activation<br />dApps Growth Support<br />Infrastructure Development<br />Institutional Collaboration"]</p>
+                <p class="bold-font t2 m3 mb0">@Localizer["Target Projects"]</p>
+                <p class="t4 m4 mb0 lh3">@Localizer["Seed Projects for Incubation<br />dApps for Growth Support<br />Infrastructure Projects<br />Other Institutions"]</p>
             </li>
             <li>
                 <span class="iconfont">&#xe61d;</span><br />
                 <p class="bold-font t2 m3 mb0">@Localizer["Life Cycle Support"]</p>
-                <p class="t4 m4 mb0 lh3">@Localizer["Funding<br />Tech Support<br />Community Synergy<br />Promotion"]</p>
+                <p class="t4 m4 mb0 lh3">@Localizer["Funding<br />Tech<br />Community<br />Marketing"]</p>
             </li>
         </ul>
-        <p class="t4 m3 lh3 w900 p4">@Localizer["NEO EcoBoost is designed to provide life cycle support for developers, dApps, and infrastructure to help support the growth and development of the NEO ecosystem.<br />Stage One of NEO EcoBoost is the Partner Recruitment program, which seeks to build relationships with media, platforms, and institutions.  NEO Global Development will share resources with partners to help them support high-quality projects within the NEO Eco System. Parties interested in becoming a long-term partner of the NEO EcoBoost program, are invited to contact us at <a class='eco-link' href='mailto:eg@neo.org'>eg@neo.org</a>."]</p>
-    </div>
-</div>
-<div class="container p2">
-    <h3>@Localizer["Who are we looking for"]</h3>
-    <ul class="eco-intro m3">
-        <li>
-            <span class="iconfont">&#xe621;</span><br />
-            <p class="bold-font t2 m3 mb0">@Localizer["Media"]</p>
-            <p class="eco-detail t4 m4 mb0 lh3">@Localizer["To assist in the publicity, reporting and branding of the projects within NEO ecosystem"]</p>
-        </li>
-        <li>
-            <span class="iconfont">&#xe634;</span><br />
-            <p class="bold-font t2 m3 mb0">@Localizer["Platforms"]</p>
-            <p class="eco-detail t4 m4 mb0 lh3">@Localizer["To drive greater traffic into the projects within NEO ecosystem and stimulate greater liquidity as well as application scenarios"]</p>
-        </li>
-        <li>
-            <span class="iconfont">&#xe618;</span><br />
-            <p class="bold-font t2 m3 mb0">@Localizer["Institution"]</p>
-            <p class="eco-detail t4 m4 mb0 lh3">@Localizer["To provide industry resources and support to improve the liquidity of the projects within the NEO ecosystem"]</p>
-        </li>
-    </ul>
-</div>
-<div class="bg-white">
-    <div class="container p2">
-        <h3>@Localizer["Benefits for NEO EcoBoost partners"]</h3>
-        <ul class="eco-intro m3">
-            <li>
-                <span class="iconfont">&#xe602;</span><br />
-                <p class="eco-detail t4 m3 mb0 lh3">@Localizer["Establish long-term partnership with NEO ecosystem"]</p>
-            </li>
-            <li>
-                <span class="iconfont">&#xe6ba;</span><br />
-                <p class="eco-detail t4 m3 mb0 lh3">@Localizer["Receive strong support from NGD"]</p>
-            </li>
-            <li>
-                <span class="iconfont">&#xe61e;</span><br />
-                <p class="eco-detail t4 m3 mb0 lh3">@Localizer["Gain access to NEO global community network"]</p>
-            </li>
-        </ul>
+        <p class="t4 m3 lh3 w900 p4">@Localizer["NEO EcoBoost program is created to stimulate and support developers and project participants in the NEO ecosystem. In this process, multiple resources will be combined to provide life cycle funding, technology and marketing support for eco-projects."]</p>
     </div>
 </div>
 
-<div class="modal eco-modal fade" id="EcoBoost" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal eco-modal fade" id="EcoReg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="modal-title">@Localizer["Stage1:EcoBoost Partner Recruitment launch"]</h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
-            <div class="modal-body text-left">
-                <div class="t3">
-                    <p>@Localizer["NEO EcoBoost program is created to stimulate and support developers and project participants in the NEO ecosystem. In this process, multiple resources will be combined to provide full-cycle funding, technology and marketing support for eco-projects. The NEO EcoBoost program is divided into three phases – the eco-partner recruitment phase, the NEO eco-project registration phase, and the EcoBoost full-speed launch phase."]</p>
-                    <span class="green-text">@Localizer["Phase 1 (in progress): EcoBoost partner recruitment"]</span><br />
-                    <p>@Localizer["At this stage, the recruitment targets are media platforms, wallets, dApp distribution channels, traders, universities, security auditors, and more. The eco-partners and NEO share resources to support the projects within NEO ecosystem. For details of this stage, please refer to the first-level page. After this phase is completed, we still welcome partners who are looking to cooperate with NEO to join us, and the application portal will remain open."]</p>
-                    <span class="green-text">@Localizer["Phase 2: NEO EcoBoost project registration"]</span><br />
-                    <p>@Localizer["After enrolling a sufficient number of eco-partners, the NEO eco-project recruitment will be launched, which will be aimed at seed-stage projects, developers/development teams, dApps, infrastructure projects, etc. This phase will go on after the EcoBoost launch."]</p>
-                    <span class="green-text">@Localizer["Phase 3: EcoBoost full-speed launch"]</span><br />
-                    <p>@Localizer["This phase will carefully match the needs of the projects in the NEO ecosystem and the resources provided by eco-partners to accelerate the development of NEO eco-projects."]</p>
-                </div>
+            <div class="modal-body">
+                <iframe id="ecoForm" width="100%" height="800" src="https://forms.office.com/Pages/ResponsePage.aspx?id=oCQpxT6HT0mUryoNzPM39V4qlNr0QWlFh7zqEYca2PdUM0tINzVUWFY2NUpTNU5CQTkxNU1RNk9OVC4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
             </div>
         </div>
     </div>
 </div>
 
 @section Scripts{
+    <script>
+    showEco();
+    function showEco(str) {
+        $("body").trigger("scroll");
+        if (str) {
+            var e = window.event || arguments.callee.caller.arguments[0];
+            $(e.target).addClass("selected").siblings().removeClass("selected");
+        }
+        str = str ? str:"Liquidity";
+        $('.eco-logo li').not('.' + str).hide();
+        $('.' + str).show("fast");
+    }
+    </script>
 }

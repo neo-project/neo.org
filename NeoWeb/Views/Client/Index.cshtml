@@ -1175,7 +1175,8 @@
                 showPlatform($('.nav-client li')[_num], _str);
             }
         })
-        function showPlatform(obj, name){
+    function showPlatform(obj, name) {
+            $("body").trigger("scroll");
             if (name) {
                 $('.client-ul li').not('.' + name).hide();
                 $('.' + name).show("fast");
