@@ -290,3 +290,4 @@ __pycache__/
 NeoWeb/wwwroot/upload/*
 NeoWeb/CandidateBackgrounder/
 NeoWeb/validators.json
+NeoWeb/css/*.css

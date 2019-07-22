@@ -1,0 +1,62 @@
+﻿[
+  {
+    "outputFile": "wwwroot/css/site.css",
+    "inputFile": "wwwroot/css/site.less"
+  },
+  {
+    "outputFile": "wwwroot/css/blog.css",
+    "inputFile": "wwwroot/css/blog.less"
+  },
+  {
+    "outputFile": "wwwroot/css/careers.css",
+    "inputFile": "wwwroot/css/careers.less"
+  },
+  {
+    "outputFile": "wwwroot/css/client.css",
+    "inputFile": "wwwroot/css/client.less"
+  },
+  {
+    "outputFile": "wwwroot/css/common.css",
+    "inputFile": "wwwroot/css/common.less"
+  },
+  {
+    "outputFile": "wwwroot/css/consensus.css",
+    "inputFile": "wwwroot/css/consensus.less"
+  },
+  {
+    "outputFile": "wwwroot/css/dev.css",
+    "inputFile": "wwwroot/css/dev.less"
+  },
+  {
+    "outputFile": "wwwroot/css/eco.css",
+    "inputFile": "wwwroot/css/eco.less"
+  },
+  {
+    "outputFile": "wwwroot/css/event.css",
+    "inputFile": "wwwroot/css/event.less"
+  },
+  {
+    "outputFile": "wwwroot/css/homepage.css",
+    "inputFile": "wwwroot/css/homepage.less"
+  },
+  {
+    "outputFile": "wwwroot/css/logo.css",
+    "inputFile": "wwwroot/css/logo.less"
+  },
+  {
+    "outputFile": "wwwroot/css/team.css",
+    "inputFile": "wwwroot/css/team.less"
+  },
+  {
+    "outputFile": "wwwroot/css/testnet.css",
+    "inputFile": "wwwroot/css/testnet.less"
+  },
+  {
+    "outputFile": "wwwroot/css/testnet-list.css",
+    "inputFile": "wwwroot/css/testnet-list.less"
+  },
+  {
+    "outputFile": "wwwroot/css/bounty.css",
+    "inputFile": "wwwroot/css/bounty.less"
+  }
+]

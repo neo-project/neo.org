@@ -26,14 +26,13 @@
       ]
     },
     {
-      "library": "jquery-validate@1.19.0",
+      "library": "jquery-validate@1.19.1",
       "destination": "wwwroot/lib/jquery-validate/",
       "files": [
         "jquery.validate.min.js"
       ]
     },
     {
-      "provider": "cdnjs",
       "library": "wow@1.1.2",
       "destination": "wwwroot/lib/wow/",
       "files": [
@@ -41,16 +40,15 @@
       ]
     },
     {
-      "library": "animate.css@3.7.0",
+      "library": "animate.css@3.7.2",
       "destination": "wwwroot/lib/animate.css/"
     },
     {
-      "library": "tinymce@5.0.5",
+      "library": "tinymce@5.0.12",
       "destination": "wwwroot/lib/tinymce/"
     },
     {
-      "provider": "cdnjs",
-      "library": "bootstrap-fileinput@5.0.2",
+      "library": "bootstrap-fileinput@5.0.4",
       "destination": "wwwroot/lib/bootstrap-fileinput/",
       "files": [
         "css/fileinput-rtl.css",

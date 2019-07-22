@@ -1,0 +1,244 @@
+﻿body {
+    padding-top: 0;
+    text-align: center;
+    color: #4A4A4A;
+}
+
+.layout-container {
+    max-width: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dev-banner > div.container {
+    padding-top: 100px;
+}
+
+.btn-static {
+    min-width: 175px;
+    margin: 10px;
+}
+
+.dev-doc .btn-static {
+    min-width: 215px;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+    padding: 15px !important;
+}
+
+.swiper-slide {
+    min-height: 100px;
+}
+
+.swiper-slide img {
+    width: 50px;
+    margin-bottom: 25px;
+}
+
+.mb10 {
+    margin-bottom: 20px;
+}
+/*公用*/
+.dev-content {
+    padding-top: 60px;
+}
+
+/*banner*/
+.dev-banner {
+    background: #8ECE4B;
+    background: linear-gradient(125deg,#B8D36C,#8ECE4B);
+    background: url(https://neo-cdn.azureedge.net/images/home-dev-2.svg),url(https://neo-cdn.azureedge.net/images/home-dev-1.svg),linear-gradient(125deg,#B8D36C,#8ECE4B);
+    background-repeat: no-repeat;
+    background-position: center,center;
+    background-size: cover,cover;
+    padding-top: 40px;
+}
+
+.dev-git {
+    position: relative;
+    bottom: -20px;
+    background: #FFFFFF;
+    background: linear-gradient(-30deg,transparent 1.5%,#FFFFFF 1.5%,#FFFFFF 98.5%,transparent 98.5%);
+    text-align: left;
+}
+
+.dev-git img {
+    padding: 15px;
+    max-width: 80px;
+    margin-left: 15px;
+}
+
+.dev-git .flo-r {
+    margin-top: 20px;
+    margin-right: 30px;
+}
+
+/*第一屏*/
+.dev-intro {
+    padding: 0;
+}
+
+.dev-intro li {
+    display: inline-block;
+    width: 32%;
+    margin-bottom: 10px;
+    padding: 0px 50px;
+    vertical-align: text-top;
+}
+
+.dev-intro img {
+    max-width: 90px;
+}
+
+.dev-intro span {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.dev-apply img {
+    width: 100%;
+}
+/*Doc*/
+.dev-doc {
+    background: url(https://neo-cdn.azureedge.net/images/dev-doc-1.svg),url(https://neo-cdn.azureedge.net/images/dev-doc-2.svg);
+    background-position: bottom left,top right;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-bottom: 50px;
+}
+
+.swiper-slide p {
+    margin-bottom: 0;
+}
+
+.dev-lan {
+    font-size: 0;
+    margin-top: 3px;
+}
+
+.dev-lan div {
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+}
+
+.dev-down {
+    margin-bottom: -40px;
+}
+
+.dev-down .border-static:after {
+    bottom: 0px;
+    left: 0px;
+    border-top: 10px solid transparent;
+    border-right: 20px solid #4A4A4A;
+}
+
+.down-table {
+    width: 100%;
+    border: 2px solid #FFFFFF;
+    color: #888888;
+}
+
+.down-table th,
+.down-table td {
+    border: 1px solid #DEDEDE;
+    line-height: 1.6;
+    padding: 10px 0;
+}
+/*github*/
+.dev-github {
+    background: #4A4A4A;
+    background: url(https://neo-cdn.azureedge.net/images/home-dev-3.svg),#4A4A4A;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+}
+
+.dev-github .btn-static:before {
+    border-left: 24px solid #505050;
+}
+
+.dev-github .btn-static:after {
+    border-right: 26px solid #505050;
+}
+/*bounty*/
+.dev-bounty {
+    background: url(https://neo-cdn.azureedge.net/images/home-com-1.svg),url(https://neo-cdn.azureedge.net/images/home-com-2.svg);
+    background-repeat: no-repeat;
+    background-position: 115% -100px, -40% bottom;
+    background-size: 28%,40%;
+}
+
+/*testcoin*/
+.form-group {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.label {
+    margin-bottom: 5px;
+}
+
+.apply-content {
+    padding-top: 30px;
+}
+
+.form-control {
+    border-radius: 0;
+}
+
+.form-control:focus {
+    border-color: #beeb00;
+    box-shadow: none;
+}
+
+.btn-static .submit {
+    border: none;
+    background: none;
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.submit:focus {
+    border: none;
+    background: none;
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    outline: none;
+}
+
+@media only screen and (max-width : 1200px) {
+}
+
+@media only screen and (max-width : 998px) {
+    .dev-intro li {
+        padding: 0px 15px;
+    }
+}
+
+@media only screen and (max-width : 576px) {
+    .dev-intro li {
+        width: 49%;
+        padding: 0px 10px;
+    }
+
+    .dev-doc {
+        background-size: 30%;
+    }
+
+    .dev-github {
+        padding: 60px 0 40px;
+    }
+
+    .dev-git .flo-r {
+        display: none;
+    }
+}
