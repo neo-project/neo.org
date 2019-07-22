@@ -143,11 +143,22 @@
                 {
                     foreach (var item in ViewBag.Blog as IEnumerable<NeoWeb.Models.Blog>)
                     {
-                        <div class="blog-con border-static back-white m3 mb0 p3">
-                            <p class="bolder-font mb0 t3 text-ellipsis"><a href="/blog/details/@item.Id">@item.EnglishTitle</a></p>
-                            <p class="m4 mb0 t4 gray-text">@item.EnglishSummary.Substring(0, Math.Min(item.EnglishSummary.Length, 100))…</p>
-                            <p class="m4 mb0"><img data-original="@Helper.ToCDN("/images/event/time.svg")" /> @item.EditTime.ToString()</p>
-                        </div>
+                        @if (ViewBag.Language == "zh")
+                        {
+                            <div class="blog-con border-static back-white m3 mb0 p3">
+                                <p class="bolder-font mb0 t3 text-ellipsis"><a href="/blog/details/@item.Id">@item.ChineseTitle</a></p>
+                                <p class="m4 mb0 t4 gray-text">@item.ChineseSummary.Substring(0, Math.Min(item.ChineseSummary.Length, 100))…</p>
+                                <p class="m4 mb0"><img data-original="@Helper.ToCDN("/images/event/time.svg")" /> @item.EditTime.ToString()</p>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="blog-con border-static back-white m3 mb0 p3">
+                                <p class="bolder-font mb0 t3 text-ellipsis"><a href="/blog/details/@item.Id">@item.EnglishTitle</a></p>
+                                <p class="m4 mb0 t4 gray-text">@item.EnglishSummary.Substring(0, Math.Min(item.EnglishSummary.Length, 100))…</p>
+                                <p class="m4 mb0"><img data-original="@Helper.ToCDN("/images/event/time.svg")" /> @item.EditTime.ToString()</p>
+                            </div>
+                        }
                     }
                 }
                 <p class="m3 mb0 text-center"><a class="btn-static t3" href="~/blog">@Localizer["Blog Page"]</a></p>
