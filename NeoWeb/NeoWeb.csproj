@@ -155,6 +155,7 @@
     <_ContentIncludedByDefault Remove="Views\Blog\Index.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Blog\_LayoutBlog.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Team\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\client.css" />
   </ItemGroup>
 
 
@@ -194,10 +195,6 @@
 
   <ItemGroup>
     <WCFMetadata Include="Connected Services" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\css\" />
   </ItemGroup>
 
 </Project>
