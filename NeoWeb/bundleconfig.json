@@ -138,5 +138,11 @@
     "inputFiles": [
       "wwwroot/css/eco.css"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/css/dev.min.css",
+    "inputFiles": [
+      "wwwroot/css/dev.css"
+    ]
   }
 ]

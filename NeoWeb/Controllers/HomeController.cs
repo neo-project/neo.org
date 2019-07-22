@@ -29,6 +29,7 @@ namespace NeoWeb.Controllers
         {
             ViewBag.Blog = _context.Blogs.OrderByDescending(p => p.CreateTime).Take(2);
             ViewBag.Event = _context.Events.Include(m => m.Country).OrderByDescending(p => p.EndTime).Take(1);
+            ViewBag.Language = _localizer["en"];
             return View();
         }
 
