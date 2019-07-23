@@ -136,10 +136,10 @@
     <value>社区与生态</value>
   </data>
   <data name="EcoBoost Partners'&lt;br /&gt;Support" xml:space="preserve">
-    <value>EcoBoost 生态合作伙伴支持</value>
+    <value>合作伙伴支持</value>
   </data>
   <data name="EcoFund Investment&lt;br /&gt;Smart Contract Fees Subsidies&lt;br /&gt;Developer Grants" xml:space="preserve">
-    <value>NEO 生态基金投资&lt;br /&gt;智能合约部署费用减免&lt;br /&gt;开发者资助</value>
+    <value>NEO 生态基金投资&lt;br /&gt;智能合约部署费用补助&lt;br /&gt;开发者资助</value>
   </data>
   <data name="Funding" xml:space="preserve">
     <value>资金计划</value>
@@ -149,9 +149,6 @@
   </data>
   <data name="Funding&lt;br /&gt;Tech&lt;br /&gt;Community&lt;br /&gt;Marketing" xml:space="preserve">
     <value>资金支持&lt;br /&gt;技术支持&lt;br /&gt;社区协作&lt;br /&gt;市场推广</value>
-  </data>
-  <data name="If you`re a developer or start-up with an idea, join us to build a Smart Economy" xml:space="preserve">
-    <value>欢迎来到 NEO 生态，与我们共建智能经济未来</value>
   </data>
   <data name="Life Cycle Support" xml:space="preserve">
     <value>全周期支持</value>
@@ -175,7 +172,7 @@
     <value>NEO EcoBoost 全面启动</value>
   </data>
   <data name="NEO EcoBoost Partners" xml:space="preserve">
-    <value>NEO 生态合作伙伴阵容</value>
+    <value>NEO EcoBoost 生态合作伙伴</value>
   </data>
   <data name="NEO EcoBoost program is created to stimulate and support developers and project participants in the NEO ecosystem. In this process, multiple resources will be combined to provide life cycle funding, technology and marketing support for eco-projects." xml:space="preserve">
     <value>NEO EcoBoost 是一个针对 NEO 生态内的开发者与项目方进行激励与扶持培育的计划，在这个过程中，将会联合多方资源，为生态项目提供全生命周期的资金、技术、市场等层面的支持。</value>
@@ -191,6 +188,9 @@
   </data>
   <data name="Wallets" xml:space="preserve">
     <value>钱包</value>
+  </data>
+  <data name="Welcome to NEO Ecosystem&lt;br /&gt;NEO EcoBoost will work with our EcoBoost partners to provide full lifecycle support for NEO eco projects&lt;br /&gt;Please tell us how you'd like to cooperate with us and we will evaluate your project as soon as possible." xml:space="preserve">
+    <value>欢迎来到 NEO 生态，NEO EcoBoost 将联合我们的生态合作伙伴给我们的优质生态项目提供全生命周期的支持&lt;br /&gt;请告诉我们你想要的合作方式，我们会尽快评估你的项目。</value>
   </data>
   <data name="What NEO EcoBoost Can Provide" xml:space="preserve">
     <value>加入 NEO EcoBoost 可以获得什么</value>
