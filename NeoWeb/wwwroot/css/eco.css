@@ -160,9 +160,44 @@ h2,.h2 {font-size:48px;}
 }
 
 .eco-logo .Liquidity span {
+    background-image: url(https://neo-cdn.azureedge.net/images/eco/Liquidity.png);
+}
+.eco-logo .Wallets span {
+    background-image: url(https://neo-cdn.azureedge.net/images/eco/Wallets.png);
+}
+.eco-logo .Media span {
+    background-image: url(https://neo-cdn.azureedge.net/images/eco/Media.png);
+}
+.eco-logo .Channels span {
+    background-image: url(https://neo-cdn.azureedge.net/images/eco/Channels.png);
+}
+.eco-logo .Community span {
+    background-image: url(https://neo-cdn.azureedge.net/images/eco/Community.png);
+}
+.eco-logo .Security span {
+    background-image: url(https://neo-cdn.azureedge.net/images/eco/Security.png);
+}
+
+/*.eco-logo .Liquidity span {
     background-image: url(../images/eco/Liquidity.png);
 }
-.eco-logo .Liquidity .bibox {background-position: 46px 13px;}
+.eco-logo .Wallets span {
+    background-image: url(../images/eco/Wallets.png);
+}
+.eco-logo .Media span {
+    background-image: url(../images/eco/Media.png);
+}
+.eco-logo .Channels span {
+    background-image: url(../images/eco/Channels.png);
+}
+.eco-logo .Community span {
+    background-image: url(../images/eco/Community.png);
+}
+.eco-logo .Security span {
+    background-image: url(../images/eco/Security.png);
+}*/
+
+.eco-logo .Liquidity .bibox {background-position: 42px 11px;}
 .eco-logo .Liquidity .kucoin {background-position: -256px 15px;}
 .eco-logo .Liquidity .digi {background-position: -551px 14px;}
 .eco-logo .Liquidity .bitmax {background-position: 42px -54px;}
@@ -171,11 +206,9 @@ h2,.h2 {font-size:48px;}
 .eco-logo .Liquidity .nash {background-position: 40px -118px;}
 .eco-logo .Liquidity .switch {background-position: -254px -120px;}
 .eco-logo .Liquidity .coin {background-position: -555px -114px;}
-.eco-logo .Liquidity .dex {background-position: 42px -189px;}
+.eco-logo .Liquidity .dex {background-position: 44px -189px;}
 
-.eco-logo .Wallets span {
-    background-image: url(../images/eco/Wallets.png);
-}
+
 .eco-logo .Wallets .o3 {background-position: 44px 8px;}
 .eco-logo .Wallets .math {background-position: -261px 9px;}
 .eco-logo .Wallets .trust {background-position: -561px 7px;}
@@ -183,12 +216,8 @@ h2,.h2 {font-size:48px;}
 .eco-logo .Wallets .cobo {background-position: -260px -62px;}
 .eco-logo .Wallets .arkane {background-position: -561px -59px;}
 .eco-logo .Wallets .teemo {background-position: 42px -125px;}
-.eco-logo .Wallets .bitkeep {background-position: -260px -126px;}
+.eco-logo .Wallets .bitkeep {background-position: -260px -125px;}
 .eco-logo .Wallets .zelcore {background-position: -560px -122px;}
-
-.eco-logo .Media span {
-    background-image: url(../images/eco/Media.png);
-}
 
 .eco-logo .Media .bcgamer {background-position: 19px 7px;}
 .eco-logo .Media .nnt {background-position: -283px 7px;}
@@ -202,10 +231,8 @@ h2,.h2 {font-size:48px;}
 .eco-logo .Media .panews {background-position: 18px -193px;}
 .eco-logo .Media .huo {background-position: -274px -196px;}
 .eco-logo .Media .dgaming {background-position: -582px -196px;}
+.eco-logo .Media .tuoluo {background-position: 13px -255px;}
 
-.eco-logo .Channels span {
-    background-image: url(../images/eco/Channels.png);
-}
 
 .eco-logo .Channels .review {background-position: 33px 13px;}
 .eco-logo .Channels .bee {background-position: -258px 15px;}
@@ -214,9 +241,6 @@ h2,.h2 {font-size:48px;}
 .eco-logo .Channels .total {background-position: -266px -58px;}
 .eco-logo .Channels .birds {background-position: -567px -59px;}
 
-.eco-logo .Community span {
-    background-image: url(../images/eco/Community.png);
-}
 
 .eco-logo .Community .nel   {background-position: 1px 9px;}
 .eco-logo .Community .nex   {background-position: -284px 9px;}
@@ -241,9 +265,6 @@ h2,.h2 {font-size:48px;}
 .eco-logo .Community .mixma {background-position: -579px -401px;}
 .eco-logo .Community .coz {background-position: 21px -461px;}
 
-.eco-logo .Security span {
-    background-image: url(../images/eco/Security.png);
-}
 
 .eco-logo .Security .red4   {background-position: 25px 6px;}
 .eco-logo .Security .cert   {background-position: -268px 9px;}
@@ -330,6 +351,18 @@ h2,.h2 {font-size:48px;}
     .eco-logo li {
         margin: 8px 10px;
         width: 40%;
+    }
+    .eco-logo li span {
+        zoom: 0.6;
+    }
+}
+@media only screen and (max-width :378px) {
+    .eco-logo li {
+        margin: 5px 10px;
+        width: 40%;
+    }
+    .eco-logo li span {
+        zoom: 0.5;
     }
 }
 
