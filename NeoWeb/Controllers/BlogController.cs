@@ -308,7 +308,7 @@ namespace NeoWeb.Controllers
 
         private void UpdateRssChinese()
         {
-            var xml = new XmlDocument();
+            var xml = new XmlDocument() { XmlResolver = null };
             XmlDeclaration xmldecl = xml.CreateXmlDeclaration("1.0", "utf-8", null);
             XmlElement root = xml.DocumentElement;
             xml.InsertBefore(xmldecl, root);
@@ -378,7 +378,7 @@ namespace NeoWeb.Controllers
 
         private void UpdateRssEnglish()
         {
-            var xml = new XmlDocument();
+            var xml = new XmlDocument() { XmlResolver = null };
             XmlDeclaration xmldecl = xml.CreateXmlDeclaration("1.0", "utf-8", null);
             XmlElement root = xml.DocumentElement;
             xml.InsertBefore(xmldecl, root);
