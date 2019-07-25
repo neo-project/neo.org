@@ -129,22 +129,148 @@ h2,.h2 {font-size:48px;}
 
 .eco-logo {
     padding:50px 0;
-    background:#FFFFFF;
 }
 
 .eco-logo li {
     display: inline-block;
     margin: 10px 4%;
-    width:30%;
+    width: 30%;
     max-width: 280px;
-    vertical-align:top;
+    line-height: 1;
+    vertical-align: top;
 }
 
-.eco-logo img {
-    width:100%;
-    height:100%;
-    max-height:60px;
+.eco-logo li span {
+    display: inline-block;
+    background-size:820px;
+    background-repeat:no-repeat;
+    background-origin: border-box;
+    background-clip: border-box;
+    min-height: 60px;
+    width:280px;
+    filter: grayscale(1);
+    opacity:0.8;
+    transition:all 0.2s;
 }
+
+.eco-logo li span:hover {
+    opacity:1;
+    filter: grayscale(0);
+    transition:all 0.3s;
+}
+
+.eco-logo .Liquidity span {
+    background-image: url(https://neo-cdn.azureedge.net/images/eco/Liquidity.png);
+}
+.eco-logo .Wallets span {
+    background-image: url(https://neo-cdn.azureedge.net/images/eco/Wallets.png);
+}
+.eco-logo .Media span {
+    background-image: url(https://neo-cdn.azureedge.net/images/eco/Media.png);
+}
+.eco-logo .Channels span {
+    background-image: url(https://neo-cdn.azureedge.net/images/eco/Channels.png);
+}
+.eco-logo .Community span {
+    background-image: url(https://neo-cdn.azureedge.net/images/eco/Community.png);
+}
+.eco-logo .Security span {
+    background-image: url(https://neo-cdn.azureedge.net/images/eco/Security.png);
+}
+
+/*.eco-logo .Liquidity span {
+    background-image: url(../images/eco/Liquidity.png);
+}
+.eco-logo .Wallets span {
+    background-image: url(../images/eco/Wallets.png);
+}
+.eco-logo .Media span {
+    background-image: url(../images/eco/Media.png);
+}
+.eco-logo .Channels span {
+    background-image: url(../images/eco/Channels.png);
+}
+.eco-logo .Community span {
+    background-image: url(../images/eco/Community.png);
+}
+.eco-logo .Security span {
+    background-image: url(../images/eco/Security.png);
+}*/
+
+.eco-logo .Liquidity .bibox {background-position: 42px 11px;}
+.eco-logo .Liquidity .kucoin {background-position: -256px 15px;}
+.eco-logo .Liquidity .digi {background-position: -551px 14px;}
+.eco-logo .Liquidity .bitmax {background-position: 42px -54px;}
+.eco-logo .Liquidity .bitmart {background-position: -257px -53px;}
+.eco-logo .Liquidity .indo {background-position: -553px -51px;}
+.eco-logo .Liquidity .nash {background-position: 40px -118px;}
+.eco-logo .Liquidity .switch {background-position: -254px -120px;}
+.eco-logo .Liquidity .coin {background-position: -555px -114px;}
+.eco-logo .Liquidity .dex {background-position: 44px -189px;}
+
+
+.eco-logo .Wallets .o3 {background-position: 44px 8px;}
+.eco-logo .Wallets .math {background-position: -261px 9px;}
+.eco-logo .Wallets .trust {background-position: -561px 7px;}
+.eco-logo .Wallets .line {background-position: 40px -60px;}
+.eco-logo .Wallets .cobo {background-position: -260px -62px;}
+.eco-logo .Wallets .arkane {background-position: -561px -59px;}
+.eco-logo .Wallets .teemo {background-position: 42px -125px;}
+.eco-logo .Wallets .bitkeep {background-position: -260px -125px;}
+.eco-logo .Wallets .zelcore {background-position: -560px -122px;}
+
+.eco-logo .Media .bcgamer {background-position: 19px 7px;}
+.eco-logo .Media .nnt {background-position: -283px 7px;}
+.eco-logo .Media .xingqiu {background-position: -581px 8px;}
+.eco-logo .Media .bi {background-position: 17px -62px;}
+.eco-logo .Media .chain {background-position: -271px -61px;}
+.eco-logo .Media .bitkan {background-position: -581px -61px;}
+.eco-logo .Media .ba {background-position: 16px -127px;}
+.eco-logo .Media .egamer {background-position: -274px -128px;}
+.eco-logo .Media .lian {background-position: -579px -125px;}
+.eco-logo .Media .panews {background-position: 18px -193px;}
+.eco-logo .Media .huo {background-position: -274px -196px;}
+.eco-logo .Media .dgaming {background-position: -582px -196px;}
+.eco-logo .Media .tuoluo {background-position: 13px -255px;}
+
+
+.eco-logo .Channels .review {background-position: 33px 13px;}
+.eco-logo .Channels .bee {background-position: -258px 15px;}
+.eco-logo .Channels .state {background-position: -564px 10px;}
+.eco-logo .Channels .dapp {background-position: 33px -55px;}
+.eco-logo .Channels .total {background-position: -266px -58px;}
+.eco-logo .Channels .birds {background-position: -567px -59px;}
+
+
+.eco-logo .Community .nel   {background-position: 1px 9px;}
+.eco-logo .Community .nex   {background-position: -284px 9px;}
+.eco-logo .Community .nspcc {background-position: -590px 6px;}
+.eco-logo .Community .neore {background-position: 6px -61px;}
+.eco-logo .Community .neo3j {background-position: -280px -63px;}
+.eco-logo .Community .neone {background-position: -589px -65px;}
+.eco-logo .Community .nns   {background-position: 14px -126px;}
+.eco-logo .Community .thebl {background-position: -272px -127px;}
+.eco-logo .Community .conte {background-position: -582px -126px;}
+.eco-logo .Community .chang {background-position: 11px -195px;}
+.eco-logo .Community .trini {background-position: -277px -197px;}
+.eco-logo .Community .higgs {background-position: -582px -199px;}
+.eco-logo .Community .trava {background-position: 19px -267px;}
+.eco-logo .Community .oncha {background-position: -275px -262px;}
+.eco-logo .Community .archo {background-position: -582px -264px;}
+.eco-logo .Community .alche {background-position: 17px -331px;}
+.eco-logo .Community .world {background-position: -280px -329px;}
+.eco-logo .Community .lique {background-position: -584px -330px;}
+.eco-logo .Community .coinp {background-position: 17px -401px;}
+.eco-logo .Community .bridg {background-position: -279px -400px;}
+.eco-logo .Community .mixma {background-position: -579px -401px;}
+.eco-logo .Community .coz {background-position: 21px -461px;}
+
+
+.eco-logo .Security .red4   {background-position: 25px 6px;}
+.eco-logo .Security .cert   {background-position: -268px 9px;}
+.eco-logo .Security .slow   {background-position: -575px 6px;}
+.eco-logo .Security .beosin {background-position: 20px -62px;}
+.eco-logo .Security .secbit {background-position: -269px -66px;}
 
 .eco-modal .modal-title {
     width: 100%;
@@ -192,6 +318,9 @@ h2,.h2 {font-size:48px;}
         margin: 10px 0;
         width: 32%;
     }
+    .eco-logo li span {
+        zoom:0.8;
+    }
 }
 
 @media only screen and (max-width : 768px) {
@@ -222,6 +351,18 @@ h2,.h2 {font-size:48px;}
     .eco-logo li {
         margin: 8px 10px;
         width: 40%;
+    }
+    .eco-logo li span {
+        zoom: 0.6;
+    }
+}
+@media only screen and (max-width :378px) {
+    .eco-logo li {
+        margin: 5px 10px;
+        width: 40%;
+    }
+    .eco-logo li span {
+        zoom: 0.5;
     }
 }
 
