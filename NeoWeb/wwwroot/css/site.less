@@ -1,28 +1,22 @@
-﻿@t0: 5.619rem; /*h1 95.37*/
-@t1: 4.214rem; /*h2 71.55*/
-@t2: 3.16rem; /*h3 53.67 - h1 47.36*/
-@t3: 2.37rem; /*h4 40.27 - h2 35.53*/
-@t4: 1.778rem; /*h5 30.27 - h3 26.65*/
-@t5: 1.333rem;/*h6 22.66 - h4 20*/
-@t6: 1rem;/*22.66 - h5 20*/
-
-@green-text: #02e49b;
+﻿@import 'basic.less';
 
 body {
     font-size: 17px;
-    font-family:Rajdhani;
-    letter-spacing:.3px;
-    line-height:1.4;
-    color:#1B1B1B;
+    font-family: Rajdhani;
+    letter-spacing: .3px;
+    line-height: 1.4;
+    background: @back;
+    color: @text;
+
     @media only screen and (max-width: 768px) {
-        font-size: 12px;
+        font-size: 15px;
     }
 }
 
 /*字体*/
 h1, .h1 {
     font-family: Rajdhani-Bold;
-    font-size: @t0;
+    font-size: @t1;
     letter-spacing: .5px;
     line-height: 102px;
 
@@ -34,11 +28,10 @@ h1, .h1 {
 }
 
 h2, .h2 {
-    font-family: Rajdhani;
-    font-weight:bolder;
-    font-size: @t1;
+    font-family: Rajdhani-Bold;
+    font-size: @t2;
     letter-spacing: .4px;
-    line-height: 79px;
+    line-height: 60px;
 
     @media only screen and (max-width: 768px) {
         font-size: @t3;
@@ -54,14 +47,14 @@ h3, .h3 {
     line-height: 60px;
 
     @media only screen and (max-width: 768px) {
-        font-size: @t4;
+        font-size: @t5;
         letter-spacing: .8px;
         line-height: 32px;
     }
 }
 
 h4, .h4 {
-    font-family: Rajdhani;
+    font-family: Rajdhani-Bold;
     font-size: @t3;
     letter-spacing: .5px;
     line-height: 47px;
@@ -78,6 +71,67 @@ h5, .h5 {
     font-size: @t4;
     letter-spacing: .3px;
     line-height: 47px;
+}
+
+.bolder {
+    font-family: Rajdhani-Bold;
+    letter-spacing: .7px;
+}
+
+.lighter {
+    font-family: Rajdhani-Light;
+    letter-spacing: .3px;
+}
+
+/*颜色*/
+.green {
+    color: @green;
+}
+
+/*背景色*/
+.b1 {
+    background: @dark;
+    color: @dark-text;
+}
+.b2 {
+    background: @green;
+    color: @btn-text !important;
+}
+
+/*间距*/
+.m1 {
+    margin-top: 100px;
+}
+
+.m2 {
+    margin-top: 45px;
+}
+
+.m3 {
+    margin-top: 25px;
+}
+
+.m4 {
+    margin-top: 12px;
+}
+
+/*button*/
+.btn {
+    font-weight: 600;
+    background: @green;
+    color: @btn-text !important;
+    border-radius: 0;
+    padding: 12px 27px;
+
+    @media only screen and (max-width: 768px) {
+        padding: 5px 12px;
+    }
+}
+.btn1 {
+    
+    font-size: @t3;
+    letter-spacing: .5px;
+    line-height: 47px;
 
     @media only screen and (max-width: 768px) {
         font-size: @t5;
@@ -86,33 +140,19 @@ h5, .h5 {
     }
 }
 
-h6, .h6 {
+.btn2 {
     font-family: Rajdhani;
-    font-size: @t5;
+    font-weight: 600;
+    font-size: @t3;
     letter-spacing: .5px;
     line-height: 47px;
 
     @media only screen and (max-width: 768px) {
-        font-size: @t6;
+        font-size: @t5;
         letter-spacing: .6px;
         line-height: 26px;
     }
 }
-
-.m1{margin-top:100px;}
-.m2{margin-top:50px;}
-.m3{margin-top:50px;}
-
-.bold {
-    font-weight:600;
-    letter-spacing: .5px;
-}
-.bolder {
-    font-family: Rajdhani-Bold;
-    letter-spacing: .7px;
-}
-
-.green-text{color:@green-text;}
 
 @font-face {
     font-family: 'iconfont'; /* project id 412214 */

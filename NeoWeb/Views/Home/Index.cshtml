@@ -14,22 +14,51 @@
 }
 
 @* 基本块 - Home page *@
-<h1>An Open Network For Smart Economy</h1>
-<h2>NEO Home Page</h2>
-<h3>NEO Home Page</h3>
-<h4>NEO Home Page</h4>
-<h5>NEO Home <strong>Page</strong></h5>
-<h5 class="bold">NEO Home Page</h5>
-<h6>NEO Home Page</h6>
-<p>NEO Home Page</p>
 <div id="homeFri">
     <div class="container content">
-        <h1 class="green-text m2">An Open Network for Smart Economy</h1>
-        <p class="h5 bold m2">
-            Join the <span class="h4 bolder green-text">Most developer-friendly</span><br />network of blockchain solution
-        </p>
+        <div class="row">
+            <div class="col-md-9">
+                <h1 class="m2">An Open Network for Smart Economy</h1>
+                <p class="h3 m2">
+                    Join the <span class="green">Most developer-friendly</span> network of blockchain solution
+                </p>
+                <a class="btn m3">LEARN MORE</a>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
     </div>
 </div>
+<div class="container content">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Turn your vision into reality with NEO</h2>
+        </div>
+        <div class="col-md-6">
+            <p class="m4">
+                As the most-developer friendly platform, NEO is supporting 70-plus dAPPs with its comprehensive suite of tools and resources, ranging from DevPack and NeoContract to off and online training sessions
+            </p>
+            <a class="btn m3">LEARN MORE</a>
+        </div>
+    </div>
+</div>
+<div class="b1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div>Mainstream Languages</div>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="col-md-4">2</div>
+            <div class="col-md-4">3</div>
+        </div>
+    </div>
+</div>
+
 
 
 @section Scripts{
@@ -38,7 +67,7 @@
         $(window).resize(function () {
             pageSize();
         });
-        
+
         function pageSize() {
             $("#homeFri").each(function () {
                 $(this).css("width", $(window).width());
@@ -47,3 +76,4 @@
         }
     </script>
 }
+
