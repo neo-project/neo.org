@@ -1,6 +1,35 @@
 ﻿@import "basic.less";
 
-.content{
-    padding-top:120px;
-    padding-bottom:120px;
+.content {
+    padding-top: 120px;
+    padding-bottom: 120px;
+
+    @media only screen and (max-width: 768px) {
+        padding-top: 75px;
+        padding-bottom: 75px;
+    }
+}
+
+#homeFri {
+    position: relative;
+
+    .content {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin:auto;
+        height:65%;
+
+        @media only screen and (max-width: 768px) {
+            position:relative;
+            height:auto;
+            padding-top:110px;
+
+            .m2 {
+                margin-top:125px;
+            }
+        }
+    }
 }
