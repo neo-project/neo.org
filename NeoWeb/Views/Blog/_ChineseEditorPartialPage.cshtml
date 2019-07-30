@@ -4,16 +4,11 @@
 <script>
     tinymce.init({
         selector: 'textarea',
+        language: 'zh_CN',
         height: 500,
         menubar: true,
-        plugins: [
-            'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-            'searchreplace wordcount visualblocks visualchars code fullscreen',
-            'insertdatetime media nonbreaking save table contextmenu directionality',
-            'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc'
-        ],
-        toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-        toolbar2: 'print preview media | forecolor backcolor emoticons | codesample',
+        plugins: 'print preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern help',
+        toolbar: 'formatselect | bold italic strikethrough forecolor backcolor permanentpen formatpainter | link image media pageembed | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | removeformat | addcomment',
         image_advtab: true,
         images_upload_url: "../../../../blog/upload"
     });
