@@ -123,10 +123,4 @@
   <data name="Blog posts list" xml:space="preserve">
     <value>博客文章列表</value>
   </data>
-  <data name="d-none" xml:space="preserve">
-    <value />
-  </data>
-  <data name="d-none-zh" xml:space="preserve">
-    <value>d-none</value>
-  </data>
 </root>

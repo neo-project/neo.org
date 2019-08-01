@@ -18,18 +18,20 @@ namespace NeoWeb.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IStringLocalizer<HomeController> _localizer;
+        private readonly IStringLocalizer<SharedResource> _sharedLocalizer;
 
-        public HomeController(ApplicationDbContext context, IStringLocalizer<HomeController> localizer)
+        public HomeController(ApplicationDbContext context, IStringLocalizer<HomeController> localizer, IStringLocalizer<SharedResource> sharedLocalizer)
         {
             _context = context;
             _localizer = localizer;
+            _sharedLocalizer = sharedLocalizer;
         }
 
         public IActionResult Index()
         {
             ViewBag.Blog = _context.Blogs.OrderByDescending(p => p.CreateTime).Take(2);
             ViewBag.Event = _context.Events.Include(m => m.Country).OrderByDescending(p => p.EndTime).Take(1);
-            ViewBag.Language = _localizer["en"];
+            ViewBag.Language = _sharedLocalizer["en"];
             return View();
         }
 

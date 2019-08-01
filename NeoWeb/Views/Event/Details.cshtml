@@ -1,6 +1,7 @@
 ﻿@model NeoWeb.Models.Event
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
 @{
     ViewData["Title"] = @Model.Name;
     if (String.IsNullOrEmpty(Model.Cover))
@@ -54,7 +55,7 @@
                     <img src="@Helper.ToCDN("/images/event/time.svg")" /> <span>@Model.StartTime.ToString("yyyy-MM-dd HH:mm") ~ @Model.EndTime.ToString("yyyy-MM-dd HH:mm")</span>
                 </div>
                 <div class="mt-2">
-                    <img src="@Helper.ToCDN("/images/event/addr.svg")" /> <span class="@Localizer["d-none-zh"]">@Model.Country.Name</span><span class="@Localizer["d-none"]">@Model.Country.ZhName</span> - <span>@Model.City</span>
+                    <img src="@Helper.ToCDN("/images/event/addr.svg")" /> <span class="@Localizer["d-none-zh"]">@Model.Country.Name</span><span class="@SharedLocalizer["d-none"]">@Model.Country.ZhName</span> - <span>@Model.City</span>
                     <span class="with-space">@Html.Raw(Model.Address)</span>
                 </div>
                 <div class="mt-2">
@@ -109,7 +110,7 @@
 @section Scripts{
     <script>
         text_replace(".with-space");
-        
+
         topShow();
         $(window).resize(function () {
             topShow();
@@ -121,7 +122,7 @@
 
         function topShow() {
             var _l = $(window).scrollTop() - $(window).height();
-            if (_l > -$(window).height()/2) {
+            if (_l > -$(window).height() / 2) {
                 $("#toTop").show();
             } else {
                 $("#toTop").hide();

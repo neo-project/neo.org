@@ -3,22 +3,9 @@
 @{
     ViewData["Title"] = "Create Event";
 }
-@section Styles{
-    <environment include="Development">
-        <link rel="stylesheet" href="/css/event.css" asp-append-version="true" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.ToCDN("/css/event.min.css", true)" />
-    </environment>
-}
 <div class="container">
     <h2 class="m2">发布新活动</h2>
     <form asp-action="Create" class="form-horizontal" enctype="multipart/form-data">
-        @Html.Partial("_CreatePartialPage", Model)
+        @{await Html.RenderPartialAsync("_EditorPartialPage", Model);}
     </form>
 </div>
-
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

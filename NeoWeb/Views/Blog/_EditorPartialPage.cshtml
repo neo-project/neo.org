@@ -39,7 +39,7 @@
 <div class="form-group">
     <input type="submit" value="Create" class="btn btn-light" />
 </div>
-<script src="/lib/tinymce/tinymce.min.js" asp-append-version="true"></script>
+<script src="@Helper.ToCDN("/lib/tinymce/tinymce.min.js", true)"></script>
 <script>
     tinymce.init({
         selector: 'textarea',

@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
 @section Styles{
     <environment include="Development">
@@ -35,7 +36,7 @@
 
 @if (!ViewBag.UserRules)
 {
-    @foreach (var item in (Model as IEnumerable<NeoWeb.Models.Careers>).Where(p => p.Lang == Localizer["en"].Value))
+    @foreach (var item in (Model as IEnumerable<NeoWeb.Models.Careers>).Where(p => p.Lang == SharedLocalizer["en"].Value))
     {
         @if (item.IsShow)
         {

@@ -29,11 +29,13 @@ namespace NeoWeb.Controllers
         private readonly bool _userRules;
         private readonly IStringLocalizer<BlogController> _localizer;
         private readonly IHostingEnvironment _env;
+        private readonly IStringLocalizer<SharedResource> _sharedLocalizer;
 
-        public BlogController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IStringLocalizer<BlogController> localizer, IHostingEnvironment env)
+        public BlogController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IStringLocalizer<BlogController> localizer, IStringLocalizer<SharedResource> sharedLocalizer, IHostingEnvironment env)
         {
             _context = context;
             _localizer = localizer;
+            _sharedLocalizer = sharedLocalizer;
             _userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             _env = env;
             if (_userId != null)
@@ -116,7 +118,7 @@ namespace NeoWeb.Controllers
             }
             models = models.Take(30);
             ViewBag.UserRules = _userRules;
-            ViewBag.Language = _localizer["en"];
+            ViewBag.Language = _sharedLocalizer["en"];
             return View(models);
         }
 
@@ -175,7 +177,7 @@ namespace NeoWeb.Controllers
             if (!string.IsNullOrEmpty(language))
                 ViewBag.Language = language;
             else
-                ViewBag.Language = _localizer["en"];
+                ViewBag.Language = _sharedLocalizer["en"];
             return View(blog);
         }
 
