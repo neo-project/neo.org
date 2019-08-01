@@ -156,7 +156,6 @@
     <_ContentIncludedByDefault Remove="Views\Blog\Index.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Blog\_LayoutBlog.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Team\Index.cshtml" />
-    <_ContentIncludedByDefault Remove="wwwroot\css\blog.css" />
   </ItemGroup>
 
 
