@@ -1,10 +1,10 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @using System.Xml;
 @inject IViewLocalizer Localizer
-@model NeoWeb.Models.Blog
+@model NeoWeb.Models.BlogViewModels
 @{
-    ViewData["Title"] = Model.EnglishTitle;
-    ViewData["Details"] = Model.EnglishSummary;
+    ViewData["Title"] = Model.Title;
+    ViewData["Details"] = Model.Summary;
     if (ViewBag.Cover != null)
     {
         try
@@ -18,7 +18,7 @@
         }
     }
     Layout = "_LayoutBlog.cshtml";
-    ViewData["keywords"] = Model.EnglishTags;
+    ViewData["keywords"] = Model.Tags;
 }
 
 @section Styles{
@@ -71,74 +71,37 @@
                     }
                 </div>
             </div>
-            @if(ViewBag.Language == "zh")
-            {
-                <article class="artical-content">
-                    <header>
-                        <h3 class="bold-font with-space">@Model.ChineseTitle</h3>
-                        <p class="t3 m3 green-text blog-date bold-font"><span class="bold-font">@Model.CreateTime.ToShortDateString()</span></p>
-                        <div class="float-right qrcode-div"><i class="iconfont green-text">&#xe79b;</i><div id="qrcode"></div></div>
-                        <p class="t3">
-                            @if (ViewBag.UserRules)
-                            {
-                                <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-                                <span>|</span>
-                                <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
-                            }
-                        </p>
-                    </header>
-                    <section class="blog-content t3 m3">
-                        @Html.Raw(ViewBag.Cover)
-                        <div class="with-space">
-                            @Html.Raw(Model.ChineseContent)
-                        </div>
-                    </section>
-                    <hr />
-                    <div>
-                        @if (Model.ChineseTags != null)
+            <article class="artical-content">
+                <header>
+                    <h3 class="bold-font with-space">@Model.Title</h3>
+                    <p class="t3 m3 green-text blog-date bold-font"><span class="bold-font">@Model.CreateTime.ToShortDateString()</span></p>
+                    <div class="float-right qrcode-div"><i class="iconfont green-text">&#xe79b;</i><div id="qrcode"></div></div>
+                    <p class="t3">
+                        @if (ViewBag.UserRules)
                         {
-                            foreach (var tag in Model.ChineseTags.Split(","))
-                            {
-                                <a class="blog-tag" href="/blog?t=@tag">@tag</a>
-                            }
+                            <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                            <span>|</span>
+                            <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
                         }
+                    </p>
+                </header>
+                <section class="blog-content t3 m3">
+                    @Html.Raw(ViewBag.Cover)
+                    <div class="with-space">
+                        @Html.Raw(Model.Content)
                     </div>
-                </article>
-            }
-            else
-            {
-                <article class="artical-content">
-                    <header>
-                        <h3 class="bold-font with-space">@Model.EnglishTitle</h3>
-                        <p class="t3 m3 green-text blog-date bold-font"><span class="bold-font">@Model.CreateTime.ToShortDateString()</span></p>
-                        <div class="float-right qrcode-div"><i class="iconfont green-text">&#xe79b;</i><div id="qrcode"></div></div>
-                        <p class="t3">
-                            @if (ViewBag.UserRules)
-                            {
-                                <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-                                <span>|</span>
-                                <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
-                            }
-                        </p>
-                    </header>
-                    <section class="blog-content t3 m3">
-                        @Html.Raw(ViewBag.Cover)
-                        <div class="with-space">
-                            @Html.Raw(Model.EnglishContent)
-                        </div>
-                    </section>
-                    <hr />
-                    <div>
-                        @if (Model.EnglishTags != null)
+                </section>
+                <hr />
+                <div>
+                    @if (Model.Tags != null)
+                    {
+                        foreach (var tag in Model.Tags.Split(","))
                         {
-                            foreach (var tag in Model.EnglishTags.Split(","))
-                            {
-                                <a class="blog-tag" href="/blog?t=@tag">@tag</a>
-                            }
+                            <a class="blog-tag" href="/blog?t=@tag">@tag</a>
                         }
-                    </div>
-                </article>
-            }
+                    }
+                </div>
+            </article>
 
 
             <div class="nav-artical nav-artical-bottom t3">

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<NeoWeb.Models.Blog>
+﻿@model IEnumerable<NeoWeb.Models.BlogViewModels>
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @{
@@ -68,48 +68,24 @@
                 @foreach (var item in Model)
                 {
                     @if (!item.IsShow && !ViewBag.UserRules) { continue; }
-                    @if (ViewBag.Language == "zh")
-                    {
-                        <li class="m3 border-static">
-                            <h3><a asp-action="details" class="blog-title with-space" asp-route-id="@item.Id">@item.ChineseTitle</a></h3>
-                            @if (!item.IsShow)
-                            {<p class="text-danger">未发布状态，仅管理员可见。</p>}
-                            <p class="t4 m3 green-text blog-date bold-font">@item.CreateTime.ToShortDateString() <span class="float-right">@item.ReadCount 次阅读</span></p>
-                            <a class="blog-summary" asp-action="details" asp-route-id="@item.Id">
-                                <p class="t3 m3 with-space">@item.ChineseSummary.Substring(0, Math.Min(item.ChineseSummary.Length, 150))…</p>
-                            </a>
-                            <div class="top-line m3">
-                                @if (item.ChineseTags != null)
+                    <li class="m3 border-static">
+                        <h3><a asp-action="details" class="blog-title with-space" asp-route-id="@item.Id">@item.Title</a></h3>
+                        @if (!item.IsShow)
+                        {<p class="text-danger">未发布状态，仅管理员可见。</p>}
+                        <p class="t4 m3 green-text blog-date bold-font">@item.CreateTime.ToShortDateString() <span class="float-right">@item.ReadCount 次阅读</span></p>
+                        <a class="blog-summary" asp-action="details" asp-route-id="@item.Id">
+                            <p class="t3 m3 with-space">@item.Summary.Substring(0, Math.Min(item.Summary.Length, 150))…</p>
+                        </a>
+                        <div class="top-line m3">
+                            @if (item.Tags != null)
+                            {
+                                foreach (var tag in item.Tags.Split(","))
                                 {
-                                    foreach (var tag in item.ChineseTags.Split(","))
-                                    {
-                                        <a class="blog-tag green-text" href="/blog?t=@tag">@tag</a>
-                                    }
+                                    <a class="blog-tag green-text" href="/blog?t=@tag">@tag</a>
                                 }
-                            </div>
-                        </li>
-                    }
-                    else
-                    {
-                        <li class="m3 border-static">
-                            <h3><a asp-action="details" class="blog-title with-space" asp-route-id="@item.Id">@item.EnglishTitle</a></h3>
-                            @if (!item.IsShow)
-                            {<p class="text-danger">未发布状态，仅管理员可见。</p>}
-                            <p class="t4 m3 green-text blog-date bold-font">@item.CreateTime.ToShortDateString() <span class="float-right">@item.ReadCount Times read</span></p>
-                            <a class="blog-summary" asp-action="details" asp-route-id="@item.Id">
-                                <p class="t3 m3 with-space">@item.EnglishSummary.Substring(0, Math.Min(item.EnglishSummary.Length, 150))…</p>
-                            </a>
-                            <div class="top-line m3">
-                                @if (item.EnglishTags != null)
-                                {
-                                    foreach (var tag in item.EnglishTags.Split(","))
-                                    {
-                                        <a class="blog-tag green-text" href="/blog?t=@tag">@tag</a>
-                                    }
-                                }
-                            </div>
-                        </li>
-                    }
+                            }
+                        </div>
+                    </li>
                 }
                 @if (Model.Count() == 0)
                 {

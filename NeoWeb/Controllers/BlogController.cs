@@ -86,21 +86,35 @@ namespace NeoWeb.Controllers
             {
                 models = _context.Blogs;
             }
-            models = models.OrderByDescending(o => o.CreateTime).Select(p => new Blog()
+            List<BlogViewModels> viewModels;
+            if (_sharedLocalizer["en"] == "zh")
             {
-                Id = p.Id,
-                ChineseTitle = p.ChineseTitle,
-                ChineseSummary = p.ChineseSummary,
-                ChineseTags = p.ChineseTags,
-                EnglishTitle = p.EnglishTitle,
-                EnglishSummary = p.EnglishSummary,
-                EnglishTags = p.EnglishTags,
-                CreateTime = p.CreateTime,
-                EditTime = p.EditTime,
-                ReadCount = p.ReadCount,
-                User = p.User,
-                IsShow = p.IsShow
-            });
+                viewModels = models.OrderByDescending(o => o.CreateTime).Select(p => new BlogViewModels()
+                {
+                    Id = p.Id,
+                    Content = p.ChineseContent,
+                    CreateTime = p.CreateTime,
+                    IsShow = p.IsShow,
+                    ReadCount = p.ReadCount,
+                    Summary = p.ChineseSummary,
+                    Tags = p.ChineseTags,
+                    Title = p.ChineseTitle
+                }).ToList();
+            }
+            else
+            {
+                viewModels = models.OrderByDescending(o => o.CreateTime).Select(p => new BlogViewModels()
+                {
+                    Id = p.Id,
+                    Content = p.EnglishContent,
+                    CreateTime = p.CreateTime,
+                    IsShow = p.IsShow,
+                    ReadCount = p.ReadCount,
+                    Summary = p.EnglishSummary,
+                    Tags = p.EnglishTags,
+                    Title = p.EnglishTitle
+                }).ToList();
+            }
 
             ViewBag.CreateTime = models.Select(p => new BlogDateTimeViewModels
             {
@@ -118,8 +132,8 @@ namespace NeoWeb.Controllers
             }
             models = models.Take(30);
             ViewBag.UserRules = _userRules;
-            ViewBag.Language = _sharedLocalizer["en"];
-            return View(models);
+            
+            return View(viewModels);
         }
 
         // GET: blog/details/5
@@ -131,12 +145,42 @@ namespace NeoWeb.Controllers
             {
                 return RedirectToAction("Index");
             }
+            var blog = await _context.Blogs.Include(m => m.User).SingleOrDefaultAsync(m => m.Id == id || m.OldId == id);
 
-            var blog = await _context.Blogs.Include(m => m.User)
-                .SingleOrDefaultAsync(m => m.Id == id || m.OldId == id);
             if (blog == null || (!blog.IsShow && !_userRules))
             {
                 return RedirectToAction("Index");
+            }
+
+            BlogViewModels viewModels;
+            language = !string.IsNullOrEmpty(language) ? language : _sharedLocalizer["en"];
+            if (language == "zh")
+            {
+                viewModels = new BlogViewModels()
+                {
+                    Id = blog.Id,
+                    Content = blog.ChineseContent,
+                    CreateTime = blog.CreateTime,
+                    IsShow = blog.IsShow,
+                    ReadCount = blog.ReadCount,
+                    Summary = blog.ChineseSummary,
+                    Tags = blog.ChineseTags,
+                    Title = blog.ChineseTitle
+                };
+            }
+            else
+            {
+                viewModels = new BlogViewModels()
+                {
+                    Id = blog.Id,
+                    Content = blog.EnglishContent,
+                    CreateTime = blog.CreateTime,
+                    IsShow = blog.IsShow,
+                    ReadCount = blog.ReadCount,
+                    Summary = blog.EnglishSummary,
+                    Tags = blog.EnglishTags,
+                    Title = blog.EnglishTitle
+                };
             }
 
             #region Previous article and  Next article
@@ -165,7 +209,6 @@ namespace NeoWeb.Controllers
                 Month = p.CreateTime.Month
             }).Distinct();
 
-            ViewBag.UserId = _userId;
             ViewBag.UserRules = _userRules;
 
             if (blog.ReadCount < int.MaxValue && string.IsNullOrEmpty(Request.Cookies[blog.Id.ToString()]) && Request.Cookies.Count >= 1)
@@ -174,11 +217,8 @@ namespace NeoWeb.Controllers
                 _context.Update(blog);
                 await _context.SaveChangesAsync();
             }
-            if (!string.IsNullOrEmpty(language))
-                ViewBag.Language = language;
-            else
-                ViewBag.Language = _sharedLocalizer["en"];
-            return View(blog);
+            ViewBag.Language = _sharedLocalizer["en"];
+            return View(viewModels);
         }
 
         // GET: Blog/Create
