@@ -80,7 +80,9 @@ https://github.com/neo-project/neo.org
     @RenderSection("Styles", required: false)
 </head>
 <body>
-    @RenderBody()
+    <div class="container layout-container">
+        @RenderBody()
+    </div>
     <footer>
     </footer>
     <form id="form_language" asp-action="SetLanguage" asp-controller="home" method="post">
