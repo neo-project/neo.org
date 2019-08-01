@@ -1,0 +1,57 @@
+﻿@model NeoWeb.Models.Blog
+
+<div class="form-group">
+    <label asp-for="ChineseTitle" class="col-form-label"></label>
+    <input asp-for="ChineseTitle" class="form-control" />
+    <span asp-validation-for="ChineseTitle" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="EnglishTitle" class="col-form-label"></label>
+    <input asp-for="EnglishTitle" class="form-control" />
+    <span asp-validation-for="EnglishTitle" class="text-danger"></span>
+</div>
+<div class="from-group">
+    <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" asp-for="IsShow">
+        <label class="custom-control-label" asp-for="IsShow">在博客列表中显示</label>
+    </div>
+</div>
+<div class="form-group">
+    <label asp-for="ChineseContent" class="col-form-label"></label>
+    <textarea asp-for="ChineseContent" class="form-control" autocomplete="off" rows=10></textarea>
+    <span asp-validation-for="ChineseContent" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="EnglishContent" class="col-form-label"></label>
+    <textarea asp-for="EnglishContent" class="form-control" autocomplete="off" rows=10></textarea>
+    <span asp-validation-for="EnglishContent" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="ChineseTags" class="col-form-label">中文标签（用逗号分隔）</label>
+    <input asp-for="ChineseTags" class="form-control" />
+    <span asp-validation-for="ChineseTags" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="EnglishTags" class="col-form-label">英文标签（用逗号分隔）</label>
+    <input asp-for="EnglishTags" class="form-control" />
+    <span asp-validation-for="EnglishTags" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <input type="submit" value="Create" class="btn btn-light" />
+</div>
+<script src="/lib/tinymce/tinymce.min.js" asp-append-version="true"></script>
+<script>
+    tinymce.init({
+        selector: 'textarea',
+        language: 'zh_CN',
+        height: 500,
+        menubar: true,
+        plugins: 'print preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern help',
+        toolbar: 'formatselect | bold italic strikethrough forecolor backcolor permanentpen formatpainter | link image media pageembed | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | removeformat | addcomment',
+        image_advtab: true,
+        images_upload_url: "../../../../blog/upload"
+    });
+</script>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
