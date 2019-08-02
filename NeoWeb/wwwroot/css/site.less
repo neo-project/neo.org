@@ -1,4 +1,5 @@
 ﻿@import 'basic.less';
+@import 'layout.less';
 
 body {
     font-size: 17px;
@@ -73,6 +74,23 @@ h5, .h5 {
     line-height: 47px;
 }
 
+
+.f-n1 {
+    font-size: 1rem;
+    font-family: Rajdhani;
+    letter-spacing: .3px;
+}
+
+.f-n2 {
+    .f-n1;
+    font-weight: 600;
+    letter-spacing: .6px;
+}
+
+.bold {
+    font-weight: 600;
+}
+
 .bolder {
     font-family: Rajdhani-Bold;
     letter-spacing: .7px;
@@ -82,6 +100,8 @@ h5, .h5 {
     font-family: Rajdhani-Light;
     letter-spacing: .3px;
 }
+
+
 
 /*间距*/
 .m1 {
@@ -93,10 +113,14 @@ h5, .h5 {
 }
 
 .m3 {
-    margin-top: 25px;
+    margin-top: 35px;
 }
 
 .m4 {
+    margin-top: 25px;
+}
+
+.m5 {
     margin-top: 12px;
 }
 
@@ -107,6 +131,7 @@ h5, .h5 {
     color: @btn-text !important;
     border-radius: 0;
     padding: 12px 27px;
+    border:none;
 
     @media only screen and (max-width: 768px) {
         padding: 5px 12px;
@@ -141,7 +166,7 @@ h5, .h5 {
 
 /*颜色*/
 .green {
-    color: @green;
+    color: @green!important;
 }
 
 /*背景色*/
@@ -176,6 +201,44 @@ h5, .h5 {
     z-index: -1;
     height: 20px;
     width: 20px;
+}
+
+.center {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+hr.line{
+    border-top:1px solid @line;
+}
+.fl-r{float:right;}
+
+/*border*/
+.no-border{
+    border:none!important;
+}
+
+/*透明度*/
+.op-100 {
+    opacity: 1;
+}
+.op-90 {
+    opacity: .9;
+}
+.op-80 {
+    opacity: .8;
+}
+.op-70 {
+    opacity: .7;
+}
+.op-50 {
+    opacity: .5;
+}
+.op-20 {
+    opacity: .2;
 }
 
 @font-face {

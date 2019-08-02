@@ -80,8 +80,69 @@ https://github.com/neo-project/neo.org
     @RenderSection("Styles", required: false)
 </head>
 <body>
+
     @RenderBody()
+
+
+    <div class="container footer-fo">
+        <h2>Follow Us</h2>
+        <ul class="m2">
+            <li><a href="" class=" iconfont">&#xe71d;</a></li>
+            <li><a href="" class=" iconfont">&#xe71d;</a></li>
+            <li><a href="" class=" iconfont">&#xe71d;</a></li>
+            <li><a href="" class=" iconfont">&#xe71d;</a></li>
+            <li><a href="" class=" iconfont">&#xe71d;</a></li>
+            <li><a href="" class=" iconfont">&#xe71d;</a></li>
+            <li><a href="" class=" iconfont">&#xe71d;</a></li>
+            <li><a href="" class=" iconfont">&#xe71d;</a></li>
+            <li><a href="" class=" iconfont">&#xe71d;</a></li>
+            <li><a href="" class=" iconfont">&#xe71d;</a></li>
+        </ul>
+    </div>
     <footer>
+        <hr class="line" />
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <img class="b-logo" width="80" height="30"/>
+                </div>
+                <div class="col-md-2">
+                    <p class="bold no-border">About</p>
+                    <ul>
+                        <li>About NEO</li>
+                        <li>Roadmap</li>
+                        <li>Contributors</li>
+                        <li>Careers</li>
+                        <li>Press Kit</li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <p class="bold">Developers</p>
+                    <ul>
+                        <li>Dev Resources</li>
+                        <li>Community</li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <p class="bold">Ecosystem</p>
+                    <ul>
+                        <li>NEO Ecosystem</li>
+                        <li>EcoBoost</li>
+                        <li>dApps List</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <p class="bold">Contact Us</p>
+                    <ul>
+                        <li><small>General</small><span class="green"> contact@neo.org</span></li>
+                        <li><small>Marketing</small><span class="green"> marketing@neo.org</span></li>
+                        <li><small>EcoBoost</small><span class="green"> xxxxxxx@neo.org</span></li>
+                        <li><small>R&D</small><span class="green"> xxxxxx@neo.org</span></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="m2 op-70"><small>Copyright © NEO Team 2014-2019<br />沪ICP备15040337号</small></p>
+        </div>
     </footer>
     <form id="form_language" asp-action="SetLanguage" asp-controller="home" method="post">
         @Html.AntiForgeryToken()
