@@ -67,7 +67,7 @@ namespace NeoWeb.Controllers
             ViewBag.CountryId = c;
             ViewBag.Date = d;
             //对关键词进行筛选
-            if (!String.IsNullOrEmpty(k))
+            if (!string.IsNullOrEmpty(k))
             {
                 var keywords = k.Split(" ");
                 foreach (var item in keywords)
@@ -106,7 +106,6 @@ namespace NeoWeb.Controllers
             //对具体日期进行查找
             if (DateTime.TryParse(z, out DateTime date))
                 models = models.Where(p => p.StartTime.Date <= date && p.EndTime.Date >= date);
-
 
             ViewBag.UserRules = _userRules;
             return View(models);
@@ -164,8 +163,6 @@ namespace NeoWeb.Controllers
         }
 
         // POST: event/create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,City,Type,Address,StartTime,EndTime,Cover,Details,Organizers,IsFree,ThirdPartyLink")] Event @event, int countryId, IFormFile cover)

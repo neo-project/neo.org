@@ -18,6 +18,7 @@ using SixLabors.ImageSharp.PixelFormats;
 using Microsoft.Extensions.Localization;
 using Microsoft.AspNetCore.Hosting;
 using System.Xml;
+using System.Diagnostics;
 
 namespace NeoWeb.Controllers
 {
@@ -49,22 +50,12 @@ namespace NeoWeb.Controllers
         [AllowAnonymous]
         public IActionResult Index(int? y = null, int? m = null, string k = null, string t = null)
         {
-            IQueryable<Blog> models = null;
-
-            if (k != null) //搜索，显示所有语言博客
+            IQueryable<Blog> models = _context.Blogs;
+            if (k != null) //搜索关键词
             {
-                var keywords = k.Split(" ");
-                foreach (var item in keywords) //对关键词进行搜索
+                foreach (var item in k.Split(" "))
                 {
-                    if (models == null)
-                        models = _context.Blogs.Where(p => p.ChineseTitle.Contains(item, StringComparison.OrdinalIgnoreCase)
-                        || p.ChineseContent.Contains(item, StringComparison.OrdinalIgnoreCase)
-                        || p.ChineseTags != null && p.ChineseTags.Contains(item, StringComparison.OrdinalIgnoreCase)
-                        || p.EnglishTitle.Contains(item, StringComparison.OrdinalIgnoreCase)
-                        || p.EnglishContent.Contains(item, StringComparison.OrdinalIgnoreCase)
-                        || p.EnglishTags != null && p.EnglishTags.Contains(item, StringComparison.OrdinalIgnoreCase));
-                    else
-                        models = models.Where(p => p.ChineseTitle.Contains(item, StringComparison.OrdinalIgnoreCase)
+                    models = models.Where(p => p.ChineseTitle.Contains(item, StringComparison.OrdinalIgnoreCase)
                         || p.ChineseContent.Contains(item, StringComparison.OrdinalIgnoreCase)
                         || p.ChineseTags != null && p.ChineseTags.Contains(item, StringComparison.OrdinalIgnoreCase)
                         || p.EnglishTitle.Contains(item, StringComparison.OrdinalIgnoreCase)
@@ -72,19 +63,10 @@ namespace NeoWeb.Controllers
                     if (models == null) break;
                 }
             }
-            if (t != null) //筛选标签
+            if (t != null) //搜索标签
             {
-                if (models == null)
-                    models = _context.Blogs.Where(p => p.ChineseTags != null && p.ChineseTags.Contains(t, StringComparison.OrdinalIgnoreCase)
+                models = models.Where(p => p.ChineseTags != null && p.ChineseTags.Contains(t, StringComparison.OrdinalIgnoreCase)
                     || p.EnglishTags != null && p.EnglishTags.Contains(t, StringComparison.OrdinalIgnoreCase));
-                else
-                    models = models.Where(p => p.ChineseTags != null && p.ChineseTags.Contains(t, StringComparison.OrdinalIgnoreCase)
-                    || p.EnglishTags != null && p.EnglishTags.Contains(t, StringComparison.OrdinalIgnoreCase));
-            }
-
-            if (k == null && t == null)
-            {
-                models = _context.Blogs;
             }
             List<BlogViewModels> viewModels;
             if (_sharedLocalizer["en"] == "zh")
@@ -92,7 +74,6 @@ namespace NeoWeb.Controllers
                 viewModels = models.OrderByDescending(o => o.CreateTime).Select(p => new BlogViewModels()
                 {
                     Id = p.Id,
-                    Content = p.ChineseContent,
                     CreateTime = p.CreateTime,
                     IsShow = p.IsShow,
                     ReadCount = p.ReadCount,
@@ -106,7 +87,6 @@ namespace NeoWeb.Controllers
                 viewModels = models.OrderByDescending(o => o.CreateTime).Select(p => new BlogViewModels()
                 {
                     Id = p.Id,
-                    Content = p.EnglishContent,
                     CreateTime = p.CreateTime,
                     IsShow = p.IsShow,
                     ReadCount = p.ReadCount,
@@ -120,7 +100,7 @@ namespace NeoWeb.Controllers
             {
                 Year = p.CreateTime.Year,
                 Month = p.CreateTime.Month
-            }).Distinct();
+            }).ToList().Distinct();
 
             if (y != null)
             {
@@ -145,7 +125,7 @@ namespace NeoWeb.Controllers
             {
                 return RedirectToAction("Index");
             }
-            var blog = await _context.Blogs.Include(m => m.User).SingleOrDefaultAsync(m => m.Id == id || m.OldId == id);
+            var blog = await _context.Blogs.SingleOrDefaultAsync(m => m.Id == id || m.OldId == id);
 
             if (blog == null || (!blog.IsShow && !_userRules))
             {
@@ -183,31 +163,23 @@ namespace NeoWeb.Controllers
                 };
             }
 
-            #region Previous article and  Next article
             var blogs = _context.Blogs.Select(p => new Blog()
             {
                 Id = p.Id,
                 CreateTime = p.CreateTime
             }).OrderByDescending(o => o.CreateTime).ToList();
 
+            #region Previous article and  Next article
             var idList = blogs.Select(p => p.Id).ToList();
-            if (idList.Count == 0)
-            {
-                ViewBag.NextBlogId = blog.Id;
-                ViewBag.PrevBlogId = blog.Id;
-            }
-            else
-            {
-                ViewBag.NextBlogId = idList[Math.Max(idList.IndexOf((int)id) - 1, 0)];
-                ViewBag.PrevBlogId = idList[Math.Min(idList.IndexOf((int)id) + 1, idList.Count - 1)];
-            }
+            ViewBag.NextBlogId = idList.Count == 0 ? blog.Id : idList[Math.Max(idList.IndexOf((int)id) - 1, 0)];
+            ViewBag.PrevBlogId = idList.Count == 0 ? blog.Id : idList[Math.Min(idList.IndexOf((int)id) + 1, idList.Count - 1)];
             #endregion
 
             ViewBag.CreateTime = blogs.Select(p => new BlogDateTimeViewModels
             {
                 Year = p.CreateTime.Year,
                 Month = p.CreateTime.Month
-            }).Distinct();
+            }).ToList().Distinct();
 
             ViewBag.UserRules = _userRules;
 
@@ -226,9 +198,8 @@ namespace NeoWeb.Controllers
         {
             return View();
         }
+
         // POST: blog/create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,ChineseTitle,ChineseContent,ChineseTags,EnglishTitle,EnglishContent,EnglishTags,IsShow")] Blog blog)
@@ -246,7 +217,7 @@ namespace NeoWeb.Controllers
                 blog.User = _context.Users.Find(_userId);
                 _context.Add(blog);
                 await _context.SaveChangesAsync();
-                UpdateRSS();
+                await UpdateRSSAsync();
                 return RedirectToAction("Index");
             }
             return View(blog);
@@ -296,7 +267,7 @@ namespace NeoWeb.Controllers
                     item.IsShow = blog.IsShow;
                     _context.Update(item);
                     await _context.SaveChangesAsync();
-                    UpdateRSS();
+                    await UpdateRSSAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -322,8 +293,7 @@ namespace NeoWeb.Controllers
                 return NotFound();
             }
 
-            var blog = await _context.Blogs
-                .SingleOrDefaultAsync(m => m.Id == id);
+            var blog = await _context.Blogs.SingleOrDefaultAsync(m => m.Id == id);
             if (blog == null)
             {
                 return NotFound();
@@ -342,10 +312,13 @@ namespace NeoWeb.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
-        private void UpdateRSS()
+        private async Task UpdateRSSAsync()
         {
-            UpdateRssChinese();
-            UpdateRssEnglish();
+            await Task.Run(() =>
+            {
+                UpdateRssChinese();
+                UpdateRssEnglish();
+            });
         }
 
         private void UpdateRssChinese()
@@ -378,7 +351,7 @@ namespace NeoWeb.Controllers
             description.InnerText = "Latest posts from NEO blog";
             channel.AppendChild(description);
 
-            var blogs = _context.Blogs.OrderByDescending(p => p.CreateTime).Take(20).Select(p => new Blog()
+            var blogs = _context.Blogs.Where(p => p.IsShow).OrderByDescending(p => p.CreateTime).Take(20).Select(p => new Blog()
             {
                 ChineseTitle = XmlEncode(p.ChineseTitle),
                 ChineseSummary = XmlEncode(p.ChineseSummary) + "...",
@@ -448,7 +421,7 @@ namespace NeoWeb.Controllers
             description.InnerText = "Latest posts from NEO blog";
             channel.AppendChild(description);
 
-            var blogs = _context.Blogs.OrderByDescending(p => p.CreateTime).Take(20).Select(p => new Blog()
+            var blogs = _context.Blogs.Where(p => p.IsShow).OrderByDescending(p => p.CreateTime).Take(20).Select(p => new Blog()
             {
                 EnglishTitle = XmlEncode(p.EnglishTitle),
                 EnglishSummary = XmlEncode(p.EnglishSummary) + "...",
@@ -487,10 +460,10 @@ namespace NeoWeb.Controllers
             RssModel.English = xml.OuterXml;
         }
         [AllowAnonymous]
-        public IActionResult RSS(string language)
+        public async Task<IActionResult> RSS(string language)
         {
             if (string.IsNullOrEmpty(RssModel.Chinese) || string.IsNullOrEmpty(RssModel.English))
-                UpdateRSS();
+                await UpdateRSSAsync();
             if (language == "zh")
             {
                 return Content(RssModel.Chinese, "text/xml");
