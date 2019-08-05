@@ -207,15 +207,6 @@
   <data name="Documentation" xml:space="preserve">
     <value>技术文档</value>
   </data>
-  <data name="en-us" xml:space="preserve">
-    <value>zh-cn</value>
-  </data>
-  <data name="d-none" xml:space="preserve">
-    <value />
-  </data>
-  <data name="d-none-zh" xml:space="preserve">
-    <value>d-none</value>
-  </data>
   <data name="Automatic Entry" xml:space="preserve">
     <value>自动申请通道</value>
   </data>

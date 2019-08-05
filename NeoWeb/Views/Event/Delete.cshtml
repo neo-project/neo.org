@@ -3,14 +3,6 @@
 @{
     ViewData["Title"] = "Delete Event";
 }
-@section Styles{
-    <environment include="Development">
-        <link rel="stylesheet" href="/css/event.css" asp-append-version="true" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.ToCDN("/css/event.min.css", true)" />
-    </environment>
-}
 <div class="container">
     <h2 class="mt-2">Delete</h2>
 

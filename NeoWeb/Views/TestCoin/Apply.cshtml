@@ -2,7 +2,7 @@
 @inject IViewLocalizer Localizer
 @model NeoWeb.Models.TestCoin
 @{
-    ViewData["Title"] = Localizer["Developer"];
+    ViewData["Title"] = Localizer["Developer"].Value;
     Layout = "_LayoutTestnet.cshtml";
 }
 <div class="apply-content m1">

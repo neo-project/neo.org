@@ -71,9 +71,6 @@
     <Content Update="Views\Event\Index.cshtml">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Update="Views\Event\_CreatePartialPage.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
     <Content Update="Views\Event\_EditorPartialPage.cshtml">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
@@ -156,8 +153,6 @@
     <_ContentIncludedByDefault Remove="Views\Blog\Index.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Blog\_LayoutBlog.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Team\Index.cshtml" />
-    <_ContentIncludedByDefault Remove="wwwroot\css\client.css" />
-    <_ContentIncludedByDefault Remove="wwwroot\css\homepage.css" />
   </ItemGroup>
 
 

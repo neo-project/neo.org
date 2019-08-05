@@ -1,7 +1,9 @@
-﻿@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
-@using Microsoft.AspNetCore.Mvc.Localization
-@inject IViewLocalizer Localizer
+﻿@using Microsoft.AspNetCore.Mvc.Localization
 @using Microsoft.ApplicationInsights.AspNetCore
+
+@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
 @inject JavaScriptSnippet snippet
 <!DOCTYPE html>
 <!--
@@ -27,41 +29,12 @@ https://github.com/neo-project/neo.org
     <meta name="author" content="neo-project">
     <meta name="application-name" content="neo.org">
     <meta name="renderer" content="ie-stand">
-    @if (ViewData["keywords"] == null)
-    {
-        <meta name="keywords" content="NEO,Blockchain,智能经济,antshares,小蚁,区块链">
-    }
-    else
-    {
-        <meta name="keywords" content="@string.Format("{0},", ViewData["keywords"])NEO,Blockchain,智能经济,antshares,小蚁,区块链">
-    }
+    <meta name="keywords" content="@(ViewData["keywords"] ?? $"{ViewData["keywords"]},")NEO,Blockchain,智能经济,antshares,小蚁,区块链">
 
-    @if (ViewData["Title"] == null)
-    {
-        <title>@Localizer["NEO Smart Economy"]</title>
-        <meta name="twitter:title" content="@Localizer["NEO Smart Economy"]" />
-    }
-    else
-    {
-        <title>@ViewData["Title"] - @Localizer["NEO Smart Economy"]</title>
-        <meta name="twitter:title" content="@ViewData["Title"] - @Localizer["NEO Smart Economy"]" />
-    }
-    @if (ViewData["Details"] == null)
-    {
-        <meta name="twitter:description" content="@Localizer["NEO Smart Economy"]" />
-    }
-    else
-    {
-        <meta name="twitter:description" content="@ViewData["Details"]" />
-    }
-    @if (ViewData["Image"] == null)
-    {
-        <meta name="twitter:image" content="@Helper.ToCDN("/images/twitter-img.jpg")" />
-    }
-    else
-    {
-        <meta name="twitter:image" content="@ViewData["Image"]" />
-    }
+    <title>@(ViewData["Title"] != null ? $"{ViewData["Title"]} - " : "")@Localizer["NEO Smart Economy"]</title>
+    <meta name="twitter:title" content="@(ViewData["Title"] != null ? $"{ViewData["Title"]} - " : "")@Localizer["NEO Smart Economy"]" />
+    <meta name="twitter:description" content="@(ViewData["Details"] ?? Localizer["NEO Smart Economy"])" />
+    <meta name="twitter:image" content="@(ViewData["Image"] ?? Helper.ToCDN("/images/twitter-img.jpg"))" />
     <meta name="twitter:card" content="summary_large_image" />
     <link type="image/x-icon" href="@Helper.ToCDN("/images/favicon.png")" rel="apple-touch-icon">
     <link type="image/x-icon" href="@Helper.ToCDN("/images/favicon.png")" rel="shortcut icon">

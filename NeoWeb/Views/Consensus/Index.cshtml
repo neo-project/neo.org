@@ -1,9 +1,10 @@
 ﻿@model NeoWeb.Models.Candidate
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
 @{
-    ViewData["Title"] = @Localizer["Consensus Nodes"];
+    ViewData["Title"] = Localizer["Consensus Nodes"].Value;
 }
 
 @section Styles{
@@ -197,7 +198,7 @@
     <script src="@Helper.ToCDN("/lib/bootstrap-fileinput/js/locales/zh.js")"></script>
     <script>
         $("#logo").fileinput({
-            language: '@Localizer["en"]',
+            language: '@SharedLocalizer["en"]',
             showUpload: false,
             allowedFileExtensions: ['jpg', 'png', 'gif'],
         });

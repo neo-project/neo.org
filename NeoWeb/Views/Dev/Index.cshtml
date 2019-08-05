@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @{
-    ViewData["Title"] = Localizer["Developer"];
+    ViewData["Title"] = Localizer["Developer"].Value;
 }
 @section Styles{
     <environment include="Development">
