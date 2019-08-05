@@ -12,11 +12,71 @@
         <link rel="stylesheet" href="@Helper.ToCDN("/css/event.min.css", true)" />
     </environment>
     <style>
-        body {
-            padding-top: 0;
-        }
     </style>
 }
+
+<div class="container p2">
+    <h2 class="m1 text-center">News & Events</h2>
+    <div class="row">
+        <div class="col-md-8">
+            <img class="m2" width="100%" height="440" />
+        </div>
+        <div class="col-md-4">
+            <div class="center n o-des">
+                <p class="green bold m4">EVENTS</p>
+                <h4>NEO JOY 2019 - Shanghai</h4>
+                <p class="m6"><i class="iconfont">&#xe71d;</i> Wed, 2019-07-30, 16:30 - 18:30</p>
+                <p><i class="iconfont">&#xe71d;</i> China, Shanghai</p>
+                <p class="m5">
+                    sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                </p>
+                <p class="m5 gray"><small>July 16, 2019</small></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <form asp-action="index" method="get">
+        <div class="input-group search-group">
+
+            <input type="text"/>
+            <div class="input-group-append">
+                <button class="btn-static search-btn t3" type="submit">@Localizer["Search"]</button>
+            </div>
+            <div class="dropdown show">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuk" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Categories
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <div class="border-static">
+                        <a href="#" onclick="setselect('k', this)" value="">Categories</a>
+                        @foreach (var item in ViewBag.Types as IEnumerable<EventType>)
+                        {
+                            <a href="#" onclick="setselect('k', this)" value="@item">@item</a>
+                        }
+                    </div>
+                </div>
+            </div>
+            <select name="k" id="k" class="d-none">
+                <option value="">Categories</option>
+                @foreach (var item in ViewBag.Types as IEnumerable<EventType>)
+                {
+                    if (item.ToString() == ViewBag.Keywords)
+                    {
+                        <option selected="selected" value="@item">@item</option>
+                    }
+                    else
+                    {
+                        <option value="@item">@item</option>
+                    }
+                }
+            </select>
+        </div>
+    </form>
+
+</div>
+
 
 <div class="event-banner">
     <div class="container">
