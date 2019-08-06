@@ -25,3 +25,19 @@
 @line: rgba(200, 200, 200, 0.2);
 @gray: #505050;
 
+
+.typetext{
+    margin-right:.3em;
+}
+.typetext:after {
+    content: "|";
+    position: absolute;
+    line-height:1.1em;
+    font-size:1.2em;
+    vertical-align:middle;
+    animation:op .5s alternate infinite;
+}
+@keyframes op{
+    0%{opacity:0;}
+    100%{opacity:1;}
+}
