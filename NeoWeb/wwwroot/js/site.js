@@ -1,23 +1,13 @@
-﻿$(document).scroll(function () { navColor() });
+﻿$('.special-button').click(function () {
 
-function language(lang) {
-    var rgExp = /\w{2}-\w{2}/;
-
-    if (rgExp.exec(location.href)) {
-        location.href = location.href.replace(rgExp, lang);
+    if ($('.bottom').hasClass('active')) {
+        $(".st0").attr("class", "st0");
     }
+
     else {
-        location.href = location.href + "?culture=" + lang;
+        $(".st0").attr("class", "st0 active");
     }
-}
 
-function navColor() {
-    var scrnum = $(document).scrollTop();
-    var $nav = $(".navbar");
-    if (scrnum <= 100) {
-        $nav.removeAttr('style');
-    } else {
-        $nav.css("background", "#FFF");
-        $nav.css("top", "0px");
-    }
-}
+    $('.top').toggleClass("active");
+    $('.bottom').toggleClass("active");
+});
