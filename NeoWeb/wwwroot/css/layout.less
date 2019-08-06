@@ -1,4 +1,155 @@
 ﻿@import "basic.less";
+.navbar {
+    padding: 25px 20px;
+    background-color: @back;
+
+    img {
+        height: 37px;
+    }
+
+    .nav-item {
+        .nav-link {
+            cursor: pointer;
+        }
+
+        padding: 0 .5rem;
+        min-width: 50px;
+
+        @media only screen and (min-width: 992px) {
+            &:hover {
+                .nav-dropdown {
+                    display: block;
+                }
+            }
+        }
+
+
+        a {
+            display: inline-block;
+            color: @text;
+        }
+
+        .nav-dropdown {
+            display: none;
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            border-radius: 0;
+            box-shadow: @green 0 0 3px 1px;
+            border: none;
+            text-align: center;
+            background-color: @back;
+
+            a, a:hover {
+                text-decoration: none;
+                line-height: 48px;
+                padding: 0 1rem;
+                display: block;
+            }
+
+            a:nth-child(n+2) {
+                border-top: 1px solid @green;
+            }
+        }
+    }
+
+    .navbar-toggler {
+        position: relative;
+        border: none;
+        outline: none;
+
+        &:hover, &:active, &:focus {
+            outline: none;
+        }
+    }
+
+    .special-button {
+        width: 50px;
+        height: 50px;
+        display: block;
+        position: absolute;
+        margin: auto;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        transform: scale(0.72);
+        -webkit-transform: scale(0.72);
+        -moz-transform: scale(0.72);
+        -ms-transform: scale(0.72);
+    }
+
+    .st0 {
+        fill: none;
+        stroke: @btn-text;
+        stroke-width: 10;
+        stroke-miterlimit: 10;
+        stroke-dasharray: 500;
+        stroke-dashoffset: 2430;
+        transition: stroke-dasharray 0.6s ease, stroke-dashoffset 0.6s ease;
+
+        &.active {
+            stroke-dasharray: 500;
+            stroke-dashoffset: 1880;
+        }
+    }
+
+    .top,
+    .bottom {
+        pointer-events: none;
+        width: 27px;
+        background-color: @btn-text;
+        height: 3px;
+        border-radius: 3px;
+        position: absolute;
+        left: 12px;
+        transition: transform 0.6s ease, top 0.6s ease;
+    }
+
+    .top {
+        top: 15px;
+
+        &.active {
+            transform: rotate(45deg);
+            top: 24px;
+        }
+    }
+
+    .bottom {
+        top: 34px;
+
+        &.active {
+            transform: rotate(-45deg);
+            top: 24px;
+        }
+    }
+
+    p {
+        position: fixed;
+        bottom: 0px;
+        left: 15px;
+        color: @btn-text;
+        font-family: Lato;
+        font-weight: 300;
+        overflow: hidden;
+
+        a:link,
+        a:visited {
+            color: @btn-text;
+        }
+
+        a:hover {
+            opacity: 0.5;
+        }
+
+        img {
+            width: 20px;
+            height: 20px;
+            position: relative;
+            top: 6px;
+        }
+    }
+}
 
 .footer-fo {
     ul {

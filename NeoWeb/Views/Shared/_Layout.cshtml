@@ -63,12 +63,10 @@ https://github.com/neo-project/neo.org
     }
 </head>
 <body>
-    <nav class="container navbar navbar-expand-md">
+    <nav class="container navbar navbar-expand-lg">
         <a href="/"><img src="@Helper.CDN/images/neo_logo.svg" alt="NEO Logo" /></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <div class="special-button">
-                <svg version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 150" width="50" xml:space="preserve">
-                <path class="st0" d="M41,78h71c0,0,29.7-8,16-36c-1.6-3.3-19.3-30-52-30c-36,0-64,29-64,65c0,29,26,59,61.6,59c41.4,0,62.6-29,62.6-59c0-37.7-19.2-49.1-26.3-54" stroke-linejoin="round" stroke-linecap="round" /></svg>
                 <div class="top"></div>
                 <div class="bottom"></div>
             </div>
@@ -76,23 +74,41 @@ https://github.com/neo-project/neo.org
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" asp-controller="about" asp-action="index">@Localizer["About"]</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <li class="nav-item">
+                    <span class="nav-link">
                         @Localizer["About"]
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                    </span>
+                    <div class="nav-dropdown">
+                        <a href="#">@Localizer["About NEO"]</a>
+                        <a href="#">@Localizer["Roadmap"]</a>
+                        <a href="#">@Localizer["Contributers"]</a>
+                        <a href="#">@Localizer["Press Kit"]</a>
                     </div>
                 </li>
-                <li class="nav-item"><a class="nav-link" asp-controller="dev" asp-action="index">@Localizer["Developer"]</a></li>
+                <li class="nav-item">
+                    <span class="nav-link">
+                        @Localizer["Developer"]
+                    </span>
+                    <div class="nav-dropdown">
+                        <a href="/dev">@Localizer["Developer"]</a>
+                        <a href="#">@Localizer["Dev Resources"]</a>
+                        <a href="#">@Localizer["Community"]</a>
+                    </div>
+                </li>
                 <li class="nav-item"><a class="nav-link" asp-controller="client" asp-action="index">@Localizer["Client"]</a></li>
-                <li class="nav-item"><a class="nav-link" asp-controller="ecosystem" asp-action="index">@Localizer["EcoSystem"]</a></li>
+                <li class="nav-item">
+                    <span class="nav-link">
+                        @Localizer["EcoSystem"]
+                    </span>
+                    <div class="nav-dropdown">
+                        <a href="#">@Localizer["EcoSystem"]</a>
+                        <a href="/ecoboost">@Localizer["EcoBoost"]</a>
+                        <a href="#">@Localizer["dApps List"]</a>
+                    </div>
+                </li>
                 <li class="nav-item"><a class="nav-link" asp-controller="discover" asp-action="index">@Localizer["News & Event"]</a></li>
 
+                <li class="nav-item"></li>
                 @if (SharedLocalizer["en"].Value == "zh")
                 {
                     <li class="nav-item nav-lang">
@@ -143,7 +159,6 @@ https://github.com/neo-project/neo.org
                         <li>About NEO</li>
                         <li>Roadmap</li>
                         <li>Contributors</li>
-                        <li>Careers</li>
                         <li>Press Kit</li>
                     </ul>
                 </div>
