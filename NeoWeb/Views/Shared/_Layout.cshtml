@@ -51,8 +51,54 @@ https://github.com/neo-project/neo.org
         @Html.Raw(JavaScriptSnippet.FullScript)
     </environment>
     @RenderSection("Styles", required: false)
+    @if (SharedLocalizer["en"].Value == "zh")
+    {
+        <style>
+            /*中文字体*/
+            html, body {
+                font-size: 15px;
+                font-family: "微软雅黑 Light",PingFangSC-Light,"PingHei","Lucida Grande","STHeitiSC-Light","BBAlpha Sans","S60 Sans","Hiragino Sans GB","Microsoft YaHei Light","Verdana",SimHei,"WenQuanYi Micro Hei",sans-serif;
+            }
+        </style>
+    }
 </head>
 <body>
+    <nav class="container navbar navbar-expand-md">
+        <a href="/"><img src="@Helper.CDN/images/neo_logo.svg" alt="NEO Logo" /></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="special-button">
+                <svg version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 150" width="50" xml:space="preserve">
+                <path class="st0" d="M41,78h71c0,0,29.7-8,16-36c-1.6-3.3-19.3-30-52-30c-36,0-64,29-64,65c0,29,26,59,61.6,59c41.4,0,62.6-29,62.6-59c0-37.7-19.2-49.1-26.3-54" stroke-linejoin="round" stroke-linecap="round" /></svg>
+                <div class="top"></div>
+                <div class="bottom"></div>
+            </div>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" asp-controller="about" asp-action="index">@Localizer["About"]</a></li>
+                <li class="nav-item"><a class="nav-link" asp-controller="dev" asp-action="index">@Localizer["Developer"]</a></li>
+                <li class="nav-item"><a class="nav-link" asp-controller="client" asp-action="index">@Localizer["Client"]</a></li>
+                <li class="nav-item"><a class="nav-link" asp-controller="ecosystem" asp-action="index">@Localizer["EcoSystem"]</a></li>
+                <li class="nav-item"><a class="nav-link" asp-controller="discover" asp-action="index">@Localizer["News & Event"]</a></li>
+
+                @if (SharedLocalizer["en"].Value == "zh")
+                {
+                    <li class="nav-item nav-lang">
+                        <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a>|
+                        <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item nav-lang">
+                        <a style="font-size: 1em; font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a>|
+                        <a style="font-size: .9em;  font-weight: 500" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </nav>
     <div class="container layout-container">
         @RenderBody()
     </div>

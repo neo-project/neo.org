@@ -58,9 +58,5 @@
   {
     "outputFile": "wwwroot/css/bounty.css",
     "inputFile": "wwwroot/css/bounty.less"
-  },
-  {
-    "outputFile": "wwwroot/css/layout.css",
-    "inputFile": "wwwroot/css/layout.less"
   }
 ]
