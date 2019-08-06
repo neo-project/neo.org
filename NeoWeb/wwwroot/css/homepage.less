@@ -1,8 +1,13 @@
 ﻿@import "basic.less";
+@import "site.less";
+
+p{
+    margin-bottom:0;
+}
 
 .content {
-    padding-top: 120px;
-    padding-bottom: 120px;
+    padding-top: 115px;
+    padding-bottom: 115px;
 
     @media only screen and (max-width: 768px) {
         padding-top: 75px;
@@ -18,13 +23,8 @@
     position: relative;
 
     .content {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
-        height: 65%;
+        .center;
+        height: 66%;
 
         @media only screen and (max-width: 768px) {
             position: relative;

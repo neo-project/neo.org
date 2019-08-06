@@ -3,34 +3,16 @@
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
-<div class="event-detail border-static-body text-left">
-    <div class="row mt-3">
-        <div class="col-12 col-sm-4 col-md-3 text-center">
-            @if (String.IsNullOrEmpty(Model.Cover))
-            {
-                <img class="type-img mb-2" data-original="@String.Format(@Helper.ToCDN("/images/event/{0}.jpg"), Model.Type.ToString().ToLower())">
-            }
-            else
-            {
-                <img class="type-img mb-2" data-original="@String.Format("../upload/{0}", Model.Cover)">
-            }
-        </div>
-        <div class="col-12 col-sm-8 col-md-9">
-            <p class="e-detail-title">
-                <a class="t2 with-space" href="~/event/details/@Model.Id">@Model.Name</a>
-            </p>
-            <div class="mt-1">
-                <img src="@Helper.ToCDN("/images/event/time.svg")" /> <span>@Model.StartTime.ToString("yyyy-MM-dd HH:mm") ~ @Model.EndTime.ToString("yyyy-MM-dd HH:mm")</span>
-            </div>
-            <div class="mt-1">
-                <img src="@Helper.ToCDN("/images/event/addr.svg")" /> <span class="@Localizer["d-none-zh"]">@Model.Country.Name</span><span class="@SharedLocalizer["d-none"]">@Model.Country.ZhName</span> - <span>@Model.City</span>
-            </div>
-            <div>
-                <img src="@Helper.ToCDN("/images/event/organizers.svg")" /> <span>@Localizer["Organizers:"]</span> <span>@Model.Organizers</span>
-            </div>
-            <div class="mt-1 left-to-center">
-                <a class="event-btn" href="~/event/details/@Model.Id">More Info</a>
-            </div>
-        </div>
-    </div>
+<div class="col-md-4 m3">
+    @if (String.IsNullOrEmpty(Model.Cover))
+    {
+        <img width="100%" height="250" data-original="@String.Format(@Helper.ToCDN("/images/event/{0}.jpg"), Model.Type.ToString().ToLower())">
+    }
+    else
+    {
+        <img width="100%" height="250" data-original="@String.Format("../upload/{0}", Model.Cover)">
+    }
+    <p class="m5 gray small">@Model.StartTime.ToString("yyyy-MM-dd")<span class="green bold"> EVENTS</span></p>
+    <p><a class="h4 color-n" href="~/event/details/@Model.Id">@Model.Name</a></p>
+    <p class="small gray"><i class="iconfont">&#xe71d;</i> @Model.Country.Name<br /><i class="iconfont">&#xe71d;</i> @Model.Organizers</p>
 </div>

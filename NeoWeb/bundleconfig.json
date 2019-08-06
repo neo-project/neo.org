@@ -28,5 +28,11 @@
       "enabled": true,
       "renameLocals": true
     }
+  },
+  {
+    "outputFileName": "wwwroot/css/layout.min.min.css",
+    "inputFiles": [
+      "wwwroot/css/layout.min.css"
+    ]
   }
 ]

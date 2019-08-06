@@ -1,0 +1,80 @@
+﻿@import "basic.less";
+
+.footer-fo {
+    ul {
+        padding: 0;
+        font-size: 0;
+    }
+
+    li {
+        display: inline-block;
+        list-style: none;
+        margin-right: 25px;
+
+        .iconfont {
+            color: @text;
+            font-size: 3rem;
+            transition: color .2s ease-in-out;
+
+            &:hover {
+                color: @green;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+footer {
+    padding-top: 25px;
+    padding-bottom: 30px;
+
+    hr.line {
+        margin-top: 100px;
+        margin-bottom: 25px;
+    }
+
+    ul {
+        padding: 0;
+        margin-top:15px;
+        margin-bottom:0;
+
+        li {
+            list-style: none;
+            opacity: .9;
+
+            small {
+                display: inline-block;
+                min-width: 60px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    footer {
+        padding-top:0;
+
+        .b-logo {
+            display: none;
+        }
+
+        p {
+            &.bold {
+                padding: 15px 0;
+                border-top: 1px solid @line;
+                margin-bottom:0;
+            }
+        }
+
+        ul {
+            display: none;
+            margin-top: 0;
+            line-height: 2;
+            margin-bottom: 8px;
+        }
+
+        .row div:last-child ul{
+            display: block!important;
+        }
+    }
+}
