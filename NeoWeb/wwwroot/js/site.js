@@ -11,3 +11,11 @@
     $('.top').toggleClass("active");
     $('.bottom').toggleClass("active");
 });
+$(".navbar-nav .nav-link").click(function () {
+    $(".nav-dropdown").not($(this).next()).removeClass("show");
+    if ($(this).next().hasClass("show"))
+        $(this).next().removeClass("show");
+    else
+        $(this).next().addClass("show");
+
+});

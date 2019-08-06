@@ -63,67 +63,69 @@ https://github.com/neo-project/neo.org
     }
 </head>
 <body>
-    <nav class="container navbar navbar-expand-lg">
-        <a href="/"><img src="@Helper.CDN/images/neo_logo.svg" alt="NEO Logo" /></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <div class="special-button">
-                <div class="top"></div>
-                <div class="bottom"></div>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a href="/"><img src="@Helper.CDN/images/neo_logo.svg" alt="NEO Logo" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="special-button">
+                    <div class="top"></div>
+                    <div class="bottom"></div>
+                </div>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <span class="nav-link">
+                            @Localizer["About"]
+                        </span>
+                        <div class="nav-dropdown">
+                            <a href="#">@Localizer["About NEO"]</a>
+                            <a href="#">@Localizer["Roadmap"]</a>
+                            <a href="#">@Localizer["Contributers"]</a>
+                            <a href="#">@Localizer["Press Kit"]</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <span class="nav-link">
+                            @Localizer["Developer"]
+                        </span>
+                        <div class="nav-dropdown">
+                            <a href="/dev">@Localizer["Developer"]</a>
+                            <a href="#">@Localizer["Dev Resources"]</a>
+                            <a href="#">@Localizer["Community"]</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="client" asp-action="index">@Localizer["Client"]</a></li>
+                    <li class="nav-item">
+                        <span class="nav-link">
+                            @Localizer["EcoSystem"]
+                        </span>
+                        <div class="nav-dropdown">
+                            <a href="#">@Localizer["EcoSystem"]</a>
+                            <a href="/ecoboost">@Localizer["EcoBoost"]</a>
+                            <a href="#">@Localizer["dApps List"]</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="discover" asp-action="index">@Localizer["News & Event"]</a></li>
+
+                    <li class="nav-item"></li>
+                    @if (SharedLocalizer["en"].Value == "zh")
+                    {
+                        <li class="nav-item nav-lang">
+                            <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
+                            <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item nav-lang">
+                            <a style="font-size: 1em; font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
+                            <a style="font-size: .9em;  font-weight: 500" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+                        </li>
+                    }
+                </ul>
             </div>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <span class="nav-link">
-                        @Localizer["About"]
-                    </span>
-                    <div class="nav-dropdown">
-                        <a href="#">@Localizer["About NEO"]</a>
-                        <a href="#">@Localizer["Roadmap"]</a>
-                        <a href="#">@Localizer["Contributers"]</a>
-                        <a href="#">@Localizer["Press Kit"]</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <span class="nav-link">
-                        @Localizer["Developer"]
-                    </span>
-                    <div class="nav-dropdown">
-                        <a href="/dev">@Localizer["Developer"]</a>
-                        <a href="#">@Localizer["Dev Resources"]</a>
-                        <a href="#">@Localizer["Community"]</a>
-                    </div>
-                </li>
-                <li class="nav-item"><a class="nav-link" asp-controller="client" asp-action="index">@Localizer["Client"]</a></li>
-                <li class="nav-item">
-                    <span class="nav-link">
-                        @Localizer["EcoSystem"]
-                    </span>
-                    <div class="nav-dropdown">
-                        <a href="#">@Localizer["EcoSystem"]</a>
-                        <a href="/ecoboost">@Localizer["EcoBoost"]</a>
-                        <a href="#">@Localizer["dApps List"]</a>
-                    </div>
-                </li>
-                <li class="nav-item"><a class="nav-link" asp-controller="discover" asp-action="index">@Localizer["News & Event"]</a></li>
-
-                <li class="nav-item"></li>
-                @if (SharedLocalizer["en"].Value == "zh")
-                {
-                    <li class="nav-item nav-lang">
-                        <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a>|
-                        <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
-                    </li>
-                }
-                else
-                {
-                    <li class="nav-item nav-lang">
-                        <a style="font-size: 1em; font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a>|
-                        <a style="font-size: .9em;  font-weight: 500" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
-                    </li>
-                }
-            </ul>
         </div>
     </nav>
     <div class="container layout-container">
@@ -187,7 +189,7 @@ https://github.com/neo-project/neo.org
                     </ul>
                 </div>
             </div>
-            <p class="m2 op-70"><small>Copyright © NEO Team 2014-2019<br />沪ICP备15040337号</small></p>
+            <p class="m2 op-70"><small>Copyright © NEO Team 2014-2019</small></p>
         </div>
     </footer>
     <form id="form_language" asp-action="SetLanguage" asp-controller="home" method="post">
