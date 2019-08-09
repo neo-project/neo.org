@@ -28,14 +28,13 @@ namespace NeoWeb.Controllers
         private readonly ApplicationDbContext _context;
         private readonly string _userId;
         private readonly bool _userRules;
-        private readonly IStringLocalizer<BlogController> _localizer;
         private readonly IHostingEnvironment _env;
         private readonly IStringLocalizer<SharedResource> _sharedLocalizer;
 
-        public BlogController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IStringLocalizer<BlogController> localizer, IStringLocalizer<SharedResource> sharedLocalizer, IHostingEnvironment env)
+        public BlogController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, 
+            IStringLocalizer<SharedResource> sharedLocalizer, IHostingEnvironment env)
         {
             _context = context;
-            _localizer = localizer;
             _sharedLocalizer = sharedLocalizer;
             _userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             _env = env;
@@ -51,7 +50,7 @@ namespace NeoWeb.Controllers
         public IActionResult Index(int? y = null, int? m = null, string k = null, string t = null)
         {
             IQueryable<Blog> models = _context.Blogs;
-            if (k != null) //搜索关键词
+            if (!string.IsNullOrEmpty(k)) //搜索关键词
             {
                 foreach (var item in k.Split(" "))
                 {
@@ -59,7 +58,8 @@ namespace NeoWeb.Controllers
                         || p.ChineseContent.Contains(item, StringComparison.OrdinalIgnoreCase)
                         || p.ChineseTags != null && p.ChineseTags.Contains(item, StringComparison.OrdinalIgnoreCase)
                         || p.EnglishTitle.Contains(item, StringComparison.OrdinalIgnoreCase)
-                        || p.EnglishContent.Contains(item, StringComparison.OrdinalIgnoreCase));
+                        || p.EnglishContent.Contains(item, StringComparison.OrdinalIgnoreCase)
+                        || p.EnglishTags != null && p.EnglishTags.Contains(item, StringComparison.OrdinalIgnoreCase));
                     if (models == null) break;
                 }
             }
@@ -68,10 +68,10 @@ namespace NeoWeb.Controllers
                 models = models.Where(p => p.ChineseTags != null && p.ChineseTags.Contains(t, StringComparison.OrdinalIgnoreCase)
                     || p.EnglishTags != null && p.EnglishTags.Contains(t, StringComparison.OrdinalIgnoreCase));
             }
-            List<BlogViewModels> viewModels;
+            List<BlogViewModel> viewModels;
             if (_sharedLocalizer["en"] == "zh")
             {
-                viewModels = models.OrderByDescending(o => o.CreateTime).Select(p => new BlogViewModels()
+                viewModels = models.OrderByDescending(o => o.CreateTime).Select(p => new BlogViewModel()
                 {
                     Id = p.Id,
                     CreateTime = p.CreateTime,
@@ -84,7 +84,7 @@ namespace NeoWeb.Controllers
             }
             else
             {
-                viewModels = models.OrderByDescending(o => o.CreateTime).Select(p => new BlogViewModels()
+                viewModels = models.OrderByDescending(o => o.CreateTime).Select(p => new BlogViewModel()
                 {
                     Id = p.Id,
                     CreateTime = p.CreateTime,
@@ -132,44 +132,18 @@ namespace NeoWeb.Controllers
                 return RedirectToAction("Index");
             }
 
-            BlogViewModels viewModels;
+            BlogViewModel viewModel;
             language = !string.IsNullOrEmpty(language) ? language : _sharedLocalizer["en"];
-            if (language == "zh")
-            {
-                viewModels = new BlogViewModels()
-                {
-                    Id = blog.Id,
-                    Content = blog.ChineseContent,
-                    CreateTime = blog.CreateTime,
-                    IsShow = blog.IsShow,
-                    ReadCount = blog.ReadCount,
-                    Summary = blog.ChineseSummary,
-                    Tags = blog.ChineseTags,
-                    Title = blog.ChineseTitle
-                };
-            }
-            else
-            {
-                viewModels = new BlogViewModels()
-                {
-                    Id = blog.Id,
-                    Content = blog.EnglishContent,
-                    CreateTime = blog.CreateTime,
-                    IsShow = blog.IsShow,
-                    ReadCount = blog.ReadCount,
-                    Summary = blog.EnglishSummary,
-                    Tags = blog.EnglishTags,
-                    Title = blog.EnglishTitle
-                };
-            }
 
+            viewModel = new BlogViewModel(blog, language == "zh");
+                
             var blogs = _context.Blogs.Select(p => new Blog()
             {
                 Id = p.Id,
                 CreateTime = p.CreateTime
             }).OrderByDescending(o => o.CreateTime).ToList();
 
-            #region Previous article and  Next article
+            #region Previous article and Next article
             var idList = blogs.Select(p => p.Id).ToList();
             ViewBag.NextBlogId = idList.Count == 0 ? blog.Id : idList[Math.Max(idList.IndexOf((int)id) - 1, 0)];
             ViewBag.PrevBlogId = idList.Count == 0 ? blog.Id : idList[Math.Min(idList.IndexOf((int)id) + 1, idList.Count - 1)];
@@ -189,8 +163,9 @@ namespace NeoWeb.Controllers
                 _context.Update(blog);
                 await _context.SaveChangesAsync();
             }
+
             ViewBag.Language = _sharedLocalizer["en"];
-            return View(viewModels);
+            return View(viewModel);
         }
 
         // GET: Blog/Create
@@ -312,6 +287,7 @@ namespace NeoWeb.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
+
         private async Task UpdateRSSAsync()
         {
             await Task.Run(() =>
@@ -459,6 +435,7 @@ namespace NeoWeb.Controllers
             xml.AppendChild(rss);
             RssModel.English = xml.OuterXml;
         }
+
         [AllowAnonymous]
         public async Task<IActionResult> RSS(string language)
         {
