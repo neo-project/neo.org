@@ -102,25 +102,11 @@ namespace NeoWeb.Controllers
             }
 
             // 中英文切换
-            if (_sharedLocalizer["en"] == "zh")
-            {
                 // type filter
                 switch (type)
                 {
                     case (int)DiscoverViewModelType.Blog:
-                        foreach (var item in blogs)
-                            viewModels.Add(new DiscoverViewModel()
-                            {
-                                Type = DiscoverViewModelType.Blog,
-                                Blog = new BlogViewModel()
-                                {
-                                    Id = item.Id,
-                                    CreateTime = item.CreateTime,
-                                    Title = item.ChineseTitle,
-                                    Tags = item.ChineseTags
-                                },
-                                Time = item.CreateTime
-                            });
+                        AddBlogs(blogs, viewModels, _sharedLocalizer["en"] == "zh");
                         break;
                     case (int)DiscoverViewModelType.Event:
                         foreach (var item in events)
@@ -176,12 +162,45 @@ namespace NeoWeb.Controllers
                             viewModels.Add(new DiscoverViewModel(DiscoverViewModelType.News, item, _sharedLocalizer["en"] == "zh"));
                         break;
                 }
-            }
 
             viewModels = viewModels.OrderByDescending(p => p.Time).ToList();
             ViewBag.UserRules = _userRules;
 
             return View(viewModels);
         }
+
+        private void AddBlogs(IQueryable<Blog> blogs, List<DiscoverViewModel> viewModels, bool isZh)
+        {
+            List<BlogViewModel> blogList;
+            if (isZh)
+            {
+                blogList = blogs.Select(p => new BlogViewModel()
+                {
+                    Id = p.Id,
+                    CreateTime = p.CreateTime,
+                    Title = p.ChineseTitle,
+                    Tags = p.ChineseTags
+                }).ToList();
+            }
+            else
+            {
+                blogList = blogs.Select(p => new BlogViewModel()
+                {
+                    Id = p.Id,
+                    CreateTime = p.CreateTime,
+                    Title = p.EnglishTitle,
+                    Tags = p.EnglishTags
+                }).ToList();
+            }
+            foreach (var item in blogList)
+                viewModels.Add(new DiscoverViewModel()
+                {
+                    Type = DiscoverViewModelType.Blog,
+                    Blog = item,
+                    Time = item.CreateTime
+                });
+        }
+
+
     }
 }
