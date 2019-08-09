@@ -6,8 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Processing;
+using SixLabors.Primitives;
 using static System.Text.RegularExpressions.Regex;
 
 namespace NeoWeb
@@ -34,7 +39,7 @@ namespace NeoWeb
             return ReturnString;
         }
 
-        public static string UploadMedia(IFormFile cover, IHostingEnvironment env)
+        public static string UploadMedia(IFormFile cover, IHostingEnvironment env, int? maxWidth = null)
         {
             if (cover.Length > 1024 * 1024 * 25 || // 25Mb
                 !new string[]
@@ -59,6 +64,21 @@ namespace NeoWeb
                 {
                     cover.CopyTo(stream);
                 }
+            }
+            if (maxWidth != null)
+            {
+                Task.Run(() =>
+                {
+                    using (Image<Rgba32> image = Image.Load(filePath))
+                    {
+                        image.Mutate(x => x.Resize(new ResizeOptions
+                        {
+                            Size = new Size((int)maxWidth, (int)maxWidth * image.Height / image.Width),
+                            Mode = ResizeMode.Max
+                        }));
+                        image.Save(filePath);
+                    }
+                });
             }
             return newName;
         }
