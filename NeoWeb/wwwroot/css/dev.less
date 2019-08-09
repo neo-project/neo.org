@@ -1,9 +1,4 @@
-﻿body {
-    padding-top: 0;
-    text-align: center;
-    background: #F0F0F0;
-    color: #4F4F4F;
-}
+﻿@import './basic.less';
 
 .layout-container {
     max-width: none;
@@ -11,160 +6,85 @@
     margin: 0;
 }
 
-.w500 {
-    max-width: 500px;
-}
-
-.green-text {
-    color: #58BF00 !important;
-}
-
-.dev-dis {
-    margin-left: 35px;
-    margin-right: 35px;
-}
-
-.dev-content {
-    padding: 100px 0 50px 0;
-}
-
-.dev-btn {
-    display: inline-block;
-    background: #4F4F4F;
-    margin-top: 10px;
-    margin-right: 25px;
-    font-size: 16px;
-    min-width: 130px;
-    height: 30px;
-    line-height: 30px;
+.list-no {
     text-align: center;
-    color: #FFFFFF;
-}
 
-.dev-head {
-    margin-top: 100px !important;
-}
+    div[class|=col], li {
+        list-style: none;
 
-.link-title {
-    margin-bottom: 15px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid #4F4F4F;
-    line-height: 1.5;
-}
+        img, .img {
+            width: 180px;
+            max-width: 180px;
+            height: 180px;
+        }
 
-.link-title span {
-    display: inline-block;
-    vertical-align: middle;
-    padding-bottom: 5px;
-    margin-right: 10px;
-}
-
-.dev-link {
-    padding: 0;
-    margin-bottom: 50px;
-}
-
-.dev-link li {
-    list-style: none;
-    font-weight: 400;
-}
-
-.dev-link li a {
-    display: inline-block;
-    color: #58BF00;
-    line-height: 20px;
-    margin-bottom: 3px;
-    border-bottom: 1.5px solid transparent;
-    margin-right: 5px;
-}
-
-.dev-link li a:hover {
-    color: #4F4F4F;
-    border-bottom: 1.5px solid #4F4F4F;
-    box-sizing: content-box;
-}
-
-.dev-link span {
-    color: #C3CBD4;
-}
-
-.link-tools {
-    font-size: 0;
-}
-
-.link-tools > li {
-    display: inline-block;
-    width: 16.6%;
-    font-size: 14px;
-    vertical-align: top;
-}
-
-.link-tools ul {
-    padding: 0;
-}
-
-.comm-ul {
-    padding: 0;
-}
-
-.comm-ul li {
-    display: inline-block;
-    width: 12%;
-    min-width: 120px;
-    margin-top: 20px;
-}
-
-.comm-ul li a {
-    display: inline-block;
-    margin-top: 5px;
-    font-weight: 400;
-    color: #58BF00;
-}
-
-@media only screen and (max-width : 1200px) {
-    .dev-dis {
-        margin-left: 30px;
-        margin-right: 30px;
+        h3, .h3, h4, .h4, h5, .h5, .list-title {
+            margin-top: 15px;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
     }
 
-    .dev-content {
-        padding: 80px 0 40px 0;
-    }
+    @media only screen and (max-width: 768px) {
+        text-align: left;
 
-    .comm-ul li {
-        display: inline-block;
-        width: 12%;
-        min-width: 100px;
-        margin-top: 20px;
+        div[class|=col], li {
+            margin-top: 25px;
+            list-style: none;
+
+            img, .img {
+                float: left;
+                padding: 10px 0;
+                margin-right: 20px;
+                width: 85px;
+                height: 105px;
+            }
+
+            h3, .h3, h4, .h4, h5, .h5, .list-title {
+                margin-top: 8px;
+                line-height: 1.4;
+                margin-bottom: 6px;
+            }
+        }
+    }
+}
+.list-ri {
+    text-align: left;
+
+    div[class|=col], li {
+        list-style: none;
+        margin-top: 35px;
+
+        img, .img {
+            float: left;
+            width: 64px;
+            max-width: 64px;
+            height: 64px;
+            margin-right:30px;
+        }
+
+        div {
+            overflow:hidden;
+        }
+
+        h4, .h4,.list-title {
+            line-height: 1.3;
+            margin-bottom: 8px;
+        }
+
+        span {
+            display: inline-block;
+        }
     }
 }
 
-@media only screen and (max-width : 992px) {
-    .dev-dis {
-        margin-left: 25px;
-        margin-right: 25px;
-    }
-
-    .dev-content {
-        padding: 60px 0;
-    }
-
-    .dev-head {
-        margin-top: 50px !important
-    }
-
-    .link-tools > li {
-        width: 33.3%;
-    }
+a{
+    .bold;
+    color:@green;
 }
 
-@media only screen and (max-width : 750px) {
-    .dev-dis {
-        margin-left: 15px;
-        margin-right: 15px;
-    }
-
-    .dev-content {
-        padding: 40px 0;
-    }
+.dev-link{
+    list-style:none;
+    padding:0;
+    line-height:1.8;
 }

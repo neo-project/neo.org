@@ -2,7 +2,7 @@
 @t2: 3.16rem; /*h2 53.67 - mobile - h1 47.36*/
 @t3: 2.37rem; /*h3 40.27 - mobile - h2 35.53*/
 @t4: 1.778rem; /*h4、h5 30.27*/
-@t5: 1.333rem; /* mobile - h3、h4 20*/
+@t5: 1.333rem; /*h6 22.67 - mobile - h3、h4、h5、h6 20*/
 @t6: 1rem;
 
 /*通用*/
@@ -23,6 +23,7 @@
 @back: #FFFFFF;
 @text: #0c1422;
 @line: rgba(200, 200, 200, 0.2);
+@line2: #CCCCCC;
 @gray: #505050;
 
 
@@ -40,4 +41,43 @@
 @keyframes op{
     0%{opacity:0;}
     100%{opacity:1;}
+}
+
+/*字体*/
+.bold {
+    font-weight: 600;
+    letter-spacing: .7px;
+}
+
+.bolder {
+    font-family: Rajdhani-Bold;
+    letter-spacing: .8px;
+}
+
+.lighter {
+    font-family: Rajdhani-Light;
+    letter-spacing: .3px;
+}
+
+/*非大小字体样式*/
+.fontn {
+    font-size: 1rem;
+    font-family: Rajdhani;
+    letter-spacing: .3px;
+}
+
+/*背景色*/
+.b1 {
+    background: @linear;
+    color: @linear-text;
+}
+
+.b2 {
+    background: @green;
+    color: @btn-text !important;
+}
+
+.b3 {
+    background: @dark;
+    color: @dark-text!important;
 }

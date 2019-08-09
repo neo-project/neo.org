@@ -47,9 +47,9 @@ h2, .h2 {
 
 h3, .h3 {
     font-family: Rajdhani-Bold;
-    font-size: @t2;
+    font-size: @t3;
     letter-spacing: .9px;
-    line-height: 60px;
+    line-height: 47px;
 
     @media only screen and (max-width: 768px) {
         font-size: @t5;
@@ -62,7 +62,7 @@ h4, .h4 {
     font-family: Rajdhani-Bold;
     font-size: @t4;
     letter-spacing: .5px;
-    line-height: 47px;
+    line-height: 37px;
 
     @media only screen and (max-width: 768px) {
         font-size: @t5;
@@ -75,37 +75,32 @@ h5, .h5 {
     font-family: Rajdhani;
     font-size: @t4;
     letter-spacing: .3px;
-    line-height: 47px;
+    line-height: 37px;
+
+    @media only screen and (max-width: 768px) {
+        font-size: @t5;
+        letter-spacing: .4px;
+        line-height: 26px;
+    }
 }
 
-
-.f-n1 {
-    font-size: 1rem;
+h6, .h6 {
     font-family: Rajdhani;
+    font-size: @t5;
     letter-spacing: .3px;
+    line-height: 28px;
+
+    @media only screen and (max-width: 768px) {
+        font-size: @t5;
+        letter-spacing: .4px;
+        line-height: 26px;
+    }
 }
 
 .f-n2 {
-    .f-n1;
-    font-weight: 600;
-    letter-spacing: .6px;
+    .fontn;
+    .bold;
 }
-
-.bold {
-    font-weight: 600;
-}
-
-.bolder {
-    font-family: Rajdhani-Bold;
-    letter-spacing: .7px;
-}
-
-.lighter {
-    font-family: Rajdhani-Light;
-    letter-spacing: .3px;
-}
-
-
 
 /*间距*/
 .mt0{margin-top:0px;}
@@ -127,7 +122,7 @@ h5, .h5 {
 }
 
 .m3 {
-    margin-top: 35px;
+    margin-top: 32px;
 }
 
 .m4 {
@@ -172,22 +167,35 @@ h5, .h5 {
     }
 }
 
+.p3 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    @media only screen and (max-width: 768px) {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+
 /*button*/
 .btn {
     font-weight: 600;
     background: @green;
     color: @btn-text !important;
     border-radius: 0;
+    min-width: 180px;
     padding: 12px 27px;
-    border:none;
+    border: none;
 
     @media only screen and (max-width: 768px) {
+        min-width: 100px;
         padding: 5px 12px;
     }
 }
 .btn1 {
     
-    font-size: @t3;
+    font-size: @t6;
     letter-spacing: .5px;
     line-height: 47px;
 
@@ -293,7 +301,26 @@ h5, .h5 {
 hr.line{
     border-top:1px solid @line;
 }
+.line-b{
+    border-bottom:1px solid @line2;
+}
 .fl-r{float:right;}
+
+.w800 {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.w700 {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.w600 {
+    max-width: 600px;
+    margin-left:auto;
+    margin-right:auto;
+}
 
 /*border*/
 .no-border{
