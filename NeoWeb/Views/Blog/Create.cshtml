@@ -6,7 +6,7 @@
 }
 <h2 class="m2">发布博客</h2>
 
-<form asp-action="Create">
+<form asp-action="Create" enctype="multipart/form-data">
     @{await Html.RenderPartialAsync("_EditorPartialPage", Model);}
 </form>
 <div>

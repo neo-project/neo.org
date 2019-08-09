@@ -200,21 +200,7 @@ namespace NeoWeb.Controllers
         {
             try
             {
-                var fileName = Helper.UploadMedia(cover, _env);
-                Task.Run(() =>
-                {
-                    var filePath = Path.Combine(_env.ContentRootPath, "wwwroot/upload", fileName);
-                    using (Image<Rgba32> image = Image.Load(filePath))
-                    {
-                        image.Mutate(x => x.Resize(new ResizeOptions
-                        {
-                            Size = new Size(600, 600 * image.Height / image.Width),
-                            Mode = ResizeMode.Max
-                        }));
-                        image.Save(filePath);
-                    }
-                });
-                return fileName;
+                return Helper.UploadMedia(cover, _env, 600);
             }
             catch (ArgumentException)
             {

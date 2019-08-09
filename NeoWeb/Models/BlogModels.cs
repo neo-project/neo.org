@@ -21,6 +21,8 @@ namespace NeoWeb.Models
 
         public string ChineseTags { get; set; }
 
+        public string ChineseCover { get; set; }
+
         [Required(ErrorMessage = "必须填写博客英文标题")]
         [Display(Name = "英文标题")]
         public string EnglishTitle { get; set; }
@@ -32,6 +34,8 @@ namespace NeoWeb.Models
         public string EnglishSummary { get; set; }
 
         public string EnglishTags { get; set; }
+
+        public string EnglishCover { get; set; }
 
         public DateTime CreateTime { get; set; }
 

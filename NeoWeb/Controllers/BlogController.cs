@@ -79,7 +79,8 @@ namespace NeoWeb.Controllers
                     ReadCount = p.ReadCount,
                     Summary = p.ChineseSummary,
                     Tags = p.ChineseTags,
-                    Title = p.ChineseTitle
+                    Title = p.ChineseTitle,
+                    Cover = p.ChineseCover
                 }).ToList();
             }
             else
@@ -92,7 +93,8 @@ namespace NeoWeb.Controllers
                     ReadCount = p.ReadCount,
                     Summary = p.EnglishSummary,
                     Tags = p.EnglishTags,
-                    Title = p.EnglishTitle
+                    Title = p.EnglishTitle,
+                    Cover = p.EnglishCover
                 }).ToList();
             }
 
@@ -145,7 +147,8 @@ namespace NeoWeb.Controllers
                     ReadCount = blog.ReadCount,
                     Summary = blog.ChineseSummary,
                     Tags = blog.ChineseTags,
-                    Title = blog.ChineseTitle
+                    Title = blog.ChineseTitle,
+                    Cover = blog.ChineseCover
                 };
             }
             else
@@ -159,7 +162,8 @@ namespace NeoWeb.Controllers
                     ReadCount = blog.ReadCount,
                     Summary = blog.EnglishSummary,
                     Tags = blog.EnglishTags,
-                    Title = blog.EnglishTitle
+                    Title = blog.EnglishTitle,
+                    Cover = blog.EnglishCover
                 };
             }
 
@@ -202,7 +206,7 @@ namespace NeoWeb.Controllers
         // POST: blog/create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ChineseTitle,ChineseContent,ChineseTags,EnglishTitle,EnglishContent,EnglishTags,IsShow")] Blog blog)
+        public async Task<IActionResult> Create([Bind("Id,ChineseTitle,ChineseContent,ChineseTags,EnglishTitle,EnglishContent,EnglishTags,IsShow")] Blog blog, IFormFile chineseCover, IFormFile englishCover)
         {
             if (ModelState.IsValid)
             {
@@ -214,6 +218,22 @@ namespace NeoWeb.Controllers
                 blog.EnglishTags = blog.EnglishTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
                 blog.CreateTime = DateTime.Now;
                 blog.EditTime = DateTime.Now;
+                if (chineseCover != null)
+                {
+                    var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
+                    if (ValidatorCover(fileName))
+                        blog.ChineseCover = fileName;
+                    else
+                        ModelState.AddModelError("ChineseCover", "Cover size must be 16:9");
+                }
+                if (englishCover != null)
+                {
+                    var fileName = Helper.UploadMedia(englishCover, _env, 1000);
+                    if (ValidatorCover(fileName))
+                        blog.ChineseCover = fileName;
+                    else
+                        ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
+                }
                 blog.User = _context.Users.Find(_userId);
                 _context.Add(blog);
                 await _context.SaveChangesAsync();
@@ -222,7 +242,6 @@ namespace NeoWeb.Controllers
             }
             return View(blog);
         }
-
         // GET: blog/edit/5
         public IActionResult Edit(int? id)
         {
@@ -244,7 +263,7 @@ namespace NeoWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ChineseTitle,ChineseContent,ChineseTags,EnglishTitle,EnglishContent,EnglishTags,IsShow")] Blog blog)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ChineseTitle,ChineseContent,ChineseTags,EnglishTitle,EnglishContent,EnglishTags,IsShow")] Blog blog, IFormFile chineseCover, IFormFile englishCover)
         {
             if (id != blog.Id)
             {
@@ -265,6 +284,22 @@ namespace NeoWeb.Controllers
                     item.EnglishTags = blog.EnglishTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
                     item.EditTime = DateTime.Now;
                     item.IsShow = blog.IsShow;
+                    if (chineseCover != null)
+                    {
+                        var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
+                        if (ValidatorCover(fileName))
+                            item.ChineseCover = fileName;
+                        else
+                            ModelState.AddModelError("ChineseCover", "Cover size must be 16:9");
+                    }
+                    if (englishCover != null)
+                    {
+                        var fileName = Helper.UploadMedia(englishCover, _env, 1000);
+                        if (ValidatorCover(fileName))
+                            item.ChineseCover = fileName;
+                        else
+                            ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
+                    }
                     _context.Update(item);
                     await _context.SaveChangesAsync();
                     await UpdateRSSAsync();
@@ -480,20 +515,7 @@ namespace NeoWeb.Controllers
         {
             try
             {
-                var fileName = Helper.UploadMedia(file, _env);
-                Task.Run(() =>
-                {
-                    var filePath = Path.Combine(_env.ContentRootPath, "wwwroot/upload", fileName);
-                    using (Image<Rgba32> image = Image.Load(filePath))
-                    {
-                        image.Mutate(x => x.Resize(new ResizeOptions
-                        {
-                            Size = new Size(1000, 1000 * image.Height / image.Width),
-                            Mode = ResizeMode.Max
-                        }));
-                        image.Save(filePath);
-                    }
-                });
+                var fileName = Helper.UploadMedia(file, _env, 1000);
                 return $"{{\"location\":\"/upload/{fileName}\"}}";
             }
             catch (ArgumentException)
@@ -503,6 +525,14 @@ namespace NeoWeb.Controllers
             }
         }
 
+        private bool ValidatorCover(string fileName)
+        {
+            var filePath = Path.Combine(_env.ContentRootPath, "wwwroot/upload", fileName);
+            using (Image<Rgba32> image = Image.Load(filePath))
+            {
+                return image.Width / image.Height == 16 / 9;
+            }
+        }
 
         private bool BlogExists(int id)
         {
