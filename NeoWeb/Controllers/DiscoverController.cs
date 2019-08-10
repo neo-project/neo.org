@@ -102,66 +102,24 @@ namespace NeoWeb.Controllers
             }
 
             // 中英文切换
-                // type filter
-                switch (type)
-                {
-                    case (int)DiscoverViewModelType.Blog:
-                        AddBlogs(blogs, viewModels, _sharedLocalizer["en"] == "zh");
-                        break;
-                    case (int)DiscoverViewModelType.Event:
-                        foreach (var item in events)
-                            viewModels.Add(new DiscoverViewModel()
-                            {
-                                Type = DiscoverViewModelType.Event,
-                                Event = new EventViewModel()
-                                {
-                                    Id = item.Id,
-                                    StartTime = item.StartTime,
-                                    EndTime = item.EndTime,
-                                    Name = item.ChineseName,
-                                    Country = item.Country.ZhName,
-                                    City = item.ChineseCity
-                                },
-                                Time = item.StartTime
-                            });
-                        break;
-                    case (int)DiscoverViewModelType.News:
-                        foreach (var item in news)
-                            viewModels.Add(new DiscoverViewModel(DiscoverViewModelType.News, item, _sharedLocalizer["en"] == "zh"));
-                        break;
-                    default:
-                        foreach (var item in blogs)
-                            viewModels.Add(new DiscoverViewModel()
-                            {
-                                Type = DiscoverViewModelType.Blog,
-                                Blog = new BlogViewModel()
-                                {
-                                    Id = item.Id,
-                                    CreateTime = item.CreateTime,
-                                    Title = item.ChineseTitle,
-                                    Tags = item.ChineseTags
-                                },
-                                Time = item.CreateTime
-                            });
-                        foreach (var item in events)
-                            viewModels.Add(new DiscoverViewModel()
-                            {
-                                Type = DiscoverViewModelType.Event,
-                                Event = new EventViewModel()
-                                {
-                                    Id = item.Id,
-                                    StartTime = item.StartTime,
-                                    EndTime = item.EndTime,
-                                    Name = item.ChineseName,
-                                    Country = item.Country.ZhName,
-                                    City = item.ChineseCity
-                                },
-                                Time = item.StartTime
-                            });
-                        foreach (var item in news)
-                            viewModels.Add(new DiscoverViewModel(DiscoverViewModelType.News, item, _sharedLocalizer["en"] == "zh"));
-                        break;
-                }
+            // type filter
+            switch (type)
+            {
+                case (int)DiscoverViewModelType.Blog:
+                    AddBlogs(blogs, viewModels, _sharedLocalizer["en"] == "zh");
+                    break;
+                case (int)DiscoverViewModelType.Event:
+                    AddEvents(events, viewModels, _sharedLocalizer["en"] == "zh");
+                    break;
+                case (int)DiscoverViewModelType.News:
+                    AddNews(news, viewModels, _sharedLocalizer["en"] == "zh");
+                    break;
+                default:
+                    AddBlogs(blogs, viewModels, _sharedLocalizer["en"] == "zh");
+                    AddEvents(events, viewModels, _sharedLocalizer["en"] == "zh");
+                    AddNews(news, viewModels, _sharedLocalizer["en"] == "zh");
+                    break;
+            }
 
             viewModels = viewModels.OrderByDescending(p => p.Time).ToList();
             ViewBag.UserRules = _userRules;
@@ -201,6 +159,46 @@ namespace NeoWeb.Controllers
                 });
         }
 
+        private void AddEvents(IQueryable<Event> events, List<DiscoverViewModel> viewModels, bool isZh)
+        {
+            List<EventViewModel> eventList;
+            if (isZh)
+            {
+                eventList = events.Select(p => new EventViewModel()
+                {
+                    Id = p.Id,
+                    StartTime = p.StartTime,
+                    EndTime = p.EndTime,
+                    Name = p.ChineseName,
+                    Country = p.Country.ZhName,
+                    City = p.ChineseCity
+                }).ToList();
+            }
+            else
+            {
+                eventList = events.Select(p => new EventViewModel()
+                {
+                    Id = p.Id,
+                    StartTime = p.StartTime,
+                    EndTime = p.EndTime,
+                    Name = p.EnglishName,
+                    Country = p.Country.Name,
+                    City = p.EnglishCity
+                }).ToList();
+            }
+            foreach (var item in eventList)
+                viewModels.Add(new DiscoverViewModel()
+                {
+                    Type = DiscoverViewModelType.Event,
+                    Event = item,
+                    Time = item.StartTime
+                });
+        }
 
+        private void AddNews(IQueryable<News> news, List<DiscoverViewModel> viewModels, bool isZh)
+        {
+            foreach (var item in news)
+                viewModels.Add(new DiscoverViewModel(DiscoverViewModelType.News, item, isZh));
+        }
     }
 }
