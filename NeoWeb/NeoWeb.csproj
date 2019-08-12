@@ -11,9 +11,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\新文件夹\**" />
     <Compile Remove="wwwroot\lib\less.js\**" />
+    <Content Remove="Views\新文件夹\**" />
     <Content Remove="wwwroot\lib\less.js\**" />
+    <EmbeddedResource Remove="Views\新文件夹\**" />
     <EmbeddedResource Remove="wwwroot\lib\less.js\**" />
+    <None Remove="Views\新文件夹\**" />
     <None Remove="wwwroot\lib\less.js\**" />
   </ItemGroup>
 

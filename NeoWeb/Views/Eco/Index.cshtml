@@ -1,0 +1,194 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = "Eco";
+}
+@section Styles{
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/eco.min.css" asp-append-version="true" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="@Helper.ToCDN("/css/eco.min.css", true)" />
+    </environment>
+}
+
+<div class="eco-bannner">
+    <div class="container p2">
+        <h2 class="eco-title m1 mb-5 w900">NEO EcoBoost</h2>
+        <p class="w800">@Localizer["Welcome to NEO Ecosystem<br />NEO EcoBoost will work with our EcoBoost partners to provide full lifecycle support for NEO eco projects<br />Please tell us how you'd like to cooperate with us and we will evaluate your project as soon as possible."]</p>
+        <p><a class="eco-btn m3" href="javascript:" onclick="showDialog()">@Localizer["Apply Now"]</a></p>
+
+    </div>
+</div>
+
+<div class="bg-white">
+    <div class="container p2">
+        <h3 class="bold-font">@Localizer["What NEO EcoBoost Can Provide"]</h3>
+        <ul class="eco-intro m3">
+            <li>
+                <span class="iconfont">&#xe621;</span><br />
+                <p class="bold-font t2 m3 mb0">@Localizer["EcoBoost Partners'<br />Support"]</p>
+                <p class="eco-detail t4 m4 mb0 lh3">@Localizer["Marketing Promotion<br />Wallet Intergration<br />Liquidity Solution<br />Security Auditing<br />Payment Gateaway"]</p>
+            </li>
+            <li>
+                <span class="iconfont">&#xe634;</span><br />
+                <p class="bold-font t2 m3 mb0">@Localizer["NEO Community<br />Engagement"]</p>
+                <p class="eco-detail t4 m4 mb0 lh3">@Localizer["Millions Community Members<br />Over 2 Million Wallet Addresses<br />Global Developer Communities<br />100+ Eco Projects Growing Together"]</p>
+            </li>
+            <li>
+                <span class="iconfont">&#xe641;</span><br />
+                <p class="bold-font t2 m3 mb0">@Localizer["Funding<br />Support"]</p>
+                <p class="eco-detail t4 m4 mb0 lh3">@Localizer["EcoFund Investment<br />Smart Contract Fees Subsidies<br />Developer Grants"]</p>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="container">
+    <h3 class="bold-font">@Localizer["NEO EcoBoost Partners"]</h3>
+    <ul class="eco-tag m2">
+        <li class="selected" onclick="showEco('Liquidity')">@Localizer["Liquidity"]</li>
+        <li onclick="showEco('Wallets')">@Localizer["Wallets"]</li>
+        <li onclick="showEco('Media')">@Localizer["Media"]</li>
+        <li onclick="showEco('Channels')">@Localizer["Channels"]</li>
+        <li onclick="showEco('Community')">@Localizer["Community"]</li>
+        <li onclick="showEco('Security')">@Localizer["Security"]</li>
+    </ul>
+    <div class="back-white">
+        <ul class="eco-logo">
+            <li class="Liquidity"><span class="bibox"></span></li>
+            <li class="Liquidity"><span class="kucoin"></span></li>
+            <li class="Liquidity"><span class="digi"></span></li>
+            <li class="Liquidity"><span class="bitmax"></span></li>
+            <li class="Liquidity"><span class="bitmart"></span></li>
+            <li class="Liquidity"><span class="indo"></span></li>
+            <li class="Liquidity"><span class="nash"></span></li>
+            <li class="Liquidity"><span class="switch"></span></li>
+            <li class="Liquidity"><span class="coin"></span></li>
+            <li class="Liquidity"><span class="dex"></span></li>
+            <li class="Liquidity"></li>
+            <li class="Liquidity"></li>
+
+            <li class="Wallets"><span class="cobo"></span></li>
+            <li class="Wallets"><span class="math"></span></li>
+            <li class="Wallets"><span class="o3"></span></li>
+            <li class="Wallets"><span class="line"></span></li>
+            <li class="Wallets"><span class="trust"></span></li>
+            <li class="Wallets"><span class="arkane"></span></li>
+            <li class="Wallets"><span class="teemo"></span></li>
+            <li class="Wallets"><span class="bitkeep"></span></li>
+            <li class="Wallets"><span class="zelcore"></span></li>
+
+            <li class="Media"><span class="panews"></span></li>
+            <li class="Media"><span class="nnt"></span></li>
+            <li class="Media"><span class="xingqiu"></span></li>
+            <li class="Media"><span class="bi"></span></li>
+            <li class="Media"><span class="chain"></span></li>
+            <li class="Media"><span class="bitkan"></span></li>
+            <li class="Media"><span class="ba"></span></li>
+            <li class="Media"><span class="egamer"></span></li>
+            <li class="Media"><span class="lian"></span></li>
+            <li class="Media"><span class="bcgamer"></span></li>
+            <li class="Media"><span class="huo"></span></li>
+            <li class="Media"><span class="dgaming"></span></li>
+            <li class="Media"><span class="tuoluo"></span></li>
+            <li class="Media"></li>
+            <li class="Media"></li>
+
+            <li class="Channels"><span class="review"></span></li>
+            <li class="Channels"><span class="bee"></span></li>
+            <li class="Channels"><span class="state"></span></li>
+            <li class="Channels"><span class="dapp"></span></li>
+            <li class="Channels"><span class="total"></span></li>
+            <li class="Channels"><span class="birds"></span></li>
+
+            <li class="Community"><span class="nel"></span></li>
+            <li class="Community"><span class="coz"></span></li>
+            <li class="Community"><span class="nex"></span></li>
+            <li class="Community"><span class="nspcc"></span></li>
+            <li class="Community"><span class="neore"></span></li>
+            <li class="Community"><span class="neone"></span></li>
+            <li class="Community"><span class="neo3j"></span></li>
+            <li class="Community"><span class="nns"></span></li>
+            <li class="Community"><span class="oncha"></span></li>
+            <li class="Community"><span class="conte"></span></li>
+            <li class="Community"><span class="chang"></span></li>
+            <li class="Community"><span class="trini"></span></li>
+            <li class="Community"><span class="higgs"></span></li>
+            <li class="Community"><span class="mixma"></span></li>
+            <li class="Community"><span class="thebl"></span></li>
+            <li class="Community"><span class="trava"></span></li>
+            <li class="Community"><span class="alche"></span></li>
+            <li class="Community"><span class="world"></span></li>
+            <li class="Community"><span class="lique"></span></li>
+            <li class="Community"><span class="coinp"></span></li>
+            <li class="Community"><span class="bridg"></span></li>
+            <li class="Community"><span class="archo"></span></li>
+            <li class="Community"></li>
+            <li class="Community"></li>
+
+            <li class="Security"><span class="red4"></span></li>
+            <li class="Security"><span class="cert"></span></li>
+            <li class="Security"><span class="slow"></span></li>
+            <li class="Security"><span class="beosin"></span></li>
+            <li class="Security"><span class="secbit"></span></li>
+            <li class="Security"></li>
+        </ul>
+    </div>
+</div>
+<div class="bg-white">
+    <div class="container p2">
+        <h3 class="bold-font">@Localizer["About NEO EcoBoost"]</h3>
+        <ul class="eco-intro m3">
+            <li>
+                <span class="iconfont">&#xe660;</span><br />
+                <p class="bold-font t2 m3 mb0">@Localizer["Funding"]</p>
+                <p class="t1 m4 mb0 lh3">@Localizer["100 Million USD"]</p>
+            </li>
+            <li>
+                <span class="iconfont">&#xe659;</span><br />
+                <p class="bold-font t2 m3 mb0">@Localizer["Target Projects"]</p>
+                <p class="t4 m4 mb0 lh3">@Localizer["Seed Projects for Incubation<br />dApps for Growth Support<br />Infrastructure Projects<br />Other Institutions"]</p>
+            </li>
+            <li>
+                <span class="iconfont">&#xe61d;</span><br />
+                <p class="bold-font t2 m3 mb0">@Localizer["Life Cycle Support"]</p>
+                <p class="t4 m4 mb0 lh3">@Localizer["Funding<br />Tech<br />Community<br />Marketing"]</p>
+            </li>
+        </ul>
+        <p class="t4 m3 lh3 w900 p4">@Localizer["NEO EcoBoost program is created to stimulate and support developers and project participants in the NEO ecosystem. In this process, multiple resources will be combined to provide life cycle funding, technology and marketing support for eco-projects."]</p>
+    </div>
+</div>
+<div id="ecoFormDiv" class="d-none">
+    <iframe id="ecoForm" width="100%" height="800" src="https://forms.office.com/Pages/ResponsePage.aspx?id=oCQpxT6HT0mUryoNzPM39V4qlNr0QWlFh7zqEYca2PdUM0tINzVUWFY2NUpTNU5CQTkxNU1RNk9OVC4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+</div>
+
+<div class="modal eco-modal fade" id="EcoReg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                Loading……
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        showEco();
+        function showEco(str) {
+            $("body").trigger("scroll");
+            if (str) {
+                var e = window.event || arguments.callee.caller.arguments[0];
+                $(e.target).addClass("selected").siblings().removeClass("selected");
+            }
+            str = str ? str : "Liquidity";
+            $('.eco-logo li').not('.' + str).hide();
+            $('.' + str).show();
+        }
+        function showDialog() {
+            $(".modal-body").html($("#ecoFormDiv").html());
+            $('#EcoReg').modal('show');
+        }
+    </script>
+}
