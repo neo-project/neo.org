@@ -1,21 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Security.Claims;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 using NeoWeb.Data;
 using NeoWeb.Models;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 using SixLabors.Primitives;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Security.Claims;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace NeoWeb.Controllers
 {
@@ -23,15 +24,18 @@ namespace NeoWeb.Controllers
     public class EventController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private string _userId;
-        private bool _userRules;
+        private readonly string _userId;
+        private readonly bool _userRules;
         private readonly IHostingEnvironment _env;
+        private readonly IStringLocalizer<SharedResource> _sharedLocalizer;
 
-        public EventController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IHostingEnvironment env)
+        public EventController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IHostingEnvironment env, 
+             IStringLocalizer<SharedResource> sharedLocalizer)
         {
             _context = context;
             _userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             _env = env;
+            _sharedLocalizer = sharedLocalizer;
             if (_userId != null)
             {
                 _userRules = _context.UserRoles.Any(p => p.UserId == _userId);
@@ -43,34 +47,13 @@ namespace NeoWeb.Controllers
         [AllowAnonymous]
         public IActionResult Index(string k = null, int c = 0, int d = 0, string z = null)
         {
-            var models = _context.Events.OrderBy(o => o.StartTime).Select(p => new Event()
-            {
-                Id = p.Id,
-                Name = p.Name,
-                Type = p.Type,
-                Country = p.Country,
-                City = p.City,
-                Address = p.Address,
-                StartTime = p.StartTime,
-                EndTime = p.EndTime,
-                Cover = p.Cover,
-                Organizers = p.Organizers,
-                IsFree = p.IsFree,
-                ThirdPartyLink = p.ThirdPartyLink
-            });
-            //全部筛选列表
-            ViewBag.Countries = models.Select(p => p.Country).Distinct();
-            ViewBag.Types = models.Select(p => p.Type).Distinct();
-            ViewBag.Dates = new string[] { "All Dates", "This Week", "This Month", "Past Events" };
-            //筛选列表中的默认选项
-            ViewBag.Keywords = k;
-            ViewBag.CountryId = c;
-            ViewBag.Date = d;
+            IQueryable<Event> models = _context.Events;
+            
+
             //对关键词进行筛选
             if (!string.IsNullOrEmpty(k))
             {
-                var keywords = k.Split(" ");
-                foreach (var item in keywords)
+                foreach (var item in k.Split(" "))
                 {
                     switch (item.ToLower())
                     {
@@ -79,13 +62,21 @@ namespace NeoWeb.Controllers
                         case "workshop": models = models.Where(p => p.Type == EventType.Workshop); break;
                         case "hackathon": models = models.Where(p => p.Type == EventType.Hackathon); break;
                         default:
-                            models = models.Where(p => p.Name.Contains(item)
-                   || p.Country.Name.Contains(item, StringComparison.OrdinalIgnoreCase)
-                   || p.Country.ZhName.Contains(item, StringComparison.OrdinalIgnoreCase)
-                   || p.City.Contains(item, StringComparison.OrdinalIgnoreCase)
-                   || p.Address.Contains(item, StringComparison.OrdinalIgnoreCase)
-                   || p.Organizers.Contains(item, StringComparison.OrdinalIgnoreCase)); break;
+                            models = models.Where(p => p.ChineseAddress.Contains(item, StringComparison.OrdinalIgnoreCase)
+                                || p.ChineseCity.Contains(item, StringComparison.OrdinalIgnoreCase)
+                                || p.ChineseDetails.Contains(item, StringComparison.OrdinalIgnoreCase)
+                                || p.ChineseName.Contains(item, StringComparison.OrdinalIgnoreCase)
+                                || p.ChineseOrganizers.Contains(item, StringComparison.OrdinalIgnoreCase)
+                                || p.Country != null && p.Country.ZhName.Contains(item, StringComparison.OrdinalIgnoreCase)
+                                || p.Country != null && p.Country.Name.Contains(item, StringComparison.OrdinalIgnoreCase)
+                                || p.EnglishAddress.Contains(item, StringComparison.OrdinalIgnoreCase)
+                                || p.EnglishCity.Contains(item, StringComparison.OrdinalIgnoreCase)
+                                || p.EnglishDetails.Contains(item, StringComparison.OrdinalIgnoreCase)
+                                || p.EnglishName.Contains(item, StringComparison.OrdinalIgnoreCase)
+                                || p.EnglishOrganizers.Contains(item, StringComparison.OrdinalIgnoreCase)
+                                || p.ThirdPartyLink != null && p.ThirdPartyLink.Contains(item, StringComparison.OrdinalIgnoreCase)); break;
                     }
+                    if (models == null) break;
                 }
             }
             //对国家进行筛选
@@ -99,41 +90,95 @@ namespace NeoWeb.Controllers
                 //本周内（非7天内）的未结束的活动
                 case 1: models = models.Where(p => IsInSameWeek(DateTime.Now, p.StartTime) || IsInSameWeek(DateTime.Now, p.EndTime)).Where(p => p.EndTime >= DateTime.Now); break;
                 //本月内（非30天内）的未结束的活动
-                case 2: models = models.Where(p => p.StartTime.Year == DateTime.Now.Year && p.StartTime.Month == DateTime.Now.Month || p.EndTime.Year == DateTime.Now.Year && p.EndTime.Month == DateTime.Now.Month).Where(p => p.EndTime >= DateTime.Now); break;
+                case 2: models = models.Where(p => IsInSameMonth(DateTime.Now, p.StartTime) || IsInSameMonth(DateTime.Now, p.EndTime)).Where(p => p.EndTime >= DateTime.Now); break;
                 //已经结束的活动
                 case 3: models = models.Where(p => p.EndTime < DateTime.Now); break;
             }
             //对具体日期进行查找
             if (DateTime.TryParse(z, out DateTime date))
                 models = models.Where(p => p.StartTime.Date <= date && p.EndTime.Date >= date);
-
+            //中英文切换
+            List<EventViewModel> viewModels;
+            if (_sharedLocalizer["en"] == "zh")
+            {
+                viewModels = models.OrderByDescending(p => p.StartTime).Select(p => new EventViewModel()
+                {
+                    Id = p.Id,
+                    Name = p.ChineseName,
+                    Type = (int)p.Type,
+                    Country = p.Country.ZhName,
+                    City = p.ChineseCity,
+                    Address = p.ChineseAddress,
+                    StartTime = p.StartTime,
+                    EndTime = p.EndTime,
+                    Cover = p.Cover,
+                    Organizers = p.ChineseOrganizers,
+                    IsFree = p.IsFree,
+                    ThirdPartyLink = p.ThirdPartyLink
+                }).ToList();
+            }
+            else
+            {
+                viewModels = models.OrderByDescending(p => p.StartTime).Select(p => new EventViewModel()
+                {
+                    Id = p.Id,
+                    Name = p.EnglishName,
+                    Type = (int)p.Type,
+                    Country = p.Country.ZhName,
+                    City = p.ChineseCity,
+                    Address = p.ChineseAddress,
+                    StartTime = p.StartTime,
+                    EndTime = p.EndTime,
+                    Cover = p.Cover,
+                    Organizers = p.ChineseOrganizers,
+                    IsFree = p.IsFree,
+                    ThirdPartyLink = p.ThirdPartyLink
+                }).ToList();
+            }
+            
+            //全部筛选列表（可能弃用）
+            ViewBag.Countries = viewModels.Select(p => p.Country).Distinct();
+            ViewBag.Types = viewModels.Select(p => p.Type).Distinct();
+            ViewBag.Dates = new string[] { "All Dates", "This Week", "This Month", "Past Events" };
+            //筛选列表中的默认选项（可能弃用）
+            ViewBag.Keywords = k;
+            ViewBag.CountryId = c;
+            ViewBag.Date = d;
+            
             ViewBag.UserRules = _userRules;
-            return View(models);
+            return View(viewModels);
         }
 
         [HttpGet]
         [AllowAnonymous]
         public JsonResult Date(int year, int month)
         {
-            var obj = _context.Events.Where(p => p.StartTime.Year == year && p.StartTime.Month == month).OrderBy(p => p.StartTime).Select(p => p.StartTime.ToString("yyyy/M/d")).ToList().Distinct();
+            var obj = _context.Events.Where(p => p.StartTime.Year == year && p.StartTime.Month == month).OrderBy(p => p.StartTime).Select(p => p.StartTime.ToString("yyyy/MM/dd")).ToList().Distinct();
             return Json(obj);
         }
 
         /// <summary>   
         /// 判断两个日期是否在同一周   
         /// </summary>    
-        private bool IsInSameWeek(DateTime dateX, DateTime dateY)
+        private bool IsInSameWeek(DateTime x, DateTime y)
         {
-            if (dateX > dateY)
+            if (x > y)
             {
-                var temp = dateX;
-                dateX = dateY;
-                dateY = temp;
+                var temp = x;
+                x = y;
+                y = temp;
             }
-            double timespan = (dateY - dateX).TotalDays;
-            int dayOfWeek = Convert.ToInt32(dateY.DayOfWeek);
-            if (dayOfWeek == 0) dayOfWeek = 7;
-            return timespan < 7 && timespan < dayOfWeek;
+            int days = (y.Date - x.Date).Days;
+            int dayOfWeek = Convert.ToInt32(y.DayOfWeek);
+            return days <= dayOfWeek;
+        }
+
+        /// <summary>
+        /// 判断两个日期是否在同一月  
+        /// </summary>
+        private bool IsInSameMonth(DateTime x, DateTime y)
+        {
+            return x.Year == y.Year && x.Month == y.Month;
         }
 
         // GET: event/details/5
@@ -144,15 +189,19 @@ namespace NeoWeb.Controllers
             {
                 return NotFound();
             }
-            ViewBag.UserRules = _userRules;
-            var @event = await _context.Events.Include(m => m.Country)
-                .SingleOrDefaultAsync(m => m.Id == id);
-            if (@event == null)
+
+            Event evt = await _context.Events.SingleOrDefaultAsync(p => p.Id == id);
+
+            if (evt == null)
             {
                 return NotFound();
             }
 
-            return View(@event);
+            EventViewModel viewModel = new EventViewModel(evt, _sharedLocalizer["en"] == "zh");
+            
+            ViewBag.UserRules = _userRules;
+
+            return View(viewModel);
         }
 
         // GET: event/create
@@ -165,19 +214,22 @@ namespace NeoWeb.Controllers
         // POST: event/create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,City,Type,Address,StartTime,EndTime,Cover,Details,Organizers,IsFree,ThirdPartyLink")] Event @event, int countryId, IFormFile cover)
+        public async Task<IActionResult> Create(
+            [Bind("Id,ChineseName,EnglishName,ChineseCity,EnglishCity,Type,ChineseAddress,EnglishAddress," +
+            "StartTime,EndTime,Cover,ChineseDetails,EnglishDetails,ChineseOrganizers,EnglishOrganizers,IsFree,ThirdPartyLink")] Event evt, 
+            int countryId, IFormFile cover)
         {
             var country = _context.Countries.FirstOrDefault(p => p.Id == countryId);
             if (country == null)
             {
                 ModelState.AddModelError("Country", "国家错误");
             }
-            @event.Country = country;
-            if (@event.EndTime <= @event.StartTime)
+            evt.Country = country;
+            if (evt.EndTime <= evt.StartTime)
             {
                 ModelState.AddModelError("EndTime", "截止时间错误");
             }
-            if (!@event.IsFree && @event.ThirdPartyLink == null)
+            if (!evt.IsFree && evt.ThirdPartyLink == null)
             {
                 ModelState.AddModelError("ThirdPartyLink", "付费活动需要填写购票链接");
             }
@@ -185,15 +237,16 @@ namespace NeoWeb.Controllers
             {
                 if (cover != null)
                 {
-                    @event.Cover = Upload(cover);
+                    evt.Cover = Upload(cover);
                 }
-                @event.Details = EventConvert(@event.Details);
-                _context.Add(@event);
+                evt.ChineseDetails = EventConvert(evt.ChineseDetails);
+                evt.EnglishDetails = EventConvert(evt.EnglishDetails);
+                _context.Add(evt);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             ViewBag.Countries = _context.Countries.ToList();
-            return View(@event);
+            return View(evt);
         }
 
         private string Upload(IFormFile cover)
@@ -218,12 +271,12 @@ namespace NeoWeb.Controllers
                 return NotFound();
             }
 
-            var @event = await _context.Events.SingleOrDefaultAsync(m => m.Id == id);
-            if (@event == null)
+            var evt = await _context.Events.SingleOrDefaultAsync(m => m.Id == id);
+            if (evt == null)
             {
                 return NotFound();
             }
-            return View(@event);
+            return View(evt);
         }
 
         // POST: event/edit/5
@@ -231,9 +284,11 @@ namespace NeoWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,City,Type,Address,StartTime,EndTime,Cover,Details,Organizers,IsFree,ThirdPartyLink")] Event @event, int countryId, string oldCover, IFormFile cover)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ChineseName,EnglishName,ChineseCity,EnglishCity,Type,ChineseAddress,EnglishAddress," +
+            "StartTime,EndTime,Cover,ChineseDetails,EnglishDetails,ChineseOrganizers,EnglishOrganizers,IsFree,ThirdPartyLink")] Event evt, 
+            int countryId, IFormFile cover)
         {
-            if (id != @event.Id)
+            if (id != evt.Id)
             {
                 return NotFound();
             }
@@ -242,13 +297,13 @@ namespace NeoWeb.Controllers
             {
                 ModelState.AddModelError("Country", "国家错误");
             }
-            @event.Country = country;
+            evt.Country = country;
             //var oldCover = _context.Events.FirstOrDefault(p => p.Id == @event.Id).Cover;
-            if (@event.EndTime <= @event.StartTime)
+            if (evt.EndTime <= evt.StartTime)
             {
                 ModelState.AddModelError("EndTime", "截止时间错误");
             }
-            if (!@event.IsFree && @event.ThirdPartyLink == null)
+            if (!evt.IsFree && evt.ThirdPartyLink == null)
             {
                 ModelState.AddModelError("ThirdPartyLink", "付费活动需要填写购票链接");
             }
@@ -258,21 +313,18 @@ namespace NeoWeb.Controllers
                 {
                     if (cover != null)
                     {
-                        if (!String.IsNullOrEmpty(@event.Cover))
-                            System.IO.File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", @event.Cover));
-                        @event.Cover = Upload(cover);
+                        if (!string.IsNullOrEmpty(evt.Cover))
+                            System.IO.File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", evt.Cover));
+                        evt.Cover = Upload(cover);
                     }
-                    else
-                    {
-                        @event.Cover = oldCover;
-                    }
-                    @event.Details = EventConvert(@event.Details);
-                    _context.Update(@event);
+                    evt.ChineseDetails = EventConvert(evt.ChineseDetails);
+                    evt.EnglishDetails = EventConvert(evt.EnglishDetails);
+                    _context.Update(evt);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EventExists(@event.Id))
+                    if (!EventExists(evt.Id))
                     {
                         return NotFound();
                     }
@@ -284,7 +336,7 @@ namespace NeoWeb.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewBag.Countries = _context.Countries.ToList();
-            return View(@event);
+            return View(evt);
         }
 
         // GET: event/delete/5

@@ -1,0 +1,111 @@
+﻿@model IEnumerable<NeoWeb.Models.DiscoverViewModel>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = "Discover";
+}
+
+@section Styles{
+    <environment include="Development">
+        <link rel="stylesheet" href="/css/event.css" asp-append-version="true" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="@Helper.ToCDN("/css/event.min.css", true)" />
+    </environment>
+    <style>
+    </style>
+}
+
+<div class="p2">
+    <h2 class="m1 text-center">Discover</h2>
+    <div class="row">
+        <div class="col-md-8">
+            <img class="m2" width="100%" height="440" />
+        </div>
+        <div class="col-md-4">
+            <div class="center n o-des">
+                <p class="green bold m4">EVENTS</p>
+                <h4>NEO JOY 2019 - Shanghai</h4>
+                <p class="m6"><i class="iconfont">&#xe71d;</i> Wed, 2019-07-30, 16:30 - 18:30</p>
+                <p><i class="iconfont">&#xe71d;</i> China, Shanghai</p>
+                <p class="m5">
+                    sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                </p>
+                <p class="m5 gray"><small>July 16, 2019</small></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="border-bottom">
+    <input type="text" />
+    <span><i class="iconfont">&#xe71d;</i> Filters</span>
+    <select>
+        <option>All types</option>
+        <option>BLOGS</option>
+        <option>EVENTS</option>
+        <option>NEWS</option>
+    </select>
+    <select>
+        <option>All years</option>
+        <option>2019</option>
+        <option>2018</option>
+        <option>2017</option>
+    </select>
+</div>
+
+<div class="row m4">
+    <div class="col-md-4 m4">
+        <img width="100%" height="200" />
+        <p class="m5 gray small">July 16, 2019 <span class="green bold">EVENTS</span></p>
+        <p class="h4">NEO JOY 2019 - Shanghai</p>
+        <p class="small gray"><i class="iconfont">&#xe71d;</i> NEO JOY 2019 - Shanghai<br /><i class="iconfont">&#xe71d;</i> Wed, 2019-07-30, 16:30 - 18:30</p>
+    </div>
+    <div class="col-md-4 m4">
+        <img width="100%" height="200" />
+        <p class="m5 gray small">July 16, 2019 <span class="green bold">EVENTS</span></p>
+        <p class="h4">NEO JOY 2019 - Shanghai</p>
+        <p class="small gray">#FFFFFFF,#FFFFFF,#FFFFFFF</p>
+    </div>
+    <div class="col-md-4 m4">
+        <img width="100%" height="200" />
+        <p class="m5 gray small">July 16, 2019 <span class="green bold">EVENTS</span></p>
+        <p class="h4">NEO JOY 2019 - Shanghai</p>
+        <p class="small gray"><i class="iconfont">&#xe71d;</i> NEO JOY 2019 - Shanghai<br /><i class="iconfont">&#xe71d;</i> Wed, 2019-07-30, 16:30 - 18:30</p>
+    </div>
+
+    @foreach (var item in Model.Take(10))
+    {
+        string type;
+        string title = "";
+
+
+        @switch (item.Type)
+        {
+            case DiscoverViewModelType.Blog:
+                type = "BLOGS";
+                //title = item.Blog.
+                break;
+            case DiscoverViewModelType.Event:
+                type = "EVENTS";
+                break;
+            case DiscoverViewModelType.News:
+                type = "NEWS";
+                break;
+            default:
+                type = "DISCOVER";
+                break;
+        }
+
+        <div class="col-md-4 m4">
+            <img width="100%" height="200" />
+            <p class="m5 gray small">@item.Time<span class="green bold">@type</span></p>
+            <p class="h4">@title</p>
+            <p class="small gray"><i class="iconfont">&#xe71d;</i> NEO JOY 2019 - Shanghai<br /><i class="iconfont">&#xe71d;</i> Wed, 2019-07-30, 16:30 - 18:30</p>
+        </div>
+    }
+
+</div>
+
+
