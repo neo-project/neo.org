@@ -68,10 +68,10 @@ namespace NeoWeb.Controllers
                 models = models.Where(p => p.ChineseTags != null && p.ChineseTags.Contains(t, StringComparison.OrdinalIgnoreCase)
                     || p.EnglishTags != null && p.EnglishTags.Contains(t, StringComparison.OrdinalIgnoreCase));
             }
-            List<BlogViewModels> viewModels;
+            List<BlogViewModel> viewModels;
             if (_sharedLocalizer["en"] == "zh")
             {
-                viewModels = models.OrderByDescending(o => o.CreateTime).Select(p => new BlogViewModels()
+                viewModels = models.OrderByDescending(o => o.CreateTime).Select(p => new BlogViewModel()
                 {
                     Id = p.Id,
                     CreateTime = p.CreateTime,
@@ -85,7 +85,7 @@ namespace NeoWeb.Controllers
             }
             else
             {
-                viewModels = models.OrderByDescending(o => o.CreateTime).Select(p => new BlogViewModels()
+                viewModels = models.OrderByDescending(o => o.CreateTime).Select(p => new BlogViewModel()
                 {
                     Id = p.Id,
                     CreateTime = p.CreateTime,
@@ -134,11 +134,11 @@ namespace NeoWeb.Controllers
                 return RedirectToAction("Index");
             }
 
-            BlogViewModels viewModels;
+            BlogViewModel viewModels;
             language = !string.IsNullOrEmpty(language) ? language : _sharedLocalizer["en"];
             if (language == "zh")
             {
-                viewModels = new BlogViewModels()
+                viewModels = new BlogViewModel()
                 {
                     Id = blog.Id,
                     Content = blog.ChineseContent,
@@ -153,7 +153,7 @@ namespace NeoWeb.Controllers
             }
             else
             {
-                viewModels = new BlogViewModels()
+                viewModels = new BlogViewModel()
                 {
                     Id = blog.Id,
                     Content = blog.EnglishContent,
