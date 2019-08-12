@@ -17,6 +17,8 @@ namespace NeoWeb.Models
 
         public string Tags { get; set; }
 
+        public string Cover { get; set; }
+
         public DateTime CreateTime { get; set; }
 
         public int ReadCount { get; set; }

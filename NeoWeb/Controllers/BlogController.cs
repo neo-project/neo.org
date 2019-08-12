@@ -79,7 +79,8 @@ namespace NeoWeb.Controllers
                     ReadCount = p.ReadCount,
                     Summary = p.ChineseSummary,
                     Tags = p.ChineseTags,
-                    Title = p.ChineseTitle
+                    Title = p.ChineseTitle,
+                    Cover = p.ChineseCover
                 }).ToList();
             }
             else
@@ -92,7 +93,8 @@ namespace NeoWeb.Controllers
                     ReadCount = p.ReadCount,
                     Summary = p.EnglishSummary,
                     Tags = p.EnglishTags,
-                    Title = p.EnglishTitle
+                    Title = p.EnglishTitle,
+                    Cover = p.ChineseCover
                 }).ToList();
             }
 

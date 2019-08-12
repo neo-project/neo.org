@@ -21,6 +21,8 @@ namespace NeoWeb.Models
 
         public string ChineseTags { get; set; }
 
+        public string ChineseCover { get; set; }
+
         [Required(ErrorMessage = "Title is required")]
         [Display(Name = "Title")]
         public string EnglishTitle { get; set; }
@@ -32,6 +34,8 @@ namespace NeoWeb.Models
         public string EnglishSummary { get; set; }
 
         public string EnglishTags { get; set; }
+
+        public string EnglishCover { get; set; }
 
         public DateTime CreateTime { get; set; }
 
@@ -46,6 +50,3 @@ namespace NeoWeb.Models
         public int? OldId { get; set; }
     }
 }
-
-
-
