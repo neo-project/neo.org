@@ -94,7 +94,7 @@ namespace NeoWeb.Controllers
                     Summary = p.EnglishSummary,
                     Tags = p.EnglishTags,
                     Title = p.EnglishTitle,
-                    Cover = p.ChineseCover
+                    Cover = p.EnglishCover
                 }).ToList();
             }
 
