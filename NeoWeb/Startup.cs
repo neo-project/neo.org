@@ -132,7 +132,8 @@ namespace NeoWeb
                     template: "{controller=Home}/{action=Index}/{id?}");
                 routes.MapRoute(
                     name: "fwlink",
-                    template: "fwlink/{id?}", new { controller = "fwlink", action = "index" });
+                    template: "fwlink/{id?}", 
+                    defaults: new { controller = "fwlink", action = "index" });
             });
         }
     }

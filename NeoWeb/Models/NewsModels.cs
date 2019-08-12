@@ -8,10 +8,15 @@ namespace NeoWeb.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
-        public string Title { get; set; }
+        [Display(Name = "标题")]
+        [Required(ErrorMessage = "必须填写新闻标题")]
+        public string ChineseTitle { get; set; }
 
-        [Required]
+        [Display(Name = "Title")]
+        [Required(ErrorMessage = "Title is required")]
+        public string EnglishTitle { get; set; }
+
+        [Required(ErrorMessage = "Link is required")]
         public string Link { get; set; }
 
         public DateTime Time { get; set; }
