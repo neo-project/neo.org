@@ -97,15 +97,21 @@ h6, .h6 {
     }
 }
 
-.f-n2 {
-    .fontn;
+.font1 {
+    font-size: 1rem;
+    font-family: Rajdhani;
+    letter-spacing: .3px;
+}
+
+.font2 {
+    .font1;
     .bold;
 }
 
 /*间距*/
 .mt0{margin-top:0px;}
 .mb0{margin-bottom:0px;}
-.m1 {
+.mt1 {
     margin-top: @length1;
 
     @media only screen and (max-width: 768px) {
@@ -113,19 +119,23 @@ h6, .h6 {
     }
 }
 
-.m2 {
+.mt2 {
     margin-top: @length2;
+
+    @media only screen and (max-width: 768px) {
+        margin-top: @length3;
+    }
+}
+
+.mt3 {
+    margin-top: @length3;
 
     @media only screen and (max-width: 768px) {
         margin-top: @length4;
     }
 }
 
-.m3 {
-    margin-top: @length3;
-}
-
-.m4 {
+.mt4 {
     margin-top: @length4;
 
     @media only screen and (max-width: 768px) {
@@ -133,7 +143,7 @@ h6, .h6 {
     }
 }
 
-.m5 {
+.mt5 {
     margin-top: @length5;
 
     @media only screen and (max-width: 768px) {
@@ -141,7 +151,7 @@ h6, .h6 {
     }
 }
 
-.m6 {
+.mt6 {
     margin-top: @length6;
 
     @media only screen and (max-width: 768px) {
@@ -172,8 +182,8 @@ h6, .h6 {
 }
 
 .p3 {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 32px;
+    padding-bottom: 32px;
 
     @media only screen and (max-width: 768px) {
         padding-top: 20px;
@@ -183,6 +193,9 @@ h6, .h6 {
 
 
 /*button*/
+a[class|=btn]{
+
+}
 .btn {
     font-weight: 600;
     background: @green;
@@ -190,15 +203,18 @@ h6, .h6 {
     border-radius: 0;
     min-width: 180px;
     padding: 12px 27px;
+    margin-left: 10px;
+    margin-right: 10px;
     border: none;
 
     @media only screen and (max-width: 768px) {
         min-width: 100px;
         padding: 5px 12px;
+        margin-left: 6px;
+        margin-right: 6px;
     }
 }
 .btn1 {
-    
     font-size: @t6;
     letter-spacing: .5px;
     line-height: 47px;
@@ -209,18 +225,15 @@ h6, .h6 {
         line-height: 26px;
     }
 }
-
 .btn2 {
-    font-family: Rajdhani;
-    font-weight: 600;
-    font-size: @t3;
-    letter-spacing: .5px;
-    line-height: 47px;
+    .font2;
+    .fl-r;
+    .green;
+    cursor: pointer;
+    transition:color .2s;
 
-    @media only screen and (max-width: 768px) {
-        font-size: @t5;
-        letter-spacing: .6px;
-        line-height: 26px;
+    &:hover {
+        color:@green2!important;
     }
 }
 
@@ -314,16 +327,19 @@ hr.line{
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    text-align:center;
 }
 .w700 {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 }
 .w600 {
     max-width: 600px;
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 /*border*/
@@ -384,10 +400,8 @@ i.iconfont {
 
 /*list 基础样式*/
 .list1 {
-    .m5;
-
     div[class|=col], li {
-        .m4;
+        .mt4;
         list-style: none;
 
         img, .img {
@@ -395,22 +409,22 @@ i.iconfont {
         }
 
         div {
-            margin-top: 10px;
+            margin-top: 15px;
             overflow: hidden;
         }
 
         .list-title {
-            line-height: 1.4;
+            line-height: 1;
         }
 
         .list-con{
-            .m6;
+            .mt6;
             display:inline-block;
         }
     }
 
     @media only screen and (max-width: 768px) {
-        text-align: left;
+        text-align: left!important;
 
         div[class|=col], li {
             list-style: none;
