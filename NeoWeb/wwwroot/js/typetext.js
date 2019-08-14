@@ -7,14 +7,14 @@ function typetext(){
 }
 
 function typing(ele) {
-    ele = "ontes nascetur ridiculus mu";
+    ele = "Most Community Driven";
     var str = "";
     for (var i = 0; i <= ele.length; i++) {
         (function (i) {      //立刻执行函数
             setTimeout(function () {
                 str = str + ele.charAt(i);
                 $(".typetext").html(str);
-            }, i * 250);
+            }, i * 200);
         })(i); 
     }
 }
