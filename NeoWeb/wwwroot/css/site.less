@@ -85,7 +85,7 @@ h5, .h5 {
 }
 
 h6, .h6 {
-    font-family: Rajdhani;
+    font-family: Rajdhani-Bold;
     font-size: @t5;
     letter-spacing: .3px;
     line-height: 28px;
@@ -93,7 +93,7 @@ h6, .h6 {
     @media only screen and (max-width: 768px) {
         font-size: @t5;
         letter-spacing: .4px;
-        line-height: 26px;
+        line-height: 23px;
     }
 }
 
@@ -114,7 +114,7 @@ h6, .h6 {
 }
 
 .m2 {
-    margin-top: @length3;
+    margin-top: @length2;
 
     @media only screen and (max-width: 768px) {
         margin-top: @length4;
@@ -122,26 +122,30 @@ h6, .h6 {
 }
 
 .m3 {
-    margin-top: @length4;
+    margin-top: @length3;
 }
 
 .m4 {
-    margin-top: @length5;
+    margin-top: @length4;
+
+    @media only screen and (max-width: 768px) {
+        margin-top: @length5;
+    }
 }
 
 .m5 {
-    margin-top: 14px;
+    margin-top: @length5;
 
     @media only screen and (max-width: 768px) {
-        margin-top: 12px
+        margin-top: @length6;
     }
 }
 
 .m6 {
-    margin-top: 6px;
+    margin-top: @length6;
 
     @media only screen and (max-width: 768px) {
-        margin-top: 3px;
+        margin-top: @length7;
     }
 }
 
@@ -378,3 +382,90 @@ i.iconfont {
     font-style: normal;
 }
 
+/*list 基础样式*/
+.list1 {
+    .m5;
+
+    div[class|=col], li {
+        .m4;
+        list-style: none;
+
+        img, .img {
+            width: 100%;
+        }
+
+        div {
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .list-title {
+            line-height: 1.4;
+        }
+
+        .list-con{
+            .m6;
+            display:inline-block;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        text-align: left;
+
+        div[class|=col], li {
+            list-style: none;
+
+            img, .img {
+                float: left;
+                margin-right: 20px;
+                width: 85px;
+                height: 85px;
+            }
+
+            div {
+                margin-top: 0px;
+            }
+
+            .list-title {
+                line-height: 1.4;
+            }
+        }
+    }
+}
+.list2 {
+    div[class|=col], li {
+        list-style: none;
+
+        img, .img {
+            width: 100%;
+            height: 180px;
+        }
+
+        h3, .h3, h4, .h4, h5, .h5, .h6, .list-title {
+            margin-top: 15px;
+            line-height: 1.4;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        text-align: left;
+
+        div[class|=col], li {
+            margin-top: 25px;
+            list-style: none;
+
+            img, .img {
+                float: left;
+                padding: 10px 0;
+                margin-right: 20px;
+                width: 85px;
+                height: 105px;
+            }
+
+            h3, .h3, h4, .h4, h5, .h5, .list-title {
+                margin-top: 8px;
+                line-height: 1.4;
+            }
+        }
+    }
+}

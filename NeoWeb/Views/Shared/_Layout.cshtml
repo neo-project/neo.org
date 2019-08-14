@@ -76,20 +76,16 @@ https://github.com/neo-project/neo.org
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <span class="nav-link">
-                            @Localizer["About"]
-                        </span>
+                        <a class="nav-link" asp-controller="About" asp-action="index">@Localizer["About"]</a>
                         <div class="nav-dropdown">
-                            <a href="#">@Localizer["About NEO"]</a>
+                            <a href="/About">@Localizer["About NEO"]</a>
                             <a href="#">@Localizer["Roadmap"]</a>
                             <a href="#">@Localizer["Contributers"]</a>
                             <a href="#">@Localizer["Press Kit"]</a>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <span class="nav-link">
-                            @Localizer["Developer"]
-                        </span>
+                        <a class="nav-link" asp-controller="Dev" asp-action="index">@Localizer["Developer"]</a>
                         <div class="nav-dropdown">
                             <a href="/dev">@Localizer["Developer"]</a>
                             <a href="#">@Localizer["Dev Resources"]</a>
@@ -102,7 +98,7 @@ https://github.com/neo-project/neo.org
                             @Localizer["EcoSystem"]
                         </span>
                         <div class="nav-dropdown">
-                            <a href="#">@Localizer["EcoSystem"]</a>
+                            <a href="/eco">@Localizer["EcoSystem"]</a>
                             <a href="/ecoboost">@Localizer["EcoBoost"]</a>
                             <a href="#">@Localizer["dApps List"]</a>
                         </div>
