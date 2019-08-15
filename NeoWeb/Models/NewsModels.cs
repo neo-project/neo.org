@@ -16,6 +16,10 @@ namespace NeoWeb.Models
         [Required(ErrorMessage = "Title is required")]
         public string EnglishTitle { get; set; }
 
+        public string ChineseCover { get; set; }
+
+        public string EnglishCover { get; set; }
+
         [Required(ErrorMessage = "Link is required")]
         public string Link { get; set; }
 

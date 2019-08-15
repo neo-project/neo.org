@@ -46,8 +46,6 @@ namespace NeoWeb.Models
         [Required]
         public DateTime EndTime { get; set; }
 
-        public string Cover { get; set; }
-
         [Display(Name = "详情")]
         public string ChineseDetails { get; set; }
 
@@ -61,6 +59,10 @@ namespace NeoWeb.Models
         [Required(ErrorMessage = "Organizers is required")]
         [Display(Name = "Organizers")]
         public string EnglishOrganizers { get; set; }
+
+        public string ChineseCover { get; set; }
+
+        public string EnglishCover { get; set; }
 
         [Required]
         public bool IsFree { get; set; }

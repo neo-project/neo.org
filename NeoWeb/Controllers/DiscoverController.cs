@@ -122,6 +122,35 @@ namespace NeoWeb.Controllers
             }
 
             viewModels = viewModels.OrderByDescending(p => p.Time).ToList();
+
+            // 添加置顶内容
+            DiscoverViewModel onTop = viewModels.FirstOrDefault();
+            if (onTop != null)
+            {
+                switch (onTop.Type)
+                {
+                    case DiscoverViewModelType.Blog:
+                        Blog blg = _context.Blogs.Single(p => p.Id == onTop.Blog.Id);
+                        if (_sharedLocalizer["en"] == "zh")
+                            onTop.Blog.Summary = blg.ChineseSummary;
+                        else
+                            onTop.Blog.Summary = blg.EnglishSummary;
+                        break;
+                    case DiscoverViewModelType.Event:
+                        Event evt = _context.Events.Single(p => p.Id == onTop.Event.Id);
+                        if (_sharedLocalizer["en"] == "zh")
+                            onTop.Event.Details = evt.ChineseDetails;
+                        else
+                            onTop.Event.Details = evt.EnglishDetails;
+                        break;
+                    case DiscoverViewModelType.News:
+                        break;
+                    default:
+                        break;
+                } 
+            }
+
+            ViewBag.OnTop = onTop;
             ViewBag.UserRules = _userRules;
 
             return View(viewModels);
@@ -137,7 +166,8 @@ namespace NeoWeb.Controllers
                     Id = p.Id,
                     CreateTime = p.CreateTime,
                     Title = p.ChineseTitle,
-                    Tags = p.ChineseTags
+                    Tags = p.ChineseTags,
+                    Cover = p.ChineseCover
                 }).ToList();
             }
             else
@@ -147,7 +177,8 @@ namespace NeoWeb.Controllers
                     Id = p.Id,
                     CreateTime = p.CreateTime,
                     Title = p.EnglishTitle,
-                    Tags = p.EnglishTags
+                    Tags = p.EnglishTags,
+                    Cover = p.EnglishCover
                 }).ToList();
             }
             foreach (var item in blogList)
@@ -171,7 +202,8 @@ namespace NeoWeb.Controllers
                     EndTime = p.EndTime,
                     Name = p.ChineseName,
                     Country = p.Country.ZhName,
-                    City = p.ChineseCity
+                    City = p.ChineseCity,
+                    Cover = p.ChineseCover
                 }).ToList();
             }
             else
@@ -183,7 +215,8 @@ namespace NeoWeb.Controllers
                     EndTime = p.EndTime,
                     Name = p.EnglishName,
                     Country = p.Country.Name,
-                    City = p.EnglishCity
+                    City = p.EnglishCity,
+                    Cover = p.EnglishCover
                 }).ToList();
             }
             foreach (var item in eventList)
@@ -197,8 +230,36 @@ namespace NeoWeb.Controllers
 
         private void AddNews(IQueryable<News> news, List<DiscoverViewModel> viewModels, bool isZh)
         {
-            foreach (var item in news)
-                viewModels.Add(new DiscoverViewModel(DiscoverViewModelType.News, item, isZh));
+            List<NewsViewModel> newsList;
+            if (isZh)
+            {
+                newsList = news.Select(p => new NewsViewModel()
+                {
+                    Id = p.Id,
+                    Title = p.ChineseTitle,
+                    Time = p.Time,
+                    Link = p.Link,
+                    Cover = p.ChineseCover
+                }).ToList();
+            }
+            else
+            {
+                newsList = news.Select(p => new NewsViewModel()
+                {
+                    Id = p.Id,
+                    Title = p.EnglishTitle,
+                    Time = p.Time,
+                    Link = p.Link,
+                    Cover = p.EnglishCover
+                }).ToList();
+            }
+            foreach (var item in newsList)
+                viewModels.Add(new DiscoverViewModel()
+                {
+                    Type = DiscoverViewModelType.News,
+                    News = item,
+                    Time = item.Time
+                });
         }
     }
 }

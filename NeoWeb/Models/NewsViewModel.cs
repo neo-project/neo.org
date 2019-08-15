@@ -15,6 +15,8 @@ namespace NeoWeb.Models
 
         public DateTime Time { get; set; }
 
+        public string Cover { get; set; }
+
         public NewsViewModel()
         { }
 
@@ -26,6 +28,7 @@ namespace NeoWeb.Models
                 Title = news.ChineseTitle;
                 Time = news.Time;
                 Link = news.Link;
+                Cover = news.ChineseCover;
             }
             else
             {
@@ -33,6 +36,7 @@ namespace NeoWeb.Models
                 Title = news.EnglishTitle;
                 Time = news.Time;
                 Link = news.Link;
+                Cover = news.EnglishCover;
             }
         }
     }
