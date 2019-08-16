@@ -13,40 +13,53 @@
     </environment>
 }
 
-<div class="eco-bannner">
-    <div class="container p2">
-        <h2 class="eco-title m1 mb-5 w900">NEO EcoBoost</h2>
-        <p class="w800">@Localizer["Welcome to NEO Ecosystem<br />NEO EcoBoost will work with our EcoBoost partners to provide full lifecycle support for NEO eco projects<br />Please tell us how you'd like to cooperate with us and we will evaluate your project as soon as possible."]</p>
-        <p><a class="eco-btn m3" href="javascript:" onclick="showDialog()">@Localizer["Apply Now"]</a></p>
-
+<div style="background:#EDEDED;">
+    <div class="container p2 text-center">
+        <h1 class="mt4">NEO EcoBoost</h1>
+        <p class="mt4 w900">@Localizer["Welcome to NEO Ecosystem<br />NEO EcoBoost will work with our EcoBoost partners to provide full lifecycle support for NEO eco projects<br />Please tell us how you'd like to cooperate with us and we will evaluate your project as soon as possible."]</p>
+        <p class="mt5"><a class="btn" href="javascript:" onclick="showDialog()">@Localizer["Apply Now"]</a></p>
+    </div>
+</div>
+<div class="container mt1">
+    <h2>@Localizer["What NEO EcoBoost Can Provide"]</h2>
+    <div class="row">
+        <div class="col-md-6 eco-list">
+            <div class="mt2 show">
+                <p class="h4"><i class="iconfont">&#xe621;</i> EcoBoost Partners' Support</p>
+                <ul class="d-block d-md-none">
+                    <li><i class="iconfont">&#xe621;</i> Marketing Promotion</li>
+                    <li><i class="iconfont">&#xe621;</i> Wallet Intergration</li>
+                    <li><i class="iconfont">&#xe621;</i> Liquidity Solution</li>
+                    <li><i class="iconfont">&#xe621;</i> Security Auditing</li>
+                    <li><i class="iconfont">&#xe621;</i> Payment Gateaway</li>
+                </ul>
+            </div>
+            <div class="show">
+                <p class="mt3 h4"><i class="iconfont">&#xe621;</i> EcoBoost Partners' Support</p>
+                <ul class="d-block d-md-none">
+                    <li><span class="h4">1,000,000+</span><br /><span class="font1">Marketing Promotion</span></li>
+                    <li><span class="h4">2,000,000+</span><br /><span class="font1">Marketing Promotion</span></li>
+                    <li><span class="h4">Global</span><br /><span class="font1">Marketing<br />Promotion</span></li>
+                    <li><span class="h4">100+</span><br /><span class="font1">Eco Projects<br />Growing Together</span></li>
+                </ul>
+            </div>
+            <div>
+                <p class="mt3 h4"><i class="iconfont">&#xe621;</i> EcoBoost Partners' Support</p>
+                <ul class="d-block d-md-none">
+                    <li><i class="iconfont">&#xe621;</i> Marketing Promotion</li>
+                    <li><i class="iconfont">&#xe621;</i> Wallet Intergration</li>
+                    <li><i class="iconfont">&#xe621;</i> Liquidity Solution</li>
+                    <li><i class="iconfont">&#xe621;</i> Security Auditing</li>
+                    <li><i class="iconfont">&#xe621;</i> Payment Gateaway</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="bg-white">
-    <div class="container p2">
-        <h3 class="bold-font">@Localizer["What NEO EcoBoost Can Provide"]</h3>
-        <ul class="eco-intro m3">
-            <li>
-                <span class="iconfont">&#xe621;</span><br />
-                <p class="bold-font t2 m3 mb0">@Localizer["EcoBoost Partners'<br />Support"]</p>
-                <p class="eco-detail t4 m4 mb0 lh3">@Localizer["Marketing Promotion<br />Wallet Intergration<br />Liquidity Solution<br />Security Auditing<br />Payment Gateaway"]</p>
-            </li>
-            <li>
-                <span class="iconfont">&#xe634;</span><br />
-                <p class="bold-font t2 m3 mb0">@Localizer["NEO Community<br />Engagement"]</p>
-                <p class="eco-detail t4 m4 mb0 lh3">@Localizer["Millions Community Members<br />Over 2 Million Wallet Addresses<br />Global Developer Communities<br />100+ Eco Projects Growing Together"]</p>
-            </li>
-            <li>
-                <span class="iconfont">&#xe641;</span><br />
-                <p class="bold-font t2 m3 mb0">@Localizer["Funding<br />Support"]</p>
-                <p class="eco-detail t4 m4 mb0 lh3">@Localizer["EcoFund Investment<br />Smart Contract Fees Subsidies<br />Developer Grants"]</p>
-            </li>
-        </ul>
-    </div>
-</div>
-<div class="container">
+<div class="container mt1 text-center">
     <h3 class="bold-font">@Localizer["NEO EcoBoost Partners"]</h3>
-    <ul class="eco-tag m2">
+    <ul class="eco-tag mt3">
         <li class="selected" onclick="showEco('Liquidity')">@Localizer["Liquidity"]</li>
         <li onclick="showEco('Wallets')">@Localizer["Wallets"]</li>
         <li onclick="showEco('Media')">@Localizer["Media"]</li>
@@ -54,7 +67,7 @@
         <li onclick="showEco('Community')">@Localizer["Community"]</li>
         <li onclick="showEco('Security')">@Localizer["Security"]</li>
     </ul>
-    <div class="back-white">
+    <div class="b-white mt4">
         <ul class="eco-logo">
             <li class="Liquidity"><span class="bibox"></span></li>
             <li class="Liquidity"><span class="kucoin"></span></li>
@@ -136,29 +149,45 @@
         </ul>
     </div>
 </div>
-<div class="bg-white">
-    <div class="container p2">
-        <h3 class="bold-font">@Localizer["About NEO EcoBoost"]</h3>
-        <ul class="eco-intro m3">
-            <li>
-                <span class="iconfont">&#xe660;</span><br />
-                <p class="bold-font t2 m3 mb0">@Localizer["Funding"]</p>
-                <p class="t1 m4 mb0 lh3">@Localizer["100 Million USD"]</p>
-            </li>
-            <li>
-                <span class="iconfont">&#xe659;</span><br />
-                <p class="bold-font t2 m3 mb0">@Localizer["Target Projects"]</p>
-                <p class="t4 m4 mb0 lh3">@Localizer["Seed Projects for Incubation<br />dApps for Growth Support<br />Infrastructure Projects<br />Other Institutions"]</p>
-            </li>
-            <li>
-                <span class="iconfont">&#xe61d;</span><br />
-                <p class="bold-font t2 m3 mb0">@Localizer["Life Cycle Support"]</p>
-                <p class="t4 m4 mb0 lh3">@Localizer["Funding<br />Tech<br />Community<br />Marketing"]</p>
-            </li>
-        </ul>
-        <p class="t4 m3 lh3 w900 p4">@Localizer["NEO EcoBoost program is created to stimulate and support developers and project participants in the NEO ecosystem. In this process, multiple resources will be combined to provide life cycle funding, technology and marketing support for eco-projects."]</p>
+<div class="container mt1">
+    <h2>@Localizer["About NEO EcoBoost"]</h2>
+    <p class="mt4">@Localizer["NEO EcoBoost program is created to stimulate and support developers and project participants in the NEO ecosystem. In this process, multiple resources will be combined to provide life cycle funding, technology and marketing support for eco-projects."]</p>
+    <div class="row">
+        <div class="col-md-6 mt4">
+            <hr />
+            <h4>Funding</h4>
+            <p class="h2 mt5">100 Million USD</p>
+        </div>
+        <div class="col-md-6 eco-list mt4">
+            <hr />
+            <h4>Target Projects</h4>
+            <ul>
+                <li><i class="iconfont">&#xe621;</i> Marketing Promotion</li>
+                <li><i class="iconfont">&#xe621;</i> Wallet Intergration</li>
+                <li><i class="iconfont">&#xe621;</i> Liquidity Solution</li>
+                <li><i class="iconfont">&#xe621;</i> Security Auditing</li>
+                <li><i class="iconfont">&#xe621;</i> Payment Gateaway</li>
+            </ul>
+        </div>
+        <div class="col-md-12 p3">
+            <hr />
+            <h4>Funding</h4>
+            <img class="mt4 d-none d-md-block" width="100%" height="200" />
+            <img class="mt4 d-block d-md-none" width="100%" height="600" />
+        </div>
     </div>
 </div>
+
+<div class="container p2">
+    <div class="row">
+        <div class="col-md-6"><img height="300" width="100%" /></div>
+        <div class="col-md-6">
+            <h2 class="mt3">Partner with us and power up for success</h2>
+            <a class="mt4 btn">Apply Now</a>
+        </div>
+    </div>
+</div>
+
 <div id="ecoFormDiv" class="d-none">
     <iframe id="ecoForm" width="100%" height="800" src="https://forms.office.com/Pages/ResponsePage.aspx?id=oCQpxT6HT0mUryoNzPM39V4qlNr0QWlFh7zqEYca2PdUM0tINzVUWFY2NUpTNU5CQTkxNU1RNk9OVC4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
 </div>

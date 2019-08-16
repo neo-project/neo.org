@@ -101,6 +101,7 @@ h6, .h6 {
     font-size: 1rem;
     font-family: Rajdhani;
     letter-spacing: .3px;
+    font-weight:400;
 }
 
 .font2 {
@@ -251,10 +252,10 @@ a[class|=btn]{
     background: @dark;
     color: @dark-text;
 }
-
-
+.b-white{
+    background:#FFFFFF;
+}
 /*特殊*/
-
 /*.cube {
     position: relative;
     z-index: 2;
@@ -275,7 +276,6 @@ a[class|=btn]{
     height: 20px;
     width: 20px;
 }*/
-
 .center {
     position: absolute;
     top: 0;
@@ -302,21 +302,29 @@ a[class|=btn]{
         }
     }
 }
+.hide{
+    display:none;
+}
 
-
-hr.line{
-    border-top:1px solid @line;
+hr.line {
+    border-top: 1px solid @line;
 }
 .line-b{
     border-bottom:1px solid @line2;
 }
 .fl-r{float:right;}
 
+.w900 {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
 .w800 {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    text-align:center;
+    text-align: center;
 }
 .w700 {
     max-width: 600px;
