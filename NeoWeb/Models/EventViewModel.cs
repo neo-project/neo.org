@@ -33,9 +33,7 @@ namespace NeoWeb.Models
         public string ThirdPartyLink { get; set; }
 
         public EventViewModel()
-        {
-
-        }
+        { }
 
         public EventViewModel(Event evt, bool isZh)
         {
@@ -49,7 +47,7 @@ namespace NeoWeb.Models
                 Address = evt.ChineseAddress;
                 StartTime = evt.StartTime;
                 EndTime = evt.EndTime;
-                Cover = evt.Cover;
+                Cover = evt.ChineseCover;
                 Details = evt.ChineseDetails;
                 Organizers = evt.ChineseOrganizers;
                 IsFree = evt.IsFree;
@@ -65,7 +63,7 @@ namespace NeoWeb.Models
                 Address = evt.EnglishAddress;
                 StartTime = evt.StartTime;
                 EndTime = evt.EndTime;
-                Cover = evt.Cover;
+                Cover = evt.EnglishCover;
                 Details = evt.EnglishDetails;
                 Organizers = evt.EnglishOrganizers;
                 IsFree = evt.IsFree;

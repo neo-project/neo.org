@@ -28,14 +28,12 @@ namespace NeoWeb.Controllers
         private readonly ApplicationDbContext _context;
         private readonly string _userId;
         private readonly bool _userRules;
-        private readonly IStringLocalizer<BlogController> _localizer;
         private readonly IHostingEnvironment _env;
         private readonly IStringLocalizer<SharedResource> _sharedLocalizer;
 
-        public BlogController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IStringLocalizer<BlogController> localizer, IStringLocalizer<SharedResource> sharedLocalizer, IHostingEnvironment env)
+        public BlogController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IStringLocalizer<SharedResource> sharedLocalizer, IHostingEnvironment env)
         {
             _context = context;
-            _localizer = localizer;
             _sharedLocalizer = sharedLocalizer;
             _userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             _env = env;
@@ -134,11 +132,11 @@ namespace NeoWeb.Controllers
                 return RedirectToAction("Index");
             }
 
-            BlogViewModel viewModels;
+            BlogViewModel viewModel;
             language = !string.IsNullOrEmpty(language) ? language : _sharedLocalizer["en"];
             if (language == "zh")
             {
-                viewModels = new BlogViewModel()
+                viewModel = new BlogViewModel()
                 {
                     Id = blog.Id,
                     Content = blog.ChineseContent,
@@ -153,7 +151,7 @@ namespace NeoWeb.Controllers
             }
             else
             {
-                viewModels = new BlogViewModel()
+                viewModel = new BlogViewModel()
                 {
                     Id = blog.Id,
                     Content = blog.EnglishContent,
@@ -194,7 +192,7 @@ namespace NeoWeb.Controllers
                 await _context.SaveChangesAsync();
             }
             ViewBag.Language = _sharedLocalizer["en"];
-            return View(viewModels);
+            return View(viewModel);
         }
 
         // GET: Blog/Create
@@ -221,7 +219,7 @@ namespace NeoWeb.Controllers
                 if (chineseCover != null)
                 {
                     var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
-                    if (ValidatorCover(fileName))
+                    if (ValidateCover(fileName))
                         blog.ChineseCover = fileName;
                     else
                         ModelState.AddModelError("ChineseCover", "Cover size must be 16:9");
@@ -229,7 +227,7 @@ namespace NeoWeb.Controllers
                 if (englishCover != null)
                 {
                     var fileName = Helper.UploadMedia(englishCover, _env, 1000);
-                    if (ValidatorCover(fileName))
+                    if (ValidateCover(fileName))
                         blog.ChineseCover = fileName;
                     else
                         ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
@@ -287,7 +285,7 @@ namespace NeoWeb.Controllers
                     if (chineseCover != null)
                     {
                         var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
-                        if (ValidatorCover(fileName))
+                        if (ValidateCover(fileName))
                             item.ChineseCover = fileName;
                         else
                             ModelState.AddModelError("ChineseCover", "Cover size must be 16:9");
@@ -295,7 +293,7 @@ namespace NeoWeb.Controllers
                     if (englishCover != null)
                     {
                         var fileName = Helper.UploadMedia(englishCover, _env, 1000);
-                        if (ValidatorCover(fileName))
+                        if (ValidateCover(fileName))
                             item.ChineseCover = fileName;
                         else
                             ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
@@ -494,6 +492,7 @@ namespace NeoWeb.Controllers
             xml.AppendChild(rss);
             RssModel.English = xml.OuterXml;
         }
+
         [AllowAnonymous]
         public async Task<IActionResult> RSS(string language)
         {
@@ -525,7 +524,7 @@ namespace NeoWeb.Controllers
             }
         }
 
-        private bool ValidatorCover(string fileName)
+        private bool ValidateCover(string fileName)
         {
             var filePath = Path.Combine(_env.ContentRootPath, "wwwroot/upload", fileName);
             using (Image<Rgba32> image = Image.Load(filePath))

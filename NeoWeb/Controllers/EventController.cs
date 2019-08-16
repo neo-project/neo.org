@@ -111,7 +111,7 @@ namespace NeoWeb.Controllers
                     Address = p.ChineseAddress,
                     StartTime = p.StartTime,
                     EndTime = p.EndTime,
-                    Cover = p.Cover,
+                    Cover = p.ChineseCover,
                     Organizers = p.ChineseOrganizers,
                     IsFree = p.IsFree,
                     ThirdPartyLink = p.ThirdPartyLink
@@ -129,7 +129,7 @@ namespace NeoWeb.Controllers
                     Address = p.ChineseAddress,
                     StartTime = p.StartTime,
                     EndTime = p.EndTime,
-                    Cover = p.Cover,
+                    Cover = p.EnglishCover,
                     Organizers = p.ChineseOrganizers,
                     IsFree = p.IsFree,
                     ThirdPartyLink = p.ThirdPartyLink
@@ -216,8 +216,8 @@ namespace NeoWeb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(
             [Bind("Id,ChineseName,EnglishName,ChineseCity,EnglishCity,Type,ChineseAddress,EnglishAddress," +
-            "StartTime,EndTime,Cover,ChineseDetails,EnglishDetails,ChineseOrganizers,EnglishOrganizers,IsFree,ThirdPartyLink")] Event evt, 
-            int countryId, IFormFile cover)
+            "StartTime,EndTime,ChineseCover,EnglishCover,ChineseDetails,EnglishDetails,ChineseOrganizers,EnglishOrganizers,IsFree,ThirdPartyLink")] Event evt, 
+            int countryId, IFormFile chineseCover, IFormFile EnglishCover)
         {
             var country = _context.Countries.FirstOrDefault(p => p.Id == countryId);
             if (country == null)
@@ -235,10 +235,10 @@ namespace NeoWeb.Controllers
             }
             if (ModelState.IsValid)
             {
-                if (cover != null)
-                {
-                    evt.Cover = Upload(cover);
-                }
+                if (chineseCover != null)
+                    evt.ChineseCover = Upload(chineseCover);
+                if (EnglishCover != null)
+                    evt.EnglishCover = Upload(EnglishCover);
                 evt.ChineseDetails = EventConvert(evt.ChineseDetails);
                 evt.EnglishDetails = EventConvert(evt.EnglishDetails);
                 _context.Add(evt);
@@ -285,8 +285,8 @@ namespace NeoWeb.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,ChineseName,EnglishName,ChineseCity,EnglishCity,Type,ChineseAddress,EnglishAddress," +
-            "StartTime,EndTime,Cover,ChineseDetails,EnglishDetails,ChineseOrganizers,EnglishOrganizers,IsFree,ThirdPartyLink")] Event evt, 
-            int countryId, IFormFile cover)
+            "StartTime,EndTime,ChineseCover,EnglishCover,ChineseDetails,EnglishDetails,ChineseOrganizers,EnglishOrganizers,IsFree,ThirdPartyLink")] Event evt, 
+            int countryId, IFormFile chineseCover, IFormFile englishCover)
         {
             if (id != evt.Id)
             {
@@ -311,11 +311,17 @@ namespace NeoWeb.Controllers
             {
                 try
                 {
-                    if (cover != null)
+                    if (chineseCover != null)
                     {
-                        if (!string.IsNullOrEmpty(evt.Cover))
-                            System.IO.File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", evt.Cover));
-                        evt.Cover = Upload(cover);
+                        if (!string.IsNullOrEmpty(evt.ChineseCover))
+                            System.IO.File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", evt.ChineseCover));
+                        evt.ChineseCover = Upload(chineseCover);
+                    }
+                    if (englishCover != null)
+                    {
+                        if (!string.IsNullOrEmpty(evt.EnglishCover))
+                            System.IO.File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", evt.EnglishCover));
+                        evt.EnglishCover = Upload(englishCover);
                     }
                     evt.ChineseDetails = EventConvert(evt.ChineseDetails);
                     evt.EnglishDetails = EventConvert(evt.EnglishDetails);

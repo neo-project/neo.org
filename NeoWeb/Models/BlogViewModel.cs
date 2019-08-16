@@ -26,9 +26,7 @@ namespace NeoWeb.Models
         public bool IsShow { get; set; }
 
         public BlogViewModel()
-        {
-
-        }
+        { }
 
         public BlogViewModel(Blog blog, bool isZh)
         {
@@ -42,6 +40,7 @@ namespace NeoWeb.Models
                 Summary = blog.ChineseSummary;
                 Tags = blog.ChineseTags;
                 Title = blog.ChineseTitle;
+                Cover = blog.ChineseCover;
             }
             else
             {
@@ -53,6 +52,7 @@ namespace NeoWeb.Models
                 Summary = blog.EnglishSummary;
                 Tags = blog.EnglishTags;
                 Title = blog.EnglishTitle;
+                Cover = blog.EnglishCover;
             }
         }
     }
