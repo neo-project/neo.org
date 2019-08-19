@@ -103,21 +103,22 @@ namespace NeoWeb.Controllers
 
             // 中英文切换
             // type filter
+            bool isZh = _sharedLocalizer["en"] == "zh";
             switch (type)
             {
                 case (int)DiscoverViewModelType.Blog:
-                    AddBlogs(blogs, viewModels, _sharedLocalizer["en"] == "zh");
+                    AddBlogs(blogs, viewModels, isZh);
                     break;
                 case (int)DiscoverViewModelType.Event:
-                    AddEvents(events, viewModels, _sharedLocalizer["en"] == "zh");
+                    AddEvents(events, viewModels, isZh);
                     break;
                 case (int)DiscoverViewModelType.News:
-                    AddNews(news, viewModels, _sharedLocalizer["en"] == "zh");
+                    AddNews(news, viewModels, isZh);
                     break;
                 default:
-                    AddBlogs(blogs, viewModels, _sharedLocalizer["en"] == "zh");
-                    AddEvents(events, viewModels, _sharedLocalizer["en"] == "zh");
-                    AddNews(news, viewModels, _sharedLocalizer["en"] == "zh");
+                    AddBlogs(blogs, viewModels, isZh);
+                    AddEvents(events, viewModels, isZh);
+                    AddNews(news, viewModels, isZh);
                     break;
             }
 
@@ -131,14 +132,14 @@ namespace NeoWeb.Controllers
                 {
                     case DiscoverViewModelType.Blog:
                         Blog blg = _context.Blogs.Single(p => p.Id == onTop.Blog.Id);
-                        if (_sharedLocalizer["en"] == "zh")
+                        if (isZh)
                             onTop.Blog.Summary = blg.ChineseSummary;
                         else
                             onTop.Blog.Summary = blg.EnglishSummary;
                         break;
                     case DiscoverViewModelType.Event:
                         Event evt = _context.Events.Single(p => p.Id == onTop.Event.Id);
-                        if (_sharedLocalizer["en"] == "zh")
+                        if (isZh)
                             onTop.Event.Details = evt.ChineseDetails;
                         else
                             onTop.Event.Details = evt.EnglishDetails;
