@@ -3,21 +3,39 @@
     padding: 25px 20px;
     background-color: @back;
     user-select: none;
+    text-align: center;
     -ms-user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
     z-index: 1;
 
-    @media only screen and (max-width: 992px) {
-        padding: 25px 0;
-        background-color: @back;
+    &.show {
+        @media only screen and (max-width: 992px) {
+            background-color: @green;
+            color: @dark-text;
+            height: calc(100vh);
+        }
+
+        .top, .bottom {
+            @media only screen and (max-width: 992px) {
+                background-color: @dark-text;
+            }
+        }
+
+        .nav-item {
+            a, span {
+                @media only screen and (max-width: 992px) {
+                    color: @dark-text;
+                }
+            }
+        }
     }
 
     .container {
         @media only screen and (max-width: 992px) {
             max-width: none;
             padding: 0;
-            margin: 0;
+            margin: 0 0 auto;
         }
     }
 
@@ -54,15 +72,20 @@
             }
 
             &:first-child {
-                @media only screen and (max-width: 992px) {
+                @media only screen and (min-width: 992px) {
                     padding-left: 2rem;
                 }
             }
         }
 
 
-        &:hover {
-            a, span {
+
+
+        a, span {
+            display: inline-block;
+            color: @text;
+
+            &:hover {
                 color: @green;
                 font-weight: bold;
 
@@ -70,19 +93,6 @@
                     color: @text;
                 }
             }
-
-            .nav-dropdown {
-                display: block;
-
-                @media only screen and (max-width: 992px) {
-                    display: none;
-                }
-            }
-        }
-
-        a, span {
-            display: inline-block;
-            color: @text;
 
             @media only screen and (max-width: 992px) {
                 font-weight: bold;

@@ -11,11 +11,14 @@
     $('.top').toggleClass("active");
     $('.bottom').toggleClass("active");
 });
-$(".navbar-nav .nav-link").click(function () {
-    $(".nav-dropdown").not($(this).next()).removeClass("show");
-    if ($(this).next().hasClass("show"))
-        $(this).next().removeClass("show");
-    else
-        $(this).next().addClass("show");
 
+$(".navbar-toggler").click(function () {
+    if ($(".navbar-collapse").hasClass("show")) {
+        $(".navbar-collapse").removeClass("show");
+        $(".navbar").removeClass("show");
+    }
+    else {
+        $(".navbar-collapse").addClass("show");
+        $(".navbar").addClass("show");
+    }
 });

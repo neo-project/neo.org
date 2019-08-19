@@ -66,44 +66,20 @@ https://github.com/neo-project/neo.org
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a href="/"><img src="@Helper.CDN/images/neo_logo.svg" alt="NEO Logo" /></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button">
                 <div class="special-button">
                     <div class="top"></div>
                     <div class="bottom"></div>
                 </div>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="About" asp-action="index">@Localizer["About"]</a>
-                        <div class="nav-dropdown">
-                            <a href="/About">@Localizer["About NEO"]</a>
-                            <a href="#">@Localizer["Roadmap"]</a>
-                            <a href="#">@Localizer["Contributers"]</a>
-                            <a href="#">@Localizer["Press Kit"]</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Dev" asp-action="index">@Localizer["Developer"]</a>
-                        <div class="nav-dropdown">
-                            <a href="/dev">@Localizer["Developer"]</a>
-                            <a href="#">@Localizer["Dev Resources"]</a>
-                            <a href="#">@Localizer["Community"]</a>
-                        </div>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" asp-controller="client" asp-action="index">@Localizer["Client"]</a></li>
-                    <li class="nav-item">
-                        <span class="nav-link">
-                            @Localizer["EcoSystem"]
-                        </span>
-                        <div class="nav-dropdown">
-                            <a href="/eco">@Localizer["EcoSystem"]</a>
-                            <a href="/eco/ecoboost">@Localizer["EcoBoost"]</a>
-                            <a href="#">@Localizer["dApps List"]</a>
-                        </div>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" asp-controller="discover" asp-action="index">@Localizer["News & Event"]</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="About">@Localizer["About"]</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Dev">@Localizer["Developer"]</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="client">@Localizer["Client"]</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="EcoSystem">@Localizer["EcoSystem"]</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="discover">@Localizer["Discover"]</a></li>
 
                     <li class="nav-item"></li>
                     @if (SharedLocalizer["en"].Value == "zh")
@@ -207,6 +183,8 @@ https://github.com/neo-project/neo.org
     <script src="@Helper.ToCDN("/lib/bootstrap/js/bootstrap.min.js")"></script>
     <script src="@Helper.ToCDN("/js/jquery.lazyload.min.js")"></script>
     <script>
+        
+
         $(".dropdown-toggle").hover(function () {
             $(this).next(".dropdown-menu").toggle();
         })
