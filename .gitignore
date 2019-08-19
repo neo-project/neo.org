@@ -291,3 +291,4 @@ NeoWeb/wwwroot/upload/*
 NeoWeb/CandidateBackgrounder/
 NeoWeb/validators.json
 NeoWeb/wwwroot/css/*.css
+SendGridTest/Program.cs

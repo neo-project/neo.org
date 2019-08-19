@@ -26,19 +26,26 @@ namespace SendGridTest
             //    "qz@neo.org.ngd"
             //};
 
-            //TestRegEx(vs);
-            DateTime x = new DateTime(2019, 8, 4, 23, 30, 0);
-            DateTime y = new DateTime(2019, 8, 4, 0, 0, 5);
+            ////TestRegEx(vs);
+            //DateTime x = new DateTime(2019, 8, 4, 23, 30, 0);
+            //DateTime y = new DateTime(2019, 8, 4, 0, 0, 5);
 
-            int? a = null;
+            //int? a = null;
 
-            switch (a)
-            {
-                default:
-                    break;
-            }
+            //switch (a)
+            //{
+            //    default:
+            //        break;
+            //}
 
-            Console.WriteLine(TestIsInSameWeek(x, y));
+            //Console.WriteLine(TestIsInSameWeek(x, y));
+
+            Random random = new Random();
+            byte[] b = new byte[10];
+            random.NextBytes(b);
+            string s = BitConverter.ToString(b);
+
+            Console.WriteLine(s);
 
             Console.ReadLine();
         }
