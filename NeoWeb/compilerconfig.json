@@ -16,10 +16,6 @@
     "inputFile": "wwwroot/css/client.less"
   },
   {
-    "outputFile": "wwwroot/css/common.css",
-    "inputFile": "wwwroot/css/common.less"
-  },
-  {
     "outputFile": "wwwroot/css/consensus.css",
     "inputFile": "wwwroot/css/consensus.less"
   },
