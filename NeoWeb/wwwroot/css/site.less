@@ -85,7 +85,7 @@ h5, .h5 {
 }
 
 h6, .h6 {
-    font-family: Rajdhani;
+    font-family: Rajdhani-Bold;
     font-size: @t5;
     letter-spacing: .3px;
     line-height: 28px;
@@ -93,27 +93,42 @@ h6, .h6 {
     @media only screen and (max-width: 768px) {
         font-size: @t5;
         letter-spacing: .4px;
-        line-height: 26px;
+        line-height: 23px;
     }
 }
 
-.f-n2 {
-    .fontn;
+.font1 {
+    font-size: 1rem;
+    font-family: Rajdhani;
+    letter-spacing: .3px;
+    font-weight:400;
+}
+
+.font2 {
+    .font1;
     .bold;
 }
 
 /*间距*/
 .mt0{margin-top:0px;}
 .mb0{margin-bottom:0px;}
-.m1 {
+.mt1 {
     margin-top: @length1;
 
     @media only screen and (max-width: 768px) {
-        margin-top: @length2;
+        margin-top: @length3;
     }
 }
 
-.m2 {
+.mt2 {
+    margin-top: @length2;
+
+    @media only screen and (max-width: 768px) {
+        margin-top: @length3;
+    }
+}
+
+.mt3 {
     margin-top: @length3;
 
     @media only screen and (max-width: 768px) {
@@ -121,27 +136,27 @@ h6, .h6 {
     }
 }
 
-.m3 {
+.mt4 {
     margin-top: @length4;
-}
-
-.m4 {
-    margin-top: @length5;
-}
-
-.m5 {
-    margin-top: 14px;
 
     @media only screen and (max-width: 768px) {
-        margin-top: 12px
+        margin-top: @length5;
     }
 }
 
-.m6 {
-    margin-top: 6px;
+.mt5 {
+    margin-top: @length5;
 
     @media only screen and (max-width: 768px) {
-        margin-top: 3px;
+        margin-top: @length6;
+    }
+}
+
+.mt6 {
+    margin-top: @length6;
+
+    @media only screen and (max-width: 768px) {
+        margin-top: @length7;
     }
 }
 
@@ -168,8 +183,8 @@ h6, .h6 {
 }
 
 .p3 {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 32px;
+    padding-bottom: 32px;
 
     @media only screen and (max-width: 768px) {
         padding-top: 20px;
@@ -179,13 +194,16 @@ h6, .h6 {
 
 
 /*button*/
+a[class|=btn]{
+
+}
 .btn {
     font-weight: 600;
     background: @green;
     color: @btn-text !important;
     border-radius: 0;
-    min-width: 180px;
-    padding: 12px 27px;
+    min-width: 130px;
+    padding: 12px 20px;
     border: none;
 
     @media only screen and (max-width: 768px) {
@@ -194,29 +212,18 @@ h6, .h6 {
     }
 }
 .btn1 {
-    
-    font-size: @t6;
-    letter-spacing: .5px;
-    line-height: 47px;
-
-    @media only screen and (max-width: 768px) {
-        font-size: @t5;
-        letter-spacing: .6px;
-        line-height: 26px;
-    }
+    .btn;
+    .b3;
 }
-
 .btn2 {
-    font-family: Rajdhani;
-    font-weight: 600;
-    font-size: @t3;
-    letter-spacing: .5px;
-    line-height: 47px;
+    .font2;
+    .fl-r;
+    .green;
+    cursor: pointer;
+    transition:color .2s;
 
-    @media only screen and (max-width: 768px) {
-        font-size: @t5;
-        letter-spacing: .6px;
-        line-height: 26px;
+    &:hover {
+        color:@green2!important;
     }
 }
 
@@ -245,10 +252,10 @@ h6, .h6 {
     background: @dark;
     color: @dark-text;
 }
-
-
+.b-white{
+    background:#FFFFFF;
+}
 /*特殊*/
-
 /*.cube {
     position: relative;
     z-index: 2;
@@ -269,7 +276,6 @@ h6, .h6 {
     height: 20px;
     width: 20px;
 }*/
-
 .center {
     position: absolute;
     top: 0;
@@ -296,30 +302,41 @@ h6, .h6 {
         }
     }
 }
+.hide{
+    display:none;
+}
 
-
-hr.line{
-    border-top:1px solid @line;
+hr.line {
+    border-top: 1px solid @line;
 }
 .line-b{
     border-bottom:1px solid @line2;
 }
 .fl-r{float:right;}
 
+.w900 {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
 .w800 {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 }
 .w700 {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 }
 .w600 {
     max-width: 600px;
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 /*border*/
@@ -378,3 +395,88 @@ i.iconfont {
     font-style: normal;
 }
 
+/*list 基础样式*/
+.list1 {
+    div[class|=col], li {
+        .mt4;
+        list-style: none;
+
+        img, .img {
+            width: 100%;
+        }
+
+        div {
+            margin-top: 15px;
+            overflow: hidden;
+        }
+
+        .list-title {
+            line-height: 1;
+        }
+
+        .list-con{
+            .mt6;
+            display:inline-block;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        text-align: left!important;
+
+        div[class|=col], li {
+            list-style: none;
+
+            img, .img {
+                float: left;
+                margin-right: 20px;
+                width: 85px;
+                height: 85px;
+            }
+
+            div {
+                margin-top: 0px;
+            }
+
+            .list-title {
+                line-height: 1.4;
+            }
+        }
+    }
+}
+.list2 {
+    div[class|=col], li {
+        list-style: none;
+
+        img, .img {
+            width: 100%;
+            height: 180px;
+        }
+
+        h3, .h3, h4, .h4, h5, .h5, .h6, .list-title {
+            margin-top: 15px;
+            line-height: 1.4;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        text-align: left;
+
+        div[class|=col], li {
+            margin-top: 25px;
+            list-style: none;
+
+            img, .img {
+                float: left;
+                padding: 10px 0;
+                margin-right: 20px;
+                width: 85px;
+                height: 105px;
+            }
+
+            h3, .h3, h4, .h4, h5, .h5, .list-title {
+                margin-top: 8px;
+                line-height: 1.4;
+            }
+        }
+    }
+}
