@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @using System.Xml;
 @inject IViewLocalizer Localizer
-@model NeoWeb.Models.BlogViewModels
+@model NeoWeb.Models.BlogViewModel
 @{
     ViewData["Title"] = Model.Title;
     ViewData["Details"] = Model.Summary;
@@ -31,35 +31,8 @@
 }
 <div class="container m1">
     <div class="row">
-        <ul class="col-lg-1 blog_date artical-date desktop-show" id="blogDate">
-            @foreach (var item in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Select(p => p.Year).Distinct())
-            {
-            <li class="m3">
-                <a class="h2 year">@item</a>
-                <ul>
-                    @foreach (var m in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Where(p => p.Year == item).Select(p => p.Month).Distinct())
-                        {
-                    <li><a class="month" href="~/blog/index?y=@item&m=@m">@m.ToMonth().ToUpper()</a></li>
-                        }
-                </ul>
-            </li>
-            }
-        </ul>
-
         <div class="col-lg-11 artical-container">
-
             <div class="nav-artical nav-artical-top t3 p2">
-                <div class="text-left"><a href="~/blog"><i class="iconfont">&#xeaa4;</i><span class="desktop-show">@Localizer["Back to list"]</span></a></div>
-                <div>
-                    <ul class="blog_date mobile-show">
-                        @foreach (var item in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Select(p => p.Year).Distinct())
-                        {
-                        <li>
-                            <a class="h3 year" href="~/blog/index?y=@item">@item</a>
-                        </li>
-                        }
-                    </ul>
-                </div>
                 <div class="text-right">
                     @if (@ViewBag.PrevBlogId != Model.Id)
                     {
@@ -123,7 +96,6 @@
 </div>
 
 @section Scripts{
-    <script src="@Helper.ToCDN("/js/blog.min.js", true)"></script>
     <script src="@Helper.ToCDN("/js/jquery.qrcode.min.js")"></script>
     <script>
         function setCookie(name, value) {

@@ -83,6 +83,15 @@ namespace NeoWeb
             return newName;
         }
 
+        public static bool ValidateCover(IHostingEnvironment env, string fileName)
+        {
+            var filePath = Path.Combine(env.ContentRootPath, "wwwroot/upload", fileName);
+            using (Image<Rgba32> image = Image.Load(filePath))
+            {
+                return Math.Abs(image.Height - image.Width / 16 * 9) < 1;
+            }
+        }
+
         public static bool Contains(this string source, string toCheck, StringComparison comp)
         {
             return source.IndexOf(toCheck, comp) >= 0;

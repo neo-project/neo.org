@@ -217,7 +217,7 @@ namespace NeoWeb.Controllers
         public async Task<IActionResult> Create(
             [Bind("Id,ChineseName,EnglishName,ChineseCity,EnglishCity,Type,ChineseAddress,EnglishAddress," +
             "StartTime,EndTime,ChineseCover,EnglishCover,ChineseDetails,EnglishDetails,ChineseOrganizers,EnglishOrganizers,IsFree,ThirdPartyLink")] Event evt, 
-            int countryId, IFormFile chineseCover, IFormFile EnglishCover)
+            int countryId, IFormFile chineseCover, IFormFile englishCover)
         {
             var country = _context.Countries.FirstOrDefault(p => p.Id == countryId);
             if (country == null)
@@ -236,9 +236,21 @@ namespace NeoWeb.Controllers
             if (ModelState.IsValid)
             {
                 if (chineseCover != null)
-                    evt.ChineseCover = Upload(chineseCover);
-                if (EnglishCover != null)
-                    evt.EnglishCover = Upload(EnglishCover);
+                {
+                    var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
+                    if (Helper.ValidateCover(_env, fileName))
+                        evt.ChineseCover = fileName;
+                    else
+                        ModelState.AddModelError("ChineseCover", "Cover size must be 16:9");
+                }
+                if (englishCover != null)
+                {
+                    var fileName = Helper.UploadMedia(englishCover, _env, 1000);
+                    if (Helper.ValidateCover(_env, fileName))
+                        evt.ChineseCover = fileName;
+                    else
+                        ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
+                }
                 evt.ChineseDetails = EventConvert(evt.ChineseDetails);
                 evt.EnglishDetails = EventConvert(evt.EnglishDetails);
                 _context.Add(evt);
@@ -247,19 +259,6 @@ namespace NeoWeb.Controllers
             }
             ViewBag.Countries = _context.Countries.ToList();
             return View(evt);
-        }
-
-        private string Upload(IFormFile cover)
-        {
-            try
-            {
-                return Helper.UploadMedia(cover, _env, 600);
-            }
-            catch (ArgumentException)
-            {
-                Response.StatusCode = 502;
-                return "";
-            }
         }
 
         // GET: event/edit/5
@@ -313,15 +312,31 @@ namespace NeoWeb.Controllers
                 {
                     if (chineseCover != null)
                     {
-                        if (!string.IsNullOrEmpty(evt.ChineseCover))
-                            System.IO.File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", evt.ChineseCover));
-                        evt.ChineseCover = Upload(chineseCover);
+                        var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
+                        if (Helper.ValidateCover(_env, fileName))
+                        {
+                            if (!string.IsNullOrEmpty(evt.ChineseCover))
+                                System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", evt.ChineseCover));
+                            evt.ChineseCover = fileName;
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("ChineseCover", "Cover size must be 16:9");
+                        }
                     }
                     if (englishCover != null)
                     {
-                        if (!string.IsNullOrEmpty(evt.EnglishCover))
-                            System.IO.File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", evt.EnglishCover));
-                        evt.EnglishCover = Upload(englishCover);
+                        var fileName = Helper.UploadMedia(englishCover, _env, 1000);
+                        if (Helper.ValidateCover(_env, fileName))
+                        {
+                            if (!string.IsNullOrEmpty(evt.EnglishCover))
+                                System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", evt.EnglishCover));
+                            evt.ChineseCover = fileName;
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
+                        }
                     }
                     evt.ChineseDetails = EventConvert(evt.ChineseDetails);
                     evt.EnglishDetails = EventConvert(evt.EnglishDetails);

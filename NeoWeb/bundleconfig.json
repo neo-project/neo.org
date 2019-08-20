@@ -10,16 +10,6 @@
     }
   },
   {
-    "outputFileName": "wwwroot/js/blog.min.js",
-    "inputFiles": [
-      "wwwroot/js/blog.js"
-    ],
-    "minify": {
-      "enabled": true,
-      "renameLocals": true
-    }
-  },
-  {
     "outputFileName": "wwwroot/js/consensus.min.js",
     "inputFiles": [
       "wwwroot/js/consensus.js"

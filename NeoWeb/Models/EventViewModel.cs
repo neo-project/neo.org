@@ -42,7 +42,7 @@ namespace NeoWeb.Models
                 Id = evt.Id;
                 Name = evt.ChineseName;
                 Type = (int)evt.Type;
-                Country = evt.Country.ZhName;
+                Country = evt.Country?.ZhName;
                 City = evt.ChineseCity;
                 Address = evt.ChineseAddress;
                 StartTime = evt.StartTime;
@@ -58,7 +58,7 @@ namespace NeoWeb.Models
                 Id = evt.Id;
                 Name = evt.EnglishName;
                 Type = (int)evt.Type;
-                Country = evt.Country.Name;
+                Country = evt.Country?.Name;
                 City = evt.EnglishCity;
                 Address = evt.EnglishAddress;
                 StartTime = evt.StartTime;

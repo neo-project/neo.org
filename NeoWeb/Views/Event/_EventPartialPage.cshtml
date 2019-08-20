@@ -1,4 +1,4 @@
-﻿@model NeoWeb.Models.Event
+﻿@model NeoWeb.Models.EventViewModel
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
@@ -14,5 +14,5 @@
     }
     <p class="m5 gray small">@Model.StartTime.ToString("yyyy-MM-dd")<span class="green bold"> EVENTS</span></p>
     <p><a class="h4 color-n" href="~/event/details/@Model.Id">@Model.Name</a></p>
-    <p class="small gray"><i class="iconfont">&#xe71d;</i> @Model.Country.Name<br /><i class="iconfont">&#xe71d;</i> @Model.Organizers</p>
+    <p class="small gray"><i class="iconfont">&#xe71d;</i> @Model.Country<br /><i class="iconfont">&#xe71d;</i> @Model.Organizers</p>
 </div>

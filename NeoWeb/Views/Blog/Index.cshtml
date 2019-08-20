@@ -32,27 +32,6 @@
 </div>
 <div class="container m2">
     <div class="row">
-        <ul class="col-lg-1 blog_date desktop-show" id="blogDate">
-            @foreach (var item in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Select(p => p.Year).Distinct())
-            {
-                <li class="m3">
-                    <a class="h2 year">@item</a>
-                    <ul>
-                        @foreach (var m in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Where(p => p.Year == item).Select(p => p.Month).Distinct())
-                        {
-                            <li><a class="month" href="~/blog?y=@item&m=@m">@m.ToMonth().ToUpper()</a></li>
-                        }
-                    </ul>
-                </li>
-            }
-        </ul>
-        <ul class="mobile-show blog_date">
-            @foreach (var item in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Select(p => p.Year).Distinct())
-            {
-                <li><a class="h2 year" href="~/blog?y=@item">@item</a></li>
-            }
-        </ul>
-
         <div class="col-lg-11 blog_scroll" id="blogScroll">
             <div class="text-right blog-list">
                 @if (ViewBag.Language == "zh")
@@ -99,7 +78,3 @@
         </div>
     </div>
 </div>
-
-@section Scripts{
-    <script src="@Helper.ToCDN("/js/blog.min.js", true)"></script>
-}

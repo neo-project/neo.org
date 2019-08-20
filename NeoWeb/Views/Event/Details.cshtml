@@ -1,4 +1,4 @@
-﻿@model NeoWeb.Models.Event
+﻿@model NeoWeb.Models.EventViewModel
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
@@ -20,21 +20,6 @@
     <environment exclude="Development">
         <link rel="stylesheet" href="@Helper.ToCDN("/css/event.min.css", true)" />
     </environment>
-    <style>
-        body {
-            padding-top: 140px;
-        }
-        .event-content {
-            background-color: #f9fbf8;
-            padding: 30px;
-        }
-        .event-btn-signup{
-            bottom: 10px;
-        }
-        .event-btn-signup::after {
-            content: "@Localizer["Sign Up"]";
-        }
-    </style>
 }
 <div class="container">
     <div class="event-content border-static">
@@ -55,7 +40,7 @@
                     <img src="@Helper.ToCDN("/images/event/time.svg")" /> <span>@Model.StartTime.ToString("yyyy-MM-dd HH:mm") ~ @Model.EndTime.ToString("yyyy-MM-dd HH:mm")</span>
                 </div>
                 <div class="mt-2">
-                    <img src="@Helper.ToCDN("/images/event/addr.svg")" /> <span class="@Localizer["d-none-zh"]">@Model.Country.Name</span><span class="@SharedLocalizer["d-none"]">@Model.Country.ZhName</span> - <span>@Model.City</span>
+                    <img src="@Helper.ToCDN("/images/event/addr.svg")" /> <span>@Model.Country</span> - <span>@Model.City</span>
                     <span class="with-space">@Html.Raw(Model.Address)</span>
                 </div>
                 <div class="mt-2">

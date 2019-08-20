@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.EntityFrameworkCore;
 using NeoWeb.Data;
 using NeoWeb.Models;
@@ -15,10 +14,10 @@ namespace NeoWeb.Controllers
     public class CareersController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private string _userId;
+        private readonly string _userId;
         private readonly bool _userRules;
 
-        public  CareersController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IHtmlLocalizer<CareersController> localizer)
+        public  CareersController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
             _userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;

@@ -219,7 +219,7 @@ namespace NeoWeb.Controllers
                 if (chineseCover != null)
                 {
                     var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
-                    if (ValidateCover(fileName))
+                    if (Helper.ValidateCover(_env, fileName))
                         blog.ChineseCover = fileName;
                     else
                         ModelState.AddModelError("ChineseCover", "Cover size must be 16:9");
@@ -227,7 +227,7 @@ namespace NeoWeb.Controllers
                 if (englishCover != null)
                 {
                     var fileName = Helper.UploadMedia(englishCover, _env, 1000);
-                    if (ValidateCover(fileName))
+                    if (Helper.ValidateCover(_env, fileName))
                         blog.ChineseCover = fileName;
                     else
                         ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
@@ -285,18 +285,30 @@ namespace NeoWeb.Controllers
                     if (chineseCover != null)
                     {
                         var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
-                        if (ValidateCover(fileName))
+                        if (Helper.ValidateCover(_env, fileName))
+                        {
+                            if (!string.IsNullOrEmpty(item.ChineseCover))
+                                System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", item.ChineseCover));
                             item.ChineseCover = fileName;
+                        }
                         else
+                        {
                             ModelState.AddModelError("ChineseCover", "Cover size must be 16:9");
+                        }
                     }
                     if (englishCover != null)
                     {
                         var fileName = Helper.UploadMedia(englishCover, _env, 1000);
-                        if (ValidateCover(fileName))
+                        if (Helper.ValidateCover(_env, fileName))
+                        {
+                            if (!string.IsNullOrEmpty(item.EnglishCover))
+                                System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", item.EnglishCover));
                             item.ChineseCover = fileName;
+                        }
                         else
+                        {
                             ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
+                        }
                     }
                     _context.Update(item);
                     await _context.SaveChangesAsync();
@@ -521,15 +533,6 @@ namespace NeoWeb.Controllers
             {
                 Response.StatusCode = 502;
                 return "";
-            }
-        }
-
-        private bool ValidateCover(string fileName)
-        {
-            var filePath = Path.Combine(_env.ContentRootPath, "wwwroot/upload", fileName);
-            using (Image<Rgba32> image = Image.Load(filePath))
-            {
-                return image.Width / image.Height == 16 / 9;
             }
         }
 

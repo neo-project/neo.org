@@ -1,11 +1,16 @@
 ﻿@model NeoWeb.Models.Event
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 
 @{
-    ViewData["Title"] = "Create Event";
+    ViewData["Title"] = "Post Event";
 }
-<div class="container">
-    <h2 class="m2">发布新活动</h2>
-    <form asp-action="Create" class="form-horizontal" enctype="multipart/form-data">
-        @{await Html.RenderPartialAsync("_EditorPartialPage", Model);}
-    </form>
+<div class="p1">
+    <h1 class="w800">@Localizer["Post"]</h1>
+</div>
+<form asp-action="Create" class="form-horizontal" enctype="multipart/form-data">
+    @{await Html.RenderPartialAsync("_EditorPartialPage", Model);}
+</form>
+<div>
+    <a asp-action="index">Back to List</a>
 </div>

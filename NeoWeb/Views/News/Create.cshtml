@@ -1,32 +1,17 @@
 ﻿@model NeoWeb.Models.News
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Post Event";
 }
 
-<h2>Create</h2>
-<h4>News</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Title" class="col-form-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Link" class="col-form-label"></label>
-                <input asp-for="Link" class="form-control" />
-                <span asp-validation-for="Link" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-light" />
-            </div>
-        </form>
-    </div>
+<div class="p1">
+    <h1 class="w800">@Localizer["Post"]</h1>
 </div>
+<form asp-action="Create" enctype="multipart/form-data">
+    @{await Html.RenderPartialAsync("_EditorPartialPage", Model);}
+</form>
 <div>
     <a asp-action="Index">Back to List</a>
 </div>

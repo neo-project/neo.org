@@ -75,11 +75,11 @@ https://github.com/neo-project/neo.org
 
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" asp-controller="About">@Localizer["About"]</a></li>
-                    <li class="nav-item"><a class="nav-link" asp-controller="Dev">@Localizer["Developer"]</a></li>
-                    <li class="nav-item"><a class="nav-link" asp-controller="client">@Localizer["Client"]</a></li>
-                    <li class="nav-item"><a class="nav-link" asp-controller="EcoSystem">@Localizer["EcoSystem"]</a></li>
-                    <li class="nav-item"><a class="nav-link" asp-controller="discover">@Localizer["Discover"]</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="about">@Localizer["About"]</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="dev">@Localizer["Developer"]</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="client">@Localizer["Client"]</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="eco">@Localizer["EcoSystem"]</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="discover">@Localizer["Discover"]</a></li>
 
                     <li class="nav-item"></li>
                     @if (SharedLocalizer["en"].Value == "zh")

@@ -1,0 +1,37 @@
+﻿@model NeoWeb.Models.News
+<link href="@Helper.ToCDN("/css/bootstrap-xxl.css")" rel="stylesheet" />
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="form-group">
+    <label asp-for="ChineseTitle" class="col-form-label"></label>
+    <input asp-for="ChineseTitle" class="form-control" />
+    <span asp-validation-for="ChineseTitle" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="EnglishTitle" class="col-form-label"></label>
+    <input asp-for="EnglishTitle" class="form-control" />
+    <span asp-validation-for="EnglishTitle" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Link" class="col-form-label"></label>
+    <input asp-for="Link" class="form-control" />
+    <span asp-validation-for="Link" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <input type="submit" value="Create" class="btn btn-light" />
+</div>
+<script src="@Helper.ToCDN("/lib/tinymce/tinymce.min.js", true)"></script>
+<script>
+    tinymce.init({
+        selector: 'textarea',
+        language: 'zh_CN',
+        height: 500,
+        menubar: true,
+        plugins: 'print preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern help',
+        toolbar: 'formatselect | bold italic strikethrough forecolor backcolor permanentpen formatpainter | link image media pageembed | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | removeformat | addcomment',
+        image_advtab: true,
+        images_upload_url: "../../../../blog/upload"
+    });
+</script>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

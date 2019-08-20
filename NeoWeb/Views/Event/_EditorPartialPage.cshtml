@@ -1,9 +1,14 @@
-﻿@model NeoWeb.Models.EventViewModel
+﻿@model NeoWeb.Models.Event
 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 <div class="form-group">
-    <label asp-for="Name" class="col-form-label">活动名称</label>
-    <input asp-for="Name" class="form-control" />
-    <span asp-validation-for="Name" class="text-danger"></span>
+    <label asp-for="ChineseName" class="col-form-label">活动名称</label>
+    <input asp-for="ChineseName" class="form-control" />
+    <span asp-validation-for="ChineseName" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="EnglishName" class="col-form-label">活动名称</label>
+    <input asp-for="EnglishName" class="form-control" />
+    <span asp-validation-for="EnglishName" class="text-danger"></span>
 </div>
 <div class="row">
     <div class="form-group col-sm-4">
@@ -29,18 +34,32 @@
         </div>
     </div>
     <div class="form-group col-sm-4">
-        <label asp-for="City" class="col-form-label">城市</label>
+        <label asp-for="ChineseCity" class="col-form-label">城市</label>
         <div>
-            <input asp-for="City" class="form-control" />
-            <span asp-validation-for="City" class="text-danger"></span>
+            <input asp-for="ChineseCity" class="form-control" />
+            <span asp-validation-for="ChineseCity" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group col-sm-4">
+        <label asp-for="EnglishCity" class="col-form-label">城市</label>
+        <div>
+            <input asp-for="EnglishCity" class="form-control" />
+            <span asp-validation-for="EnglishCity" class="text-danger"></span>
         </div>
     </div>
 </div>
 <div class="form-group">
-    <label asp-for="Address" class="col-form-label">活动地点</label>
+    <label asp-for="ChineseAddress" class="col-form-label">活动地点</label>
     <div>
-        <input asp-for="Address" class="form-control" />
-        <span asp-validation-for="Address" class="text-danger"></span>
+        <input asp-for="ChineseAddress" class="form-control" />
+        <span asp-validation-for="ChineseAddress" class="text-danger"></span>
+    </div>
+</div>
+<div class="form-group">
+    <label asp-for="EnglishAddress" class="col-form-label">活动地点</label>
+    <div>
+        <input asp-for="EnglishAddress" class="form-control" />
+        <span asp-validation-for="EnglishAddress" class="text-danger"></span>
     </div>
 </div>
 <div class="row">
@@ -59,10 +78,17 @@
         </div>
     </div>
     <div class="form-group col-sm-4">
-        <label asp-for="Organizers" class="col-form-label">主办方名称</label>
+        <label asp-for="ChineseOrganizers" class="col-form-label">主办方名称</label>
         <div>
-            <input asp-for="Organizers" class="form-control" />
-            <span asp-validation-for="Organizers" class="text-danger"></span>
+            <input asp-for="ChineseOrganizers" class="form-control" />
+            <span asp-validation-for="ChineseOrganizers" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group col-sm-4">
+        <label asp-for="EnglishOrganizers" class="col-form-label">主办方名称</label>
+        <div>
+            <input asp-for="EnglishOrganizers" class="form-control" />
+            <span asp-validation-for="EnglishOrganizers" class="text-danger"></span>
         </div>
     </div>
 </div>
@@ -78,8 +104,24 @@
     <div class="form-group col-sm-4">
         <label for="cover" class="col-form-label">活动封面</label>
         <div>
-            <input type="hidden" asp-for="Cover" />
+            <input type="hidden" asp-for="ChineseCover" />
             <input type="file" name="cover" id="cover" class="form-control" />
+            <small class="form-text text-muted">如果没有上传活动封面，则会展示默认封面</small>
+        </div>
+    </div>
+    <div class="form-group col-sm-4">
+        <label for="cover" class="col-form-label">活动封面</label>
+        <div>
+            <input type="hidden" asp-for="ChineseCover" />
+            <input type="file" name="chineseCover" class="form-control" />
+            <small class="form-text text-muted">如果没有上传活动封面，则会展示默认封面</small>
+        </div>
+    </div>
+    <div class="form-group col-sm-4">
+        <label for="cover" class="col-form-label">活动封面</label>
+        <div>
+            <input type="hidden" asp-for="EnglishCover" />
+            <input type="file" name="englishCover" class="form-control" />
             <small class="form-text text-muted">如果没有上传活动封面，则会展示默认封面</small>
         </div>
     </div>
@@ -93,16 +135,23 @@
     </div>
 </div>
 <div class="form-group">
-    <label asp-for="Details" class="col-form-label">活动详细介绍</label>
+    <label asp-for="ChineseDetails" class="col-form-label">活动详细介绍</label>
     <div>
-        <textarea asp-for="Details" class="form-control" autocomplete="off" rows=10></textarea>
-        <span asp-validation-for="Details" class="text-danger"></span>
+        <textarea asp-for="ChineseDetails" class="form-control" autocomplete="off" rows=10></textarea>
+        <span asp-validation-for="ChineseDetails" class="text-danger"></span>
+    </div>
+</div>
+<div class="form-group">
+    <label asp-for="EnglishDetails" class="col-form-label">活动详细介绍</label>
+    <div>
+        <textarea asp-for="EnglishDetails" class="form-control" autocomplete="off" rows=10></textarea>
+        <span asp-validation-for="EnglishDetails" class="text-danger"></span>
     </div>
 </div>
 <div class="form-group">
     <input type="submit" value="发布" class="btn btn-light" />
 </div>
-<script src="/lib/tinymce/tinymce.min.js" asp-append-version="true"></script>
+<script src="@Helper.ToCDN("/lib/tinymce/tinymce.min.js", true)"></script>
 <script>
     tinymce.init({
         selector: 'textarea',
