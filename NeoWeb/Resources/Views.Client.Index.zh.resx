@@ -180,20 +180,17 @@
   <data name="As some wallets are open-source while some are not, you may lose control of your own NEO assets when using some wallets that shown on this page. Please choose the wallets as appropriate." xml:space="preserve">
     <value>其中部分为开源客户端，部分为不开源客户端，在使用本页面的部分客户端时，您有可能对您的 NEO 资产失去掌控权，请酌情选择。</value>
   </data>
-  <data name="Centralized Verification" xml:space="preserve">
+  <data name="Centralized" xml:space="preserve">
     <value>集中验证</value>
   </data>
   <data name="Cobo is a wallet that supports multiple digital asset management." xml:space="preserve">
     <value>Cobo 是支持多种数字资产管理的钱包。</value>
   </data>
-  <data name="Comprehensive Verification" xml:space="preserve">
+  <data name="Comprehensive" xml:space="preserve">
     <value>全面验证</value>
   </data>
-  <data name="Degree of Digital Asset Control - High Level" xml:space="preserve">
-    <value>数字资产掌控权 - 高</value>
-  </data>
-  <data name="Degree of Digital Asset Control - Low Level" xml:space="preserve">
-    <value>数字资产掌控权 - 低</value>
+  <data name="Degree of Digital Asset Control" xml:space="preserve">
+    <value>数字资产掌控权</value>
   </data>
   <data name="Enables policies for consensus. Mandatory for building private chain." xml:space="preserve">
     <value>启用共识的简单策略。搭建私链必选。</value>
@@ -333,11 +330,8 @@
   <data name="This wallet supports the encryption and decryption of the private key for secure storage. The website itself does not store the private key, so please pay attention to the safe backup and safekeeping of the private key." xml:space="preserve">
     <value>该客户端支持将私钥进行加密和解密，以便将其安全存储。网站本身不存储私钥，请注意私钥的安全备份和妥善保管。</value>
   </data>
-  <data name="Transparency - High Level" xml:space="preserve">
-    <value>透明度 - 高</value>
-  </data>
-  <data name="Transparency - Higher Level" xml:space="preserve">
-    <value>透明度 - 较高</value>
+  <data name="Transparency" xml:space="preserve">
+    <value>透明度</value>
   </data>
   <data name="When using the wallet, please back up the private key in a secure manner. The private key is the only way to control your own NEO assets." xml:space="preserve">
     <value>在使用客户端过程中，请以安全方式备份私钥，私钥是您 NEO 资产掌控的唯一方式。</value>
@@ -348,8 +342,8 @@
   <data name="Math Wallet" xml:space="preserve">
     <value>麦子钱包</value>
   </data>
-  <data name="open-source" xml:space="preserve">
-    <value>开源软件</value>
+  <data name="Open Source" xml:space="preserve">
+    <value>开源</value>
   </data>
   <data name="https://docs.neo.org/en-us/node/gui/install.html" xml:space="preserve">
     <value>https://docs.neo.org/zh-cn/node/gui/install.html</value>
@@ -386,5 +380,26 @@
   </data>
   <data name="Teemo is a browser extension wallet of NEO.&lt;br/&gt;The extension injects the NEO DApp API into every website's JavaScript context, so that DApps can interact with the blockchain." xml:space="preserve">
     <value>Teemo 是一款 NEO 区块链上的浏览器插件钱包，该扩展将 NEO DApp API 注入到每个网站的 JavaScript 上下文中以便 DApps 可以与区块链进行交互。</value>
+  </data>
+  <data name="High" xml:space="preserve">
+    <value>高</value>
+  </data>
+  <data name="Higher" xml:space="preserve">
+    <value>较高</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>低</value>
+  </data>
+  <data name="Poor" xml:space="preserve">
+    <value>贫乏</value>
+  </data>
+  <data name="Rich" xml:space="preserve">
+    <value>丰富</value>
+  </data>
+  <data name="So so" xml:space="preserve">
+    <value>一般</value>
+  </data>
+  <data name="Verification" xml:space="preserve">
+    <value>验证方式</value>
   </data>
 </root>

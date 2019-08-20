@@ -55,6 +55,15 @@ select {
     }
 }
 
+.preview-div {
+    margin: 32px 0;
+    h3{
+        display: inline-block;
+    }
+}
+
+
+
 .modal {
     .modal-content {
         padding: 40px 32px;
@@ -76,6 +85,45 @@ select {
 
     .modal-body {
         padding: 0;
+
+        img {
+            padding-bottom: 31px;
+            margin-bottom: 31px;
+            border-bottom: 0.5px solid rgba(0, 0, 0, 0.18);
+        }
+
+        .metrics {
+            margin: 32px 0;
+            line-height: @t5;
+        }
+
+        .metrics {
+            span {
+                display: inline-block;
+                font-weight: bold;
+                margin-bottom: 12px;
+            }
+
+            .span-success, .span-warning, .span-danger {
+                padding: 0 1rem;
+                margin-left: 1em;
+                font-size: 12.8px;
+                font-weight: bold;
+                color: @dark;
+            }
+
+            .span-success {
+                background-color: #02e49b;
+            }
+
+            .span-warning {
+                background-color: #ffde00;
+            }
+
+            .span-danger {
+                background-color: #dd0000;
+            }
+        }
     }
 
     .modal-footer {
@@ -87,6 +135,20 @@ select {
         margin-top: 12px;
         padding: 8px 16px;
         color: @dark-text !important;
+    }
+
+    .plat-btn {
+        display: inline-block;
+        text-align: center;
+        width: 92px;
+        line-height: 25px;
+        border: solid 1px @green;
+        vertical-align: 3px;
+        float: right;
+
+        &:last-child {
+            border-right: 0;
+        }
     }
 
     .modal-hr {
