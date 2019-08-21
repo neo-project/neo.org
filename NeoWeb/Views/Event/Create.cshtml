@@ -8,6 +8,7 @@
 <div class="p1">
     <h1 class="w800">@Localizer["Post"]</h1>
 </div>
+<div class="post-type">Post Type<a asp-controller="blog" asp-action="create">Blogs</a><span>Events</span><a asp-controller="news" asp-action="create">News</a></div>
 <form asp-action="Create" class="form-horizontal" enctype="multipart/form-data">
     @{await Html.RenderPartialAsync("_EditorPartialPage", Model);}
 </form>

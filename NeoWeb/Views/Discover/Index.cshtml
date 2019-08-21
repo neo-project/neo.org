@@ -47,63 +47,39 @@
         <option>EVENTS</option>
         <option>NEWS</option>
     </select>
-    <select>
-        <option>All years</option>
-        <option>2019</option>
-        <option>2018</option>
-        <option>2017</option>
-    </select>
+    <select class="form-control" asp-items="ViewBag.Year"></select>
 </div>
 
 <div class="row m4">
-    <div class="col-md-4 m4">
-        <img width="100%" height="200" />
-        <p class="m5 gray small">July 16, 2019 <span class="green bold">EVENTS</span></p>
-        <p class="h4">NEO JOY 2019 - Shanghai</p>
-        <p class="small gray"><i class="iconfont">&#xe71d;</i> NEO JOY 2019 - Shanghai<br /><i class="iconfont">&#xe71d;</i> Wed, 2019-07-30, 16:30 - 18:30</p>
-    </div>
-    <div class="col-md-4 m4">
-        <img width="100%" height="200" />
-        <p class="m5 gray small">July 16, 2019 <span class="green bold">EVENTS</span></p>
-        <p class="h4">NEO JOY 2019 - Shanghai</p>
-        <p class="small gray">#FFFFFFF,#FFFFFF,#FFFFFFF</p>
-    </div>
-    <div class="col-md-4 m4">
-        <img width="100%" height="200" />
-        <p class="m5 gray small">July 16, 2019 <span class="green bold">EVENTS</span></p>
-        <p class="h4">NEO JOY 2019 - Shanghai</p>
-        <p class="small gray"><i class="iconfont">&#xe71d;</i> NEO JOY 2019 - Shanghai<br /><i class="iconfont">&#xe71d;</i> Wed, 2019-07-30, 16:30 - 18:30</p>
-    </div>
-
-    @foreach (var item in Model.Take(10))
+    @foreach (var item in Model)
     {
-        string type;
-        string title = "";
-
-
-        @switch (item.Type)
+        if (item.Type == DiscoverViewModelType.Blog)
         {
-            case DiscoverViewModelType.Blog:
-                type = "BLOGS";
-                //title = item.Blog.
-                break;
-            case DiscoverViewModelType.Event:
-                type = "EVENTS";
-                break;
-            case DiscoverViewModelType.News:
-                type = "NEWS";
-                break;
-            default:
-                type = "DISCOVER";
-                break;
+            <div class="col-md-4 m4">
+                <img width="100%" height="200" />
+                <p class="m5 gray small">@item.Time<span class="green bold">@item.Type</span></p>
+                <p class="h4"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></p>
+                <p class="small gray"><i class="iconfont">&#xe71d;</i> NEO JOY 2019 - Shanghai<br /><i class="iconfont">&#xe71d;</i> Wed, 2019-07-30, 16:30 - 18:30</p>
+            </div>
         }
-
-        <div class="col-md-4 m4">
-            <img width="100%" height="200" />
-            <p class="m5 gray small">@item.Time<span class="green bold">@type</span></p>
-            <p class="h4">@title</p>
-            <p class="small gray"><i class="iconfont">&#xe71d;</i> NEO JOY 2019 - Shanghai<br /><i class="iconfont">&#xe71d;</i> Wed, 2019-07-30, 16:30 - 18:30</p>
-        </div>
+        else if (item.Type == DiscoverViewModelType.Event)
+        {
+            <div class="col-md-4 m4">
+                <img width="100%" height="200" />
+                <p class="m5 gray small">@item.Time<span class="green bold">@item.Type</span></p>
+                <p class="h4"><a href="~/blog/details/@item.Event.Id">@item.Event.Name</a></p>
+                <p class="small gray"><i class="iconfont">&#xe71d;</i> NEO JOY 2019 - Shanghai<br /><i class="iconfont">&#xe71d;</i> Wed, 2019-07-30, 16:30 - 18:30</p>
+            </div>
+        }
+        else if (item.Type == DiscoverViewModelType.News)
+        {
+            <div class="col-md-4 m4">
+                <img width="100%" height="200" />
+                <p class="m5 gray small">@item.Time<span class="green bold">@item.Type</span></p>
+                <p class="h4"><a href="~/blog/details/@item.News.Id">@item.News.Title</a></p>
+                <p class="small gray"><i class="iconfont">&#xe71d;</i> NEO JOY 2019 - Shanghai<br /><i class="iconfont">&#xe71d;</i> Wed, 2019-07-30, 16:30 - 18:30</p>
+            </div>
+        }
     }
 
 </div>

@@ -2,16 +2,12 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using NeoWeb.Data;
 using NeoWeb.Models;
-using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.PixelFormats;
-using SixLabors.ImageSharp.Processing;
-using SixLabors.Primitives;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.Claims;
@@ -42,172 +38,40 @@ namespace NeoWeb.Controllers
             }
         }
 
-        // GET: event
-        [HttpGet]
-        [AllowAnonymous]
-        public IActionResult Index(string k = null, int c = 0, int d = 0, string z = null)
-        {
-            IQueryable<Event> models = _context.Events;
-            
-
-            //对关键词进行筛选
-            if (!string.IsNullOrEmpty(k))
-            {
-                foreach (var item in k.Split(" "))
-                {
-                    switch (item.ToLower())
-                    {
-                        case "conference": models = models.Where(p => p.Type == EventType.Conference); break;
-                        case "meetup": models = models.Where(p => p.Type == EventType.Meetup); break;
-                        case "workshop": models = models.Where(p => p.Type == EventType.Workshop); break;
-                        case "hackathon": models = models.Where(p => p.Type == EventType.Hackathon); break;
-                        default:
-                            models = models.Where(p => p.ChineseAddress.Contains(item, StringComparison.OrdinalIgnoreCase)
-                                || p.ChineseCity.Contains(item, StringComparison.OrdinalIgnoreCase)
-                                || p.ChineseDetails.Contains(item, StringComparison.OrdinalIgnoreCase)
-                                || p.ChineseName.Contains(item, StringComparison.OrdinalIgnoreCase)
-                                || p.ChineseOrganizers.Contains(item, StringComparison.OrdinalIgnoreCase)
-                                || p.Country != null && p.Country.ZhName.Contains(item, StringComparison.OrdinalIgnoreCase)
-                                || p.Country != null && p.Country.Name.Contains(item, StringComparison.OrdinalIgnoreCase)
-                                || p.EnglishAddress.Contains(item, StringComparison.OrdinalIgnoreCase)
-                                || p.EnglishCity.Contains(item, StringComparison.OrdinalIgnoreCase)
-                                || p.EnglishDetails.Contains(item, StringComparison.OrdinalIgnoreCase)
-                                || p.EnglishName.Contains(item, StringComparison.OrdinalIgnoreCase)
-                                || p.EnglishOrganizers.Contains(item, StringComparison.OrdinalIgnoreCase)
-                                || p.ThirdPartyLink != null && p.ThirdPartyLink.Contains(item, StringComparison.OrdinalIgnoreCase)); break;
-                    }
-                    if (models == null) break;
-                }
-            }
-            //对国家进行筛选
-            if (c > 0)
-            {
-                models = models.Where(p => p.Country.Id == c);
-            }
-            //对日期进行筛选
-            switch (d)
-            {
-                //本周内（非7天内）的未结束的活动
-                case 1: models = models.Where(p => IsInSameWeek(DateTime.Now, p.StartTime) || IsInSameWeek(DateTime.Now, p.EndTime)).Where(p => p.EndTime >= DateTime.Now); break;
-                //本月内（非30天内）的未结束的活动
-                case 2: models = models.Where(p => IsInSameMonth(DateTime.Now, p.StartTime) || IsInSameMonth(DateTime.Now, p.EndTime)).Where(p => p.EndTime >= DateTime.Now); break;
-                //已经结束的活动
-                case 3: models = models.Where(p => p.EndTime < DateTime.Now); break;
-            }
-            //对具体日期进行查找
-            if (DateTime.TryParse(z, out DateTime date))
-                models = models.Where(p => p.StartTime.Date <= date && p.EndTime.Date >= date);
-            //中英文切换
-            List<EventViewModel> viewModels;
-            if (_sharedLocalizer["en"] == "zh")
-            {
-                viewModels = models.OrderByDescending(p => p.StartTime).Select(p => new EventViewModel()
-                {
-                    Id = p.Id,
-                    Name = p.ChineseName,
-                    Type = (int)p.Type,
-                    Country = p.Country.ZhName,
-                    City = p.ChineseCity,
-                    Address = p.ChineseAddress,
-                    StartTime = p.StartTime,
-                    EndTime = p.EndTime,
-                    Cover = p.ChineseCover,
-                    Organizers = p.ChineseOrganizers,
-                    IsFree = p.IsFree,
-                    ThirdPartyLink = p.ThirdPartyLink
-                }).ToList();
-            }
-            else
-            {
-                viewModels = models.OrderByDescending(p => p.StartTime).Select(p => new EventViewModel()
-                {
-                    Id = p.Id,
-                    Name = p.EnglishName,
-                    Type = (int)p.Type,
-                    Country = p.Country.ZhName,
-                    City = p.ChineseCity,
-                    Address = p.ChineseAddress,
-                    StartTime = p.StartTime,
-                    EndTime = p.EndTime,
-                    Cover = p.EnglishCover,
-                    Organizers = p.ChineseOrganizers,
-                    IsFree = p.IsFree,
-                    ThirdPartyLink = p.ThirdPartyLink
-                }).ToList();
-            }
-            
-            //全部筛选列表（可能弃用）
-            ViewBag.Countries = viewModels.Select(p => p.Country).Distinct();
-            ViewBag.Types = viewModels.Select(p => p.Type).Distinct();
-            ViewBag.Dates = new string[] { "All Dates", "This Week", "This Month", "Past Events" };
-            //筛选列表中的默认选项（可能弃用）
-            ViewBag.Keywords = k;
-            ViewBag.CountryId = c;
-            ViewBag.Date = d;
-            
-            ViewBag.UserRules = _userRules;
-            return View(viewModels);
-        }
-
-        [HttpGet]
-        [AllowAnonymous]
-        public JsonResult Date(int year, int month)
-        {
-            var obj = _context.Events.Where(p => p.StartTime.Year == year && p.StartTime.Month == month).OrderBy(p => p.StartTime).Select(p => p.StartTime.ToString("yyyy/MM/dd")).ToList().Distinct();
-            return Json(obj);
-        }
-
-        /// <summary>   
-        /// 判断两个日期是否在同一周   
-        /// </summary>    
-        private bool IsInSameWeek(DateTime x, DateTime y)
-        {
-            if (x > y)
-            {
-                var temp = x;
-                x = y;
-                y = temp;
-            }
-            int days = (y.Date - x.Date).Days;
-            int dayOfWeek = Convert.ToInt32(y.DayOfWeek);
-            return days <= dayOfWeek;
-        }
-
-        /// <summary>
-        /// 判断两个日期是否在同一月  
-        /// </summary>
-        private bool IsInSameMonth(DateTime x, DateTime y)
-        {
-            return x.Year == y.Year && x.Month == y.Month;
-        }
-
         // GET: event/details/5
+        [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? id, string language = null)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            Event evt = await _context.Events.SingleOrDefaultAsync(p => p.Id == id);
+            var evt = await _context.Events.SingleOrDefaultAsync(p => p.Id == id);
 
             if (evt == null)
             {
                 return NotFound();
             }
 
-            EventViewModel viewModel = new EventViewModel(evt, _sharedLocalizer["en"] == "zh");
-            
+            language = !string.IsNullOrEmpty(language) ? language : _sharedLocalizer["en"];
+
+            #region Previous and  Next
+            var idList = _context.Events.OrderByDescending(o => o.StartTime).Select(p => p.Id).ToList();
+            ViewBag.NextBlogId = idList.Count == 0 ? id : idList[Math.Max(idList.IndexOf((int)id) - 1, 0)];
+            ViewBag.PrevBlogId = idList.Count == 0 ? id : idList[Math.Min(idList.IndexOf((int)id) + 1, idList.Count - 1)];
+            #endregion
+
             ViewBag.UserRules = _userRules;
 
-            return View(viewModel);
+            return View(new EventViewModel(evt, language == "zh"));
         }
 
         // GET: event/create
         public IActionResult Create()
         {
-            ViewBag.Countries = _context.Countries.ToList();
+            ViewBag.Countries = _context.Countries.Select(c => new SelectListItem { Value = c.Id.ToString(), Text = $"{c.Name} - {c.ZhName}" }).ToList();
             return View();
         }
 
@@ -215,8 +79,8 @@ namespace NeoWeb.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(
-            [Bind("Id,ChineseName,EnglishName,ChineseCity,EnglishCity,Type,ChineseAddress,EnglishAddress," +
-            "StartTime,EndTime,ChineseCover,EnglishCover,ChineseDetails,EnglishDetails,ChineseOrganizers,EnglishOrganizers,IsFree,ThirdPartyLink")] Event evt, 
+            [Bind("Id,ChineseName,EnglishName,ChineseCity,EnglishCity,ChineseAddress,EnglishAddress,StartTime,EndTime," +
+            "ChineseCover,EnglishCover,ChineseDetails,EnglishDetails,ChineseOrganizers,EnglishOrganizers,IsFree")] Event evt, 
             int countryId, IFormFile chineseCover, IFormFile englishCover)
         {
             var country = _context.Countries.FirstOrDefault(p => p.Id == countryId);
@@ -228,10 +92,6 @@ namespace NeoWeb.Controllers
             if (evt.EndTime <= evt.StartTime)
             {
                 ModelState.AddModelError("EndTime", "截止时间错误");
-            }
-            if (!evt.IsFree && evt.ThirdPartyLink == null)
-            {
-                ModelState.AddModelError("ThirdPartyLink", "付费活动需要填写购票链接");
             }
             if (ModelState.IsValid)
             {
@@ -255,16 +115,16 @@ namespace NeoWeb.Controllers
                 evt.EnglishDetails = EventConvert(evt.EnglishDetails);
                 _context.Add(evt);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.Event });
             }
-            ViewBag.Countries = _context.Countries.ToList();
+            ViewBag.Countries = _context.Countries.Select(c => new SelectListItem { Value = c.Id.ToString(), Text = $"{c.Name} - {c.ZhName}" }).ToList();
             return View(evt);
         }
 
         // GET: event/edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            ViewBag.Countries = _context.Countries.ToList();
+            ViewBag.Countries = _context.Countries.Select(c => new SelectListItem { Value = c.Id.ToString(), Text = $"{c.Name} - {c.ZhName}" }).ToList();
             if (id == null)
             {
                 return NotFound();
@@ -279,12 +139,11 @@ namespace NeoWeb.Controllers
         }
 
         // POST: event/edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ChineseName,EnglishName,ChineseCity,EnglishCity,Type,ChineseAddress,EnglishAddress," +
-            "StartTime,EndTime,ChineseCover,EnglishCover,ChineseDetails,EnglishDetails,ChineseOrganizers,EnglishOrganizers,IsFree,ThirdPartyLink")] Event evt, 
+        public async Task<IActionResult> Edit(
+            int id, [Bind("Id,ChineseName,EnglishName,ChineseCity,EnglishCity,ChineseAddress,EnglishAddress," +
+            "StartTime,EndTime,ChineseCover,EnglishCover,ChineseDetails,EnglishDetails,ChineseOrganizers,EnglishOrganizers,IsFree")] Event evt, 
             int countryId, IFormFile chineseCover, IFormFile englishCover)
         {
             if (id != evt.Id)
@@ -302,14 +161,12 @@ namespace NeoWeb.Controllers
             {
                 ModelState.AddModelError("EndTime", "截止时间错误");
             }
-            if (!evt.IsFree && evt.ThirdPartyLink == null)
-            {
-                ModelState.AddModelError("ThirdPartyLink", "付费活动需要填写购票链接");
-            }
             if (ModelState.IsValid)
             {
                 try
                 {
+                    evt.ChineseDetails = EventConvert(evt.ChineseDetails);
+                    evt.EnglishDetails = EventConvert(evt.EnglishDetails);
                     if (chineseCover != null)
                     {
                         var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
@@ -338,8 +195,6 @@ namespace NeoWeb.Controllers
                             ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
                         }
                     }
-                    evt.ChineseDetails = EventConvert(evt.ChineseDetails);
-                    evt.EnglishDetails = EventConvert(evt.EnglishDetails);
                     _context.Update(evt);
                     await _context.SaveChangesAsync();
                 }
@@ -354,9 +209,8 @@ namespace NeoWeb.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
             }
-            ViewBag.Countries = _context.Countries.ToList();
+            ViewBag.Countries = _context.Countries.Select(c => new SelectListItem { Value = c.Id.ToString(), Text = $"{c.Name} - {c.ZhName}" }).ToList();
             return View(evt);
         }
 
@@ -386,7 +240,7 @@ namespace NeoWeb.Controllers
             var @event = await _context.Events.SingleOrDefaultAsync(m => m.Id == id);
             _context.Events.Remove(@event);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.Event });
         }
 
         private bool EventExists(int id)

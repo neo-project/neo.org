@@ -1,16 +1,16 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 using NeoWeb.Data;
 using NeoWeb.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Localization;
-using Microsoft.AspNetCore.Http;
+using System;
+using System.IO;
+using System.Linq;
 using System.Security.Claims;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace NeoWeb.Controllers
 {
@@ -18,55 +18,12 @@ namespace NeoWeb.Controllers
     public class NewsController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly string _userId;
-        private readonly bool _userRules;
         private readonly IHostingEnvironment _env;
-        private readonly IStringLocalizer<SharedResource> _sharedLocalizer;
 
-        public NewsController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IHostingEnvironment env, 
-            IStringLocalizer<SharedResource> sharedLocalizer)
+        public NewsController(ApplicationDbContext context, IHostingEnvironment env)
         {
             _context = context;
-            _userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             _env = env;
-            _sharedLocalizer = sharedLocalizer;
-            if (_userId != null)
-            {
-                _userRules = _context.UserRoles.Any(p => p.UserId == _userId);
-            }
-        }
-
-        // GET: news
-        [HttpGet]
-        [AllowAnonymous]
-        public IActionResult Index()
-        {
-            IQueryable<News> news = _context.News;
-            //中英文切换
-            List<NewsViewModel> viewModels = news.OrderByDescending(p => p.Time).Select(p => new NewsViewModel(p, _sharedLocalizer["en"] == "zh")).ToList();
-            
-            return View(viewModels);
-        }
-        
-        // GET: news/details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            News news = await _context.News.SingleOrDefaultAsync(m => m.Id == id);
-            if (news == null)
-            {
-                return NotFound();
-            }
-
-            NewsViewModel viewModel = new NewsViewModel(news, _sharedLocalizer["en"] == "zh");
-            
-            ViewBag.UserRules = _userRules;
-            ViewBag.Language = _sharedLocalizer["en"];
-            return View(news);
         }
 
         // GET: news/create
@@ -80,14 +37,30 @@ namespace NeoWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ChineseTitle,EnglishTitle,Link")] News news)
+        public async Task<IActionResult> Create([Bind("Id,ChineseTitle,EnglishTitle,Link")] News news, IFormFile chineseCover, IFormFile englishCover)
         {
             if (ModelState.IsValid)
             {
                 news.Time = DateTime.Now;
+                if (chineseCover != null)
+                {
+                    var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
+                    if (Helper.ValidateCover(_env, fileName))
+                        news.ChineseCover = fileName;
+                    else
+                        ModelState.AddModelError("ChineseCover", "Cover size must be 16:9");
+                }
+                if (englishCover != null)
+                {
+                    var fileName = Helper.UploadMedia(englishCover, _env, 1000);
+                    if (Helper.ValidateCover(_env, fileName))
+                        news.ChineseCover = fileName;
+                    else
+                        ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
+                }
                 _context.Add(news);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.News });
             }
             return View(news);
         }
@@ -113,7 +86,7 @@ namespace NeoWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ChineseTitle,EnglishTitle,Link")] News news)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ChineseTitle,EnglishTitle,ChineseTags,EnglishTags,Link")] News news, IFormFile chineseCover, IFormFile englishCover)
         {
             if (id != news.Id)
             {
@@ -122,7 +95,34 @@ namespace NeoWeb.Controllers
 
             if (ModelState.IsValid)
             {
-                news.Time = DateTime.Now;
+                if (chineseCover != null)
+                {
+                    var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
+                    if (Helper.ValidateCover(_env, fileName))
+                    {
+                        if (!string.IsNullOrEmpty(news.ChineseCover))
+                            System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", news.ChineseCover));
+                        news.ChineseCover = fileName;
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("ChineseCover", "Cover size must be 16:9");
+                    }
+                }
+                if (englishCover != null)
+                {
+                    var fileName = Helper.UploadMedia(englishCover, _env, 1000);
+                    if (Helper.ValidateCover(_env, fileName))
+                    {
+                        if (!string.IsNullOrEmpty(news.EnglishCover))
+                            System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", news.EnglishCover));
+                        news.ChineseCover = fileName;
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
+                    }
+                }
                 try
                 {
                     _context.Update(news);
@@ -139,7 +139,6 @@ namespace NeoWeb.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
             }
             return View(news);
         }
@@ -170,7 +169,7 @@ namespace NeoWeb.Controllers
             var news = await _context.News.SingleOrDefaultAsync(m => m.Id == id);
             _context.News.Remove(news);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.News });
         }
 
         private bool NewsExists(int id)

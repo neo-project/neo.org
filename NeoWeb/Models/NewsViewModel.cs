@@ -17,27 +17,19 @@ namespace NeoWeb.Models
 
         public string Cover { get; set; }
 
+        public string Tags { get; set; }
+
         public NewsViewModel()
         { }
 
         public NewsViewModel(News news, bool isZh)
         {
-            if (isZh)
-            {
-                Id = news.Id;
-                Title = news.ChineseTitle;
-                Time = news.Time;
-                Link = news.Link;
-                Cover = news.ChineseCover;
-            }
-            else
-            {
-                Id = news.Id;
-                Title = news.EnglishTitle;
-                Time = news.Time;
-                Link = news.Link;
-                Cover = news.EnglishCover;
-            }
+            Id = news.Id;
+            Time = news.Time;
+            Link = news.Link;
+            Title = isZh ? news.ChineseTitle : news.EnglishTitle;
+            Cover = isZh ? news.ChineseCover : news.EnglishCover;
+            Tags = isZh ? news.ChineseTags : news.EnglishTags;
         }
     }
 }

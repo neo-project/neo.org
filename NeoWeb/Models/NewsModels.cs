@@ -23,6 +23,10 @@ namespace NeoWeb.Models
         [Required(ErrorMessage = "Link is required")]
         public string Link { get; set; }
 
+        public string ChineseTags { get; set; }
+
+        public string EnglishTags { get; set; }
+
         public DateTime Time { get; set; }
     }
 }

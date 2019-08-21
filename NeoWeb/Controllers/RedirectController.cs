@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NeoWeb.Models;
 
 namespace NeoWeb.Controllers
 {
@@ -42,6 +43,27 @@ namespace NeoWeb.Controllers
         public IActionResult Team()
         {
             return RedirectToAction("index", "team");
+        }
+
+        [Route("blog")]
+        [Route("blog/index")]
+        public IActionResult Blog()
+        {
+            return RedirectToAction("index", "discover", new { type = (int)DiscoverViewModelType.Blog });
+        }
+
+        [Route("event")]
+        [Route("event/index")]
+        public IActionResult Event()
+        {
+            return RedirectToAction("index", "discover", new { type = (int)DiscoverViewModelType.Event });
+        }
+
+        [Route("news")]
+        [Route("news/index")]
+        public IActionResult News()
+        {
+            return RedirectToAction("index", "discover", new { type = (int)DiscoverViewModelType.News });
         }
 
         [Route("dapp")]

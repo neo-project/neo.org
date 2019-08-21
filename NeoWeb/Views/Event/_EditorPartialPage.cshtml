@@ -1,46 +1,31 @@
 ﻿@model NeoWeb.Models.Event
 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-<div class="form-group">
+<div>
     <label asp-for="ChineseName" class="col-form-label">活动名称</label>
     <input asp-for="ChineseName" class="form-control" />
     <span asp-validation-for="ChineseName" class="text-danger"></span>
 </div>
-<div class="form-group">
+<div>
     <label asp-for="EnglishName" class="col-form-label">活动名称</label>
     <input asp-for="EnglishName" class="form-control" />
     <span asp-validation-for="EnglishName" class="text-danger"></span>
 </div>
 <div class="row">
-    <div class="form-group col-sm-4">
-        <label asp-for="Type" class="col-form-label">活动类型</label>
-        <select asp-for="Type" class="form-control">
-            <option value="0">Conference</option>
-            <option value="1">Meetup</option>
-            <option value="2">Workshop</option>
-            <option value="3">Hackathon</option>
-        </select>
-        <span asp-validation-for="Type" class="text-danger"></span>
-    </div>
-    <div class="form-group col-sm-4">
+    <div class="col-sm-4">
         <label for="Country" class="col-form-label">国家</label>
         <div>
-            @{
-                var countryItems = (ViewBag.Countries as IEnumerable<NeoWeb.Models.Country>)
-                    .Select(c => new SelectListItem { Value = c.Id.ToString(), Text = $"{c.Name} - {c.ZhName}" })
-                    .ToList();
-            }
-            <select name="countryId" class="form-control" asp-for="Country" asp-items="countryItems"></select>
+            <select name="countryId" class="form-control" asp-for="Country" asp-items="@ViewBag.Countries"></select>
             <span asp-validation-for="Country" class="text-danger"></span>
         </div>
     </div>
-    <div class="form-group col-sm-4">
+    <div class="col-sm-4">
         <label asp-for="ChineseCity" class="col-form-label">城市</label>
         <div>
             <input asp-for="ChineseCity" class="form-control" />
             <span asp-validation-for="ChineseCity" class="text-danger"></span>
         </div>
     </div>
-    <div class="form-group col-sm-4">
+    <div class="col-sm-4">
         <label asp-for="EnglishCity" class="col-form-label">城市</label>
         <div>
             <input asp-for="EnglishCity" class="form-control" />
@@ -48,14 +33,14 @@
         </div>
     </div>
 </div>
-<div class="form-group">
+<div>
     <label asp-for="ChineseAddress" class="col-form-label">活动地点</label>
     <div>
         <input asp-for="ChineseAddress" class="form-control" />
         <span asp-validation-for="ChineseAddress" class="text-danger"></span>
     </div>
 </div>
-<div class="form-group">
+<div>
     <label asp-for="EnglishAddress" class="col-form-label">活动地点</label>
     <div>
         <input asp-for="EnglishAddress" class="form-control" />
@@ -63,28 +48,28 @@
     </div>
 </div>
 <div class="row">
-    <div class="form-group col-sm-4">
+    <div class="col-sm-4">
         <label asp-for="StartTime" class="col-form-label">活动开始时间</label>
         <div>
             <input asp-for="StartTime" class="form-control" />
             <span asp-validation-for="StartTime" class="text-danger"></span>
         </div>
     </div>
-    <div class="form-group col-sm-4">
+    <div class="col-sm-4">
         <label asp-for="EndTime" class="col-form-label">活动截止时间</label>
         <div>
             <input asp-for="EndTime" class="form-control" />
             <span asp-validation-for="EndTime" class="text-danger"></span>
         </div>
     </div>
-    <div class="form-group col-sm-4">
+    <div class="col-sm-4">
         <label asp-for="ChineseOrganizers" class="col-form-label">主办方名称</label>
         <div>
             <input asp-for="ChineseOrganizers" class="form-control" />
             <span asp-validation-for="ChineseOrganizers" class="text-danger"></span>
         </div>
     </div>
-    <div class="form-group col-sm-4">
+    <div class="col-sm-4">
         <label asp-for="EnglishOrganizers" class="col-form-label">主办方名称</label>
         <div>
             <input asp-for="EnglishOrganizers" class="form-control" />
@@ -93,15 +78,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="form-group col-sm-4">
-        <label asp-for="ThirdPartyLink" class="col-form-label">购票链接</label>
-        <div>
-            <input asp-for="ThirdPartyLink" class="form-control" />
-            <small class="form-text text-muted">链接到的第三方的购票网站，如果没有可不填</small>
-            <span asp-validation-for="ThirdPartyLink" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="form-group col-sm-4">
+    <div class="col-sm-4">
         <label for="cover" class="col-form-label">活动封面</label>
         <div>
             <input type="hidden" asp-for="ChineseCover" />
@@ -109,7 +86,7 @@
             <small class="form-text text-muted">如果没有上传活动封面，则会展示默认封面</small>
         </div>
     </div>
-    <div class="form-group col-sm-4">
+    <div class="col-sm-4">
         <label for="cover" class="col-form-label">活动封面</label>
         <div>
             <input type="hidden" asp-for="ChineseCover" />
@@ -117,7 +94,7 @@
             <small class="form-text text-muted">如果没有上传活动封面，则会展示默认封面</small>
         </div>
     </div>
-    <div class="form-group col-sm-4">
+    <div class="col-sm-4">
         <label for="cover" class="col-form-label">活动封面</label>
         <div>
             <input type="hidden" asp-for="EnglishCover" />
@@ -125,7 +102,7 @@
             <small class="form-text text-muted">如果没有上传活动封面，则会展示默认封面</small>
         </div>
     </div>
-    <div class="form-group col-sm-4">
+    <div class="col-sm-4">
         <label asp-for="IsFree" class="col-form-label">活动是否免费</label>
         <div>
             <label>
@@ -134,21 +111,21 @@
         </div>
     </div>
 </div>
-<div class="form-group">
+<div>
     <label asp-for="ChineseDetails" class="col-form-label">活动详细介绍</label>
     <div>
         <textarea asp-for="ChineseDetails" class="form-control" autocomplete="off" rows=10></textarea>
         <span asp-validation-for="ChineseDetails" class="text-danger"></span>
     </div>
 </div>
-<div class="form-group">
+<div>
     <label asp-for="EnglishDetails" class="col-form-label">活动详细介绍</label>
     <div>
         <textarea asp-for="EnglishDetails" class="form-control" autocomplete="off" rows=10></textarea>
         <span asp-validation-for="EnglishDetails" class="text-danger"></span>
     </div>
 </div>
-<div class="form-group">
+<div>
     <input type="submit" value="发布" class="btn btn-light" />
 </div>
 <script src="@Helper.ToCDN("/lib/tinymce/tinymce.min.js", true)"></script>
@@ -172,6 +149,6 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-<div class="form-group">
+<div>
     <a asp-action="Index">Back to List</a>
 </div>

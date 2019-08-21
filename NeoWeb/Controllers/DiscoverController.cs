@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Localization;
 using NeoWeb.Data;
 using NeoWeb.Models;
@@ -69,14 +70,7 @@ namespace NeoWeb.Controllers
                 }
                 foreach (var item in keywords.Split(" "))
                 {
-                    switch (item.ToLower())
-                    {
-                        case "conference": events = events.Where(p => p.Type == EventType.Conference); break;
-                        case "meetup": events = events.Where(p => p.Type == EventType.Meetup); break;
-                        case "workshop": events = events.Where(p => p.Type == EventType.Workshop); break;
-                        case "hackathon": events = events.Where(p => p.Type == EventType.Hackathon); break;
-                        default:
-                            events = events.Where(p => p.ChineseAddress.Contains(item, StringComparison.OrdinalIgnoreCase)
+                    events = events.Where(p => p.ChineseAddress.Contains(item, StringComparison.OrdinalIgnoreCase)
                                 || p.ChineseCity.Contains(item, StringComparison.OrdinalIgnoreCase)
                                 || p.ChineseDetails.Contains(item, StringComparison.OrdinalIgnoreCase)
                                 || p.ChineseName.Contains(item, StringComparison.OrdinalIgnoreCase)
@@ -87,9 +81,7 @@ namespace NeoWeb.Controllers
                                 || p.EnglishCity.Contains(item, StringComparison.OrdinalIgnoreCase)
                                 || p.EnglishDetails.Contains(item, StringComparison.OrdinalIgnoreCase)
                                 || p.EnglishName.Contains(item, StringComparison.OrdinalIgnoreCase)
-                                || p.EnglishOrganizers.Contains(item, StringComparison.OrdinalIgnoreCase)
-                                || p.ThirdPartyLink != null && p.ThirdPartyLink.Contains(item, StringComparison.OrdinalIgnoreCase)); break;
-                    }
+                                || p.EnglishOrganizers.Contains(item, StringComparison.OrdinalIgnoreCase));
                     if (events == null) break;
                 }
                 foreach (var item in keywords.Split(" "))
@@ -101,9 +93,8 @@ namespace NeoWeb.Controllers
                 }
             }
 
-            // 中英文切换
-            // type filter
             bool isZh = _sharedLocalizer["en"] == "zh";
+            // type filter
             switch (type)
             {
                 case (int)DiscoverViewModelType.Blog:
@@ -151,6 +142,13 @@ namespace NeoWeb.Controllers
                 } 
             }
 
+            var blogYear = _context.Blogs.Select(p => p.CreateTime.Year).Distinct();
+            var eventYear = _context.Events.Select(p => p.StartTime.Year).Distinct();
+            var newsYear = _context.News.Select(p => p.Time.Year).Distinct();
+            var allYear = blogYear.Concat(eventYear).Concat(newsYear).Distinct().OrderByDescending(p => p).Select(p => new SelectListItem { Value = p.ToString(), Text = p.ToString() }).ToList();
+            allYear.Add(new SelectListItem("All Year", ""));
+            ViewBag.Year = allYear;
+
             ViewBag.OnTop = onTop;
             ViewBag.UserRules = _userRules;
 
@@ -159,108 +157,56 @@ namespace NeoWeb.Controllers
 
         private void AddBlogs(IQueryable<Blog> blogs, List<DiscoverViewModel> viewModels, bool isZh)
         {
-            List<BlogViewModel> blogList;
-            if (isZh)
+            blogs.Select(p => new BlogViewModel()
             {
-                blogList = blogs.Select(p => new BlogViewModel()
-                {
-                    Id = p.Id,
-                    CreateTime = p.CreateTime,
-                    Title = p.ChineseTitle,
-                    Tags = p.ChineseTags,
-                    Cover = p.ChineseCover
-                }).ToList();
-            }
-            else
+                Id = p.Id,
+                CreateTime = p.CreateTime,
+                Title = isZh ? p.ChineseTitle : p.EnglishTitle,
+                Tags = isZh ? p.ChineseTags : p.EnglishTags,
+                Cover = isZh ? p.ChineseCover : p.EnglishCover
+            }).ToList().ForEach(p => viewModels.Add(new DiscoverViewModel()
             {
-                blogList = blogs.Select(p => new BlogViewModel()
-                {
-                    Id = p.Id,
-                    CreateTime = p.CreateTime,
-                    Title = p.EnglishTitle,
-                    Tags = p.EnglishTags,
-                    Cover = p.EnglishCover
-                }).ToList();
-            }
-            foreach (var item in blogList)
-                viewModels.Add(new DiscoverViewModel()
-                {
-                    Type = DiscoverViewModelType.Blog,
-                    Blog = item,
-                    Time = item.CreateTime
-                });
+                Type = DiscoverViewModelType.Blog,
+                Blog = p,
+                Time = p.CreateTime
+            }));
         }
 
         private void AddEvents(IQueryable<Event> events, List<DiscoverViewModel> viewModels, bool isZh)
         {
-            List<EventViewModel> eventList;
-            if (isZh)
+            events.Select(p => new EventViewModel()
             {
-                eventList = events.Select(p => new EventViewModel()
-                {
-                    Id = p.Id,
-                    StartTime = p.StartTime,
-                    EndTime = p.EndTime,
-                    Name = p.ChineseName,
-                    Country = p.Country.ZhName,
-                    City = p.ChineseCity,
-                    Cover = p.ChineseCover
-                }).ToList();
-            }
-            else
+                Id = p.Id,
+                StartTime = p.StartTime,
+                EndTime = p.EndTime,
+                Name = isZh ? p.ChineseName : p.EnglishName,
+                Country = isZh ? p.Country.ZhName : p.Country.Name,
+                City = isZh ? p.ChineseCity : p.EnglishCity,
+                Cover = isZh ? p.ChineseCover : p.EnglishCover
+            }).ToList().ForEach(p => viewModels.Add(new DiscoverViewModel()
             {
-                eventList = events.Select(p => new EventViewModel()
-                {
-                    Id = p.Id,
-                    StartTime = p.StartTime,
-                    EndTime = p.EndTime,
-                    Name = p.EnglishName,
-                    Country = p.Country.Name,
-                    City = p.EnglishCity,
-                    Cover = p.EnglishCover
-                }).ToList();
-            }
-            foreach (var item in eventList)
-                viewModels.Add(new DiscoverViewModel()
-                {
-                    Type = DiscoverViewModelType.Event,
-                    Event = item,
-                    Time = item.StartTime
-                });
+                Type = DiscoverViewModelType.Event,
+                Event = p,
+                Time = p.StartTime
+            }));
         }
 
         private void AddNews(IQueryable<News> news, List<DiscoverViewModel> viewModels, bool isZh)
         {
-            List<NewsViewModel> newsList;
-            if (isZh)
+            news.Select(p => new NewsViewModel()
             {
-                newsList = news.Select(p => new NewsViewModel()
-                {
-                    Id = p.Id,
-                    Title = p.ChineseTitle,
-                    Time = p.Time,
-                    Link = p.Link,
-                    Cover = p.ChineseCover
-                }).ToList();
-            }
-            else
+                Id = p.Id,
+                Time = p.Time,
+                Link = p.Link,
+                Cover = isZh ? p.ChineseCover : p.EnglishCover,
+                Title = isZh ? p.ChineseTitle : p.EnglishTitle,
+                Tags = isZh ? p.ChineseTags : p.EnglishTags
+            }).ToList().ForEach(p => viewModels.Add(new DiscoverViewModel()
             {
-                newsList = news.Select(p => new NewsViewModel()
-                {
-                    Id = p.Id,
-                    Title = p.EnglishTitle,
-                    Time = p.Time,
-                    Link = p.Link,
-                    Cover = p.EnglishCover
-                }).ToList();
-            }
-            foreach (var item in newsList)
-                viewModels.Add(new DiscoverViewModel()
-                {
-                    Type = DiscoverViewModelType.News,
-                    News = item,
-                    Time = item.Time
-                });
+                Type = DiscoverViewModelType.News,
+                News = p,
+                Time = p.Time
+            }));
         }
     }
 }

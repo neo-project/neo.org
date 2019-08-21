@@ -1,24 +1,18 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 using NeoWeb.Data;
 using NeoWeb.Models;
-using System.Text.RegularExpressions;
-using Microsoft.AspNetCore.Http;
-using System.Security.Claims;
-using Microsoft.AspNetCore.Authorization;
+using System;
 using System.IO;
-using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Processing;
-using SixLabors.Primitives;
-using SixLabors.ImageSharp.PixelFormats;
-using Microsoft.Extensions.Localization;
-using Microsoft.AspNetCore.Hosting;
+using System.Linq;
+using System.Security.Claims;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Xml;
-using System.Diagnostics;
 
 namespace NeoWeb.Controllers
 {
@@ -44,78 +38,6 @@ namespace NeoWeb.Controllers
             }
         }
 
-        // GET: blog
-        [AllowAnonymous]
-        public IActionResult Index(int? y = null, int? m = null, string k = null, string t = null)
-        {
-            IQueryable<Blog> models = _context.Blogs;
-            if (k != null) //搜索关键词
-            {
-                foreach (var item in k.Split(" "))
-                {
-                    models = models.Where(p => p.ChineseTitle.Contains(item, StringComparison.OrdinalIgnoreCase)
-                        || p.ChineseContent.Contains(item, StringComparison.OrdinalIgnoreCase)
-                        || p.ChineseTags != null && p.ChineseTags.Contains(item, StringComparison.OrdinalIgnoreCase)
-                        || p.EnglishTitle.Contains(item, StringComparison.OrdinalIgnoreCase)
-                        || p.EnglishContent.Contains(item, StringComparison.OrdinalIgnoreCase));
-                    if (models == null) break;
-                }
-            }
-            if (t != null) //搜索标签
-            {
-                models = models.Where(p => p.ChineseTags != null && p.ChineseTags.Contains(t, StringComparison.OrdinalIgnoreCase)
-                    || p.EnglishTags != null && p.EnglishTags.Contains(t, StringComparison.OrdinalIgnoreCase));
-            }
-            List<BlogViewModel> viewModels;
-            if (_sharedLocalizer["en"] == "zh")
-            {
-                viewModels = models.OrderByDescending(o => o.CreateTime).Select(p => new BlogViewModel()
-                {
-                    Id = p.Id,
-                    CreateTime = p.CreateTime,
-                    IsShow = p.IsShow,
-                    ReadCount = p.ReadCount,
-                    Summary = p.ChineseSummary,
-                    Tags = p.ChineseTags,
-                    Title = p.ChineseTitle,
-                    Cover = p.ChineseCover
-                }).ToList();
-            }
-            else
-            {
-                viewModels = models.OrderByDescending(o => o.CreateTime).Select(p => new BlogViewModel()
-                {
-                    Id = p.Id,
-                    CreateTime = p.CreateTime,
-                    IsShow = p.IsShow,
-                    ReadCount = p.ReadCount,
-                    Summary = p.EnglishSummary,
-                    Tags = p.EnglishTags,
-                    Title = p.EnglishTitle,
-                    Cover = p.EnglishCover
-                }).ToList();
-            }
-
-            ViewBag.CreateTime = models.Select(p => new BlogDateTimeViewModels
-            {
-                Year = p.CreateTime.Year,
-                Month = p.CreateTime.Month
-            }).ToList().Distinct();
-
-            if (y != null)
-            {
-                models = models.Where(p => p.CreateTime.Year == y);
-                if (m != null)
-                {
-                    models = models.Where(p => p.CreateTime.Month == m);
-                }
-            }
-            models = models.Take(30);
-            ViewBag.UserRules = _userRules;
-            
-            return View(viewModels);
-        }
-
         // GET: blog/details/5
         [HttpGet]
         [AllowAnonymous]
@@ -123,76 +45,33 @@ namespace NeoWeb.Controllers
         {
             if (id == null)
             {
-                return RedirectToAction("Index");
+                return NotFound();
             }
             var blog = await _context.Blogs.SingleOrDefaultAsync(m => m.Id == id || m.OldId == id);
 
             if (blog == null || (!blog.IsShow && !_userRules))
             {
-                return RedirectToAction("Index");
+                return NotFound();
             }
 
-            BlogViewModel viewModel;
             language = !string.IsNullOrEmpty(language) ? language : _sharedLocalizer["en"];
-            if (language == "zh")
-            {
-                viewModel = new BlogViewModel()
-                {
-                    Id = blog.Id,
-                    Content = blog.ChineseContent,
-                    CreateTime = blog.CreateTime,
-                    IsShow = blog.IsShow,
-                    ReadCount = blog.ReadCount,
-                    Summary = blog.ChineseSummary,
-                    Tags = blog.ChineseTags,
-                    Title = blog.ChineseTitle,
-                    Cover = blog.ChineseCover
-                };
-            }
-            else
-            {
-                viewModel = new BlogViewModel()
-                {
-                    Id = blog.Id,
-                    Content = blog.EnglishContent,
-                    CreateTime = blog.CreateTime,
-                    IsShow = blog.IsShow,
-                    ReadCount = blog.ReadCount,
-                    Summary = blog.EnglishSummary,
-                    Tags = blog.EnglishTags,
-                    Title = blog.EnglishTitle,
-                    Cover = blog.EnglishCover
-                };
-            }
 
-            var blogs = _context.Blogs.Select(p => new Blog()
-            {
-                Id = p.Id,
-                CreateTime = p.CreateTime
-            }).OrderByDescending(o => o.CreateTime).ToList();
-
-            #region Previous article and  Next article
-            var idList = blogs.Select(p => p.Id).ToList();
-            ViewBag.NextBlogId = idList.Count == 0 ? blog.Id : idList[Math.Max(idList.IndexOf((int)id) - 1, 0)];
-            ViewBag.PrevBlogId = idList.Count == 0 ? blog.Id : idList[Math.Min(idList.IndexOf((int)id) + 1, idList.Count - 1)];
+            #region Previous and  Next
+            var idList = _context.Blogs.OrderByDescending(o => o.CreateTime).Select(p => p.Id).ToList();
+            ViewBag.NextBlogId = idList.Count == 0 ? id: idList[Math.Max(idList.IndexOf((int)id) - 1, 0)];
+            ViewBag.PrevBlogId = idList.Count == 0 ? id : idList[Math.Min(idList.IndexOf((int)id) + 1, idList.Count - 1)];
             #endregion
-
-            ViewBag.CreateTime = blogs.Select(p => new BlogDateTimeViewModels
-            {
-                Year = p.CreateTime.Year,
-                Month = p.CreateTime.Month
-            }).ToList().Distinct();
 
             ViewBag.UserRules = _userRules;
 
+            //update ReadCount
             if (blog.ReadCount < int.MaxValue && string.IsNullOrEmpty(Request.Cookies[blog.Id.ToString()]) && Request.Cookies.Count >= 1)
             {
                 blog.ReadCount++;
                 _context.Update(blog);
                 await _context.SaveChangesAsync();
             }
-            ViewBag.Language = _sharedLocalizer["en"];
-            return View(viewModel);
+            return View(new BlogViewModel(blog, language == "zh"));
         }
 
         // GET: Blog/Create
@@ -204,7 +83,9 @@ namespace NeoWeb.Controllers
         // POST: blog/create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ChineseTitle,ChineseContent,ChineseTags,EnglishTitle,EnglishContent,EnglishTags,IsShow")] Blog blog, IFormFile chineseCover, IFormFile englishCover)
+        public async Task<IActionResult> Create(
+            [Bind("Id,ChineseTitle,ChineseContent,Editor,ChineseTags,EnglishTitle,EnglishContent,EnglishTags,IsShow")] Blog blog,
+            IFormFile chineseCover, IFormFile englishCover)
         {
             if (ModelState.IsValid)
             {
@@ -236,7 +117,7 @@ namespace NeoWeb.Controllers
                 _context.Add(blog);
                 await _context.SaveChangesAsync();
                 await UpdateRSSAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.Blog });
             }
             return View(blog);
         }
@@ -257,11 +138,11 @@ namespace NeoWeb.Controllers
         }
 
         // POST: blog/edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ChineseTitle,ChineseContent,ChineseTags,EnglishTitle,EnglishContent,EnglishTags,IsShow")] Blog blog, IFormFile chineseCover, IFormFile englishCover)
+        public async Task<IActionResult> Edit(
+            int id, [Bind("Id,ChineseTitle,ChineseContent,Editor,ChineseTags,EnglishTitle,EnglishContent,EnglishTags,IsShow")] Blog blog,
+            IFormFile chineseCover, IFormFile englishCover)
         {
             if (id != blog.Id)
             {
@@ -271,25 +152,25 @@ namespace NeoWeb.Controllers
             if (ModelState.IsValid)
             {
 
-                var item = _context.Blogs.FirstOrDefault(p => p.Id == blog.Id);
+                var old = _context.Blogs.FirstOrDefault(p => p.Id == blog.Id);
                 try
                 {
-                    item.ChineseContent = Convert(blog.ChineseContent);
-                    item.EnglishContent = Convert(blog.EnglishContent);
-                    item.ChineseSummary = blog.ChineseContent.ClearHtmlTag(150);
-                    item.EnglishSummary = blog.EnglishContent.ClearHtmlTag(150);
-                    item.ChineseTags = blog.ChineseTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
-                    item.EnglishTags = blog.EnglishTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
-                    item.EditTime = DateTime.Now;
-                    item.IsShow = blog.IsShow;
+                    blog.ChineseContent = Convert(blog.ChineseContent);
+                    blog.EnglishContent = Convert(blog.EnglishContent);
+                    blog.ChineseSummary = blog.ChineseContent.ClearHtmlTag(150);
+                    blog.EnglishSummary = blog.EnglishContent.ClearHtmlTag(150);
+                    blog.ChineseTags = blog.ChineseTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
+                    blog.EnglishTags = blog.EnglishTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
+                    blog.CreateTime = old.CreateTime;
+                    blog.EditTime = DateTime.Now;
                     if (chineseCover != null)
                     {
                         var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
                         if (Helper.ValidateCover(_env, fileName))
                         {
-                            if (!string.IsNullOrEmpty(item.ChineseCover))
-                                System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", item.ChineseCover));
-                            item.ChineseCover = fileName;
+                            if (!string.IsNullOrEmpty(blog.ChineseCover))
+                                System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", blog.ChineseCover));
+                            blog.ChineseCover = fileName;
                         }
                         else
                         {
@@ -301,16 +182,16 @@ namespace NeoWeb.Controllers
                         var fileName = Helper.UploadMedia(englishCover, _env, 1000);
                         if (Helper.ValidateCover(_env, fileName))
                         {
-                            if (!string.IsNullOrEmpty(item.EnglishCover))
-                                System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", item.EnglishCover));
-                            item.ChineseCover = fileName;
+                            if (!string.IsNullOrEmpty(blog.EnglishCover))
+                                System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", blog.EnglishCover));
+                            blog.ChineseCover = fileName;
                         }
                         else
                         {
                             ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
                         }
                     }
-                    _context.Update(item);
+                    _context.Update(blog);
                     await _context.SaveChangesAsync();
                     await UpdateRSSAsync();
                 }
@@ -355,7 +236,7 @@ namespace NeoWeb.Controllers
             var blog = await _context.Blogs.SingleOrDefaultAsync(m => m.Id == id);
             _context.Blogs.Remove(blog);
             await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.Blog });
         }
         private async Task UpdateRSSAsync()
         {

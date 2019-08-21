@@ -2,7 +2,14 @@
 
 @{
     ViewData["Title"] = "删除";
-    Layout = "_LayoutBlog.cshtml";
+}
+@section Styles{
+    <environment include="Development">
+        <link rel="stylesheet" href="/css/blog.css" asp-append-version="true" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="@Helper.ToCDN("/css/blog.min.css", true)" />
+    </environment>
 }
 
 <div class="container">

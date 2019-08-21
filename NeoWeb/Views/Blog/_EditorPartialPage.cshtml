@@ -1,66 +1,71 @@
 ﻿@model NeoWeb.Models.Blog
 <link href="@Helper.ToCDN("/css/bootstrap-xxl.css")" rel="stylesheet" />
 <div class="row">
-    <div class="form-group col-xxl-6">
+    <div class="col-xxl-6">
         <label asp-for="ChineseTitle" class="col-form-label"></label>
         <input asp-for="ChineseTitle" class="form-control" />
         <span asp-validation-for="ChineseTitle" class="text-danger"></span>
     </div>
-    <div class="form-group col-xxl-6">
+    <div class="col-xxl-6">
         <label asp-for="EnglishTitle" class="col-form-label"></label>
         <input asp-for="EnglishTitle" class="form-control" />
         <span asp-validation-for="EnglishTitle" class="text-danger"></span>
     </div>
 </div>
 <div class="row">
-    <div class="form-group col-xxl-6">
+    <div class="col-xxl-6">
         <label asp-for="ChineseContent" class="col-form-label"></label>
         <textarea asp-for="ChineseContent" class="form-control" autocomplete="off" rows=10></textarea>
         <span asp-validation-for="ChineseContent" class="text-danger"></span>
     </div>
-    <div class="form-group col-xxl-6">
+    <div class="col-xxl-6">
         <label asp-for="EnglishContent" class="col-form-label"></label>
         <textarea asp-for="EnglishContent" class="form-control" autocomplete="off" rows=10></textarea>
         <span asp-validation-for="EnglishContent" class="text-danger"></span>
     </div>
 </div>
+<div>
+    <label asp-for="Editor" class="col-form-label"></label>
+    <input asp-for="Editor" class="form-control" />
+    <span asp-validation-for="Editor" class="text-danger"></span>
+</div>
 <div class="row">
-    <div class="form-group col-sm-6">
+    <div class="col-sm-6">
         <label for="cover" class="col-form-label">中文封面</label>
         <div>
             <input type="hidden" asp-for="ChineseCover" />
             <input type="file" name="chineseCover" class="form-control" />
-            <small class="form-text text-muted">如果没有上传活动封面，则会展示默认封面</small>
+            <small class="form-text text-muted">如果没有上传博客封面，则会展示默认封面</small>
         </div>
     </div>
-    <div class="form-group col-sm-6">
+    <div class="col-sm-6">
         <label for="cover" class="col-form-label">英文封面</label>
         <div>
             <input type="hidden" asp-for="EnglishCover" />
             <input type="file" name="englishCover" class="form-control" />
-            <small class="form-text text-muted">如果没有上传活动封面，则会展示默认封面</small>
+            <small class="form-text text-muted">如果没有上传博客封面，则会展示默认封面</small>
         </div>
     </div>
 </div>
 <div class="row">
-    <div class="form-group col-sm-6">
+    <div class="col-sm-6">
         <label asp-for="ChineseTags" class="col-form-label">中文标签（用逗号分隔）</label>
         <input asp-for="ChineseTags" class="form-control" />
         <span asp-validation-for="ChineseTags" class="text-danger"></span>
     </div>
-    <div class="form-group col-sm-6">
+    <div class="col-sm-6">
         <label asp-for="EnglishTags" class="col-form-label">英文标签（用逗号分隔）</label>
         <input asp-for="EnglishTags" class="form-control" />
         <span asp-validation-for="EnglishTags" class="text-danger"></span>
     </div>
 </div>
-<div class="from-group">
+<div>
     <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" asp-for="IsShow">
         <label class="custom-control-label" asp-for="IsShow">在博客列表中显示</label>
     </div>
 </div>
-<div class="form-group">
+<div class="mt4">
     <input type="submit" value="Create" class="btn btn-light" />
 </div>
 <script src="@Helper.ToCDN("/lib/tinymce/tinymce.min.js", true)"></script>

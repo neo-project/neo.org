@@ -12,11 +12,7 @@ namespace NeoWeb.Models
 
         public string City { get; set; }
 
-        public int Type { get; set; }
-
         public string Address { get; set; }
-
-        //public DateTime CreateTime { get; set; }
 
         public DateTime StartTime { get; set; }
 
@@ -37,38 +33,17 @@ namespace NeoWeb.Models
 
         public EventViewModel(Event evt, bool isZh)
         {
-            if (isZh)
-            {
-                Id = evt.Id;
-                Name = evt.ChineseName;
-                Type = (int)evt.Type;
-                Country = evt.Country?.ZhName;
-                City = evt.ChineseCity;
-                Address = evt.ChineseAddress;
-                StartTime = evt.StartTime;
-                EndTime = evt.EndTime;
-                Cover = evt.ChineseCover;
-                Details = evt.ChineseDetails;
-                Organizers = evt.ChineseOrganizers;
-                IsFree = evt.IsFree;
-                ThirdPartyLink = evt.ThirdPartyLink;
-            }
-            else
-            {
-                Id = evt.Id;
-                Name = evt.EnglishName;
-                Type = (int)evt.Type;
-                Country = evt.Country?.Name;
-                City = evt.EnglishCity;
-                Address = evt.EnglishAddress;
-                StartTime = evt.StartTime;
-                EndTime = evt.EndTime;
-                Cover = evt.EnglishCover;
-                Details = evt.EnglishDetails;
-                Organizers = evt.EnglishOrganizers;
-                IsFree = evt.IsFree;
-                ThirdPartyLink = evt.ThirdPartyLink;
-            }
+            Id = evt.Id;
+            IsFree = evt.IsFree;
+            StartTime = evt.StartTime;
+            EndTime = evt.EndTime;
+            Country = evt.Country?.ZhName;
+            Name = isZh ? evt.ChineseName : evt.EnglishName;
+            City = isZh ? evt.ChineseCity : evt.EnglishCity;
+            Address = isZh ? evt.ChineseAddress : evt.EnglishAddress;
+            Cover = isZh ? evt.ChineseCover : evt.EnglishCover;
+            Details = isZh ? evt.ChineseDetails : evt.EnglishDetails;
+            Organizers = isZh ? evt.ChineseOrganizers : evt.EnglishOrganizers;
         }
     }
 }

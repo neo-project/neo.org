@@ -68,9 +68,6 @@
     <Content Update="Views\Event\Edit.cshtml">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Update="Views\Event\Index.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
     <Content Update="Views\Event\_EditorPartialPage.cshtml">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
@@ -93,9 +90,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
     <Content Update="Views\News\Edit.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\News\Index.cshtml">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
     <Content Update="Views\Shared\Error.cshtml">
@@ -150,17 +144,9 @@
     <_ContentIncludedByDefault Remove="Views\Blog\Delete.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Blog\Details.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Blog\Edit.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Blog\Index.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Blog\_LayoutBlog.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Team\Index.cshtml" />
     <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap-xxl.min.css" />
   </ItemGroup>
-
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Views\Blog\_LayoutBlog.cshtml" />
-  </ItemGroup>
-
 
   <ItemGroup>
     <UpToDateCheckInput Remove="Views\Blog\Create.cshtml" />
@@ -179,11 +165,6 @@
 
   <ItemGroup>
     <UpToDateCheckInput Remove="Views\Blog\Edit.cshtml" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Views\Blog\Index.cshtml" />
   </ItemGroup>
 
 

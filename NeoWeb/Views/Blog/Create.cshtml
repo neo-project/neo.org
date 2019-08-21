@@ -5,13 +5,21 @@
 @{
     ViewData["Title"] = "Post Blog";
 }
-
+@section Styles{
+    <environment include="Development">
+        <link rel="stylesheet" href="/css/blog.css" asp-append-version="true" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="@Helper.ToCDN("/css/blog.min.css", true)" />
+    </environment>
+}
 <div class="p1">
     <h1 class="w800">@Localizer["Post"]</h1>
 </div>
+<div class="post-type">Post Type<span>Blogs</span><a asp-controller="event" asp-action="create">Events</a><a asp-controller="news" asp-action="create">News</a></div>
 <form asp-action="Create" enctype="multipart/form-data">
     @{await Html.RenderPartialAsync("_EditorPartialPage", Model);}
 </form>
-<div>
+<div class="my-5">
     <a asp-action="index">Back to List</a>
 </div>

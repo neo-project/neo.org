@@ -1,22 +1,54 @@
 ﻿@model NeoWeb.Models.News
 <link href="@Helper.ToCDN("/css/bootstrap-xxl.css")" rel="stylesheet" />
 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-<div class="form-group">
-    <label asp-for="ChineseTitle" class="col-form-label"></label>
-    <input asp-for="ChineseTitle" class="form-control" />
-    <span asp-validation-for="ChineseTitle" class="text-danger"></span>
+<div class="row">
+    <div class="col-sm-6">
+        <label asp-for="ChineseTitle" class="col-form-label"></label>
+        <input asp-for="ChineseTitle" class="form-control" />
+        <span asp-validation-for="ChineseTitle" class="text-danger"></span>
+    </div>
+    <div class="col-sm-6">
+        <label asp-for="EnglishTitle" class="col-form-label"></label>
+        <input asp-for="EnglishTitle" class="form-control" />
+        <span asp-validation-for="EnglishTitle" class="text-danger"></span>
+    </div>
 </div>
-<div class="form-group">
-    <label asp-for="EnglishTitle" class="col-form-label"></label>
-    <input asp-for="EnglishTitle" class="form-control" />
-    <span asp-validation-for="EnglishTitle" class="text-danger"></span>
+<div class="row">
+    <div class="col-sm-6">
+        <label for="cover" class="col-form-label">中文封面</label>
+        <div>
+            <input type="hidden" asp-for="ChineseCover" />
+            <input type="file" name="chineseCover" class="form-control" />
+            <small class="form-text text-muted">如果没有上传新闻封面，则会展示默认封面</small>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <label for="cover" class="col-form-label">英文封面</label>
+        <div>
+            <input type="hidden" asp-for="EnglishCover" />
+            <input type="file" name="englishCover" class="form-control" />
+            <small class="form-text text-muted">如果没有上传新闻封面，则会展示默认封面</small>
+        </div>
+    </div>
 </div>
-<div class="form-group">
+<div>
     <label asp-for="Link" class="col-form-label"></label>
     <input asp-for="Link" class="form-control" />
     <span asp-validation-for="Link" class="text-danger"></span>
 </div>
-<div class="form-group">
+<div class="row">
+    <div class="col-sm-6">
+        <label asp-for="ChineseTags" class="col-form-label">中文标签（用逗号分隔）</label>
+        <input asp-for="ChineseTags" class="form-control" />
+        <span asp-validation-for="ChineseTags" class="text-danger"></span>
+    </div>
+    <div class="col-sm-6">
+        <label asp-for="EnglishTags" class="col-form-label">英文标签（用逗号分隔）</label>
+        <input asp-for="EnglishTags" class="form-control" />
+        <span asp-validation-for="EnglishTags" class="text-danger"></span>
+    </div>
+</div>
+<div>
     <input type="submit" value="Create" class="btn btn-light" />
 </div>
 <script src="@Helper.ToCDN("/lib/tinymce/tinymce.min.js", true)"></script>

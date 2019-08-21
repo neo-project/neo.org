@@ -45,6 +45,8 @@ namespace NeoWeb.Models
 
         public virtual IdentityUser User { get; set; }
 
+        public string Editor { get; set; }
+
         public bool IsShow { get; set; }
 
         public int? OldId { get; set; }

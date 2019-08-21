@@ -30,30 +30,15 @@ namespace NeoWeb.Models
 
         public BlogViewModel(Blog blog, bool isZh)
         {
-            if (isZh)
-            {
-                Id = blog.Id;
-                Content = blog.ChineseContent;
-                CreateTime = blog.CreateTime;
-                IsShow = blog.IsShow;
-                ReadCount = blog.ReadCount;
-                Summary = blog.ChineseSummary;
-                Tags = blog.ChineseTags;
-                Title = blog.ChineseTitle;
-                Cover = blog.ChineseCover;
-            }
-            else
-            {
-                Id = blog.Id;
-                Content = blog.EnglishContent;
-                CreateTime = blog.CreateTime;
-                IsShow = blog.IsShow;
-                ReadCount = blog.ReadCount;
-                Summary = blog.EnglishSummary;
-                Tags = blog.EnglishTags;
-                Title = blog.EnglishTitle;
-                Cover = blog.EnglishCover;
-            }
+            Id = blog.Id;
+            CreateTime = blog.CreateTime;
+            IsShow = blog.IsShow;
+            ReadCount = blog.ReadCount;
+            Content = isZh ? blog.ChineseContent : blog.EnglishContent;
+            Summary = isZh ? blog.ChineseSummary : blog.EnglishSummary;
+            Tags = isZh ? blog.ChineseTags : blog.EnglishTags;
+            Title = isZh ? blog.ChineseTitle : blog.EnglishTitle;
+            Cover = isZh ? blog.ChineseCover : blog.EnglishCover;
         }
     }
 }

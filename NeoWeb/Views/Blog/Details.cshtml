@@ -17,7 +17,6 @@
         {
         }
     }
-    Layout = "_LayoutBlog.cshtml";
     ViewData["keywords"] = Model.Tags;
 }
 
@@ -36,11 +35,11 @@
                 <div class="text-right">
                     @if (@ViewBag.PrevBlogId != Model.Id)
                     {
-                    <a class="icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xe6b8;</i><span class="desktop-show">@Localizer["Previous article"]</span></a>
+                        <a class="icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xe6b8;</i><span class="desktop-show">@Localizer["Previous article"]</span></a>
                     }
                     @if (@ViewBag.NextBlogId != Model.Id)
                     {
-                    <a href="~/blog/details/@ViewBag.NextBlogId"><span class="desktop-show">@Localizer["Next article"]</span><i class="iconfont">&#xe6b7;</i></a>
+                        <a href="~/blog/details/@ViewBag.NextBlogId"><span class="desktop-show">@Localizer["Next article"]</span><i class="iconfont">&#xe6b7;</i></a>
                     }
                 </div>
             </div>
@@ -83,11 +82,11 @@
                 <div class="text-right">
                     @if (@ViewBag.PrevBlogId != Model.Id)
                     {
-                    <a class="icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xe6b8;</i><span class="desktop-show">@Localizer["Previous article"]</span></a>
+                        <a class="icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xe6b8;</i><span class="desktop-show">@Localizer["Previous article"]</span></a>
                     }
                     @if (@ViewBag.NextBlogId != Model.Id)
                     {
-                    <a href="~/blog/details/@ViewBag.NextBlogId"><span class="desktop-show">@Localizer["Next article"]</span><i class="iconfont">&#xe6b7;</i></a>
+                        <a href="~/blog/details/@ViewBag.NextBlogId"><span class="desktop-show">@Localizer["Next article"]</span><i class="iconfont">&#xe6b7;</i></a>
                     }
                 </div>
             </div>
@@ -97,6 +96,7 @@
 
 @section Scripts{
     <script src="@Helper.ToCDN("/js/jquery.qrcode.min.js")"></script>
+    <script src="@Helper.ToCDN("/js/text-autospace.js")"></script>
     <script>
         function setCookie(name, value) {
             var Days = 30;
@@ -104,8 +104,20 @@
             exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
             document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
         }
+        //设置已读
         setCookie(@Model.Id, "Read");
+        //二维码
         $('#qrcode').qrcode(location.href);
-
+        //中英文之间添加空格
+        text_replace(".with-space");
+        //懒加载
+        $('[data-original]').lazyload({
+            threshold: 200,
+            effect: "fadeIn"
+        });
+        //回到顶部
+        $('.back-to-top').click(function () {
+            $('html, body').animate({ scrollTop: 0 }, 500);
+        });
     </script>
 }

@@ -26,9 +26,6 @@ namespace NeoWeb.Models
         [Display(Name = "City")]
         public string EnglishCity { get; set; }
 
-        [Required]
-        public EventType Type { get; set; }
-
         [Required(ErrorMessage = "必须填写地址")]
         [Display(Name = "地址")]
         public string ChineseAddress { get; set; }
@@ -36,9 +33,6 @@ namespace NeoWeb.Models
         [Required(ErrorMessage = "Address is required")]
         [Display(Name = "Address")]
         public string EnglishAddress { get; set; }
-
-        //[Required]
-        //public DateTime CreateTime { get; set; }
 
         [Required]
         public DateTime StartTime { get; set; }
@@ -66,15 +60,5 @@ namespace NeoWeb.Models
 
         [Required]
         public bool IsFree { get; set; }
-
-        public string ThirdPartyLink { get; set; }
-    }
-
-    public enum EventType
-    {
-        Conference,
-        Meetup,
-        Workshop,
-        Hackathon
     }
 }
