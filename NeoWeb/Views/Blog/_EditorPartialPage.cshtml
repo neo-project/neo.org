@@ -1,72 +1,76 @@
 ﻿@model NeoWeb.Models.Blog
-<link href="@Helper.ToCDN("/css/bootstrap-xxl.css")" rel="stylesheet" />
-<div class="row">
-    <div class="col-xxl-6">
-        <label asp-for="ChineseTitle" class="col-form-label"></label>
-        <input asp-for="ChineseTitle" class="form-control" />
-        <span asp-validation-for="ChineseTitle" class="text-danger"></span>
-    </div>
-    <div class="col-xxl-6">
-        <label asp-for="EnglishTitle" class="col-form-label"></label>
-        <input asp-for="EnglishTitle" class="form-control" />
-        <span asp-validation-for="EnglishTitle" class="text-danger"></span>
-    </div>
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<a href="javascript:" onclick="$('.zh').hide();$('.en').show();">English</a><a href="javascript:" onclick="$('.en').hide();$('.zh').show();">中文</a>
+<div class="zh">
+    <label asp-for="ChineseTitle" class="col-form-label">中文标题</label>
+    <input asp-for="ChineseTitle" class="form-control" />
+    <span asp-validation-for="ChineseTitle" class="text-danger"></span>
 </div>
-<div class="row">
-    <div class="col-xxl-6">
-        <label asp-for="ChineseContent" class="col-form-label"></label>
-        <textarea asp-for="ChineseContent" class="form-control" autocomplete="off" rows=10></textarea>
-        <span asp-validation-for="ChineseContent" class="text-danger"></span>
-    </div>
-    <div class="col-xxl-6">
-        <label asp-for="EnglishContent" class="col-form-label"></label>
-        <textarea asp-for="EnglishContent" class="form-control" autocomplete="off" rows=10></textarea>
-        <span asp-validation-for="EnglishContent" class="text-danger"></span>
-    </div>
+<div class="en">
+    <label asp-for="EnglishTitle" class="col-form-label">英文标题</label>
+    <input asp-for="EnglishTitle" class="form-control" />
+    <span asp-validation-for="EnglishTitle" class="text-danger"></span>
 </div>
 <div>
-    <label asp-for="Editor" class="col-form-label"></label>
+    <label asp-for="Editor" class="col-form-label">作者</label>
     <input asp-for="Editor" class="form-control" />
     <span asp-validation-for="Editor" class="text-danger"></span>
 </div>
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-6 zh">
         <label for="cover" class="col-form-label">中文封面</label>
         <div>
             <input type="hidden" asp-for="ChineseCover" />
             <input type="file" name="chineseCover" class="form-control" />
-            <small class="form-text text-muted">如果没有上传博客封面，则会展示默认封面</small>
+            <small class="form-text text-muted">如果没有上传封面，则会展示默认封面</small>
         </div>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-6 en">
         <label for="cover" class="col-form-label">英文封面</label>
         <div>
             <input type="hidden" asp-for="EnglishCover" />
             <input type="file" name="englishCover" class="form-control" />
-            <small class="form-text text-muted">如果没有上传博客封面，则会展示默认封面</small>
+            <small class="form-text text-muted">如果没有上传封面，则会展示默认封面</small>
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-sm-6">
-        <label asp-for="ChineseTags" class="col-form-label">中文标签（用逗号分隔）</label>
-        <input asp-for="ChineseTags" class="form-control" />
-        <span asp-validation-for="ChineseTags" class="text-danger"></span>
-    </div>
-    <div class="col-sm-6">
-        <label asp-for="EnglishTags" class="col-form-label">英文标签（用逗号分隔）</label>
-        <input asp-for="EnglishTags" class="form-control" />
-        <span asp-validation-for="EnglishTags" class="text-danger"></span>
+<div class="zh">
+    <label asp-for="ChineseContent" class="col-form-label">中文内容</label>
+    <textarea asp-for="ChineseContent" class="form-control" autocomplete="off" rows=10></textarea>
+    <span asp-validation-for="ChineseContent" class="text-danger"></span>
+</div>
+<div class="en">
+    <label asp-for="EnglishContent" class="col-form-label">英文内容</label>
+    <textarea asp-for="EnglishContent" class="form-control" autocomplete="off" rows=10></textarea>
+    <span asp-validation-for="EnglishContent" class="text-danger"></span>
+</div>
+<div class="zh">
+    <label asp-for="ChineseTags" class="col-form-label">中文标签（用逗号分隔）</label>
+    <input asp-for="ChineseTags" class="form-control" />
+    <span asp-validation-for="ChineseTags" class="text-danger"></span>
+</div>
+<div class="en">
+    <label asp-for="EnglishTags" class="col-form-label">英文标签（用逗号分隔）</label>
+    <input asp-for="EnglishTags" class="form-control" />
+    <span asp-validation-for="EnglishTags" class="text-danger"></span>
+</div>
+<div class="d-none">
+    <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" asp-for="IsShow" checked="checked">
+        <label class="custom-control-label" asp-for="IsShow">在列表中显示</label>
     </div>
 </div>
 <div>
     <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" asp-for="IsShow">
-        <label class="custom-control-label" asp-for="IsShow">在博客列表中显示</label>
+        <input type="checkbox" class="custom-control-input" name="isTop" id="isTop">
+        <label class="custom-control-label" for="isTop">设置置顶</label>
     </div>
 </div>
-<div class="mt4">
-    <input type="submit" value="Create" class="btn btn-light" />
+<div class="my-4">
+    <input type="submit" value="发布" class="btn btn-light" />
+</div>
+<div class="my-4">
+    <a asp-action="index">Back to List</a>
 </div>
 <script src="@Helper.ToCDN("/lib/tinymce/tinymce.min.js", true)"></script>
 <script>

@@ -85,7 +85,7 @@ namespace NeoWeb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(
             [Bind("Id,ChineseTitle,ChineseContent,Editor,ChineseTags,EnglishTitle,EnglishContent,EnglishTags,IsShow")] Blog blog,
-            IFormFile chineseCover, IFormFile englishCover)
+            IFormFile chineseCover, IFormFile englishCover, string isTop)
         {
             if (ModelState.IsValid)
             {
@@ -115,6 +115,11 @@ namespace NeoWeb.Controllers
                 }
                 blog.User = _context.Users.Find(_userId);
                 _context.Add(blog);
+                if (isTop != null)
+                {
+                    _context.Top.ToList().ForEach(p => _context.Top.Remove(p));
+                    _context.Add(new Top() { ItemId = blog.Id, Type = DiscoverViewModelType.Blog });
+                }
                 await _context.SaveChangesAsync();
                 await UpdateRSSAsync();
                 return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.Blog });
@@ -142,7 +147,7 @@ namespace NeoWeb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(
             int id, [Bind("Id,ChineseTitle,ChineseContent,Editor,ChineseTags,EnglishTitle,EnglishContent,EnglishTags,IsShow")] Blog blog,
-            IFormFile chineseCover, IFormFile englishCover)
+            IFormFile chineseCover, IFormFile englishCover, string isTop)
         {
             if (id != blog.Id)
             {
@@ -151,18 +156,20 @@ namespace NeoWeb.Controllers
 
             if (ModelState.IsValid)
             {
-
-                var old = _context.Blogs.FirstOrDefault(p => p.Id == blog.Id);
+                var item = _context.Blogs.FirstOrDefault(p => p.Id == blog.Id);
                 try
                 {
-                    blog.ChineseContent = Convert(blog.ChineseContent);
-                    blog.EnglishContent = Convert(blog.EnglishContent);
-                    blog.ChineseSummary = blog.ChineseContent.ClearHtmlTag(150);
-                    blog.EnglishSummary = blog.EnglishContent.ClearHtmlTag(150);
-                    blog.ChineseTags = blog.ChineseTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
-                    blog.EnglishTags = blog.EnglishTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
-                    blog.CreateTime = old.CreateTime;
-                    blog.EditTime = DateTime.Now;
+                    item.ChineseContent = Convert(blog.ChineseContent);
+                    item.EnglishContent = Convert(blog.EnglishContent);
+                    item.ChineseSummary = blog.ChineseContent.ClearHtmlTag(150);
+                    item.EnglishSummary = blog.EnglishContent.ClearHtmlTag(150);
+                    item.ChineseTags = blog.ChineseTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
+                    item.EnglishTags = blog.EnglishTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
+                    item.EnglishTitle = blog.EnglishTitle;
+                    item.ChineseTitle = blog.ChineseTitle;
+                    item.Editor = blog.Editor;
+                    item.EditTime = DateTime.Now;
+                    item.IsShow = blog.IsShow;
                     if (chineseCover != null)
                     {
                         var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
@@ -191,7 +198,12 @@ namespace NeoWeb.Controllers
                             ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
                         }
                     }
-                    _context.Update(blog);
+                    _context.Update(item);
+                    if (isTop != null)
+                    {
+                        _context.Top.ToList().ForEach(p => _context.Top.Remove(p));
+                        _context.Add(new Top() { ItemId = blog.Id, Type = DiscoverViewModelType.Blog });
+                    }
                     await _context.SaveChangesAsync();
                     await UpdateRSSAsync();
                 }

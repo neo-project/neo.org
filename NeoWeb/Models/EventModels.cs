@@ -58,6 +58,10 @@ namespace NeoWeb.Models
 
         public string EnglishCover { get; set; }
 
+        public string ChineseTags { get; set; }
+
+        public string EnglishTags { get; set; }
+
         [Required]
         public bool IsFree { get; set; }
     }

@@ -5,19 +5,11 @@
 @{
     ViewData["Title"] = Model.Title;
     ViewData["Details"] = Model.Summary;
-    if (ViewBag.Cover != null)
-    {
-        try
-        {
-            XmlDocument doc = new XmlDocument() { XmlResolver = null };
-            doc.LoadXml((string)ViewBag.Cover);
-            ViewData["Image"] = "https://neo.org" + doc.FirstChild.Attributes["data-original"]?.Value;
-        }
-        catch (Exception)
-        {
-        }
-    }
     ViewData["keywords"] = Model.Tags;
+    if (Model.Cover != null)
+    {
+        ViewData["Image"] = "https://neo.org/upload/" + Model.Cover;
+    }
 }
 
 @section Styles{

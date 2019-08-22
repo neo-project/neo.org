@@ -93,6 +93,14 @@ namespace NeoWeb.Controllers
                 }
             }
 
+            var maxCount = 30;
+            if (string.IsNullOrEmpty(keywords) && year == null)
+            {
+                blogs = blogs.OrderByDescending(p => p.CreateTime).Take(maxCount);
+                events = events.OrderByDescending(p => p.StartTime).Take(maxCount);
+                news = news.OrderByDescending(p => p.Time).Take(maxCount);
+            }
+
             bool isZh = _sharedLocalizer["en"] == "zh";
             // type filter
             switch (type)
@@ -113,33 +121,26 @@ namespace NeoWeb.Controllers
                     break;
             }
 
-            viewModels = viewModels.OrderByDescending(p => p.Time).ToList();
+            viewModels = viewModels.OrderByDescending(p => p.Time).Take(maxCount).ToList();
 
             // 添加置顶内容
-            DiscoverViewModel onTop = viewModels.FirstOrDefault();
-            if (onTop != null)
+            if (type == null && year == null && string.IsNullOrEmpty(keywords))
             {
-                switch (onTop.Type)
+                var top = _context.Top.FirstOrDefault();
+                var topItems = new List<DiscoverViewModel>();
+                if (top != null)
                 {
-                    case DiscoverViewModelType.Blog:
-                        Blog blg = _context.Blogs.Single(p => p.Id == onTop.Blog.Id);
-                        if (isZh)
-                            onTop.Blog.Summary = blg.ChineseSummary;
-                        else
-                            onTop.Blog.Summary = blg.EnglishSummary;
-                        break;
-                    case DiscoverViewModelType.Event:
-                        Event evt = _context.Events.Single(p => p.Id == onTop.Event.Id);
-                        if (isZh)
-                            onTop.Event.Details = evt.ChineseDetails;
-                        else
-                            onTop.Event.Details = evt.EnglishDetails;
-                        break;
-                    case DiscoverViewModelType.News:
-                        break;
-                    default:
-                        break;
-                } 
+                    switch (top.Type)
+                    {
+                        case DiscoverViewModelType.Blog:
+                            AddBlogs(_context.Blogs.Where(p => p.Id == top.ItemId), topItems, isZh); break;
+                        case DiscoverViewModelType.Event:
+                            AddEvents(_context.Events.Where(p => p.Id == top.ItemId), topItems, isZh); break;
+                        case DiscoverViewModelType.News:
+                            AddNews(_context.News.Where(p => p.Id == top.ItemId), topItems, isZh); break;
+                    }
+                    ViewBag.OnTop = topItems?[0];
+                }
             }
 
             var blogYear = _context.Blogs.Select(p => p.CreateTime.Year).Distinct();
@@ -149,7 +150,6 @@ namespace NeoWeb.Controllers
             allYear.Add(new SelectListItem("All Year", ""));
             ViewBag.Year = allYear;
 
-            ViewBag.OnTop = onTop;
             ViewBag.UserRules = _userRules;
 
             return View(viewModels);
@@ -163,7 +163,8 @@ namespace NeoWeb.Controllers
                 CreateTime = p.CreateTime,
                 Title = isZh ? p.ChineseTitle : p.EnglishTitle,
                 Tags = isZh ? p.ChineseTags : p.EnglishTags,
-                Cover = isZh ? p.ChineseCover : p.EnglishCover
+                Cover = isZh ? p.ChineseCover : p.EnglishCover,
+                IsShow = p.IsShow
             }).ToList().ForEach(p => viewModels.Add(new DiscoverViewModel()
             {
                 Type = DiscoverViewModelType.Blog,
@@ -180,6 +181,7 @@ namespace NeoWeb.Controllers
                 StartTime = p.StartTime,
                 EndTime = p.EndTime,
                 Name = isZh ? p.ChineseName : p.EnglishName,
+                Tags = isZh ? p.ChineseTags : p.EnglishTags,
                 Country = isZh ? p.Country.ZhName : p.Country.Name,
                 City = isZh ? p.ChineseCity : p.EnglishCity,
                 Cover = isZh ? p.ChineseCover : p.EnglishCover
