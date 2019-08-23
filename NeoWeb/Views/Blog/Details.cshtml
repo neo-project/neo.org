@@ -14,13 +14,49 @@
 
 @section Styles{
     <environment include="Development">
-        <link rel="stylesheet" href="/css/blog.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/discover.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.ToCDN("/css/blog.min.css", true)" />
+        <link rel="stylesheet" href="@Helper.ToCDN("/css/discover.min.css", true)" />
     </environment>
 }
-<div class="container m1">
+
+<div class="back-area small clearfix mt3">
+    <div class="fl-l"><a onclick="JavaScript:history.back(-1)">BACK TO LIST</a></div>
+    <div class="fl-r">
+        @if (@ViewBag.PrevBlogId != Model.Id)
+        {
+            <a class="mr1" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xe6b8;</i> <span class="desktop-show">@Localizer["PREVIOUS"]</span></a>
+        }
+        @if (@ViewBag.NextBlogId != Model.Id)
+        {
+            <a href="~/blog/details/@ViewBag.NextBlogId"><span class="desktop-show">@Localizer["NEXT"]</span> <i class="iconfont">&#xe6b7;</i></a>
+        }
+    </div>
+</div>
+<hr/>
+<div class="w700 mt3">
+    <article class="article">
+        <header>
+            <div class="article-time">@Model.CreateTime.ToShortDateString()<span>BLOG</span></div>
+            <h2 class="article-title mt5">@Model.Title</h2>
+            <p class="gray mt5">@Model.CreateTime.ToShortDateString()</p>
+        </header>
+        <p class="mt5">
+            @if (ViewBag.UserRules)
+            {
+            <a class="btn" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+            <a class="btn ml2" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+            }
+        </p>
+        <hr class="mt4 mb0" />
+
+        <section>
+            <img class="mt3" width="100%" height="375px" />
+        </section>
+    </article>
+</div>
+<div class="container">
     <div class="row">
         <div class="col-lg-11 artical-container">
             <div class="nav-artical nav-artical-top t3 p2">
@@ -37,7 +73,7 @@
             </div>
             <article class="artical-content">
                 <header>
-                    <h3 class="bold-font with-space">@Model.Title</h3>
+                    <h2 class="bold-font with-space">@Model.Title</h2>
                     <p class="t3 m3 green-text blog-date bold-font"><span class="bold-font">@Model.CreateTime.ToShortDateString()</span></p>
                     <div class="float-right qrcode-div"><i class="iconfont green-text">&#xe79b;</i><div id="qrcode"></div></div>
                     <p class="t3">
