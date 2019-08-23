@@ -24,6 +24,8 @@ namespace NeoWeb.Models
 
         public string Organizers { get; set; }
 
+        public string Tags { get; set; }
+
         public bool IsFree { get; set; }
 
         public string ThirdPartyLink { get; set; }
@@ -44,6 +46,7 @@ namespace NeoWeb.Models
             Cover = isZh ? evt.ChineseCover : evt.EnglishCover;
             Details = isZh ? evt.ChineseDetails : evt.EnglishDetails;
             Organizers = isZh ? evt.ChineseOrganizers : evt.EnglishOrganizers;
+            Tags = isZh ? evt.ChineseTags : evt.EnglishTags;
         }
     }
 }

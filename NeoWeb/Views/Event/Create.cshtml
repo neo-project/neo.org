@@ -5,6 +5,14 @@
 @{
     ViewData["Title"] = "Post Event";
 }
+@section Styles{
+    <environment include="Development">
+        <link rel="stylesheet" href="/css/editor.css" asp-append-version="true" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="@Helper.ToCDN("/css/editor.min.css", true)" />
+    </environment>
+}
 <div class="p1">
     <h1 class="w800">@Localizer["Post"]</h1>
 </div>
@@ -12,6 +20,3 @@
 <form asp-action="Create" class="form-horizontal" enctype="multipart/form-data">
     @{await Html.RenderPartialAsync("_EditorPartialPage", Model);}
 </form>
-<div>
-    <a asp-action="index">Back to List</a>
-</div>

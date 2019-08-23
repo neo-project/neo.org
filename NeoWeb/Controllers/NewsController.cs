@@ -37,7 +37,8 @@ namespace NeoWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ChineseTitle,EnglishTitle,Link")] News news, IFormFile chineseCover, IFormFile englishCover)
+        public async Task<IActionResult> Create([Bind("Id,ChineseTitle,EnglishTitle,Link")] News news,
+            IFormFile chineseCover, IFormFile englishCover, string isTop)
         {
             if (ModelState.IsValid)
             {
@@ -59,6 +60,11 @@ namespace NeoWeb.Controllers
                         ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
                 }
                 _context.Add(news);
+                if (isTop != null)
+                {
+                    _context.Top.ToList().ForEach(p => _context.Top.Remove(p));
+                    _context.Add(new Top() { ItemId = news.Id, Type = DiscoverViewModelType.News });
+                }
                 await _context.SaveChangesAsync();
                 return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.News });
             }
@@ -86,7 +92,8 @@ namespace NeoWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ChineseTitle,EnglishTitle,ChineseTags,EnglishTags,Link")] News news, IFormFile chineseCover, IFormFile englishCover)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ChineseTitle,EnglishTitle,ChineseTags,EnglishTags,Link")] News news,
+            IFormFile chineseCover, IFormFile englishCover, string isTop)
         {
             if (id != news.Id)
             {
@@ -125,6 +132,11 @@ namespace NeoWeb.Controllers
                 }
                 try
                 {
+                    if (isTop != null)
+                    {
+                        _context.Top.ToList().ForEach(p => _context.Top.Remove(p));
+                        _context.Add(new Top() { ItemId = news.Id, Type = DiscoverViewModelType.News });
+                    }
                     _context.Update(news);
                     await _context.SaveChangesAsync();
                 }

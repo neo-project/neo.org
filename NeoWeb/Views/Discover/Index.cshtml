@@ -8,10 +8,10 @@
 
 @section Styles{
     <environment include="Development">
-        <link rel="stylesheet" href="/css/event.css" asp-append-version="true" />
+        <link rel="stylesheet" href="/css/discover.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.ToCDN("/css/event.min.css", true)" />
+        <link rel="stylesheet" href="@Helper.ToCDN("/css/discover.min.css", true)" />
     </environment>
     <style>
     </style>
@@ -20,28 +20,59 @@
 <div class="p2">
     <h2 class="m1 text-center">Discover</h2>
     <div class="row">
-        <div class="col-md-8">
-            <img class="m2" width="100%" height="440" />
-        </div>
-        <div class="col-md-4">
-            <div class="center n o-des">
-                <p class="green bold m4">EVENTS</p>
-                <h4>NEO JOY 2019 - Shanghai</h4>
-                <p class="m6"><i class="iconfont">&#xe71d;</i> Wed, 2019-07-30, 16:30 - 18:30</p>
-                <p><i class="iconfont">&#xe71d;</i> China, Shanghai</p>
-                <p class="m5">
-                    sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                </p>
-                <p class="m5 gray"><small>July 16, 2019</small></p>
+        @{
+            var top = (ViewBag.OnTop as DiscoverViewModel);
+        }
+        @if (top?.Type == DiscoverViewModelType.Blog && top.Blog.IsShow)
+        {
+            <div class="col-md-8 discove-top">
+                <img class="m2" src="@String.Format("/upload/{0}", top.Blog.Cover).ToLower()" />
             </div>
-        </div>
+            <div class="col-md-4">
+                <div class="center n o-des">
+                    <p class="green bold m4">BLOG</p>
+                    <h4>@top.Blog.Title</h4>
+                    <p class="m6">@top.Blog.Title</p>
+                    <p class="m5">
+                        @top.Blog.Summary
+                    </p>
+                </div>
+            </div>
+        }
+        else if (top?.Type == DiscoverViewModelType.Event)
+        {
+            <div class="col-md-8 discove-top">
+                <img class="m2" src="@String.Format("/upload/{0}", top.Event.Cover).ToLower()" />
+            </div>
+            <div class="col-md-4">
+                <div class="center n o-des">
+                    <p class="green bold m4">EVENT</p>
+                    <h4>@top.Event.Name</h4>
+                    <p class="m6"> @top.Event.StartTime - @top.Event.EndTime</p>
+                    <p> @top.Event.Country, @top.Event.City</p>
+                </div>
+            </div>
+        }
+        else if (top?.Type == DiscoverViewModelType.News)
+        {
+            <div class="col-md-8 discove-top">
+                <img class="m2" src="@String.Format("/upload/{0}", top.News.Cover).ToLower()" />
+            </div>
+            <div class="col-md-4">
+                <div class="center n o-des">
+                    <p class="green bold m4">NEWS</p>
+                    <h4>@top.News.Title</h4>
+                    <p class="m6">@top.News.Time</p>
+                </div>
+            </div>
+        }
     </div>
 </div>
 
-<div class="border-bottom">
-    <input type="text" />
-    <span><i class="iconfont">&#xe71d;</i> Filters</span>
-    <select>
+<div class="border-bottom form-inline">
+    <input type="text" class="form-control" />
+    <span>Filters</span>
+    <select class="form-control">
         <option>All types</option>
         <option>BLOGS</option>
         <option>EVENTS</option>
@@ -50,34 +81,49 @@
     <select class="form-control" asp-items="ViewBag.Year"></select>
 </div>
 
-<div class="row m4">
+<div class="row mt4">
     @foreach (var item in Model)
     {
         if (item.Type == DiscoverViewModelType.Blog)
         {
-            <div class="col-md-4 m4">
-                <img width="100%" height="200" />
-                <p class="m5 gray small">@item.Time<span class="green bold">@item.Type</span></p>
-                <p class="h4"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></p>
-                <p class="small gray"><i class="iconfont">&#xe71d;</i> NEO JOY 2019 - Shanghai<br /><i class="iconfont">&#xe71d;</i> Wed, 2019-07-30, 16:30 - 18:30</p>
-            </div>
+            @if (item.Blog.IsShow || ViewBag.UserRules)
+            {
+                <div class="col-md-4 m4 discove-item">
+                    <img class="m2" src="@String.Format("/upload/{0}", @item.Blog.Cover).ToLower()" />
+                    <p class="m5 gray small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green bold">@item.Type</span></p>
+                    <p class="h4"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></p>
+                    <p class="small gray">
+                        @if (!string.IsNullOrEmpty(item.Blog.Tags))
+                        {
+                            foreach (var tag in item.Blog.Tags.Split(','))
+                            {
+                                <a href="~/discover?keywords=@tag.Trim()">#@tag.Trim()</a>
+                            }
+                        }
+                    </p>
+                    @if (!item.Blog.IsShow && ViewBag.UserRules)
+                    {
+                        <p>未发布博客，仅管理员可见</p>
+                    }
+                </div>
+            }
         }
         else if (item.Type == DiscoverViewModelType.Event)
         {
-            <div class="col-md-4 m4">
-                <img width="100%" height="200" />
-                <p class="m5 gray small">@item.Time<span class="green bold">@item.Type</span></p>
-                <p class="h4"><a href="~/blog/details/@item.Event.Id">@item.Event.Name</a></p>
-                <p class="small gray"><i class="iconfont">&#xe71d;</i> NEO JOY 2019 - Shanghai<br /><i class="iconfont">&#xe71d;</i> Wed, 2019-07-30, 16:30 - 18:30</p>
+            <div class="col-md-4 m4 discove-item">
+                <img class="m2" src="@String.Format("/upload/{0}", @item.Event.Cover).ToLower()" />
+                <p class="m5 gray small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green bold">@item.Type</span></p>
+                <p class="h4"><a href="~/event/details/@item.Event.Id">@item.Event.Name</a></p>
+                <p class="small gray">@item.Event.Country - @item.Event.City</p>
             </div>
         }
         else if (item.Type == DiscoverViewModelType.News)
         {
-            <div class="col-md-4 m4">
-                <img width="100%" height="200" />
-                <p class="m5 gray small">@item.Time<span class="green bold">@item.Type</span></p>
-                <p class="h4"><a href="~/blog/details/@item.News.Id">@item.News.Title</a></p>
-                <p class="small gray"><i class="iconfont">&#xe71d;</i> NEO JOY 2019 - Shanghai<br /><i class="iconfont">&#xe71d;</i> Wed, 2019-07-30, 16:30 - 18:30</p>
+            <div class="col-md-4 m4 discove-item">
+                <img class="m2" src="@String.Format("/upload/{0}", @item.News.Cover).ToLower()" />
+                <p class="m5 gray small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green bold">@item.Type</span></p>
+                <p class="h4"><a href="@item.News.Link" target="_blank">@item.News.Title</a></p>
+                <p class="small gray">>@item.News.Tags</p>
             </div>
         }
     }

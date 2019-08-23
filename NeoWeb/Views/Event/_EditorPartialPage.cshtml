@@ -1,76 +1,77 @@
 ﻿@model NeoWeb.Models.Event
 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-<div>
-    <label asp-for="ChineseName" class="col-form-label">活动名称</label>
+<a href="javascript:" onclick="$('.zh').hide();$('.en').show();">English</a><a href="javascript:" onclick="$('.en').hide();$('.zh').show();">中文</a>
+<div class="zh">
+    <label asp-for="ChineseName" class="col-form-label">中文名称</label>
     <input asp-for="ChineseName" class="form-control" />
     <span asp-validation-for="ChineseName" class="text-danger"></span>
 </div>
-<div>
-    <label asp-for="EnglishName" class="col-form-label">活动名称</label>
+<div class="en">
+    <label asp-for="EnglishName" class="col-form-label">英文名称</label>
     <input asp-for="EnglishName" class="form-control" />
     <span asp-validation-for="EnglishName" class="text-danger"></span>
 </div>
 <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-6">
         <label for="Country" class="col-form-label">国家</label>
         <div>
             <select name="countryId" class="form-control" asp-for="Country" asp-items="@ViewBag.Countries"></select>
             <span asp-validation-for="Country" class="text-danger"></span>
         </div>
     </div>
-    <div class="col-sm-4">
-        <label asp-for="ChineseCity" class="col-form-label">城市</label>
+    <div class="col-sm-6 zh">
+        <label asp-for="ChineseCity" class="col-form-label">中文城市名</label>
         <div>
             <input asp-for="ChineseCity" class="form-control" />
             <span asp-validation-for="ChineseCity" class="text-danger"></span>
         </div>
     </div>
-    <div class="col-sm-4">
-        <label asp-for="EnglishCity" class="col-form-label">城市</label>
+    <div class="col-sm-6 en">
+        <label asp-for="EnglishCity" class="col-form-label">英文城市名</label>
         <div>
             <input asp-for="EnglishCity" class="form-control" />
             <span asp-validation-for="EnglishCity" class="text-danger"></span>
         </div>
     </div>
 </div>
-<div>
-    <label asp-for="ChineseAddress" class="col-form-label">活动地点</label>
+<div class="zh">
+    <label asp-for="ChineseAddress" class="col-form-label">中文地址</label>
     <div>
         <input asp-for="ChineseAddress" class="form-control" />
         <span asp-validation-for="ChineseAddress" class="text-danger"></span>
     </div>
 </div>
-<div>
-    <label asp-for="EnglishAddress" class="col-form-label">活动地点</label>
+<div class="en">
+    <label asp-for="EnglishAddress" class="col-form-label">英文地址</label>
     <div>
         <input asp-for="EnglishAddress" class="form-control" />
         <span asp-validation-for="EnglishAddress" class="text-danger"></span>
     </div>
 </div>
 <div class="row">
-    <div class="col-sm-4">
-        <label asp-for="StartTime" class="col-form-label">活动开始时间</label>
+    <div class="col-sm-3">
+        <label asp-for="StartTime" class="col-form-label">开始时间</label>
         <div>
             <input asp-for="StartTime" class="form-control" />
             <span asp-validation-for="StartTime" class="text-danger"></span>
         </div>
     </div>
-    <div class="col-sm-4">
-        <label asp-for="EndTime" class="col-form-label">活动截止时间</label>
+    <div class="col-sm-3">
+        <label asp-for="EndTime" class="col-form-label">截止时间</label>
         <div>
             <input asp-for="EndTime" class="form-control" />
             <span asp-validation-for="EndTime" class="text-danger"></span>
         </div>
     </div>
-    <div class="col-sm-4">
-        <label asp-for="ChineseOrganizers" class="col-form-label">主办方名称</label>
+    <div class="col-sm-6 zh">
+        <label asp-for="ChineseOrganizers" class="col-form-label">中文主办方名称</label>
         <div>
             <input asp-for="ChineseOrganizers" class="form-control" />
             <span asp-validation-for="ChineseOrganizers" class="text-danger"></span>
         </div>
     </div>
-    <div class="col-sm-4">
-        <label asp-for="EnglishOrganizers" class="col-form-label">主办方名称</label>
+    <div class="col-sm-6 en">
+        <label asp-for="EnglishOrganizers" class="col-form-label">英文主办方名称</label>
         <div>
             <input asp-for="EnglishOrganizers" class="form-control" />
             <span asp-validation-for="EnglishOrganizers" class="text-danger"></span>
@@ -78,55 +79,65 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-sm-4">
-        <label for="cover" class="col-form-label">活动封面</label>
+    <div class="col-sm-6 zh">
+        <label for="cover" class="col-form-label">中文封面</label>
         <div>
             <input type="hidden" asp-for="ChineseCover" />
             <input type="file" name="cover" id="cover" class="form-control" />
-            <small class="form-text text-muted">如果没有上传活动封面，则会展示默认封面</small>
+            <small class="form-text text-muted">如果没有上传封面，则会展示默认封面</small>
         </div>
     </div>
-    <div class="col-sm-4">
-        <label for="cover" class="col-form-label">活动封面</label>
-        <div>
-            <input type="hidden" asp-for="ChineseCover" />
-            <input type="file" name="chineseCover" class="form-control" />
-            <small class="form-text text-muted">如果没有上传活动封面，则会展示默认封面</small>
-        </div>
-    </div>
-    <div class="col-sm-4">
-        <label for="cover" class="col-form-label">活动封面</label>
+    <div class="col-sm-6 en">
+        <label for="cover" class="col-form-label">英文封面</label>
         <div>
             <input type="hidden" asp-for="EnglishCover" />
             <input type="file" name="englishCover" class="form-control" />
-            <small class="form-text text-muted">如果没有上传活动封面，则会展示默认封面</small>
+            <small class="form-text text-muted">如果没有上传封面，则会展示默认封面</small>
         </div>
     </div>
-    <div class="col-sm-4">
-        <label asp-for="IsFree" class="col-form-label">活动是否免费</label>
-        <div>
-            <label>
-                <input asp-for="IsFree" /> 免费活动
-            </label>
+    <div class="col-sm-6">
+        <label class="col-form-label">票价</label>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" asp-for="IsFree">
+            <label class="custom-control-label m-0" asp-for="IsFree">免费活动</label>
         </div>
     </div>
 </div>
-<div>
-    <label asp-for="ChineseDetails" class="col-form-label">活动详细介绍</label>
+<div class="zh">
+    <label asp-for="ChineseDetails" class="col-form-label">中文介绍</label>
     <div>
         <textarea asp-for="ChineseDetails" class="form-control" autocomplete="off" rows=10></textarea>
         <span asp-validation-for="ChineseDetails" class="text-danger"></span>
     </div>
 </div>
-<div>
-    <label asp-for="EnglishDetails" class="col-form-label">活动详细介绍</label>
+<div class="en">
+    <label asp-for="EnglishDetails" class="col-form-label">英文介绍</label>
     <div>
         <textarea asp-for="EnglishDetails" class="form-control" autocomplete="off" rows=10></textarea>
         <span asp-validation-for="EnglishDetails" class="text-danger"></span>
     </div>
 </div>
+<div class="zh">
+    <label asp-for="ChineseTags" class="col-form-label">中文标签（用逗号分隔）</label>
+    <input asp-for="ChineseTags" class="form-control" />
+    <span asp-validation-for="ChineseTags" class="text-danger"></span>
+</div>
+<div class="en">
+    <label asp-for="EnglishTags" class="col-form-label">英文标签（用逗号分隔）</label>
+    <input asp-for="EnglishTags" class="form-control" />
+    <span asp-validation-for="EnglishTags" class="text-danger"></span>
+</div>
 <div>
+    <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" name="isTop" id="isTop">
+        <label class="custom-control-label" for="isTop">设置置顶</label>
+    </div>
+</div>
+<div class="my-4">
     <input type="submit" value="发布" class="btn btn-light" />
+</div>
+<div class="my-4">
+    <a asp-action="index">Back to List</a>
 </div>
 <script src="@Helper.ToCDN("/lib/tinymce/tinymce.min.js", true)"></script>
 <script>
@@ -149,6 +160,3 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>

@@ -3,6 +3,14 @@
 @{
     ViewData["Title"] = "Details";
 }
+@section Styles{
+    <environment include="Development">
+        <link rel="stylesheet" href="/css/editor.css" asp-append-version="true" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="@Helper.ToCDN("/css/editor.min.css", true)" />
+    </environment>
+}
 <h2>Details</h2>
 <div>
     <h4>News</h4>

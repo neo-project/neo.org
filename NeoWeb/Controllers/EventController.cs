@@ -80,8 +80,8 @@ namespace NeoWeb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(
             [Bind("Id,ChineseName,EnglishName,ChineseCity,EnglishCity,ChineseAddress,EnglishAddress,StartTime,EndTime," +
-            "ChineseCover,EnglishCover,ChineseDetails,EnglishDetails,ChineseOrganizers,EnglishOrganizers,IsFree")] Event evt, 
-            int countryId, IFormFile chineseCover, IFormFile englishCover)
+            "ChineseCover,EnglishCover,ChineseDetails,EnglishDetails,ChineseOrganizers,EnglishOrganizers,ChineseTags,EnglishTags,IsFree")] Event evt, 
+            int countryId, IFormFile chineseCover, IFormFile englishCover, string isTop)
         {
             var country = _context.Countries.FirstOrDefault(p => p.Id == countryId);
             if (country == null)
@@ -113,7 +113,14 @@ namespace NeoWeb.Controllers
                 }
                 evt.ChineseDetails = EventConvert(evt.ChineseDetails);
                 evt.EnglishDetails = EventConvert(evt.EnglishDetails);
+                evt.ChineseTags = evt.ChineseTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
+                evt.EnglishTags = evt.EnglishTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
                 _context.Add(evt);
+                if (isTop != null)
+                {
+                    _context.Top.ToList().ForEach(p => _context.Top.Remove(p));
+                    _context.Add(new Top() { ItemId = evt.Id, Type = DiscoverViewModelType.Event });
+                }
                 await _context.SaveChangesAsync();
                 return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.Event });
             }
@@ -142,9 +149,9 @@ namespace NeoWeb.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(
-            int id, [Bind("Id,ChineseName,EnglishName,ChineseCity,EnglishCity,ChineseAddress,EnglishAddress," +
-            "StartTime,EndTime,ChineseCover,EnglishCover,ChineseDetails,EnglishDetails,ChineseOrganizers,EnglishOrganizers,IsFree")] Event evt, 
-            int countryId, IFormFile chineseCover, IFormFile englishCover)
+            int id, [Bind("Id,ChineseName,EnglishName,ChineseCity,EnglishCity,ChineseAddress,EnglishAddress,StartTime,EndTime," +
+            "ChineseCover,EnglishCover,ChineseDetails,EnglishDetails,ChineseOrganizers,EnglishOrganizers,ChineseTags,EnglishTags,IsFree")] Event evt, 
+            int countryId, IFormFile chineseCover, IFormFile englishCover, string isTop)
         {
             if (id != evt.Id)
             {
@@ -167,6 +174,8 @@ namespace NeoWeb.Controllers
                 {
                     evt.ChineseDetails = EventConvert(evt.ChineseDetails);
                     evt.EnglishDetails = EventConvert(evt.EnglishDetails);
+                    evt.ChineseTags = evt.ChineseTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
+                    evt.EnglishTags = evt.EnglishTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
                     if (chineseCover != null)
                     {
                         var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
@@ -196,6 +205,11 @@ namespace NeoWeb.Controllers
                         }
                     }
                     _context.Update(evt);
+                    if (isTop != null)
+                    {
+                        _context.Top.ToList().ForEach(p => _context.Top.Remove(p));
+                        _context.Add(new Top() { ItemId = evt.Id, Type = DiscoverViewModelType.Event });
+                    }
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

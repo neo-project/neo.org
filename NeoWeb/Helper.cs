@@ -126,8 +126,10 @@ namespace NeoWeb
 
         public static string Sha256(this string input)
         {
-            SHA256 obj = SHA256.Create();
-            return BitConverter.ToString(obj.ComputeHash(Encoding.UTF8.GetBytes(input))).Replace("-", "");
+            using (SHA256 obj = SHA256.Create())
+            {
+                return BitConverter.ToString(obj.ComputeHash(Encoding.UTF8.GetBytes(input))).Replace("-", "");
+            }
         }
 
         class IPItem
@@ -137,7 +139,7 @@ namespace NeoWeb
             public DateTime Time;
         }
 
-        private static List<IPItem> IPList = new List<IPItem>();
+        private static readonly List<IPItem> IPList = new List<IPItem>();
 
         internal static bool CCAttack(IPAddress ip, string action, int interval, int times)
         {
