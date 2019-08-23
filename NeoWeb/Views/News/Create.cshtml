@@ -20,3 +20,7 @@
 <form asp-action="Create" enctype="multipart/form-data">
     @{await Html.RenderPartialAsync("_EditorPartialPage", Model);}
 </form>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="@Helper.ToCDN("/js/editor.min.js")"></script>
+}
