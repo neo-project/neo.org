@@ -160,7 +160,63 @@ h6, .h6 {
     }
 }
 
-.pt0{padding-top:0px;}
+.mt7 {
+    margin-top: @length7;
+
+    @media only screen and (max-width: 768px) {
+        margin-top: @length8;
+    }
+}
+
+.ml1 {
+    margin-left: @length4;
+
+    @media only screen and (max-width: 768px) {
+        margin-left: @length5;
+    }
+}
+.ml2 {
+    margin-left: @length6;
+
+    @media only screen and (max-width: 768px) {
+        margin-left: @length7;
+    }
+}
+.ml3 {
+    margin-left: @length7;
+
+    @media only screen and (max-width: 768px) {
+        margin-left: @length8;
+    }
+}
+
+.mr1 {
+    margin-right: @length4;
+
+    @media only screen and (max-width: 768px) {
+        margin-right: @length5;
+    }
+}
+
+.mr2 {
+    margin-right: @length6;
+
+    @media only screen and (max-width: 768px) {
+        margin-right: @length7;
+    }
+}
+
+.mr3 {
+    margin-left: @length7;
+
+    @media only screen and (max-width: 768px) {
+        margin-right: @length8;
+    }
+}
+
+.pt0 {
+    padding-top: 0px;
+}
 .pb0{padding-bottom:0px;}
 .p1 {
     padding-top: 116px;
@@ -444,6 +500,78 @@ i.iconfont {
     }
 }
 .list2 {
+    margin-bottom:@length4;
+
+    div[class|=col], li {
+        .mt4;
+        list-style: none;
+
+        img, .img {
+            width: 100%;
+            height: 200px;
+            margin-bottom: @length8;
+        }
+
+        a {
+            color: @gray;
+
+            &:hover {
+                text-shadow: 0 0 .1px @gray;
+            }
+        }
+
+        div.small {
+            .mt7;
+            overflow: hidden;
+            vertical-align: middle;
+            line-height: 1.7;
+
+            span, a {
+                .mr2;
+                display: inline-block;
+
+                &.green {
+                    .bolder;
+                }
+            }
+        }
+
+        .list-title {
+            .h6;
+            .mt7;
+            line-height: 1.3;
+        }
+
+        .list-con {
+            .mt6;
+            display: inline-block;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        text-align: left !important;
+
+        div[class|=col], li {
+            list-style: none;
+
+            img, .img {
+                float: left;
+                margin-right: 20px;
+                width: 85px;
+                height: 85px;
+            }
+
+            div {
+                margin-top: 0px;
+            }
+
+            .list-title {
+                line-height: 1.4;
+            }
+        }
+    }
+}
+.list3 {
     div[class|=col], li {
         list-style: none;
 
