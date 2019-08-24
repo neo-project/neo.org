@@ -39,11 +39,49 @@
         }
     }
 }
-form{
-    label{
+form {
+    label {
         margin-top: 32px;
     }
-    input{
+
+    input {
         border-radius: 0 !important;
+    }
+
+    .zh {
+        display: none;
+    }
+
+    .custom-file-label {
+        margin-top: 0;
+    }
+
+    .switch {
+        text-align: right;
+        margin-top: -1.5rem;
+
+        a {
+            margin-left: 1em;
+            vertical-align: middle;
+        }
+
+        .switch-border {
+            text-align: left;
+            display: inline-block;
+            vertical-align: middle;
+            width: 48px;
+            height: 24px;
+            border-radius: 18px;
+            border: solid 1px #d1d1d1;
+        }
+
+        .switch-button {
+            display: inline-block;
+            margin: 3px;
+            width: 18px;
+            height: 18px;
+            border-radius: 100%;
+            background-color: @green;
+        }
     }
 }

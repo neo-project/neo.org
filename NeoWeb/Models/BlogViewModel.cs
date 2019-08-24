@@ -24,6 +24,7 @@ namespace NeoWeb.Models
         public int ReadCount { get; set; }
         
         public bool IsShow { get; set; }
+        public string Editor { get; set; }
 
         public BlogViewModel()
         { }
@@ -34,6 +35,7 @@ namespace NeoWeb.Models
             CreateTime = blog.CreateTime;
             IsShow = blog.IsShow;
             ReadCount = blog.ReadCount;
+            Editor = blog.Editor;
             Content = isZh ? blog.ChineseContent : blog.EnglishContent;
             Summary = isZh ? blog.ChineseSummary : blog.EnglishSummary;
             Tags = isZh ? blog.ChineseTags : blog.EnglishTags;

@@ -1,6 +1,13 @@
 ﻿@model NeoWeb.Models.Blog
-<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-<a href="javascript:" onclick="$('.zh').hide();$('.en').show();">English</a><a href="javascript:" onclick="$('.en').hide();$('.zh').show();">中文</a>
+    <div class="switch">
+        <strong>Switch editing language</strong>
+        <a href="javascript:" onclick="switchLanguage('en')">ENG</a>
+        <span class="switch-border">
+            <span class="switch-button"></span>
+        </span>
+        <a href="javascript:" onclick="switchLanguage('zh')">中文</a>
+    </div>
+<div asp-validation-summary="All" class="text-danger mt4"></div>
 <div class="zh">
     <label asp-for="ChineseTitle" class="col-form-label">中文标题</label>
     <input asp-for="ChineseTitle" class="form-control" />
@@ -19,17 +26,19 @@
 <div class="row">
     <div class="col-sm-6 zh">
         <label for="cover" class="col-form-label">中文封面</label>
-        <div>
+        <div class="custom-file">
             <input type="hidden" asp-for="ChineseCover" />
-            <input type="file" name="chineseCover" class="form-control" />
+            <input type="file" class="custom-file-input" id="chineseCover" name="chineseCover">
+            <label class="custom-file-label" for="chineseCover">Choose File</label>
             <small class="form-text text-muted">如果没有上传封面，则会展示默认封面</small>
         </div>
     </div>
     <div class="col-sm-6 en">
         <label for="cover" class="col-form-label">英文封面</label>
-        <div>
+        <div class="custom-file">
             <input type="hidden" asp-for="EnglishCover" />
-            <input type="file" name="englishCover" class="form-control" />
+            <input type="file" class="custom-file-input" id="englishCover" name="englishCover">
+            <label class="custom-file-label" for="englishCover">Choose File</label>
             <small class="form-text text-muted">如果没有上传封面，则会展示默认封面</small>
         </div>
     </div>
@@ -85,6 +94,3 @@
         images_upload_url: "../../../../blog/upload"
     });
 </script>
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

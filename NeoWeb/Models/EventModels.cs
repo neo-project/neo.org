@@ -8,29 +8,29 @@ namespace NeoWeb.Models
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "必须填写事件名称")]
+        [Required(ErrorMessage = "必须填写中文名称")]
         [Display(Name = "名称")]
         public string ChineseName { get; set; }
 
-        [Required(ErrorMessage = "Event name is required")]
+        [Required(ErrorMessage = "必须填写英文名称")]
         [Display(Name = "Name")]
         public string EnglishName { get; set; }
 
         public virtual Country Country { get; set; }
 
-        [Required(ErrorMessage = "必须填写城市")]
+        [Required(ErrorMessage = "必须填写中文城市名")]
         [Display(Name = "城市")]
         public string ChineseCity { get; set; }
 
-        [Required(ErrorMessage = "City is required")]
+        [Required(ErrorMessage = "必须填写英文城市名")]
         [Display(Name = "City")]
         public string EnglishCity { get; set; }
 
-        [Required(ErrorMessage = "必须填写地址")]
+        [Required(ErrorMessage = "必须填写中文地址")]
         [Display(Name = "地址")]
         public string ChineseAddress { get; set; }
 
-        [Required(ErrorMessage = "Address is required")]
+        [Required(ErrorMessage = "必须填写英文地址")]
         [Display(Name = "Address")]
         public string EnglishAddress { get; set; }
 
@@ -46,11 +46,11 @@ namespace NeoWeb.Models
         [Display(Name = "Details")]
         public string EnglishDetails { get; set; }
 
-        [Required(ErrorMessage = "必须填写组织者")]
+        [Required(ErrorMessage = "必须填写主办方中文名称")]
         [Display(Name = "组织者")]
         public string ChineseOrganizers { get; set; }
 
-        [Required(ErrorMessage = "Organizers is required")]
+        [Required(ErrorMessage = "必须填写主办方英文名称")]
         [Display(Name = "Organizers")]
         public string EnglishOrganizers { get; set; }
 

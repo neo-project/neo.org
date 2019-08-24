@@ -9,27 +9,27 @@ namespace NeoWeb.Models
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "必须填写博客标题")]
+        [Required(ErrorMessage = "必须填写中文标题")]
         [Display(Name = "标题")]
         public string ChineseTitle { get; set; }
 
+        [Required(ErrorMessage = "必须填写英文标题")]
+        [Display(Name = "Title")]
+        public string EnglishTitle { get; set; }
+
         [Display(Name = "正文")]
-        [Required(ErrorMessage = "必须填写博客正文")]
+        [Required(ErrorMessage = "必须填写中文内容")]
         public string ChineseContent { get; set; }
+
+        [Display(Name = "Content")]
+        [Required(ErrorMessage = "必须填写英文内容")]
+        public string EnglishContent { get; set; }
 
         public string ChineseSummary { get; set; }
 
         public string ChineseTags { get; set; }
 
         public string ChineseCover { get; set; }
-
-        [Required(ErrorMessage = "Title is required")]
-        [Display(Name = "Title")]
-        public string EnglishTitle { get; set; }
-
-        [Display(Name = "Content")]
-        [Required(ErrorMessage = "Content is required")]
-        public string EnglishContent { get; set; }
 
         public string EnglishSummary { get; set; }
 

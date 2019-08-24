@@ -4,10 +4,6 @@
     "inputFile": "wwwroot/css/site.less"
   },
   {
-    "outputFile": "wwwroot/css/blog.css",
-    "inputFile": "wwwroot/css/blog.less"
-  },
-  {
     "outputFile": "wwwroot/css/careers.css",
     "inputFile": "wwwroot/css/careers.less"
   },
@@ -26,10 +22,6 @@
   {
     "outputFile": "wwwroot/css/eco.css",
     "inputFile": "wwwroot/css/eco.less"
-  },
-  {
-    "outputFile": "wwwroot/css/event.css",
-    "inputFile": "wwwroot/css/event.less"
   },
   {
     "outputFile": "wwwroot/css/homepage.css",
@@ -62,5 +54,9 @@
   {
     "outputFile": "wwwroot/css/discover.css",
     "inputFile": "wwwroot/css/discover.less"
+  },
+  {
+    "outputFile": "wwwroot/css/editor.css",
+    "inputFile": "wwwroot/css/editor.less"
   }
 ]

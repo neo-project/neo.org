@@ -9,18 +9,18 @@ namespace NeoWeb.Models
         public int Id { get; set; }
 
         [Display(Name = "标题")]
-        [Required(ErrorMessage = "必须填写新闻标题")]
+        [Required(ErrorMessage = "必须填写中文标题")]
         public string ChineseTitle { get; set; }
 
         [Display(Name = "Title")]
-        [Required(ErrorMessage = "Title is required")]
+        [Required(ErrorMessage = "必须填写英文标题")]
         public string EnglishTitle { get; set; }
 
         public string ChineseCover { get; set; }
 
         public string EnglishCover { get; set; }
 
-        [Required(ErrorMessage = "Link is required")]
+        [Required(ErrorMessage = "必须填写英文链接")]
         public string Link { get; set; }
 
         public string ChineseTags { get; set; }

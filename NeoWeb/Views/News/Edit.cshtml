@@ -16,7 +16,10 @@
 <div class="p1">
     <h1 class="w800">@Localizer["Post"]</h1>
 </div>
-<div class="post-type">Post Type<a asp-controller="blog" asp-action="create">Blogs</a><a asp-controller="event" asp-action="create">Events</a><span>News</span></div>
 <form asp-action="Edit" enctype="multipart/form-data">
     @{await Html.RenderPartialAsync("_EditorPartialPage", Model);}
 </form>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="@Helper.ToCDN("/js/editor.min.js")"></script>
+}
