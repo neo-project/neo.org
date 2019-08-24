@@ -103,7 +103,7 @@
                     </a>
                     <p class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green">@item.Type</span></p>
                     <p class="list-title"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></p>
-                    <p class="small">
+                    <div class="small">
                         @if (!string.IsNullOrEmpty(item.Blog.Tags))
                         {
                             foreach (var tag in item.Blog.Tags.Split(','))

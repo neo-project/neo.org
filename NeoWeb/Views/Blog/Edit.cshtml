@@ -13,10 +13,10 @@
         <link rel="stylesheet" href="@Helper.ToCDN("/css/editor.min.css", true)" />
     </environment>
 }
-<div class="p1">
-    <h1 class="w800">@Localizer["Post"]</h1>
+<div class="text-center mt2">
+    <h2>@Localizer["Post"]</h2>
 </div>
-<form asp-action="Edit" enctype="multipart/form-data">
+<form asp-action="Edit" class="mt3" enctype="multipart/form-data">
     @{await Html.RenderPartialAsync("_EditorPartialPage", Model);}
 </form>
 @section Scripts {
