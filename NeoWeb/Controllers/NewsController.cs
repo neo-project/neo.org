@@ -40,7 +40,6 @@ namespace NeoWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                news.Time = DateTime.Now;
                 if (chineseCover != null)
                 {
                     var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
@@ -57,6 +56,8 @@ namespace NeoWeb.Controllers
                     else
                         ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
                 }
+                if (!ModelState.IsValid) return View(news);
+                news.Time = DateTime.Now;
                 _context.Add(news);
                 if (isTop != null)
                 {
@@ -128,6 +129,7 @@ namespace NeoWeb.Controllers
                         ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
                     }
                 }
+                if (!ModelState.IsValid) return View(news);
                 try
                 {
                     if (isTop != null)
