@@ -87,6 +87,7 @@ namespace NeoWeb.Controllers
             [Bind("Id,ChineseTitle,ChineseContent,Editor,ChineseTags,EnglishTitle,EnglishContent,EnglishTags,IsShow")] Blog blog,
             IFormFile chineseCover, IFormFile englishCover, string isTop)
         {
+            ViewBag.IsTop = isTop != null;
             if (ModelState.IsValid)
             {
                 if (chineseCover != null)
@@ -155,7 +156,7 @@ namespace NeoWeb.Controllers
             {
                 return NotFound();
             }
-
+            ViewBag.IsTop = isTop != null;
             if (ModelState.IsValid)
             {
                 if (chineseCover != null)
