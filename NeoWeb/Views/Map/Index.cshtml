@@ -10,21 +10,28 @@
     }
 
     .map-container a {
-        margin-right: 15px;
+        display:inline-block;
+        margin: 1rem 2rem 0.2rem 0;
+        color:#1B1B1B!important;
+        font-weight:600;
+        letter-spacing:1px;
+        min-width:110px;
     }
 
     .map-container span {
-        background: #dd1b1b;
-        color: #fff;
-        border-radius: 5px;
-        padding: 2px 4px;
-        font-size: 12px;
+        background: #02e49b;
+        color:#1B1B1B;
+        font-weight:600;
+        padding:2px 12px;
+    }
+    hr {
+        margin-top:0.8rem;
+        margin-bottom:0.8rem;
     }
 </style>
-<div class="text-center p2">
-    <h2 class="m1">站点地图</h2>
-</div>
-<div class="container map-container border-static p2">
+<h2 class="mt2 text-center">站点地图</h2>
+
+<div class="map-container mt3">
     <a href="~/">首页</a>
     <hr />
     <a href="~/dev">开发者</a>
@@ -45,7 +52,7 @@
     <a title="请在活动页面点击" href="javascript:">活动详情</a> <a href="~/event/create"><span>Admin</span> 发布</a> <a title="请在活动页面点击" href="javascript:"><span>Admin</span> 编辑</a> <a title="请在活动页面点击" href="javascript:"><span>Admin</span> 删除</a>
     <a href="https://devcon.neo.org/">DevCon <i class="iconfont">&#xe6f4;</i></a>
     <hr />
-    <span>Admin</span> <a href="~/fwlink/list">短链接列表</a>
+    <a href="~/fwlink/list"><span>Admin</span> 短链接列表</a>
     <a href="~/blog/create"><span>Admin</span> 新建</a> <a title="请在短链接页面点击" href="javascript:"><span>Admin</span> 编辑</a> <a title="请在短链接页面点击" href="javascript:"><span>Admin</span> 删除</a>
     <hr />
     <a href="~/consensus">共识节点</a>
