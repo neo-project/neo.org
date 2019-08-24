@@ -1,12 +1,12 @@
 ﻿@model NeoWeb.Models.Event
-    <div class="switch">
-        <strong>Switch editing language</strong>
-        <a href="javascript:" onclick="switchLanguage('en')">ENG</a>
-        <span class="switch-border">
-            <span class="switch-button"></span>
-        </span>
-        <a href="javascript:" onclick="switchLanguage('zh')">中文</a>
-    </div>
+<div class="switch">
+    <strong>Switch editing language</strong>
+    <a href="javascript:" onclick="switchLanguage('en')">ENG</a>
+    <span class="switch-border">
+        <span class="switch-button"></span>
+    </span>
+    <a href="javascript:" onclick="switchLanguage('zh')">中文</a>
+</div>
 <div asp-validation-summary="All" class="text-danger mt4"></div>
 <div class="zh">
     <label asp-for="ChineseName" class="col-form-label"></label>
@@ -59,7 +59,7 @@
     <div class="col-sm-3">
         <label asp-for="StartTime" class="col-form-label"></label>
         <div>
-            <input asp-for="StartTime"value="@DateTime.Now.AddDays(7).ToString("yyyy-MM-ddT10:00")" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" class="form-control" />
+            <input asp-for="StartTime" value="@DateTime.Now.AddDays(7).ToString("yyyy-MM-ddT10:00")" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" class="form-control" />
             <span asp-validation-for="StartTime" class="text-danger"></span>
         </div>
     </div>
@@ -140,7 +140,14 @@
 </div>
 <div>
     <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" name="isTop" id="isTop">
+        @if (ViewBag.IsTop != null && ViewBag.IsTop)
+        {
+            <input type="checkbox" checked="checked" class="custom-control-input" name="isTop" id="isTop">
+        }
+        else
+        {
+            <input type="checkbox" class="custom-control-input" name="isTop" id="isTop">
+        }
         <label class="custom-control-label" for="isTop">Is Top</label>
     </div>
 </div>

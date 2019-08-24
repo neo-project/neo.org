@@ -44,26 +44,27 @@
     <span asp-validation-for="Link" class="text-danger"></span>
 </div>
 <div class="zh">
-    <label asp-for="ChineseCover" class="col-form-label"></label>
-    <div class="custom-file">
-        <input type="hidden" asp-for="ChineseCover" />
-        <input type="file" class="custom-file-input" id="chineseCover" name="chineseCover">
-        <label class="custom-file-label" for="chineseCover">Choose File</label>
-        <small class="form-text text-muted">If no image is uploaded, the system will show default image.</small>
-    </div>
+    <label asp-for="ChineseTags" class="col-form-label"></label>
+    <input asp-for="ChineseTags" class="form-control" />
+    <small class="form-text text-muted">Separated by comma</small>
+    <span asp-validation-for="ChineseTags" class="text-danger"></span>
 </div>
 <div class="en">
-    <label asp-for="EnglishCover" class="col-form-label"></label>
-    <div class="custom-file">
-        <input type="hidden" asp-for="EnglishCover" />
-        <input type="file" class="custom-file-input" id="englishCover" name="englishCover">
-        <label class="custom-file-label" for="englishCover">Choose File</label>
-        <small class="form-text text-muted">If no image is uploaded, the system will show default image.</small>
-    </div>
+    <label asp-for="EnglishTags" class="col-form-label"></label>
+    <input asp-for="EnglishTags" class="form-control" />
+    <small class="form-text text-muted">Separated by comma</small>
+    <span asp-validation-for="EnglishTags" class="text-danger"></span>
 </div>
 <div>
     <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" name="isTop" id="isTop">
+        @if (ViewBag.IsTop != null && ViewBag.IsTop)
+        {
+            <input type="checkbox" checked="checked" class="custom-control-input" name="isTop" id="isTop">
+        }
+        else
+        {
+            <input type="checkbox" class="custom-control-input" name="isTop" id="isTop">
+        }
         <label class="custom-control-label" for="isTop">Is Top</label>
     </div>
 </div>

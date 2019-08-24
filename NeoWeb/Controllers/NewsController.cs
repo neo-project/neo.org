@@ -38,6 +38,7 @@ namespace NeoWeb.Controllers
         public async Task<IActionResult> Create([Bind("Id,ChineseTitle,EnglishTitle,Link")] News news,
             IFormFile chineseCover, IFormFile englishCover, string isTop)
         {
+            ViewBag.IsTop = isTop != null;
             if (ModelState.IsValid)
             {
                 if (chineseCover != null)
@@ -94,6 +95,7 @@ namespace NeoWeb.Controllers
         public async Task<IActionResult> Edit(int id, [Bind("Id,ChineseTitle,EnglishTitle,ChineseTags,EnglishTags,Link")] News news,
             IFormFile chineseCover, IFormFile englishCover, string isTop)
         {
+            ViewBag.IsTop = isTop != null;
             if (id != news.Id)
             {
                 return NotFound();

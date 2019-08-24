@@ -74,7 +74,14 @@
 </div>
 <div>
     <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" name="isTop" id="isTop">
+        @if (ViewBag.IsTop != null && ViewBag.IsTop)
+        {
+            <input type="checkbox" checked="checked" class="custom-control-input" name="isTop" id="isTop">
+        }
+        else
+        {
+            <input type="checkbox" class="custom-control-input" name="isTop" id="isTop">
+        }
         <label class="custom-control-label" for="isTop">Is Top</label>
     </div>
 </div>

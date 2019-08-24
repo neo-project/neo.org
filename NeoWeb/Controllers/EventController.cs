@@ -83,6 +83,7 @@ namespace NeoWeb.Controllers
             "ChineseCover,EnglishCover,ChineseDetails,EnglishDetails,ChineseOrganizers,EnglishOrganizers,ChineseTags,EnglishTags,IsFree")] Event evt, 
             int countryId, IFormFile chineseCover, IFormFile englishCover, string isTop)
         {
+            ViewBag.IsTop = isTop != null;
             var country = _context.Countries.FirstOrDefault(p => p.Id == countryId);
             if (country == null)
             {
@@ -159,6 +160,7 @@ namespace NeoWeb.Controllers
             {
                 return NotFound();
             }
+            ViewBag.IsTop = isTop != null;
             var country = _context.Countries.FirstOrDefault(p => p.Id == countryId);
             if (country == null)
             {
