@@ -101,8 +101,8 @@
                     <a href="~/blog/details/@item.Blog.Id">
                         <img src="@String.Format("/upload/{0}", @item.Blog.Cover).ToLower()" />
                     </a>
-                    <p class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green">@item.Type</span></p>
-                    <p class="list-title"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></p>
+                    <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green ml2">@item.Type</span></div>
+                    <div class="list-title"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></div>
                     <div class="small">
                         @if (!string.IsNullOrEmpty(item.Blog.Tags))
                         {
@@ -121,24 +121,24 @@
         }
         else if (item.Type == DiscoverViewModelType.Event)
         {
-            <div class="col-md-4 m4 discove-item">
+            <div class="col-md-4 discove-item">
                 <a href="~/event/details/@item.Event.Id">
-                    <img class="m2" src="@String.Format("/upload/{0}", @item.Event.Cover).ToLower()" />
+                    <img src="@String.Format("/upload/{0}", @item.Event.Cover).ToLower()" />
                 </a>
-                <p class="m5 gray small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green bold">@item.Type</span></p>
-                <p class="h4"><a href="~/event/details/@item.Event.Id">@item.Event.Name</a></p>
-                <p class="small gray">@item.Event.Country - @item.Event.City</p>
+                <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green ml2">@item.Type</span></div>
+                <div class="list-title"><a href="~/event/details/@item.Event.Id">@item.Event.Name</a></div>
+                <div class="small">@item.Event.Country - @item.Event.City</div>
             </div>
         }
         else if (item.Type == DiscoverViewModelType.News)
         {
-            <div class="col-md-4 m4 discove-item">
+            <div class="col-md-4 discove-item">
                 <a href="@item.News.Link" target="_blank">
                     <img class="m2" src="@String.Format("/upload/{0}", @item.News.Cover).ToLower()" />
                 </a>
-                <p class="m5 gray small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green bold">@item.Type</span></p>
-                <p class="h4"><a href="@item.News.Link" target="_blank">@item.News.Title</a></p>
-                <p class="small gray">>@item.News.Tags</p>
+                <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green ml2">@item.Type</span></div>
+                <div class="list-title"><a href="@item.News.Link" target="_blank">@item.News.Title</a></div>
+                <div class="small">>@item.News.Tags</div>
             </div>
         }
     }
