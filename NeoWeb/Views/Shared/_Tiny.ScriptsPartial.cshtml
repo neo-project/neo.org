@@ -1,0 +1,13 @@
+﻿<script src="@Helper.ToCDN("/lib/tinymce/tinymce.min.js", true)"></script>
+<script>
+    tinymce.init({
+        selector: 'textarea',
+        height: 500,
+        menubar: true,
+        plugins: 'importcss autosave code print preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image imagetools link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern help',
+        toolbar: 'formatselect | bold italic strikethrough forecolor backcolor permanentpen formatpainter | link image media pageembed | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | removeformat | addcomment',
+        content_css: "../../../../css/site.min.css",
+        image_advtab: true,
+        images_upload_url: "../../../../blog/upload"
+    });
+</script>

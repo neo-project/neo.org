@@ -21,5 +21,6 @@
 </form>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{await Html.RenderPartialAsync("_Tiny.ScriptsPartial");}
     <script src="@Helper.ToCDN("/js/editor.min.js")"></script>
 }

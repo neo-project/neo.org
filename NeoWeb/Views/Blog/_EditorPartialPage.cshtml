@@ -9,88 +9,77 @@
     </div>
 <div asp-validation-summary="All" class="text-danger mt4"></div>
 <div class="zh">
-    <label asp-for="ChineseTitle" class="col-form-label">中文标题</label>
+    <label asp-for="ChineseTitle" class="col-form-label"></label>
     <input asp-for="ChineseTitle" class="form-control" />
     <span asp-validation-for="ChineseTitle" class="text-danger"></span>
 </div>
 <div class="en">
-    <label asp-for="EnglishTitle" class="col-form-label">英文标题</label>
+    <label asp-for="EnglishTitle" class="col-form-label"></label>
     <input asp-for="EnglishTitle" class="form-control" />
     <span asp-validation-for="EnglishTitle" class="text-danger"></span>
 </div>
 <div>
-    <label asp-for="Editor" class="col-form-label">作者</label>
+    <label asp-for="Editor" class="col-form-label"></label>
     <input asp-for="Editor" class="form-control" />
     <span asp-validation-for="Editor" class="text-danger"></span>
 </div>
 <div class="row">
     <div class="col-sm-6 zh">
-        <label for="cover" class="col-form-label">中文封面</label>
+        <label for="cover" class="col-form-label"></label>
         <div class="custom-file">
             <input type="hidden" asp-for="ChineseCover" />
             <input type="file" class="custom-file-input" id="chineseCover" name="chineseCover">
             <label class="custom-file-label" for="chineseCover">Choose File</label>
-            <small class="form-text text-muted">如果没有上传封面，则会展示默认封面</small>
+            <small class="form-text text-muted">If no image is uploaded, the system will show default image.</small>
         </div>
     </div>
     <div class="col-sm-6 en">
-        <label for="cover" class="col-form-label">英文封面</label>
+        <label for="cover" class="col-form-label"></label>
         <div class="custom-file">
             <input type="hidden" asp-for="EnglishCover" />
             <input type="file" class="custom-file-input" id="englishCover" name="englishCover">
             <label class="custom-file-label" for="englishCover">Choose File</label>
-            <small class="form-text text-muted">如果没有上传封面，则会展示默认封面</small>
+            <small class="form-text text-muted">If no image is uploaded, the system will show default image.</small>
         </div>
     </div>
 </div>
 <div class="zh">
-    <label asp-for="ChineseContent" class="col-form-label">中文内容</label>
+    <label asp-for="ChineseContent" class="col-form-label"></label>
     <textarea asp-for="ChineseContent" class="form-control" autocomplete="off" rows=10></textarea>
     <span asp-validation-for="ChineseContent" class="text-danger"></span>
 </div>
 <div class="en">
-    <label asp-for="EnglishContent" class="col-form-label">英文内容</label>
+    <label asp-for="EnglishContent" class="col-form-label"></label>
     <textarea asp-for="EnglishContent" class="form-control" autocomplete="off" rows=10></textarea>
     <span asp-validation-for="EnglishContent" class="text-danger"></span>
 </div>
 <div class="zh">
-    <label asp-for="ChineseTags" class="col-form-label">中文标签（用逗号分隔）</label>
+    <label asp-for="ChineseTags" class="col-form-label"></label>
     <input asp-for="ChineseTags" class="form-control" />
+    <small class="form-text text-muted">Separated by comma</small>
     <span asp-validation-for="ChineseTags" class="text-danger"></span>
 </div>
 <div class="en">
-    <label asp-for="EnglishTags" class="col-form-label">英文标签（用逗号分隔）</label>
+    <label asp-for="EnglishTags" class="col-form-label"></label>
     <input asp-for="EnglishTags" class="form-control" />
+    <small class="form-text text-muted">Separated by comma</small>
     <span asp-validation-for="EnglishTags" class="text-danger"></span>
 </div>
 <div class="d-none">
     <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" asp-for="IsShow" checked="checked">
-        <label class="custom-control-label" asp-for="IsShow">在列表中显示</label>
+        <label class="custom-control-label" asp-for="IsShow"></label>
     </div>
 </div>
 <div>
     <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" name="isTop" id="isTop">
-        <label class="custom-control-label" for="isTop">设置置顶</label>
+        <label class="custom-control-label" for="isTop">Is Top</label>
     </div>
 </div>
 <div class="my-4">
-    <input type="submit" value="发布" class="btn btn-light" />
+    <input type="submit" value="Create" class="btn btn-light" />
 </div>
 <div class="my-4">
     <a asp-action="index">Back to List</a>
 </div>
-<script src="@Helper.ToCDN("/lib/tinymce/tinymce.min.js", true)"></script>
-<script>
-    tinymce.init({
-        selector: 'textarea',
-        language: 'zh_CN',
-        height: 500,
-        menubar: true,
-        plugins: 'print preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern help',
-        toolbar: 'formatselect | bold italic strikethrough forecolor backcolor permanentpen formatpainter | link image media pageembed | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | removeformat | addcomment',
-        image_advtab: true,
-        images_upload_url: "../../../../blog/upload"
-    });
-</script>

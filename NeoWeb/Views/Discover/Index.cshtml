@@ -20,18 +20,21 @@
 <div class="p2">
     <h2 class="m1 text-center">Discover</h2>
     <div class="row">
+
         @{
-            var top = (ViewBag.OnTop as DiscoverViewModel);
+            var top = (ViewBag.Ontop as DiscoverViewModel);
         }
         @if (top?.Type == DiscoverViewModelType.Blog && top.Blog.IsShow)
         {
             <div class="col-md-8 discove-top">
-                <img class="m2" src="@String.Format("/upload/{0}", top.Blog.Cover).ToLower()" />
+                <a href="~/blog/details/@top.Blog.Id">
+                    <img class="m2" src="@String.Format("/upload/{0}", top.Blog.Cover).ToLower()" />
+                </a>
             </div>
             <div class="col-md-4">
                 <div class="center n o-des">
                     <p class="green bold m4">BLOG</p>
-                    <h4>@top.Blog.Title</h4>
+                    <h4><a href="~/blog/details/@top.Blog.Id">@top.Blog.Title</a></h4>
                     <p class="m6">@top.Blog.Title</p>
                     <p class="m5">
                         @top.Blog.Summary
@@ -42,12 +45,15 @@
         else if (top?.Type == DiscoverViewModelType.Event)
         {
             <div class="col-md-8 discove-top">
-                <img class="m2" src="@String.Format("/upload/{0}", top.Event.Cover).ToLower()" />
+                <a href="~/event/details/@top.Event.Id">
+                    <img class="m2" src="@String.Format("/upload/{0}", top.Event.Cover).ToLower()" />
+                </a>
+
             </div>
             <div class="col-md-4">
                 <div class="center n o-des">
                     <p class="green bold m4">EVENT</p>
-                    <h4>@top.Event.Name</h4>
+                    <h4><a href="~/event/details/@top.Event.Id">@top.Event.Name</a></h4>
                     <p class="m6"> @top.Event.StartTime - @top.Event.EndTime</p>
                     <p> @top.Event.Country, @top.Event.City</p>
                 </div>
@@ -56,12 +62,13 @@
         else if (top?.Type == DiscoverViewModelType.News)
         {
             <div class="col-md-8 discove-top">
-                <img class="m2" src="@String.Format("/upload/{0}", top.News.Cover).ToLower()" />
+                <a href="@top.News.Link" target="_blank"><img class="m2" src="@String.Format("/upload/{0}", top.News.Cover).ToLower()" /></a>
+
             </div>
             <div class="col-md-4">
                 <div class="center n o-des">
                     <p class="green bold m4">NEWS</p>
-                    <h4>@top.News.Title</h4>
+                    <h4><a href="@top.News.Link" target="_blank">@top.News.Title</a></h4>
                     <p class="m6">@top.News.Time</p>
                 </div>
             </div>
@@ -89,7 +96,9 @@
             @if (item.Blog.IsShow || ViewBag.UserRules)
             {
                 <div class="col-md-4 m4 discove-item">
-                    <img class="m2" src="@String.Format("/upload/{0}", @item.Blog.Cover).ToLower()" />
+                    <a href="~/blog/details/@item.Blog.Id">
+                        <img class="m2" src="@String.Format("/upload/{0}", @item.Blog.Cover).ToLower()" />
+                    </a>
                     <p class="m5 gray small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green bold">@item.Type</span></p>
                     <p class="h4"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></p>
                     <p class="small gray">
@@ -111,7 +120,9 @@
         else if (item.Type == DiscoverViewModelType.Event)
         {
             <div class="col-md-4 m4 discove-item">
-                <img class="m2" src="@String.Format("/upload/{0}", @item.Event.Cover).ToLower()" />
+                <a href="~/event/details/@item.Event.Id">
+                    <img class="m2" src="@String.Format("/upload/{0}", @item.Event.Cover).ToLower()" />
+                </a>
                 <p class="m5 gray small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green bold">@item.Type</span></p>
                 <p class="h4"><a href="~/event/details/@item.Event.Id">@item.Event.Name</a></p>
                 <p class="small gray">@item.Event.Country - @item.Event.City</p>
@@ -120,7 +131,9 @@
         else if (item.Type == DiscoverViewModelType.News)
         {
             <div class="col-md-4 m4 discove-item">
-                <img class="m2" src="@String.Format("/upload/{0}", @item.News.Cover).ToLower()" />
+                <a href="@item.News.Link" target="_blank">
+                    <img class="m2" src="@String.Format("/upload/{0}", @item.News.Cover).ToLower()" />
+                </a>
                 <p class="m5 gray small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green bold">@item.Type</span></p>
                 <p class="h4"><a href="@item.News.Link" target="_blank">@item.News.Title</a></p>
                 <p class="small gray">>@item.News.Tags</p>
