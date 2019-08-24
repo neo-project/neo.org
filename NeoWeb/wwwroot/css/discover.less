@@ -1,15 +1,64 @@
-﻿.discove-top {
+﻿@import 'basic.less';
+
+.discover-top {
     img {
         width: 100%;
         height: 440px;
     }
 }
-.discove-item {
+.discover-item {
     img {
         width: 100%;
         height: 200px;
     }
     .gray .green{
         margin-left: 1em;
+    }
+}
+
+.dis-search {
+    line-height:3;
+    vertical-align:middle;
+
+    input, select {
+        display: inline-block;
+        border:none;
+    }
+
+    .search-input {
+        width: 70%;
+    }
+
+}
+
+.back-area {
+    a {
+        .bold;
+        color:@gray;
+        cursor:pointer;
+
+        &:hover{
+            text-shadow:0 0 0.1px @gray;
+        }
+    }
+}
+
+
+.article {
+    text-align: left;
+
+    .article-time {
+        .small;
+
+        span {
+            .bold;
+            color: @green;
+            margin-left: @length6;
+        }
+    }
+
+    .article-title {
+        .bold;
+        line-height: 1.1;
     }
 }

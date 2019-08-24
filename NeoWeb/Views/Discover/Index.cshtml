@@ -48,7 +48,6 @@
                 <a href="~/event/details/@top.Event.Id">
                     <img class="m2" src="@String.Format("/upload/{0}", top.Event.Cover).ToLower()" />
                 </a>
-
             </div>
             <div class="col-md-4">
                 <div class="center n o-des">
@@ -62,8 +61,9 @@
         else if (top?.Type == DiscoverViewModelType.News)
         {
             <div class="col-md-8 discove-top">
-                <a href="@top.News.Link" target="_blank"><img class="m2" src="@String.Format("/upload/{0}", top.News.Cover).ToLower()" /></a>
-
+                <a href="@top.News.Link" target="_blank">
+                    <img class="m2" src="@String.Format("/upload/{0}", top.News.Cover).ToLower()" />
+                </a>
             </div>
             <div class="col-md-4">
                 <div class="center n o-des">
@@ -76,40 +76,42 @@
     </div>
 </div>
 
-<div class="border-bottom form-inline">
-    <input type="text" class="form-control" />
-    <span>Filters</span>
-    <select class="form-control">
-        <option>All types</option>
-        <option>BLOGS</option>
-        <option>EVENTS</option>
-        <option>NEWS</option>
+<form asp-action="Discover" method="get" class="border-bottom dis-search">
+    <span>+</span>
+    <input name="keywords" type="text" class="search-input" />
+    <span>清空</span>
+    <select name="type">
+        <option value="">All types</option>
+        <option value="1">BLOGS</option>
+        <option value="2">EVENTS</option>
+        <option value="3">NEWS</option>
     </select>
-    <select class="form-control" asp-items="ViewBag.Year"></select>
-</div>
+    <select name="year" asp-items="ViewBag.Year"></select>
+    <input type="submit" value="search" />
+</form>
 
-<div class="row mt4">
+<div class="row list2 mt5">
     @foreach (var item in Model)
     {
         if (item.Type == DiscoverViewModelType.Blog)
         {
             @if (item.Blog.IsShow || ViewBag.UserRules)
             {
-                <div class="col-md-4 m4 discove-item">
+                <div class="col-md-4 discover-item">
                     <a href="~/blog/details/@item.Blog.Id">
-                        <img class="m2" src="@String.Format("/upload/{0}", @item.Blog.Cover).ToLower()" />
+                        <img src="@String.Format("/upload/{0}", @item.Blog.Cover).ToLower()" />
                     </a>
-                    <p class="m5 gray small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green bold">@item.Type</span></p>
-                    <p class="h4"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></p>
-                    <p class="small gray">
+                    <p class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green">@item.Type</span></p>
+                    <p class="list-title"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></p>
+                    <p class="small">
                         @if (!string.IsNullOrEmpty(item.Blog.Tags))
                         {
                             foreach (var tag in item.Blog.Tags.Split(','))
                             {
-                                <a href="~/discover?keywords=@tag.Trim()">#@tag.Trim()</a>
+                                <a href="~/discover?keywords=@tag.Trim()"># @tag.Trim()</a>
                             }
                         }
-                    </p>
+                    </div>
                     @if (!item.Blog.IsShow && ViewBag.UserRules)
                     {
                         <p>未发布博客，仅管理员可见</p>
@@ -140,7 +142,7 @@
             </div>
         }
     }
-
 </div>
+
 
 
