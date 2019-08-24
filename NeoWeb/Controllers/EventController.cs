@@ -111,6 +111,8 @@ namespace NeoWeb.Controllers
                     else
                         ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
                 }
+                if (!ModelState.IsValid) return View(evt);
+
                 evt.ChineseDetails = EventConvert(evt.ChineseDetails);
                 evt.EnglishDetails = EventConvert(evt.EnglishDetails);
                 evt.ChineseTags = evt.ChineseTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
@@ -169,40 +171,42 @@ namespace NeoWeb.Controllers
                 {
                     ModelState.AddModelError("EndTime", "End Time must be after the Start Time.");
                 }
+                if (chineseCover != null)
+                {
+                    var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
+                    if (Helper.ValidateCover(_env, fileName))
+                    {
+                        if (!string.IsNullOrEmpty(evt.ChineseCover))
+                            System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", evt.ChineseCover));
+                        evt.ChineseCover = fileName;
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("ChineseCover", "Cover size must be 16:9");
+                    }
+                }
+                if (englishCover != null)
+                {
+                    var fileName = Helper.UploadMedia(englishCover, _env, 1000);
+                    if (Helper.ValidateCover(_env, fileName))
+                    {
+                        if (!string.IsNullOrEmpty(evt.EnglishCover))
+                            System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", evt.EnglishCover));
+                        evt.ChineseCover = fileName;
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
+                    }
+                }
+                if (!ModelState.IsValid) return View(evt);
                 try
                 {
                     evt.ChineseDetails = EventConvert(evt.ChineseDetails);
                     evt.EnglishDetails = EventConvert(evt.EnglishDetails);
                     evt.ChineseTags = evt.ChineseTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
                     evt.EnglishTags = evt.EnglishTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
-                    if (chineseCover != null)
-                    {
-                        var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
-                        if (Helper.ValidateCover(_env, fileName))
-                        {
-                            if (!string.IsNullOrEmpty(evt.ChineseCover))
-                                System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", evt.ChineseCover));
-                            evt.ChineseCover = fileName;
-                        }
-                        else
-                        {
-                            ModelState.AddModelError("ChineseCover", "Cover size must be 16:9");
-                        }
-                    }
-                    if (englishCover != null)
-                    {
-                        var fileName = Helper.UploadMedia(englishCover, _env, 1000);
-                        if (Helper.ValidateCover(_env, fileName))
-                        {
-                            if (!string.IsNullOrEmpty(evt.EnglishCover))
-                                System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", evt.EnglishCover));
-                            evt.ChineseCover = fileName;
-                        }
-                        else
-                        {
-                            ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
-                        }
-                    }
+                    
                     _context.Update(evt);
                     if (isTop != null)
                     {

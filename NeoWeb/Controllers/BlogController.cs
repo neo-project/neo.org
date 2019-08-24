@@ -89,6 +89,24 @@ namespace NeoWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (chineseCover != null)
+                {
+                    var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
+                    if (Helper.ValidateCover(_env, fileName))
+                        blog.ChineseCover = fileName;
+                    else
+                        ModelState.AddModelError("ChineseCover", "Cover size must be 16:9.");
+                }
+                if (englishCover != null)
+                {
+                    var fileName = Helper.UploadMedia(englishCover, _env, 1000);
+                    if (Helper.ValidateCover(_env, fileName))
+                        blog.ChineseCover = fileName;
+                    else
+                        ModelState.AddModelError("EnglishCover", "Cover size must be 16:9.");
+                }
+                if(!ModelState.IsValid) return View(blog);
+
                 blog.ChineseContent = Convert(blog.ChineseContent);
                 blog.EnglishContent = Convert(blog.EnglishContent);
                 blog.ChineseSummary = blog.ChineseContent.ClearHtmlTag(150);
@@ -97,22 +115,6 @@ namespace NeoWeb.Controllers
                 blog.EnglishTags = blog.EnglishTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
                 blog.CreateTime = DateTime.Now;
                 blog.EditTime = DateTime.Now;
-                if (chineseCover != null)
-                {
-                    var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
-                    if (Helper.ValidateCover(_env, fileName))
-                        blog.ChineseCover = fileName;
-                    else
-                        ModelState.AddModelError("ChineseCover", "Cover size must be 16:9");
-                }
-                if (englishCover != null)
-                {
-                    var fileName = Helper.UploadMedia(englishCover, _env, 1000);
-                    if (Helper.ValidateCover(_env, fileName))
-                        blog.ChineseCover = fileName;
-                    else
-                        ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
-                }
                 blog.User = _context.Users.Find(_userId);
                 _context.Add(blog);
                 if (isTop != null)
@@ -156,6 +158,36 @@ namespace NeoWeb.Controllers
 
             if (ModelState.IsValid)
             {
+                if (chineseCover != null)
+                {
+                    var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
+                    if (Helper.ValidateCover(_env, fileName))
+                    {
+                        if (!string.IsNullOrEmpty(blog.ChineseCover))
+                            System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", blog.ChineseCover));
+                        blog.ChineseCover = fileName;
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("ChineseCover", "Cover size must be 16:9");
+                    }
+                }
+                if (englishCover != null)
+                {
+                    var fileName = Helper.UploadMedia(englishCover, _env, 1000);
+                    if (Helper.ValidateCover(_env, fileName))
+                    {
+                        if (!string.IsNullOrEmpty(blog.EnglishCover))
+                            System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", blog.EnglishCover));
+                        blog.ChineseCover = fileName;
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
+                    }
+                }
+                if (!ModelState.IsValid) return View(blog);
+
                 var item = _context.Blogs.FirstOrDefault(p => p.Id == blog.Id);
                 try
                 {
@@ -170,34 +202,7 @@ namespace NeoWeb.Controllers
                     item.Editor = blog.Editor;
                     item.EditTime = DateTime.Now;
                     item.IsShow = blog.IsShow;
-                    if (chineseCover != null)
-                    {
-                        var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
-                        if (Helper.ValidateCover(_env, fileName))
-                        {
-                            if (!string.IsNullOrEmpty(blog.ChineseCover))
-                                System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", blog.ChineseCover));
-                            blog.ChineseCover = fileName;
-                        }
-                        else
-                        {
-                            ModelState.AddModelError("ChineseCover", "Cover size must be 16:9");
-                        }
-                    }
-                    if (englishCover != null)
-                    {
-                        var fileName = Helper.UploadMedia(englishCover, _env, 1000);
-                        if (Helper.ValidateCover(_env, fileName))
-                        {
-                            if (!string.IsNullOrEmpty(blog.EnglishCover))
-                                System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", blog.EnglishCover));
-                            blog.ChineseCover = fileName;
-                        }
-                        else
-                        {
-                            ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
-                        }
-                    }
+                    
                     _context.Update(item);
                     if (isTop != null)
                     {

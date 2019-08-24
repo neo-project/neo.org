@@ -20,7 +20,7 @@
 </div>
 <div class="row">
     <div class="col-sm-6">
-        <label for="Country" class="col-form-label"></label>
+        <label for="Country" class="col-form-label">Country</label>
         <div>
             <select name="countryId" class="form-control" asp-for="Country" asp-items="@ViewBag.Countries"></select>
             <span asp-validation-for="Country" class="text-danger"></span>
@@ -59,14 +59,14 @@
     <div class="col-sm-3">
         <label asp-for="StartTime" class="col-form-label"></label>
         <div>
-            <input asp-for="StartTime" class="form-control" />
+            <input asp-for="StartTime"value="@DateTime.Now.AddDays(7).ToString("yyyy-MM-ddT10:00")" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" class="form-control" />
             <span asp-validation-for="StartTime" class="text-danger"></span>
         </div>
     </div>
     <div class="col-sm-3">
         <label asp-for="EndTime" class="col-form-label"></label>
         <div>
-            <input asp-for="EndTime" class="form-control" />
+            <input asp-for="EndTime" value="@DateTime.Now.AddDays(7).ToString("yyyy-MM-ddT18:00")" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" class="form-control" />
             <span asp-validation-for="EndTime" class="text-danger"></span>
         </div>
     </div>
@@ -87,20 +87,20 @@
 </div>
 <div class="row">
     <div class="col-sm-6 zh">
-        <label for="cover" class="col-form-label"></label>
+        <label asp-for="ChineseCover" class="col-form-label"></label>
         <div class="custom-file">
             <input type="hidden" asp-for="ChineseCover" />
-            <input type="file" class="custom-file-input" id="englishCover" name="englishCover">
-            <label class="custom-file-label" for="englishCover">Choose File</label>
+            <input type="file" class="custom-file-input" id="chineseCover" name="chineseCover">
+            <label class="custom-file-label" for="chineseCover">Choose File</label>
             <small class="form-text text-muted">If no image is uploaded, the system will show default image.</small>
         </div>
     </div>
     <div class="col-sm-6 en">
-        <label for="cover" class="col-form-label"></label>
+        <label asp-for="EnglishCover" class="col-form-label"></label>
         <div class="custom-file">
             <input type="hidden" asp-for="EnglishCover" />
-            <input type="file" class="custom-file-input" id="chineseCover" name="chineseCover">
-            <label class="custom-file-label" for="chineseCover">Choose File</label>
+            <input type="file" class="custom-file-input" id="englishCover" name="englishCover">
+            <label class="custom-file-label" for="englishCover">Choose File</label>
             <small class="form-text text-muted">If no image is uploaded, the system will show default image.</small>
         </div>
     </div>

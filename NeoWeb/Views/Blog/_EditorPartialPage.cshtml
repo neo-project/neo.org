@@ -25,7 +25,7 @@
 </div>
 <div class="row">
     <div class="col-sm-6 zh">
-        <label for="cover" class="col-form-label"></label>
+        <label asp-for="ChineseCover" class="col-form-label"></label>
         <div class="custom-file">
             <input type="hidden" asp-for="ChineseCover" />
             <input type="file" class="custom-file-input" id="chineseCover" name="chineseCover">
@@ -34,7 +34,7 @@
         </div>
     </div>
     <div class="col-sm-6 en">
-        <label for="cover" class="col-form-label"></label>
+        <label asp-for="EnglishCover" class="col-form-label"></label>
         <div class="custom-file">
             <input type="hidden" asp-for="EnglishCover" />
             <input type="file" class="custom-file-input" id="englishCover" name="englishCover">
@@ -43,6 +43,7 @@
         </div>
     </div>
 </div>
+
 <div class="zh">
     <label asp-for="ChineseContent" class="col-form-label"></label>
     <textarea asp-for="ChineseContent" class="form-control" autocomplete="off" rows=10></textarea>

@@ -40,7 +40,7 @@ namespace NeoWeb.Models
         [Display(Name = "Chinese Cover")]
         public string ChineseCover { get; set; }
 
-        [Display(Name = "English Content")]
+        [Display(Name = "English Cover")]
         public string EnglishCover { get; set; }
 
         public DateTime CreateTime { get; set; }
