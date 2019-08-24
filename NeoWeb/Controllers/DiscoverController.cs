@@ -139,7 +139,7 @@ namespace NeoWeb.Controllers
                         case DiscoverViewModelType.News:
                             AddNews(_context.News.Where(p => p.Id == top.ItemId), topItems, isZh); break;
                     }
-                    ViewBag.OnTop = topItems?[0];
+                    ViewBag.OnTop = topItems.Count > 0 ? topItems[0] : null;
                 }
             }
 
