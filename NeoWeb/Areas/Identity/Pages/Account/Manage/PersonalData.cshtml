@@ -7,13 +7,13 @@
 
 <h4>@ViewData["Title"]</h4>
 
-<div class="row">
+<div class="row mb-5">
     <div class="col-md-6">
-        <p>Your account contains personal data that you have given us. This page allows you to download or delete that data.</p>
-        <p>
+        <p class="mt-4">Your account contains personal data that you have given us. This page allows you to download or delete that data.</p>
+        <p class="mt-3">
             <strong>Deleting this data will permanently remove your account, and this cannot be recovered.</strong>
         </p>
-        <form id="download-data" asp-page="DownloadPersonalData" method="post" class="form-group">
+        <form id="download-data" asp-page="DownloadPersonalData" method="post" class="form-group mt-4">
             <button class="btn btn-primary" type="submit">Download</button>
         </form>
         <p>
