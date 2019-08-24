@@ -86,15 +86,15 @@ namespace NeoWeb.Controllers
             var country = _context.Countries.FirstOrDefault(p => p.Id == countryId);
             if (country == null)
             {
-                ModelState.AddModelError("Country", "国家错误");
+                ModelState.AddModelError("Country", "The Country field is required.");
             }
             evt.Country = country;
-            if (evt.EndTime <= evt.StartTime)
-            {
-                ModelState.AddModelError("EndTime", "截止时间错误");
-            }
             if (ModelState.IsValid)
             {
+                if (evt.EndTime <= evt.StartTime)
+                {
+                    ModelState.AddModelError("EndTime", "End Time must be after the Start Time.");
+                }
                 if (chineseCover != null)
                 {
                     var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
@@ -160,16 +160,15 @@ namespace NeoWeb.Controllers
             var country = _context.Countries.FirstOrDefault(p => p.Id == countryId);
             if (country == null)
             {
-                ModelState.AddModelError("Country", "国家错误");
+                ModelState.AddModelError("Country", "The Country field is required.");
             }
             evt.Country = country;
-            //var oldCover = _context.Events.FirstOrDefault(p => p.Id == @event.Id).Cover;
-            if (evt.EndTime <= evt.StartTime)
-            {
-                ModelState.AddModelError("EndTime", "截止时间错误");
-            }
             if (ModelState.IsValid)
             {
+                if (evt.EndTime <= evt.StartTime)
+                {
+                    ModelState.AddModelError("EndTime", "End Time must be after the Start Time.");
+                }
                 try
                 {
                     evt.ChineseDetails = EventConvert(evt.ChineseDetails);

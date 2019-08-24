@@ -8,30 +8,30 @@ namespace NeoWeb.Models
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "必须填写中文名称")]
-        [Display(Name = "名称")]
+        [Required]
+        [Display(Name = "Chinese Name")]
         public string ChineseName { get; set; }
 
-        [Required(ErrorMessage = "必须填写英文名称")]
-        [Display(Name = "Name")]
+        [Required]
+        [Display(Name = "English Name")]
         public string EnglishName { get; set; }
 
         public virtual Country Country { get; set; }
 
-        [Required(ErrorMessage = "必须填写中文城市名")]
-        [Display(Name = "城市")]
+        [Required]
+        [Display(Name = "Chinese City")]
         public string ChineseCity { get; set; }
 
-        [Required(ErrorMessage = "必须填写英文城市名")]
-        [Display(Name = "City")]
+        [Required]
+        [Display(Name = "English City")]
         public string EnglishCity { get; set; }
 
-        [Required(ErrorMessage = "必须填写中文地址")]
-        [Display(Name = "地址")]
+        [Required]
+        [Display(Name = "Chinese Address")]
         public string ChineseAddress { get; set; }
 
-        [Required(ErrorMessage = "必须填写英文地址")]
-        [Display(Name = "Address")]
+        [Required]
+        [Display(Name = "English Address")]
         public string EnglishAddress { get; set; }
 
         [Required]
@@ -40,26 +40,30 @@ namespace NeoWeb.Models
         [Required]
         public DateTime EndTime { get; set; }
 
-        [Display(Name = "详情")]
+        [Display(Name = "Chinese Details")]
         public string ChineseDetails { get; set; }
 
-        [Display(Name = "Details")]
+        [Display(Name = "English Details")]
         public string EnglishDetails { get; set; }
 
-        [Required(ErrorMessage = "必须填写主办方中文名称")]
-        [Display(Name = "组织者")]
+        [Required]
+        [Display(Name = "Chinese Organizers")]
         public string ChineseOrganizers { get; set; }
 
-        [Required(ErrorMessage = "必须填写主办方英文名称")]
-        [Display(Name = "Organizers")]
+        [Required]
+        [Display(Name = "English Organizers")]
         public string EnglishOrganizers { get; set; }
 
+        [Display(Name = "Chinese Cover")]
         public string ChineseCover { get; set; }
 
+        [Display(Name = "English Cover")]
         public string EnglishCover { get; set; }
 
+        [Display(Name = "Chinese Tags")]
         public string ChineseTags { get; set; }
 
+        [Display(Name = "English Tags")]
         public string EnglishTags { get; set; }
 
         [Required]

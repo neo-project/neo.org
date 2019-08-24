@@ -23,8 +23,12 @@
     <div class="mt-3">
         <form asp-action="Delete">
             <input type="hidden" asp-for="Id" />
-            <input type="submit" value="Delete" class="btn btn-light" /> |
-            <a asp-action="details" asp-route-id="@Model.Id">Back to Event</a>
+            <div class="my-4">
+                <input type="submit" value="Delete" class="btn btn-light" />
+            </div>
+            <div class="my-4">
+                <a asp-action="index">Back to List</a>
+            </div>
         </form>
     </div>
 </div>
