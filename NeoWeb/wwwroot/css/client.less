@@ -86,10 +86,16 @@ select {
     .modal-body {
         padding: 0;
 
-        img {
-            padding-bottom: 31px;
+        .preview {
+            white-space: nowrap;
+            overflow-x: scroll;
+            overflow-y: hidden;
             margin-bottom: 31px;
             border-bottom: 0.5px solid rgba(0, 0, 0, 0.18);
+        }
+
+        img {
+            max-height: 400px;
         }
 
         .metrics {
@@ -142,12 +148,23 @@ select {
         text-align: center;
         width: 92px;
         line-height: 25px;
-        border: solid 1px @green;
+        border: solid 1px #e0e0e0;
         vertical-align: 3px;
         float: right;
+        border-left-width: 0;
+        color: @btn-text;
+
+        &.active {
+            border: solid 1px @green;
+            color: @green;
+
+            & + a, & + a:hover {
+                border-right-width: 0;
+            }
+        }
 
         &:last-child {
-            border-right: 0;
+            border-left-width: 1px;
         }
     }
 

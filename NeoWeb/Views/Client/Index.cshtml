@@ -46,8 +46,13 @@
             <div class="license d-none"><a class="float-left" href="https://github.com/neo-project/neo-gui/blob/master/LICENSE" target="_blank">MIT License</a></div>
             <div class="button d-none"><a class="btn" href="https://github.com/neo-project/neo-gui/releases" target="_blank">@Localizer["Download"]</a></div>
             <div class="desc d-none">
-                <div class="preview-div"><h3>Preview</h3></div>
-                <img data-original="@Helper.ToCDN("/images/client/gui.png")" />
+                <div class="preview-div">
+                    <h3>Preview</h3>
+                    <a class="plat-btn btn-desktop active" href="javascript:" onclick="switchPlatform('desktop');">@Localizer["Desktop"]</a>
+                </div>
+                <div class="p-desktop preview">
+                    <img data-original="@Helper.ToCDN("/images/client/gui.png")" />
+                </div>
                 <p>@Localizer["NEO-GUI is a full-node NEO client, which contains all the basic functions of NEO network. This wallet is designed for advanced users, with professional software interaction and extremely high security. However, it takes a long time to initialize synchronization, occupies disk and memory, and has poor stability."]</p>
                 <p>@Localizer["Need to install"] <a href="https://www.microsoft.com/net/download/dotnet-framework-runtime" target="_blank">.NetFramework 4.7.1</a> @Localizer["and"] <a href="https://www.microsoft.com/en-us/download/details.aspx?id=14632" target="_blank">VC++ 2010 Redist x64</a>/<a href="https://www.microsoft.com/en-us/download/details.aspx?id=5555" target="_blank">x86</a>
                 <p>@Localizer["For more information, see:"]<a href="@Localizer["https://docs.neo.org/en-us/node/gui/install.html"]" target="_blank">@Localizer["Instructions for use"]</a></p>
@@ -107,8 +112,13 @@
             <div class="license d-none"><a href="https://github.com/neo-project/neo-cli/blob/master/LICENSE" target="_blank">MIT License</a></div>
             <div class="button d-none"><a class="btn" href="https://github.com/neo-project/neo-cli/releases" target="_blank">@Localizer["Download"]</a></div>
             <div class="desc d-none">
-                <div class="preview-div"><h3>Preview</h3></div>
-                <img data-original="@Helper.ToCDN("/images/client/cli.png")" />
+                <div class="preview-div">
+                    <h3>Preview</h3>
+                    <a class="plat-btn btn-desktop active" href="javascript:" onclick="switchPlatform('desktop');">@Localizer["Desktop"]</a>
+                </div>
+                <div class="p-desktop preview">
+                    <img data-original="@Helper.ToCDN("/images/client/cli.png")" />
+                </div>
                 <p>
                     @Localizer["NEO-CLI is a full-node command-line client that can run across platforms. It can provide APIs for developers to call, or participate in the consensus mechanism as a consensus node in the block chain. This wallet is designed for developers, with professional software interaction, as well as higher security and stability. The disadvantages of this wallet are that it takes a long time to initialize synchronization, and it takes up disk and memory."]
                 </p>
@@ -211,11 +221,17 @@
             <div class="desc d-none">
                 <div class="preview-div">
                     <h3>Preview</h3>
-                    <a class="plat-btn" href="javascript:" onclick="$('.o3desktop').hide(); $('.o3mobile').show();">@Localizer["Mobile"]</a>
-                    <a class="plat-btn" href="javascript:" onclick="$('.o3mobile').hide(); $('.o3desktop').show();">@Localizer["Desktop"]</a>
+                    <a class="plat-btn btn-desktop" href="javascript:" onclick="switchPlatform('desktop');">@Localizer["Desktop"]</a>
+                    <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
-                <img class="o3mobile" data-original="@Helper.ToCDN("/images/client/o3.png")" />
-                <img class="o3desktop" style="display:none;" data-original="@Helper.ToCDN("/images/client/o3-desktop.png")" />
+                <div class="p-mobile preview">
+                    <img data-original="@Helper.ToCDN("/images/client/o3.png")" />
+                </div>
+                <div class="p-desktop preview" style="display:none;">
+                    <img data-original="@Helper.ToCDN("/images/client/o3-desktop.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/o3-desktop.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/o3-desktop.png")" />
+                </div>
                 <p>
                     @Localizer["It's a cross-platform wallet developed by O3 Labs. This wallet supports most mainstream operating systems, maintains a high update frequency and can support NEO network updates and features in a timely manner."]
                 </p>
@@ -255,8 +271,13 @@
             <div class="license d-none"><a href="https://github.com/CityOfZion/neon-wallet/blob/dev/LICENSE.md" target="_blank">MIT License</a></div>
             <div class="button d-none"><a class="btn" href="https://neonwallet.com/" target="_blank">@Localizer["Website"]</a></div>
             <div class="desc d-none">
-                <div class="preview-div"><h3>Preview</h3></div>
-                <img data-original="@Helper.ToCDN("/images/client/neon.png")" />
+                <div class="preview-div">
+                    <h3>Preview</h3>
+                    <a class="plat-btn btn-desktop active" href="javascript:" onclick="switchPlatform('desktop');">@Localizer["Desktop"]</a>
+                </div>
+                <div class="p-desktop preview">
+                    <img data-original="@Helper.ToCDN("/images/client/neon.png")" />
+                </div>
                 <p>@Localizer["It's a cross-platform wallet developed by NEO developer community City of Zion. This wallet supports mainstream operating systems such as Windows, macOS and Linux, and focuses on UE and UI."]</p>
                 <p>@Localizer["Languages"]: English</p>
                 <div>
@@ -302,11 +323,15 @@
             <div class="desc d-none">
                 <div class="preview-div">
                     <h3>Preview</h3>
-                    <a class="plat-btn" href="javascript:" onclick="$('.apheliondesktop').hide(); $('.aphelionmobile').show();">@Localizer["Mobile"]</a>
-                    <a class="plat-btn" href="javascript:" onclick="$('.aphelionmobile').hide(); $('.apheliondesktop').show();">@Localizer["Desktop"]</a>
+                    <a class="plat-btn btn-desktop" href="javascript:" onclick="switchPlatform('desktop');">@Localizer["Desktop"]</a>
+                    <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
-                <img class="aphelionmobile" data-original="@Helper.ToCDN("/images/client/aphelion.png")" />
-                <img class="apheliondesktop" style="display:none;" data-original="@Helper.ToCDN("/images/client/aphelion-desktop.png")" />
+                <div class="p-mobile preview">
+                    <img data-original="@Helper.ToCDN("/images/client/aphelion.png")" />
+                </div>
+                <div class="p-desktop preview" style="display:none;">
+                    <img data-original="@Helper.ToCDN("/images/client/aphelion-desktop.png")" />
+                </div>
                 <p>
                     @Localizer["It's a cross-platform wallet that supports almost all mainstream operating systems, and it also supports contacts and complete NEP-5. This wallet can be used in conjunction with the Ledger hardware wallet."]
                 </p>
@@ -345,8 +370,13 @@
             <div class="license d-none"><a href="https://github.com/AnyBitIO/anybit-iOS/blob/master/LICENSE" target="_blank">Apache License</a></div>
             <div class="button d-none"><a class="btn" href="https://www.anybit.io/" target="_blank">@Localizer["Website"]</a></div>
             <div class="desc d-none">
-                <div class="preview-div"><h3>Preview</h3></div>
-                <img data-original="@Helper.ToCDN("/images/client/anybit.png")" />
+                <div class="preview-div">
+                    <h3>Preview</h3>
+                    <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
+                </div>
+                <div class="p-mobile preview">
+                    <img data-original="@Helper.ToCDN("/images/client/anybit.png")" />
+                </div>
                 <p>
                     @Localizer["It's a the first hot and cold combined wallet that supports NEO. The mnemonic and private key are stored locally. This wallet is divided into general mode and isolation mode. In the isolation mode, the devices used need to be completely isolated from the network. This wallet is simple in functions, and when transaction happens, the hot wallet needs to be used for transaction request and broadcast."]
                 </p>
@@ -391,8 +421,13 @@
                 <a class="btn" href="https://otcgo.cn/#/" target="_blank">@Localizer["Go to Web Wallet"]</a>
             </div>
             <div class="desc d-none">
-                <div class="preview-div"><h3>Preview</h3></div>
-                <img data-original="@Helper.ToCDN("/images/client/sea.png")" />
+                <div class="preview-div">
+                    <h3>Preview</h3>
+                    <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
+                </div>
+                <div class="p-mobile preview">
+                    <img data-original="@Helper.ToCDN("/images/client/sea.png")" />
+                </div>
                 <p>@Localizer["It's a wallet developed by SEA. This wallet contains basic functions such as importing private keys, transferring assets, retrieving GAS, etc."]</p>
                 <p>@Localizer["Languages"]: 简体中文</p>
                 <div>
@@ -430,8 +465,13 @@
             <div class="license d-none"><a href="https://github.com/CaspianTechnologies/Spatium/blob/master/LICENSE" target="_blank">GPL-3.0 License</a></div>
             <div class="button d-none"><a class="btn" href="http://spatium.net/" target="_blank">@Localizer["Website"]</a></div>
             <div class="desc d-none">
-                <div class="preview-div"><h3>Preview</h3></div>
-                <img data-original="@Helper.ToCDN("/images/client/spatium.png")" />
+                <div class="preview-div">
+                    <h3>Preview</h3>
+                    <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
+                </div>
+                <div class="p-mobile preview">
+                    <img data-original="@Helper.ToCDN("/images/client/spatium.png")" />
+                </div>
                 <p>
                     @Localizer["It's a digital currency wallet developed by CaspianTechnologies. This wallet needs signatures from multiple parties on transactions, and it is compatible with the Spatium hardware wallet, which possesses the biological recognition technologies. It also focuses on the security."]
                 </p>
@@ -468,8 +508,13 @@
             <div class="developer d-none"><a href="https://cobo.com/about" target="_blank">Cobo</a></div>
             <div class="button d-none"><a class="btn" href="https://cobo.com/" target="_blank">@Localizer["Website"]</a></div>
             <div class="desc d-none">
-                <div class="preview-div"><h3>Preview</h3></div>
-                <img data-original="@Helper.ToCDN("/images/client/cobo.png")" />
+                <div class="preview-div">
+                    <h3>Preview</h3>
+                    <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
+                </div>
+                <div class="p-mobile preview">
+                    <img data-original="@Helper.ToCDN("/images/client/cobo.png")" />
+                </div>
                 <p>@Localizer["Cobo is a wallet that supports multiple digital asset management."]</p>
                 <p>@Localizer["Languages"]: English / 简体中文</p>
                 <div>
@@ -504,8 +549,13 @@
             <div class="developer d-none"><a href="http://www.mathwallet.org" target="_blank">Math Labs</a></div>
             <div class="button d-none"><a class="btn" href="http://www.mathwallet.org" target="_blank">@Localizer["Website"]</a></div>
             <div class="desc d-none">
-                <div class="preview-div"><h3>Preview</h3></div>
-                <img data-original="@Helper.ToCDN("/images/client/math.png")" />
+                <div class="preview-div">
+                    <h3>Preview</h3>
+                    <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
+                </div>
+                <div class="p-mobile preview">
+                    <img data-original="@Helper.ToCDN("/images/client/math.png")" />
+                </div>
                 <p>@Localizer["It's a multiple digital asset wallet developed by Math Labs. This wallet supports BTC, ETH, NEO, EOS and other ecosystems, as well as face recognition, living body recognition and other biometric recognition technologies."]</p>
                 <p>@Localizer["Languages"]: English / 简体中文 / 한국어</p>
                 <div>
@@ -540,8 +590,13 @@
             <div class="developer d-none"><a href="https://www.infinitowallet.io" target="_blank">Infinito Blockchain Labs</a></div>
             <div class="button d-none"><a class="btn" href="https://www.infinitowallet.io" target="_blank">@Localizer["Website"]</a></div>
             <div class="desc d-none">
-                <div class="preview-div"><h3>Preview</h3></div>
-                <img data-original="@Helper.ToCDN("/images/client/infinito.png")" />
+                <div class="preview-div">
+                    <h3>Preview</h3>
+                    <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
+                </div>
+                <div class="p-mobile preview">
+                    <img data-original="@Helper.ToCDN("/images/client/infinito.png")" />
+                </div>
                 <p>@Localizer["It's a multi-token wallet developed by Infinito Blockchain Labs . This wallet supports BTC, ETH, NEO, EOS and other ecosystems. It has more than 10 languages for alternatives and supports fingerprint identification."]</p>
                 <p>@Localizer["Languages"]: English / 简体中文 / Tiếng Việt / 日本語 / 한국어 / Italiano / Русский / Español</p>
                 <div>
@@ -580,8 +635,13 @@
                 <a class="btn" href="https://app.iwallic.com/" target="_blank">@Localizer["Go to Web Wallet"]</a>
             </div>
             <div class="desc d-none">
-                <div class="preview-div"><h3>Preview</h3></div>
-                <img data-original="@Helper.ToCDN("/images/client/iwallic.png")" />
+                <div class="preview-div">
+                    <h3>Preview</h3>
+                    <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
+                </div>
+                <div class="p-mobile preview">
+                    <img data-original="@Helper.ToCDN("/images/client/iwallic.png")" />
+                </div>
                 <p>@Localizer["It's an Android wallet developed by e-studio. This wallet contains basic functions such as importing private keys, transferring assets, etc."]</p>
                 <p>@Localizer["Languages"]: English / 简体中文</p>
                 <div>
@@ -619,8 +679,13 @@
             <div class="developer d-none"><a href="https://github.com/Atomicwallet" target="_blank">Atomicwallet</a></div>
             <div class="button d-none"><a class="btn" href="https://atomicwallet.io/" target="_blank">@Localizer["Website"]</a></div>
             <div class="desc d-none">
-                <div class="preview-div"><h3>Preview</h3></div>
-                <img data-original="@Helper.ToCDN("/images/client/atomic.png")" />
+                <div class="preview-div">
+                    <h3>Preview</h3>
+                    <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
+                </div>
+                <div class="p-mobile preview">
+                    <img data-original="@Helper.ToCDN("/images/client/atomic.png")" />
+                </div>
                 <p>@Localizer["Atomic is a decentralized wallet that supports 300+ cryptocurrency assets. The wallet uses Atomic Swap technology for cross-chain custody free exchange. Atomic Wallet provides instant exchange and \"buy crypto with a credit card\" feature. Available for Windows, Mac OS, Linux, and Android."]</p>
                 <p>@Localizer["Languages"]: English</p>
                 <div>
@@ -659,8 +724,13 @@
                 <a class="btn" href="https://chrome.google.com/webstore/detail/neoline/cphhlgmgameodnhkjdmkpanlelnlohao" target="_blank">@Localizer["Download"]</a>
             </div>
             <div class="desc d-none">
-                <div class="preview-div"><h3>Preview</h3></div>
-                <img data-original="@Helper.ToCDN("/images/client/neoline.png")" />
+                <div class="preview-div">
+                    <h3>Preview</h3>
+                    <a class="plat-btn btn-extension active" href="javascript:" onclick="switchPlatform('extension');">@Localizer["Extension"]</a>
+                </div>
+                <div class="p-extension preview">
+                    <img data-original="@Helper.ToCDN("/images/client/neoline.png")" />
+                </div>
                 <p>@Localizer["NEOLine is a browser extension wallet of NEO. We intend to provide a secure and convenient digital asset wallet. It offers comprehensive wallet capabilities and a wide range of dAPIs for developers."]</p>
                 <p>@Localizer["Languages"]: English / 中文</p>
                 <div>
@@ -695,8 +765,13 @@
             <div class="developer d-none"><a href="https://github.com/NewEconoLab" target="_blank">NewEconoLab</a></div>
             <div class="button d-none"><a class="btn" href="https://chrome.google.com/webstore/detail/teemo-wallet/faddjfhplkcfackpcjnmmeapchnkobjk" target="_blank">@Localizer["Download"]</a></div>
             <div class="desc d-none">
-                <div class="preview-div"><h3>Preview</h3></div>
-                <img data-original="@Helper.ToCDN("/images/client/teemo.png")" />
+                <div class="preview-div">
+                    <h3>Preview</h3>
+                    <a class="plat-btn btn-extension active" href="javascript:" onclick="switchPlatform('extension');">@Localizer["Extension"]</a>
+                </div>
+                <div class="p-extension preview">
+                    <img data-original="@Helper.ToCDN("/images/client/teemo.png")" />
+                </div>
                 <p>@Localizer["Teemo is a browser extension wallet of NEO.<br/>The extension injects the NEO DApp API into every website's JavaScript context, so that DApps can interact with the blockchain."]</p>
                 <p>@Localizer["Languages"]: English / 中文</p>
                 <div>
@@ -732,8 +807,13 @@
             <div class="developer d-none"><a href="https://www.bitkeep.com/about" target="_blank">BitKeep</a></div>
             <div class="button d-none"><a class="btn" href="https://www.bitkeep.com/" target="_blank">@Localizer["Website"]</a></div>
             <div class="desc d-none">
-                <div class="preview-div"><h3>Preview</h3></div>
-                <img data-original="@Helper.ToCDN("/images/client/bitkeep.png")" />
+                <div class="preview-div">
+                    <h3>Preview</h3>
+                    <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
+                </div>
+                <div class="p-mobile preview">
+                    <img data-original="@Helper.ToCDN("/images/client/bitkeep.png")" />
+                </div>
                 <p>@Localizer["Bitkeep is a decentralized multi-chain digital wallet that supports thousands of digital assets such as BTC, ETH, EOS, NEO, USDT, ONT, multi-wallet management, aggregation transactions, exchange asset docking and more."]</p>
                 <p>@Localizer["Languages"]: English / 中文 / 日本語 / 한국어 </p>
                 <div>
@@ -769,8 +849,13 @@
             <div class="license d-none"><a href="https://github.com/neotracker/neotracker-wallet/blob/master/LICENSE.md" target="_blank">MIT License</a></div>
             <div class="button d-none"><a class="btn" href="https://neotracker.io/wallet" target="_blank">@Localizer["Go to Web Wallet"]</a></div>
             <div class="desc d-none">
-                <div class="preview-div"><h3>Preview</h3></div>
-                <img data-original="@Helper.ToCDN("/images/client/neotracker.png")" />
+                <div class="preview-div">
+                    <h3>Preview</h3>
+                    <a class="plat-btn btn-web active" href="javascript:" onclick="switchPlatform('web');">@Localizer["Web"]</a>
+                </div>
+                <div class="p-web preview">
+                    <img data-original="@Helper.ToCDN("/images/client/neotracker.png")" />
+                </div>
                 <p>@Localizer["It's an online wallet developed by NEO Tracker. This wallet is logged in with the private key or key storage, and is also a blockchain browser."]</p>
                 <p>@Localizer["Languages"]: English</p>
                 <div>
@@ -814,8 +899,13 @@
             <div class="license d-none"><a href="https://github.com/NewEconoLab/NELBrowser-Web-React/blob/master/LICENSE" target="_blank">MIT License</a></div>
             <div class="button d-none"><a class="btn" href="https://wallet.nel.group/" target="_blank">@Localizer["Go to Web Wallet"]</a></div>
             <div class="desc d-none">
-                <div class="preview-div"><h3>Preview</h3></div>
-                <img data-original="@Helper.ToCDN("/images/client/nelwallet.png")" />
+                <div class="preview-div">
+                    <h3>Preview</h3>
+                    <a class="plat-btn btn-web active" href="javascript:" onclick="switchPlatform('web');">@Localizer["Web"]</a>
+                </div>
+                <div class="p-web preview">
+                    <img data-original="@Helper.ToCDN("/images/client/nelwallet.png")" />
+                </div>
                 <p>@Localizer["It's an online wallet developed by NEL. This wallet supports NNS auction, transaction information viewing, and is also a blockchain browser."]</p>
                 <p>@Localizer["Languages"]: English / 简体中文<br>
                 <p>@Localizer["Supported Browser"]: Chrome/Edge</p>
@@ -857,8 +947,13 @@
             <div class="developer d-none"><a href="https://wallet.yezcoin.com/" target="_blank">YEZ Wallet</a></div>
             <div class="button d-none"><a class="btn" href="https://wallet.yezcoin.com/" target="_blank">@Localizer["Go to Web Wallet"]</a></div>
             <div class="desc d-none">
-                <div class="preview-div"><h3>Preview</h3></div>
-                <img data-original="@Helper.ToCDN("/images/client/yez.png")" />
+                <div class="preview-div">
+                    <h3>Preview</h3>
+                    <a class="plat-btn btn-web active" href="javascript:" onclick="switchPlatform('web');">@Localizer["Web"]</a>
+                </div>
+                <div class="p-web preview">
+                    <img data-original="@Helper.ToCDN("/images/client/yez.png")" />
+                </div>
                 <p>@Localizer["YEZ Wallet is a NEP-5 Wallet. We focuses on easy on-boarding with Google/Facebook Login integration.User can send/receive YEZ and see transaction history on one screen."]</p>
                 <p>@Localizer["Languages"]: English / 简体中文<br>
                 <p>@Localizer["Supported Browser"]: Chrome / Edge</p>
@@ -899,8 +994,13 @@
             <div class="license d-none"><a href="https://github.com/snowypowers/ansy/blob/master/LICENSE" target="_blank">MIT License</a></div>
             <div class="button d-none"><a class="btn" href="https://snowypowers.github.io/ansy/" target="_blank">@Localizer["Go to Web Wallet"]</a></div>
             <div class="desc d-none">
-                <div class="preview-div"><h3>Preview</h3></div>
-                <img data-original="@Helper.ToCDN("/images/client/ansy.png")" />
+                <div class="preview-div">
+                    <h3>Preview</h3>
+                    <a class="plat-btn btn-web active" href="javascript:" onclick="switchPlatform('web');">@Localizer["Web"]</a>
+                </div>
+                <div class="p-web preview">
+                    <img data-original="@Helper.ToCDN("/images/client/ansy.png")" />
+                </div>
                 <p>@Localizer["It's a simple paper wallet generator developed by Snowypowers. This wallet only supports the encryption and decryption of private keys. It fails to support other functions like transferring assets."]</p>
                 <p>@Localizer["Languages"]: English<br>
                 <p>@Localizer["Supported Browser"]: Chrome/Edge</p>
@@ -938,8 +1038,13 @@
             <div class="license d-none"><a href="https://github.com/LedgerHQ/ledger-wallet-chrome/blob/master/LICENSE" target="_blank">MIT License</a></div>
             <div class="button d-none"><a class="btn" href="https://www.ledgerwallet.com" target="_blank">@Localizer["Website"]</a></div>
             <div class="desc d-none">
-                <div class="preview-div"><h3>Preview</h3></div>
-                <img data-original="@Helper.ToCDN("/images/client/ledgernanos.png")" />
+                <div class="preview-div">
+                    <h3>Preview</h3>
+                    <a class="plat-btn btn-hardware active" href="javascript:" onclick="switchPlatform('hardware');">@Localizer["Hardware"]</a>
+                </div>
+                <div class="p-hardware preview">
+                    <img data-original="@Helper.ToCDN("/images/client/ledgernanos.png")" />
+                </div>
                 <p>@Localizer["It's a multi-currency hardware wallet that supports NEO. This wallet’s private key is stored in the hardware chip and it focuses on the security."]</p>
                 <p>@Localizer["Languages"]: English</p>
                 <div>
@@ -982,8 +1087,13 @@
             <div class="license d-none"><a href="https://github.com/LedgerHQ/ledger-wallet-chrome/blob/master/LICENSE" target="_blank">MIT License</a></div>
             <div class="button d-none"><a class="btn" href="https://www.ledgerwallet.com" target="_blank">@Localizer["Website"]</a></div>
             <div class="desc d-none">
-                <div class="preview-div"><h3>Preview</h3></div>
-                <img data-original="@Helper.ToCDN("/images/client/ledgerblue.png")" />
+                <div class="preview-div">
+                    <h3>Preview</h3>
+                    <a class="plat-btn btn-hardware active" href="javascript:" onclick="switchPlatform('hardware');">@Localizer["Hardware"]</a>
+                </div>
+                <div class="p-hardware preview">
+                    <img data-original="@Helper.ToCDN("/images/client/ledgerblue.png")" />
+                </div>
                 <p>
                     @Localizer["It's a multi-currency hardware wallet that supports NEO. This wallet’s private key is stored in the hardware chip and it focuses on the security."]
                 </p>
@@ -1075,6 +1185,12 @@
             }
             else
                 $('.client-ul li').show();
+        }
+        function switchPlatform(obj) {
+            $(".modal .preview").hide();
+            $(".modal .p-" + obj).show();
+            $(".modal .plat-btn").removeClass("active");
+            $(".modal .btn" + obj).addClass("active");
         }
         function zoomin(obj) {
             var img = $(obj).parent().find("img");
