@@ -38,9 +38,9 @@
 <div class="w700 mt3">
     <article class="article">
         <header>
-            <div class="article-time">@Model.CreateTime.ToShortDateString()<span>BLOG</span></div>
+            <div class="article-time">@Model.CreateTime.Month.ToMonth() @Model.CreateTime.Day, @Model.CreateTime.Year<span>BLOG</span></div>
             <h2 class="article-title mt5">@Model.Title</h2>
-            <p class="gray mt5">@Model.CreateTime.ToShortDateString()</p>
+            <p class="gray mt5">By @(string.IsNullOrEmpty(Model.Editor) ? "NEO Global Development" : @Model.Editor)</p>
         </header>
         <p class="mt5">
             @if (ViewBag.UserRules)
@@ -52,12 +52,20 @@
         <hr class="mt4 mb0" />
 
         <section>
-            <img class="mt3" width="100%" height="375px" />
+
+            @if (string.IsNullOrEmpty(Model.Cover))
+            {
+                <img class="mt3" width="100%" height="375px" src="" />
+            }
+            else
+            {
+                <img class="mt3" width="100%" height="375px" src="~/upload/@Model.Cover" />
+            }
             <div class="mt5">
                 @Html.Raw(Model.Content)
             </div>
         </section>
-
+        <hr />
         <div>
             @if (Model.Tags != null)
             {

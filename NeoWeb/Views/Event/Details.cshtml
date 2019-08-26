@@ -8,101 +8,109 @@
 }
 @section Styles{
     <environment include="Development">
-        <link rel="stylesheet" href="/css/event.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/discover.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.ToCDN("/css/event.min.css", true)" />
+        <link rel="stylesheet" href="@Helper.ToCDN("/css/discover.min.css", true)" />
     </environment>
 }
-<div class="container">
-    <div class="event-content border-static">
-        <div class="row mt-3">
-            <div class="col-12 col-sm-5 col-md-4">
-                <img class="img-thumbnail type-img mb-2" src="@String.Format("/upload/{0}", Model.Cover).ToLower()">
-            </div>
-            <div class="col-12 col-sm-7 col-md-8">
-                <h3 class="with-space">@Model.Name</h3>
-                <div class="mt-2">
-                    <img src="@Helper.ToCDN("/images/event/time.svg")" /> <span>@Model.StartTime.ToString("yyyy-MM-dd HH:mm") ~ @Model.EndTime.ToString("yyyy-MM-dd HH:mm")</span>
-                </div>
-                <div class="mt-2">
-                    <img src="@Helper.ToCDN("/images/event/addr.svg")" /> <span>@Model.Country</span> - <span>@Model.City</span>
-                    <span class="with-space">@Html.Raw(Model.Address)</span>
-                </div>
-                <div class="mt-2">
-                    @if (Model.IsFree)
-                    {
-                        <span>@Localizer["Free ticket"]</span>
-                    }
-                    else
-                    {
-                        <span>@Localizer["Paid ticket"]</span>
-                    }
-                </div>
-                @if (ViewBag.UserRules)
-                {
-                    <a asp-action="Edit" asp-route-id="@Model.Id">@Localizer["Edit"]</a>
-                    <span>|</span>
-                    <a asp-action="Delete" asp-route-id="@Model.Id">@Localizer["Delete"]</a>
-                }
-            </div>
-        </div>
 
-        @if (!String.IsNullOrEmpty(Model.ThirdPartyLink))
+<div class="back-area small clearfix mt3">
+    <div class="fl-l"><a onclick="JavaScript:history.back(-1)">BACK TO LIST</a></div>
+    <div class="fl-r">
+        @if (@ViewBag.PrevEventId != Model.Id)
         {
-            <div class="third-party">
-                <a class="event-btn event-btn-signup" href="@Model.ThirdPartyLink">@Localizer["Sign Up"]</a>
-            </div>
-            <hr />
+            <a class="mr1" href="~/blog/details/@ViewBag.PrevEventId"><i class="iconfont">&#xe6b8;</i> <span class="desktop-show">@Localizer["PREVIOUS"]</span></a>
         }
-        else
+        @if (@ViewBag.NextEventId != Model.Id)
         {
-            <div>
-                无需购票
-            </div>
-            <hr />
+            <a href="~/blog/details/@ViewBag.NextEventId"><span class="desktop-show">@Localizer["NEXT"]</span> <i class="iconfont">&#xe6b7;</i></a>
         }
-        <div class="with-space">
-            @if (String.IsNullOrEmpty(Model.Details))
+    </div>
+</div>
+<hr />
+<div class="w700 mt3">
+    <article class="article">
+        <header>
+            <div class="article-time">@Model.StartTime.Month.ToMonth() @Model.StartTime.Day, @Model.StartTime.Year<span>EVENT</span></div>
+            <h2 class="article-title mt5">@Model.Name</h2>
+            <p class="gray mt5">@Model.StartTime - @Model.EndTime</p>
+        </header>
+        <p class="mt5">
+            @if (ViewBag.UserRules)
             {
-                <span>@Localizer["Details of the event are being edited, please look forward to."]</span>
+                <a class="btn" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                <a class="btn ml2" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+            }
+        </p>
+        <hr class="mt4 mb0" />
+
+        <section>
+            @if (string.IsNullOrEmpty(Model.Cover))
+            {
+                <img class="mt3" width="100%" height="375px" src="" />
             }
             else
             {
+                <img class="mt3" width="100%" height="375px" src="~/upload/@Model.Cover" />
+            }
+            <div class="mt5">
                 @Html.Raw(Model.Details)
+            </div>
+        </section>
+        <hr />
+        <div>
+            @if (Model.Tags != null)
+            {
+                foreach (var tag in Model.Tags.Split(","))
+                {
+                    <a href="/blog?t=@tag"># @tag</a>
+                }
             }
         </div>
-    </div>
-    <div class="mt-2">
-        <a asp-action="Index">@Localizer["Back to List"]</a>
-    </div>
-    <a id="toTop"><span class="iconfont t1 gray-text">&#xe637;</span></a>
+
+    </article>
 </div>
+<hr class="mt3" />
+<div class="back-area small clearfix">
+    <div class="text-left"><a href="~/blog"><i class="iconfont">&#xeaa4;</i><span class="desktop-show">@Localizer["BACK TO LIST"]</span></a></div>
+    <div class="text-center"><a class="back-to-top"><i class="iconfont">&#xe65a;</i><span class="desktop-show">@Localizer["Back to top"]</span></a></div>
+    <div class="text-right">
+        @if (@ViewBag.PrevEventId != Model.Id)
+        {
+            <a class="icon-left" href="~/blog/details/@ViewBag.PrevEventId"><i class="iconfont">&#xe6b8;</i><span class="desktop-show">@Localizer["Previous article"]</span></a>
+        }
+        @if (@ViewBag.NextEventId != Model.Id)
+        {
+            <a href="~/blog/details/@ViewBag.NextEventId"><span class="desktop-show">@Localizer["Next article"]</span><i class="iconfont">&#xe6b7;</i></a>
+        }
+    </div>
+</div>
+
 @section Scripts{
+    <script src="@Helper.ToCDN("/js/jquery.qrcode.min.js")"></script>
     <script src="@Helper.ToCDN("/js/text-autospace.js")"></script>
     <script>
-        text_replace(".with-space");
-
-        topShow();
-        $(window).resize(function () {
-            topShow();
-        });
-
-        $(window).bind("scroll", function () {
-            topShow();
-        });
-
-        function topShow() {
-            var _l = $(window).scrollTop() - $(window).height();
-            if (_l > -$(window).height() / 2) {
-                $("#toTop").show();
-            } else {
-                $("#toTop").hide();
-            }
+        function setCookie(name, value) {
+            var Days = 30;
+            var exp = new Date();
+            exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+            document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
         }
-
-        $("#toTop").click(function () {
-            $("html").animate({ scrollTop: 0 }, 200);
-        })
+        //设置已读
+        setCookie(@Model.Id, "Read");
+        //二维码
+        $('#qrcode').qrcode(location.href);
+        //中英文之间添加空格
+        text_replace(".with-space");
+        //懒加载
+        $('[data-original]').lazyload({
+            threshold: 200,
+            effect: "fadeIn"
+        });
+        //回到顶部
+        $('.back-to-top').click(function () {
+            $('html, body').animate({ scrollTop: 0 }, 500);
+        });
     </script>
 }

@@ -59,8 +59,8 @@ namespace NeoWeb.Controllers
 
             #region Previous and  Next
             var idList = _context.Events.OrderByDescending(o => o.StartTime).Select(p => p.Id).ToList();
-            ViewBag.NextBlogId = idList.Count == 0 ? id : idList[Math.Max(idList.IndexOf((int)id) - 1, 0)];
-            ViewBag.PrevBlogId = idList.Count == 0 ? id : idList[Math.Min(idList.IndexOf((int)id) + 1, idList.Count - 1)];
+            ViewBag.NextEventId = idList.Count == 0 ? id : idList[Math.Max(idList.IndexOf((int)id) - 1, 0)];
+            ViewBag.PrevEventId = idList.Count == 0 ? id : idList[Math.Min(idList.IndexOf((int)id) + 1, idList.Count - 1)];
             #endregion
 
             ViewBag.UserRules = _userRules;
