@@ -102,7 +102,7 @@ namespace NeoWeb.Controllers
                 {
                     var fileName = Helper.UploadMedia(englishCover, _env, 1000);
                     if (Helper.ValidateCover(_env, fileName))
-                        blog.ChineseCover = fileName;
+                        blog.EnglishCover = fileName;
                     else
                         ModelState.AddModelError("EnglishCover", "Cover size must be 16:9.");
                 }
@@ -159,6 +159,7 @@ namespace NeoWeb.Controllers
             ViewBag.IsTop = isTop != null;
             if (ModelState.IsValid)
             {
+                var item = _context.Blogs.FirstOrDefault(p => p.Id == blog.Id);
                 if (chineseCover != null)
                 {
                     var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
@@ -166,7 +167,7 @@ namespace NeoWeb.Controllers
                     {
                         if (!string.IsNullOrEmpty(blog.ChineseCover))
                             System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", blog.ChineseCover));
-                        blog.ChineseCover = fileName;
+                        item.ChineseCover = fileName;
                     }
                     else
                     {
@@ -180,7 +181,7 @@ namespace NeoWeb.Controllers
                     {
                         if (!string.IsNullOrEmpty(blog.EnglishCover))
                             System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", blog.EnglishCover));
-                        blog.ChineseCover = fileName;
+                        item.EnglishCover = fileName;
                     }
                     else
                     {
@@ -188,8 +189,6 @@ namespace NeoWeb.Controllers
                     }
                 }
                 if (!ModelState.IsValid) return View(blog);
-
-                var item = _context.Blogs.FirstOrDefault(p => p.Id == blog.Id);
                 try
                 {
                     item.ChineseContent = Convert(blog.ChineseContent);

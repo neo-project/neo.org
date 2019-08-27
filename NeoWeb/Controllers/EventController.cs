@@ -108,7 +108,7 @@ namespace NeoWeb.Controllers
                 {
                     var fileName = Helper.UploadMedia(englishCover, _env, 1000);
                     if (Helper.ValidateCover(_env, fileName))
-                        evt.ChineseCover = fileName;
+                        evt.EnglishCover = fileName;
                     else
                         ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
                 }
@@ -194,7 +194,7 @@ namespace NeoWeb.Controllers
                     {
                         if (!string.IsNullOrEmpty(evt.EnglishCover))
                             System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", evt.EnglishCover));
-                        evt.ChineseCover = fileName;
+                        evt.EnglishCover = fileName;
                     }
                     else
                     {
@@ -228,6 +228,7 @@ namespace NeoWeb.Controllers
                         throw;
                     }
                 }
+                return RedirectToAction("Details", new { id });
             }
             ViewBag.Countries = _context.Countries.Select(c => new SelectListItem { Value = c.Id.ToString(), Text = $"{c.Name} - {c.ZhName}" }).ToList();
             return View(evt);

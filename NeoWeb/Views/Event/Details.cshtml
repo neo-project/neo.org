@@ -39,8 +39,8 @@
         <p class="mt5">
             @if (ViewBag.UserRules)
             {
-                <a class="btn" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-                <a class="btn ml2" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                <a class="ml2" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
             }
         </p>
         <hr class="mt4 mb0" />

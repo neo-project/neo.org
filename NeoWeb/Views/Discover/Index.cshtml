@@ -26,15 +26,13 @@
         }
         @if (top?.Type == DiscoverViewModelType.Blog && top.Blog.IsShow)
         {
-            <div class="col-md-8 discove-top">
-                <a href="~/blog/details/@top.Blog.Id">
-                    <img class="m2" src="@String.Format("/upload/{0}", top.Blog.Cover).ToLower()" />
-                </a>
+            <div class="col-md-8 discover-top">
+                <a class="discover-cover" href="~/blog/details/@top.Blog.Id" style="background-image: url(@String.Format("/upload/{0}", top.Blog.Cover).ToLower())"></a>
             </div>
             <div class="col-md-4">
                 <div class="center n o-des">
                     <p class="green bold m4">BLOG</p>
-                    <h4><a href="~/blog/details/@top.Blog.Id">@top.Blog.Title</a></h4>
+                    <h4 class="discover-title"><a href="~/blog/details/@top.Blog.Id">@top.Blog.Title</a></h4>
                     <p class="m6">@top.Blog.Title</p>
                     <p class="m5">
                         @top.Blog.Summary
@@ -44,15 +42,13 @@
         }
         else if (top?.Type == DiscoverViewModelType.Event)
         {
-            <div class="col-md-8 discove-top">
-                <a href="~/event/details/@top.Event.Id">
-                    <img class="m2" src="@String.Format("/upload/{0}", top.Event.Cover).ToLower()" />
-                </a>
+            <div class="col-md-8 discover-top">
+                <a class="discover-cover" href="~/event/details/@top.Event.Id" style="background-image: url(@String.Format("/upload/{0}", top.Event.Cover).ToLower())"></a>
             </div>
             <div class="col-md-4">
                 <div class="center n o-des">
                     <p class="green bold m4">EVENT</p>
-                    <h4><a href="~/event/details/@top.Event.Id">@top.Event.Name</a></h4>
+                    <h4 class="discover-title"><a href="~/event/details/@top.Event.Id">@top.Event.Name</a></h4>
                     <p class="m6"> @top.Event.StartTime - @top.Event.EndTime</p>
                     <p> @top.Event.Country, @top.Event.City</p>
                 </div>
@@ -60,15 +56,13 @@
         }
         else if (top?.Type == DiscoverViewModelType.News)
         {
-            <div class="col-md-8 discove-top">
-                <a href="@top.News.Link" target="_blank">
-                    <img class="m2" src="@String.Format("/upload/{0}", top.News.Cover).ToLower()" />
-                </a>
+            <div class="col-md-8 discover-top">
+                <a class="discover-cover" href="@top.News.Link" target="_blank" style="background-image: url(@String.Format("/upload/{0}", top.News.Cover).ToLower())"></a>
             </div>
             <div class="col-md-4">
                 <div class="center n o-des">
                     <p class="green bold m4">NEWS</p>
-                    <h4><a href="@top.News.Link" target="_blank">@top.News.Title</a></h4>
+                    <h4 class="discover-title"><a href="@top.News.Link" target="_blank">@top.News.Title</a></h4>
                     <p class="m6">@top.News.Time</p>
                 </div>
             </div>
@@ -90,7 +84,7 @@
     <input type="submit" value="search" />
 </form>
 
-<div class="row list2 mt5">
+<div class="row mt5">
     @foreach (var item in Model)
     {
         if (item.Type == DiscoverViewModelType.Blog)
@@ -98,11 +92,15 @@
             @if (item.Blog.IsShow || ViewBag.UserRules)
             {
                 <div class="col-md-4 discover-item">
-                    <a href="~/blog/details/@item.Blog.Id">
-                        <img src="@String.Format("/upload/{0}", @item.Blog.Cover).ToLower()" />
-                    </a>
+                    <a class="discover-cover" href="~/blog/details/@item.Blog.Id" style="background-image: url(@String.Format("/upload/{0}", @item.Blog.Cover).ToLower())"></a>
                     <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green ml2">@item.Type</span></div>
-                    <div class="list-title"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></div>
+                    <div class="discover-title"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></div>
+
+                    @if (ViewBag.UserRules)
+                    {
+                        <a asp-action="Edit" asp-controller="Blog" asp-route-id="@item.Blog.Id">Edit</a>
+                        <a class="ml2" asp-action="Delete" asp-controller="Blog" asp-route-id="@item.Blog.Id">Delete</a>
+                    }
                     <div class="small">
                         @if (!string.IsNullOrEmpty(item.Blog.Tags))
                         {
@@ -121,23 +119,29 @@
         }
         else if (item.Type == DiscoverViewModelType.Event)
         {
-            <div class="col-md-4 discove-item">
-                <a href="~/event/details/@item.Event.Id">
-                    <img src="@String.Format("/upload/{0}", @item.Event.Cover).ToLower()" />
-                </a>
+            <div class="col-md-4 discover-item">
+                <a class="discover-cover" href="~/event/details/@item.Event.Id" style="background-image: url(@String.Format("/upload/{0}", @item.Event.Cover).ToLower())"></a>
                 <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green ml2">@item.Type</span></div>
-                <div class="list-title"><a href="~/event/details/@item.Event.Id">@item.Event.Name</a></div>
+                <div class="discover-title"><a href="~/event/details/@item.Event.Id">@item.Event.Name</a></div>
+                @if (ViewBag.UserRules)
+                {
+                    <a asp-action="Edit" asp-controller="Event" asp-route-id="@item.Event.Id">Edit</a>
+                    <a class="ml2" asp-action="Delete" asp-controller="Event" asp-route-id="@item.Event.Id">Delete</a>
+                }
                 <div class="small">@item.Event.Country - @item.Event.City</div>
             </div>
         }
         else if (item.Type == DiscoverViewModelType.News)
         {
-            <div class="col-md-4 discove-item">
-                <a href="@item.News.Link" target="_blank">
-                    <img class="m2" src="@String.Format("/upload/{0}", @item.News.Cover).ToLower()" />
-                </a>
+            <div class="col-md-4 discover-item">
+                <a class="discover-cover" href="@item.News.Link" target="_blank" style="background-image: url(@String.Format("/upload/{0}", @item.News.Cover).ToLower())"></a>
                 <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green ml2">@item.Type</span></div>
-                <div class="list-title"><a href="@item.News.Link" target="_blank">@item.News.Title</a></div>
+                <div class="discover-title"><a href="@item.News.Link" target="_blank">@item.News.Title</a></div>
+                @if (ViewBag.UserRules)
+                {
+                    <a asp-action="Edit" asp-controller="News" asp-route-id="@item.News.Id">Edit</a>
+                    <a class="ml2" asp-action="Delete" asp-controller="News" asp-route-id="@item.News.Id">Delete</a>
+                }
                 <div class="small">>@item.News.Tags</div>
             </div>
         }

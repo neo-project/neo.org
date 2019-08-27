@@ -53,7 +53,7 @@ namespace NeoWeb.Controllers
                 {
                     var fileName = Helper.UploadMedia(englishCover, _env, 1000);
                     if (Helper.ValidateCover(_env, fileName))
-                        news.ChineseCover = fileName;
+                        news.EnglishCover = fileName;
                     else
                         ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
                 }
@@ -122,7 +122,7 @@ namespace NeoWeb.Controllers
                     {
                         if (!string.IsNullOrEmpty(news.EnglishCover))
                             System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", news.EnglishCover));
-                        news.ChineseCover = fileName;
+                        news.EnglishCover = fileName;
                     }
                     else
                     {
@@ -151,6 +151,7 @@ namespace NeoWeb.Controllers
                         throw;
                     }
                 }
+                return RedirectToAction("Details", new { id });
             }
             return View(news);
         }
