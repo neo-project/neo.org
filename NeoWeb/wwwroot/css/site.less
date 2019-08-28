@@ -255,7 +255,7 @@ a[class|=btn]{
 }
 .btn {
     font-weight: 600;
-    background: @green;
+    background: @btn-back;
     color: @btn-text !important;
     border-radius: 0;
     min-width: 130px;
@@ -279,13 +279,16 @@ a[class|=btn]{
     transition:color .2s;
 
     &:hover {
-        color:@green2!important;
+        color:@green-hover!important;
     }
 }
 
 /*颜色*/
 .green {
-    color: @green!important;
+    color: @green !important;
+}
+.green2 {
+    color: @green2 !important;
 }
 .red {
     color: @red !important;
@@ -614,10 +617,10 @@ i.iconfont {
 }
 
 a {
-    color: @green2;
+    color: @green;
 
     &:hover {
-        color: @green;
+        color: @green-hover;
         text-decoration: none;
     }
 }
