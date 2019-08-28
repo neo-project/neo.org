@@ -93,14 +93,6 @@ namespace NeoWeb.Controllers
                 }
             }
 
-            var maxCount = 30;
-            if (string.IsNullOrEmpty(keywords) && year == null)
-            {
-                blogs = blogs.OrderByDescending(p => p.CreateTime).Take(maxCount);
-                events = events.OrderByDescending(p => p.StartTime).Take(maxCount);
-                news = news.OrderByDescending(p => p.Time).Take(maxCount);
-            }
-
             bool isZh = _sharedLocalizer["en"] == "zh";
             // type filter
             switch (type)
@@ -121,7 +113,7 @@ namespace NeoWeb.Controllers
                     break;
             }
 
-            viewModels = viewModels.OrderByDescending(p => p.Time).Take(maxCount).ToList();
+            viewModels = viewModels.OrderByDescending(p => p.Time).ToList();
 
             // 添加置顶内容
             if (type == null && year == null && string.IsNullOrEmpty(keywords))
@@ -133,11 +125,17 @@ namespace NeoWeb.Controllers
                     switch (top.Type)
                     {
                         case DiscoverViewModelType.Blog:
-                            AddBlogs(_context.Blogs.Where(p => p.Id == top.ItemId), topItems, isZh); break;
+                            AddBlogs(_context.Blogs.Where(p => p.Id == top.ItemId), topItems, isZh);
+                            viewModels.RemoveAll(p => p.Type == top.Type && p.Blog.Id == top.ItemId);
+                            break;
                         case DiscoverViewModelType.Event:
-                            AddEvents(_context.Events.Where(p => p.Id == top.ItemId), topItems, isZh); break;
+                            AddEvents(_context.Events.Where(p => p.Id == top.ItemId), topItems, isZh);
+                            viewModels.RemoveAll(p => p.Type == top.Type && p.Event.Id == top.ItemId);
+                            break;
                         case DiscoverViewModelType.News:
-                            AddNews(_context.News.Where(p => p.Id == top.ItemId), topItems, isZh); break;
+                            AddNews(_context.News.Where(p => p.Id == top.ItemId), topItems, isZh);
+                            viewModels.RemoveAll(p => p.Type == top.Type && p.News.Id == top.ItemId);
+                            break;
                     }
                     ViewBag.OnTop = topItems.Count > 0 ? topItems[0] : null;
                 }
