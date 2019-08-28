@@ -20,19 +20,23 @@
 <div class="p2">
     <h2 class="m1 text-center">Discover</h2>
     <div class="row">
-
         @{
             var top = (ViewBag.Ontop as DiscoverViewModel);
         }
         @if (top?.Type == DiscoverViewModelType.Blog && top.Blog.IsShow)
         {
-            <div class="col-md-8 discover-top">
-                <a class="discover-cover" href="~/blog/details/@top.Blog.Id" style="background-image: url(@String.Format("/upload/{0}", top.Blog.Cover).ToLower())"></a>
+            <div class="col-md-8 d-top">
+                <a class="d-cover" href="~/blog/details/@top.Blog.Id" data-original="@String.Format("/upload/{0}", top.Blog.Cover).ToLower()"></a>
             </div>
             <div class="col-md-4">
                 <div class="center n o-des">
                     <p class="green bold m4">BLOG</p>
-                    <h4 class="discover-title"><a href="~/blog/details/@top.Blog.Id">@top.Blog.Title</a></h4>
+                    <h4 class="d-title"><a href="~/blog/details/@top.Blog.Id">@top.Blog.Title</a></h4>
+                    @if (ViewBag.UserRules)
+                    {
+                        <a asp-action="Edit" asp-controller="Event" asp-route-id="@top.Blog.Id">Edit</a>
+                        <a class="ml-2" asp-action="Delete" asp-controller="Event" asp-route-id="@top.Blog.Id">Delete</a>
+                    }
                     <p class="m6">@top.Blog.Title</p>
                     <p class="m5">
                         @top.Blog.Summary
@@ -42,13 +46,18 @@
         }
         else if (top?.Type == DiscoverViewModelType.Event)
         {
-            <div class="col-md-8 discover-top">
-                <a class="discover-cover" href="~/event/details/@top.Event.Id" style="background-image: url(@String.Format("/upload/{0}", top.Event.Cover).ToLower())"></a>
+            <div class="col-md-8 d-top">
+                <a class="d-cover" href="~/event/details/@top.Event.Id" data-original="@String.Format("/upload/{0}", top.Event.Cover).ToLower()"></a>
             </div>
             <div class="col-md-4">
                 <div class="center n o-des">
                     <p class="green bold m4">EVENT</p>
-                    <h4 class="discover-title"><a href="~/event/details/@top.Event.Id">@top.Event.Name</a></h4>
+                    <h4 class="d-title"><a href="~/event/details/@top.Event.Id">@top.Event.Name</a></h4>
+                    @if (ViewBag.UserRules)
+                    {
+                        <a asp-action="Edit" asp-controller="Event" asp-route-id="@top.Event.Id">Edit</a>
+                        <a class="ml-2" asp-action="Delete" asp-controller="Event" asp-route-id="@top.Event.Id">Delete</a>
+                    }
                     <p class="m6"> @top.Event.StartTime - @top.Event.EndTime</p>
                     <p> @top.Event.Country, @top.Event.City</p>
                 </div>
@@ -56,13 +65,18 @@
         }
         else if (top?.Type == DiscoverViewModelType.News)
         {
-            <div class="col-md-8 discover-top">
-                <a class="discover-cover" href="@top.News.Link" target="_blank" style="background-image: url(@String.Format("/upload/{0}", top.News.Cover).ToLower())"></a>
+            <div class="col-md-8 d-top">
+                <a class="d-cover" href="@top.News.Link" target="_blank" data-original="@String.Format("/upload/{0}", top.News.Cover).ToLower()"></a>
             </div>
             <div class="col-md-4">
                 <div class="center n o-des">
                     <p class="green bold m4">NEWS</p>
-                    <h4 class="discover-title"><a href="@top.News.Link" target="_blank">@top.News.Title</a></h4>
+                    <h4 class="d-title"><a href="@top.News.Link" target="_blank">@top.News.Title</a></h4>
+                    @if (ViewBag.UserRules)
+                    {
+                        <a asp-action="Edit" asp-controller="Event" asp-route-id="@top.News.Id">Edit</a>
+                        <a class="ml-2" asp-action="Delete" asp-controller="Event" asp-route-id="@top.News.Id">Delete</a>
+                    }
                     <p class="m6">@top.News.Time</p>
                 </div>
             </div>
@@ -70,83 +84,102 @@
     </div>
 </div>
 
-<form asp-action="Discover" method="get" class="border-bottom dis-search">
-    <span>+</span>
-    <input name="keywords" type="text" class="search-input" />
-    <span>清空</span>
-    <select name="type">
-        <option value="">All types</option>
-        <option value="1">BLOGS</option>
-        <option value="2">EVENTS</option>
-        <option value="3">NEWS</option>
-    </select>
-    <select name="year" asp-items="ViewBag.Year"></select>
-    <input type="submit" value="search" />
+<form asp-action="Discover" method="get" class="border-bottom d-search form-inline">
+    <div class="search">
+        <span>+</span>
+        <input class="form-control" name="keywords" type="text" />
+        @*<a asp-action="Index" asp-controller="Discover">清空</a>*@
+    </div>
+    <div class="filter">
+        <select class="form-control" name="type">
+            <option value="">All types</option>
+            <option value="1">BLOGS</option>
+            <option value="2">EVENTS</option>
+            <option value="3">NEWS</option>
+        </select>
+        <select class="form-control" name="year" asp-items="ViewBag.Year"></select>
+        <input class="btn" type="submit" value="search" />
+    </div>
 </form>
 
-<div class="row mt5">
-    @foreach (var item in Model)
+<div class="row">
+    @for (int i = 0; i < Model.Count(); i++)
     {
-        if (item.Type == DiscoverViewModelType.Blog)
-        {
-            @if (item.Blog.IsShow || ViewBag.UserRules)
+        var item = (Model as List<DiscoverViewModel>)[i];
+        var count = 24;
+        <div class="col-md-4 d-item group-@(i/count)">
+            @if (item.Type == DiscoverViewModelType.Blog)
             {
-                <div class="col-md-4 discover-item">
-                    <a class="discover-cover" href="~/blog/details/@item.Blog.Id" style="background-image: url(@String.Format("/upload/{0}", @item.Blog.Cover).ToLower())"></a>
-                    <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green ml2">@item.Type</span></div>
-                    <div class="discover-title"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></div>
+                <a class="d-cover" href="~/blog/details/@item.Blog.Id" data-original="@String.Format("/upload/{0}", @item.Blog.Cover).ToLower()"></a>
+                <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span>@item.Type</span></div>
+                <div class="d-title"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></div>
 
-                    @if (ViewBag.UserRules)
+                @if (ViewBag.UserRules)
+                {
+                    <a asp-action="Edit" asp-controller="Blog" asp-route-id="@item.Blog.Id">Edit</a>
+                    <a class="ml-2" asp-action="Delete" asp-controller="Blog" asp-route-id="@item.Blog.Id">Delete</a>
+                }
+                <div class="small">
+                    @if (!string.IsNullOrEmpty(item.Blog.Tags))
                     {
-                        <a asp-action="Edit" asp-controller="Blog" asp-route-id="@item.Blog.Id">Edit</a>
-                        <a class="ml2" asp-action="Delete" asp-controller="Blog" asp-route-id="@item.Blog.Id">Delete</a>
-                    }
-                    <div class="small">
-                        @if (!string.IsNullOrEmpty(item.Blog.Tags))
+                        foreach (var tag in item.Blog.Tags.Split(','))
                         {
-                            foreach (var tag in item.Blog.Tags.Split(','))
-                            {
-                                <a href="~/discover?keywords=@tag.Trim()"># @tag.Trim()</a>
-                            }
+                            <a href="~/discover?keywords=@tag.Trim()"># @tag.Trim()</a>
                         }
-                    </div>
-                    @if (!item.Blog.IsShow && ViewBag.UserRules)
-                    {
-                        <p>未发布博客，仅管理员可见</p>
                     }
                 </div>
             }
-        }
-        else if (item.Type == DiscoverViewModelType.Event)
-        {
-            <div class="col-md-4 discover-item">
-                <a class="discover-cover" href="~/event/details/@item.Event.Id" style="background-image: url(@String.Format("/upload/{0}", @item.Event.Cover).ToLower())"></a>
-                <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green ml2">@item.Type</span></div>
-                <div class="discover-title"><a href="~/event/details/@item.Event.Id">@item.Event.Name</a></div>
+            else if (item.Type == DiscoverViewModelType.Event)
+            {
+                <a class="d-cover" href="~/event/details/@item.Event.Id" data-original="@String.Format("/upload/{0}", @item.Event.Cover).ToLower()"></a>
+                <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span>@item.Type</span></div>
+                <div class="d-title"><a href="~/event/details/@item.Event.Id">@item.Event.Name</a></div>
                 @if (ViewBag.UserRules)
                 {
                     <a asp-action="Edit" asp-controller="Event" asp-route-id="@item.Event.Id">Edit</a>
-                    <a class="ml2" asp-action="Delete" asp-controller="Event" asp-route-id="@item.Event.Id">Delete</a>
+                    <a class="ml-2" asp-action="Delete" asp-controller="Event" asp-route-id="@item.Event.Id">Delete</a>
+                }
+                @if (item.Event.StartTime.Date == item.Event.EndTime.Date)
+                {
+                    <div class="small">@item.Event.StartTime.DayOfWeek.ToString().Substring(0, 3), @item.Event.StartTime.ToString("yyyy-MM-dd HH:mm") - @item.Event.EndTime.ToString("HH:mm")</div>
+                }
+                else
+                {
+                    <div class="small">@item.Event.StartTime.ToString("yyyy-MM-dd HH:mm") - @item.Event.EndTime.ToString("yyyy-MM-dd HH:mm")</div>
                 }
                 <div class="small">@item.Event.Country - @item.Event.City</div>
-            </div>
-        }
-        else if (item.Type == DiscoverViewModelType.News)
-        {
-            <div class="col-md-4 discover-item">
-                <a class="discover-cover" href="@item.News.Link" target="_blank" style="background-image: url(@String.Format("/upload/{0}", @item.News.Cover).ToLower())"></a>
-                <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green ml2">@item.Type</span></div>
-                <div class="discover-title"><a href="@item.News.Link" target="_blank">@item.News.Title</a></div>
+            }
+            else if (item.Type == DiscoverViewModelType.News)
+            {
+                <a class="d-cover" href="@item.News.Link" target="_blank" data-original="@String.Format("/upload/{0}", @item.News.Cover).ToLower()"></a>
+                <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span>@item.Type</span></div>
+                <div class="d-title"><a href="@item.News.Link" target="_blank">@item.News.Title</a></div>
                 @if (ViewBag.UserRules)
                 {
                     <a asp-action="Edit" asp-controller="News" asp-route-id="@item.News.Id">Edit</a>
-                    <a class="ml2" asp-action="Delete" asp-controller="News" asp-route-id="@item.News.Id">Delete</a>
+                    <a class="ml-2" asp-action="Delete" asp-controller="News" asp-route-id="@item.News.Id">Delete</a>
                 }
                 <div class="small">>@item.News.Tags</div>
-            </div>
-        }
+            }
+        </div>
     }
 </div>
+<div class="text-center m-4">
+    <a href="javascript:" onclick="viewMore()">View More</a>
+
+</div>
+@section Scripts {
+    <script>
+        var group = 1;
+        for (var i = 1; i < 10; i++) {
+            $(".group-" + i).hide();
+        }
+        function viewMore() {
+            $(".group-" + group++).show("fast");
+        }
+    </script>
+}
+
 
 
 
