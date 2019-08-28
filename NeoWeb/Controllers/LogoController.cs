@@ -9,5 +9,10 @@ namespace NeoWeb.Controllers
         {
             return View();
         }
+
+        public IActionResult Demo()
+        {
+            return View();
+        }
     }
 }

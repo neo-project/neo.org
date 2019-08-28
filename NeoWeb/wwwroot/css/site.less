@@ -1,7 +1,7 @@
 ﻿@import 'basic.less';
 @import 'layout.less';
 
-body {
+html,body {
     font-size: 17px;
     font-family: Rajdhani;
     letter-spacing: .3px;
@@ -207,7 +207,7 @@ h6, .h6 {
 }
 
 .mr3 {
-    margin-left: @length7;
+    margin-right: @length7;
 
     @media only screen and (max-width: 768px) {
         margin-right: @length8;
@@ -275,6 +275,9 @@ a[class|=btn]{
     .font2;
     .fl-r;
     .green;
+    display:inline-block;
+    padding:8px 0;
+    line-height:1.4;
     cursor: pointer;
     transition:color .2s;
 
@@ -460,44 +463,50 @@ i.iconfont {
 
 /*list 基础样式*/
 .list1 {
+    text-align: center;
+
     div[class|=col], li {
         .mt4;
         list-style: none;
 
-        img, .img {
-            width: 100%;
+        img, .img, .iconfont {
+            display: inline-block;
+            width: 85px;
+            height: 85px;
+            line-height: 85px;
+            font-size: 80px;
+            text-align: center;
         }
 
         div {
-            margin-top: 15px;
             overflow: hidden;
+            margin-top: @length7;
         }
 
         .list-title {
-            line-height: 1;
+            .h4;
+            line-height: 1.2;
         }
 
-        .list-con{
-            .mt6;
-            display:inline-block;
+        a{
+            .btn2;
+            float:none;
         }
     }
 
     @media only screen and (max-width: 768px) {
-        text-align: left!important;
+        text-align: left !important;
 
         div[class|=col], li {
             list-style: none;
 
-            img, .img {
+            img, .img, .iconfont {
                 float: left;
                 margin-right: 20px;
-                width: 85px;
-                height: 85px;
             }
 
             div {
-                margin-top: 0px;
+                margin-top: 0;
             }
 
             .list-title {
@@ -507,7 +516,7 @@ i.iconfont {
     }
 }
 .list2 {
-    margin-bottom:@length4;
+    margin-bottom: @length4;
 
     div[class|=col], li {
         .mt4;
@@ -516,7 +525,6 @@ i.iconfont {
         img, .img {
             width: 100%;
             height: 200px;
-            margin-bottom: @length8;
         }
 
         a {
@@ -527,11 +535,15 @@ i.iconfont {
             }
         }
 
-        div.small {
-            .mt7;
+        div,.list-title {
+            margin-top:@length7;
             overflow: hidden;
+        }
+
+        div.small {
             vertical-align: middle;
-            line-height: 1.7;
+            line-height: 1.8;
+            color:@gray;
 
             span, a {
                 .mr2;
@@ -545,12 +557,10 @@ i.iconfont {
 
         .list-title {
             .h6;
-            .mt7;
             line-height: 1.3;
         }
 
         .list-con {
-            .mt6;
             display: inline-block;
         }
     }
@@ -574,6 +584,7 @@ i.iconfont {
 
             .list-title {
                 line-height: 1.4;
+                margin-bottom:@length8;
             }
         }
     }
@@ -622,5 +633,13 @@ a {
     &:hover {
         color: @green-hover;
         text-decoration: none;
+    }
+}
+
+ul{
+    &.list-none{
+        li{
+            display:inline-block;
+        }
     }
 }
