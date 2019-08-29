@@ -34,8 +34,8 @@
                     <h4 class="d-title"><a href="~/blog/details/@top.Blog.Id">@top.Blog.Title</a></h4>
                     @if (ViewBag.UserRules)
                     {
-                        <a asp-action="Edit" asp-controller="Event" asp-route-id="@top.Blog.Id">Edit</a>
-                        <a class="ml-2" asp-action="Delete" asp-controller="Event" asp-route-id="@top.Blog.Id">Delete</a>
+                        <a asp-action="Edit" asp-controller="Blog" asp-route-id="@top.Blog.Id">Edit</a>
+                        <a class="ml-2" asp-action="Delete" asp-controller="Blog" asp-route-id="@top.Blog.Id">Delete</a>
                     }
                     <p class="m6">@top.Blog.Title</p>
                     <p class="m5">
@@ -74,8 +74,8 @@
                     <h4 class="d-title"><a href="@top.News.Link" target="_blank">@top.News.Title</a></h4>
                     @if (ViewBag.UserRules)
                     {
-                        <a asp-action="Edit" asp-controller="Event" asp-route-id="@top.News.Id">Edit</a>
-                        <a class="ml-2" asp-action="Delete" asp-controller="Event" asp-route-id="@top.News.Id">Delete</a>
+                        <a asp-action="Edit" asp-controller="News" asp-route-id="@top.News.Id">Edit</a>
+                        <a class="ml-2" asp-action="Delete" asp-controller="News" asp-route-id="@top.News.Id">Delete</a>
                     }
                     <p class="m6">@top.News.Time</p>
                 </div>
