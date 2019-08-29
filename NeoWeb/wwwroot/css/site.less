@@ -101,7 +101,6 @@ h6, .h6 {
     font-size: 1rem;
     font-family: Rajdhani;
     letter-spacing: .3px;
-    font-weight:400;
 }
 
 .font2 {
@@ -261,6 +260,13 @@ a[class|=btn]{
     min-width: 130px;
     padding: 12px 20px;
     border: none;
+    opacity: 1;
+    transition: opacity 0.2s;
+
+    &:hover {
+        opacity: 0.8;
+        transition: opacity 0.2s;
+    }
 
     @media only screen and (max-width: 768px) {
         min-width: 100px;
@@ -270,23 +276,30 @@ a[class|=btn]{
 .btn1 {
     .btn;
     .b3;
+    color: @green !important;
 }
 .btn2 {
-    .font2;
     .fl-r;
     .green;
-    display:inline-block;
-    padding:8px 0;
-    line-height:1.4;
+    font-size: 1rem;
+    letter-spacing: 0.2px;
+    font-weight: 600;
+    display: inline-block;
+    padding: 8px 0;
+    line-height: 1.4;
     cursor: pointer;
-    transition:color .2s;
+    transition: color .2s;
 
     &:hover {
-        color:@green-hover!important;
+        color: @green-hover !important;
+        text-shadow:0 0 0.2px @green;
     }
 }
 
 /*颜色*/
+.color-n {
+    color: @dark !important;
+}
 .green {
     color: @green !important;
 }
@@ -299,9 +312,7 @@ a[class|=btn]{
 .gray{
     color:@gray!important;
 }
-.color-n{
-    color:@dark!important;
-}
+
 
 /*背景色*/
 .b1 {
@@ -488,9 +499,9 @@ i.iconfont {
             line-height: 1.2;
         }
 
-        a{
+        a {
             .btn2;
-            float:none;
+            float: none;
         }
     }
 
@@ -528,26 +539,30 @@ i.iconfont {
         }
 
         a {
-            color: @gray;
+            color: @text;
+            text-shadow: none;
+            transition: text-shadow .2s;
 
             &:hover {
-                text-shadow: 0 0 .1px @gray;
+                text-shadow: 0 0 .1px @text;
+                transition: text-shadow .2s;
             }
         }
 
-        div,.list-title {
-            margin-top:@length7;
+        div, .list-title {
+            margin-top: @length7;
             overflow: hidden;
         }
 
         div.small {
             vertical-align: middle;
             line-height: 1.8;
-            color:@gray;
+            color: @gray;
 
             span, a {
                 .mr2;
                 display: inline-block;
+                color: @gray;
 
                 &.green {
                     .bolder;
@@ -584,7 +599,7 @@ i.iconfont {
 
             .list-title {
                 line-height: 1.4;
-                margin-bottom:@length8;
+                margin-bottom: @length8;
             }
         }
     }

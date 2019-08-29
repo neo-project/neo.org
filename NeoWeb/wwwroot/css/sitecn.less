@@ -1,0 +1,174 @@
+﻿@t1: 5.619rem; /*h1 95.37*/
+@t2: 3.16rem; /*h2 53.67 - mobile - h1 47.36*/
+@t3: 2.37rem; /*h3 40.27 - mobile - h2 35.53*/
+@t4: 1.778rem; /*h4、h5 30.27*/
+@t5: 1.333rem; /*h6 22.67 - mobile - h3、h4、h5、h6 20*/
+@t6: 1rem;
+
+@green: #00af92;
+@green2: #02e49b;
+
+html, body {
+    font-size: 14px!important;
+    font-family: "Microsoft YaHei",PingFangSC-Light,"PingHei","Microsoft YaHei","Lucida Grande","STHeitiSC-Light","BBAlpha Sans","S60 Sans","Hiragino Sans GB","Microsoft YaHei Light","Verdana",SimHei,"WenQuanYi Micro Hei",sans-serif;
+    letter-spacing: .3px;
+    line-height: 1.4;
+
+    @media only screen and (max-width: 768px) {
+        font-size: 12px;
+    }
+}
+
+/*字体*/
+.font-family {
+    font-family: PingFangSC,"Microsoft YaHei";
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, p{
+    margin-bottom:0px;
+}
+h1, .h1 {
+    .font-family;
+    font-weight: bolder;
+    font-size: @t1;
+    letter-spacing: .2px;
+
+    @media only screen and (max-width: 768px) {
+        font-size: @t2;
+        letter-spacing: .5px;
+    }
+}
+
+h2, .h2 {
+    .font-family;
+    font-size: @t2;
+    font-weight: bolder;
+    letter-spacing: .2px;
+
+    @media only screen and (max-width: 768px) {
+        font-size: @t3;
+        letter-spacing: .4px;
+    }
+}
+
+h3, .h3 {
+    .font-family;
+    font-size: @t3;
+    letter-spacing: .2px;
+    font-weight: bolder;
+
+    @media only screen and (max-width: 768px) {
+        font-size: @t5;
+        letter-spacing: .5px;
+    }
+}
+
+h4, .h4 {
+    .font-family;
+    font-size: @t4;
+    letter-spacing: .2px;
+    font-weight: bolder;
+
+    @media only screen and (max-width: 768px) {
+        font-size: @t5;
+        letter-spacing: .6px;
+        line-height: 26px;
+    }
+}
+
+h5, .h5 {
+    .font-family;
+    font-size: @t4;
+    letter-spacing: .2px;
+    font-weight:300;
+
+    @media only screen and (max-width: 768px) {
+        font-size: @t5;
+        letter-spacing: .2px;
+        line-height: 26px;
+    }
+}
+
+h6, .h6 {
+    .font-family;
+    font-size: @t5;
+    letter-spacing: 0;
+    font-weight: bold;
+
+    @media only screen and (max-width: 768px) {
+        font-size: @t5;
+        letter-spacing: .2px;
+        line-height: 23px;
+    }
+}
+
+.font1 {
+    .font-family;
+    font-size: 1rem;
+    letter-spacing: 0;
+    font-weight: 300;
+}
+
+.font2 {
+    .font1;
+    font-weight:bolder;
+}
+
+
+.btn,.btn2 {
+    font-weight: 300;
+    text-shadow: 1px 0 0 #FFFFFF;
+}
+.btn1 {
+    font-weight: 300;
+    text-shadow: 1px 0 0 @green2;
+}
+
+/*字体*/
+.bold {
+    font-weight: 600;
+    letter-spacing: .2px;
+}
+
+.bolder {
+    .font-family;
+    font-weight: bolder;
+    letter-spacing: .2px;
+}
+
+.lighter {
+    .font-family;
+    font-weight: lighter;
+    letter-spacing: .1px;
+}
+
+/*list 基础样式*/
+.list1 {
+    div[class|=col], li {
+        .list-title {
+            .h4;
+            line-height: 1.2;
+        }
+
+        a {
+            font-weight: 300;
+            text-shadow: 1px 0 0 @green2;
+
+            &:hover {
+                text-shadow: 1px 0 .1px @green;
+            }
+        }
+    }
+}
+
+.list2 {
+    div[class|=col], li {
+        .list-title {
+            .h6;
+            line-height: 1.3;
+        }
+    }
+}
+
+.list3 {
+}

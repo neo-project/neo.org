@@ -53,13 +53,7 @@ https://github.com/neo-project/neo.org
     @RenderSection("Styles", required: false)
     @if (SharedLocalizer["en"].Value == "zh")
     {
-        <style>
-            /*中文字体*/
-            html, body {
-                font-size: 15px;
-                font-family: "微软雅黑 Light",PingFangSC-Light,"PingHei","Lucida Grande","STHeitiSC-Light","BBAlpha Sans","S60 Sans","Hiragino Sans GB","Microsoft YaHei Light","Verdana",SimHei,"WenQuanYi Micro Hei",sans-serif;
-            }
-        </style>
+        <link href="@Helper.ToCDN("/css/sitecn.css", true)" rel="stylesheet" />
     }
 </head>
 <body>

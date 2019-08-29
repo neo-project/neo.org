@@ -1,33 +1,24 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 
-@section Styles{
-    <environment include="Development">
-        <link rel="stylesheet" href="/css/logo.css" asp-append-version="true" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.ToCDN("/css/logo.min.css", true)" />
-    </environment>
-}
-
 <div class="mt1">
     <h2>Font Style</h2>
-    <h1 class="mt5">H1 NEO Smart Economy</h1>
-    <h2>H2 NEO Smart Economy</h2>
-    <h3>H3 NEO Smart Economy</h3>
-    <h4>H4 NEO Smart Economy</h4>
-    <h5>H5 NEO Smart Economy</h5>
-    <h6>H6 NEO Smart Economy</h6>
-    <p>Body NEO Smart Economy</p>
+    <h1 class="mt5">H1 NEO Smart Economy 中</h1>
+    <h2>H2 NEO Smart Economy 中</h2>
+    <h3>H3 NEO Smart Economy 中</h3>
+    <h4>H4 NEO Smart Economy 中</h4>
+    <h5>H5 NEO Smart Economy 中</h5>
+    <h6>H6 NEO Smart Economy 中</h6>
+    <p>Body NEO Smart Economy 中</p>
     <br />
-    <p class="font1">normal NEO Smart Economy</p>
-    <p class="font2">normal&bold NEO Smart Economy</p>
-    <small>Small NEO Smart Economy</small>
+    <p class="font1">normal NEO Smart Economy 中</p>
+    <p class="font2">normal&bold NEO Smart Economy 中</p>
+    <small>Small NEO Smart Economy 中</small>
     <br /><hr />
-    <p class="bolder">P.bolder NEO Smart Economy</p>
-    <p class="lighter">P.lighter NEO Smart Economy</p>
-    <p class="bold">P.bold NEO Smart Economy</p>
-    <em>P.bold NEO Smart Economy</em>
+    <p class="bolder">P.bolder NEO Smart Economy 中</p>
+    <p class="lighter">P.lighter NEO Smart Economy 中</p>
+    <p class="bold">P.bold NEO Smart Economy 中</p>
+    <em>P.em NEO Smart Economy 中</em>
     <br /><br />
     <strong>分割线上方的为常用字体，分割线下方的为特殊字体，一般不常采用</strong>
 </div>
@@ -36,6 +27,7 @@
     <h2>Button <a class="btn2">Button Demo</a></h2>
     <div class="mt6">
         <a class="btn mr2" href="#">Button</a>
+        <a class="btn1 mr2" href="#">Button</a>
         <a class="btn2 float-none mr2" href="#">Button</a>
         <a class="btn b1 mr2" href="#">Button</a>
         <a class="btn b2 mr2" href="#">Button</a>
@@ -55,6 +47,19 @@
     </div>
 </div>
 
+
+<div class="mt1">
+    <h2>Opacity</h2>
+    <div class="h3 mt3">
+        <span class="op-100">100</span>
+        <span class="op-90">90</span>
+        <span class="op-80">80</span>
+        <span class="op-70">70</span>
+        <span class="op-50">50</span>
+        <span class="op-20">20</span>
+    </div>
+</div>
+
 <div class="mt1">
     <h2>Backgound</h2>
     <div class="mt6">
@@ -62,6 +67,8 @@
             <li class="b1 p3">Text Color</li>
             <li class="b2 p3">Text Color</li>
             <li class="b3 p3">Text Color</li>
+            <li class="b4 p3">Text Color</li>
+            <li class="b-white p3">White Background</li>
         </ul>
     </div>
 </div>
@@ -81,7 +88,7 @@
     <ul class="mt6 list-none">
         <li class="b2 mr1">Margin Right1</li>
         <li class="b2 mr2">Margin Right2</li>
-        <li class="b2 mr3">Margin Right3</li> 
+        <li class="b2 mr3">Margin Right3</li>
         <li class="b2">&nbsp;&nbsp;Demo&nbsp;&nbsp;</li>
         <li class="b2 ml1">Margin Left1</li>
         <li class="b2 ml2">Margin Left2</li>
@@ -102,14 +109,16 @@
         <div class="col-md-4">
             <img />
             <div>
-                <div class="list-title">Shanghai Shanghai</div>
+                <div class="list-title">上海 - Shanghai Shanghai</div>
                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie Praesent justo.</div>
             </div>
         </div>
         <div class="col-md-4">
             <span class="iconfont">&#xe71d;</span>
-            <div class="list-title">NEO JOY 2019</div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie Praesent justo.</div>
+            <div>
+                <div class="list-title">NEO JOY 2019</div>
+                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie Praesent justo.</div>
+            </div>
         </div>
         <div class="col-md-4">
             <span class="iconfont">&#xe71d;</span>
@@ -174,6 +183,24 @@
 
 <div class="mt2">
     <h2>List3</h2>
+    <div class="row list3 mt5">
+        <div class="col-md-4">
+            <img />
+            <div class="small">July 16, 2019<span class="ml2 green">EVENTS</span></div>
+            <div class="list-title">NEO JOY 2019 - Shanghai Shanghai Shanghai Shanghai</div>
+            <div class="small">Wed, 2019-07-30, 16:30 - 18:30<br />China, Shanghai</div>
+        </div>
+        <div class="col-md-4">
+            <img />
+            <div class="small">July 16, 2019<span class="ml2 green">EVENTS</span></div>
+            <div class="list-title">NEO JOY 2019 - Shanghai Shanghai Shanghai Shanghai</div>
+            <div class="small"><a href="/discover?keywords=月报"># 月报</a></div>
+        </div>
+    </div>
+</div>
+
+<div class="mt2">
+    <h2>Table1</h2>
     <div class="row list3 mt5">
         <div class="col-md-4">
             <img />

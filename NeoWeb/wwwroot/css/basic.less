@@ -24,9 +24,10 @@
 @green: #00af92;
 @green2: #02e49b;
 @green3: rgba(75, 197, 63,0.5);
-@green-hover: #476872;
+@green-hover: #00af92;
 @green-gradient: linear-gradient(172deg, #02e49b, #00bd9b);
 @red:#DD0000;
+@white: #FFFFFF;
 
 /*btn*/
 @btn-back: #02e49b;
@@ -36,6 +37,7 @@
 @back: #FFFFFF;
 @text: #242424;
 @text2: #476872 ;
+
 @line: rgba(200, 200, 200, 0.2);
 @line2: #CCCCCC;
 @gray: #505050;
@@ -66,11 +68,13 @@
 
 .bolder {
     font-family: Rajdhani-Bold;
+    font-weight: bolder;
     letter-spacing: .8px;
 }
 
 .lighter {
     font-family: Rajdhani-Light;
+    font-weight: lighter;
     letter-spacing: .3px;
 }
 
@@ -80,17 +84,22 @@
 /*背景色*/
 .b1 {
     background: @linear;
-    color: @linear-text;
+    color: @white!important;
 }
 
 .b2 {
     background: @green;
-    color: @btn-text !important;
+    color: @white !important;
 }
 
 .b3 {
     background: @dark;
     color: @dark-text!important;
+}
+
+.b4 {
+    background: @green2;
+    color: @white !important;
 }
 small,.small{
     font-size:80%;

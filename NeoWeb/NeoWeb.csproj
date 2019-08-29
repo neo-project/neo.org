@@ -146,6 +146,7 @@
     <_ContentIncludedByDefault Remove="Views\Blog\Edit.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Team\Index.cshtml" />
     <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap-xxl.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\sitecn.css" />
   </ItemGroup>
 
   <ItemGroup>
