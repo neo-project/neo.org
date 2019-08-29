@@ -7,38 +7,6 @@
     }
 }
 
-.d-item {
-    margin: 32px 0;
-
-    .small {
-        margin: 12px 0 8px;
-        span {
-            color: @green;
-            font-weight: bold;
-            margin-left: .5em;
-        }
-    }
-}
-
-a.d-cover {
-    display: block;
-    width: 100%;
-    background-position: center;
-    background-size: cover;
-
-    &::before {
-        content: " ";
-        display: block;
-        padding-top: 56.25%;
-    }
-}
-
-.d-title a, .d-title a:hover {
-    .bold;
-    margin: 8px 0;
-    color: @dark;
-}
-
 .d-search {
     line-height: 3;
     vertical-align: middle;
@@ -78,7 +46,8 @@ a.d-cover {
 
 article {
     text-align: left;
-    img{
+
+    img {
         max-width: 100%;
         height: auto;
     }
@@ -95,6 +64,53 @@ article {
 
     .article-title {
         .bold;
-        line-height: 1.1;
+    }
+
+    section {
+        line-height: 1.8;
+
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: @length4;
+            margin-bottom: @length6;
+        }
+
+        p {
+            margin-top: @length5;
+            margin-bottom: @length7;
+        }
+
+        ul {
+            li {
+                margin-bottom: @length7;
+            }
+        }
+
+        img {
+            max-width: 100%;
+            margin-top: @length6;
+            margin-bottom: @length7;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        section {
+            line-height: 1.6;
+
+            h1, h2, h3, h4, h5, h6 {
+                margin-top: @length5;
+                margin-bottom: @length7;
+            }
+
+            p {
+                margin-top: @length6;
+                margin-bottom: @length8;
+            }
+
+            ul {
+                li {
+                    margin-bottom: @length8;
+                }
+            }
+        }
     }
 }

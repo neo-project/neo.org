@@ -62,5 +62,9 @@
   {
     "outputFile": "wwwroot/css/sitecn.css",
     "inputFile": "wwwroot/css/sitecn.less"
+  },
+  {
+    "outputFile": "wwwroot/css/layout.css",
+    "inputFile": "wwwroot/css/layout.less"
   }
 ]
