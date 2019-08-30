@@ -15,27 +15,65 @@
     </environment>
 }
 
-<div class="back-area small clearfix mt3">
-    <div class="fl-l"><a onclick="JavaScript:history.back(-1)">BACK TO LIST</a></div>
-    <div class="fl-r">
+<div class="nav-area mt3">
+    <div><i class="iconfont">&#xeaa4;</i><a asp-action="index" asp-controller="discover">BACK TO LIST</a></div>
+    <div>
         @if (@ViewBag.PrevEventId != Model.Id)
         {
-            <a class="mr1" href="~/blog/details/@ViewBag.PrevEventId"><i class="iconfont">&#xe6b8;</i> <span class="desktop-show">@Localizer["PREVIOUS"]</span></a>
+            <a class="icon-left" href="~/event/details/@ViewBag.PrevEventId"><i class="iconfont">&#xe6b8;</i><span>@Localizer["Previous"]</span></a>
         }
         @if (@ViewBag.NextEventId != Model.Id)
         {
-            <a href="~/blog/details/@ViewBag.NextEventId"><span class="desktop-show">@Localizer["NEXT"]</span> <i class="iconfont">&#xe6b7;</i></a>
+            <a class="ml-5" href="~/event/details/@ViewBag.NextEventId"><span>@Localizer["Next"]</span><i class="iconfont">&#xe6b7;</i></a>
         }
     </div>
 </div>
 <hr />
 <div class="w700 mt3">
     <article class="article">
-        <header>
-            <div class="article-time">@Model.StartTime.Month.ToMonth() @Model.StartTime.Day, @Model.StartTime.Year<span>EVENT</span></div>
-            <h2 class="article-title mt5">@Model.Name</h2>
-            <p class="gray mt5">@Model.StartTime - @Model.EndTime</p>
-        </header>
+        <div class="article-time">@Model.StartTime.Month.ToMonth() @Model.StartTime.Day, @Model.StartTime.Year<span>EVENT</span></div>
+        <header><h2 class="article-title mt5 with-space">@Model.Name</h2></header>
+        <p class="gray mt5">
+            @if (Model.StartTime.Date == Model.EndTime.Date)
+            {
+                <div>@Model.StartTime.DayOfWeek.ToString().Substring(0, 3), @Model.StartTime.ToString("yyyy-MM-dd HH:mm") - @Model.EndTime.ToString("HH:mm")</div>
+            }
+            else
+            {
+                <div>@Model.StartTime.ToString("yyyy-MM-dd HH:mm") - @Model.EndTime.ToString("yyyy-MM-dd HH:mm")</div>
+            }
+        </p>
+        <p class="gray mt5">@Model.Country - @Model.City</p>
+        <p class="gray mt5">@(Model.IsFree ? "Free Ticket" : "")</p>
+        <div class="share">
+            @{
+                var title = (ViewData["Title"] != null ? $"{ViewData["Title"]} - " : "") + Localizer["NEO Smart Economy"].Value;
+                var details = ViewData["Details"] ?? Localizer["NEO Smart Economy"].Value;
+                var image = (ViewData["Image"] ?? Helper.ToCDN("/images/twitter-img.jpg"));
+                var url = $"{Context.Request.Scheme}://{Context.Request.Host}{Context.Request.Path}{Context.Request.QueryString}";
+            }
+
+            <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=@(title)&url=@(url)&via=NEO_Blockchain&related=NEO_Blockchain"></a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+            <div class="fb-share-button"
+                 data-href="@url"
+                 data-layout="button_count">
+            </div>
+            <script>
+                (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+            </script>
+            <div class="qr-div">
+                <i class="iconfont">&#xe79b;</i>
+                <div id="qrcode"></div>
+            </div>
+        </div>
         <p class="mt5">
             @if (ViewBag.UserRules)
             {
@@ -54,7 +92,7 @@
             {
                 <img class="mt3" width="100%" height="375px" src="~/upload/@Model.Cover" />
             }
-            <div class="mt5">
+            <div class="mt5 with-space">
                 @Html.Raw(Model.Details)
             </div>
         </section>
@@ -64,7 +102,7 @@
             {
                 foreach (var tag in Model.Tags.Split(","))
                 {
-                    <a href="/blog?t=@tag"># @tag</a>
+                    <a href="/discover?keywords=@tag">#@tag</a>
                 }
             }
         </div>
@@ -72,17 +110,17 @@
     </article>
 </div>
 <hr class="mt3" />
-<div class="back-area small clearfix">
-    <div class="text-left"><a href="~/blog"><i class="iconfont">&#xeaa4;</i><span class="desktop-show">@Localizer["BACK TO LIST"]</span></a></div>
-    <div class="text-center"><a class="back-to-top"><i class="iconfont">&#xe65a;</i><span class="desktop-show">@Localizer["Back to top"]</span></a></div>
-    <div class="text-right">
+<div class="nav-area mt-2 mb-5">
+    <div><i class="iconfont">&#xeaa4;</i><a asp-action="index" asp-controller="discover">BACK TO LIST</a></div> 
+    <div><a class="back-to-top"><i class="iconfont">&#xe65a;</i><span>@Localizer["Back to top"]</span></a></div>
+    <div>
         @if (@ViewBag.PrevEventId != Model.Id)
         {
-            <a class="icon-left" href="~/blog/details/@ViewBag.PrevEventId"><i class="iconfont">&#xe6b8;</i><span class="desktop-show">@Localizer["Previous article"]</span></a>
+            <a class="icon-left" href="~/event/details/@ViewBag.PrevEventId"><i class="iconfont">&#xe6b8;</i><span>@Localizer["Previous"]</span></a>
         }
         @if (@ViewBag.NextEventId != Model.Id)
         {
-            <a href="~/blog/details/@ViewBag.NextEventId"><span class="desktop-show">@Localizer["Next article"]</span><i class="iconfont">&#xe6b7;</i></a>
+            <a class="ml-5" href="~/event/details/@ViewBag.NextEventId"><span>@Localizer["Next"]</span><i class="iconfont">&#xe6b7;</i></a>
         }
     </div>
 </div>

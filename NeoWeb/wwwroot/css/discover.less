@@ -1,12 +1,5 @@
 ﻿@import 'basic.less';
 
-.d-top {
-    img {
-        width: 100%;
-        height: 440px;
-    }
-}
-
 .d-search {
     line-height: 3;
     vertical-align: middle;
@@ -31,7 +24,12 @@
     }
 }
 
-.back-area {
+.nav-area {
+    display: flex;
+    justify-content: space-between;
+    .iconfont{
+        margin-right: .5em;
+    }
     a {
         .bold;
         color: @gray;
@@ -39,6 +37,37 @@
 
         &:hover {
             text-shadow: 0 0 0.1px @gray;
+        }
+    }
+}
+
+.share {
+    margin: 32px 0;
+
+    iframe {
+        display: inline;
+    }
+
+    iframe {
+        vertical-align: -4px;
+    }
+
+    .qr-div {
+        display: inline;
+        position: relative;
+        cursor: pointer;
+
+        &:hover {
+            #qrcode {
+                display: block;
+            }
+        }
+
+        #qrcode {
+            background-color: #fff;
+            position: absolute;
+            display: none;
+            padding: 1em;
         }
     }
 }

@@ -18,8 +18,7 @@
 }
 
 <div class="p2">
-    <h2 class="m1 text-center">Discover</h2>
-    <div class="row d-top">
+    <div class="row list2">
         @{
             var top = (ViewBag.Ontop as DiscoverViewModel);
         }
@@ -46,11 +45,11 @@
         }
         else if (top?.Type == DiscoverViewModelType.Event)
         {
-            <div class="col-md-8 d-top">
-                <a class="d-cover" href="~/event/details/@top.Event.Id" data-original="@String.Format("/upload/{0}", top.Event.Cover).ToLower()"></a>
+            <div class="col-md-8">
+                <a class="img" href="~/event/details/@top.Event.Id" data-original="@String.Format("/upload/{0}", top.Event.Cover).ToLower()"></a>
             </div>
             <div class="col-md-4">
-                <div class="center n o-des">
+                <div class="center">
                     <p class="green bold m4">EVENT</p>
                     <h4 class="d-title"><a href="~/event/details/@top.Event.Id">@top.Event.Name</a></h4>
                     @if (ViewBag.UserRules)
@@ -58,18 +57,20 @@
                         <a asp-action="Edit" asp-controller="Event" asp-route-id="@top.Event.Id">Edit</a>
                         <a class="ml-2" asp-action="Delete" asp-controller="Event" asp-route-id="@top.Event.Id">Delete</a>
                     }
-                    <p class="m6"> @top.Event.StartTime - @top.Event.EndTime</p>
-                    <p> @top.Event.Country, @top.Event.City</p>
+                    <div class="small">
+                        <div class="m6"> @top.Event.StartTime - @top.Event.EndTime</div>
+                        <div> @top.Event.Country, @top.Event.City</div>
+                    </div>
                 </div>
             </div>
         }
         else if (top?.Type == DiscoverViewModelType.News)
         {
-            <div class="col-md-8 d-top">
-                <a class="d-cover" href="@top.News.Link" target="_blank" data-original="@String.Format("/upload/{0}", top.News.Cover).ToLower()"></a>
+            <div class="col-md-8">
+                <a class="img" href="@top.News.Link" target="_blank" data-original="@String.Format("/upload/{0}", top.News.Cover).ToLower()"></a>
             </div>
             <div class="col-md-4">
-                <div class="center n o-des">
+                <div class="center">
                     <p class="green bold m4">NEWS</p>
                     <h4 class="d-title"><a href="@top.News.Link" target="_blank">@top.News.Title</a></h4>
                     @if (ViewBag.UserRules)
@@ -77,7 +78,7 @@
                         <a asp-action="Edit" asp-controller="News" asp-route-id="@top.News.Id">Edit</a>
                         <a class="ml-2" asp-action="Delete" asp-controller="News" asp-route-id="@top.News.Id">Delete</a>
                     }
-                    <p class="m6">@top.News.Time</p>
+                    <div class="small">@top.News.Time</div>
                 </div>
             </div>
         }
@@ -143,14 +144,13 @@
                 <div class="small">
                     @if (item.Event.StartTime.Date == item.Event.EndTime.Date)
                     {
-                        <span>@item.Event.StartTime.DayOfWeek.ToString().Substring(0, 3), @item.Event.StartTime.ToString("yyyy-MM-dd HH:mm") - @item.Event.EndTime.ToString("HH:mm")</span>
+                        <div>@item.Event.StartTime.DayOfWeek.ToString().Substring(0, 3), @item.Event.StartTime.ToString("yyyy-MM-dd HH:mm") - @item.Event.EndTime.ToString("HH:mm")</div>
                     }
                     else
                     {
-                        <span>@item.Event.StartTime.ToString("yyyy-MM-dd HH:mm") - @item.Event.EndTime.ToString("yyyy-MM-dd HH:mm")</span>
+                        <div>@item.Event.StartTime.ToString("yyyy-MM-dd HH:mm") - @item.Event.EndTime.ToString("yyyy-MM-dd HH:mm")</div>
                     }
-                    <br />
-                    <span>@item.Event.Country - @item.Event.City</span>
+                    <div>@item.Event.Country - @item.Event.City</div>
                 </div>
             }
             else if (item.Type == DiscoverViewModelType.News)
