@@ -24,13 +24,13 @@
 <div class="nav-area mt3">
     <div><i class="iconfont">&#xeaa4;</i><a asp-action="index" asp-controller="discover">BACK TO LIST</a></div>
     <div>
-        @if (@ViewBag.PrevEventId != Model.Id)
+        @if (@ViewBag.PrevBlogId != Model.Id)
         {
-            <a class="icon-left" href="~/blog/details/@ViewBag.PrevEventId"><i class="iconfont">&#xe6b8;</i><span>@Localizer["Previous"]</span></a>
+            <a class="icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xe6b8;</i><span>@Localizer["Previous"]</span></a>
         }
-        @if (@ViewBag.NextEventId != Model.Id)
+        @if (@ViewBag.NextBlogId != Model.Id)
         {
-            <a class="ml-5" href="~/blog/details/@ViewBag.NextEventId"><span>@Localizer["Next"]</span><i class="iconfont">&#xe6b7;</i></a>
+            <a class="ml-5" href="~/blog/details/@ViewBag.NextBlogId"><span>@Localizer["Next"]</span><i class="iconfont">&#xe6b7;</i></a>
         }
     </div>
 </div>
@@ -101,13 +101,13 @@
     <div><i class="iconfont">&#xeaa4;</i><a asp-action="index" asp-controller="discover">BACK TO LIST</a></div>
     <div><a class="back-to-top"><i class="iconfont">&#xe65a;</i><span>@Localizer["Back to top"]</span></a></div>
     <div>
-        @if (@ViewBag.PrevEventId != Model.Id)
+        @if (@ViewBag.PrevBlogId != Model.Id)
         {
-            <a class="icon-left" href="~/blog/details/@ViewBag.PrevEventId"><i class="iconfont">&#xe6b8;</i><span>@Localizer["Previous"]</span></a>
+            <a class="icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xe6b8;</i><span>@Localizer["Previous"]</span></a>
         }
-        @if (@ViewBag.NextEventId != Model.Id)
+        @if (@ViewBag.NextBlogId != Model.Id)
         {
-            <a class="ml-5" href="~/blog/details/@ViewBag.NextEventId"><span>@Localizer["Next"]</span><i class="iconfont">&#xe6b7;</i></a>
+            <a class="ml-5" href="~/blog/details/@ViewBag.NextBlogId"><span>@Localizer["Next"]</span><i class="iconfont">&#xe6b7;</i></a>
         }
     </div>
 </div>

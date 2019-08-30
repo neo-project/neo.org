@@ -407,29 +407,28 @@ hr.line {
     border-bottom:1px solid @line2;
 }
 
-.w900 {
-    max-width: 900px;
+.w {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    word-break: break-all;
+}
+
+.w900 {
+    .w;
+    max-width: 900px;
 }
 .w800 {
+    .w;
     max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
 }
 .w700 {
+    .w;
     max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
 }
 .w600 {
+    .w;
     max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
 }
 
 /*border*/
