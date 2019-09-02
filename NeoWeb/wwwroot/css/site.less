@@ -119,6 +119,7 @@ h6, .h6 {
     font-size: 1rem;
     font-family: Rajdhani;
     letter-spacing: .3px;
+    line-height:23px;
 }
 
 .font2 {
@@ -193,10 +194,10 @@ h6, .h6 {
     }
 }
 .ml2 {
-    margin-left: @length6;
+    margin-left: @length5;
 
     @media only screen and (max-width: 768px) {
-        margin-left: @length7;
+        margin-left: @length6;
     }
 }
 .ml3 {
@@ -216,10 +217,10 @@ h6, .h6 {
 }
 
 .mr2 {
-    margin-right: @length6;
+    margin-right: @length5;
 
     @media only screen and (max-width: 768px) {
-        margin-right: @length7;
+        margin-right: @length6;
     }
 }
 
@@ -491,6 +492,11 @@ i.iconfont {
 }
 
 /*list 基础样式*/
+.list-inline{
+    li{
+        display:inline-block;
+    }
+}
 .list1 {
     text-align: center;
 
@@ -520,6 +526,24 @@ i.iconfont {
         a {
             .btn2;
             float: none;
+        }
+    }
+
+    &.left {
+        text-align:left;
+        div[class|=col] {
+            div,.list-title {
+                margin-top: 0;
+                margin-bottom: @length7;
+            }
+
+            img, .img, .iconfont {
+                .mr2;
+                float: left;
+            }
+            .list-con{
+                .bold;
+            }
         }
     }
 
@@ -556,7 +580,7 @@ i.iconfont {
             text-shadow: none;
             transition: text-shadow .2s;
 
-            &.img{
+            &.img {
                 display: block;
                 width: 100%;
                 background-position: center;
@@ -613,11 +637,13 @@ i.iconfont {
         div[class|=col], li {
             list-style: none;
 
-            img, .img {
-                float: left;
-                margin-right: 20px;
-                width: 85px;
-                height: 85px;
+
+            a {
+                &.img {
+                    float: left;
+                    margin-right: 20px;
+                    width: 86px;
+                }
             }
 
             div {
@@ -632,38 +658,65 @@ i.iconfont {
     }
 }
 .list3 {
-    div[class|=col], li {
-        list-style: none;
+    div[class|=col], > li {
+        .mt3;
+        .p3;
+        .pt0;
 
-        img, .img {
-            width: 100%;
-            height: 180px;
+        > span {
+            .mt6;
+            float: left;
+            margin-right: 12px;
+            width: 100px;
+            font-weight: 600;
         }
 
-        h3, .h3, h4, .h4, h5, .h5, .h6, .list-title {
-            margin-top: 15px;
-            line-height: 1.4;
+        .list-ul {
+            .h4;
+            list-style: none;
+            overflow: hidden;
+            padding-left: 0;
+
+            li {
+                .mt6;
+                .mr2;
+
+                span {
+                    .font1;
+                    color: @text3;
+                    display: block;
+                }
+            }
         }
     }
 
     @media only screen and (max-width: 768px) {
-        text-align: left;
+        text-align: center;
 
-        div[class|=col], li {
-            margin-top: 25px;
-            list-style: none;
-
-            img, .img {
-                float: left;
-                padding: 10px 0;
-                margin-right: 20px;
-                width: 85px;
-                height: 105px;
+        div[class|=col], > li {
+            > span {
+                float: none;
             }
 
-            h3, .h3, h4, .h4, h5, .h5, .list-title {
-                margin-top: 8px;
-                line-height: 1.4;
+
+            .list-ul {
+                .h4;
+                list-style: none;
+                overflow: hidden;
+                padding-left: 0;
+
+                li {
+                    width: 40%;
+                    min-width: 110px;
+                    margin-left: auto;
+                    margin-right: auto;
+
+                    span {
+                        .font1;
+                        color: @text3;
+                        display: block;
+                    }
+                }
             }
         }
     }
