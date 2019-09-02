@@ -308,8 +308,8 @@ a[class|=btn]{
     color: @green !important;
 }
 .btn2 {
-    .fl-r;
     .green;
+    float: right;
     font-size: 1rem;
     letter-spacing: 0.2px;
     font-weight: 600;
@@ -417,32 +417,28 @@ hr.line {
 .line-b{
     border-bottom:1px solid @line2;
 }
-.fl-l{float:left;}
-.fl-r{float:right;}
+
+.w {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
 
 .w900 {
+    .w;
     max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
 }
 .w800 {
+    .w;
     max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
 }
 .w700 {
+    .w;
     max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
 }
 .w600 {
+    .w;
     max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
 }
 
 /*border*/

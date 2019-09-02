@@ -30,11 +30,21 @@ https://github.com/neo-project/neo.org
     <meta name="application-name" content="neo.org">
     <meta name="renderer" content="ie-stand">
     <meta name="keywords" content="@(ViewData["keywords"] ?? $"{ViewData["keywords"]},")NEO,Blockchain,智能经济,antshares,小蚁,区块链">
-
-    <title>@(ViewData["Title"] != null ? $"{ViewData["Title"]} - " : "")@Localizer["NEO Smart Economy"]</title>
-    <meta name="twitter:title" content="@(ViewData["Title"] != null ? $"{ViewData["Title"]} - " : "")@Localizer["NEO Smart Economy"]" />
-    <meta name="twitter:description" content="@(ViewData["Details"] ?? Localizer["NEO Smart Economy"])" />
-    <meta name="twitter:image" content="@(ViewData["Image"] ?? Helper.ToCDN("/images/twitter-img.jpg"))" />
+    @{
+        var title = (ViewData["Title"] != null ? $"{ViewData["Title"]} - " : "") + Localizer["NEO Smart Economy"].Value;
+        var details = ViewData["Details"] ?? Localizer["NEO Smart Economy"].Value;
+        var image = (ViewData["Image"] ?? Helper.ToCDN("/images/twitter-img.jpg"));
+        var url = $"{Context.Request.Scheme}://{Context.Request.Host}{Context.Request.Path}{Context.Request.QueryString}";
+    }
+    <title>@title</title>
+    <meta property="og:url" content="@url" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="@title" />
+    <meta property="og:description" content="@details" />
+    <meta property="og:image" content="@image" />
+    <meta name="twitter:title" content="@title" />
+    <meta name="twitter:description" content="@details" />
+    <meta name="twitter:image" content="@image" />
     <meta name="twitter:card" content="summary_large_image" />
     <link type="image/x-icon" href="@Helper.ToCDN("/images/favicon.png")" rel="apple-touch-icon">
     <link type="image/x-icon" href="@Helper.ToCDN("/images/favicon.png")" rel="shortcut icon">

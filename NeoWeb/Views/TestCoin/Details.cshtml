@@ -11,103 +11,84 @@
         <link rel="stylesheet" href="@Helper.ToCDN("/css/testnet-list.min.css", true)" />
     </environment>
 }
-<h2 class="m1 text-center">测试币申请详情</h2>
-<div class="border-static back-white p4 m3">
-    <div class="row m3">
-        <div class="col-1 text-right font-weight-bold">
-            @Html.DisplayNameFor(model => model.Name)
-        </div>
-        <div class="col-11">
-            @Html.DisplayFor(model => model.Name)
-        </div>
-        <div class="col-1 text-right font-weight-bold">
-            @Html.DisplayNameFor(model => model.Email)
-        </div>
-        <div class="col-11">
-            @Html.DisplayFor(model => model.Email)
-        </div>
-        <div class="col-1 text-right font-weight-bold">
-            @Html.DisplayNameFor(model => model.Phone)
-        </div>
-        <div class="col-11">
-            @Html.DisplayFor(model => model.Phone)
-        </div>
-        <div class="col-1 text-right font-weight-bold">
-            @Html.DisplayNameFor(model => model.QQ)
-        </div>
-        <div class="col-11">
-            @Html.DisplayFor(model => model.QQ)
-        </div>
-        <div class="col-1 text-right font-weight-bold">
-            @Html.DisplayNameFor(model => model.Company)
-        </div>
-        <div class="col-11">
-            @Html.DisplayFor(model => model.Company)
-        </div>
-        <div class="col-1 text-right font-weight-bold">
-            @Html.DisplayNameFor(model => model.Reason)
-        </div>
-        <div class="col-11">
-            @Html.DisplayFor(model => model.Reason)
-        </div>
-        <div class="col-1 text-right font-weight-bold">
-            @Html.DisplayNameFor(model => model.NeoCount)
-        </div>
-        <div class="col-11">
-            @Html.DisplayFor(model => model.NeoCount)
-        </div>
-        <div class="col-1 text-right font-weight-bold">
-            @Html.DisplayNameFor(model => model.GasCount)
-        </div>
-        <div class="col-11">
-            @Html.DisplayFor(model => model.GasCount)
-        </div>
-        <div class="col-1 text-right font-weight-bold">
-            @Html.DisplayNameFor(model => model.PubKey)
-        </div>
-        <div class="col-11">
-            @Html.DisplayFor(model => model.PubKey)
-        </div>
-        <div class="col-1 text-right font-weight-bold">
-            @Html.DisplayNameFor(model => model.Remark)
-        </div>
-        <div class="col-11">
-            @Html.DisplayFor(model => model.Remark)
-        </div>
-        <div class="col-1 text-right font-weight-bold">
-            @Html.DisplayNameFor(model => model.Time)
-        </div>
-        <div class="col-11">
-            @Html.DisplayFor(model => model.Time)
-        </div>
+<div class="container">
+    <div class="p1">
+        <h1 class="w800">测试币申请详情</h1>
     </div>
-</div>
-<div class="back-to-list m2">
-    <a class="btn-static btn3" asp-action="Edit" asp-route-id="@Model.Id">备注</a>
-    <a class="btn-static btn3" onclick="document.referrer === '' ?
-              window.location.pathname = '/Testnet/list' :
-              window.history.back();">返回上一页</a>
-</div>
-
-<!-- Modal -->
-<div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <table class="apply-list">
-                <thead>
-                    <tr class="t3">
-                        <th width="15%">姓名</th>
-                        <th width="39%">公钥</th>
-                        <th width="5%"></th>
-                        <th width="20%">申请数量（NEO）</th>
-                        <th width="20%">申请数量（GAS）</th>
-                    </tr>
-                </thead>
-                <tbody id="tBody"></tbody>
-            </table>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+    <div class="border-static back-white p4 m3">
+        <div class="row m3">
+            <div class="col-1 text-right font-weight-bold">
+                @Html.DisplayNameFor(model => model.Name)
+            </div>
+            <div class="col-11">
+                @Html.DisplayFor(model => model.Name)
+            </div>
+            <div class="col-1 text-right font-weight-bold">
+                @Html.DisplayNameFor(model => model.Email)
+            </div>
+            <div class="col-11">
+                @Html.DisplayFor(model => model.Email)
+            </div>
+            <div class="col-1 text-right font-weight-bold">
+                @Html.DisplayNameFor(model => model.Phone)
+            </div>
+            <div class="col-11">
+                @Html.DisplayFor(model => model.Phone)
+            </div>
+            <div class="col-1 text-right font-weight-bold">
+                @Html.DisplayNameFor(model => model.QQ)
+            </div>
+            <div class="col-11">
+                @Html.DisplayFor(model => model.QQ)
+            </div>
+            <div class="col-1 text-right font-weight-bold">
+                @Html.DisplayNameFor(model => model.Company)
+            </div>
+            <div class="col-11">
+                @Html.DisplayFor(model => model.Company)
+            </div>
+            <div class="col-1 text-right font-weight-bold">
+                @Html.DisplayNameFor(model => model.Reason)
+            </div>
+            <div class="col-11">
+                @Html.DisplayFor(model => model.Reason)
+            </div>
+            <div class="col-1 text-right font-weight-bold">
+                @Html.DisplayNameFor(model => model.NeoCount)
+            </div>
+            <div class="col-11">
+                @Html.DisplayFor(model => model.NeoCount)
+            </div>
+            <div class="col-1 text-right font-weight-bold">
+                @Html.DisplayNameFor(model => model.GasCount)
+            </div>
+            <div class="col-11">
+                @Html.DisplayFor(model => model.GasCount)
+            </div>
+            <div class="col-1 text-right font-weight-bold">
+                @Html.DisplayNameFor(model => model.PubKey)
+            </div>
+            <div class="col-11">
+                @Html.DisplayFor(model => model.PubKey)
+            </div>
+            <div class="col-1 text-right font-weight-bold">
+                @Html.DisplayNameFor(model => model.Remark)
+            </div>
+            <div class="col-11">
+                @Html.DisplayFor(model => model.Remark)
+            </div>
+            <div class="col-1 text-right font-weight-bold">
+                @Html.DisplayNameFor(model => model.Time)
+            </div>
+            <div class="col-11">
+                @Html.DisplayFor(model => model.Time)
             </div>
         </div>
+    </div>
+    <div class="my-5">
+        <a asp-action="Edit" asp-route-id="@Model.Id">备注</a>
+        <a href="javascript:" onclick="document.referrer === '' ?
+              window.location.pathname = '/Testnet/list' :
+              window.history.back();">返回上一页</a>
     </div>
 </div>

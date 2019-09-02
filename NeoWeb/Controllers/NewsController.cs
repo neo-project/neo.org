@@ -151,7 +151,7 @@ namespace NeoWeb.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("Details", new { id });
+                return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.News });
             }
             return View(news);
         }

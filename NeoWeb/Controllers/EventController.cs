@@ -48,7 +48,7 @@ namespace NeoWeb.Controllers
                 return NotFound();
             }
 
-            var evt = await _context.Events.SingleOrDefaultAsync(p => p.Id == id);
+            var evt = await _context.Events.Include(p => p.Country).SingleOrDefaultAsync(p => p.Id == id);
 
             if (evt == null)
             {
