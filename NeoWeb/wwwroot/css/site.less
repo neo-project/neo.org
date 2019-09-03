@@ -724,14 +724,24 @@ i.iconfont {
 }
 
 .module1 {
-    img {
+    .module-img {
         float: right;
         width: 100%;
         max-width: 400px;
     }
 
-    > div {
-        max-width: 650px;
+    .module-text {
+        display: inline-block;
+        width: 650px;
+        text-align: left;
+    }
+
+    &.left {
+        text-align: right;
+
+        .module-img {
+            float: left;
+        }
     }
 
     &::after {
@@ -740,13 +750,43 @@ i.iconfont {
         content: "";
     }
 
+    @media only screen and (max-width: 1200px) {
+        .module-img {
+            max-width: 350px;
+        }
+
+        .module-text {
+            width:550px;
+        }
+    }
+
+    @media only screen and (max-width: 990px) {
+
+        .module-img {
+            max-width: 300px;
+        }
+
+        .module-text {
+            width: 300px;
+        }
+    }
+
     @media only screen and (max-width: 768px) {
         text-align: center;
 
-        img {
-            float: none;
+        .module-img {
+            float: none !important;
             margin-top: @length4;
             margin-bottom: @length5;
+        }
+
+        .module-text {
+            text-align: center;
+            width: 100%;
+        }
+
+        &.left {
+            text-align: center;
         }
     }
 }
