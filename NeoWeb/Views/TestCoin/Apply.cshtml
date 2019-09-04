@@ -16,11 +16,10 @@
 }
 <form asp-action="Apply">
     @Html.AntiForgeryToken()
-    <div class="p1">
-        <h1 class="text-center">@Localizer["Apply For TestNet NEO&GAS"]</h1>
+    <div class="mt1">
+        <h2 class="text-center">@Localizer["Apply For TestNet NEO&GAS"]</h2>
     </div>
-
-    <div class="row mt3 text-left">
+    <div class="row mt3 test-apply">
         <div class="form-group col-md-6 m3">
             <label asp-for="Name">@Localizer["Name"]</label> <span class="red">*</span><br />
             <input class="form-control" name="Name" id="Name" type="text"
@@ -77,7 +76,7 @@
             <p class="small">@Localizer["Please enter your own NEO public key. If the application succeedsis successful, we will send Neo/GAS to a multiple multi-signature address and tell you how to use it."]</psmall>
         </div>
     </div>
-    <p class="mt4 text-center"><input type="submit" class="btn mb-4" value=@Localizer["Submit Application"]></p>
+    <p class="mt4 text-center mb-5"><input type="submit" class="btn mb-4" value=@Localizer["Submit Application"]></p>
 </form>
 
 @section Scripts {
