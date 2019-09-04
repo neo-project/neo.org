@@ -1,416 +1,489 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 
-<div class="mt1">
-    <h2 id="fontStyle">Font Style</h2>
-    <h1 class="mt5">H1 - NEO Economy 中文</h1>
-    <h2>H2 - NEO Economy 中文</h2>
-    <h3>H3 - NEO Economy 中文</h3>
-    <h4>H4 - NEO Economy 中文</h4>
-    <h5>H5 - NEO Economy 中文</h5>
-    <h6>H6 - NEO Economy 中文</h6>
-    <p>Body - NEO Economy 中文</p>
-    <br />
-    <p class="font1">normal - NEO Smart Economy 中</p>
-    <p class="font2">normal&bold - NEO Smart Economy 中</p>
-    <small>Small - NEO Smart Economy 中</small>
-    <br /><hr />
-    <p class="bolder">P.bolder - NEO Smart Economy 中</p>
-    <p class="lighter">P.lighter - NEO Smart Economy 中</p>
-    <p class="bold">P.bold - NEO Smart Economy 中</p>
-    <em>P.em - NEO Smart Economy 中</em>
-    <br /><br />
-    <strong>分割线上方的为常用字体，分割线下方的为特殊字体，一般不常采用</strong>
-</div>
 
-<div class="mt1">
-    <h2>Button <a class="btn2">Button Demo</a></h2>
-    <div class="mt6">
-        <a class="btn mr2" href="#">Button</a>
-        <a class="btn1 mr2" href="#">Button</a>
-        <a class="btn2 float-none mr2" href="#">Button</a>
-        <a class="btn b1 mr2" href="#">Button</a>
-        <a class="btn b2 mr2" href="#">Button</a>
-        <a class="btn b3 mr2" href="#">Button</a>
-    </div>
-</div>
+@section Styles{
+    <style>
+        .layout-container {
+            max-width: none;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+}
 
-<div class="mt1">
-    <h2>Text Color</h2>
-    <div class="h3 mt3">
-        <span class="color-n">Normal Color</span>
-        <span class="green">Green</span>
-        <span class="green2">Green2</span>
-        <span class="gray">Gray</span>
+
+<div class="container">
+    <div class="mt1">
+        <h2 id="fontStyle">Font Style</h2>
+        <h1 class="mt5">H1 - NEO Economy 中文</h1>
+        <h2>H2 - NEO Economy 中文</h2>
+        <h3>H3 - NEO Economy 中文</h3>
+        <h4>H4 - NEO Economy 中文</h4>
+        <h5>H5 - NEO Economy 中文</h5>
+        <h6>H6 - NEO Economy 中文</h6>
+        <p>Body - NEO Economy 中文</p>
+        <br />
+        <p class="font1">normal - NEO Smart Economy 中</p>
+        <p class="font2">normal&bold - NEO Smart Economy 中</p>
+        <small>Small - NEO Smart Economy 中</small>
+        <br /><hr />
+        <p class="bolder">P.bolder - NEO Smart Economy 中</p>
+        <p class="lighter">P.lighter - NEO Smart Economy 中</p>
+        <p class="bold">P.bold - NEO Smart Economy 中</p>
+        <em>P.em - NEO Smart Economy 中</em>
         <br /><br />
-        <span class="red">Red</span>
+        <strong>分割线上方的为常用字体，分割线下方的为特殊字体，一般不常采用</strong>
     </div>
 </div>
 
-<div class="mt1">
-    <h2>Opacity</h2>
-    <div class="h3 mt3">
-        <span class="op-100">100</span>
-        <span class="op-90">90</span>
-        <span class="op-80">80</span>
-        <span class="op-70">70</span>
-        <span class="op-50">50</span>
-        <span class="op-20">20</span>
-    </div>
-</div>
-
-<div class="mt1">
-    <h2>Backgound</h2>
-    <div class="mt6">
-        <ul>
-            <li class="b1 p3">Text Color</li>
-            <li class="b2 p3">Text Color</li>
-            <li class="b3 p3">Text Color</li>
-            <li class="b4 p3">Text Color</li>
-            <li class="b-white p3">White Background</li>
-        </ul>
-    </div>
-</div>
-
-<div class="mt1">
-    <h2>Margin & Padding</h2>
-    <ul class="mt6">
-        <li class="b1 mt1">Margin Top1</li>
-        <li class="b1 mt2">Margin Top2</li>
-        <li class="b1 mt3">Margin Top3</li>
-        <li class="b1 mt4">Margin Top4</li>
-        <li class="b1 mt5">Margin Top5</li>
-        <li class="b1 mt6">Margin Top6</li>
-        <li class="b1 mt7">Margin Top7</li>
-    </ul>
-    <ul class="mt6 list-none">
-        <li class="b2 mr1">Margin Right1</li>
-        <li class="b2 mr2">Margin Right2</li>
-        <li class="b2 mr3">Margin Right3</li>
-        <li class="b2">&nbsp;&nbsp;Demo&nbsp;&nbsp;</li>
-        <li class="b2 ml1">Margin Left1</li>
-        <li class="b2 ml2">Margin Left2</li>
-        <li class="b2 ml3">Margin Left3</li>
-    </ul>
-    <ul class="mt6 list-none">
-        <li class="b3 p1">Padding1</li>
-        <li class="b3 p2">Padding2</li>
-        <li class="b3 p3">Padding3</li>
-        <li class="b3 p4">Padding4</li>
-    </ul>
-</div>
-
-<div class="mt2">
-    <h2>List1</h2>
-    <p class="h7 mt6">左右结构，首屏&dev页面有复用，小屏幕进行左右显示（可以使用img、span进行样式切换）</p>
-
-    <div class="row list1">
-        <div class="col-md-4">
-            <img />
-            <div>
-                <div class="list-title">上海 - Shanghai Shanghai</div>
-                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie Praesent justo.</div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <span class="iconfont">&#xe71d;</span>
-            <div>
-                <div class="list-title">NEO JOY 2019</div>
-                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie Praesent justo.</div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <span class="iconfont">&#xe71d;</span>
-            <div>
-                <div class="list-title">NEO JOY 2019</div>
-                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie Praesent justo.</div>
-                <div><a>LEARN MORE</a></div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <span class="iconfont">&#xe71d;</span>
-            <div>
-                <div class="list-title">NEO JOY 2019</div>
-                <div><a>LEARN MORE</a></div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <span class="iconfont">&#xe71d;</span>
-            <div class="text-left">
-                <div class="list-title">NEO JOY 2019</div>
-                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie Praesent justo.</div>
-                <div><a>LEARN MORE</a></div>
-            </div>
-        </div>
-        <div class="col-md-4 text-left">
-            <span class="iconfont">&#xe71d;</span>
-            <div>
-                <div class="list-title">NEO JOY 2019</div>
-                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie Praesent justo.</div>
-                <div class="text-right"><a>LEARN MORE</a></div>
-            </div>
-        </div>
-    </div>
-    <div class="row list1 left">
-        <div class="col-md-4">
-            <img />
-            <div>
-                <div class="list-title">上海 - Shanghai Shanghai</div>
-                <div class="list-con">c#, python, golang, <br />js/typescript, java</div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <span class="iconfont">&#xe71d;</span>
-            <div>
-                <div class="list-title">NEO JOY 2019</div>
-                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie Praesent justo.</div>
-            </div>
+<div class="container">
+    <div class="mt1">
+        <h2>Button <a class="btn2">Button Demo</a></h2>
+        <div class="mt6">
+            <a class="btn mr2" href="#">Button</a>
+            <a class="btn1 mr2" href="#">Button</a>
+            <a class="btn2 float-none mr2" href="#">Button</a>
+            <a class="btn b1 mr2" href="#">Button</a>
+            <a class="btn b2 mr2" href="#">Button</a>
+            <a class="btn b3 mr2" href="#">Button</a>
         </div>
     </div>
 </div>
-
-<div class="mt2">
-    <h2>List2</h2>
-    <div class="row list2">
-        <div class="col-md-4">
-            <a class="img" href="#" data-original="/upload/d1095aee6bdec4e35e7a.png"></a>
-            <div>
-                <div class="small">July 16, 2019<span class="ml2 green">EVENTS</span></div>
-                <div class="list-title"><a href="#">NEO JOY 2019 - Shanghai Shanghai Shanghai Shanghai</a></div>
-                <div class="small">Wed, 2019-07-30, 16:30 - 18:30<br />China, Shanghai</div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <a class="img" href="#" data-original="/upload/cd8bd15eafe7dcf50dc7.jpg"></a>
-            <div>
-                <div class="small">July 16, 2019<span class="ml2 green">EVENTS</span></div>
-                <div class="list-title"><a href="#">NEO JOY 2019 - Shanghai Shanghai Shanghai Shanghai</a></div>
-                <div class="small"><a href="/discover?keywords=月报"># 月报</a></div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <a class="img" href="#" data-original="/upload/a02e0ac876e406e2dbfc.jpg"></a>
-            <div>
-                <div class="small">July 16, 2019<span class="ml2 green">EVENTS</span></div>
-                <p class="list-title">NEO announces consenus node selction cycle as part of its efforts to accelerate decentralization</p>
-            </div>
+<div class="container">
+    <div class="mt1">
+        <h2>Text Color</h2>
+        <div class="h3 mt3">
+            <span class="color-n">Normal Color</span>
+            <span class="green">Green</span>
+            <span class="green2">Green2</span>
+            <span class="gray">Gray</span>
+            <br /><br />
+            <span class="red">Red</span>
         </div>
     </div>
 </div>
-
-<div class="mt2">
-    <h2>List3</h2>
-    <div class="row list3 mt5 b3">
-        <div class="col-md-4">
-            <span class="green">
-                Mainstream
-                Languages
-            </span>
-            <ul class="list-ul">
-                <li>c#</li>
-                <li>Python</li>
-                <li>Java</li>
-                <li>JavaScript</li>
-                <li>Go</li>
-            </ul>
+<div class="container">
+    <div class="mt1">
+        <h2>Opacity</h2>
+        <div class="h3 mt3">
+            <span class="op-100">100</span>
+            <span class="op-90">90</span>
+            <span class="op-80">80</span>
+            <span class="op-70">70</span>
+            <span class="op-50">50</span>
+            <span class="op-20">20</span>
         </div>
-        <div class="col-md-4">
-            <span class="green">Highly Active Network</span>
-            <ul class="list-ul list-inline">
-                <li>2,000,000 +<span>Wallet Address</span></li>
-                <li>1,000,000 +<span>Media Follower</span></li>
-                <li>100 +<span>dApps</span></li>
-                <li>1,000 +<span>Contributor</span></li>
-            </ul>
-        </div>
-        <div class="col-md-4">
-            <span class="green">Global Neo Communities</span>
-            <ul class="list-ul list-inline">
-                <li>20 +<span>Cities</span></li>
-                <li>7 +<span>Media Follower</span></li>
-                <li>3,800 +<span>Community members</span></li>
-                <li>60 +<span>Meetups</span></li>
+    </div>
+</div>
+<div class="container">
+    <div class="mt1">
+        <h2>Backgound</h2>
+        <div class="mt6">
+            <ul>
+                <li class="b1 p3">Text Color</li>
+                <li class="b2 p3">Text Color</li>
+                <li class="b3 p3">Text Color</li>
+                <li class="b4 p3">Text Color</li>
+                <li class="b-white p3">White Background</li>
             </ul>
         </div>
     </div>
 </div>
+<div class="container">
+    <div class="mt1">
+        <h2>Margin & Padding</h2>
+        <ul class="mt6">
+            <li class="b1 mt1">Margin Top1</li>
+            <li class="b1 mt2">Margin Top2</li>
+            <li class="b1 mt3">Margin Top3</li>
+            <li class="b1 mt4">Margin Top4</li>
+            <li class="b1 mt5">Margin Top5</li>
+            <li class="b1 mt6">Margin Top6</li>
+            <li class="b1 mt7">Margin Top7</li>
+        </ul>
+        <ul class="mt6 list-none">
+            <li class="b2 mr1">Margin Right1</li>
+            <li class="b2 mr2">Margin Right2</li>
+            <li class="b2 mr3">Margin Right3</li>
+            <li class="b2">&nbsp;&nbsp;Demo&nbsp;&nbsp;</li>
+            <li class="b2 ml1">Margin Left1</li>
+            <li class="b2 ml2">Margin Left2</li>
+            <li class="b2 ml3">Margin Left3</li>
+        </ul>
+        <ul class="mt6 list-none">
+            <li class="b3 p1">Padding1</li>
+            <li class="b3 p2">Padding2</li>
+            <li class="b3 p3">Padding3</li>
+            <li class="b3 p4">Padding4</li>
+        </ul>
+    </div>
+</div>
+<div class="container">
+    <div class="mt2">
+        <h2>List1</h2>
+        <p class="h7 mt6">左右结构，首屏&dev页面有复用，小屏幕进行左右显示（可以使用img、span进行样式切换）</p>
 
-<div class="mt2">
-    <h2>Module1</h2>
-    <p class="mt6">图文顺序按照小屏幕的位置进行摆放即可，class的命名方式如下：<br />图片：module-img；<br />文案：module-text；</p>
-    <div class="module1 mt4 p3">
-        <img class="module-img" data-original="/upload/9d72559e7e6b34e75a8f.jpg" />
-        <div class="module-text">
-            <h2>Get a NEO Wallet today, and take control of your assets!</h2>
-            <p class="mt4"><a class="btn">GET WALLET</a></p>
+        <div class="row list1">
+            <div class="col-md-4">
+                <img />
+                <div>
+                    <div class="list-title">上海 - Shanghai Shanghai</div>
+                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie Praesent justo.</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <span class="iconfont">&#xe71d;</span>
+                <div>
+                    <div class="list-title">NEO JOY 2019</div>
+                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie Praesent justo.</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <span class="iconfont">&#xe71d;</span>
+                <div>
+                    <div class="list-title">NEO JOY 2019</div>
+                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie Praesent justo.</div>
+                    <div><a>LEARN MORE</a></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <span class="iconfont">&#xe71d;</span>
+                <div>
+                    <div class="list-title">NEO JOY 2019</div>
+                    <div><a>LEARN MORE</a></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <span class="iconfont">&#xe71d;</span>
+                <div class="text-left">
+                    <div class="list-title">NEO JOY 2019</div>
+                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie Praesent justo.</div>
+                    <div><a>LEARN MORE</a></div>
+                </div>
+            </div>
+            <div class="col-md-4 text-left">
+                <span class="iconfont">&#xe71d;</span>
+                <div>
+                    <div class="list-title">NEO JOY 2019</div>
+                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie Praesent justo.</div>
+                    <div class="text-right"><a>LEARN MORE</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="row list1 left">
+            <div class="col-md-4">
+                <img />
+                <div>
+                    <div class="list-title">上海 - Shanghai Shanghai</div>
+                    <div class="list-con">c#, python, golang, <br />js/typescript, java</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <span class="iconfont">&#xe71d;</span>
+                <div>
+                    <div class="list-title">NEO JOY 2019</div>
+                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie Praesent justo.</div>
+                </div>
+            </div>
         </div>
     </div>
-
-    <div class="module1 mt3 p3">
-        <h2 class="module-text">Global Neo Community</h2>
-        <img class="module-img" data-original="/upload/9d72559e7e6b34e75a8f.jpg" />
-        <div class="module-text">
-            <p class="mt5">Get a NEO Wallet today, and take control of your assets!</p>
-            <p class="mt4"><a class="btn">GET WALLET</a></p>
-        </div>
-    </div>
-
-    <div class="module1 left mt3 p3">
-        <h2 class="module-text">Global Neo Community</h2>
-        <img class="module-img" data-original="/upload/9d72559e7e6b34e75a8f.jpg" />
-        <div class="module-text">
-            <p class="mt5">Get a NEO Wallet today, and take control of your assets!</p>
-            <p class="mt4"><a class="btn">GET WALLET</a></p>
+</div>
+<div class="container">
+    <div class="mt2">
+        <h2>List2</h2>
+        <div class="row list2">
+            <div class="col-md-4">
+                <a class="img" href="#" data-original="/upload/d1095aee6bdec4e35e7a.png"></a>
+                <div>
+                    <div class="small">July 16, 2019<span class="ml2 green">EVENTS</span></div>
+                    <div class="list-title"><a href="#">NEO JOY 2019 - Shanghai Shanghai Shanghai Shanghai</a></div>
+                    <div class="small">Wed, 2019-07-30, 16:30 - 18:30<br />China, Shanghai</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <a class="img" href="#" data-original="/upload/cd8bd15eafe7dcf50dc7.jpg"></a>
+                <div>
+                    <div class="small">July 16, 2019<span class="ml2 green">EVENTS</span></div>
+                    <div class="list-title"><a href="#">NEO JOY 2019 - Shanghai Shanghai Shanghai Shanghai</a></div>
+                    <div class="small"><a href="/discover?keywords=月报"># 月报</a></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <a class="img" href="#" data-original="/upload/a02e0ac876e406e2dbfc.jpg"></a>
+                <div>
+                    <div class="small">July 16, 2019<span class="ml2 green">EVENTS</span></div>
+                    <p class="list-title">NEO announces consenus node selction cycle as part of its efforts to accelerate decentralization</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<div class="mt2">
-    <h2>Table</h2>
-    <h4 class="mt6">table</h4>
-    <table class="table mt4">
-        <thead>
-            <tr>
-                <th>head</th>
-                <th>head</th>
-                <th>head</th>
-                <th>head</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>body</td>
-                <td>body</td>
-                <td>body</td>
-                <td>body</td>
-            </tr>
-            <tr>
-                <td>body</td>
-                <td>body</td>
-                <td>body</td>
-                <td>body</td>
-            </tr>
-            <tr>
-                <td>body</td>
-                <td>body</td>
-                <td>body</td>
-                <td>body</td>
-            </tr>
-            <tr>
-                <td>body</td>
-                <td>body</td>
-                <td>body</td>
-                <td>body</td>
-            </tr>
-        </tbody>
-    </table>
+<h2 class="container mt2">List3</h2>
+<div class="b3">
+    <div class="container">
+        <div class="row list3 mt5">
+            <div class="col-md-4">
+                <span class="green">
+                    Mainstream
+                    Languages
+                </span>
+                <ul class="list-ul">
+                    <li>c#</li>
+                    <li>Python</li>
+                    <li>Java</li>
+                    <li>JavaScript</li>
+                    <li>Go</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <span class="green">Highly Active Network</span>
+                <ul class="list-ul list-inline">
+                    <li>2,000,000 +<span>Wallet Address</span></li>
+                    <li>1,000,000 +<span>Media Follower</span></li>
+                    <li>100 +<span>dApps</span></li>
+                    <li>1,000 +<span>Contributor</span></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <span class="green">Global Neo Communities</span>
+                <ul class="list-ul list-inline">
+                    <li>20 +<span>Cities</span></li>
+                    <li>7 +<span>Media Follower</span></li>
+                    <li>3,800 +<span>Community members</span></li>
+                    <li>60 +<span>Meetups</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="mt2">
+        <h2>Module</h2>
+        <p class="mt6">图文顺序按照小屏幕的位置进行摆放即可，class的命名方式如下：<br />图片：module-img；<br />文案：module-text；</p>
+        <div class="module mt4 p3">
+            <img class="module-img" data-original="/upload/9d72559e7e6b34e75a8f.jpg" />
+            <div class="module-text">
+                <h2>Get a NEO Wallet today, and take control of your assets!</h2>
+                <p class="mt4"><a class="btn">GET WALLET</a></p>
+            </div>
+        </div>
 
-    <h4 class="mt4">ul & li</h4>
-    <div class="table mt5">
-        <ul class="table-head">
-            <li>head</li>
-            <li>head</li>
-            <li>head</li>
-            <li>head</li>
-        </ul>
-        <ul class="table-row">
-            <li>body</li>
-            <li>body</li>
-            <li>body</li>
-            <li>body</li>
-        </ul>
-        <ul class="table-row">
-            <li>body</li>
-            <li>body</li>
-            <li>body</li>
-            <li>body</li>
-        </ul>
-        <ul class="table-row">
-            <li>body</li>
-            <li>body</li>
-            <li>body</li>
-            <li>body</li>
-        </ul>
-        <ul class="table-row">
-            <li>body</li>
-            <li>body</li>
-            <li>body</li>
-            <li>body</li>
-        </ul>
+        <div class="module mt3 p3">
+            <h2 class="module-text">Global Neo Community</h2>
+            <img class="module-img" data-original="/upload/9d72559e7e6b34e75a8f.jpg" />
+            <div class="module-text">
+                <p class="mt5">Get a NEO Wallet today, and take control of your assets!</p>
+                <p class="mt4"><a class="btn">GET WALLET</a></p>
+            </div>
+        </div>
+
+        <div class="module left mt3 p3">
+            <img class="module-img" data-original="/upload/9d72559e7e6b34e75a8f.jpg" />
+            <div class="module-text">
+                <h2>Global Neo Community</h2>
+                <p class="mt5">Get a NEO Wallet today, and take control of your assets!</p>
+                <p class="mt4"><a class="btn">GET WALLET</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<h2 class="container mt2">Module1</h2>
+<p class="container mt6">module和module1可以叠加，使用相应的class进行命名即可。针对不同页面去调整背景图片即可。</p>
+<div class="module1 mt4 bg1">
+    <div class="container p2">
+        <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
+                <h2>Title</h2>
+                <p class="mt5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor arcu eget ultricies Lorem ipsum porta.</p>
+                <p class="mt4"><a class="btn1">GET WALLET</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mt2">
+    <div class="container">
+        <div class="module1 bg2 left mt3 p3">
+            <h2 class="module-text">Global Neo Community</h2>
+            <img class="module-img" data-original="/upload/9d72559e7e6b34e75a8f.jpg" />
+            <div class="module-text">
+                <p class="mt5">Get a NEO Wallet today, and take control of your assets!</p>
+                <p class="mt4"><a class="btn">GET WALLET</a></p>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="mt2">
-    <h2>Table2</h2>
-    <h4 class="mt6">table</h4>
-    <table class="table mt4">
-        <thead>
-            <tr>
-                <th>head</th>
-                <th>head</th>
-                <th>head</th>
-                <th>head</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>body</td>
-                <td>body</td>
-                <td>body</td>
-                <td>body</td>
-            </tr>
-            <tr>
-                <td>body</td>
-                <td>body</td>
-                <td>body</td>
-                <td>body</td>
-            </tr>
-            <tr>
-                <td>body</td>
-                <td>body</td>
-                <td>body</td>
-                <td>body</td>
-            </tr>
-            <tr>
-                <td>body</td>
-                <td>body</td>
-                <td>body</td>
-                <td>body</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="container">
+    <div class="mt2">
+        <h2>Table</h2>
+        <h4 class="mt6">table</h4>
+        <table class="table mt4">
+            <thead>
+                <tr>
+                    <th>head</th>
+                    <th>head</th>
+                    <th>head</th>
+                    <th>head</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>body</td>
+                    <td>body</td>
+                    <td>body</td>
+                    <td>body</td>
+                </tr>
+                <tr>
+                    <td>body</td>
+                    <td>body</td>
+                    <td>body</td>
+                    <td>body</td>
+                </tr>
+                <tr>
+                    <td>body</td>
+                    <td>body</td>
+                    <td>body</td>
+                    <td>body</td>
+                </tr>
+                <tr>
+                    <td>body</td>
+                    <td>body</td>
+                    <td>body</td>
+                    <td>body</td>
+                </tr>
+            </tbody>
+        </table>
 
-    <h4 class="mt4">ul & li</h4>
-    <div class="table mt5">
-        <ul class="table-head">
-            <li>head</li>
-            <li>head</li>
-            <li>head</li>
-            <li>head</li>
-        </ul>
-        <ul class="table-row">
-            <li>body</li>
-            <li>body</li>
-            <li>body</li>
-            <li>body</li>
-        </ul>
-        <ul class="table-row">
-            <li>body</li>
-            <li>body</li>
-            <li>body</li>
-            <li>body</li>
-        </ul>
-        <ul class="table-row">
-            <li>body</li>
-            <li>body</li>
-            <li>body</li>
-            <li>body</li>
-        </ul>
-        <ul class="table-row">
-            <li>body</li>
-            <li>body</li>
-            <li>body</li>
-            <li>body</li>
-        </ul>
+        <h4 class="mt4">ul & li</h4>
+        <div class="table mt5">
+            <ul class="table-head">
+                <li>head</li>
+                <li>head</li>
+                <li>head</li>
+                <li>head</li>
+            </ul>
+            <ul class="table-row">
+                <li>body</li>
+                <li>body</li>
+                <li>body</li>
+                <li>body</li>
+            </ul>
+            <ul class="table-row">
+                <li>body</li>
+                <li>body</li>
+                <li>body</li>
+                <li>body</li>
+            </ul>
+            <ul class="table-row">
+                <li>body</li>
+                <li>body</li>
+                <li>body</li>
+                <li>body</li>
+            </ul>
+            <ul class="table-row">
+                <li>body</li>
+                <li>body</li>
+                <li>body</li>
+                <li>body</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="mt2">
+        <h2>Table2</h2>
+        <h4 class="mt6">table</h4>
+        <table class="table mt4">
+            <thead>
+                <tr>
+                    <th>head</th>
+                    <th>head</th>
+                    <th>head</th>
+                    <th>head</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>body</td>
+                    <td>body</td>
+                    <td>body</td>
+                    <td>body</td>
+                </tr>
+                <tr>
+                    <td>body</td>
+                    <td>body</td>
+                    <td>body</td>
+                    <td>body</td>
+                </tr>
+                <tr>
+                    <td>body</td>
+                    <td>body</td>
+                    <td>body</td>
+                    <td>body</td>
+                </tr>
+                <tr>
+                    <td>body</td>
+                    <td>body</td>
+                    <td>body</td>
+                    <td>body</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4 class="mt4">ul & li</h4>
+        <div class="table mt5">
+            <ul class="table-head">
+                <li>head</li>
+                <li>head</li>
+                <li>head</li>
+                <li>head</li>
+            </ul>
+            <ul class="table-row">
+                <li>body</li>
+                <li>body</li>
+                <li>body</li>
+                <li>body</li>
+            </ul>
+            <ul class="table-row">
+                <li>body</li>
+                <li>body</li>
+                <li>body</li>
+                <li>body</li>
+            </ul>
+            <ul class="table-row">
+                <li>body</li>
+                <li>body</li>
+                <li>body</li>
+                <li>body</li>
+            </ul>
+            <ul class="table-row">
+                <li>body</li>
+                <li>body</li>
+                <li>body</li>
+                <li>body</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="mt2">Logo-Press</h2>
+    <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6">
+            <ul class="press">
+                <li><img src="/images/neo_logo.svg" alt="NEO Logo"></li>
+                <li><img src="/images/neo_logo.svg" alt="NEO Logo"></li>
+                <li><img src="/images/neo_logo.svg" alt="NEO Logo"></li>
+                <li><img src="/images/neo_logo.svg" alt="NEO Logo"></li>
+                <li><img src="/images/neo_logo.svg" alt="NEO Logo"></li>
+                <li><img src="/images/neo_logo.svg" alt="NEO Logo"></li>
+                <li><img src="/images/neo_logo.svg" alt="NEO Logo"></li>
+                <li><img src="/images/neo_logo.svg" alt="NEO Logo"></li>
+            </ul>
+        </div>
     </div>
 </div>

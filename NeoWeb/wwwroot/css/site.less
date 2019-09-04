@@ -321,8 +321,6 @@ a[class|=btn]{
     letter-spacing: 0.2px;
     font-weight: 600;
     display: inline-block;
-    padding: 8px 0;
-    line-height: 1.4;
     cursor: pointer;
     transition: color .2s;
 
@@ -351,19 +349,14 @@ a[class|=btn]{
 
 
 /*背景色*/
-.b1 {
-    background: @linear;
-    color: @linear-text;
+.bg1 {
+    background-image: url(../images/design/bg1-2.svg),@green-gradient;
 }
 
-.b2 {
-    background: @green;
-    color: @btn-text !important;
+.bg2 {
+    background-image: url(../images/design/bg1-2.svg);
 }
-.b3 {
-    background: @dark;
-    color: @dark-text;
-}
+
 .b-white{
     background:#FFFFFF;
 }
@@ -513,7 +506,7 @@ i.iconfont {
 .list1 {
     text-align: center;
 
-    div[class|=col],> li {
+    div[class|=col], > li {
         .mt4;
         list-style: none;
 
@@ -543,9 +536,10 @@ i.iconfont {
     }
 
     &.left {
-        text-align:left;
+        text-align: left;
+
         div[class|=col] {
-            div,.list-title {
+            div, .list-title {
                 margin-top: 0;
                 margin-bottom: @length7;
             }
@@ -554,7 +548,8 @@ i.iconfont {
                 .mr2;
                 float: left;
             }
-            .list-con{
+
+            .list-con {
                 .bold;
             }
         }
@@ -563,12 +558,12 @@ i.iconfont {
     @media only screen and (max-width: 768px) {
         text-align: left !important;
 
-        div[class|=col],> li {
+        div[class|=col], > li {
             list-style: none;
 
             img, .img, .iconfont {
                 float: left;
-                margin-right: 20px;
+                margin-right: 20px!important;
             }
 
             div {
@@ -650,7 +645,6 @@ i.iconfont {
         div[class|=col],> li {
             list-style: none;
 
-
             a {
                 &.img {
                     float: left;
@@ -676,6 +670,7 @@ i.iconfont {
 
     div[class|=col], > li {
         .mt3;
+
         > span {
             .mt6;
             float: left;
@@ -705,6 +700,7 @@ i.iconfont {
 
     @media only screen and (max-width: 768px) {
         text-align: center;
+        .pt0;
 
         div[class|=col], > li {
             > span {
@@ -723,7 +719,7 @@ i.iconfont {
     }
 }
 
-.module1 {
+.module {
     .module-img {
         float: right;
         width: 100%;
@@ -791,6 +787,19 @@ i.iconfont {
     }
 }
 
+.module1 {
+    .module;
+
+    background-position: left,bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @media only screen and (max-width: 768px) {
+        padding-bottom:@length2;
+        text-align:center;
+    }
+}
+
 table, .table {
     display: table;
     width: 100%;
@@ -822,4 +831,39 @@ table, .table {
 
 .table2 {
     .table;
+}
+
+.press {
+    .mt5;
+    padding: 0;
+    width: 100%;
+    font-size: 0;
+
+    li {
+        .mt4;
+        display: inline-block;
+        list-style: none;
+        width: calc(25% - 22px);
+        min-width: 110px;
+        text-align: center;
+        margin-left:10px;
+        margin-right:10px;
+
+        img {
+            display: inline-block;
+            max-height: 40px;
+        }
+    }
+
+
+    @media only screen and (max-width: 768px) {
+
+        li {
+            min-width: 90px;
+
+            img {
+                max-height: 34px;
+            }
+        }
+    }
 }
