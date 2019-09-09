@@ -43,7 +43,7 @@ namespace NeoWeb.Controllers
             IQueryable<Event> events = _context.Events;
             IQueryable<News> news = _context.News;
 
-            List<DiscoverViewModel> viewModels = new List<DiscoverViewModel>();
+            var viewModels = new List<DiscoverViewModel>();
 
             // year filter
             if (year != null)
@@ -93,23 +93,23 @@ namespace NeoWeb.Controllers
                 }
             }
 
-            bool isZh = _sharedLocalizer["en"] == "zh";
+            var isZh = _sharedLocalizer["en"] == "zh";
             // type filter
             switch (type)
             {
                 case (int)DiscoverViewModelType.Blog:
-                    AddBlogs(blogs, viewModels, isZh);
+                    Helper.AddBlogs(blogs, viewModels, isZh);
                     break;
                 case (int)DiscoverViewModelType.Event:
-                    AddEvents(events, viewModels, isZh);
+                    Helper.AddEvents(events, viewModels, isZh);
                     break;
                 case (int)DiscoverViewModelType.News:
-                    AddNews(news, viewModels, isZh);
+                    Helper.AddNews(news, viewModels, isZh);
                     break;
                 default:
-                    AddBlogs(blogs, viewModels, isZh);
-                    AddEvents(events, viewModels, isZh);
-                    AddNews(news, viewModels, isZh);
+                    Helper.AddBlogs(blogs, viewModels, isZh);
+                    Helper.AddEvents(events, viewModels, isZh);
+                    Helper.AddNews(news, viewModels, isZh);
                     break;
             }
 
@@ -125,15 +125,15 @@ namespace NeoWeb.Controllers
                     switch (top.Type)
                     {
                         case DiscoverViewModelType.Blog:
-                            AddBlogs(_context.Blogs.Where(p => p.Id == top.ItemId), topItems, isZh);
+                            Helper.AddBlogs(_context.Blogs.Where(p => p.Id == top.ItemId), topItems, isZh);
                             viewModels.RemoveAll(p => p.Type == top.Type && p.Blog.Id == top.ItemId);
                             break;
                         case DiscoverViewModelType.Event:
-                            AddEvents(_context.Events.Where(p => p.Id == top.ItemId), topItems, isZh);
+                            Helper.AddEvents(_context.Events.Where(p => p.Id == top.ItemId), topItems, isZh);
                             viewModels.RemoveAll(p => p.Type == top.Type && p.Event.Id == top.ItemId);
                             break;
                         case DiscoverViewModelType.News:
-                            AddNews(_context.News.Where(p => p.Id == top.ItemId), topItems, isZh);
+                            Helper.AddNews(_context.News.Where(p => p.Id == top.ItemId), topItems, isZh);
                             viewModels.RemoveAll(p => p.Type == top.Type && p.News.Id == top.ItemId);
                             break;
                     }
@@ -151,62 +151,6 @@ namespace NeoWeb.Controllers
             ViewBag.UserRules = _userRules;
 
             return View(viewModels);
-        }
-
-        private void AddBlogs(IQueryable<Blog> blogs, List<DiscoverViewModel> viewModels, bool isZh)
-        {
-            blogs.Select(p => new BlogViewModel()
-            {
-                Id = p.Id,
-                CreateTime = p.CreateTime,
-                Title = isZh ? p.ChineseTitle : p.EnglishTitle,
-                Tags = isZh ? p.ChineseTags : p.EnglishTags,
-                Cover = isZh ? p.ChineseCover : p.EnglishCover,
-                IsShow = p.IsShow
-            }).ToList().ForEach(p => viewModels.Add(new DiscoverViewModel()
-            {
-                Type = DiscoverViewModelType.Blog,
-                Blog = p,
-                Time = p.CreateTime
-            }));
-        }
-
-        private void AddEvents(IQueryable<Event> events, List<DiscoverViewModel> viewModels, bool isZh)
-        {
-            events.Select(p => new EventViewModel()
-            {
-                Id = p.Id,
-                StartTime = p.StartTime,
-                EndTime = p.EndTime,
-                Name = isZh ? p.ChineseName : p.EnglishName,
-                Tags = isZh ? p.ChineseTags : p.EnglishTags,
-                Country = isZh ? p.Country.ZhName : p.Country.Name,
-                City = isZh ? p.ChineseCity : p.EnglishCity,
-                Cover = isZh ? p.ChineseCover : p.EnglishCover
-            }).ToList().ForEach(p => viewModels.Add(new DiscoverViewModel()
-            {
-                Type = DiscoverViewModelType.Event,
-                Event = p,
-                Time = p.StartTime
-            }));
-        }
-
-        private void AddNews(IQueryable<News> news, List<DiscoverViewModel> viewModels, bool isZh)
-        {
-            news.Select(p => new NewsViewModel()
-            {
-                Id = p.Id,
-                Time = p.Time,
-                Link = p.Link,
-                Cover = isZh ? p.ChineseCover : p.EnglishCover,
-                Title = isZh ? p.ChineseTitle : p.EnglishTitle,
-                Tags = isZh ? p.ChineseTags : p.EnglishTags
-            }).ToList().ForEach(p => viewModels.Add(new DiscoverViewModel()
-            {
-                Type = DiscoverViewModelType.News,
-                News = p,
-                Time = p.Time
-            }));
         }
     }
 }

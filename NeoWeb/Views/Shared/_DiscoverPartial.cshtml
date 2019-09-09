@@ -1,0 +1,65 @@
+﻿@model List<DiscoverViewModel>
+
+@for (int i = 0; i < Model.Count(); i++)
+{
+    var item = (Model)[i];
+    var count = 24;
+    <div class="col-md-4 group-@(i/count)">
+        @if (item.Type == DiscoverViewModelType.Blog)
+        {
+            <a class="img" href="~/blog/details/@item.Blog.Id" data-original="@String.Format("/upload/{0}", @item.Blog.Cover).ToLower()"></a>
+            <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green">@item.Type</span></div>
+            <div class="list-title"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></div>
+
+            @if (ViewBag.UserRules != null && ViewBag.UserRules)
+            {
+                <a asp-action="Edit" asp-controller="Blog" asp-route-id="@item.Blog.Id">Edit</a>
+                <a class="ml-2" asp-action="Delete" asp-controller="Blog" asp-route-id="@item.Blog.Id">Delete</a>
+            }
+            <div class="small">
+                @if (!string.IsNullOrEmpty(item.Blog.Tags))
+                {
+                    foreach (var tag in item.Blog.Tags.Split(','))
+                    {
+                        <a href="~/discover?keywords=@tag.Trim()"># @tag.Trim()</a>
+                    }
+                }
+            </div>
+        }
+        else if (item.Type == DiscoverViewModelType.Event)
+        {
+            <a class="img" href="~/event/details/@item.Event.Id" data-original="@String.Format("/upload/{0}", @item.Event.Cover).ToLower()"></a>
+            <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green">@item.Type</span></div>
+            <div class="list-title"><a href="~/event/details/@item.Event.Id">@item.Event.Name</a></div>
+            @if (ViewBag.UserRules != null && ViewBag.UserRules)
+            {
+                <a asp-action="Edit" asp-controller="Event" asp-route-id="@item.Event.Id">Edit</a>
+                <a class="ml-2" asp-action="Delete" asp-controller="Event" asp-route-id="@item.Event.Id">Delete</a>
+            }
+
+            <div class="small">
+                @if (item.Event.StartTime.Date == item.Event.EndTime.Date)
+                {
+                    <div>@item.Event.StartTime.DayOfWeek.ToString().Substring(0, 3), @item.Event.StartTime.ToString("yyyy-MM-dd HH:mm") - @item.Event.EndTime.ToString("HH:mm")</div>
+                }
+                else
+                {
+                    <div>@item.Event.StartTime.ToString("yyyy-MM-dd HH:mm") - @item.Event.EndTime.ToString("yyyy-MM-dd HH:mm")</div>
+                }
+                <div>@item.Event.Country - @item.Event.City</div>
+            </div>
+        }
+        else if (item.Type == DiscoverViewModelType.News)
+        {
+            <a class="img" href="@item.News.Link" target="_blank" data-original="@String.Format("/upload/{0}", @item.News.Cover).ToLower()"></a>
+            <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green">@item.Type</span></div>
+            <div class="list-title"><a href="@item.News.Link" target="_blank">@item.News.Title</a></div>
+            @if (ViewBag.UserRules != null && ViewBag.UserRules)
+            {
+                <a asp-action="Edit" asp-controller="News" asp-route-id="@item.News.Id">Edit</a>
+                <a class="ml-2" asp-action="Delete" asp-controller="News" asp-route-id="@item.News.Id">Delete</a>
+            }
+            <div class="small">>@item.News.Tags</div>
+        }
+    </div>
+}

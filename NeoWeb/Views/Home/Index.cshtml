@@ -1,4 +1,5 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
+﻿@model List<DiscoverViewModel>
+@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 
 @section Styles{
@@ -118,29 +119,7 @@
 <div class="container mt1">
     <h2>Discover <a class="btn2">View More</a></h2>
     <div class="row list2">
-        <div class="col-md-4">
-            <a class="img" href="#" data-original="/upload/d1095aee6bdec4e35e7a.png"></a>
-            <div>
-                <div class="small">July 16, 2019<span class="ml2 green">EVENTS</span></div>
-                <div class="list-title"><a href="#">NEO JOY 2019 - Shanghai Shanghai Shanghai Shanghai</a></div>
-                <div class="small">Wed, 2019-07-30, 16:30 - 18:30<br />China, Shanghai</div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <a class="img" href="#" data-original="/upload/cd8bd15eafe7dcf50dc7.jpg"></a>
-            <div>
-                <div class="small">July 16, 2019<span class="ml2 green">EVENTS</span></div>
-                <div class="list-title"><a href="#">NEO JOY 2019 - Shanghai Shanghai Shanghai Shanghai</a></div>
-                <div class="small"><a href="/discover?keywords=月报"># 月报</a></div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <a class="img" href="#" data-original="/upload/a02e0ac876e406e2dbfc.jpg"></a>
-            <div>
-                <div class="small">July 16, 2019<span class="ml2 green">EVENTS</span></div>
-                <p class="list-title">NEO announces consenus node selction cycle as part of its efforts to accelerate decentralization</p>
-            </div>
-        </div>
+        @{await Html.RenderPartialAsync("_DiscoverPartial", Model);}
     </div>
 </div>
 <div class="container p2 mt4">

@@ -29,10 +29,16 @@ namespace NeoWeb.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.Blog = _context.Blogs.OrderByDescending(p => p.CreateTime).Take(2);
-            ViewBag.Event = _context.Events.Include(m => m.Country).OrderByDescending(p => p.EndTime).Take(1);
-            ViewBag.Language = _sharedLocalizer["en"];
-            return View();
+            var count = 3;
+            var blogs = _context.Blogs.OrderByDescending(p => p.CreateTime).Take(count);
+            var events = _context.Events.OrderByDescending(p => p.StartTime).Take(count);
+            var news = _context.News.OrderByDescending(p => p.Time).Take(count);
+            var viewModels = new List<DiscoverViewModel>();
+            var isZh = _sharedLocalizer["en"] == "zh";
+            Helper.AddBlogs(blogs, viewModels, isZh);
+            Helper.AddEvents(events, viewModels, isZh);
+            Helper.AddNews(news, viewModels, isZh);
+            return View(viewModels.Take(count).ToList());
         }
 
         [HttpPost]
