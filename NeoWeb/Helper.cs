@@ -104,7 +104,7 @@ namespace NeoWeb
             {
                 html = html.Substring(0, length);
             }
-            return html;
+            return html.Trim();
         }
 
         public static string GetLanguage(this string text)
