@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
-  <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
-  <g>
-    <line y2="50" x2="100" y1="50" x1="0" stroke-width="1.5" stroke="#000" fill="none"/>
-    <line y2="100" x2="50" y1="0" x1="50" stroke-width="1.5" stroke="#000" fill="none"/>
-  </g>
-  <path d="M0 100 L50 0 L100 100" stroke-width="1.5" stroke="#000" fill="none"/>
-</svg>
