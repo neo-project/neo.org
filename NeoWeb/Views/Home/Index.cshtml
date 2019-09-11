@@ -25,7 +25,7 @@
                     network of blockchain solution
                 </h3>
                 <div class="mt4">
-                    <a class="btn">LEARN MORE</a>
+                    <a asp-controller="about" asp-action="index" class="btn">LEARN MORE</a>
                 </div>
             </div>
         </div>
@@ -40,7 +40,7 @@
             <p class="mt6">
                 As the most-developer friendly platform, NEO is supporting 70-plus dAPPs with its comprehensive suite of tools and resources, ranging from DevPack and NeoContract to off and online training sessions
             </p>
-            <a class="btn mt4">LEARN MORE</a>
+            <a asp-controller="dev" asp-action="index" class="btn mt4">GET STARTED</a>
         </div>
     </div>
 </div>
@@ -72,8 +72,8 @@
             <div class="col-md-4">
                 <span class="green">Global Neo Communities</span>
                 <ul class="list-ul list-inline">
-                    <li>20 +<span>Cities</span></li>
-                    <li>7 +<span>Media Follower</span></li>
+                    <li>20<span>Cities</span></li>
+                    <li>7<span>Countries</span></li>
                     <li>3,800 +<span>Community members</span></li>
                     <li>60 +<span>Meetups</span></li>
                 </ul>
@@ -84,11 +84,11 @@
 
 <div class="container">
     <div class="module mt3 p3">
-        <h2 class="module-text">Global Neo Community</h2>
+        <h2 class="module-text">NEO’s Ecosystem   </h2>
         <img class="module-img" data-original="/images/home/Ecosystem.png" />
         <div class="module-text">
-            <p class="mt5">Get a NEO Wallet today, and take control of your assets!</p>
-            <p class="mt4"><a class="btn">GET WALLET</a></p>
+            <p class="mt5">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
+            <p class="mt4"><a asp-controller="eco" asp-action="index" class="btn">LEARN MORE</a></p>
         </div>
     </div>
 </div>
@@ -100,7 +100,7 @@
             <div class="col-md-7">
                 <h2>Partner with us and power up for success</h2>
                 <p class="mt5">NEO is investing USD100million through its EcoBoost initiative to accelerate the realization of  large-scale commercial blockchain solutions by empowering our developers and dAPPs</p>
-                <p class="mt4"><a class="btn1">GET WALLET</a></p>
+                <p class="mt4"><a asp-controller="eco" asp-action="ecoboost" class="btn1">LEARN MORE</a></p>
             </div>
         </div>
     </div>
@@ -111,13 +111,13 @@
         <img class="module-img" data-original="/images/home/GetWallet.svg" />
         <div class="module-text">
             <h2>Get a NEO Wallet today, and take control of your assets!  </h2>
-            <p class="mt4"><a class="btn">GET WALLET</a></p>
+            <p class="mt4"><a asp-controller="client" asp-action="index" class="btn">GET WALLET</a></p>
         </div>
     </div>
 </div>
 
 <div class="container mt1">
-    <h2>Discover <a class="btn2">View More</a></h2>
+    <h2>Discover<a asp-controller="discover" asp-action="index" class="btn2">View More</a></h2>
     <div class="row list2">
         @{await Html.RenderPartialAsync("_DiscoverPartial", Model);}
     </div>

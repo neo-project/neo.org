@@ -7,7 +7,14 @@
     <div class="col-md-4 group-@(i/count)">
         @if (item.Type == DiscoverViewModelType.Blog)
         {
-            <a class="img" href="~/blog/details/@item.Blog.Id" data-original="@String.Format("/upload/{0}", @item.Blog.Cover).ToLower()"></a>
+            @if (string.IsNullOrEmpty(item.Blog.Cover))
+            {
+                <a class="img" href="~/blog/details/@item.Blog.Id" data-original="@Helper.ToCDN("/images/discover/blog.png")"></a>
+            }
+            else
+            {
+                <a class="img" href="~/blog/details/@item.Blog.Id" data-original="@String.Format("/upload/{0}", @item.Blog.Cover).ToLower()"></a>
+            }
             <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green">@item.Type</span></div>
             <div class="list-title"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></div>
 
@@ -28,7 +35,14 @@
         }
         else if (item.Type == DiscoverViewModelType.Event)
         {
-            <a class="img" href="~/event/details/@item.Event.Id" data-original="@String.Format("/upload/{0}", @item.Event.Cover).ToLower()"></a>
+            @if (string.IsNullOrEmpty(item.Event.Cover))
+            {
+                <a class="img" href="~/event/details/@item.Event.Id" data-original="@Helper.ToCDN("/images/discover/event.png")"></a>
+            }
+            else
+            {
+                <a class="img" href="~/event/details/@item.Event.Id" data-original="@String.Format("/upload/{0}", @item.Event.Cover).ToLower()"></a>
+            }
             <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green">@item.Type</span></div>
             <div class="list-title"><a href="~/event/details/@item.Event.Id">@item.Event.Name</a></div>
             @if (ViewBag.UserRules != null && ViewBag.UserRules)
@@ -51,7 +65,14 @@
         }
         else if (item.Type == DiscoverViewModelType.News)
         {
-            <a class="img" href="@item.News.Link" target="_blank" data-original="@String.Format("/upload/{0}", @item.News.Cover).ToLower()"></a>
+            @if (string.IsNullOrEmpty(item.News.Cover))
+            {
+                <a class="img" href="@item.News.Link" target="_blank" data-original="@Helper.ToCDN("/images/discover/news.png")"></a>
+            }
+            else
+            {
+                <a class="img" href="@item.News.Link" target="_blank" data-original="@String.Format("/upload/{0}", @item.News.Cover).ToLower()"></a>
+            }
             <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green">@item.Type</span></div>
             <div class="list-title"><a href="@item.News.Link" target="_blank">@item.News.Title</a></div>
             @if (ViewBag.UserRules != null && ViewBag.UserRules)
