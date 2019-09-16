@@ -20,22 +20,30 @@
 <div class="title-line h3 m1">@Localizer["Blockchain Info"]</div>
 <div class="row block-info m2">
     <div class="info-cont">
-        <p class="info-icon gray-text"><i class="iconfont">&#xe619;</i></p>
+        <p class="info-icon gray-text">
+            <img @Helper.ToCDN("/images/consensus/BlockHeight.svg") />
+        </p>
         <p class="t3">@Localizer["Block Height"]</p>
         <span class="t2" id="blohei">--</span>
     </div>
     <div class="info-cont">
-        <p class="info-icon gray-text"><i class="iconfont">&#xe6c1;</i></p>
+        <p class="info-icon gray-text">
+            <img @Helper.ToCDN("/images/consensus/CastTime.svg") />
+        </p>
         <p class="t3">@Localizer["Last Time"]</p>
         <span class="t2" id="lastime">--</span>
     </div>
     <div class="info-cont">
-        <p class="info-icon gray-text"><i class="iconfont">&#xe61c;</i></p>
+        <p class="info-icon gray-text">
+            <img @Helper.ToCDN("/images/consensus/Candidate.svg") />
+        </p>
         <p class="t3">@Localizer["Candidate Count"]</p>
         <span class="t2" id="cannum">--</span>
     </div>
     <div class="info-cont">
-        <p class="info-icon gray-text"><i class="iconfont">&#xe609;</i></p>
+        <p class="info-icon gray-text">
+            <img @Helper.ToCDN("/images/consensus/Consensus.svg") />
+        </p>
         <p class="t3">@Localizer["Consensus Count"]</p>
         <span class="t2" id="connum">--</span>
     </div>
