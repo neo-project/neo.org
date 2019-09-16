@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
 @inject IViewLocalizer Localizer
 @{
     ViewData["Title"] = Localizer["Developer"].Value;
@@ -15,37 +16,37 @@
     <h1 class="w800">Developer Portal</h1>
     <p class="mt5 w600">Our ecosystem's wallets are compatible with your platform of choice, from Windows to Apple. Create a wallet today, and open up a new world of possibilities!</p>
     <p class="mt5">
-        <a class="btn mt5 mr2">NEO GITHUB</a>
-        <a class="btn mt5 mr2">NEO Docs</a>
-        <a class="btn mt5">NEO 3</a>
+        <a class="btn mt5 mr2 @SharedLocalizer["d-none-zh"]">NEO3 Page</a>
+        <a class="btn mt5 mr2">GitHub</a>
+        <a class="btn mt5">NEO Docs</a>
     </p>
 </div>
 <div class="container">
     <h3 class="mt1">What you can develop on Neo</h3>
     <div class="row list1 mt5">
         <div class="col-md-3">
-            <img data-original="/images/dev/BlockchainInfrastructure.png" />
+            <img data-original="/images/dev/BlockchainInfrastructure.svg" />
             <div>
                 <div class="list-title">Blockchain Infrastructure</div>
                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie Praesent justo.</div>
             </div>
         </div>
         <div class="col-md-3">
-            <img data-original="/images/dev/DigitalAsset.png" />
+            <img data-original="/images/dev/DigitalAsset.svg" />
             <div>
                 <div class="list-title">Digital Asset</div>
                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie Praesent justo.</div>
             </div>
         </div>
         <div class="col-md-3">
-            <img data-original="/images/dev/Defi.png" />
+            <img data-original="/images/dev/Defi.svg" />
             <div>
                 <div class="list-title">Defi</div>
                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie Praesent justo.</div>
             </div>
         </div>
         <div class="col-md-3">
-            <img data-original="/images/dev/Game.png" />
+            <img data-original="/images/dev/Game.svg" />
             <div>
                 <div class="list-title">Game</div>
                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie Praesent justo.</div>
@@ -56,7 +57,7 @@
     <h3 class="mt1">What you can develop on Neo</h3>
     <div class="row list1 left mt5">
         <div class="col-md-4">
-            <img data-original="/images/dev/MultiLanguage.png" />
+            <img data-original="/images/dev/MultiLanguage.svg" />
             <div>
                 <div class="list-title">Multi-language support</div>
                 <div class="bolder">
@@ -66,14 +67,14 @@
             </div>
         </div>
         <div class="col-md-4">
-            <img data-original="/images/dev/CompleteInfrastructure.png" />
+            <img data-original="/images/dev/CompleteInfrastructure.svg" />
             <div>
                 <div class="list-title">Complete infrastructure support</div>
                 <div class="bolder">Protocol, docs, and tools</div>
             </div>
         </div>
         <div class="col-md-4">
-            <img data-original="/images/dev/StrongDevCommunity.png" />
+            <img data-original="/images/dev/DevCommunity.svg" />
             <div>
                 <div class="list-title">Complete infrastructure support</div>
             </div>
@@ -174,45 +175,39 @@
     <h3 class="mt2">How you can be involved in NEO development</h3>
     <div class="row list1 mt5">
         <div class="col-md-4">
-            <img data-original="/images/dev/CoreDev.png" />
+            <img data-original="/images/dev/CoreDeveloper.svg" />
             <div>
                 <div class="list-title">NEO JOY 2019</div>
-                <div><a>LEARN MORE</a></div>
             </div>
         </div>
         <div class="col-md-4">
-            <img data-original="/images/dev/ToolsDev.png" />
+            <img data-original="/images/dev/ToolsDeveloper.svg" />
             <div>
                 <div class="list-title">NEO JOY 2019</div>
-                <div><a>LEARN MORE</a></div>
             </div>
         </div>
         <div class="col-md-4">
-            <img data-original="/images/dev/dAppDev.png" />
+            <img data-original="/images/dev/dAppDeveloper.svg" />
             <div>
                 <div class="list-title">NEO JOY 2019</div>
-                <div><a>LEARN MORE</a></div>
             </div>
         </div>
         <div class="col-md-4">
-            <img data-original="/images/dev/SecurityBounty.png" />
+            <img data-original="/images/dev/SecurityBounty.svg" />
             <div>
                 <div class="list-title">NEO JOY 2019</div>
-                <div><a>LEARN MORE</a></div>
             </div>
         </div>
         <div class="col-md-4">
-            <img data-original="/images/dev/OpenTask.png" />
+            <img data-original="/images/dev/OpenTasks.svg" />
             <div>
                 <div class="list-title">NEO JOY 2019</div>
-                <div><a>LEARN MORE</a></div>
             </div>
         </div>
         <div class="col-md-4">
-            <img data-original="/images/dev/MoreIdea.png" />
+            <img data-original="/images/dev/MoreIdea.svg" />
             <div>
                 <div class="list-title">NEO JOY 2019</div>
-                <div><a>LEARN MORE</a></div>
             </div>
         </div>
     </div>
@@ -220,19 +215,19 @@
 <div class="b1 text-center p2 mt1">
     <h2>Join NEO Global Communities  </h2>
     <h5>Lorem ipsum dolor sit amet adipiscing elit</h5>
-    <p><a class="btn b3">LEARN MORE</a></p>
 </div>
 
 <div class="w700 p3">
     <ul class="press mt0">
-        <li><img src="/images/neo_logo.svg" alt="NEO Logo"></li>
-        <li><img src="/images/neo_logo.svg" alt="NEO Logo"></li>
-        <li><img src="/images/neo_logo.svg" alt="NEO Logo"></li>
-        <li><img src="/images/neo_logo.svg" alt="NEO Logo"></li>
-        <li><img src="/images/neo_logo.svg" alt="NEO Logo"></li>
-        <li><img src="/images/neo_logo.svg" alt="NEO Logo"></li>
-        <li><img src="/images/neo_logo.svg" alt="NEO Logo"></li>
-        <li><img src="/images/neo_logo.svg" alt="NEO Logo"></li>
+        <li><img src="@Helper.ToCDN("/images/dev/coz.png")" /><br /><a href="https://cityofzion.io" target="_blank">City Of Zion</a></li>
+        <li><img src="@Helper.ToCDN("/images/dev/red4sec.png")" /><br /><a href="https://red4sec.com/" target="_blank">Red4Sec</a></li>
+        <li><img src="@Helper.ToCDN("/images/dev/neo_re.png")" /><br /><a href="https://neoresearch.io" target="_blank">NeoResearch</a></li>
+        <li><img src="@Helper.ToCDN("/images/dev/neo_one.png")" /><br /><a href="https://neo-one.io" target="_blank">NEO-ONE</a></li>
+        <li><img src="@Helper.ToCDN("/images/dev/nspcc.png")" /><br /><a href="https://nspcc.ru/" target="_blank">NEO SPCC</a></li>
+        <li><img src="@Helper.ToCDN("/images/dev/neow3j.png")" /><br /><a href="https://github.com/neow3j" target="_blank">neow3j</a></li>
+        <li><img src="@Helper.ToCDN("/images/dev/nel.png")" /><br /><a href="https://nel.group" target="_blank">NewEconoLabs</a></li>
+        <li><img src="@Helper.ToCDN("/images/dev/next.png")" /><br /><a href="https://neonext.club" target="_blank">NEXT</a></li>
+        <li><img src="@Helper.ToCDN("/images/dev/alien.png")" /><br /><a href="https://github.com/alienworks" target="_blank">AlienWorks</a></li>
     </ul>
     <p><a class="btn mt4">BE NEXT COMMUNITY</a></p>
 </div>
