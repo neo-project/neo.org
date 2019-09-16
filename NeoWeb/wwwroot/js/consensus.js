@@ -114,39 +114,51 @@ function showCharts(data) {
             borderRadius: '2',
             axisPointer: {
                 lineStyle: {
-                    color: '#999999'
+                    color: '#00af92'
                 }
             },
             textStyle: {
-                fontWeight: 'normal',
-                color: '#666666'
+                fontWeight: '300',
+                fontSize:'12',
+                color: '#505050'
             }
         },
         legend: {
-            icon: 'rect',
+            icon: 'diamond',
             itemWidth: 14,
             itemHeight: 14,
             itemGap: 14,
             data: [tx_v, block_s],
-            right: '0',
+            right:0,
             textStyle: {
                 fontSize: 12,
-                color: '#666666'
+                fontWeight: 100,
+                color: ['#02e49b', '00af92']
             }
         },
         grid: {
             left: '0',
-            right: '0',
+            right: '2',
             bottom: '0',
+            top: '60',
             containLabel: true
         },
         xAxis: [{
             type: 'category',
             boundaryGap: false,
             axisLine: {
+                show: false,
                 lineStyle: {
-                    color: '#CCC',
-                    opcity: '0.8'
+                    color: '#fff'
+                }
+            },
+            axisLabel: {
+                inside: false,
+                textStyle: {
+                    color: '#505050',
+                    fontWeight: '300',
+                    fontSize: '12',
+                    lineHeight: '40'
                 }
             },
             data: data.IndexList
@@ -161,10 +173,12 @@ function showCharts(data) {
                 show: false
             },
             axisLabel: {
-                margin: 10,
+                margin: 50,
                 textStyle: {
-                    color: '#CCC',
-                    fontSize: 14
+                    color: '#505050',
+                    fontWeight: '300',
+                    fontSize: '12',
+                    lineHeight: '40'
                 }
             },
             splitLine: {
@@ -182,10 +196,12 @@ function showCharts(data) {
                 show: false
             },
             axisLabel: {
-                margin: 10,
+                margin: 50,
                 textStyle: {
-                    color: '#CCC',
-                    fontSize: 14
+                    color: '#505050',
+                    fontWeight: '300',
+                    fontSize: '12',
+                    lineHeight: '40'
                 }
             },
             splitLine: {
@@ -197,12 +213,11 @@ function showCharts(data) {
         series: [{
             name: tx_v,
             type: 'line',
-            smooth: true,
             showSymbol: false,
             yAxisIndex: 0,
             lineStyle: {
                 normal: {
-                    width: 2,
+                    width: 1,
                     shadowColor: 'rgba(80,80,80,0.1)',
                     shadowBlur: 15,
                     shadowOffsetY: 30
@@ -210,19 +225,29 @@ function showCharts(data) {
             },
             itemStyle: {
                 normal: {
-                    color: 'rgb(200,220,25)'
+                    color: '#02e49b'
+                }
+            },
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(2, 228, 155, 0.1)'
+                    }, {
+                        offset: 0.3,
+                        color: '#fff'
+                    }])
                 }
             },
             data: data.TxCountList
         }, {
             name: block_s,
             type: 'line',
-            smooth: true,
             showSymbol: false,
             yAxisIndex: 1,
             lineStyle: {
                 normal: {
-                    width: 2,
+                    width: 1,
                     shadowColor: 'rgba(80,80,80,0.1)',
                     shadowBlur: 15,
                     shadowOffsetY: 30
@@ -230,7 +255,18 @@ function showCharts(data) {
             },
             itemStyle: {
                 normal: {
-                    color: 'rgb(170,203,162)'
+                    color: '#00af92'
+                }
+            },
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(0, 175, 146, 0.1)'
+                    }, {
+                        offset: 0.3,
+                        color: '#fff'
+                    }])
                 }
             },
             data: data.SizeList

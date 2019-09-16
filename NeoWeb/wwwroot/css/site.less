@@ -6,7 +6,7 @@ html,body {
     .font-family;
     letter-spacing: .3px;
     line-height: 1.4;
-    background: @back;
+    background: @white;
     color: @text;
 
     @media only screen and (max-width: 768px) {
@@ -297,6 +297,7 @@ a[class|=btn]{
     border: none;
     opacity: 1;
     transition: opacity 0.2s;
+    cursor:pointer;
 
     &:hover {
         opacity: 0.8;
@@ -360,7 +361,7 @@ a[class|=btn]{
 }
 /*背景色*/
 .bg1 {
-    background-image: url(../images/home/Partnerwithus.png),@green-gradient;
+    background-image: url(../images/home/Partnerwithus.png),@linear2;
 }
 
 .bg2 {
@@ -825,8 +826,9 @@ i.iconfont {
 
 .module1 {
     .module;
+    
     background-position: bottom;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
 
     .module-img {
@@ -840,6 +842,7 @@ i.iconfont {
     @media only screen and (max-width: 768px) {
         padding-bottom: @length2;
         text-align: center;
+        background-size:contain;
 
         .module {
             .module-img {
