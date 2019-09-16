@@ -65,33 +65,41 @@ function getListdata() {
             $("#connum").html(flag);
 
             //竞选个数
-            var html = "";
+            var html = "",html2 ="";
             for (var j in _list) {
                 if (_list[j].Info != null && _list[j].Info.Logo != null)
                     _list[j].Info.Logo = _list[j].Info.Logo.replace("~", "");
-                html += template('test', _list[j]);
 
-                if (_list[j].Info != null && _list[j].Info.SocialAccount != null) {
-                    var accountList = _list[j].Info.SocialAccount.split(';');
-                    var socialAccount = "";
-                    for (var i = 0; i < accountList.length; i++) {
-                        var account = accountList[i].split(':');
-                        var accountName = account[0];
-                        var accountLink = account[1];
-                        if (accountName.toLowerCase() == "twitter")
-                            socialAccount += "<a target=\"_blank\" href=https://twitter.com/" + accountLink + "><i class=\"iconfont\">&#xe60a;</i></a>";
-                        if (accountName.toLowerCase() == "facebook")
-                            socialAccount += "<a target=\"_blank\" href=https://www.facebook.com/" + accountLink + "><i class=\"iconfont\">&#xe87d;</i></a>";
-                        if (accountName.toLowerCase() == "weibo")
-                            socialAccount += "<a target=\"_blank\" href=https://weibo.com/" + accountLink + "><i class=\"iconfont\">&#xe610;</i></a>";
-                        if (accountName.toLowerCase() == "github")
-                            socialAccount += "<a target=\"_blank\" href=https://github.com/" + accountLink + "><i class=\"iconfont\">&#xee67;</i></a>";
-                    }
-                    html += "<p class=\"social-icon\">" + socialAccount + "<p/>";
+                if (_list[j].Active) {
+                    html += template('consensus', _list[j]);
+                } else {
+                    html2 += template('candidate', _list[j]);
                 }
+
+                //if (_list[j].Info != null && _list[j].Info.SocialAccount != null) {
+
+                //    var accountList = _list[j].Info.SocialAccount.split(';');
+                //    var socialAccount = "";
+                //    for (var i = 0; i < accountList.length; i++) {
+                //        var account = accountList[i].split(':');
+                //        var accountName = account[0];
+                //        var accountLink = account[1];
+                //        if (accountName.toLowerCase() == "twitter")
+                //            socialAccount += "<a target=\"_blank\" href=https://twitter.com/" + accountLink + "><i class=\"iconfont\">&#xe60a;</i></a>";
+                //        if (accountName.toLowerCase() == "facebook")
+                //            socialAccount += "<a target=\"_blank\" href=https://www.facebook.com/" + accountLink + "><i class=\"iconfont\">&#xe87d;</i></a>";
+                //        if (accountName.toLowerCase() == "weibo")
+                //            socialAccount += "<a target=\"_blank\" href=https://weibo.com/" + accountLink + "><i class=\"iconfont\">&#xe610;</i></a>";
+                //        if (accountName.toLowerCase() == "github")
+                //            socialAccount += "<a target=\"_blank\" href=https://github.com/" + accountLink + "><i class=\"iconfont\">&#xee67;</i></a>";
+                //    }
+                //    html += "<p class=\"social-icon\">" + socialAccount + "<p/>";
+                //}
             }
-            
-            document.getElementById('tableList').innerHTML = html;
+            console.log(_list);
+
+            document.getElementById('conList').innerHTML = html;
+            document.getElementById('canList').innerHTML = html2;
             conNum = _list.length;
         }
     });
@@ -140,7 +148,7 @@ function showCharts(data) {
             left: '0',
             right: '2',
             bottom: '0',
-            top: '60',
+            top: '65',
             containLabel: true
         },
         xAxis: [{

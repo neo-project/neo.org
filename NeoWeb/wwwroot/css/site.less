@@ -541,29 +541,29 @@ i.iconfont {
         .mt4;
         list-style: none;
 
-        img, .img, .iconfont {
-            display: inline-block;
-            width: 85px;
-            height: 85px;
-            line-height: 85px;
-            font-size: 80px;
-            text-align: center;
-        }
-
         div {
             overflow: hidden;
             margin-top: @length7;
-        }
-
-        .list-title {
-            .h4;
-            line-height: 1.2;
         }
 
         a {
             .btn2;
             float: none;
         }
+    }
+
+    img, .img, .iconfont {
+        display: inline-block;
+        width: 85px;
+        height: 85px;
+        line-height: 85px;
+        font-size: 80px;
+        text-align: center;
+    }
+
+    .list-title {
+        .h4;
+        line-height: 1.2;
     }
 
     &.left {
@@ -574,11 +574,31 @@ i.iconfont {
                 margin-top: 0;
                 margin-bottom: @length7;
             }
+        }
 
-            img, .img, .iconfont {
-                .mr2;
-                float: left;
+        img, .img, .iconfont {
+            .mr2;
+            float: left;
+        }
+    }
+
+    &.right {
+        text-align: left;
+
+        div[class|=col] {
+            div, .list-title {
+                margin-top: 0;
+                margin-bottom: @length8;
             }
+        }
+
+        img, .img, .iconfont {
+            .mr2;
+            width: 48px;
+            height: 100%;
+            font-size: 40px;
+            line-height: 50px;
+            float: right;
         }
     }
 
@@ -588,17 +608,24 @@ i.iconfont {
         div[class|=col], > li {
             list-style: none;
 
-            img, .img, .iconfont {
-                float: left;
-                margin-right: 20px!important;
-            }
-
             div {
                 margin-top: 0;
             }
+        }
 
-            .list-title {
-                line-height: 1.4;
+        img, .img, .iconfont {
+            float: left;
+            margin-right: 20px !important;
+        }
+
+        .list-title {
+            line-height: 1.4;
+        }
+
+
+        &.right {
+            img, .img, .iconfont {
+                margin-right:0!important;
             }
         }
     }
