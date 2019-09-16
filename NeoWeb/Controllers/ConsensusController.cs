@@ -32,7 +32,6 @@ namespace NeoWeb.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            ViewBag.Countries = _context.Countries.ToList();
             JArray list = JArray.Parse(System.IO.File.ReadAllText(Path.Combine(_env.ContentRootPath, "CandidateBackgrounder/validators.json")));
             ViewBag.PubKeys = new List<string>();
             foreach (JObject item in list)

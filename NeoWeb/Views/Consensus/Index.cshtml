@@ -17,38 +17,38 @@
     <link rel="stylesheet" href="@Helper.ToCDN("/lib/bootstrap-fileinput/css/fileinput.css")" />
 }
 
-<div class="title-line h3 m1">@Localizer["Blockchain Info"]</div>
-<div class="row block-info m2">
-    <div class="info-cont">
-        <p class="info-icon gray-text">
-            <img @Helper.ToCDN("/images/consensus/BlockHeight.svg") />
-        </p>
-        <p class="t3">@Localizer["Block Height"]</p>
-        <span class="t2" id="blohei">--</span>
+<div class="row mt2 list1 right">
+    <div class="col-md-3">
+        <span class="iconfont">&#xe619;</span>
+        <div>
+            <div class="list-title" id="blohei">412355678</div>
+            <div class="font2 gray">@Localizer["Block Height"]</div>
+        </div>
     </div>
-    <div class="info-cont">
-        <p class="info-icon gray-text">
-            <img @Helper.ToCDN("/images/consensus/CastTime.svg") />
-        </p>
-        <p class="t3">@Localizer["Last Time"]</p>
-        <span class="t2" id="lastime">--</span>
+    <div class="col-md-3">
+        <span class="iconfont">&#xe619;</span>
+        <div>
+            <div class="list-title" id="lastime">550s</div>
+            <div class="font2 gray">@Localizer["Last Time"]</div>
+        </div>
     </div>
-    <div class="info-cont">
-        <p class="info-icon gray-text">
-            <img @Helper.ToCDN("/images/consensus/Candidate.svg") />
-        </p>
-        <p class="t3">@Localizer["Candidate Count"]</p>
-        <span class="t2" id="cannum">--</span>
+    <div class="col-md-3">
+        <span class="iconfont">&#xe619;</span>
+        <div>
+            <div class="list-title" id="cannum">500</div>
+            <div class="font2 gray">@Localizer["Candidate Count"]</div>
+        </div>
     </div>
-    <div class="info-cont">
-        <p class="info-icon gray-text">
-            <img @Helper.ToCDN("/images/consensus/Consensus.svg") />
-        </p>
-        <p class="t3">@Localizer["Consensus Count"]</p>
-        <span class="t2" id="connum">--</span>
+    <div class="col-md-3">
+        <span class="iconfont">&#xe619;</span>
+        <div>
+            <div class="list-title" id="connum">7</div>
+            <div class="font2 gray">@Localizer["Consensus Count"]</div>
+        </div>
     </div>
 </div>
-<div class="title-line h3 m1">@Localizer["Blockchain indicator"]</div>
+
+<div class="h4 mt2 text-left">@Localizer["Blockchain indicator"]</div>
 <div class="row">
     <div class="col-sm-12">
         <div class="block-data border-static m2">
@@ -56,27 +56,29 @@
         </div>
     </div>
 </div>
-<div class="title-line h3 m1">
-    @Localizer["On-Chain & Off-Chain Governance"]
+
+<div class="mt1 p2">
+    <h3>Become a consensus node and shape your future</h3>
+    <div class="w700">
+        <p class="mt5">
+            @Localizer["Off-chain governance relies on the continued support from NEO Foundation. Candidates establish a strategic partnership with the NEO Foundation and receive votes from the Foundation.<br />On-chain governance relies on the mechanisms of the NEO blockchain itself. Candidates become a consensus node through the votes of NEO holders and maintain it independently."]<br />
+        </p>
+        <p class="mt6">
+            @Localizer["For more details, see the documentation:"]<a class="green" href="@Localizer["https://neo-ngd.github.io/reference/How-To-Become-NEO-Consensus-Node.html"]"> @Localizer["How To Become A Consensus Node"]</a>
+        </p>
+        <a class="btn mt5 mr2" href="mailto:consensus@neo.org">@Localizer["APPLY"]</a>
+        <a class="btn mt5" data-toggle="modal" data-target="#exampleModal">@Localizer["PROVIDE CANDIDATE INFO"]</a>
+    </div>
 </div>
-<div class="gray-back p2 text-center border-static m2 p1">
-    <p class="t4 w800 m3">
-        @Localizer["Off-chain governance relies on the continued support from NEO Foundation. Candidates establish a strategic partnership with the NEO Foundation and receive votes from the Foundation.<br />On-chain governance relies on the mechanisms of the NEO blockchain itself. Candidates become a consensus node through the votes of NEO holders and maintain it independently."]<br />
-    </p>
-    <p class="t4 w800 m3">
-        @Localizer["For more details, see the documentation:"]<a class="green-text" href="@Localizer["https://neo-ngd.github.io/reference/How-To-Become-NEO-Consensus-Node.html"]"> @Localizer["How To Become A Consensus Node"]</a>
-    </p>
-    <a class="btn-static btn5 m3" href="mailto:consensus@neo.org">@Localizer["Apply"]</a>
-</div>
-<div class="title-line h3 m1">
-    @Localizer["Node List"]
-</div>
-<div class="flo-clear m3">
-    <a class="btn float-right d-none d-xl-block" data-toggle="modal" data-target="#exampleModal">@Localizer["Provide Candidate Info"]</a>
-</div>
-<div class="row">
-    <ul class="col-sm-12 table-list m3" id="tableList"></ul>
-</div>
+
+
+<h3 class="mt1">@Localizer["Node List"]</h3>
+
+<div class="row node-list p2 pt0" id="conList"></div>
+
+<h3 class="mt1">@Localizer["Candidate List"]</h3>
+<div class="row node-list p2 pt0" id="canList"></div>
+
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -161,31 +163,54 @@
         </div>
     </div>
 </div>
-<script id="test" type="text/html">
-    <li class="pt0 pr0 border-static">
-        <div class="can-th p4">
-            {{if Active}}<span class="detail-left t3 bold-font green-text">@Localizer["Consensus Node"]</span>{{/if}}
-            {{if !Active}}<span class="detail-left t4">@Localizer["Candidate Node"]</span>{{/if}}
-            <div class="detail-right">
-                <span class="can-votes">@Localizer["Votes"]: {{Votes}}</span>
-                <span class="pub-key ">@Localizer["Public Key"]: <span class="text-ellipsis">{{PublicKey}}</span></span>
-            </div>
+<script id="consensus" type="text/html">
+    {{if Active}}
+    <div class="col-md-4 mt2">
+        {{if Info.Logo}}<div class="img" style="background-image:url({{Info.Logo}})"></div>{{/if}}
+        {{if Info.Organization}}<div class="h6 mt6">{{Info.Organization}}</div>{{/if}}
+        <div class="font1 mt7"><strong>@Localizer["Votes"]</strong> {{Votes}}</div>
+        <div class="mt6">
+            <span class="iconfont">&#xe619;</span>
+            <span class="iconfont">&#xe619;</span>
+            {{if Info.Website}}<a href={{Info.Website}} target="_blank"><i class="iconfont">&#xe619;</i></a>{{/if}}
+            {{if Info.Website}}<a href="mailto:{{Info.Email}}"><i class="iconfont">&#xe619;</i></a>{{/if}}
+            <a></a>
         </div>
-        {{if Info}}
-        <div class="can-detail p4">
-            <div class="detail-left" style="background-image:url({{Info.Logo}})">
-                {{if Info.Logo}}<div style="padding-top:100%"></div>{{/if}}
-            </div>
-            <div class="detail-right">
-                <p class="green-text t2 pt0">{{if Info.Organization}}{{Info.Organization}}{{/if}}</p>
-                {{if Info.Website}}<span>@Localizer["Website"]: </span><a href={{Info.Website}} target="_blank">{{Info.Website}}</a><br>{{/if}}
-                {{if Info.Email}}<span>@Localizer["E-mail"]: </span>{{Info.Email}}<br>{{/if}}
+        <div class="mt5">{{if Info.Summary}}{{Info.Summary}}{{/if}}</div>
+        <div class="mt6">
+            <span class="iconfont">&#xe619;</span>
+            <span class="font2">@Localizer["Public Key"]</span><br />
+            <span class="text-break">{{PublicKey}}</span>
+        </div>
+    </div>
+    {{/if}}
+</script>
 
-                {{if Info.Summary}}<span>@Localizer["Summary"]: </span>{{Info.Summary}}<br>{{/if}}
-            </div>
+<script id="candidate" type="text/html">
+    <div class="col-md-4 mt2">
+        {{if Active}}
+        {{if Info.Logo}}<div class="img" style="background-image:url({{Info.Logo}})"></div>{{/if}}
+        {{if Info.Organization}}<div class="h6 mt6">{{Info.Organization}}</div>{{/if}}
+        {{/if}}
+        <div class="font1 mt7"><strong>@Localizer["Votes"]</strong> {{Votes}}</div>
+        {{if Active}}
+        <div class="mt6">
+            <span class="iconfont">&#xe619;</span>
+            <span class="iconfont">&#xe619;</span>
+            {{if Info.Website}}<a href={{Info.Website}} target="_blank"><i class="iconfont">&#xe619;</i></a>{{/if}}
+            {{if Info.Website}}<a href="mailto:{{Info.Email}}"><i class="iconfont">&#xe619;</i></a>{{/if}}
+            <a></a>
         </div>
         {{/if}}
+        {{if Active}}<div class="mt5">{{if Info.Summary}}{{Info.Summary}}{{/if}}</div>{{/if}}
+        <div class="mt6">
+            <span class="iconfont">&#xe619;</span>
+            <span class="font2">@Localizer["Public Key"]</span><br />
+            <span class="text-break">{{PublicKey}}</span>
+        </div>
+    </div>
 </script>
+
 
 @section Scripts{
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
