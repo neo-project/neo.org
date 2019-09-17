@@ -96,7 +96,6 @@ function getListdata() {
                     html2 += template('candidate', _list[j]);
                 }
             }
-            console.log(_list);
 
             document.getElementById('conList').innerHTML = html;
             document.getElementById('canList').innerHTML = html2;
