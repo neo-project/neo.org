@@ -1,4 +1,6 @@
-﻿html,body{
+﻿@import 'basic.less';
+
+html,body{
     text-align:center;
 }
 .can-charts {
@@ -16,5 +18,48 @@
             background-size: contain;
 
         }
+    }
+}
+
+.modal-content {
+    text-align: left;
+
+    .btn {
+        padding: 7px 20px;
+    }
+
+    .form-control {
+        border-radius: 0;
+
+        &:focus {
+            border-color: @green3;
+            box-shadow: 0 0 0 0.1rem @green3;
+        }
+    }
+
+    .modal-header {
+        padding: 1rem 2rem;
+    }
+
+    .close {
+        font-size: 2.5rem;
+    }
+
+    .modal-body {
+        padding: 2rem;
+    }
+
+    label {
+        font-weight: 600;
+    }
+
+    .text-danger {
+        font-size: 80%;
+    }
+
+    .btn-primary:hover {
+        background-color: @green2;
+        border-color: @green2;
+        opacity: 0.8;
     }
 }
