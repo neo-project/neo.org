@@ -102,24 +102,25 @@ body {
 .eco-tag {
     padding: 0;
     margin-bottom: 0;
-    font-size:0;
-    letter-spacing:0;
+    font-size: 0;
+    letter-spacing: 0;
 
     li {
-        position:relative;
+        position: relative;
         display: inline-block;
-        padding: 0px 30px;
+        padding: 2px 20px;
         cursor: pointer;
-        background:#FFFFFF;
-        font-size:1rem;
-        border:1px solid @gray2;
-        margin-left:-1px;
+        background: #FFFFFF;
+        font-size: 13px;
+        font-weight:600;
+        border: 1px solid @line;
+        margin-left: -1px;
 
         &.selected {
             color: @green;
             border: 1px solid @green;
-            background:transparent;
-            z-index:2;
+            background: transparent;
+            z-index: 2;
         }
     }
 }
