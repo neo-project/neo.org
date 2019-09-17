@@ -82,17 +82,9 @@ function getListdata() {
                         var accountName = account[0].toLowerCase();
 
                         var socialDetail = {
-                            link: "https://" + accountName + ".com/" + account[1],
-                            icon: ""
+                            name: accountName,
+                            link: "https://" + accountName + ".com/" + account[1]
                         };
-
-                        switch (accountName) {
-                            case "twitter": socialDetail.icon = "&#xe607;"; break;
-                            case "facebook": socialDetail.icon = "&#xe616;"; break;
-                            case "weibo": socialDetail.icon = "&#xe60e;"; break;
-                            case "github": socialDetail.icon = "&#xe609;"; break;
-                            default: break;
-                        }
 
                         _list[j].Social.push(socialDetail);
                     }
@@ -103,26 +95,6 @@ function getListdata() {
                 } else {
                     html2 += template('candidate', _list[j]);
                 }
-
-                //if (_list[j].Info != null && _list[j].Info.SocialAccount != null) {
-
-                //    var accountList = _list[j].Info.SocialAccount.split(';');
-                //    var socialAccount = "";
-                //    for (var i = 0; i < accountList.length; i++) {
-                //        var account = accountList[i].split(':');
-                //        var accountName = account[0];
-                //        var accountLink = account[1];
-                //        if (accountName.toLowerCase() == "twitter")
-                //            socialAccount += "<a target=\"_blank\" href=https://twitter.com/" + accountLink + "><i class=\"iconfont\">&#xe60a;</i></a>";
-                //        if (accountName.toLowerCase() == "facebook")
-                //            socialAccount += "<a target=\"_blank\" href=https://www.facebook.com/" + accountLink + "><i class=\"iconfont\">&#xe87d;</i></a>";
-                //        if (accountName.toLowerCase() == "weibo")
-                //            socialAccount += "<a target=\"_blank\" href=https://weibo.com/" + accountLink + "><i class=\"iconfont\">&#xe610;</i></a>";
-                //        if (accountName.toLowerCase() == "github")
-                //            socialAccount += "<a target=\"_blank\" href=https://github.com/" + accountLink + "><i class=\"iconfont\">&#xee67;</i></a>";
-                //    }
-                //    html += "<p class=\"social-icon\">" + socialAccount + "<p/>";
-                //}
             }
             console.log(_list);
 

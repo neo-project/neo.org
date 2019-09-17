@@ -19,28 +19,28 @@
 
 <div class="row mt2 list1 right">
     <div class="col-md-3">
-        <span class="iconfont">&#xe619;</span>
+        <span class="iconfont">&#xe60f;</span>
         <div>
             <div class="list-title" id="blohei">412355678</div>
             <div class="font2 gray">@Localizer["Block Height"]</div>
         </div>
     </div>
     <div class="col-md-3">
-        <span class="iconfont">&#xe619;</span>
+        <span class="iconfont">&#xe60f;</span>
         <div>
             <div class="list-title" id="lastime">550s</div>
             <div class="font2 gray">@Localizer["Last Time"]</div>
         </div>
     </div>
     <div class="col-md-3">
-        <span class="iconfont">&#xe619;</span>
+        <span class="iconfont">&#xe60f;</span>
         <div>
             <div class="list-title" id="cannum">500</div>
             <div class="font2 gray">@Localizer["Candidate Count"]</div>
         </div>
     </div>
     <div class="col-md-3">
-        <span class="iconfont">&#xe619;</span>
+        <span class="iconfont">&#xe60f;</span>
         <div>
             <div class="list-title" id="connum">7</div>
             <div class="font2 gray">@Localizer["Consensus Count"]</div>
@@ -170,11 +170,19 @@
         {{if Info.Organization}}<div class="h6 mt6">{{Info.Organization}}</div>{{/if}}
         <div class="font1 mt7"><strong>@Localizer["Votes"]</strong> {{Votes}}</div>
         <div class="mt6">
-            <span class="iconfont">&#xe619;</span>
-            <span class="iconfont">&#xe619;</span>
-            {{if Info.Website}}<a href={{Info.Website}} target="_blank"><i class="iconfont">&#xe619;</i></a>{{/if}}
-            {{if Info.Website}}<a href="mailto:{{Info.Email}}"><i class="iconfont">&#xe619;</i></a>{{/if}}
-            <a></a>
+
+            {{if Social}}
+            {{each Social value}}
+
+            {{if value.name == "twitter"}}<a href={{value.link}} title={{value.name}} class="iconfont">&#xe607;</a>{{/if}}
+            {{if value.name == "facebook"}}<a href={{value.link}} title={{value.name}} class="iconfont">&#xe616;</a>{{/if}}
+            {{if value.name == "weibo"}}<a href={{value.link}} title={{value.name}} class="iconfont">&#xe60e;</a>{{/if}}
+            {{if value.name == "github"}}<a href={{value.link}} title={{value.name}} class="iconfont">&#xe609;</a>{{/if}}
+
+            {{/each}}
+            {{/if}}
+            {{if Info.Website}}<a href={{Info.Website}} title="Website" target="_blank"><i class="iconfont">&#xe619;</i></a>{{/if}}
+            {{if Info.Email}}<a href="mailto:{{Info.Email}}" title="Email"><i class="iconfont">&#xe619;</i></a>{{/if}}
         </div>
         <div class="mt5">{{if Info.Summary}}{{Info.Summary}}{{/if}}</div>
         <div class="mt6">
@@ -195,8 +203,6 @@
         <div class="font1 mt7"><strong>@Localizer["Votes"]</strong> {{Votes}}</div>
         {{if Active}}
         <div class="mt6">
-            <span class="iconfont">&#xe619;</span>
-            <span class="iconfont">&#xe619;</span>
             {{if Info.Website}}<a href={{Info.Website}} target="_blank"><i class="iconfont">&#xe623;</i></a>{{/if}}
             {{if Info.Website}}<a href="mailto:{{Info.Email}}"><i class="iconfont">&#xe61d;</i></a>{{/if}}
             <a></a>
