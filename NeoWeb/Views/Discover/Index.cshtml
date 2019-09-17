@@ -16,26 +16,23 @@
     <style>
     </style>
 }
-
-<div class="p2">
-    <div class="row list2">
-        @{await Html.RenderPartialAsync("_TopPartial", (ViewBag.Ontop as DiscoverViewModel));}
+@if (ViewBag.Ontop != null)
+{
+    <div class="p2">
+        <div class="row list2">
+            @{await Html.RenderPartialAsync("_TopPartial", (ViewBag.Ontop as DiscoverViewModel));}
+        </div>
     </div>
-</div>
+}
 
 <form asp-action="Discover" method="get" class="border-bottom d-search form-inline">
     <div class="search">
         <i class="iconfont">&#xe611;</i>
-        <input class="form-control" name="keywords" type="text" />
+        <input class="form-control" name="keywords" value="@ViewBag.KeyWords" type="text" />
     </div>
     <div class="filter">
-        <select class="form-control" name="type">
-            <option value="">All types</option>
-            <option value="1">BLOGS</option>
-            <option value="2">EVENTS</option>
-            <option value="3">NEWS</option>
-        </select>
-        <select class="form-control" name="year" asp-items="ViewBag.Year"></select>
+        <select id="type" class="form-control" name="type" asp-items="ViewBag.AllType"></select>
+        <select id="year" class="form-control" name="year" asp-items="ViewBag.AllYear"></select>
         <input class="btn" type="submit" value="search" />
     </div>
 </form>
@@ -44,7 +41,7 @@
     @{await Html.RenderPartialAsync("_DiscoverPartial", Model);}
 </div>
 <div class="text-center m-4">
-    <a href="javascript:" onclick="viewMore()">View More</a>
+    <a id="viewmore" href="javascript:" onclick="viewMore()">View More</a>
 </div>
 @section Scripts {
     <script>
@@ -53,8 +50,17 @@
             $(".group-" + i).hide();
         }
         function viewMore() {
+            var more = $(".group-" + group++);
             $(".group-" + group++).show("fast");
+            if ($(".group-" + (group + 1)).length <= 0)
+                $("#viewmore").hide();
         }
+        if ($(".group-" + (group + 1)).length <= 0)
+                $("#viewmore").hide();
+        if ("@ViewBag.Type".length > 0)
+            $("#type").val("@ViewBag.Type");
+        if ("@ViewBag.Year".length > 0)
+            $("#year").val("@ViewBag.Year");
     </script>
 }
 

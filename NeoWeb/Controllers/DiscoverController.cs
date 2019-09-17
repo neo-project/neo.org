@@ -145,8 +145,19 @@ namespace NeoWeb.Controllers
             var eventYear = _context.Events.Select(p => p.StartTime.Year).Distinct();
             var newsYear = _context.News.Select(p => p.Time.Year).Distinct();
             var allYear = blogYear.Concat(eventYear).Concat(newsYear).Distinct().OrderByDescending(p => p).Select(p => new SelectListItem { Value = p.ToString(), Text = p.ToString() }).ToList();
-            allYear.Add(new SelectListItem("All Year", ""));
-            ViewBag.Year = allYear;
+            allYear.Insert(0, new SelectListItem("All Year", ""));
+
+            ViewBag.AllYear = allYear;
+            ViewBag.AllType = new List<SelectListItem>() {
+                new SelectListItem { Value = "0", Text = "All Type" },
+                new SelectListItem { Value = "1", Text = "Blog" },
+                new SelectListItem { Value = "2", Text = "Event" },
+                new SelectListItem { Value = "3", Text = "News" }
+            };
+
+            ViewBag.Year = year;
+            ViewBag.KeyWords = keywords;
+            ViewBag.Type = type;
 
             ViewBag.UserRules = _userRules;
 
