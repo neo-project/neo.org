@@ -12,25 +12,22 @@
     </environment>
 }
 
-<h2 class="text-center m1">Team & Contributors</h2>
-<p class="m4 w800">@Localizer["This page presents some NEO contributors, which are divided into the following four parts: NEO core developers, NEO Foundation key members, NGD key members, and NEO community outstanding contributors.Thank them for their outstanding contribution to the ecosystem of NEO."]</p>
-<hr class="m2" />
+<h2 class="text-center mt1">Team & Contributors</h2>
+<p class="mt4 w800">@Localizer["This page presents some NEO contributors, which are divided into the following four parts: NEO core developers, NEO Foundation key members, NGD key members, and NEO community outstanding contributors.Thank them for their outstanding contribution to the ecosystem of NEO."]</p>
+<hr class="mt2" />
 
-<h4 class="m4">NEO Core Developers</h4>
+<h4 class="mt4">NEO Core Developers</h4>
 <div class="row team-list" id="core"></div>
 
-<hr class="m2" />
-<h4 class="m4">
-    NEO Global Development (NGD)
-    Key Members
-</h4>
+<hr class="mt2" />
+<h4 class="mt4">NEO Global Development (NGD) Key Members</h4>
 <div class="row team-list" id="neo"></div>
 
-<hr class="m2" />
-<h4 class="m4">NEO Community Outstanding Contributors</h4>
+<hr class="mt2" />
+<h4 class="mt4">NEO Community Outstanding Contributors</h4>
 <div class="row team-list" id="community"></div>
 
-<hr class="m2" />
+<hr class="mt2" />
 
 <script id="coreMember" type="text/html">
     {{each core value}}
@@ -42,8 +39,8 @@
             <div class="mt7">{{value.job}}</div>
             @*{{if value.intro}}<div class="gray mt7">{{value.intro}}</div>{{/if}}*@
             <div class="mt7 link">
-                @*{{if value.linkin}}<a class="iconfont mr3 gray" href={{value.linkin}}>&#xe612;</a>{{/if}}
-                    {{if value.github}}<a class="iconfont gray" href={{value.github}}>&#xe609;</a>{{/if}}*@
+                {{if value.linkin}}<a class="iconfont mr3 gray" href={{value.linkin}}>&#xe612;</a>{{/if}}
+                {{if value.github}}<a class="iconfont gray" href={{value.github}}>&#xe609;</a>{{/if}}
             </div>
         </div>
     </div>
@@ -58,16 +55,10 @@
             <div class="h6 green mt6">{{value.name}}</div>
             <div class="small green">{{if value.nameZh}}{{value.nameZh}}{{/if}}</div>
             <div class="mt7">{{value.job}}</div>
-            @*{{if value.intro}}<div class="gray mt7">{{value.intro}}</div>{{/if}}*@
-            <div class="mt7 link">
-                @*{{if value.linkin}}<a class="iconfont mr3 gray" href={{value.linkin}}>&#xe612;</a>{{/if}}
-                    {{if value.github}}<a class="iconfont gray" href={{value.github}}>&#xe609;</a>{{/if}}*@
-            </div>
         </div>
     </div>
     {{/each}}
 </script>
-
 
 <script id="comMember" type="text/html">
     {{each community value}}
@@ -77,11 +68,6 @@
             <div class="h6 green mt6">{{value.name}}</div>
             <div class="small green">{{if value.nameZh}}{{value.nameZh}}{{/if}}</div>
             <div class="mt7">{{value.job}}</div>
-            @*{{if value.intro}}<div class="gray mt7">{{value.intro}}</div>{{/if}}*@
-            <div class="mt7 link">
-                @*{{if value.linkin}}<a class="iconfont mr3 gray" href={{value.linkin}}>&#xe612;</a>{{/if}}
-                    {{if value.github}}<a class="iconfont gray" href={{value.github}}>&#xe609;</a>{{/if}}*@
-            </div>
         </div>
     </div>
     {{/each}}
