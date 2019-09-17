@@ -54,13 +54,13 @@
             <div class="small">
                 @if (item.Event.StartTime.Date == item.Event.EndTime.Date)
                 {
-                    <div>@item.Event.StartTime.DayOfWeek.ToString().Substring(0, 3), @item.Event.StartTime.ToString("yyyy-MM-dd HH:mm") - @item.Event.EndTime.ToString("HH:mm")</div>
+                    <div><i class="iconfont">&#xe610;</i> @item.Event.StartTime.DayOfWeek.ToString().Substring(0, 3), @item.Event.StartTime.ToString("yyyy-MM-dd HH:mm") - @item.Event.EndTime.ToString("HH:mm")</div>
                 }
                 else
                 {
-                    <div>@item.Event.StartTime.ToString("yyyy-MM-dd HH:mm") - @item.Event.EndTime.ToString("yyyy-MM-dd HH:mm")</div>
+                    <div><i class="iconfont">&#xe610;</i> @item.Event.StartTime.ToString("yyyy-MM-dd HH:mm") - @item.Event.EndTime.ToString("yyyy-MM-dd HH:mm")</div>
                 }
-                <div>@item.Event.Country - @item.Event.City</div>
+            <div><i class="iconfont">&#xe60f;</i> @item.Event.Country - @item.Event.City</div>
             </div>
         }
         else if (item.Type == DiscoverViewModelType.News)
