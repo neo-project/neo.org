@@ -83,7 +83,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">@Localizer["Candidate Info"]</h5>
+                <h4 class="modal-title" id="exampleModalLabel">@Localizer["Candidate Info"]</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -93,7 +93,7 @@
                     @Html.AntiForgeryToken()
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
-                        <label for="PublicKey" class="control-label">@Localizer["Public Key"]<span class="red-text"> * </span></label>
+                        <label for="PublicKey" class="control-label">@Localizer["Public Key"]<span class="red"> * </span></label>
                         <select asp-for="PublicKey" class="form-control">
                             @foreach (var item in ViewBag.PubKeys as List<string>)
                             {
@@ -103,7 +103,7 @@
                     </div>
                     <div class="row">
                         <div class="col-6 form-group">
-                            <label asp-for="Organization" class="control-label">@Localizer["Organization"]<span class="red-text"> * </span></label>
+                            <label asp-for="Organization" class="control-label">@Localizer["Organization"]<span class="red"> * </span></label>
                             <input asp-for="Organization" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct website format"]" />
                             <small class="form-text text-muted">@Localizer["Relevant information about NEO should be displayed."]</small>
                             <span asp-validation-for="Organization" class="text-danger"></span>
@@ -116,13 +116,13 @@
                     </div>
                     <div class="row">
                         <div class="col-6 form-group">
-                            <label asp-for="Website" class="control-label">@Localizer["Website"]<span class="red-text"> * </span></label>
+                            <label asp-for="Website" class="control-label">@Localizer["Website"]<span class="red"> * </span></label>
                             <input asp-for="Website" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct website format"]" />
                             <small class="form-text text-muted">@Localizer["Relevant information about NEO should be displayed."]</small>
                             <span asp-validation-for="Website" class="text-danger"></span>
                         </div>
                         <div class="col-6 form-group">
-                            <label asp-for="Email" class="control-label">@Localizer["E-mail"]<span class="red-text"> * </span></label>
+                            <label asp-for="Email" class="control-label">@Localizer["E-mail"]<span class="red"> * </span></label>
                             <input asp-for="Email" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct E-mail format"]" />
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
@@ -143,13 +143,13 @@
                         <label class="control-label">Hash</label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <button class="btn btn-outline-secondary" type="button" onclick="hashInfo()">@Localizer["Generate Hash"]</button>
+                                <button class="btn" type="button" onclick="hashInfo()">@Localizer["Generate Hash"]</button>
                             </div>
                             <input id="hash" type="text" readonly="readonly" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="signature" class="control-label">@Localizer["Signature"]</label>
+                        <label for="signature" class="control-label">@Localizer["Signature"]<span class="red"> * </span></label>
                         <input name="signature" id="signature" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" />
                         <small class="form-text text-muted">@Localizer["Please sign the above hash with your private key."]</small>
                         <span data-valmsg-for="signature" data-valmsg-replace="true" class="text-danger"></span>
