@@ -10,68 +10,103 @@
     }
 
     .map-container a {
-        display:inline-block;
-        margin: 1rem 2rem 0.2rem 0;
-        color:#1B1B1B!important;
-        font-weight:600;
-        letter-spacing:1px;
-        min-width:110px;
+        display: inline-block;
+        margin: .5rem 2rem 0.2rem 0;
+        color: #1B1B1B !important;
+        letter-spacing: 1px;
+        min-width: 130px;
+    }
+
+    .disabled {
+        cursor: not-allowed
     }
 
     .map-container span {
         background: #02e49b;
-        color:#1B1B1B;
-        font-weight:600;
-        padding:2px 12px;
+        margin-right: .5em;
+        font-size: .7em;
+        color: #1B1B1B;
+        padding: 2px 1em;
+        vertical-align: 1px;
     }
+
     hr {
-        margin-top:0.8rem;
-        margin-bottom:0.8rem;
+        margin-top: 0.8rem;
+        margin-bottom: 0.8rem;
     }
 </style>
-<h2 class="mt2 text-center">站点地图</h2>
-
+<div class="p1">
+    <h1 class="w800">站点地图</h1>
+</div>
 <div class="map-container mt3">
     <a href="~/">首页</a>
     <hr />
+    <a href="~/about">关于</a>
+    <a href="~/team">贡献者</a>
+    <a href="~/logo">LOGO 下载</a>
+    <hr />
     <a href="~/dev">开发者</a>
-    <a href="http://docs.neo.org/">技术文档 <i class="iconfont">&#xe6f4;</i></a>
-    <a href="https://docs.neo.org/developerguide">开发指南 <i class="iconfont">&#xe6f4;</i></a>
-    <a href="https://github.com/neo-project">GitHub <i class="iconfont">&#xe6f4;</i></a>
+    <a href="http://docs.neo.org/">技术文档 <i class="iconfont">&#xe600;</i></a>
+    <a href="https://docs.neo.org/developerguide">开发指南 <i class="iconfont">&#xe600;</i></a>
+    <a href="https://github.com/neo-project">GitHub <i class="iconfont">&#xe600;</i></a>
     <a href="~/dev/bounty">安全奖励</a>
     <hr />
     <a href="~/testcoin/apply">测试币申请</a>
-    <a href="~/testcoin/list"><span>Admin</span> 测试币列表</a> <a title="请在测试币列表页面点击" href="javascript:"><span>Admin</span> 备注</a> <a title="请在测试币列表页面点击" href="javascript:"><span>Admin</span> 删除</a> <a title="请在测试币列表页面点击" href="javascript:"><span>Admin</span> 详情</a>
+    <a href="~/testcoin/list"><span>Admin</span>测试币列表</a>
+    <a class="disabled" title="请在测试币列表页面点击" href="javascript:"><span>Admin</span>备注</a>
+    <a class="disabled" title="请在测试币列表页面点击" href="javascript:"><span>Admin</span>删除</a>
+    <a class="disabled" title="请在测试币列表页面点击" href="javascript:"><span>Admin</span>详情</a>
     <hr />
     <a href="~/client">客户端</a>
     <hr />
-    <a href="~/blog">博客</a>
-    <a title="请在博客页面点击" href="javascript:">博客详情</a> <a href="~/blog/create"><span>Admin</span> 发布</a> <a title="请在博客页面点击" href="javascript:"><span>Admin</span> 编辑</a> <a title="请在博客页面点击" href="javascript:"><span>Admin</span> 删除</a>
+    <a href="~/discover">发现</a>
     <hr />
-    <a href="~/event">活动</a>
-    <a title="请在活动页面点击" href="javascript:">活动详情</a> <a href="~/event/create"><span>Admin</span> 发布</a> <a title="请在活动页面点击" href="javascript:"><span>Admin</span> 编辑</a> <a title="请在活动页面点击" href="javascript:"><span>Admin</span> 删除</a>
-    <a href="https://devcon.neo.org/">DevCon <i class="iconfont">&#xe6f4;</i></a>
+    <a class="disabled" title="请在发现页面点击" href="javascript:">博客详情</a>
+    <a href="~/blog/create"><span>Admin</span>发布</a>
+    <a class="disabled" title="请在发现页面点击" href="javascript:"><span>Admin</span>编辑</a>
+    <a class="disabled" title="请在发现页面点击" href="javascript:"><span>Admin</span>删除</a>
     <hr />
-    <a href="~/fwlink/list"><span>Admin</span> 短链接列表</a>
-    <a href="~/blog/create"><span>Admin</span> 新建</a> <a title="请在短链接页面点击" href="javascript:"><span>Admin</span> 编辑</a> <a title="请在短链接页面点击" href="javascript:"><span>Admin</span> 删除</a>
+    <a class="disabled" a title="请在发现页面点击" href="javascript:">活动详情</a>
+    <a href="~/event/create"><span>Admin</span>发布</a>
+    <a class="disabled" title="请在发现页面点击" href="javascript:"><span>Admin</span>编辑</a>
+    <a class="disabled" title="请在发现页面点击" href="javascript:"><span>Admin</span>删除</a>
+    <a href="https://devcon.neo.org/">DevCon <i class="iconfont">&#xe600;</i></a>
+    <hr />
+    <a class="disabled" title="请在发现页面点击">新闻外链 <i class="iconfont">&#xe600;</i></a>
+    <a href="~/news/create"><span>Admin</span>发布</a>
+    <a class="disabled" title="请在发现页面点击" href="javascript:"><span>Admin</span>编辑</a>
+    <a class="disabled" title="请在发现页面点击" href="javascript:"><span>Admin</span>删除</a>
+    <hr />
+    <a class="disabled" title="请直接点击短链接">短链接 <i class="iconfont">&#xe600;</i></a>
+    <a href="~/fwlink/list"><span>Admin</span>列表</a>
+    <a href="~/blog/create"><span>Admin</span>新建</a>
+    <a class="disabled" title="请在短链接页面点击" href="javascript:"><span>Admin</span>编辑</a>
+    <a class="disabled" title="请在短链接页面点击" href="javascript:"><span>Admin</span>删除</a>
     <hr />
     <a href="~/consensus">共识节点</a>
     <hr />
-    <a href="~/ecoboost">EcoBoost</a>
+    <a href="~/eco">生态系统</a>
+    <a href="~/eco/ecoboost">EcoBoost</a>
+    <a href="http://ndapp.org/">DAPPS <i class="iconfont">&#xe600;</i></a>
     <hr />
-    <a href="~/team">贡献者</a>
-    <hr />
-    <a href="~/logo">LOGO 下载</a>
+    <a href="~/demo">基础样式</a>
     <hr />
     <a href="~/map">站点地图</a>
     <hr />
-    <a href="~/careers">加入我们</a> <a href="~/careers/create"><span>Admin</span> 发布</a> <a title="请在加入我们页面点击" href="javascript:"><span>Admin</span> 编辑</a>
+    <a href="~/careers">加入我们</a>
+    <a href="~/careers/create"><span>Admin</span>发布</a>
+    <a title="请在加入我们页面点击" href="javascript:"><span>Admin</span>编辑</a>
     <hr />
-    <a href="~/subscription"><span>Admin</span> 邮件订阅列表</a>
+    <a href="~/subscription"><span>Admin</span>邮件订阅列表</a>
     <hr />
-    <a href="~/identity/account/register">注册</a> <a href="~/identity/account/login">登录</a> <a href="~/identity/account/manage">账户管理</a> <a href="~/identity/account/manage/changepassword">修改密码</a> <a href="~/identity/account/manage/twofactorauthentication">二次验证</a> <a href="~/identity/account/manage/personaldata">个人信息</a> <a title="暂不可用" href="~/identity/account/forgotpassword">忘记密码</a>
+    <a href="~/identity/account/register">注册</a>
+    <a href="~/identity/account/login">登录</a>
+    <a href="~/identity/account/manage">账户管理</a>
+    <a href="~/identity/account/manage/changepassword">修改密码</a>
+    <a href="~/identity/account/manage/twofactorauthentication">二次验证</a>
+    <a href="~/identity/account/manage/personaldata">个人信息</a>
+    <a href="~/identity/account/forgotpassword">忘记密码</a>
     <hr />
-    <a href="http://ndapp.org/">DAPPS <i class="iconfont">&#xe6f4;</i></a>
 </div>
 @await Html.PartialAsync("_LoginPartial")
 
