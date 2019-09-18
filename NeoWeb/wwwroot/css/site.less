@@ -26,6 +26,8 @@ a {
 }
 
 ul {
+    padding:0;
+
     &.list-none {
         li {
             display: inline-block;
@@ -893,24 +895,39 @@ table, .table {
             display: table-cell;
             padding: .75rem;
             vertical-align: top;
-            border-top: 1px solid #dee2e6;
+            border: 1px solid #E6E6E6;
+            border-bottom: 1px solid #999999;
         }
     }
 
-    .table-row {
+    .table-row, tr {
         display: table-row;
 
         td, > li {
             display: table-cell;
             padding: .75rem;
             vertical-align: top;
-            border-top: 1px solid #dee2e6;
+            border: 1px solid #E6E6E6;
         }
     }
 }
 
 .table2 {
     .table;
+
+
+    thead, .table-head {
+        th, > li {
+            border: none;
+            border-bottom: 1px solid #999999;
+        }
+    }
+
+    .table-row, tr {
+        td, > li {
+            border: none;
+        }
+    }
 }
 
 .press {
@@ -928,6 +945,7 @@ table, .table {
         text-align: center;
         margin-left:10px;
         margin-right:10px;
+        vertical-align:middle;
 
         img {
             display: inline-block;
@@ -951,7 +969,7 @@ table, .table {
 
 /*MailChimp 邮件订阅部分*/
 #mc_embed_signup {
-    width: 450px;
+    max-width: 450px;
     margin-left: auto;
     margin-right: auto;
 
@@ -963,6 +981,7 @@ table, .table {
         border-radius: 0;
         border: 0;
         vertical-align: middle;
+        margin-top: @length6;
     }
 
     .btn {
@@ -973,9 +992,21 @@ table, .table {
         text-shadow: none;
         height: 48px;
         vertical-align: middle;
+        margin-top: @length6;
     }
 
     div.mce_inline_error {
         background-color: transparent !important;
+    }
+
+    @media only screen and (max-width: 768px) {
+        #mce-EMAIL {
+            height: 40px;
+            line-height: 40px;
+        }
+
+        .btn {
+            height: 40px;
+        }
     }
 }

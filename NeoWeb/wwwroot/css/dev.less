@@ -11,12 +11,139 @@
     padding: 0;
     line-height: 1.8;
     margin-top: @length5;
+}
+
+
+.tools {
+
+    .dev-link {
+        position: relative;
+
+        .bold {
+            padding-top: @length4;
+        }
+    }
+
+    .link-title {
+        position: relative;
+        padding-left: 20px;
+        height: 40px;
+        line-height: 40px;
+        background: @arrow;
+
+        span {
+            display: inline-block;
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: -10px;
+            border-left: 20px solid @body;
+            border-right: 20px solid transparent;
+            border-top: 20px solid @arrow;
+            border-bottom: 20px solid @arrow;
+        }
+
+        &:after {
+            content: "";
+            position: absolute;
+            right: -35px;
+            border-left: 20px solid @arrow;
+            border-right: 20px solid @body;
+            border-top: 20px solid @body;
+            border-bottom: 20px solid @body;
+        }
+    }
+
+
+    .no-before {
+        &:before {
+            border: none;
+        }
+    }
 
     @media only screen and (max-width: 768px) {
-        margin-top: @length6;
+        .col-md-4 {
+            &:after {
+                content: "";
+                display: block;
+                background: linear-gradient(90deg,@body 40px,@line2 40px);
+                height: 1px;
+                width: 100%;
+                margin-top: 12px;
+                margin-right: 20px;
+            }
+        }
+
+        .dev-link {
+            background: @arrow;
+            padding-left: 20px;
+            margin-bottom: 0;
+
+            li {
+                background: @body;
+                padding-left: 20px;
+            }
+
+            .bold {
+                padding-top: @length5;
+            }
+
+            &:before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: -20px;
+                border-left: 10px solid @arrow;
+                border-right: 10px solid @arrow;
+                border-top: 10px solid @body;
+                border-bottom: 10px solid @arrow;
+            }
+
+            &:after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -20px;
+                border-left: 10px solid @body;
+                border-right: 10px solid @body;
+                border-top: 10px solid @arrow;
+                border-bottom: 10px solid @body;
+            }
+        }
+
+        .link-title {
+            margin-top: @length6;
+            background: @body;
+            padding-left: 0;
+
+            &:before,
+            &:after {
+                border: none;
+            }
+        }
+
+
+        .no-before {
+            &:before {
+                border: none;
+            }
+        }
     }
 }
 
-.link-title {
-    .b2;
+
+.tag {
+    color: #FFFFFF;
+    margin-top:12px;
+    padding-left:20px;
+
+    span {
+        color: #a1c8c9;
+    }
 }
