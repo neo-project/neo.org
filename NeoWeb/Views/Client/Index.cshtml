@@ -435,7 +435,10 @@
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
                 <div class="p-mobile preview">
-                    <img data-original="@Helper.ToCDN("/images/client/sea.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/sea1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/sea2.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/sea3.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/sea4.png")" />
                 </div>
                 <p>@Localizer["It's a wallet developed by SEA. This wallet contains basic functions such as importing private keys, transferring assets, retrieving GAS, etc."]</p>
                 <p>@Localizer["Languages"]: 简体中文</p>
@@ -970,18 +973,31 @@
             <header>YEZ Wallet</header>
             <div class="platform">
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Web">&#xe623;</i>
+                <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
             </div>
             <div class="developer d-none"><a href="https://wallet.yezcoin.com/" target="_blank">YEZ Wallet</a></div>
+            <div class="button d-none"><a class="btn" href="https://walletapp.yezcoin.com" target="_blank">@Localizer["Download"]</a></div>
             <div class="button d-none"><a class="btn" href="https://wallet.yezcoin.com/" target="_blank">@Localizer["Go to Web Wallet"]</a></div>
             <div class="desc d-none">
                 <div class="preview-div">
                     <h3>Preview</h3>
-                    <a class="plat-btn btn-web active" href="javascript:" onclick="switchPlatform('web');">@Localizer["Web"]</a>
+                    <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
+                    <a class="plat-btn btn-web" href="javascript:" onclick="switchPlatform('web');">@Localizer["Web"]</a>
                 </div>
-                <div class="p-web preview">
+                <div class="p-mobile preview">
+                    @*<img data-original="@Helper.ToCDN("/images/client/yez1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/yez2.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/yez3.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/yez4.png")" />*@
+                </div>
+                <div class="p-web preview" style="display:none;">
                     <img data-original="@Helper.ToCDN("/images/client/yez.png")" />
                 </div>
-                <p>@Localizer["YEZ Wallet is a NEP-5 Wallet. We focuses on easy on-boarding with Google/Facebook Login integration.User can send/receive YEZ and see transaction history on one screen."]</p>
+                <div class="preview-div">
+                    <h3>Preview</h3>
+                    <a class="plat-btn btn-web active" href="javascript:" onclick="switchPlatform('web');">@Localizer["Web"]</a>
+                </div>
+                <p>@Localizer["YEZ Wallet is a NEP-5 Wallet. We focuses on easy on-boarding with Google/Facebook Login integration.User can send/receive NEO, GAS, YEZ and other NEP-5 digital assets."]</p>
                 <p>@Localizer["Languages"]: English / 简体中文<br>
                 <p>@Localizer["Supported Browser"]: Chrome / Edge</p>
                 <div>
@@ -1002,9 +1018,9 @@
                         <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The NEO Foundation and NGD do not endorse this client."]</div>
                     </div>
                     <div class="metrics">
-                        <span>@Localizer["Supported NEP"]</span><span class="span-warning">@Localizer["So so"]</span>
+                        <span>@Localizer["Supported NEP"]</span><span class="span-success">@Localizer["Rich"]</span>
                         <div>
-                            <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki" target="_blank">NEP-5</a></p>
+                            <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki" target="_blank">NEP-5</a>, <a href="https://github.com/neo-project/proposals/blob/master/nep-9.mediawiki" target="_blank">NEP-9</a></p>
                         </div>
                     </div>
                 </div>

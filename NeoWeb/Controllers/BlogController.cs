@@ -116,6 +116,7 @@ namespace NeoWeb.Controllers
                 blog.EnglishTags = blog.EnglishTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
                 blog.CreateTime = DateTime.Now;
                 blog.EditTime = DateTime.Now;
+                blog.IsShow = true;
                 blog.User = _context.Users.Find(_userId);
                 _context.Add(blog);
                 if (isTop != null)

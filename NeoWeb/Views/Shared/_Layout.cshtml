@@ -120,8 +120,11 @@ https://github.com/neo-project/neo.org
                 <li><a title="Reddit" href="https://www.reddit.com/r/NEO/" class="iconfont">&#xe60a;</a></li>
                 <li><a title="Discord" href="https://discord.io/neo" class="iconfont">&#xe60b;</a></li>
                 <li><a title="Youtube" href="https://www.youtube.com/channel/UCl1AwEDN0w5lTmfJEMsY5Vw/videos" class="iconfont">&#xe60c;</a></li>
-                <li><a title="WeChat" href="" class="iconfont">&#xe60d;</a></li>
-                <li><a title="Weibo" href="https://weibo.com/neosmarteconomy" class="iconfont">&#xe608;</a></li>
+                <li>
+                    <a title="WeChat" href="javascript:" class="iconfont">&#xe60d;</a>
+                    <img src="~/images/qrcode.png" />
+                </li>
+                <li><a title="Weibo" href="https://weibo.com/neosmarteconomy" class="iconfont">&#xe60e;</a></li>
             </ul>
             <!-- Begin Mailchimp Signup Form -->
             <div id="mc_embed_signup" class="mt4">
@@ -144,46 +147,53 @@ https://github.com/neo-project/neo.org
             <!--End mc_embed_signup-->
         </div>
     </div>
-    <footer class="b3">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <img class="b-logo" width="80" height="30"/>
-                </div>
-                <div class="col-md-2">
-                    <p class="bold no-border">About</p>
-                    <ul>
-                        <li>About NEO</li>
-                        <li>Roadmap</li>
-                        <li>Contributors</li>
-                        <li>Press Kit</li>
-                    </ul>
-                </div>
-                <div class="col-md-2">
-                    <p class="bold">Developers</p>
-                    <ul>
-                        <li>Dev Resources</li>
-                        <li>Community</li>
-                    </ul>
-                </div>
-                <div class="col-md-2">
-                    <p class="bold">Ecosystem</p>
-                    <ul>
-                        <li>NEO Ecosystem</li>
-                        <li>EcoBoost</li>
-                        <li>dApps List</li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <p class="bold">Contact Us</p>
-                    <ul>
-                        <li><small>General</small><a href="mailto:contact@neo.org" class="green2"> contact@neo.org</a></li>
-                        <li><small>Marketing</small><a href="mailto:marketing@neo.org" class="green2"> marketing@neo.org</a></li>
-                        <li><small>EcoBoost</small><a href="mailto:eg@neo.org" class="green2"> eg@neo.org</a></li>
-                    </ul>
-                </div>
+    <footer class="b3 px-5">
+        <div class="row">
+            <div class="col-md">
+                <img class="b-logo" width="80" height="30" />
             </div>
-            <p class="m2 op-70"><small>Copyright © NEO Team 2014-2019</small></p>
+            <div class="col-md">
+                <p class="bold no-border"><a href="~/about">About</a></p>
+                <ul>
+                    <li><a href="~/consensus">Consensus</a></li>
+                    <li><a href="~/team">Contributors</a></li>
+                    <li><a href="~/logo">Press Kit</a></li>
+                </ul>
+            </div>
+            <div class="col-md">
+                <p class="bold"><a href="~/dev">Developers</a></p>
+                <ul>
+                    <li><a href="https://docs.neo.org">Documentation</a></li>
+                    <li><a href="https://github.com/neo-project">GitHub</a></li>
+                    <li><a href="~/dev/bounty">Security Bounty</a></li>
+                </ul>
+            </div>
+            <div class="col-md">
+                <p class="bold"><a href="~/client">Client</a></p>
+            </div>
+            <div class="col-md">
+                <p class="bold"><a href="~/eco">Ecosystem</a></p>
+                <ul>
+                    <li><a href="~/eco">NEO Ecosystem</a></li>
+                    <li><a href="~/eco/ecoboost">EcoBoost</a></li>
+                    <li><a href="https://ndapp.org" target="_blank">dApps List</a></li>
+                </ul>
+            </div>
+            <div class="col-md">
+                <p class="bold"><a href="~/discover">Discover</a></p>
+            </div>
+            <div class="col-md-3">
+                <p class="bold">Contact Us</p>
+                <ul>
+                    <li><small>General</small><a href="mailto:contact@neo.org" class="green2"> contact@neo.org</a></li>
+                    <li><small>Marketing</small><a href="mailto:marketing@neo.org" class="green2"> marketing@neo.org</a></li>
+                    <li><small>EcoBoost</small><a href="mailto:eg@neo.org" class="green2"> eg@neo.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="mt2">
+            <p class="op-70"><small>Copyright © NEO Team 2014-2019</small></p>
+            <p class="op-70"><small><a href="~/map">Site Map</a></small></p>
         </div>
     </footer>
     <form id="form_language" asp-action="SetLanguage" asp-controller="home" method="post">

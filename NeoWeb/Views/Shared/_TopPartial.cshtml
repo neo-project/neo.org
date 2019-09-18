@@ -1,6 +1,6 @@
 ﻿@model DiscoverViewModel
 
-@if (Model?.Type == DiscoverViewModelType.Blog && Model.Blog.IsShow)
+@if (Model?.Type == DiscoverViewModelType.Blog)
 {
     <div class="col-md-8">
         @if (string.IsNullOrEmpty(Model.Blog.Cover))
