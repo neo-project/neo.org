@@ -12,10 +12,46 @@
     </environment>
 }
 
-<h2 class="text-center mt1">Team & Contributors</h2>
-<p class="mt4 w800">@Localizer["This page presents some NEO contributors, which are divided into the following four parts: NEO core developers, NEO Foundation key members, NGD key members, and NEO community outstanding contributors.Thank them for their outstanding contribution to the ecosystem of NEO."]</p>
-<hr class="mt2" />
+<h2 class="text-center mt1">Contributors</h2>
 
+<hr class="mt2" />
+<h4 class="mt5">NEO Foundation Key Members</h4>
+<div class="row mt3 team-list">
+    <div class="col-md-4">
+        <img data-original="/images/team/da.jpg" />
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-7">
+        <h3 class="">Hongfei Da</h3>
+        <h6 class="mt7">达鸿飞</h6>
+        <div class="bolder mt6">Founder, NEO, Co-Chair of NEO Foundation, CEO of NGD</div>
+        <div class="mt5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin quis augue vel eleifend. Phasellus a lacus vitae erat aliquam  Phasellus a lacus euismod. </div>
+        <div class="h6 mt4 link">
+            <a class="iconfont mr3" href="https://www.linkedin.com/in/dahongfei/">&#xe612;</a>
+            <a class="iconfont" href="https://github.com/dahongfei">&#xe609;</a>
+        </div>
+    </div>
+</div>
+
+<div class="row mt3 team-list">
+    <div class="col-md-4">
+        <img class="img" data-original="/images/team/erik.jpg" />
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-7">
+        <h3>Erik Zhang</h3>
+        <h6 class="mt7">张铮文</h6>
+        <div class="bolder mt6">Founder, NEO</div>
+        <div class="mt5">Erik is founder and core developer of NEO, author to dBFT consensus mechanism, expert on blockchain technology and computer security and a certified information system auditor (CISA). Previously he was engaged in Shanda Games and www.huobi.com where he specialised in information security and R&D in digital currency.</div>
+        <div class="h6 mt4 link">
+            <a class="iconfont mr3" href="https://www.linkedin.com/in/erik-zhang-5a6b14ab/">&#xe612;</a>
+            <a class="iconfont" href="https://github.com/erikzhang">&#xe609;</a>
+        </div>
+    </div>
+</div>
+
+
+<hr class="mt2" />
 <h4 class="mt4">NEO Core Developers</h4>
 <div class="row team-list" id="core"></div>
 
@@ -34,13 +70,11 @@
     <div class="col-6 col-md-3 mt4">
         <img src={{value.img}} />
         <div>
-            <div class="h6 green mt6">{{value.name}}</div>
+            <div class="h6 green">{{value.name}}</div>
             <div class="small green">{{if value.nameZh}}{{value.nameZh}}{{/if}}</div>
-            <div class="mt7">{{value.job}}</div>
-            @*{{if value.intro}}<div class="gray mt7">{{value.intro}}</div>{{/if}}*@
             <div class="mt7 link">
-                {{if value.linkin}}<a class="iconfont mr3 gray" href={{value.linkin}}>&#xe612;</a>{{/if}}
-                {{if value.github}}<a class="iconfont gray" href={{value.github}}>&#xe609;</a>{{/if}}
+                {{if value.linkin}}<a class="iconfont mr3" href={{value.linkin}}>&#xe612;</a>{{/if}}
+                {{if value.github}}<a class="iconfont" href={{value.github}}>&#xe609;</a>{{/if}}
             </div>
         </div>
     </div>
@@ -52,7 +86,7 @@
     <div class="col-6 col-md-3 mt4">
         <img src={{value.img}} />
         <div>
-            <div class="h6 green mt6">{{value.name}}</div>
+            <div class="h6 green">{{value.name}}</div>
             <div class="small green">{{if value.nameZh}}{{value.nameZh}}{{/if}}</div>
             <div class="mt7">{{value.job}}</div>
         </div>
@@ -65,7 +99,7 @@
     <div class="col-6 col-md-3 mt4">
         <img src={{value.img}} />
         <div>
-            <div class="h6 green mt6">{{value.name}}</div>
+            <div class="h6 green">{{value.name}}</div>
             <div class="small green">{{if value.nameZh}}{{value.nameZh}}{{/if}}</div>
             <div class="mt7">{{value.job}}</div>
         </div>
