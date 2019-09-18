@@ -4,9 +4,9 @@
     ViewData["Title"] = "Two-factor authentication";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h2 class="mt-5">@ViewData["Title"]</h2>
 <hr />
-<p>Your login is protected with an authenticator app. Enter your authenticator code below.</p>
+<p class="mt-4">Your login is protected with an authenticator app. Enter your authenticator code below.</p>
 <div class="row">
     <div class="col-md-4">
         <form method="post" asp-route-returnUrl="@Model.ReturnUrl">
