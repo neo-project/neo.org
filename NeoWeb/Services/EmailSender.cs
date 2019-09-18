@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.Options;
-using SendGrid;
-using SendGrid.Helpers.Mail;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Mail;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace NeoWeb.Services
@@ -20,25 +22,35 @@ namespace NeoWeb.Services
 
         public Task SendEmailAsync(string email, string subject, string message)
         {
-            return Execute(SenderOptions.SendGridKey, email, subject, message);
-        }
-
-        public Task Execute(string apiKey, string email, string subject, string message)
-        {
-            SendGridClient client = new SendGridClient(apiKey);
-
-            SendGridMessage msg = new SendGridMessage()
+            var config = "emailconfig.json";
+            if (!File.Exists(config))
             {
-                From = new EmailAddress(SenderOptions.SendGridUser),
+                return Task.Delay(0);
+            }
+            var json = JObject.Parse(File.ReadAllText(config));
+            
+            using (MailMessage mail = new MailMessage
+            {
+                From = new MailAddress((string)json["FromAddress"], (string)json["FromDisplayName"]),
                 Subject = subject,
-                PlainTextContent = message,
-                HtmlContent = message
-            };
-            msg.AddTo(new EmailAddress(email));
-
-            //msg.SetClickTracking(false, false);
-
-            return client.SendEmailAsync(msg);
+                BodyEncoding = Encoding.UTF8,
+                Body = message,
+                IsBodyHtml = true
+            })
+            {
+                mail.To.Add(email);
+                using (SmtpClient smtp = new SmtpClient((string)json["Host"], (int)json["Port"])
+                {
+                    EnableSsl = true,
+                    UseDefaultCredentials = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    Credentials = new System.Net.NetworkCredential((string)json["UserName"], (string)json["Password"])
+                })
+                {
+                    smtp.Send(mail);
+                }
+            }
+            return Task.Delay(0);
         }
     }
 }
