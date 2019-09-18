@@ -88,7 +88,7 @@
 
             $.ajax({
                 type: "GET",
-                url: "js/team.json" + "?v=" + Math.random(),
+                url: "@Helper.ToCDN("/js/team.js")",
                 dataType: 'json',
                 success: function (data) {
                     var core = "", neo = "", community = "";

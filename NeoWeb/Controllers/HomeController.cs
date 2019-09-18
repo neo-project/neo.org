@@ -38,7 +38,7 @@ namespace NeoWeb.Controllers
             Helper.AddBlogs(blogs, viewModels, isZh);
             Helper.AddEvents(events, viewModels, isZh);
             Helper.AddNews(news, viewModels, isZh);
-            return View(viewModels.Take(count).ToList());
+            return View(viewModels.OrderByDescending(p => p.Time).Take(count).ToList());
         }
 
         [HttpPost]
