@@ -207,6 +207,20 @@
         display: inline-block;
         list-style: none;
         margin-right: 25px;
+        position: relative;
+
+        &:hover {
+
+            img {
+                position: absolute;
+                display: block;
+            }
+        }
+
+        img {
+            display: none;
+        }
+
 
         .iconfont {
             color: @dark-text;
@@ -220,6 +234,10 @@
 footer {
     padding-top: 25px;
     padding-bottom: 30px;
+
+    a {
+        color: @white;
+    }
 
     hr.line {
         margin-top: 100px;
