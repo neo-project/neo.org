@@ -126,7 +126,7 @@ namespace NeoWeb
             {
                 Task.Run(() =>
                 {
-                    using (Image<Rgba32> image = Image.Load(filePath))
+                    using (var image = Image.Load(filePath))
                     {
                         image.Mutate(x => x.Resize(new ResizeOptions
                         {
@@ -143,7 +143,7 @@ namespace NeoWeb
         public static bool ValidateCover(IHostingEnvironment env, string fileName)
         {
             var filePath = Path.Combine(env.ContentRootPath, "wwwroot/upload", fileName);
-            using (Image<Rgba32> image = Image.Load(filePath))
+            using (var image = Image.Load(filePath))
             {
                 return Math.Abs(image.Height - image.Width / 16 * 9) < 1;
             }
