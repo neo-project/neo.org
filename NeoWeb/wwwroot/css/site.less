@@ -25,13 +25,13 @@ a {
     }
 }
 
-ul {
-    padding:0;
+ul.list-none {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
 
-    &.list-none {
-        li {
-            display: inline-block;
-        }
+    li {
+        display: inline-block;
     }
 }
 
@@ -343,6 +343,9 @@ a[class|=btn]{
 }
 .green2 {
     color: @green2 !important;
+}
+.cyan {
+    color: @cyan !important;
 }
 .red {
     color: @red !important;

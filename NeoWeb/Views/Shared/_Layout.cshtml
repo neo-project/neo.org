@@ -68,40 +68,38 @@ https://github.com/neo-project/neo.org
 </head>
 <body>
     <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a href="/"><img src="@Helper.CDN/images/neo_logo.svg" alt="NEO Logo" /></a>
-            <button class="navbar-toggler" type="button">
-                <div class="special-button">
-                    <div class="top"></div>
-                    <div class="bottom"></div>
-                </div>
-            </button>
-
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="about">@Localizer["About"]</a></li>
-                    <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="dev">@Localizer["Developer"]</a></li>
-                    <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="client">@Localizer["Client"]</a></li>
-                    <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="eco">@Localizer["EcoSystem"]</a></li>
-                    <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="discover">@Localizer["Discover"]</a></li>
-
-                    <li class="nav-item"></li>
-                    @if (SharedLocalizer["en"].Value == "zh")
-                    {
-                        <li class="nav-item nav-lang">
-                            <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
-                            <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
-                        </li>
-                    }
-                    else
-                    {
-                        <li class="nav-item nav-lang">
-                            <a style="font-size: 1em; font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
-                            <a style="font-size: .9em;  font-weight: 500" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
-                        </li>
-                    }
-                </ul>
+        <a href="/"><img src="@Helper.CDN/images/neo_logo.svg" alt="NEO Logo" /></a>
+        <button class="navbar-toggler" type="button">
+            <div class="special-button">
+                <div class="top"></div>
+                <div class="bottom"></div>
             </div>
+        </button>
+
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="about">@Localizer["About"]</a></li>
+                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="dev">@Localizer["Developer"]</a></li>
+                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="client">@Localizer["Client"]</a></li>
+                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="eco">@Localizer["EcoSystem"]</a></li>
+                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="discover">@Localizer["Discover"]</a></li>
+
+                <li class="nav-item"></li>
+                @if (SharedLocalizer["en"].Value == "zh")
+                {
+                    <li class="nav-item nav-lang">
+                        <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
+                        <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item nav-lang">
+                        <a style="font-size: 1em; font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
+                        <a style="font-size: .9em;  font-weight: 500" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+                    </li>
+                }
+            </ul>
         </div>
     </nav>
     <div class="container layout-container">
