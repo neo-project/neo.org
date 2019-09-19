@@ -16,9 +16,9 @@
     <h1 class="w800">Developer Portal</h1>
     <p class="mt5 w600">Our ecosystem's wallets are compatible with your platform of choice, from Windows to Apple. Create a wallet today, and open up a new world of possibilities!</p>
     <p class="mt5">
-        <a class="btn mt5 mr2 @SharedLocalizer["d-none-zh"]">NEO3 Page</a>
-        <a class="btn mt5 mr2">GitHub</a>
-        <a class="btn mt5">NEO Docs</a>
+        <a class="btn mt5 mr2 @SharedLocalizer["d-none-zh"]" href="https://medium.com/neo-smart-economy/a-deep-dive-into-neo3-preview1-features-fa6fa032e090">NEO3 Page</a>
+        <a class="btn mt5 mr2" href="https://github.com/neo-project">GitHub</a>
+        <a class="btn mt5" href="https://docs.neo.org">NEO Docs</a>
     </p>
 </div>
 <div class="container">
@@ -92,13 +92,13 @@
                 <ul class="dev-link mt5">
                     <li><a href="https://github.com/neo-project" title="NEO GitHub">NEO GitHub</a></li>
                     <li><a href="https://docs.neo.org/" title="NEO Docs">@Localizer["NEO Docs"]</a></li>
-                    <li><a href="/dev/bounty" title="Security Bounty">@Localizer["Security Bounty"]</a></li>
+                    <li><a asp-controller="dev" asp-action="bounty" title="Security Bounty">@Localizer["Security Bounty"]</a></li>
                 </ul>
             </div>
             <div class="col-md-4">
                 <h4 class="line-b">@Localizer["NEO & GAS TestNet"]</h4>
                 <ul class="dev-link mt5">
-                    <li><a href="/testcoin/apply" title="Manual Entry">@Localizer["Manual Entry"]</a></li>
+                    <li><a asp-controller="testcoin" asp-action="apply" title="Manual Entry">@Localizer["Manual Entry"]</a></li>
                     <li><a href="http://neowish.ngd.network/" title="Automatic Entry">@Localizer["Automatic Entry"]</a></li>
                 </ul>
             </div>
@@ -170,7 +170,7 @@
                     <li><a href="https://o3.network/" title="O3">O3</a></li>
                     <li><a href="https://neoline.cn/" title="NEOLine">NEOLine</a></li>
                     <li><a href="https://github.com/NewEconoLab/TeemoWallet" title="Teemo">Teemo</a></li>
-                    <li><a href="/client">More...</a></li>
+                    <li><a asp-action="client">More...</a></li>
 
                 </ul>
             </div>
@@ -246,12 +246,5 @@
         <li><img src="@Helper.ToCDN("/images/dev/next.png")" /><br /><a href="https://neonext.club" target="_blank">NEXT</a></li>
         <li><img src="@Helper.ToCDN("/images/dev/alien.png")" /><br /><a href="https://github.com/alienworks" target="_blank">AlienWorks</a></li>
     </ul>
-    <p><a class="btn mt4">BE NEXT COMMUNITY</a></p>
+    <p><a class="btn mt4" href="未知链接">BE NEXT COMMUNITY</a></p>
 </div>
-
-@section Scripts{
-    <script>
-        $("#menu_list a").css("border-bottom", "none");
-        $("#menu_list li.nav-item [href='/dev']").css("border-bottom", "2px solid #58bf00");
-    </script>
-}
