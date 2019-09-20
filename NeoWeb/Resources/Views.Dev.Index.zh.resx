@@ -117,4 +117,121 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Apply with Automatic Entry" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Apply with Manual Entry" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Blockchain Infrastructure" xml:space="preserve">
+    <value />
+  </data>
+  <data name="build your own dApps" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cities" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Communities" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Complete infrastructure" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Contribute to the fundamental facilities on the Neo blockchain" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Core developers" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Countries" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dAPP developers" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dApp Integration" xml:space="preserve">
+    <value />
+  </data>
+  <data name="De-Fi" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Developer Portal" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Digital Asset" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Explorer" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Formulate new genres of games on this emerging market" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Join Neo Global Communities" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mission for geeks" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Monitor" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NEO &amp; GAS TestNet" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Neo Blockchain Network" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NEO Docs" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Open tasks" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Private Net" xml:space="preserve">
+    <value />
+  </data>
+  <data name="protocol development" xml:space="preserve">
+    <value />
+  </data>
+  <data name="protocol, docs, and toolchain" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Security Bounty" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Smart Contract Development" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Strong developer community" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Toolkit" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Tools developers" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Transform old financial products into trustless and transparent protocols" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Wallet &amp; Extension" xml:space="preserve">
+    <value />
+  </data>
+  <data name="What you can develop on Neo" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Why you should develop on Neo" xml:space="preserve">
+    <value />
+  </data>
+  <data name="you can propose to dev@neo.org" xml:space="preserve">
+    <value />
+  </data>
 </root>

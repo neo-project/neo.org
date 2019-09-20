@@ -117,7 +117,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="A distributed data storage system for storing large-scale data on the chain." xml:space="preserve">
+    <value />
+  </data>
+  <data name="A dual-token mechanism for splitting the governance and use rights of the Neo network to facilitate the management and liquidity." xml:space="preserve">
+    <value />
+  </data>
+  <data name="A lightweight, cross-platform and scalable virtual machine." xml:space="preserve">
+    <value />
+  </data>
+  <data name="About" xml:space="preserve">
+    <value />
+  </data>
+  <data name="An Open Network for Smart Economy" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Candidates can establish a partnership with the Neo Foundation to receive the latter’s vote." xml:space="preserve">
+    <value />
+  </data>
+  <data name="Explorer" xml:space="preserve">
+    <value />
+  </data>
   <data name="https://neo-ngd.github.io/reference/How-To-Become-NEO-Consensus-Node.html" xml:space="preserve">
     <value>https://neo-ngd.github.io/reference/%E5%A6%82%E4%BD%95%E6%88%90%E4%B8%BANEO%E5%85%B1%E8%AF%86%E8%8A%82%E7%82%B9.html</value>
+  </data>
+  <data name="More details" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Neo Contributors" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Neo Governance" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Neo has developed an infrastructure with features to optimize stability and performance, including a smart contract system compatible with commonly used programming languages and solutions for transactional finality. Neo is successfully driving innovations which are paving the way for large-scale commercial applications, including a data storage system capable of hosting large volumes of data while ensuring security and privacy." xml:space="preserve">
+    <value />
+  </data>
+  <data name="Neo in Retrospect" xml:space="preserve">
+    <value />
+  </data>
+  <data name="On-chain governance: Candidates can become a consensus nodes after being voted in by NEO holders." xml:space="preserve">
+    <value />
+  </data>
+  <data name="On-chain voting mechanism allowing everyone to participate in the network governance." xml:space="preserve">
+    <value />
+  </data>
+  <data name="Returns data sovereignty back to the user , transforms “trust or not” into “how much trust” , allows users to customize trust evaluation models flexibly." xml:space="preserve">
+    <value />
   </data>
 </root>
