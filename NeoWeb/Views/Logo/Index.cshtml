@@ -2,18 +2,19 @@
 @inject IViewLocalizer Localizer
 
 @section Styles{
-    <environment include="Development">
-        <link rel="stylesheet" href="/css/logo.css" asp-append-version="true" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.ToCDN("/css/logo.min.css", true)" />
-    </environment>
+    <style>
+        .layout-container {
+            max-width: none;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
 }
-<div class="text-center">
-    <h2 class="mt2">NEO LOGO</h2>
+<div class="p1 bg3">
+    <h1 class="w800">NEO LOGO</h1>
+    <p class="mt5 w700">@Localizer["The logo below is only for you to choose to use in cooperation promotion, thank you!"]</p>
 </div>
-<div class="container p2 text-center">
-    <p class="bold">@Localizer["The logo below is only for you to choose to use in cooperation promotion, thank you!"]</p>
+<div class="container mb-5 text-center">
     <img class="mt6 p3" width="150" src="@Helper.ToCDN("/images/neo-logo/NEO-logo.svg")" />
     <div>
         <a class="btn btn-outline-secondary" href="@Helper.ToCDN("/images/neo-logo/36.png")" target="_blank">PNG 36×36</a>&nbsp;

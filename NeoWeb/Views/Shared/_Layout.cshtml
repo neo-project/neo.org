@@ -68,7 +68,7 @@ https://github.com/neo-project/neo.org
 </head>
 <body>
     <nav class="navbar navbar-expand-lg">
-        <a asp-controller="home"><img src="@Helper.CDN/images/neo_logo.svg" alt="Neo Logo" /></a>
+        <a asp-controller="home" asp-action="index"><img src="@Helper.CDN/images/neo_logo.svg" alt="Neo Logo" /></a>
         <button class="navbar-toggler" type="button">
             <div class="special-button">
                 <div class="top"></div>
@@ -78,11 +78,11 @@ https://github.com/neo-project/neo.org
 
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" asp-controller="about">@Localizer["About"]</a></li>
-                <li class="nav-item"><a class="nav-link" asp-controller="dev">@Localizer["Developer"]</a></li>
-                <li class="nav-item"><a class="nav-link" asp-controller="client">@Localizer["Wallets"]</a></li>
-                <li class="nav-item"><a class="nav-link" asp-controller="eco">@Localizer["Ecosystem"]</a></li>
-                <li class="nav-item"><a class="nav-link" asp-controller="discover">@Localizer["Discover"]</a></li>
+                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="about">@Localizer["About"]</a></li>
+                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="dev">@Localizer["Developer"]</a></li>
+                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="client">@Localizer["Wallets"]</a></li>
+                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="eco">@Localizer["Ecosystem"]</a></li>
+                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="discover">@Localizer["Discover"]</a></li>
 
                 <li class="nav-item"></li>
                 @if (SharedLocalizer["en"].Value == "zh")
@@ -151,15 +151,15 @@ https://github.com/neo-project/neo.org
                 <img class="b-logo" width="80" height="30" />
             </div>
             <div class="col-md">
-                <p class="bold no-border"><a asp-controller="about">@Localizer["About"]</a></p>
+                <p class="bold no-border"><a asp-controller="about" asp-action="index">@Localizer["About"]</a></p>
                 <ul>
-                    <li><a asp-controller="consensus">@Localizer["Consensus"]</a></li>
-                    <li><a asp-controller="team">@Localizer["Contributors"]</a></li>
-                    <li><a asp-controller="logo">@Localizer["Press Kit"]</a></li>
+                    <li><a asp-controller="consensus" asp-action="index">@Localizer["Consensus"]</a></li>
+                    <li><a asp-controller="team" asp-action="index">@Localizer["Contributors"]</a></li>
+                    <li><a asp-controller="logo" asp-action="index">@Localizer["Press Kit"]</a></li>
                 </ul>
             </div>
             <div class="col-md">
-                <p class="bold"><a asp-controller="dev">@Localizer["Developers"]</a></p>
+                <p class="bold"><a asp-controller="dev" asp-action="index">@Localizer["Developers"]</a></p>
                 <ul>
                     <li><a href="https://docs.neo.org">@Localizer["Documentation"]</a></li>
                     <li><a href="https://github.com/neo-project">@Localizer["GitHub"]</a></li>
@@ -167,17 +167,17 @@ https://github.com/neo-project/neo.org
                 </ul>
             </div>
             <div class="col-md">
-                <p class="bold"><a asp-controller="client">@Localizer["Wallet"]</a></p>
+                <p class="bold"><a asp-controller="client" asp-action="index">@Localizer["Wallet"]</a></p>
             </div>
             <div class="col-md">
-                <p class="bold"><a asp-controller="eco">@Localizer["Ecosystem"]</a></p>
+                <p class="bold"><a asp-controller="eco" asp-action="index">@Localizer["Ecosystem"]</a></p>
                 <ul>
                     <li><a asp-controller="eco" asp-action="ecoboost">@Localizer["EcoBoost"]</a></li>
                     <li><a href="https://ndapp.org" target="_blank">@Localizer["dApps List"]</a></li>
                 </ul>
             </div>
             <div class="col-md">
-                <p class="bold"><a asp-controller="discover">@Localizer["Discover"]</a></p>
+                <p class="bold"><a asp-controller="discover" asp-action="index">@Localizer["Discover"]</a></p>
             </div>
             <div class="col-md-3">
                 <p class="bold">@Localizer["Contact Us"]</p>
