@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
 @{
     ViewData["Title"] = Localizer["About"];
 }
@@ -83,11 +84,23 @@
             </div>
         </div>
     </div>
+</div>
+<div class="container">
     <h2 class="mt1 p3">@Localizer["Neo in Retrospect"]</h2>
-    <div class="roadmap mt6">
-        <img class="d-none d-md-block" width="100%" height="200" />
-        <img class="d-block d-md-none" width="100%" height="600" />
-    </div>
+</div>
+<div class="roadmap mt6">
+    @if (SharedLocalizer["en"].Value == "zh")
+    {
+        <img class="d-none d-md-block" src="@Helper.ToCDN("/images/about/retrospect-dt-chinese.svg")" />
+        <img class="d-block d-md-none" src="@Helper.ToCDN("/images/about/retrospect-mb-chinese.svg")" />
+    }
+    else
+    {
+        <img class="d-none d-md-block" src="@Helper.ToCDN("/images/about/retrospect-dt-english.svg")" />
+        <img class="d-block d-md-none" src="@Helper.ToCDN("/images/about/retrospect-mb-english.svg")" />
+    }
+</div>
+<div class="constant">
     <div class="mt1 p1 text-center">
         <h2>@Localizer["Neo Governance"]</h2>
         <p class="w600 mt4">
@@ -102,7 +115,7 @@
         </div>
     </div>
 
-    
+
 </div>
 <div class="p1 bg6">
     <div class="container w800">
