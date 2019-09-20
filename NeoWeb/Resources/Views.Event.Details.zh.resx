@@ -117,25 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Delete" xml:space="preserve">
-    <value>删除</value>
-  </data>
-  <data name="Details of the event are being edited, please look forward to." xml:space="preserve">
-    <value>活动详情正在编辑中，敬请期待</value>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>编辑</value>
-  </data>
   <data name="Free ticket" xml:space="preserve">
     <value>免费票</value>
   </data>
   <data name="Paid ticket" xml:space="preserve">
     <value>付费票</value>
   </data>
-  <data name="Sign Up" xml:space="preserve">
-    <value>活动报名</value>
-  </data>
   <data name="Back to List" xml:space="preserve">
     <value>返回列表</value>
+  </data>
+  <data name="Back to top" xml:space="preserve">
+    <value>回顶部</value>
+  </data>
+  <data name="Next article" xml:space="preserve">
+    <value>下一篇</value>
+  </data>
+  <data name="Previous article" xml:space="preserve">
+    <value>上一篇</value>
   </data>
 </root>

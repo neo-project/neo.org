@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Back to list" xml:space="preserve">
-    <value>回到文章列表</value>
+    <value>回到列表</value>
   </data>
   <data name="Back to top" xml:space="preserve">
     <value>回顶部</value>
@@ -128,11 +128,5 @@
   </data>
   <data name="Previous article" xml:space="preserve">
     <value>上一篇</value>
-  </data>
-  <data name="Admin mode, does not automatically display blogs that correspond to the language of the site" xml:space="preserve">
-    <value>管理员模式，不自动显示网站对应语言的博客</value>
-  </data>
-  <data name="There is no other language version of this blog" xml:space="preserve">
-    <value>当前博客没有其它语言的版本</value>
   </data>
 </root>
