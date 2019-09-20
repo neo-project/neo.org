@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="@Helper.ToCDN("/css/client.min.css", true)" />
     </environment>
 }
-<div class="p1" style="background-color: azure">
+<div class="p1 bg5">
     <h1 class="w800">@Localizer["NEO & GAS"]</h1>
     <p class="mt5 w600">@Localizer["The wallets shown on this page are all developed by the development teams or individual developers of the NEO community. Please contact the developer if you encounter any problems during use."]</p>
     <p class="mt5 w600">@Localizer["As some wallets are open-source while some are not, you may lose control of your own NEO assets when using some wallets that shown on this page. Please choose the wallets as appropriate."]</p>
@@ -328,6 +328,7 @@
             <div class="desc d-none">
                 <div class="preview-div">
                     <h3>Preview</h3>
+                    <a class="plat-btn btn-web" href="javascript:" onclick="switchPlatform('web');">@Localizer["Web"]</a>
                     <a class="plat-btn btn-desktop" href="javascript:" onclick="switchPlatform('desktop');">@Localizer["Desktop"]</a>
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
@@ -336,6 +337,14 @@
                 </div>
                 <div class="p-desktop preview" style="display:none;">
                     <img data-original="@Helper.ToCDN("/images/client/aphelion-desktop.png")" />
+                </div>
+                <div class="p-web preview" style="display:none;">
+                    <img data-original="@Helper.ToCDN("/images/client/aphelion1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/aphelion2.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/aphelion3.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/aphelion4.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/aphelion5.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/aphelion6.png")" />
                 </div>
                 <p>
                     @Localizer["It's a cross-platform wallet that supports almost all mainstream operating systems, and it also supports contacts and complete NEP-5. This wallet can be used in conjunction with the Ledger hardware wallet."]
@@ -529,7 +538,12 @@
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
                 <div class="p-mobile preview">
-                    <img data-original="@Helper.ToCDN("/images/client/cobo.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/cobo1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/cobo2.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/cobo3.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/cobo4.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/cobo5.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/cobo6.png")" />
                 </div>
                 <p>@Localizer["Cobo is a wallet that supports multiple digital asset management."]</p>
                 <p>@Localizer["Languages"]: English / 简体中文</p>
@@ -570,7 +584,13 @@
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
                 <div class="p-mobile preview">
-                    <img data-original="@Helper.ToCDN("/images/client/math.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/math1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/math2.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/math3.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/math4.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/math5.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/math6.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/math7.png")" />
                 </div>
                 <p>@Localizer["It's a multiple digital asset wallet developed by Math Labs. This wallet supports BTC, ETH, NEO, EOS and other ecosystems, as well as face recognition, living body recognition and other biometric recognition technologies."]</p>
                 <p>@Localizer["Languages"]: English / 简体中文 / 한국어</p>
@@ -611,7 +631,10 @@
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
                 <div class="p-mobile preview">
-                    <img data-original="@Helper.ToCDN("/images/client/infinito.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/infinito1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/infinito2.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/infinito3.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/infinito4.png")" />
                 </div>
                 <p>@Localizer["It's a multi-token wallet developed by Infinito Blockchain Labs . This wallet supports BTC, ETH, NEO, EOS and other ecosystems. It has more than 10 languages for alternatives and supports fingerprint identification."]</p>
                 <p>@Localizer["Languages"]: English / 简体中文 / Tiếng Việt / 日本語 / 한국어 / Italiano / Русский / Español</p>
@@ -700,10 +723,13 @@
             <div class="desc d-none">
                 <div class="preview-div">
                     <h3>Preview</h3>
-                    <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
+                    <a class="plat-btn btn-desktop active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Desktop"]</a>
                 </div>
                 <div class="p-mobile preview">
-                    <img data-original="@Helper.ToCDN("/images/client/atomic.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/atomic1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/atomic2.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/atomic3.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/atomic4.png")" />
                 </div>
                 <p>@Localizer["Atomic is a decentralized wallet that supports 300+ cryptocurrency assets. The wallet uses Atomic Swap technology for cross-chain custody free exchange. Atomic Wallet provides instant exchange and \"buy crypto with a credit card\" feature. Available for Windows, Mac OS, Linux, and Android."]</p>
                 <p>@Localizer["Languages"]: English</p>
@@ -976,26 +1002,27 @@
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
             </div>
             <div class="developer d-none"><a href="https://wallet.yezcoin.com/" target="_blank">YEZ Wallet</a></div>
-            <div class="button d-none"><a class="btn" href="https://walletapp.yezcoin.com" target="_blank">@Localizer["Download"]</a></div>
-            <div class="button d-none"><a class="btn" href="https://wallet.yezcoin.com/" target="_blank">@Localizer["Go to Web Wallet"]</a></div>
+            <div class="button d-none">
+                <a class="btn" href="https://walletapp.yezcoin.com" target="_blank">@Localizer["Download"]</a>
+                <a class="btn" href="https://wallet.yezcoin.com/" target="_blank">@Localizer["Go to Web Wallet"]</a>
+            </div>
             <div class="desc d-none">
                 <div class="preview-div">
                     <h3>Preview</h3>
-                    <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                     <a class="plat-btn btn-web" href="javascript:" onclick="switchPlatform('web');">@Localizer["Web"]</a>
+                    <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
                 <div class="p-mobile preview">
-                    @*<img data-original="@Helper.ToCDN("/images/client/yez1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/yez1.png")" />
                     <img data-original="@Helper.ToCDN("/images/client/yez2.png")" />
                     <img data-original="@Helper.ToCDN("/images/client/yez3.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/yez4.png")" />*@
+                    <img data-original="@Helper.ToCDN("/images/client/yez4.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/yez5.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/yez6.png")" />
                 </div>
                 <div class="p-web preview" style="display:none;">
-                    <img data-original="@Helper.ToCDN("/images/client/yez.png")" />
-                </div>
-                <div class="preview-div">
-                    <h3>Preview</h3>
-                    <a class="plat-btn btn-web active" href="javascript:" onclick="switchPlatform('web');">@Localizer["Web"]</a>
+                    <img data-original="@Helper.ToCDN("/images/client/yez-web1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/client/yez-web2.png")" />
                 </div>
                 <p>@Localizer["YEZ Wallet is a NEP-5 Wallet. We focuses on easy on-boarding with Google/Facebook Login integration.User can send/receive NEO, GAS, YEZ and other NEP-5 digital assets."]</p>
                 <p>@Localizer["Languages"]: English / 简体中文<br>
@@ -1266,7 +1293,5 @@
             $("#model_desc").html(desc.html());
             $("#model_link").html(link.html());
         }
-        $("#menu_list a").css("border-bottom", "none")
-        $("#menu_list li.nav-item [href='/client']").css("border-bottom", "2px solid #58bf00")
     </script>
 }

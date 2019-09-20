@@ -1,13 +1,18 @@
 ﻿@import "basic.less";
 .navbar {
-    padding: 25px 20px;
+    padding: 25px 46px;
     background-color: @body;
     user-select: none;
     text-align: center;
+    align-items: normal;
     -ms-user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
     z-index: 1;
+
+    @media only screen and (max-width: 992px) {
+        padding: 25px 20px;
+    }
 
     &.show {
         @media only screen and (max-width: 992px) {
@@ -29,13 +34,9 @@
                 }
             }
         }
-    }
 
-    .container {
-        @media only screen and (max-width: 992px) {
-            max-width: none;
-            padding: 0;
-            margin: 0 0 auto;
+        & > a, .navbar-toggler{
+            height: 50px;
         }
     }
 
@@ -87,7 +88,6 @@
 
             &:hover {
                 color: @green;
-                text-shadow: 1px 0 1px @green;
 
                 @media only screen and (max-width: 992px) {
                     color: @text;

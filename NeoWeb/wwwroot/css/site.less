@@ -25,13 +25,13 @@ a {
     }
 }
 
-ul {
-    padding:0;
+ul.list-none {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
 
-    &.list-none {
-        li {
-            display: inline-block;
-        }
+    li {
+        display: inline-block;
     }
 }
 
@@ -344,6 +344,9 @@ a[class|=btn]{
 .green2 {
     color: @green2 !important;
 }
+.cyan {
+    color: @cyan !important;
+}
 .red {
     color: @red !important;
 }
@@ -389,6 +392,39 @@ a[class|=btn]{
 
     @media only screen and (max-width: 768px) {
         background-image: url(../images/dev/BannerMobile.png);
+    }
+}
+
+.bg5 {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('../images/client/wallets hero banner-dt.png');
+
+    @media only screen and (max-width: 768px) {
+        background-image: url('../images/client/wallets hero banner-mb.png');
+    }
+}
+
+.bg6 {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('../images/about/about-contributors banner-dt.png');
+
+    @media only screen and (max-width: 768px) {
+        background-image: url('../images/about/about-contributors banner-mb.png');
+    }
+}
+
+.bg7 {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('../images/ecoboost/ecoboost hero banner-dt.png');
+
+    @media only screen and (max-width: 768px) {
+        background-image: url('../images/ecoboost/ecoboost hero banner-mb.png');
     }
 }
 

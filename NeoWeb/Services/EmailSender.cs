@@ -22,16 +22,9 @@ namespace NeoWeb.Services
 
         public Task SendEmailAsync(string email, string subject, string message)
         {
-            var config = "emailconfig.json";
-            if (!File.Exists(config))
-            {
-                return Task.Delay(0);
-            }
-            var json = JObject.Parse(File.ReadAllText(config));
-            
             using (MailMessage mail = new MailMessage
             {
-                From = new MailAddress((string)json["FromAddress"], (string)json["FromDisplayName"]),
+                From = new MailAddress(SenderOptions.FromAddress, SenderOptions.FromDisplayName),
                 Subject = subject,
                 BodyEncoding = Encoding.UTF8,
                 Body = message,
@@ -39,12 +32,12 @@ namespace NeoWeb.Services
             })
             {
                 mail.To.Add(email);
-                using (SmtpClient smtp = new SmtpClient((string)json["Host"], (int)json["Port"])
+                using (SmtpClient smtp = new SmtpClient(SenderOptions.Host, SenderOptions.Port)
                 {
                     EnableSsl = true,
                     UseDefaultCredentials = true,
                     DeliveryMethod = SmtpDeliveryMethod.Network,
-                    Credentials = new System.Net.NetworkCredential((string)json["UserName"], (string)json["Password"])
+                    Credentials = new System.Net.NetworkCredential(SenderOptions.EmailUserName, SenderOptions.EmailPassword)
                 })
                 {
                     smtp.Send(mail);
