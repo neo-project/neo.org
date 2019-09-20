@@ -344,9 +344,6 @@ a[class|=btn]{
 .green2 {
     color: @green2 !important;
 }
-.cyan {
-    color: @cyan !important;
-}
 .red {
     color: @red !important;
 }
@@ -672,7 +669,7 @@ i.iconfont {
 .list2 {
     margin-bottom: @length4;
 
-    div[class|=col],> li {
+    div[class|=col], > li {
         .mt4;
         list-style: none;
 
@@ -680,6 +677,8 @@ i.iconfont {
             color: @text;
             text-shadow: none;
             transition: text-shadow .2s;
+            background-size:cover;
+            animation: back-out ease-out 0.25s;
 
             &.img {
                 display: block;
@@ -692,7 +691,13 @@ i.iconfont {
                     display: block;
                     padding-top: 56.25%;
                 }
+
+                &:hover {
+                    animation: back linear 0.35s;
+                    animation-fill-mode: forwards;
+                }
             }
+
 
             &:hover {
                 text-shadow: 0 0 .1px @text;
@@ -735,7 +740,7 @@ i.iconfont {
     @media only screen and (max-width: 768px) {
         text-align: left !important;
 
-        div[class|=col],> li {
+        div[class|=col], > li {
             list-style: none;
 
             a {
@@ -923,7 +928,7 @@ table, .table {
     width: 100%;
     border-collapse: collapse;
 
-    thead, .table-head {
+    tr, .table-head {
         display: table-header-group;
         font-weight: 600;
 
@@ -944,6 +949,7 @@ table, .table {
             padding: .75rem;
             vertical-align: top;
             border: 1px solid #E6E6E6;
+            font-weight:300;
         }
     }
 }
@@ -952,7 +958,7 @@ table, .table {
     .table;
 
 
-    thead, .table-head {
+    tr, .table-head {
         th, > li {
             border: none;
             border-bottom: 1px solid #999999;
@@ -962,6 +968,7 @@ table, .table {
     .table-row, tr {
         td, > li {
             border: none;
+            font-weight: 300;
         }
     }
 }
@@ -1044,5 +1051,19 @@ table, .table {
         .btn {
             height: 40px;
         }
+    }
+}
+
+@keyframes back{
+    0% {background-size: 100%;}
+    100% {background-size: 108%;}
+}
+@keyframes back-out {
+    0% {
+        background-size: 108%;
+    }
+
+    100% {
+        background-size: 100%;
     }
 }
