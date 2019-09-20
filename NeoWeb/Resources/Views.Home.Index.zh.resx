@@ -117,4 +117,73 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Cities" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Communities" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Community Members" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Countries" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Get a NEO Wallet today, and take control of your assets!" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Get wallet" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Global Neo Communities:" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Highly Active Network:" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Join the" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Learn more" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Mainstream Languages:" xml:space="preserve">
+    <value />
+  </data>
+  <data name="most community-driven" xml:space="preserve">
+    <value />
+  </data>
+  <data name="most developer-friendly" xml:space="preserve">
+    <value />
+  </data>
+  <data name="most enterprise-ready" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Neo is investing USD100 million through its EcoBoost initiative to accelerate the realization of large-scale commercial blockchain solutions by empowering our developers and projects." xml:space="preserve">
+    <value />
+  </data>
+  <data name="Neo’s Ecosystem" xml:space="preserve">
+    <value />
+  </data>
+  <data name="network of blockchain solutions" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Partner with us and power up for success" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Technical Contributors" xml:space="preserve">
+    <value />
+  </data>
+  <data name="View more" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Wallet Addresses" xml:space="preserve">
+    <value />
+  </data>
+  <data name="What Neo can do" xml:space="preserve">
+    <value />
+  </data>
+  <data name="With our hundreds of thriving partners and projects, the Neo ecosystem is rapidly growing and developing, thus enabling us to become the foundation for next-gen Internet." xml:space="preserve">
+    <value />
+  </data>
 </root>

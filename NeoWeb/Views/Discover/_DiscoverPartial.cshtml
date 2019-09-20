@@ -16,7 +16,7 @@
                 <a class="img" href="~/blog/details/@item.Blog.Id" data-original="@String.Format("/upload/{0}", @item.Blog.Cover).ToLower()"></a>
             }
             <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green">@item.Type</span></div>
-            <div class="list-title"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></div>
+            <div class="list-title with-space"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></div>
 
             @if (ViewBag.UserRules != null && ViewBag.UserRules)
             {
@@ -44,7 +44,7 @@
                 <a class="img" href="~/event/details/@item.Event.Id" data-original="@String.Format("/upload/{0}", @item.Event.Cover).ToLower()"></a>
             }
             <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green">@item.Type</span></div>
-            <div class="list-title"><a href="~/event/details/@item.Event.Id">@item.Event.Name</a></div>
+            <div class="list-title with-space"><a href="~/event/details/@item.Event.Id">@item.Event.Name</a></div>
             @if (ViewBag.UserRules != null && ViewBag.UserRules)
             {
                 <a asp-action="Edit" asp-controller="Event" asp-route-id="@item.Event.Id">Edit</a>
@@ -60,7 +60,7 @@
                 {
                     <div><i class="iconfont">&#xe610;</i> @item.Event.StartTime.ToString("yyyy-MM-dd HH:mm") - @item.Event.EndTime.ToString("yyyy-MM-dd HH:mm")</div>
                 }
-            <div><i class="iconfont">&#xe60f;</i> @item.Event.Country - @item.Event.City</div>
+                <div><i class="iconfont">&#xe60f;</i> @item.Event.Country - @item.Event.City</div>
             </div>
         }
         else if (item.Type == DiscoverViewModelType.News)
@@ -74,7 +74,7 @@
                 <a class="img" href="@item.News.Link" target="_blank" data-original="@String.Format("/upload/{0}", @item.News.Cover).ToLower()"></a>
             }
             <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green">@item.Type</span></div>
-            <div class="list-title"><a href="@item.News.Link" target="_blank">@item.News.Title</a></div>
+            <div class="list-title with-space"><a href="@item.News.Link" target="_blank">@item.News.Title</a></div>
             @if (ViewBag.UserRules != null && ViewBag.UserRules)
             {
                 <a asp-action="Edit" asp-controller="News" asp-route-id="@item.News.Id">Edit</a>
@@ -83,4 +83,11 @@
             <div class="small">@item.News.Tags</div>
         }
     </div>
+}
+@section Scripts{
+    <script src="@Helper.ToCDN("/js/text-autospace.js")"></script>
+    <script>
+        //中英文之间添加空格
+        text_replace(".with-space");
+    </script>
 }

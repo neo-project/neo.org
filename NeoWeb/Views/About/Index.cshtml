@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @{
-    ViewData["Title"] = "About";
+    ViewData["Title"] = Localizer["About"];
 }
 @section Styles{
     <style>
@@ -13,92 +13,92 @@
     </style>
 }
 <div class="p1 bg3">
-    <h1 class="w800">An Open Network for Smart Economy</h1>
-    <p class="mt5 w600">NEO is an open-source, community driven initiative that is leveraging upon blockchain technology's intrinsic advantages to explore and realize optimized and future-designed solutions for a digital world.</p>
+    <h1 class="w800">@Localizer["An Open Network for Smart Economy"]</h1>
+    <p class="mt5 w600">@Localizer["Neo is an open-source, community driven initiative that is leveraging upon blockchain technology's intrinsic advantages to explore and realize optimized and future-designed solutions for a digital world."]</p>
 </div>
 <div class="container">
     <div class="row mt3">
         <div class="col-md-6">
-            <p class="h2 mt3">Technology</p>
+            <p class="h2 mt3">@Localizer["Technology"]</p>
         </div>
         <div class="col-md-6">
-            <p class="mt3">
-                To build a smart economy, NEO has commonly used programming languages and solutions for transactional finality. By first establishing a solid foundation, NEO has succeeded in driving innovations which are paving the way for large-scale commercial applications, including a data storage system capable of hosting large volumes of data while ensuring security and privacy.
-            </p>
+            <p class="mt3">@Localizer["Neo has developed an infrastructure with features to optimize stability and performance, including a smart contract system compatible with commonly used programming languages and solutions for transactional finality. Neo is successfully driving innovations which are paving the way for large-scale commercial applications, including a data storage system capable of hosting large volumes of data while ensuring security and privacy. "]</p>
         </div>
     </div>
     <div class="row list1 mt4 text-center">
         <div class="col-lg-3 col-md-4">
             <img data-original="/images/about/dBFT2.0.svg" />
             <div>
-                <span class="list-title">Subtitle</span><br />
-                <span class="list-con">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie Praesent justo.</span>
+                <span class="list-title">dBFT2.0</span><br />
+                <span class="list-con">@Localizer["A consensus algorithm with high stability, high TPS and single block finality."]</span>
             </div>
         </div>
         <div class="col-lg-3 col-md-4">
             <img data-original="/images/about/NeoVM.svg" />
             <div>
-                <span class="list-title">Subtitle</span><br />
-                <span class="list-con">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie Praesent justo.</span>
+                <span class="list-title">NeoVM</span><br />
+                <span class="list-con">@Localizer["A lightweight, cross-platform and scalable virtual machine."]</span>
             </div>
         </div>
         <div class="col-lg-3 col-md-4">
             <img data-original="/images/about/SmartContract.svg" />
             <div>
-                <span class="list-title">Subtitle</span><br />
-                <span class="list-con">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie Praesent justo.</span>
+                <span class="list-title">NeoID</span><br />
+                <span class="list-con">@Localizer["Returns data sovereignty back to the user , transforms “trust or not” into “how much trust” , allows users to customize trust evaluation models flexibly."]</span>
             </div>
         </div>
         <div class="col-lg-3 col-md-4">
             <img data-original="/images/about/NeoID.svg" />
             <div>
-                <span class="list-title">Subtitle</span><br />
-                <span class="list-con">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie Praesent justo.</span>
+                <span class="list-title">NeoFS</span><br />
+                <span class="list-con">@Localizer["A distributed data storage system for storing large-scale data on the chain."]</span>
             </div>
         </div>
         <div class="col-lg-3 col-md-4">
             <img data-original="/images/about/NeoFS.svg" />
             <div>
-                <span class="list-title">Subtitle</span><br />
-                <span class="list-con">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie Praesent justo.</span>
+                <span class="list-title">Voting Mechanism</span><br />
+                <span class="list-con">@Localizer["On-chain voting mechanism allowing everyone to participate in the network governance."]</span>
             </div>
         </div>
         <div class="col-lg-3 col-md-4">
             <img data-original="/images/about/VotingMechanism.svg" />
             <div>
-                <span class="list-title">Subtitle</span><br />
-                <span class="list-con">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie Praesent justo.</span>
+                <span class="list-title">Voting Mechanism</span><br />
+                <span class="list-con">@Localizer["On-chain voting mechanism allowing everyone to participate in the network governance."]</span>
             </div>
         </div>
         <div class="col-lg-3 col-md-4">
             <img data-original="/images/about/DualToken.svg" />
             <div>
-                <span class="list-title">Subtitle</span><br />
-                <span class="list-con">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie Praesent justo.</span>
+                <span class="list-title">Dual Token</span><br />
+                <span class="list-con">@Localizer["A dual-token mechanism for splitting the governance and use rights of the Neo network to facilitate the management and liquidity."]</span>
             </div>
         </div>
         <div class="col-lg-3 col-md-4">
             <img data-original="/images/about/Oracle.svg" />
             <div>
-                <span class="list-title">Subtitle</span><br />
-                <span class="list-con">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie Praesent justo.</span>
+                <span class="list-title">Oracle</span><br />
+                <span class="list-con">@Localizer["A build-in oracle system enabling smart contracts to access external resources."]</span>
             </div>
         </div>
     </div>
-    <h2 class="mt1 p3">NEO Roadmap 2019</h2>
+    <h2 class="mt1 p3">@Localizer["Neo in Retrospect"]</h2>
     <div class="roadmap mt6">
         <img class="d-none d-md-block" width="100%" height="200" />
         <img class="d-block d-md-none" width="100%" height="600" />
     </div>
     <div class="mt1 p1 text-center">
-        <h2>Become a consensus node and shape your future</h2>
+        <h2>@Localizer["Neo Governance"]</h2>
         <p class="w600 mt4">
-            Off-chain governance relies on the continued support from NEO Foundation. Candidates establish a strategic partnership with the NEO Foundation and receive votes from the Foundation. On-chain governance relies on the mechanisms of the NEO blockchain itself. Candidates become a consensus node through the votes of NEO holders and maintain it independently.<br /><br />
-            For more details, see the documentation: <a class="green" href="@Localizer["https://neo-ngd.github.io/reference/How-To-Become-NEO-Consensus-Node.html"]">How To Become A Consensus Node</a>
+            @Localizer["On-chain governance: Candidates can become a consensus nodes after being voted in by NEO holders."]
+            <br /><br />
+            @Localizer["Candidates can establish a partnership with the Neo Foundation to receive the latter’s vote."]
         </p>
         <div class="mt5">
-            <a class="btn mt6 mr2" href="mailto:consensus@neo.org">APPLY</a>
-            <a class="btn mt6" asp-controller="consensus">Explorer</a>
+            <a class="btn mt6 mr2" href="https://neo-ngd.github.io/reference/How-To-Become-NEO-Consensus-Node.html">@Localizer["More details"]</a>
+            <a class="btn mt6 mr2" href="mailto:consensus@neo.org">@Localizer["Apply"]</a>
+            <a class="btn mt6" asp-controller="consensus">@Localizer["Explorer"]</a>
         </div>
     </div>
 
@@ -106,7 +106,7 @@
 </div>
 <div class="p1 bg6">
     <div class="container w800">
-        <h2>NEO Contributors</h2>
-        <p class="mt4"><a class="btn" asp-controller="team">Learn More</a></p>
+        <h2>@Localizer["Neo Contributors"]</h2>
+        <p class="mt4"><a class="btn" asp-controller="team">@Localizer["Learn more"]</a></p>
     </div>
 </div>

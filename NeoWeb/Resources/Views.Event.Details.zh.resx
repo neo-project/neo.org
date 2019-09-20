@@ -135,4 +135,10 @@
   <data name="Previous article" xml:space="preserve">
     <value>上一篇</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>编辑</value>
+  </data>
 </root>
