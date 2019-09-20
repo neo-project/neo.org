@@ -22,15 +22,15 @@
 }
 
 <div class="nav-area mt3">
-    <div><i class="iconfont">&#xe618;</i><a asp-action="index" asp-controller="discover">BACK TO LIST</a></div>
-    <div>
+    <div><i class="iconfont">&#xe618;</i><a class="small" asp-action="index" asp-controller="discover">BACK TO LIST</a></div>
+    <div class="text-right">
         @if (@ViewBag.PrevBlogId != Model.Id)
         {
-            <a class="icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xe61c;</i><span>@Localizer["Previous"]</span></a>
+            <a class="icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xe61c;</i><span class="d-none d-md-inline small">@Localizer["Previous"]</span></a>
         }
         @if (@ViewBag.NextBlogId != Model.Id)
         {
-            <a class="ml-5" href="~/blog/details/@ViewBag.NextBlogId"><span>@Localizer["Next"]</span><i class="iconfont">&#xe61b;</i></a>
+            <a class="ml-5" href="~/blog/details/@ViewBag.NextBlogId"><span class="d-none d-md-inline small">@Localizer["Next"]</span><i class="iconfont">&#xe61b;</i></a>
         }
     </div>
 </div>
@@ -40,7 +40,7 @@
         <div class="article-time">@Model.CreateTime.Month.ToMonth() @Model.CreateTime.Day, @Model.CreateTime.Year<span>BLOG</span></div>
         <header><h2 class="article-title mt5 with-space">@Model.Title</h2></header>
         <p class="gray mt5">By @(string.IsNullOrEmpty(Model.Editor) ? "NEO Global Development" : @Model.Editor)</p>
-        <div class="share">
+        <div class="share mt4 gray">
             @{
                 var title = (ViewData["Title"] != null ? $"{ViewData["Title"]} - " : "") + Localizer["NEO Smart Economy"].Value;
                 var details = ViewData["Details"] ?? Localizer["NEO Smart Economy"].Value;
@@ -76,10 +76,10 @@
                 <a class="ml2" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
             }
         </p>
-        <hr class="mt4 mb0" />
+        <hr class="mt5 mb0" />
 
         <section>
-            <div class="mt5 with-space">
+            <div class="mt4 with-space">
                 @Html.Raw(Model.Content)
             </div>
         </section>
@@ -97,17 +97,17 @@
     </article>
 </div>
 <hr class="mt3" />
-<div class="nav-area mt-2 mb-5">
-    <div><i class="iconfont">&#xe618;</i><a asp-action="index" asp-controller="discover">BACK TO LIST</a></div>
-    <div><a class="back-to-top" href="javascript:"><i class="iconfont">&#xe619;</i><span>@Localizer["Back to top"]</span></a></div>
-    <div>
+<div class="nav-area mb-5">
+    <div><i class="iconfont">&#xe618;</i><a class="small" asp-action="index" asp-controller="discover">BACK TO LIST</a></div>
+    <div class="text-center"><a class="back-to-top" href="javascript:"><i class="iconfont">&#xe619;</i><span class="small">@Localizer["Back to top"]</span></a></div>
+    <div class="text-right">
         @if (@ViewBag.PrevBlogId != Model.Id)
         {
-            <a class="icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xe61c;</i><span>@Localizer["Previous"]</span></a>
+            <a class="icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xe61c;</i><span class="d-none d-md-inline small">@Localizer["Previous"]</span></a>
         }
         @if (@ViewBag.NextBlogId != Model.Id)
         {
-            <a class="ml-5" href="~/blog/details/@ViewBag.NextBlogId"><span>@Localizer["Next"]</span><i class="iconfont">&#xe61b;</i></a>
+            <a class="ml-5" href="~/blog/details/@ViewBag.NextBlogId"><span class="d-none d-md-inline small">@Localizer["Next"]</span><i class="iconfont">&#xe61b;</i></a>
         }
     </div>
 </div>

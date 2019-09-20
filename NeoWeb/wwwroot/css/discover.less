@@ -33,9 +33,12 @@
 .nav-area {
     display: flex;
     justify-content: space-between;
-    .iconfont{
+
+    .iconfont {
         margin-right: .5em;
+        vertical-align:text-bottom;
     }
+
     a {
         .bold;
         color: @gray;
@@ -45,11 +48,18 @@
             text-shadow: 0 0 0.1px @gray;
         }
     }
+
+    .small {
+        font-weight: 600;
+        vertical-align: middle;
+    }
+
+    > div {
+        width: 28%;
+    }
 }
 
 .share {
-    margin: 32px 0;
-
     iframe {
         display: inline;
     }

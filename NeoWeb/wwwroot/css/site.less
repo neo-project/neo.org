@@ -291,7 +291,7 @@ a[class|=btn]{
 
 }
 .btn {
-    display:inline-block;
+    display: inline-block;
     font-weight: 600;
     background: @btn-back;
     color: @btn-text !important;
@@ -301,11 +301,15 @@ a[class|=btn]{
     border: none;
     opacity: 1;
     transition: opacity 0.2s;
-    cursor:pointer;
+    cursor: pointer;
 
     &:hover {
         opacity: 0.8;
         transition: opacity 0.2s;
+    }
+
+    &:focus {
+        box-shadow:none;
     }
 
     @media only screen and (max-width: 768px) {
@@ -479,6 +483,9 @@ a[class|=btn]{
     display:none;
 }
 
+hr {
+    border-top: 1px solid rgba(150,150,150,.18);
+}
 hr.line {
     border-top: 1px solid @line;
 }
