@@ -25,14 +25,14 @@ https://github.com/neo-project/neo.org
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="robots" content="index,follow">
-    <meta name="description" content='@Localizer["NEO is a non-profit community-based blockchain project that utilizes blockchain technology and digital identity to digitize assets, to automate the management of digital assets using smart contracts, and to realize a \"smart economy\" with a distributed network."]'>
+    <meta name="description" content='@Localizer["Neo is an open-source, community driven initiative that is leveraging upon blockchain technology's intrinsic advantages to explore and realize optimized and future-designed solutions for a digital world."]'>
     <meta name="author" content="neo-project">
     <meta name="application-name" content="neo.org">
     <meta name="renderer" content="ie-stand">
     <meta name="keywords" content="@(ViewData["keywords"] ?? $"{ViewData["keywords"]},")NEO,Blockchain,智能经济,antshares,小蚁,区块链">
     @{
-        var title = (ViewData["Title"] != null ? $"{ViewData["Title"]} - " : "") + Localizer["NEO Smart Economy"].Value;
-        var details = ViewData["Details"] ?? Localizer["NEO Smart Economy"].Value;
+        var title = (ViewData["Title"] != null ? $"{ViewData["Title"]} - " : "") + Localizer["Neo Smart Economy"].Value;
+        var details = ViewData["Details"] ?? Localizer["Neo Smart Economy"].Value;
         var image = (ViewData["Image"] ?? Helper.ToCDN("/images/twitter-img.jpg"));
         var url = $"{Context.Request.Scheme}://{Context.Request.Host}{Context.Request.Path}{Context.Request.QueryString}";
     }
@@ -68,7 +68,7 @@ https://github.com/neo-project/neo.org
 </head>
 <body>
     <nav class="navbar navbar-expand-lg">
-        <a href="/"><img src="@Helper.CDN/images/neo_logo.svg" alt="NEO Logo" /></a>
+        <a asp-controller="home"><img src="@Helper.CDN/images/neo_logo.svg" alt="Neo Logo" /></a>
         <button class="navbar-toggler" type="button">
             <div class="special-button">
                 <div class="top"></div>
@@ -78,11 +78,11 @@ https://github.com/neo-project/neo.org
 
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="about">@Localizer["About"]</a></li>
-                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="dev">@Localizer["Developer"]</a></li>
-                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="client">@Localizer["Client"]</a></li>
-                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="eco">@Localizer["EcoSystem"]</a></li>
-                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="discover">@Localizer["Discover"]</a></li>
+                <li class="nav-item"><a class="nav-link" asp-controller="about">@Localizer["About"]</a></li>
+                <li class="nav-item"><a class="nav-link" asp-controller="dev">@Localizer["Developer"]</a></li>
+                <li class="nav-item"><a class="nav-link" asp-controller="client">@Localizer["Wallets"]</a></li>
+                <li class="nav-item"><a class="nav-link" asp-controller="eco">@Localizer["Ecosystem"]</a></li>
+                <li class="nav-item"><a class="nav-link" asp-controller="discover">@Localizer["Discover"]</a></li>
 
                 <li class="nav-item"></li>
                 @if (SharedLocalizer["en"].Value == "zh")
@@ -108,8 +108,8 @@ https://github.com/neo-project/neo.org
 
     <div class="b2 footer-fo text-center p2">
         <div class="container">
-            <h2>Follow Us</h2>
-            <h4 class="mt6">Stay tuned for the latest updates from neo</h4>
+            <h2>@Localizer["Follow Us"]</h2>
+            <h4 class="mt6">@Localizer["Stay tuned for our latest updates from Neo"]</h4>
             <ul class="mt4">
                 <li><a title="GitHub" href="https://github.com/neo-project" class="iconfont">&#xe609;</a></li>
                 <li><a title="Twitter" href="https://twitter.com/neo_blockchain" class="iconfont">&#xe607;</a></li>
@@ -130,7 +130,7 @@ https://github.com/neo-project/neo.org
                     <div id="mc_embed_signup_scroll">
                         <div class="mb-3 mc-field-group">
                             <input type="email" class="form-control required email" value="" name="EMAIL" id="mce-EMAIL" placeholder="Enter Email Address">
-                            <button class="btn" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe">SUBSCRIBE</button>
+                            <button class="btn" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe">@Localizer["SUBSCRIBE"]</button>
                         </div>
                         <div id="mce-responses" class="clear">
                             <div class="response" id="mce-error-response" style="display:none"></div>
@@ -151,82 +151,56 @@ https://github.com/neo-project/neo.org
                 <img class="b-logo" width="80" height="30" />
             </div>
             <div class="col-md">
-                <p class="bold no-border"><a href="~/about">About</a></p>
+                <p class="bold no-border"><a asp-controller="about">@Localizer["About"]</a></p>
                 <ul>
-                    <li><a href="~/consensus">Consensus</a></li>
-                    <li><a href="~/team">Contributors</a></li>
-                    <li><a href="~/logo">Press Kit</a></li>
+                    <li><a asp-controller="consensus">@Localizer["Consensus"]</a></li>
+                    <li><a asp-controller="team">@Localizer["Contributors"]</a></li>
+                    <li><a asp-controller="logo">@Localizer["Press Kit"]</a></li>
                 </ul>
             </div>
             <div class="col-md">
-                <p class="bold"><a href="~/dev">Developers</a></p>
+                <p class="bold"><a asp-controller="dev">@Localizer["Developers"]</a></p>
                 <ul>
-                    <li><a href="https://docs.neo.org">Documentation</a></li>
-                    <li><a href="https://github.com/neo-project">GitHub</a></li>
-                    <li><a href="~/dev/bounty">Security Bounty</a></li>
+                    <li><a href="https://docs.neo.org">@Localizer["Documentation"]</a></li>
+                    <li><a href="https://github.com/neo-project">@Localizer["GitHub"]</a></li>
+                    <li><a asp-controller="dev" asp-action="bounty">@Localizer["Security Bounty"]</a></li>
                 </ul>
             </div>
             <div class="col-md">
-                <p class="bold"><a href="~/client">Client</a></p>
+                <p class="bold"><a asp-controller="client">@Localizer["Wallet"]</a></p>
             </div>
             <div class="col-md">
-                <p class="bold"><a href="~/eco">Ecosystem</a></p>
+                <p class="bold"><a asp-controller="eco">@Localizer["Ecosystem"]</a></p>
                 <ul>
-                    <li><a href="~/eco">NEO Ecosystem</a></li>
-                    <li><a href="~/eco/ecoboost">EcoBoost</a></li>
-                    <li><a href="https://ndapp.org" target="_blank">dApps List</a></li>
+                    <li><a asp-controller="eco" asp-action="ecoboost">@Localizer["EcoBoost"]</a></li>
+                    <li><a href="https://ndapp.org" target="_blank">@Localizer["dApps List"]</a></li>
                 </ul>
             </div>
             <div class="col-md">
-                <p class="bold"><a href="~/discover">Discover</a></p>
+                <p class="bold"><a asp-controller="discover">@Localizer["Discover"]</a></p>
             </div>
             <div class="col-md-3">
-                <p class="bold">Contact Us</p>
+                <p class="bold">@Localizer["Contact Us"]</p>
                 <ul>
-                    <li><small>General</small><a href="mailto:contact@neo.org" class="green2"> contact@neo.org</a></li>
-                    <li><small>Marketing</small><a href="mailto:marketing@neo.org" class="green2"> marketing@neo.org</a></li>
-                    <li><small>EcoBoost</small><a href="mailto:eg@neo.org" class="green2"> eg@neo.org</a></li>
+                    <li><small>@Localizer["General"]</small><a href="mailto:contact@neo.org" class="green2">contact@neo.org</a></li>
+                    <li><small>@Localizer["Marketing"]</small><a href="mailto:marketing@neo.org" class="green2">marketing@neo.org</a></li>
+                    <li><small>@Localizer["EcoBoost"]</small><a href="mailto:eg@neo.org" class="green2">eg@neo.org</a></li>
                 </ul>
             </div>
         </div>
         <div class="mt2">
-            <p class="op-70"><small>Copyright © NEO Team 2014-2019</small></p>
-            <p class="op-70"><small><a href="~/map">Site Map</a></small></p>
+            <p class="op-70"><small>Copyright © Neo Team 2014-@DateTime.Now.Year</small></p>
+            <p class="op-70"><small><a asp-action="map">@Localizer["Site Map"]</a></small></p>
         </div>
     </footer>
     <form id="form_language" asp-action="SetLanguage" asp-controller="home" method="post">
         @Html.AntiForgeryToken()
-        <p>
-            <input type="hidden" id="culture" name="culture" />
-            <input type="hidden" id="returnUrl" name="returnUrl" />
-        </p>
-        <script>
-            function setLanguage(culture) {
-                $("#culture").val(culture);
-                $("#returnUrl").val(window.location.pathname);
-                $("#form_language").submit();
-            }
-        </script>
+        <p><input type="hidden" id="culture" name="culture" /><input type="hidden" id="returnUrl" name="returnUrl" /></p>
     </form>
     <script src="@Helper.ToCDN("/lib/jquery/jquery.min.js")"></script>
     <script src="@Helper.ToCDN("/lib/popper.js/popper.min.js")"></script>
     <script src="@Helper.ToCDN("/lib/bootstrap/js/bootstrap.min.js")"></script>
     <script src="@Helper.ToCDN("/js/jquery.lazyload.min.js")"></script>
-    <script>
-        $(".dropdown-toggle").hover(function () {
-            $(this).next(".dropdown-menu").toggle();
-        })
-
-        $('.dropdown-menu').hover(function () {
-            $(this).toggle();
-        });
-
-        $('[data-original]').lazyload({
-            threshold: 400,
-            effect: "fadeIn"
-        });
-    </script>
-
     <environment include="Development">
         <script src="/js/site.js" asp-append-version="true"></script>
     </environment>
