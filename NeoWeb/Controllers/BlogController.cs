@@ -280,7 +280,7 @@ namespace NeoWeb.Controllers
             var channel = xml.CreateElement("channel");
 
             var title = xml.CreateElement("title");
-            title.InnerText = "NEO blog posts list";
+            title.InnerText = "Neo blog posts list";
             channel.AppendChild(title);
 
             var link = xml.CreateElement("link");
@@ -292,7 +292,7 @@ namespace NeoWeb.Controllers
             channel.AppendChild(pubDate);
 
             var description = xml.CreateElement("description");
-            description.InnerText = "Latest posts from NEO blog";
+            description.InnerText = "Latest posts from Neo blog";
             channel.AppendChild(description);
 
             var blogs = _context.Blogs.Where(p => p.IsShow).OrderByDescending(p => p.CreateTime).Take(20).Select(p => new Blog()
@@ -350,7 +350,7 @@ namespace NeoWeb.Controllers
             var channel = xml.CreateElement("channel");
 
             var title = xml.CreateElement("title");
-            title.InnerText = "NEO blog posts list";
+            title.InnerText = "Neo blog posts list";
             channel.AppendChild(title);
 
             var link = xml.CreateElement("link");
@@ -362,7 +362,7 @@ namespace NeoWeb.Controllers
             channel.AppendChild(pubDate);
 
             var description = xml.CreateElement("description");
-            description.InnerText = "Latest posts from NEO blog";
+            description.InnerText = "Latest posts from Neo blog";
             channel.AppendChild(description);
 
             var blogs = _context.Blogs.Where(p => p.IsShow).OrderByDescending(p => p.CreateTime).Take(20).Select(p => new Blog()

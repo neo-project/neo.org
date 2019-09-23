@@ -47,13 +47,13 @@
         <p class="mt6"><span class="iconfont mr3">&#xe614;</span>@(Model.IsFree ? "Free Ticket" : "")</p>
         <div class="share mt4 gray">
             @{
-                var title = (ViewData["Title"] != null ? $"{ViewData["Title"]} - " : "") + Localizer["NEO Smart Economy"].Value;
-                var details = ViewData["Details"] ?? Localizer["NEO Smart Economy"].Value;
+                var title = (ViewData["Title"] != null ? $"{ViewData["Title"]} - " : "") + Localizer["Neo Smart Economy"].Value;
+                var details = ViewData["Details"] ?? Localizer["Neo Smart Economy"].Value;
                 var image = (ViewData["Image"] ?? Helper.ToCDN("/images/twitter-img.jpg"));
                 var url = $"{Context.Request.Scheme}://{Context.Request.Host}{Context.Request.Path}{Context.Request.QueryString}";
             }
 
-            <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=@(title)&url=@(url)&via=NEO_Blockchain&related=NEO_Blockchain"></a>
+            <a class="twitter-share-button" target="_blank" href="https://twitter.com/intent/tweet?text=@(title)&url=@(url)&via=NEO_Blockchain&related=NEO_Blockchain"></a>
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
             <div class="fb-share-button"

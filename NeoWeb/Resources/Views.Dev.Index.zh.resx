@@ -184,7 +184,7 @@
     <value>游戏</value>
   </data>
   <data name="Get involved" xml:space="preserve">
-    <value>欢迎加入 Neo 的开发</value>
+    <value>欢迎成为 Neo 开发者</value>
   </data>
   <data name="join dev communities" xml:space="preserve">
     <value>加入开发者社区</value>
@@ -213,8 +213,8 @@
   <data name="Neo Blockchain Network" xml:space="preserve">
     <value>Neo 区块链网络</value>
   </data>
-  <data name="NEO Docs" xml:space="preserve">
-    <value>NEO Docs</value>
+  <data name="Neo Docs" xml:space="preserve">
+    <value>Neo Docs</value>
   </data>
   <data name="Neo Links" xml:space="preserve">
     <value>Neo 相关链接</value>
@@ -259,7 +259,7 @@
     <value>网页版 IDE</value>
   </data>
   <data name="What you can develop on Neo" xml:space="preserve">
-    <value>Neo 可以帮你开发</value>
+    <value>Neo 能做什么</value>
   </data>
   <data name="Why you should develop on Neo" xml:space="preserve">
     <value>为什么选择 Neo</value>

@@ -117,22 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="NEO Vulnerability Bounty Program" xml:space="preserve">
-    <value>NEO 漏洞奖励计划</value>
+  <data name="NeoVulnerability Bounty Program" xml:space="preserve">
+    <value>Neo漏洞奖励计划</value>
   </data>
-  <data name="The purpose of NEO vulnerability bounty program is to be proactive about blockchain security by providing a channel for security researchers to report potential security vulnerabilities identified related to our underlying infrastructure. Everyone who find the vulnerabilities can send email to &lt;a href='mailto:erik@neo.org'&gt;erik@neo.org&lt;/a&gt;. We will try our best to investigate those eligible vulnerabilities and fix the valid issues. All rewards will be paid in the equivalent amount of NEO." xml:space="preserve">
-    <value>NEO Vulnerability Bounty Program 成立的目的在于保障 NEO 区块链系统的安全性，给广大的社区安全专家们提供一个通道，如果发现关于我们的区块链底层的潜在安全性问题或者威胁，都可通过发送邮件至 &lt;a href='mailto:erik@neo.org'&gt;erik@neo.org&lt;/a&gt;，我们将调查所有合格的漏洞报告，并尽最大努力迅速解决问题。奖励将以美元等值的 NEO 的形式发放。</value>
+  <data name="The purpose of Neovulnerability bounty program is to be proactive about blockchain security by providing a channel for security researchers to report potential security vulnerabilities identified related to our underlying infrastructure. Everyone who find the vulnerabilities can send email to &lt;a href='mailto:erik@neo.org'&gt;erik@neo.org&lt;/a&gt;. We will try our best to investigate those eligible vulnerabilities and fix the valid issues. All rewards will be paid in the equivalent amount of NEO." xml:space="preserve">
+    <value>NeoVulnerability Bounty Program 成立的目的在于保障 Neo区块链系统的安全性，给广大的社区安全专家们提供一个通道，如果发现关于我们的区块链底层的潜在安全性问题或者威胁，都可通过发送邮件至 &lt;a href='mailto:erik@neo.org'&gt;erik@neo.org&lt;/a&gt;，我们将调查所有合格的漏洞报告，并尽最大努力迅速解决问题。奖励将以美元等值的 NEO 的形式发放。</value>
   </data>
   <data name="Note: Higher rewards will be paid out in case of vulnerabilities of certain interest and criticality. Before reporting any issues, please check the following disclosures on responsibilities, program rules and reporting manner notice." xml:space="preserve">
     <value>注意：根据评定的漏洞严重程度等级，漏洞的严重程度、影响度越高，奖励越高。在报告任何安全漏洞之前，请查看本页了解我们的责任披露政策、奖励方式以及编写报告内容的注意事项。</value>
   </data>
-  <data name="Level of vulnerabilities will undergo evaluation by the NEO R&amp;D team based on severity, influence and other dimensions. As we will prioritize report assessment by risks and other factors, it may take time for our response. Time to first response (from report submission) will be 5 business days; time to triage (from report submission) will be 10 business days. NEO will regularly update the feedback on its website and social media channels. Rewards will be distributed within 3 days following official announcement. NEO reserves the right of final interpretation of the event." xml:space="preserve">
-    <value>安全漏洞的等级评估将会由 NEO 内部工程师根据严重程度、影响程度等多个维度进行判定打分。我们会根据风险和其他因素按优先顺序评估报告，因此可能需要一段时间才能回复您。第一个响应时间（从提交开始）为 5 个工作日，漏洞评估的时间（从提交开始）为 10 个工作日。NEO 将会定期在官网以及社交媒体上发布项目反馈，获得奖励的参与者可在官方宣布结果的 3 天内收到奖金。最终解释权归 NEO 所有。</value>
+  <data name="Level of vulnerabilities will undergo evaluation by the NeoR&amp;D team based on severity, influence and other dimensions. As we will prioritize report assessment by risks and other factors, it may take time for our response. Time to first response (from report submission) will be 5 business days; time to triage (from report submission) will be 10 business days. Neowill regularly update the feedback on its website and social media channels. Rewards will be distributed within 3 days following official announcement. Neoreserves the right of final interpretation of the event." xml:space="preserve">
+    <value>安全漏洞的等级评估将会由 Neo内部工程师根据严重程度、影响程度等多个维度进行判定打分。我们会根据风险和其他因素按优先顺序评估报告，因此可能需要一段时间才能回复您。第一个响应时间（从提交开始）为 5 个工作日，漏洞评估的时间（从提交开始）为 10 个工作日。Neo将会定期在官网以及社交媒体上发布项目反馈，获得奖励的参与者可在官方宣布结果的 3 天内收到奖金。最终解释权归 Neo 所有。</value>
   </data>
   <data name="Program Rules" xml:space="preserve">
     <value>项目规则</value>
   </data>
-  <data name="Asset - What software asset the vulnerability is related to (e.g. NEO core software/products)" xml:space="preserve">
+  <data name="Asset - What software asset the vulnerability is related to (e.g. Neo core software/products)" xml:space="preserve">
     <value>Asset - 与威胁漏洞相关的项目，详见 漏洞奖励计划范畴。</value>
   </data>
   <data name="Base bounty amounts which related with severity are as follows:" xml:space="preserve">
@@ -147,8 +147,8 @@
   <data name="For those who report the same vulnerability, the reward goes to whom comes first." xml:space="preserve">
     <value>若多人提交重复报告，我们只会将奖金授予第一个提交问题的团队或个人。</value>
   </data>
-  <data name="If you unveil such vulnerabilities before NEO fixes or publish them, the reward becomes null and void." xml:space="preserve">
-    <value>提交者在 NEO 修复之前公布漏洞，奖励将视为无效。</value>
+  <data name="If you unveil such vulnerabilities before Neo fixes or publish them, the reward becomes null and void." xml:space="preserve">
+    <value>提交者在 Neo 修复之前公布漏洞，奖励将视为无效。</value>
   </data>
   <data name="Impact - What security impact could an attacker achieve?" xml:space="preserve">
     <value>Impact - 影响程度，攻击者会造成何种程度的安全影响</value>
@@ -162,20 +162,20 @@
   <data name="Issues lead to severe asset loss" xml:space="preserve">
     <value>导致用户资产发生损失的问题</value>
   </data>
-  <data name="Only issues related to stability and security with design and implementation is within the scope, vulnerabilities with NEO website and related infrastructure on the NEO blockchain is out of the scope. Find more details at the Scope of Bug Bounty Program." xml:space="preserve">
-    <value>只有影响区块链稳定性或安全性的设计或实施问题才属于该计划的范围，NEO 区块链上的相关设施（网站、文档、第三方客户端、区块链浏览器、开发工具等）不属于奖励范畴，详见下文漏洞奖励计划范畴。</value>
+  <data name="Only issues related to stability and security with design and implementation is within the scope, vulnerabilities with Neo website and related infrastructure on the Neo blockchain is out of the scope. Find more details at the Scope of Bug Bounty Program." xml:space="preserve">
+    <value>只有影响区块链稳定性或安全性的设计或实施问题才属于该计划的范围，Neo 区块链上的相关设施（网站、文档、第三方客户端、区块链浏览器、开发工具等）不属于奖励范畴，详见下文漏洞奖励计划范畴。</value>
   </data>
   <data name="Other valid issues" xml:space="preserve">
     <value>其他非 medium, high, critical 的有效问题</value>
   </data>
-  <data name="Participants who use submitted vulnerabilities to damage NEO ecosystem, infringe on users' interest and perform pilferage on users' assets will be disqualified for rewards; meanwhile, NEO is rightful to resort to justice." xml:space="preserve">
-    <value>提交者利用已提交的漏洞破坏 NEO 生态，侵犯用户的利益，窃取用户资产，将取消奖励的资格；与此同时，NEO 有权对此采取司法手段。</value>
+  <data name="Participants who use submitted vulnerabilities to damage Neo ecosystem, infringe on users' interest and perform pilferage on users' assets will be disqualified for rewards; meanwhile, Neo is rightful to resort to justice." xml:space="preserve">
+    <value>提交者利用已提交的漏洞破坏 Neo 生态，侵犯用户的利益，窃取用户资产，将取消奖励的资格；与此同时，Neo 有权对此采取司法手段。</value>
   </data>
   <data name="Please include following in your report:" xml:space="preserve">
     <value>请将下列要求内容添加在邮件报告中：</value>
   </data>
-  <data name="Please, never attempt to access anyone else's data and do not engage in any activity that would be disruptive or damaging to NEO production network and testing network, you can investigate with your own built private chain." xml:space="preserve">
-    <value>请不要试图修改任何用户的数据或攻击 NEO 主网和测试网，您可以在自己搭建的私有链上查找漏洞。</value>
+  <data name="Please, never attempt to access anyone else's data and do not engage in any activity that would be disruptive or damaging to Neo production network and testing network, you can investigate with your own built private chain." xml:space="preserve">
+    <value>请不要试图修改任何用户的数据或攻击 Neo 主网和测试网，您可以在自己搭建的私有链上查找漏洞。</value>
   </data>
   <data name="Rewards" xml:space="preserve">
     <value>奖励规则</value>
@@ -195,8 +195,8 @@
   <data name="Single node failure" xml:space="preserve">
     <value>单个 Node 节点故障</value>
   </data>
-  <data name="Steps - Steps to reproduce, getting NEO staff or technical team clearly informed of every detailed step." xml:space="preserve">
-    <value>Steps - 可重现步骤，要求 NEO 内部人员或者相关技术人员可清楚每一个步骤细节</value>
+  <data name="Steps - Steps to reproduce, getting Neo staff or technical team clearly informed of every detailed step." xml:space="preserve">
+    <value>Steps - 可重现步骤，要求 Neo 内部人员或者相关技术人员可清楚每一个步骤细节</value>
   </data>
   <data name="Submitted reports should contain detailed reproduction procedures, in the absence of which, the reports will be excluded from the rewarding list. The more detailed about the proof of vulnerabilities and the descriptions are, the higher your reward will be." xml:space="preserve">
     <value>提交的漏洞需要有详细的重现步骤，如果报告的问题没有详细的细节，将不予与奖励。对漏洞搜集的证据和问题的定位越详细，奖励越高。</value>

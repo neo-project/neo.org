@@ -2,7 +2,7 @@
 @inject IViewLocalizer Localizer
 
 @{
-    ViewData["Title"] = Localizer["Get Client"].Value;
+    ViewData["Title"] = Localizer["Get Wallets"].Value;
 }
 @section Styles{
     <environment include="Development">
@@ -33,12 +33,12 @@
     <ul class="row mt5 client-ul">
         <li class="desktop">
             <img class="client-logo" data-original="@Helper.ToCDN("/images/client/logo/gui.png")" />
-            <header>NEO-GUI</header>
+            <header>neo-gui</header>
             <div class="platform">
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Windows">&#xf266;</i>
             </div>
             <a class="open-source" href="https://github.com/neo-project/neo-gui" target="_blank">GitHub</a>
-            <div class="developer d-none"><a href="https://github.com/neo-project/neo-gui" target="_blank">NEO Project</a></div>
+            <div class="developer d-none"><a href="https://github.com/neo-project/neo-gui" target="_blank">The Neo Project</a></div>
             <div class="license d-none"><a class="float-left" href="https://github.com/neo-project/neo-gui/blob/master/LICENSE" target="_blank">MIT License</a></div>
             <div class="button d-none"><a class="btn" href="https://github.com/neo-project/neo-gui/releases" target="_blank">@Localizer["Download"]</a></div>
             <div class="desc d-none">
@@ -49,7 +49,7 @@
                 <div class="p-desktop preview">
                     <img data-original="@Helper.ToCDN("/images/client/gui.png")" />
                 </div>
-                <p>@Localizer["NEO-GUI is a full-node NEO client, which contains all the basic functions of NEO network. This wallet is designed for advanced users, with professional software interaction and extremely high security. However, it takes a long time to initialize synchronization, occupies disk and memory, and has poor stability."]</p>
+                <p>@Localizer["Neo-gui is a full-node Neo client, which contains all the basic functions of Neo network. This wallet is designed for advanced users, with professional software interaction and extremely high security. However, it takes a long time to initialize synchronization, occupies disk and memory, and has poor stability."]</p>
                 <p>@Localizer["Need to install"] <a href="https://www.microsoft.com/net/download/dotnet-framework-runtime" target="_blank">.NetFramework 4.7.1</a> @Localizer["and"] <a href="https://www.microsoft.com/en-us/download/details.aspx?id=14632" target="_blank">VC++ 2010 Redist x64</a>/<a href="https://www.microsoft.com/en-us/download/details.aspx?id=5555" target="_blank">x86</a>
                 <p>@Localizer["For more information, see:"]<a href="@Localizer["https://docs.neo.org/en-us/node/gui/install.html"]" target="_blank">@Localizer["Instructions for use"]</a></p>
                 <p>@Localizer["Languages"]: English / 简体中文</p>
@@ -60,7 +60,7 @@
                     </div>
                     <div class="metrics">
                         <span>@Localizer["Verification"]</span><span class="span-success">@Localizer["Comprehensive"]</span>
-                        <div>@Localizer["This wallet is a full node that stores all the data in the NEO blockchain, which means that there is no need to trust a third party when verifying payments or executing contracts. The full node provides the highest level of security and is an integral part of protecting the network. However, it requires more hard disk space (15GB), greater bandwidth, and a longer initialization synchronization time. The initialization synchronization speed can be accelerated by downloading the <a href=\"http://sync.ngd.network/\" target=\"_blank\">offline synchronization package</a> provided by NGD."]</div>
+                        <div>@Localizer["This wallet is a full node that stores all the data in the Neo blockchain, which means that there is no need to trust a third party when verifying payments or executing contracts. The full node provides the highest level of security and is an integral part of protecting the network. However, it requires more hard disk space (15GB), greater bandwidth, and a longer initialization synchronization time. The initialization synchronization speed can be accelerated by downloading the <a href=\"http://sync.ngd.network/\" target=\"_blank\">offline synchronization package</a> provided by NGD."]</div>
                     </div>
                     <div class="metrics">
                         <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
@@ -68,7 +68,7 @@
                     </div>
                     <div class="metrics">
                         <span>@Localizer["Support Plugins"]</span>
-                        <p>NEO-GUI @Localizer["supports plugins. The following is a list of commonly-used plug-in components."]</p>
+                        <p>Neo-gui @Localizer["supports plugins. The following is a list of commonly-used plug-in components."]</p>
                         <table class="table table-bordered table-sm">
                             <thead>
                                 <tr>
@@ -97,14 +97,14 @@
         </li>
         <li class="desktop">
             <img class="client-logo" data-original="@Helper.ToCDN("/images/client/logo/cli.png")" />
-            <header>NEO-CLI</header>
+            <header>neo-cli</header>
             <div class="platform">
                 <i class="iconfont" header data-toggle="tooltip" data-placement="bottom" title="Windows">&#xf266;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Linux">&#xe6c1;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="macOS">&#xe61f;</i>
             </div>
             <a class="open-source" href="https://github.com/neo-project/neo-cli" target="_blank">GitHub</a>
-            <div class="developer d-none"><a href="https://github.com/neo-project/neo-cli" target="_blank">NEO Project</a></div>
+            <div class="developer d-none"><a href="https://github.com/neo-project/neo-cli" target="_blank">The Neo Project</a></div>
             <div class="license d-none"><a href="https://github.com/neo-project/neo-cli/blob/master/LICENSE" target="_blank">MIT License</a></div>
             <div class="button d-none"><a class="btn" href="https://github.com/neo-project/neo-cli/releases" target="_blank">@Localizer["Download"]</a></div>
             <div class="desc d-none">
@@ -116,7 +116,7 @@
                     <img data-original="@Helper.ToCDN("/images/client/cli.png")" />
                 </div>
                 <p>
-                    @Localizer["NEO-CLI is a full-node command-line client that can run across platforms. It can provide APIs for developers to call, or participate in the consensus mechanism as a consensus node in the block chain. This wallet is designed for developers, with professional software interaction, as well as higher security and stability. The disadvantages of this wallet are that it takes a long time to initialize synchronization, and it takes up disk and memory."]
+                    @Localizer["Neo-cli is a full-node command-line client that can run across platforms. It can provide APIs for developers to call, or participate in the consensus mechanism as a consensus node in the block chain. This wallet is designed for developers, with professional software interaction, as well as higher security and stability. The disadvantages of this wallet are that it takes a long time to initialize synchronization, and it takes up disk and memory."]
                 </p>
                 <p>@Localizer["For more information, see:"] <a href="@Localizer["http://docs.neo.org/en-us/node/cli/setup.html"]" target="_blank">@Localizer["Instructions for use"]</a>, <a href="https://github.com/neo-project/neo-cli/blob/master/CHANGELOG.md" target="_blank">@Localizer["Change log"]</a></p>
                 <p>@Localizer["Languages"]: English</p>
@@ -129,7 +129,7 @@
                     </div>
                     <div class="metrics">
                         <span>@Localizer["Verification"]</span><span class="span-success">@Localizer["Comprehensive"]</span>
-                        <div>@Localizer["This wallet is a full node that stores all the data in the NEO blockchain, which means that there is no need to trust a third party when verifying payments or executing contracts. The full node provides the highest level of security and is an integral part of protecting the network. However, it requires more hard disk space (15GB), greater bandwidth, and a longer initialization synchronization time. The initialization synchronization speed can be accelerated by downloading the <a href=\"http://sync.ngd.network/\" target=\"_blank\">offline synchronization package</a> provided by NGD."]</div>
+                        <div>@Localizer["This wallet is a full node that stores all the data in the Neo blockchain, which means that there is no need to trust a third party when verifying payments or executing contracts. The full node provides the highest level of security and is an integral part of protecting the network. However, it requires more hard disk space (15GB), greater bandwidth, and a longer initialization synchronization time. The initialization synchronization speed can be accelerated by downloading the <a href=\"http://sync.ngd.network/\" target=\"_blank\">offline synchronization package</a> provided by NGD."]</div>
                     </div>
                     <div class="metrics">
                         <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
@@ -137,7 +137,7 @@
                     </div>
                     <div class="metrics">
                         <span>@Localizer["Support Plugins"]</span>
-                        <p>NEO-CLI @Localizer["supports plugins. The following is a list of commonly-used plug-in components."]</p>
+                        <p>Neo-cli @Localizer["supports plugins. The following is a list of commonly-used plug-in components."]</p>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -180,7 +180,7 @@
                                     <th scope="row">
                                         <a href="https://github.com/neo-project/neo-plugins/releases/" target="_blank">StatesDumper</a>
                                     </th>
-                                    <td>@Localizer["Exports NEO-CLI status data. Optional."]</td>
+                                    <td>@Localizer["Exports neo-cli status data. Optional."]</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">
@@ -230,7 +230,7 @@
                     <img data-original="@Helper.ToCDN("/images/client/o3-desktop.png")" />
                 </div>
                 <p>
-                    @Localizer["It's a cross-platform wallet developed by O3 Labs. This wallet supports most mainstream operating systems, maintains a high update frequency and can support NEO network updates and features in a timely manner."]
+                    @Localizer["It's a cross-platform wallet developed by O3 Labs. This wallet supports most mainstream operating systems, maintains a high update frequency and can support Neo network updates and features in a timely manner."]
                 </p>
                 <p>@Localizer["Languages"]: English</p>
                 <div>
@@ -275,7 +275,7 @@
                 <div class="p-desktop preview">
                     <img data-original="@Helper.ToCDN("/images/client/neon.png")" />
                 </div>
-                <p>@Localizer["It's a cross-platform wallet developed by NEO developer community City of Zion. This wallet supports mainstream operating systems such as Windows, macOS and Linux, and focuses on UE and UI."]</p>
+                <p>@Localizer["It's a cross-platform wallet developed by Neo developer community City of Zion. This wallet supports mainstream operating systems such as Windows, macOS and Linux, and focuses on UE and UI."]</p>
                 <p>@Localizer["Languages"]: English</p>
                 <div>
                     <div class="metrics">
@@ -388,7 +388,7 @@
                     <img data-original="@Helper.ToCDN("/images/client/anybit5.png")" />
                 </div>
                 <p>
-                    @Localizer["It's a the first hot and cold combined wallet that supports NEO. The mnemonic and private key are stored locally. This wallet is divided into general mode and isolation mode. In the isolation mode, the devices used need to be completely isolated from the network. This wallet is simple in functions, and when transaction happens, the hot wallet needs to be used for transaction request and broadcast."]
+                    @Localizer["It's a the first hot and cold combined wallet that supports Neo. The mnemonic and private key are stored locally. This wallet is divided into general mode and isolation mode. In the isolation mode, the devices used need to be completely isolated from the network. This wallet is simple in functions, and when transaction happens, the hot wallet needs to be used for transaction request and broadcast."]
                 </p>
                 <p>@Localizer["Languages"]: English / 简体中文</p>
                 <div>
@@ -550,7 +550,7 @@
                     </div>
                     <div class="metrics">
                         <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
-                        <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The NEO Foundation and NGD do not endorse this client."]</div>
+                        <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
                     </div>
                     <div class="metrics">
                         <span>@Localizer["Supported NEP"]</span><span class="span-danger">@Localizer["Poor"]</span>
@@ -597,7 +597,7 @@
                     </div>
                     <div class="metrics">
                         <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
-                        <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The NEO Foundation and NGD do not endorse this client."]</div>
+                        <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
                     </div>
                     <div class="metrics">
                         <span>@Localizer["Supported NEP"]</span><span class="span-warning">@Localizer["So so"]</span>
@@ -641,7 +641,7 @@
                     </div>
                     <div class="metrics">
                         <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
-                        <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The NEO Foundation and NGD do not endorse this client."]</div>
+                        <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
                     </div>
                     <div class="metrics">
                         <span>@Localizer["Supported NEP"]</span><span class="span-warning">@Localizer["So so"]</span>
@@ -736,7 +736,7 @@
                     </div>
                     <div class="metrics">
                         <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
-                        <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The NEO Foundation and NGD do not endorse this client."]</div>
+                        <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
                     </div>
                     <div class="metrics">
                         <span>@Localizer["Supported NEP"]</span><span class="span-danger">@Localizer["Poor"]</span>
@@ -772,7 +772,7 @@
                     <img data-original="@Helper.ToCDN("/images/client/neoline4.png")" />
                     <img data-original="@Helper.ToCDN("/images/client/neoline5.png")" />
                 </div>
-                <p>@Localizer["NEOLine is a browser extension wallet of NEO. We intend to provide a secure and convenient digital asset wallet. It offers comprehensive wallet capabilities and a wide range of dAPIs for developers."]</p>
+                <p>@Localizer["NEOLine is a browser extension wallet of Neo. We intend to provide a secure and convenient digital asset wallet. It offers comprehensive wallet capabilities and a wide range of dAPIs for developers."]</p>
                 <p>@Localizer["Languages"]: English / 中文</p>
                 <div>
                     <div class="metrics">
@@ -816,7 +816,7 @@
                     <img data-original="@Helper.ToCDN("/images/client/teemo3.png")" />
                     <img data-original="@Helper.ToCDN("/images/client/teemo4.png")" />
                 </div>
-                <p>@Localizer["Teemo is a browser extension wallet of NEO.<br/>The extension injects the NEO DApp API into every website's JavaScript context, so that DApps can interact with the blockchain."]</p>
+                <p>@Localizer["Teemo is a browser extension wallet of Neo.<br/>The extension injects the Neo dApp API into every website's JavaScript context, so that DApps can interact with the blockchain."]</p>
                 <p>@Localizer["Languages"]: English / 中文</p>
                 <div>
                     <div class="metrics">
@@ -875,7 +875,7 @@
                     </div>
                     <div class="metrics">
                         <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
-                        <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The NEO Foundation and NGD do not endorse this client."]</div>
+                        <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
                     </div>
                     <div class="metrics">
                         <span>@Localizer["Supported NEP"]</span><span class="span-danger">@Localizer["Poor"]</span>
@@ -1034,7 +1034,7 @@
                     </div>
                     <div class="metrics">
                         <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
-                        <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The NEO Foundation and NGD do not endorse this client."]</div>
+                        <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
                     </div>
                     <div class="metrics">
                         <span>@Localizer["Supported NEP"]</span><span class="span-success">@Localizer["Rich"]</span>
@@ -1206,7 +1206,7 @@
                             </div>
                         </div>
                         <div class="developer" id="model_platform"></div>
-                        <div class="light-text">Supported Platform</div>
+                        <div class="light-text">@Localizer["Supported Platform"]</div>
                     </div>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
