@@ -136,25 +136,25 @@
     <value>https://t.me/NEO_Chinese</value>
   </data>
   <data name="About" xml:space="preserve">
-    <value />
+    <value>关于我们</value>
   </data>
   <data name="Consensus" xml:space="preserve">
-    <value />
+    <value>共识节点</value>
   </data>
   <data name="Contact Us" xml:space="preserve">
-    <value />
+    <value>联系我们</value>
   </data>
   <data name="Contributors" xml:space="preserve">
-    <value />
+    <value>贡献者</value>
   </data>
   <data name="dApps List" xml:space="preserve">
-    <value />
+    <value>dApp列表</value>
   </data>
   <data name="Developer" xml:space="preserve">
-    <value />
+    <value>开发者</value>
   </data>
   <data name="Discover" xml:space="preserve">
-    <value />
+    <value>发现</value>
   </data>
   <data name="Documentation" xml:space="preserve">
     <value />
@@ -163,10 +163,10 @@
     <value />
   </data>
   <data name="Ecosystem" xml:space="preserve">
-    <value />
+    <value>生态</value>
   </data>
   <data name="Follow Us" xml:space="preserve">
-    <value />
+    <value>关注我们</value>
   </data>
   <data name="General" xml:space="preserve">
     <value />
@@ -184,7 +184,7 @@
     <value />
   </data>
   <data name="Stay tuned for our latest updates from Neo" xml:space="preserve">
-    <value />
+    <value>不要错过Neo的最新动态</value>
   </data>
   <data name="Wallets" xml:space="preserve">
     <value>钱包</value>
