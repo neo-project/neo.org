@@ -2,7 +2,7 @@
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 @{
-    ViewData["Title"] = Localizer["About"];
+    ViewData["Title"] = Localizer["About"].Value;
 }
 @section Styles{
     <style>
@@ -23,7 +23,7 @@
             <p class="h2 mt3">@Localizer["Technology"]</p>
         </div>
         <div class="col-md-6">
-            <p class="mt3">@Localizer["Neo has developed an infrastructure with features to optimize stability and performance, including a smart contract system compatible with commonly used programming languages and solutions for transactional finality. Neo is successfully driving innovations which are paving the way for large-scale commercial applications, including a data storage system capable of hosting large volumes of data while ensuring security and privacy. "]</p>
+            <p class="mt3">@Localizer["Neo has developed an infrastructure with features to optimize stability and performance, including a smart contract system compatible with commonly used programming languages and solutions for transactional finality. Neo is successfully driving innovations which are paving the way for large-scale commercial applications, including a data storage system capable of hosting large volumes of data while ensuring security and privacy."]</p>
         </div>
     </div>
     <div class="row list1 mt4 text-center">
@@ -44,22 +44,22 @@
         <div class="col-lg-3 col-md-4">
             <img data-original="/images/about/SmartContract.svg" />
             <div>
-                <span class="list-title">NeoID</span><br />
-                <span class="list-con">@Localizer["Returns data sovereignty back to the user , transforms “trust or not” into “how much trust” , allows users to customize trust evaluation models flexibly."]</span>
+                <span class="list-title">SmartContract</span><br />
+                <span class="list-con">@Localizer["A smart contract system with support for multiple languages, cross-platform compatibility and parallel execution."]</span>
             </div>
         </div>
         <div class="col-lg-3 col-md-4">
             <img data-original="/images/about/NeoID.svg" />
             <div>
-                <span class="list-title">NeoFS</span><br />
-                <span class="list-con">@Localizer["A distributed data storage system for storing large-scale data on the chain."]</span>
+                <span class="list-title">NeoID</span><br />
+                <span class="list-con">@Localizer["Returns data sovereignty back to the user , transforms \"trust or not\" into \"how much trust\" , allows users to customize trust evaluation models flexibly."]</span>
             </div>
         </div>
         <div class="col-lg-3 col-md-4">
             <img data-original="/images/about/NeoFS.svg" />
             <div>
-                <span class="list-title">Voting Mechanism</span><br />
-                <span class="list-con">@Localizer["On-chain voting mechanism allowing everyone to participate in the network governance."]</span>
+                <span class="list-title">NeoFS</span><br />
+                <span class="list-con">@Localizer["A distributed data storage system for storing large-scale data on the chain."]</span>
             </div>
         </div>
         <div class="col-lg-3 col-md-4">
@@ -106,7 +106,7 @@
         <p class="w600 mt4">
             @Localizer["On-chain governance: Candidates can become a consensus nodes after being voted in by NEO holders."]
             <br /><br />
-            @Localizer["Candidates can establish a partnership with the Neo Foundation to receive the latter’s vote."]
+            @Localizer["Off-chain governance: Candidates can establish a partnership with the Neo Foundation to receive the latter’s vote."]
         </p>
         <div class="mt5">
             <a class="btn mt6 mr2" href="https://neo-ngd.github.io/reference/How-To-Become-NEO-Consensus-Node.html">@Localizer["More details"]</a>

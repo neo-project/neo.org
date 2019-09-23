@@ -117,121 +117,154 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="20 cities, 7 countries and growing fast" xml:space="preserve">
+    <value>遍布 7 个国家的 20 个城市</value>
+  </data>
+  <data name="20 Cities, 7 Countries, 10+ Communities" xml:space="preserve">
+    <value>20 个城市，7 个国家，10+ 个社区</value>
+  </data>
   <data name="Apply with Automatic Entry" xml:space="preserve">
-    <value />
+    <value>自动申请入口</value>
   </data>
   <data name="Apply with Manual Entry" xml:space="preserve">
-    <value />
+    <value>人工申请入口</value>
   </data>
   <data name="Blockchain Infrastructure" xml:space="preserve">
-    <value />
+    <value>区块链基础设施</value>
   </data>
   <data name="build your own dApps" xml:space="preserve">
-    <value />
+    <value>开发属于自己的 dApp</value>
   </data>
   <data name="Cities" xml:space="preserve">
-    <value />
+    <value>个城市</value>
   </data>
   <data name="Communities" xml:space="preserve">
-    <value />
+    <value>个社区</value>
   </data>
   <data name="Complete infrastructure" xml:space="preserve">
-    <value />
+    <value>完整的基础设施</value>
   </data>
   <data name="Components" xml:space="preserve">
-    <value />
+    <value>组件</value>
   </data>
   <data name="Contribute to the fundamental facilities on the Neo blockchain" xml:space="preserve">
-    <value />
+    <value>一同完善 Neo 区块链底层设施</value>
   </data>
   <data name="Core developers" xml:space="preserve">
-    <value />
+    <value>核心开发者</value>
   </data>
   <data name="Countries" xml:space="preserve">
-    <value />
+    <value>个国家</value>
   </data>
   <data name="dAPP developers" xml:space="preserve">
-    <value />
+    <value>dAPP 开发者</value>
   </data>
   <data name="dApp Integration" xml:space="preserve">
-    <value />
+    <value>dApp 集成</value>
   </data>
   <data name="De-Fi" xml:space="preserve">
-    <value />
+    <value>去中心化金融</value>
+  </data>
+  <data name="Dev-pack &amp; compiler" xml:space="preserve">
+    <value>开发者工具包 &amp; 编译器</value>
   </data>
   <data name="Developer Portal" xml:space="preserve">
-    <value />
+    <value>开发者门户</value>
   </data>
   <data name="Digital Asset" xml:space="preserve">
-    <value />
+    <value>数字资产</value>
   </data>
   <data name="Explorer" xml:space="preserve">
-    <value />
+    <value>浏览器</value>
   </data>
   <data name="Formulate new genres of games on this emerging market" xml:space="preserve">
-    <value />
+    <value>在蓬勃发展的链游市场，创造游戏新流派</value>
+  </data>
+  <data name="Game" xml:space="preserve">
+    <value>游戏</value>
+  </data>
+  <data name="Get involved" xml:space="preserve">
+    <value>欢迎加入 Neo 的开发</value>
+  </data>
+  <data name="join dev communities" xml:space="preserve">
+    <value>加入开发者社区</value>
   </data>
   <data name="Join Neo Global Communities" xml:space="preserve">
-    <value />
+    <value>加入 Neo 全球社区</value>
+  </data>
+  <data name="Make assets decentralized, safe, trustworthy, and 3rd party-free" xml:space="preserve">
+    <value>创建去中心化、安全、可信、独立与第三方的资产</value>
   </data>
   <data name="mission for geeks" xml:space="preserve">
-    <value />
+    <value>极客任务</value>
   </data>
   <data name="Monitor" xml:space="preserve">
-    <value />
+    <value>监视器</value>
+  </data>
+  <data name="More idea" xml:space="preserve">
+    <value>更多想法</value>
+  </data>
+  <data name="Multi-language support" xml:space="preserve">
+    <value>多语言支持</value>
   </data>
   <data name="NEO &amp; GAS TestNet" xml:space="preserve">
-    <value />
+    <value>测试网 NEO &amp; GAS</value>
   </data>
   <data name="Neo Blockchain Network" xml:space="preserve">
-    <value />
+    <value>Neo 区块链网络</value>
   </data>
   <data name="NEO Docs" xml:space="preserve">
-    <value />
+    <value>NEO Docs</value>
+  </data>
+  <data name="Neo Links" xml:space="preserve">
+    <value>Neo 相关链接</value>
   </data>
   <data name="Open tasks" xml:space="preserve">
-    <value />
+    <value>开放性任务</value>
   </data>
   <data name="Private Net" xml:space="preserve">
-    <value />
+    <value>私有网络</value>
   </data>
   <data name="protocol development" xml:space="preserve">
-    <value />
+    <value>协议开发</value>
   </data>
   <data name="protocol, docs, and toolchain" xml:space="preserve">
-    <value />
+    <value>包括协议，文档和工具链</value>
   </data>
   <data name="Security Bounty" xml:space="preserve">
-    <value />
+    <value>安全漏洞激励</value>
   </data>
   <data name="Smart Contract Development" xml:space="preserve">
-    <value />
+    <value>智能合约开发</value>
   </data>
   <data name="Strong developer community" xml:space="preserve">
-    <value />
+    <value>强大的开发者社区</value>
   </data>
   <data name="Toolkit" xml:space="preserve">
-    <value />
+    <value>工具包</value>
   </data>
   <data name="Tools" xml:space="preserve">
-    <value />
+    <value>工具</value>
   </data>
   <data name="Tools developers" xml:space="preserve">
-    <value />
+    <value>工具开发者</value>
   </data>
   <data name="Transform old financial products into trustless and transparent protocols" xml:space="preserve">
-    <value />
+    <value>将传统金融产品进化为透明化与去信任化的协议</value>
   </data>
   <data name="Wallet &amp; Extension" xml:space="preserve">
-    <value />
+    <value>钱包 &amp; 扩展</value>
+  </data>
+  <data name="Web IDE" xml:space="preserve">
+    <value>网页版 IDE</value>
   </data>
   <data name="What you can develop on Neo" xml:space="preserve">
-    <value />
+    <value>Neo 可以帮你开发</value>
   </data>
   <data name="Why you should develop on Neo" xml:space="preserve">
-    <value />
+    <value>为什么选择 Neo</value>
   </data>
   <data name="you can propose to dev@neo.org" xml:space="preserve">
-    <value />
+    <value>欢迎把你的设想发送到 dev@neo.org</value>
   </data>
 </root>

@@ -147,8 +147,8 @@
   <data name="License" xml:space="preserve">
     <value>开源协议</value>
   </data>
-  <data name="Get Client" xml:space="preserve">
-    <value>获取客户端</value>
+  <data name="Get Wallets" xml:space="preserve">
+    <value>获取钱包</value>
   </data>
   <data name="Hardware" xml:space="preserve">
     <value>硬件</value>
@@ -297,8 +297,9 @@
   <data name="Synchronizes the smart contract log (ApplicationLogs) automatically in RPC mode. Mandatory for exchanges." xml:space="preserve">
     <value>存储智能合约日志（ApplicationLogs），交易所必选。</value>
   </data>
-  <data name="The wallets shown on this page are all developed by the development teams or individual developers of the NEO community. Please contact the developer if you encounter any problems during use." xml:space="preserve">
-    <value>本页面展示的客户端均为 NEO 社区的开发团队或个人开发者所开发。如在使用过程中遇到问题请联系开发者。</value>
+  <data name="The wallets shown on this page are all developed by the development teams or individual developers of the Neo community. Please choose the wallets as appropriate. If you encounter any problems during use, please contact the developer. When using the wallet, please back up the private key in a secure manner. The private key is the only way to control your own Neo assets." xml:space="preserve">
+    <value>本页面上显示的钱包均由 Neo 社区的开发团队或个人开发者开发，请谨慎选择钱包。如果在使用过程中遇到任何问题，请联系开发人员。
+使用钱包时，请将私钥进行安全备份。私钥是您控制自己的 Neo 资产的唯一方法。</value>
   </data>
   <data name="This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the hardware wallet, so it has extremely high security." xml:space="preserve">
     <value>该客户端让用户拥有对数字资产的高度掌控权。私钥是通过硬件钱包加密存储的，有极高的安全性。</value>

@@ -117,25 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Contributors" xml:space="preserve">
-    <value>贡献者</value>
-  </data>
-  <data name="Erik is the founder and a core developer of Neo, author to the dBFT consensus mechanism, an expert on blockchain technology and computer security, as well as a certified information system auditor (CISA). He was engaged in Shanda Games and www.huobi.com previously where he specialized in information security and R&amp;D in digital currency." xml:space="preserve">
-    <value>张铮文是Neo的联合创始人和核心开发者，dBFT共识机制的创造者。他是区块链技术和计算机安全方面的专家，拥有国际信息系统审计师认证(CISA)。他曾就职于盛大游戏和www.huobi.com，专职从事信息安全和数字货币的研发。</value>
-  </data>
-  <data name="Erik Zhang" xml:space="preserve">
-    <value>张铮文</value>
+  <data name="Erik is founder and core developer of Neo, author of the dBFT consensus mechanism. He is an expert on blockchain technology and information security, as well as a strong advocate for open source development. He organizes Neo's global developer communities  to continuously innovate, apply and promote technology in the blockchain field. Currently he is leading the development of NEO3, enhancing the developer experience, to get ready for large-scale commercial blockchain applications." xml:space="preserve">
+    <value>张铮文是 Neo 的创始人和核心开发者，dBFT 共识机制的创造者。他是区块链技术和计算机安全方面的专家，也是开源开发的倡导者，组织 NEO 全球开发者社区在区块链领域不断进行技术创新、应用和推广。目前正在主导 NEO3 的开发，提升开发者体验，构建大规模区块链商业应用的基础。</value>
   </data>
   <data name="Founder and core developer of Neo, Chair of Neo Foundation" xml:space="preserve">
-    <value>Neo 创始人与核心开发者，Neo基金会主席</value>
+    <value>Neo 创始人与核心开发者，Neo 基金会主席</value>
   </data>
   <data name="Founder of Neo, Chair of Neo Foundation, CEO of NGD" xml:space="preserve">
-    <value>Neo 创始人与CEO，Neo基金会主席，NGD CEO</value>
-  </data>
-  <data name="Hongfei Da" xml:space="preserve">
-    <value>达鸿飞</value>
+    <value>Neo 创始人与 CEO，Neo 基金会主席，NGD CEO</value>
   </data>
   <data name="Hongfei Da is the founder of Neo, a leading open source blockchain initiative that is building the infrastructure of the next-gen Internet with a vision to create a smart economy. As a pioneer in international blockchain technology space, he founded AntShares in 2014 which was later renamed to Neo in June 2017. Leveraging on his extensive experience and expertise in blockchain technologies and innovations, he is widely recognized as pioneering and visionary leader within the global blockchain industry." xml:space="preserve">
-    <value>达鸿飞是Neo的创始人。作为领先的开源区块链项目，Neo正在构建下一代互联网的基础设施，以求实现智能经济的愿景。作为全球区块链技术领域的先行者，他于2014年创建了小蚁，并于2017年6月更名为NEO。凭借在区块链技术和创新方面的丰富经验和专业知识，他已成为全球区块链行业的开拓者和有远见的领导者。</value>
+    <value>达鸿飞是 Neo 的创始人。作为领先的开源区块链项目，Neo 正在构建下一代互联网的基础设施，以求实现智能经济的愿景。作为全球区块链技术领域的先行者，他于 2014 年创建了 NEO，并于 2017 年 6 月更名为 NEO。凭借在区块链技术和创新方面的丰富经验和专业知识，他已成为全球区块链行业的开拓者和有远见的领导者。</value>
   </data>
 </root>

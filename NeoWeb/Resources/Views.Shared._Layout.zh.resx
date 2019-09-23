@@ -121,7 +121,7 @@
     <value>技术文档</value>
   </data>
   <data name="Neo is an open-source, community driven initiative that is leveraging upon blockchain technology's intrinsic advantages to explore and realize optimized and future-designed solutions for a digital world." xml:space="preserve">
-    <value />
+    <value>作为一个由社区驱动的开源项目，Neo 正利用区块链技术的固有优势，探索并实现面向未来数字世界的最优化解决方案。</value>
   </data>
   <data name="Weibo" xml:space="preserve">
     <value>微博</value>
@@ -148,7 +148,7 @@
     <value>贡献者</value>
   </data>
   <data name="dApps List" xml:space="preserve">
-    <value>dApp列表</value>
+    <value>dApp 列表</value>
   </data>
   <data name="Developer" xml:space="preserve">
     <value>开发者</value>
@@ -157,10 +157,10 @@
     <value>发现</value>
   </data>
   <data name="Documentation" xml:space="preserve">
-    <value />
+    <value>文档</value>
   </data>
   <data name="EcoBoost" xml:space="preserve">
-    <value />
+    <value>EcoBoost</value>
   </data>
   <data name="Ecosystem" xml:space="preserve">
     <value>生态</value>
@@ -169,27 +169,36 @@
     <value>关注我们</value>
   </data>
   <data name="General" xml:space="preserve">
-    <value />
+    <value>其它</value>
   </data>
   <data name="Marketing" xml:space="preserve">
-    <value />
+    <value>市场</value>
   </data>
   <data name="Neo Smart Economy" xml:space="preserve">
-    <value />
+    <value>Neo 智能经济</value>
   </data>
   <data name="Press Kit" xml:space="preserve">
-    <value />
+    <value>媒体联系</value>
   </data>
   <data name="Security Bounty" xml:space="preserve">
-    <value />
+    <value>安全奖励</value>
   </data>
   <data name="Stay tuned for our latest updates from Neo" xml:space="preserve">
-    <value>不要错过Neo的最新动态</value>
+    <value>不要错过 Neo 的最新动态</value>
   </data>
   <data name="Wallets" xml:space="preserve">
     <value>钱包</value>
   </data>
   <data name="SUBSCRIBE" xml:space="preserve">
     <value>订阅</value>
+  </data>
+  <data name="Ecogrowth" xml:space="preserve">
+    <value>生态发展</value>
+  </data>
+  <data name="Enter Email Address" xml:space="preserve">
+    <value>输入邮箱地址</value>
+  </data>
+  <data name="Developers" xml:space="preserve">
+    <value>开发者</value>
   </data>
 </root>
