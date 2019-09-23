@@ -35,17 +35,33 @@
             }
         }
 
-        & > a, .navbar-toggler{
+        & > a, .navbar-toggler {
             height: 50px;
+        }
+
+        .logo1 {
+            @media only screen and (max-width: 992px) {
+                display: none;
+            }
+        }
+
+        .logo2 {
+            @media only screen and (max-width: 992px) {
+                display: block;
+            }
         }
     }
 
-    img {
+    .logo1, .logo2 {
         height: 37px;
 
         @media only screen and (max-width: 992px) {
             margin-left: 2rem;
         }
+    }
+
+    .logo2 {
+        display: none;
     }
 
     .nav-item {

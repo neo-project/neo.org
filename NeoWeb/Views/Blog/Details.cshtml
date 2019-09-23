@@ -8,7 +8,7 @@
     ViewData["keywords"] = Model.Tags;
     if (Model.Cover != null)
     {
-        ViewData["Image"] = "https://neo.org/upload/" + Model.Cover;
+        ViewData["Image"] = $"https://neo.org/upload/{Model.Cover}";
     }
 }
 

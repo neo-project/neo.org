@@ -68,7 +68,10 @@ https://github.com/neo-project/neo.org
 </head>
 <body>
     <nav class="navbar navbar-expand-lg">
-        <a asp-controller="home" asp-action="index"><img src="@Helper.CDN/images/neo_logo.svg" alt="Neo Logo" /></a>
+        <a asp-controller="home" asp-action="index">
+            <img class="logo1" src="@Helper.CDN/images/logo files-dark.svg" alt="Neo Logo" />
+            <img class="logo2" src="@Helper.CDN/images/logo files-allwhite.svg" alt="Neo Logo" />
+        </a>
         <button class="navbar-toggler" type="button">
             <div class="special-button">
                 <div class="top"></div>
@@ -148,7 +151,7 @@ https://github.com/neo-project/neo.org
     <footer class="b3 px-5">
         <div class="row">
             <div class="col-md">
-                <img class="b-logo" width="80" height="30" />
+                <img class="b-logo" src="@Helper.CDN/images/logo files-white.svg" width="80" height="30" />
             </div>
             <div class="col-md">
                 <p class="bold no-border"><a asp-controller="about" asp-action="index">@Localizer["About"]</a></p>
@@ -190,7 +193,7 @@ https://github.com/neo-project/neo.org
         </div>
         <div class="mt2">
             <p class="op-70"><small>Copyright © Neo Team 2014-@DateTime.Now.Year</small></p>
-            <p class="op-70"><small><a asp-action="map">@Localizer["Site Map"]</a></small></p>
+            <p class="op-70"><small><a asp-controller="map" asp-action="index">@Localizer["Site Map"]</a></small></p>
         </div>
     </footer>
     <form id="form_language" asp-action="SetLanguage" asp-controller="home" method="post">

@@ -4,7 +4,10 @@
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 @{
     ViewData["Title"] = @Model.Name;
-    ViewData["Image"] = @String.Format("https://neo.org/upload/{0}", Model.Cover);
+    if (Model.Cover != null)
+    {
+        ViewData["Image"] = $"https://neo.org/upload/{Model.Cover}";
+    }
 }
 @section Styles{
     <environment include="Development">
@@ -44,7 +47,7 @@
             }
         </p>
         <p class="mt6"><span class="iconfont mr3">&#xe60f;</span>@Model.Country - @Model.City</p>
-        <p class="mt6"><span class="iconfont mr3">&#xe614;</span>@(Model.IsFree ? "Free Ticket" : "")</p>
+        <p class="mt6"><span class="iconfont mr3">&#xe614;</span>@(Model.IsFree ? Localizer["Free ticket"].Value : "")</p>
         <div class="share mt4 gray">
             @{
                 var title = (ViewData["Title"] != null ? $"{ViewData["Title"]} - " : "") + Localizer["Neo Smart Economy"].Value;
