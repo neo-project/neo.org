@@ -48,20 +48,27 @@ body {
     li {
         display: inline-block;
         list-style: none;
-        padding: @length5;
         width: 24.5%;
         color: @dark;
+        padding:0 15px;
         font-size: @t5;
         font-weight: bold;
         vertical-align: text-top;
         margin-top:@length6;
         text-align: center;
+
+        img{
+            display:block;
+            width:85px;
+            text-align:center;
+            margin:auto;
+        }
     }
 
     @media only screen and (max-width : 768px) {
         text-align:left;
         li {
-            width: 49%;
+            width: 100%;
             font-size: @t6;
             padding: @length6 @length5;
         }
