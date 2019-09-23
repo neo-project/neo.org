@@ -117,52 +117,73 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="A build-in oracle system enabling smart contracts to access external resources." xml:space="preserve">
+    <value>内置的预言机系统，使智能合约能够访问外部资源</value>
+  </data>
+  <data name="A consensus algorithm with high stability, high TPS and single block finality." xml:space="preserve">
+    <value>一种具有高稳定性、高 TPS 和单区块终局性的共识算法</value>
+  </data>
   <data name="A distributed data storage system for storing large-scale data on the chain." xml:space="preserve">
-    <value />
+    <value>一种分布式数据存储系统，用于在链上存储大规模数据</value>
   </data>
   <data name="A dual-token mechanism for splitting the governance and use rights of the Neo network to facilitate the management and liquidity." xml:space="preserve">
-    <value />
+    <value>一种用于分离 Neo 的网络治理和使用权的双通证机制，增强通证的管理与流动性</value>
   </data>
   <data name="A lightweight, cross-platform and scalable virtual machine." xml:space="preserve">
-    <value />
+    <value>一种轻量级、可跨平台、具备高扩展性的虚拟机</value>
+  </data>
+  <data name="A smart contract system with support for multiple languages, cross-platform compatibility and parallel execution." xml:space="preserve">
+    <value>一个支持多种常见编程语言、可跨平台、可并行执行的智能合约系统</value>
   </data>
   <data name="About" xml:space="preserve">
-    <value />
+    <value>关于我们</value>
   </data>
   <data name="An Open Network for Smart Economy" xml:space="preserve">
-    <value />
+    <value>专为智能经济打造的开放网络</value>
   </data>
-  <data name="Candidates can establish a partnership with the Neo Foundation to receive the latter’s vote." xml:space="preserve">
-    <value />
+  <data name="Apply" xml:space="preserve">
+    <value>立即申请</value>
   </data>
   <data name="Explorer" xml:space="preserve">
-    <value />
+    <value>了解更多</value>
   </data>
   <data name="https://neo-ngd.github.io/reference/How-To-Become-NEO-Consensus-Node.html" xml:space="preserve">
     <value>https://neo-ngd.github.io/reference/%E5%A6%82%E4%BD%95%E6%88%90%E4%B8%BANEO%E5%85%B1%E8%AF%86%E8%8A%82%E7%82%B9.html</value>
   </data>
+  <data name="Learn more" xml:space="preserve">
+    <value>了解更多</value>
+  </data>
   <data name="More details" xml:space="preserve">
-    <value />
+    <value>更多详细信息</value>
   </data>
   <data name="Neo Contributors" xml:space="preserve">
-    <value />
+    <value>Neo 贡献者</value>
   </data>
   <data name="Neo Governance" xml:space="preserve">
-    <value />
+    <value>成为共识节点，与我们同塑未来</value>
   </data>
   <data name="Neo has developed an infrastructure with features to optimize stability and performance, including a smart contract system compatible with commonly used programming languages and solutions for transactional finality. Neo is successfully driving innovations which are paving the way for large-scale commercial applications, including a data storage system capable of hosting large volumes of data while ensuring security and privacy." xml:space="preserve">
-    <value />
+    <value>Neo 所开发的基础设施兼顾高性能与稳定性，不但支持开发者使用多种常用编程语言进行智能合约开发，还提供确保交易终局性解决方案。Neo 正在成功推进各项创新，包括一个具备高安全性和隐私性的大规模数据存储系统，为区块链技术的大规模商业应用落地铺平道路。</value>
   </data>
   <data name="Neo in Retrospect" xml:space="preserve">
-    <value />
+    <value>Neo 大事记</value>
+  </data>
+  <data name="Neo is an open-source, community driven initiative that is leveraging upon blockchain technology's intrinsic advantages to explore and realize optimized and future-designed solutions for a digital world." xml:space="preserve">
+    <value>作为一个由社区驱动的开源项目，Neo 正利用区块链技术的固有优势，探索并实现面向未来数字世界的最优化解决方案。</value>
+  </data>
+  <data name="Off-chain governance: Candidates can establish a partnership with the Neo Foundation to receive the latter’s vote." xml:space="preserve">
+    <value>链下治理：候选人将与 Neo 基金会建立战略伙伴关系，并接受来自基金会的投票。</value>
   </data>
   <data name="On-chain governance: Candidates can become a consensus nodes after being voted in by NEO holders." xml:space="preserve">
-    <value />
+    <value>链上治理：候选人通过获得 NEO 持有者的投票，被选举成为共识节点</value>
   </data>
   <data name="On-chain voting mechanism allowing everyone to participate in the network governance." xml:space="preserve">
-    <value />
+    <value>允许每个人都参与网络治理的链上投票机制</value>
   </data>
-  <data name="Returns data sovereignty back to the user , transforms “trust or not” into “how much trust” , allows users to customize trust evaluation models flexibly." xml:space="preserve">
-    <value />
+  <data name="Returns data sovereignty back to the user , transforms &quot;trust or not&quot; into &quot;how much trust&quot; , allows users to customize trust evaluation models flexibly." xml:space="preserve">
+    <value>让用户重新拥有数据主权，通过新提出的信用评分机制将“信任与否”的难题转换为“信任多少”的判断，用户还可以灵活定制适合自己的信任评估模型。</value>
+  </data>
+  <data name="Technology" xml:space="preserve">
+    <value>技术优势</value>
   </data>
 </root>
