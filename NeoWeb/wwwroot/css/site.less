@@ -13,6 +13,12 @@ html,body {
         font-size: 15px;
     }
 }
+.container {
+    @media only screen and (max-width: 768px) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
 .layout-container {
     padding-bottom: 50px;
 }
@@ -370,11 +376,17 @@ a[class|=btn]{
 }
 /*背景色*/
 .bg1 {
-    background-image: url(../images/home/Partnerwithus.png),@linear2;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../images/home/Partnerwithus.svg),@linear2;
 }
 
 .bg2 {
-    background-image: url(../images/home/Partnerwithus.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../images/home/Partnerwithus.svg);
 }
 .bg3 {
     background-position: center;
@@ -399,13 +411,14 @@ a[class|=btn]{
 
 .bg5 {
     background-position: center;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-image: url('../images/client/wallets hero banner-dt.png');
     max-width: 1300px;
     margin: auto;
 
     @media only screen and (max-width: 768px) {
+        background-size: cover;
         background-image: url('../images/client/wallets hero banner-mb.png');
     }
 }
@@ -504,19 +517,27 @@ hr.line {
 
 .w900 {
     .w;
-    max-width: 900px;
+    max-width: 940px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .w800 {
     .w;
-    max-width: 800px;
+    max-width: 840px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .w700 {
     .w;
-    max-width: 700px;
+    max-width: 740px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .w600 {
     .w;
-    max-width: 600px;
+    max-width: 640px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 /*border*/
@@ -909,7 +930,7 @@ i.iconfont {
     .module;
     
     background-position: bottom;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
 
     .module-img {
