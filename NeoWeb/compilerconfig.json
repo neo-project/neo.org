@@ -4,10 +4,6 @@
     "inputFile": "wwwroot/css/site.less"
   },
   {
-    "outputFile": "wwwroot/css/careers.css",
-    "inputFile": "wwwroot/css/careers.less"
-  },
-  {
     "outputFile": "wwwroot/css/client.css",
     "inputFile": "wwwroot/css/client.less"
   },
@@ -66,5 +62,9 @@
   {
     "outputFile": "wwwroot/css/layout.css",
     "inputFile": "wwwroot/css/layout.less"
+  },
+  {
+    "outputFile": "wwwroot/css/basic.css",
+    "inputFile": "wwwroot/css/basic.less"
   }
 ]

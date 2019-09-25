@@ -85,23 +85,25 @@
         </div>
     </div>
 </div>
-<div class="container">
-    <h2 class="mt1 p3">@Localizer["Neo in Retrospect"]</h2>
-</div>
-<div class="roadmap mt6">
-    @if (SharedLocalizer["en"].Value == "zh")
-    {
-        <img class="d-none d-md-block" src="@Helper.ToCDN("/images/about/retrospect-dt-chinese.svg")" />
-        <img class="d-block d-md-none" src="@Helper.ToCDN("/images/about/retrospect-mb-chinese.svg")" />
-    }
-    else
-    {
-        <img class="d-none d-md-block" src="@Helper.ToCDN("/images/about/retrospect-dt-english.svg")" />
-        <img class="d-block d-md-none" src="@Helper.ToCDN("/images/about/retrospect-mb-english.svg")" />
-    }
+<div class="b5 p1 mt1">
+    <div class="container">
+        <h2>@Localizer["Neo in Retrospect"]</h2>
+    </div>
+    <div class="roadmap mt3">
+        @if (SharedLocalizer["en"].Value == "zh")
+        {
+            <img class="d-none d-md-block" src="@Helper.ToCDN("/images/about/retrospect-dt-chinese.svg")" />
+            <img class="d-block d-md-none" src="@Helper.ToCDN("/images/about/retrospect-mb-chinese.svg")" />
+        }
+        else
+        {
+            <img class="d-none d-md-block" src="@Helper.ToCDN("/images/about/retrospect-dt-english.svg")" />
+            <img class="d-block d-md-none" src="@Helper.ToCDN("/images/about/retrospect-mb-english.svg")" />
+        }
+    </div>
 </div>
 <div class="constant">
-    <div class="mt1 p1 text-center">
+    <div class="p1 text-center">
         <h2>@Localizer["Neo Governance"]</h2>
         <p class="w600 mt4">
             @Localizer["On-chain governance: Candidates can become a consensus nodes after being voted in by NEO holders."]
