@@ -147,7 +147,7 @@ function showCharts(data) {
             left: '0',
             right: '2',
             bottom: '0',
-            top: '65',
+            top: '55',
             containLabel: true
         },
         xAxis: [{
@@ -180,7 +180,7 @@ function showCharts(data) {
                 show: false
             },
             axisLabel: {
-                margin: 50,
+                margin: 30,
                 textStyle: {
                     color: '#505050',
                     fontWeight: '300',
@@ -190,7 +190,7 @@ function showCharts(data) {
             },
             splitLine: {
                 lineStyle: {
-                    color: '#EAEAEA'
+                    color: '#FFFFFF'
                 }
             }
         }, {
@@ -203,7 +203,7 @@ function showCharts(data) {
                 show: false
             },
             axisLabel: {
-                margin: 50,
+                margin: 30,
                 textStyle: {
                     color: '#505050',
                     fontWeight: '300',
@@ -213,7 +213,7 @@ function showCharts(data) {
             },
             splitLine: {
                 lineStyle: {
-                    color: '#EAEAEA'
+                    color: '#FFFFFF'
                 }
             }
         }],

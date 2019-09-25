@@ -17,203 +17,217 @@
     <link rel="stylesheet" href="@Helper.ToCDN("/lib/bootstrap-fileinput/css/fileinput.css")" />
 }
 <div class="container">
-    <div class="row mt2 list1 right">
+    <div class="row mt2">
         <div class="col-md-3">
-            <img data-original="/images/consensus/BlockHeight.svg" />
-            <div>
-                <div class="list-title" id="blohei">412355678</div>
-                <div class="font2 gray">@Localizer["Block Height"]</div>
+            <div class="list1 right">
+                <img data-original="/images/consensus/BlockHeight.svg" />
+                <div>
+                    <div class="list-title" id="blohei">412355678</div>
+                    <div class="font2 gray">@Localizer["Block Height"]</div>
+                </div>
             </div>
         </div>
         <div class="col-md-3">
-            <img data-original="/images/consensus/LastTime.svg" />
-            <div>
-                <div class="list-title" id="lastime">550s</div>
-                <div class="font2 gray">@Localizer["Last Time"]</div>
+            <div class="list1 right">
+                <img data-original="/images/consensus/LastTime.svg" />
+                <div>
+                    <div class="list-title" id="lastime">550s</div>
+                    <div class="font2 gray">@Localizer["Last Time"]</div>
+                </div>
             </div>
         </div>
         <div class="col-md-3">
-            <img data-original="/images/consensus/Candidate.svg" />
-            <div>
-                <div class="list-title" id="cannum">500</div>
-                <div class="font2 gray">@Localizer["Candidate Count"]</div>
+            <div class="list1 right">
+                <img data-original="/images/consensus/Candidate.svg" />
+                <div>
+                    <div class="list-title" id="cannum">500</div>
+                    <div class="font2 gray">@Localizer["Candidate Count"]</div>
+                </div>
             </div>
         </div>
         <div class="col-md-3">
-            <img data-original="/images/consensus/Consensus.svg" />
-            <div>
-                <div class="list-title" id="connum">7</div>
-                <div class="font2 gray">@Localizer["Consensus Count"]</div>
+            <div class="list1 right">
+                <img data-original="/images/consensus/Consensus.svg" />
+                <div>
+                    <div class="list-title" id="connum">7</div>
+                    <div class="font2 gray">@Localizer["Consensus Count"]</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mt4 b-white p5">
+        <div class="h4 text-left">@Localizer["Blockchain indicator"]</div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="block-data border-static mt5">
+                    <div class="can-charts" id="main"></div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-<div class="container">
-    <h4 class="mt2 text-left">@Localizer["Blockchain indicator"]</h4>
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="block-data border-static m2">
-                <div class="can-charts" id="main"></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="p1 mt1 b5">
-    <div class="container text-center">
-        <h3>@Localizer["Become a consensus node and shape your future"]</h3>
+<div class="b5">
+    <div class="mt1 p2">
+        <h3 class="p5">@Localizer["Become a consensus node and shape your future"]</h3>
         <div class="w700">
-            <p class="mt5">
+            <p>
                 @Localizer["Consensus nodes are the crucial components contributing to Neo’s development of a smart economy. You may become a consensus node through the votes of NEO holders and maintain it independently (On-Chain governance), or establish a strategic partnership with the Neo Foundation (Off-chain governance)."]<br />
             </p>
             <p class="mt6">
                 @Localizer["For more details, see the documentation:"]<a class="green" target="_blank" href="@Localizer["https://neo-ngd.github.io/reference/How-To-Become-NEO-Consensus-Node.html"]"> @Localizer["How To Become A Consensus Node"]</a>
             </p>
             <a class="btn mt5 mr2" href="mailto:consensus@neo.org">@Localizer["Apply"]</a>
-            <a class="btn mt5" data-toggle="modal" data-target="#exampleModal">@Localizer["Provide Candidate Info"]</a>
+            <a class="btn d-none d-md-inline-block mt5" data-toggle="modal" data-target="#exampleModal">@Localizer["Provide Candidate Info"]</a>
         </div>
     </div>
 </div>
+
+
 <div class="container">
-    <h3 class="mt1 text-center">@Localizer["Node List"]</h3>
+    <h3 class="mt1">@Localizer["Node List"]</h3>
     <div class="row node-list p2 pt0" id="conList"></div>
-    <h4 class="mt1">@Localizer["Candidate List"]</h4>
+    <h3>@Localizer["Candidate List"]</h3>
     <div class="row node-list p2 pt0" id="canList"></div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="exampleModalLabel">@Localizer["Candidate Info"]</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form asp-action="Index" enctype="multipart/form-data">
-                        @Html.AntiForgeryToken()
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        <div class="form-group">
-                            <label for="PublicKey" class="control-label">@Localizer["Public Key"]<span class="red"> * </span></label>
-                            <select asp-for="PublicKey" class="form-control">
-                                @foreach (var item in ViewBag.PubKeys as List<string>)
-                                {
-                                    <option value="@item">@item</option>
-                                }
-                            </select>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel">@Localizer["Candidate Info"]</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="Index" enctype="multipart/form-data">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label for="PublicKey" class="control-label">@Localizer["Public Key"]<span class="red"> * </span></label>
+                        <select asp-for="PublicKey" class="form-control">
+                            @foreach (var item in ViewBag.PubKeys as List<string>)
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label asp-for="Organization" class="control-label">@Localizer["Organization"]<span class="red"> * </span></label>
+                            <input asp-for="Organization" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct website format"]" />
+                            <small class="form-text text-muted">@Localizer["Relevant information about Neo should be displayed."]</small>
+                            <span asp-validation-for="Organization" class="text-danger"></span>
                         </div>
-                        <div class="row">
-                            <div class="col-6 form-group">
-                                <label asp-for="Organization" class="control-label">@Localizer["Organization"]<span class="red"> * </span></label>
-                                <input asp-for="Organization" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct website format"]" />
-                                <small class="form-text text-muted">@Localizer["Relevant information about Neo should be displayed."]</small>
-                                <span asp-validation-for="Organization" class="text-danger"></span>
+                        <div class="col-6 form-group">
+                            <label asp-for="Logo" class="control-label">@Localizer["Logo"]</label>
+                            <input type="hidden" asp-for="Logo" name="oldLogo" />
+                            <input type="file" name="logo" id="logo" class="form-control" data-show-preview="false" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label asp-for="Website" class="control-label">@Localizer["Website"]<span class="red"> * </span></label>
+                            <input asp-for="Website" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct website format"]" />
+                            <small class="form-text text-muted">@Localizer["Relevant information about Neo should be displayed."]</small>
+                            <span asp-validation-for="Website" class="text-danger"></span>
+                        </div>
+                        <div class="col-6 form-group">
+                            <label asp-for="Email" class="control-label">@Localizer["E-mail"]<span class="red"> * </span></label>
+                            <input asp-for="Email" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct E-mail format"]" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SocialAccount" class="control-label">@Localizer["Social media account"]</label>
+                        <input asp-for="SocialAccount" placeholder="Twitter:neo_blockchain;Facebook:NEOSmartEcon;" class="form-control" />
+                        <span asp-validation-for="SocialAccount" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Summary" class="control-label">@Localizer["Summary"]</label>
+                        <textarea asp-for="Summary" class="form-control"></textarea>
+                        <small class="form-text text-muted">@Localizer["Brief introduction about team"]</small>
+                        <span asp-validation-for="Summary" class="text-danger"></span>
+                    </div>
+                    <hr class="m3" />
+                    <div class="form-group">
+                        <label class="control-label">Hash</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <button class="btn" type="button" onclick="hashInfo()">@Localizer["Generate Hash"]</button>
                             </div>
-                            <div class="col-6 form-group">
-                                <label asp-for="Logo" class="control-label">@Localizer["Logo"]</label>
-                                <input type="hidden" asp-for="Logo" name="oldLogo" />
-                                <input type="file" name="logo" id="logo" class="form-control" data-show-preview="false" />
-                            </div>
+                            <input id="hash" type="text" readonly="readonly" class="form-control">
                         </div>
-                        <div class="row">
-                            <div class="col-6 form-group">
-                                <label asp-for="Website" class="control-label">@Localizer["Website"]<span class="red"> * </span></label>
-                                <input asp-for="Website" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct website format"]" />
-                                <small class="form-text text-muted">@Localizer["Relevant information about Neo should be displayed."]</small>
-                                <span asp-validation-for="Website" class="text-danger"></span>
-                            </div>
-                            <div class="col-6 form-group">
-                                <label asp-for="Email" class="control-label">@Localizer["E-mail"]<span class="red"> * </span></label>
-                                <input asp-for="Email" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct E-mail format"]" />
-                                <span asp-validation-for="Email" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="SocialAccount" class="control-label">@Localizer["Social media account"]</label>
-                            <input asp-for="SocialAccount" placeholder="Twitter:neo_blockchain;Facebook:NEOSmartEcon;" class="form-control" />
-                            <span asp-validation-for="SocialAccount" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Summary" class="control-label">@Localizer["Summary"]</label>
-                            <textarea asp-for="Summary" class="form-control"></textarea>
-                            <small class="form-text text-muted">@Localizer["Brief introduction about team"]</small>
-                            <span asp-validation-for="Summary" class="text-danger"></span>
-                        </div>
-                        <hr class="m3" />
-                        <div class="form-group">
-                            <label class="control-label">Hash</label>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <button class="btn" type="button" onclick="hashInfo()">@Localizer["Generate Hash"]</button>
-                                </div>
-                                <input id="hash" type="text" readonly="readonly" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="signature" class="control-label">@Localizer["Signature"]<span class="red"> * </span></label>
-                            <input name="signature" id="signature" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" />
-                            <small class="form-text text-muted">@Localizer["Please sign the above hash with your private key."]</small>
-                            <span data-valmsg-for="signature" data-valmsg-replace="true" class="text-danger"></span>
-                            <span class="text-danger">@ViewBag.Message</span>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="@Localizer["Submit"]" class="btn float-right" />
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signature" class="control-label">@Localizer["Signature"]<span class="red"> * </span></label>
+                        <input name="signature" id="signature" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" />
+                        <small class="form-text text-muted">@Localizer["Please sign the above hash with your private key."]</small>
+                        <span data-valmsg-for="signature" data-valmsg-replace="true" class="text-danger"></span>
+                        <span class="text-danger">@ViewBag.Message</span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="@Localizer["Submit"]" class="btn float-right" />
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
+
 <script id="consensus" type="text/html">
     {{if Active}}
-    <div class="col-md-4 mt2">
-        {{if Info.Logo}}<div class="img" style="background-image:url({{Info.Logo}})"></div>{{/if}}
-        {{if Info.Organization}}<div class="h6 mt6">{{Info.Organization}}</div>{{/if}}
-        <div class="font1 mt7"><strong>@Localizer["Votes"]</strong> {{Votes}}</div>
-        <div class="mt6">
+    <div class="col-md-4 mt4">
+        <div class="p5 b-white">
+            {{if Info.Logo}}<div class="img" style="background-image:url({{Info.Logo}})"></div>{{/if}}
+            {{if Info.Organization}}<div class="h6 mt6">{{Info.Organization}}</div>{{/if}}
+            <div class="font1 mt7"><strong>@Localizer["Votes"]</strong> {{Votes}}</div>
+            <div class="mt6">
 
-            {{if Social}}
-            {{each Social value}}
+                {{if Social}}
+                {{each Social value}}
 
-            {{if value.name == "twitter"}}<a href={{value.link}} title={{value.name}} class="iconfont">&#xe607;</a>{{/if}}
-            {{if value.name == "facebook"}}<a href={{value.link}} title={{value.name}} class="iconfont">&#xe616;</a>{{/if}}
-            {{if value.name == "weibo"}}<a href={{value.link}} title={{value.name}} class="iconfont">&#xe60e;</a>{{/if}}
-            {{if value.name == "github"}}<a href={{value.link}} title={{value.name}} class="iconfont">&#xe609;</a>{{/if}}
+                {{if value.name == "twitter"}}<a href={{value.link}} title={{value.name}} class="iconfont">&#xe607;</a>{{/if}}
+                {{if value.name == "facebook"}}<a href={{value.link}} title={{value.name}} class="iconfont">&#xe616;</a>{{/if}}
+                {{if value.name == "weibo"}}<a href={{value.link}} title={{value.name}} class="iconfont">&#xe60e;</a>{{/if}}
+                {{if value.name == "github"}}<a href={{value.link}} title={{value.name}} class="iconfont">&#xe609;</a>{{/if}}
 
-            {{/each}}
-            {{/if}}
-            {{if Info.Website}}<a href={{Info.Website}} title="Website" target="_blank"><i class="iconfont">&#xe623;</i></a>{{/if}}
-            {{if Info.Email}}<a href="mailto:{{Info.Email}}" title="Email"><i class="iconfont">&#xe61d;</i></a>{{/if}}
-        </div>
-        <div class="mt5">{{if Info.Summary}}{{Info.Summary}}{{/if}}</div>
-        <div class="mt6">
-            <span class="iconfont">&#xe61e;</span>
-            <span class="font2">@Localizer["Public Key"]</span><br />
-            <span class="text-break">{{PublicKey}}</span>
+                {{/each}}
+                {{/if}}
+                {{if Info.Website}}<a href={{Info.Website}} title="Website" target="_blank"><i class="iconfont">&#xe623;</i></a>{{/if}}
+                {{if Info.Email}}<a href="mailto:{{Info.Email}}" title="Email"><i class="iconfont">&#xe61d;</i></a>{{/if}}
+            </div>
+            <div class="mt5">{{if Info.Summary}}{{Info.Summary}}{{/if}}</div>
+            <div class="mt6">
+                <span class="iconfont">&#xe61e;</span>
+                <span class="font2">@Localizer["Public Key"]</span><br />
+                <span class="text-break">{{PublicKey}}</span>
+            </div>
         </div>
     </div>
     {{/if}}
 </script>
 
 <script id="candidate" type="text/html">
-    <div class="col-md-4 mt2">
-        {{if Active}}
-        {{if Info.Logo}}<div class="img" style="background-image:url({{Info.Logo}})"></div>{{/if}}
-        {{if Info.Organization}}<div class="h6 mt6">{{Info.Organization}}</div>{{/if}}
-        {{/if}}
-        <div class="font1 mt7"><strong>@Localizer["Votes"]</strong> {{Votes}}</div>
-        {{if Active}}
-        <div class="mt6">
-            {{if Info.Website}}<a href={{Info.Website}} target="_blank"><i class="iconfont">&#xe623;</i></a>{{/if}}
-            {{if Info.Website}}<a href="mailto:{{Info.Email}}"><i class="iconfont">&#xe61d;</i></a>{{/if}}
-        </div>
-        {{/if}}
-        {{if Active}}<div class="mt5">{{if Info.Summary}}{{Info.Summary}}{{/if}}</div>{{/if}}
-        <div class="mt6">
-            <span class="iconfont">&#xe619;</span>
-            <span class="font2">@Localizer["Public Key"]</span><br />
-            <span class="text-break">{{PublicKey}}</span>
+    <div class="col-md-4 mt4">
+        <div class="p5 b-white">
+            {{if Active}}
+            {{if Info.Logo}}<div class="img" style="background-image:url({{Info.Logo}})"></div>{{/if}}
+            {{if Info.Organization}}<div class="h6 mt6">{{Info.Organization}}</div>{{/if}}
+            {{/if}}
+            <div class="font1 mt7"><strong>@Localizer["Votes"]</strong> {{Votes}}</div>
+            {{if Active}}
+            <div class="mt6">
+                {{if Info.Website}}<a href={{Info.Website}} target="_blank"><i class="iconfont">&#xe623;</i></a>{{/if}}
+                {{if Info.Email}}<a href="mailto:{{Info.Email}}"><i class="iconfont">&#xe61d;</i></a>{{/if}}
+            </div>
+            {{/if}}
+            {{if Active}}<div class="mt5">{{if Info.Summary}}{{Info.Summary}}{{/if}}</div>{{/if}}
+            <div class="mt6">
+                <span class="iconfont">&#xe61e;</span>
+                <span class="font2">@Localizer["Public Key"]</span><br />
+                <span class="text-break">{{PublicKey}}</span>
+            </div>
         </div>
     </div>
 </script>

@@ -47,23 +47,6 @@
 @gray2: #f9fafa;
 @gray3: #f2f4f4;
 
-.typetext {
-    margin-right: .3em;
-}
-.typetext:after {
-    content: "|";
-    position: absolute;
-    margin-top:-0.12em;
-    line-height:1.1em;
-    font-size:1.2em;
-    vertical-align:middle;
-    animation:op .5s alternate infinite;
-}
-@keyframes op{
-    0%{opacity:0;}
-    100%{opacity:1;}
-}
-
 /*字体*/
 .bold {
     font-weight: 600;
@@ -82,31 +65,28 @@
     letter-spacing: .3px;
 }
 
-/*背景色*/
-.b1 {
-    background: @linear;
-    color: @white!important;
-}
-
-.b2 {
-    background: @green;
-    color: @white !important;
-}
-
-.b3 {
-    background: @dark;
-    color: @dark-text!important;
-}
-
-.b4 {
-    background: @green2;
-    color: @white !important;
-}
-
-.b5 {
-    background-color: @gray3;
-}
-
 small,.small{
     font-size:80%;
+}
+
+/*typing*/
+.typetext:after {
+    content: "|";
+    position: absolute;
+    margin-right: .3em;
+    margin-top: -0.12em;
+    line-height: 1.1em;
+    font-size: 1.2em;
+    vertical-align: middle;
+    animation: op .5s alternate infinite;
+}
+
+@keyframes op {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }

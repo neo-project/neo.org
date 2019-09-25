@@ -5,9 +5,15 @@
     padding: 0;
     margin: 0;
 }
+
 .can-charts {
     height: 400px;
+
+    @media only screen and (max-width: 768px) {
+        height: 300px;
+    }
 }
+
 .node-list {
     text-align: left;
 
@@ -18,7 +24,10 @@
             background-repeat: no-repeat;
             background-position: left;
             background-size: contain;
+        }
 
+        .iconfont {
+            color: @gray !important;
         }
     }
 }
@@ -63,5 +72,15 @@
         background-color: @green2;
         border-color: @green2;
         opacity: 0.8;
+    }
+}
+
+.list1.right {
+    padding: 20px;
+    background: @white;
+    margin-top: @length6;
+
+    img, .img {
+        margin-right: 0 !important;
     }
 }
