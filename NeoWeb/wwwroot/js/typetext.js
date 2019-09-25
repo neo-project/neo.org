@@ -60,9 +60,6 @@ TypeText.prototype = {
             }
         });
     },
-    hastext: function () {
-
-    },
     init: function () {
         this.getarr();
     }
