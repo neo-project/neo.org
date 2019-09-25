@@ -33,7 +33,7 @@ a {
 
 ul.list-none {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 0;
 
     li {
@@ -396,6 +396,7 @@ a[class|=btn]{
 
     @media only screen and (max-width: 768px) {
         background-image: url(../images/about/BannerMobile.png);
+        min-height: 460px;
     }
 }
 .bg4 {
@@ -406,6 +407,7 @@ a[class|=btn]{
 
     @media only screen and (max-width: 768px) {
         background-image: url(../images/dev/BannerMobile.png);
+        min-height: 460px;
     }
 }
 
@@ -420,6 +422,7 @@ a[class|=btn]{
     @media only screen and (max-width: 768px) {
         background-size: cover;
         background-image: url('../images/client/wallets hero banner-mb.png');
+        min-height: 460px;
     }
 }
 
@@ -442,6 +445,7 @@ a[class|=btn]{
 
     @media only screen and (max-width: 768px) {
         background-image: url('../images/ecoboost/ecoboost hero banner-mb.png');
+        min-height: 460px;
     }
 }
 
@@ -800,7 +804,6 @@ i.iconfont {
 
             li {
                 .mt6;
-                .mr2;
 
                 span {
                     .font1;
@@ -818,15 +821,6 @@ i.iconfont {
         div[class|=col], > li {
             > span {
                 float: none;
-            }
-
-            .list-ul {
-                li {
-                    width: 40%;
-                    min-width: 110px;
-                    margin-left: auto;
-                    margin-right: auto;
-                }
             }
         }
     }

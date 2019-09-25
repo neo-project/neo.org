@@ -144,11 +144,11 @@
   <data name="Get wallet" xml:space="preserve">
     <value>获取钱包</value>
   </data>
-  <data name="Global Neo Communities:" xml:space="preserve">
-    <value>Neo 全球社区：</value>
+  <data name="Global Neo Communities" xml:space="preserve">
+    <value>Neo 全球社区</value>
   </data>
-  <data name="Highly Active Network:" xml:space="preserve">
-    <value>高活跃度网络：</value>
+  <data name="Highly Active Network" xml:space="preserve">
+    <value>高活跃度网络</value>
   </data>
   <data name="Join the" xml:space="preserve">
     <value>欢迎加入</value>
@@ -156,8 +156,8 @@
   <data name="Learn more" xml:space="preserve">
     <value>了解更多</value>
   </data>
-  <data name="Mainstream Languages:" xml:space="preserve">
-    <value>主流语言支持：</value>
+  <data name="Mainstream Languages" xml:space="preserve">
+    <value>主流语言支持</value>
   </data>
   <data name="most community-driven" xml:space="preserve">
     <value>对开发者最友好</value>

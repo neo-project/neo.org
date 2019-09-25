@@ -111,7 +111,7 @@ https://github.com/neo-project/neo.org
     <div class="b2 footer-fo text-center p2">
         <div class="container">
             <h2>@Localizer["Follow Us"]</h2>
-            <h4 class="mt6">@Localizer["Stay tuned for our latest updates from Neo"]</h4>
+            <h4 class="mt6 w600">@Localizer["Stay tuned for our latest updates from Neo"]</h4>
             <ul class="mt4">
                 <li><a target="_blank" title="GitHub" href="https://github.com/neo-project" class="iconfont">&#xe609;</a></li>
                 <li><a target="_blank" title="Twitter" href="https://twitter.com/neo_blockchain" class="iconfont">&#xe607;</a></li>
@@ -122,7 +122,7 @@ https://github.com/neo-project/neo.org
                 <li><a target="_blank" title="Youtube" href="https://www.youtube.com/channel/UCl1AwEDN0w5lTmfJEMsY5Vw/videos" class="iconfont">&#xe60c;</a></li>
                 <li>
                     <a title="WeChat" href="javascript:" class="iconfont">&#xe60d;</a>
-                    <img src="~/images/qrcode.png" />
+                    <img src="@Helper.CDN/images/qrcode.png" />
                 </li>
                 <li><a target="_blank" title="Weibo" href="https://weibo.com/neosmarteconomy" class="iconfont">&#xe60e;</a></li>
             </ul>
@@ -180,6 +180,11 @@ https://github.com/neo-project/neo.org
             </div>
             <div class="col-md">
                 <p class="bold"><a asp-controller="discover" asp-action="index">@Localizer["Discover"]</a></p>
+                <ul>
+                    <li><a asp-controller="discover" asp-action="index" asp-route-type="1">@Localizer["Blogs"]</a></li>
+                    <li><a asp-controller="discover" asp-action="index" asp-route-type="2">@Localizer["Events"]</a></li>
+                    <li><a asp-controller="discover" asp-action="index" asp-route-type="3">@Localizer["News"]</a></li>
+                </ul>
             </div>
             <div class="col-md-3">
                 <p class="bold">@Localizer["Contact Us"]</p>

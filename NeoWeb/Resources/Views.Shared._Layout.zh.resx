@@ -201,4 +201,13 @@
   <data name="Developers" xml:space="preserve">
     <value>开发者</value>
   </data>
+  <data name="Blogs" xml:space="preserve">
+    <value>博客</value>
+  </data>
+  <data name="Events" xml:space="preserve">
+    <value>活动</value>
+  </data>
+  <data name="News" xml:space="preserve">
+    <value>新闻</value>
+  </data>
 </root>

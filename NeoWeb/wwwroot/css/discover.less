@@ -13,12 +13,16 @@
     }
 
     .search {
+        width: calc(100% - 340px);
+
         input.form-control {
             width: calc(100% - 25px);
             background-color: @gray2;
         }
 
-        width: calc(100% - 340px);
+        @media only screen and (max-width: 768px) {
+            display: none;
+        }
     }
 
 
