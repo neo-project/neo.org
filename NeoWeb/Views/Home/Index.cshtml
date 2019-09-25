@@ -21,7 +21,7 @@
             <div class="col-md-12">
                 <h3>
                     @Localizer["Join the"]<br />
-                    <span class="h1 typetext">@Localizer["most developer-friendly"]</span><br />
+                    <span class="h1 typetext" id="typetext">@Localizer["most developer-friendly"]</span><br />
                     @Localizer["network of blockchain solutions"]
                 </h3>
                 <div class="mt4">
@@ -134,6 +134,14 @@
                 $(this).css("min-height", $(window).height());
             })
         }
+
+        new TypeText({
+            id: 'typetext',
+            text: ["String11111","String222222222","string3333"],
+            speed: 200,
+            despeed: 60,
+            space: 500
+        });
     </script>
 }
 
