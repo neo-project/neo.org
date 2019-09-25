@@ -448,27 +448,7 @@ a[class|=btn]{
 .b-white{
     background:#FFFFFF;
 }
-/*特殊*/
-/*.cube {
-    position: relative;
-    z-index: 2;
-    padding: 35px 20px;
 
-    @media only screen and (max-width: 768px) {
-        padding: 20px 28px;
-    }
-}
-
-.cube:before {
-    .b2;
-    content: " ";
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    height: 20px;
-    width: 20px;
-}*/
 .center {
     position: absolute;
     top: 0;
@@ -697,6 +677,24 @@ i.iconfont {
         }
     }
 }
+.bg-img {
+    display: block;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    animation: back-out ease-out 0.25s;
+
+    &::before {
+        content: " ";
+        display: block;
+        padding-top: 56.25%;
+    }
+
+    &:hover {
+        animation: back linear 0.35s;
+        animation-fill-mode: forwards;
+    }
+}
 .list2 {
     margin-bottom: @length4;
 
@@ -708,25 +706,11 @@ i.iconfont {
             color: @text;
             text-shadow: none;
             transition: text-shadow .2s;
-            background-size:cover;
+            background-size: cover;
             animation: back-out ease-out 0.25s;
 
             &.img {
-                display: block;
-                width: 100%;
-                background-position: center;
-                background-size: cover;
-
-                &::before {
-                    content: " ";
-                    display: block;
-                    padding-top: 56.25%;
-                }
-
-                &:hover {
-                    animation: back linear 0.35s;
-                    animation-fill-mode: forwards;
-                }
+                .bg-img;
             }
 
 

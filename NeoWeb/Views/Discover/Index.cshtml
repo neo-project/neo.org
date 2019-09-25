@@ -19,7 +19,7 @@
 @if (ViewBag.Ontop != null)
 {
     <div class="p2">
-        <div class="row align-items-center">
+        <div class="row align-items-center discover-top">
             @{await Html.RenderPartialAsync("_TopPartial", (ViewBag.Ontop as DiscoverViewModel));}
         </div>
     </div>

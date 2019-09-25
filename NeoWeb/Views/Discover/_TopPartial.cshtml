@@ -1,90 +1,88 @@
 ﻿@model DiscoverViewModel
 
-    @if (Model?.Type == DiscoverViewModelType.Blog)
-    {
-        <div class="col-md-8">
-            @if (string.IsNullOrEmpty(Model.Blog.Cover))
-            {
-                <a class="img" href="~/blog/details/@Model.Blog.Id">
-                    <img class="img-fluid" data-original="@Helper.ToCDN("/images/discover/blog.png")" />
-                </a>
-            }
-            else
-            {
-                <a class="img" href="~/blog/details/@Model.Blog.Id">
-                    <img class="img-fluid" data-original="@String.Format("/upload/{0}", Model.Blog.Cover).ToLower()" />
-                </a>
-            }
-        </div>
-        <div class="col-md-4">
-            <p class="green bold m4">BLOG</p>
-            <h4 class="d-title with-space"><a href="~/blog/details/@Model.Blog.Id">@Model.Blog.Title</a></h4>
-            @if (ViewBag.UserRules)
-            {
-                <a asp-action="Edit" asp-controller="Blog" asp-route-id="@Model.Blog.Id">Edit</a>
-                <a class="ml-2" asp-action="Delete" asp-controller="Blog" asp-route-id="@Model.Blog.Id">Delete</a>
-            }
-            <p class="m6">@Model.Blog.Title</p>
-            <p class="m5">
-                @Model.Blog.Summary
-            </p>
-        </div>
+@if (Model?.Type == DiscoverViewModelType.Blog)
+{
+    <div class="col-md-8">
+        @if (string.IsNullOrEmpty(Model.Blog.Cover))
+        {
+            <a class="bg-img" href="~/blog/details/@Model.Blog.Id" data-original="@Helper.ToCDN("/images/discover/blog.png")"></a>
+        }
+        else
+        {
+            <a class="bg-img" href="~/blog/details/@Model.Blog.Id" data-original="@String.Format("/upload/{0}", Model.Blog.Cover).ToLower()"></a>
+        }
+    </div>
+    <div class="col-md-4">
+        <p class="green bold mt4">BLOG</p>
+        <h4 class="d-title with-space"><a href="~/blog/details/@Model.Blog.Id">@Model.Blog.Title</a></h4>
+        @if (ViewBag.UserRules)
+        {
+            <a asp-action="Edit" asp-controller="Blog" asp-route-id="@Model.Blog.Id">Edit</a>
+            <a class="ml-2" asp-action="Delete" asp-controller="Blog" asp-route-id="@Model.Blog.Id">Delete</a>
+        }
 
-    }
-    else if (Model?.Type == DiscoverViewModelType.Event)
-    {
-        <div class="col-md-8">
-            @if (string.IsNullOrEmpty(Model.Event.Cover))
+        <p class="mt6">
+            @if (!string.IsNullOrEmpty(Model.Blog.Tags))
             {
-                <a class="img" href="~/event/details/@Model.Event.Id">
-                    <img class="img-fluid"data-original="@Helper.ToCDN("/images/discover/event.png")"/>
-                </a>
+                foreach (var tag in Model.Blog.Tags.Split(','))
+                {
+                    <small class="d-tag"><a href="~/discover?keywords=@tag.Trim()"># @tag.Trim()</a></small>
+                }
             }
-            else
-            {
-                <a class="img" href="~/event/details/@Model.Event.Id">
-                    <img class="img-fluid"data-original="@String.Format("/upload/{0}", Model.Event.Cover).ToLower()" />
-                </a>
-            }
-        </div>
-        <div class="col-md-4">
-            <p class="green bold m4">EVENT</p>
-            <h4 class="d-title with-space"><a href="~/event/details/@Model.Event.Id">@Model.Event.Name</a></h4>
-            @if (ViewBag.UserRules)
-            {
-                <a asp-action="Edit" asp-controller="Event" asp-route-id="@Model.Event.Id">Edit</a>
-                <a class="ml-2" asp-action="Delete" asp-controller="Event" asp-route-id="@Model.Event.Id">Delete</a>
-            }
-            <div class="small">
-                <div class="m6"> @Model.Event.StartTime - @Model.Event.EndTime</div>
-                <div> @Model.Event.Country, @Model.Event.City</div>
-            </div>
-        </div>
-    }
-    else if (Model?.Type == DiscoverViewModelType.News)
-    {
-        <div class="col-md-8">
-            @if (string.IsNullOrEmpty(Model.News.Cover))
-            {
-                <a class="img" href="@Model.News.Link">
-                    <img class="img-fluid"data-original="@Helper.ToCDN("/images/discover/news.png")"/>
-                </a>
-            }
-            else
-            {
-                <a class="img" href="@Model.News.Link">
-                    <img class="img-fluid"data-original="@String.Format("/upload/{0}", Model.News.Cover).ToLower()"/>
-                </a>
-            }
-        </div>
-        <div class="col-md-4">
-            <p class="green bold m4">NEWS</p>
-            <h4 class="d-title with-space"><a href="@Model.News.Link" target="_blank">@Model.News.Title</a></h4>
-            @if (ViewBag.UserRules)
-            {
-                <a asp-action="Edit" asp-controller="News" asp-route-id="@Model.News.Id">Edit</a>
-                <a class="ml-2" asp-action="Delete" asp-controller="News" asp-route-id="@Model.News.Id">Delete</a>
-            }
-            <div class="small">@Model.News.Time</div>
-        </div>
-    }
+        </p>
+    </div>
+}
+else if (Model?.Type == DiscoverViewModelType.Event)
+{
+    <div class="col-md-8">
+        @if (string.IsNullOrEmpty(Model.Event.Cover))
+        {
+            <a class="bg-img" href="~/event/details/@Model.Event.Id" data-original="@Helper.ToCDN("/images/discover/event.png")"></a>
+        }
+        else
+        {
+            <a class="bg-img" href="~/event/details/@Model.Event.Id" data-original="@String.Format("/upload/{0}", Model.Event.Cover).ToLower()"></a>
+        }
+    </div>
+    <div class="col-md-4">
+        <p class="green bold mt4">EVENT</p>
+        <h4 class="d-title with-space"><a href="~/event/details/@Model.Event.Id">@Model.Event.Name</a></h4>
+        @if (ViewBag.UserRules)
+        {
+            <a asp-action="Edit" asp-controller="Event" asp-route-id="@Model.Event.Id">Edit</a>
+            <a class="ml-2" asp-action="Delete" asp-controller="Event" asp-route-id="@Model.Event.Id">Delete</a>
+        }
+        @if (Model.Event.StartTime.Date == Model.Event.EndTime.Date)
+        {
+            <div class="mt6"><i class="iconfont">&#xe610;</i> @Model.Event.StartTime.DayOfWeek.ToString().Substring(0, 3), @Model.Event.StartTime.ToString("yyyy-MM-dd HH:mm") - @Model.Event.EndTime.ToString("HH:mm")</div>
+        }
+        else
+        {
+            <div class="mt6"><i class="iconfont">&#xe610;</i> @Model.Event.StartTime.ToString("yyyy-MM-dd HH:mm") - @Model.Event.EndTime.ToString("yyyy-MM-dd HH:mm")</div>
+        }
+        <div class="mt6"><i class="iconfont">&#xe60f;</i> @Model.Event.Country, @Model.Event.City</div>
+    </div>
+}
+else if (Model?.Type == DiscoverViewModelType.News)
+{
+    <div class="col-md-8">
+        @if (string.IsNullOrEmpty(Model.News.Cover))
+        {
+            <a class="bg-img" href="@Model.News.Link" data-original="@Helper.ToCDN("/images/discover/news.png")"></a>
+        }
+        else
+        {
+            <a class="bg-img" href="@Model.News.Link" data-original="@String.Format("/upload/{0}", Model.News.Cover).ToLower()"></a>
+        }
+    </div>
+    <div class="col-md-4">
+        <p class="green bold mt4">NEWS</p>
+        <h4 class="d-title with-space"><a href="@Model.News.Link" target="_blank">@Model.News.Title</a></h4>
+        @if (ViewBag.UserRules)
+        {
+            <a asp-action="Edit" asp-controller="News" asp-route-id="@Model.News.Id">Edit</a>
+            <a class="ml-2" asp-action="Delete" asp-controller="News" asp-route-id="@Model.News.Id">Delete</a>
+        }
+        <div class="small">@Model.News.Time</div>
+    </div>
+}
