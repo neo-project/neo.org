@@ -393,7 +393,13 @@ a[class|=btn]{
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url(../images/home/Partnerwithus.svg),@linear2;
+    background-image: url(../images/home/Partnerwithus.svg), @linear2;
+
+    @media only screen and (max-width: 768px) {
+        background-color: @green;
+        background-size: 300%;
+        background-position: 38% 100%;
+    }
 }
 
 .bg2 {
@@ -920,10 +926,6 @@ i.iconfont {
 
 .module1 {
     .module;
-    
-    background-position: bottom;
-    background-size: cover;
-    background-repeat: no-repeat;
 
     .module-img {
         max-width: 300px;
@@ -936,7 +938,6 @@ i.iconfont {
     @media only screen and (max-width: 768px) {
         padding-bottom: @length2;
         text-align: center;
-        background-size:contain;
 
         .module {
             .module-img {
