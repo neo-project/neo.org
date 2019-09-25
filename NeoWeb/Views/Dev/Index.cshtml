@@ -88,7 +88,7 @@
         <div class="row">
             <div class="col-md-4">
                 <h4 class="line-b">@Localizer["Neo Links"]</h4>
-                <ul class="dev-link mt5">
+                <ul class="dev-link mt6">
                     <li><a target="_blank" href="https://github.com/neo-project" title="Neo GitHub">Neo GitHub</a></li>
                     <li><a target="_blank" href="https://docs.neo.org/" title="Neo Docs">@Localizer["Neo Docs"]</a></li>
                     <li><a asp-controller="dev" asp-action="bounty" title="Security Bounty">@Localizer["Security Bounty"]</a></li>
@@ -96,25 +96,25 @@
             </div>
             <div class="col-md-4">
                 <h4 class="line-b">@Localizer["NEO & GAS TestNet"]</h4>
-                <ul class="dev-link mt5">
+                <ul class="dev-link mt6">
                     <li><a asp-controller="testcoin" asp-action="apply" title="Manual Entry">@Localizer["Apply with Manual Entry"]</a></li>
                     <li><a target="_blank" href="http://neowish.ngd.network/" title="Automatic Entry">@Localizer["Apply with Automatic Entry"]</a></li>
                 </ul>
             </div>
             <div class="col-md-4">
                 <h4 class="line-b">@Localizer["Components"]</h4>
-                <ul class="dev-link mt5">
+                <ul class="dev-link mt6">
                     <li><a target="_blank" href="https://github.com/swisscom-blockchain" title="NeoID">NeoID</a></li>
                     <li><span class="green-text">NeoFS</span></li>
                 </ul>
             </div>
         </div>
-        <h4 class="line-b">@Localizer["Tools"]</h4>
+        <h4 class="mt4">@Localizer["Tools"]</h4>
         <div class="row tools">
             <div class="col-md-4">
                 <ul class="dev-link no-before mt5">
                     <li class="link-title no-before h6"><span>@Localizer["Neo Blockchain Network"]</span></li>
-                    <li class="bold pt0">@Localizer["Private Net"]</li>
+                    <li class="bold pt4">@Localizer["Private Net"]</li>
                     <li><a target="_blank" href="https://github.com/neo-ngd/NEO-Private-Net" title="NEO-Private-Net">NEO-Private-Net</a></li>
                     <li><span title="neo express">neo express</span></li>
                     <li><a target="_blank" href="https://github.com/CityOfZion/neo-local" title="neo-local">neo-local</a></li>
@@ -136,10 +136,10 @@
                 <ul class="dev-link mt5">
                     <li class="link-title h6"><span>@Localizer["Smart Contract Development"]</span></li>
 
-                    <li class="bold pt0">@Localizer["Toolkit"]</li>
+                    <li class="bold pt4">@Localizer["Toolkit"]</li>
                     <li><span title="neo blockchain toolkit for .NET">neo blockchain toolkit for .NET</span></li>
 
-                    <li class="bold pt0">@Localizer["Dev-pack & compiler"]</li>
+                    <li class="bold">@Localizer["Dev-pack & compiler"]</li>
                     <li><a target="_blank" href="https://github.com/neo-project/neo-devpack-dotnet" title="neo-devpack-dotnet">neo-devpack-dotnet</a> <span>C# dev-pack</span></li>
                     <li><a target="_blank" href="https://github.com/neo-project/neo-compiler" title="neon">neon</a> <span>C# compiler</span></li>
                     <li><a target="_blank" href="https://github.com/CityOfZion/neo-boa" title="neo-boa">neo-boa</a> <span>Python dev-pack & compiler</span></li>
@@ -157,7 +157,7 @@
             <div class="col-md-4">
                 <ul class="dev-link mt5">
                     <li class="link-title h6"><span>@Localizer["dApp Integration"]</span></li>
-                    <li class="bold pt0">SDK</li>
+                    <li class="bold pt4">SDK</li>
                     <li><a target="_blank" href="https://github.com/neo-project/neo" title="neo">neo</a> <span>C#</span></li>
                     <li><a target="_blank" href="https://github.com/CityOfZion/neo-python" title="neo-python">neo-python</a> <span>python</span></li>
                     <li><a target="_blank" href="https://github.com/CityOfZion/neon-js" title="neon-js">neon-js</a> <span>javaScript</span></li>
@@ -179,7 +179,8 @@
 
 <div class="b5 p1" name="involved">
     <div class="container text-center">
-        <h3>@Localizer["Get involved"]</h3>
+        <h2>@Localizer["Get involved"]</h2>
+        <p class="mt5"><a class="btn">@Localizer["CONTACT US"]</a></p>
         <div class="row list1 mt5">
             <div class="col-md-4">
                 <img data-original="/images/dev/CoreDeveloper.svg" />
@@ -227,28 +228,25 @@
     </div>
 </div>
 
-<div class="b3 text-center p2">
+<div class="text-center p2">
     <div class="container">
-        <h2 class="green">@Localizer["Join Neo Global Communities"]</h2>
-        <ul class="list-none h3 mt5">
+        <h2>@Localizer["Join Neo Global Communities"]</h2>
+        <ul class="list-none h3 mt4 w600">
             <li class="tag">20<span>@Localizer["Cities"]</span></li>
             <li class="tag">7<span>@Localizer["Countries"]</span></li>
             <li class="tag">10+<span>@Localizer["Communities"]</span></li>
         </ul>
+        <ul class="press mt5">
+            <li><a href="https://cityofzion.io" target="_blank"><img src="@Helper.ToCDN("/images/dev/coz.png")" /></a></li>
+            <li><a href="https://neoresearch.io" target="_blank"><img src="@Helper.ToCDN("/images/dev/neo_re.png")" /></a></li>
+            <li><a href="https://nspcc.ru/" target="_blank"><img src="@Helper.ToCDN("/images/dev/nspcc.png")" /></a></li>
+            <li><a href="https://neo-one.io" target="_blank"><img src="@Helper.ToCDN("/images/dev/neo_one.png")" /></a></li>
+            <li><a href="https://red4sec.com/" target="_blank"><img src="@Helper.ToCDN("/images/dev/red4sec.png")" /></a></li>
+            <li><a href="https://neonewstoday.com/" target="_blank"><img src="@Helper.ToCDN("/images/dev/nnt.png")" /></a></li>
+            <li><a href="https://nel.group" target="_blank"><img src="@Helper.ToCDN("/images/dev/nel.png")" /></a></li>
+            <li><a href="https://neonext.club" target="_blank"><img src="@Helper.ToCDN("/images/dev/next.png")" /></a></li>
+            <li><a href="https://github.com/neow3j" target="_blank"><img src="@Helper.ToCDN("/images/dev/neow3j.png")" /></a></li>
+            <li><a href="https://github.com/alienworks" target="_blank"><img src="@Helper.ToCDN("/images/dev/alien.png")" /></a></li>
+        </ul>
     </div>
-</div>
-
-<div class="w700 p2">
-    <ul class="press mt0">
-        <li><a href="https://cityofzion.io" target="_blank"><img src="@Helper.ToCDN("/images/dev/coz.png")" /></a></li>
-        <li><a href="https://neoresearch.io" target="_blank"><img src="@Helper.ToCDN("/images/dev/neo_re.png")" /></a></li>
-        <li><a href="https://nspcc.ru/" target="_blank"><img src="@Helper.ToCDN("/images/dev/nspcc.png")" /></a></li>
-        <li><a href="https://neo-one.io" target="_blank"><img src="@Helper.ToCDN("/images/dev/neo_one.png")" /></a></li>
-        <li><a href="https://red4sec.com/" target="_blank"><img src="@Helper.ToCDN("/images/dev/red4sec.png")" /></a></li>
-        <li><a href="https://neonewstoday.com/" target="_blank"><img src="@Helper.ToCDN("/images/dev/nnt.png")" /></a></li>
-        <li><a href="https://nel.group" target="_blank"><img src="@Helper.ToCDN("/images/dev/nel.png")" /></a></li>
-        <li><a href="https://neonext.club" target="_blank"><img src="@Helper.ToCDN("/images/dev/next.png")" /></a></li>
-        <li><a href="https://github.com/neow3j" target="_blank"><img src="@Helper.ToCDN("/images/dev/neow3j.png")" /></a></li>
-        <li><a href="https://github.com/alienworks" target="_blank"><img src="@Helper.ToCDN("/images/dev/alien.png")" /></a></li>
-    </ul>
 </div>
