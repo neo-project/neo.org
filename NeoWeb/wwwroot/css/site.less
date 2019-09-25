@@ -362,16 +362,21 @@ a[class|=btn]{
     color:@gray!important;
 }
 /*文本*/
-.tag{
+.tag {
     .mr1;
-    display:inline-block;
-    min-width:130px;
-    color:@text2;
+    display: inline-block;
+    min-width: 130px;
+    color: @text2;
 
-    span{
+    span {
         .font1;
-        display:block;
-        color:@gray;
+        display: block;
+        color: @gray;
+    }
+
+
+    @media only screen and (max-width: 768px) {
+        min-width: 85px;
     }
 }
 /*背景色*/
