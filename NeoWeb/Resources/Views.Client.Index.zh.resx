@@ -195,8 +195,8 @@
   <data name="Enables policies for consensus. Mandatory for building private chain." xml:space="preserve">
     <value>启用共识的简单策略。搭建私链必选。</value>
   </data>
-  <data name="Exports NEO-CLI status data. Optional." xml:space="preserve">
-    <value>导出 NEO-CLI 状态数据。可选。</value>
+  <data name="Exports neo-cli status data. Optional." xml:space="preserve">
+    <value>导出 neo-cli 状态数据。可选。</value>
   </data>
   <data name="Fail to support more NEP" xml:space="preserve">
     <value>不支持更多 NEP</value>
@@ -222,11 +222,11 @@
   <data name="It's an Android wallet developed by e-studio. This wallet contains basic functions such as importing private keys, transferring assets, etc." xml:space="preserve">
     <value>e-studio 开发的安卓钱包，包含基本的功能，如导入私钥，转账等。</value>
   </data>
-  <data name="It's a cross-platform wallet developed by NEO developer community City of Zion. This wallet supports mainstream operating systems such as Windows, macOS and Linux, and focuses on UE and UI." xml:space="preserve">
-    <value>NEO 开发者社区 City of Zion 开发的跨平台的客户端，支持 Windows、 macOS 和 Linux 等主流操作系统，注重 UE 与 UI。</value>
+  <data name="It's a cross-platform wallet developed by Neo developer community City of Zion. This wallet supports mainstream operating systems such as Windows, macOS and Linux, and focuses on UE and UI." xml:space="preserve">
+    <value>Neo 开发者社区 City of Zion 开发的跨平台的客户端，支持 Windows、 macOS 和 Linux 等主流操作系统，注重 UE 与 UI。</value>
   </data>
-  <data name="It's a cross-platform wallet developed by O3 Labs. This wallet supports most mainstream operating systems, maintains a high update frequency and can support NEO network updates and features in a timely manner." xml:space="preserve">
-    <value>O3 Labs 开发的跨平台客户端，支持大部分主流操作系统。该客户端保持高更新频率，能及时支持 NEO 网络更新与特性。</value>
+  <data name="It's a cross-platform wallet developed by O3 Labs. This wallet supports most mainstream operating systems, maintains a high update frequency and can support Neo network updates and features in a timely manner." xml:space="preserve">
+    <value>O3 Labs 开发的跨平台客户端，支持大部分主流操作系统。该客户端保持高更新频率，能及时支持 Neo 网络更新与特性。</value>
   </data>
   <data name="It's a cross-platform wallet that supports almost all mainstream operating systems, and it also supports contacts and complete NEP-5. This wallet can be used in conjunction with the Ledger hardware wallet." xml:space="preserve">
     <value>一个跨平台的客户端，几乎支持所有主流操作系统，并且支持通讯录和完整的 NEP-5 ，支持和 Ledger 硬件钱包结合使用。</value>
@@ -264,11 +264,11 @@
   <data name="Need to install" xml:space="preserve">
     <value>需要安装</value>
   </data>
-  <data name="NEO-CLI is a full-node command-line client that can run across platforms. It can provide APIs for developers to call, or participate in the consensus mechanism as a consensus node in the block chain. This wallet is designed for developers, with professional software interaction, as well as higher security and stability. The disadvantages of this wallet are that it takes a long time to initialize synchronization, and it takes up disk and memory." xml:space="preserve">
-    <value>NEO-CLI 是一个全节点的命令行客户端，可以跨平台上运行，它可以提供 API 供开发者调用，也可以作为区块链中的共识节点参与共识。软件交互较为专业，面向开发者。拥有较高的安全性和稳定性。缺点是初始化同步时间长，占用磁盘和内存。</value>
+  <data name="Neo-cli is a full-node command-line client that can run across platforms. It can provide APIs for developers to call, or participate in the consensus mechanism as a consensus node in the block chain. This wallet is designed for developers, with professional software interaction, as well as higher security and stability. The disadvantages of this wallet are that it takes a long time to initialize synchronization, and it takes up disk and memory." xml:space="preserve">
+    <value>Neo-cli 是一个全节点的命令行客户端，可以跨平台上运行，它可以提供 API 供开发者调用，也可以作为区块链中的共识节点参与共识。软件交互较为专业，面向开发者。拥有较高的安全性和稳定性。缺点是初始化同步时间长，占用磁盘和内存。</value>
   </data>
-  <data name="NEO-GUI is a full-node NEO client, which contains all the basic functions of NEO network. This wallet is designed for advanced users, with professional software interaction and extremely high security. However, it takes a long time to initialize synchronization, occupies disk and memory, and has poor stability." xml:space="preserve">
-    <value>NEO-GUI 是一个全节点的 NEO 客户端，它包含了 NEO 网络的所有基本功能，软件交互较为专业，面向高级用户，拥有极高的安全性。但初始化同步时间长，占用磁盘和内存，且稳定性欠佳。</value>
+  <data name="Neo-gui is a full-node Neo client, which contains all the basic functions of Neo network. This wallet is designed for advanced users, with professional software interaction and extremely high security. However, it takes a long time to initialize synchronization, occupies disk and memory, and has poor stability." xml:space="preserve">
+    <value>Neo-cli 是一个全节点的 Neo 客户端，它包含了 Neo 网络的所有基本功能，软件交互较为专业，面向高级用户，拥有极高的安全性。但初始化同步时间长，占用磁盘和内存，且稳定性欠佳。</value>
   </data>
   <data name="Non-open Source Software" xml:space="preserve">
     <value>非开源软件</value>
@@ -313,11 +313,11 @@
   <data name="This wallet gives you a high degree of control over digital assets. The private key is encrypted and stored by the Encrypted Key and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the Encrypted Key." xml:space="preserve">
     <value>该客户端让你拥有对数字资产的高度掌控权。私钥是通过 Encrypted Key 和密码加密存储的。但用户仍需注意在安全的设备上使用，并注意 Encrypted Key 的安全备份和妥善保管。</value>
   </data>
-  <data name="This wallet is a full node that stores all the data in the NEO blockchain, which means that there is no need to trust a third party when verifying payments or executing contracts. The full node provides the highest level of security and is an integral part of protecting the network. However, it requires more hard disk space (15GB), greater bandwidth, and a longer initialization synchronization time. The initialization synchronization speed can be accelerated by downloading the &lt;a href=&quot;http://sync.ngd.network/&quot; target=&quot;_blank&quot;&gt;offline synchronization package&lt;/a&gt; provided by NGD." xml:space="preserve">
-    <value>该客户端是一个全节点，它存储 NEO 区块链中的所有数据。这意味着当验证支付或者执行合约的时候，不需要信任第三方。全节点提供了最高级别的安全性并且是保护网络不可或缺的元素。然而，它需要更多的硬盘空间（15GB）、更大的带宽和一个更长的初始化同步时间。通过下载 NGD 提供的 &lt;a href="http://sync.ngd.network/" target="_blank"&gt;离线同步包 &lt;/a&gt; 可以加快初始化同步速度。</value>
+  <data name="This wallet is a full node that stores all the data in the Neo blockchain, which means that there is no need to trust a third party when verifying payments or executing contracts. The full node provides the highest level of security and is an integral part of protecting the network. However, it requires more hard disk space (15GB), greater bandwidth, and a longer initialization synchronization time. The initialization synchronization speed can be accelerated by downloading the &lt;a href=&quot;http://sync.ngd.network/&quot; target=&quot;_blank&quot;&gt;offline synchronization package&lt;/a&gt; provided by NGD." xml:space="preserve">
+    <value>该客户端是一个全节点，它存储 Neo 区块链中的所有数据。这意味着当验证支付或者执行合约的时候，不需要信任第三方。全节点提供了最高级别的安全性并且是保护网络不可或缺的元素。然而，它需要更多的硬盘空间（15GB）、更大的带宽和一个更长的初始化同步时间。通过下载 NGD 提供的 &lt;a href="http://sync.ngd.network/" target="_blank"&gt;离线同步包 &lt;/a&gt; 可以加快初始化同步速度。</value>
   </data>
-  <data name="This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The NEO Foundation and NGD do not endorse this client." xml:space="preserve">
-    <value>该客户端是非开源软件，这意味着需要十分信任这个钱包的开发者。NEO Foundation、NGD 不为该客户端进行背书。</value>
+  <data name="This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client." xml:space="preserve">
+    <value>该客户端是非开源软件，这意味着需要十分信任这个钱包的开发者。Neo Foundation、NGD 不为该客户端进行背书。</value>
   </data>
   <data name="This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets." xml:space="preserve">
     <value>该客户端是开源软件，这意味着所有开发者都可以审查其编码并确保最后的软件没有隐藏任何秘密。</value>
@@ -368,7 +368,7 @@
     <value>该客户端让你拥有对数字资产的高度掌控权。私钥是通过钱包文件和密码加密存储的。但你仍需注意在安全的设备上使用，并注意钱包文件的安全备份和妥善保管。</value>
   </data>
   <data name="Bitkeep is a decentralized multi-chain digital wallet that supports thousands of digital assets such as BTC, ETH, EOS, NEO, USDT, ONT, multi-wallet management, aggregation transactions, exchange asset docking and more." xml:space="preserve">
-    <value>Bitkeep 是一款去中心化多链数字钱包，支持数千种数字资产，如BTC，ETH，EOS，NEO，USDT，ONT，多钱包管理，汇总交易，交换资产对接等。</value>
+    <value>Bitkeep 是一款去中心化多链数字钱包，支持数千种数字资产，如 BTC，ETH，EOS，NEO，USDT，ONT，多钱包管理，汇总交易，交换资产对接等。</value>
   </data>
   <data name="YEZ Wallet is a NEP-5 Wallet. We focuses on easy on-boarding with Google/Facebook Login integration.User can send/receive NEO, GAS, YEZ and other NEP-5 digital assets." xml:space="preserve">
     <value>YEZ 钱包是 NEP-5 钱包，需要通过 Google / Facebook 登录集成，用户可以进行 NEO 、GAS、YEZ 及其他 NEP-5 资产转账并查看交易历史记录。</value>
@@ -376,11 +376,11 @@
   <data name="Extension" xml:space="preserve">
     <value>浏览器插件</value>
   </data>
-  <data name="NEOLine is a browser extension wallet of NEO. We intend to provide a secure and convenient digital asset wallet. It offers comprehensive wallet capabilities and a wide range of dAPIs for developers." xml:space="preserve">
-    <value>NEOLine 是一款 NEO 区块边上的浏览器插件钱包。旨在为用户提供安全便捷的数字资产钱包。它提供了全面的钱包功能，开放了各类 dAPI 供开发者使用。</value>
+  <data name="NEOLine is a browser extension wallet of Neo. We intend to provide a secure and convenient digital asset wallet. It offers comprehensive wallet capabilities and a wide range of dAPIs for developers." xml:space="preserve">
+    <value>NEOLine 是一款 Neo 区块链上的浏览器插件钱包。旨在为用户提供安全便捷的数字资产钱包。它提供了全面的钱包功能，开放了各类 dAPI 供开发者使用。</value>
   </data>
-  <data name="Teemo is a browser extension wallet of NEO.&lt;br/&gt;The extension injects the NEO DApp API into every website's JavaScript context, so that DApps can interact with the blockchain." xml:space="preserve">
-    <value>Teemo 是一款 NEO 区块链上的浏览器插件钱包，该扩展将 NEO DApp API 注入到每个网站的 JavaScript 上下文中以便 DApps 可以与区块链进行交互。</value>
+  <data name="Teemo is a browser extension wallet of Neo.&lt;br/&gt;The extension injects the Neo dApp API into every website's JavaScript context, so that DApps can interact with the blockchain." xml:space="preserve">
+    <value>Teemo 是一款 Neo 区块链上的浏览器插件钱包，该扩展将 Neo dApp API 注入到每个网站的 JavaScript 上下文中以便 DApps 可以与区块链进行交互。</value>
   </data>
   <data name="High" xml:space="preserve">
     <value>高</value>
@@ -402,5 +402,8 @@
   </data>
   <data name="Verification" xml:space="preserve">
     <value>验证方式</value>
+  </data>
+  <data name="Supported Platform" xml:space="preserve">
+    <value>支持平台</value>
   </data>
 </root>

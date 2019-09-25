@@ -26,6 +26,11 @@ ul, li {
     li {
         margin: 52px 0;
         width: 200px;
+
+        @media only screen and (max-width: 768px) {
+            margin: 30px 0;
+            width: 150px;
+        }
     }
 
     header {
@@ -40,10 +45,18 @@ ul, li {
 
     .open-source {
         color: @green;
+
+        @media only screen and (max-width: 768px) {
+            display: none;
+        }
     }
 }
-.platform{
+.platform {
     color: #888;
+
+    @media only screen and (max-width: 768px) {
+        display: none;
+    }
 }
 
 .light-text {
@@ -98,7 +111,7 @@ ul, li {
         }
 
         img {
-            max-height: 400px;
+            max-height: 500px;
         }
 
         .metrics {

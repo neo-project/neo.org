@@ -8,7 +8,7 @@
     ViewData["keywords"] = Model.Tags;
     if (Model.Cover != null)
     {
-        ViewData["Image"] = "https://neo.org/upload/" + Model.Cover;
+        ViewData["Image"] = $"https://neo.org/upload/{Model.Cover}";
     }
 }
 
@@ -39,16 +39,16 @@
     <article class="article">
         <div class="article-time">@Model.CreateTime.Month.ToMonth() @Model.CreateTime.Day, @Model.CreateTime.Year<span>BLOG</span></div>
         <header><h2 class="article-title mt5 with-space">@Model.Title</h2></header>
-        <p class="gray mt5">By @(string.IsNullOrEmpty(Model.Editor) ? "NEO Global Development" : @Model.Editor)</p>
+        <p class="gray mt5">By @(string.IsNullOrEmpty(Model.Editor) ? "Neo Global Development" : @Model.Editor)</p>
         <div class="share mt4 gray">
             @{
-                var title = (ViewData["Title"] != null ? $"{ViewData["Title"]} - " : "") + Localizer["NEO Smart Economy"].Value;
-                var details = ViewData["Details"] ?? Localizer["NEO Smart Economy"].Value;
+                var title = (ViewData["Title"] != null ? $"{ViewData["Title"]} - " : "") + Localizer["Neo Smart Economy"].Value;
+                var details = ViewData["Details"] ?? Localizer["Neo Smart Economy"].Value;
                 var image = (ViewData["Image"] ?? Helper.ToCDN("/images/twitter-img.jpg"));
                 var url = $"{Context.Request.Scheme}://{Context.Request.Host}{Context.Request.Path}{Context.Request.QueryString}";
             }
 
-            <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=@(title)&url=@(url)&via=NEO_Blockchain&related=NEO_Blockchain"></a>
+            <a class="twitter-share-button" target="_blank" href="https://twitter.com/intent/tweet?text=@(title)&url=@(url)&via=NEO_Blockchain&related=NEO_Blockchain"></a>
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
             <div class="fb-share-button"

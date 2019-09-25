@@ -19,28 +19,28 @@
 
 <div class="row mt2 list1 right">
     <div class="col-md-3">
-        <span class="iconfont">&#xe60f;</span>
+        <img data-original="/images/consensus/BlockHeight.svg" />
         <div>
             <div class="list-title" id="blohei">412355678</div>
             <div class="font2 gray">@Localizer["Block Height"]</div>
         </div>
     </div>
     <div class="col-md-3">
-        <span class="iconfont">&#xe60f;</span>
+        <img data-original="/images/consensus/LastTime.svg" />
         <div>
             <div class="list-title" id="lastime">550s</div>
             <div class="font2 gray">@Localizer["Last Time"]</div>
         </div>
     </div>
     <div class="col-md-3">
-        <span class="iconfont">&#xe60f;</span>
+        <img data-original="/images/consensus/Candidate.svg" />
         <div>
             <div class="list-title" id="cannum">500</div>
             <div class="font2 gray">@Localizer["Candidate Count"]</div>
         </div>
     </div>
     <div class="col-md-3">
-        <span class="iconfont">&#xe60f;</span>
+        <img data-original="/images/consensus/Consensus.svg" />
         <div>
             <div class="list-title" id="connum">7</div>
             <div class="font2 gray">@Localizer["Consensus Count"]</div>
@@ -64,10 +64,10 @@
             @Localizer["Consensus nodes are the crucial components contributing to Neo’s development of a smart economy. You may become a consensus node through the votes of NEO holders and maintain it independently (On-Chain governance), or establish a strategic partnership with the Neo Foundation (Off-chain governance)."]<br />
         </p>
         <p class="mt6">
-            @Localizer["For more details, see the documentation:"]<a class="green" href="@Localizer["https://neo-ngd.github.io/reference/How-To-Become-NEO-Consensus-Node.html"]"> @Localizer["How To Become A Consensus Node"]</a>
+            @Localizer["For more details, see the documentation:"]<a class="green" target="_blank" href="@Localizer["https://neo-ngd.github.io/reference/How-To-Become-NEO-Consensus-Node.html"]"> @Localizer["How To Become A Consensus Node"]</a>
         </p>
-        <a class="btn mt5 mr2" href="mailto:consensus@neo.org">@Localizer["APPLY"]</a>
-        <a class="btn mt5" data-toggle="modal" data-target="#exampleModal">@Localizer["PROVIDE CANDIDATE INFO"]</a>
+        <a class="btn mt5 mr2" href="mailto:consensus@neo.org">@Localizer["Apply"]</a>
+        <a class="btn mt5" data-toggle="modal" data-target="#exampleModal">@Localizer["Provide Candidate Info"]</a>
     </div>
 </div>
 
@@ -105,7 +105,7 @@
                         <div class="col-6 form-group">
                             <label asp-for="Organization" class="control-label">@Localizer["Organization"]<span class="red"> * </span></label>
                             <input asp-for="Organization" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct website format"]" />
-                            <small class="form-text text-muted">@Localizer["Relevant information about NEO should be displayed."]</small>
+                            <small class="form-text text-muted">@Localizer["Relevant information about Neo should be displayed."]</small>
                             <span asp-validation-for="Organization" class="text-danger"></span>
                         </div>
                         <div class="col-6 form-group">
@@ -118,7 +118,7 @@
                         <div class="col-6 form-group">
                             <label asp-for="Website" class="control-label">@Localizer["Website"]<span class="red"> * </span></label>
                             <input asp-for="Website" class="form-control" data-val="true" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter the correct website format"]" />
-                            <small class="form-text text-muted">@Localizer["Relevant information about NEO should be displayed."]</small>
+                            <small class="form-text text-muted">@Localizer["Relevant information about Neo should be displayed."]</small>
                             <span asp-validation-for="Website" class="text-danger"></span>
                         </div>
                         <div class="col-6 form-group">

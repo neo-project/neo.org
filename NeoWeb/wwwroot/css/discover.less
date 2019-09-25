@@ -1,5 +1,7 @@
 ﻿@import 'basic.less';
-
+.discover-top .d-title a, .discover-top .d-tag a {
+    color: @dark;
+}
 .d-search {
     line-height: 3;
     vertical-align: middle;
@@ -11,12 +13,16 @@
     }
 
     .search {
+        width: calc(100% - 340px);
+
         input.form-control {
             width: calc(100% - 25px);
             background-color: @gray2;
         }
 
-        width: calc(100% - 340px);
+        @media only screen and (max-width: 768px) {
+            display: none;
+        }
     }
 
 
@@ -68,10 +74,10 @@
         vertical-align: -4px;
     }
 
-    .fb-share-button{
+    .fb-share-button {
         vertical-align: 3px;
-    } 
-
+    }
+    
     .qr-div {
         display: inline;
         position: relative;

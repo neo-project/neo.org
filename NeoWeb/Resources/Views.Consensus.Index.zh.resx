@@ -123,19 +123,97 @@
   <data name="Become a consensus node and shape your future" xml:space="preserve">
     <value>成为共识节点，与我们同塑未来</value>
   </data>
+  <data name="Block Height" xml:space="preserve">
+    <value>区块高度</value>
+  </data>
+  <data name="Block Size" xml:space="preserve">
+    <value>区块大小</value>
+  </data>
+  <data name="Blockchain indicator" xml:space="preserve">
+    <value>区块指标</value>
+  </data>
+  <data name="Brief introduction about team" xml:space="preserve">
+    <value>针对团队的简单介绍</value>
+  </data>
+  <data name="Candidate Count" xml:space="preserve">
+    <value>竞选节点数量</value>
+  </data>
+  <data name="Candidate Info" xml:space="preserve">
+    <value>填写候选人信息</value>
+  </data>
+  <data name="Candidate List" xml:space="preserve">
+    <value>竞选节点</value>
+  </data>
   <data name="candidate registration" xml:space="preserve">
     <value>成为节点候选人</value>
+  </data>
+  <data name="Consensus Count" xml:space="preserve">
+    <value>共识节点数量</value>
   </data>
   <data name="Consensus Node" xml:space="preserve">
     <value>共识节点</value>
   </data>
   <data name="Consensus nodes are the crucial components contributing to Neo’s development of a smart economy. You may become a consensus node through the votes of NEO holders and maintain it independently (On-Chain governance), or establish a strategic partnership with the Neo Foundation (Off-chain governance)." xml:space="preserve">
-    <value>共识节点是促进Neo智能经济发展的关键组成部分。您可以通过获得NEO持有者的投票成为共识节点(链上治理)，或者与Neo基金会建立战略伙伴关系(链下治理)。</value>
+    <value>共识节点是促进 Neo 智能经济发展的关键组成部分。您可以通过获得 NEO 持有者的投票成为共识节点(链上治理)，或者与 Neo 基金会建立战略伙伴关系(链下治理)。</value>
   </data>
   <data name="For more details, see the documentation:" xml:space="preserve">
     <value>更多详细信息，请参见文档：</value>
   </data>
+  <data name="Generate Hash" xml:space="preserve">
+    <value>生成散列值</value>
+  </data>
   <data name="How To Become A Consensus Node" xml:space="preserve">
     <value>如何成为共识节点</value>
+  </data>
+  <data name="Last Time" xml:space="preserve">
+    <value>上次出块时间</value>
+  </data>
+  <data name="Node List" xml:space="preserve">
+    <value>节点列表</value>
+  </data>
+  <data name="Organization" xml:space="preserve">
+    <value>组织名称</value>
+  </data>
+  <data name="Please enter the correct public key in the HEX format" xml:space="preserve">
+    <value>请输入正确的 16 进制的公钥</value>
+  </data>
+  <data name="Please enter the correct website format" xml:space="preserve">
+    <value>请输入正确的网址</value>
+  </data>
+  <data name="Please sign the above hash with your private key." xml:space="preserve">
+    <value>请使用私钥对上述 Hash 进行签名</value>
+  </data>
+  <data name="Provide Candidate Info" xml:space="preserve">
+    <value>竞选人信息填写</value>
+  </data>
+  <data name="Public Key" xml:space="preserve">
+    <value>公钥</value>
+  </data>
+  <data name="Relevant information about Neo should be displayed." xml:space="preserve">
+    <value>网页需显示 Neo 相关信息</value>
+  </data>
+  <data name="Signature" xml:space="preserve">
+    <value>签名</value>
+  </data>
+  <data name="Social media account" xml:space="preserve">
+    <value>社交账号</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>提交</value>
+  </data>
+  <data name="Summary" xml:space="preserve">
+    <value>简介</value>
+  </data>
+  <data name="This field is required" xml:space="preserve">
+    <value>必填项</value>
+  </data>
+  <data name="Tx Volume" xml:space="preserve">
+    <value>交易量</value>
+  </data>
+  <data name="Votes" xml:space="preserve">
+    <value>票数</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>公共网站</value>
   </data>
 </root>

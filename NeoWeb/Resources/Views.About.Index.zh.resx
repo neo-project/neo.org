@@ -147,14 +147,17 @@
   <data name="Explorer" xml:space="preserve">
     <value>了解更多</value>
   </data>
+  <data name="How To Become A Consensus Node" xml:space="preserve">
+    <value>如何成为共识节点</value>
+  </data>
   <data name="https://neo-ngd.github.io/reference/How-To-Become-NEO-Consensus-Node.html" xml:space="preserve">
     <value>https://neo-ngd.github.io/reference/%E5%A6%82%E4%BD%95%E6%88%90%E4%B8%BANEO%E5%85%B1%E8%AF%86%E8%8A%82%E7%82%B9.html</value>
   </data>
   <data name="Learn more" xml:space="preserve">
     <value>了解更多</value>
   </data>
-  <data name="More details" xml:space="preserve">
-    <value>更多详细信息</value>
+  <data name="More details:" xml:space="preserve">
+    <value>更多详细信息：</value>
   </data>
   <data name="Neo Contributors" xml:space="preserve">
     <value>Neo 贡献者</value>

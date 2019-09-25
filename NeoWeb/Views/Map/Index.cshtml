@@ -3,10 +3,10 @@
     ViewData["Title"] = "站点地图";
 }
 <style>
-
-    body {
-        font-size:15px;
-        line-height:1.7;
+    .layout-container {
+        max-width: none;
+        padding: 0;
+        margin: 0;
     }
 
     .map-container {
@@ -16,7 +16,7 @@
 
         .map-container a {
             display: inline-block;
-            margin: .5rem 2rem 0.2rem 0;
+            margin: .5rem 1rem 0.2rem 1rem;
             color: #1B1B1B !important;
             letter-spacing: 1px;
             min-width: 130px;
@@ -40,10 +40,10 @@
         margin-bottom: 0.8rem;
     }
 </style>
-<div class="mt1">
-    <h2 class="w800">站点地图</h2>
+<div class="p1 bg3">
+    <h1 class="w800">站点地图</h1>
 </div>
-<div class="map-container mt2">
+<div class="map-container container pb-5">
     <a href="~/">首页</a>
     <hr />
     <a href="~/about">关于</a>
@@ -51,9 +51,9 @@
     <a href="~/logo">LOGO 下载</a>
     <hr />
     <a href="~/dev">开发者</a>
-    <a href="http://docs.neo.org/">技术文档 <i class="iconfont">&#xe600;</i></a>
-    <a href="https://docs.neo.org/developerguide">开发指南 <i class="iconfont">&#xe600;</i></a>
-    <a href="https://github.com/neo-project">GitHub <i class="iconfont">&#xe600;</i></a>
+    <a target="_blank" href="http://docs.neo.org/">技术文档 <i class="iconfont">&#xe600;</i></a>
+    <a target="_blank" href="https://docs.neo.org/developerguide">开发指南 <i class="iconfont">&#xe600;</i></a>
+    <a target="_blank" href="https://github.com/neo-project">GitHub <i class="iconfont">&#xe600;</i></a>
     <a href="~/dev/bounty">安全奖励</a>
     <hr />
     <a href="~/testcoin/apply">测试币申请</a>
@@ -75,7 +75,7 @@
     <a href="~/event/create"><span>Admin</span>发布</a>
     <a class="disabled" title="请在发现页面点击" href="javascript:"><span>Admin</span>编辑</a>
     <a class="disabled" title="请在发现页面点击" href="javascript:"><span>Admin</span>删除</a>
-    <a href="https://devcon.neo.org/">DevCon <i class="iconfont">&#xe600;</i></a>
+    <a target="_blank" href="https://devcon.neo.org/">DevCon <i class="iconfont">&#xe600;</i></a>
     <hr />
     <a class="disabled" title="请在发现页面点击" href="javascript:">新闻外链 <i class="iconfont">&#xe600;</i></a>
     <a href="~/news/create"><span>Admin</span>发布</a>
@@ -92,15 +92,11 @@
     <hr />
     <a href="~/eco">生态系统</a>
     <a href="~/eco/ecoboost">EcoBoost</a>
-    <a href="http://ndapp.org/">DAPPS <i class="iconfont">&#xe600;</i></a>
+    <a target="_blank" href="http://ndapp.org/">DAPPS <i class="iconfont">&#xe600;</i></a>
     <hr />
     <a href="~/demo">基础样式</a>
     <hr />
     <a href="~/map">站点地图</a>
-    <hr />
-    <a href="~/careers">加入我们</a>
-    <a href="~/careers/create"><span>Admin</span>发布</a>
-    <a title="请在加入我们页面点击" href="javascript:"><span>Admin</span>编辑</a>
     <hr />
     <a href="~/subscription"><span>Admin</span>邮件订阅列表</a>
     <hr />
@@ -112,6 +108,6 @@
     <a href="~/identity/account/manage/personaldata">个人信息</a>
     <a href="~/identity/account/forgotpassword">忘记密码</a>
     <hr />
+    @await Html.PartialAsync("_LoginPartial")
 </div>
-@await Html.PartialAsync("_LoginPartial")
 

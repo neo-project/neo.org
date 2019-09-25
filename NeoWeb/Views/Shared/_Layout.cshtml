@@ -29,7 +29,7 @@ https://github.com/neo-project/neo.org
     <meta name="author" content="neo-project">
     <meta name="application-name" content="neo.org">
     <meta name="renderer" content="ie-stand">
-    <meta name="keywords" content="@(ViewData["keywords"] ?? $"{ViewData["keywords"]},")NEO,Blockchain,智能经济,antshares,小蚁,区块链">
+    <meta name="keywords" content="@(ViewData["keywords"] ?? $"{ViewData["keywords"]},")Neo,Blockchain,智能经济,区块链">
     @{
         var title = (ViewData["Title"] != null ? $"{ViewData["Title"]} - " : "") + Localizer["Neo Smart Economy"].Value;
         var details = ViewData["Details"] ?? Localizer["Neo Smart Economy"].Value;
@@ -68,7 +68,9 @@ https://github.com/neo-project/neo.org
 </head>
 <body>
     <nav class="navbar navbar-expand-lg">
-        <a asp-controller="home" asp-action="index"><img src="@Helper.CDN/images/neo_logo.svg" alt="Neo Logo" /></a>
+        <a asp-controller="home" asp-action="index">
+            <img src="@Helper.CDN/images/logo files-dark.svg" alt="Neo Logo" />
+        </a>
         <button class="navbar-toggler" type="button">
             <div class="special-button">
                 <div class="top"></div>
@@ -109,20 +111,20 @@ https://github.com/neo-project/neo.org
     <div class="b2 footer-fo text-center p2">
         <div class="container">
             <h2>@Localizer["Follow Us"]</h2>
-            <h4 class="mt6">@Localizer["Stay tuned for our latest updates from Neo"]</h4>
+            <h4 class="mt6 w600">@Localizer["Stay tuned for our latest updates from Neo"]</h4>
             <ul class="mt4">
-                <li><a title="GitHub" href="https://github.com/neo-project" class="iconfont">&#xe609;</a></li>
-                <li><a title="Twitter" href="https://twitter.com/neo_blockchain" class="iconfont">&#xe607;</a></li>
-                <li><a title="Medium" href="https://medium.com/neo-smart-economy" class="iconfont">&#xe608;</a></li>
-                <li><a title="Telegram" href="https://t.me/NEO_Chinese" class="iconfont">&#xe606;</a></li>
-                <li><a title="Reddit" href="https://www.reddit.com/r/NEO/" class="iconfont">&#xe60a;</a></li>
-                <li><a title="Discord" href="https://discord.io/neo" class="iconfont">&#xe60b;</a></li>
-                <li><a title="Youtube" href="https://www.youtube.com/channel/UCl1AwEDN0w5lTmfJEMsY5Vw/videos" class="iconfont">&#xe60c;</a></li>
+                <li><a target="_blank" title="GitHub" href="https://github.com/neo-project" class="iconfont">&#xe609;</a></li>
+                <li><a target="_blank" title="Twitter" href="https://twitter.com/neo_blockchain" class="iconfont">&#xe607;</a></li>
+                <li><a target="_blank" title="Medium" href="https://medium.com/neo-smart-economy" class="iconfont">&#xe608;</a></li>
+                <li><a target="_blank" title="Telegram" href="@Localizer["https://t.me/NEO_EN"]" class="iconfont">&#xe606;</a></li>
+                <li><a target="_blank" title="Reddit" href="https://www.reddit.com/r/NEO/" class="iconfont">&#xe60a;</a></li>
+                <li><a target="_blank" title="Discord" href="https://discord.io/neo" class="iconfont">&#xe60b;</a></li>
+                <li><a target="_blank" title="Youtube" href="https://www.youtube.com/channel/UCl1AwEDN0w5lTmfJEMsY5Vw/videos" class="iconfont">&#xe60c;</a></li>
                 <li>
                     <a title="WeChat" href="javascript:" class="iconfont">&#xe60d;</a>
-                    <img src="~/images/qrcode.png" />
+                    <img src="@Helper.CDN/images/qrcode.png" />
                 </li>
-                <li><a title="Weibo" href="https://weibo.com/neosmarteconomy" class="iconfont">&#xe60e;</a></li>
+                <li><a target="_blank" title="Weibo" href="https://weibo.com/neosmarteconomy" class="iconfont">&#xe60e;</a></li>
             </ul>
             <!-- Begin Mailchimp Signup Form -->
             <div id="mc_embed_signup" class="mt4">
@@ -148,7 +150,7 @@ https://github.com/neo-project/neo.org
     <footer class="b3 px-5">
         <div class="row">
             <div class="col-md">
-                <img class="b-logo" width="80" height="30" />
+                <img class="b-logo" src="@Helper.CDN/images/logo files-white.svg" width="80" height="30" />
             </div>
             <div class="col-md">
                 <p class="bold no-border"><a asp-controller="about" asp-action="index">@Localizer["About"]</a></p>
@@ -161,8 +163,8 @@ https://github.com/neo-project/neo.org
             <div class="col-md">
                 <p class="bold"><a asp-controller="dev" asp-action="index">@Localizer["Developers"]</a></p>
                 <ul>
-                    <li><a href="https://docs.neo.org">@Localizer["Documentation"]</a></li>
-                    <li><a href="https://github.com/neo-project">@Localizer["GitHub"]</a></li>
+                    <li><a target="_blank" href="https://docs.neo.org">@Localizer["Documentation"]</a></li>
+                    <li><a target="_blank" href="https://github.com/neo-project">@Localizer["GitHub"]</a></li>
                     <li><a asp-controller="dev" asp-action="bounty">@Localizer["Security Bounty"]</a></li>
                 </ul>
             </div>
@@ -178,6 +180,11 @@ https://github.com/neo-project/neo.org
             </div>
             <div class="col-md">
                 <p class="bold"><a asp-controller="discover" asp-action="index">@Localizer["Discover"]</a></p>
+                <ul>
+                    <li><a asp-controller="discover" asp-action="index" asp-route-type="1">@Localizer["Blogs"]</a></li>
+                    <li><a asp-controller="discover" asp-action="index" asp-route-type="2">@Localizer["Events"]</a></li>
+                    <li><a asp-controller="discover" asp-action="index" asp-route-type="3">@Localizer["News"]</a></li>
+                </ul>
             </div>
             <div class="col-md-3">
                 <p class="bold">@Localizer["Contact Us"]</p>
@@ -190,7 +197,7 @@ https://github.com/neo-project/neo.org
         </div>
         <div class="mt2">
             <p class="op-70"><small>Copyright © Neo Team 2014-@DateTime.Now.Year</small></p>
-            <p class="op-70"><small><a asp-action="map">@Localizer["Site Map"]</a></small></p>
+            <p class="op-70"><small><a asp-controller="map" asp-action="index">@Localizer["Site Map"]</a></small></p>
         </div>
     </footer>
     <form id="form_language" asp-action="SetLanguage" asp-controller="home" method="post">

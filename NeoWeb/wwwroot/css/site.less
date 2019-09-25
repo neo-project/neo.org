@@ -13,6 +13,12 @@ html,body {
         font-size: 15px;
     }
 }
+.container {
+    @media only screen and (max-width: 768px) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
 .layout-container {
     padding-bottom: 50px;
 }
@@ -27,7 +33,7 @@ a {
 
 ul.list-none {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 0;
 
     li {
@@ -375,11 +381,17 @@ a[class|=btn]{
 }
 /*背景色*/
 .bg1 {
-    background-image: url(../images/home/Partnerwithus.png),@linear2;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../images/home/Partnerwithus.svg),@linear2;
 }
 
 .bg2 {
-    background-image: url(../images/home/Partnerwithus.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../images/home/Partnerwithus.svg);
 }
 .bg3 {
     background-position: center;
@@ -389,6 +401,7 @@ a[class|=btn]{
 
     @media only screen and (max-width: 768px) {
         background-image: url(../images/about/BannerMobile.png);
+        min-height: 460px;
     }
 }
 .bg4 {
@@ -399,17 +412,22 @@ a[class|=btn]{
 
     @media only screen and (max-width: 768px) {
         background-image: url(../images/dev/BannerMobile.png);
+        min-height: 460px;
     }
 }
 
 .bg5 {
     background-position: center;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-image: url('../images/client/wallets hero banner-dt.png');
+    max-width: 1300px;
+    margin: auto;
 
     @media only screen and (max-width: 768px) {
+        background-size: cover;
         background-image: url('../images/client/wallets hero banner-mb.png');
+        min-height: 460px;
     }
 }
 
@@ -432,33 +450,14 @@ a[class|=btn]{
 
     @media only screen and (max-width: 768px) {
         background-image: url('../images/ecoboost/ecoboost hero banner-mb.png');
+        min-height: 460px;
     }
 }
 
 .b-white{
     background:#FFFFFF;
 }
-/*特殊*/
-/*.cube {
-    position: relative;
-    z-index: 2;
-    padding: 35px 20px;
 
-    @media only screen and (max-width: 768px) {
-        padding: 20px 28px;
-    }
-}
-
-.cube:before {
-    .b2;
-    content: " ";
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    height: 20px;
-    width: 20px;
-}*/
 .center {
     position: absolute;
     top: 0;
@@ -507,19 +506,27 @@ hr.line {
 
 .w900 {
     .w;
-    max-width: 900px;
+    max-width: 940px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .w800 {
     .w;
-    max-width: 800px;
+    max-width: 840px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .w700 {
     .w;
-    max-width: 700px;
+    max-width: 740px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .w600 {
     .w;
-    max-width: 600px;
+    max-width: 640px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 /*border*/
@@ -679,6 +686,24 @@ i.iconfont {
         }
     }
 }
+.bg-img {
+    display: block;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    animation: back-out ease-out 0.25s;
+
+    &::before {
+        content: " ";
+        display: block;
+        padding-top: 56.25%;
+    }
+
+    &:hover {
+        animation: back linear 0.35s;
+        animation-fill-mode: forwards;
+    }
+}
 .list2 {
     margin-bottom: @length4;
 
@@ -690,25 +715,11 @@ i.iconfont {
             color: @text;
             text-shadow: none;
             transition: text-shadow .2s;
-            background-size:cover;
+            background-size: cover;
             animation: back-out ease-out 0.25s;
 
             &.img {
-                display: block;
-                width: 100%;
-                background-position: center;
-                background-size: cover;
-
-                &::before {
-                    content: " ";
-                    display: block;
-                    padding-top: 56.25%;
-                }
-
-                &:hover {
-                    animation: back linear 0.35s;
-                    animation-fill-mode: forwards;
-                }
+                .bg-img;
             }
 
 
@@ -798,7 +809,6 @@ i.iconfont {
 
             li {
                 .mt6;
-                .mr2;
 
                 span {
                     .font1;
@@ -816,15 +826,6 @@ i.iconfont {
         div[class|=col], > li {
             > span {
                 float: none;
-            }
-
-            .list-ul {
-                li {
-                    width: 40%;
-                    min-width: 110px;
-                    margin-left: auto;
-                    margin-right: auto;
-                }
             }
         }
     }
@@ -912,7 +913,7 @@ i.iconfont {
     .module;
     
     background-position: bottom;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
 
     .module-img {

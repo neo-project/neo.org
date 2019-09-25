@@ -16,7 +16,6 @@
 }
 <div class="p1 bg5">
     <h1 class="w800">@Localizer["Apply For TestNet NEO&GAS"]</h1>
-    <p class="mt5 w700">@Localizer["The logo below is only for you to choose to use in cooperation promotion, thank you!"]</p>
 </div>
 <div class="container">
     <form asp-action="Apply">
@@ -59,10 +58,10 @@
                 <span asp-validation-for="Reason" class="text-danger"></span>
             </div>
             <div class="form-group col-md-4">
-                <label asp-for="Version">NEO Version</label>
+                <label asp-for="Version">Neo Version</label>
                 <select asp-for="Version" class="form-control" id="Version">
-                    <option value="0">NEO 2.x</option>
-                    <option value="1">NEO 3</option>
+                    <option value="0">Neo2.x</option>
+                    <option value="1">Neo3</option>
                 </select>
                 <span asp-validation-for="Version" class="text-danger"></span>
             </div>
@@ -79,11 +78,11 @@
                 <span asp-validation-for="GasCount" class="text-danger"></span>
             </div>
             <div class="form-group col-md-12">
-                <label asp-for="PubKey">@Localizer["NEO Public Key"]</label> <span class="red-text">*</span><br />
+                <label asp-for="PubKey">@Localizer["Neo Public Key"]</label> <span class="red-text">*</span><br />
                 <input class="form-control" asp-for="PubKey" type="text"
                        data-val="true" data-val-regex-pattern="0[0-9|abcdef]{65}" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter a valid public key"]" />
                 <span asp-validation-for="PubKey" class="text-danger"></span>
-                <p class="pub-key-hint t4 lh3">@Localizer["Please enter your own NEO public key. If the application succeedsis successful, we will send Neo/GAS to a multiple multi-signature address and tell you how to use it."]</p>
+                <p class="pub-key-hint t4 lh3">@Localizer["Please enter your own Neo public key. If the application succeedsis successful, we will send Neo/GAS to a multiple multi-signature address and tell you how to use it."]</p>
             </div>
         </div>
         <p class="mt4 text-center mb-5"><input type="submit" class="btn mb-4" value=@Localizer["Submit Application"]></p>
