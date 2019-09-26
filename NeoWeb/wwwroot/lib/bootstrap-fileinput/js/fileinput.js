@@ -1,5 +1,5 @@
 /*!
- * bootstrap-fileinput v5.0.2
+ * bootstrap-fileinput v5.0.6
  * http://plugins.krajee.com/file-input
  *
  * Author: Kartik Visweswaran
@@ -48,15 +48,16 @@
     $h = {
         FRAMES: '.kv-preview-thumb',
         SORT_CSS: 'file-sortable',
+        INIT_FLAG: 'init-',
         OBJECT_PARAMS: '<param name="controller" value="true" />\n' +
-        '<param name="allowFullScreen" value="true" />\n' +
-        '<param name="allowScriptAccess" value="always" />\n' +
-        '<param name="autoPlay" value="false" />\n' +
-        '<param name="autoStart" value="false" />\n' +
-        '<param name="quality" value="high" />\n',
+            '<param name="allowFullScreen" value="true" />\n' +
+            '<param name="allowScriptAccess" value="always" />\n' +
+            '<param name="autoPlay" value="false" />\n' +
+            '<param name="autoStart" value="false" />\n' +
+            '<param name="quality" value="high" />\n',
         DEFAULT_PREVIEW: '<div class="file-preview-other">\n' +
-        '<span class="{previewFileIconClass}">{previewFileIcon}</span>\n' +
-        '</div>',
+            '<span class="{previewFileIconClass}">{previewFileIcon}</span>\n' +
+            '</div>',
         MODAL_ID: 'kvFileinputModal',
         MODAL_EVENTS: ['show', 'shown', 'hide', 'hidden', 'loaded'],
         logMessages: {
@@ -64,9 +65,9 @@
             badDroppedFiles: 'Error scanning dropped files!',
             badExifParser: 'Error loading the piexif.js library. {details}',
             badInputType: 'The input "type" must be set to "file" for initializing the "bootstrap-fileinput" plugin.',
-            exifWarning: 'To avoid this warning, either set `autoOrientImage` to `false` OR ensure you have loaded ' +
-            'the piexif.js library correctly on your page.',
-            invalidChunkSize: 'Invalid "uploadResumableSize" ({chunkSize}). Resumable uploads are disabled.',
+            exifWarning: 'To avoid this warning, either set "autoOrientImage" to "false" OR ensure you have loaded ' +
+                'the "piexif.js" library correctly on your page before the "fileinput.js" script.',
+            invalidChunkSize: 'Invalid upload chunk size: "{chunkSize}". Resumable uploads are disabled.',
             invalidThumb: 'Invalid thumb frame with id: "{id}".',
             noResumableSupport: 'The browser does not support resumable or chunk uploads.',
             noUploadUrl: 'The "uploadUrl" is not set. Ajax uploads and resumable uploads have been disabled.',
@@ -98,6 +99,20 @@
                 return null;
             }
             return (file.size + '_' + relativePath.replace(/\s/img, '_'));
+        },
+        getFrameSelector: function (id, selector) {
+            selector = selector || '';
+            return '[id="' + id + '"]' + selector;
+        },
+        getZoomSelector: function (id, selector) {
+            selector = selector || '';
+            return '[id="zoom-' + id + '"]' + selector;
+        },
+        getFrameElement: function ($element, id, selector) {
+            return $element.find($h.getFrameSelector(id, selector));
+        },
+        getZoomElement: function ($element, id, selector) {
+            return $element.find($h.getZoomSelector(id, selector));
         },
         getElapsed: function (seconds) {
             var delta = seconds, out = '', result = {}, structure = {
@@ -576,30 +591,6 @@
             el.style['-moz-transform'] = val;
             el.style['-ms-transform'] = val;
             el.style['-o-transform'] = val;
-        },
-        setImageOrientation: function ($img, $zoomImg, value) {
-            if (!$img || !$img.length) {
-                return;
-            }
-            var ev = 'load.fileinputimageorient';
-            $img.off(ev).on(ev, function () {
-                var img = $img.get(0), zoomImg = $zoomImg && $zoomImg.length ? $zoomImg.get(0) : null,
-                    h = img.offsetHeight, w = img.offsetWidth, r = $h.getRotation(value);
-                $img.data('orientation', value);
-                if (zoomImg) {
-                    $zoomImg.data('orientation', value);
-                }
-                if (value < 5) {
-                    $h.setTransform(img, r);
-                    $h.setTransform(zoomImg, r);
-                    return;
-                }
-                var offsetAngle = Math.atan(w / h), origFactor = Math.sqrt(Math.pow(h, 2) + Math.pow(w, 2)),
-                    scale = !origFactor ? 1 : (h / Math.cos(Math.PI / 2 + offsetAngle)) / origFactor,
-                    s = ' scale(' + Math.abs(scale) + ')';
-                $h.setTransform(img, r + s);
-                $h.setTransform(zoomImg, r + s);
-            });
         }
     };
     FileInput = function (element, options) {
@@ -744,7 +735,7 @@
             }
             if (!refreshMode) {
                 self.$errorContainer.hide();
-                self.previewInitId = 'preview-' + $h.uniqId();
+                self.previewInitId = 'thumb-' + $el.attr('id');
                 self._initPreviewCache();
                 self._initPreview(true);
                 self._initPreviewActions();
@@ -935,8 +926,9 @@
                 getThumb: function (id) {
                     var $thumb = null;
                     self._getThumbs().each(function () {
-                        if ($(this).attr('data-fileid') === id) {
-                            $thumb = $(this);
+                        var $t = $(this);
+                        if ($t.attr('data-fileid') === id) {
+                            $thumb = $t;
                         }
                     });
                     return $thumb;
@@ -1043,10 +1035,9 @@
                     rm.lastProgress = 0;
                     if (self.showPreview) {
                         rm.$thumb = fm.getThumb(id) || null;
-                        rm.$progress = rm.$btnUpload = rm.$btnDelete = null;
+                        rm.$progress = rm.$btnDelete = null;
                         if (rm.$thumb && rm.$thumb.length) {
                             rm.$progress = rm.$thumb.find('.file-thumb-progress');
-                            rm.$btnUpload = rm.$thumb.find('.kv-file-upload');
                             rm.$btnDelete = rm.$thumb.find('.kv-file-remove');
                         }
                     }
@@ -1067,7 +1058,7 @@
                     rm.processed = {};
                 },
                 setProcessed: function (status) {
-                    var rm = self.resumableManager, fm = self.fileManager, id = rm.id, msg, $btnUpload = rm.$btnUpload,
+                    var rm = self.resumableManager, fm = self.fileManager, id = rm.id, msg,
                         $thumb = rm.$thumb, $prog = rm.$progress, hasThumb = $thumb && $thumb.length,
                         params = {id: hasThumb ? $thumb.attr('id') : '', index: fm.getIndex(id), fileId: id};
                     rm.completed = true;
@@ -1081,7 +1072,6 @@
                             self._setProgress(101, $prog);
                             self._setThumbStatus($thumb, 'Success');
                             self._initUploadSuccess(rm.processed[id].data, $thumb);
-                            $btnUpload.hide();
                         }
                         self.fileManager.removeFile(id);
                         delete rm.processed[id];
@@ -1093,11 +1083,6 @@
                         if (self.showPreview) {
                             self._setThumbStatus($thumb, 'Error');
                             self._setPreviewError($thumb, true);
-                            if (!self.retryErrorUploads) {
-                                $btnUpload.hide();
-                            } else {
-                                $btnUpload.removeAttr('disabled');
-                            }
                             self._setProgress(101, $prog, self.msgProgressError);
                             self._setProgress(101, self.$progress, self.msgProgressError);
                             self.cancelling = true;
@@ -1163,24 +1148,6 @@
                         clearInterval(intervalId);
                         self.unlock();
                     }
-                },
-                uploadSingle: function (id) {
-                    var rm = self.resumableManager, fm = self.fileManager, flag = 'new', intervalId;
-                    intervalId = setInterval(function () {
-                        rm.checkAborted(intervalId);
-                        if (flag === 'new') {
-                            self.lock();
-                            flag = 'processing';
-                            if (fm.stack[id]) {
-                                rm.init(id, fm.stack[id]);
-                                rm.uploadResumable();
-                            }
-                        }
-                        if (!fm.isPending(id) && rm.completed || fm.isProcessed()) {
-                            clearInterval(intervalId);
-                            self.unlock();
-                        }
-                    }, self.processDelay);
                 },
                 upload: function () {
                     var rm = self.resumableManager, fm = self.fileManager, ids = fm.getIdList(), flag = 'new',
@@ -1297,7 +1264,7 @@
                 sendAjax: function (index, retry) {
                     var fm = self.fileManager, rm = self.resumableManager, opts = self.resumableUploadOptions, f,
                         chunkSize = rm.chunkSize, id = rm.id, file = rm.file, $thumb = rm.$thumb,
-                        $btnUpload = rm.$btnUpload, $btnDelete = rm.$btnDelete;
+                        $btnDelete = rm.$btnDelete;
                     if (rm.processed[id] && rm.processed[id][index]) {
                         return;
                     }
@@ -1312,15 +1279,15 @@
                     fd = new FormData();
                     f = fm.stack[id];
                     self._setUploadData(fd, {
-                        fileId: id,
-                        fileName: rm.fileName,
-                        fileSize: file.size,
-                        fileRelativePath: f.relativePath,
-                        fileBlob: [blob, rm.fileName],
+                        chunkCount: rm.chunkCount,
                         chunkIndex: index,
                         chunkSize: chunkSize,
                         chunkSizeStart: chunkSize * index,
-                        chunkCount: rm.chunkCount,
+                        fileBlob: [blob, rm.fileName],
+                        fileId: id,
+                        fileName: rm.fileName,
+                        fileRelativePath: f.relativePath,
+                        fileSize: file.size,
                         retryCount: retry
                     });
                     if (rm.$progress && rm.$progress.length) {
@@ -1333,7 +1300,6 @@
                                 self._setThumbStatus($thumb, 'Loading');
                                 $h.addCss($thumb, 'file-uploading');
                             }
-                            $btnUpload.attr('disabled', true);
                             $btnDelete.attr('disabled', true);
                         }
                         self._raise('filechunkbeforesend', [id, index, retry, fm, rm, outData]);
@@ -1361,8 +1327,8 @@
                             }
                             rm.processed[id][data[chunkIndex]] = true;
                             rm.processed[id].data = data;
-                            rm.check();
                             self._raise('filechunksuccess', params);
+                            rm.check();
                         }
                     };
                     fnError = function (jqXHR, textStatus, errorThrown) {
@@ -1419,14 +1385,13 @@
             tMain2 = '{preview}\n<div class="kv-upload-progress kv-hidden"></div>\n<div class="clearfix"></div>\n' +
                 '{remove}\n{cancel}\n{upload}\n{browse}\n';
             tPreview = '<div class="file-preview {class}">\n' +
-                '    {close}' +
-                '    <div class="{dropClass}">\n' +
-                '    <div class="file-preview-thumbnails">\n' +
+                '  {close}' +
+                '  <div class="{dropClass} clearfix">\n' +
+                '    <div class="file-preview-thumbnails clearfix">\n' +
                 '    </div>\n' +
-                '    <div class="clearfix"></div>' +
                 '    <div class="file-preview-status text-center text-success"></div>\n' +
                 '    <div class="kv-fileinput-error"></div>\n' +
-                '    </div>\n' +
+                '  </div>\n' +
                 '</div>';
             tClose = $h.closeButton('fileinput-remove');
             tFileIcon = '<i class="glyphicon glyphicon-file"></i>';
@@ -1438,7 +1403,7 @@
             //noinspection HtmlUnknownAttribute
             tBtnDefault = '<button type="{type}" tabindex="500" title="{title}" class="{css}" ' +
                 '{status}>{icon} {label}</button>';
-            //noinspection HtmlUnknownAttribute
+            //noinspection HtmlUnknownTarget,HtmlUnknownAttribute
             tBtnLink = '<a href="{href}" tabindex="500" title="{title}" class="{css}" {status}>{icon} {label}</a>';
             //noinspection HtmlUnknownAttribute
             tBtnBrowse = '<div tabindex="500" class="{css}" {status}>{icon} {label}</div>';
@@ -1685,10 +1650,12 @@
                     indicatorSuccess: '<i class="glyphicon glyphicon-ok-sign text-success"></i>',
                     indicatorError: '<i class="glyphicon glyphicon-exclamation-sign text-danger"></i>',
                     indicatorLoading: '<i class="glyphicon glyphicon-hourglass text-muted"></i>',
+                    indicatorPaused: '<i class="glyphicon glyphicon-pause text-primary"></i>',
                     indicatorNewTitle: 'Not uploaded yet',
                     indicatorSuccessTitle: 'Uploaded',
                     indicatorErrorTitle: 'Upload Error',
-                    indicatorLoadingTitle: 'Uploading ...'
+                    indicatorLoadingTitle: 'Uploading ...',
+                    indicatorPausedTitle: 'Upload Paused'
                 }
             };
             $.each(self.defaults, function (key, setting) {
@@ -1745,15 +1712,16 @@
                     return self.previewCache.data.content.length;
                 },
                 get: function (i, isDisabled) {
-                    var ind = 'init_' + i, data = self.previewCache.data, config = data.config[i], fileId,
-                        content = data.content[i], previewId = self.previewInitId + '-' + ind, out, $tmp, cat, ftr,
+                    var ind = $h.INIT_FLAG + i, data = self.previewCache.data, config = data.config[i],
+                        content = data.content[i], out, $tmp, cat, ftr,
                         fname, ftype, frameClass, asData = $h.ifSet('previewAsData', config, self.initialPreviewAsData),
                         a = config ? {title: config.title || null, alt: config.alt || null} : {title: null, alt: null},
-                        parseTemplate = function (cat, dat, fn, ft, id, ftr, ind, fc, t) {
-                            fc = ' file-preview-initial ' + $h.SORT_CSS + (fc ? ' ' + fc : '');
+                        parseTemplate = function (cat, dat, fname, ftype, ftr, ind, fclass, t) {
+                            var fc = ' file-preview-initial ' + $h.SORT_CSS + (fclass ? ' ' + fclass : ''),
+                                id = self.previewInitId + '-' + ind,
+                                fileId = config && config.fileId || id;
                             /** @namespace config.zoomData */
-                            fileId = config && config.fileId || 'file_' + id;
-                            return self._generatePreviewTemplate(cat, dat, fn, ft, id, fileId, false, null, fc,
+                            return self._generatePreviewTemplate(cat, dat, fname, ftype, id, fileId, false, null, fc,
                                 ftr, ind, t, a, config && config.zoomData || dat);
                         };
                     if (!content || !content.length) {
@@ -1766,9 +1734,9 @@
                     ftr = self.previewCache.footer(i, isDisabled, (config && config.size || null));
                     frameClass = $h.ifSet('frameClass', config);
                     if (asData) {
-                        out = parseTemplate(cat, content, fname, ftype, previewId, ftr, ind, frameClass);
+                        out = parseTemplate(cat, content, fname, ftype, ftr, ind, frameClass);
                     } else {
-                        out = parseTemplate('generic', content, fname, ftype, previewId, ftr, ind, frameClass, cat)
+                        out = parseTemplate('generic', content, fname, ftype, ftr, ind, frameClass, cat)
                             .setTokens({'content': data.content[i]});
                     }
                     if (data.tags.length && data.tags[i]) {
@@ -1942,14 +1910,17 @@
         },
         _log: function (msg, tokens) {
             var self = this, id = self.$element.attr('id');
+            if (!self.showConsoleLogs) {
+                return;
+            }
             if (id) {
                 msg = '"' + id + '": ' + msg;
             }
             msg = 'bootstrap-fileinput: ' + msg;
             if (typeof tokens === 'object') {
-                msg.setTokens(tokens);
+                msg = msg.setTokens(tokens);
             }
-            if (typeof window.console.log !== 'undefined') {
+            if (window.console && typeof window.console.log !== 'undefined') {
                 window.console.log(msg);
             } else {
                 window.alert(msg);
@@ -2134,10 +2105,10 @@
                     });
                 }
             }
-            return out;
+            return out || self.previewFileIcon;
         },
         _parseFilePreviewIcon: function (content, fname) {
-            var self = this, icn = self._getPreviewIcon(fname) || self.previewFileIcon, out = content;
+            var self = this, icn = self._getPreviewIcon(fname), out = content;
             if (out.indexOf('{previewFileIcon}') > -1) {
                 out = out.setTokens({'previewFileIconClass': self.previewFileIconClass, 'previewFileIcon': icn});
             }
@@ -2386,12 +2357,12 @@
             return self._isFileSelectionValid() && !self._abort({});
         },
         _clearPreview: function () {
-            var self = this, $p = self.$preview,
+            var self = this,
                 $thumbs = self.showUploadedThumbs ? self.getFrames(':not(.file-preview-success)') : self.getFrames();
             $thumbs.each(function () {
-                var $thumb = $(this);
+                var $thumb = $(this), id = $thumb.attr('id'), $zoom = self._getZoom(id);
                 $thumb.remove();
-                $h.cleanZoomCache($p.find('#zoom-' + $thumb.attr('id')));
+                $h.cleanZoomCache($zoom);
             });
             if (!self.getFrames().length || !self.showPreview) {
                 self._resetUpload();
@@ -2416,7 +2387,7 @@
                     self.initialPreviewConfig = $h.moveArray(self.initialPreviewConfig, oldIndex, newIndex, rev);
                     self.previewCache.init();
                     self.getFrames('.file-preview-initial').each(function () {
-                        $(this).attr('data-fileindex', 'init_' + i);
+                        $(this).attr('data-fileindex', $h.INIT_FLAG + i);
                         i++;
                     });
                     self._raise('filesorted', {
@@ -2449,10 +2420,8 @@
                 if (config && config.exif && config.exif.Orientation) {
                     id = $thumb.attr('id');
                     $img = $thumb.find('>.kv-file-content img');
-                    $zoomImg = self.$preview.find('#zoom-' + id + ' >.kv-file-content img');
-                    if ($img && $img.length) {
-                        $h.setImageOrientation($img, $zoomImg, config.exif.Orientation);
-                    }
+                    $zoomImg = self._getZoom(id, ' >.kv-file-content img');
+                    self.setImageOrientation($img, $zoomImg, config.exif.Orientation, $thumb);
                 }
                 i++;
             });
@@ -2619,7 +2588,7 @@
         },
         _setZoomContent: function ($frame, animate) {
             var self = this, $content, tmplt, body, title, $body, $dataEl, config, previewId = $frame.attr('id'),
-                $zoomPreview = self.$preview.find('#zoom-' + previewId), $modal = self.$modal, $tmp,
+                $zoomPreview = self._getZoom(previewId), $modal = self.$modal, $tmp,
                 $btnFull = $modal.find('.btn-fullscreen'), $btnBord = $modal.find('.btn-borderless'), cap, size,
                 $btnTogh = $modal.find('.btn-toggleheader');
             tmplt = $zoomPreview.attr('data-template') || 'generic';
@@ -2800,7 +2769,7 @@
         },
         _resetUpload: function () {
             var self = this;
-            self.uploadCache = {content: [], config: [], tags: [], append: true};
+            self.uploadCache = [];
             self.$btnUpload.removeAttr('disabled');
             self._setProgress(0);
             self.$progress.hide();
@@ -2808,7 +2777,6 @@
             self._initAjax();
             self.fileManager.clearImages();
             self._resetCanvas();
-            self.cacheInitialPreview = {};
             if (self.overwriteInitial) {
                 self.initialPreview = [];
                 self.initialPreviewConfig = [];
@@ -2885,7 +2853,7 @@
             return $h.replaceTags(template, self.customLayoutTags);
         },
         _getPreviewTemplate: function (t) {
-            var self = this, template = self.previewTemplates[t];
+            var self = this, templates = self.previewTemplates, template = templates[t] || templates.other;
             if ($h.isEmpty(self.customPreviewTags)) {
                 return template;
             }
@@ -2911,17 +2879,27 @@
             var self = this, strFiles = n === 1 ? self.fileSingle : self.filePlural;
             return n > 0 ? self.msgSelected.replace('{n}', n).replace('{files}', strFiles) : self.msgNoFilesSelected;
         },
-        _getFrame: function (id) {
-            var self = this, $frame = $('#' + id);
+        _getFrame: function (id, skipWarning) {
+            var self = this, $frame = $h.getFrameElement(self.$preview, id);
+            if (!skipWarning && !$frame.length) {
+                self._log($h.logMessages.invalidThumb, {id: id});
+            }
+            return $frame;
+        },
+        _getZoom: function (id, selector) {
+            var self = this, $frame = $h.getZoomElement(self.$preview, id, selector);
             if (!$frame.length) {
                 self._log($h.logMessages.invalidThumb, {id: id});
-                return null;
             }
             return $frame;
         },
         _getThumbs: function (css) {
             css = css || '';
             return this.getFrames(':not(.file-preview-initial)' + css);
+        },
+        _getThumbId: function (fileId) {
+            var self = this;
+            return self.previewInitId + '-' + fileId;
         },
         _getExtraData: function (fileId, index) {
             var self = this, data = self.uploadExtraData;
@@ -3041,7 +3019,7 @@
             self[prop] = arr1.concat(arr2);
         },
         _initUploadSuccess: function (out, $thumb, allFiles) {
-            var self = this, append, data, index, $div, $newCache, content, config, tags, i;
+            var self = this, append, data, index, $div, $newCache, content, config, tags, id, i;
             if (!self.showPreview || typeof out !== 'object' || $.isEmptyObject(out)) {
                 return;
             }
@@ -3075,17 +3053,23 @@
                             }
                             self._initPreviewActions();
                             self._clearFileInput();
-                            $h.cleanZoomCache(self.$preview.find('#zoom-' + $thumb.attr('id')));
+                            $h.cleanZoomCache(self._getZoom($thumb.attr('id')));
                             $thumb.remove();
                             $div.remove();
                             self._initSortable();
                         });
                     } else {
-                        i = $thumb.attr('data-fileindex');
-                        self.uploadCache.content[i] = content[0];
-                        self.uploadCache.config[i] = config[0] || [];
-                        self.uploadCache.tags[i] = tags[0] || [];
-                        self.uploadCache.append = append;
+                        id = $thumb.attr('id');
+                        i = self._getUploadCacheIndex(id);
+                        if (i !== null) {
+                            self.uploadCache[i] = {
+                                id: id,
+                                content: content[0],
+                                config: config[0] || [],
+                                tags: tags[0] || [],
+                                append: append
+                            };
+                        }
                     }
                 } else {
                     self.previewCache.set(content, config, tags, append);
@@ -3094,13 +3078,23 @@
                 }
             }
         },
+        _getUploadCacheIndex: function (id) {
+            var self = this, i, len = self.uploadCache.length, config;
+            for (i = 0; i < len; i++) {
+                config = self.uploadCache[i];
+                if (config.id === id) {
+                    return i;
+                }
+            }
+            return null;
+        },
         _initSuccessThumbs: function () {
             var self = this;
             if (!self.showPreview) {
                 return;
             }
             self._getThumbs($h.FRAMES + '.file-preview-success').each(function () {
-                var $thumb = $(this), $preview = self.$preview, $remove = $thumb.find('.kv-file-remove');
+                var $thumb = $(this), $remove = $thumb.find('.kv-file-remove');
                 $remove.removeAttr('disabled');
                 self._handler($remove, 'click', function () {
                     var id = $thumb.attr('id'),
@@ -3110,7 +3104,7 @@
                         return;
                     }
                     $thumb.fadeOut('slow', function () {
-                        $h.cleanZoomCache($preview.find('#zoom-' + id));
+                        $h.cleanZoomCache(self._getZoom(id));
                         $thumb.remove();
                         if (!self.getFrames().length) {
                             self.reset();
@@ -3120,33 +3114,11 @@
             });
         },
         _updateInitialPreview: function () {
-            var self = this, u = self.uploadCache, i, j, len = 0, data = self.cacheInitialPreview;
-            if (data && data.content) {
-                len = data.content.length;
-            }
+            var self = this, u = self.uploadCache;
             if (self.showPreview) {
-                self.previewCache.set(u.content, u.config, u.tags, u.append);
-                if (len) {
-                    for (i = 0; i < u.content.length; i++) {
-                        j = i + len;
-                        data.content[j] = u.content[i];
-                        //noinspection JSUnresolvedVariable
-                        if (data.config.length) {
-                            data.config[j] = u.config[i];
-                        }
-                        if (data.tags.length) {
-                            data.tags[j] = u.tags[i];
-                        }
-                    }
-                    self.initialPreview = $h.cleanArray(data.content);
-                    self.initialPreviewConfig = $h.cleanArray(data.config);
-                    self.initialPreviewThumbTags = $h.cleanArray(data.tags);
-                } else {
-                    self.initialPreview = u.content;
-                    self.initialPreviewConfig = u.config;
-                    self.initialPreviewThumbTags = u.tags;
-                }
-                self.cacheInitialPreview = {};
+                $.each(u, function (key, setting) {
+                    self.previewCache.add(setting.content, setting.config, setting.tags, setting.append);
+                });
                 if (self.hasInitData) {
                     self._initPreview();
                     self._initPreviewActions();
@@ -3155,16 +3127,12 @@
         },
         _uploadSingle: function (i, id, isBatch) {
             var self = this, fm = self.fileManager, count = fm.count(), formdata = new FormData(), outData,
-                previewId = self.previewInitId + '-' + i, $thumb, chkComplete, $btnUpload, $btnDelete,
-                hasPostData = count > 0 || !$.isEmptyObject(self.uploadExtraData), uploadFailed,
-                $prog, fnBefore, fnSuccess, fnComplete, fnError, updateUploadLog, op = self.ajaxOperations.uploadThumb,
-                errMsg, fileObj = fm.getFile(id), rm = self.resumableManager,
-                params = {id: previewId, index: i, fileId: id}, fileName = self.fileManager.getFileName(id, true);
-            if (self.enableResumableUpload) {
-                self.paused = false;
-                self.cancelling = false;
-                fm.initStats(id);
-                rm.uploadSingle(id);
+                previewId = self._getThumbId(id), $thumb, chkComplete, $btnUpload, $btnDelete,
+                hasPostData = count > 0 || !$.isEmptyObject(self.uploadExtraData), uploadFailed, $prog, fnBefore,
+                errMsg, fnSuccess, fnComplete, fnError, updateUploadLog, op = self.ajaxOperations.uploadThumb,
+                fileObj = fm.getFile(id), params = {id: previewId, index: i, fileId: id},
+                fileName = self.fileManager.getFileName(id, true);
+            if (self.enableResumableUpload) { // not enabled for resumable uploads
                 return;
             }
             if (self.showPreview) {
@@ -3278,7 +3246,8 @@
                         if (isBatch) {
                             updateUploadLog();
                         }
-                        self._setProgress(101, $('#' + pid).find('.file-thumb-progress'), self.msgUploadError);
+                        self._setProgress(101, self._getFrame(pid).find('.file-thumb-progress'),
+                            self.msgUploadError);
                     }
                 }, self.processDelay);
             };
@@ -3495,28 +3464,25 @@
         },
         _deleteFileIndex: function ($frame) {
             var self = this, ind = $frame.attr('data-fileindex'), rev = self.reversePreviewOrder;
-            if (ind.substring(0, 5) === 'init_') {
-                ind = parseInt(ind.replace('init_', ''));
+            if (ind.substring(0, 5) === $h.INIT_FLAG) {
+                ind = parseInt(ind.replace($h.INIT_FLAG, ''));
                 self.initialPreview = $h.spliceArray(self.initialPreview, ind, rev);
                 self.initialPreviewConfig = $h.spliceArray(self.initialPreviewConfig, ind, rev);
                 self.initialPreviewThumbTags = $h.spliceArray(self.initialPreviewThumbTags, ind, rev);
                 self.getFrames().each(function () {
                     var $nFrame = $(this), nInd = $nFrame.attr('data-fileindex');
-                    if (nInd.substring(0, 5) === 'init_') {
-                        nInd = parseInt(nInd.replace('init_', ''));
+                    if (nInd.substring(0, 5) === $h.INIT_FLAG) {
+                        nInd = parseInt(nInd.replace($h.INIT_FLAG, ''));
                         if (nInd > ind) {
                             nInd--;
-                            $nFrame.attr('data-fileindex', 'init_' + nInd);
+                            $nFrame.attr('data-fileindex', $h.INIT_FLAG + nInd);
                         }
                     }
                 });
-                if (self.uploadAsync || self.enableResumableUpload) {
-                    self.cacheInitialPreview = self.getPreview();
-                }
             }
         },
         _initFileActions: function () {
-            var self = this, $preview = self.$preview;
+            var self = this;
             if (!self.showPreview) {
                 return;
             }
@@ -3532,7 +3498,7 @@
                     hasError = $frame.hasClass('file-preview-error');
                     $h.cleanMemory($frame);
                     $frame.fadeOut('slow', function () {
-                        $h.cleanZoomCache($preview.find('#zoom-' + id));
+                        $h.cleanZoomCache(self._getZoom(id));
                         self.fileManager.remove($frame);
                         self._clearObjects($frame);
                         $frame.remove();
@@ -3566,12 +3532,12 @@
             self.getFrames(' .kv-file-upload').each(function () {
                 var $el = $(this);
                 self._handler($el, 'click', function () {
-                    var $frame = $el.closest($h.FRAMES), id = $frame.attr('data-fileid');
+                    var $frame = $el.closest($h.FRAMES), fileId = $frame.attr('data-fileid');
                     self.$progress.hide();
                     if ($frame.hasClass('file-preview-error') && !self.retryErrorUploads) {
                         return;
                     }
-                    self._uploadSingle(self.fileManager.getIndex(id), id, false);
+                    self._uploadSingle(self.fileManager.getIndex(fileId), fileId, false);
                 });
             });
         },
@@ -3581,7 +3547,6 @@
                 origClass = settings.removeClass, errClass = settings.removeErrorClass,
                 resetProgress = function () {
                     var hasFiles = self.isAjaxUpload ? self.previewCache.count(true) : self._inputFileCount();
-                    // console.log(self.previewCache, hasFiles, self.getFrames().length);
                     if (!self.getFrames().length && !hasFiles) {
                         self._setCaption('');
                         self.reset();
@@ -3600,7 +3565,7 @@
                 }
                 var $frame = $el.closest($h.FRAMES), cache = self.previewCache.data, settings, params, config,
                     fileName, extraData, index = $frame.attr('data-fileindex');
-                index = parseInt(index.replace('init_', ''));
+                index = parseInt(index.replace($h.INIT_FLAG, ''));
                 config = $h.isEmpty(cache.config) && $h.isEmpty(cache.config[index]) ? null : cache.config[index];
                 extraData = $h.isEmpty(config) || $h.isEmpty(config.extra) ? deleteExtraData : config.extra;
                 fileName = config.filename || config.caption || '';
@@ -3633,14 +3598,14 @@
                     }
                     $frame.removeClass('file-uploading').addClass('file-deleted');
                     $frame.fadeOut('slow', function () {
-                        index = parseInt(($frame.attr('data-fileindex')).replace('init_', ''));
+                        index = parseInt(($frame.attr('data-fileindex')).replace($h.INIT_FLAG, ''));
                         self.previewCache.unset(index);
                         self._deleteFileIndex($frame);
                         n = self.previewCache.count(true);
                         cap = n > 0 ? self._getMsgSelected(n) : '';
                         self._setCaption(cap);
                         self._raise('filedeleted', [vKey, jqXHR, extraData]);
-                        $h.cleanZoomCache($preview.find('#zoom-' + $frame.attr('id')));
+                        $h.cleanZoomCache(self._getZoom($frame.attr('id')));
                         self._clearObjects($frame);
                         $frame.remove();
                         resetProgress();
@@ -3738,11 +3703,10 @@
         ) {
             var self = this, caption = self.slug(fname), prevContent, zoomContent = '', styleAttribs = '',
                 screenW = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
-                config, newCat = self.preferIconicPreview ? 'other' : cat, title = caption, alt = caption,
+                config, title = caption, alt = caption, typeCss = 'type-default', getContent,
                 footer = foot || self._renderFileFooter(cat, caption, size, 'auto', isError),
-                hasIconSetting = self._getPreviewIcon(fname), typeCss = 'type-default',
-                forcePrevIcon = hasIconSetting && self.preferIconicPreview,
-                forceZoomIcon = hasIconSetting && self.preferIconicZoomPreview, getContent;
+                forcePrevIcon = self.preferIconicPreview, forceZoomIcon = self.preferIconicZoomPreview,
+                newCat = forcePrevIcon ? 'other' : cat;
             config = screenW < 400 ? (self.previewSettingsSmall[newCat] || self.defaults.previewSettingsSmall[newCat]) :
                 (self.previewSettings[newCat] || self.defaults.previewSettings[newCat]);
             if (config) {
@@ -3813,50 +3777,31 @@
             var self = this;
             return self.reversePreviewOrder ? $preview.prepend(content) : $preview.append(content);
         },
-        _previewDefault: function (file, previewId, isDisabled) {
+        _previewDefault: function (file, isDisabled) {
             var self = this, $preview = self.$preview;
             if (!self.showPreview) {
                 return;
             }
             var fname = $h.getFileName(file), ftype = file ? file.type : '', content, size = file.size || 0,
                 caption = self._getFileName(file, ''), isError = isDisabled === true && !self.isAjaxUpload,
-                data = $h.createObjectURL(file), fileId = self.fileManager.getId(file);
+                data = $h.createObjectURL(file), fileId = self.fileManager.getId(file),
+                previewId = self._getThumbId(fileId);
             self._clearDefaultPreview();
             content = self._generatePreviewTemplate('other', data, fname, ftype, previewId, fileId, isError, size);
             self._addToPreview($preview, content);
             self._setThumbAttr(previewId, caption, size);
             if (isDisabled === true && self.isAjaxUpload) {
-                self._setThumbStatus($('#' + previewId), 'Error');
+                self._setThumbStatus(self._getFrame(previewId), 'Error');
             }
         },
-        canPreview: function (file) {
-            var self = this;
-            if (!file || !self.showPreview || !self.$preview || !self.$preview.length) {
-                return false;
-            }
-            var name = file.name || '', type = file.type || '', size = (file.size || 0) / 1000,
-                cat = self._parseFileType(type, name), allowedTypes, allowedMimes, allowedExts, skipPreview,
-                types = self.allowedPreviewTypes, mimes = self.allowedPreviewMimeTypes,
-                exts = self.allowedPreviewExtensions || [], dTypes = self.disabledPreviewTypes,
-                dMimes = self.disabledPreviewMimeTypes, dExts = self.disabledPreviewExtensions || [],
-                maxSize = self.maxFilePreviewSize && parseFloat(self.maxFilePreviewSize) || 0,
-                expAllExt = new RegExp('\\.(' + exts.join('|') + ')$', 'i'),
-                expDisExt = new RegExp('\\.(' + dExts.join('|') + ')$', 'i');
-            allowedTypes = !types || types.indexOf(cat) !== -1;
-            allowedMimes = !mimes || mimes.indexOf(type) !== -1;
-            allowedExts = !exts.length || $h.compare(name, expAllExt);
-            skipPreview = (dTypes && dTypes.indexOf(cat) !== -1) || (dMimes && dMimes.indexOf(type) !== -1) ||
-                (dExts.length && $h.compare(name, expDisExt)) || (maxSize && !isNaN(maxSize) && size > maxSize);
-            return !skipPreview && (allowedTypes || allowedMimes || allowedExts);
-        },
-        _previewFile: function (i, file, theFile, previewId, data, fileInfo) {
+        _previewFile: function (i, file, theFile, data, fileInfo) {
             if (!this.showPreview) {
                 return;
             }
             var self = this, fname = $h.getFileName(file), ftype = fileInfo.type, caption = fileInfo.name,
                 cat = self._parseFileType(ftype, fname), content, $preview = self.$preview, fsize = file.size || 0,
                 iData = (cat === 'text' || cat === 'html' || cat === 'image') ? theFile.target.result : data,
-                fileId = self.fileManager.getId(file);
+                fileId = self.fileManager.getId(file), previewId = self._getThumbId(fileId);
             /** @namespace window.DOMPurify */
             if (cat === 'html' && self.purifyHtml && window.DOMPurify) {
                 iData = window.DOMPurify.sanitize(iData);
@@ -3864,13 +3809,13 @@
             content = self._generatePreviewTemplate(cat, iData, fname, ftype, previewId, fileId, false, fsize);
             self._clearDefaultPreview();
             self._addToPreview($preview, content);
-            var $thumb = $preview.find('#' + previewId), $img = $thumb.find('img'), id = $thumb.attr('data-fileid');
-            self._validateImageOrientation($img, file, previewId, id, caption, ftype, fsize, iData);
+            var $thumb = self._getFrame(previewId);
+            self._validateImageOrientation($thumb.find('img'), file, previewId, fileId, caption, ftype, fsize, iData);
             self._setThumbAttr(previewId, caption, fsize);
             self._initSortable();
         },
         _setThumbAttr: function (id, caption, size) {
-            var self = this, $frame = $('#' + id);
+            var self = this, $frame = self._getFrame(id);
             if ($frame.length) {
                 size = size && size > 0 ? self._getSize(size) : '';
                 $frame.data({'caption': caption, 'size': size});
@@ -3884,7 +3829,7 @@
             }
             for (var i = 0; i < len; i++) {
                 config = data.config[i];
-                previewId = self.previewInitId + '-' + 'init_' + i;
+                previewId = self.previewInitId + '-' + $h.INIT_FLAG + i;
                 caption = $h.ifSet('caption', config, $h.ifSet('filename', config));
                 size = $h.ifSet('size', config);
                 self._setThumbAttr(previewId, caption, size);
@@ -3931,7 +3876,7 @@
                 css = 'file-preview-' + status.toLowerCase(),
                 $indicator = $thumb.find('.file-upload-indicator'),
                 config = self.fileActionSettings;
-            $thumb.removeClass('file-preview-success file-preview-error file-preview-loading');
+            $thumb.removeClass('file-preview-success file-preview-error file-preview-paused file-preview-loading');
             if (status === 'Success') {
                 $thumb.find('.file-drag-handle').remove();
             }
@@ -4135,20 +4080,70 @@
             }
             return exifObj;
         },
+        setImageOrientation: function ($img, $zoomImg, value, $thumb) {
+            var self = this, invalidImg = !$img || !$img.length, invalidZoomImg = !$zoomImg || !$zoomImg.length, $mark,
+                isHidden = false, $div, zoomOnly = invalidImg && $thumb && $thumb.attr('data-template') === 'image', ev;
+            if (invalidImg && invalidZoomImg) {
+                return;
+            }
+            ev = 'load.fileinputimageorient';
+            if (zoomOnly) {
+                $img = $zoomImg;
+                $zoomImg = null;
+                $img.css(self.previewSettings.image);
+                $div = $(document.createElement('div')).appendTo($thumb.find('.kv-file-content'));
+                $mark = $(document.createElement('span')).insertBefore($img);
+                $img.css('visibility', 'hidden').removeClass('file-zoom-detail').appendTo($div);
+            } else {
+                isHidden = !$img.is(':visible');
+            }
+            $img.off(ev).on(ev, function () {
+                if (isHidden) {
+                    self.$preview.removeClass('hide-content');
+                    $thumb.find('.kv-file-content').css('visibility', 'hidden');
+                }
+                var img = $img.get(0), zoomImg = $zoomImg && $zoomImg.length ? $zoomImg.get(0) : null,
+                    h = img.offsetHeight, w = img.offsetWidth, r = $h.getRotation(value);
+                if (isHidden) {
+                    $thumb.find('.kv-file-content').css('visibility', 'visible');
+                    self.$preview.addClass('hide-content');
+                }
+                $img.data('orientation', value);
+                if (zoomImg) {
+                    $zoomImg.data('orientation', value);
+                }
+                if (value < 5) {
+                    $h.setTransform(img, r);
+                    $h.setTransform(zoomImg, r);
+                    return;
+                }
+                var offsetAngle = Math.atan(w / h), origFactor = Math.sqrt(Math.pow(h, 2) + Math.pow(w, 2)),
+                    scale = !origFactor ? 1 : (h / Math.cos(Math.PI / 2 + offsetAngle)) / origFactor,
+                    s = ' scale(' + Math.abs(scale) + ')';
+                $h.setTransform(img, r + s);
+                $h.setTransform(zoomImg, r + s);
+                if (zoomOnly) {
+                    $img.css('visibility', 'visible').insertAfter($mark).addClass('file-zoom-detail');
+                    $mark.remove();
+                    $div.remove();
+                }
+            });
+        },
         _validateImageOrientation: function ($img, file, previewId, fileId, caption, ftype, fsize, iData) {
-            var self = this, exifObj, value, autoOrientImage = self.autoOrientImage;
-            exifObj = $img.length && autoOrientImage ? self._getExifObj(iData) : null;
+            var self = this, exifObj, value, autoOrientImage = self.autoOrientImage,
+                selector = $h.getZoomSelector(previewId, ' img');
+            exifObj = autoOrientImage ? self._getExifObj(iData) : null;
             value = exifObj ? exifObj['0th'][piexif.ImageIFD.Orientation] : null; // jshint ignore:line
             if (!value) {
                 self._validateImage(previewId, fileId, caption, ftype, fsize, iData, exifObj);
                 return;
             }
-            $h.setImageOrientation($img, self.$preview.find('#zoom-' + previewId + ' img'), value);
+            self.setImageOrientation($img, $(selector), value, self._getFrame(previewId));
             self._raise('fileimageoriented', {'$img': $img, 'file': file});
             self._validateImage(previewId, fileId, caption, ftype, fsize, iData, exifObj);
         },
         _validateImage: function (previewId, fileId, fname, ftype, fsize, iData, exifObj) {
-            var self = this, $preview = self.$preview, params, w1, w2, $thumb = $preview.find('#' + previewId),
+            var self = this, $preview = self.$preview, params, w1, w2, $thumb = self._getFrame(previewId),
                 i = $thumb.attr('data-fileindex'), $img = $thumb.find('img');
             fname = fname || 'Untitled';
             $img.one('load', function () {
@@ -4270,8 +4265,7 @@
                 if (!(blob instanceof Blob)) {
                     throwError(self.msgImageResizeError, params, 'fileimageresizeerror');
                 }
-            }
-            catch (err) {
+            } catch (err) {
                 counter.val++;
                 if (counter.val === numImgs) {
                     self._raise('fileimagesresized', [undefined, undefined]);
@@ -4483,11 +4477,16 @@
             dUrl,
             dFile
         ) {
+            var self = this;
             if (!cfg.type && isInit) {
                 cfg.type = 'image';
             }
-            if (typeof showUpl === 'function') {
-                showUpl = showUpl(cfg);
+            if (self.enableResumableUpload) {
+                showUpl = false;
+            } else {
+                if (typeof showUpl === 'function') {
+                    showUpl = showUpl(cfg);
+                }
             }
             if (typeof showDwn === 'function') {
                 showDwn = showDwn(cfg);
@@ -4504,10 +4503,9 @@
             if (!showUpl && !showDwn && !showDel && !showZoom && !showDrag) {
                 return '';
             }
-            var self = this, vUrl = url === false ? '' : ' data-url="' + url + '"',
+            var vUrl = url === false ? '' : ' data-url="' + url + '"', btnZoom = '', btnDrag = '', css,
                 vKey = key === false ? '' : ' data-key="' + key + '"', btnDelete = '', btnUpload = '', btnDownload = '',
-                btnZoom = '', btnDrag = '', css, template = self._getLayoutTemplate('actions'),
-                config = self.fileActionSettings,
+                template = self._getLayoutTemplate('actions'), config = self.fileActionSettings,
                 otherButtons = self.otherActionButtons.setTokens({'dataKey': vKey, 'key': key}),
                 removeClass = disabled ? config.removeClass + ' disabled' : config.removeClass;
             if (showDel) {
@@ -4659,13 +4657,12 @@
                     return;
                 }
                 if (!self.fileManager.getFile($thumb.attr('data-fileid'))) {
-                    $thumb.attr({'id': self.previewInitId + '-' + i, 'data-fileindex': i});
+                    $thumb.attr({'data-fileindex': i});
                     i++;
                 } else {
-                    $thumb.attr({'id': 'uploaded-' + $h.uniqId(), 'data-fileindex': '-1'});
+                    $thumb.attr({'data-fileindex': '-1'});
                 }
-                self.$preview.find('#zoom-' + pid).attr({
-                    'id': 'zoom-' + $thumb.attr('id'),
+                self._getZoom(pid).attr({
                     'data-fileindex': $thumb.attr('data-fileindex')
                 });
             });
@@ -4683,6 +4680,26 @@
                 return false;
             }
             return true;
+        },
+        _canPreview: function (file) {
+            var self = this;
+            if (!file || !self.showPreview || !self.$preview || !self.$preview.length) {
+                return false;
+            }
+            var name = file.name || '', type = file.type || '', size = (file.size || 0) / 1000,
+                cat = self._parseFileType(type, name), allowedTypes, allowedMimes, allowedExts, skipPreview,
+                types = self.allowedPreviewTypes, mimes = self.allowedPreviewMimeTypes,
+                exts = self.allowedPreviewExtensions || [], dTypes = self.disabledPreviewTypes,
+                dMimes = self.disabledPreviewMimeTypes, dExts = self.disabledPreviewExtensions || [],
+                maxSize = self.maxFilePreviewSize && parseFloat(self.maxFilePreviewSize) || 0,
+                expAllExt = new RegExp('\\.(' + exts.join('|') + ')$', 'i'),
+                expDisExt = new RegExp('\\.(' + dExts.join('|') + ')$', 'i');
+            allowedTypes = !types || types.indexOf(cat) !== -1;
+            allowedMimes = !mimes || mimes.indexOf(type) !== -1;
+            allowedExts = !exts.length || $h.compare(name, expAllExt);
+            skipPreview = (dTypes && dTypes.indexOf(cat) !== -1) || (dMimes && dMimes.indexOf(type) !== -1) ||
+                (dExts.length && $h.compare(name, expDisExt)) || (maxSize && !isNaN(maxSize) && size > maxSize);
+            return !skipPreview && (allowedTypes || allowedMimes || allowedExts);
         },
         clearFileStack: function () {
             var self = this;
@@ -4704,10 +4721,10 @@
             return self.$element;
         },
         getFileStack: function () {
-            return this.files.stack;
+            return this.fileManager.stack;
         },
         getFileList: function () {
-            return this.files.list();
+            return this.fileManager.list();
         },
         getFilesCount: function () {
             var self = this, len = self.isAjaxUpload ? self.fileManager.count() : self._inputFileCount();
@@ -4715,26 +4732,31 @@
         },
         readFiles: function (files) {
             this.reader = new FileReader();
-            var self = this, $el = self.$element, reader = self.reader,
-                $container = self.$previewContainer, $status = self.$previewStatus, msgLoading = self.msgLoading,
-                msgProgress = self.msgProgress, previewInitId = self.previewInitId, numFiles = files.length,
-                settings = self.fileTypeSettings, ctr = self.fileManager.count(), readFile,
-                fileTypes = self.allowedFileTypes, typLen = fileTypes ? fileTypes.length : 0,
+            var self = this, $el = self.$element, reader = self.reader, $container = self.$previewContainer,
+                $status = self.$previewStatus, msgLoading = self.msgLoading, msgProgress = self.msgProgress,
+                previewInitId = self.previewInitId, numFiles = files.length, settings = self.fileTypeSettings,
+                readFile, fileTypes = self.allowedFileTypes, typLen = fileTypes ? fileTypes.length : 0,
                 fileExt = self.allowedFileExtensions, strExt = $h.isEmpty(fileExt) ? '' : fileExt.join(', '),
-                throwError = function (msg, file, previewId, index, fileId) {
+                throwError = function (msg, file, previewId, index, fileId, skipThumbEmbed) {
                     var p1 = $.extend(true, {}, self._getOutData(null, {}, {}, files),
-                        {id: previewId, index: index, fileId: fileId}), $thumb = $('#' + previewId),
+                        {id: previewId, index: index, fileId: fileId}), $thumb = self._getFrame(previewId, true),
                         p2 = {id: previewId, index: index, fileId: fileId, file: file, files: files};
-                    self._previewDefault(file, previewId, true);
+                    skipThumbEmbed = skipThumbEmbed || self.removeFromPreviewOnError;
+                    if (!skipThumbEmbed) {
+                        self._previewDefault(file, true);
+                    }
                     if (self.isAjaxUpload) {
                         setTimeout(function () {
                             readFile(index + 1);
                         }, self.processDelay);
                     } else {
+                        self.unlock();
                         numFiles = 0;
                     }
-                    self._initFileActions();
-                    $thumb.remove();
+                    if (!skipThumbEmbed) {
+                        self._initFileActions();
+                        $thumb.remove();
+                    }
                     self.isError = self.isAjaxUpload ? self._showFileError(msg, p1) : self._showError(msg, p2);
                     self._updateFileDetails(numFiles);
                 };
@@ -4750,6 +4772,7 @@
                     numFiles = 1;
                 }
                 if (i >= numFiles) {
+                    self.unlock();
                     if (self.isAjaxUpload && self.fileManager.count() > 0) {
                         self._raise('filebatchselected', [self.fileManager.stack]);
                     } else {
@@ -4759,7 +4782,8 @@
                     $status.html('');
                     return;
                 }
-                var node = ctr + i, previewId = previewInitId + '-' + node, file = files[i], fSizeKB, j, msg,
+                self.lock(true);
+                var file = files[i], previewId = previewInitId + '-' + self._getFileId(file), fSizeKB, j, msg,
                     fnText = settings.text, fnImage = settings.image, fnHtml = settings.html, typ, chk, typ1, typ2,
                     caption = self._getFileName(file, ''), fileSize = (file && file.size || 0) / 1000,
                     fileExtExpr = '', previewData = $h.createObjectURL(file), fileCount = 0,
@@ -4802,6 +4826,15 @@
                     fileExtExpr = new RegExp('\\.(' + fileExt.join('|') + ')$', 'i');
                 }
                 fSizeKB = fileSize.toFixed(2);
+                if (self.isAjaxUpload && self.fileManager.exists(fileId) || self._getFrame(previewId, true).length) {
+                    msg = self.msgDuplicateFile.setTokens({name: caption, size: fSizeKB});
+                    throwError(msg, file, previewId, i, fileId, true);
+                    if (!self.isAjaxUpload) {
+                        self._clearFileInput();
+                        self.reset();
+                    }
+                    return;
+                }
                 if (self.maxFileSize > 0 && fileSize > self.maxFileSize) {
                     msg = self.msgSizeTooLarge.setTokens({
                         'name': caption,
@@ -4842,18 +4875,13 @@
                         return;
                     }
                 }
-                if (self.isAjaxUpload && self.fileManager.exists(fileId)) {
-                    msg = self.msgDuplicateFile.setTokens({name: caption, size: fSizeKB});
-                    throwError(msg, file, previewId, i, fileId);
-                    return;
-                }
-                if (!self.canPreview(file)) {
+                if (!self._canPreview(file)) {
                     if (self.isAjaxUpload) {
                         self.fileManager.add(file);
                     }
                     if (self.showPreview) {
                         $container.addClass('file-thumb-loading');
-                        self._previewDefault(file, previewId);
+                        self._previewDefault(file);
                         self._initFileActions();
                     }
                     setTimeout(function () {
@@ -4878,7 +4906,7 @@
                             self._errorHandler(theFileNew, caption);
                         };
                         newReader.onload = function (theFileNew) {
-                            self._previewFile(i, file, theFileNew, previewId, previewData, fileInfo);
+                            self._previewFile(i, file, theFileNew, previewData, fileInfo);
                             self._initFileActions();
                             processFileLoaded();
                         };
@@ -4916,7 +4944,7 @@
                             return;
                         }
                     }
-                    self._previewFile(i, file, theFile, previewId, previewData, fileInfo);
+                    self._previewFile(i, file, theFile, previewData, fileInfo);
                     self._initFileActions();
                     processFileLoaded();
                 };
@@ -4950,15 +4978,15 @@
             readFile(0);
             self._updateFileDetails(numFiles, false);
         },
-        lock: function () {
+        lock: function (selectMode) {
             var self = this, $container = self.$container;
             self._resetErrors();
             self.disable();
             $container.addClass('is-locked');
-            if (self.showCancel) {
+            if (!selectMode && self.showCancel) {
                 $container.find('.fileinput-cancel').show();
             }
-            if (self.showPause) {
+            if (!selectMode && self.showPause) {
                 $container.find('.fileinput-pause').show();
             }
             self._raise('filelock', [self.fileManager.stack, self._getExtraData()]);
@@ -4983,10 +5011,38 @@
             self._raise('fileunlock', [self.fileManager.stack, self._getExtraData()]);
             return self.$element;
         },
-        pause: function () {
-            var self = this, rm = self.resumableManager, xhr = self.ajaxRequests, len = xhr.length, i;
+        resume: function () {
+            var self = this, flag = false, $pr = self.$progress, rm = self.resumableManager;
             if (!self.enableResumableUpload) {
-                return;
+                return self.$element;
+            }
+            if (self.paused) {
+                $pr.html(self.progressPauseTemplate.setTokens({
+                    percent: 101,
+                    status: self.msgUploadResume,
+                    stats: ''
+                }));
+            } else {
+                flag = true;
+            }
+            self.paused = false;
+            if (flag) {
+                $pr.html(self.progressInfoTemplate.setTokens({
+                    percent: 101,
+                    status: self.msgUploadBegin,
+                    stats: ''
+                }));
+            }
+            setTimeout(function () {
+                rm.upload();
+            }, self.processDelay);
+            return self.$element;
+        },
+        pause: function () {
+            var self = this, rm = self.resumableManager, xhr = self.ajaxRequests, len = xhr.length, i,
+                pct = rm.getProgress(), actions = self.fileActionSettings;
+            if (!self.enableResumableUpload) {
+                return self.$element;
             }
             if (rm.chunkIntervalId) {
                 clearInterval(rm.chunkIntervalId);
@@ -5002,12 +5058,17 @@
                 }
             }
             if (self.showPreview) {
-                rm.$btnUpload.removeAttr('disabled');
                 self._getThumbs().each(function () {
-                    var $thumb = $(this), fileId = $thumb.attr('data-fileid');
+                    var $thumb = $(this), fileId = $thumb.attr('data-fileid'), t = self._getLayoutTemplate('stats'),
+                        stats, $indicator = $thumb.find('.file-upload-indicator');
                     $thumb.removeClass('file-uploading');
+                    if ($indicator.attr('title') === actions.indicatorLoadingTitle) {
+                        self._setThumbStatus($thumb, 'Paused');
+                        stats = t.setTokens({pendingTime: self.msgPaused, uploadSpeed: ''});
+                        self.paused = true;
+                        self._setProgress(pct, $thumb.find('.file-thumb-progress'), pct + '%', stats);
+                    }
                     if (!self.fileManager.getFile(fileId)) {
-                        $thumb.find('.kv-file-upload').removeClass('disabled').removeAttr('disabled');
                         $thumb.find('.kv-file-remove').removeClass('disabled').removeAttr('disabled');
                     }
                 });
@@ -5133,8 +5194,8 @@
             return self.$element;
         },
         upload: function () {
-            var self = this, fm = self.fileManager, totLen = fm.count(), i, outData, len, rm = self.resumableManager,
-                hasExtraData = !$.isEmptyObject(self._getExtraData()), $pr = self.$progress;
+            var self = this, fm = self.fileManager, totLen = fm.count(), i, outData,
+                hasExtraData = !$.isEmptyObject(self._getExtraData());
             if (!self.isAjaxUpload || self.isDisabled || !self._isFileSelectionValid(totLen)) {
                 return;
             }
@@ -5147,49 +5208,25 @@
             self.cancelling = false;
             self.$progress.show();
             self.lock();
-            len = fm.count();
             if (totLen === 0 && hasExtraData) {
                 self._setProgress(2);
                 self._uploadExtraOnly();
                 return;
             }
+            if (self.enableResumableUpload) {
+                return self.resume();
+            }
             if (self.uploadAsync || self.enableResumableUpload) {
                 outData = self._getOutData(null);
                 self._raise('filebatchpreupload', [outData]);
                 self.fileBatchCompleted = false;
-                self.uploadCache = {content: [], config: [], tags: [], append: true};
-                for (i = 0; i < len; i++) {
-                    self.uploadCache.content[i] = null;
-                    self.uploadCache.config[i] = null;
-                    self.uploadCache.tags[i] = null;
-                }
+                self.uploadCache = [];
+                $.each(self.getFileStack(), function (id) {
+                    var previewId = self._getThumbId(id);
+                    self.uploadCache.push({id: previewId, content: null, config: null, tags: null, append: true});
+                });
                 self.$preview.find('.file-preview-initial').removeClass($h.SORT_CSS);
                 self._initSortable();
-                self.cacheInitialPreview = self.getPreview();
-            }
-            if (self.enableResumableUpload) {
-                var flag = false;
-                if (self.paused) {
-                    $pr.html(self.progressPauseTemplate.setTokens({
-                        percent: 101,
-                        status: self.msgUploadResume,
-                        stats: ''
-                    }));
-                } else {
-                    flag = true;
-                }
-                self.paused = false;
-                if (flag) {
-                    $pr.html(self.progressInfoTemplate.setTokens({
-                        percent: 101,
-                        status: self.msgUploadBegin,
-                        stats: ''
-                    }));
-                }
-                setTimeout(function () {
-                    rm.upload();
-                }, self.processDelay);
-                return self.$element;
             }
             self._setProgress(2);
             self.hasInitData = false;
@@ -5314,6 +5351,7 @@
         showPause: null,
         showClose: true,
         showUploadedThumbs: true,
+        showConsoleLogs: true,
         browseOnZoneClick: false,
         autoReplace: false,
         autoOrientImage: function () { // applicable for JPEG images only and non ios safari
@@ -5403,16 +5441,17 @@
         uploadUrlThumb: null,
         uploadAsync: true,
         uploadParamNames: {
-            chunkIndex: 'chunkIndex',
             chunkCount: 'chunkCount',
+            chunkIndex: 'chunkIndex',
             chunkSize: 'chunkSize',
             chunkSizeStart: 'chunkSizeStart',
             chunksUploaded: 'chunksUploaded',
-            retryCount: 'retryCount',
+            fileBlob: 'fileBlob',
             fileId: 'fileId',
+            fileName: 'fileName',
             fileRelativePath: 'fileRelativePath',
             fileSize: 'fileSize',
-            fileName: 'fileName'
+            retryCount: 'retryCount'
         },
         maxAjaxThreads: 5,
         processDelay: 100,

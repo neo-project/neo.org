@@ -4,10 +4,9 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
- * Version: 5.0.5 (2019-05-09)
+ * Version: 5.0.16 (2019-09-24)
  */
-(function () {
-var visualchars = (function (domGlobals) {
+(function (domGlobals) {
     'use strict';
 
     var Cell = function (initial) {
@@ -43,36 +42,8 @@ var visualchars = (function (domGlobals) {
     };
     var Events = { fireVisualChars: fireVisualChars };
 
-    var charMap = {
-      '\xA0': 'nbsp',
-      '\xAD': 'shy'
+    var noop = function () {
     };
-    var charMapToRegExp = function (charMap, global) {
-      var key, regExp = '';
-      for (key in charMap) {
-        regExp += key;
-      }
-      return new RegExp('[' + regExp + ']', global ? 'g' : '');
-    };
-    var charMapToSelector = function (charMap) {
-      var key, selector = '';
-      for (key in charMap) {
-        if (selector) {
-          selector += ',';
-        }
-        selector += 'span.mce-' + charMap[key];
-      }
-      return selector;
-    };
-    var Data = {
-      charMap: charMap,
-      regExp: charMapToRegExp(charMap),
-      regExpGlobal: charMapToRegExp(charMap, true),
-      selector: charMapToSelector(charMap),
-      charMapToRegExp: charMapToRegExp,
-      charMapToSelector: charMapToSelector
-    };
-
     var constant = function (value) {
       return function () {
         return value;
@@ -81,8 +52,6 @@ var visualchars = (function (domGlobals) {
     var never = constant(false);
     var always = constant(true);
 
-    var never$1 = never;
-    var always$1 = always;
     var none = function () {
       return NONE;
     };
@@ -96,37 +65,27 @@ var visualchars = (function (domGlobals) {
       var id = function (n) {
         return n;
       };
-      var noop = function () {
-      };
-      var nul = function () {
-        return null;
-      };
-      var undef = function () {
-        return undefined;
-      };
       var me = {
         fold: function (n, s) {
           return n();
         },
-        is: never$1,
-        isSome: never$1,
-        isNone: always$1,
+        is: never,
+        isSome: never,
+        isNone: always,
         getOr: id,
         getOrThunk: call,
         getOrDie: function (msg) {
           throw new Error(msg || 'error: getOrDie called on none.');
         },
-        getOrNull: nul,
-        getOrUndefined: undef,
+        getOrNull: constant(null),
+        getOrUndefined: constant(undefined),
         or: id,
         orThunk: call,
         map: none,
-        ap: none,
         each: noop,
         bind: none,
-        flatten: none,
-        exists: never$1,
-        forall: always$1,
+        exists: never,
+        forall: always,
         filter: none,
         equals: eq,
         equals_: eq,
@@ -135,19 +94,15 @@ var visualchars = (function (domGlobals) {
         },
         toString: constant('none()')
       };
-      if (Object.freeze)
+      if (Object.freeze) {
         Object.freeze(me);
+      }
       return me;
     }();
     var some = function (a) {
-      var constant_a = function () {
-        return a;
-      };
+      var constant_a = constant(a);
       var self = function () {
         return me;
-      };
-      var map = function (f) {
-        return some(f(a));
       };
       var bind = function (f) {
         return f(a);
@@ -159,8 +114,8 @@ var visualchars = (function (domGlobals) {
         is: function (v) {
           return a === v;
         },
-        isSome: always$1,
-        isNone: never$1,
+        isSome: always,
+        isNone: never,
         getOr: constant_a,
         getOrThunk: constant_a,
         getOrDie: constant_a,
@@ -168,35 +123,31 @@ var visualchars = (function (domGlobals) {
         getOrUndefined: constant_a,
         or: self,
         orThunk: self,
-        map: map,
-        ap: function (optfab) {
-          return optfab.fold(none, function (fab) {
-            return some(fab(a));
-          });
+        map: function (f) {
+          return some(f(a));
         },
         each: function (f) {
           f(a);
         },
         bind: bind,
-        flatten: constant_a,
         exists: bind,
         forall: bind,
         filter: function (f) {
           return f(a) ? me : NONE;
-        },
-        equals: function (o) {
-          return o.is(a);
-        },
-        equals_: function (o, elementEq) {
-          return o.fold(never$1, function (b) {
-            return elementEq(a, b);
-          });
         },
         toArray: function () {
           return [a];
         },
         toString: function () {
           return 'some(' + a + ')';
+        },
+        equals: function (o) {
+          return o.is(a);
+        },
+        equals_: function (o, elementEq) {
+          return o.fold(never, function (b) {
+            return elementEq(a, b);
+          });
         }
       };
       return me;
@@ -211,13 +162,16 @@ var visualchars = (function (domGlobals) {
     };
 
     var typeOf = function (x) {
-      if (x === null)
+      if (x === null) {
         return 'null';
+      }
       var t = typeof x;
-      if (t === 'object' && Array.prototype.isPrototypeOf(x))
+      if (t === 'object' && (Array.prototype.isPrototypeOf(x) || x.constructor && x.constructor.name === 'Array')) {
         return 'array';
-      if (t === 'object' && String.prototype.isPrototypeOf(x))
+      }
+      if (t === 'object' && (String.prototype.isPrototypeOf(x) || x.constructor && x.constructor.name === 'String')) {
         return 'string';
+      }
       return t;
     };
     var isType = function (type) {
@@ -225,26 +179,144 @@ var visualchars = (function (domGlobals) {
         return typeOf(value) === type;
       };
     };
+    var isString = isType('string');
+    var isBoolean = isType('boolean');
     var isFunction = isType('function');
+    var isNumber = isType('number');
 
+    var nativeSlice = Array.prototype.slice;
     var map = function (xs, f) {
       var len = xs.length;
       var r = new Array(len);
       for (var i = 0; i < len; i++) {
         var x = xs[i];
-        r[i] = f(x, i, xs);
+        r[i] = f(x, i);
       }
       return r;
     };
     var each = function (xs, f) {
       for (var i = 0, len = xs.length; i < len; i++) {
         var x = xs[i];
-        f(x, i, xs);
+        f(x, i);
       }
     };
-    var slice = Array.prototype.slice;
+    var filter = function (xs, pred) {
+      var r = [];
+      for (var i = 0, len = xs.length; i < len; i++) {
+        var x = xs[i];
+        if (pred(x, i)) {
+          r.push(x);
+        }
+      }
+      return r;
+    };
     var from$1 = isFunction(Array.from) ? Array.from : function (x) {
-      return slice.call(x);
+      return nativeSlice.call(x);
+    };
+
+    var ATTRIBUTE = domGlobals.Node.ATTRIBUTE_NODE;
+    var CDATA_SECTION = domGlobals.Node.CDATA_SECTION_NODE;
+    var COMMENT = domGlobals.Node.COMMENT_NODE;
+    var DOCUMENT = domGlobals.Node.DOCUMENT_NODE;
+    var DOCUMENT_TYPE = domGlobals.Node.DOCUMENT_TYPE_NODE;
+    var DOCUMENT_FRAGMENT = domGlobals.Node.DOCUMENT_FRAGMENT_NODE;
+    var ELEMENT = domGlobals.Node.ELEMENT_NODE;
+    var TEXT = domGlobals.Node.TEXT_NODE;
+    var PROCESSING_INSTRUCTION = domGlobals.Node.PROCESSING_INSTRUCTION_NODE;
+    var ENTITY_REFERENCE = domGlobals.Node.ENTITY_REFERENCE_NODE;
+    var ENTITY = domGlobals.Node.ENTITY_NODE;
+    var NOTATION = domGlobals.Node.NOTATION_NODE;
+
+    var Global = typeof domGlobals.window !== 'undefined' ? domGlobals.window : Function('return this;')();
+
+    var type = function (element) {
+      return element.dom().nodeType;
+    };
+    var value = function (element) {
+      return element.dom().nodeValue;
+    };
+    var isType$1 = function (t) {
+      return function (element) {
+        return type(element) === t;
+      };
+    };
+    var isText = isType$1(TEXT);
+
+    var rawSet = function (dom, key, value) {
+      if (isString(value) || isBoolean(value) || isNumber(value)) {
+        dom.setAttribute(key, value + '');
+      } else {
+        domGlobals.console.error('Invalid call to Attr.set. Key ', key, ':: Value ', value, ':: Element ', dom);
+        throw new Error('Attribute value was not simple');
+      }
+    };
+    var set = function (element, key, value) {
+      rawSet(element.dom(), key, value);
+    };
+    var get$1 = function (element, key) {
+      var v = element.dom().getAttribute(key);
+      return v === null ? undefined : v;
+    };
+    var remove = function (element, key) {
+      element.dom().removeAttribute(key);
+    };
+
+    var read = function (element, attr) {
+      var value = get$1(element, attr);
+      return value === undefined || value === '' ? [] : value.split(' ');
+    };
+    var add = function (element, attr, id) {
+      var old = read(element, attr);
+      var nu = old.concat([id]);
+      set(element, attr, nu.join(' '));
+      return true;
+    };
+    var remove$1 = function (element, attr, id) {
+      var nu = filter(read(element, attr), function (v) {
+        return v !== id;
+      });
+      if (nu.length > 0) {
+        set(element, attr, nu.join(' '));
+      } else {
+        remove(element, attr);
+      }
+      return false;
+    };
+
+    var supports = function (element) {
+      return element.dom().classList !== undefined;
+    };
+    var get$2 = function (element) {
+      return read(element, 'class');
+    };
+    var add$1 = function (element, clazz) {
+      return add(element, 'class', clazz);
+    };
+    var remove$2 = function (element, clazz) {
+      return remove$1(element, 'class', clazz);
+    };
+
+    var add$2 = function (element, clazz) {
+      if (supports(element)) {
+        element.dom().classList.add(clazz);
+      } else {
+        add$1(element, clazz);
+      }
+    };
+    var cleanClass = function (element) {
+      var classList = supports(element) ? element.dom().classList : get$2(element);
+      if (classList.length === 0) {
+        remove(element, 'class');
+      }
+    };
+    var remove$3 = function (element, clazz) {
+      if (supports(element)) {
+        var classList = element.dom().classList;
+        classList.remove(clazz);
+      } else {
+        remove$2(element, clazz);
+      }
+      cleanClass(element);
     };
 
     var fromHtml = function (html, scope) {
@@ -285,31 +357,36 @@ var visualchars = (function (domGlobals) {
       fromPoint: fromPoint
     };
 
-    var ATTRIBUTE = domGlobals.Node.ATTRIBUTE_NODE;
-    var CDATA_SECTION = domGlobals.Node.CDATA_SECTION_NODE;
-    var COMMENT = domGlobals.Node.COMMENT_NODE;
-    var DOCUMENT = domGlobals.Node.DOCUMENT_NODE;
-    var DOCUMENT_TYPE = domGlobals.Node.DOCUMENT_TYPE_NODE;
-    var DOCUMENT_FRAGMENT = domGlobals.Node.DOCUMENT_FRAGMENT_NODE;
-    var ELEMENT = domGlobals.Node.ELEMENT_NODE;
-    var TEXT = domGlobals.Node.TEXT_NODE;
-    var PROCESSING_INSTRUCTION = domGlobals.Node.PROCESSING_INSTRUCTION_NODE;
-    var ENTITY_REFERENCE = domGlobals.Node.ENTITY_REFERENCE_NODE;
-    var ENTITY = domGlobals.Node.ENTITY_NODE;
-    var NOTATION = domGlobals.Node.NOTATION_NODE;
-
-    var type = function (element) {
-      return element.dom().nodeType;
+    var charMap = {
+      '\xA0': 'nbsp',
+      '\xAD': 'shy'
     };
-    var value = function (element) {
-      return element.dom().nodeValue;
+    var charMapToRegExp = function (charMap, global) {
+      var key, regExp = '';
+      for (key in charMap) {
+        regExp += key;
+      }
+      return new RegExp('[' + regExp + ']', global ? 'g' : '');
     };
-    var isType$1 = function (t) {
-      return function (element) {
-        return type(element) === t;
-      };
+    var charMapToSelector = function (charMap) {
+      var key, selector = '';
+      for (key in charMap) {
+        if (selector) {
+          selector += ',';
+        }
+        selector += 'span.mce-' + charMap[key];
+      }
+      return selector;
     };
-    var isText = isType$1(TEXT);
+    var Data = {
+      charMap: charMap,
+      regExp: charMapToRegExp(charMap),
+      regExpGlobal: charMapToRegExp(charMap, true),
+      selector: charMapToSelector(charMap),
+      nbspClass: 'mce-nbsp',
+      charMapToRegExp: charMapToRegExp,
+      charMapToSelector: charMapToSelector
+    };
 
     var wrapCharWithSpan = function (value) {
       return '<span data-mce-bogus="1" class="mce-' + Data.charMap[value] + '">' + value + '</span>';
@@ -349,22 +426,34 @@ var visualchars = (function (domGlobals) {
       replaceWithSpans: replaceWithSpans
     };
 
+    var isWrappedNbsp = function (node) {
+      return node.nodeName.toLowerCase() === 'span' && node.classList.contains('mce-nbsp-wrap');
+    };
     var show = function (editor, rootElm) {
-      var node, div;
       var nodeList = Nodes.filterDescendants(Element.fromDom(rootElm), Nodes.isMatch);
       each(nodeList, function (n) {
-        var withSpans = Nodes.replaceWithSpans(value(n));
-        div = editor.dom.create('div', null, withSpans);
-        while (node = div.lastChild) {
-          editor.dom.insertAfter(node, n.dom());
+        var parent = n.dom().parentNode;
+        if (isWrappedNbsp(parent)) {
+          add$2(Element.fromDom(parent), Data.nbspClass);
+        } else {
+          var withSpans = Nodes.replaceWithSpans(value(n));
+          var div = editor.dom.create('div', null, withSpans);
+          var node = void 0;
+          while (node = div.lastChild) {
+            editor.dom.insertAfter(node, n.dom());
+          }
+          editor.dom.remove(n.dom());
         }
-        editor.dom.remove(n.dom());
       });
     };
-    var hide = function (editor, body) {
-      var nodeList = editor.dom.select(Data.selector, body);
+    var hide = function (editor, rootElm) {
+      var nodeList = editor.dom.select(Data.selector, rootElm);
       each(nodeList, function (node) {
-        editor.dom.remove(node, 1);
+        if (isWrappedNbsp(node)) {
+          remove$3(Element.fromDom(node), Data.nbspClass);
+        } else {
+          editor.dom.remove(node, true);
+        }
       });
     };
     var toggle = function (editor) {
@@ -465,18 +554,17 @@ var visualchars = (function (domGlobals) {
       });
     };
 
-    global.add('visualchars', function (editor) {
-      var toggleState = Cell(false);
-      Commands.register(editor, toggleState);
-      register$1(editor, toggleState);
-      Keyboard.setup(editor, toggleState);
-      Bindings.setup(editor, toggleState);
-      return Api.get(toggleState);
-    });
     function Plugin () {
+      global.add('visualchars', function (editor) {
+        var toggleState = Cell(false);
+        Commands.register(editor, toggleState);
+        register$1(editor, toggleState);
+        Keyboard.setup(editor, toggleState);
+        Bindings.setup(editor, toggleState);
+        return Api.get(toggleState);
+      });
     }
 
-    return Plugin;
+    Plugin();
 
 }(window));
-})();

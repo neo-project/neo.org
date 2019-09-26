@@ -4,10 +4,9 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
- * Version: 5.0.5 (2019-05-09)
+ * Version: 5.0.16 (2019-09-24)
  */
-(function () {
-var imagetools = (function (domGlobals) {
+(function (domGlobals) {
     'use strict';
 
     var Cell = function (initial) {
@@ -32,14 +31,7 @@ var imagetools = (function (domGlobals) {
 
     var global$1 = tinymce.util.Tools.resolve('tinymce.util.Tools');
 
-    var compose = function (fa, fb) {
-      return function () {
-        var args = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-          args[_i] = arguments[_i];
-        }
-        return fa(fb.apply(null, args));
-      };
+    var noop = function () {
     };
     var constant = function (value) {
       return function () {
@@ -49,8 +41,6 @@ var imagetools = (function (domGlobals) {
     var never = constant(false);
     var always = constant(true);
 
-    var never$1 = never;
-    var always$1 = always;
     var none = function () {
       return NONE;
     };
@@ -64,37 +54,27 @@ var imagetools = (function (domGlobals) {
       var id = function (n) {
         return n;
       };
-      var noop = function () {
-      };
-      var nul = function () {
-        return null;
-      };
-      var undef = function () {
-        return undefined;
-      };
       var me = {
         fold: function (n, s) {
           return n();
         },
-        is: never$1,
-        isSome: never$1,
-        isNone: always$1,
+        is: never,
+        isSome: never,
+        isNone: always,
         getOr: id,
         getOrThunk: call,
         getOrDie: function (msg) {
           throw new Error(msg || 'error: getOrDie called on none.');
         },
-        getOrNull: nul,
-        getOrUndefined: undef,
+        getOrNull: constant(null),
+        getOrUndefined: constant(undefined),
         or: id,
         orThunk: call,
         map: none,
-        ap: none,
         each: noop,
         bind: none,
-        flatten: none,
-        exists: never$1,
-        forall: always$1,
+        exists: never,
+        forall: always,
         filter: none,
         equals: eq,
         equals_: eq,
@@ -103,19 +83,15 @@ var imagetools = (function (domGlobals) {
         },
         toString: constant('none()')
       };
-      if (Object.freeze)
+      if (Object.freeze) {
         Object.freeze(me);
+      }
       return me;
     }();
     var some = function (a) {
-      var constant_a = function () {
-        return a;
-      };
+      var constant_a = constant(a);
       var self = function () {
         return me;
-      };
-      var map = function (f) {
-        return some(f(a));
       };
       var bind = function (f) {
         return f(a);
@@ -127,8 +103,8 @@ var imagetools = (function (domGlobals) {
         is: function (v) {
           return a === v;
         },
-        isSome: always$1,
-        isNone: never$1,
+        isSome: always,
+        isNone: never,
         getOr: constant_a,
         getOrThunk: constant_a,
         getOrDie: constant_a,
@@ -136,35 +112,31 @@ var imagetools = (function (domGlobals) {
         getOrUndefined: constant_a,
         or: self,
         orThunk: self,
-        map: map,
-        ap: function (optfab) {
-          return optfab.fold(none, function (fab) {
-            return some(fab(a));
-          });
+        map: function (f) {
+          return some(f(a));
         },
         each: function (f) {
           f(a);
         },
         bind: bind,
-        flatten: constant_a,
         exists: bind,
         forall: bind,
         filter: function (f) {
           return f(a) ? me : NONE;
-        },
-        equals: function (o) {
-          return o.is(a);
-        },
-        equals_: function (o, elementEq) {
-          return o.fold(never$1, function (b) {
-            return elementEq(a, b);
-          });
         },
         toArray: function () {
           return [a];
         },
         toString: function () {
           return 'some(' + a + ')';
+        },
+        equals: function (o) {
+          return o.is(a);
+        },
+        equals_: function (o, elementEq) {
+          return o.fold(never, function (b) {
+            return elementEq(a, b);
+          });
         }
       };
       return me;
@@ -176,58 +148,6 @@ var imagetools = (function (domGlobals) {
       some: some,
       none: none,
       from: from
-    };
-
-    var Global = typeof domGlobals.window !== 'undefined' ? domGlobals.window : Function('return this;')();
-
-    var path = function (parts, scope) {
-      var o = scope !== undefined && scope !== null ? scope : Global;
-      for (var i = 0; i < parts.length && o !== undefined && o !== null; ++i)
-        o = o[parts[i]];
-      return o;
-    };
-    var resolve = function (p, scope) {
-      var parts = p.split('.');
-      return path(parts, scope);
-    };
-
-    var unsafe = function (name, scope) {
-      return resolve(name, scope);
-    };
-    var getOrDie = function (name, scope) {
-      var actual = unsafe(name, scope);
-      if (actual === undefined || actual === null)
-        throw name + ' not available on this browser';
-      return actual;
-    };
-    var Global$1 = { getOrDie: getOrDie };
-
-    function SandBlob (parts, properties) {
-      var f = Global$1.getOrDie('Blob');
-      return new f(parts, properties);
-    }
-
-    function FileReader () {
-      var f = Global$1.getOrDie('FileReader');
-      return new f();
-    }
-
-    function Uint8Array (arr) {
-      var f = Global$1.getOrDie('Uint8Array');
-      return new f(arr);
-    }
-
-    var requestAnimationFrame = function (callback) {
-      var f = Global$1.getOrDie('requestAnimationFrame');
-      f(callback);
-    };
-    var atob = function (base64) {
-      var f = Global$1.getOrDie('atob');
-      return f(base64);
-    };
-    var Window = {
-      atob: atob,
-      requestAnimationFrame: requestAnimationFrame
     };
 
     function create(width, height) {
@@ -497,7 +417,7 @@ var imagetools = (function (domGlobals) {
       var mimetype = matches[1];
       var base64 = data[1];
       var sliceSize = 1024;
-      var byteCharacters = Window.atob(base64);
+      var byteCharacters = domGlobals.atob(base64);
       var bytesLength = byteCharacters.length;
       var slicesCount = Math.ceil(bytesLength / sliceSize);
       var byteArrays = new Array(slicesCount);
@@ -508,9 +428,9 @@ var imagetools = (function (domGlobals) {
         for (var offset = begin, i = 0; offset < end; ++i, ++offset) {
           bytes[i] = byteCharacters[offset].charCodeAt(0);
         }
-        byteArrays[sliceIndex] = Uint8Array(bytes);
+        byteArrays[sliceIndex] = new Uint8Array(bytes);
       }
-      return Option.some(SandBlob(byteArrays, { type: mimetype }));
+      return Option.some(new domGlobals.Blob(byteArrays, { type: mimetype }));
     }
     function dataUriToBlob(uri) {
       return new Promise(function (resolve, reject) {
@@ -550,7 +470,7 @@ var imagetools = (function (domGlobals) {
     }
     function blobToDataUri(blob) {
       return new Promise(function (resolve) {
-        var reader = FileReader();
+        var reader = new domGlobals.FileReader();
         reader.onloadend = function () {
           resolve(reader.result);
         };
@@ -619,21 +539,6 @@ var imagetools = (function (domGlobals) {
         return create$1(Promise.resolve(canvas), blob, canvas.toDataURL());
       });
     }
-    function fromImage(image) {
-      return imageToBlob(image).then(function (blob) {
-        return fromBlob(blob);
-      });
-    }
-    var fromBlobAndUrlSync = function (blob, url) {
-      return create$1(blobToCanvas(blob), blob, url);
-    };
-
-    var ImageResult = /*#__PURE__*/Object.freeze({
-        fromBlob: fromBlob,
-        fromCanvas: fromCanvas,
-        fromImage: fromImage,
-        fromBlobAndUrlSync: fromBlobAndUrlSync
-    });
 
     function rotate(ir, angle) {
       return ir.toCanvas().then(function (canvas) {
@@ -689,20 +594,6 @@ var imagetools = (function (domGlobals) {
       return fromBlob(blob);
     };
 
-    var url = function () {
-      return Global$1.getOrDie('URL');
-    };
-    var createObjectURL = function (blob) {
-      return url().createObjectURL(blob);
-    };
-    var revokeObjectURL = function (u) {
-      url().revokeObjectURL(u);
-    };
-    var URL = {
-      createObjectURL: createObjectURL,
-      revokeObjectURL: revokeObjectURL
-    };
-
     var global$2 = tinymce.util.Tools.resolve('tinymce.util.Delay');
 
     var global$3 = tinymce.util.Tools.resolve('tinymce.util.Promise');
@@ -720,6 +611,9 @@ var imagetools = (function (domGlobals) {
     };
     var getCredentialsHosts = function (editor) {
       return editor.getParam('imagetools_credentials_hosts', [], 'string[]');
+    };
+    var getFetchImage = function (editor) {
+      return Option.from(editor.getParam('imagetools_fetch_image', null, 'function'));
     };
     var getApiKey = function (editor) {
       return editor.getParam('api_key', editor.getParam('imagetools_api_key', '', 'string'), 'string');
@@ -788,13 +682,16 @@ var imagetools = (function (domGlobals) {
     };
 
     var typeOf = function (x) {
-      if (x === null)
+      if (x === null) {
         return 'null';
+      }
       var t = typeof x;
-      if (t === 'object' && Array.prototype.isPrototypeOf(x))
+      if (t === 'object' && (Array.prototype.isPrototypeOf(x) || x.constructor && x.constructor.name === 'Array')) {
         return 'array';
-      if (t === 'object' && String.prototype.isPrototypeOf(x))
+      }
+      if (t === 'object' && (String.prototype.isPrototypeOf(x) || x.constructor && x.constructor.name === 'String')) {
         return 'string';
+      }
       return t;
     };
     var isType = function (type) {
@@ -804,24 +701,19 @@ var imagetools = (function (domGlobals) {
     };
     var isFunction = isType('function');
 
+    var nativeSlice = Array.prototype.slice;
     var find = function (xs, pred) {
       for (var i = 0, len = xs.length; i < len; i++) {
         var x = xs[i];
-        if (pred(x, i, xs)) {
+        if (pred(x, i)) {
           return Option.some(x);
         }
       }
       return Option.none();
     };
-    var slice = Array.prototype.slice;
     var from$1 = isFunction(Array.from) ? Array.from : function (x) {
-      return slice.call(x);
+      return nativeSlice.call(x);
     };
-
-    function XMLHttpRequest () {
-      var f = Global$1.getOrDie('XMLHttpRequest');
-      return new f();
-    }
 
     var isValue = function (obj) {
       return obj !== null && obj !== undefined;
@@ -836,7 +728,7 @@ var imagetools = (function (domGlobals) {
     var requestUrlAsBlob = function (url, headers, withCredentials) {
       return new global$3(function (resolve) {
         var xhr;
-        xhr = XMLHttpRequest();
+        xhr = new domGlobals.XMLHttpRequest();
         xhr.onreadystatechange = function () {
           if (xhr.readyState === 4) {
             resolve({
@@ -856,7 +748,7 @@ var imagetools = (function (domGlobals) {
     };
     var readBlob = function (blob) {
       return new global$3(function (resolve) {
-        var fr = FileReader();
+        var fr = new domGlobals.FileReader();
         fr.onload = function (e) {
           var data = e.target;
           resolve(data.result);
@@ -980,18 +872,14 @@ var imagetools = (function (domGlobals) {
       return apiKey ? requestServiceBlob(url, apiKey) : requestBlob(url, withCredentials);
     };
 
-    var node = function () {
-      var f = Global$1.getOrDie('Node');
-      return f;
-    };
     var compareDocumentPosition = function (a, b, match) {
       return (a.compareDocumentPosition(b) & match) !== 0;
     };
     var documentPositionPreceding = function (a, b) {
-      return compareDocumentPosition(a, b, node().DOCUMENT_POSITION_PRECEDING);
+      return compareDocumentPosition(a, b, domGlobals.Node.DOCUMENT_POSITION_PRECEDING);
     };
     var documentPositionContainedBy = function (a, b) {
-      return compareDocumentPosition(a, b, node().DOCUMENT_POSITION_CONTAINED_BY);
+      return compareDocumentPosition(a, b, domGlobals.Node.DOCUMENT_POSITION_CONTAINED_BY);
     };
     var Node = {
       documentPositionPreceding: documentPositionPreceding,
@@ -1017,18 +905,20 @@ var imagetools = (function (domGlobals) {
     var firstMatch = function (regexes, s) {
       for (var i = 0; i < regexes.length; i++) {
         var x = regexes[i];
-        if (x.test(s))
+        if (x.test(s)) {
           return x;
+        }
       }
       return undefined;
     };
     var find$1 = function (regexes, agent) {
       var r = firstMatch(regexes, agent);
-      if (!r)
+      if (!r) {
         return {
           major: 0,
           minor: 0
         };
+      }
       var group = function (i) {
         return Number(agent.replace(r, '$' + i));
       };
@@ -1036,8 +926,9 @@ var imagetools = (function (domGlobals) {
     };
     var detect = function (versionRegexes, agent) {
       var cleanedAgent = String(agent).toLowerCase();
-      if (versionRegexes.length === 0)
+      if (versionRegexes.length === 0) {
         return unknown();
+      }
       return find$1(versionRegexes, cleanedAgent);
     };
     var unknown = function () {
@@ -1207,8 +1098,7 @@ var imagetools = (function (domGlobals) {
         name: 'Edge',
         versionRegexes: [/.*?edge\/ ?([0-9]+)\.([0-9]+)$/],
         search: function (uastring) {
-          var monstrosity = contains(uastring, 'edge/') && contains(uastring, 'chrome') && contains(uastring, 'safari') && contains(uastring, 'applewebkit');
-          return monstrosity;
+          return contains(uastring, 'edge/') && contains(uastring, 'chrome') && contains(uastring, 'safari') && contains(uastring, 'applewebkit');
         }
       },
       {
@@ -1376,19 +1266,22 @@ var imagetools = (function (domGlobals) {
 
     var ELEMENT$1 = ELEMENT;
     var is = function (element, selector) {
-      var elem = element.dom();
-      if (elem.nodeType !== ELEMENT$1) {
+      var dom = element.dom();
+      if (dom.nodeType !== ELEMENT$1) {
         return false;
-      } else if (elem.matches !== undefined) {
-        return elem.matches(selector);
-      } else if (elem.msMatchesSelector !== undefined) {
-        return elem.msMatchesSelector(selector);
-      } else if (elem.webkitMatchesSelector !== undefined) {
-        return elem.webkitMatchesSelector(selector);
-      } else if (elem.mozMatchesSelector !== undefined) {
-        return elem.mozMatchesSelector(selector);
       } else {
-        throw new Error('Browser lacks native selectors');
+        var elem = dom;
+        if (elem.matches !== undefined) {
+          return elem.matches(selector);
+        } else if (elem.msMatchesSelector !== undefined) {
+          return elem.msMatchesSelector(selector);
+        } else if (elem.webkitMatchesSelector !== undefined) {
+          return elem.webkitMatchesSelector(selector);
+        } else if (elem.mozMatchesSelector !== undefined) {
+          return elem.mozMatchesSelector(selector);
+        } else {
+          throw new Error('Browser lacks native selectors');
+        }
       }
     };
 
@@ -1403,8 +1296,13 @@ var imagetools = (function (domGlobals) {
     var browser = PlatformDetection$1.detect().browser;
     var contains$1 = browser.isIE() ? ieContains : regularContains;
 
+    var Global = typeof domGlobals.window !== 'undefined' ? domGlobals.window : Function('return this;')();
+
     var child = function (scope, predicate) {
-      var result = find(scope.dom().childNodes, compose(predicate, Element.fromDom));
+      var pred = function (node) {
+        return predicate(Element.fromDom(node));
+      };
+      var result = find(scope.dom().childNodes, pred);
       return result.map(Element.fromDom);
     };
 
@@ -1470,7 +1368,7 @@ var imagetools = (function (domGlobals) {
     var isCorsWithCredentialsImage = function (editor, img) {
       return global$1.inArray(getCredentialsHosts(editor), new global$4(img.src).host) !== -1;
     };
-    var imageToBlob$2 = function (editor, img) {
+    var defaultFetchImage = function (editor, img) {
       var src = img.src, apiKey;
       if (isCorsImage(editor, img)) {
         return getUrl(img.src, null, isCorsWithCredentialsImage(editor, img));
@@ -1482,6 +1380,13 @@ var imagetools = (function (domGlobals) {
         return getUrl(src, apiKey, false);
       }
       return imageToBlob$1(img);
+    };
+    var imageToBlob$2 = function (editor, img) {
+      return getFetchImage(editor).fold(function () {
+        return defaultFetchImage(editor, img);
+      }, function (customFetchImage) {
+        return customFetchImage(img);
+      });
     };
     var findBlob = function (editor, img) {
       var blobInfo;
@@ -1594,7 +1499,7 @@ var imagetools = (function (domGlobals) {
               ImageSize.setImageSize(img, newSize);
             }
           }
-          URL.revokeObjectURL(newImage.src);
+          domGlobals.URL.revokeObjectURL(newImage.src);
           return blob;
         }).then(blobToImageResult).then(function (imageResult) {
           return updateSelectedImage(editor, imageResult, true, imageUploadTimerState, img);
@@ -1619,7 +1524,7 @@ var imagetools = (function (domGlobals) {
     var createState = function (blob) {
       return {
         blob: blob,
-        url: URL.createObjectURL(blob)
+        url: domGlobals.URL.createObjectURL(blob)
       };
     };
     var makeOpen = function (editor, imageUploadTimerState) {
@@ -1802,18 +1707,17 @@ var imagetools = (function (domGlobals) {
     };
     var ContextToolbar = { register: register$2 };
 
-    global.add('imagetools', function (editor) {
-      var imageUploadTimerState = Cell(0);
-      var lastSelectedImageState = Cell(null);
-      Commands.register(editor, imageUploadTimerState);
-      Buttons.register(editor);
-      ContextToolbar.register(editor);
-      UploadSelectedImage.setup(editor, imageUploadTimerState, lastSelectedImageState);
-    });
     function Plugin () {
+      global.add('imagetools', function (editor) {
+        var imageUploadTimerState = Cell(0);
+        var lastSelectedImageState = Cell(null);
+        Commands.register(editor, imageUploadTimerState);
+        Buttons.register(editor);
+        ContextToolbar.register(editor);
+        UploadSelectedImage.setup(editor, imageUploadTimerState, lastSelectedImageState);
+      });
     }
 
-    return Plugin;
+    Plugin();
 
 }(window));
-})();
