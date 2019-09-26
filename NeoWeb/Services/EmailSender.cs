@@ -13,18 +13,18 @@ namespace NeoWeb.Services
 {
     public class EmailSender : IEmailSender
     {
-        public AuthMessageSenderOptions SenderOptions { get; } // set only via Secret Manager
+        public AuthMessageSenderOptions Options { get; } // set only via Secret Manager
 
         public EmailSender(IOptions<AuthMessageSenderOptions> optionsAccessor)
         {
-            SenderOptions = optionsAccessor.Value;
+            Options = optionsAccessor.Value;
         }
 
         public Task SendEmailAsync(string email, string subject, string message)
         {
             using (MailMessage mail = new MailMessage
             {
-                From = new MailAddress(SenderOptions.FromAddress, SenderOptions.FromDisplayName),
+                From = new MailAddress(Options.FromAddress, Options.FromDisplayName),
                 Subject = subject,
                 BodyEncoding = Encoding.UTF8,
                 Body = message,
@@ -32,12 +32,12 @@ namespace NeoWeb.Services
             })
             {
                 mail.To.Add(email);
-                using (SmtpClient smtp = new SmtpClient(SenderOptions.Host, SenderOptions.Port)
+                using (SmtpClient smtp = new SmtpClient(Options.Host, Options.Port)
                 {
                     EnableSsl = true,
                     UseDefaultCredentials = true,
                     DeliveryMethod = SmtpDeliveryMethod.Network,
-                    Credentials = new System.Net.NetworkCredential(SenderOptions.EmailUserName, SenderOptions.EmailPassword)
+                    Credentials = new System.Net.NetworkCredential(Options.EmailUserName, Options.EmailPassword)
                 })
                 {
                     smtp.Send(mail);

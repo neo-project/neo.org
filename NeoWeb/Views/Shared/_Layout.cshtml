@@ -1,10 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
-@using Microsoft.ApplicationInsights.AspNetCore
 
-@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
-@inject JavaScriptSnippet snippet
 <!DOCTYPE html>
 <!--
  ___     __     __ __ ___     __ ___ __
@@ -58,7 +55,6 @@ https://github.com/neo-project/neo.org
     <environment exclude="Development">
         <link href="@Helper.ToCDN("/lib/bootstrap/css/bootstrap.min.css")" rel="stylesheet" />
         <link href="@Helper.ToCDN("/css/site.min.css", true)" rel="stylesheet" />
-        @Html.Raw(JavaScriptSnippet.FullScript)
     </environment>
     @RenderSection("Styles", required: false)
     @if (SharedLocalizer["en"].Value == "zh")
@@ -213,7 +209,6 @@ https://github.com/neo-project/neo.org
     </environment>
     <environment exclude="Development">
         <script src="@Helper.ToCDN("/js/site.min.js", true)"></script>
-        @Html.Raw(snippet.FullScript)
     </environment>
 
     @RenderSection("Scripts", required: false)
