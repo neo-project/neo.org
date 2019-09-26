@@ -66,5 +66,9 @@
   {
     "outputFile": "wwwroot/css/layout.css",
     "inputFile": "wwwroot/css/layout.less"
+  },
+  {
+    "outputFile": "wwwroot/css/about.css",
+    "inputFile": "wwwroot/css/about.less"
   }
 ]
