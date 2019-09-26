@@ -187,10 +187,10 @@
                 {{if Social}}
                 {{each Social value}}
 
-                {{if value.name == "twitter"}}<a href={{value.link}} title={{value.name}} class="iconfont">&#xe607;</a>{{/if}}
-                {{if value.name == "facebook"}}<a href={{value.link}} title={{value.name}} class="iconfont">&#xe616;</a>{{/if}}
-                {{if value.name == "weibo"}}<a href={{value.link}} title={{value.name}} class="iconfont">&#xe60e;</a>{{/if}}
-                {{if value.name == "github"}}<a href={{value.link}} title={{value.name}} class="iconfont">&#xe609;</a>{{/if}}
+                {{if value.name == "twitter"}}<a target="_blank" href={{value.link}} title={{value.name}} class="iconfont">&#xe607;</a>{{/if}}
+                {{if value.name == "facebook"}}<a target="_blank" href={{value.link}} title={{value.name}} class="iconfont">&#xe616;</a>{{/if}}
+                {{if value.name == "weibo"}}<a target="_blank" href={{value.link}} title={{value.name}} class="iconfont">&#xe60e;</a>{{/if}}
+                {{if value.name == "github"}}<a target="_blank" href={{value.link}} title={{value.name}} class="iconfont">&#xe609;</a>{{/if}}
 
                 {{/each}}
                 {{/if}}
