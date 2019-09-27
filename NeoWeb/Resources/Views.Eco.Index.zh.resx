@@ -117,14 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="11 developer communities globally to support Neo infrastructure building and lower the entry barrier for Neo development.&lt;br /&gt;Key market influencer with more than 1 million followers over international social media channels.&lt;br /&gt;More than 2 million registered wallet addresses, ensuring the great liquidity for the NEO token." xml:space="preserve">
+    <value>Neo 在全球有 11 个开发者社区，为 Neo 提供基础设施建设，并降低开发门槛。&lt;br /&gt;Neo 在全球社区成员超过百万，具有广泛的影响力。&lt;br /&gt;同时，Neo 的钱包注册地址已超过 200 万，为 NEO 通证提供极强的流动性支持。</value>
+  </data>
   <data name="20&lt;span&gt;cities&lt;/span&gt;" xml:space="preserve">
     <value>20 个城市</value>
   </data>
   <data name="30 +&lt;span&gt;Wallets support&lt;/span&gt;" xml:space="preserve">
     <value>30+ 钱包支持</value>
-  </data>
-  <data name="5 full-time developer communities globally to support Neo infrastructure building and lower the entry barrier for Neo development.&lt;br /&gt;Key market influencer with more than 1 million followers over international social media channels.&lt;br /&gt;More than 2 million registered wallet addresses, ensuring the great liquidity for the NEO token." xml:space="preserve">
-    <value>Neo 在全球有 11 个开发者社区，为 Neo 提供基础设施建设，并降低开发门槛。&lt;br /&gt;Neo 在全球社区成员超过百万，具有广泛的影响力。&lt;br /&gt;同时，Neo 的钱包注册地址已超过 200 万，为 NEO 通证提供极强的流动性支持。</value>
   </data>
   <data name="7&lt;span&gt;countries&lt;/span&gt;" xml:space="preserve">
     <value>7 个国家</value>
@@ -134,6 +134,9 @@
   </data>
   <data name="Developer Tool" xml:space="preserve">
     <value>开发者工具</value>
+  </data>
+  <data name="EcoBoost Partners" xml:space="preserve">
+    <value>EcoBoost 伙伴</value>
   </data>
   <data name="Experience the smart economy of the future today! Download your wallet of choice for any device and any OS, and get started transfering and transacting with NEO assets!" xml:space="preserve">
     <value>无论你使用任何设备与平台，都能在这里找到适合的选择。</value>
@@ -150,23 +153,20 @@
   <data name="Have a cool idea in mind? We’re dedicated to bringing your ideas to life by offering the most comprehensive and developer-friendly toolkit, from smart contract development to dApp integration. Start building with us today to bring your vision of the future to life!" xml:space="preserve">
     <value>只要你有有趣的想法，我们就能帮你实现。从多语言智能合约开发到 dApp 集成，我们提供对开发人员最友好的全套工具包。</value>
   </data>
+  <data name="Join EcoBoost program and power up for success" xml:space="preserve">
+    <value>邀您加入 EcoBoost 计划</value>
+  </data>
   <data name="Learn more" xml:space="preserve">
     <value>了解更多</value>
   </data>
-  <data name="Neo EcoBoost Partners" xml:space="preserve">
-    <value>Neo EcoBoost 伙伴</value>
-  </data>
   <data name="Neo is investing USD100 million through its EcoBoost initiative to accelerate the realization of large-scale commercial blockchain solutions by empowering our developers and projects." xml:space="preserve">
-    <value>Neo 斥资 1 亿美元打造的 Neo EcoBoost 计划，将对生态内的开发者与项目方进行激励与扶持，旨在加速区块链应用的大规模商用落地进程。</value>
+    <value>Neo 斥资 1 亿美元打造的 EcoBoost 计划，将对生态内的开发者与项目方进行激励与扶持，旨在加速区块链应用的大规模商用落地进程。</value>
   </data>
   <data name="Neo Protocol" xml:space="preserve">
     <value>Neo 协议</value>
   </data>
   <data name="Neo&lt;br /&gt;Ecosystem" xml:space="preserve">
     <value>Neo&lt;br /&gt;生态</value>
-  </data>
-  <data name="Partner with us and power up for success" xml:space="preserve">
-    <value>与我们携手为成功加速</value>
   </data>
   <data name="The blockchain of choice for developers, Neo’s powerful infrastructure is powering 100-plus dApps along with thousands of contracts with the aim of delivering real-use cases for digital asset." xml:space="preserve">
     <value>凭借着强大的智能合约体系，Neo 深受开发者与项目方欢迎。目前已有超过 100 个基于 Neo 的 dApp 成功发布，链上运行着数百个智能合约，管理数字资产，并为其创造使用场景。</value>

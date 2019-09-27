@@ -156,10 +156,10 @@
   <data name="Media" xml:space="preserve">
     <value>媒体</value>
   </data>
-  <data name="Neo EcoBoost Partners" xml:space="preserve">
+  <data name="EcoBoost Partners" xml:space="preserve">
     <value>EcoBoost 伙伴</value>
   </data>
-  <data name="Neo EcoBoost program is created to stimulate and support developers and project participants in the Neo ecosystem. In this process, multiple resources will be combined to provide full life cycle funding, technology, community and marketing support for EcoBoost projects." xml:space="preserve">
+  <data name="EcoBoost program is created to stimulate and support developers and project participants in the Neo ecosystem. In this process, multiple resources will be combined to provide full life cycle funding, technology, community and marketing support for EcoBoost projects." xml:space="preserve">
     <value>EcoBoost 计划的创建旨在激励和支持 Neo 生态中的开发者与项目方。在此过程中，该计划将结合多种资源，为 EcoBoost 项目提供全生命周期的资金、技术、社区和营销支持</value>
   </data>
   <data name="Other institutions" xml:space="preserve">
@@ -186,7 +186,7 @@
   <data name="Wallets" xml:space="preserve">
     <value>钱包</value>
   </data>
-  <data name="Working closely with our EcoBoost partners, Neo EcoBoost will provide full lifecycle support for EcoBoost projects. Please tell us how you'd like to cooperate with us and we will evaluate your project as soon as possible." xml:space="preserve">
+  <data name="Working closely with our EcoBoost partners, EcoBoost will provide full lifecycle support for EcoBoost projects. Please tell us how you'd like to cooperate with us and we will evaluate your project as soon as possible." xml:space="preserve">
     <value>协同众多 EcoBoost 伙伴，Neo 将为 EcoBoost 项目方提供全生命周期支持。</value>
   </data>
 </root>
