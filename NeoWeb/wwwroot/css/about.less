@@ -1,4 +1,6 @@
-﻿.layout-container {
+﻿@import 'basic.less';
+
+.layout-container {
     max-width: none;
     padding: 0;
     margin: 0;
@@ -16,15 +18,22 @@
         z-index: 5;
 
         &.l {
-            background-image: url(/images/about/l-linear.svg);
-            background-image: url(/images/about/l-linear.png);
+            background-image: linear-gradient(90deg,@gray3,transparent);
             left: 0;
         }
 
         &.r {
-            background-image: url(/images/about/r-linear.svg);
-            background-image: url(/images/about/r-linear.png);
+            background-image: linear-gradient(90deg,transparent,@gray3);
             right: 0;
         }
+
+
+        @media only screen and (max-width: 768px) {
+            background:none;
+        }
+    }
+
+    img{
+        min-height:180px;
     }
 }
