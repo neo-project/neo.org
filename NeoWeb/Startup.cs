@@ -44,6 +44,7 @@ namespace NeoWeb
             services.AddLocalization(options => options.ResourcesPath = "Resources");
                 
             services.AddControllersWithViews()
+                .AddRazorRuntimeCompilation()
                 .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
                 .AddDataAnnotationsLocalization();
             services.AddRazorPages();
