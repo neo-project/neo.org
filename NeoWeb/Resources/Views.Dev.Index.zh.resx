@@ -147,6 +147,9 @@
   <data name="Components" xml:space="preserve">
     <value>组件</value>
   </data>
+  <data name="Contact Us" xml:space="preserve">
+    <value>联系我们</value>
+  </data>
   <data name="Contribute to the fundamental facilities on the Neo blockchain" xml:space="preserve">
     <value>一同完善 Neo 区块链底层设施</value>
   </data>
@@ -259,7 +262,7 @@
     <value>网页版 IDE</value>
   </data>
   <data name="What you can develop on Neo" xml:space="preserve">
-    <value>Neo 能做什么</value>
+    <value>欢迎来 Neo 开发</value>
   </data>
   <data name="Why you should develop on Neo" xml:space="preserve">
     <value>为什么选择 Neo</value>

@@ -22,10 +22,10 @@ namespace NeoWeb.Controllers
         private readonly ApplicationDbContext _context;
         private readonly string _userId;
         private readonly bool _userRules;
-        private readonly IHostingEnvironment _env;
+        private readonly IWebHostEnvironment _env;
         private readonly IStringLocalizer<SharedResource> _sharedLocalizer;
 
-        public EventController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IHostingEnvironment env, 
+        public EventController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IWebHostEnvironment env, 
              IStringLocalizer<SharedResource> sharedLocalizer)
         {
             _context = context;

@@ -1,10 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
-@using Microsoft.ApplicationInsights.AspNetCore
 
-@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
-@inject JavaScriptSnippet snippet
 <!DOCTYPE html>
 <!--
  ___     __     __ __ ___     __ ___ __
@@ -46,10 +43,14 @@ https://github.com/neo-project/neo.org
     <meta name="twitter:description" content="@details" />
     <meta name="twitter:image" content="@image" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link type="image/x-icon" href="@Helper.ToCDN("/images/favicon.png")" rel="apple-touch-icon">
-    <link type="image/x-icon" href="@Helper.ToCDN("/images/favicon.png")" rel="shortcut icon">
-    <link type="image/x-icon" href="@Helper.ToCDN("/images/favicon.png")" rel="icon">
-    <link type="image/x-icon" href="@Helper.ToCDN("/images/favicon.png")" rel="bookmark" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
 
     <environment include="Development">
         <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" asp-append-version="true" />
@@ -58,7 +59,6 @@ https://github.com/neo-project/neo.org
     <environment exclude="Development">
         <link href="@Helper.ToCDN("/lib/bootstrap/css/bootstrap.min.css")" rel="stylesheet" />
         <link href="@Helper.ToCDN("/css/site.min.css", true)" rel="stylesheet" />
-        @Html.Raw(JavaScriptSnippet.FullScript)
     </environment>
     @RenderSection("Styles", required: false)
     @if (SharedLocalizer["en"].Value == "zh")
@@ -111,7 +111,6 @@ https://github.com/neo-project/neo.org
     <div class="b2 footer-fo text-center p2">
         <div class="container">
             <h2>@Localizer["Follow Us"]</h2>
-            <h4 class="mt6 w600">@Localizer["Stay tuned for our latest updates from Neo"]</h4>
             <ul class="mt4">
                 <li><a target="_blank" title="GitHub" href="https://github.com/neo-project" class="iconfont">&#xe609;</a></li>
                 <li><a target="_blank" title="Twitter" href="https://twitter.com/neo_blockchain" class="iconfont">&#xe607;</a></li>
@@ -213,7 +212,6 @@ https://github.com/neo-project/neo.org
     </environment>
     <environment exclude="Development">
         <script src="@Helper.ToCDN("/js/site.min.js", true)"></script>
-        @Html.Raw(snippet.FullScript)
     </environment>
 
     @RenderSection("Scripts", required: false)

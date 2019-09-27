@@ -71,12 +71,6 @@ ul, li {
     }
 }
 
-.preview-div {
-    margin: 32px 0;
-    h3{
-        display: inline-block;
-    }
-}
 
 
 
@@ -96,6 +90,10 @@ ul, li {
         img {
             width: 128px;
             margin: 0 32px 32px 0;
+
+            @media only screen and (max-width: 768px) {
+                width: 93px;
+            }
         }
     }
 
@@ -159,6 +157,26 @@ ul, li {
         color: @dark-text !important;
     }
 
+    .preview-div {
+        margin: 32px 0;
+
+        h3 {
+            display: inline-block;
+
+            @media only screen and (max-width: 768px) {
+                display: block;
+            }
+        }
+    }
+
+    .platform {
+        color: #888;
+
+        @media only screen and (max-width: 768px) {
+            display: block;
+        }
+    }
+
     .plat-btn {
         display: inline-block;
         text-align: center;
@@ -171,6 +189,10 @@ ul, li {
         color: @text;
         font-weight: bold;
         font-size: 12.8px;
+
+        @media only screen and (max-width: 768px) {
+            width: 70px;
+        }
 
         &.active {
             border: solid 1px @green;

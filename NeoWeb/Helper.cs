@@ -95,7 +95,7 @@ namespace NeoWeb
             return ReturnString;
         }
 
-        public static string UploadMedia(IFormFile cover, IHostingEnvironment env, int? maxWidth = null)
+        public static string UploadMedia(IFormFile cover, IWebHostEnvironment env, int? maxWidth = null)
         {
             if (cover.Length > 1024 * 1024 * 25 || // 25Mb
                 !new string[]
@@ -116,36 +116,30 @@ namespace NeoWeb
             var filePath = Path.Combine(env.ContentRootPath, "wwwroot/upload", newName);
             if (cover.Length > 0)
             {
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    cover.CopyTo(stream);
-                }
+                using var stream = new FileStream(filePath, FileMode.Create);
+                cover.CopyTo(stream);
             }
             if (maxWidth != null)
             {
                 Task.Run(() =>
                 {
-                    using (var image = Image.Load(filePath))
+                    using var image = Image.Load(filePath);
+                    image.Mutate(x => x.Resize(new ResizeOptions
                     {
-                        image.Mutate(x => x.Resize(new ResizeOptions
-                        {
-                            Size = new Size((int)maxWidth, (int)maxWidth * image.Height / image.Width),
-                            Mode = ResizeMode.Max
-                        }));
-                        image.Save(filePath);
-                    }
+                        Size = new Size((int)maxWidth, (int)maxWidth * image.Height / image.Width),
+                        Mode = ResizeMode.Max
+                    }));
+                    image.Save(filePath);
                 });
             }
             return newName;
         }
 
-        public static bool ValidateCover(IHostingEnvironment env, string fileName)
+        public static bool ValidateCover(IWebHostEnvironment env, string fileName)
         {
             var filePath = Path.Combine(env.ContentRootPath, "wwwroot/upload", fileName);
-            using (var image = Image.Load(filePath))
-            {
-                return Math.Abs(image.Height - image.Width / 16 * 9) < 1;
-            }
+            using var image = Image.Load(filePath);
+            return Math.Abs(image.Height - image.Width / 16 * 9) < 1;
         }
 
         public static bool Contains(this string source, string toCheck, StringComparison comp)
@@ -182,10 +176,8 @@ namespace NeoWeb
 
         public static string Sha256(this string input)
         {
-            using (SHA256 obj = SHA256.Create())
-            {
-                return BitConverter.ToString(obj.ComputeHash(Encoding.UTF8.GetBytes(input))).Replace("-", "");
-            }
+            using SHA256 obj = SHA256.Create();
+            return BitConverter.ToString(obj.ComputeHash(Encoding.UTF8.GetBytes(input))).Replace("-", "");
         }
 
         class IPItem
@@ -266,7 +258,7 @@ namespace NeoWeb
             {
                 throw new ArgumentException();
             }
-            using (var ecdsa = ECDsa.Create(new ECParameters
+            using var ecdsa = ECDsa.Create(new ECParameters
             {
                 Curve = ECCurve.NamedCurves.nistP256,
                 Q = new ECPoint
@@ -274,10 +266,8 @@ namespace NeoWeb
                     X = pubkey.Take(32).ToArray(),
                     Y = pubkey.Skip(32).ToArray()
                 }
-            }))
-            {
-                return ecdsa.VerifyData(message, signature, HashAlgorithmName.SHA256);
-            }
+            });
+            return ecdsa.VerifyData(message, signature, HashAlgorithmName.SHA256);
         }
 
         /// <summary>

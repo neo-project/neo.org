@@ -1,13 +1,5 @@
 ﻿[
   {
-    "outputFile": "wwwroot/css/site.css",
-    "inputFile": "wwwroot/css/site.less"
-  },
-  {
-    "outputFile": "wwwroot/css/careers.css",
-    "inputFile": "wwwroot/css/careers.less"
-  },
-  {
     "outputFile": "wwwroot/css/client.css",
     "inputFile": "wwwroot/css/client.less"
   },
@@ -20,16 +12,28 @@
     "inputFile": "wwwroot/css/dev.less"
   },
   {
+    "outputFile": "wwwroot/css/discover.css",
+    "inputFile": "wwwroot/css/discover.less"
+  },
+  {
     "outputFile": "wwwroot/css/eco.css",
     "inputFile": "wwwroot/css/eco.less"
+  },
+  {
+    "outputFile": "wwwroot/css/editor.css",
+    "inputFile": "wwwroot/css/editor.less"
   },
   {
     "outputFile": "wwwroot/css/homepage.css",
     "inputFile": "wwwroot/css/homepage.less"
   },
   {
-    "outputFile": "wwwroot/css/logo.css",
-    "inputFile": "wwwroot/css/logo.less"
+    "outputFile": "wwwroot/css/site.css",
+    "inputFile": "wwwroot/css/site.less"
+  },
+  {
+    "outputFile": "wwwroot/css/sitecn.css",
+    "inputFile": "wwwroot/css/sitecn.less"
   },
   {
     "outputFile": "wwwroot/css/team.css",
@@ -42,33 +46,5 @@
   {
     "outputFile": "wwwroot/css/testnet-list.css",
     "inputFile": "wwwroot/css/testnet-list.less"
-  },
-  {
-    "outputFile": "wwwroot/css/bounty.css",
-    "inputFile": "wwwroot/css/bounty.less"
-  },
-  {
-    "outputFile": "wwwroot/css/bootstrap-xxl.css",
-    "inputFile": "wwwroot/css/bootstrap-xxl.less"
-  },
-  {
-    "outputFile": "wwwroot/css/discover.css",
-    "inputFile": "wwwroot/css/discover.less"
-  },
-  {
-    "outputFile": "wwwroot/css/editor.css",
-    "inputFile": "wwwroot/css/editor.less"
-  },
-  {
-    "outputFile": "wwwroot/css/sitecn.css",
-    "inputFile": "wwwroot/css/sitecn.less"
-  },
-  {
-    "outputFile": "wwwroot/css/layout.css",
-    "inputFile": "wwwroot/css/layout.less"
-  },
-  {
-    "outputFile": "wwwroot/css/about.css",
-    "inputFile": "wwwroot/css/about.less"
   }
 ]

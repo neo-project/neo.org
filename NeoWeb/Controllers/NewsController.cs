@@ -18,9 +18,9 @@ namespace NeoWeb.Controllers
     public class NewsController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly IHostingEnvironment _env;
+        private readonly IWebHostEnvironment _env;
 
-        public NewsController(ApplicationDbContext context, IHostingEnvironment env)
+        public NewsController(ApplicationDbContext context, IWebHostEnvironment env)
         {
             _context = context;
             _env = env;

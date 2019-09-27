@@ -17,13 +17,11 @@ namespace NeoWeb.Controllers
     public class HomeController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly IStringLocalizer<HomeController> _localizer;
         private readonly IStringLocalizer<SharedResource> _sharedLocalizer;
 
-        public HomeController(ApplicationDbContext context, IStringLocalizer<HomeController> localizer, IStringLocalizer<SharedResource> sharedLocalizer)
+        public HomeController(ApplicationDbContext context, IStringLocalizer<SharedResource> sharedLocalizer)
         {
             _context = context;
-            _localizer = localizer;
             _sharedLocalizer = sharedLocalizer;
         }
 

@@ -34,22 +34,15 @@
       ]
     },
     {
-      "library": "wow@1.1.2",
-      "destination": "wwwroot/lib/wow/",
-      "files": [
-        "wow.min.js"
-      ]
-    },
-    {
       "library": "animate.css@3.7.2",
       "destination": "wwwroot/lib/animate.css/"
     },
     {
-      "library": "tinymce@5.0.12",
+      "library": "tinymce@5.0.16",
       "destination": "wwwroot/lib/tinymce/"
     },
     {
-      "library": "bootstrap-fileinput@5.0.4",
+      "library": "bootstrap-fileinput@5.0.6",
       "destination": "wwwroot/lib/bootstrap-fileinput/",
       "files": [
         "css/fileinput-rtl.css",
