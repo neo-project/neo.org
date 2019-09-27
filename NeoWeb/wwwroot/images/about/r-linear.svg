@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.6, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 100 1" style="enable-background:new 0 0 100 1;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#SVGID_1_);}
+	.st1{opacity:3.000000e-02;fill:url(#SVGID_2_);enable-background:new    ;}
+</style>
+<title>retrospect gradient</title>
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-1330.399" y1="768.4738" x2="-1210.399" y2="768.4738" gradientTransform="matrix(-1 0 0 1 -1214 -768)">
+	<stop  offset="0.42" style="stop-color:#F9FAFA;stop-opacity:0"/>
+	<stop  offset="1" style="stop-color:#F9FAFA"/>
+</linearGradient>
+<rect x="-3.6" y="-1.5" class="st0" width="120" height="4"/>
+<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="-1330.399" y1="768.4862" x2="-1210.399" y2="768.4862" gradientTransform="matrix(-1 0 0 1 -1214 -768)">
+	<stop  offset="0.4" style="stop-color:#2B393F;stop-opacity:0"/>
+	<stop  offset="1" style="stop-color:#2B393F"/>
+</linearGradient>
+<rect x="-3.6" y="-1.5" class="st1" width="120" height="4"/>
+</svg>

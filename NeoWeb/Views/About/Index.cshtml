@@ -5,13 +5,12 @@
     ViewData["Title"] = Localizer["About"].Value;
 }
 @section Styles{
-    <style>
-        .layout-container {
-            max-width: none;
-            padding: 0;
-            margin: 0;
-        }
-    </style>
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/about.min.css" asp-append-version="true" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="@Helper.ToCDN("/css/about.min.css", true)" />
+    </environment>
 }
 <div class="p1 bg3">
     <h1 class="w800">@Localizer["An Open Network for Smart Economy"]</h1>
@@ -87,6 +86,8 @@
         <h2>@Localizer["Neo in Retrospect"]</h2>
     </div>
     <div class="roadmap mt3">
+        <div class="linear l"></div>
+        <div class="linear r"></div>
         @if (SharedLocalizer["en"].Value == "zh")
         {
             <img class="d-none d-md-block" src="@Helper.ToCDN("/images/about/retrospect-dt-chinese.svg")" />
