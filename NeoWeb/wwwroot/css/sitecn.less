@@ -8,11 +8,15 @@
 @green: #00af92;
 @green2: #02e49b;
 
+@font-family-zh: "SF Pro SC","SF Pro Text","SF Pro Icons","PingFang SC",'Segoe UI',SegoeUI,"Microsoft YaHei","微软雅黑","Helvetica Neue","Helvetica","Arial",sans-serif;
+@letter-spacing: .04em;
+@line-height: 1.5;
+
 html, body {
     font-size: 14px !important;
-    font-family: "SF Pro SC","SF Pro Text","SF Pro Icons","PingFang SC",'Segoe UI',SegoeUI,"Microsoft YaHei","微软雅黑","Helvetica Neue","Helvetica","Arial",sans-serif;
-    letter-spacing: .3px;
-    line-height: 1.6;
+    font-family: @font-family-zh;
+    letter-spacing: @letter-spacing;
+    line-height: @line-height;
 
     @media only screen and (max-width: 768px) {
         font-size: 12px;
@@ -21,94 +25,78 @@ html, body {
 
 /*字体*/
 .font-family {
-    font-family: PingFangSC,"Microsoft YaHei";
+    font-family: @font-family-zh;
 }
 
 .font-family-bold {
-    font-family: PingFangSC,"Microsoft YaHei";
+    font-family: @font-family-zh;
     font-weight: bolder;
 }
 
 
 
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, p{
-    margin-bottom:0px;
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, p {
+    letter-spacing: @letter-spacing;
+    line-height: @line-height;
 }
 h1, .h1 {
     .font-family-bold;
     font-size: @t1;
-    letter-spacing: .2px;
 
     @media only screen and (max-width: 768px) {
         font-size: @t2;
-        letter-spacing: .5px;
     }
 }
 
 h2, .h2 {
     .font-family-bold;
     font-size: @t2;
-    letter-spacing: .2px;
 
     @media only screen and (max-width: 768px) {
         font-size: @t3;
-        letter-spacing: .4px;
     }
 }
 
 h3, .h3 {
     .font-family-bold;
     font-size: @t3;
-    letter-spacing: .2px;
 
     @media only screen and (max-width: 768px) {
         font-size: @t5;
-        letter-spacing: .5px;
     }
 }
 
 h4, .h4 {
     .font-family-bold;
     font-size: @t4;
-    letter-spacing: .2px;
 
     @media only screen and (max-width: 768px) {
         font-size: @t5;
-        letter-spacing: .6px;
-        line-height: 26px;
     }
 }
 
 h5, .h5 {
     .font-family;
     font-size: @t4;
-    letter-spacing: .2px;
     font-weight: 300;
 
     @media only screen and (max-width: 768px) {
         font-size: @t5;
-        letter-spacing: .2px;
-        line-height: 26px;
     }
 }
 
 h6, .h6 {
     .font-family-bold;
     font-size: @t5;
-    letter-spacing: 0.5px;
-    line-height: 1.5;
 
     @media only screen and (max-width: 768px) {
         font-size: @t5;
-        letter-spacing: .2px;
-        line-height: 23px;
     }
 }
 
 .font1 {
     .font-family;
     font-size: 1rem;
-    letter-spacing: 0;
     font-weight: 300;
 }
 
@@ -125,18 +113,15 @@ h6, .h6 {
 /*字体*/
 .bold {
     font-weight: 600;
-    letter-spacing: .2px;
 }
 
 .bolder {
     .font-family-bold;
-    letter-spacing: .2px;
 }
 
 .lighter {
     .font-family;
     font-weight: lighter;
-    letter-spacing: .1px;
 }
 .iconfont{
     font-size:17px;
@@ -147,7 +132,6 @@ h6, .h6 {
     div[class|=col],> li {
         .list-title {
             .h4;
-            line-height: 1.2;
         }
 
         a {
