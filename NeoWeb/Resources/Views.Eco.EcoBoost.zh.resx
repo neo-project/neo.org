@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="100 Million USD" xml:space="preserve">
-    <value>10 亿美元</value>
+    <value>1 亿美元</value>
   </data>
   <data name="1000000+ Community Members&lt;br /&gt;2000000+ Wallet Addresses&lt;br /&gt;5 Global Developer Communities&lt;br /&gt;Nearly 100 Eco-Projects grow together" xml:space="preserve">
     <value>1000000+ 社区成员&lt;br /&gt;2000000+ 钱包地址&lt;br /&gt;5 全球开发者社区&lt;br /&gt;与近100 个生态项目共同成长</value>
@@ -157,10 +157,10 @@
     <value>媒体</value>
   </data>
   <data name="Neo EcoBoost Partners" xml:space="preserve">
-    <value>Neo EcoBoost 伙伴</value>
+    <value>EcoBoost 伙伴</value>
   </data>
   <data name="Neo EcoBoost program is created to stimulate and support developers and project participants in the Neo ecosystem. In this process, multiple resources will be combined to provide full life cycle funding, technology, community and marketing support for EcoBoost projects." xml:space="preserve">
-    <value>Neo EcoBoost 计划的创建旨在激励和支持 Neo 生态中的开发者与项目方。在此过程中，该计划将结合多种资源，为 EcoBoost 项目提供全生命周期的资金、技术、社区和营销支持</value>
+    <value>EcoBoost 计划的创建旨在激励和支持 Neo 生态中的开发者与项目方。在此过程中，该计划将结合多种资源，为 EcoBoost 项目提供全生命周期的资金、技术、社区和营销支持</value>
   </data>
   <data name="Other institutions" xml:space="preserve">
     <value>其他机构</value>
@@ -187,6 +187,6 @@
     <value>钱包</value>
   </data>
   <data name="Working closely with our EcoBoost partners, Neo EcoBoost will provide full lifecycle support for EcoBoost projects. Please tell us how you'd like to cooperate with us and we will evaluate your project as soon as possible." xml:space="preserve">
-    <value>协同众多 EcoBoost 伙伴，Neo EcoBoost 计划将为 EcoBoost 项目方提供全生命周期支持。请告诉我们您预期的合作方式，我们将尽快评估你的项目。</value>
+    <value>协同众多 EcoBoost 伙伴，Neo 将为 EcoBoost 项目方提供全生命周期支持。</value>
   </data>
 </root>
