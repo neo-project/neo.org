@@ -9,6 +9,7 @@
     input, select {
         display: inline-block;
         width: auto;
+        .d-search .filter
         border: none;
     }
 
@@ -33,6 +34,12 @@
     .filter {
         width: 340px;
         text-align: right;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .filter {
+            width: 100%;
+        }
     }
 }
 
