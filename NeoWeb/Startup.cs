@@ -43,7 +43,8 @@ namespace NeoWeb
             services.Configure<AuthMessageSenderOptions>(Configuration);
 
             services.AddLocalization(options => options.ResourcesPath = "Resources");
-                
+            services.AddRouting(options => options.LowercaseUrls = true);
+
             services.AddControllersWithViews()
                 .AddRazorRuntimeCompilation()
                 .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
