@@ -3,14 +3,8 @@
 @inject IViewLocalizer Localizer
 
 @section Styles{
-    <environment include="Development">
-        <link rel="stylesheet" href="/css/homepage.css" asp-append-version="true" />
-        <link rel="stylesheet" href="/lib/animate.css/animate.css" asp-append-version="true" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.ToCDN("/css/homepage.min.css", true)" />
-        <link href="@Helper.ToCDN("/lib/animate.css/animate.min.css")" rel="stylesheet" />
-    </environment>
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/homepage.min.css", true)" />
+    <link rel="stylesheet" href="@Helper.ToCDN("/lib/animate.css/animate.min.css")" />
 }
 
 @* 基本块 - Home page *@

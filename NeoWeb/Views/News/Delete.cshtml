@@ -3,14 +3,6 @@
 @{
     ViewData["Title"] = "Delete News";
 }
-@section Styles{
-    <environment include="Development">
-        <link rel="stylesheet" href="/css/editor.css" asp-append-version="true" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.ToCDN("/css/editor.min.css", true)" />
-    </environment>
-}
 <div class="p1 text-center">
     <h1 class="w800">Are you sure you want to delete this?</h1>
     <p class="mt5 w600">@Html.DisplayFor(model => model.ChineseTitle)</p>

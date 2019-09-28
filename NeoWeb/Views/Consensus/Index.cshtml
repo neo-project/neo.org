@@ -8,12 +8,7 @@
 }
 
 @section Styles{
-    <environment include="Development">
-        <link rel="stylesheet" href="/css/consensus.css" asp-append-version="true" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.ToCDN("/css/consensus.min.css", true)" />
-    </environment>
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/consensus.min.css", true)" />
     <link rel="stylesheet" href="@Helper.ToCDN("/lib/bootstrap-fileinput/css/fileinput.css")" />
 }
 <div class="container">

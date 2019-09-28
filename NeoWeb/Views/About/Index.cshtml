@@ -5,12 +5,7 @@
     ViewData["Title"] = Localizer["About"].Value;
 }
 @section Styles{
-    <environment include="Development">
-        <link rel="stylesheet" href="~/css/about.min.css" asp-append-version="true" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.ToCDN("/css/about.min.css", true)" />
-    </environment>
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/about.min.css", true)" />
 }
 <div class="p1 bg3">
     <h1 class="w800">@Localizer["An Open Network for Smart Economy"]</h1>
@@ -97,7 +92,7 @@
         {
             <img class="d-none d-md-block" src="@Helper.ToCDN("/images/about/retrospect-dt-english.svg")" />
             <img class="d-block d-md-none" src="@Helper.ToCDN("/images/about/retrospect-mb-english.svg")" />
-        } 
+        }
         <p class="d-none d-md-block"><span class="left iconfont">&#xe61c;</span><span class="right iconfont">&#xe61b;</span></p>
         <p class="d-block d-md-none"><span class="bottom btn2">View More<span class="iconfont">&#xe61a;</span></span></p>
     </div>

@@ -4,12 +4,7 @@
     ViewData["Title"] = Localizer["Developer Portal"].Value;
 }
 @section Styles{
-    <environment include="Development">
-        <link rel="stylesheet" href="/css/dev.css" asp-append-version="true" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.ToCDN("/css/dev.min.css", true)" />
-    </environment>
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/dev.min.css", true)" />
 }
 <div class="p1 text-center bg4">
     <h1 class="w800">@Localizer["Developer Portal"]</h1>

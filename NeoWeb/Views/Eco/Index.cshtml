@@ -5,12 +5,7 @@
     ViewData["Title"] = "Eco";
 }
 @section Styles{
-    <environment include="Development">
-        <link rel="stylesheet" href="~/css/eco.min.css" asp-append-version="true" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.ToCDN("/css/eco.min.css", true)" />
-    </environment>
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/eco.min.css", true)" />
 }
 
 <div class="banner">
@@ -39,7 +34,7 @@
 <div class="container eco">
     <div class="module1 left">
         <h3 class="module-text">@Localizer["Global Neo<br />Community"]</h3>
-        <img  class="module-img" data-original="/images/ecosystem/NeoCommunity.svg" />
+        <img class="module-img" data-original="/images/ecosystem/NeoCommunity.svg" />
         <div class="module-text">
             <p class="h4">
                 <span class="tag">@Localizer["20<span>cities</span>"]</span>

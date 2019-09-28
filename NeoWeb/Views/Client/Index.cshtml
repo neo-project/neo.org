@@ -5,12 +5,7 @@
     ViewData["Title"] = Localizer["Get Wallets"].Value;
 }
 @section Styles{
-    <environment include="Development">
-        <link rel="stylesheet" href="/css/client.css" asp-append-version="true" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.ToCDN("/css/client.min.css", true)" />
-    </environment>
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/client.min.css", true)" />
 }
 <div class="p1 bg5">
     <h1 class="w800">@Localizer["Get Wallets"]</h1>

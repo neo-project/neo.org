@@ -5,12 +5,7 @@
     ViewData["Title"] = "EcoBoost";
 }
 @section Styles{
-    <environment include="Development">
-        <link rel="stylesheet" href="~/css/eco.min.css" asp-append-version="true" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.ToCDN("/css/eco.min.css", true)" />
-    </environment>
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/eco.min.css", true)" />
 }
 
 <div class="bg7">

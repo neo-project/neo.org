@@ -13,12 +13,7 @@
 }
 
 @section Styles{
-    <environment include="Development">
-        <link rel="stylesheet" href="~/css/discover.css" asp-append-version="true" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.ToCDN("/css/discover.min.css", true)" />
-    </environment>
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/discover.min.css", true)" />
 }
 
 <div class="nav-area mt3">
