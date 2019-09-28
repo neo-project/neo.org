@@ -5,12 +5,7 @@
     ViewData["Title"] = Localizer["About"].Value;
 }
 @section Styles{
-    <environment include="Development">
-        <link rel="stylesheet" href="~/css/about.min.css" asp-append-version="true" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.ToCDN("/css/about.min.css", true)" />
-    </environment>
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/about.min.css", true)" />
 }
 <div class="p1 bg3">
     <h1 class="w800">@Localizer["An Open Network for Smart Economy"]</h1>

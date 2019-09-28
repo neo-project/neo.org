@@ -4,12 +4,7 @@
     ViewData["Title"] = "测试币申请详情";
 }
 @section Styles{
-    <environment include="Development">
-        <link rel="stylesheet" href="/css/testnet-list.css" asp-append-version="true" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.ToCDN("/css/testnet-list.min.css", true)" />
-    </environment>
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/testnet-list.min.css", true)" />
 }
 <div class="container">
     <div class="p1">

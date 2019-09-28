@@ -6,12 +6,7 @@
     ViewData["Title"] = "Edit Blog";
 }
 @section Styles{
-    <environment include="Development">
-        <link rel="stylesheet" href="/css/editor.css" asp-append-version="true" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.ToCDN("/css/editor.min.css", true)" />
-    </environment>
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/editor.min.css", true)" />
 }
 <div class="text-center mt2">
     <h2>@Localizer["Post"]</h2>

@@ -5,15 +5,8 @@
     ViewData["Title"] = Localizer["Developer"].Value;
 }
 @section Styles{
-    <environment include="Development">
-        <link rel="stylesheet" href="/css/editor.css" asp-append-version="true" />
-        <link rel="stylesheet" href="/css/testnet.css" asp-append-version="true" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.ToCDN("/css/editor.min.css", true)" />
-        <link rel="stylesheet" href="@Helper.ToCDN("/css/testnet.min.css", true)" />
-    </environment>
-}
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/testnet.min.css", true)" />
+    }
 <div class="p1 bg5">
     <h1 class="w800">@Localizer["Apply For TestNet NEO&GAS"]</h1>
 </div>
@@ -92,17 +85,17 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script>
-            $("#Version").change(versionChanged);
-            function versionChanged() {
-                var ver = $("#Version ").val();
-                if (ver == 1) {
-                    $("#NEOCount").val(0);
-                    $("#NEOCount").attr("disabled", "disabled");
-                }
-                else {
-                    $("#NEOCount").removeAttr("disabled");
-                }
+        $("#Version").change(versionChanged);
+        function versionChanged() {
+            var ver = $("#Version ").val();
+            if (ver == 1) {
+                $("#NEOCount").val(0);
+                $("#NEOCount").attr("disabled", "disabled");
             }
-            versionChanged();
+            else {
+                $("#NEOCount").removeAttr("disabled");
+            }
+        }
+        versionChanged();
     </script>
 }

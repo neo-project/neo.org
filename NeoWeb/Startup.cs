@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using NeoWeb.Services;
 using System.Globalization;
 using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.AspNetCore.StaticFiles;
 
 namespace NeoWeb
 {
@@ -80,7 +81,13 @@ namespace NeoWeb
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+
+            FileExtensionContentTypeProvider provider = new FileExtensionContentTypeProvider();
+            provider.Mappings[".webmanifest"] = "application/manifest+json";
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                ContentTypeProvider = provider
+            });
 
             app.UseRouting();
 
