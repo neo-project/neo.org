@@ -58,37 +58,37 @@ namespace NeoWeb.Controllers
             {
                 foreach (var item in keywords.Split(" "))
                 {
-                    blogs = blogs.Where(p => p.ChineseTitle.Contains(item, StringComparison.OrdinalIgnoreCase)
-                        || p.ChineseContent.Contains(item, StringComparison.OrdinalIgnoreCase)
-                        || p.ChineseTags != null && p.ChineseTags.Contains(item, StringComparison.OrdinalIgnoreCase)
-                        || p.ChineseSummary != null && p.ChineseSummary.Contains(item, StringComparison.OrdinalIgnoreCase)
-                        || p.EnglishTitle.Contains(item, StringComparison.OrdinalIgnoreCase)
-                        || p.EnglishContent.Contains(item, StringComparison.OrdinalIgnoreCase)
-                        || p.EnglishTags != null && p.EnglishTags.Contains(item, StringComparison.OrdinalIgnoreCase)
-                        || p.EnglishSummary != null && p.EnglishSummary.Contains(item, StringComparison.OrdinalIgnoreCase));
+                    blogs = blogs.Where(p => p.ChineseTitle.ToLower().Contains(item.ToLower())
+                        || p.ChineseContent.ToLower().Contains(item.ToLower())
+                        || p.ChineseTags.ToLower() != null && p.ChineseTags.ToLower().Contains(item.ToLower())
+                        || p.ChineseSummary.ToLower() != null && p.ChineseSummary.ToLower().Contains(item.ToLower())
+                        || p.EnglishTitle.ToLower().Contains(item.ToLower())
+                        || p.EnglishContent.ToLower().Contains(item.ToLower())
+                        || p.EnglishTags != null && p.EnglishTags.ToLower().Contains(item.ToLower())
+                        || p.EnglishSummary != null && p.EnglishSummary.ToLower().Contains(item.ToLower()));
                     if (blogs == null) break;
                 }
                 foreach (var item in keywords.Split(" "))
                 {
-                    events = events.Where(p => p.ChineseAddress.Contains(item, StringComparison.OrdinalIgnoreCase)
-                                || p.ChineseCity.Contains(item, StringComparison.OrdinalIgnoreCase)
-                                || p.ChineseDetails.Contains(item, StringComparison.OrdinalIgnoreCase)
-                                || p.ChineseName.Contains(item, StringComparison.OrdinalIgnoreCase)
-                                || p.ChineseOrganizers.Contains(item, StringComparison.OrdinalIgnoreCase)
-                                || p.Country != null && p.Country.ZhName.Contains(item, StringComparison.OrdinalIgnoreCase)
-                                || p.Country != null && p.Country.Name.Contains(item, StringComparison.OrdinalIgnoreCase)
-                                || p.EnglishAddress.Contains(item, StringComparison.OrdinalIgnoreCase)
-                                || p.EnglishCity.Contains(item, StringComparison.OrdinalIgnoreCase)
-                                || p.EnglishDetails.Contains(item, StringComparison.OrdinalIgnoreCase)
-                                || p.EnglishName.Contains(item, StringComparison.OrdinalIgnoreCase)
-                                || p.EnglishOrganizers.Contains(item, StringComparison.OrdinalIgnoreCase));
+                    events = events.Where(p => p.ChineseAddress.ToLower().Contains(item.ToLower())
+                                || p.ChineseCity.ToLower().Contains(item.ToLower())
+                                || p.ChineseDetails.ToLower().Contains(item.ToLower())
+                                || p.ChineseName.ToLower().Contains(item.ToLower())
+                                || p.ChineseOrganizers.ToLower().Contains(item.ToLower())
+                                || p.Country != null && p.Country.ZhName.ToLower().Contains(item.ToLower())
+                                || p.Country != null && p.Country.Name.ToLower().Contains(item.ToLower())
+                                || p.EnglishAddress.ToLower().Contains(item.ToLower())
+                                || p.EnglishCity.ToLower().Contains(item.ToLower())
+                                || p.EnglishDetails.ToLower().Contains(item.ToLower())
+                                || p.EnglishName.ToLower().Contains(item.ToLower())
+                                || p.EnglishOrganizers.ToLower().Contains(item.ToLower()));
                     if (events == null) break;
                 }
                 foreach (var item in keywords.Split(" "))
                 {
-                    news = news.Where(p => p.ChineseTitle.Contains(item, StringComparison.OrdinalIgnoreCase)
-                        || p.EnglishTitle.Contains(item, StringComparison.OrdinalIgnoreCase)
-                        || p.Link.Contains(item, StringComparison.OrdinalIgnoreCase));
+                    news = news.Where(p => p.ChineseTitle.ToLower().Contains(item.ToLower())
+                        || p.EnglishTitle.ToLower().Contains(item.ToLower())
+                        || p.Link.ToLower().Contains(item.ToLower()));
                     if (news == null) break;
                 }
             }
