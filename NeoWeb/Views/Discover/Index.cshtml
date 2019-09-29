@@ -1,7 +1,8 @@
 ﻿@model IEnumerable<NeoWeb.Models.DiscoverViewModel>
-
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 @{
-    ViewData["Title"] = "Discover";
+    ViewData["Title"] = @Localizer["Discover"].Value;
 }
 
 @section Styles{
@@ -32,7 +33,7 @@
     @{await Html.RenderPartialAsync("_DiscoverPartial", Model);}
 </div>
 <div class="text-center m-4">
-    <a id="viewmore" href="javascript:" onclick="viewMore()">View More</a>
+    <a id="viewmore" href="javascript:" onclick="viewMore()">@Localizer["View more"]</a>
 </div>
 @section Scripts {
     <script>
