@@ -42,12 +42,8 @@
                 var image = (ViewData["Image"] ?? Helper.ToCDN("/images/twitter-img.jpg"));
                 var url = $"{Context.Request.Scheme}://{Context.Request.Host}{Context.Request.Path}{Context.Request.QueryString}";
             }
-            <a class="gray" target="_blank" href="https://twitter.com/intent/tweet?text=@(title)&url=@(url)&via=NEO_Blockchain&related=NEO_Blockchain"><i class="iconfont">&#xe607;</i></a>
-            <i class="iconfont" onclick="$('#facebook a').click()">&#xe616;</i>
-            <div class="qr-div">
-                <i class="iconfont">&#xe615;</i>
-                <div id="qrcode"></div>
-            </div>
+            <a class="gray" target="_blank" href="https://twitter.com/intent/tweet?text=@(System.Net.WebUtility.UrlEncode(title))&url=@(System.Net.WebUtility.UrlEncode(url))&via=NEO_Blockchain&related=NEO_Blockchain"><i class="iconfont">&#xe607;</i></a>
+            <i class="iconfont facebook-icon">&#xe616;</i>
 
             <script>
                 (function (d, s, id) {
@@ -60,6 +56,10 @@
             </script>
 
             <div class="fb-share-button" data-href="@url" data-layout="button_count"></div>
+            <div class="qr-div">
+                <i class="iconfont">&#xe615;</i>
+                <div id="qrcode"></div>
+            </div>
         </div>
         <p class="mt5">
             @if (ViewBag.UserRules)

@@ -9,7 +9,6 @@
     input, select {
         display: inline-block;
         width: auto;
-        .filter;
         border: none;
     }
 
@@ -75,14 +74,22 @@
 }
 
 .share {
-    /*iframe {
-        display: none;
-    }*/
-    
-    .iconfont{
+    .facebook-icon {
+        pointer-events: none;
+    }
+
+    .fb_iframe_widget {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        margin-left: -22px;
+        opacity: 0.0001;
+    }
+
+    .iconfont {
         cursor: pointer;
     }
-    
+
     .qr-div {
         display: inline;
         position: relative;
