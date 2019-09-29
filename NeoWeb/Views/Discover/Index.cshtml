@@ -41,8 +41,7 @@
             $(".group-" + i).hide();
         }
         function viewMore() {
-            var more = $(".group-" + group++);
-            $(".group-" + group++).show("fast");
+            $(".group-" + ++group).show("fast");
             if ($(".group-" + (group + 1)).length <= 0)
                 $("#viewmore").hide();
         }
