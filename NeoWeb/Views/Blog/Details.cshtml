@@ -1,6 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @using System.Xml;
 @inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
 @model NeoWeb.Models.BlogViewModel
 @{
     ViewData["Title"] = Model.Title;
@@ -44,7 +45,7 @@
             }
             <a class="gray" target="_blank" href="https://twitter.com/intent/tweet?text=@(System.Net.WebUtility.UrlEncode(title))&url=@(System.Net.WebUtility.UrlEncode(url))&via=NEO_Blockchain&related=NEO_Blockchain"><i class="iconfont">&#xe607;</i></a>
             <i class="iconfont facebook-icon">&#xe616;</i>
-
+            <a class="gray" target="_blank" asp-controller="blog" asp-action="rss" asp-route-language="@SharedLocalizer["en"].Value"><i class="iconfont">&#xf09c;</i></a>
             <script>
                 (function (d, s, id) {
                     var js, fjs = d.getElementsByTagName(s)[0];
