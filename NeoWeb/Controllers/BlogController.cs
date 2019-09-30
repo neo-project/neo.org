@@ -119,6 +119,7 @@ namespace NeoWeb.Controllers
                 blog.IsShow = true;
                 blog.User = _context.Users.Find(_userId);
                 _context.Add(blog);
+                await _context.SaveChangesAsync();
                 if (isTop != null)
                 {
                     _context.Top.ToList().ForEach(p => _context.Top.Remove(p));

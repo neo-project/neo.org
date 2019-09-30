@@ -60,6 +60,7 @@ namespace NeoWeb.Controllers
                 if (!ModelState.IsValid) return View(news);
                 news.Time = DateTime.Now;
                 _context.Add(news);
+                await _context.SaveChangesAsync();
                 if (isTop != null)
                 {
                     _context.Top.ToList().ForEach(p => _context.Top.Remove(p));
