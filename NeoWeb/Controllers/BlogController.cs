@@ -295,7 +295,7 @@ namespace NeoWeb.Controllers
             description.InnerText = "Latest posts from Neo blog";
             channel.AppendChild(description);
 
-            var blogs = _context.Blogs.Where(p => p.IsShow).OrderByDescending(p => p.CreateTime).Take(20).Select(p => new Blog()
+            var blogs = _context.Blogs.Where(p => p.IsShow).OrderByDescending(p => p.CreateTime).Take(20).ToList().Select(p => new Blog()
             {
                 ChineseTitle = XmlEncode(p.ChineseTitle),
                 ChineseSummary = XmlEncode(p.ChineseSummary) + "...",
@@ -365,7 +365,7 @@ namespace NeoWeb.Controllers
             description.InnerText = "Latest posts from Neo blog";
             channel.AppendChild(description);
 
-            var blogs = _context.Blogs.Where(p => p.IsShow).OrderByDescending(p => p.CreateTime).Take(20).Select(p => new Blog()
+            var blogs = _context.Blogs.Where(p => p.IsShow).OrderByDescending(p => p.CreateTime).Take(20).ToList().Select(p => new Blog()
             {
                 EnglishTitle = XmlEncode(p.EnglishTitle),
                 EnglishSummary = XmlEncode(p.EnglishSummary) + "...",
