@@ -207,7 +207,7 @@
   <data name="Monitor" xml:space="preserve">
     <value>监视器</value>
   </data>
-  <data name="More idea" xml:space="preserve">
+  <data name="More ideas" xml:space="preserve">
     <value>更多想法</value>
   </data>
   <data name="Multi-language support" xml:space="preserve">
@@ -234,7 +234,7 @@
   <data name="protocol development" xml:space="preserve">
     <value>协议开发</value>
   </data>
-  <data name="protocol, docs, and toolchain" xml:space="preserve">
+  <data name="protocol, dev tools and docs" xml:space="preserve">
     <value>包括协议，文档和工具链</value>
   </data>
   <data name="Security Bounty" xml:space="preserve">

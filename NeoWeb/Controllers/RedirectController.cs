@@ -20,9 +20,13 @@ namespace NeoWeb.Controllers
 
         [Route("download")]
         [Route("download/index")]
-        public IActionResult ClientIndex()
+        [Route("client")]
+        [Route("client/index")]
+        [Route("wallet")]
+        [Route("wallet/index")]
+        public IActionResult WalletsIndex()
         {
-            return RedirectToAction("index", "client");
+            return RedirectToAction("index", "wallets");
         }
 
         [Route("testcoin")]

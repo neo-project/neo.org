@@ -8,14 +8,14 @@
 }
 
 @* 基本块 - Home page *@
-<div id="homeFri">
+<div id="homeFri" class="bg8">
     <div class="container p1">
         <div class="row mt1">
             <div class="col-md-12">
                 <h3>
                     @Localizer["Join the"]<br />
                     <span class="h1 typetext" id="typetext"></span><br />
-                    @Localizer["open network for smart economy"]
+                    @Localizer["open network for the smart economy"]
                 </h3>
                 <div class="mt4">
                     <a asp-controller="about" asp-action="index" class="btn">@Localizer["Learn more"]</a>
@@ -54,9 +54,9 @@
                 <span class="green">@Localizer["Highly Active Network"]</span>
                 <ul class="list-ul list-inline row">
                     <li class="col-6 col-lg-12">2,000,000+<span>@Localizer["Wallet Addresses"]</span></li>
-                    <li class="col-6 col-lg-12">1,000,000+<span>@Localizer["Community Members"]</span></li>
-                    <li class="col-6 col-lg-6 col-lg-4">100+<span>dApps</span></li>
-                    <li class="col-6 col-lg-6 col-lg-8">500+<span>@Localizer["Technical Contributors"]</span></li>
+                    <li class="col-6 col-lg-12">500,000+<span>@Localizer["Community Members"]</span></li>
+                    <li class="col-6 col-sm-6 col-lg-4">100+<span>dApps</span></li>
+                    <li class="col-6 col-sm-6 col-lg-8">300+<span>@Localizer["Technical Contributors"]</span></li>
                 </ul>
             </div>
             <div class="col-lg-3">
@@ -76,7 +76,7 @@
         <h2 class="module-text">@Localizer["Neo’s Ecosystem"]</h2>
         <img class="module-img" data-original="/images/ecosystem/Ecosystem.svg" />
         <div class="module-text">
-            <p class="mt5">@Localizer["With our hundreds of thriving partners and projects, the Neo ecosystem is rapidly growing and developing, thus enabling us to become the foundation for next-gen Internet."]</p>
+            <p class="mt5">@Localizer["With our thriving partners and projects, the Neo ecosystem is rapidly growing and developing, thus enabling us to become the foundation for next-gen Internet."]</p>
             <p class="mt4"><a asp-controller="eco" asp-action="index" class="btn">@Localizer["Learn more"]</a></p>
         </div>
     </div>
@@ -88,7 +88,7 @@
             <div class="col-md-5"></div>
             <div class="col-md-7">
                 <h2>@Localizer["Join EcoBoost program and power up for success"]</h2>
-                <p class="mt5">@Localizer["Neo is investing USD100 million through its EcoBoost initiative to accelerate the realization of large-scale commercial blockchain solutions by empowering our developers and projects."]</p>
+                <p class="mt5">@Localizer["Neo is investing USD $100 million through its EcoBoost initiative to accelerate the realization of large-scale commercial blockchain solutions by empowering our developers and projects."]</p>
                 <p class="mt4"><a asp-controller="eco" asp-action="ecoboost" class="btn1">@Localizer["Learn more"]</a></p>
             </div>
         </div>
@@ -100,7 +100,7 @@
             <img class="module-img" data-original="/images/home/GetWallet.svg" />
             <div class="module-text">
                 <h2>@Localizer["Get a NEO Wallet today, and take control of your assets!"]</h2>
-                <p class="mt4"><a asp-controller="client" asp-action="index" class="btn">@Localizer["Get wallet"]</a></p>
+                <p class="mt4"><a asp-controller="wallets" asp-action="index" class="btn">@Localizer["Get wallet"]</a></p>
             </div>
         </div>
     </div>
@@ -131,7 +131,7 @@
         setTimeout(function () {
             new TypeText({
                 id: 'typetext',
-                text: ["@Localizer["most community-driven"]","@Localizer["most developer-friendly"]","@Localizer["most enterprise-ready"]"],
+                text: ["@Localizer["community-driven"]","@Localizer["developer-friendly"]","@Localizer["enterprise-ready"]"],
                 speed: 200,
                 despeed: 80,
                 space: 500

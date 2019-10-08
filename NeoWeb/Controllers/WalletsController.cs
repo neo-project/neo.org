@@ -2,7 +2,7 @@
 
 namespace NeoWeb.Controllers
 {
-    public class ClientController : Controller
+    public class WalletsController : Controller
     {
         // GET: client
         [HttpGet]

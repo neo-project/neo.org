@@ -165,8 +165,8 @@
   <data name="Supported Browser" xml:space="preserve">
     <value>支持浏览器</value>
   </data>
-  <data name="All Client" xml:space="preserve">
-    <value>所有平台</value>
+  <data name="All Wallets" xml:space="preserve">
+    <value>所有钱包</value>
   </data>
   <data name="Safety Tips!" xml:space="preserve">
     <value>安全提示</value>
@@ -297,7 +297,7 @@
   <data name="Synchronizes the smart contract log (ApplicationLogs) automatically in RPC mode. Mandatory for exchanges." xml:space="preserve">
     <value>存储智能合约日志（ApplicationLogs），交易所必选。</value>
   </data>
-  <data name="The wallets shown on this page are all developed by the development teams or individual developers of the Neo community. Please choose the wallets as appropriate. If you encounter any problems during use, please contact the developer. When using the wallet, please back up the private key in a secure manner. The private key is the only way to control your own Neo assets." xml:space="preserve">
+  <data name="The wallets shown on this page have been developed by groups within the Neo community. Choose the wallet that best fits your needs, and if you encounter any problems during use, please contact the developer directly. When creating a new Neo wallet, please remember to back up your private key in a secure manner. Your private key is the only way to control your own Neo assets." xml:space="preserve">
     <value>本页面上显示的钱包均由 Neo 社区的开发团队或个人开发者开发，请谨慎选择钱包。如果在使用过程中遇到任何问题，请联系开发人员。
 使用钱包时，请将私钥进行安全备份。私钥是您控制自己的 Neo 资产的唯一方法。</value>
   </data>
