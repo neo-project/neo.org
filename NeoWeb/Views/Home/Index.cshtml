@@ -128,15 +128,13 @@
                 $(this).css("min-height", $(window).height() - 100);
             })
         }
+
         setTimeout(function () {
-            new TypeText({
-                id: 'typetext',
-                text: ["@Localizer["most community-driven"]","@Localizer["most developer-friendly"]","@Localizer["most enterprise-ready"]"],
-                speed: 200,
-                despeed: 80,
-                space: 500
+            typetext.init('#typetext', {
+                strings: ["@Localizer["most community-driven"]","@Localizer["most developer-friendly"]","@Localizer["most enterprise-ready"]"],
+                loop: true
             });
-        }, 1000)
+        },500)
 
     </script>
 }
