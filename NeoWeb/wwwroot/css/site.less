@@ -308,15 +308,15 @@ a[class|=btn]{
     opacity: 1;
     transition: opacity 0.2s;
     cursor: pointer;
-    text-align:center;
+    text-align: center;
 
     &:hover {
-        opacity: 0.8;
-        transition: opacity 0.2s;
+        .b3;
+        color: @green !important;
     }
 
     &:focus {
-        box-shadow:none;
+        box-shadow: none;
     }
 
     @media only screen and (max-width: 768px) {
@@ -328,6 +328,10 @@ a[class|=btn]{
     .btn;
     .b3;
     color: @green !important;
+
+    &:hover {
+        .b4;
+    }
 }
 .btn2 {
     .green;
@@ -736,7 +740,7 @@ i.iconfont {
     width: 100%;
     background-position: center;
     background-size: cover;
-    animation: back-out ease-out 0.25s;
+    animation: back-out ease-out 0.15s;
 
     &::before {
         content: " ";
@@ -745,7 +749,7 @@ i.iconfont {
     }
 
     &:hover {
-        animation: back linear 0.35s;
+        animation: back linear 0.25s;
         animation-fill-mode: forwards;
     }
 }
@@ -1110,11 +1114,11 @@ table, .table {
 
 @keyframes back{
     0% {background-size: 100%;}
-    100% {background-size: 108%;}
+    100% {background-size: 105%;}
 }
 @keyframes back-out {
     0% {
-        background-size: 108%;
+        background-size: 105%;
     }
 
     100% {
