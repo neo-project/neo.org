@@ -20,12 +20,12 @@
         z-index: 5;
 
         &.l {
-            background-image: linear-gradient(90deg,@gray3,transparent);
+            background: linear-gradient(90deg,@gray3,rgba(255,255,255,0));
             left: 0;
         }
 
         &.r {
-            background-image: linear-gradient(90deg,transparent,@gray3);
+            background: linear-gradient(90deg,rgba(255,255,255,0),@gray3);
             right: 0;
         }
 
@@ -35,7 +35,7 @@
             &.b {
                 width: 100%;
                 height: 50px;
-                background-image: linear-gradient(transparent,@gray3,@gray3);
+                background: linear-gradient(rgba(255,255,255,0),@gray3,@gray3);
                 bottom: 0;
             }
         }

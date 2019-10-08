@@ -147,14 +147,14 @@
   <data name="candidate registration" xml:space="preserve">
     <value>成为节点候选人</value>
   </data>
+  <data name="Candidates are able become consensus node hosts on the Neo network through election by NEO holders. Candidates can also establish a partnership with the Neo Foundation to secure the organization's vote." xml:space="preserve">
+    <value>共识节点是促进 Neo 智能经济发展的关键组成部分。您可以通过获得 NEO 持有者的投票成为共识节点（链上治理），或者与 Neo 基金会建立战略伙伴关系（链下治理）。</value>
+  </data>
   <data name="Consensus Count" xml:space="preserve">
     <value>共识节点数量</value>
   </data>
   <data name="Consensus Node" xml:space="preserve">
     <value>共识节点</value>
-  </data>
-  <data name="Consensus nodes are the crucial components contributing to Neo’s development of a smart economy. You may become a consensus node through the votes of NEO holders and maintain it independently (On-Chain governance), or establish a strategic partnership with the Neo Foundation (Off-chain governance)." xml:space="preserve">
-    <value>共识节点是促进 Neo 智能经济发展的关键组成部分。您可以通过获得 NEO 持有者的投票成为共识节点(链上治理)，或者与 Neo 基金会建立战略伙伴关系(链下治理)。</value>
   </data>
   <data name="For more details, see the documentation:" xml:space="preserve">
     <value>更多详细信息，请参见文档：</value>

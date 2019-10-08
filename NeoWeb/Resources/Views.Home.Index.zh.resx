@@ -132,11 +132,20 @@
   <data name="Community Members" xml:space="preserve">
     <value>社区成员</value>
   </data>
+  <data name="community-driven" xml:space="preserve">
+    <value>社区驱动性最强的</value>
+  </data>
   <data name="Countries" xml:space="preserve">
     <value>国家</value>
   </data>
+  <data name="developer-friendly" xml:space="preserve">
+    <value>开发者最友好的</value>
+  </data>
   <data name="Discover" xml:space="preserve">
     <value>最新动态</value>
+  </data>
+  <data name="enterprise-ready" xml:space="preserve">
+    <value>企业就绪度最高的</value>
   </data>
   <data name="Get a NEO Wallet today, and take control of your assets!" xml:space="preserve">
     <value>立即获取 NEO 钱包</value>
@@ -165,22 +174,13 @@
   <data name="Mainstream Languages" xml:space="preserve">
     <value>主流语言支持</value>
   </data>
-  <data name="most community-driven" xml:space="preserve">
-    <value>社区驱动性最强的</value>
-  </data>
-  <data name="most developer-friendly" xml:space="preserve">
-    <value>开发者最友好的</value>
-  </data>
-  <data name="most enterprise-ready" xml:space="preserve">
-    <value>企业就绪度最高的</value>
-  </data>
-  <data name="Neo is investing USD100 million through its EcoBoost initiative to accelerate the realization of large-scale commercial blockchain solutions by empowering our developers and projects." xml:space="preserve">
+  <data name="Neo is investing USD $100 million through its EcoBoost initiative to accelerate the realization of large-scale commercial blockchain solutions by empowering our developers and projects." xml:space="preserve">
     <value>为构建下一代互联网基础设施，Neo斥资 1 亿美元打造EcoBoost 计划，对生态内的开发者与项目方进行激励与全生命周期的支持，旨在加速区块链应用的大规模商用落地。目前已有数百个合作伙伴与项目方加入该计划。</value>
   </data>
   <data name="Neo’s Ecosystem" xml:space="preserve">
     <value>丰富的 Neo 生态</value>
   </data>
-  <data name="open network for smart economy" xml:space="preserve">
+  <data name="open network for the smart economy" xml:space="preserve">
     <value>开放智能经济网络</value>
   </data>
   <data name="Technical Contributors" xml:space="preserve">
@@ -192,7 +192,7 @@
   <data name="Wallet Addresses" xml:space="preserve">
     <value>钱包地址</value>
   </data>
-  <data name="With our hundreds of thriving partners and projects, the Neo ecosystem is rapidly growing and developing, thus enabling us to become the foundation for next-gen Internet." xml:space="preserve">
+  <data name="With our thriving partners and projects, the Neo ecosystem is rapidly growing and developing, thus enabling us to become the foundation for next-gen Internet." xml:space="preserve">
     <value>在数百个合作伙伴与项目方的不断努力下，Neo 的生态系统正在快速发展壮大，为 Neo 成为下一代互联网的基础设施保驾护航。</value>
   </data>
 </root>
