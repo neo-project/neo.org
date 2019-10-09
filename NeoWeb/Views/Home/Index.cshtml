@@ -4,24 +4,33 @@
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
 @section Styles{
-    <link rel="stylesheet" href="@Helper.ToCDN("/css/homepage.min.css", true)" />
-    <link rel="stylesheet" href="@Helper.ToCDN("/lib/animate.css/animate.min.css")" />
+    <style>
+        .layout-container {
+            max-width: none;
+            padding: 0;
+            margin: 0;
+        }
+        #homeFri .container {
+            position: absolute;
+            top: 50%;
+            margin-top: -150px;
+            height: 300px;
+            right: 0;
+            left: 0;
+        }
+    </style>
 }
 
 @* 基本块 - Home page *@
-<div id="homeFri" class="bg8">
-    <div class="container p1">
-        <div class="row mt1">
-            <div class="col-md-12">
-                <h3>
-                    @Localizer["Join the"]<br />
-                    <span class="h1 typetext" id="typetext"></span><br />
-                    @Localizer["open network for the smart economy"]
-                </h3>
-                <div class="mt4">
-                    <a asp-controller="about" asp-action="index" class="btn">@Localizer["Learn more"]</a>
-                </div>
-            </div>
+<div id="homeFri" class="bg8 p1">
+    <div class="container">
+        <h3>
+            @Localizer["Join the"]<br />
+            <span class="h1 typetext" id="typetext"></span><br />
+            @Localizer["open network for the smart economy"]
+        </h3>
+        <div class="mt4">
+            <a asp-controller="about" asp-action="index" class="btn">@Localizer["Learn more"]</a>
         </div>
     </div>
 </div>

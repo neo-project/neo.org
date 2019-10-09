@@ -16,15 +16,18 @@ html, body {
         font-size: 15px;
     }
 }
+
 .container {
     @media only screen and (max-width: 768px) {
         padding-left: 20px;
         padding-right: 20px;
     }
 }
+
 .layout-container {
     padding-bottom: 50px;
 }
+
 a {
     color: @green;
 
@@ -135,8 +138,14 @@ h6, .h6 {
 }
 
 /*间距*/
-.mt0{margin-top:0px!important;}
-.mb0{margin-bottom:0px!important;}
+.mt0 {
+    margin-top: 0px !important;
+}
+
+.mb0 {
+    margin-bottom: 0px !important;
+}
+
 .mt1 {
     margin-top: @length1;
 
@@ -200,6 +209,7 @@ h6, .h6 {
         margin-left: @length5;
     }
 }
+
 .ml2 {
     margin-left: @length5;
 
@@ -207,6 +217,7 @@ h6, .h6 {
         margin-left: @length6;
     }
 }
+
 .ml3 {
     margin-left: @length7;
 
@@ -239,8 +250,14 @@ h6, .h6 {
     }
 }
 
-.pt0 {padding-top: 0px!important;}
-.pb0 {padding-bottom:0px!important;}
+.pt0 {
+    padding-top: 0px !important;
+}
+
+.pb0 {
+    padding-bottom: 0px !important;
+}
+
 .p1 {
     padding-top: 116px;
     padding-bottom: 116px;
@@ -280,9 +297,11 @@ h6, .h6 {
         padding-bottom: 20px;
     }
 }
-.p5{
-    padding:20px;
+
+.p5 {
+    padding: 20px;
 }
+
 .pt4 {
     padding-top: 20px !important;
 
@@ -293,9 +312,9 @@ h6, .h6 {
 
 
 /*button*/
-a[class|=btn]{
-
+a[class|=btn] {
 }
+
 .btn {
     display: inline-block;
     font-weight: 600;
@@ -324,6 +343,7 @@ a[class|=btn]{
         padding: 5px 12px;
     }
 }
+
 .btn1 {
     .btn;
     .b3;
@@ -333,6 +353,7 @@ a[class|=btn]{
         .b4;
     }
 }
+
 .btn2 {
     .green;
     float: right;
@@ -344,7 +365,7 @@ a[class|=btn]{
 
     &:hover {
         color: @green-hover !important;
-        text-shadow:0 0 0.2px @green;
+        text-shadow: 0 0 0.2px @green;
     }
 }
 
@@ -352,17 +373,21 @@ a[class|=btn]{
 .color-n {
     color: @dark !important;
 }
+
 .green {
     color: @green !important;
 }
+
 .green2 {
     color: @green2 !important;
 }
+
 .red {
     color: @red !important;
 }
-.gray{
-    color:@gray!important;
+
+.gray {
+    color: @gray !important;
 }
 
 /*背景*/
@@ -402,8 +427,9 @@ a[class|=btn]{
         display: block;
         color: @gray;
     }
-    &:last-child{
-        margin-right:0;
+
+    &:last-child {
+        margin-right: 0;
     }
 
     @media only screen and (max-width: 768px) {
@@ -430,6 +456,7 @@ a[class|=btn]{
     background-repeat: no-repeat;
     background-image: url(../images/home/Partnerwithus.svg);
 }
+
 .bg3 {
     background-position: center;
     background-size: cover;
@@ -438,9 +465,9 @@ a[class|=btn]{
 
     @media only screen and (max-width: 768px) {
         background-image: url("../images/about/about hero banner_mobile.svg");
-        min-height: 460px;
     }
 }
+
 .bg4 {
     background-position: center;
     background-size: cover;
@@ -449,7 +476,6 @@ a[class|=btn]{
 
     @media only screen and (max-width: 768px) {
         background-image: url("../images/dev/developer hero banner_mobile.svg");
-        min-height: 460px;
     }
 }
 
@@ -462,9 +488,7 @@ a[class|=btn]{
     margin: auto;
 
     @media only screen and (max-width: 768px) {
-        background-size: cover;
         background-image: url('../images/client/wallets hero banner-mb.svg');
-        min-height: 460px;
     }
 }
 
@@ -487,7 +511,6 @@ a[class|=btn]{
 
     @media only screen and (max-width: 768px) {
         background-image: url('../images/ecoboost/ecoboost hero banner-mb.svg');
-        min-height: 460px;
         background-size: contain;
     }
 }
@@ -508,8 +531,8 @@ a[class|=btn]{
     }
 }
 
-.b-white{
-    background:#FFFFFF;
+.b-white {
+    background: #FFFFFF;
 }
 
 .center {
@@ -538,18 +561,21 @@ a[class|=btn]{
         }
     }
 }
-.hide{
-    display:none;
+
+.hide {
+    display: none;
 }
 
 hr {
     border-top: 1px solid rgba(150,150,150,.18);
 }
+
 hr.line {
     border-top: 1px solid @line;
 }
-.line-b{
-    border-bottom:1px solid @line2;
+
+.line-b {
+    border-bottom: 1px solid @line2;
 }
 
 .w {
@@ -560,50 +586,55 @@ hr.line {
 
 .w900 {
     .w;
-    max-width: 940px;
-    padding-left: 20px;
-    padding-right: 20px;
+    max-width: 900px;
 }
+
 .w800 {
     .w;
-    max-width: 840px;
-    padding-left: 20px;
-    padding-right: 20px;
+    max-width: 800px;
 }
+
 .w700 {
     .w;
-    max-width: 740px;
-    padding-left: 20px;
-    padding-right: 20px;
+    max-width: 700px;
 }
+
 .w600 {
     .w;
-    max-width: 640px;
-    padding-left: 20px;
-    padding-right: 20px;
+    max-width: 600px;
+}
+
+.w500 {
+    .w;
+    max-width: 500px;
 }
 
 /*border*/
-.no-border{
-    border:none!important;
+.no-border {
+    border: none !important;
 }
 
 /*透明度*/
 .op-100 {
     opacity: 1;
 }
+
 .op-90 {
     opacity: .9;
 }
+
 .op-80 {
     opacity: .8;
 }
+
 .op-70 {
     opacity: .7;
 }
+
 .op-50 {
     opacity: .5;
 }
+
 .op-20 {
     opacity: .2;
 }
@@ -639,11 +670,12 @@ i.iconfont {
 }
 
 /*list 基础样式*/
-.list-inline{
-    li{
-        display:inline-block;
+.list-inline {
+    li {
+        display: inline-block;
     }
 }
+
 .list1 {
     text-align: center;
 
@@ -735,11 +767,12 @@ i.iconfont {
 
         &.right {
             img, .img, .iconfont {
-                margin-right:0!important;
+                margin-right: 0 !important;
             }
         }
     }
 }
+
 .bg-img {
     display: block;
     width: 100%;
@@ -758,6 +791,7 @@ i.iconfont {
         animation-fill-mode: forwards;
     }
 }
+
 .list2 {
     margin-bottom: @length4;
 
@@ -815,6 +849,7 @@ i.iconfont {
         }
     }
 }
+
 .list3 {
     .p3;
     .pt0;
@@ -987,7 +1022,7 @@ table, .table {
             padding: .75rem;
             vertical-align: top;
             border: 1px solid #E6E6E6;
-            font-weight:300;
+            font-weight: 300;
         }
     }
 }
@@ -1022,11 +1057,11 @@ table, .table {
         list-style: none;
         width: calc(25% - 22px);
         min-width: 110px;
-        max-width:160px;
+        max-width: 160px;
         text-align: center;
-        margin-left:10px;
-        margin-right:10px;
-        vertical-align:middle;
+        margin-left: 10px;
+        margin-right: 10px;
+        vertical-align: middle;
 
         img {
             display: inline-block;
@@ -1092,10 +1127,16 @@ table, .table {
     }
 }
 
-@keyframes back{
-    0% {background-size: 100%;}
-    100% {background-size: 105%;}
+@keyframes back {
+    0% {
+        background-size: 100%;
+    }
+
+    100% {
+        background-size: 105%;
+    }
 }
+
 @keyframes back-out {
     0% {
         background-size: 105%;
@@ -1103,5 +1144,19 @@ table, .table {
 
     100% {
         background-size: 100%;
+    }
+}
+
+.typed-cursor {
+    .h1;
+    vertical-align: middle;
+}
+
+#homeFri .container {
+    @media only screen and (max-width: 550px) and (min-height: 450px) {
+        top: 50%;
+        height: 240px;
+        margin-top: -120px;
+        position: absolute;
     }
 }
