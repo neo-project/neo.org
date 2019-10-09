@@ -488,6 +488,7 @@ a[class|=btn]{
     @media only screen and (max-width: 768px) {
         background-image: url('../images/ecoboost/ecoboost hero banner-mb.svg');
         min-height: 460px;
+        background-size: contain;
     }
 }
 
@@ -496,6 +497,10 @@ a[class|=btn]{
     background-repeat: no-repeat;
     background-position: 90%;
     background-size: 579px;
+
+    @media only screen and (min-width: 1600px) {
+        background-size: 35%;
+    }
 
     @media only screen and (max-width: 768px) {
         background-position: 175px;
@@ -807,31 +812,6 @@ i.iconfont {
 
         .list-con {
             display: inline-block;
-        }
-    }
-
-    @media only screen and (max-width: 768px) {
-        text-align: left !important;
-
-        div[class|=col], > li {
-            list-style: none;
-
-            a {
-                &.img {
-                    float: left;
-                    margin-right: 20px;
-                    width: 86px;
-                }
-            }
-
-            div {
-                margin-top: 0px;
-            }
-
-            .list-title {
-                line-height: 1.4;
-                margin-bottom: @length8;
-            }
         }
     }
 }

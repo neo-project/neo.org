@@ -34,3 +34,16 @@ $(".navbar-toggler").click(function () {
         $(".navbar").addClass("show");
     }
 });
+//首页首屏撑满屏幕，其它页面首屏在手机端撑满屏幕
+pageSize();
+$(window).resize(function () {
+    pageSize();
+});
+
+function pageSize() {
+    if ($(window).height() > 550 && $(window).width() < 450 || $("#homeFri").hasClass("bg8") /*首页*/ ) {
+        $("#homeFri").each(function () {
+            $(this).css("min-height", $(window).height() - 100);
+        });
+    }
+}
