@@ -81,6 +81,13 @@
         "themes/gly/theme.js",
         "themes/gly/theme.min.js"
       ]
+    },
+    {
+      "library": "typed.js@2.0.11",
+      "destination": "wwwroot/lib/typed.js/",
+      "files": [
+        "typed.min.js"
+      ]
     }
   ]
 }

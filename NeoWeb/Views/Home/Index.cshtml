@@ -1,6 +1,7 @@
 ﻿@model List<DiscoverViewModel>
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/homepage.min.css", true)" />
@@ -115,15 +116,32 @@
 <div class="mt1"></div>
 
 @section Scripts{
-    <script src="~/js/typetext.js"></script>
-    <script>
-        setTimeout(function () {
-            typetext.init('#typetext', {
-                strings: ["@Localizer["most community-driven"]","@Localizer["most developer-friendly"]","@Localizer["most enterprise-ready"]"],
-                loop: true
-            });
-        },500)
-
-    </script>
+    <script src="@Helper.ToCDN("/lib/typed.js/typed.min.js")"></script>
+    @if (SharedLocalizer["en"].Value == "zh")
+    {
+        <script>
+            var typed = new Typed('#typetext', {
+            strings: ["@Localizer["community-driven"]","@Localizer["developer-friendly"]","@Localizer["enterprise-ready"]"],
+            typeSpeed: 80,
+            startDelay: 300,
+            backDelay: 1500,
+            backSpeed: 40,
+            loop: true
+        });
+        </script>
+    }
+    else
+    {
+        <script>
+            var typed = new Typed('#typetext', {
+            strings: ["@Localizer["community-driven"]","@Localizer["developer-friendly"]","@Localizer["enterprise-ready"]"],
+            typeSpeed: 40,
+            startDelay: 300,
+            backDelay: 1500,
+            backSpeed: 20,
+            loop: true
+        });
+        </script>
+    }
 }
 
