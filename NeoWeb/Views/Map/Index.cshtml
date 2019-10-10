@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "站点地图";
 }
 <style>
@@ -22,10 +21,6 @@
             min-width: 130px;
         }
 
-    .disabled {
-        cursor: not-allowed
-    }
-
     .map-container span {
         background: #02e49b;
         margin-right: .5em;
@@ -44,63 +39,63 @@
     <h1 class="w800">站点地图</h1>
 </div>
 <div class="map-container container pb-5">
-    <a href="~/">首页</a>
+    <a asp-controller="home" asp-action="index">首页</a>
     <hr />
-    <a href="~/about">关于</a>
-    <a href="~/team">贡献者</a>
-    <a href="~/logo">LOGO 下载</a>
+    <a asp-controller="about" asp-action="index">关于</a>
+    <a asp-controller="contributors" asp-action="index">贡献者</a>
+    <a asp-controller="presskit" asp-action="index">媒体资源</a>
     <hr />
-    <a href="~/dev">开发者</a>
+    <a asp-controller="dev" asp-action="index">开发者门户</a>
     <a target="_blank" href="http://docs.neo.org/">技术文档 <i class="iconfont">&#xe600;</i></a>
     <a target="_blank" href="https://docs.neo.org/developerguide">开发指南 <i class="iconfont">&#xe600;</i></a>
     <a target="_blank" href="https://github.com/neo-project">GitHub <i class="iconfont">&#xe600;</i></a>
-    <a href="~/dev/bounty">安全奖励</a>
+    <a asp-controller="bounty" asp-action="index">漏洞奖励计划</a>
     <hr />
-    <a href="~/testcoin/apply">测试币申请</a>
-    <a href="~/testcoin/list"><span>Admin</span>测试币列表</a>
+    <a asp-controller="testcoin" asp-action="apply">测试币申请</a>
+    <a asp-controller="testcoin" asp-action="list"><span>Admin</span>测试币列表</a>
     <a class="disabled" title="请在测试币列表页面点击" href="javascript:"><span>Admin</span>备注</a>
     <a class="disabled" title="请在测试币列表页面点击" href="javascript:"><span>Admin</span>删除</a>
     <a class="disabled" title="请在测试币列表页面点击" href="javascript:"><span>Admin</span>详情</a>
     <hr />
-    <a href="~/client">客户端</a>
+    <a asp-controller="wallets" asp-action="index">钱包</a>
     <hr />
-    <a href="~/discover">发现</a>
+    <a asp-controller="discover" asp-action="index">发现</a>
     <hr />
     <a class="disabled" title="请在发现页面点击" href="javascript:">博客详情</a>
-    <a href="~/blog/create"><span>Admin</span>发布</a>
+    <a asp-controller="blog" asp-action="create"><span>Admin</span>发布</a>
     <a class="disabled" title="请在发现页面点击" href="javascript:"><span>Admin</span>编辑</a>
     <a class="disabled" title="请在发现页面点击" href="javascript:"><span>Admin</span>删除</a>
     <a href="~/blog/rss?language=en">RSS 英文</a>
     <a href="~/blog/rss?language=zh">RSS 中文</a>
     <hr />
     <a class="disabled" a title="请在发现页面点击" href="javascript:">活动详情</a>
-    <a href="~/event/create"><span>Admin</span>发布</a>
+    <a asp-controller="event" asp-action="create"><span>Admin</span>发布</a>
     <a class="disabled" title="请在发现页面点击" href="javascript:"><span>Admin</span>编辑</a>
     <a class="disabled" title="请在发现页面点击" href="javascript:"><span>Admin</span>删除</a>
     <a target="_blank" href="https://devcon.neo.org/">DevCon <i class="iconfont">&#xe600;</i></a>
     <hr />
     <a class="disabled" title="请在发现页面点击" href="javascript:">新闻外链 <i class="iconfont">&#xe600;</i></a>
-    <a href="~/news/create"><span>Admin</span>发布</a>
+    <a asp-controller="news" asp-action="create"><span>Admin</span>发布</a>
     <a class="disabled" title="请在发现页面点击" href="javascript:"><span>Admin</span>编辑</a>
     <a class="disabled" title="请在发现页面点击" href="javascript:"><span>Admin</span>删除</a>
     <hr />
     <a class="disabled" title="请直接点击短链接" href="javascript:">短链接 <i class="iconfont">&#xe600;</i></a>
-    <a href="~/fwlink/list"><span>Admin</span>列表</a>
-    <a href="~/fwlink/create"><span>Admin</span>新建</a>
+    <a asp-controller="fwlink" asp-action="list"><span>Admin</span>列表</a>
+    <a asp-controller="fwlink" asp-action="create"><span>Admin</span>新建</a>
     <a class="disabled" title="请在短链接页面点击" href="javascript:"><span>Admin</span>编辑</a>
     <a class="disabled" title="请在短链接页面点击" href="javascript:"><span>Admin</span>删除</a>
     <hr />
-    <a href="~/consensus">共识节点</a>
+    <a asp-controller="consensus" asp-action="index">共识节点</a>
     <hr />
-    <a href="~/eco">生态系统</a>
-    <a href="~/eco/ecoboost">EcoBoost</a>
+    <a asp-controller="eco" asp-action="index">生态系统</a>
+    <a asp-controller="ecoboost" asp-action="index">EcoBoost</a>
     <a target="_blank" href="http://ndapp.org/">DAPPS <i class="iconfont">&#xe600;</i></a>
     <hr />
-    <a href="~/demo">基础样式</a>
+    <a asp-controller="demo" asp-action="index">基础样式</a>
     <hr />
-    <a href="~/map">站点地图</a>
+    <a asp-controller="map" asp-action="index">站点地图</a>
     <hr />
-    <a href="~/subscription"><span>Admin</span>邮件订阅列表</a>
+    <a asp-controller="subscription" asp-action="index"><span>Admin</span>邮件订阅列表</a>
     <hr />
     <a href="~/identity/account/register">注册</a>
     <a href="~/identity/account/login">登录</a>

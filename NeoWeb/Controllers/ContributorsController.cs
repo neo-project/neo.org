@@ -2,15 +2,9 @@
 
 namespace NeoWeb.Controllers
 {
-    public class LogoController : Controller
+    public class ContributorsController : Controller
     {
-        [HttpGet]
         public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Demo()
         {
             return View();
         }

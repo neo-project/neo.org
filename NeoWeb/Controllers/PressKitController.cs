@@ -2,9 +2,15 @@
 
 namespace NeoWeb.Controllers
 {
-    public class TeamController : Controller
+    public class PressKitController : Controller
     {
+        [HttpGet]
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Demo()
         {
             return View();
         }

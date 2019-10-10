@@ -11,10 +11,5 @@ namespace NeoWeb.Controllers
         {
             return View();
         }
-
-        public IActionResult EcoBoost()
-        {
-            return View();
-        }
     }
 }

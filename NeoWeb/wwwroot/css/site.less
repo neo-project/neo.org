@@ -31,6 +31,10 @@ html, body {
 a {
     color: @green;
 
+    &.disabled {
+        cursor: not-allowed
+    }
+
     &:hover {
         color: @green-hover;
         text-decoration: none;

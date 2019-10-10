@@ -1,7 +1,7 @@
 ﻿[
   {
-    "outputFile": "wwwroot/css/client.css",
-    "inputFile": "wwwroot/css/client.less"
+    "outputFile": "wwwroot/css/wallets.css",
+    "inputFile": "wwwroot/css/wallets.less"
   },
   {
     "outputFile": "wwwroot/css/consensus.css",
@@ -24,10 +24,6 @@
     "inputFile": "wwwroot/css/editor.less"
   },
   {
-    "outputFile": "wwwroot/css/homepage.css",
-    "inputFile": "wwwroot/css/homepage.less"
-  },
-  {
     "outputFile": "wwwroot/css/site.css",
     "inputFile": "wwwroot/css/site.less"
   },
@@ -36,8 +32,8 @@
     "inputFile": "wwwroot/css/sitecn.less"
   },
   {
-    "outputFile": "wwwroot/css/team.css",
-    "inputFile": "wwwroot/css/team.less"
+    "outputFile": "wwwroot/css/contributors.css",
+    "inputFile": "wwwroot/css/contributors.less"
   },
   {
     "outputFile": "wwwroot/css/testnet.css",

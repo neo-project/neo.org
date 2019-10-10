@@ -38,15 +38,18 @@ namespace NeoWeb.Controllers
         }
         
         [Route("testnet/bounty")]
+        [Route("dev/bounty")]
         public IActionResult DevBounty()
         {
-            return RedirectToAction("bounty", "dev");
+            return RedirectToAction("index", "bounty");
         }
 
         [Route("home/team")]
+        [Route("team")]
+        [Route("team/index")]
         public IActionResult Team()
         {
-            return RedirectToAction("index", "team");
+            return RedirectToAction("index", "contributors");
         }
 
         [Route("blog")]
@@ -54,6 +57,19 @@ namespace NeoWeb.Controllers
         public IActionResult Blog()
         {
             return RedirectToAction("index", "discover", new { type = (int)DiscoverViewModelType.Blog });
+        }
+
+        [Route("logo")]
+        [Route("logo/index")]
+        public IActionResult PressKit()
+        {
+            return RedirectToAction("index", "presskit");
+        }
+
+        [Route("eco/ecoboost")]
+        public IActionResult EcoBoost()
+        {
+            return RedirectToAction("index", "ecoboost");
         }
 
         [Route("event")]
