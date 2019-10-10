@@ -331,7 +331,7 @@ a[class|=btn] {
 
     &:hover {
         .b3;
-        color: @green !important;
+        color: @white !important;
     }
 
     &:focus {
@@ -344,10 +344,17 @@ a[class|=btn] {
     }
 }
 
+.b3, .bg1 {
+    .btn:hover, .btn1:hover {
+        background-color: @white !important;
+        color: @dark !important;
+    }
+}
+
 .btn1 {
     .btn;
     .b3;
-    color: @green !important;
+    color: @white !important;
 
     &:hover {
         .b4;
@@ -1102,7 +1109,7 @@ table, .table {
 
     .btn {
         margin-left: -5px;
-        color: @green !important;
+        color: @white !important;
         background-color: @dark;
         display: inline-block;
         text-shadow: none;

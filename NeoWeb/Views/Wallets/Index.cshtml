@@ -40,15 +40,15 @@
             <div class="button d-none"><a class="btn" href="https://github.com/neo-project/neo-gui/releases" target="_blank">@Localizer["Download"]</a></div>
             <div class="desc d-none">
                 <div class="preview-div">
-                    <h3>Preview</h3>
+                    <h3>@Localizer["Preview"]</h3>
                     <a class="plat-btn btn-desktop active" href="javascript:" onclick="switchPlatform('desktop');">@Localizer["Desktop"]</a>
                 </div>
                 <div class="p-desktop preview">
                     <img data-original="@Helper.ToCDN("/images/client/gui.png")" />
                 </div>
                 <p>@Localizer["Neo-gui is a full-node Neo client, which contains all the basic functions of Neo network. This wallet is designed for advanced users, with professional software interaction and extremely high security. However, it takes a long time to initialize synchronization, occupies disk and memory, and has poor stability."]</p>
-                <p>@Localizer["Need to install"] <a href="https://www.microsoft.com/net/download/dotnet-framework-runtime" target="_blank">.NetFramework 4.7.1</a> @Localizer["and"] <a href="https://www.microsoft.com/en-us/download/details.aspx?id=14632" target="_blank">VC++ 2010 Redist x64</a>/<a href="https://www.microsoft.com/en-us/download/details.aspx?id=5555" target="_blank">x86</a>
-                <p>@Localizer["For more information, see:"]<a href="@Localizer["https://docs.neo.org/en-us/node/gui/install.html"]" target="_blank">@Localizer["Instructions for use"]</a></p>
+                <p>@Localizer["Need to install"] <a href="https://www.microsoft.com/net/download/dotnet-framework-runtime" target="_blank">.NetFramework 4.7.2</a> @Localizer["and"] <a href="https://www.microsoft.com/en-us/download/details.aspx?id=14632" target="_blank">VC++ 2010 Redist x64</a>/<a href="https://www.microsoft.com/en-us/download/details.aspx?id=5555" target="_blank">x86</a>
+                <p>@Localizer["For more information, see:"]<a href="@Localizer["https://docs.neo.org/docs/en-us/node/gui/install.html"]" target="_blank">@Localizer["Instructions for use"]</a></p>
                 <p>@Localizer["Languages"]: English / 简体中文</p>
                 <div>
                     <div class="metrics">
@@ -66,6 +66,7 @@
                     <div class="metrics">
                         <span>@Localizer["Support Plugins"]</span>
                         <p>Neo-gui @Localizer["supports plugins. The following is a list of commonly-used plug-in components."]</p>
+                        <br />
                         <table class="table table-bordered table-sm">
                             <thead>
                                 <tr>
@@ -75,10 +76,10 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th scope="row">
+                                    <td scope="row">
                                         <a href="https://github.com/neo-project/neo-plugins/releases/" target="_blank">ImportBlocks</a>
-                                    </th>
-                                    <td>@Localizer["Synchronizes the client using offline packages. Installed by default."]</td>
+                                    </td>
+                                    <td>@Localizer["Synchronizes the client using offline packages."]</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -106,7 +107,7 @@
             <div class="button d-none"><a class="btn" href="https://github.com/neo-project/neo-cli/releases" target="_blank">@Localizer["Download"]</a></div>
             <div class="desc d-none">
                 <div class="preview-div">
-                    <h3>Preview</h3>
+                    <h3>@Localizer["Preview"]</h3>
                     <a class="plat-btn btn-desktop active" href="javascript:" onclick="switchPlatform('desktop');">@Localizer["Desktop"]</a>
                 </div>
                 <div class="p-desktop preview">
@@ -115,7 +116,7 @@
                 <p>
                     @Localizer["Neo-cli is a full-node command-line client that can run across platforms. It can provide APIs for developers to call, or participate in the consensus mechanism as a consensus node in the block chain. This wallet is designed for developers, with professional software interaction, as well as higher security and stability. The disadvantages of this wallet are that it takes a long time to initialize synchronization, and it takes up disk and memory."]
                 </p>
-                <p>@Localizer["For more information, see:"] <a href="@Localizer["http://docs.neo.org/en-us/node/cli/setup.html"]" target="_blank">@Localizer["Instructions for use"]</a>, <a href="https://github.com/neo-project/neo-cli/blob/master/CHANGELOG.md" target="_blank">@Localizer["Change log"]</a></p>
+                <p>@Localizer["For more information, see:"] <a href="@Localizer["https://docs.neo.org/docs/en-us/node/cli/setup.html"]" target="_blank">@Localizer["Instructions for use"]</a>, <a href="https://github.com/neo-project/neo-cli/blob/master/CHANGELOG.md" target="_blank">@Localizer["Change log"]</a></p>
                 <p>@Localizer["Languages"]: English</p>
                 <div>
                     <div class="metrics">
@@ -135,55 +136,68 @@
                     <div class="metrics">
                         <span>@Localizer["Support Plugins"]</span>
                         <p>Neo-cli @Localizer["supports plugins. The following is a list of commonly-used plug-in components."]</p>
-                        <table class="table table-bordered">
+                        <br />
+                        <table class="table table-bordered table-sm">
                             <thead>
                                 <tr>
                                     <th scope="col">@Localizer["Plugin"]</th>
                                     <th scope="col">@Localizer["Introduction"]</th>
                                 </tr>
                             </thead>
-                            <tbody class="table table-bordered table-sm">
+                            <tbody>
                                 <tr>
-                                    <th scope="row">
+                                    <td scope="row">
                                         <a href="https://github.com/neo-project/neo-plugins/releases/" target="_blank">ApplicationLogs</a>
-                                    </th>
-                                    <td>@Localizer["Synchronizes the smart contract log (ApplicationLogs) automatically in RPC mode. Mandatory for exchanges."]</td>
+                                    </td>
+                                    <td>@Localizer["Synchronizes the smart contract log (ApplicationLogs) automatically in RPC mode. Currently the log has been changed to be stored in the format of LevelDB."]</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">
+                                    <td scope="row">
+                                        <a href="https://github.com/neo-project/neo-plugins/releases/" target="_blank">CoreMetrics</a>
+                                    </td>
+                                    <td>@Localizer["Enquiries the timestamp of history blocks."]</td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">
                                         <a href="https://github.com/neo-project/neo-plugins/releases/" target="_blank">ImportBlocks</a>
-                                    </th>
-                                    <td>@Localizer["Synchronizes the client using offline packages. Installed by default."]</td>
+                                    </td>
+                                    <td>@Localizer["Synchronizes the client using offline packages."]</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">
+                                    <td scope="row">
+                                        <a href="https://github.com/neo-project/neo-plugins/releases/" target="_blank">RpcNep5Tracker</a>
+                                    </td>
+                                    <td>@Localizer["Enquiries NEP-5 balance and transactions history of accounts through RPC."]</td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">
+                                        <a href="https://github.com/neo-project/neo-plugins/releases/" target="_blank">RpcSecurity</a>
+                                    </td>
+                                    <td>@Localizer["Enhances the security of RPC requests by enabling base64 encryption for HTTP requests. You need to configure the user name and password in the plugin config.json file."]</td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">
+                                        <a href="https://github.com/neo-project/neo-plugins/releases/" target="_blank">RpcSystemAssetTracker</a>
+                                    </td>
+                                    <td>@Localizer["Enquiries the UTXO assets related information."]</td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">
                                         <a href="https://github.com/neo-project/neo-plugins/releases/" target="_blank">RpcWallet</a>
-                                    </th>
+                                    </td>
                                     <td>@Localizer["Provides wallet-specific RPC functionalities."]</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">
+                                    <td scope="row">
                                         <a href="https://github.com/neo-project/neo-plugins/releases/" target="_blank">SimplePolicy</a>
-                                    </th>
-                                    <td>@Localizer["Enables policies for consensus. Mandatory for building private chain."]</td>
+                                    </td>
+                                    <td>@Localizer["Enables policies for filtrate illegal transactions."]</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">
-                                        <a href="https://github.com/neo-project/neo-plugins/releases/" target="_blank">RpcSecurity</a>
-                                    </th>
-                                    <td>@Localizer["Improves RPC security. Optional."]</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">
+                                    <td scope="row">
                                         <a href="https://github.com/neo-project/neo-plugins/releases/" target="_blank">StatesDumper</a>
-                                    </th>
-                                    <td>@Localizer["Exports neo-cli status data. Optional."]</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">
-                                        <a href="https://github.com/neo-project/neo-plugins/releases/" target="_blank">RpcNep5Tracker</a>
-                                    </th>
-                                    <td>@Localizer["Enquiries NEP-5 balance and transactions history of accounts through RPC."]</td>
+                                    </td>
+                                    <td>@Localizer["Exports neo-cli status data."]</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -209,11 +223,11 @@
             </div>
             <a class="open-source" href="https://github.com/O3Labs" target="_blank">GitHub</a>
             <div class="developer d-none"><a href="https://o3.network/" target="_blank">O3 Labs</a></div>
-            <div class="license d-none"><a href="https://github.com/O3Labs/O3Android/blob/master/LICENSE" target="_blank">MIT License</a></div>
+            <div class="license d-none"><a href="https://github.com/O3Labs/OzoneWalletIOS/blob/master/LICENSE" target="_blank">MIT License</a></div>
             <div class="button d-none"><a class="btn" href="https://o3.network/" target="_blank">@Localizer["Website"]</a></div>
             <div class="desc d-none">
                 <div class="preview-div">
-                    <h3>Preview</h3>
+                    <h3>@Localizer["Preview"]</h3>
                     <a class="plat-btn btn-desktop" href="javascript:" onclick="switchPlatform('desktop');">@Localizer["Desktop"]</a>
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
@@ -266,7 +280,7 @@
             <div class="button d-none"><a class="btn" href="https://neonwallet.com/" target="_blank">@Localizer["Website"]</a></div>
             <div class="desc d-none">
                 <div class="preview-div">
-                    <h3>Preview</h3>
+                    <h3>@Localizer["Preview"]</h3>
                     <a class="plat-btn btn-desktop active" href="javascript:" onclick="switchPlatform('desktop');">@Localizer["Desktop"]</a>
                 </div>
                 <div class="p-desktop preview">
@@ -316,7 +330,7 @@
             </div>
             <div class="desc d-none">
                 <div class="preview-div">
-                    <h3>Preview</h3>
+                    <h3>@Localizer["Preview"]</h3>
                     <a class="plat-btn btn-web" href="javascript:" onclick="switchPlatform('web');">@Localizer["Web"]</a>
                     <a class="plat-btn btn-desktop" href="javascript:" onclick="switchPlatform('desktop');">@Localizer["Desktop"]</a>
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
@@ -377,7 +391,7 @@
             <div class="button d-none"><a class="btn" href="https://www.anybit.io/" target="_blank">@Localizer["Website"]</a></div>
             <div class="desc d-none">
                 <div class="preview-div">
-                    <h3>Preview</h3>
+                    <h3>@Localizer["Preview"]</h3>
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
                 <div class="p-mobile preview">
@@ -427,12 +441,12 @@
             <div class="developer d-none"><a href="https://otcgo.cn/" target="_blank">SEA</a></div>
             <div class="license d-none"><a href="https://github.com/OTCGO/sea-app/blob/master/LICENSE" target="_blank">MIT License</a></div>
             <div class="button d-none">
-                <a class="btn" href="https://otcgo.cn/download/" target="_blank">@Localizer["Website"]</a>
+                <a class="btn" href="https://otcgo.cn/download/" target="_blank">@Localizer["Download"]</a>
                 <a class="btn" href="https://otcgo.cn/#/" target="_blank">@Localizer["Go to Web Wallet"]</a>
             </div>
             <div class="desc d-none">
                 <div class="preview-div">
-                    <h3>Preview</h3>
+                    <h3>@Localizer["Preview"]</h3>
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
                 <div class="p-mobile preview">
@@ -473,13 +487,11 @@
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Hardware">&#xe622;</i>
             </div>
-            <a class="open-source" href="https://github.com/CaspianTechnologies" target="_blank">GitHub</a>
             <div class="developer d-none"><a href="http://spatium.net/" target="_blank">CaspianTechnologies</a></div>
-            <div class="license d-none"><a href="https://github.com/CaspianTechnologies/Spatium/blob/master/LICENSE" target="_blank">GPL-3.0 License</a></div>
             <div class="button d-none"><a class="btn" href="http://spatium.net/" target="_blank">@Localizer["Website"]</a></div>
             <div class="desc d-none">
                 <div class="preview-div">
-                    <h3>Preview</h3>
+                    <h3>@Localizer["Preview"]</h3>
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
                 <div class="p-mobile preview">
@@ -503,8 +515,8 @@
                         <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                     </div>
                     <div class="metrics">
-                        <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["Higher"]</span>
-                        <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software."]@Localizer["Get source code"]: <a href="https://github.com/CaspianTechnologies" target="_blank">GitHub</a></div>
+                        <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
+                        <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
                     </div>
                     <div class="metrics">
                         <span>@Localizer["Supported NEP"]</span><span class="span-danger">@Localizer["Poor"]</span>
@@ -526,7 +538,7 @@
             <div class="button d-none"><a class="btn" href="https://cobo.com/" target="_blank">@Localizer["Website"]</a></div>
             <div class="desc d-none">
                 <div class="preview-div">
-                    <h3>Preview</h3>
+                    <h3>@Localizer["Preview"]</h3>
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
                 <div class="p-mobile preview">
@@ -572,7 +584,7 @@
             <div class="button d-none"><a class="btn" href="http://www.mathwallet.org" target="_blank">@Localizer["Website"]</a></div>
             <div class="desc d-none">
                 <div class="preview-div">
-                    <h3>Preview</h3>
+                    <h3>@Localizer["Preview"]</h3>
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
                 <div class="p-mobile preview">
@@ -619,7 +631,7 @@
             <div class="button d-none"><a class="btn" href="https://www.infinitowallet.io" target="_blank">@Localizer["Website"]</a></div>
             <div class="desc d-none">
                 <div class="preview-div">
-                    <h3>Preview</h3>
+                    <h3>@Localizer["Preview"]</h3>
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
                 <div class="p-mobile preview">
@@ -667,7 +679,7 @@
             </div>
             <div class="desc d-none">
                 <div class="preview-div">
-                    <h3>Preview</h3>
+                    <h3>@Localizer["Preview"]</h3>
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
                 <div class="p-mobile preview">
@@ -714,7 +726,7 @@
             <div class="button d-none"><a class="btn" href="https://atomicwallet.io/" target="_blank">@Localizer["Website"]</a></div>
             <div class="desc d-none">
                 <div class="preview-div">
-                    <h3>Preview</h3>
+                    <h3>@Localizer["Preview"]</h3>
                     <a class="plat-btn btn-desktop active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Desktop"]</a>
                 </div>
                 <div class="p-mobile preview">
@@ -762,7 +774,7 @@
             </div>
             <div class="desc d-none">
                 <div class="preview-div">
-                    <h3>Preview</h3>
+                    <h3>@Localizer["Preview"]</h3>
                     <a class="plat-btn btn-extension active" href="javascript:" onclick="switchPlatform('extension');">@Localizer["Extension"]</a>
                 </div>
                 <div class="p-extension preview">
@@ -807,7 +819,7 @@
             <div class="button d-none"><a class="btn" href="https://chrome.google.com/webstore/detail/teemo-wallet/faddjfhplkcfackpcjnmmeapchnkobjk" target="_blank">@Localizer["Download"]</a></div>
             <div class="desc d-none">
                 <div class="preview-div">
-                    <h3>Preview</h3>
+                    <h3>@Localizer["Preview"]</h3>
                     <a class="plat-btn btn-extension active" href="javascript:" onclick="switchPlatform('extension');">@Localizer["Extension"]</a>
                 </div>
                 <div class="p-extension preview">
@@ -840,7 +852,7 @@
                 </div>
             </div>
         </li>
-        <li class="desktop mobile web">
+        <li class="mobile web">
             <img class="client-logo" data-original="@Helper.ToCDN("/images/client/logo/bitkeep.png")" />
             <header>Bitkeep Wallet</header>
             <div class="platform">
@@ -852,7 +864,7 @@
             <div class="button d-none"><a class="btn" href="https://www.bitkeep.com/" target="_blank">@Localizer["Website"]</a></div>
             <div class="desc d-none">
                 <div class="preview-div">
-                    <h3>Preview</h3>
+                    <h3>@Localizer["Preview"]</h3>
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
                 <div class="p-mobile preview">
@@ -898,7 +910,7 @@
             <div class="button d-none"><a class="btn" href="https://neotracker.io/wallet" target="_blank">@Localizer["Go to Web Wallet"]</a></div>
             <div class="desc d-none">
                 <div class="preview-div">
-                    <h3>Preview</h3>
+                    <h3>@Localizer["Preview"]</h3>
                     <a class="plat-btn btn-web active" href="javascript:" onclick="switchPlatform('web');">@Localizer["Web"]</a>
                 </div>
                 <div class="p-web preview">
@@ -948,7 +960,7 @@
             <div class="button d-none"><a class="btn" href="https://wallet.nel.group/" target="_blank">@Localizer["Go to Web Wallet"]</a></div>
             <div class="desc d-none">
                 <div class="preview-div">
-                    <h3>Preview</h3>
+                    <h3>@Localizer["Preview"]</h3>
                     <a class="plat-btn btn-web active" href="javascript:" onclick="switchPlatform('web');">@Localizer["Web"]</a>
                 </div>
                 <div class="p-web preview">
@@ -1000,7 +1012,7 @@
             </div>
             <div class="desc d-none">
                 <div class="preview-div">
-                    <h3>Preview</h3>
+                    <h3>@Localizer["Preview"]</h3>
                     <a class="plat-btn btn-web" href="javascript:" onclick="switchPlatform('web');">@Localizer["Web"]</a>
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
@@ -1057,7 +1069,7 @@
             <div class="button d-none"><a class="btn" href="https://snowypowers.github.io/ansy/" target="_blank">@Localizer["Go to Web Wallet"]</a></div>
             <div class="desc d-none">
                 <div class="preview-div">
-                    <h3>Preview</h3>
+                    <h3>@Localizer["Preview"]</h3>
                     <a class="plat-btn btn-web active" href="javascript:" onclick="switchPlatform('web');">@Localizer["Web"]</a>
                 </div>
                 <div class="p-web preview">
@@ -1101,7 +1113,7 @@
             <div class="button d-none"><a class="btn" href="https://www.ledgerwallet.com" target="_blank">@Localizer["Website"]</a></div>
             <div class="desc d-none">
                 <div class="preview-div">
-                    <h3>Preview</h3>
+                    <h3>@Localizer["Preview"]</h3>
                     <a class="plat-btn btn-hardware active" href="javascript:" onclick="switchPlatform('hardware');">@Localizer["Hardware"]</a>
                 </div>
                 <div class="p-hardware preview">
@@ -1150,7 +1162,7 @@
             <div class="button d-none"><a class="btn" href="https://www.ledgerwallet.com" target="_blank">@Localizer["Website"]</a></div>
             <div class="desc d-none">
                 <div class="preview-div">
-                    <h3>Preview</h3>
+                    <h3>@Localizer["Preview"]</h3>
                     <a class="plat-btn btn-hardware active" href="javascript:" onclick="switchPlatform('hardware');">@Localizer["Hardware"]</a>
                 </div>
                 <div class="p-hardware preview">

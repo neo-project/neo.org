@@ -192,11 +192,11 @@
   <data name="Degree of Digital Asset Control" xml:space="preserve">
     <value>数字资产掌控权</value>
   </data>
-  <data name="Enables policies for consensus. Mandatory for building private chain." xml:space="preserve">
-    <value>启用共识的简单策略。搭建私链必选。</value>
+  <data name="Enables policies for filtrate illegal transactions." xml:space="preserve">
+    <value>过滤非法交易。</value>
   </data>
-  <data name="Exports neo-cli status data. Optional." xml:space="preserve">
-    <value>导出 neo-cli 状态数据。可选。</value>
+  <data name="Exports neo-cli status data." xml:space="preserve">
+    <value>导出 neo-cli 状态数据。</value>
   </data>
   <data name="Fail to support more NEP" xml:space="preserve">
     <value>不支持更多 NEP</value>
@@ -204,8 +204,8 @@
   <data name="For more information, see:" xml:space="preserve">
     <value>更多信息请参见：</value>
   </data>
-  <data name="Improves RPC security. Optional." xml:space="preserve">
-    <value>提升 RPC 安全，可选。</value>
+  <data name="Enhances the security of RPC requests by enabling base64 encryption for HTTP requests. You need to configure the user name and password in the plugin config.json file." xml:space="preserve">
+    <value>对 HTTP Request 进行 base64 加密，提升 RPC 请求的安全性。需要在该插件的 config.json 文件中设置 username 和 password。</value>
   </data>
   <data name="Instructions for use" xml:space="preserve">
     <value>使用说明</value>
@@ -291,11 +291,11 @@
   <data name="supports plugins. The following is a list of commonly-used plug-in components." xml:space="preserve">
     <value>支持插件功能，以下是常用插件列表</value>
   </data>
-  <data name="Synchronizes the client using offline packages. Installed by default." xml:space="preserve">
-    <value>同步离线包，已默认安装。</value>
+  <data name="Synchronizes the client using offline packages." xml:space="preserve">
+    <value>同步离线包。</value>
   </data>
-  <data name="Synchronizes the smart contract log (ApplicationLogs) automatically in RPC mode. Mandatory for exchanges." xml:space="preserve">
-    <value>存储智能合约日志（ApplicationLogs），交易所必选。</value>
+  <data name="Synchronizes the smart contract log (ApplicationLogs) automatically in RPC mode. Currently the log has been changed to be stored in the format of LevelDB." xml:space="preserve">
+    <value>在 RPC 模式下自动同步智能合约日志（ApplicationLogs），目前日志已经改为以 LevelDB 格式存储。</value>
   </data>
   <data name="The wallets shown on this page have been developed by groups within the Neo community. Choose the wallet that best fits your needs, and if you encounter any problems during use, please contact the developer directly. When creating a new Neo wallet, please remember to back up your private key in a secure manner. Your private key is the only way to control your own Neo assets." xml:space="preserve">
     <value>本页面上显示的钱包均由 Neo 社区的开发团队或个人开发者开发，请谨慎选择钱包。如果在使用过程中遇到任何问题，请联系开发人员。
@@ -346,14 +346,14 @@
   <data name="Open Source" xml:space="preserve">
     <value>开源</value>
   </data>
-  <data name="https://docs.neo.org/en-us/node/gui/install.html" xml:space="preserve">
-    <value>https://docs.neo.org/zh-cn/node/gui/install.html</value>
+  <data name="https://docs.neo.org/docs/en-us/node/gui/install.html" xml:space="preserve">
+    <value>https://docs.neo.org/docs/zh-cn/node/gui/install.html</value>
   </data>
   <data name="Change log" xml:space="preserve">
     <value>更新日志</value>
   </data>
-  <data name="http://docs.neo.org/en-us/node/cli/setup.html" xml:space="preserve">
-    <value>http://docs.neo.org/zh-cn/node/cli/setup.html</value>
+  <data name="https://docs.neo.org/docs/en-us/node/cli/setup.html" xml:space="preserve">
+    <value>https://docs.neo.org/docs/zh-cn/node/cli/setup.html</value>
   </data>
   <data name="Atomic is a decentralized wallet that supports 300+ cryptocurrency assets. The wallet uses Atomic Swap technology for cross-chain custody free exchange. Atomic Wallet provides instant exchange and &quot;buy crypto with a credit card&quot; feature. Available for Windows, Mac OS, Linux, and Android." xml:space="preserve">
     <value>Atomic 是一款去中心化钱包，支持 300 多种加密货币资产。该钱包使用原子互换技术实现跨链托管自由转换。Atomic 钱包提供实时转换和“使用信用卡购买加密货币”功能。适用于 Windows、Mac OS、Linux 以及 Android。</value>
@@ -405,5 +405,14 @@
   </data>
   <data name="Supported Platform" xml:space="preserve">
     <value>支持平台</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>预览</value>
+  </data>
+  <data name="Enquiries the timestamp of history blocks." xml:space="preserve">
+    <value>查询历史区块的时间戳。</value>
+  </data>
+  <data name="Enquiries the UTXO assets related information." xml:space="preserve">
+    <value>查询 UTXO 资产相关信息。</value>
   </data>
 </root>
