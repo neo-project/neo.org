@@ -142,10 +142,10 @@ https://github.com/neo-project/neo.org
     </div>
     <footer class="b3 px-5">
         <div class="row">
-            <div class="col-md">
+            <div class="col-md-12 col-lg">
                 <img class="b-logo" src="@Helper.CDN/images/logo files-white.svg" width="80" height="30" />
             </div>
-            <div class="col-md">
+            <div class="col-md-3 mt-md-5 col-lg">
                 <p class="bold no-border"><a asp-controller="about" asp-action="index">@Localizer["About"]</a></p>
                 <ul>
                     <li><a asp-controller="consensus" asp-action="index">@Localizer["Consensus"]</a></li>
@@ -153,25 +153,25 @@ https://github.com/neo-project/neo.org
                     <li><a asp-controller="presskit" asp-action="index">@Localizer["Press Kit"]</a></li>
                 </ul>
             </div>
-            <div class="col-md">
+            <div class="col-md-3 mt-md-5 col-lg">
                 <p class="bold"><a asp-controller="dev" asp-action="index">@Localizer["Developers"]</a></p>
                 <ul>
                     <li><a target="_blank" href="https://docs.neo.org">@Localizer["Documentation"]</a></li>
                     <li><a target="_blank" href="https://github.com/neo-project">@Localizer["GitHub"]</a></li>
-                    <li><a asp-controller="bounty" asp-action="index">@Localizer["Vulnerability Bounty Program"]</a></li>
+                    <li><a asp-controller="bounty" asp-action="index">@Localizer["Vulnerability Bounty"]</a></li>
                 </ul>
             </div>
-            <div class="col-md">
+            <div class="col-md-5 mt-md-5 col-lg">
                 <p class="bold"><a asp-controller="wallets" asp-action="index">@Localizer["Wallets"]</a></p>
             </div>
-            <div class="col-md">
+            <div class="col-md-3 mt-md-5 col-lg">
                 <p class="bold"><a asp-controller="eco" asp-action="index">@Localizer["Ecosystem"]</a></p>
                 <ul>
                     <li><a asp-controller="ecoboost" asp-action="index">@Localizer["EcoBoost"]</a></li>
                     <li><a href="https://ndapp.org" target="_blank">@Localizer["dApps List"]</a></li>
                 </ul>
             </div>
-            <div class="col-md">
+            <div class="col-md-3 mt-md-5 col-lg">
                 <p class="bold"><a asp-controller="discover" asp-action="index">@Localizer["Discover"]</a></p>
                 <ul>
                     <li><a asp-controller="discover" asp-action="index" asp-route-type="1">@Localizer["Blogs"]</a></li>
@@ -179,7 +179,7 @@ https://github.com/neo-project/neo.org
                     <li><a asp-controller="discover" asp-action="index" asp-route-type="3">@Localizer["News"]</a></li>
                 </ul>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-5 mt-md-5 col-lg-3">
                 <p class="bold">@Localizer["Contact Us"]</p>
                 <ul>
                     <li><small>@Localizer["Marketing"]</small><a href="mailto:marketing@neo.org" class="green2">marketing@neo.org</a></li>

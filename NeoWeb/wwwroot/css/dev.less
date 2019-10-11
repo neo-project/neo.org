@@ -10,7 +10,11 @@
     list-style: none;
     padding: 0;
     line-height: 1.8;
-    font-weight:600;
+    font-weight: 600;
+
+    li:not(.link-title) span {
+        font-weight: normal;
+    }
 }
 
 
@@ -67,7 +71,7 @@
         }
     }
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 767px) {
         .col-md-4 {
             &:after {
                 content: "";

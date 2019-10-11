@@ -11,7 +11,7 @@
         <h1 class="w800">@Localizer["Developer Portal"]</h1>
         <p class="mt3 w500 d-flex justify-content-around">
             <a class="btn" target="_blank" href="https://github.com/neo-project">GitHub</a>
-            <a class="btn" target="_blank" href="https://docs.neo.org">Docs</a>
+            <a class="btn" target="_blank" href="https://docs.neo.org">@Localizer["Documentation"]</a>
             <a class="btn" asp-controller="discover" asp-action="index" asp-route-keywords="neo3">Neo3</a>
         </p>
     </div>
@@ -88,9 +88,9 @@
             <div class="col-md-4">
                 <h4 class="line-b">@Localizer["Neo Links"]</h4>
                 <ul class="dev-link mt6">
-                    <li><a target="_blank" href="https://github.com/neo-project" title="Neo GitHub">Neo GitHub</a></li>
-                    <li><a target="_blank" href="https://docs.neo.org/" title="Neo Docs">@Localizer["Neo Docs"]</a></li>
-                    <li><a asp-controller="bounty" asp-action="index" title="Security Bounty">@Localizer["Security Bounty"]</a></li>
+                    <li><a target="_blank" href="https://github.com/neo-project" title="Neo GitHub">GitHub</a></li>
+                    <li><a target="_blank" href="https://docs.neo.org/" title="Neo Docs">@Localizer["Documentation"]</a></li>
+                    <li><a asp-controller="bounty" asp-action="index" title="@Localizer["Vulnerability Bounty"]">@Localizer["Vulnerability Bounty"]</a></li>
                 </ul>
             </div>
             <div class="col-md-4">
@@ -138,15 +138,15 @@
                     <li class="link-title h6"><span>@Localizer["Smart Contract Development"]</span></li>
 
                     <li class="bold pt4">@Localizer["Toolkit"]</li>
-                    <li><a class="disabled" href="javascript:" title="neo blockchain toolkit for .NET">neo blockchain toolkit for .NET</a></li>
+                    <li><a target="_blank" href="https://github.com/neo-project/neo-blockchain-toolkit" title="neo blockchain toolkit for .NET">neo blockchain toolkit for .NET</a></li>
 
                     <li class="bold">@Localizer["Dev-pack & compiler"]</li>
                     <li><a target="_blank" href="https://github.com/neo-project/neo-devpack-dotnet" title="neo-devpack-dotnet">neo-devpack-dotnet</a> <span>C# dev-pack</span></li>
-                    <li><a target="_blank" href="https://github.com/neo-project/neo-compiler" title="neon">neon</a> <span>C# compiler</span></li>
-                    <li><a target="_blank" href="https://github.com/CityOfZion/neo-boa" title="neo-boa">neo-boa</a> <span>Python dev-pack & compiler</span></li>
-                    <li><a target="_blank" href="https://github.com/neo-project/neo-compiler" title="neoj">neoj</a> <span>Java compiler</span></li>
-                    <li><a target="_blank" href="https://github.com/CityOfZion/neo-storm" title="neo-storm">neo-storm</a> <span>Go compiler</span></li>
-                    <li><a target="_blank" href="https://neo-one.io" title="NEO-ONE">NEO-ONE</a> <span>TypeScript compiler & SDK</span></li>
+                    <li><a target="_blank" href="https://github.com/neo-project/neo-compiler" title="neon">neon</a> <span>C# @Localizer["compiler"]</span></li>
+                    <li><a target="_blank" href="https://github.com/CityOfZion/neo-boa" title="neo-boa">neo-boa</a> <span>Python dev-pack & @Localizer["compiler"]</span></li>
+                    <li><a target="_blank" href="https://github.com/neo-project/neo-compiler" title="neoj">neoj</a> <span>Java @Localizer["compiler"]</span></li>
+                    <li><a target="_blank" href="https://github.com/CityOfZion/neo-storm" title="neo-storm">neo-storm</a> <span>Go @Localizer["compiler"]</span></li>
+                    <li><a target="_blank" href="https://neo-one.io" title="NEO-ONE">NEO-ONE</a> <span>TypeScript @Localizer["compiler"] & SDK</span></li>
 
                     <li class="bold">@Localizer["Web IDE"]</li>
                     <li><a target="_blank" href="https://visualstudio.microsoft.com" title="Visual Studio">Visual Studio</a></li>
@@ -160,10 +160,10 @@
                     <li class="link-title h6"><span>@Localizer["dApp Integration"]</span></li>
                     <li class="bold pt4">SDK</li>
                     <li><a target="_blank" href="https://github.com/neo-project/neo" title="neo">neo</a> <span>C#</span></li>
-                    <li><a target="_blank" href="https://github.com/CityOfZion/neo-python" title="neo-python">neo-python</a> <span>python</span></li>
-                    <li><a target="_blank" href="https://github.com/CityOfZion/neon-js" title="neon-js">neon-js</a> <span>javaScript</span></li>
-                    <li><a target="_blank" href="https://github.com/CityOfZion/neo-go" title="neo-go">neo-go</a> <span>go</span></li>
-                    <li><a target="_blank" href="https://github.com/neow3j/neow3j" title="neow3j">neow3j</a> <span>java</span></li>
+                    <li><a target="_blank" href="https://github.com/CityOfZion/neo-python" title="neo-python">neo-python</a> <span>Python</span></li>
+                    <li><a target="_blank" href="https://github.com/CityOfZion/neon-js" title="neon-js">neon-js</a> <span>JavaScript</span></li>
+                    <li><a target="_blank" href="https://github.com/CityOfZion/neo-go" title="neo-go">neo-go</a> <span>Go</span></li>
+                    <li><a target="_blank" href="https://github.com/neow3j/neow3j" title="neow3j">neow3j</a> <span>Java</span></li>
 
 
                     <li class="bold">@Localizer["Wallet & Extension"]</li>
@@ -207,8 +207,8 @@
             <div class="col-md-4">
                 <img data-original="/images/dev/SecurityBounty.svg" />
                 <div>
-                    <div class="list-title">@Localizer["Security bounty"]</div>
-                    <div>@Localizer["squash all the bugs"]</div>
+                    <div class="list-title">@Localizer["Vulnerability Bounty"]</div>
+                    <div>@Localizer["squash all the vulnerabilitys"]</div>
                 </div>
             </div>
             <div class="col-md-4">

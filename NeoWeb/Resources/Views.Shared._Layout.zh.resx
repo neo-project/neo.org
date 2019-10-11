@@ -157,7 +157,7 @@
     <value>发现</value>
   </data>
   <data name="Documentation" xml:space="preserve">
-    <value>文档</value>
+    <value>开发者文档</value>
   </data>
   <data name="EcoBoost" xml:space="preserve">
     <value>EcoBoost</value>
@@ -180,7 +180,7 @@
   <data name="Press Kit" xml:space="preserve">
     <value>媒体资源</value>
   </data>
-  <data name="Vulnerability Bounty Program" xml:space="preserve">
+  <data name="Vulnerability Bounty" xml:space="preserve">
     <value>漏洞奖励计划</value>
   </data>
   <data name="Wallets" xml:space="preserve">

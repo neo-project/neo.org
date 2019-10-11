@@ -162,7 +162,7 @@
   <data name="Issues lead to severe asset loss" xml:space="preserve">
     <value>导致用户资产发生损失的问题</value>
   </data>
-  <data name="Only issues related to stability and security with design and implementation is within the scope, vulnerabilities with Neo website and related infrastructure on the Neo blockchain is out of the scope. Find more details at the Scope of Bug Bounty Program." xml:space="preserve">
+  <data name="Only issues related to stability and security with design and implementation is within the scope, vulnerabilities with Neo website and related infrastructure on the Neo blockchain is out of the scope. Find more details at the Scope of Vulnerability Bounty Program." xml:space="preserve">
     <value>只有影响区块链稳定性或安全性的设计或实施问题才属于该计划的范围，Neo 区块链上的相关设施（网站、文档、第三方客户端、区块链浏览器、开发工具等）不属于奖励范畴，详见下文漏洞奖励计划范畴。</value>
   </data>
   <data name="Other valid issues" xml:space="preserve">
@@ -180,7 +180,7 @@
   <data name="Rewards" xml:space="preserve">
     <value>奖励规则</value>
   </data>
-  <data name="Scope of Bug Bounty Program" xml:space="preserve">
+  <data name="Scope of Vulnerability Bounty Program" xml:space="preserve">
     <value>漏洞奖励计划范畴</value>
   </data>
   <data name="Security vulnerabilities of the following projects must be addressed in the report to be eligible for the rewards:" xml:space="preserve">
