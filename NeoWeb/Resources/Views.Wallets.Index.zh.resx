@@ -198,8 +198,8 @@
   <data name="Exports neo-cli status data." xml:space="preserve">
     <value>导出 neo-cli 状态数据。</value>
   </data>
-  <data name="Fail to support more NEP" xml:space="preserve">
-    <value>不支持更多 NEP</value>
+  <data name="None" xml:space="preserve">
+    <value>没有</value>
   </data>
   <data name="For more information, see:" xml:space="preserve">
     <value>更多信息请参见：</value>
@@ -390,9 +390,6 @@
   </data>
   <data name="Rich" xml:space="preserve">
     <value>丰富</value>
-  </data>
-  <data name="So so" xml:space="preserve">
-    <value>一般</value>
   </data>
   <data name="Verification" xml:space="preserve">
     <value>验证方式</value>
