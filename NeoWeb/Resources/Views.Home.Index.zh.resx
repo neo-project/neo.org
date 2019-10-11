@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="As the most-developer friendly platform, Neo is supporting 100+ dAPPs with its comprehensive suite of tools and resources, so that anyone from anywhere in the world could share the future of a smart economy." xml:space="preserve">
+  <data name="As the most-developer friendly platform, Neo is supporting a global dApp ecosystem with its comprehensive suite of tools and resources to empower anyone from anywhere in the world to join Neo’s vision of a smart economy." xml:space="preserve">
     <value>作为对开发者最友好的开放平台，我们支持多种语言的开发，拥有完整的基础设施和活跃的全球开发者社区资源，欢迎成为 Neo 开发者。</value>
   </data>
   <data name="Become a Neo developer" xml:space="preserve">
@@ -174,10 +174,10 @@
   <data name="Mainstream Languages" xml:space="preserve">
     <value>主流语言支持</value>
   </data>
-  <data name="Neo is investing USD $100 million through its EcoBoost initiative to accelerate the realization of large-scale commercial blockchain solutions by empowering our developers and projects." xml:space="preserve">
+  <data name="Neo is investing USD $100 million through its  EcoBoost program to accelerate the realization of large-scale commercial blockchain solutions by empowering developers and projects in the ecosystem." xml:space="preserve">
     <value>为构建下一代互联网基础设施，Neo斥资 1 亿美元打造EcoBoost 计划，对生态内的开发者与项目方进行激励与全生命周期的支持，旨在加速区块链应用的大规模商用落地。目前已有数百个合作伙伴与项目方加入该计划。</value>
   </data>
-  <data name="Neo’s Ecosystem" xml:space="preserve">
+  <data name="Neo Ecosystem" xml:space="preserve">
     <value>丰富的 Neo 生态</value>
   </data>
   <data name="open network for the smart economy" xml:space="preserve">
@@ -192,7 +192,7 @@
   <data name="Wallet Addresses" xml:space="preserve">
     <value>钱包地址</value>
   </data>
-  <data name="With our thriving partners and projects, the Neo ecosystem is rapidly growing and developing, thus enabling us to become the foundation for next-gen Internet." xml:space="preserve">
+  <data name="With thriving partners and projects, the Neo ecosystem is rapidly growing and developing, thus enabling Neo to become the foundation for next-gen Internet." xml:space="preserve">
     <value>在数百个合作伙伴与项目方的不断努力下，Neo 的生态系统正在快速发展壮大，为 Neo 成为下一代互联网的基础设施保驾护航。</value>
   </data>
 </root>
