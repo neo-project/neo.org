@@ -37,6 +37,7 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            vertical-align: middle;
         }
 
         &:before {
@@ -60,6 +61,9 @@
         }
     }
 
+    span {
+        font-weight: 300;
+    }
 
     .no-before {
         &:before {
@@ -77,6 +81,7 @@
                 width: 100%;
                 margin-top: 12px;
                 margin-right: 20px;
+                margin-bottom: 12px;
             }
         }
 
@@ -86,7 +91,7 @@
             margin-bottom: 0;
 
             li {
-                background: @body;
+                background: @gray3;
                 padding-left: 20px;
             }
 
@@ -98,10 +103,10 @@
                 content: "";
                 position: absolute;
                 left: 0;
-                top: -20px;
+                top: -12px;
                 border-left: 10px solid @arrow;
                 border-right: 10px solid @arrow;
-                border-top: 10px solid @body;
+                border-top: 10px solid @gray3;
                 border-bottom: 10px solid @arrow;
             }
 
@@ -110,17 +115,18 @@
                 position: absolute;
                 left: 0;
                 bottom: -20px;
-                border-left: 10px solid @body;
-                border-right: 10px solid @body;
+                border-left: 10px solid @gray3;
+                border-right: 10px solid @gray3;
                 border-top: 10px solid @arrow;
-                border-bottom: 10px solid @body;
+                border-bottom: 10px solid @gray3;
             }
         }
 
         .link-title {
-            margin-top: @length6;
             background: @body;
             padding-left: 0;
+            line-height: 1.2;
+            height: auto;
 
             &:before,
             &:after {
