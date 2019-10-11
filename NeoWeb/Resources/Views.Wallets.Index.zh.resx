@@ -198,8 +198,8 @@
   <data name="Exports neo-cli status data." xml:space="preserve">
     <value>导出 neo-cli 状态数据。</value>
   </data>
-  <data name="Fail to support more NEP" xml:space="preserve">
-    <value>不支持更多 NEP</value>
+  <data name="None" xml:space="preserve">
+    <value>没有</value>
   </data>
   <data name="For more information, see:" xml:space="preserve">
     <value>更多信息请参见：</value>
@@ -227,9 +227,6 @@
   </data>
   <data name="It's a cross-platform wallet developed by O3 Labs. This wallet supports most mainstream operating systems, maintains a high update frequency and can support Neo network updates and features in a timely manner." xml:space="preserve">
     <value>O3 Labs 开发的跨平台客户端，支持大部分主流操作系统。该客户端保持高更新频率，能及时支持 Neo 网络更新与特性。</value>
-  </data>
-  <data name="It's a cross-platform wallet that supports almost all mainstream operating systems, and it also supports contacts and complete NEP-5. This wallet can be used in conjunction with the Ledger hardware wallet." xml:space="preserve">
-    <value>一个跨平台的客户端，几乎支持所有主流操作系统，并且支持通讯录和完整的 NEP-5 ，支持和 Ledger 硬件钱包结合使用。</value>
   </data>
   <data name="It's a digital currency wallet developed by CaspianTechnologies. This wallet needs signatures from multiple parties on transactions, and it is compatible with the Spatium hardware wallet, which possesses the biological recognition technologies. It also focuses on the security." xml:space="preserve">
     <value>CaspianTechnologies 开发的数字货币钱包，对交易进行多方签名，兼容生物识别的 Spatium 硬件钱包，注重安全性。</value>
@@ -393,9 +390,6 @@
   </data>
   <data name="Rich" xml:space="preserve">
     <value>丰富</value>
-  </data>
-  <data name="So so" xml:space="preserve">
-    <value>一般</value>
   </data>
   <data name="Verification" xml:space="preserve">
     <value>验证方式</value>

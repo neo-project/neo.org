@@ -43,7 +43,7 @@ $(window).resize(function () {
 function pageSize() {
     if ($(window).height() > 550 && $(window).width() < 450 || $("#homeFri").hasClass("bg8") /*首页*/ ) {
         $("#homeFri").each(function () {
-            $(this).css("min-height", $(window).height() - 100);
+            $(this).css("min-height", $(window).height() - 70);
         });
     }
 }

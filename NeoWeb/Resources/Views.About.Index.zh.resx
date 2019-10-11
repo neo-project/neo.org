@@ -126,13 +126,13 @@
   <data name="A distributed data storage system for storing large-scale data on the chain." xml:space="preserve">
     <value>分布式数据存储系统，用于在链上存储大规模数据</value>
   </data>
-  <data name="A dual-token mechanism for splitting the governance and use rights of the Neo network to facilitate the management and liquidity." xml:space="preserve">
+  <data name="A mechanism which optimizes management and liquidity by separating the Neo network’s governance and use rights." xml:space="preserve">
     <value>用于分离 Neo 网络治理权和使用权的双通证机制，增强通证的管理与流动性</value>
   </data>
   <data name="A lightweight, cross-platform and scalable virtual machine." xml:space="preserve">
     <value>轻量级、可跨平台、具备高扩展性的虚拟机</value>
   </data>
-  <data name="A smart contract system with support for multiple languages, cross-platform compatibility and parallel execution." xml:space="preserve">
+  <data name="A developer-friendly system offering multi-language support, cross platform compatibility, and parallel execution." xml:space="preserve">
     <value>支持多种常见编程语言、可跨平台、可并行执行的智能合约系统</value>
   </data>
   <data name="About" xml:space="preserve">
@@ -144,7 +144,7 @@
   <data name="Apply" xml:space="preserve">
     <value>立即申请</value>
   </data>
-  <data name="Candidates are able become consensus node hosts on the Neo network through election by NEO holders. Candidates can also establish a partnership with the Neo Foundation to secure the organization's vote." xml:space="preserve">
+  <data name="Candidates are able to become consensus node hosts on the Neo network through election by NEO holders. Candidates can also establish a partnership with the Neo Foundation to secure the organization's vote." xml:space="preserve">
     <value>链下治理：候选人将与 Neo 基金会建立战略伙伴关系，并接受来自基金会的投票。链上治理：候选人通过获得 NEO 持有者的投票，被选举成为共识节点</value>
   </data>
   <data name="Explorer" xml:space="preserve">
@@ -177,7 +177,7 @@
   <data name="On-chain voting mechanism allowing everyone to participate in the network governance." xml:space="preserve">
     <value>允许每个人都参与网络治理的链上投票机制</value>
   </data>
-  <data name="Returns data sovereignty back to the user , transforms &quot;trust or not&quot; into &quot;how much trust&quot; , allows users to customize trust evaluation models flexibly." xml:space="preserve">
+  <data name="A decentralized identity protocol system which protects data sovereignty by ensuring customizable trust evaluation models." xml:space="preserve">
     <value>让用户重新拥有数据主权，通过新提出的信用评分机制将“信任与否”的难题转换为“信任多少”的判断，用户还可以灵活定制适合自己的信任评估模型。</value>
   </data>
   <data name="Technology" xml:space="preserve">
