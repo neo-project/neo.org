@@ -243,8 +243,8 @@
   <data name="Smart Contract Development" xml:space="preserve">
     <value>智能合约开发</value>
   </data>
-  <data name="squash all the bugs" xml:space="preserve">
-    <value>消灭所有 bug</value>
+  <data name="squash all the vulnerabilitys" xml:space="preserve">
+    <value>消灭所有漏洞</value>
   </data>
   <data name="Strong developer community" xml:space="preserve">
     <value>强大的开发者社区</value>
@@ -260,6 +260,9 @@
   </data>
   <data name="Transform old financial products into trustless and transparent protocols" xml:space="preserve">
     <value>将传统金融产品进化为透明化与去信任化的协议</value>
+  </data>
+  <data name="Vulnerability Bounty" xml:space="preserve">
+    <value>漏洞奖励计划</value>
   </data>
   <data name="Vulnerability Bounty Program" xml:space="preserve">
     <value>漏洞奖励计划</value>

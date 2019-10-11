@@ -19,6 +19,7 @@
 
 
 .tools {
+    overflow:hidden;
 
     .dev-link {
         position: relative;
@@ -30,9 +31,7 @@
 
     .link-title {
         position: relative;
-        padding-left: 20px;
-        height: 40px;
-        line-height: 40px;
+        padding:4px 0 4px 20px;
         background: @arrow;
 
         span {
@@ -42,12 +41,14 @@
             overflow: hidden;
             text-overflow: ellipsis;
             vertical-align: middle;
+            font-weight:bold;
         }
 
         &:before {
             content: "";
             position: absolute;
             left: -10px;
+            top:0;
             border-left: 20px solid @gray3;
             border-right: 20px solid transparent;
             border-top: 20px solid @arrow;
@@ -58,6 +59,7 @@
             content: "";
             position: absolute;
             right: -35px;
+            top:0;
             border-left: 20px solid @arrow;
             border-right: 20px solid @gray3;
             border-top: 20px solid @gray3;
