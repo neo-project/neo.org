@@ -83,7 +83,7 @@
 <div class="container">
     <div class="module mt3 p3">
         <h2 class="module-text">@Localizer["Neo Ecosystem"]</h2>
-        <img class="module-img" data-original="/images/ecosystem/Ecosystem.svg" />
+        <img class="module-img" data-original="@Helper.ToCDN("/images/ecosystem/Ecosystem.svg")" />
         <div class="module-text">
             <p class="mt5">@Localizer["With thriving partners and projects, the Neo ecosystem is rapidly growing and developing, thus enabling Neo to become the foundation for next-gen Internet."]</p>
             <p class="mt4"><a asp-controller="eco" asp-action="index" class="btn">@Localizer["Learn more"]</a></p>
@@ -106,7 +106,7 @@
 <div class="b5 p1">
     <div class="container">
         <div class="module mt0">
-            <img class="module-img" data-original="/images/home/GetWallet.svg" />
+            <img class="module-img" data-original="@Helper.ToCDN("/images/home/GetWallet.svg")" />
             <div class="module-text">
                 <h2>@Localizer["Get a NEO Wallet today, and take control of your assets!"]</h2>
                 <p class="mt4"><a asp-controller="wallets" asp-action="index" class="btn">@Localizer["Get wallet"]</a></p>
