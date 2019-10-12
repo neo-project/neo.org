@@ -88,6 +88,7 @@
       "nameZh": "达鸿飞",
       "img": "/images/team/da.jpg",
       "job": "Founder, NEO, Co-Chair of NEO Foundation, CEO of NGD",
+      "jobZh": "Neo 创始人，Neo 基金会主席，NGD CEO",
       "intro": "",
       "linkin": "https://www.linkedin.com/in/dahongfei/",
       "github": "https://github.com/dahongfei"
@@ -97,6 +98,7 @@
       "nameZh": "王佳超",
       "img": "/images/team/john.jpg",
       "job": "Eco Growth Director of NGD",
+      "jobZh": "NGD 生态发展总监",
       "intro": "",
       "linkin": "https://www.linkedin.com/in/john-wang-040a613b",
       "github": ""
@@ -106,6 +108,7 @@
       "nameZh": "高原",
       "img": "/images/team/gaoy.jpg",
       "job": "Marketing Director of NGD",
+      "jobZh": "NGD 市场总监",
       "intro": "",
       "linkin": "https://www.linkedin.com/in/gaoyuan/",
       "github": ""
@@ -114,7 +117,8 @@
       "name": "Lemonie Gao",
       "nameZh": "高童文",
       "img": "/images/team/gao.jpg",
-      "job": "Manager of HR & Administrative",
+      "job": "Senior Manager of HR & Administrative",
+      "jobZh": "Senior Manager of HR & Administrative",
       "intro": "",
       "linkin": "https://www.linkedin.com/in/aaaa",
       "github": "https://github.com/bbbbe"

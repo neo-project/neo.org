@@ -135,9 +135,6 @@
   <data name="Blockchain Infrastructure" xml:space="preserve">
     <value>区块链基础设施</value>
   </data>
-  <data name="build your own dApps" xml:space="preserve">
-    <value>开发属于自己的 dApp</value>
-  </data>
   <data name="Cities" xml:space="preserve">
     <value>个城市</value>
   </data>
@@ -156,7 +153,7 @@
   <data name="Contact Us" xml:space="preserve">
     <value>联系我们</value>
   </data>
-  <data name="Contribute to the fundamental facilities on the Neo blockchain" xml:space="preserve">
+  <data name="Contribute to the underlying infrastructure of the Neo blockchain" xml:space="preserve">
     <value>一同完善 Neo 区块链底层设施</value>
   </data>
   <data name="Core developers" xml:space="preserve">
@@ -183,14 +180,17 @@
   <data name="Digital Asset" xml:space="preserve">
     <value>数字资产</value>
   </data>
+  <data name="Digitize assets in a decentralized, secure and 3rd party free fashion" xml:space="preserve">
+    <value>创建去中心化、安全、可信、独立与第三方的资产</value>
+  </data>
   <data name="Documentation" xml:space="preserve">
     <value>开发者文档</value>
   </data>
+  <data name="Empower new genres of gaming experience by integrating blockchain features" xml:space="preserve">
+    <value>在蓬勃发展的链游市场，创造游戏新流派</value>
+  </data>
   <data name="Explorer" xml:space="preserve">
     <value>浏览器</value>
-  </data>
-  <data name="Formulate new genres of games on this emerging market" xml:space="preserve">
-    <value>在蓬勃发展的链游市场，创造游戏新流派</value>
   </data>
   <data name="Game" xml:space="preserve">
     <value>游戏</value>
@@ -203,12 +203,6 @@
   </data>
   <data name="Join Neo Global Communities" xml:space="preserve">
     <value>加入 Neo 全球社区</value>
-  </data>
-  <data name="Make assets decentralized, safe, trustworthy, and 3rd party-free" xml:space="preserve">
-    <value>创建去中心化、安全、可信、独立与第三方的资产</value>
-  </data>
-  <data name="mission for geeks" xml:space="preserve">
-    <value>极客任务</value>
   </data>
   <data name="Monitor" xml:space="preserve">
     <value>监视器</value>
@@ -234,17 +228,11 @@
   <data name="Private Net" xml:space="preserve">
     <value>私有网络</value>
   </data>
-  <data name="protocol development" xml:space="preserve">
-    <value>协议开发</value>
-  </data>
   <data name="protocol, dev tools and docs" xml:space="preserve">
     <value>包括协议，文档和工具链</value>
   </data>
   <data name="Smart Contract Development" xml:space="preserve">
     <value>智能合约开发</value>
-  </data>
-  <data name="squash all the vulnerabilitys" xml:space="preserve">
-    <value>消灭所有漏洞</value>
   </data>
   <data name="Strong developer community" xml:space="preserve">
     <value>强大的开发者社区</value>
@@ -258,7 +246,7 @@
   <data name="Tools developers" xml:space="preserve">
     <value>工具开发者</value>
   </data>
-  <data name="Transform old financial products into trustless and transparent protocols" xml:space="preserve">
+  <data name="Transform traditional financial instruments into trustless and transparent protocols" xml:space="preserve">
     <value>将传统金融产品进化为透明化与去信任化的协议</value>
   </data>
   <data name="Vulnerability Bounty" xml:space="preserve">

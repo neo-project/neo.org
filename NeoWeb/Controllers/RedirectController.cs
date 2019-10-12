@@ -47,6 +47,8 @@ namespace NeoWeb.Controllers
         [Route("home/team")]
         [Route("team")]
         [Route("team/index")]
+        [Route("contributor")]
+        [Route("contributor/index")]
         public IActionResult Team()
         {
             return RedirectToAction("index", "contributors");
