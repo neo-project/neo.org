@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Apply" xml:space="preserve">
-    <value>邮件咨询</value>
+    <value>申请</value>
   </data>
   <data name="Become a consensus node and shape your future" xml:space="preserve">
-    <value>成为共识节点，共同实现智能经济</value>
+    <value>成为 Neo 共识节点，共同实现智能经济</value>
   </data>
   <data name="Block Height" xml:space="preserve">
     <value>区块高度</value>
@@ -133,22 +133,22 @@
     <value>区块指标</value>
   </data>
   <data name="Brief introduction about team" xml:space="preserve">
-    <value>针对团队的简单介绍</value>
+    <value>团队简介</value>
   </data>
   <data name="Candidate Count" xml:space="preserve">
-    <value>竞选节点数量</value>
+    <value>候选节点数量</value>
   </data>
   <data name="Candidate Info" xml:space="preserve">
-    <value>填写候选人信息</value>
+    <value>候选人信息</value>
   </data>
   <data name="Candidate List" xml:space="preserve">
-    <value>竞选节点</value>
+    <value>候选节点</value>
   </data>
   <data name="candidate registration" xml:space="preserve">
-    <value>成为节点候选人</value>
+    <value>节点候选人注册</value>
   </data>
   <data name="Individuals and entities can become consensus node candidates via application. Through election by NEO holders, candidates can then become consensus nodes on Neo MainNet." xml:space="preserve">
-    <value>共识节点是促进 Neo 智能经济发展的关键组成部分。您可以通过获得 NEO 持有者的投票成为共识节点（链上治理），或者与 Neo 基金会建立战略伙伴关系（链下治理）。</value>
+    <value>个人和机构可申请成为 Neo 共识节点候选人。通过 NEO 持有者投票选举，候选人可在 Neo 主网成为共识节点。</value>
   </data>
   <data name="Consensus Count" xml:space="preserve">
     <value>共识节点数量</value>

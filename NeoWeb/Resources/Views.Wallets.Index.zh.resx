@@ -172,13 +172,13 @@
     <value>安全提示</value>
   </data>
   <data name="Wallets are developed by a third party/community. Please contact the corresponding parties for technical support." xml:space="preserve">
-    <value>这些客户端是由社区进行开发和维护的，如果遇到问题请直接联系相应开发者。</value>
+    <value>这些钱包是由社区进行开发和维护的，如果遇到问题请直接联系相应开发者。</value>
   </data>
   <data name="and" xml:space="preserve">
     <value>和</value>
   </data>
   <data name="As some wallets are open-source while some are not, you may lose control of your own NEO assets when using some wallets that shown on this page. Please choose the wallets as appropriate." xml:space="preserve">
-    <value>其中部分为开源客户端，部分为不开源客户端，在使用本页面的部分客户端时，您有可能对您的 NEO 资产失去掌控权，请酌情选择。</value>
+    <value>由于部分钱包为开源开源，部分则不是。在使用本页面的部分钱包时，您有可能对您的 NEO 资产失去掌控权，请酌情选择。</value>
   </data>
   <data name="Centralized" xml:space="preserve">
     <value>集中验证</value>
@@ -277,7 +277,7 @@
     <value>更新日志</value>
   </data>
   <data name="Similar to a digital asset exchange, your assets are hosted on its servers. Your assets may be stolen in the event of an attack on your server. However, you also need to trust the developers of this wallet." xml:space="preserve">
-    <value>与数字资产交易所类似，你的资产托管在其服务器中。在服务器受到攻击的情况下你的资产有可能会被盗。同时你也需要十分信任钱包开发者。</value>
+    <value>与数字资产交易所类似，您的资产托管在其服务器中。在服务器受到攻击的情况下您的资产有可能会被盗。同时您也需要十分信任钱包开发者。</value>
   </data>
   <data name="Support Plugins" xml:space="preserve">
     <value>支持插件功能</value>
@@ -295,7 +295,7 @@
     <value>在 RPC 模式下自动同步智能合约日志（ApplicationLogs），目前日志已经改为以 LevelDB 格式存储。</value>
   </data>
   <data name="The wallets shown on this page have been developed by groups within the Neo community. Choose the wallet that best fits your needs, and if you encounter any problems during use, please contact the developer directly. When creating a new Neo wallet, please remember to back up your private key in a secure manner. Your private key is the only way to control your own Neo assets." xml:space="preserve">
-    <value>本页面上显示的钱包均由 Neo 社区的开发团队或个人开发者开发，请谨慎选择钱包。如果在使用过程中遇到任何问题，请联系开发人员。
+    <value>本页面上展示的钱包均由 Neo 社区的开发团队或个人开发者开发，请谨慎选择钱包。如果在使用过程中遇到任何问题，请联系开发人员。
 使用钱包时，请将私钥进行安全备份。私钥是您控制自己的 Neo 资产的唯一方法。</value>
   </data>
   <data name="This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the hardware wallet, so it has extremely high security." xml:space="preserve">
@@ -320,19 +320,19 @@
     <value>该客户端是开源软件，这意味着所有开发者都可以审查其编码并确保最后的软件没有隐藏任何秘密。</value>
   </data>
   <data name="This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software." xml:space="preserve">
-    <value>该客户端是开源软件，这意味着世界上所有的开发人员都可以审查它的编码并确保最后的软件没有隐藏任何秘密。不过，当你安装或更新软件时，你还是需要信任该客户端的开发者。</value>
+    <value>该钱包是开源软件，这意味着世界上所有的开发人员都可以审查它的编码并确保最后的软件没有隐藏任何秘密。不过，当您安装或更新软件时，您还是需要信任该钱包的开发者。</value>
   </data>
   <data name="This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when when you visit a web wallet." xml:space="preserve">
-    <value>该客户端是开源软件，这意味着世界上所有的开发人员都可以审查它的编码并确保最后的软件没有隐藏任何秘密。不过，当你访问网页钱包时，你还是需要信任该客户端的开发者。</value>
+    <value>该钱包是开源软件，这意味着世界上所有的开发人员都可以审查它的编码并确保最后的软件没有隐藏任何秘密。不过，当您访问网页钱包时，您还是需要信任该钱包的开发者。</value>
   </data>
   <data name="This wallet supports the encryption and decryption of the private key for secure storage. The website itself does not store the private key, so please pay attention to the safe backup and safekeeping of the private key." xml:space="preserve">
-    <value>该客户端支持将私钥进行加密和解密，以便将其安全存储。网站本身不存储私钥，请注意私钥的安全备份和妥善保管。</value>
+    <value>该钱包将私钥进行加密和解密，以便将其安全存储。网站本身不存储私钥，请注意私钥的安全备份和妥善保管。</value>
   </data>
   <data name="Transparency" xml:space="preserve">
     <value>透明度</value>
   </data>
   <data name="When using the wallet, please back up the private key in a secure manner. The private key is the only way to control your own NEO assets." xml:space="preserve">
-    <value>在使用客户端过程中，请以安全方式备份私钥，私钥是您 NEO 资产掌控的唯一方式。</value>
+    <value>在使用钱包过程中，请以安全方式备份私钥，私钥是您 NEO 资产掌控的唯一方式。</value>
   </data>
   <data name="Cloud Wallet" xml:space="preserve">
     <value>云端钱包</value>
@@ -362,7 +362,7 @@
     <value>提供钱包相关的 RPC 功能。</value>
   </data>
   <data name="This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the wallet file." xml:space="preserve">
-    <value>该客户端让你拥有对数字资产的高度掌控权。私钥是通过钱包文件和密码加密存储的。但你仍需注意在安全的设备上使用，并注意钱包文件的安全备份和妥善保管。</value>
+    <value>该钱包让您拥有对数字资产的高度掌控权。私钥是通过钱包文件和密码加密存储的。但您仍需注意在安全的设备上使用，并注意钱包文件的安全备份和妥善保管。</value>
   </data>
   <data name="Bitkeep is a decentralized multi-chain digital wallet that supports thousands of digital assets such as BTC, ETH, EOS, NEO, USDT, ONT, multi-wallet management, aggregation transactions, exchange asset docking and more." xml:space="preserve">
     <value>Bitkeep 是一款去中心化多链数字钱包，支持数千种数字资产，如 BTC，ETH，EOS，NEO，USDT，ONT，多钱包管理，汇总交易，交换资产对接等。</value>

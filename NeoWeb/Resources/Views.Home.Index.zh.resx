@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="As the most developer friendly platform, Neo is supporting a global dApp ecosystem with its comprehensive suite of tools and resources to empower anyone from anywhere in the world to join Neo’s vision of a smart economy." xml:space="preserve">
-    <value>作为对开发者最友好的开放平台，我们支持多种语言的开发，拥有完整的基础设施和活跃的全球开发者社区资源，欢迎成为 Neo 开发者。</value>
+    <value>作为对开发者最友好的开放平台，Neo 拥有完整的全球生态系统、完备的开发工具及资源。欢迎成为 Neo 开发者，实现智能经济的宏大愿景。</value>
   </data>
   <data name="Become a Neo developer" xml:space="preserve">
     <value>成为 Neo 开发者</value>
@@ -133,22 +133,22 @@
     <value>社区成员</value>
   </data>
   <data name="community-driven" xml:space="preserve">
-    <value>社区驱动性最强的</value>
+    <value>由社区驱动的</value>
   </data>
   <data name="Countries" xml:space="preserve">
     <value>国家</value>
   </data>
   <data name="developer-friendly" xml:space="preserve">
-    <value>开发者最友好的</value>
+    <value>面向开发者的</value>
   </data>
   <data name="Discover" xml:space="preserve">
     <value>最新动态</value>
   </data>
   <data name="enterprise-ready" xml:space="preserve">
-    <value>企业就绪度最高的</value>
+    <value>服务企业级应用的</value>
   </data>
   <data name="Get a NEO Wallet today, and take control of your assets!" xml:space="preserve">
-    <value>立即获取 NEO 钱包</value>
+    <value>立即获取 NEO 钱包，掌控您的数字资产</value>
   </data>
   <data name="Get started" xml:space="preserve">
     <value>立即体验</value>
@@ -163,7 +163,7 @@
     <value>高活跃度网络</value>
   </data>
   <data name="Join EcoBoost program and power up for success" xml:space="preserve">
-    <value>邀您加入 EcoBoost 计划</value>
+    <value>加入 EcoBoost</value>
   </data>
   <data name="Join the" xml:space="preserve">
     <value>欢迎加入</value>
@@ -175,13 +175,13 @@
     <value>主流语言支持</value>
   </data>
   <data name="Neo is investing USD $100 million through its  EcoBoost program to accelerate the realization of large-scale commercial blockchain solutions by empowering developers and projects in the ecosystem." xml:space="preserve">
-    <value>为构建下一代互联网基础设施，Neo斥资 1 亿美元打造EcoBoost 计划，对生态内的开发者与项目方进行激励与全生命周期的支持，旨在加速区块链应用的大规模商用落地。目前已有数百个合作伙伴与项目方加入该计划。</value>
+    <value>为构建下一代互联网基础设施，Neo 斥资 1 亿美元打造 EcoBoost，对生态内的开发者与项目进行激励与全生命周期的支持，旨在加速区块链应用的大规模商用落地。目前已有数百个合作伙伴与项目加入 EcoBoost。</value>
   </data>
   <data name="Neo Ecosystem" xml:space="preserve">
     <value>丰富的 Neo 生态</value>
   </data>
   <data name="open network for the smart economy" xml:space="preserve">
-    <value>开放智能经济网络</value>
+    <value>为智能经济打造的开放网络</value>
   </data>
   <data name="Technical Contributors" xml:space="preserve">
     <value>技术贡献者</value>
@@ -193,6 +193,6 @@
     <value>钱包地址</value>
   </data>
   <data name="With thriving partners and projects, the Neo ecosystem is rapidly growing and developing, thus enabling Neo to become the foundation for next-gen Internet." xml:space="preserve">
-    <value>在数百个合作伙伴与项目方的不断努力下，Neo 的生态系统正在快速发展壮大，为 Neo 成为下一代互联网的基础设施保驾护航。</value>
+    <value>在众多合作伙伴与项目的不断努力下，Neo 生态正在快速发展壮大，共建下一代互联网基础设施。</value>
   </data>
 </root>

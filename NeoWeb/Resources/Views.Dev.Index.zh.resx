@@ -124,7 +124,7 @@
     <value>20 个城市，7 个国家，10+ 个社区</value>
   </data>
   <data name="Academy" xml:space="preserve">
-    <value>教育</value>
+    <value>学院</value>
   </data>
   <data name="Apply with Automatic Entry" xml:space="preserve">
     <value>自动申请入口</value>
@@ -154,7 +154,7 @@
     <value>联系我们</value>
   </data>
   <data name="Contribute to the underlying infrastructure of the Neo blockchain" xml:space="preserve">
-    <value>一同完善 Neo 区块链底层设施</value>
+    <value>一同完善 Neo 区块链底层基础设施</value>
   </data>
   <data name="Core developers" xml:space="preserve">
     <value>核心开发者</value>
@@ -169,10 +169,10 @@
     <value>dApp 集成</value>
   </data>
   <data name="DeFi" xml:space="preserve">
-    <value>去中心化金融</value>
+    <value>DeFi</value>
   </data>
   <data name="Dev-pack &amp; compiler" xml:space="preserve">
-    <value>开发者工具包 &amp; 编译器</value>
+    <value>开发者套件 &amp; 编译器</value>
   </data>
   <data name="Developer Portal" xml:space="preserve">
     <value>开发者门户</value>
@@ -181,13 +181,13 @@
     <value>数字资产</value>
   </data>
   <data name="Digitize assets in a decentralized, secure and 3rd party free fashion" xml:space="preserve">
-    <value>创建去中心化、安全、可信、独立与第三方的资产</value>
+    <value>创建去中心化、安全、独立于第三方的数字资产</value>
   </data>
   <data name="Documentation" xml:space="preserve">
     <value>开发者文档</value>
   </data>
   <data name="Empower new genres of gaming experience by integrating blockchain features" xml:space="preserve">
-    <value>在蓬勃发展的链游市场，创造游戏新流派</value>
+    <value>融合区块链技术特性，创造游戏体验新流派</value>
   </data>
   <data name="Explorer" xml:space="preserve">
     <value>浏览器</value>
@@ -196,7 +196,7 @@
     <value>游戏</value>
   </data>
   <data name="Get involved" xml:space="preserve">
-    <value>欢迎成为 Neo 开发者</value>
+    <value>成为 Neo 开发者</value>
   </data>
   <data name="join dev communities" xml:space="preserve">
     <value>加入开发者社区</value>
@@ -205,7 +205,7 @@
     <value>加入 Neo 全球社区</value>
   </data>
   <data name="Monitor" xml:space="preserve">
-    <value>监视器</value>
+    <value>监控器</value>
   </data>
   <data name="More ideas" xml:space="preserve">
     <value>更多想法</value>
@@ -226,10 +226,10 @@
     <value>开放性任务</value>
   </data>
   <data name="Private Net" xml:space="preserve">
-    <value>私有网络</value>
+    <value>私链</value>
   </data>
   <data name="protocol, dev tools and docs" xml:space="preserve">
-    <value>包括协议，文档和工具链</value>
+    <value>协议，开发者工具及文档</value>
   </data>
   <data name="Smart Contract Development" xml:space="preserve">
     <value>智能合约开发</value>
@@ -247,16 +247,16 @@
     <value>工具开发者</value>
   </data>
   <data name="Transform traditional financial instruments into trustless and transparent protocols" xml:space="preserve">
-    <value>将传统金融产品进化为透明化与去信任化的协议</value>
+    <value>用去信任化、透明化的区块链协议重塑传统金融工具</value>
   </data>
   <data name="Vulnerability Bounty" xml:space="preserve">
-    <value>漏洞奖励计划</value>
+    <value>安全漏洞奖励</value>
   </data>
   <data name="Vulnerability Bounty Program" xml:space="preserve">
-    <value>漏洞奖励计划</value>
+    <value>安全漏洞奖励</value>
   </data>
   <data name="Wallet &amp; Extension" xml:space="preserve">
-    <value>钱包 &amp; 扩展</value>
+    <value>钱包 &amp; 插件</value>
   </data>
   <data name="Web IDE" xml:space="preserve">
     <value>网页版 IDE</value>
@@ -268,6 +268,6 @@
     <value>为什么选择 Neo</value>
   </data>
   <data name="you can propose to dev@neo.org" xml:space="preserve">
-    <value>欢迎把你的设想发送到 dev@neo.org</value>
+    <value>欢迎把您的设想发送到 dev@neo.org</value>
   </data>
 </root>
