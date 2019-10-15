@@ -47,3 +47,9 @@ function pageSize() {
         });
     }
 }
+$("#process-bar").css("width", "100%");
+setTimeout(function () {
+    $("#loading").hide();
+    $("body").css("overflow", "auto");
+    $("#process-bar").hide();
+}, 5000);

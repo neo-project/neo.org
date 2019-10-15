@@ -10,16 +10,49 @@
             padding: 0;
             margin: 0;
         }
+
         #homeFri .container {
             position: absolute;
             top: 50%;
             margin-top: -138px;
-            right: 0;
+            right: 0; 
             left: 0;
+        }
+        body {
+            overflow: hidden;
+        }
+        #loading {
+            position: fixed;
+            top: 69px;
+            height: calc(100% - 69px);
+            width: 100%;
+            background: url('@Helper.ToCDN("/images/home/3 year visual-DT.svg", true)'), #f9fafa;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: 1000;
+        }
+        #process-bar {
+            position: fixed;
+            top: 0;
+            height: 2px;
+            background-color: #00af92;
+            width: 0;
+            transition: width ease 5s;
+            z-index: 1000;
+        }
+        @@media only screen and (max-width: 767px) {
+            #loading {
+                background: url('@Helper.ToCDN("/images/home/3 year visual-MB.svg", true)'), #f9fafa;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
         }
     </style>
 }
-
+<div id="process-bar"></div>
+<div id="loading"></div>
 @* 基本块 - Home page *@
 <div id="homeFri" class="bg8 p1">
     <div class="container">

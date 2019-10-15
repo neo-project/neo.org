@@ -171,6 +171,9 @@
   <data name="DeFi" xml:space="preserve">
     <value>DeFi</value>
   </data>
+  <data name="dev-pack" xml:space="preserve">
+    <value>开发者套件</value>
+  </data>
   <data name="Dev-pack &amp; compiler" xml:space="preserve">
     <value>开发者套件 &amp; 编译器</value>
   </data>

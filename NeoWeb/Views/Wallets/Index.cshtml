@@ -8,10 +8,8 @@
     <link rel="stylesheet" href="@Helper.ToCDN("/css/wallets.min.css", true)" />
 }
 <div id="homeFri" class="p1 bg5">
-    <div class="container">
-        <h1 class="w800">@Localizer["Get Wallets"]</h1>
-        <p class="mt5 w600">@Localizer["The wallets shown on this page have been developed by groups within the Neo community. Choose the wallet that best fits your needs, and if you encounter any problems during use, please contact the developer directly. When creating a new Neo wallet, please remember to back up your private key in a secure manner. Your private key is the only way to control your own Neo assets."]</p>
-    </div>
+    <h1 class="w800">@Localizer["Get Wallets"]</h1>
+    <p class="mt5 w600">@Localizer["The wallets shown on this page have been developed by groups within the Neo community. Choose the wallet that best fits your needs, and if you encounter any problems during use, please contact the developer directly. When creating a new Neo wallet, please remember to back up your private key in a secure manner. Your private key is the only way to control your own Neo assets."]</p>
 </div>
 <div class="container">
     <div class="row align-items-end mt-1">
@@ -29,7 +27,7 @@
 
     <ul class="row mt5 client-ul">
         <li class="desktop">
-            <img class="client-logo" data-original="@Helper.ToCDN("/images/client/logo/gui.png")" />
+            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/gui.png")" />
             <header>neo-gui</header>
             <div class="platform">
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Windows">&#xf266;</i>
@@ -44,7 +42,7 @@
                     <a class="plat-btn btn-desktop active" href="javascript:" onclick="switchPlatform('desktop');">@Localizer["Desktop"]</a>
                 </div>
                 <div class="p-desktop preview">
-                    <img data-original="@Helper.ToCDN("/images/client/gui.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/gui.png")" />
                 </div>
                 <p>@Localizer["Neo-gui is a full-node Neo client, which contains all the basic functions of Neo network. This wallet is designed for advanced users, with professional software interaction and extremely high security. However, it takes a long time to initialize synchronization, occupies disk and memory, and has poor stability."]</p>
                 <p>@Localizer["Need to install"] <a href="https://www.microsoft.com/net/download/dotnet-framework-runtime" target="_blank">.NetFramework 4.7.2</a> @Localizer["and"] <a href="https://www.microsoft.com/en-us/download/details.aspx?id=14632" target="_blank">VC++ 2010 Redist x64</a>/<a href="https://www.microsoft.com/en-us/download/details.aspx?id=5555" target="_blank">x86</a>
@@ -94,7 +92,7 @@
             </div>
         </li>
         <li class="desktop">
-            <img class="client-logo" data-original="@Helper.ToCDN("/images/client/logo/cli.png")" />
+            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/cli.png")" />
             <header>neo-cli</header>
             <div class="platform">
                 <i class="iconfont" header data-toggle="tooltip" data-placement="bottom" title="Windows">&#xf266;</i>
@@ -111,7 +109,7 @@
                     <a class="plat-btn btn-desktop active" href="javascript:" onclick="switchPlatform('desktop');">@Localizer["Desktop"]</a>
                 </div>
                 <div class="p-desktop preview">
-                    <img data-original="@Helper.ToCDN("/images/client/cli.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/cli.png")" />
                 </div>
                 <p>
                     @Localizer["Neo-cli is a full-node command-line client that can run across platforms. It can provide APIs for developers to call, or participate in the consensus mechanism as a consensus node in the block chain. This wallet is designed for developers, with professional software interaction, as well as higher security and stability. The disadvantages of this wallet are that it takes a long time to initialize synchronization, and it takes up disk and memory."]
@@ -212,7 +210,7 @@
             </div>
         </li>
         <li class="desktop mobile">
-            <img class="client-logo" data-original="@Helper.ToCDN("/images/client/logo/o3.png")" />
+            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/o3.png")" />
             <header>O3 Wallet</header>
             <div class="platform">
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Windows">&#xf266;</i>
@@ -232,13 +230,13 @@
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
                 <div class="p-mobile preview">
-                    <img data-original="@Helper.ToCDN("/images/client/o31.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/o32.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/o33.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/o34.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/o31.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/o32.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/o33.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/o34.png")" />
                 </div>
                 <div class="p-desktop preview" style="display:none;">
-                    <img data-original="@Helper.ToCDN("/images/client/o3-desktop.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/o3-desktop.png")" />
                 </div>
                 <p>
                     @Localizer["It's a cross-platform wallet developed by O3 Labs. This wallet supports most mainstream operating systems, maintains a high update frequency and can support Neo network updates and features in a timely manner."]
@@ -267,7 +265,7 @@
             </div>
         </li>
         <li class="desktop">
-            <img class="client-logo" data-original="@Helper.ToCDN("/images/client/logo/neon.png")" />
+            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/neon.png")" />
             <header>Neon Wallet</header>
             <div class="platform">
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Windows">&#xf266;</i>
@@ -284,7 +282,7 @@
                     <a class="plat-btn btn-desktop active" href="javascript:" onclick="switchPlatform('desktop');">@Localizer["Desktop"]</a>
                 </div>
                 <div class="p-desktop preview">
-                    <img data-original="@Helper.ToCDN("/images/client/neon.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/neon.png")" />
                 </div>
                 <p>@Localizer["It's a cross-platform wallet developed by Neo developer community City of Zion. This wallet supports mainstream operating systems such as Windows, macOS and Linux, and focuses on UE and UI."]</p>
                 <p>@Localizer["Languages"]: English</p>
@@ -311,7 +309,7 @@
             </div>
         </li>
         <li class="mobile">
-            <img class="client-logo" data-original="@Helper.ToCDN("/images/client/logo/anybit.png")" />
+            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/anybit.png")" />
             <header>AnyBit</header>
             <div class="platform">
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
@@ -327,11 +325,11 @@
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
                 <div class="p-mobile preview">
-                    <img data-original="@Helper.ToCDN("/images/client/anybit1.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/anybit2.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/anybit3.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/anybit4.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/anybit5.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/anybit1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/anybit2.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/anybit3.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/anybit4.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/anybit5.png")" />
                 </div>
                 <p>
                     @Localizer["It's a the first hot and cold combined wallet that supports Neo. The mnemonic and private key are stored locally. This wallet is divided into general mode and isolation mode. In the isolation mode, the devices used need to be completely isolated from the network. This wallet is simple in functions, and when transaction happens, the hot wallet needs to be used for transaction request and broadcast."]
@@ -360,7 +358,7 @@
             </div>
         </li>
         <li class="desktop mobile web">
-            <img class="client-logo" data-original="@Helper.ToCDN("/images/client/logo/sea.png")" />
+            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/sea.png")" />
             <header>SEA Wallet</header>
             <div class="platform">
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Windows">&#xf266;</i>
@@ -382,10 +380,10 @@
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
                 <div class="p-mobile preview">
-                    <img data-original="@Helper.ToCDN("/images/client/sea1.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/sea2.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/sea3.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/sea4.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/sea1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/sea2.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/sea3.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/sea4.png")" />
                 </div>
                 <p>@Localizer["It's a wallet developed by SEA. This wallet contains basic functions such as importing private keys, transferring assets, retrieving GAS, etc."]</p>
                 <p>@Localizer["Languages"]: 简体中文</p>
@@ -412,7 +410,7 @@
             </div>
         </li>
         <li class="mobile hardware">
-            <img class="client-logo" data-original="@Helper.ToCDN("/images/client/logo/spatium.png")" />
+            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/spatium.png")" />
             <header>Spatium</header>
             <div class="platform">
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
@@ -427,11 +425,11 @@
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
                 <div class="p-mobile preview">
-                    <img data-original="@Helper.ToCDN("/images/client/spatium1.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/spatium2.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/spatium3.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/spatium4.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/spatium5.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/spatium1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/spatium2.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/spatium3.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/spatium4.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/spatium5.png")" />
                 </div>
                 <p>
                     @Localizer["It's a digital currency wallet developed by CaspianTechnologies. This wallet needs signatures from multiple parties on transactions, and it is compatible with the Spatium hardware wallet, which possesses the biological recognition technologies. It also focuses on the security."]
@@ -460,7 +458,7 @@
             </div>
         </li>
         <li class="mobile">
-            <img class="client-logo" data-original="@Helper.ToCDN("/images/client/logo/cobo.png")" />
+            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/cobo.png")" />
             <header>Cobo Wallet</header>
             <div class="platform">
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
@@ -474,12 +472,12 @@
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
                 <div class="p-mobile preview">
-                    <img data-original="@Helper.ToCDN("/images/client/cobo1.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/cobo2.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/cobo3.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/cobo4.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/cobo5.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/cobo6.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/cobo1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/cobo2.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/cobo3.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/cobo4.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/cobo5.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/cobo6.png")" />
                 </div>
                 <p>@Localizer["Cobo is a wallet that supports multiple digital asset management."]</p>
                 <p>@Localizer["Languages"]: English / 简体中文</p>
@@ -506,7 +504,7 @@
             </div>
         </li>
         <li class="mobile">
-            <img class="client-logo" data-original="@Helper.ToCDN("/images/client/logo/math.png")" />
+            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/math.png")" />
             <header>@Localizer["Math Wallet"]</header>
             <div class="platform">
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
@@ -520,13 +518,13 @@
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
                 <div class="p-mobile preview">
-                    <img data-original="@Helper.ToCDN("/images/client/math1.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/math2.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/math3.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/math4.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/math5.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/math6.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/math7.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/math1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/math2.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/math3.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/math4.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/math5.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/math6.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/math7.png")" />
                 </div>
                 <p>@Localizer["It's a multiple digital asset wallet developed by Math Labs. This wallet supports BTC, ETH, NEO, EOS and other ecosystems, as well as face recognition, living body recognition and other biometric recognition technologies."]</p>
                 <p>@Localizer["Languages"]: English / 简体中文 / 한국어</p>
@@ -553,7 +551,7 @@
             </div>
         </li>
         <li class="mobile">
-            <img class="client-logo" data-original="@Helper.ToCDN("/images/client/logo/infinito.png")" />
+            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/infinito.png")" />
             <header>infinito wallet</header>
             <div class="platform">
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
@@ -567,10 +565,10 @@
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
                 <div class="p-mobile preview">
-                    <img data-original="@Helper.ToCDN("/images/client/infinito1.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/infinito2.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/infinito3.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/infinito4.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/infinito1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/infinito2.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/infinito3.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/infinito4.png")" />
                 </div>
                 <p>@Localizer["It's a multi-token wallet developed by Infinito Blockchain Labs . This wallet supports BTC, ETH, NEO, EOS and other ecosystems. It has more than 10 languages for alternatives and supports fingerprint identification."]</p>
                 <p>@Localizer["Languages"]: English / 简体中文 / Tiếng Việt / 日本語 / 한국어 / Italiano / Русский / Español</p>
@@ -597,7 +595,7 @@
             </div>
         </li>
         <li class="mobile web">
-            <img class="client-logo" data-original="@Helper.ToCDN("/images/client/logo/iwallic.png")" />
+            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/iwallic.png")" />
             <header>iWallic</header>
             <div class="platform">
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
@@ -615,10 +613,10 @@
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
                 <div class="p-mobile preview">
-                    <img data-original="@Helper.ToCDN("/images/client/iwallic1.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/iwallic2.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/iwallic3.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/iwallic4.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/iwallic1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/iwallic2.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/iwallic3.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/iwallic4.png")" />
                 </div>
                 <p>@Localizer["It's an Android wallet developed by e-studio. This wallet contains basic functions such as importing private keys, transferring assets, etc."]</p>
                 <p>@Localizer["Languages"]: English / 简体中文</p>
@@ -645,7 +643,7 @@
             </div>
         </li>
         <li class="desktop mobile">
-            <img class="client-logo" data-original="@Helper.ToCDN("/images/client/logo/atomic.png")" />
+            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/atomic.png")" />
             <header>Atomic Wallet</header>
             <div class="platform">
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Windows">&#xf266;</i>
@@ -662,10 +660,10 @@
                     <a class="plat-btn btn-desktop active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Desktop"]</a>
                 </div>
                 <div class="p-mobile preview">
-                    <img data-original="@Helper.ToCDN("/images/client/atomic1.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/atomic2.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/atomic3.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/atomic4.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/atomic1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/atomic2.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/atomic3.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/atomic4.png")" />
                 </div>
                 <p>@Localizer["Atomic is a decentralized wallet that supports 300+ cryptocurrency assets. The wallet uses Atomic Swap technology for cross-chain custody free exchange. Atomic Wallet provides instant exchange and \"buy crypto with a credit card\" feature. Available for Windows, Mac OS, Linux, and Android."]</p>
                 <p>@Localizer["Languages"]: English</p>
@@ -692,7 +690,7 @@
             </div>
         </li>
         <li class="extension">
-            <img class="client-logo" data-original="@Helper.ToCDN("/images/client/logo/neoline.png")" />
+            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/neoline.png")" />
             <header>NEO Line</header>
             <div class="platform">
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="extension">&#xe621;</i>
@@ -710,11 +708,11 @@
                     <a class="plat-btn btn-extension active" href="javascript:" onclick="switchPlatform('extension');">@Localizer["Extension"]</a>
                 </div>
                 <div class="p-extension preview">
-                    <img data-original="@Helper.ToCDN("/images/client/neoline1.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/neoline2.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/neoline3.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/neoline4.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/neoline5.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/neoline1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/neoline2.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/neoline3.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/neoline4.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/neoline5.png")" />
                 </div>
                 <p>@Localizer["NEOLine is a browser extension wallet of Neo. We intend to provide a secure and convenient digital asset wallet. It offers comprehensive wallet capabilities and a wide range of dAPIs for developers."]</p>
                 <p>@Localizer["Languages"]: English / 中文</p>
@@ -741,7 +739,7 @@
             </div>
         </li>
         <li class="extension">
-            <img class="client-logo" data-original="@Helper.ToCDN("/images/client/logo/teemo.png")" />
+            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/teemo.png")" />
             <header>Teemo Wallet</header>
             <div class="platform">
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="extension">&#xe621;</i>
@@ -755,10 +753,10 @@
                     <a class="plat-btn btn-extension active" href="javascript:" onclick="switchPlatform('extension');">@Localizer["Extension"]</a>
                 </div>
                 <div class="p-extension preview">
-                    <img data-original="@Helper.ToCDN("/images/client/teemo1.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/teemo2.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/teemo3.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/teemo4.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/teemo1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/teemo2.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/teemo3.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/teemo4.png")" />
                 </div>
                 <p>@Localizer["Teemo is a browser extension wallet of Neo.<br/>The extension injects the Neo dApp API into every website's JavaScript context, so that DApps can interact with the blockchain."]</p>
                 <p>@Localizer["Languages"]: English / 中文</p>
@@ -785,7 +783,7 @@
             </div>
         </li>
         <li class="mobile web">
-            <img class="client-logo" data-original="@Helper.ToCDN("/images/client/logo/bitkeep.png")" />
+            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/bitkeep.png")" />
             <header>Bitkeep Wallet</header>
             <div class="platform">
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
@@ -800,11 +798,11 @@
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
                 <div class="p-mobile preview">
-                    <img data-original="@Helper.ToCDN("/images/client/bitkeep1.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/bitkeep2.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/bitkeep3.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/bitkeep4.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/bitkeep5.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/bitkeep1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/bitkeep2.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/bitkeep3.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/bitkeep4.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/bitkeep5.png")" />
                 </div>
                 <p>@Localizer["Bitkeep is a decentralized multi-chain digital wallet that supports thousands of digital assets such as BTC, ETH, EOS, NEO, USDT, ONT, multi-wallet management, aggregation transactions, exchange asset docking and more."]</p>
                 <p>@Localizer["Languages"]: English / 中文 / 日本語 / 한국어 </p>
@@ -831,7 +829,7 @@
             </div>
         </li>
         <li class="web">
-            <img class="client-logo" data-original="@Helper.ToCDN("/images/client/logo/neotracker.png")" />
+            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/neotracker.png")" />
             <header>NEO Tracker</header>
             <div class="platform">
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Web">&#xe623;</i>
@@ -846,7 +844,7 @@
                     <a class="plat-btn btn-web active" href="javascript:" onclick="switchPlatform('web');">@Localizer["Web"]</a>
                 </div>
                 <div class="p-web preview">
-                    <img data-original="@Helper.ToCDN("/images/client/neotracker.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/neotracker.png")" />
                 </div>
                 <p>@Localizer["It's an online wallet developed by NEO Tracker. This wallet is logged in with the private key or key storage, and is also a blockchain browser."]</p>
                 <p>@Localizer["Languages"]: English</p>
@@ -881,7 +879,7 @@
             </div>
         </li>
         <li class="web">
-            <img class="client-logo" data-original="@Helper.ToCDN("/images/client/logo/nelwallet.png")" />
+            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/nelwallet.png")" />
             <header>NEL Wallet</header>
             <div class="platform">
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Web">&#xe623;</i>
@@ -896,7 +894,7 @@
                     <a class="plat-btn btn-web active" href="javascript:" onclick="switchPlatform('web');">@Localizer["Web"]</a>
                 </div>
                 <div class="p-web preview">
-                    <img data-original="@Helper.ToCDN("/images/client/nelwallet.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/nelwallet.png")" />
                 </div>
                 <p>@Localizer["It's an online wallet developed by NEL. This wallet supports NNS auction, transaction information viewing, and is also a blockchain browser."]</p>
                 <p>@Localizer["Languages"]: English / 简体中文<br>
@@ -931,7 +929,7 @@
             </div>
         </li>
         <li class="web">
-            <img class="client-logo" data-original="@Helper.ToCDN("/images/client/logo/yez.jpg")" />
+            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/yez.jpg")" />
             <header>YEZ Wallet</header>
             <div class="platform">
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Web">&#xe623;</i>
@@ -949,16 +947,16 @@
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
                 <div class="p-mobile preview">
-                    <img data-original="@Helper.ToCDN("/images/client/yez1.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/yez2.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/yez3.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/yez4.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/yez5.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/yez6.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/yez1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/yez2.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/yez3.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/yez4.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/yez5.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/yez6.png")" />
                 </div>
                 <div class="p-web preview" style="display:none;">
-                    <img data-original="@Helper.ToCDN("/images/client/yez-web1.png")" />
-                    <img data-original="@Helper.ToCDN("/images/client/yez-web2.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/yez-web1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/yez-web2.png")" />
                 </div>
                 <p>@Localizer["YEZ Wallet is a NEP-5 Wallet. We focuses on easy on-boarding with Google/Facebook Login integration.User can send/receive NEO, GAS, YEZ and other NEP-5 digital assets."]</p>
                 <p>@Localizer["Languages"]: English / 简体中文<br>
@@ -990,7 +988,7 @@
             </div>
         </li>
         <li class="web">
-            <img class="client-logo" data-original="@Helper.ToCDN("/images/client/logo/ansy.png")" />
+            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/ansy.png")" />
             <header>Ansy</header>
             <div class="platform">
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Web">&#xe623;</i>
@@ -1005,7 +1003,7 @@
                     <a class="plat-btn btn-web active" href="javascript:" onclick="switchPlatform('web');">@Localizer["Web"]</a>
                 </div>
                 <div class="p-web preview">
-                    <img data-original="@Helper.ToCDN("/images/client/ansy.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/ansy.png")" />
                 </div>
                 <p>@Localizer["It's a simple paper wallet generator developed by Snowypowers. This wallet only supports the encryption and decryption of private keys. It fails to support other functions like transferring assets."]</p>
                 <p>@Localizer["Languages"]: English<br>
@@ -1034,7 +1032,7 @@
             </div>
         </li>
         <li class="hardware">
-            <img class="client-logo" data-original="@Helper.ToCDN("/images/client/logo/ledger.png")" />
+            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/ledger.png")" />
             <header>Ledger Nano S</header>
             <div class="platform">
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Hardware">&#xe622;</i>
@@ -1049,7 +1047,7 @@
                     <a class="plat-btn btn-hardware active" href="javascript:" onclick="switchPlatform('hardware');">@Localizer["Hardware"]</a>
                 </div>
                 <div class="p-hardware preview">
-                    <img data-original="@Helper.ToCDN("/images/client/ledgernanos.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/ledgernanos.png")" />
                 </div>
                 <p>@Localizer["It's a multi-currency hardware wallet that supports NEO. This wallet’s private key is stored in the hardware chip and it focuses on the security."]</p>
                 <p>@Localizer["Languages"]: English</p>
@@ -1083,7 +1081,7 @@
             </div>
         </li>
         <li class="hardware">
-            <img class="client-logo" data-original="@Helper.ToCDN("/images/client/logo/ledger.png")" />
+            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/ledger.png")" />
             <header>Ledger Blue</header>
             <div class="platform">
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Hardware">&#xe622;</i>
@@ -1098,7 +1096,7 @@
                     <a class="plat-btn btn-hardware active" href="javascript:" onclick="switchPlatform('hardware');">@Localizer["Hardware"]</a>
                 </div>
                 <div class="p-hardware preview">
-                    <img data-original="@Helper.ToCDN("/images/client/ledgerblue.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/ledgerblue.png")" />
                 </div>
                 <p>
                     @Localizer["It's a multi-currency hardware wallet that supports NEO. This wallet’s private key is stored in the hardware chip and it focuses on the security."]
