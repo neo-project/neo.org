@@ -23,8 +23,8 @@
         }
         #loading {
             position: fixed;
-            top: 69px;
-            height: calc(100% - 69px);
+            top: 0;
+            height: 100%;
             width: 100%;
             background: url('@Helper.ToCDN("/images/home/3 year visual-DT.svg", true)'), #f9fafa;
             background-size: contain;
@@ -39,7 +39,7 @@
             background-color: #00af92;
             width: 0;
             transition: width ease 5s;
-            z-index: 1000;
+            z-index: 1001;
         }
         @@media only screen and (max-width: 767px) {
             #loading {
@@ -158,31 +158,15 @@
 
 @section Scripts{
     <script src="@Helper.ToCDN("/lib/typed.js/typed.min.js")"></script>
-    @if (SharedLocalizer["en"].Value == "zh")
-    {
-        <script>
+    <script>
             var typed = new Typed('#typetext', {
             strings: ["@Localizer["community-driven"]","@Localizer["developer-friendly"]","@Localizer["enterprise-ready"]"],
-            typeSpeed: 80,
+            typeSpeed: "@SharedLocalizer["en"].Value" == "zh" ? 80 : 40,
             startDelay: 300,
             backDelay: 1500,
-            backSpeed: 40,
+            backSpeed: "@SharedLocalizer["en"].Value" == "zh" ? 40 : 20,
             loop: true
         });
-        </script>
-    }
-    else
-    {
-        <script>
-            var typed = new Typed('#typetext', {
-            strings: ["@Localizer["community-driven"]","@Localizer["developer-friendly"]","@Localizer["enterprise-ready"]"],
-            typeSpeed: 40,
-            startDelay: 300,
-            backDelay: 1500,
-            backSpeed: 20,
-            loop: true
-        });
-        </script>
-    }
+    </script>
 }
 
