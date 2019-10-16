@@ -6,6 +6,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="wwwroot\images\presskit\neo_color_dark.png" />
+    <Content Include="wwwroot\images\presskit\neo_color_dark.svg" />
+    <Content Include="wwwroot\images\presskit\neo_color_light.png" />
+    <Content Include="wwwroot\images\presskit\neo_color_light.svg" />
+    <Content Include="wwwroot\images\presskit\neo_mono.png" />
+    <Content Include="wwwroot\images\presskit\neo_mono.svg" />
+    <Content Include="wwwroot\images\presskit\neo_white.png" />
+    <Content Include="wwwroot\images\presskit\neo_white.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.0.0" />

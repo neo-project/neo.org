@@ -13,19 +13,19 @@
     @if (ViewBag.OnTop != null)
     {
         <div class="notify">
-            <div class="alert alert-dismissible fade show" role="alert">
+            <div class="alert alert-dismissible fade show px-0" role="alert">
                 @{var top = ViewBag.OnTop as DiscoverViewModel;}
                 @if (top.Type == DiscoverViewModelType.Blog)
                 {
-                    <strong><a href="~/blog/details/@top.Blog.Id">@top.Blog.Title</a></strong>
+                    <h6><a href="~/blog/details/@top.Blog.Id">@top.Blog.Title</a></h6>
                 }
                 @if (top.Type == DiscoverViewModelType.Event)
                 {
-                    <strong><a href="~/event/details/@top.Event.Id">@top.Event.Name</a></strong>
+                    <h6><a href="~/event/details/@top.Event.Id">@top.Event.Name</a></h6>
                 }
                 @if (top.Type == DiscoverViewModelType.News)
                 {
-                    <strong><a href="@top.News.Link" target="_blank">@top.News.Title</a></strong>
+                    <h6><a href="@top.News.Link" target="_blank">@top.News.Title</a></h6>
                 }
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <i class="iconfont" aria-hidden="true">&#xe620;</i>

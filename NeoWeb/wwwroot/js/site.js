@@ -41,10 +41,11 @@ $(window).resize(function () {
 });
 
 function pageSize() {
-    if ($(window).height() > 550 && $(window).width() < 450 || $("#homeFri").hasClass("bg8") /*首页*/ ) {
-        $("#homeFri").each(function () {
-            $(this).css("min-height", $(window).height() - 70);
-        });
+    if ($(document.body).width() <= 450 || $("#homeFri").hasClass("bg8") /*首页*/) {
+        $("#homeFri").css("min-height", $(window).height() - 70);
+    }
+    else {
+        $("#homeFri").css("min-height", "auto");
     }
 }
 $("#process-bar").css("width", "100%");
@@ -53,3 +54,12 @@ setTimeout(function () {
     $("body").css("overflow", "auto");
     $("#process-bar").hide();
 }, 5000);
+
+$(document).keyup(function (e) {
+    var key = e.which;
+    if (key === 27) {
+        $("#loading").css("top", "-2000px");
+        $("body").css("overflow", "auto");
+        $("#process-bar").hide();
+    }
+});
