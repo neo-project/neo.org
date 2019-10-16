@@ -36,6 +36,30 @@ namespace NeoWeb.Controllers
             Helper.AddBlogs(blogs, viewModels, isZh);
             Helper.AddEvents(events, viewModels, isZh);
             Helper.AddNews(news, viewModels, isZh);
+
+            // 添加置顶内容
+            var top = _context.Top.FirstOrDefault();
+            var topItems = new List<DiscoverViewModel>();
+            if (top != null)
+            {
+                switch (top.Type)
+                {
+                    case DiscoverViewModelType.Blog:
+                        Helper.AddBlogs(_context.Blogs.Where(p => p.Id == top.ItemId), topItems, isZh);
+                        viewModels.RemoveAll(p => p.Type == top.Type && p.Blog.Id == top.ItemId);
+                        break;
+                    case DiscoverViewModelType.Event:
+                        Helper.AddEvents(_context.Events.Where(p => p.Id == top.ItemId), topItems, isZh);
+                        viewModels.RemoveAll(p => p.Type == top.Type && p.Event.Id == top.ItemId);
+                        break;
+                    case DiscoverViewModelType.News:
+                        Helper.AddNews(_context.News.Where(p => p.Id == top.ItemId), topItems, isZh);
+                        viewModels.RemoveAll(p => p.Type == top.Type && p.News.Id == top.ItemId);
+                        break;
+                }
+                ViewBag.OnTop = topItems.Count > 0 ? topItems[0] : null;
+            }
+
             return View(viewModels.OrderByDescending(p => p.Time).Take(count).ToList());
         }
 

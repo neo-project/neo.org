@@ -4,57 +4,36 @@
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
 @section Styles{
-    <style>
-        .layout-container {
-            max-width: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        #homeFri .container {
-            position: absolute;
-            top: 50%;
-            margin-top: -138px;
-            right: 0; 
-            left: 0;
-        }
-        body {
-            overflow: hidden;
-        }
-        #loading {
-            position: fixed;
-            top: 0;
-            height: 100%;
-            width: 100%;
-            background: url('@Helper.ToCDN("/images/home/3 year visual-DT.svg", true)'), #f9fafa;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            z-index: 1000;
-        }
-        #process-bar {
-            position: fixed;
-            top: 0;
-            height: 2px;
-            background-color: #00af92;
-            width: 0;
-            transition: width ease 5s;
-            z-index: 1001;
-        }
-        @@media only screen and (max-width: 767px) {
-            #loading {
-                background: url('@Helper.ToCDN("/images/home/3 year visual-MB.svg", true)'), #f9fafa;
-                background-size: contain;
-                background-repeat: no-repeat;
-                background-position: center;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/home.min.css", true)" />
 }
 <div id="process-bar"></div>
 <div id="loading"></div>
 @* 基本块 - Home page *@
 <div id="homeFri" class="bg8 p1">
+    @if (ViewBag.OnTop != null)
+    {
+        <div class="notify">
+            <div class="alert alert-dismissible fade show" role="alert">
+                @{var top = ViewBag.OnTop as DiscoverViewModel;}
+                @if (top.Type == DiscoverViewModelType.Blog)
+                {
+                    <strong><a href="~/blog/details/@top.Blog.Id">@top.Blog.Title</a></strong>
+                }
+                @if (top.Type == DiscoverViewModelType.Event)
+                {
+                    <strong><a href="~/event/details/@top.Event.Id">@top.Event.Name</a></strong>
+                }
+                @if (top.Type == DiscoverViewModelType.News)
+                {
+                    <strong><a href="@top.News.Link" target="_blank">@top.News.Title</a></strong>
+                }
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <i class="iconfont" aria-hidden="true">&#xe620;</i>
+                </button>
+            </div>
+        </div>
+    }
+
     <div class="container">
         <h3>
             @Localizer["Join the"]<br />

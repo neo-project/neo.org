@@ -49,7 +49,7 @@ function pageSize() {
 }
 $("#process-bar").css("width", "100%");
 setTimeout(function () {
-    $("#loading").hide();
+    $("#loading").css("top", "-2000px");
     $("body").css("overflow", "auto");
     $("#process-bar").hide();
 }, 5000);

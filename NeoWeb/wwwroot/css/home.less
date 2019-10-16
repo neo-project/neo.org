@@ -1,0 +1,80 @@
+﻿@import "basic.less";
+
+body {
+    overflow: hidden;
+}
+
+.layout-container {
+    max-width: none;
+    padding: 0;
+    margin: 0;
+}
+
+#homeFri {
+    position: relative;
+
+    .container {
+        position: absolute;
+        top: 50%;
+        margin-top: -138px;
+        right: 0;
+        left: 0;
+    }
+
+    .notify {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        background: @line2;
+        text-align: center;
+
+        .alert {
+            margin-bottom: 0;
+            line-height: 25px;
+
+            a {
+                color: @text;
+            }
+
+            &.alert-dismissible .close {
+                outline: none;
+                font-family: iconfont;
+
+                .iconfont {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
+
+
+#loading {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: url('../images/home/3 year visual-DT.svg?v=2'), #f9fafa;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1000;
+    transition: all ease 1s;
+
+    @media only screen and (max-width: 767px) {
+        background: url('../images/home/3 year visual-MB.svg?v=2'), #f9fafa;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
+
+#process-bar {
+    position: fixed;
+    top: 0;
+    height: 2px;
+    background-color: #00af92;
+    width: 0;
+    transition: width ease 5s;
+    z-index: 1001;
+}
