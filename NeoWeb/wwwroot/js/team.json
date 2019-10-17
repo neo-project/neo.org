@@ -4,17 +4,17 @@
       "name": "Erik Zhang",
       "nameZh": "张铮文",
       "img": "/images/team/erik.jpg",
-      "job": "",
-      "intro": "Job Position Erik is the founder and a core developer of NEO",
+      "job": "Founder, NEO",
+      "intro": "Author, dBFT",
       "linkin": "https://www.linkedin.com/in/erik-zhang-5a6b14ab/",
       "github": "https://github.com/erikzhang"
     },
     {
-      "name": "Jianying Li",
+      "name": "Lights Li",
       "nameZh": "李剑英",
       "img": "/images/team/Lijy.jpg",
-      "job": "",
-      "intro": "A programmer who enjoys being challenged by difficult research topics starts to develop an interest in blockchain technology after getting to know Neo.",
+      "job": "Co-founder, NewEconoLabs",
+      "intro": "",
       "linkin": "https://www.linkedin.com/in/lightsever/",
       "github": "https://github.com/lightszero"
     },
@@ -22,8 +22,8 @@
       "name": "Fernando Díaz Toledano",
       "nameZh": "Shargon",
       "img": "/images/team/shargon.jpg",
-      "job": "",
-      "intro": "Expert in security, blockchain and smart contracts. Responsible for the audit of several blockchains.",
+      "job": "Founder, Red4Sec",
+      "intro": "Expert in security",
       "linkin": "https://www.linkedin.com/in/fernando-diaz-toledano/",
       "github": "https://github.com/shargon"
     },
@@ -32,7 +32,7 @@
       "nameZh": "",
       "img": "/images/team/Jeff.jpg?v=2",
       "job": "",
-      "intro": "",
+      "intro": "Blockchain enthusiast",
       "linkin": "https://www.linkedin.com/in/jeffsolinsky/",
       "github": "https://github.com/jsolman"
     },
@@ -40,8 +40,8 @@
       "name": "Igor M. Coelho",
       "nameZh": "",
       "img": "/images/team/igor.jpg",
-      "job": "",
-      "intro": "Igor is a brazilian researcher/professor on algorithms, combinatorial optimization and high performance computing, including emerging architectures such as Graphics Processing Units (GPUs).",
+      "job": "Co-founder, NeoResearch",
+      "intro": "Researcher & professor",
       "linkin": "https://www.linkedin.com/in/imcoelho/",
       "github": "https://github.com/igormcoelho/"
     },
@@ -50,7 +50,7 @@
       "nameZh": "",
       "img": "/images/team/ThomasSaunders.jpg",
       "job": "",
-      "intro": "Thomas is the author of neo-python and the Python compiler for Neo.  He spends most of his time as a founder and Chief of Engineering at Nash.",
+      "intro": "Author, neo-python and neo-boa",
       "linkin": "https://www.linkedin.com/in/moderncarpentry/",
       "github": "https://github.com/localhuman"
     },
@@ -58,8 +58,8 @@
       "name": "Vitor Nazario Coelho",
       "nameZh": "",
       "img": "/images/team/vitor.jpg",
-      "job": "",
-      "intro": "Job",
+      "job": "Co-founder, NeoResearch",
+      "intro": "Researcher",
       "linkin": "https://www.linkedin.com/in/vitor-naz%C3%A1rio-coelho-b76511a1/",
       "github": "https://github.com/vncoelho"
     },
@@ -67,8 +67,8 @@
       "name": "Jaime Kindelan Alonso",
       "nameZh": "",
       "img": "/images/team/jaime.jpg",
-      "job": "",
-      "intro": "Job",
+      "job": "Co-founder, Red4Sec",
+      "intro": "IT security consultant and analyst",
       "linkin": "https://www.linkedin.com/in/jaime-kindelan/",
       "github": "https://github.com/belane"
     },
@@ -76,8 +76,8 @@
       "name": "Ashley Rolleston",
       "nameZh": "",
       "img": "/images/team/ashley.jpg",
-      "job": "",
-      "intro": "Job",
+      "job": "Co-founder, City of Zion",
+      "intro": "",
       "linkin": "https://www.linkedin.com/in/ashleyrolleston/",
       "github": "https://github.com/AshRolls"
     }

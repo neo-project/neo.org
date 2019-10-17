@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\css\home.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="wwwroot\images\presskit\neo_color_dark.png" />
     <Content Include="wwwroot\images\presskit\neo_color_dark.svg" />
     <Content Include="wwwroot\images\presskit\neo_color_light.png" />
