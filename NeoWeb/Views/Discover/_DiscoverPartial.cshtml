@@ -9,7 +9,7 @@
         {
             @if (string.IsNullOrEmpty(item.Blog.Cover))
             {
-                <a class="img" href="~/blog/details/@item.Blog.Id" data-original="@Helper.ToCDN("/images/discover/blog.png")"></a>
+                <a class="img" href="~/blog/details/@item.Blog.Id" data-original="@Helper.ToCDN("/images/discover/blog.svg")"></a>
             }
             else
             {
@@ -39,7 +39,7 @@
         {
             @if (string.IsNullOrEmpty(item.Event.Cover))
             {
-                <a class="img" href="~/event/details/@item.Event.Id" data-original="@Helper.ToCDN("/images/discover/event.png")"></a>
+                <a class="img" href="~/event/details/@item.Event.Id" data-original="@Helper.ToCDN("/images/discover/event.svg")"></a>
             }
             else
             {
@@ -71,7 +71,7 @@
         {
             @if (string.IsNullOrEmpty(item.News.Cover))
             {
-                <a class="img" href="@item.News.Link" target="_blank" data-original="@Helper.ToCDN("/images/discover/news.png")"></a>
+                <a class="img" href="@item.News.Link" target="_blank" data-original="@Helper.ToCDN("/images/discover/news.svg")"></a>
             }
             else
             {

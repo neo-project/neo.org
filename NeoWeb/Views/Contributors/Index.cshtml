@@ -119,7 +119,7 @@
 
             $.ajax({
                 type: "GET",
-                url: "@Helper.ToCDN("/js/team.json")",
+                url: "/js/team.json",
                 dataType: 'json',
                 success: function (data) {
                     var core = "", neo = "", community = "";
