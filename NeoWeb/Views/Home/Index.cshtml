@@ -17,15 +17,15 @@
                 @{var top = ViewBag.OnTop as DiscoverViewModel;}
                 @if (top.Type == DiscoverViewModelType.Blog)
                 {
-                    <h6><a href="~/blog/details/@top.Blog.Id">@top.Blog.Title</a></h6>
+                    <h6><a class="with-space" href="~/blog/details/@top.Blog.Id">@top.Blog.Title</a></h6>
                 }
                 @if (top.Type == DiscoverViewModelType.Event)
                 {
-                    <h6><a href="~/event/details/@top.Event.Id">@top.Event.Name</a></h6>
+                    <h6><a class="with-space" href="~/event/details/@top.Event.Id">@top.Event.Name</a></h6>
                 }
                 @if (top.Type == DiscoverViewModelType.News)
                 {
-                    <h6><a href="@top.News.Link" target="_blank">@top.News.Title</a></h6>
+                    <h6><a class="with-space" href="@top.News.Link" target="_blank">@top.News.Title</a></h6>
                 }
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <i class="iconfont" aria-hidden="true">&#xe620;</i>

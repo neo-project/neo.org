@@ -46,15 +46,12 @@ namespace NeoWeb.Controllers
                 {
                     case DiscoverViewModelType.Blog:
                         Helper.AddBlogs(_context.Blogs.Where(p => p.Id == top.ItemId), topItems, isZh);
-                        viewModels.RemoveAll(p => p.Type == top.Type && p.Blog.Id == top.ItemId);
                         break;
                     case DiscoverViewModelType.Event:
                         Helper.AddEvents(_context.Events.Where(p => p.Id == top.ItemId), topItems, isZh);
-                        viewModels.RemoveAll(p => p.Type == top.Type && p.Event.Id == top.ItemId);
                         break;
                     case DiscoverViewModelType.News:
                         Helper.AddNews(_context.News.Where(p => p.Id == top.ItemId), topItems, isZh);
-                        viewModels.RemoveAll(p => p.Type == top.Type && p.News.Id == top.ItemId);
                         break;
                 }
                 ViewBag.OnTop = topItems.Count > 0 ? topItems[0] : null;

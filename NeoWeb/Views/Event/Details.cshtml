@@ -118,7 +118,6 @@
 
 @section Scripts{
     <script src="@Helper.ToCDN("/js/jquery.qrcode.min.js")"></script>
-    <script src="@Helper.ToCDN("/js/text-autospace.js")"></script>
     <script>
         function setCookie(name, value) {
             var Days = 30;
@@ -130,8 +129,6 @@
         setCookie(@Model.Id, "Read");
         //二维码
         $('#qrcode').qrcode(location.href);
-        //中英文之间添加空格
-        text_replace(".with-space");
         //懒加载
         $('[data-original]').lazyload({
             threshold: 200,

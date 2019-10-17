@@ -55,6 +55,7 @@ setTimeout(function () {
     $("#process-bar").hide();
 }, 5000);
 
+//按 ESC 关掉加载页面
 $(document).keyup(function (e) {
     var key = e.which;
     if (key === 27) {
@@ -63,3 +64,6 @@ $(document).keyup(function (e) {
         $("#process-bar").hide();
     }
 });
+
+//中英文之间添加空格
+text_replace(".with-space");
