@@ -37,7 +37,7 @@ else if (Model?.Type == DiscoverViewModelType.Event)
     <div class="col-md-8">
         @if (string.IsNullOrEmpty(Model.Event.Cover))
         {
-            <a class="bg-img" href="~/event/details/@Model.Event.Id" data-original="@Helper.ToCDN("/images/discover/event.svg")"></a>
+            <a class="bg-img" href="~/event/details/@Model.Event.Id" data-original="@Helper.ToCDN("/images/discover/events.svg")"></a>
         }
         else
         {

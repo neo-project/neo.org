@@ -117,10 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Download Neo logo and other brand assets here. Please refer to Neo Brand book for application guidelines." xml:space="preserve">
+    <value>欢迎下载 Neo logo 和其他品牌素材。请参照 Neo Brand Book 获取详细的应用指引。</value>
+  </data>
   <data name="Press Kit" xml:space="preserve">
     <value>媒体资源</value>
-  </data>
-  <data name="The logo below is only for you to choose to use in cooperation promotion, thank you!" xml:space="preserve">
-    <value>下方所示 LOGO 仅供您在合作推广中选择使用，谢谢！</value>
   </data>
 </root>
