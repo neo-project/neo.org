@@ -71,6 +71,8 @@
         <div>
             <div class="h6 green">{{value.name}}</div>
             <div class="small green">{{if value.nameZh}}{{value.nameZh}}{{/if}}</div>
+            {{if value.job}}<div>{{value.job}}</div>{{/if}}
+            {{if value.intro}}<div>{{value.intro}}</div>{{/if}}
             <div class="mt7 link">
                 {{if value.linkin}}<a class="iconfont mr3" target="_blank" href={{value.linkin}}>&#xe612;</a>{{/if}}
                 {{if value.github}}<a class="iconfont" target="_blank" href={{value.github}}>&#xe609;</a>{{/if}}

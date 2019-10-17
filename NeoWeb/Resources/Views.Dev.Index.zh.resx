@@ -126,6 +126,12 @@
   <data name="Academy" xml:space="preserve">
     <value>学院</value>
   </data>
+  <data name="Apply NEO 2 with Automatic Entry" xml:space="preserve">
+    <value>NEO 2 自动申请入口</value>
+  </data>
+  <data name="Apply NEO 3 with Automatic Entry" xml:space="preserve">
+    <value>NEO 3 自动申请入口</value>
+  </data>
   <data name="Apply with Automatic Entry" xml:space="preserve">
     <value>自动申请入口</value>
   </data>
