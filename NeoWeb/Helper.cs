@@ -121,16 +121,13 @@ namespace NeoWeb
             }
             if (maxWidth != null)
             {
-                Task.Run(() =>
+                using var image = Image.Load(filePath);
+                image.Mutate(x => x.Resize(new ResizeOptions
                 {
-                    using var image = Image.Load(filePath);
-                    image.Mutate(x => x.Resize(new ResizeOptions
-                    {
-                        Size = new Size((int)maxWidth, (int)maxWidth * image.Height / image.Width),
-                        Mode = ResizeMode.Max
-                    }));
-                    image.Save(filePath);
-                });
+                    Size = new Size((int)maxWidth, (int)maxWidth * image.Height / image.Width),
+                    Mode = ResizeMode.Max
+                }));
+                image.Save(filePath);
             }
             return newName;
         }
@@ -139,7 +136,7 @@ namespace NeoWeb
         {
             var filePath = Path.Combine(env.ContentRootPath, "wwwroot/upload", fileName);
             using var image = Image.Load(filePath);
-            return Math.Abs(image.Height - image.Width / 16 * 9) < 1;
+            return Math.Abs(image.Height - image.Width / 16.0 * 9) < 1;
         }
 
         public static bool Contains(this string source, string toCheck, StringComparison comp)
