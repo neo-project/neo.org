@@ -135,13 +135,13 @@ namespace NeoWeb.Controllers
         // GET: event/edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            ViewBag.Countries = _context.Countries.Select(c => new SelectListItem { Value = c.Id.ToString(), Text = $"{c.Name} - {c.ZhName}" }).ToList();
             if (id == null)
             {
                 return NotFound();
             }
 
-            var evt = await _context.Events.SingleOrDefaultAsync(m => m.Id == id);
+            var evt = await _context.Events.Include(p => p.Country).SingleOrDefaultAsync(m => m.Id == id);
+            ViewBag.Countries = _context.Countries.Select(c => new SelectListItem { Value = c.Id.ToString(), Text = $"{c.Name} - {c.ZhName}", Selected = c.Id == evt.Country.Id }).ToList();
             if (evt == null)
             {
                 return NotFound();
