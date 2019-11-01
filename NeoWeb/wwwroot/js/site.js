@@ -48,22 +48,6 @@ function pageSize() {
         $("#homeFri").css("min-height", "auto");
     }
 }
-$("#process-bar").css("width", "100%");
-setTimeout(function () {
-    $("#loading").css("top", "-2000px");
-    $("body").css("overflow", "auto");
-    $("#process-bar").hide();
-}, 5000);
-
-//按 ESC 关掉加载页面
-$(document).keyup(function (e) {
-    var key = e.which;
-    if (key === 27) {
-        $("#loading").css("top", "-2000px");
-        $("body").css("overflow", "auto");
-        $("#process-bar").hide();
-    }
-});
 
 //中英文之间添加空格
 text_replace(".with-space");
