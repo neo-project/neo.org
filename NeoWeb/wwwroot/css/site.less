@@ -4,18 +4,21 @@
 @letter-spacing: .02em;
 @line-height: 1.4;
 
-#neo-body {
+html body {
     font-size: 17px;
     .font-family;
     letter-spacing: @letter-spacing;
     line-height: @line-height;
     background: @body;
     color: @text;
-    padding-top: 70px;
 
     @media only screen and (max-width: 767px) {
         font-size: 15px;
     }
+}
+
+#neo-body {
+    padding-top: 70px;
 }
 
 .container {
