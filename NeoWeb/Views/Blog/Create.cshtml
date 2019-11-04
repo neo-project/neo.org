@@ -1,54 +1,28 @@
 ﻿@model NeoWeb.Models.Blog
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 
 @{
-    ViewData["Title"] = "发布博客";
-    Layout = "_LayoutBlog.cshtml";
+    ViewData["Title"] = "Post Blog";
 }
-<h2 class="m2">发布博客</h2>
-
-<form asp-action="Create">
-    <div class="form-group">
-        <label asp-for="ChineseTitle" class="col-form-label"></label>
-        <input asp-for="ChineseTitle" class="form-control" />
-        <span asp-validation-for="ChineseTitle" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="EnglishTitle" class="col-form-label"></label>
-        <input asp-for="EnglishTitle" class="form-control" />
-        <span asp-validation-for="EnglishTitle" class="text-danger"></span>
-    </div>
-    <div class="from-group">
-        <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" asp-for="IsShow" checked="checked">
-            <label class="custom-control-label" asp-for="IsShow">在博客列表中显示</label>
-        </div>
-    </div>
-    <div class="form-group">
-        <label asp-for="ChineseContent" class="col-form-label"></label>
-        @Html.Partial("_ChineseEditorPartialPage", Model)
-    </div>
-    <div class="form-group">
-        <label asp-for="EnglishContent" class="col-form-label"></label>
-        @Html.Partial("_EnglishEditorPartialPage", Model)
-    </div>
-    <div class="form-group">
-        <label asp-for="ChineseTags" class="col-form-label">中文标签（用逗号分隔）</label>
-        <input asp-for="ChineseTags" class="form-control" />
-        <span asp-validation-for="ChineseTags" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="EnglishTags" class="col-form-label">英文标签（用逗号分隔）</label>
-        <input asp-for="EnglishTags" class="form-control" />
-        <span asp-validation-for="EnglishTags" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <input type="submit" value="Create" class="btn btn-light" />
-    </div>
-</form>
-<div>
-    <a asp-action="index">Back to List</a>
+@section Styles{
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/editor.min.css", true)" />
+}
+<div class="p1">
+    <h1 class="w800">@Localizer["Post"]</h1>
 </div>
+<div class="post-type">Post Type<span>Blogs</span><a asp-controller="event" asp-action="create">Events</a><a asp-controller="news" asp-action="create">News</a></div>
+<form asp-action="Create" enctype="multipart/form-data">
+    @{await Html.RenderPartialAsync("_EditorPartialPage", Model);}
+</form>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{await Html.RenderPartialAsync("_Tiny.ScriptsPartial");}
+    <script src="@Helper.ToCDN("/js/editor.min.js")"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            bsCustomFileInput.init()
+        })
+    </script>
 }

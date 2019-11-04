@@ -117,158 +117,82 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Comprises Cross-chain Assets Swap Protocol and Cross-chain Distributed Transaction Protocol and can achieve atomic assets swap and guarantee the operation consistency of smart contracts executed on different chains." xml:space="preserve">
-    <value>跨链互操作协议，包含跨链资产交换协议和跨链分布式事务协议，可以实现多个区块链之间的原子级资产交换，还可以在多个区块链上共同执行智能合约并保证事务一致性。</value>
+  <data name="As the most developer friendly platform, Neo is supporting a global dApp ecosystem with its comprehensive suite of tools and resources to empower anyone from anywhere in the world to join Neo’s vision of a smart economy." xml:space="preserve">
+    <value>作为对开发者最友好的开放平台，Neo 拥有完整的全球生态系统、完备的开发工具及资源。欢迎成为 Neo 开发者，实现智能经济的宏大愿景。</value>
   </data>
-  <data name="Consensus nodes use Byzantine Fault Tolerance Algorithm to reach consensus and ensure the finality of transactions. It also ensures that the system keeps its finality and availability as long as Byzantine fault occurs on less than 1/3 of the nodes." xml:space="preserve">
-    <value>独创的 dBFT 共识机制，共识节点之间通过拜占庭容错算法来达成共识保障交易最终性，并且可以保障小于三分之一的节点出现拜占庭故障时系统仍然拥有最终性和可用性。</value>
+  <data name="Become a Neo developer" xml:space="preserve">
+    <value>成为 Neo 开发者</value>
   </data>
-  <data name="Desktop" xml:space="preserve">
-    <value>桌面</value>
+  <data name="Cities" xml:space="preserve">
+    <value>城市</value>
   </data>
-  <data name="Digital Assets" xml:space="preserve">
-    <value>数字资产</value>
-  </data>
-  <data name="Digital Assets are programmable assets that exist in the form of electronic data. With blockchain technology, the digitization of assets can be decentralized, trustful, traceable, highly transparent, and free of intermediaries. On the NEO blockchain, users are able to register, trade, and circulate multiple types of assets. Proving the connection between digital and physical assets is possible through digital identity. Assets registered through a validated digital identity are protected by law." xml:space="preserve">
-    <value>数字资产是以电子数据的形式存在的可编程控制的资产。用区块链技术实现资产数字化有去中心、去中介、免信任、可追溯、高度透明等特点。NEO 在底层支持多数字资产，用户可在 NEO 上自行注册登记资产，自由交易和流转，并且通过数字身份解决与实体资产的映射关系。用户通过合规的数字身份所注册登记的资产受到法律的保护。
-</value>
-  </data>
-  <data name="Digital certificates are supported to build trust into the public chain. This provides full legal protection for all assets digitized through the NEO platform." xml:space="preserve">
-    <value>支持数字证书，解决公有链信任问题，利用数字证书可以合法合规地在区块链上发行资产并且享受法律保护。</value>
-  </data>
-  <data name="Digital Identity" xml:space="preserve">
-    <value>数字身份</value>
-  </data>
-  <data name="Digital identity refers to the identity information of individuals, organizations, and other entities that exist in electronic form. The more mature digital identity system is based on the PKI (Public Key Infrastructure) X.509 standard. In NEO, we will implement a set of X.509 compatible digital identity standards. This set of digital identity standards, in addition to a compatible X.509 level certificate issuance model, will also support the Web Of Trust point-to-point certificate issuance model." xml:space="preserve">
-    <value>数字身份是指以电子数据形式存在的个人、组织、事物的身份信息。目前较为成熟的数字身份体系是基于 PKI 的 X.509 标准。在 NEO 中，我们将实现一套兼容 X.509 的数字身份标准。这套数字身份标准，除了兼容 X.509 的层级式的证书签发模式，还将支持 Web Of Trust 式的点对点的证书签发模式。</value>
-  </data>
-  <data name="Facilitate P2P trustless exchange of digital assets. Buyers and sellers of digital assets and currencies will be matched peer-to-peer without the need for third party exchanges." xml:space="preserve">
-    <value>超导交易机制，可以实现去信任的数字资产交易所，在无需充值的情况下对各类数字资产进行撮合。</value>
-  </data>
-  <data name="Go to developer page" xml:space="preserve">
-    <value>进入开发者页面</value>
-  </data>
-  <data name="Go to client page" xml:space="preserve">
-    <value>进入客户端页面</value>
-  </data>
-  <data name="If you are a developer" xml:space="preserve">
-    <value>如果您是开发者</value>
-  </data>
-  <data name="Introduced Lattice cryptography-based signing and encryption technique to avoid quantum crisis by Turing encryption and decryption problem into the Shortest Vector Problem (SVP), which cannot be solved by current quantum computers." xml:space="preserve">
-    <value>引入基于 Lattice（格密码学）的签名与加密技术，将加解密问题规约到量子计算机尚无法解决的 SVP（最短向量）问题，从而预防“量子危机”。</value>
-  </data>
-  <data name="Want to learn more? Please see" xml:space="preserve">
-    <value>想了解更多? 请查看</value>
-  </data>
-  <data name="Mobile" xml:space="preserve">
-    <value>手机</value>
-  </data>
-  <data name="NEO Client" xml:space="preserve">
-    <value>NEO 客户端</value>
-  </data>
-  <data name="NEO is an open source project driven by the community. It utilizes blockchain technology and digital identities to digitize assets and automate the management of digital assets using smart contracts. Using a distributed network, it aims to create a &quot;Smart Economy&quot;." xml:space="preserve">
-    <value>NEO 是一个社区化开源区块链项目，利用区块链技术和数字身份进行资产数字化，利用智能合约对数字资产进行自动化管理，实现“智能经济”的一种分布式网络。</value>
-  </data>
-  <data name="NEO Technical Features" xml:space="preserve">
-    <value>NEO 技术特性</value>
-  </data>
-  <data name="The underlying infrastructure of NEO supports multiple types of digital assets. Users can register, transfer and trade assets at their own discretion on NEO." xml:space="preserve">
-    <value>NEO 底层支持多种数字资产，用户可在 NEO 上自行注册分发资产，自由交易和流转。</value>
-  </data>
-  <data name="Neo Virtual Machine (NeoVM) - NEO's lightweight stack-based virtual machine provides shorter startup times with efficient execution. Deterministic calling tree-technology allows NEO to achieve theoretically unlimited scalability." xml:space="preserve">
-    <value>NeoVM：NEO 轻量级基于堆栈的虚拟机，拥有快速的启动时间和较高的执行效率，配合“确定性调用树”技术，可以实现理论上无限的扩展性。</value>
-  </data>
-  <data name="NEO was founded in 2014 and open sourced on GitHub in June 2015. Its MainNet was released in October 2016 and has been running in stable capacity for two years. Its vision of a &quot;smart economy&quot; was set up along with the project rebranding in 2017." xml:space="preserve">
-    <value>NEO 于 2014 年正式立项，自 2015 年 6 月起在 GitHub 上实时开源。NEO 非常重视社区的发展，拥有庞大的全球开发者社区，以 CoZ、NEL 和 NeoResearch 为代表，长期以来为 NEO 的开发提供支持。NEO 社区规模庞大，拥有数百万社区成员，长期活跃在 Reddit、Discord、GitHub 与 Twitter 等频道。</value>
-  </data>
-  <data name="NEO - An Open Network For Smart Economy" xml:space="preserve">
-    <value>NEO 一种智能经济分布式网络</value>
-  </data>
-  <data name="NeoContract supports multiple programming languages such as C#, Java, and Python. Developers can rapidly develop smart contracts based on the NEO platform without learning a unique language." xml:space="preserve">
-    <value>NEO 智能支持用 C#、Java、Python 等编程语言来开发，开发者无需学习新语言即可快速开发基于 NEO 区块链的智能合约。</value>
-  </data>
-  <data name="Participate in our project, get NEO and GAS for development testing, or view our technical documentation" xml:space="preserve">
-    <value>参与我们的项目、领取开发测试用的 NEO 与 GAS 或者查看我们的技术文档</value>
-  </data>
-  <data name="Smart Contract" xml:space="preserve">
-    <value>智能合约</value>
-  </data>
-  <data name="Smart Economy" xml:space="preserve">
-    <value>智能经济</value>
-  </data>
-  <data name="The NEO Team and community have created various wallets for different platforms. You can download the wallets or access the web wallets below." xml:space="preserve">
-    <value>NEO 客户端由 NEO 团队及 NEO 社区开发，支持多种平台，您可以选择最合适的进行下载或访问。</value>
-  </data>
-  <data name="The NeoContract smart contract system is the biggest feature of the seamless integration of the existing developer ecosystem. Developers do not need to learn a new programming language, but can use C#, Java and other mainstream programming languages in their familiar IDE environments (Visual Studio, Eclipse, etc.) for smart contract development, debugging and compilation. NEO's Universal Lightweight Virtual Machine, NeoVM, has the advantages of high certainty, high concurrency, and high scalability. The NeoContract smart contract system will allow millions of developers around the world to quickly carry out the development of smart contracts. NeoContract will have a separate white paper describing the implementation details." xml:space="preserve">
-    <value>NeoContract 智能合约体系的最大特点是无缝对接现有的开发者生态。开发者无需学习新的编程语言，就能用 C#、Java 等主流编程语言在熟悉的 IDE 环境（Visual Studio、Eclipse 等）中进行智能合约的开发、调试、编译。NEO 的通用轻量级虚拟机 NeoVM 具有高确定性、高并发性、高扩展性等优点。NeoContract 智能合约体系让全球百万级的开发者能够快速进行智能合约的开发。NeoContract 将有独立的白皮书描述实现细节。</value>
-  </data>
-  <data name="Turing-complete smart contract, which has high certainty and finality, support concurrent operation, sharding and unlimited scalability when running in NeoVM." xml:space="preserve">
-    <value>图灵完备的智能合约，在 NeoVM 中执行并且拥有确定性、可终止性、资源控制、并发、分片与无限扩展等众多优点。</value>
-  </data>
-  <data name="Web" xml:space="preserve">
-    <value>网页</value>
-  </data>
-  <data name="What is NEO" xml:space="preserve">
-    <value>什么是 NEO</value>
-  </data>
-  <data name="scroll-acr-en" xml:space="preserve">
-    <value>scroll-acr</value>
-  </data>
-  <data name="scroll-ver-fri-en" xml:space="preserve">
-    <value>scroll-ver-fri</value>
-  </data>
-  <data name="scroll-ver-sec-en" xml:space="preserve">
-    <value>scroll-ver-sec</value>
-  </data>
-  <data name="NEO's vision of the Future?" xml:space="preserve">
-    <value>NEO 将如何勾勒未来？</value>
-  </data>
-  <data name="Hardware" xml:space="preserve">
-    <value>硬件</value>
-  </data>
-  <data name="Blog Page" xml:space="preserve">
-    <value>博客页面</value>
-  </data>
-  <data name="Claim NEO/GAS for TestNet use" xml:space="preserve">
-    <value>领取测试网的 NEO / GAS</value>
-  </data>
-  <data name="Detail" xml:space="preserve">
-    <value>查看详情</value>
-  </data>
-  <data name="Event Page" xml:space="preserve">
-    <value>活动页面</value>
-  </data>
-  <data name="Join our project" xml:space="preserve">
-    <value>参与我们的项目</value>
-  </data>
-  <data name="Participate in NEO Bounty Program" xml:space="preserve">
-    <value>参与 NEO 的安全奖励计划</value>
-  </data>
-  <data name="View technical docs" xml:space="preserve">
-    <value>查看技术文档</value>
-  </data>
-  <data name="home-intro-3.svg" xml:space="preserve">
-    <value>home-intro-4.svg</value>
-  </data>
-  <data name="Blog &amp; Event" xml:space="preserve">
-    <value>博客 &amp; 活动</value>
-  </data>
-  <data name="Community" xml:space="preserve">
+  <data name="Communities" xml:space="preserve">
     <value>社区</value>
   </data>
-  <data name="Anti-quantum Crisis" xml:space="preserve">
-    <value>抗量子危机</value>
+  <data name="Community Members" xml:space="preserve">
+    <value>社区成员</value>
   </data>
-  <data name="Cross-chain Interoperability Protocol" xml:space="preserve">
-    <value>跨链互操作协议</value>
+  <data name="community-driven" xml:space="preserve">
+    <value>由社区驱动的</value>
   </data>
-  <data name="Digital Certificate" xml:space="preserve">
-    <value>数字证书</value>
+  <data name="Countries" xml:space="preserve">
+    <value>国家</value>
   </data>
-  <data name="Multi-language Development" xml:space="preserve">
-    <value>多语言开发</value>
+  <data name="developer-friendly" xml:space="preserve">
+    <value>面向开发者的</value>
   </data>
-  <data name="Transaction Mechanism" xml:space="preserve">
-    <value>超导交易机制</value>
+  <data name="Discover" xml:space="preserve">
+    <value>最新动态</value>
+  </data>
+  <data name="enterprise-ready" xml:space="preserve">
+    <value>服务企业级应用的</value>
+  </data>
+  <data name="Get a NEO Wallet today, and take control of your assets!" xml:space="preserve">
+    <value>立即获取 NEO 钱包，掌控您的数字资产</value>
+  </data>
+  <data name="Get started" xml:space="preserve">
+    <value>立即体验</value>
+  </data>
+  <data name="Get wallet" xml:space="preserve">
+    <value>获取钱包</value>
+  </data>
+  <data name="Global Neo Communities" xml:space="preserve">
+    <value>Neo 全球社区</value>
+  </data>
+  <data name="Highly Active Network" xml:space="preserve">
+    <value>高活跃度网络</value>
+  </data>
+  <data name="Join EcoBoost program and power up for success" xml:space="preserve">
+    <value>加入 EcoBoost</value>
+  </data>
+  <data name="Join the" xml:space="preserve">
+    <value>欢迎加入</value>
+  </data>
+  <data name="Learn more" xml:space="preserve">
+    <value>了解更多</value>
+  </data>
+  <data name="Mainstream Languages" xml:space="preserve">
+    <value>主流语言支持</value>
+  </data>
+  <data name="Neo is investing USD $100 million through its  EcoBoost program to accelerate the realization of large-scale commercial blockchain solutions by empowering developers and projects in the ecosystem." xml:space="preserve">
+    <value>为构建下一代互联网基础设施，Neo 斥资 1 亿美元打造 EcoBoost，对生态内的开发者与项目进行激励与全生命周期的支持，旨在加速区块链应用的大规模商用落地。目前已有数百个合作伙伴与项目加入 EcoBoost。</value>
+  </data>
+  <data name="Neo Ecosystem" xml:space="preserve">
+    <value>丰富的 Neo 生态</value>
+  </data>
+  <data name="open network for the smart economy" xml:space="preserve">
+    <value>为智能经济打造的开放网络</value>
+  </data>
+  <data name="Technical Contributors" xml:space="preserve">
+    <value>技术贡献者</value>
+  </data>
+  <data name="View more" xml:space="preserve">
+    <value>浏览更多</value>
+  </data>
+  <data name="Wallet Addresses" xml:space="preserve">
+    <value>钱包地址</value>
+  </data>
+  <data name="With thriving partners and projects, the Neo ecosystem is rapidly growing and developing, thus enabling Neo to become the foundation for next-gen Internet." xml:space="preserve">
+    <value>在众多合作伙伴与项目的不断努力下，Neo 生态正在快速发展壮大，共建下一代互联网基础设施。</value>
   </data>
 </root>

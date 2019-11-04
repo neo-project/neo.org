@@ -1,32 +1,27 @@
 ﻿@model NeoWeb.Models.News
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit News";
 }
-<h2>Edit</h2>
-<h4>News</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Title" class="col-form-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Link" class="col-form-label"></label>
-                <input asp-for="Link" class="form-control" />
-                <span asp-validation-for="Link" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-light" />
-            </div>
-        </form>
-    </div>
+@section Styles{
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/editor.min.css", true)" />
+}
+<div class="p1">
+    <h1 class="w800">@Localizer["Post"]</h1>
 </div>
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+<form asp-action="Edit" enctype="multipart/form-data">
+    @{await Html.RenderPartialAsync("_EditorPartialPage", Model);}
+</form>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{await Html.RenderPartialAsync("_Tiny.ScriptsPartial");}
+    <script src="@Helper.ToCDN("/js/editor.min.js")"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            bsCustomFileInput.init()
+        })
+    </script>
+}

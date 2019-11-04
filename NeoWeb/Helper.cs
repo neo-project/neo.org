@@ -6,8 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using NeoWeb.Models;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Processing;
+using SixLabors.Primitives;
 using static System.Text.RegularExpressions.Regex;
 
 namespace NeoWeb
@@ -15,6 +20,62 @@ namespace NeoWeb
     public static class Helper
     {
         public static string CurrentDirectory;
+
+        public static void AddBlogs(IQueryable<Blog> blogs, List<DiscoverViewModel> viewModels, bool isZh)
+        {
+            blogs.Select(p => new BlogViewModel()
+            {
+                Id = p.Id,
+                CreateTime = p.CreateTime,
+                Title = isZh ? p.ChineseTitle : p.EnglishTitle,
+                Tags = isZh ? p.ChineseTags : p.EnglishTags,
+                Cover = isZh ? p.ChineseCover : p.EnglishCover,
+                IsShow = p.IsShow
+            }).ToList().ForEach(p => viewModels.Add(new DiscoverViewModel()
+            {
+                Type = DiscoverViewModelType.Blog,
+                Blog = p,
+                Time = p.CreateTime
+            }));
+        }
+
+        public static void AddEvents(IQueryable<Event> events, List<DiscoverViewModel> viewModels, bool isZh)
+        {
+            events.Select(p => new EventViewModel()
+            {
+                Id = p.Id,
+                StartTime = p.StartTime,
+                EndTime = p.EndTime,
+                Name = isZh ? p.ChineseName : p.EnglishName,
+                Tags = isZh ? p.ChineseTags : p.EnglishTags,
+                Country = isZh ? p.Country.ZhName : p.Country.Name,
+                City = isZh ? p.ChineseCity : p.EnglishCity,
+                Cover = isZh ? p.ChineseCover : p.EnglishCover
+            }).ToList().ForEach(p => viewModels.Add(new DiscoverViewModel()
+            {
+                Type = DiscoverViewModelType.Event,
+                Event = p,
+                Time = p.StartTime
+            }));
+        }
+
+        public static void AddNews(IQueryable<News> news, List<DiscoverViewModel> viewModels, bool isZh)
+        {
+            news.Select(p => new NewsViewModel()
+            {
+                Id = p.Id,
+                Time = p.Time,
+                Link = p.Link,
+                Cover = isZh ? p.ChineseCover : p.EnglishCover,
+                Title = isZh ? p.ChineseTitle : p.EnglishTitle,
+                Tags = isZh ? p.ChineseTags : p.EnglishTags
+            }).ToList().ForEach(p => viewModels.Add(new DiscoverViewModel()
+            {
+                Type = DiscoverViewModelType.News,
+                News = p,
+                Time = p.Time
+            }));
+        }
 
         public static string ClearHtmlTag(this string html)
         {
@@ -34,7 +95,7 @@ namespace NeoWeb
             return ReturnString;
         }
 
-        public static string UploadMedia(IFormFile cover, IHostingEnvironment env)
+        public static string UploadMedia(IFormFile cover, IWebHostEnvironment env, int? maxWidth = null)
         {
             if (cover.Length > 1024 * 1024 * 25 || // 25Mb
                 !new string[]
@@ -55,12 +116,27 @@ namespace NeoWeb
             var filePath = Path.Combine(env.ContentRootPath, "wwwroot/upload", newName);
             if (cover.Length > 0)
             {
-                using (var stream = new FileStream(filePath, FileMode.Create))
+                using var stream = new FileStream(filePath, FileMode.Create);
+                cover.CopyTo(stream);
+            }
+            if (maxWidth != null)
+            {
+                using var image = Image.Load(filePath);
+                image.Mutate(x => x.Resize(new ResizeOptions
                 {
-                    cover.CopyTo(stream);
-                }
+                    Size = new Size((int)maxWidth, (int)maxWidth * image.Height / image.Width),
+                    Mode = ResizeMode.Max
+                }));
+                image.Save(filePath);
             }
             return newName;
+        }
+
+        public static bool ValidateCover(IWebHostEnvironment env, string fileName)
+        {
+            var filePath = Path.Combine(env.ContentRootPath, "wwwroot/upload", fileName);
+            using var image = Image.Load(filePath);
+            return Math.Abs(image.Height - image.Width / 16.0 * 9) < 1;
         }
 
         public static bool Contains(this string source, string toCheck, StringComparison comp)
@@ -75,7 +151,7 @@ namespace NeoWeb
             {
                 html = html.Substring(0, length);
             }
-            return html;
+            return html.Trim();
         }
 
         public static string GetLanguage(this string text)
@@ -97,7 +173,7 @@ namespace NeoWeb
 
         public static string Sha256(this string input)
         {
-            SHA256 obj = SHA256.Create();
+            using SHA256 obj = SHA256.Create();
             return BitConverter.ToString(obj.ComputeHash(Encoding.UTF8.GetBytes(input))).Replace("-", "");
         }
 
@@ -108,7 +184,7 @@ namespace NeoWeb
             public DateTime Time;
         }
 
-        private static List<IPItem> IPList = new List<IPItem>();
+        private static readonly List<IPItem> IPList = new List<IPItem>();
 
         internal static bool CCAttack(IPAddress ip, string action, int interval, int times)
         {
@@ -179,7 +255,7 @@ namespace NeoWeb
             {
                 throw new ArgumentException();
             }
-            using (var ecdsa = ECDsa.Create(new ECParameters
+            using var ecdsa = ECDsa.Create(new ECParameters
             {
                 Curve = ECCurve.NamedCurves.nistP256,
                 Q = new ECPoint
@@ -187,10 +263,8 @@ namespace NeoWeb
                     X = pubkey.Take(32).ToArray(),
                     Y = pubkey.Skip(32).ToArray()
                 }
-            }))
-            {
-                return ecdsa.VerifyData(message, signature, HashAlgorithmName.SHA256);
-            }
+            });
+            return ecdsa.VerifyData(message, signature, HashAlgorithmName.SHA256);
         }
 
         /// <summary>
@@ -207,7 +281,7 @@ namespace NeoWeb
 #endif
 
 #if !DEBUG
-            return "https://neo-cdn.azureedge.net";
+            return "https://neo3.azureedge.net";
 #endif
             }
         }

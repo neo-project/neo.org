@@ -1,6 +1,177 @@
 ﻿@model NeoWeb.Models.Event
-<textarea asp-for="Details" class="form-control" autocomplete="off" rows=10></textarea>
-<script src="/lib/tinymce/tinymce.min.js" asp-append-version="true"></script>
+<div class="switch">
+    <strong>Switch editing language</strong>
+    <a href="javascript:" onclick="switchLanguage('en')">ENG</a>
+    <span class="switch-border">
+        <span class="switch-button"></span>
+    </span>
+    <a href="javascript:" onclick="switchLanguage('zh')">中文</a>
+</div>
+<div asp-validation-summary="All" class="text-danger mt4"></div>
+<div class="zh">
+    <label asp-for="ChineseName" class="col-form-label"></label>
+    <input asp-for="ChineseName" class="form-control" />
+    <span asp-validation-for="ChineseName" class="text-danger"></span>
+</div>
+<div class="en">
+    <label asp-for="EnglishName" class="col-form-label"></label>
+    <input asp-for="EnglishName" class="form-control" />
+    <span asp-validation-for="EnglishName" class="text-danger"></span>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <label for="Country" class="col-form-label">Country</label>
+        <div>
+            <select name="countryId" class="form-control" asp-items="@ViewBag.Countries"></select>
+            <span asp-validation-for="Country" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="col-sm-6 zh">
+        <label asp-for="ChineseCity" class="col-form-label"></label>
+        <div>
+            <input asp-for="ChineseCity" class="form-control" />
+            <span asp-validation-for="ChineseCity" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="col-sm-6 en">
+        <label asp-for="EnglishCity" class="col-form-label"></label>
+        <div>
+            <input asp-for="EnglishCity" class="form-control" />
+            <span asp-validation-for="EnglishCity" class="text-danger"></span>
+        </div>
+    </div>
+</div>
+<div class="zh">
+    <label asp-for="ChineseAddress" class="col-form-label"></label>
+    <div>
+        <input asp-for="ChineseAddress" class="form-control" />
+        <span asp-validation-for="ChineseAddress" class="text-danger"></span>
+    </div>
+</div>
+<div class="en">
+    <label asp-for="EnglishAddress" class="col-form-label"></label>
+    <div>
+        <input asp-for="EnglishAddress" class="form-control" />
+        <span asp-validation-for="EnglishAddress" class="text-danger"></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-3">
+        <label asp-for="StartTime" class="col-form-label"></label>
+        <div>
+            @if (Model.StartTime == null)
+            {
+                <input asp-for="StartTime" value="@DateTime.Now.AddDays(7).ToString("yyyy-MM-ddT10:00")" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" class="form-control" />
+            }
+            else
+            {
+                <input asp-for="StartTime" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" class="form-control" />
+            }
+            <span asp-validation-for="StartTime" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <label asp-for="EndTime" class="col-form-label"></label>
+        <div>
+            @if (Model.StartTime == null)
+            {
+                <input asp-for="EndTime" value="@DateTime.Now.AddDays(7).ToString("yyyy-MM-ddT10:00")" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" class="form-control" />
+            }
+            else
+            {
+                <input asp-for="EndTime" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" class="form-control" />
+            }
+            <span asp-validation-for="EndTime" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="col-sm-6 zh">
+        <label asp-for="ChineseOrganizers" class="col-form-label"></label>
+        <div>
+            <input asp-for="ChineseOrganizers" class="form-control" />
+            <span asp-validation-for="ChineseOrganizers" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="col-sm-6 en">
+        <label asp-for="EnglishOrganizers" class="col-form-label"></label>
+        <div>
+            <input asp-for="EnglishOrganizers" class="form-control" />
+            <span asp-validation-for="EnglishOrganizers" class="text-danger"></span>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6 zh">
+        <label asp-for="ChineseCover" class="col-form-label"></label>
+        <div class="custom-file">
+            <input type="hidden" asp-for="ChineseCover" />
+            <input type="file" class="custom-file-input" id="chineseCover" name="chineseCover">
+            <label class="custom-file-label" for="chineseCover">Choose File</label>
+            <small class="form-text text-muted">If no image is uploaded, the system will show default image.</small>
+        </div>
+    </div>
+    <div class="col-sm-6 en">
+        <label asp-for="EnglishCover" class="col-form-label"></label>
+        <div class="custom-file">
+            <input type="hidden" asp-for="EnglishCover" />
+            <input type="file" class="custom-file-input" id="englishCover" name="englishCover">
+            <label class="custom-file-label" for="englishCover">Choose File</label>
+            <small class="form-text text-muted">If no image is uploaded, the system will show default image.</small>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <label class="col-form-label" asp-for="IsFree"></label>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" asp-for="IsFree">
+            <label class="custom-control-label m-0" asp-for="IsFree"></label>
+        </div>
+    </div>
+</div>
+<div class="zh">
+    <label asp-for="ChineseDetails" class="col-form-label"></label>
+    <div>
+        <textarea asp-for="ChineseDetails" class="form-control" autocomplete="off" rows=10></textarea>
+        <span asp-validation-for="ChineseDetails" class="text-danger"></span>
+    </div>
+</div>
+<div class="en">
+    <label asp-for="EnglishDetails" class="col-form-label"></label>
+    <div>
+        <textarea asp-for="EnglishDetails" class="form-control" autocomplete="off" rows=10></textarea>
+        <span asp-validation-for="EnglishDetails" class="text-danger"></span>
+    </div>
+</div>
+<div class="zh">
+    <label asp-for="ChineseTags" class="col-form-label"></label>
+    <input asp-for="ChineseTags" class="form-control" />
+    <small class="form-text text-muted">Separated by comma</small>
+    <span asp-validation-for="ChineseTags" class="text-danger"></span>
+</div>
+<div class="en">
+    <label asp-for="EnglishTags" class="col-form-label"></label>
+    <input asp-for="EnglishTags" class="form-control" />
+    <small class="form-text text-muted">Separated by comma</small>
+    <span asp-validation-for="EnglishTags" class="text-danger"></span>
+</div>
+<div>
+    <div class="custom-control custom-checkbox">
+        @if (ViewBag.IsTop != null && ViewBag.IsTop)
+        {
+            <input type="checkbox" checked="checked" class="custom-control-input" name="isTop" id="isTop">
+        }
+        else
+        {
+            <input type="checkbox" class="custom-control-input" name="isTop" id="isTop">
+        }
+        <label class="custom-control-label" for="isTop">Is Top</label>
+    </div>
+</div>
+<div class="my-4">
+    <input type="submit" value="Create" class="btn" />
+</div>
+<div class="my-4">
+    <a asp-action="index" asp-controller="discover">Back to List</a>
+</div>
+<script src="@Helper.ToCDN("/lib/tinymce/tinymce.min.js", true)"></script>
 <script>
     tinymce.init({
         selector: 'textarea',
@@ -18,3 +189,6 @@
         images_upload_url: "../../../../blog/upload"
     });
 </script>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

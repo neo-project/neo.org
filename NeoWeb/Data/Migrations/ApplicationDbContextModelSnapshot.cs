@@ -15,7 +15,7 @@ namespace NeoWeb.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
+                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -189,6 +189,8 @@ namespace NeoWeb.Data.Migrations
                     b.Property<string>("ChineseContent")
                         .IsRequired();
 
+                    b.Property<string>("ChineseCover");
+
                     b.Property<string>("ChineseSummary");
 
                     b.Property<string>("ChineseTags");
@@ -200,8 +202,12 @@ namespace NeoWeb.Data.Migrations
 
                     b.Property<DateTime>("EditTime");
 
+                    b.Property<string>("Editor");
+
                     b.Property<string>("EnglishContent")
                         .IsRequired();
+
+                    b.Property<string>("EnglishCover");
 
                     b.Property<string>("EnglishSummary");
 
@@ -254,27 +260,6 @@ namespace NeoWeb.Data.Migrations
                     b.ToTable("Candidates");
                 });
 
-            modelBuilder.Entity("NeoWeb.Models.Careers", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description")
-                        .IsRequired();
-
-                    b.Property<bool>("IsShow");
-
-                    b.Property<string>("Title")
-                        .IsRequired();
-
-                    b.Property<int>("Type");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Careers");
-                });
-
             modelBuilder.Entity("NeoWeb.Models.Country", b =>
                 {
                     b.Property<int>("Id")
@@ -302,33 +287,49 @@ namespace NeoWeb.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Address")
+                    b.Property<string>("ChineseAddress")
                         .IsRequired();
 
-                    b.Property<string>("City")
+                    b.Property<string>("ChineseCity")
                         .IsRequired();
+
+                    b.Property<string>("ChineseCover");
+
+                    b.Property<string>("ChineseDetails");
+
+                    b.Property<string>("ChineseName")
+                        .IsRequired();
+
+                    b.Property<string>("ChineseOrganizers")
+                        .IsRequired();
+
+                    b.Property<string>("ChineseTags");
 
                     b.Property<int?>("CountryId");
 
-                    b.Property<string>("Cover");
-
-                    b.Property<string>("Details");
-
                     b.Property<DateTime>("EndTime");
+
+                    b.Property<string>("EnglishAddress")
+                        .IsRequired();
+
+                    b.Property<string>("EnglishCity")
+                        .IsRequired();
+
+                    b.Property<string>("EnglishCover");
+
+                    b.Property<string>("EnglishDetails");
+
+                    b.Property<string>("EnglishName")
+                        .IsRequired();
+
+                    b.Property<string>("EnglishOrganizers")
+                        .IsRequired();
+
+                    b.Property<string>("EnglishTags");
 
                     b.Property<bool>("IsFree");
 
-                    b.Property<string>("Name")
-                        .IsRequired();
-
-                    b.Property<string>("Organizers")
-                        .IsRequired();
-
                     b.Property<DateTime>("StartTime");
-
-                    b.Property<string>("ThirdPartyLink");
-
-                    b.Property<int>("Type");
 
                     b.HasKey("Id");
 
@@ -359,7 +360,7 @@ namespace NeoWeb.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("FwLInk");
+                    b.ToTable("FwLink");
                 });
 
             modelBuilder.Entity("NeoWeb.Models.News", b =>
@@ -368,13 +369,24 @@ namespace NeoWeb.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("ChineseCover");
+
+                    b.Property<string>("ChineseTags");
+
+                    b.Property<string>("ChineseTitle")
+                        .IsRequired();
+
+                    b.Property<string>("EnglishCover");
+
+                    b.Property<string>("EnglishTags");
+
+                    b.Property<string>("EnglishTitle")
+                        .IsRequired();
+
                     b.Property<string>("Link")
                         .IsRequired();
 
                     b.Property<DateTime>("Time");
-
-                    b.Property<string>("Title")
-                        .IsRequired();
 
                     b.HasKey("Id");
 
@@ -413,14 +425,12 @@ namespace NeoWeb.Data.Migrations
                     b.Property<string>("Email")
                         .IsRequired();
 
-                    b.Property<string>("GasCount")
-                        .IsRequired();
+                    b.Property<string>("GasCount");
 
                     b.Property<string>("Name")
                         .IsRequired();
 
-                    b.Property<string>("NeoCount")
-                        .IsRequired();
+                    b.Property<string>("NeoCount");
 
                     b.Property<string>("Phone");
 
@@ -437,9 +447,26 @@ namespace NeoWeb.Data.Migrations
 
                     b.Property<DateTime>("Time");
 
+                    b.Property<int>("Version");
+
                     b.HasKey("Id");
 
                     b.ToTable("TestCoins");
+                });
+
+            modelBuilder.Entity("NeoWeb.Models.Top", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ItemId");
+
+                    b.Property<int>("Type");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Top");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

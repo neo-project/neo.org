@@ -14,6 +14,7 @@
       "destination": "wwwroot/lib/bootstrap/",
       "files": [
         "js/bootstrap.min.js",
+        "css/bootstrap.css",
         "css/bootstrap.min.css",
         "css/bootstrap.min.css.map"
       ]
@@ -26,31 +27,22 @@
       ]
     },
     {
-      "library": "jquery-validate@1.19.0",
+      "library": "jquery-validate@1.19.1",
       "destination": "wwwroot/lib/jquery-validate/",
       "files": [
         "jquery.validate.min.js"
       ]
     },
     {
-      "provider": "cdnjs",
-      "library": "wow@1.1.2",
-      "destination": "wwwroot/lib/wow/",
-      "files": [
-        "wow.min.js"
-      ]
-    },
-    {
-      "library": "animate.css@3.7.0",
+      "library": "animate.css@3.7.2",
       "destination": "wwwroot/lib/animate.css/"
     },
     {
-      "library": "tinymce@5.0.5",
+      "library": "tinymce@5.0.16",
       "destination": "wwwroot/lib/tinymce/"
     },
     {
-      "provider": "cdnjs",
-      "library": "bootstrap-fileinput@5.0.2",
+      "library": "bootstrap-fileinput@5.0.6",
       "destination": "wwwroot/lib/bootstrap-fileinput/",
       "files": [
         "css/fileinput-rtl.css",
@@ -88,6 +80,13 @@
         "themes/fas/theme.min.js",
         "themes/gly/theme.js",
         "themes/gly/theme.min.js"
+      ]
+    },
+    {
+      "library": "typed.js@2.0.11",
+      "destination": "wwwroot/lib/typed.js/",
+      "files": [
+        "typed.min.js"
       ]
     }
   ]

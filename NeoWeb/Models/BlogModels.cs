@@ -9,29 +9,39 @@ namespace NeoWeb.Models
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "必须填写博客中文标题")]
-        [Display(Name = "中文标题")]
+        [Required]
+        [Display(Name = "Chinese Title")]
         public string ChineseTitle { get; set; }
 
-        [Display(Name = "中文正文")]
-        [Required(ErrorMessage = "必须填写博客中文正文")]
-        public string ChineseContent { get; set; }
-
-        public string ChineseSummary { get; set; }
-
-        public string ChineseTags { get; set; }
-
-        [Required(ErrorMessage = "必须填写博客英文标题")]
-        [Display(Name = "英文标题")]
+        [Required]
+        [Display(Name = "English Title")]
         public string EnglishTitle { get; set; }
 
-        [Display(Name = "英文正文")]
-        [Required(ErrorMessage = "必须填写博客英文正文")]
+        [Required]
+        [Display(Name = "Chinese Content")]
+        public string ChineseContent { get; set; }
+
+        [Required]
+        [Display(Name = "English Content")]
         public string EnglishContent { get; set; }
 
+        [Display(Name = "Chinese Summary")]
+        public string ChineseSummary { get; set; }
+
+        [Display(Name = "English Summary")]
         public string EnglishSummary { get; set; }
 
+        [Display(Name = "Chinese Tags")]
+        public string ChineseTags { get; set; }
+
+        [Display(Name = "English Tags")]
         public string EnglishTags { get; set; }
+
+        [Display(Name = "Chinese Cover")]
+        public string ChineseCover { get; set; }
+
+        [Display(Name = "English Cover")]
+        public string EnglishCover { get; set; }
 
         public DateTime CreateTime { get; set; }
 
@@ -41,11 +51,10 @@ namespace NeoWeb.Models
 
         public virtual IdentityUser User { get; set; }
 
+        public string Editor { get; set; }
+
         public bool IsShow { get; set; }
 
         public int? OldId { get; set; }
     }
 }
-
-
-

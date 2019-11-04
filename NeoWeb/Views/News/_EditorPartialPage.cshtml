@@ -1,0 +1,92 @@
+﻿@model NeoWeb.Models.News
+<div class="switch">
+    <strong>Switch editing language</strong>
+    <a href="javascript:" onclick="switchLanguage('en')">ENG</a>
+    <span class="switch-border">
+        <span class="switch-button"></span>
+    </span>
+    <a href="javascript:" onclick="switchLanguage('zh')">中文</a>
+</div>
+<div asp-validation-summary="All" class="text-danger mt4"></div>
+<div class="zh">
+    <label asp-for="ChineseTitle" class="col-form-label"></label>
+    <input asp-for="ChineseTitle" class="form-control" />
+    <span asp-validation-for="ChineseTitle" class="text-danger"></span>
+</div>
+<div class="en">
+    <label asp-for="EnglishTitle" class="col-form-label"></label>
+    <input asp-for="EnglishTitle" class="form-control" />
+    <span asp-validation-for="EnglishTitle" class="text-danger"></span>
+</div>
+<div class="row">
+    <div class="col-sm-6 zh">
+        <label for="cover" class="col-form-label"></label>
+        <div class="custom-file">
+            <input type="hidden" asp-for="ChineseCover" />
+            <input type="file" class="custom-file-input" id="chineseCover" name="chineseCover">
+            <label class="custom-file-label" for="chineseCover">Choose File</label>
+            <small class="form-text text-muted">If no image is uploaded, the system will show default image.</small>
+        </div>
+    </div>
+    <div class="col-sm-6 en">
+        <label for="cover" class="col-form-label"></label>
+        <div class="custom-file">
+            <input type="hidden" asp-for="EnglishCover" />
+            <input type="file" class="custom-file-input" id="englishCover" name="englishCover">
+            <label class="custom-file-label" for="englishCover">Choose File</label>
+            <small class="form-text text-muted">If no image is uploaded, the system will show default image.</small>
+        </div>
+    </div>
+</div>
+<div>
+    <label asp-for="Link" class="col-form-label"></label>
+    <input asp-for="Link" class="form-control" />
+    <span asp-validation-for="Link" class="text-danger"></span>
+</div>
+<div class="zh">
+    <label asp-for="ChineseTags" class="col-form-label"></label>
+    <input asp-for="ChineseTags" class="form-control" />
+    <small class="form-text text-muted">Separated by comma</small>
+    <span asp-validation-for="ChineseTags" class="text-danger"></span>
+</div>
+<div class="en">
+    <label asp-for="EnglishTags" class="col-form-label"></label>
+    <input asp-for="EnglishTags" class="form-control" />
+    <small class="form-text text-muted">Separated by comma</small>
+    <span asp-validation-for="EnglishTags" class="text-danger"></span>
+</div>
+<div>
+    <div class="custom-control custom-checkbox">
+        @if (ViewBag.IsTop != null && ViewBag.IsTop)
+        {
+            <input type="checkbox" checked="checked" class="custom-control-input" name="isTop" id="isTop">
+        }
+        else
+        {
+            <input type="checkbox" class="custom-control-input" name="isTop" id="isTop">
+        }
+        <label class="custom-control-label" for="isTop">Is Top</label>
+    </div>
+</div>
+<div class="my-4">
+    <input type="submit" value="Create" class="btn" />
+</div>
+<div class="my-4">
+    <a asp-action="index" asp-controller="discover">Back to List</a>
+</div>
+<script src="@Helper.ToCDN("/lib/tinymce/tinymce.min.js", true)"></script>
+<script>
+    tinymce.init({
+        selector: 'textarea',
+        language: 'zh_CN',
+        height: 500,
+        menubar: true,
+        plugins: 'print preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern help',
+        toolbar: 'formatselect | bold italic strikethrough forecolor backcolor permanentpen formatpainter | link image media pageembed | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | removeformat | addcomment',
+        image_advtab: true,
+        images_upload_url: "../../../../blog/upload"
+    });
+</script>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -18,9 +18,9 @@ namespace NeoWeb.Controllers
         private readonly ApplicationDbContext _context;
         private readonly IHttpContextAccessor _accessor;
         private readonly IStringLocalizer<ConsensusController> _localizer;
-        private readonly IHostingEnvironment _env;
+        private readonly IWebHostEnvironment _env;
 
-        public ConsensusController(ApplicationDbContext context, IStringLocalizer<ConsensusController> localizer, IHttpContextAccessor accessor, IHostingEnvironment env)
+        public ConsensusController(ApplicationDbContext context, IStringLocalizer<ConsensusController> localizer, IHttpContextAccessor accessor, IWebHostEnvironment env)
         {
             _context = context;
             _accessor = accessor;
@@ -32,7 +32,6 @@ namespace NeoWeb.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            ViewBag.Countries = _context.Countries.ToList();
             JArray list = JArray.Parse(System.IO.File.ReadAllText(Path.Combine(_env.ContentRootPath, "CandidateBackgrounder/validators.json")));
             ViewBag.PubKeys = new List<string>();
             foreach (JObject item in list)

@@ -32,12 +32,10 @@ namespace NeoWeb.Models
         [StringLength(300, MinimumLength = 50, ErrorMessage = "申请理由至少50字，最多300字")]
         public string Reason { get; set; }
 
-        [Required]
         [Display(Name = "申请数量 (NEO)")]
         [RegularExpression("\\d+", ErrorMessage = "申请数量必须为整数")]
         public string NeoCount { get; set; }
 
-        [Required]
         [Display(Name = "申请数量 (GAS)")]
         [RegularExpression("\\d+", ErrorMessage = "申请数量必须为整数")]
         public string GasCount { get; set; }
@@ -52,5 +50,13 @@ namespace NeoWeb.Models
 
         [Display(Name = "备注")]
         public string Remark { get; set; }
+
+        public Version Version { get; set; }
+    }
+
+    public enum Version
+    {
+        NEO2,
+        NEO3
     }
 }

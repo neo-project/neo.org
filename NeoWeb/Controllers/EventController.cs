@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
+using NeoWeb.Data;
+using NeoWeb.Models;
+using System;
 using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using NeoWeb.Data;
-using NeoWeb.Models;
-using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.PixelFormats;
-using SixLabors.ImageSharp.Processing;
-using SixLabors.Primitives;
 
 namespace NeoWeb.Controllers
 {
@@ -23,273 +20,207 @@ namespace NeoWeb.Controllers
     public class EventController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private string _userId;
-        private bool _userRules;
-        private readonly IHostingEnvironment _env;
+        private readonly string _userId;
+        private readonly bool _userRules;
+        private readonly IWebHostEnvironment _env;
+        private readonly IStringLocalizer<SharedResource> _sharedLocalizer;
 
-        public EventController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IHostingEnvironment env)
+        public EventController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IWebHostEnvironment env, 
+             IStringLocalizer<SharedResource> sharedLocalizer)
         {
             _context = context;
             _userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             _env = env;
+            _sharedLocalizer = sharedLocalizer;
             if (_userId != null)
             {
                 _userRules = _context.UserRoles.Any(p => p.UserId == _userId);
             }
         }
 
-        // GET: event
-        [HttpGet]
-        [AllowAnonymous]
-        public IActionResult Index(string k = null, int c = 0, int d = 0, string z = null)
-        {
-            var models = _context.Events.OrderBy(o => o.StartTime).Select(p => new Event()
-            {
-                Id = p.Id,
-                Name = p.Name,
-                Type = p.Type,
-                Country = p.Country,
-                City = p.City,
-                Address = p.Address,
-                StartTime = p.StartTime,
-                EndTime = p.EndTime,
-                Cover = p.Cover,
-                Organizers = p.Organizers,
-                IsFree = p.IsFree,
-                ThirdPartyLink = p.ThirdPartyLink
-            });
-            //全部筛选列表
-            ViewBag.Countries = models.Select(p => p.Country).Distinct();
-            ViewBag.Types = models.Select(p => p.Type).Distinct();
-            ViewBag.Dates = new string[] { "All Dates", "This Week", "This Month", "Past Events" };
-            //筛选列表中的默认选项
-            ViewBag.Keywords = k;
-            ViewBag.CountryId = c;
-            ViewBag.Date = d;
-            //对关键词进行筛选
-            if (!String.IsNullOrEmpty(k))
-            {
-                var keywords = k.Split(" ");
-                foreach (var item in keywords)
-                {
-                    switch (item.ToLower())
-                    {
-                        case "conference": models = models.Where(p => p.Type == EventType.Conference); break;
-                        case "meetup": models = models.Where(p => p.Type == EventType.Meetup); break;
-                        case "workshop": models = models.Where(p => p.Type == EventType.Workshop); break;
-                        case "hackathon": models = models.Where(p => p.Type == EventType.Hackathon); break;
-                        default:
-                            models = models.Where(p => p.Name.Contains(item)
-                   || p.Country.Name.Contains(item, StringComparison.OrdinalIgnoreCase)
-                   || p.Country.ZhName.Contains(item, StringComparison.OrdinalIgnoreCase)
-                   || p.City.Contains(item, StringComparison.OrdinalIgnoreCase)
-                   || p.Address.Contains(item, StringComparison.OrdinalIgnoreCase)
-                   || p.Organizers.Contains(item, StringComparison.OrdinalIgnoreCase)); break;
-                    }
-                }
-            }
-            //对国家进行筛选
-            if (c > 0)
-            {
-                models = models.Where(p => p.Country.Id == c);
-            }
-            //对日期进行筛选
-            switch (d)
-            {
-                //本周内（非7天内）的未结束的活动
-                case 1: models = models.Where(p => IsInSameWeek(DateTime.Now, p.StartTime) || IsInSameWeek(DateTime.Now, p.EndTime)).Where(p => p.EndTime >= DateTime.Now); break;
-                //本月内（非30天内）的未结束的活动
-                case 2: models = models.Where(p => p.StartTime.Year == DateTime.Now.Year && p.StartTime.Month == DateTime.Now.Month || p.EndTime.Year == DateTime.Now.Year && p.EndTime.Month == DateTime.Now.Month).Where(p => p.EndTime >= DateTime.Now); break;
-                //已经结束的活动
-                case 3: models = models.Where(p => p.EndTime < DateTime.Now); break;
-            }
-            //对具体日期进行查找
-            if (DateTime.TryParse(z, out DateTime date))
-                models = models.Where(p => p.StartTime.Date <= date && p.EndTime.Date >= date);
-
-
-            ViewBag.UserRules = _userRules;
-            return View(models);
-        }
-
-        [HttpGet]
-        [AllowAnonymous]
-        public JsonResult Date(int year, int month)
-        {
-            var obj = _context.Events.Where(p => p.StartTime.Year == year && p.StartTime.Month == month).OrderBy(p => p.StartTime).Select(p => p.StartTime.ToString("yyyy/M/d")).ToList().Distinct();
-            return Json(obj);
-        }
-
-        /// <summary>   
-        /// 判断两个日期是否在同一周   
-        /// </summary>    
-        private bool IsInSameWeek(DateTime dateX, DateTime dateY)
-        {
-            if (dateX > dateY)
-            {
-                var temp = dateX;
-                dateX = dateY;
-                dateY = temp;
-            }
-            double timespan = (dateY - dateX).TotalDays;
-            int dayOfWeek = Convert.ToInt32(dateY.DayOfWeek);
-            if (dayOfWeek == 0) dayOfWeek = 7;
-            return timespan < 7 && timespan < dayOfWeek;
-        }
-
         // GET: event/details/5
+        [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? id, string language = null)
         {
             if (id == null)
             {
                 return NotFound();
             }
-            ViewBag.UserRules = _userRules;
-            var @event = await _context.Events.Include(m => m.Country)
-                .SingleOrDefaultAsync(m => m.Id == id);
-            if (@event == null)
+
+            var evt = await _context.Events.Include(p => p.Country).SingleOrDefaultAsync(p => p.Id == id);
+
+            if (evt == null)
             {
                 return NotFound();
             }
 
-            return View(@event);
+            language = !string.IsNullOrEmpty(language) ? language : _sharedLocalizer["en"];
+
+            #region Previous and  Next
+            var idList = _context.Events.OrderByDescending(o => o.StartTime).Select(p => p.Id).ToList();
+            ViewBag.NextEventId = idList.Count == 0 ? id : idList[Math.Max(idList.IndexOf((int)id) - 1, 0)];
+            ViewBag.PrevEventId = idList.Count == 0 ? id : idList[Math.Min(idList.IndexOf((int)id) + 1, idList.Count - 1)];
+            #endregion
+
+            ViewBag.UserRules = _userRules;
+
+            return View(new EventViewModel(evt, language == "zh"));
         }
 
         // GET: event/create
         public IActionResult Create()
         {
-            ViewBag.Countries = _context.Countries.ToList();
+            ViewBag.Countries = _context.Countries.Select(c => new SelectListItem { Value = c.Id.ToString(), Text = $"{c.Name} - {c.ZhName}" }).ToList();
             return View();
         }
 
         // POST: event/create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,City,Type,Address,StartTime,EndTime,Cover,Details,Organizers,IsFree,ThirdPartyLink")] Event @event, int countryId, IFormFile cover)
+        public async Task<IActionResult> Create(
+            [Bind("Id,ChineseName,EnglishName,ChineseCity,EnglishCity,ChineseAddress,EnglishAddress,StartTime,EndTime," +
+            "ChineseCover,EnglishCover,ChineseDetails,EnglishDetails,ChineseOrganizers,EnglishOrganizers,ChineseTags,EnglishTags,IsFree")] Event evt, 
+            int countryId, IFormFile chineseCover, IFormFile englishCover, string isTop)
         {
+            ViewBag.IsTop = isTop != null;
             var country = _context.Countries.FirstOrDefault(p => p.Id == countryId);
             if (country == null)
             {
-                ModelState.AddModelError("Country", "国家错误");
+                ModelState.AddModelError("Country", "The Country field is required.");
             }
-            @event.Country = country;
-            if (@event.EndTime <= @event.StartTime)
-            {
-                ModelState.AddModelError("EndTime", "截止时间错误");
-            }
-            if (!@event.IsFree && @event.ThirdPartyLink == null)
-            {
-                ModelState.AddModelError("ThirdPartyLink", "付费活动需要填写购票链接");
-            }
+            evt.Country = country;
             if (ModelState.IsValid)
             {
-                if (cover != null)
+                if (evt.EndTime <= evt.StartTime)
                 {
-                    @event.Cover = Upload(cover);
+                    ModelState.AddModelError("EndTime", "End Time must be after the Start Time.");
                 }
-                @event.Details = EventConvert(@event.Details);
-                _context.Add(@event);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewBag.Countries = _context.Countries.ToList();
-            return View(@event);
-        }
-
-        private string Upload(IFormFile cover)
-        {
-            try
-            {
-                var fileName = Helper.UploadMedia(cover, _env);
-                Task.Run(() =>
+                if (chineseCover != null)
                 {
-                    var filePath = Path.Combine(_env.ContentRootPath, "wwwroot/upload", fileName);
-                    using (Image<Rgba32> image = Image.Load(filePath))
-                    {
-                        image.Mutate(x => x.Resize(new ResizeOptions
-                        {
-                            Size = new Size(600, 600 * image.Height / image.Width),
-                            Mode = ResizeMode.Max
-                        }));
-                        image.Save(filePath);
-                    }
-                });
-                return fileName;
+                    var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
+                    if (Helper.ValidateCover(_env, fileName))
+                        evt.ChineseCover = fileName;
+                    else
+                        ModelState.AddModelError("ChineseCover", "Cover size must be 16:9");
+                }
+                if (englishCover != null)
+                {
+                    var fileName = Helper.UploadMedia(englishCover, _env, 1000);
+                    if (Helper.ValidateCover(_env, fileName))
+                        evt.EnglishCover = fileName;
+                    else
+                        ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
+                }
+                if (!ModelState.IsValid) return View(evt);
+
+                evt.ChineseDetails = EventConvert(evt.ChineseDetails);
+                evt.EnglishDetails = EventConvert(evt.EnglishDetails);
+                evt.ChineseTags = evt.ChineseTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
+                evt.EnglishTags = evt.EnglishTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
+                _context.Add(evt);
+                await _context.SaveChangesAsync();
+                if (isTop != null)
+                {
+                    _context.Top.ToList().ForEach(p => _context.Top.Remove(p));
+                    _context.Add(new Top() { ItemId = evt.Id, Type = DiscoverViewModelType.Event });
+                }
+                await _context.SaveChangesAsync();
+                return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.Event });
             }
-            catch (ArgumentException)
-            {
-                Response.StatusCode = 502;
-                return "";
-            }
+            ViewBag.Countries = _context.Countries.Select(c => new SelectListItem { Value = c.Id.ToString(), Text = $"{c.Name} - {c.ZhName}" }).ToList();
+            return View(evt);
         }
 
         // GET: event/edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            ViewBag.Countries = _context.Countries.ToList();
             if (id == null)
             {
                 return NotFound();
             }
 
-            var @event = await _context.Events.SingleOrDefaultAsync(m => m.Id == id);
-            if (@event == null)
+            var evt = await _context.Events.Include(p => p.Country).SingleOrDefaultAsync(m => m.Id == id);
+            ViewBag.Countries = _context.Countries.Select(c => new SelectListItem { Value = c.Id.ToString(), Text = $"{c.Name} - {c.ZhName}", Selected = c.Id == evt.Country.Id }).ToList();
+            if (evt == null)
             {
                 return NotFound();
             }
-            return View(@event);
+            return View(evt);
         }
 
         // POST: event/edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,City,Type,Address,StartTime,EndTime,Cover,Details,Organizers,IsFree,ThirdPartyLink")] Event @event, int countryId, string oldCover, IFormFile cover)
+        public async Task<IActionResult> Edit(
+            int id, [Bind("Id,ChineseName,EnglishName,ChineseCity,EnglishCity,ChineseAddress,EnglishAddress,StartTime,EndTime," +
+            "ChineseCover,EnglishCover,ChineseDetails,EnglishDetails,ChineseOrganizers,EnglishOrganizers,ChineseTags,EnglishTags,IsFree")] Event evt, 
+            int countryId, IFormFile chineseCover, IFormFile englishCover, string isTop)
         {
-            if (id != @event.Id)
+            if (id != evt.Id)
             {
                 return NotFound();
             }
+            ViewBag.IsTop = isTop != null;
             var country = _context.Countries.FirstOrDefault(p => p.Id == countryId);
             if (country == null)
             {
-                ModelState.AddModelError("Country", "国家错误");
+                ModelState.AddModelError("Country", "The Country field is required.");
             }
-            @event.Country = country;
-            //var oldCover = _context.Events.FirstOrDefault(p => p.Id == @event.Id).Cover;
-            if (@event.EndTime <= @event.StartTime)
-            {
-                ModelState.AddModelError("EndTime", "截止时间错误");
-            }
-            if (!@event.IsFree && @event.ThirdPartyLink == null)
-            {
-                ModelState.AddModelError("ThirdPartyLink", "付费活动需要填写购票链接");
-            }
+            evt.Country = country;
             if (ModelState.IsValid)
             {
-                try
+                if (evt.EndTime <= evt.StartTime)
                 {
-                    if (cover != null)
+                    ModelState.AddModelError("EndTime", "End Time must be after the Start Time.");
+                }
+                if (chineseCover != null)
+                {
+                    var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
+                    if (Helper.ValidateCover(_env, fileName))
                     {
-                        if (!String.IsNullOrEmpty(@event.Cover))
-                            System.IO.File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", @event.Cover));
-                        @event.Cover = Upload(cover);
+                        if (!string.IsNullOrEmpty(evt.ChineseCover))
+                            System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", evt.ChineseCover));
+                        evt.ChineseCover = fileName;
                     }
                     else
                     {
-                        @event.Cover = oldCover;
+                        ModelState.AddModelError("ChineseCover", "Cover size must be 16:9");
                     }
-                    @event.Details = EventConvert(@event.Details);
-                    _context.Update(@event);
+                }
+                if (englishCover != null)
+                {
+                    var fileName = Helper.UploadMedia(englishCover, _env, 1000);
+                    if (Helper.ValidateCover(_env, fileName))
+                    {
+                        if (!string.IsNullOrEmpty(evt.EnglishCover))
+                            System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", evt.EnglishCover));
+                        evt.EnglishCover = fileName;
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
+                    }
+                }
+                if (!ModelState.IsValid) return View(evt);
+                try
+                {
+                    evt.ChineseDetails = EventConvert(evt.ChineseDetails);
+                    evt.EnglishDetails = EventConvert(evt.EnglishDetails);
+                    evt.ChineseTags = evt.ChineseTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
+                    evt.EnglishTags = evt.EnglishTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
+                    
+                    _context.Update(evt);
+                    if (isTop != null)
+                    {
+                        _context.Top.ToList().ForEach(p => _context.Top.Remove(p));
+                        _context.Add(new Top() { ItemId = evt.Id, Type = DiscoverViewModelType.Event });
+                    }
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EventExists(@event.Id))
+                    if (!EventExists(evt.Id))
                     {
                         return NotFound();
                     }
@@ -298,10 +229,10 @@ namespace NeoWeb.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details", new { id });
             }
-            ViewBag.Countries = _context.Countries.ToList();
-            return View(@event);
+            ViewBag.Countries = _context.Countries.Select(c => new SelectListItem { Value = c.Id.ToString(), Text = $"{c.Name} - {c.ZhName}" }).ToList();
+            return View(evt);
         }
 
         // GET: event/delete/5
@@ -330,7 +261,7 @@ namespace NeoWeb.Controllers
             var @event = await _context.Events.SingleOrDefaultAsync(m => m.Id == id);
             _context.Events.Remove(@event);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.Event });
         }
 
         private bool EventExists(int id)

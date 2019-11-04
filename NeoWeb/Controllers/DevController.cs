@@ -10,11 +10,5 @@ namespace NeoWeb.Controllers
         {
             return View();
         }
-
-        [HttpGet]
-        public IActionResult Bounty()
-        {
-            return View();
-        }
     }
 }

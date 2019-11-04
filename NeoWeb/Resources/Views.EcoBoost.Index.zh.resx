@@ -117,94 +117,79 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="100 Million USD" xml:space="preserve">
-    <value>一亿美金</value>
+  <data name="USD $100 Million" xml:space="preserve">
+    <value>1 亿美元</value>
   </data>
-  <data name="About NEO EcoBoost" xml:space="preserve">
-    <value>关于 NEO EcoBoost 计划</value>
+  <data name="500,000+ Community Members&lt;br /&gt;10+ Global Developer Communities&lt;br /&gt;100+ dApps grow together" xml:space="preserve">
+    <value>500,000+ 社区成员&lt;br /&gt;10+ 个全球开发者社区&lt;br /&gt;100+ dApp共同成长</value>
   </data>
   <data name="Apply Now" xml:space="preserve">
-    <value>立即申请</value>
+    <value>立刻申请</value>
   </data>
   <data name="Channels" xml:space="preserve">
-    <value>流量渠道</value>
+    <value>渠道</value>
   </data>
-  <data name="Click Here!" xml:space="preserve">
-    <value>了解详情</value>
+  <data name="Ecosystem" xml:space="preserve">
+    <value>生态</value>
   </data>
-  <data name="Community" xml:space="preserve">
-    <value>社区与生态</value>
+  <data name="dApps for growth support" xml:space="preserve">
+    <value>dApp 成长支持</value>
   </data>
-  <data name="EcoBoost Partners'&lt;br /&gt;Support" xml:space="preserve">
-    <value>合作伙伴支持</value>
+  <data name="EcoFund&lt;br /&gt;Developer grants&lt;br /&gt;Smart contract fees subsidies" xml:space="preserve">
+    <value>生态基金资助&lt;br /&gt;开发者奖励&lt;br /&gt;智能合约费用补贴</value>
   </data>
-  <data name="NEO EcoBoost Phase One Official Launch: Partner Recruitment" xml:space="preserve">
-    <value>NEO EcoBoost 第一阶段正式启动：合作伙伴招募</value>
-  </data>
-  <data name="$100M" xml:space="preserve">
-    <value>共计 1 亿美元</value>
-  </data>
-  <data name="Benefits for NEO EcoBoost partners" xml:space="preserve">
-    <value>成为生态合作伙伴将收获什么</value>
-  </data>
-  <data name="Establish long-term partnership with NEO ecosystem" xml:space="preserve">
-    <value>与 NEO 生态建立长期合作</value>
+  <data name="Full Life Cycle Support" xml:space="preserve">
+    <value>全生命周期支持</value>
   </data>
   <data name="Funding" xml:space="preserve">
-    <value>资金计划</value>
+    <value>资金</value>
   </data>
-  <data name="Funding&lt;br /&gt;Support" xml:space="preserve">
-    <value>资金支持</value>
-  </data>
-  <data name="Funding&lt;br /&gt;Tech&lt;br /&gt;Community&lt;br /&gt;Marketing" xml:space="preserve">
-    <value>资金支持&lt;br /&gt;技术支持&lt;br /&gt;社区协作&lt;br /&gt;市场推广</value>
-  </data>
-  <data name="Life Cycle Support" xml:space="preserve">
-    <value>全周期支持</value>
+  <data name="Infrastructure projects" xml:space="preserve">
+    <value>基础设施项目</value>
   </data>
   <data name="Liquidity" xml:space="preserve">
     <value>流动性</value>
   </data>
-  <data name="Marketing Promotion&lt;br /&gt;Wallet Intergration&lt;br /&gt;Liquidity Solution&lt;br /&gt;Security Auditing&lt;br /&gt;Payment Gateaway" xml:space="preserve">
-    <value>市场宣传&lt;br /&gt;钱包接入&lt;br /&gt;流动性解决方案&lt;br /&gt;安全审计&lt;br /&gt;支付通道</value>
+  <data name="Marketing" xml:space="preserve">
+    <value>营销</value>
   </data>
   <data name="Media" xml:space="preserve">
-    <value>媒体资源</value>
+    <value>媒体</value>
   </data>
-  <data name="Millions Community Members&lt;br /&gt;Over 2 Million Wallet Addresses&lt;br /&gt;Global Developer Communities&lt;br /&gt;100+ Eco Projects Growing Together" xml:space="preserve">
-    <value>全球百万社区成员&lt;br /&gt;超过200万钱包地址&lt;br /&gt;遍布全球的开发者社区&lt;br /&gt;超过百个生态项目共同成长</value>
+  <data name="EcoBoost Partners" xml:space="preserve">
+    <value>EcoBoost 伙伴</value>
   </data>
-  <data name="NEO Community&lt;br /&gt;Engagement" xml:space="preserve">
-    <value>NEO 社区支持</value>
+  <data name="The EcoBoost program was created to stimulate and support ecosystem developers and project participants. In this process, multiple resources will be combined to provide full life-cycle support, including funding, technical guidance, marketing assistance, and more." xml:space="preserve">
+    <value>EcoBoost 的创建旨在激励和支持 Neo 生态中的开发者与项目。在此过程中，EcoBoost 将结合多种资源，为项目提供全生命周期的资金、技术、社区和营销支持。</value>
   </data>
-  <data name="NEO EcoBoost Initiative" xml:space="preserve">
-    <value>NEO EcoBoost 全面启动</value>
-  </data>
-  <data name="NEO EcoBoost Partners" xml:space="preserve">
-    <value>NEO EcoBoost 生态合作伙伴</value>
-  </data>
-  <data name="NEO EcoBoost program is created to stimulate and support developers and project participants in the NEO ecosystem. In this process, multiple resources will be combined to provide life cycle funding, technology and marketing support for eco-projects." xml:space="preserve">
-    <value>NEO EcoBoost 是一个针对 NEO 生态内的开发者与项目方进行激励与扶持培育的计划，在这个过程中，将会联合多方资源，为生态项目提供全生命周期的资金、技术、市场等层面的支持。</value>
+  <data name="Other institutions" xml:space="preserve">
+    <value>其他机构</value>
   </data>
   <data name="Security" xml:space="preserve">
-    <value>安全审计</value>
+    <value>安全性</value>
   </data>
-  <data name="Seed Projects for Incubation&lt;br /&gt;dApps for Growth Support&lt;br /&gt;Infrastructure Projects&lt;br /&gt;Other Institutions" xml:space="preserve">
-    <value>种子项目早期培育&lt;br /&gt;dApps 发展支持&lt;br /&gt;基础设施项目&lt;br /&gt;各类机构合作</value>
+  <data name="Security Auditing&lt;br /&gt;Wallet Integration&lt;br /&gt;Payment Gateways&lt;br /&gt;Liquidity Solutions" xml:space="preserve">
+    <value>安全审计&lt;br /&gt;钱包集成&lt;br /&gt;支付网关&lt;br /&gt;流动性解决方案</value>
   </data>
-  <data name="Target Projects" xml:space="preserve">
-    <value>目标群体</value>
+  <data name="Seed projects for incubation" xml:space="preserve">
+    <value>种子项目孵化</value>
+  </data>
+  <data name="Social Media Promotion&lt;br /&gt;PR resources&lt;br /&gt;Offline events" xml:space="preserve">
+    <value>社交媒体推广&lt;br /&gt;公关资源&lt;br /&gt;线下活动</value>
+  </data>
+  <data name="Target projects" xml:space="preserve">
+    <value>目标项目</value>
+  </data>
+  <data name="Tech" xml:space="preserve">
+    <value>技术</value>
   </data>
   <data name="Wallets" xml:space="preserve">
     <value>钱包</value>
   </data>
-  <data name="Welcome to NEO Ecosystem&lt;br /&gt;NEO EcoBoost will work with our EcoBoost partners to provide full lifecycle support for NEO eco projects&lt;br /&gt;Please tell us how you'd like to cooperate with us and we will evaluate your project as soon as possible." xml:space="preserve">
-    <value>欢迎来到 NEO 生态，NEO EcoBoost 将联合我们的生态合作伙伴给我们的优质生态项目提供全生命周期的支持&lt;br /&gt;请告诉我们你想要的合作方式，我们会尽快评估你的项目。</value>
+  <data name="Working in tandem with various partners, the EcoBoost program provides full life-cycle support for high-potential projects. Neo would love to hear from you and discuss about how EcoBoost could help." xml:space="preserve">
+    <value>同众多伙伴，EcoBoost 将为具有潜力的项目提供全生命周期支持。Neo 期待听到您的想法。</value>
   </data>
-  <data name="What NEO EcoBoost Can Provide" xml:space="preserve">
-    <value>加入 NEO EcoBoost 可以获得什么</value>
-  </data>
-  <data name="EcoFund Investment&lt;br /&gt;Smart Contract Fees Subsidies&lt;br /&gt;Developer Grants" xml:space="preserve">
-    <value>NEO 生态基金投资&lt;br&gt;智能合约部署费用补助&lt;br&gt;开发者资助</value>
+  <data name="Community" xml:space="preserve">
+    <value>生态</value>
   </data>
 </root>

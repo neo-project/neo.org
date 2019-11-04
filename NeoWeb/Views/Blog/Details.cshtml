@@ -1,166 +1,111 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @using System.Xml;
 @inject IViewLocalizer Localizer
-@model NeoWeb.Models.Blog
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+@model NeoWeb.Models.BlogViewModel
 @{
-    ViewData["Title"] = Model.EnglishTitle;
-    ViewData["Details"] = Model.EnglishSummary;
-    if (ViewBag.Cover != null)
+    ViewData["Title"] = Model.Title;
+    ViewData["Details"] = Model.Summary.Trim();
+    ViewData["keywords"] = Model.Tags;
+    if (Model.Cover != null)
     {
-        try
-        {
-            XmlDocument doc = new XmlDocument() { XmlResolver = null };
-            doc.LoadXml((string)ViewBag.Cover);
-            ViewData["Image"] = "https://neo.org" + doc.FirstChild.Attributes["data-original"]?.Value;
-        }
-        catch (Exception)
-        {
-        }
+        ViewData["Image"] = $"https://neo.org/upload/{Model.Cover}";
     }
-    Layout = "_LayoutBlog.cshtml";
-    ViewData["keywords"] = Model.EnglishTags;
 }
 
 @section Styles{
-    <environment include="Development">
-        <link rel="stylesheet" href="/css/blog.css" asp-append-version="true" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.ToCDN("/css/blog.min.css", true)" />
-    </environment>
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/discover.min.css", true)" />
 }
-<div class="container m1">
-    <div class="row">
-        <ul class="col-lg-1 blog_date artical-date desktop-show" id="blogDate">
-            @foreach (var item in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Select(p => p.Year).Distinct())
-            {
-            <li class="m3">
-                <a class="h2 year">@item</a>
-                <ul>
-                    @foreach (var m in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Where(p => p.Year == item).Select(p => p.Month).Distinct())
-                        {
-                    <li><a class="month" href="~/blog/index?y=@item&m=@m">@m.ToMonth().ToUpper()</a></li>
-                        }
-                </ul>
-            </li>
+
+<div class="nav-area mt3">
+    <div><i class="iconfont">&#xe618;</i><a class="small" asp-action="index" asp-controller="discover">BACK TO LIST</a></div>
+    <div class="text-right">
+        @if (@ViewBag.PrevBlogId != Model.Id)
+        {
+            <a class="icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xe61c;</i><span class="d-none d-md-inline small">@Localizer["Previous"]</span></a>
+        }
+        @if (@ViewBag.NextBlogId != Model.Id)
+        {
+            <a class="ml-5" href="~/blog/details/@ViewBag.NextBlogId"><span class="d-none d-md-inline small">@Localizer["Next"]</span><i class="iconfont">&#xe61b;</i></a>
+        }
+    </div>
+</div>
+<hr />
+<div class="w700 mt3">
+    <article class="article">
+        <div class="article-time">@Model.CreateTime.Month.ToMonth() @Model.CreateTime.Day, @Model.CreateTime.Year<span>BLOG</span></div>
+        <header><h2 class="article-title mt5 with-space">@Model.Title</h2></header>
+        <p class="gray mt5">By @(string.IsNullOrEmpty(Model.Editor) ? "Neo Global Development" : @Model.Editor)</p>
+        <div class="share mt4 gray">
+            @{
+                var title = (ViewData["Title"] != null ? $"{ViewData["Title"]} - " : "") + "Neo Smart Economy";
+                var details = ViewData["Details"] ?? "Neo Smart Economy";
+                var image = (ViewData["Image"] ?? Helper.ToCDN("/images/twitter-img.jpg"));
+                var url = $"{Context.Request.Scheme}://{Context.Request.Host}{Context.Request.Path}{Context.Request.QueryString}";
             }
-        </ul>
+            <a class="gray" target="_blank" href="https://twitter.com/intent/tweet?text=@(System.Net.WebUtility.UrlEncode(title))&url=@(System.Net.WebUtility.UrlEncode(url))&via=NEO_Blockchain&related=NEO_Blockchain"><i class="iconfont">&#xe607;</i></a>
+            <i class="iconfont facebook-icon">&#xe616;</i>
+            <script>
+                (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+            </script>
 
-        <div class="col-lg-11 artical-container">
-
-            <div class="nav-artical nav-artical-top t3 p2">
-                <div class="text-left"><a href="~/blog"><i class="iconfont">&#xeaa4;</i><span class="desktop-show">@Localizer["Back to list"]</span></a></div>
-                <div>
-                    <ul class="blog_date mobile-show">
-                        @foreach (var item in (ViewBag.CreateTime as IEnumerable<NeoWeb.Models.BlogDateTimeViewModels>).Select(p => p.Year).Distinct())
-                        {
-                        <li>
-                            <a class="h3 year" href="~/blog/index?y=@item">@item</a>
-                        </li>
-                        }
-                    </ul>
-                </div>
-                <div class="text-right">
-                    @if (@ViewBag.PrevBlogId != Model.Id)
-                    {
-                    <a class="icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xe6b8;</i><span class="desktop-show">@Localizer["Previous article"]</span></a>
-                    }
-                    @if (@ViewBag.NextBlogId != Model.Id)
-                    {
-                    <a href="~/blog/details/@ViewBag.NextBlogId"><span class="desktop-show">@Localizer["Next article"]</span><i class="iconfont">&#xe6b7;</i></a>
-                    }
-                </div>
-            </div>
-            @if(ViewBag.Language == "zh")
-            {
-                <article class="artical-content">
-                    <header>
-                        <h3 class="bold-font with-space">@Model.ChineseTitle</h3>
-                        <p class="t3 m3 green-text blog-date bold-font"><span class="bold-font">@Model.CreateTime.ToShortDateString()</span></p>
-                        <div class="float-right qrcode-div"><i class="iconfont green-text">&#xe79b;</i><div id="qrcode"></div></div>
-                        <p class="t3">
-                            @if (ViewBag.UserRules)
-                            {
-                                <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-                                <span>|</span>
-                                <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
-                            }
-                        </p>
-                    </header>
-                    <section class="blog-content t3 m3">
-                        @Html.Raw(ViewBag.Cover)
-                        <div class="with-space">
-                            @Html.Raw(Model.ChineseContent)
-                        </div>
-                    </section>
-                    <hr />
-                    <div>
-                        @if (Model.ChineseTags != null)
-                        {
-                            foreach (var tag in Model.ChineseTags.Split(","))
-                            {
-                                <a class="blog-tag" href="/blog?t=@tag">@tag</a>
-                            }
-                        }
-                    </div>
-                </article>
-            }
-            else
-            {
-                <article class="artical-content">
-                    <header>
-                        <h3 class="bold-font with-space">@Model.EnglishTitle</h3>
-                        <p class="t3 m3 green-text blog-date bold-font"><span class="bold-font">@Model.CreateTime.ToShortDateString()</span></p>
-                        <div class="float-right qrcode-div"><i class="iconfont green-text">&#xe79b;</i><div id="qrcode"></div></div>
-                        <p class="t3">
-                            @if (ViewBag.UserRules)
-                            {
-                                <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-                                <span>|</span>
-                                <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
-                            }
-                        </p>
-                    </header>
-                    <section class="blog-content t3 m3">
-                        @Html.Raw(ViewBag.Cover)
-                        <div class="with-space">
-                            @Html.Raw(Model.EnglishContent)
-                        </div>
-                    </section>
-                    <hr />
-                    <div>
-                        @if (Model.EnglishTags != null)
-                        {
-                            foreach (var tag in Model.EnglishTags.Split(","))
-                            {
-                                <a class="blog-tag" href="/blog?t=@tag">@tag</a>
-                            }
-                        }
-                    </div>
-                </article>
-            }
-
-
-            <div class="nav-artical nav-artical-bottom t3">
-                <div class="text-left"><a href="~/blog"><i class="iconfont">&#xeaa4;</i><span class="desktop-show">@Localizer["Back to list"]</span></a></div>
-                <div class="text-center"><a class="back-to-top"><i class="iconfont">&#xe65a;</i><span class="desktop-show">@Localizer["Back to top"]</span></a></div>
-                <div class="text-right">
-                    @if (@ViewBag.PrevBlogId != Model.Id)
-                    {
-                    <a class="icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xe6b8;</i><span class="desktop-show">@Localizer["Previous article"]</span></a>
-                    }
-                    @if (@ViewBag.NextBlogId != Model.Id)
-                    {
-                    <a href="~/blog/details/@ViewBag.NextBlogId"><span class="desktop-show">@Localizer["Next article"]</span><i class="iconfont">&#xe6b7;</i></a>
-                    }
-                </div>
+            <div class="fb-share-button" data-href="@url" data-layout="button_count"></div>
+            <a class="gray" target="_blank" asp-controller="blog" asp-action="rss" asp-route-language="@SharedLocalizer["en"].Value"><i class="iconfont">&#xf09c;</i></a>
+            <div class="qr-div">
+                <i class="iconfont">&#xe615;</i>
+                <div id="qrcode"></div>
             </div>
         </div>
+        <p class="mt5">
+            @if (ViewBag.UserRules)
+            {
+                <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                <a class="ml2" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+            }
+        </p>
+        <hr class="mt5 mb0" />
+
+        <section>
+            <div class="mt4 with-space">
+                @Html.Raw(Model.Content)
+            </div>
+        </section>
+        <hr />
+        <div>
+            @if (Model.Tags != null)
+            {
+                foreach (var tag in Model.Tags.Split(","))
+                {
+                    <a href="/discover?keywords=@tag">#@tag</a>
+                }
+            }
+        </div>
+
+    </article>
+</div>
+<hr class="mt3" />
+<div class="nav-area mb-5">
+    <div><i class="iconfont">&#xe618;</i><a class="small" asp-action="index" asp-controller="discover">BACK TO LIST</a></div>
+    <div class="text-center"><a class="back-to-top" href="javascript:"><i class="iconfont">&#xe619;</i><span class="small">@Localizer["Back to top"]</span></a></div>
+    <div class="text-right">
+        @if (@ViewBag.PrevBlogId != Model.Id)
+        {
+            <a class="icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xe61c;</i><span class="d-none d-md-inline small">@Localizer["Previous"]</span></a>
+        }
+        @if (@ViewBag.NextBlogId != Model.Id)
+        {
+            <a class="ml-5" href="~/blog/details/@ViewBag.NextBlogId"><span class="d-none d-md-inline small">@Localizer["Next"]</span><i class="iconfont">&#xe61b;</i></a>
+        }
     </div>
 </div>
 
 @section Scripts{
-    <script src="@Helper.ToCDN("/js/blog.min.js", true)"></script>
     <script src="@Helper.ToCDN("/js/jquery.qrcode.min.js")"></script>
     <script>
         function setCookie(name, value) {
@@ -169,8 +114,18 @@
             exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
             document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
         }
+        //设置已读
         setCookie(@Model.Id, "Read");
+        //二维码
         $('#qrcode').qrcode(location.href);
-
+        //懒加载
+        $('[data-original]').lazyload({
+            threshold: 200,
+            effect: "fadeIn"
+        });
+        //回到顶部
+        $('.back-to-top').click(function () {
+            $('html, body').animate({ scrollTop: 0 }, 500);
+        });
     </script>
 }

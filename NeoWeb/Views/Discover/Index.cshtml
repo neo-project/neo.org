@@ -1,0 +1,56 @@
+﻿@model IEnumerable<NeoWeb.Models.DiscoverViewModel>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = @Localizer["Discover"].Value;
+}
+
+@section Styles{
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/discover.min.css", true)" />
+}
+@if (ViewBag.Ontop != null)
+{
+    <div class="p2">
+        <div class="row align-items-center discover-top">
+            @{await Html.RenderPartialAsync("_TopPartial", (ViewBag.Ontop as DiscoverViewModel));}
+        </div>
+    </div>
+}
+
+<form method="get" class="border-bottom d-search form-inline">
+    <div class="search">
+        <i class="iconfont">&#xe611;</i>
+        <input class="form-control" name="keywords" value="@ViewBag.KeyWords" type="text" />
+    </div>
+    <div class="filter">
+        <select id="type" class="form-control" name="type" asp-items="ViewBag.AllType"></select>
+        <select id="year" class="form-control" name="year" asp-items="ViewBag.AllYear"></select>
+        <input class="btn" type="submit" value="search" />
+    </div>
+</form>
+
+<div class="row list2">
+    @{await Html.RenderPartialAsync("_DiscoverPartial", Model);}
+</div>
+<div class="text-center m-4">
+    <a id="viewmore" href="javascript:" onclick="viewMore()">@Localizer["View more"]</a>
+</div>
+@section Scripts {
+    <script>
+        var group = 0;
+        for (var i = 1; i < 10; i++) {
+            $(".group-" + i).hide();
+        }
+        function viewMore() {
+            $(".group-" + ++group).show("fast");
+            if ($(".group-" + (group + 1)).length <= 0)
+                $("#viewmore").hide();
+        }
+        if ($(".group-" + (group + 1)).length <= 0)
+                $("#viewmore").hide();
+        if ("@ViewBag.Type".length > 0)
+            $("#type").val("@ViewBag.Type");
+        if ("@ViewBag.Year".length > 0)
+            $("#year").val("@ViewBag.Year");
+    </script>
+}

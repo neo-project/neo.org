@@ -1,0 +1,59 @@
+﻿@import "basic.less";
+
+body {
+    overflow: hidden;
+}
+
+.layout-container {
+    max-width: none;
+    padding: 0;
+    margin: 0;
+}
+
+#homeFri {
+    position: relative;
+
+    .container {
+        position: absolute;
+        top: 50%;
+        margin-top: -138px;
+        right: 0;
+        left: 0;
+    }
+
+    .notify {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        background: fade(@green, 10%);
+        text-align: left;
+        padding-left: 46px;
+
+        @media only screen and (max-width: 991px) {
+            padding-left: 20px;
+        }
+
+        .alert {
+            margin-bottom: 0;
+            line-height: 25px;
+
+            h6 {
+                width: calc(100% - 50px);
+            }
+
+            a {
+                color: @text;
+            }
+
+            &.alert-dismissible .close {
+                outline: none;
+                font-family: iconfont;
+                padding: 1rem 1.25rem;
+
+                .iconfont {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}

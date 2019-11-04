@@ -26,10 +26,9 @@ namespace NeoWeb.Data
 
         public DbSet<Candidate> Candidates { get; set; }
 
-        public DbSet<Careers> Careers { get; set; }
-
         public DbSet<Subscription> Subscription { get; set; }
 
-        public DbSet<FwLink> FwLInk { get; set; }
+        public DbSet<FwLink> FwLink { get; set; }
+        public DbSet<Top> Top { get; set; }
     }
 }

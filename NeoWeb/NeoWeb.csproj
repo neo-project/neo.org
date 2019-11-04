@@ -1,180 +1,49 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
     <UserSecretsId>aspnet-NeoWeb2-7BB1D7AA-0901-4E07-B09A-946BA357E853</UserSecretsId>
-    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
-    <MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
-    <ApplicationInsightsResourceId>/subscriptions/38c81c65-cf37-419b-9931-011da5e1c1d7/resourcegroups/neo-ai/providers/microsoft.insights/components/neo-ai</ApplicationInsightsResourceId>
-    <ApplicationInsightsAnnotationResourceId>/subscriptions/38c81c65-cf37-419b-9931-011da5e1c1d7/resourcegroups/neo-ai/providers/microsoft.insights/components/neo-ai</ApplicationInsightsAnnotationResourceId>
-    <LangVersion>7.2</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.7.1" />
-    <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
-    <PackageReference Include="Neo.sdk.thin" Version="1.0.3" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\home.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\images\presskit\neo_color_dark.png" />
+    <Content Include="wwwroot\images\presskit\neo_color_dark.svg" />
+    <Content Include="wwwroot\images\presskit\neo_color_light.png" />
+    <Content Include="wwwroot\images\presskit\neo_color_light.svg" />
+    <Content Include="wwwroot\images\presskit\neo_mono.png" />
+    <Content Include="wwwroot\images\presskit\neo_mono.svg" />
+    <Content Include="wwwroot\images\presskit\neo_white.png" />
+    <Content Include="wwwroot\images\presskit\neo_white.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
+    <PackageReference Include="neo.sdk.thin" Version="1.0.3" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
-    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.0-beta0006" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <Content Update="Views\Careers\Create.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\Careers\Edit.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\Careers\Index.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\Client\Index.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\Consensus\Index.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\Dev\Bounty.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Views\Dev\Index.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\Event\Create.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\Event\Delete.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\Event\Details.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\Event\Edit.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\Event\Index.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\Event\_CreatePartialPage.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\Event\_EditorPartialPage.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\Event\_EventPartialPage.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\Home\Index.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\Logo\Index.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\News\Create.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\News\Delete.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\News\Details.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\News\Edit.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\News\Index.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\Shared\Error.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\Shared\_Layout.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\Shared\_LoginPartial.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\Shared\_ValidationScriptsPartial.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\Subscription\Index.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\TestCoin\Apply.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\TestCoin\Completed.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\TestCoin\Delete.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\TestCoin\Details.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\TestCoin\Edit.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\TestCoin\List.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\TestCoin\_LayoutTestnet.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Views\Team\Index.cshtml" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="Views\Blog\Create.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Blog\Delete.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Blog\Details.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Blog\Edit.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Blog\Index.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Blog\_LayoutBlog.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Team\Index.cshtml" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Views\Blog\_LayoutBlog.cshtml" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Views\Blog\Create.cshtml" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Views\Blog\Delete.cshtml" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Views\Blog\Details.cshtml" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Views\Blog\Edit.cshtml" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Views\Blog\Index.cshtml" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.0-beta0007" />
   </ItemGroup>
 
   <ItemGroup>
-    <WCFMetadata Include="Connected Services" />
+    <Content Update="bundleconfig.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Update="compilerconfig.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Update="libman.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

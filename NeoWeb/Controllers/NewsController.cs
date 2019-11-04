@@ -1,11 +1,16 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 using NeoWeb.Data;
 using NeoWeb.Models;
-using Microsoft.AspNetCore.Authorization;
+using System;
+using System.IO;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace NeoWeb.Controllers
 {
@@ -13,35 +18,12 @@ namespace NeoWeb.Controllers
     public class NewsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _env;
 
-        public NewsController(ApplicationDbContext context)
+        public NewsController(ApplicationDbContext context, IWebHostEnvironment env)
         {
             _context = context;
-        }
-
-        // GET: news
-        [HttpGet]
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.News.ToListAsync());
-        }
-
-        // GET: news/details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var news = await _context.News
-                .SingleOrDefaultAsync(m => m.Id == id);
-            if (news == null)
-            {
-                return NotFound();
-            }
-
-            return View(news);
+            _env = env;
         }
 
         // GET: news/create
@@ -51,18 +33,41 @@ namespace NeoWeb.Controllers
         }
 
         // POST: news/create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Link")] News news)
+        public async Task<IActionResult> Create([Bind("Id,ChineseTitle,EnglishTitle,Link")] News news,
+            IFormFile chineseCover, IFormFile englishCover, string isTop)
         {
+            ViewBag.IsTop = isTop != null;
             if (ModelState.IsValid)
             {
+                if (chineseCover != null)
+                {
+                    var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
+                    if (Helper.ValidateCover(_env, fileName))
+                        news.ChineseCover = fileName;
+                    else
+                        ModelState.AddModelError("ChineseCover", "Cover size must be 16:9");
+                }
+                if (englishCover != null)
+                {
+                    var fileName = Helper.UploadMedia(englishCover, _env, 1000);
+                    if (Helper.ValidateCover(_env, fileName))
+                        news.EnglishCover = fileName;
+                    else
+                        ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
+                }
+                if (!ModelState.IsValid) return View(news);
                 news.Time = DateTime.Now;
                 _context.Add(news);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (isTop != null)
+                {
+                    _context.Top.ToList().ForEach(p => _context.Top.Remove(p));
+                    _context.Add(new Top() { ItemId = news.Id, Type = DiscoverViewModelType.News });
+                }
+                await _context.SaveChangesAsync();
+                return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.News });
             }
             return View(news);
         }
@@ -84,12 +89,12 @@ namespace NeoWeb.Controllers
         }
 
         // POST: news/edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Link")] News news)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ChineseTitle,EnglishTitle,ChineseTags,EnglishTags,Link")] News news,
+            IFormFile chineseCover, IFormFile englishCover, string isTop)
         {
+            ViewBag.IsTop = isTop != null;
             if (id != news.Id)
             {
                 return NotFound();
@@ -97,9 +102,42 @@ namespace NeoWeb.Controllers
 
             if (ModelState.IsValid)
             {
-                news.Time = DateTime.Now;
+                if (chineseCover != null)
+                {
+                    var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
+                    if (Helper.ValidateCover(_env, fileName))
+                    {
+                        if (!string.IsNullOrEmpty(news.ChineseCover))
+                            System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", news.ChineseCover));
+                        news.ChineseCover = fileName;
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("ChineseCover", "Cover size must be 16:9");
+                    }
+                }
+                if (englishCover != null)
+                {
+                    var fileName = Helper.UploadMedia(englishCover, _env, 1000);
+                    if (Helper.ValidateCover(_env, fileName))
+                    {
+                        if (!string.IsNullOrEmpty(news.EnglishCover))
+                            System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", news.EnglishCover));
+                        news.EnglishCover = fileName;
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
+                    }
+                }
+                if (!ModelState.IsValid) return View(news);
                 try
                 {
+                    if (isTop != null)
+                    {
+                        _context.Top.ToList().ForEach(p => _context.Top.Remove(p));
+                        _context.Add(new Top() { ItemId = news.Id, Type = DiscoverViewModelType.News });
+                    }
                     _context.Update(news);
                     await _context.SaveChangesAsync();
                 }
@@ -114,7 +152,7 @@ namespace NeoWeb.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.News });
             }
             return View(news);
         }
@@ -145,7 +183,7 @@ namespace NeoWeb.Controllers
             var news = await _context.News.SingleOrDefaultAsync(m => m.Id == id);
             _context.News.Remove(news);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.News });
         }
 
         private bool NewsExists(int id)

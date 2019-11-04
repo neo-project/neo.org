@@ -5,57 +5,30 @@
     ViewData["Title"] = "EcoBoost";
 }
 @section Styles{
-    <environment include="Development">
-        <link rel="stylesheet" href="~/css/eco.min.css" asp-append-version="true" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.ToCDN("/css/eco.min.css", true)" />
-    </environment>
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/eco.min.css", true)" />
 }
 
-<div class="eco-bannner">
-    <div class="container p2">
-        <h2 class="eco-title m1 mb-5 w900">NEO EcoBoost</h2>
-        <p class="w800">@Localizer["Welcome to NEO Ecosystem<br />NEO EcoBoost will work with our EcoBoost partners to provide full lifecycle support for NEO eco projects<br />Please tell us how you'd like to cooperate with us and we will evaluate your project as soon as possible."]</p>
-        <p><a class="eco-btn m3" href="javascript:" onclick="showDialog()">@Localizer["Apply Now"]</a></p>
-
+<div id="homeFri" class="bg7 p2">
+    <div class="container w900">
+        <h1 class="">EcoBoost</h1>
+        <p class="mt4">@Localizer["Working in tandem with various partners, the EcoBoost program provides full life-cycle support for high-potential projects. Neo would love to hear from you and discuss about how EcoBoost could help."]</p>
+        <p class="h3 mt5"><span class="h5 mr2">@Localizer["Funding"]</span>@Localizer["USD $100 Million"]</p>
+        <p class="mt4"><a class="btn" href="javascript:" onclick="showDialog()">@Localizer["Apply Now"]</a></p>
     </div>
 </div>
 
-<div class="bg-white">
-    <div class="container p2">
-        <h3 class="bold-font">@Localizer["What NEO EcoBoost Can Provide"]</h3>
-        <ul class="eco-intro m3">
-            <li>
-                <span class="iconfont">&#xe621;</span><br />
-                <p class="bold-font t2 m3 mb0">@Localizer["EcoBoost Partners'<br />Support"]</p>
-                <p class="eco-detail t4 m4 mb0 lh3">@Localizer["Marketing Promotion<br />Wallet Intergration<br />Liquidity Solution<br />Security Auditing<br />Payment Gateaway"]</p>
-            </li>
-            <li>
-                <span class="iconfont">&#xe634;</span><br />
-                <p class="bold-font t2 m3 mb0">@Localizer["NEO Community<br />Engagement"]</p>
-                <p class="eco-detail t4 m4 mb0 lh3">@Localizer["Millions Community Members<br />Over 2 Million Wallet Addresses<br />Global Developer Communities<br />100+ Eco Projects Growing Together"]</p>
-            </li>
-            <li>
-                <span class="iconfont">&#xe641;</span><br />
-                <p class="bold-font t2 m3 mb0">@Localizer["Funding<br />Support"]</p>
-                <p class="eco-detail t4 m4 mb0 lh3">@Localizer["EcoFund Investment<br />Smart Contract Fees Subsidies<br />Developer Grants"]</p>
-            </li>
-        </ul>
-    </div>
-</div>
-<div class="container">
-    <h3 class="bold-font">@Localizer["NEO EcoBoost Partners"]</h3>
-    <ul class="eco-tag m2">
+<div class="container p1 text-center">
+    <h2>@Localizer["EcoBoost Partners"]</h2>
+    <ul class="eco-tag mt5">
         <li class="selected" onclick="showEco('Liquidity')">@Localizer["Liquidity"]</li>
         <li onclick="showEco('Wallets')">@Localizer["Wallets"]</li>
         <li onclick="showEco('Media')">@Localizer["Media"]</li>
         <li onclick="showEco('Channels')">@Localizer["Channels"]</li>
-        <li onclick="showEco('Community')">@Localizer["Community"]</li>
+        <li onclick="showEco('Community')">@Localizer["Ecosystem"]</li>
         <li onclick="showEco('Security')">@Localizer["Security"]</li>
     </ul>
-    <div class="back-white">
-        <ul class="eco-logo">
+    <div class="b-white mt4">
+        <ul class="eco-logo m-0">
             <li class="Liquidity"><span class="bibox"></span></li>
             <li class="Liquidity"><span class="kucoin"></span></li>
             <li class="Liquidity"><span class="digi"></span></li>
@@ -66,6 +39,9 @@
             <li class="Liquidity"><span class="switch"></span></li>
             <li class="Liquidity"><span class="coin"></span></li>
             <li class="Liquidity"><span class="dex"></span></li>
+            <li class="Liquidity"><span class="okex"></span></li>
+            <li class="Liquidity"><span class="mxc"></span></li>
+            <li class="Liquidity"><span class="pixgo"></span></li>
             <li class="Liquidity"></li>
             <li class="Liquidity"></li>
 
@@ -80,6 +56,10 @@
             <li class="Wallets"><span class="o3"></span></li>
             <li class="Wallets"><span class="zelcore"></span></li>
             <li class="Wallets"><span class="neon"></span></li>
+            <li class="Wallets"><span class="hfoo"></span></li>
+            <li class="Wallets"><span class="swft"></span></li>
+            <li class="Wallets"><span class="ledger"></span></li>
+            <li class="Wallets"></li>
             <li class="Wallets"></li>
 
             <li class="Media"><span class="panews"></span></li>
@@ -95,7 +75,10 @@
             <li class="Media"><span class="huo"></span></li>
             <li class="Media"><span class="dgaming"></span></li>
             <li class="Media"><span class="tuoluo"></span></li>
-            <li class="Media"><span class="fork"></span></li>
+            <li class="Media"><span class="forkast"></span></li>
+            <li class="Media"><span class="cointel"></span></li>
+            <li class="Media"><span class="token"></span></li>
+            <li class="Media"></li>
             <li class="Media"></li>
 
             <li class="Channels"><span class="review"></span></li>
@@ -139,29 +122,64 @@
         </ul>
     </div>
 </div>
-<div class="bg-white">
-    <div class="container p2">
-        <h3 class="bold-font">@Localizer["About NEO EcoBoost"]</h3>
-        <ul class="eco-intro m3">
-            <li>
-                <span class="iconfont">&#xe660;</span><br />
-                <p class="bold-font t2 m3 mb0">@Localizer["Funding"]</p>
-                <p class="t1 m4 mb0 lh3">@Localizer["100 Million USD"]</p>
-            </li>
-            <li>
-                <span class="iconfont">&#xe659;</span><br />
-                <p class="bold-font t2 m3 mb0">@Localizer["Target Projects"]</p>
-                <p class="t4 m4 mb0 lh3">@Localizer["Seed Projects for Incubation<br />dApps for Growth Support<br />Infrastructure Projects<br />Other Institutions"]</p>
-            </li>
-            <li>
-                <span class="iconfont">&#xe61d;</span><br />
-                <p class="bold-font t2 m3 mb0">@Localizer["Life Cycle Support"]</p>
-                <p class="t4 m4 mb0 lh3">@Localizer["Funding<br />Tech<br />Community<br />Marketing"]</p>
-            </li>
-        </ul>
-        <p class="t4 m3 lh3 w900 p4">@Localizer["NEO EcoBoost program is created to stimulate and support developers and project participants in the NEO ecosystem. In this process, multiple resources will be combined to provide life cycle funding, technology and marketing support for eco-projects."]</p>
+<div class="p3 b5">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-lg-4 text-center text-md-left">
+                <h3 class="p4">@Localizer["Target Projects"]</h3>
+            </div>
+            <div class="col-lg-8">
+                <ul class="row target">
+                    <li><img data-original="@Helper.ToCDN("/images/ecoboost/TProject1.svg")" />@Localizer["Seed projects for incubation"]</li>
+                    <li><img data-original="@Helper.ToCDN("/images/ecoboost/TProject2.svg")" />@Localizer["dApps for growth support"]</li>
+                    <li><img data-original="@Helper.ToCDN("/images/ecoboost/TProject3.svg")" />@Localizer["Infrastructure projects"]</li>
+                    <li><img data-original="@Helper.ToCDN("/images/ecoboost/TProject4.svg")" />@Localizer["Other institutions"]</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
+
+<div class="container p1">
+    <h2>@Localizer["Full Life Cycle Support"]</h2>
+    <div class="row mt5">
+        <div class="col-md-6">@Localizer["The EcoBoost program was created to stimulate and support ecosystem developers and project participants. In this process, multiple resources will be combined to provide full life-cycle support, including funding, technical guidance, marketing assistance, and more."]</div>
+        <div class="col-md-6"></div>
+    </div>
+    <div class="row list1 mt3">
+        <div class="col-md-3">
+            <img data-original="@Helper.ToCDN("/images/ecoboost/Funding.svg")" />
+            <div>
+                <div class="list-title">@Localizer["Funding"]</div>
+                <div>@Localizer["EcoFund<br />Developer grants<br />Smart contract fees subsidies"]</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <img data-original="@Helper.ToCDN("/images/ecoboost/Technology.svg")" />
+            <div>
+                <div class="list-title">@Localizer["Tech"]</div>
+                <div>@Localizer["Security Auditing<br />Wallet Integration<br />Payment Gateways<br />Liquidity Solutions"]</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <img data-original="@Helper.ToCDN("/images/ecoboost/Community.svg")" />
+            <div>
+                <div class="list-title">@Localizer["Community"]</div>
+                <div>@Localizer["500,000+ Community Members<br />10+ Global Developer Communities<br />100+ dApps grow together"]</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <img data-original="@Helper.ToCDN("/images/ecoboost/Marketing.svg")" />
+            <div>
+                <div class="list-title">@Localizer["Marketing"]</div>
+                <div>@Localizer["Social Media Promotion<br />PR resources<br />Offline events"]</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 <div id="ecoFormDiv" class="d-none">
     <iframe id="ecoForm" width="100%" height="800" src="https://forms.office.com/Pages/ResponsePage.aspx?id=oCQpxT6HT0mUryoNzPM39V4qlNr0QWlFh7zqEYca2PdUM0tINzVUWFY2NUpTNU5CQTkxNU1RNk9OVC4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
 </div>

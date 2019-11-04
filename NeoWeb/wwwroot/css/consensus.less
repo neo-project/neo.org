@@ -1,0 +1,85 @@
+﻿@import 'basic.less';
+
+.layout-container {
+    max-width: none;
+    padding: 0;
+    margin: 0;
+}
+
+.can-charts {
+    height: 400px;
+
+    @media only screen and (max-width: 767px) {
+        height: 300px;
+    }
+}
+
+.node-list {
+    text-align: left;
+    .col-md-4 {
+        .img {
+            width: 160px;
+            height: 60px;
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: contain;
+        }
+
+        .iconfont {
+            color: @gray !important;
+        }
+    }
+}
+
+.modal-content {
+    text-align: left;
+
+    .btn {
+        padding: 7px 20px;
+    }
+
+    .form-control {
+        border-radius: 0;
+
+        &:focus {
+            border-color: @green3;
+            box-shadow: 0 0 0 0.1rem @green3;
+        }
+    }
+
+    .modal-header {
+        padding: 1rem 2rem;
+    }
+
+    .close {
+        font-size: 2.5rem;
+    }
+
+    .modal-body {
+        padding: 2rem;
+    }
+
+    label {
+        font-weight: 600;
+    }
+
+    .text-danger {
+        font-size: 80%;
+    }
+
+    .btn-primary:hover {
+        background-color: @green2;
+        border-color: @green2;
+        opacity: 0.8;
+    }
+}
+
+.list1.right {
+    padding: 20px;
+    background: @white;
+    margin-top: @length6;
+
+    img, .img {
+        margin-right: 0 !important;
+    }
+}

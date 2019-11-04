@@ -4,10 +4,9 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
- * Version: 5.0.5 (2019-05-09)
+ * Version: 5.0.16 (2019-09-24)
  */
 (function () {
-var advlist = (function () {
     'use strict';
 
     var global = tinymce.util.Tools.resolve('tinymce.PluginManager');
@@ -43,6 +42,8 @@ var advlist = (function () {
       getBulletStyles: getBulletStyles
     };
 
+    var noop = function () {
+    };
     var constant = function (value) {
       return function () {
         return value;
@@ -51,8 +52,6 @@ var advlist = (function () {
     var never = constant(false);
     var always = constant(true);
 
-    var never$1 = never;
-    var always$1 = always;
     var none = function () {
       return NONE;
     };
@@ -66,37 +65,27 @@ var advlist = (function () {
       var id = function (n) {
         return n;
       };
-      var noop = function () {
-      };
-      var nul = function () {
-        return null;
-      };
-      var undef = function () {
-        return undefined;
-      };
       var me = {
         fold: function (n, s) {
           return n();
         },
-        is: never$1,
-        isSome: never$1,
-        isNone: always$1,
+        is: never,
+        isSome: never,
+        isNone: always,
         getOr: id,
         getOrThunk: call,
         getOrDie: function (msg) {
           throw new Error(msg || 'error: getOrDie called on none.');
         },
-        getOrNull: nul,
-        getOrUndefined: undef,
+        getOrNull: constant(null),
+        getOrUndefined: constant(undefined),
         or: id,
         orThunk: call,
         map: none,
-        ap: none,
         each: noop,
         bind: none,
-        flatten: none,
-        exists: never$1,
-        forall: always$1,
+        exists: never,
+        forall: always,
         filter: none,
         equals: eq,
         equals_: eq,
@@ -105,19 +94,15 @@ var advlist = (function () {
         },
         toString: constant('none()')
       };
-      if (Object.freeze)
+      if (Object.freeze) {
         Object.freeze(me);
+      }
       return me;
     }();
     var some = function (a) {
-      var constant_a = function () {
-        return a;
-      };
+      var constant_a = constant(a);
       var self = function () {
         return me;
-      };
-      var map = function (f) {
-        return some(f(a));
       };
       var bind = function (f) {
         return f(a);
@@ -129,8 +114,8 @@ var advlist = (function () {
         is: function (v) {
           return a === v;
         },
-        isSome: always$1,
-        isNone: never$1,
+        isSome: always,
+        isNone: never,
         getOr: constant_a,
         getOrThunk: constant_a,
         getOrDie: constant_a,
@@ -138,35 +123,31 @@ var advlist = (function () {
         getOrUndefined: constant_a,
         or: self,
         orThunk: self,
-        map: map,
-        ap: function (optfab) {
-          return optfab.fold(none, function (fab) {
-            return some(fab(a));
-          });
+        map: function (f) {
+          return some(f(a));
         },
         each: function (f) {
           f(a);
         },
         bind: bind,
-        flatten: constant_a,
         exists: bind,
         forall: bind,
         filter: function (f) {
           return f(a) ? me : NONE;
-        },
-        equals: function (o) {
-          return o.is(a);
-        },
-        equals_: function (o, elementEq) {
-          return o.fold(never$1, function (b) {
-            return elementEq(a, b);
-          });
         },
         toArray: function () {
           return [a];
         },
         toString: function () {
           return 'some(' + a + ')';
+        },
+        equals: function (o) {
+          return o.is(a);
+        },
+        equals_: function (o, elementEq) {
+          return o.fold(never, function (b) {
+            return elementEq(a, b);
+          });
         }
       };
       return me;
@@ -289,7 +270,7 @@ var advlist = (function () {
       if (styles.length > 0) {
         addSplitButton(editor, id, tooltip, cmd, nodeName, styles);
       } else {
-        addButton(editor, id, tooltip, cmd, nodeName, styles);
+        addButton(editor, id, tooltip, cmd, nodeName);
       }
     };
     var register$1 = function (editor) {
@@ -298,20 +279,19 @@ var advlist = (function () {
     };
     var Buttons = { register: register$1 };
 
-    global.add('advlist', function (editor) {
-      var hasPlugin = function (editor, plugin) {
-        var plugins = editor.settings.plugins ? editor.settings.plugins : '';
-        return global$1.inArray(plugins.split(/[ ,]/), plugin) !== -1;
-      };
-      if (hasPlugin(editor, 'lists')) {
-        Buttons.register(editor);
-        Commands.register(editor);
-      }
-    });
     function Plugin () {
+      global.add('advlist', function (editor) {
+        var hasPlugin = function (editor, plugin) {
+          var plugins = editor.settings.plugins ? editor.settings.plugins : '';
+          return global$1.inArray(plugins.split(/[ ,]/), plugin) !== -1;
+        };
+        if (hasPlugin(editor, 'lists')) {
+          Buttons.register(editor);
+          Commands.register(editor);
+        }
+      });
     }
 
-    return Plugin;
+    Plugin();
 
 }());
-})();

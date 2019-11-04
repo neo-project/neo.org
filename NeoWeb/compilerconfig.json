@@ -1,0 +1,54 @@
+﻿[
+  {
+    "outputFile": "wwwroot/css/wallets.css",
+    "inputFile": "wwwroot/css/wallets.less"
+  },
+  {
+    "outputFile": "wwwroot/css/consensus.css",
+    "inputFile": "wwwroot/css/consensus.less"
+  },
+  {
+    "outputFile": "wwwroot/css/dev.css",
+    "inputFile": "wwwroot/css/dev.less"
+  },
+  {
+    "outputFile": "wwwroot/css/discover.css",
+    "inputFile": "wwwroot/css/discover.less"
+  },
+  {
+    "outputFile": "wwwroot/css/eco.css",
+    "inputFile": "wwwroot/css/eco.less"
+  },
+  {
+    "outputFile": "wwwroot/css/editor.css",
+    "inputFile": "wwwroot/css/editor.less"
+  },
+  {
+    "outputFile": "wwwroot/css/home.css",
+    "inputFile": "wwwroot/css/home.less"
+  },
+  {
+    "outputFile": "wwwroot/css/site.css",
+    "inputFile": "wwwroot/css/site.less"
+  },
+  {
+    "outputFile": "wwwroot/css/sitecn.css",
+    "inputFile": "wwwroot/css/sitecn.less"
+  },
+  {
+    "outputFile": "wwwroot/css/contributors.css",
+    "inputFile": "wwwroot/css/contributors.less"
+  },
+  {
+    "outputFile": "wwwroot/css/testnet.css",
+    "inputFile": "wwwroot/css/testnet.less"
+  },
+  {
+    "outputFile": "wwwroot/css/testnet-list.css",
+    "inputFile": "wwwroot/css/testnet-list.less"
+  },
+  {
+    "outputFile": "wwwroot/css/about.css",
+    "inputFile": "wwwroot/css/about.less"
+  }
+]

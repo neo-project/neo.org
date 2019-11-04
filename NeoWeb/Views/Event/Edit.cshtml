@@ -1,17 +1,27 @@
 ﻿@model NeoWeb.Models.Event
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 
 @{
-    ViewData["Title"] = Model.Name;
+    ViewData["Title"] = "Edit Event";
 }
-<div class="container">
-    <h2 class="text-center">编辑活动</h2>
-    <br />
-    <form asp-action="Edit" class="form-horizontal" enctype="multipart/form-data">
-        @Html.Partial("_CreatePartialPage", Model)
-    </form>
+@section Styles{
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/editor.min.css", true)" />
+}
+<div class="p1">
+    <h1 class="w800">@Localizer["Post"]</h1>
 </div>
-
-
+<form asp-action="Edit" class="form-horizontal" enctype="multipart/form-data">
+    @{await Html.RenderPartialAsync("_EditorPartialPage", Model);}
+</form>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{await Html.RenderPartialAsync("_Tiny.ScriptsPartial");}
+    <script src="@Helper.ToCDN("/js/editor.min.js")"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            bsCustomFileInput.init()
+        })
+    </script>
 }

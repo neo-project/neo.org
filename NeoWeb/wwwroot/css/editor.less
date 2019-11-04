@@ -1,0 +1,94 @@
+﻿//博客、活动、新闻 的发布、编辑、删除页面的样式
+
+@import 'basic.less';
+
+.post-type {
+    font-weight: bold;
+    vertical-align: middle;
+
+    *:first-child {
+        margin-left: 20px;
+    }
+
+    span, a {
+        display: inline-block;
+        text-align: center;
+        width: 92px;
+        line-height: 25px;
+        vertical-align: 3px;
+        font-size: 12.8px;
+        vertical-align: middle;
+    }
+
+    span {
+        border: solid 1px @green;
+        color: @green;
+
+        & + a, & + a:hover {
+            border-left-width: 0;
+        }
+    }
+
+    a, a:hover {
+        border: solid 1px #e0e0e0;
+        color: #242424;
+        border-right-width: 0;
+
+        &:last-child {
+            border-right-width: 1px;
+        }
+    }
+}
+
+.tox-collection__item-label {
+    h1, h2, h3, h4, h5, h6 {
+        line-height: 1 !important;
+    }
+}
+
+form {
+    label {
+        margin-top: @length4;
+    }
+
+    input {
+        border-radius: 0 !important;
+    }
+
+    .zh {
+        display: none;
+    }
+
+    .custom-file-label {
+        margin-top: 0;
+    }
+
+    .switch {
+        text-align: right;
+        margin-top: -1.5rem;
+
+        a {
+            margin-left: 1em;
+            vertical-align: middle;
+        }
+
+        .switch-border {
+            text-align: left;
+            display: inline-block;
+            vertical-align: middle;
+            width: 48px;
+            height: 24px;
+            border-radius: 18px;
+            border: solid 1px #d1d1d1;
+        }
+
+        .switch-button {
+            display: inline-block;
+            margin: 3px;
+            width: 18px;
+            height: 18px;
+            border-radius: 100%;
+            background-color: @green;
+        }
+    }
+}

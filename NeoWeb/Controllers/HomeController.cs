@@ -17,20 +17,47 @@ namespace NeoWeb.Controllers
     public class HomeController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly IStringLocalizer<HomeController> _localizer;
+        private readonly IStringLocalizer<SharedResource> _sharedLocalizer;
 
-        public HomeController(ApplicationDbContext context, IStringLocalizer<HomeController> localizer)
+        public HomeController(ApplicationDbContext context, IStringLocalizer<SharedResource> sharedLocalizer)
         {
             _context = context;
-            _localizer = localizer;
+            _sharedLocalizer = sharedLocalizer;
         }
 
         public IActionResult Index()
         {
-            ViewBag.Blog = _context.Blogs.OrderByDescending(p => p.CreateTime).Take(2);
-            ViewBag.Event = _context.Events.Include(m => m.Country).OrderByDescending(p => p.EndTime).Take(1);
-            ViewBag.Language = _localizer["en"];
-            return View();
+            var count = 3;
+            var blogs = _context.Blogs.OrderByDescending(p => p.CreateTime).Take(count);
+            var events = _context.Events.OrderByDescending(p => p.StartTime).Take(count);
+            var news = _context.News.OrderByDescending(p => p.Time).Take(count);
+            var viewModels = new List<DiscoverViewModel>();
+            var isZh = _sharedLocalizer["en"] == "zh";
+            Helper.AddBlogs(blogs, viewModels, isZh);
+            Helper.AddEvents(events, viewModels, isZh);
+            Helper.AddNews(news, viewModels, isZh);
+
+            // 添加置顶内容
+            var top = _context.Top.FirstOrDefault();
+            var topItems = new List<DiscoverViewModel>();
+            if (top != null)
+            {
+                switch (top.Type)
+                {
+                    case DiscoverViewModelType.Blog:
+                        Helper.AddBlogs(_context.Blogs.Where(p => p.Id == top.ItemId), topItems, isZh);
+                        break;
+                    case DiscoverViewModelType.Event:
+                        Helper.AddEvents(_context.Events.Where(p => p.Id == top.ItemId), topItems, isZh);
+                        break;
+                    case DiscoverViewModelType.News:
+                        Helper.AddNews(_context.News.Where(p => p.Id == top.ItemId), topItems, isZh);
+                        break;
+                }
+                ViewBag.OnTop = topItems.Count > 0 ? topItems[0] : null;
+            }
+
+            return View(viewModels.OrderByDescending(p => p.Time).Take(count).ToList());
         }
 
         [HttpPost]

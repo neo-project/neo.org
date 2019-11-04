@@ -3,39 +3,42 @@
 @{
     ViewData["Title"] = "Index";
 }
-<h2>Index</h2>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Group)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SubscriptionTime)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+@section Styles{
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/testnet-list.min.css", true)" />
+}
+<div class="p1">
+    <h1 class="w800">邮件订阅列表</h1>
+</div>
+<div class="container pb-5">
+    <table class="m2 apply-list table-striped">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Group)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SubscriptionTime)
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Group)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SubscriptionTime)
+                </th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Where(p => p.Group == "devcon"))
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Group)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SubscriptionTime)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

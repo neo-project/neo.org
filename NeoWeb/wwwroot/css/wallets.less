@@ -1,0 +1,221 @@
+﻿@import 'basic.less';
+@light-text: rgba(0, 0, 0, 0.38);
+
+.layout-container {
+    max-width: none;
+    padding: 0;
+    margin: 0;
+}
+
+.client-note {
+    margin: auto;
+    max-width: 581px;
+}
+
+ul, li {
+    padding: 0;
+    list-style: none;
+}
+
+.client-ul {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+
+    li {
+        margin: 52px 0;
+        width: 200px;
+
+        @media only screen and (max-width: 767px) {
+            margin: 30px 0;
+            width: 150px;
+        }
+    }
+
+    header {
+        margin: 12px 0;
+        font-size: 1.3rem;
+    }
+
+    .client-logo {
+        width: 86px;
+        border-radius: 10%;
+    }
+
+    .open-source {
+        color: @green;
+
+        @media only screen and (max-width: 767px) {
+            display: none;
+        }
+    }
+}
+.platform {
+    color: #888;
+
+    @media only screen and (max-width: 767px) {
+        display: none;
+    }
+}
+
+.light-text {
+    color: @light-text;
+    font-size: .75rem;
+    margin: 1em 0;
+
+    a {
+        color: @light-text;
+        font-size: .75rem;
+        margin: 1em 0;
+    }
+}
+
+
+
+
+.modal {
+    .modal-content {
+        padding: 40px 32px;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    .modal-header {
+        border: none;
+        padding: 0;
+
+        img {
+            width: 128px;
+            margin: 0 32px 32px 0;
+
+            @media only screen and (max-width: 767px) {
+                width: 93px;
+            }
+        }
+    }
+
+    .modal-body {
+        padding: 0;
+
+        .preview {
+            white-space: nowrap;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            margin-bottom: 31px;
+            border-bottom: 0.5px solid rgba(0, 0, 0, 0.18);
+        }
+
+        img {
+            max-height: 500px;
+        }
+
+        .metrics {
+            margin: 32px 0;
+            line-height: @t5;
+        }
+
+        .metrics {
+            span {
+                display: inline-block;
+                font-weight: bold;
+                margin-bottom: 12px;
+            }
+
+            .span-success, .span-warning, .span-danger {
+                padding: 0 1rem;
+                margin-left: 1em;
+                font-size: 12.8px;
+                font-weight: bold;
+                color: @dark;
+            }
+
+            .span-success {
+                background-color: #02e49b;
+            }
+
+            .span-warning {
+                background-color: #ffde00;
+            }
+
+            .span-danger {
+                background-color: #dd0000;
+            }
+        }
+    }
+
+    .modal-footer {
+        padding: 0;
+    }
+
+    .btn {
+        min-width: 0;
+        margin-top: 12px;
+        padding: 8px 16px;
+        color: @dark-text !important;
+    }
+
+    .preview-div {
+        margin: 32px 0;
+
+        h3 {
+            display: inline-block;
+
+            @media only screen and (max-width: 767px) {
+                display: block;
+            }
+        }
+    }
+
+    .platform {
+        color: #888;
+
+        @media only screen and (max-width: 767px) {
+            display: block;
+        }
+    }
+
+    .plat-btn {
+        display: inline-block;
+        text-align: center;
+        width: 92px;
+        line-height: 25px;
+        border: solid 1px #e0e0e0;
+        vertical-align: 3px;
+        float: right;
+        border-left-width: 0;
+        color: @text;
+        font-weight: bold;
+        font-size: 12.8px;
+
+        @media only screen and (max-width: 767px) {
+            width: 70px;
+        }
+
+        &.active {
+            border: solid 1px @green;
+            color: @green;
+
+            & + a, & + a:hover {
+                border-right-width: 0;
+            }
+        }
+
+        &:last-child {
+            border-left-width: 1px;
+        }
+    }
+
+    .modal-hr {
+        display: inline-block;
+        width: 100%;
+        border-bottom: solid 0.5px rgba(0, 0, 0, 0.18);
+    }
+
+    .modal-hr .modal-title {
+        display: inline-block;
+        vertical-align: middle;
+    }
+}

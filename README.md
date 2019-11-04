@@ -1,6 +1,6 @@
 # About this Website
 
-The neo.org domain is owned by NEO Foundation and is used to showcase the NEO project and NEO ecology. This website is run by NEO Global Development (NGD). The website code is open source on GitHub, allowing community members to develop and modify.
+The neo.org domain is owned by Neo Foundation and is used to showcase the Neo project and Neo ecology. This website is run by Neo Global Development (NGD). The website code is open source on GitHub, allowing community members to develop and modify.
 
 ### About the Browser
 
@@ -18,10 +18,10 @@ We provide technical support to ensure that each browser runs the website smooth
 
 ### Development Environment
 
-This website uses `ASP.NET Core 2.2`. Developers need to run local debugging. Please first install the development environment:
+This website uses `ASP.NET Core 3.0`. Developers need to run local debugging. Please first install the development environment:
 
-- [Visual Studio 2017](https://visualstudio.microsoft.com/) - make sure `ASP.NET and Web Development` and `.NET Core cross-platform development` are installed.
-- [.NET Core 2.2 SDK](https://dotnet.microsoft.com/download).
+- [Visual Studio 2019](https://visualstudio.microsoft.com/) - make sure `ASP.NET and Web Development` and `.NET Core cross-platform development` are installed.
+- [.NET Core 3.0  SDK](https://dotnet.microsoft.com/download).
 
 The project code does not contain the database. The first time running the website, the following prompt will appear:
 
@@ -30,7 +30,7 @@ Applying existing migrations for ApplicationDbContext may resolve this issue.`
 
 At this point, follow the prompts, click the `Apply Migrations` button to automatically create the database.
 
-See also: [ASP.NET Core Tutorials](https://docs.microsoft.com/en-us/aspnet/core/)
+See also: [ASP.NET Core Tutorials](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-3.0)
 
 ### How to modify the Website Code
 
@@ -45,7 +45,7 @@ The overall process is as follows:
 
 When the PR is submitted, it will be reviewed and, if accepted, merged into the main branch, after which it is published to the official website.
 
-If you have any questions, you can send an e-mail to [chris@neo.org](mailto:chris@neo.org).
+If you have any questions, you can send an e-mail to [chenzhitong@ngd.neo.org](mailto:chenzhitong@ngd.neo.org).
 
 ### How to submit a Pull Request
 
@@ -56,7 +56,7 @@ If you have any questions, you can send an e-mail to [chris@neo.org](mailto:chri
 
 # 关于本网站 
 
-neo.org 域名隶属于 NEO 基金会，网站用于展示 NEO 项目以及 NEO 生态。本网站由 NEO Global Development (NGD) 负责运营维护，网站代码在 GitHub 上开源，允许社区成员开发和修改。
+neo.org 域名隶属于 Neo 基金会，网站用于展示 Neo 项目以及 Neo 生态。本网站由 Neo Global Development (NGD) 负责运营维护，网站代码在 GitHub 上开源，允许社区成员开发和修改。
 
 ### 关于所使用的浏览器
 
@@ -68,11 +68,11 @@ Internet Explorer10 以上、Microsoft Edge、Google Chrome、Firefox、Safari�
 
 ### 开发环境
 
-本网站使用 `ASP.NET Core 2.2`，开发者如需本地运行调试请先安装好开发环境。
+本网站使用 `ASP.NET Core 3.0`，开发者如需本地运行调试请先安装好开发环境。
 
-[Visual Studio 2017](https://visualstudio.microsoft.com/) 安装时需要勾选 `ASP.NET 和 Web 开发`、`.NET Core 跨平台开发` 。
+[Visual Studio 2019](https://visualstudio.microsoft.com/) 安装时需要勾选 `ASP.NET 和 Web 开发`、`.NET Core 跨平台开发` 。
 
-[.NET Core 2.2 SDK](https://dotnet.microsoft.com/download)
+[.NET Core 3.0 SDK](https://dotnet.microsoft.com/download)
 
 项目代码不包含数据库，首次运行网站会提示：
 
@@ -82,7 +82,7 @@ Applying existing migrations for ApplicationDbContext may resolve this issue.
 
 此时按照提示操作，点击 `Apply Migrations` 按钮即可自动创建数据库。
 
-附：[ASP.NET Core 简介](https://docs.microsoft.com/zh-cn/aspnet/core/)
+附：[ASP.NET Core 简介](https://docs.microsoft.com/zh-cn/aspnet/core/?view=aspnetcore-3.0)
 
 ### 如何修改网站的代码
 
@@ -95,7 +95,7 @@ Applying existing migrations for ApplicationDbContext may resolve this issue.
 5. Push 到自己的 GitHub，也就是当前的 Origin 地址
 6. 在 GitHub 上提交 Pull request（neo-project ← Your GitHub）
 
-提交 Pull request 后，管理员审核通过后，就会合并到主分支中，并且发布到官网。若有疑问，可以发邮件到 [chris@neo.org](mailto:chris@neo.org)
+提交 Pull request 后，管理员审核通过后，就会合并到主分支中，并且发布到官网。若有疑问，可以发邮件到 [chenzhitong@ngd.neo.org](mailto:chenzhitong@ngd.neo.org)
 
 ### 如何提交 Pull request
 

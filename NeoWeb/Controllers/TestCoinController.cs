@@ -28,7 +28,8 @@ namespace NeoWeb.Controllers
         // GET: testcoin/List
         public async Task<IActionResult> List()
         {
-            return View(await _context.TestCoins.OrderByDescending(p => p.Time).Where(p => DateTime.Now - p.Time < new TimeSpan(15, 0, 0, 0)).ToListAsync());
+            var fromDate = DateTime.Now - new TimeSpan(15, 0, 0, 0);
+            return View(await _context.TestCoins.OrderByDescending(p => p.Time).Where(p => p.Time > fromDate).ToListAsync());
         }
 
         // GET: testcoin/details/5
@@ -60,7 +61,7 @@ namespace NeoWeb.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Apply([Bind("Id,Name,Email,Phone,QQ,Company,Reason,NeoCount,GasCount,PubKey,Remark")] TestCoin testcoin)
+        public async Task<IActionResult> Apply([Bind("Id,Name,Email,Phone,QQ,Company,Reason,NeoCount,GasCount,PubKey,Remark,Version")] TestCoin testcoin)
         {
             if (ModelState.IsValid)
             {

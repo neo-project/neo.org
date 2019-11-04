@@ -1,24 +1,28 @@
 ﻿@model NeoWeb.Models.Event
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 
 @{
-    ViewData["Title"] = "Create Event";
+    ViewData["Title"] = "Post Event";
 }
 @section Styles{
-    <environment include="Development">
-        <link rel="stylesheet" href="/css/event.css" asp-append-version="true" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.ToCDN("/css/event.min.css", true)" />
-    </environment>
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/editor.min.css", true)" />
 }
-<div class="container">
-    <h2 class="m2">发布新活动</h2>
-    <form asp-action="Create" class="form-horizontal" enctype="multipart/form-data">
-        @Html.Partial("_CreatePartialPage", Model)
-    </form>
+<div class="p1">
+    <h1 class="w800">@Localizer["Post"]</h1>
 </div>
-
-
+<div class="post-type">Post Type<a asp-controller="blog" asp-action="create">Blogs</a><span>Events</span><a asp-controller="news" asp-action="create">News</a></div>
+<form asp-action="Create" class="form-horizontal" enctype="multipart/form-data">
+    @{await Html.RenderPartialAsync("_EditorPartialPage", Model);}
+</form>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{await Html.RenderPartialAsync("_Tiny.ScriptsPartial");}
+    <script src="@Helper.ToCDN("/js/editor.min.js")"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            bsCustomFileInput.init()
+        })
+    </script>
 }

@@ -1,0 +1,170 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+@{
+    ViewData["Title"] = Localizer["About"].Value;
+}
+@section Styles{
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/about.min.css", true)" />
+}
+<div id="homeFri" class="bg3 p1">
+    <div class="container">
+        <h1 class="w900">@Localizer["An Open Network for the Smart Economy"]</h1>
+        <p class="mt5 w600">@Localizer["Neo is an open-source, community driven platform that is leveraging the intrinsic advantages of blockchain technology to realize the optimized digital world of the future."]</p>
+    </div>
+</div>
+<div class="container">
+    <div class="row mt3">
+        <div class="col-md-6">
+            <p class="h2 mt3">@Localizer["Technology"]</p>
+        </div>
+    </div>
+    <div class="row list1 mt4 text-center">
+        <div class="col-lg-3 col-md-4">
+            <img data-original="@Helper.ToCDN("/images/about/dBFT2.0.svg")" />
+            <div>
+                <span class="list-title">dBFT2.0</span><br />
+                <span class="list-con">@Localizer["A consensus algorithm with high stability, high TPS and single block finality"]</span>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4">
+            <img data-original="@Helper.ToCDN("/images/about/NeoVM.svg")" />
+            <div>
+                <span class="list-title">NeoVM</span><br />
+                <span class="list-con">@Localizer["A lightweight, cross-platform and scalable virtual machine"]</span>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4">
+            <img data-original="@Helper.ToCDN("/images/about/SmartContract.svg")" />
+            <div>
+                <span class="list-title">Smart Contract</span><br />
+                <span class="list-con">@Localizer["A cross platform, multi-language supported smart contract system"]</span>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4">
+            <img data-original="@Helper.ToCDN("/images/about/NeoID.svg")" />
+            <div>
+                <span class="list-title">NeoID</span><br />
+                <span class="list-con">@Localizer["A customizable decentralized self-sovereign identity protocol"]</span>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4">
+            <img data-original="@Helper.ToCDN("/images/about/NeoFS.svg")" />
+            <div>
+                <span class="list-title">NeoFS</span><br />
+                <span class="list-con">@Localizer["A distributed object storage solution for on-chain data applications"]</span>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4">
+            <img data-original="@Helper.ToCDN("/images/about/VotingMechanism.svg")" />
+            <div>
+                <span class="list-title">Voting Mechanism</span><br />
+                <span class="list-con">@Localizer["A voting mechanism that enables participation of on-chain governance"]</span>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4">
+            <img data-original="@Helper.ToCDN("/images/about/DualToken.svg")" />
+            <div>
+                <span class="list-title">Dual Token</span><br />
+                <span class="list-con">@Localizer["An innovative dual token economic model that optimizes on-chain governance and utility"]</span>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4">
+            <img data-original="@Helper.ToCDN("/images/about/Oracle.svg")" />
+            <div>
+                <span class="list-title">Oracle</span><br />
+                <span class="list-con">@Localizer["A built-in oracle component enabling smart contracts to access external resources"]</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="b5 p1 mt1">
+    <div class="container">
+        <h2>@Localizer["Neo in Retrospect"]</h2>
+    </div>
+    <div class="roadmap mt3">
+        <div class="linear l"></div>
+        <div class="linear r"></div>
+        <div class="linear b"></div>
+        @if (SharedLocalizer["en"].Value == "zh")
+        {
+            <img class="d-none d-md-block" id="desImg" src="@Helper.ToCDN("/images/about/retrospect-dt-chinese.svg")" />
+            <img class="d-block d-md-none" id="mobImg" src="@Helper.ToCDN("/images/about/retrospect-mb-chinese.svg")" />
+        }
+        else
+        {
+            <img class="d-none d-md-block" id="desImg" src="@Helper.ToCDN("/images/about/retrospect-dt-english.svg")" />
+            <img class="d-block d-md-none" id="mobImg" src="@Helper.ToCDN("/images/about/retrospect-mb-english.svg")" />
+        }
+        <p class="d-none d-md-block de-tab"><a class="mr2 iconfont" id="left">&#xe61c;</a><a class="iconfont" id="right">&#xe61b;</a></p>
+        <p class="d-block d-md-none mob-show"><a class="btn2 float-none" id="bottom">@Localizer["View more"]<span class="iconfont">&#xe61a;</span></a></p>
+    </div>
+</div>
+<div class="constant">
+    <div class="p1 text-center">
+        <h2>@Localizer["Become a consensus node and shape your future"]</h2>
+        <p class="w600 mt4">
+            @Localizer["Individuals and entities can become consensus node candidates via application. Through election by NEO holders, candidates can then become consensus nodes on Neo MainNet."]
+        </p>
+        <p>
+            @Localizer["More details:"] <a target="_blank" href="https://neo-ngd.github.io/reference/How-To-Become-NEO-Consensus-Node.html">@Localizer["How To Become A Consensus Node"]</a>
+        </p>
+        <div class="mt5">
+            <a class="btn mt6 mr2" target="_blank" href="mailto:consensus@neo.org">@Localizer["Apply"]</a>
+            <a class="btn mt6" asp-controller="consensus">@Localizer["Explore"]</a>
+        </div>
+    </div>
+
+
+</div>
+<div class="p1 bg6">
+    <div class="container w800">
+        <h2>@Localizer["Neo Contributors"]</h2>
+        <p class="mt4"><a class="btn" asp-controller="contributors" ast-action="index">@Localizer["Learn more"]</a></p>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $("#right").click(function () {
+            var _le = $("#desImg").width() + parseInt($('#desImg').css('marginLeft')) - $(window).width();
+            var _move = parseInt($('#desImg').css('marginLeft'));
+
+            if (_le > $(window).width()) {
+                _move = _move - $(window).width();
+            } else if (_le < 2) {
+                _move = 0;
+            } else {
+                _move = _move - _le;
+            }
+            $("#desImg").animate({ "marginLeft": _move });
+        })
+
+        $("#left").click(function () {
+            var _move = parseInt($('#desImg').css('marginLeft'));
+
+            if (-_move > $(window).width()) {
+                _move = _move + $(window).width();
+            } else if (_move == 0) {
+                _move = -$('#desImg').width() + $(window).width();
+            } else {
+                _move = 0;
+            }
+
+            $("#desImg").animate({ "marginLeft": _move });
+        })
+
+        $("#bottom").click(function () {
+            var _le = $('#mobImg').height() - $('.roadmap').height() - $(window).height();
+            var _height = $('.roadmap').height() + $(window).height();
+
+
+            if (_le <= $(window).height()) {
+                _height = $('#mobImg').height();
+                $("#bottom").hide();
+            }
+
+            $(".roadmap").animate({ "height": _height });
+        })
+    </script>
+}

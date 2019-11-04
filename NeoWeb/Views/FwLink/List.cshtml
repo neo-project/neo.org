@@ -4,39 +4,32 @@
     ViewData["Title"] = "FwLink List";
 }
 @section Styles{
-    <environment include="Development">
-        <link rel="stylesheet" href="/css/testnet-list.css" asp-append-version="true" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="@Helper.ToCDN("/css/testnet-list.min.css", true)" />
-    </environment>
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/testnet-list.min.css", true)" />
 }
-<div class="container">
-    <h2 class="m1 text-center">NEO 短链接生成器</h2>
-
-    <p class="m3 text-center">
-        <a asp-action="Create">创建新链接</a>
-    </p>
-    <table class="m3 apply-list table-striped">
-        <thead>
-            <tr>
-                <th width="30%">
-                    链接（右键复制短链接）
-                </th>
-                <th width="30%">
-                    名称
-                </th>
-                <th width="15%">
-                    创建时间
-                </th>
-                <th width="15%">
-                    最后编辑时间
-                </th>
-                <th width="10%"></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
+<div class="p1 text-center">
+    <h1>NEO 短链接生成器</h1>
+    <a class="btn mt5" asp-action="Create">创建新链接</a>
+</div>
+<table class="m3 apply-list table-striped">
+    <thead>
+        <tr>
+            <th width="30%">
+                链接（右键复制短链接）
+            </th>
+            <th width="30%">
+                名称
+            </th>
+            <th width="15%">
+                创建时间
+            </th>
+            <th width="15%">
+                最后编辑时间
+            </th>
+            <th width="10%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
         {
             <tr>
                 <td>
@@ -57,7 +50,5 @@
                 </td>
             </tr>
         }
-        </tbody>
-    </table>
-
-</div>
+    </tbody>
+</table>

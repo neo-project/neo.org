@@ -29,7 +29,7 @@ namespace NeoWeb.Controllers
         [AllowAnonymous]
         public IActionResult Index(int id)
         {
-            var link = _context.FwLInk.FirstOrDefault(p => p.Id == id);
+            var link = _context.FwLink.FirstOrDefault(p => p.Id == id);
             if (link == null)
                 return RedirectToAction("Index", "Home");
             return Redirect(link.Link);
@@ -37,7 +37,7 @@ namespace NeoWeb.Controllers
 
         public async Task<IActionResult> List()
         {
-            return View(await _context.FwLInk.ToListAsync());
+            return View(await _context.FwLink.ToListAsync());
         }
 
         // GET: FwLink/Create
@@ -55,12 +55,12 @@ namespace NeoWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (_context.FwLInk.Any(p => p.Id != fwLink.Id && p.Link == fwLink.Link))
+                if (_context.FwLink.Any(p => p.Id != fwLink.Id && p.Link == fwLink.Link))
                 {
                     ModelState.AddModelError("Link", "链接已存在");
                     return View(fwLink);
                 }
-                if (_context.FwLInk.Any(p => p.Id != fwLink.Id && p.Name == fwLink.Name))
+                if (_context.FwLink.Any(p => p.Id != fwLink.Id && p.Name == fwLink.Name))
                 {
                     ModelState.AddModelError("Name", "链接名称已存在");
                     return View(fwLink);
@@ -83,7 +83,7 @@ namespace NeoWeb.Controllers
                 return NotFound();
             }
 
-            var fwLink = await _context.FwLInk.FindAsync(id);
+            var fwLink = await _context.FwLink.FindAsync(id);
             if (fwLink == null)
             {
                 return NotFound();
@@ -105,17 +105,17 @@ namespace NeoWeb.Controllers
 
             if (ModelState.IsValid)
             {
-                if (_context.FwLInk.Any(p => p.Id != fwLink.Id && p.Link == fwLink.Link))
+                if (_context.FwLink.Any(p => p.Id != fwLink.Id && p.Link == fwLink.Link))
                 {
                     ModelState.AddModelError("Link", "链接已存在");
                     return View(fwLink);
                 }
-                if (_context.FwLInk.Any(p => p.Id != fwLink.Id && p.Name == fwLink.Name))
+                if (_context.FwLink.Any(p => p.Id != fwLink.Id && p.Name == fwLink.Name))
                 {
                     ModelState.AddModelError("Name", "链接名称已存在");
                     return View(fwLink);
                 }
-                var item = _context.FwLInk.FirstOrDefault(p => p.Id == fwLink.Id);
+                var item = _context.FwLink.FirstOrDefault(p => p.Id == fwLink.Id);
                 try
                 {
                     item.Link = fwLink.Link;
@@ -148,7 +148,7 @@ namespace NeoWeb.Controllers
                 return NotFound();
             }
 
-            var fwLink = await _context.FwLInk
+            var fwLink = await _context.FwLink
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (fwLink == null)
             {
@@ -163,15 +163,15 @@ namespace NeoWeb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var fwLink = await _context.FwLInk.FindAsync(id);
-            _context.FwLInk.Remove(fwLink);
+            var fwLink = await _context.FwLink.FindAsync(id);
+            _context.FwLink.Remove(fwLink);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(List));
         }
 
         private bool FwLinkExists(int id)
         {
-            return _context.FwLInk.Any(e => e.Id == id);
+            return _context.FwLink.Any(e => e.Id == id);
         }
     }
 }

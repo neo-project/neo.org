@@ -3,29 +3,25 @@
 @{
     ViewData["Title"] = "Create";
 }
-
-<div class="row coin-back">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label class="control-label" for="Link">链接</label>
-                <input asp-for="Link" class="form-control" />
-                <span asp-validation-for="Link" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label class="control-label" for="Name">名称</label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="创建" class="btn-static btn3" />
-            </div>
-        </form>
+<div class="p1">
+    <h1 class="w800">Create FwLink</h1>
+</div>
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label class="control-label" for="Link">Link</label>
+        <input asp-for="Link" class="form-control" />
+        <span asp-validation-for="Link" class="text-danger"></span>
     </div>
-</div>
-
-<div>
-    <a asp-action="List">返回列表</a>
-</div>
-
+    <div class="form-group">
+        <label class="control-label" for="Name">Name</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="my-4">
+        <input type="submit" value="Create" class="btn" />
+    </div>
+    <div class="my-4">
+        <a asp-controller="fwlink" asp-action="list">Back to List</a>
+    </div>
+</form>

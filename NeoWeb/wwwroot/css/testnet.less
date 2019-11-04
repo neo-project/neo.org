@@ -1,0 +1,35 @@
+﻿@import 'basic.less';
+
+.layout-container {
+    max-width: none;
+    padding: 0;
+    margin: 0;
+}
+.test-apply {
+    text-align:left;
+    font-weight: 600;
+
+    .form-group {
+        margin-top: .5rem;
+        margin-bottom: .5rem;
+
+        .form-control {
+            border-radius: 0;
+            margin-bottom: 0.2rem;
+
+            &:focus {
+                border-color:@green;
+                box-shadow:0 0 5px @green3;
+            }
+        }
+
+        label{
+            margin-top:0.5rem;
+        }
+
+        span {
+            margin-top: 5px;
+            font-size: 80%;
+        }
+    }
+}

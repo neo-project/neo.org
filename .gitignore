@@ -290,4 +290,5 @@ __pycache__/
 NeoWeb/wwwroot/upload/*
 NeoWeb/CandidateBackgrounder/
 NeoWeb/validators.json
-/NeoWeb/wwwroot/css/layout.min.css
+NeoWeb/wwwroot/css/*.css
+SendGridTest/Program.cs

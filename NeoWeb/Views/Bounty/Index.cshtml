@@ -1,0 +1,110 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = Localizer["Neo Vulnerability Bounty Program"].Value;
+}
+@section Styles{
+    <style>
+        .layout-container {
+            max-width: none;
+            padding: 0;
+            margin: 0;
+            line-height: 2;
+        }
+    </style>
+}
+<div class="p1 bg4">
+    <h1 class="w800">@Localizer["Neo Vulnerability Bounty Program"]</h1>
+</div>
+<div class="container pb-5">
+    <p class="mt4">
+        @Localizer["The purpose of Neo vulnerability bounty program is to be proactive about blockchain security by providing a channel for security researchers to report potential security vulnerabilities identified related to our underlying infrastructure. Everyone who find the vulnerabilities can send email to <a href='mailto:erik@neo.org'>erik@neo.org</a>. We will try our best to investigate those eligible vulnerabilities and fix the valid issues. All rewards will be paid in the equivalent amount of NEO."]
+        <br />
+        @Localizer["Note: Higher rewards will be paid out in case of vulnerabilities of certain interest and criticality. Before reporting any issues, please check the following disclosures on responsibilities, program rules and reporting manner notice."]
+    </p>
+    <div class="mt4">
+        <h3>@Localizer["Program Rules"]</h3>
+        <p class="mt5">@Localizer["Level of vulnerabilities will undergo evaluation by the Neo R&D team based on severity, influence and other dimensions. As we will prioritize report assessment by risks and other factors, it may take time for our response. Time to first response (from report submission) will be 5 business days; time to triage (from report submission) will be 10 business days. Neo will regularly update the feedback on its website and social media channels. Rewards will be distributed within 3 days following official announcement. Neo reserves the right of final interpretation of the event."]</p>
+        <p>@Localizer["To finally achieve the self-worthy reward the submitters should abide by the following event rules:"]</p>
+        <ul>
+            <li>@Localizer["Only issues related to stability and security with design and implementation is within the scope, vulnerabilities with Neo website and related infrastructure on the Neo blockchain is out of the scope. Find more details at the Scope of Vulnerability Bounty Program."]</li>
+            <li>@Localizer["Submitted reports should contain detailed reproduction procedures, in the absence of which, the reports will be excluded from the rewarding list. The more detailed about the proof of vulnerabilities and the descriptions are, the higher your reward will be."]</li>
+            <li>@Localizer["For those who report the same vulnerability, the reward goes to whom comes first."]</li>
+            <li>@Localizer["Serial vulnerabilities caused by one vulnerability will be considered as one vulnerability, e.g., a series of computing errors caused by data overflow."]</li>
+        </ul>
+        <p>@Localizer["Vulnerabilities fitting in any of the following descriptions will not be eligible for the rewards:"]</p>
+        <ul>
+            <li>@Localizer["Those published or known ones are not eligible for rewards."]</li>
+            <li>@Localizer["If you unveil such vulnerabilities before Neo fixes or publish them, the reward becomes null and void."]</li>
+            <li>@Localizer["Participants who use submitted vulnerabilities to damage Neo ecosystem, infringe on users' interest and perform pilferage on users' assets will be disqualified for rewards; meanwhile, Neo is rightful to resort to justice."]</li>
+        </ul>
+    </div>
+    <div class="mt4">
+        <h3>@Localizer["Scope of Vulnerability Bounty Program"]</h3>
+        <p class="mt5">
+            @Localizer["Security vulnerabilities of the following projects must be addressed in the report to be eligible for the rewards:"]<br />
+            <ul class="bounty-ul">
+                <li><a target="_blank" href="https://github.com/neo-project/neo">neo</a></li>
+                <li><a target="_blank" href="https://github.com/neo-project/neo-vm">neo-vm</a></li>
+                <li><a target="_blank" href="https://github.com/neo-project/neo-compiler">neo-compiler</a></li>
+                <li><a target="_blank" href="https://github.com/neo-project/neo-cli">neo-cli</a></li>
+                <li><a target="_blank" href="https://github.com/neo-project/neo-gui">neo-gui</a></li>
+                <li><a target="_blank" href="https://github.com/neo-project/neo-devpack-dotnet">neo-devpack-dotnet</a></li>
+                <li><a target="_blank" href="https://github.com/neo-project/neo-plugins">neo-plugins</a></li>
+            </ul>
+        </p>
+    </div>
+    <div class="mt4">
+        <h3>@Localizer["Investigating and reporting vulnerabilities"]</h3>
+        <p class="mt5">
+            @Localizer["Please, never attempt to access anyone else's data and do not engage in any activity that would be disruptive or damaging to Neo production network and testing network, you can investigate with your own built private chain."]
+            <br />
+            @Localizer["Please include following in your report:"]
+            <ul class="bounty-ul">
+                <li>@Localizer["Asset - What software asset the vulnerability is related to (e.g. Neo core software/products)"]</li>
+                <li>@Localizer["Severity - Your opinion on the severity of the issue (e.g. high, moderate, low)"]</li>
+                <li>@Localizer["Summary -  Add summary of the vulnerability"]</li>
+                <li>@Localizer["Description - Any additional details about this vulnerability"]</li>
+                <li>@Localizer["Steps - Steps to reproduce, getting Neo staff or technical team clearly informed of every detailed step."]</li>
+                <li>@Localizer["Supporting Material/References - Source code to replicate, list any additional material (e.g. screenshots, logs, etc.)"]</li>
+                <li>@Localizer["Impact - What security impact could an attacker achieve?"]</li>
+                <li>@Localizer["Your name and country."]</li>
+            </ul>
+        </p>
+    </div>
+    <div class="mt4">
+        <h3 class="">@Localizer["Rewards"]</h3>
+        <p class="mt5 lh1">
+            @Localizer["Bounties are paid out after a risk assessment (<a href='https://www.owasp.org/index.php/OWASP_Risk_Rating_Methodology' target='_blank'>OWASP</a> risk rating methodology) has been made by our R&D team. There are four rates of severity, Critical, High, Medium, Low. All rewards will be paid in the equivalent amount of NEO. Roughly speaking, we calculate the severity of an issue with the following formula:"]<br />
+            <strong>Severity = Impact * Likelihood</strong><br />
+            @Localizer["Base bounty amounts which related with severity are as follows:"]
+        </p>
+        <table class="mt5">
+            <tr>
+                <th width="33%">Vulnerability Severity</th>
+                <th width="33%">Bounty</th>
+                <th width="33%">Example</th>
+            </tr>
+            <tr>
+                <td>Critical</td>
+                <td>Up to $10,000</td>
+                <td>@Localizer["Issues lead to severe asset loss"]</td>
+            </tr>
+            <tr>
+                <td>High</td>
+                <td>Up to $5,000</td>
+                <td>@Localizer["Issues lead to all network fail"]</td>
+            </tr>
+            <tr>
+                <td>Medium</td>
+                <td>Up to $2,000</td>
+                <td>@Localizer["Single node failure"]</td>
+            </tr>
+            <tr>
+                <td>Low</td>
+                <td>Up to $500</td>
+                <td>@Localizer["Other valid issues"]</td>
+            </tr>
+        </table>
+    </div>
+</div>

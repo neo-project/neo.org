@@ -4,13 +4,25 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
- * Version: 5.0.5 (2019-05-09)
+ * Version: 5.0.16 (2019-09-24)
  */
 (function () {
-var wordcount = (function () {
     'use strict';
 
     var global = tinymce.util.Tools.resolve('tinymce.PluginManager');
+
+    var noop = function () {
+    };
+    var constant = function (value) {
+      return function () {
+        return value;
+      };
+    };
+    var identity = function (x) {
+      return x;
+    };
+    var never = constant(false);
+    var always = constant(true);
 
     var __assign = function () {
       __assign = Object.assign || function __assign(t) {
@@ -75,19 +87,6 @@ var wordcount = (function () {
     var PUNCTUATION = new RegExp('^' + regExps.punctuation + '$');
     var WHITESPACE = /^\s+$/;
 
-    var constant = function (value) {
-      return function () {
-        return value;
-      };
-    };
-    var identity = function (x) {
-      return x;
-    };
-    var never = constant(false);
-    var always = constant(true);
-
-    var never$1 = never;
-    var always$1 = always;
     var none = function () {
       return NONE;
     };
@@ -101,37 +100,27 @@ var wordcount = (function () {
       var id = function (n) {
         return n;
       };
-      var noop = function () {
-      };
-      var nul = function () {
-        return null;
-      };
-      var undef = function () {
-        return undefined;
-      };
       var me = {
         fold: function (n, s) {
           return n();
         },
-        is: never$1,
-        isSome: never$1,
-        isNone: always$1,
+        is: never,
+        isSome: never,
+        isNone: always,
         getOr: id,
         getOrThunk: call,
         getOrDie: function (msg) {
           throw new Error(msg || 'error: getOrDie called on none.');
         },
-        getOrNull: nul,
-        getOrUndefined: undef,
+        getOrNull: constant(null),
+        getOrUndefined: constant(undefined),
         or: id,
         orThunk: call,
         map: none,
-        ap: none,
         each: noop,
         bind: none,
-        flatten: none,
-        exists: never$1,
-        forall: always$1,
+        exists: never,
+        forall: always,
         filter: none,
         equals: eq,
         equals_: eq,
@@ -140,19 +129,23 @@ var wordcount = (function () {
         },
         toString: constant('none()')
       };
-      if (Object.freeze)
+      if (Object.freeze) {
         Object.freeze(me);
+      }
       return me;
     }();
 
     var typeOf = function (x) {
-      if (x === null)
+      if (x === null) {
         return 'null';
+      }
       var t = typeof x;
-      if (t === 'object' && Array.prototype.isPrototypeOf(x))
+      if (t === 'object' && (Array.prototype.isPrototypeOf(x) || x.constructor && x.constructor.name === 'Array')) {
         return 'array';
-      if (t === 'object' && String.prototype.isPrototypeOf(x))
+      }
+      if (t === 'object' && (String.prototype.isPrototypeOf(x) || x.constructor && x.constructor.name === 'String')) {
         return 'string';
+      }
       return t;
     };
     var isType = function (type) {
@@ -162,18 +155,18 @@ var wordcount = (function () {
     };
     var isFunction = isType('function');
 
+    var nativeSlice = Array.prototype.slice;
     var map = function (xs, f) {
       var len = xs.length;
       var r = new Array(len);
       for (var i = 0; i < len; i++) {
         var x = xs[i];
-        r[i] = f(x, i, xs);
+        r[i] = f(x, i);
       }
       return r;
     };
-    var slice = Array.prototype.slice;
     var from = isFunction(Array.from) ? Array.from : function (x) {
-      return slice.call(x);
+      return nativeSlice.call(x);
     };
 
     var SETS$1 = SETS;
@@ -313,7 +306,7 @@ var wordcount = (function () {
       };
     };
     var getWords = function (chars, extract, options) {
-      options = __assign({}, getDefaultOptions(), options);
+      options = __assign(__assign({}, getDefaultOptions()), options);
       var filteredChars = [];
       var extractedChars = [];
       for (var i = 0; i < chars.length; i++) {
@@ -334,71 +327,99 @@ var wordcount = (function () {
     var getText = function (node, schema) {
       var blockElements = schema.getBlockElements();
       var shortEndedElements = schema.getShortEndedElements();
-      var whiteSpaceElements = schema.getWhiteSpaceElements();
-      var isSeparator = function (node) {
-        return blockElements[node.nodeName] || shortEndedElements[node.nodeName] || whiteSpaceElements[node.nodeName];
+      var isNewline = function (node) {
+        return blockElements[node.nodeName] || shortEndedElements[node.nodeName];
       };
+      var textBlocks = [];
       var txt = '';
       var treeWalker = new global$1(node, node);
       while (node = treeWalker.next()) {
         if (node.nodeType === 3) {
           txt += node.data;
-        } else if (txt.length !== 0 && isSeparator(node)) {
-          txt += ' ';
+        } else if (isNewline(node) && txt.length) {
+          textBlocks.push(txt);
+          txt = '';
         }
       }
-      return txt;
-    };
-    var getTextContent = function (editor) {
-      return editor.removed ? '' : getText(editor.getBody(), editor.schema);
-    };
-    var getCount = function (textContent) {
-      return {
-        words: getWords$1(textContent.split(''), identity).length,
-        characters: textContent.length,
-        charactersNoSpace: textContent.replace(/\s/g, '').length
-      };
-    };
-    var getEditorWordcount = function (editor) {
-      return getCount(getTextContent(editor));
-    };
-    var getSelectionWordcount = function (editor) {
-      var selectedText = getText(editor.selection.getRng().cloneContents(), editor.schema);
-      return editor.selection.isCollapsed() ? getCount('') : getCount(selectedText);
+      if (txt.length) {
+        textBlocks.push(txt);
+      }
+      return textBlocks;
     };
 
-    var get = function (editor) {
-      var getCount = function () {
-        return getEditorWordcount(editor).words;
+    var strLen = function (str) {
+      return str.replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, '_').length;
+    };
+    var countWords = function (node, schema) {
+      var text = getText(node, schema).join('\n');
+      return getWords$1(text.split(''), identity).length;
+    };
+    var countCharacters = function (node, schema) {
+      var text = getText(node, schema).join('');
+      return strLen(text);
+    };
+    var countCharactersWithoutSpaces = function (node, schema) {
+      var text = getText(node, schema).join('').replace(/\s/g, '');
+      return strLen(text);
+    };
+
+    var createBodyCounter = function (editor, count) {
+      return function () {
+        return count(editor.getBody(), editor.schema);
       };
-      return { getCount: getCount };
+    };
+    var createSelectionCounter = function (editor, count) {
+      return function () {
+        return count(editor.selection.getRng().cloneContents(), editor.schema);
+      };
+    };
+    var createBodyWordCounter = function (editor) {
+      return createBodyCounter(editor, countWords);
+    };
+    var get = function (editor) {
+      return {
+        body: {
+          getWordCount: createBodyWordCounter(editor),
+          getCharacterCount: createBodyCounter(editor, countCharacters),
+          getCharacterCountWithoutSpaces: createBodyCounter(editor, countCharactersWithoutSpaces)
+        },
+        selection: {
+          getWordCount: createSelectionCounter(editor, countWords),
+          getCharacterCount: createSelectionCounter(editor, countCharacters),
+          getCharacterCountWithoutSpaces: createSelectionCounter(editor, countCharactersWithoutSpaces)
+        },
+        getCount: createBodyWordCounter(editor)
+      };
     };
 
     var global$2 = tinymce.util.Tools.resolve('tinymce.util.Delay');
 
-    var fireWordCountUpdate = function (editor, wordCount) {
-      editor.fire('wordCountUpdate', { wordCount: wordCount });
+    var fireWordCountUpdate = function (editor, api) {
+      editor.fire('wordCountUpdate', {
+        wordCount: {
+          words: api.body.getWordCount(),
+          characters: api.body.getCharacterCount(),
+          charactersWithoutSpaces: api.body.getCharacterCountWithoutSpaces()
+        }
+      });
     };
 
-    var updateCount = function (editor) {
-      var wordCount = getEditorWordcount(editor);
-      fireWordCountUpdate(editor, wordCount);
+    var updateCount = function (editor, api) {
+      fireWordCountUpdate(editor, api);
     };
-    var setup = function (editor) {
+    var setup = function (editor, api, delay) {
       var debouncedUpdate = global$2.debounce(function () {
-        return updateCount(editor);
-      }, 300);
+        return updateCount(editor, api);
+      }, delay);
       editor.on('init', function () {
-        updateCount(editor);
+        updateCount(editor, api);
         global$2.setEditorTimeout(editor, function () {
           editor.on('SetContent BeforeAddUndo Undo Redo keyup', debouncedUpdate);
         }, 0);
       });
     };
 
-    var open = function (editor) {
-      var documentCount = getEditorWordcount(editor);
-      var selectionCount = getSelectionWordcount(editor);
+    var open = function (editor, api) {
       editor.windowManager.open({
         title: 'Word Count',
         body: {
@@ -413,18 +434,18 @@ var wordcount = (function () {
               cells: [
                 [
                   'Words',
-                  String(documentCount.words),
-                  String(selectionCount.words)
+                  String(api.body.getWordCount()),
+                  String(api.selection.getWordCount())
                 ],
                 [
                   'Characters (no spaces)',
-                  String(documentCount.charactersNoSpace),
-                  String(selectionCount.charactersNoSpace)
+                  String(api.body.getCharacterCountWithoutSpaces()),
+                  String(api.selection.getCharacterCountWithoutSpaces())
                 ],
                 [
                   'Characters',
-                  String(documentCount.characters),
-                  String(selectionCount.characters)
+                  String(api.body.getCharacterCount()),
+                  String(api.selection.getCharacterCount())
                 ]
               ]
             }]
@@ -438,32 +459,35 @@ var wordcount = (function () {
       });
     };
 
-    var register = function (editor) {
+    var register = function (editor, api) {
       editor.ui.registry.addButton('wordcount', {
         tooltip: 'Word count',
         icon: 'character-count',
         onAction: function () {
-          return open(editor);
+          return open(editor, api);
         }
       });
       editor.ui.registry.addMenuItem('wordcount', {
         text: 'Word count',
         icon: 'character-count',
         onAction: function () {
-          return open(editor);
+          return open(editor, api);
         }
       });
     };
 
-    global.add('wordcount', function (editor) {
-      register(editor);
-      setup(editor);
-      return get(editor);
-    });
-    function Plugin () {
+    function Plugin (delay) {
+      if (delay === void 0) {
+        delay = 300;
+      }
+      global.add('wordcount', function (editor) {
+        var api = get(editor);
+        register(editor, api);
+        setup(editor, api, delay);
+        return api;
+      });
     }
 
-    return Plugin;
+    Plugin();
 
 }());
-})();

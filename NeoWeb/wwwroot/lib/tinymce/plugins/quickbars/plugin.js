@@ -4,10 +4,9 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
- * Version: 5.0.5 (2019-05-09)
+ * Version: 5.0.16 (2019-09-24)
  */
-(function () {
-var quickbars = (function (domGlobals) {
+(function (domGlobals) {
     'use strict';
 
     var global = tinymce.util.Tools.resolve('tinymce.PluginManager');
@@ -65,40 +64,11 @@ var quickbars = (function (domGlobals) {
       insertBlob: insertBlob
     };
 
-    var Global = typeof domGlobals.window !== 'undefined' ? domGlobals.window : Function('return this;')();
-
-    var path = function (parts, scope) {
-      var o = scope !== undefined && scope !== null ? scope : Global;
-      for (var i = 0; i < parts.length && o !== undefined && o !== null; ++i)
-        o = o[parts[i]];
-      return o;
-    };
-    var resolve = function (p, scope) {
-      var parts = p.split('.');
-      return path(parts, scope);
-    };
-
-    var unsafe = function (name, scope) {
-      return resolve(name, scope);
-    };
-    var getOrDie = function (name, scope) {
-      var actual = unsafe(name, scope);
-      if (actual === undefined || actual === null)
-        throw name + ' not available on this browser';
-      return actual;
-    };
-    var Global$1 = { getOrDie: getOrDie };
-
-    function FileReader () {
-      var f = Global$1.getOrDie('FileReader');
-      return new f();
-    }
-
     var global$1 = tinymce.util.Tools.resolve('tinymce.util.Promise');
 
     var blobToBase64 = function (blob) {
       return new global$1(function (resolve) {
-        var reader = FileReader();
+        var reader = new domGlobals.FileReader();
         reader.onloadend = function () {
           resolve(reader.result.split(',')[1]);
         };
@@ -149,6 +119,8 @@ var quickbars = (function (domGlobals) {
     };
     var InsertButtons = { setupButtons: setupButtons };
 
+    var noop = function () {
+    };
     var constant = function (value) {
       return function () {
         return value;
@@ -157,8 +129,6 @@ var quickbars = (function (domGlobals) {
     var never = constant(false);
     var always = constant(true);
 
-    var never$1 = never;
-    var always$1 = always;
     var none = function () {
       return NONE;
     };
@@ -172,37 +142,27 @@ var quickbars = (function (domGlobals) {
       var id = function (n) {
         return n;
       };
-      var noop = function () {
-      };
-      var nul = function () {
-        return null;
-      };
-      var undef = function () {
-        return undefined;
-      };
       var me = {
         fold: function (n, s) {
           return n();
         },
-        is: never$1,
-        isSome: never$1,
-        isNone: always$1,
+        is: never,
+        isSome: never,
+        isNone: always,
         getOr: id,
         getOrThunk: call,
         getOrDie: function (msg) {
           throw new Error(msg || 'error: getOrDie called on none.');
         },
-        getOrNull: nul,
-        getOrUndefined: undef,
+        getOrNull: constant(null),
+        getOrUndefined: constant(undefined),
         or: id,
         orThunk: call,
         map: none,
-        ap: none,
         each: noop,
         bind: none,
-        flatten: none,
-        exists: never$1,
-        forall: always$1,
+        exists: never,
+        forall: always,
         filter: none,
         equals: eq,
         equals_: eq,
@@ -211,19 +171,15 @@ var quickbars = (function (domGlobals) {
         },
         toString: constant('none()')
       };
-      if (Object.freeze)
+      if (Object.freeze) {
         Object.freeze(me);
+      }
       return me;
     }();
     var some = function (a) {
-      var constant_a = function () {
-        return a;
-      };
+      var constant_a = constant(a);
       var self = function () {
         return me;
-      };
-      var map = function (f) {
-        return some(f(a));
       };
       var bind = function (f) {
         return f(a);
@@ -235,8 +191,8 @@ var quickbars = (function (domGlobals) {
         is: function (v) {
           return a === v;
         },
-        isSome: always$1,
-        isNone: never$1,
+        isSome: always,
+        isNone: never,
         getOr: constant_a,
         getOrThunk: constant_a,
         getOrDie: constant_a,
@@ -244,35 +200,31 @@ var quickbars = (function (domGlobals) {
         getOrUndefined: constant_a,
         or: self,
         orThunk: self,
-        map: map,
-        ap: function (optfab) {
-          return optfab.fold(none, function (fab) {
-            return some(fab(a));
-          });
+        map: function (f) {
+          return some(f(a));
         },
         each: function (f) {
           f(a);
         },
         bind: bind,
-        flatten: constant_a,
         exists: bind,
         forall: bind,
         filter: function (f) {
           return f(a) ? me : NONE;
-        },
-        equals: function (o) {
-          return o.is(a);
-        },
-        equals_: function (o, elementEq) {
-          return o.fold(never$1, function (b) {
-            return elementEq(a, b);
-          });
         },
         toArray: function () {
           return [a];
         },
         toString: function () {
           return 'some(' + a + ')';
+        },
+        equals: function (o) {
+          return o.is(a);
+        },
+        equals_: function (o, elementEq) {
+          return o.fold(never, function (b) {
+            return elementEq(a, b);
+          });
         }
       };
       return me;
@@ -337,19 +289,24 @@ var quickbars = (function (domGlobals) {
     var ENTITY = domGlobals.Node.ENTITY_NODE;
     var NOTATION = domGlobals.Node.NOTATION_NODE;
 
+    var Global = typeof domGlobals.window !== 'undefined' ? domGlobals.window : Function('return this;')();
+
     var name = function (element) {
       var r = element.dom().nodeName;
       return r.toLowerCase();
     };
 
     var typeOf = function (x) {
-      if (x === null)
+      if (x === null) {
         return 'null';
+      }
       var t = typeof x;
-      if (t === 'object' && Array.prototype.isPrototypeOf(x))
+      if (t === 'object' && (Array.prototype.isPrototypeOf(x) || x.constructor && x.constructor.name === 'Array')) {
         return 'array';
-      if (t === 'object' && String.prototype.isPrototypeOf(x))
+      }
+      if (t === 'object' && (String.prototype.isPrototypeOf(x) || x.constructor && x.constructor.name === 'String')) {
         return 'string';
+      }
       return t;
     };
     var isType = function (type) {
@@ -364,36 +321,32 @@ var quickbars = (function (domGlobals) {
     var isUndefined = isType('undefined');
     var isFunction = isType('function');
 
+    var nativeSlice = Array.prototype.slice;
     var find = function (xs, pred) {
       for (var i = 0, len = xs.length; i < len; i++) {
         var x = xs[i];
-        if (pred(x, i, xs)) {
+        if (pred(x, i)) {
           return Option.some(x);
         }
       }
       return Option.none();
     };
-    var slice = Array.prototype.slice;
     var from$1 = isFunction(Array.from) ? Array.from : function (x) {
-      return slice.call(x);
+      return nativeSlice.call(x);
     };
 
     function ClosestOrAncestor (is, ancestor, scope, a, isRoot) {
       return is(scope, a) ? Option.some(scope) : isFunction(isRoot) && isRoot(scope) ? Option.none() : ancestor(scope, a, isRoot);
     }
 
-    var node = function () {
-      var f = Global$1.getOrDie('Node');
-      return f;
-    };
     var compareDocumentPosition = function (a, b, match) {
       return (a.compareDocumentPosition(b) & match) !== 0;
     };
     var documentPositionPreceding = function (a, b) {
-      return compareDocumentPosition(a, b, node().DOCUMENT_POSITION_PRECEDING);
+      return compareDocumentPosition(a, b, domGlobals.Node.DOCUMENT_POSITION_PRECEDING);
     };
     var documentPositionContainedBy = function (a, b) {
-      return compareDocumentPosition(a, b, node().DOCUMENT_POSITION_CONTAINED_BY);
+      return compareDocumentPosition(a, b, domGlobals.Node.DOCUMENT_POSITION_CONTAINED_BY);
     };
     var Node = {
       documentPositionPreceding: documentPositionPreceding,
@@ -419,18 +372,20 @@ var quickbars = (function (domGlobals) {
     var firstMatch = function (regexes, s) {
       for (var i = 0; i < regexes.length; i++) {
         var x = regexes[i];
-        if (x.test(s))
+        if (x.test(s)) {
           return x;
+        }
       }
       return undefined;
     };
     var find$1 = function (regexes, agent) {
       var r = firstMatch(regexes, agent);
-      if (!r)
+      if (!r) {
         return {
           major: 0,
           minor: 0
         };
+      }
       var group = function (i) {
         return Number(agent.replace(r, '$' + i));
       };
@@ -438,8 +393,9 @@ var quickbars = (function (domGlobals) {
     };
     var detect = function (versionRegexes, agent) {
       var cleanedAgent = String(agent).toLowerCase();
-      if (versionRegexes.length === 0)
+      if (versionRegexes.length === 0) {
         return unknown();
+      }
       return find$1(versionRegexes, cleanedAgent);
     };
     var unknown = function () {
@@ -609,8 +565,7 @@ var quickbars = (function (domGlobals) {
         name: 'Edge',
         versionRegexes: [/.*?edge\/ ?([0-9]+)\.([0-9]+)$/],
         search: function (uastring) {
-          var monstrosity = contains(uastring, 'edge/') && contains(uastring, 'chrome') && contains(uastring, 'safari') && contains(uastring, 'applewebkit');
-          return monstrosity;
+          return contains(uastring, 'edge/') && contains(uastring, 'chrome') && contains(uastring, 'safari') && contains(uastring, 'applewebkit');
         }
       },
       {
@@ -727,19 +682,22 @@ var quickbars = (function (domGlobals) {
 
     var ELEMENT$1 = ELEMENT;
     var is = function (element, selector) {
-      var elem = element.dom();
-      if (elem.nodeType !== ELEMENT$1) {
+      var dom = element.dom();
+      if (dom.nodeType !== ELEMENT$1) {
         return false;
-      } else if (elem.matches !== undefined) {
-        return elem.matches(selector);
-      } else if (elem.msMatchesSelector !== undefined) {
-        return elem.msMatchesSelector(selector);
-      } else if (elem.webkitMatchesSelector !== undefined) {
-        return elem.webkitMatchesSelector(selector);
-      } else if (elem.mozMatchesSelector !== undefined) {
-        return elem.mozMatchesSelector(selector);
       } else {
-        throw new Error('Browser lacks native selectors');
+        var elem = dom;
+        if (elem.matches !== undefined) {
+          return elem.matches(selector);
+        } else if (elem.msMatchesSelector !== undefined) {
+          return elem.msMatchesSelector(selector);
+        } else if (elem.webkitMatchesSelector !== undefined) {
+          return elem.webkitMatchesSelector(selector);
+        } else if (elem.mozMatchesSelector !== undefined) {
+          return elem.mozMatchesSelector(selector);
+        } else {
+          throw new Error('Browser lacks native selectors');
+        }
       }
     };
 
@@ -769,8 +727,8 @@ var quickbars = (function (domGlobals) {
       return Option.none();
     };
     var closest = function (scope, predicate, isRoot) {
-      var is = function (s) {
-        return predicate(s);
+      var is = function (s, test) {
+        return test(s);
       };
       return ClosestOrAncestor(is, ancestor, scope, predicate, isRoot);
     };
@@ -869,15 +827,14 @@ var quickbars = (function (domGlobals) {
     };
     var SelectionToolbars = { addToEditor: addToEditor$1 };
 
-    global.add('quickbars', function (editor) {
-      InsertButtons.setupButtons(editor);
-      InsertToolbars.addToEditor(editor);
-      SelectionToolbars.addToEditor(editor);
-    });
     function Plugin () {
+      global.add('quickbars', function (editor) {
+        InsertButtons.setupButtons(editor);
+        InsertToolbars.addToEditor(editor);
+        SelectionToolbars.addToEditor(editor);
+      });
     }
 
-    return Plugin;
+    Plugin();
 
 }(window));
-})();

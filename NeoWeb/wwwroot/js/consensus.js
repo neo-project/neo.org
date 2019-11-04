@@ -65,33 +65,40 @@ function getListdata() {
             $("#connum").html(flag);
 
             //竞选个数
-            var html = "";
+            var html = "", html2 = "";
+
             for (var j in _list) {
                 if (_list[j].Info != null && _list[j].Info.Logo != null)
                     _list[j].Info.Logo = _list[j].Info.Logo.replace("~", "");
-                html += template('test', _list[j]);
+
+                _list[j].Social = [];
 
                 if (_list[j].Info != null && _list[j].Info.SocialAccount != null) {
                     var accountList = _list[j].Info.SocialAccount.split(';');
                     var socialAccount = "";
-                    for (var i = 0; i < accountList.length; i++) {
+
+                    for (var i = 0; i < accountList.length-1; i++) {
                         var account = accountList[i].split(':');
-                        var accountName = account[0];
-                        var accountLink = account[1];
-                        if (accountName.toLowerCase() == "twitter")
-                            socialAccount += "<a target=\"_blank\" href=https://twitter.com/" + accountLink + "><i class=\"iconfont\">&#xe60a;</i></a>";
-                        if (accountName.toLowerCase() == "facebook")
-                            socialAccount += "<a target=\"_blank\" href=https://www.facebook.com/" + accountLink + "><i class=\"iconfont\">&#xe87d;</i></a>";
-                        if (accountName.toLowerCase() == "weibo")
-                            socialAccount += "<a target=\"_blank\" href=https://weibo.com/" + accountLink + "><i class=\"iconfont\">&#xe610;</i></a>";
-                        if (accountName.toLowerCase() == "github")
-                            socialAccount += "<a target=\"_blank\" href=https://github.com/" + accountLink + "><i class=\"iconfont\">&#xee67;</i></a>";
+                        var accountName = account[0].toLowerCase();
+
+                        var socialDetail = {
+                            name: accountName,
+                            link: "https://" + accountName + ".com/" + account[1]
+                        };
+
+                        _list[j].Social.push(socialDetail);
                     }
-                    html += "<p class=\"social-icon\">" + socialAccount + "<p/>";
+                }
+
+                if (_list[j].Active) {
+                    html += template('consensus', _list[j]);
+                } else {
+                    html2 += template('candidate', _list[j]);
                 }
             }
-            
-            document.getElementById('tableList').innerHTML = html;
+
+            document.getElementById('conList').innerHTML = html;
+            document.getElementById('canList').innerHTML = html2;
             conNum = _list.length;
         }
     });
@@ -114,39 +121,51 @@ function showCharts(data) {
             borderRadius: '2',
             axisPointer: {
                 lineStyle: {
-                    color: '#999999'
+                    color: '#00af92'
                 }
             },
             textStyle: {
-                fontWeight: 'normal',
-                color: '#666666'
+                fontWeight: '300',
+                fontSize:'12',
+                color: '#505050'
             }
         },
         legend: {
-            icon: 'rect',
+            icon: 'diamond',
             itemWidth: 14,
             itemHeight: 14,
             itemGap: 14,
             data: [tx_v, block_s],
-            right: '0',
+            right:0,
             textStyle: {
                 fontSize: 12,
-                color: '#666666'
+                fontWeight: 100,
+                color: ['#02e49b', '00af92']
             }
         },
         grid: {
             left: '0',
-            right: '0',
+            right: '2',
             bottom: '0',
+            top: '55',
             containLabel: true
         },
         xAxis: [{
             type: 'category',
             boundaryGap: false,
             axisLine: {
+                show: false,
                 lineStyle: {
-                    color: '#CCC',
-                    opcity: '0.8'
+                    color: '#fff'
+                }
+            },
+            axisLabel: {
+                inside: false,
+                textStyle: {
+                    color: '#505050',
+                    fontWeight: '300',
+                    fontSize: '12',
+                    lineHeight: '40'
                 }
             },
             data: data.IndexList
@@ -161,15 +180,17 @@ function showCharts(data) {
                 show: false
             },
             axisLabel: {
-                margin: 10,
+                margin: 30,
                 textStyle: {
-                    color: '#CCC',
-                    fontSize: 14
+                    color: '#505050',
+                    fontWeight: '300',
+                    fontSize: '12',
+                    lineHeight: '40'
                 }
             },
             splitLine: {
                 lineStyle: {
-                    color: '#EAEAEA'
+                    color: '#FFFFFF'
                 }
             }
         }, {
@@ -182,27 +203,28 @@ function showCharts(data) {
                 show: false
             },
             axisLabel: {
-                margin: 10,
+                margin: 30,
                 textStyle: {
-                    color: '#CCC',
-                    fontSize: 14
+                    color: '#505050',
+                    fontWeight: '300',
+                    fontSize: '12',
+                    lineHeight: '40'
                 }
             },
             splitLine: {
                 lineStyle: {
-                    color: '#EAEAEA'
+                    color: '#FFFFFF'
                 }
             }
         }],
         series: [{
             name: tx_v,
             type: 'line',
-            smooth: true,
             showSymbol: false,
             yAxisIndex: 0,
             lineStyle: {
                 normal: {
-                    width: 2,
+                    width: 1,
                     shadowColor: 'rgba(80,80,80,0.1)',
                     shadowBlur: 15,
                     shadowOffsetY: 30
@@ -210,19 +232,29 @@ function showCharts(data) {
             },
             itemStyle: {
                 normal: {
-                    color: 'rgb(200,220,25)'
+                    color: '#02e49b'
+                }
+            },
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(2, 228, 155, 0.1)'
+                    }, {
+                        offset: 0.3,
+                        color: '#fff'
+                    }])
                 }
             },
             data: data.TxCountList
         }, {
             name: block_s,
             type: 'line',
-            smooth: true,
             showSymbol: false,
             yAxisIndex: 1,
             lineStyle: {
                 normal: {
-                    width: 2,
+                    width: 1,
                     shadowColor: 'rgba(80,80,80,0.1)',
                     shadowBlur: 15,
                     shadowOffsetY: 30
@@ -230,7 +262,18 @@ function showCharts(data) {
             },
             itemStyle: {
                 normal: {
-                    color: 'rgb(170,203,162)'
+                    color: '#00af92'
+                }
+            },
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(0, 175, 146, 0.1)'
+                    }, {
+                        offset: 0.3,
+                        color: '#fff'
+                    }])
                 }
             },
             data: data.SizeList
