@@ -26,10 +26,15 @@ namespace NeoWeb.Controllers
         }
 
         // GET: testcoin/List
-        public async Task<IActionResult> List()
+        public async Task<IActionResult> List(string version)
         {
             var fromDate = DateTime.Now - new TimeSpan(15, 0, 0, 0);
-            return View(await _context.TestCoins.OrderByDescending(p => p.Time).Where(p => p.Time > fromDate).ToListAsync());
+            var result = await _context.TestCoins.OrderByDescending(p => p.Time).Where(p => p.Time > fromDate).ToListAsync();
+            if (version == "2")
+                result = result.Where(p => p.Version == Models.Version.NEO2).ToList();
+            else if (version == "3")
+                result = result.Where(p => p.Version == Models.Version.NEO3).ToList();
+            return View(result);
         }
 
         // GET: testcoin/details/5
