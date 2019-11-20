@@ -226,7 +226,7 @@
     <value>Neo 开发者社区 City of Zion 开发的跨平台的客户端，支持 Windows、 macOS 和 Linux 等主流操作系统，注重 UE 与 UI。</value>
   </data>
   <data name="It's an online wallet developed by SafuDEX. It heavily focuses on dApp integration and operability, as well as streamlining the user experience." xml:space="preserve">
-    <value>这是个由SaduDEX开发的线上钱包。其专注与dApp的可集成以及操作性，同样的也精简用户体验。</value>
+    <value>SaduDEX 开发的在线钱包。侧重于 dApp 的集成和交互，同时简化操作流程提升用户体验。</value>
   </data>
   <data name="It's a cross-platform wallet developed by O3 Labs. This wallet supports most mainstream operating systems, maintains a high update frequency and can support Neo network updates and features in a timely manner." xml:space="preserve">
     <value>O3 Labs 开发的跨平台客户端，支持大部分主流操作系统。该客户端保持高更新频率，能及时支持 Neo 网络更新与特性。</value>
@@ -308,7 +308,7 @@
     <value>该客户端让用户拥有对数字资产的高度掌控权。私钥是通过钱包文件和密码加密存储的。但仍需注意在安全的设备上使用，并注意私钥的安全备份和妥善保管。</value>
   </data>
   <data name="This wallet can store all keys locally, however, it's main mode of operation involves storing private keys, encrypted with the user's password, in central servers, providing a level of security that is higher than the security afforded by wallets that use servers with direct access to the keys but lower than the wallets that store the keys locally. Users should take special care to use complex passwords, and always pay attention to the safe backup and safekeeping of the wallet file." xml:space="preserve">
-    <value>此线上钱包能在本地储存所有密钥，当是，他的主要操作方式包含储存私人密钥，使用用户的密码来加密，再储存在中央服务器，提供比那些使用服务器直连密钥的线上钱包更高的安全级别，当是比那些储存在本地的线上钱包更低。用户应该额外注意其密码的复杂以及安全度数，还有永远注意安全的备份和保管线上钱包文件。</value>
+    <value>此钱包在本地存储所有密钥，但它会将使用用户密码加密过的私钥存储在中央服务器中，安全级别介于完全的本地存储和服务器托管之间。用户应特别注意使用复杂的密码，并注意钱包文件的安全备份和妥善保管。</value>
   </data>
   <data name="This wallet gives users a high degree of control over digital assets. The private key or the mnemonic are stored locally. This wallet gives more support to the cold and hot wallet dual mode cooperation, offline signature authorization and online asset observation. It is completely isolated from the network environment so as to store assets more securely." xml:space="preserve">
     <value>该客户端让用户拥有对数字资产的高度掌控权。私钥或助词本地保存。更支持冷热钱包双重模式配合，离线签名授权，在线资产观察。完全隔离网络环境，更安全地存储资产。</value>
