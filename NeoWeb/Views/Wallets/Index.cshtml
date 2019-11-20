@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 
 @{
@@ -305,54 +305,6 @@
                         <span>@Localizer["Supported NEP"]</span>
                         <div>
                             <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki" target="_blank">NEP-2</a>, <a href="https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki" target="_blank">NEP-5</a> </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li class="web">
-            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/neologin.png")" />
-            <header>NeoLogin</header>
-            <div class="platform">
-                <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Web">&#xe623;</i>
-            </div>
-            <a class="open-source" href="https://github.com/safudex/neologin" target="_blank">GitHub</a>
-            <div class="developer d-none"><a href="https://github.com/safudex" target="_blank">SafuDEX</a></div>
-            <div class="license d-none"><a href="https://github.com/safudex/neologin/blob/master/LICENSE" target="_blank">MIT License</a></div>
-            <div class="button d-none"><a class="btn" href="https://neologin.io/" target="_blank">@Localizer["Website"]</a></div>
-            <div class="desc d-none">
-                <div class="preview-div">
-                    <h3>@Localizer["Preview"]</h3>
-                    <a class="plat-btn btn-desktop" href="javascript:" onclick="switchPlatform('desktop');">@Localizer["Desktop"]</a>
-                    <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
-                </div>
-                <div class="p-mobile preview">
-                    <img data-original="@Helper.ToCDN("/images/wallets/neologin1.png")" />
-                    <img data-original="@Helper.ToCDN("/images/wallets/neologin2.png")" />
-                    <img data-original="@Helper.ToCDN("/images/wallets/neologin3.png")" />
-                </div>
-                <div class="p-desktop preview" style="display:none;">
-                    <img data-original="@Helper.ToCDN("/images/wallets/neologin-desktop.png")" />
-                </div>
-                <p>@Localizer["It's an online wallet developed by SafuDEX. It heavily focuses on dApp integration and operability, as well as streamlining the user experience."]</p>
-                <p>@Localizer["Languages"]: English</p>
-                <div>
-                    <div class="metrics">
-                        <span>@Localizer["Degree of Digital Asset Control"]</span><span class="span-warning">@Localizer["Intermediate"]</span>
-                        <div>@Localizer["This wallet can store all keys locally, however, it's main mode of operation involves storing private keys, encrypted with the user's password, in central servers, providing a level of security that is higher than the security afforded by wallets that use servers with direct access to the keys but lower than the wallets that store the keys locally. Users should take special care to use complex passwords, and always pay attention to the safe backup and safekeeping of the wallet file."]</div>
-                    </div>
-                    <div class="metrics">
-                        <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
-                        <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
-                    </div>
-                    <div class="metrics">
-                        <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
-                        <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."]@Localizer["Get source code"]: <a href="https://github.com/safudex/neologin" target="_blank">GitHub</a></div>
-                    </div>
-                    <div class="metrics">
-                        <span>@Localizer["Supported NEP"]</span>
-                        <div>
-                            <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/pull/69" target="_blank">NEP-12</a></p>
                         </div>
                     </div>
                 </div>
@@ -1028,6 +980,54 @@
                         <span>@Localizer["Supported NEP"]</span>
                         <div>
                             <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki" target="_blank">NEP-5</a>, <a href="https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki" target="_blank">NEP-6</a> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="web">
+            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/neologin.png")" />
+            <header>NeoLogin</header>
+            <div class="platform">
+                <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Web">&#xe623;</i>
+            </div>
+            <a class="open-source" href="https://github.com/safudex/neologin" target="_blank">GitHub</a>
+            <div class="developer d-none"><a href="https://github.com/safudex" target="_blank">SafuDEX</a></div>
+            <div class="license d-none"><a href="https://github.com/safudex/neologin/blob/master/LICENSE" target="_blank">MIT License</a></div>
+            <div class="button d-none"><a class="btn" href="https://neologin.io/" target="_blank">@Localizer["Website"]</a></div>
+            <div class="desc d-none">
+                <div class="preview-div">
+                    <h3>@Localizer["Preview"]</h3>
+                    <a class="plat-btn btn-desktop" href="javascript:" onclick="switchPlatform('desktop');">@Localizer["Desktop"]</a>
+                    <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
+                </div>
+                <div class="p-mobile preview">
+                    <img data-original="@Helper.ToCDN("/images/wallets/neologin1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/neologin2.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/neologin3.png")" />
+                </div>
+                <div class="p-desktop preview" style="display:none;">
+                    <img data-original="@Helper.ToCDN("/images/wallets/neologin-desktop.png")" />
+                </div>
+                <p>@Localizer["It's an online wallet developed by SafuDEX. It heavily focuses on dApp integration and operability, as well as streamlining the user experience."]</p>
+                <p>@Localizer["Languages"]: English</p>
+                <div>
+                    <div class="metrics">
+                        <span>@Localizer["Degree of Digital Asset Control"]</span><span class="span-warning">@Localizer["Intermediate"]</span>
+                        <div>@Localizer["This wallet can store all keys locally, however, it's main mode of operation involves storing private keys, encrypted with the user's password, in central servers, providing a level of security that is higher than the security afforded by wallets that use servers with direct access to the keys but lower than the wallets that store the keys locally. Users should take special care to use complex passwords, and always pay attention to the safe backup and safekeeping of the wallet file."]</div>
+                    </div>
+                    <div class="metrics">
+                        <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
+                        <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
+                    </div>
+                    <div class="metrics">
+                        <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
+                        <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."]@Localizer["Get source code"]: <a href="https://github.com/safudex/neologin" target="_blank">GitHub</a></div>
+                    </div>
+                    <div class="metrics">
+                        <span>@Localizer["Supported NEP"]</span>
+                        <div>
+                            <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/pull/69" target="_blank">NEP-12</a></p>
                         </div>
                     </div>
                 </div>
