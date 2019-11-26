@@ -379,8 +379,8 @@
   <data name="Extension" xml:space="preserve">
     <value>浏览器插件</value>
   </data>
-  <data name="NEOLine is a browser extension wallet of Neo. We intend to provide a secure and convenient digital asset wallet. It offers comprehensive wallet capabilities and a wide range of dAPIs for developers." xml:space="preserve">
-    <value>NEOLine 是一款 Neo 区块链上的浏览器插件钱包。旨在为用户提供安全便捷的数字资产钱包。它提供了全面的钱包功能，开放了各类 dAPI 供开发者使用。</value>
+  <data name="NEOLine is a variety of digital asset wallets and browser plugins on the Neo blockchain. Supports wallet, multiple address management and multiple verification methods. As  a browser extension wallet of Neo, it contains comprehensive wallet functions and provides dAPI for developers." xml:space="preserve">
+    <value>NEOLine是Neo区块链上的多种数字资产钱包和浏览器插件。支持钱包，多地址管理及多种验证方式。同时，作为Neo区块链上的浏览器插件钱包，它包含全面的钱包功能，并为开发人员提供了dAPI。</value>
   </data>
   <data name="Teemo is a browser extension wallet of Neo.&lt;br/&gt;The extension injects the Neo dApp API into every website's JavaScript context, so that DApps can interact with the blockchain." xml:space="preserve">
     <value>Teemo 是一款 Neo 区块链上的浏览器插件钱包，该扩展将 Neo dApp API 注入到每个网站的 JavaScript 上下文中以便 DApps 可以与区块链进行交互。</value>
