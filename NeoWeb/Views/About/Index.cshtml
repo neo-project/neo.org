@@ -88,13 +88,13 @@
         <div class="linear b"></div>
         @if (SharedLocalizer["en"].Value == "zh")
         {
-            <img class="d-none d-md-block" id="desImg" src="@Helper.ToCDN("/images/about/retrospect-dt-chinese.svg")" />
-            <img class="d-block d-md-none" id="mobImg" src="@Helper.ToCDN("/images/about/retrospect-mb-chinese.svg")" />
+            <img class="d-none d-md-block" id="desImg" data-original="@Helper.ToCDN("/images/about/retrospect-dt-chinese.svg", true)" />
+            <img class="d-block d-md-none" id="mobImg" data-original="@Helper.ToCDN("/images/about/retrospect-mb-chinese.svg", true)" />
         }
         else
         {
-            <img class="d-none d-md-block" id="desImg" src="@Helper.ToCDN("/images/about/retrospect-dt-english.svg")" />
-            <img class="d-block d-md-none" id="mobImg" src="@Helper.ToCDN("/images/about/retrospect-mb-english.svg")" />
+            <img class="d-none d-md-block" id="desImg" data-original="@Helper.ToCDN("/images/about/retrospect-dt-english.svg", true)" />
+            <img class="d-block d-md-none" id="mobImg" data-original="@Helper.ToCDN("/images/about/retrospect-mb-english.svg", true)" />
         }
         <p class="d-none d-md-block de-tab"><a class="mr2 iconfont" id="left">&#xe61c;</a><a class="iconfont" id="right">&#xe61b;</a></p>
         <p class="d-block d-md-none mob-show"><a class="btn2 float-none" id="bottom">@Localizer["View more"]<span class="iconfont">&#xe61a;</span></a></p>
