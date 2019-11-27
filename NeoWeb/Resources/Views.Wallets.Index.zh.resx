@@ -380,7 +380,7 @@
     <value>浏览器插件</value>
   </data>
   <data name="NEOLine is a variety of digital asset wallets and browser plugins on the Neo blockchain. Supports wallet, multiple address management and multiple verification methods. As  a browser extension wallet of Neo, it contains comprehensive wallet functions and provides dAPI for developers." xml:space="preserve">
-    <value>NEOLine是Neo区块链上的多种数字资产钱包和浏览器插件。支持钱包，多地址管理及多种验证方式。同时，作为Neo区块链上的浏览器插件钱包，它包含全面的钱包功能，并为开发人员提供了dAPI。</value>
+    <value>NEOLine 是 Neo 区块链上的多种数字资产钱包和浏览器插件。支持钱包，多地址管理及多种验证方式。同时，作为 Neo 区块链上的浏览器插件钱包，它包含全面的钱包功能，并为开发人员提供了 dAPI。</value>
   </data>
   <data name="Teemo is a browser extension wallet of Neo.&lt;br/&gt;The extension injects the Neo dApp API into every website's JavaScript context, so that DApps can interact with the blockchain." xml:space="preserve">
     <value>Teemo 是一款 Neo 区块链上的浏览器插件钱包，该扩展将 Neo dApp API 注入到每个网站的 JavaScript 上下文中以便 DApps 可以与区块链进行交互。</value>
@@ -419,6 +419,6 @@
     <value>Zel 是支持 Zel 生态系统的加密货币，通过鼓励 ZelNode 所有权来创建 ZelEX 和 ZelDev 平台，从而实现真正的分布式开发平台。</value>
   </data>
   <data name="SafePal is committed to providing secure, easy-to-use, and convenient encrypted digital asset storage solutions for coin holders. It is also the first cold wallet team invested by Binance." xml:space="preserve">
-    <value>SafePal致力于为持币用户提供安全、易用、便捷的加密数字资产存储方案，也是币安（Binance）投资的首家冷钱包团队。</value>
+    <value>SafePal 致力于为持币用户提供安全、易用、便捷的加密数字资产存储方案，也是币安（Binance）投资的首家冷钱包团队。</value>
   </data>
 </root>
