@@ -2,7 +2,16 @@
 @import 'layout.less';
 
 @letter-spacing: .02em;
-@line-height: 1.4;
+@line-height: 1.6;
+
+@font-face {
+    font-family: 'WorkSans-Bold'; /* project id 1408484 */
+    src: url('../font/WorkSans-Bold.ttf');
+}
+@font-face {
+    font-family: 'WorkSans-Regular'; /* project id 1408484 */
+    src: url('../font/WorkSans-Regular.ttf');
+}
 
 html body {
     font-size: 17px;
@@ -57,11 +66,15 @@ ul.list-none {
 
 /*字体*/
 .font-family {
-    font-family: Rajdhani;
+    font-family: WorkSans-Regular;
 }
 
 .font-family-bold {
-    font-family: Rajdhani-Bold;
+    font-family: WorkSans-Bold;
+}
+
+.font-family-medium {
+    font-family: WorkSans-Regular;
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, p {
@@ -72,56 +85,65 @@ ul.list-none {
 h1, .h1 {
     .font-family-bold;
     font-size: @t1;
-    line-height: 102px;
+    line-height: 108px;
+    letter-spacing: -2px;
 
     @media only screen and (max-width: 767px) {
         font-size: @t2;
-        line-height: 53px;
+        line-height: 60px;
+        letter-spacing: -1px;
     }
 }
 
 h2, .h2 {
     .font-family-bold;
     font-size: @t2;
-    line-height: 60px;
+    line-height: 65px;
+    letter-spacing: -1px;
 
     @media only screen and (max-width: 767px) {
         font-size: @t3;
-        line-height: 42px;
+        line-height: 50px;
+        letter-spacing: -.6px;
     }
 }
 
 h3, .h3 {
     .font-family-bold;
     font-size: @t3;
-    line-height: 47px;
+    line-height: 50px;
+    letter-spacing: -.8px;
 
     @media only screen and (max-width: 767px) {
         font-size: @t4;
-        line-height: 26px;
+        line-height: 28px;
+        letter-spacing: -.3px;
     }
 }
 
 h4, .h4 {
     .font-family-bold;
     font-size: @t4;
-    line-height: 37px;
-
+    line-height: 40px;
+    letter-spacing: -.6px;
 
     @media only screen and (max-width: 767px) {
         font-size: @t5;
-        line-height: 26px;
+        line-height: 28px;
+        letter-spacing: -.3px;
     }
 }
 
 h5, .h5 {
     .font-family;
     font-size: @t4;
-    line-height: 37px;
+    line-height: 40px;
+    letter-spacing: -.8px;
 
     @media only screen and (max-width: 767px) {
         font-size: @t5;
-        line-height: 26px;
+        line-height: 21px;
+        letter-spacing: -.2px;
     }
 }
 
@@ -132,6 +154,7 @@ h6, .h6 {
 
     @media only screen and (max-width: 767px) {
         line-height: 26px;
+        letter-spacing: -.2px;
     }
 }
 
@@ -852,7 +875,7 @@ i.iconfont {
     .p3;
     .pt0;
 
-    div[class|=col], > li {
+    /*div[class|=col], > li {
         .mt3;
 
         > span {
@@ -879,17 +902,17 @@ i.iconfont {
                 }
             }
         }
-    }
+    }*/
 
     @media only screen and (max-width: 991px) {
         text-align: center;
         .pt0;
 
-        div[class|=col], > li {
+        /*div[class|=col], > li {
             > span {
                 float: none;
             }
-        }
+        }*/
     }
 }
 
