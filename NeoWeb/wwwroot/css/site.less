@@ -1,7 +1,7 @@
 ﻿@import 'basic.less';
 @import 'layout.less';
 
-@font: 17px;
+@font: 16px;
 
 html {
     font-size: @font !important;
@@ -10,7 +10,6 @@ html {
 html body {
     font-size: @font;
     .font-family;
-    letter-spacing: 0.02em;
     line-height: 1.6;
     background: @body;
     color: @text;
@@ -142,7 +141,7 @@ h5, .h5 {
 }
 
 h6, .h6 {
-    .font-family;
+    .font-family-bold;
     font-size: @t5;
     line-height: 32px;
 
@@ -153,13 +152,21 @@ h6, .h6 {
 }
 
 .font1 {
-    font-size: 1rem;
     .font-family;
+    font-size: 1rem;
 }
 
 .font2 {
-    .font1;
-    .bold;
+    .font-family-bold;
+    font-size: 1rem;
+}
+
+.font3 {
+    .font-family;
+    font-size: 0.8rem;
+    font-weight: 300;
+    font-size: 0.95rem;
+    letter-spacing: .2px;
 }
 
 /*间距*/
@@ -341,6 +348,7 @@ a[class|=btn] {
 }
 
 .btn {
+    .font-family;
     display: inline-block;
     font-weight: 600;
     background: @btn-back;
@@ -388,9 +396,8 @@ a[class|=btn] {
 
 .btn2 {
     .green;
+    .font2;
     float: right;
-    font-size: 1rem;
-    font-weight: 600;
     display: inline-block;
     cursor: pointer;
     transition: color .2s;
@@ -455,7 +462,7 @@ a[class|=btn] {
     color: @text2;
 
     span {
-        .font1;
+        .font3;
         display: block;
         color: @gray;
     }
@@ -613,6 +620,11 @@ hr.line {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+}
+
+.w1000 {
+    .w;
+    max-width: 1000px;
 }
 
 .w900 {
@@ -869,7 +881,7 @@ i.iconfont {
     .p3;
     .pt0;
 
-    /*div[class|=col], > li {
+    div[class|=col] {
         .mt3;
 
         > span {
@@ -885,28 +897,36 @@ i.iconfont {
             list-style: none;
             overflow: hidden;
             padding-left: 0;
+            margin-right: 15px;
 
             li {
                 .mt6;
+                min-width: 85px;
+                margin-left: 15px;
+                vertical-align: top;
 
                 span {
-                    .font1;
+                    .font3;
                     color: @text3;
                     display: block;
                 }
             }
         }
-    }*/
+    }
 
     @media only screen and (max-width: 991px) {
         text-align: center;
         .pt0;
 
-        /*div[class|=col], > li {
+        div[class|=col] {
             > span {
                 float: none;
             }
-        }*/
+            
+            .list-ul li:first-child {
+                margin-left: 0;
+            }
+        }
     }
 }
 
@@ -916,12 +936,12 @@ i.iconfont {
     .module-img {
         float: right;
         width: 100%;
-        max-width: 400px;
+        max-width: 380px;
     }
 
     .module-text {
         display: inline-block;
-        width: 550px;
+        width: 650px;
         text-align: left;
 
         > * {
@@ -949,11 +969,11 @@ i.iconfont {
 
     @media only screen and (max-width: 1199px) {
         .module-img {
-            max-width: 350px;
+            max-width: 300px;
         }
 
         .module-text {
-            width: 450px;
+            width: 550px;
         }
     }
 
@@ -964,7 +984,7 @@ i.iconfont {
         }
 
         .module-text {
-            width: 300px;
+            width: 330px;
         }
     }
 
@@ -992,7 +1012,7 @@ i.iconfont {
     .module;
 
     .module-img {
-        max-width: 300px;
+        max-width: 330px;
     }
 
     .module-text {
