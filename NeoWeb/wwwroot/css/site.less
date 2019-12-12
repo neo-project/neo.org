@@ -1,14 +1,16 @@
 ﻿@import 'basic.less';
 @import 'layout.less';
 
-@letter-spacing: .02em;
-@line-height: 1.4;
+@font: 16px;
+
+html {
+    font-size: @font !important;
+}
 
 html body {
-    font-size: 17px;
+    font-size: @font;
     .font-family;
-    letter-spacing: @letter-spacing;
-    line-height: @line-height;
+    line-height: 1.6;
     background: @body;
     color: @text;
 
@@ -57,11 +59,15 @@ ul.list-none {
 
 /*字体*/
 .font-family {
-    font-family: Rajdhani;
+    font-family: WorkSans-Regular;
 }
 
 .font-family-bold {
-    font-family: Rajdhani-Bold;
+    font-family: WorkSans-Bold;
+}
+
+.font-family-medium {
+    font-family: WorkSans-Regular;
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, p {
@@ -72,77 +78,95 @@ ul.list-none {
 h1, .h1 {
     .font-family-bold;
     font-size: @t1;
-    line-height: 102px;
+    line-height: 108px;
+    letter-spacing: -2px;
 
     @media only screen and (max-width: 767px) {
         font-size: @t2;
-        line-height: 53px;
+        line-height: 60px;
+        letter-spacing: -1px;
     }
 }
 
 h2, .h2 {
     .font-family-bold;
     font-size: @t2;
-    line-height: 60px;
+    line-height: 65px;
+    letter-spacing: -1px;
 
     @media only screen and (max-width: 767px) {
         font-size: @t3;
-        line-height: 42px;
+        line-height: 50px;
+        letter-spacing: -.6px;
     }
 }
 
 h3, .h3 {
     .font-family-bold;
     font-size: @t3;
-    line-height: 47px;
+    line-height: 50px;
+    letter-spacing: -.8px;
 
     @media only screen and (max-width: 767px) {
         font-size: @t4;
-        line-height: 26px;
+        line-height: 28px;
+        letter-spacing: -.3px;
     }
 }
 
 h4, .h4 {
     .font-family-bold;
     font-size: @t4;
-    line-height: 37px;
-
+    line-height: 40px;
+    letter-spacing: -.6px;
 
     @media only screen and (max-width: 767px) {
         font-size: @t5;
-        line-height: 26px;
+        line-height: 28px;
+        letter-spacing: -.3px;
     }
 }
 
 h5, .h5 {
     .font-family;
     font-size: @t4;
-    line-height: 37px;
+    line-height: 40px;
+    letter-spacing: -.8px;
 
     @media only screen and (max-width: 767px) {
         font-size: @t5;
-        line-height: 26px;
+        line-height: 21px;
+        letter-spacing: -.2px;
     }
 }
 
 h6, .h6 {
-    .font-family;
+    .font-family-bold;
     font-size: @t5;
     line-height: 32px;
 
     @media only screen and (max-width: 767px) {
         line-height: 26px;
+        letter-spacing: -.2px;
     }
 }
 
 .font1 {
-    font-size: 1rem;
     .font-family;
+    font-size: 1rem;
 }
 
 .font2 {
-    .font1;
-    .bold;
+    .font-family-bold;
+    font-size: 1rem;
+}
+
+.font3 {
+    .font-family;
+    font-size: 0.8rem;
+    font-weight: 300;
+    font-size: 0.95rem;
+    letter-spacing: .2px;
 }
 
 /*间距*/
@@ -324,6 +348,7 @@ a[class|=btn] {
 }
 
 .btn {
+    .font-family;
     display: inline-block;
     font-weight: 600;
     background: @btn-back;
@@ -371,9 +396,8 @@ a[class|=btn] {
 
 .btn2 {
     .green;
+    .font2;
     float: right;
-    font-size: 1rem;
-    font-weight: 600;
     display: inline-block;
     cursor: pointer;
     transition: color .2s;
@@ -438,7 +462,7 @@ a[class|=btn] {
     color: @text2;
 
     span {
-        .font1;
+        .font3;
         display: block;
         color: @gray;
     }
@@ -596,6 +620,11 @@ hr.line {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+}
+
+.w1000 {
+    .w;
+    max-width: 1000px;
 }
 
 .w900 {
@@ -852,7 +881,7 @@ i.iconfont {
     .p3;
     .pt0;
 
-    div[class|=col], > li {
+    div[class|=col] {
         .mt3;
 
         > span {
@@ -868,12 +897,16 @@ i.iconfont {
             list-style: none;
             overflow: hidden;
             padding-left: 0;
+            margin-right: 15px;
 
             li {
                 .mt6;
+                min-width: 85px;
+                margin-left: 15px;
+                vertical-align: top;
 
                 span {
-                    .font1;
+                    .font3;
                     color: @text3;
                     display: block;
                 }
@@ -885,9 +918,13 @@ i.iconfont {
         text-align: center;
         .pt0;
 
-        div[class|=col], > li {
+        div[class|=col] {
             > span {
                 float: none;
+            }
+            
+            .list-ul li:first-child {
+                margin-left: 0;
             }
         }
     }
@@ -899,12 +936,12 @@ i.iconfont {
     .module-img {
         float: right;
         width: 100%;
-        max-width: 400px;
+        max-width: 380px;
     }
 
     .module-text {
         display: inline-block;
-        width: 550px;
+        width: 650px;
         text-align: left;
 
         > * {
@@ -932,11 +969,11 @@ i.iconfont {
 
     @media only screen and (max-width: 1199px) {
         .module-img {
-            max-width: 350px;
+            max-width: 300px;
         }
 
         .module-text {
-            width: 450px;
+            width: 550px;
         }
     }
 
@@ -947,7 +984,7 @@ i.iconfont {
         }
 
         .module-text {
-            width: 300px;
+            width: 330px;
         }
     }
 
@@ -975,7 +1012,7 @@ i.iconfont {
     .module;
 
     .module-img {
-        max-width: 300px;
+        max-width: 330px;
     }
 
     .module-text {

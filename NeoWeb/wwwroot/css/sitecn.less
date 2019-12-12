@@ -9,13 +9,16 @@
 @green2: #02e49b;
 
 @font-family-zh: "SF Pro SC","SF Pro Text","SF Pro Icons","PingFang SC",'Segoe UI',SegoeUI,"Microsoft YaHei","微软雅黑","Helvetica Neue","Helvetica","Arial",sans-serif;
-@letter-spacing: .04em;
+
+html{
+    font-size:14px!important;
+}
 
 html body {
-    font-size: 14px !important;
+    font-size: 15px!important;
     font-family: @font-family-zh;
-    letter-spacing: @letter-spacing;
-    line-height: 1.4;
+    letter-spacing: .6px;
+    line-height: 1.75;
 
     @media only screen and (max-width: 767px) {
         font-size: 12px;
@@ -33,14 +36,14 @@ html body {
 }
 
 
-
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, p {
-    letter-spacing: @letter-spacing;
     letter-spacing: 0.3px;
 }
 h1, .h1 {
     .font-family-bold;
     font-size: @t1;
+    letter-spacing: 3.4px;
+    line-height:109px;
 
     @media only screen and (max-width: 767px) {
         font-size: @t2;
@@ -50,6 +53,8 @@ h1, .h1 {
 h2, .h2 {
     .font-family-bold;
     font-size: @t2;
+    letter-spacing: 3px;
+    line-height: 66px;
 
     @media only screen and (max-width: 767px) {
         font-size: @t3;
@@ -59,6 +64,8 @@ h2, .h2 {
 h3, .h3 {
     .font-family-bold;
     font-size: @t3;
+    letter-spacing: 2px;
+    line-height: 50px;
 
     @media only screen and (max-width: 767px) {
         font-size: @t5;
@@ -68,6 +75,8 @@ h3, .h3 {
 h4, .h4 {
     .font-family-bold;
     font-size: @t4;
+    letter-spacing: 1px;
+    line-height: 37px;
 
     @media only screen and (max-width: 767px) {
         font-size: @t5;
@@ -77,7 +86,8 @@ h4, .h4 {
 h5, .h5 {
     .font-family;
     font-size: @t4;
-    font-weight: 300;
+    letter-spacing: 1px;
+    line-height: 37px;
 
     @media only screen and (max-width: 767px) {
         font-size: @t5;
@@ -85,9 +95,10 @@ h5, .h5 {
 }
 
 h6, .h6 {
-    .font-family;
+    .font-family-bold;
     font-size: @t5;
-    font-weight: 300;
+    letter-spacing: .4px;
+    line-height: 28px;
 
     @media only screen and (max-width: 767px) {
         font-size: @t5;
@@ -97,17 +108,11 @@ h6, .h6 {
 .font1 {
     .font-family;
     font-size: 1rem;
-    font-weight: 300;
 }
 
 .font2 {
     .font1;
     font-weight:bolder;
-}
-
-
-.btn,.btn1,.btn2 {
-    font-weight: 300;
 }
 
 /*字体*/
