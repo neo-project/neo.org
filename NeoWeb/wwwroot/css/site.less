@@ -1,23 +1,17 @@
 ﻿@import 'basic.less';
 @import 'layout.less';
 
-@letter-spacing: .02em;
-@line-height: 1.6;
+@font: 17px;
 
-@font-face {
-    font-family: 'WorkSans-Bold'; /* project id 1408484 */
-    src: url('../font/WorkSans-Bold.ttf');
-}
-@font-face {
-    font-family: 'WorkSans-Regular'; /* project id 1408484 */
-    src: url('../font/WorkSans-Regular.ttf');
+html {
+    font-size: @font !important;
 }
 
 html body {
-    font-size: 17px;
+    font-size: @font;
     .font-family;
-    letter-spacing: @letter-spacing;
-    line-height: @line-height;
+    letter-spacing: 0.02em;
+    line-height: 1.6;
     background: @body;
     color: @text;
 
