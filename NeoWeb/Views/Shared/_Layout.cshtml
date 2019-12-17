@@ -56,18 +56,19 @@ https://github.com/neo-project/neo.org
     <link href="@Helper.ToCDN("/css/site.min.css", true)" rel="stylesheet" />
     <style>
         @@font-face {
-            font-family: Rajdhani;
-            src: url('/font/Rajdhani-Regular.ttf');
+            font-family: 'WorkSans-Bold'; /* project id 1408484 */
+            src: url('/font/WorkSans-Bold.ttf');
         }
+
         @@font-face {
-            font-family: Rajdhani-Bold;
-            src: url('/font/Rajdhani-Bold.ttf');
+            font-family: 'WorkSans-Regular'; /* project id 1408484 */
+            src: url('/font/WorkSans-Regular.ttf');
         }
     </style>
     @RenderSection("Styles", required: false)
     @if (SharedLocalizer["en"].Value == "zh")
     {
-    <link href="@Helper.ToCDN("/css/sitecn.css", true)" rel="stylesheet" />
+        <link href="@Helper.ToCDN("/css/sitecn.css", true)" rel="stylesheet" />
     }
 </head>
 <body id="neo-body">
