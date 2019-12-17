@@ -92,7 +92,7 @@ h2, .h2 {
     .font-family-bold;
     font-size: @t2;
     line-height: 65px;
-    letter-spacing: -1px;
+    letter-spacing: .8px;
 
     @media only screen and (max-width: 767px) {
         font-size: @t3;
@@ -835,6 +835,7 @@ i.iconfont {
 
             &.img {
                 .bg-img;
+                border:1px solid @line3;
             }
 
 
@@ -901,8 +902,7 @@ i.iconfont {
 
             li {
                 .mt6;
-                min-width: 85px;
-                margin-left: 15px;
+                min-width: 50%;
                 vertical-align: top;
 
                 span {
@@ -922,9 +922,15 @@ i.iconfont {
             > span {
                 float: none;
             }
-            
-            .list-ul li:first-child {
-                margin-left: 0;
+
+            .list-ul{
+                li{
+                    min-width: 31%;
+                }
+
+                &.two li{
+                    min-width: 48%;
+                }
             }
         }
     }
@@ -936,12 +942,12 @@ i.iconfont {
     .module-img {
         float: right;
         width: 100%;
-        max-width: 380px;
+        max-width: 420px;
     }
 
     .module-text {
         display: inline-block;
-        width: 650px;
+        width: 600px;
         text-align: left;
 
         > * {
