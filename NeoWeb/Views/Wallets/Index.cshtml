@@ -903,9 +903,14 @@
                 <a class="btn" href="https://app.magnumwallet.co/" target="_blank">@Localizer["Go to Web Wallet"]</a>
             </div>
             <div class="desc d-none">
+                <div class="preview-div">
+                    <h3>@Localizer["Preview"]</h3>
+                    <a class="plat-btn btn-web active" href="javascript:" onclick="switchPlatform('web');">@Localizer["Web"]</a>
+                </div>
                 <div class="p-web preview">
                     <img data-original="@Helper.ToCDN("/images/wallets/magnum-web1.jpg")" />
                     <img data-original="@Helper.ToCDN("/images/wallets/magnum-web2.jpg")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/magnum-web3.jpg")" />
                 </div>
                 <p>@Localizer["Magnum Wallet is  a multi-currency non-custodial wallet service that supports coins & tokens, exchange capabilities and support of hardware wallets."]</p>
                 <p>@Localizer["Languages"]: English </p>
@@ -929,6 +934,7 @@
                         </div>
                     </div>
                 </div>
+                <p>@Localizer["Supported Browser"]: Chrome/Edge</p>
             </div>
         </li>
         <li class="web">
