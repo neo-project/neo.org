@@ -150,6 +150,9 @@
   <data name="Communities" xml:space="preserve">
     <value>个社区</value>
   </data>
+  <data name="Community Academic Publications" xml:space="preserve">
+    <value>社区学术发表</value>
+  </data>
   <data name="compiler" xml:space="preserve">
     <value>编译器</value>
   </data>
