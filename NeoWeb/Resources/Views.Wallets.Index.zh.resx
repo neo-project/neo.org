@@ -424,4 +424,7 @@
   <data name="Magnum Wallet is  a multi-currency non-custodial wallet service that supports coins &amp; tokens, exchange capabilities and support of hardware wallets." xml:space="preserve">
     <value>Magnum钱包是一种多币种的非托管钱包服务，支持硬币和代币，交换功能以及对硬件钱包的支持。</value>
   </data>
+  <data name="Guarda is a multi-currency, multi-platform cryptocurrency wallet providing custody-free fund management for a variety of coins and tokens. Currently, the wallet supports over 45 major blockchains along with thousands of tokens and offers additional features such as built-in cryptocurrency purchases, exchanges, selling crypto, staking, claiming NEO GAS and more." xml:space="preserve">
+    <value>Guarda 是一种多币种，多平台的加密货币钱包。该钱包目前支持 45 个区块链及数千种代币，并提供加密货币购买、交易、出售、抵押、提取 GAS 等功能。</value>
+  </data>
 </root>
