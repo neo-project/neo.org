@@ -427,4 +427,7 @@
   <data name="Guarda is a multi-currency, multi-platform cryptocurrency wallet providing custody-free fund management for a variety of coins and tokens. Currently, the wallet supports over 45 major blockchains along with thousands of tokens and offers additional features such as built-in cryptocurrency purchases, exchanges, selling crypto, staking, claiming NEO GAS and more." xml:space="preserve">
     <value>Guarda 是一种多币种，多平台的加密货币钱包。该钱包目前支持 45 个区块链及数千种代币，并提供加密货币购买、交易、出售、抵押、提取 GAS 等功能。</value>
   </data>
+  <data name="This is the official Nash Exchange wallet. Nash is a DEX originated from the NEO community and found by City of Zion founders. Wallet video:" xml:space="preserve">
+    <value>Nash 交易所的官方钱包。Nash 是一个去中心化交易所，由 City of Zion 发起人和 Neo 社区成员组建。钱包视频：</value>
+  </data>
 </root>
