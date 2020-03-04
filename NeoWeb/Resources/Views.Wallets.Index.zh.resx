@@ -126,9 +126,6 @@
   <data name="Download" xml:space="preserve">
     <value>下载</value>
   </data>
-  <data name="Client Downloads" xml:space="preserve">
-    <value>客户端下载</value>
-  </data>
   <data name="Get source code" xml:space="preserve">
     <value>查看源代码</value>
   </data>
@@ -205,7 +202,7 @@
     <value>更多信息请参见：</value>
   </data>
   <data name="Enhances the security of RPC requests by enabling base64 encryption for HTTP requests. You need to configure the user name and password in the plugin config.json file." xml:space="preserve">
-    <value>对 HTTP Request 进行 base64 加密，提升 RPC 请求的安全性。需要在该插件的 config.json 文件中设置 username 和 password。</value>
+    <value>对 HTTP Request 进行 base64 加密，提升 RPC 请求的安全性。需要在此插件的 config.json 文件中设置 username 和 password。</value>
   </data>
   <data name="Instructions for use" xml:space="preserve">
     <value>使用说明</value>
@@ -217,19 +214,19 @@
     <value>InWeCrypto 钱包是一款 HD 钱包的移动端数字资产钱包，支持多种数字资产。</value>
   </data>
   <data name="It's a multi-token wallet developed by Infinito Blockchain Labs . This wallet supports BTC, ETH, NEO, EOS and other ecosystems. It has more than 10 languages for alternatives and supports fingerprint identification." xml:space="preserve">
-    <value>Infinito 区块链实验室开发的多币种钱包客户端，同时支持 BTC 系、ETH 系、NEO 系、EOS 系等生态，支持 10 种以上语言，支持指纹识别密码。</value>
+    <value>Infinito 区块链实验室开发的多币种钱包，同时支持 BTC 系、ETH 系、NEO 系、EOS 系等生态，支持 10 种以上语言，支持指纹识别密码。</value>
   </data>
   <data name="It's an Android wallet developed by e-studio. This wallet contains basic functions such as importing private keys, transferring assets, etc." xml:space="preserve">
     <value>e-studio 开发的安卓钱包，包含基本的功能，如导入私钥，转账等。</value>
   </data>
   <data name="It's a cross-platform wallet developed by Neo developer community City of Zion. This wallet supports mainstream operating systems such as Windows, macOS and Linux, and focuses on UE and UI." xml:space="preserve">
-    <value>Neo 开发者社区 City of Zion 开发的跨平台的客户端，支持 Windows、 macOS 和 Linux 等主流操作系统，注重 UE 与 UI。</value>
+    <value>Neo 开发者社区 City of Zion 开发的跨平台的钱包，支持 Windows、 macOS 和 Linux 等主流操作系统，注重 UE 与 UI。</value>
   </data>
   <data name="It's an online wallet developed by SafuDEX. It heavily focuses on dApp integration and operability, as well as streamlining the user experience." xml:space="preserve">
     <value>SaduDEX 开发的在线钱包。侧重于 dApp 的集成和交互，同时简化操作流程提升用户体验。</value>
   </data>
   <data name="It's a cross-platform wallet developed by O3 Labs. This wallet supports most mainstream operating systems, maintains a high update frequency and can support Neo network updates and features in a timely manner." xml:space="preserve">
-    <value>O3 Labs 开发的跨平台客户端，支持大部分主流操作系统。该客户端保持高更新频率，能及时支持 Neo 网络更新与特性。</value>
+    <value>O3 Labs 开发的跨平台钱包，支持大部分主流操作系统。此钱包保持高更新频率，能及时支持 Neo 网络更新与特性。</value>
   </data>
   <data name="It's a digital currency wallet developed by CaspianTechnologies. This wallet needs signatures from multiple parties on transactions, and it is compatible with the Spatium hardware wallet, which possesses the biological recognition technologies. It also focuses on the security." xml:space="preserve">
     <value>CaspianTechnologies 开发的数字货币钱包，对交易进行多方签名，兼容生物识别的 Spatium 硬件钱包，注重安全性。</value>
@@ -241,13 +238,13 @@
     <value>一个支持 NEO 的多币种的硬件钱包，私钥存储在硬件芯片中，注重安全性。</value>
   </data>
   <data name="It's a multiple digital asset wallet developed by Math Labs. This wallet supports BTC, ETH, NEO, EOS and other ecosystems, as well as face recognition, living body recognition and other biometric recognition technologies." xml:space="preserve">
-    <value>Math Labs 开发的多种数字资产钱包客户端，同时支持 BTC 系、ETH 系、NEO 系、EOS 系等生态，支持人脸、活体等多种生物识别技术。</value>
+    <value>Math Labs 开发的支持多种数字资产的钱包，同时支持 BTC 系、ETH 系、NEO 系、EOS 系等生态，支持人脸、活体等多种生物识别技术。</value>
   </data>
   <data name="It's a simple paper wallet generator developed by Snowypowers. This wallet only supports the encryption and decryption of private keys. It fails to support other functions like transferring assets." xml:space="preserve">
     <value>Snowypowers 开发的简单的纸钱包生成器，仅支持私钥的加密解密，不支持转账等功能。</value>
   </data>
   <data name="It's a the first hot and cold combined wallet that supports NEO. The mnemonic and private key are stored locally. This wallet is divided into general mode and isolation mode. In the isolation mode, the devices used need to be completely isolated from the network. This wallet is simple in functions, and when transaction happens, the hot wallet needs to be used for transaction request and broadcast." xml:space="preserve">
-    <value>首个支持 NEO 的冷热结合钱包客户端，助记词及私钥本地保存，该客户端分为常规模式和隔离模式。在隔离模式下，使用设备需要完全隔离网络，功能简单，在交易时，需使用热钱包进行交易请求及广播。</value>
+    <value>首个支持 NEO 的冷热结合的钱包，助记词及私钥本地保存，此钱包分为常规模式和隔离模式。在隔离模式下，使用设备需要完全隔离网络，功能简单，在交易时，需使用热钱包进行交易请求及广播。</value>
   </data>
   <data name="It's a wallet developed by SEA. This wallet contains basic functions such as importing private keys, transferring assets, retrieving GAS, etc." xml:space="preserve">
     <value>SEA 开发的一个钱包，包含基本的功能，如导入私钥，转账，提取 GAS 等。</value>
@@ -264,11 +261,11 @@
   <data name="Need to install" xml:space="preserve">
     <value>需要安装</value>
   </data>
-  <data name="Neo-cli is a full-node command-line client that can run across platforms. It can provide APIs for developers to call, or participate in the consensus mechanism as a consensus node in the block chain. This wallet is designed for developers, with professional software interaction, as well as higher security and stability. The disadvantages of this wallet are that it takes a long time to initialize synchronization, and it takes up disk and memory." xml:space="preserve">
-    <value>Neo-cli 是一个全节点的命令行客户端，可以跨平台上运行，它可以提供 API 供开发者调用，也可以作为区块链中的共识节点参与共识。软件交互较为专业，面向开发者。拥有较高的安全性和稳定性。缺点是初始化同步时间长，占用磁盘和内存。</value>
+  <data name="Neo-CLI is a full-node command-line client that can run across platforms. It can provide APIs for developers to call, or participate in the consensus mechanism as a consensus node in the block chain. This wallet is designed for developers, with professional software interaction, as well as higher security and stability. The disadvantages of this wallet are that it takes a long time to initialize synchronization, and it takes up disk and memory." xml:space="preserve">
+    <value>Neo-CLI 是一个全节点的命令行客户端，可以跨平台上运行，它可以提供 API 供开发者调用，也可以作为区块链中的共识节点参与共识。软件交互较为专业，面向开发者。拥有较高的安全性和稳定性。缺点是初始化同步时间长，占用磁盘和内存。</value>
   </data>
-  <data name="Neo-gui is a full-node Neo client, which contains all the basic functions of Neo network. This wallet is designed for advanced users, with professional software interaction and extremely high security. However, it takes a long time to initialize synchronization, occupies disk and memory, and has poor stability." xml:space="preserve">
-    <value>Neo-cli 是一个全节点的 Neo 客户端，它包含了 Neo 网络的所有基本功能，软件交互较为专业，面向高级用户，拥有极高的安全性。但初始化同步时间长，占用磁盘和内存，且稳定性欠佳。</value>
+  <data name="Neo-GUI is a full-node Neo client, which contains all the basic functions of Neo network. This wallet is designed for advanced users, with professional software interaction and extremely high security. However, it takes a long time to initialize synchronization, occupies disk and memory, and has poor stability." xml:space="preserve">
+    <value>Neo-GUI 是一个全节点的 Neo 客户端，它包含了 Neo 网络的所有基本功能，软件交互较为专业，面向高级用户，拥有极高的安全性。但初始化同步时间长，占用磁盘和内存，且稳定性欠佳。</value>
   </data>
   <data name="Non-open Source Software" xml:space="preserve">
     <value>非开源软件</value>
@@ -302,37 +299,40 @@
 使用钱包时，请将私钥进行安全备份。私钥是您控制自己的 Neo 资产的唯一方法。</value>
   </data>
   <data name="This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the hardware wallet, so it has extremely high security." xml:space="preserve">
-    <value>该客户端让用户拥有对数字资产的高度掌控权。私钥是通过硬件钱包加密存储的，有极高的安全性。</value>
+    <value>此钱包让你拥有对数字资产的高度掌控权。私钥是通过硬件钱包加密存储的，有极高的安全性。</value>
   </data>
   <data name="This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the private key." xml:space="preserve">
-    <value>该客户端让用户拥有对数字资产的高度掌控权。私钥是通过钱包文件和密码加密存储的。但仍需注意在安全的设备上使用，并注意私钥的安全备份和妥善保管。</value>
+    <value>此钱包让你拥有对数字资产的高度掌控权。私钥是通过钱包文件和密码加密存储的。但仍需注意在安全的设备上使用，并注意私钥的安全备份和妥善保管。</value>
   </data>
-  <data name="This wallet can store all keys locally, however, it's main mode of operation involves storing private keys, encrypted with the user's password, in central servers, providing a level of security that is higher than the security afforded by wallets that use servers with direct access to the keys but lower than the wallets that store the keys locally. Users should take special care to use complex passwords, and always pay attention to the safe backup and safekeeping of the wallet file." xml:space="preserve">
-    <value>此钱包在本地存储所有密钥，但它会将使用用户密码加密过的私钥存储在中央服务器中，安全级别介于完全的本地存储和服务器托管之间。用户应特别注意使用复杂的密码，并注意钱包文件的安全备份和妥善保管。</value>
+  <data name="This wallet stores all private keys locally, but it stores the private keys encrypted with the user's password on a central server. The security level is between full local storage and server hosting.  You should take special care to use complex passwords, and always pay attention to the safe backup and safekeeping of the wallet file." xml:space="preserve">
+    <value>此钱包在本地存储所有私钥，但它会将使用用户密码加密过的私钥存储在中央服务器中。安全级别介于完全的本地存储和服务器托管之间。你应注意使用复杂的密码，并注意钱包文件的安全备份和妥善保管。</value>
+  </data>
+  <data name="This wallet decrypts private keys locally, but it stores the private keys encrypted with the user's password on a central server. The security level is between full local storage and server hosting. You should take special care to use complex passwords, and always pay attention to the safe backup and safekeeping of the mnemonim and Authenticator." xml:space="preserve">
+    <value>此钱包在本地解密所有私钥，但它会将使用用户密码加密过的私钥存储在中央服务器中。安全级别介于完全的本地存储和服务器托管之间。你应注意使用复杂的密码，并注意助记词、二次验证的安全备份和妥善保管。</value>
   </data>
   <data name="This wallet gives users a high degree of control over digital assets. The private key or the mnemonic are stored locally. This wallet gives more support to the cold and hot wallet dual mode cooperation, offline signature authorization and online asset observation. It is completely isolated from the network environment so as to store assets more securely." xml:space="preserve">
-    <value>该客户端让用户拥有对数字资产的高度掌控权。私钥或助词本地保存。更支持冷热钱包双重模式配合，离线签名授权，在线资产观察。完全隔离网络环境，更安全地存储资产。</value>
+    <value>此钱包让用户拥有对数字资产的高度掌控权。私钥或助词本地保存。更支持冷热钱包双重模式配合，离线签名授权，在线资产观察。完全隔离网络环境，更安全地存储资产。</value>
   </data>
   <data name="This wallet gives you a high degree of control over digital assets. The private key is encrypted and stored by the Encrypted Key and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the Encrypted Key." xml:space="preserve">
     <value>该客户端让你拥有对数字资产的高度掌控权。私钥是通过 Encrypted Key 和密码加密存储的。但用户仍需注意在安全的设备上使用，并注意 Encrypted Key 的安全备份和妥善保管。</value>
   </data>
   <data name="This wallet is a full node that stores all the data in the Neo blockchain, which means that there is no need to trust a third party when verifying payments or executing contracts. The full node provides the highest level of security and is an integral part of protecting the network. However, it requires more hard disk space (15GB), greater bandwidth, and a longer initialization synchronization time. The initialization synchronization speed can be accelerated by downloading the &lt;a href=&quot;http://sync.ngd.network/&quot; target=&quot;_blank&quot;&gt;offline synchronization package&lt;/a&gt; provided by NGD." xml:space="preserve">
-    <value>该客户端是一个全节点，它存储 Neo 区块链中的所有数据。这意味着当验证支付或者执行合约的时候，不需要信任第三方。全节点提供了最高级别的安全性并且是保护网络不可或缺的元素。然而，它需要更多的硬盘空间（15GB）、更大的带宽和一个更长的初始化同步时间。通过下载 NGD 提供的 &lt;a href="http://sync.ngd.network/" target="_blank"&gt;离线同步包 &lt;/a&gt; 可以加快初始化同步速度。</value>
+    <value>此钱包是一个全节点，它存储 Neo 区块链中的所有数据。这意味着当验证支付或者执行合约的时候，不需要信任第三方。全节点提供了最高级别的安全性并且是保护网络不可或缺的元素。然而，它需要更多的硬盘空间（15GB）、更大的带宽和一个更长的初始化同步时间。通过下载 NGD 提供的 &lt;a href="http://sync.ngd.network/" target="_blank"&gt;离线同步包 &lt;/a&gt; 可以加快初始化同步速度。</value>
   </data>
   <data name="This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client." xml:space="preserve">
-    <value>该客户端是非开源软件，这意味着需要十分信任这个钱包的开发者。Neo Foundation、NGD 不为该客户端进行背书。</value>
+    <value>此钱包是非开源软件，这意味着需要十分信任这个钱包的开发者。Neo Foundation、NGD 不为此钱包进行背书。</value>
   </data>
   <data name="This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets." xml:space="preserve">
-    <value>该客户端是开源软件，这意味着所有开发者都可以审查其编码并确保最后的软件没有隐藏任何秘密。</value>
+    <value>此钱包是开源软件，这意味着所有开发者都可以审查其编码并确保最后的软件没有隐藏任何秘密。</value>
   </data>
   <data name="This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software." xml:space="preserve">
-    <value>该钱包是开源软件，这意味着世界上所有的开发人员都可以审查它的编码并确保最后的软件没有隐藏任何秘密。不过，当您安装或更新软件时，您还是需要信任该钱包的开发者。</value>
+    <value>此钱包是开源软件，这意味着世界上所有的开发人员都可以审查它的编码并确保最后的软件没有隐藏任何秘密。不过，当您安装或更新软件时，您还是需要信任此钱包的开发者。</value>
   </data>
   <data name="This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when when you visit a web wallet." xml:space="preserve">
-    <value>该钱包是开源软件，这意味着世界上所有的开发人员都可以审查它的编码并确保最后的软件没有隐藏任何秘密。不过，当您访问网页钱包时，您还是需要信任该钱包的开发者。</value>
+    <value>此钱包是开源软件，这意味着世界上所有的开发人员都可以审查它的编码并确保最后的软件没有隐藏任何秘密。不过，当您访问网页钱包时，您还是需要信任此钱包的开发者。</value>
   </data>
   <data name="This wallet supports the encryption and decryption of the private key for secure storage. The website itself does not store the private key, so please pay attention to the safe backup and safekeeping of the private key." xml:space="preserve">
-    <value>该钱包将私钥进行加密和解密，以便将其安全存储。网站本身不存储私钥，请注意私钥的安全备份和妥善保管。</value>
+    <value>此钱包将私钥进行加密和解密，以便将其安全存储。网站本身不存储私钥，请注意私钥的安全备份和妥善保管。</value>
   </data>
   <data name="Transparency" xml:space="preserve">
     <value>透明度</value>
@@ -359,7 +359,7 @@
     <value>https://docs.neo.org/docs/zh-cn/node/cli/setup.html</value>
   </data>
   <data name="Atomic is a decentralized wallet that supports 300+ cryptocurrency assets. The wallet uses Atomic Swap technology for cross-chain custody free exchange. Atomic Wallet provides instant exchange and &quot;buy crypto with a credit card&quot; feature. Available for Windows, Mac OS, Linux, and Android." xml:space="preserve">
-    <value>Atomic 是一款去中心化钱包，支持 300 多种加密货币资产。该钱包使用原子互换技术实现跨链托管自由转换。Atomic 钱包提供实时转换和“使用信用卡购买加密货币”功能。适用于 Windows、Mac OS、Linux 以及 Android。</value>
+    <value>Atomic 是一款去中心化钱包，支持 300 多种加密货币资产。此钱包使用原子互换技术实现跨链托管自由转换。Atomic 钱包提供实时转换和“使用信用卡购买加密货币”功能。适用于 Windows、Mac OS、Linux 以及 Android。</value>
   </data>
   <data name="Enquiries NEP-5 balance and transactions history of accounts through RPC." xml:space="preserve">
     <value>提供 NEP-5 余额及交易历史的 RPC 查询功能。</value>
@@ -368,13 +368,13 @@
     <value>提供钱包相关的 RPC 功能。</value>
   </data>
   <data name="This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the wallet file." xml:space="preserve">
-    <value>该钱包让您拥有对数字资产的高度掌控权。私钥是通过钱包文件和密码加密存储的。但您仍需注意在安全的设备上使用，并注意钱包文件的安全备份和妥善保管。</value>
+    <value>此钱包让您拥有对数字资产的高度掌控权。私钥是通过钱包文件和密码加密存储的。但您仍需注意在安全的设备上使用，并注意钱包文件的安全备份和妥善保管。</value>
   </data>
   <data name="Bitkeep is a decentralized multi-chain digital wallet that supports thousands of digital assets such as BTC, ETH, EOS, NEO, USDT, ONT, multi-wallet management, aggregation transactions, exchange asset docking and more." xml:space="preserve">
     <value>Bitkeep 是一款去中心化多链数字钱包，支持数千种数字资产，如 BTC，ETH，EOS，NEO，USDT，ONT，多钱包管理，汇总交易，交换资产对接等。</value>
   </data>
   <data name="YEZ Wallet is a NEP-5 Wallet. We focuses on easy on-boarding with Google/Facebook Login integration.User can send/receive NEO, GAS, YEZ and other NEP-5 digital assets." xml:space="preserve">
-    <value>YEZ 钱包是 NEP-5 钱包，需要通过 Google / Facebook 登录集成，用户可以进行 NEO 、GAS、YEZ 及其他 NEP-5 资产转账并查看交易历史记录。</value>
+    <value>YEZ 钱包是 NEP-5 钱包，需要通过 Google / Facebook 登录集成，你可以进行 NEO 、GAS、YEZ 及其他 NEP-5 资产转账并查看交易历史记录。</value>
   </data>
   <data name="Extension" xml:space="preserve">
     <value>浏览器插件</value>
@@ -383,7 +383,7 @@
     <value>NEOLine 是 Neo 区块链上的多种数字资产钱包和浏览器插件。支持钱包，多地址管理及多种验证方式。同时，作为 Neo 区块链上的浏览器插件钱包，它包含全面的钱包功能，并为开发人员提供了 dAPI。</value>
   </data>
   <data name="Teemo is a browser extension wallet of Neo.&lt;br/&gt;The extension injects the Neo dApp API into every website's JavaScript context, so that DApps can interact with the blockchain." xml:space="preserve">
-    <value>Teemo 是一款 Neo 区块链上的浏览器插件钱包，该扩展将 Neo dApp API 注入到每个网站的 JavaScript 上下文中以便 DApps 可以与区块链进行交互。</value>
+    <value>Teemo 是一款 Neo 区块链上的浏览器插件钱包，此扩展将 Neo dApp API 注入到每个网站的 JavaScript 上下文中以便 DApps 可以与区块链进行交互。</value>
   </data>
   <data name="High" xml:space="preserve">
     <value>高</value>
@@ -422,10 +422,10 @@
     <value>SafePal 致力于为持币用户提供安全、易用、便捷的加密数字资产存储方案，也是币安（Binance）投资的首家冷钱包团队。</value>
   </data>
   <data name="Magnum Wallet is  a multi-currency non-custodial wallet service that supports coins &amp; tokens, exchange capabilities and support of hardware wallets." xml:space="preserve">
-    <value>Magnum钱包是一种多币种的非托管钱包服务，支持硬币和代币，交换功能以及对硬件钱包的支持。</value>
+    <value>Magnum 钱包是一种多币种的非托管钱包服务，支持硬币和代币，交换功能以及对 Ledger、Trezor、KeeyKey 等多种硬件钱包的支持。</value>
   </data>
   <data name="Guarda is a multi-currency, multi-platform cryptocurrency wallet providing custody-free fund management for a variety of coins and tokens. Currently, the wallet supports over 45 major blockchains along with thousands of tokens and offers additional features such as built-in cryptocurrency purchases, exchanges, selling crypto, staking, claiming NEO GAS and more." xml:space="preserve">
-    <value>Guarda 是一种多币种，多平台的加密货币钱包。该钱包目前支持 45 个区块链及数千种代币，并提供加密货币购买、交易、出售、抵押、提取 GAS 等功能。</value>
+    <value>Guarda 是一种多币种，多平台的加密货币钱包。此钱包目前支持 45 个区块链及数千种代币，并提供加密货币购买、交易、出售、抵押、提取 GAS 等功能。</value>
   </data>
   <data name="This is the official Nash Exchange wallet. Nash is a DEX originated from the NEO community and found by City of Zion founders. Wallet video:" xml:space="preserve">
     <value>Nash 交易所的官方钱包。Nash 是一个去中心化交易所，由 City of Zion 发起人和 Neo 社区成员组建。钱包视频：</value>
