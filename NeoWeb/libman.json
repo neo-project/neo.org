@@ -10,7 +10,7 @@
       ]
     },
     {
-      "library": "twitter-bootstrap@4.3.1",
+      "library": "twitter-bootstrap@4.4.1",
       "destination": "wwwroot/lib/bootstrap/",
       "files": [
         "js/bootstrap.min.js",
@@ -42,7 +42,7 @@
       "destination": "wwwroot/lib/tinymce/"
     },
     {
-      "library": "bootstrap-fileinput@5.0.6",
+      "library": "bootstrap-fileinput@5.0.8",
       "destination": "wwwroot/lib/bootstrap-fileinput/",
       "files": [
         "css/fileinput-rtl.css",
