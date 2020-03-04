@@ -25,7 +25,7 @@ function blockInfo() {
         url: send_url,
         data: str,
         success: function (data) {
-            if (block_height != data.result - 1) {
+            if (block_height !== data.result - 1) {
                 lastt = new Date();
                 block_height = data.result - 1;
                 getListdata();
@@ -56,7 +56,7 @@ function countDown(time) {
 function getListdata() {
     $.get("../../consensus/getvalidators", []).done(function (data) {
         var _list = JSON.parse(data);
-        if (conNum != _list.length) {
+        if (conNum !== _list.length) {
             var flag = 0;
             $("#cannum").html(_list.length);
             for (var i = 0; i < _list.length; i++) {
@@ -68,17 +68,15 @@ function getListdata() {
             var html = "", html2 = "";
 
             for (var j in _list) {
-                if (_list[j].Info != null && _list[j].Info.Logo != null)
+                if (_list[j].Info !== null && _list[j].Info.Logo !== null)
                     _list[j].Info.Logo = _list[j].Info.Logo.replace("~", "");
 
                 _list[j].Social = [];
 
-                if (_list[j].Info != null && _list[j].Info.SocialAccount != null) {
+                if (_list[j].Info !== null && _list[j].Info.SocialAccount !== null) {
                     var accountList = _list[j].Info.SocialAccount.split(';');
-                    var socialAccount = "";
-
-                    for (var i = 0; i < accountList.length-1; i++) {
-                        var account = accountList[i].split(':');
+                    for (var k = 0; k < accountList.length-1; k++) {
+                        var account = accountList[k].split(':');
                         var accountName = account[0].toLowerCase();
 
                         var socialDetail = {
