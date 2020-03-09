@@ -156,8 +156,8 @@
   <data name="Phone Number" xml:space="preserve">
     <value>电话</value>
   </data>
-  <data name="Please enter your own Neo public key. If the application succeedsis successful, we will send Neo/GAS to a multiple multi-signature address and tell you how to use it." xml:space="preserve">
-    <value>请填写你自己的 Neo 公钥，如果申请成功，我们会将 Neo / GAS 发到一个多重签名的地址中，并告诉你如何使用。</value>
+  <data name="Please enter your own Neo public key. If the application is successful, we will send NEO/GAS to a multi-signature address and let you know how to use it." xml:space="preserve">
+    <value>请填写你自己的 Neo 公钥，如果申请成功，我们会将 NEO / GAS 发到一个多重签名的地址中，并告诉你如何使用。</value>
   </data>
   <data name="QQ" xml:space="preserve">
     <value>QQ</value>
