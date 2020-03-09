@@ -75,7 +75,7 @@
                 <input class="form-control" asp-for="PubKey" type="text"
                        data-val="true" data-val-regex-pattern="0[0-9|abcdef]{65}" data-val-required="@Localizer["This field is required"]" data-val-regex="@Localizer["Please enter a valid public key"]" />
                 <span asp-validation-for="PubKey" class="text-danger"></span>
-                <p class="pub-key-hint t4 lh3">@Localizer["Please enter your own Neo public key. If the application succeedsis successful, we will send Neo/GAS to a multiple multi-signature address and tell you how to use it."]</p>
+                <p class="pub-key-hint t4 lh3">@Localizer["Please enter your own Neo public key. If the application is successful, we will send NEO/GAS to a multi-signature address and let you know how to use it."]</p>
             </div>
         </div>
         <p class="mt4 text-center mb-5"><input type="submit" class="btn mb-4" value=@Localizer["Submit Application"]></p>
