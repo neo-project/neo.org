@@ -430,4 +430,7 @@
   <data name="This is the official Nash Exchange wallet. Nash is a DEX originated from the NEO community and found by City of Zion founders. Wallet video:" xml:space="preserve">
     <value>Nash 交易所的官方钱包。Nash 是一个去中心化交易所，由 City of Zion 发起人和 Neo 社区成员组建。钱包视频：</value>
   </data>
+  <data name="Send, receive, and exchange your favorite cryptocurrencies like Neo, Bitcoin, Ripple, and more with Exodus." xml:space="preserve">
+    <value>使用 Exodus 发送、接收、交换数字货币，例如 Neo、Bitcoin、Ripple 等。</value>
+  </data>
 </root>
