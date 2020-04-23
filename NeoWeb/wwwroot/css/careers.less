@@ -1,0 +1,27 @@
+﻿@import 'basic.less';
+
+.layout-container {
+    max-width: none;
+    padding: 0;
+    margin: 0;
+}
+
+.careers-qrcode {
+    position: relative;
+
+    img {
+        position: absolute;
+        display: none;
+        top: 40px;
+        left: -60px;
+        width: 150px;
+        border: 10px solid #fff;
+    }
+}
+
+.careers-qrcode:hover img {
+    display: block;
+}
+.title a {
+    color: @text;
+}
