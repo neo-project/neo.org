@@ -30,5 +30,6 @@ namespace NeoWeb.Data
 
         public DbSet<FwLink> FwLink { get; set; }
         public DbSet<Top> Top { get; set; }
+        public DbSet<Job> Careers { get; set; }
     }
 }

@@ -408,6 +408,25 @@ a[class|=btn] {
     }
 }
 
+.btn-focus, .btn-focus:hover, .btn-focus:focus, .btn-focus:active {
+    .font-family;
+    display: inline-block;
+    font-weight: 600;
+    background: @btn-back;
+    color: @btn-text !important;
+    border-radius: 0;
+    min-width: 130px;
+    padding: 12px 20px;
+    border: none;
+    opacity: 1;
+    transition: opacity 0.2s;
+    cursor: pointer;
+    text-align: center;
+    background-color: @white !important;
+    color: @btn-back !important;
+    border: 1px solid @btn-back;
+}
+
 /*颜色*/
 .color-n {
     color: @dark !important;
@@ -566,6 +585,17 @@ a[class|=btn] {
     @media only screen and (max-width: 767px) {
         background-position: 175px;
         background-size: 496px;
+    }
+}
+
+.bg9 {
+    background-position: top center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('../images/careers/neocareer-dt.svg');
+
+    @media only screen and (max-width: 767px) {
+        background-image: url('../images/careers/neocareer-mb.svg');
     }
 }
 
