@@ -14,9 +14,23 @@
         <h1 class="w1000">@Localizer["Join Us"]</h1>
         <p class="mt5 w600">@Localizer["We are calling for you to join us in in the journey towards the smart economy. Please check this page for regular updates of vacancies from various teams and functions."]</p>
         <div class="mt1 text-center">
-            @foreach (var item in SharedLocalizer["en"].Value == "zh" ? ViewBag.ChineseGroup : ViewBag.EnglishGroup)
+            @if((ViewBag.Groups as List<string>).Count == 1)
             {
-                <a class="btn-focus">@item</a>
+                <a href="javascript:" class="btn-focus">@((ViewBag.Groups as List<string>)[0])</a>
+            }
+            else
+            {
+                @foreach (var item in ViewBag.Groups)
+                {
+                    @if(item == ViewBag.Group)
+                    {
+                        <a href="javascript:" class="btn-focus">@item</a>
+                    }
+                    else
+                    {
+                        <a href="/careers?group=@item" class="btn">@item</a>
+                    }
+                }
             }
         </div>
     </div>

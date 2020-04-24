@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using NeoWeb.Data;
 using NeoWeb.Models;
 using System.Security.Claims;
+using Microsoft.Extensions.Localization;
 
 namespace NeoWeb.Controllers
 {
@@ -19,10 +20,12 @@ namespace NeoWeb.Controllers
         private readonly ApplicationDbContext _context;
         private readonly string _userId;
         private readonly bool _userRules;
+        private readonly IStringLocalizer<SharedResource> _sharedLocalizer;
 
-        public CareersController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
+        public CareersController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IStringLocalizer<SharedResource> sharedLocalizer)
         {
             _context = context;
+            _sharedLocalizer = sharedLocalizer;
             _userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             
             if (_userId != null)
@@ -33,11 +36,16 @@ namespace NeoWeb.Controllers
 
         // GET: Careers
         [AllowAnonymous]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string group = "")
         {
-            ViewBag.EnglishGroup = _context.Careers.GroupBy(p => p.EnglishGroup).Select(p => p.Key).ToList();
-            ViewBag.ChineseGroup = _context.Careers.GroupBy(p => p.ChineseGroup).Select(p => p.Key).ToList();
             ViewBag.UserRules = _userRules;
+            var isZh = _sharedLocalizer["en"] == "zh";
+            ViewBag.Group = group;
+            ViewBag.Groups = _context.Careers.GroupBy(p => isZh ? p.ChineseGroup.ToLower() : p.EnglishGroup.ToLower()).Select(p => p.Key).ToList();
+            if (group.Length > 0)
+            {
+                return View(await _context.Careers.Where(p => p.ChineseGroup.ToLower() == group || p.EnglishGroup.ToLower() == group).OrderByDescending(p => p.CreateTime).ToListAsync());
+            }
             return View(await _context.Careers.OrderByDescending(p => p.CreateTime).ToListAsync());
         }
 
