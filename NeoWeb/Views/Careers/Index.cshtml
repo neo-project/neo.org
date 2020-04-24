@@ -9,7 +9,7 @@
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/careers.min.css", true)" />
 }
-<div id="homeFri" class="bg9 p1">
+<div class="bg9 p1">
     <div class="container">
         <h1 class="w1000">@Localizer["Join Us"]</h1>
         <p class="mt5 w600">@Localizer["We are calling for you to join us in in the journey towards the smart economy. Please check this page for regular updates of vacancies from various teams and functions."]</p>
@@ -24,9 +24,11 @@
         @foreach (var item in Model)
         {
             <div class="mt4">
-                <h4 class="title"><a onclick="show(this)" href="#@item.Number">@(SharedLocalizer["en"].Value == "zh" ? @item.ChineseTitle : @item.EnglishTitle)</a></h4>
+                <a class="title with-space" onclick="show(this)" href="#@item.Number">
+                    <h4>@(SharedLocalizer["en"].Value == "zh" ? @item.ChineseTitle : @item.EnglishTitle)<i class="iconfont float-right">&#xe624;</i></h4>
+                </a>
                 <div id="@item.Number" style="display: none">
-                    <div class="mt4">@Html.Raw(SharedLocalizer["en"].Value == "zh" ? @item.ChineseContent : @item.ChineseContent)</div>
+                    <div class="mt4 with-space">@Html.Raw(SharedLocalizer["en"].Value == "zh" ? @item.ChineseContent : @item.EnglishContent)</div>
 
                     @if (ViewBag.UserRules != null && ViewBag.UserRules)
                     {
@@ -96,9 +98,17 @@
 </div>
 @section Scripts{
     <script>
+        var c = "rotage90";
         function show(obj) {
-            $(obj).parent().next().toggle();
+            var top = $(document).scrollTop();
+            $(obj).next().toggle(500);
+            if ($(obj).find(".iconfont").hasClass(c))
+                $(obj).find(".iconfont").removeClass(c);
+            else
+                $(obj).find(".iconfont").addClass(c);
+            $('html,body').animate({ scrollTop: top }); 
         }
         $(window.location.hash).show();
+        $(window.location.hash).prev().find(".iconfont").addClass(c);
     </script>
 }

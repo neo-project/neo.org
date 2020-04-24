@@ -161,7 +161,10 @@ https://github.com/neo-project/neo.org
                 <ul>
                     <li><a asp-controller="consensus" asp-action="index">@Localizer["Consensus"]</a></li>
                     <li><a asp-controller="contributors" asp-action="index">@Localizer["Contributors"]</a></li>
-                    <li><a asp-controller="careers" asp-action="index">@Localizer["Careers"]</a></li>
+                    @if (DateTime.Now > new DateTime(2020, 4, 24, 13, 0, 0, DateTimeKind.Utc))
+                    {
+                        <li><a asp-controller="careers" asp-action="index">@Localizer["Careers"]</a></li>
+                    }
                     <li><a asp-controller="presskit" asp-action="index">@Localizer["Press Kit"]</a></li>
                 </ul>
             </div>
