@@ -426,6 +426,12 @@ a[class|=btn] {
     background-color: @white !important;
     color: @btn-back !important;
     border: 1px solid @btn-back;
+    vertical-align: middle;
+
+    @media only screen and (max-width: 767px) {
+        min-width: 100px;
+        padding: 3px 12px;
+    }
 }
 
 /*颜色*/
@@ -593,10 +599,10 @@ a[class|=btn] {
     background-position: top center;
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url('../images/careers/neocareer-dt.svg');
+    background-image: url('../images/joinus/neocareer-dt.svg');
 
     @media only screen and (max-width: 767px) {
-        background-image: url('../images/careers/neocareer-mb.svg');
+        background-image: url('../images/joinus/neocareer-mb.svg');
     }
 }
 

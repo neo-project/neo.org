@@ -7,7 +7,7 @@
     ViewData["Title"] = "Index";
 }
 @section Styles{
-    <link rel="stylesheet" href="@Helper.ToCDN("/css/careers.min.css", true)" />
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/joinus.min.css", true)" />
 }
 <div class="bg9 p1">
     <div class="container">
@@ -28,7 +28,7 @@
                     }
                     else
                     {
-                        <a href="/careers?group=@item" class="btn">@item</a>
+                        <a href="/joinus?group=@item" class="btn">@item</a>
                     }
                 }
             }
@@ -47,14 +47,14 @@
                     @if (ViewBag.UserRules != null && ViewBag.UserRules)
                     {
                     <div class="mt5">
-                        <a asp-action="Edit" asp-controller="Careers" asp-route-id="@item.Id">Edit</a>
-                        <a class="ml-2" asp-action="Delete" asp-controller="Careers" asp-route-id="@item.Id">Delete</a>
+                        <a asp-action="Edit" asp-controller="JoinUS" asp-route-id="@item.Id">Edit</a>
+                        <a class="ml-2" asp-action="Delete" asp-controller="JoinUS" asp-route-id="@item.Id">Delete</a>
                     </div>
                     }
                     <div class="text-right">
-                        <span class="careers-qrcode mr2">
+                        <span class="joinus-qrcode mr2">
                             <a href="javascript:" class="iconfont">&#xe615;</a>
-                            <img src="@Helper.CDN/images/careers/qr.png" />
+                            <img src="@Helper.CDN/images/joinus/qr.png" />
                         </span>
                         <a class="btn" href="mailto:career@neo.org?subject=@item.Number">@Localizer["Apply Now"]</a>
                         <div class="mt6 gray">
@@ -72,37 +72,37 @@
         <h2>@Localizer["What we will provide you"]</h2>
         <div class="row list1 mt5">
             <div class="col-md-4">
-                <img data-original="@Helper.ToCDN("/images/careers/1.svg")" />
+                <img data-original="@Helper.ToCDN("/images/joinus/1.svg")" />
                 <div>
                     <div class="list-title">@Localizer["Innovative Ideas"]</div>
                 </div>
             </div>
             <div class="col-md-4">
-                <img data-original="@Helper.ToCDN("/images/careers/2.svg")" />
+                <img data-original="@Helper.ToCDN("/images/joinus/2.svg")" />
                 <div>
                     <div class="list-title">@Localizer["Exciting Challenges"]</div>
                 </div>
             </div>
             <div class="col-md-4">
-                <img data-original="@Helper.ToCDN("/images/careers/3.svg")" />
+                <img data-original="@Helper.ToCDN("/images/joinus/3.svg")" />
                 <div>
                     <div class="list-title">@Localizer["Open Discussions"]</div>
                 </div>
             </div>
             <div class="col-md-4">
-                <img data-original="@Helper.ToCDN("/images/careers/4.svg")" />
+                <img data-original="@Helper.ToCDN("/images/joinus/4.svg")" />
                 <div>
                     <div class="list-title">@Localizer["Collaborative Teammates"]</div>
                 </div>
             </div>
             <div class="col-md-4">
-                <img data-original="@Helper.ToCDN("/images/careers/5.svg")" />
+                <img data-original="@Helper.ToCDN("/images/joinus/5.svg")" />
                 <div>
                     <div class="list-title">@Localizer["Flat Organizational"]</div>
                 </div>
             </div>
             <div class="col-md-4">
-                <img data-original="@Helper.ToCDN("/images/careers/6.svg")" />
+                <img data-original="@Helper.ToCDN("/images/joinus/6.svg")" />
                 <div>
                     <div class="list-title">@Localizer["Diversified Culture"]</div>
                 </div>
