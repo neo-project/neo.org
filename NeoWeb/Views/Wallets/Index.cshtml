@@ -37,7 +37,7 @@
                 <i class="iconfont d-none" data-toggle="tooltip" data-placement="bottom" title="Linux">&#xe6c1;</i>
             </div>
             <a class="open-source" href="https://github.com/neo-ngd/Neo3-GUI" target="_blank">GitHub</a>
-            <div class="developer d-none"><a href="https://github.com/neo-ngd" target="_blank">NEO GLOBAL DEVELOPMENTNEO GLOBAL DEVELOPMENT</a></div>
+            <div class="developer d-none"><a href="https://github.com/neo-ngd" target="_blank">NEO GLOBAL DEVELOPMENT</a></div>
             <div class="license d-none"><a class="float-left" href="https://github.com/neo-ngd/Neo3-GUI/blob/master/LICENSE" target="_blank">MIT License</a></div>
             <div class="button d-none"><a class="btn" href="https://github.com/neo-ngd/Neo3-GUI/releases" target="_blank">@Localizer["Download"]</a></div>
             <div class="desc d-none">
@@ -52,7 +52,7 @@
                     <img data-original="@Helper.ToCDN("/images/wallets/neo3-gui4.png")" />
                     <img data-original="@Helper.ToCDN("/images/wallets/neo3-gui5.png")" />
                 </div>
-                <p>@Localizer["Neo-GUI (Neo 3 preview 2) is a full-node application on the Neo 3 blockchain. It uses Electron cross-platform technology and can run on Windows 10, macOS, and Linux systems."]</p>
+                <p>@Localizer["Neo-GUI (v3.0 Preview 2) is a full-node application on the Neo 3 blockchain. It uses Electron cross-platform technology and can run on Windows 10, macOS, and Linux systems."]</p>
                 <p>@Localizer["For more information, see:"]<a href="@Localizer["https://docs.neo.org/v3/docs/zh-cn/node/gui/install.html"]" target="_blank">@Localizer["Instructions for use"]</a></p>
                 <p>@Localizer["Languages"]: English / 简体中文</p>
                 <div>
@@ -67,6 +67,118 @@
                     <div class="metrics">
                         <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
                         <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."]@Localizer["Get source code"]: <a href="https://github.com/neo-ngd/Neo3-GUI" target="_blank">GitHub</a></div>
+                    </div>
+                    <div class="metrics">
+                        <span>@Localizer["Supported NEP"]</span>
+                        <div>
+                            <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki" target="_blank">NEP-5</a>, <a href="https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki" target="_blank">NEP-6</a> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="desktop">
+            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/cli.png")" />
+            <header>Neo-CLI <small>(v3.0 Preview 2)</small></header>
+            <div class="platform">
+                <i class="iconfont" header data-toggle="tooltip" data-placement="bottom" title="Windows">&#xf266;</i>
+                <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Linux">&#xe6c1;</i>
+                <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="macOS">&#xe61f;</i>
+            </div>
+            <a class="open-source" href="https://github.com/neo-project/neo-cli" target="_blank">GitHub</a>
+            <div class="developer d-none"><a href="https://github.com/neo-project/neo-cli" target="_blank">The Neo Project</a></div>
+            <div class="license d-none"><a href="https://github.com/neo-project/neo-cli/blob/master/LICENSE" target="_blank">MIT License</a></div>
+            <div class="button d-none"><a class="btn" href="https://github.com/neo-project/neo-cli/releases" target="_blank">@Localizer["Download"]</a></div>
+            <div class="desc d-none">
+                <div class="preview-div">
+                    <h3>@Localizer["Preview"]</h3>
+                    <a class="plat-btn btn-desktop active" href="javascript:" onclick="switchPlatform('desktop');">@Localizer["Desktop"]</a>
+                </div>
+                <div class="p-desktop preview">
+                    <img data-original="@Helper.ToCDN("/images/wallets/neo3-cli.png")" />
+                </div>
+                <p>
+                    @Localizer["Neo-CLI is a full-node command-line client that can run across platforms. It can provide APIs for developers to call, or participate in the consensus mechanism as a consensus node in the block chain. This wallet is designed for developers, with professional software interaction, as well as higher security and stability."]
+                </p>
+                <p>@Localizer["For more information, see:"] <a href="@Localizer["https://docs.neo.org/v3/docs/en-us/node/cli/setup.html"]" target="_blank">@Localizer["Instructions for use"]</a></p>
+                <p>@Localizer["Languages"]: English</p>
+                <div>
+                    <div class="metrics">
+                        <span>@Localizer["Degree of Digital Asset Control"]</span><span class="span-success">@Localizer["High"]</span>
+                        <div>
+                            @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the private key."]
+                        </div>
+                    </div>
+                    <div class="metrics">
+                        <span>@Localizer["Verification"]</span><span class="span-success">@Localizer["Comprehensive"]</span>
+                        <div>@Localizer["This wallet is a full node that stores all the data in the Neo blockchain, which means that there is no need to trust a third party when verifying payments or executing contracts. The full node provides the highest level of security and is an integral part of protecting the network."]</div>
+                    </div>
+                    <div class="metrics">
+                        <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
+                        <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."]@Localizer["Get source code"]: <a href="https://github.com/neo-project/neo-cli" target="_blank">GitHub</a></div>
+                    </div>
+                    <div class="metrics">
+                        <span>@Localizer["Support Plugins"]</span>
+                        <p>Neo-CLI @Localizer["supports plugins. The following is a list of commonly-used plug-in components."]</p>
+                        <br />
+                        <table class="table table-bordered table-sm">
+                            <thead>
+                                <tr>
+                                    <th>@Localizer["Plugin"]</th>
+                                    <th>@Localizer["Introduction"]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="https://github.com/neo-project/neo-plugins/releases/" target="_blank">LevelDBStore</a>
+                                    </td>
+                                    <td>@Localizer["Uses LevelDB to store the blockchain data"]</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="https://github.com/neo-project/neo-plugins/releases/" target="_blank">RocksDBStore</a>
+                                    </td>
+                                    <td>@Localizer["Uses RocksDBStore to store the blockchain data"]</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="https://github.com/neo-project/neo-plugins/releases/" target="_blank">RpcServer</a>
+                                    </td>
+                                    <td>@Localizer["Enables RPC for the node"]</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="https://github.com/neo-project/neo-plugins/releases/" target="_blank">ApplicationLogs</a>
+                                    </td>
+                                    <td>@Localizer["Synchronizes the smart contract log with the NativeContract log (Notify)"]</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="https://github.com/neo-project/neo-plugins/releases/" target="_blank">RpcNep5Tracker</a>
+                                    </td>
+                                    <td>@Localizer["Enquiries NEP-5 balance and transactions history of accounts through RPC"]</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="https://github.com/neo-project/neo-plugins/releases/" target="_blank">StatesDumper</a>
+                                    </td>
+                                    <td>@Localizer["Exports Neo-CLI status data"]</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="https://github.com/neo-project/neo-plugins/releases/" target="_blank">SystemLog</a>
+                                    </td>
+                                    <td>@Localizer["Prints the consensus log"]</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="https://github.com/neo-project/neo-plugins/releases/" target="_blank">SimplePolicy</a>
+                                    </td>
+                                    <td>@Localizer["Enables policies for filtrate illegal transactions."]</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                     <div class="metrics">
                         <span>@Localizer["Supported NEP"]</span>
@@ -96,7 +208,7 @@
                 <div class="p-desktop preview">
                     <img data-original="@Helper.ToCDN("/images/wallets/gui.png")" />
                 </div>
-                <p>@Localizer["Neo-GUI is a full-node Neo client, which contains all the basic functions of Neo network. This wallet is designed for advanced users, with professional software interaction and extremely high security. However, it takes a long time to initialize synchronization, occupies disk and memory, and has poor stability."]</p>
+                <p>@Localizer["Neo-GUI is a full-node Neo client, which contains all the basic functions of Neo network. This wallet is designed for advanced users, with professional software interaction and extremely high security."]</p>
                 <p>@Localizer["Need to install"] <a href="https://www.microsoft.com/net/download/dotnet-framework-runtime" target="_blank">.NetFramework 4.7.2</a> @Localizer["and"] <a href="https://www.microsoft.com/en-us/download/details.aspx?id=14632" target="_blank">VC++ 2010 Redist x64</a>/<a href="https://www.microsoft.com/en-us/download/details.aspx?id=5555" target="_blank">x86</a>
                 <p>@Localizer["For more information, see:"]<a href="@Localizer["https://docs.neo.org/docs/en-us/node/gui/install.html"]" target="_blank">@Localizer["Instructions for use"]</a></p>
                 <p>@Localizer["Languages"]: English / 简体中文</p>
@@ -164,7 +276,7 @@
                     <img data-original="@Helper.ToCDN("/images/wallets/cli.png")" />
                 </div>
                 <p>
-                    @Localizer["Neo-CLI is a full-node command-line client that can run across platforms. It can provide APIs for developers to call, or participate in the consensus mechanism as a consensus node in the block chain. This wallet is designed for developers, with professional software interaction, as well as higher security and stability. The disadvantages of this wallet are that it takes a long time to initialize synchronization, and it takes up disk and memory."]
+                    @Localizer["Neo-CLI is a full-node command-line client that can run across platforms. It can provide APIs for developers to call, or participate in the consensus mechanism as a consensus node in the block chain. This wallet is designed for developers, with professional software interaction, as well as higher security and stability."]
                 </p>
                 <p>@Localizer["For more information, see:"] <a href="@Localizer["https://docs.neo.org/docs/en-us/node/cli/setup.html"]" target="_blank">@Localizer["Instructions for use"]</a>, <a href="https://github.com/neo-project/neo-cli/blob/master/CHANGELOG.md" target="_blank">@Localizer["Change log"]</a></p>
                 <p>@Localizer["Languages"]: English</p>

@@ -261,11 +261,14 @@
   <data name="Need to install" xml:space="preserve">
     <value>需要安装</value>
   </data>
-  <data name="Neo-CLI is a full-node command-line client that can run across platforms. It can provide APIs for developers to call, or participate in the consensus mechanism as a consensus node in the block chain. This wallet is designed for developers, with professional software interaction, as well as higher security and stability. The disadvantages of this wallet are that it takes a long time to initialize synchronization, and it takes up disk and memory." xml:space="preserve">
-    <value>Neo-CLI 是一个全节点的命令行客户端，可以跨平台上运行，它可以提供 API 供开发者调用，也可以作为区块链中的共识节点参与共识。软件交互较为专业，面向开发者。拥有较高的安全性和稳定性。缺点是初始化同步时间长，占用磁盘和内存。</value>
+  <data name="Neo-CLI is a full-node command-line client that can run across platforms. It can provide APIs for developers to call, or participate in the consensus mechanism as a consensus node in the block chain. This wallet is designed for developers, with professional software interaction, as well as higher security and stability." xml:space="preserve">
+    <value>Neo-CLI 是一个全节点的命令行客户端，可以跨平台上运行，它可以提供 API 供开发者调用，也可以作为区块链中的共识节点参与共识。软件交互较为专业，面向开发者。拥有较高的安全性和稳定性。</value>
   </data>
-  <data name="Neo-GUI is a full-node Neo client, which contains all the basic functions of Neo network. This wallet is designed for advanced users, with professional software interaction and extremely high security. However, it takes a long time to initialize synchronization, occupies disk and memory, and has poor stability." xml:space="preserve">
-    <value>Neo-GUI 是一个全节点的 Neo 客户端，它包含了 Neo 网络的所有基本功能，软件交互较为专业，面向高级用户，拥有极高的安全性。但初始化同步时间长，占用磁盘和内存，且稳定性欠佳。</value>
+  <data name="This wallet is a full node that stores all the data in the Neo blockchain, which means that there is no need to trust a third party when verifying payments or executing contracts. The full node provides the highest level of security and is an integral part of protecting the network. However, it requires more hard disk space (15GB), greater bandwidth, and a longer initialization synchronization time. The initialization synchronization speed can be accelerated by downloading the &lt;a href=&quot;http://sync.ngd.network/&quot; target=&quot;_blank&quot;&gt;offline synchronization package&lt;/a&gt; provided by NGD." xml:space="preserve">
+    <value>此钱包是一个全节点，它存储 Neo 区块链中的所有数据。这意味着当验证支付或者执行合约的时候，不需要信任第三方。全节点提供了最高级别的安全性并且是保护网络不可或缺的元素。然而，它需要更多的硬盘空间（15GB）、更大的带宽和一个更长的初始化同步时间。通过下载 NGD 提供的 &lt;a href="http://sync.ngd.network/" target="_blank"&gt;离线同步包 &lt;/a&gt; 可以加快初始化同步速度。</value>
+  </data>
+  <data name="Neo-GUI is a full-node Neo client, which contains all the basic functions of Neo network. This wallet is designed for advanced users, with professional software interaction and extremely high security." xml:space="preserve">
+    <value>Neo-GUI 是一个全节点的 Neo 客户端，它包含了 Neo 网络的所有基本功能，软件交互较为专业，面向高级用户，拥有极高的安全性。</value>
   </data>
   <data name="Non-open Source Software" xml:space="preserve">
     <value>非开源软件</value>
@@ -433,7 +436,28 @@
   <data name="Send, receive, and exchange your favorite cryptocurrencies like Neo, Bitcoin, Ripple, and more with Exodus." xml:space="preserve">
     <value>使用 Exodus 发送、接收、交换数字货币，例如 Neo、Bitcoin、Ripple 等。</value>
   </data>
-  <data name="Neo-GUI (Neo 3 preview 2) is a full-node application on the Neo 3 blockchain. It uses Electron cross-platform technology and can run on Windows 10, macOS, and Linux systems." xml:space="preserve">
-    <value>Neo-GUI（Neo 3 preview 2）是 Neo 3 区块链上的全节点的应用程序，采用 Electron 跨平台技术，可在 Windows 10、macOS、Linux 系统上运行。</value>
+  <data name="Neo-GUI (v3.0 Preview 2) is a full-node application on the Neo 3 blockchain. It uses Electron cross-platform technology and can run on Windows 10, macOS, and Linux systems." xml:space="preserve">
+    <value>Neo-GUI（v3.0 Preview 2）是 Neo 3 区块链上的全节点的应用程序，采用 Electron 跨平台技术，可在 Windows 10、macOS、Linux 系统上运行。</value>
+  </data>
+  <data name="Enables RPC for the node" xml:space="preserve">
+    <value>提供节点的 RPC 功能</value>
+  </data>
+  <data name="Enquiries NEP-5 balance and transactions history of accounts through RPC" xml:space="preserve">
+    <value>提供 NEP-5 余额及交易历史的 RPC 查询功能</value>
+  </data>
+  <data name="Exports Neo-CLI status data" xml:space="preserve">
+    <value>导出 Neo-CLI 状态数据</value>
+  </data>
+  <data name="Prints the consensus log" xml:space="preserve">
+    <value>打印共识日志</value>
+  </data>
+  <data name="Synchronizes the smart contract log with the NativeContract log (Notify)" xml:space="preserve">
+    <value>同步智能合约和 NativeContract 的日志（Notify）</value>
+  </data>
+  <data name="Uses LevelDB to store the blockchain data" xml:space="preserve">
+    <value>区块链数据使用 LevelDB 存储引擎</value>
+  </data>
+  <data name="Uses RocksDBStore to store the blockchain data" xml:space="preserve">
+    <value>区块链数据使用 RocksDBStore 存储引擎</value>
   </data>
 </root>

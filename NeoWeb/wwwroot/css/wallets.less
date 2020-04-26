@@ -36,11 +36,17 @@ ul, li {
     header {
         margin: 12px 0;
         font-size: 1.3rem;
+        cursor: pointer;
     }
 
     .client-logo {
         width: 86px;
         border-radius: 10%;
+        cursor: pointer;
+        transition: all .2s;
+        &:hover{
+            transform: scale(1.05);
+        }
     }
 
     .open-source {
@@ -53,6 +59,7 @@ ul, li {
 }
 .platform {
     color: #888;
+    cursor: default;
 
     @media only screen and (max-width: 767px) {
         display: none;
@@ -114,7 +121,7 @@ ul, li {
 
         .metrics {
             margin: 20px 0;
-            line-height: @t5;
+            line-height: @t4;
         }
 
         .metrics {
