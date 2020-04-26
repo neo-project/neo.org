@@ -50,5 +50,9 @@
   {
     "outputFile": "wwwroot/css/about.css",
     "inputFile": "wwwroot/css/about.less"
+  },
+  {
+    "outputFile": "wwwroot/css/joinus.css",
+    "inputFile": "wwwroot/css/joinus.less"
   }
 ]

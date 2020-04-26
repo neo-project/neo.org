@@ -361,6 +361,7 @@ a[class|=btn] {
     transition: opacity 0.2s;
     cursor: pointer;
     text-align: center;
+    margin-bottom: 5px;
 
     &:hover {
         .b3;
@@ -405,6 +406,33 @@ a[class|=btn] {
     &:hover {
         color: @green-hover !important;
         text-shadow: 0 0 0.2px @green;
+    }
+}
+
+.btn-focus, .btn-focus:hover, .btn-focus:focus, .btn-focus:active {
+    .font-family;
+    font-size: 1rem;
+    display: inline-block;
+    font-weight: 600;
+    background: @btn-back;
+    color: @btn-text !important;
+    border-radius: 0;
+    min-width: 130px;
+    padding: 10px 20px;
+    border: none;
+    opacity: 1;
+    transition: opacity 0.2s;
+    cursor: pointer;
+    text-align: center;
+    background-color: @white !important;
+    color: @btn-back !important;
+    border: 1px solid @btn-back;
+    vertical-align: middle;
+    margin-bottom: 5px;
+
+    @media only screen and (max-width: 767px) {
+        min-width: 100px;
+        padding: 3px 12px;
     }
 }
 
@@ -569,6 +597,17 @@ a[class|=btn] {
     }
 }
 
+.bg9 {
+    background-position: top center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('../images/joinus/neocareer-dt.svg');
+
+    @media only screen and (max-width: 767px) {
+        background-image: url('../images/joinus/neocareer-mb.svg');
+    }
+}
+
 .b-white {
     background: #FFFFFF;
 }
@@ -684,8 +723,8 @@ hr.line {
 
 @font-face {
     font-family: 'iconfont'; /* project id 1408484 */
-    src: url('//at.alicdn.com/t/font_1408484_h9wd9qs4qfi.eot');
-    src: url('//at.alicdn.com/t/font_1408484_h9wd9qs4qfi.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_1408484_h9wd9qs4qfi.woff2') format('woff2'), url('//at.alicdn.com/t/font_1408484_h9wd9qs4qfi.woff') format('woff'), url('//at.alicdn.com/t/font_1408484_h9wd9qs4qfi.ttf') format('truetype'), url('//at.alicdn.com/t/font_1408484_h9wd9qs4qfi.svg#iconfont') format('svg');
+    src: url('//at.alicdn.com/t/font_1408484_o0hr42cwwhc.eot');
+    src: url('//at.alicdn.com/t/font_1408484_o0hr42cwwhc.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_1408484_o0hr42cwwhc.woff2') format('woff2'), url('//at.alicdn.com/t/font_1408484_o0hr42cwwhc.woff') format('woff'), url('//at.alicdn.com/t/font_1408484_o0hr42cwwhc.ttf') format('truetype'), url('//at.alicdn.com/t/font_1408484_o0hr42cwwhc.svg#iconfont') format('svg');
 }
 
 .iconfont {

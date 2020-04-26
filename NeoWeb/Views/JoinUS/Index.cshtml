@@ -1,0 +1,128 @@
+﻿@model IEnumerable<NeoWeb.Models.Job>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+@{
+    ViewData["Title"] = "Index";
+}
+@section Styles{
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/joinus.min.css", true)" />
+}
+<div class="bg9 p1">
+    <div class="container">
+        <h1 class="w1000">@Localizer["Join Us"]</h1>
+        <p class="mt5 w600">@Localizer["We are calling for you to join us in in the journey towards the smart economy. Please check this page for regular updates of vacancies from various teams and functions."]</p>
+        <div class="mt1 text-center">
+            @if((ViewBag.Groups as List<string>).Count == 1)
+            {
+                <a href="javascript:" class="btn-focus">@((ViewBag.Groups as List<string>)[0])</a>
+            }
+            else
+            {
+                @foreach (var item in ViewBag.Groups)
+                {
+                    @if(item == ViewBag.Group)
+                    {
+                        <a href="javascript:" class="btn-focus">@item</a>
+                    }
+                    else
+                    {
+                        <a href="/joinus?group=@item" class="btn">@item</a>
+                    }
+                }
+            }
+        </div>
+    </div>
+    <div class="container w700 text-left mt3">
+        @foreach (var item in Model)
+        {
+            <div class="mt4">
+                <a class="title with-space" onclick="show(this)" href="#@item.Number">
+                    <h4>@(SharedLocalizer["en"].Value == "zh" ? @item.ChineseTitle : @item.EnglishTitle)<i class="iconfont float-right">&#xe624;</i></h4>
+                </a>
+                <div id="@item.Number" style="display: none">
+                    <div class="mt4 with-space">@Html.Raw(SharedLocalizer["en"].Value == "zh" ? @item.ChineseContent : @item.EnglishContent)</div>
+
+                    @if (ViewBag.UserRules != null && ViewBag.UserRules)
+                    {
+                    <div class="mt5">
+                        <a asp-action="Edit" asp-controller="JoinUS" asp-route-id="@item.Id">Edit</a>
+                        <a class="ml-2" asp-action="Delete" asp-controller="JoinUS" asp-route-id="@item.Id">Delete</a>
+                    </div>
+                    }
+                    <div class="text-right">
+                        <span class="joinus-qrcode mr2">
+                            <a href="javascript:" class="iconfont">&#xe615;</a>
+                            <img src="@Helper.CDN/images/joinus/qr.png" />
+                        </span>
+                        <a class="btn" href="mailto:career@neo.org?subject=@item.Number">@Localizer["Apply Now"]</a>
+                        <div class="mt6 gray">
+                            @Localizer["Scan the QR code and talk to us!"]
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt4" />
+        }
+    </div>
+</div>
+<div class="b5 p1">
+    <div class="container text-center">
+        <h2>@Localizer["What we will provide you"]</h2>
+        <div class="row list1 mt5">
+            <div class="col-md-4">
+                <img data-original="@Helper.ToCDN("/images/joinus/1.svg")" />
+                <div>
+                    <div class="list-title">@Localizer["Innovative Ideas"]</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <img data-original="@Helper.ToCDN("/images/joinus/2.svg")" />
+                <div>
+                    <div class="list-title">@Localizer["Exciting Challenges"]</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <img data-original="@Helper.ToCDN("/images/joinus/3.svg")" />
+                <div>
+                    <div class="list-title">@Localizer["Open Discussions"]</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <img data-original="@Helper.ToCDN("/images/joinus/4.svg")" />
+                <div>
+                    <div class="list-title">@Localizer["Collaborative Teammates"]</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <img data-original="@Helper.ToCDN("/images/joinus/5.svg")" />
+                <div>
+                    <div class="list-title">@Localizer["Flat Organizational"]</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <img data-original="@Helper.ToCDN("/images/joinus/6.svg")" />
+                <div>
+                    <div class="list-title">@Localizer["Diversified Culture"]</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script>
+        var c = "rotage90";
+        function show(obj) {
+            var top = $(document).scrollTop();
+            $(obj).next().toggle(500);
+            if ($(obj).find(".iconfont").hasClass(c))
+                $(obj).find(".iconfont").removeClass(c);
+            else
+                $(obj).find(".iconfont").addClass(c);
+            $('html,body').animate({ scrollTop: top }); 
+        }
+        $(window.location.hash).show();
+        $(window.location.hash).prev().find(".iconfont").addClass(c);
+    </script>
+}

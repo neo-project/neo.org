@@ -1,0 +1,43 @@
+﻿@import 'basic.less';
+
+.layout-container {
+    max-width: none;
+    padding: 0;
+    margin: 0;
+}
+
+.joinus-qrcode {
+    position: relative;
+
+    img {
+        position: absolute;
+        display: none;
+        top: 40px;
+        left: -60px;
+        width: 150px;
+        border: 10px solid #fff;
+    }
+}
+
+.joinus-qrcode:hover img {
+    display: block;
+}
+.title {
+    color: @text;
+}
+.iconfont{
+    transition: all .5s;
+    &.rotage90 {
+        transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+    }
+}
+
+.list1 div[class|=col] .list-title, .list1 > li .list-title {
+    @media only screen and (max-width: 767px) {
+        margin-top: 30px;
+    }
+}
