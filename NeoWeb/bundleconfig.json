@@ -30,5 +30,11 @@
     "inputFiles": [
       "wwwroot/js/editor.js"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/js/encom-globe.min.js",
+    "inputFiles": [
+      "wwwroot/js/encom-globe.js"
+    ]
   }
 ]
