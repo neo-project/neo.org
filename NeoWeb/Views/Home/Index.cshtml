@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="@Helper.ToCDN("/css/home.min.css", true)" />
 }
 @* 基本块 - Home page *@
-<div id="homeFri" class="bg8 p1">
+
+<div id="homeFri" class="globe p1">
     @if (ViewBag.OnTop != null)
     {
         <div class="notify">
@@ -31,7 +32,10 @@
             </div>
         </div>
     }
-
+    <div id="globeAni">
+        <div class="circle"></div>
+        <div id="globe"></div>
+    </div>
     <div class="container">
         <h3>
             @Localizer["Join the"]<br />
@@ -135,6 +139,9 @@
 
 @section Scripts{
     <script src="@Helper.ToCDN("/lib/typed.js/typed.min.js")"></script>
+    <script src="@Helper.ToCDN("/js/Detector.js")"></script>
+    <script src="@Helper.ToCDN("/js/encom-globe.js")"></script>
+    <script src="@Helper.ToCDN("/js/home.js")"></script>
     <script>
             var typed = new Typed('#typetext', {
             strings: ["@Localizer["community-driven"]","@Localizer["developer-friendly"]","@Localizer["enterprise-ready"]"],
