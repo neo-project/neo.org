@@ -126,7 +126,7 @@ https://github.com/neo-project/neo.org
                 <li><a target="_blank" title="Youtube" href="https://www.youtube.com/channel/UCl1AwEDN0w5lTmfJEMsY5Vw/videos" class="iconfont">&#xe60c;</a></li>
                 <li>
                     <a title="WeChat" href="javascript:" class="iconfont">&#xe60d;</a>
-                    <img src="@Helper.CDN/images/qrcode.png" />
+                    <img style="width: 130px" src="@Helper.CDN/images/qrcode.jpg" />
                 </li>
                 <li><a target="_blank" title="Weibo" href="https://weibo.com/neosmarteconomy" class="iconfont">&#xe60e;</a></li>
             </ul>
@@ -161,10 +161,7 @@ https://github.com/neo-project/neo.org
                 <ul>
                     <li><a asp-controller="consensus" asp-action="index">@Localizer["Consensus"]</a></li>
                     <li><a asp-controller="contributors" asp-action="index">@Localizer["Contributors"]</a></li>
-                    @if (DateTime.Now > new DateTime(2020, 4, 24, 20, 0, 0))
-                    {
-                        <li><a asp-controller="joinus" asp-action="index">@Localizer["Join US"]</a></li>
-                    }
+                    <li><a asp-controller="joinus" asp-action="index">@Localizer["Join US"]</a></li>
                     <li><a asp-controller="presskit" asp-action="index">@Localizer["Press Kit"]</a></li>
                 </ul>
             </div>
