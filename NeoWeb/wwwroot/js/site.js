@@ -41,7 +41,7 @@ $(window).resize(function () {
 });
 
 function pageSize() {
-    if ($(document.body).width() <= 450 || $("#homeFri").hasClass("globe") /*首页*/) {
+    if ($(document.body).width() <= 450 || $("#homeFri").hasClass("bg8") /*首页*/) {
         $("#homeFri").css("min-height", $(window).height() - 70);
     }
     else {
