@@ -214,8 +214,8 @@
 
 @section Scripts{
     <script src="@Helper.ToCDN("/lib/typed.js/typed.min.js")"></script>
-    @*<script src="@Helper.ToCDN("/lib/three.js/three.js")"></script>*@
-    <script src="../lib/three.js/three.js"></script>
+    <script src="@Helper.ToCDN("/lib/three.js/three.js")"></script>
+    @*<script src="../lib/three.js/three.js"></script>*@
     <script>
             var typed = new Typed('#typetext', {
             strings: ["@Localizer["community-driven"]","@Localizer["developer-friendly"]","@Localizer["enterprise-ready"]"],
@@ -227,43 +227,45 @@
         });
     </script>
     <script>
-        var scene = new THREE.Scene();
-        var camera = new THREE.PerspectiveCamera(25, 1, 1, 100);
+        (function () {
+            var scene = new THREE.Scene();
+            var camera = new THREE.PerspectiveCamera(25, 1, 1, 100);
 
-        var renderer = new THREE.WebGLRenderer({ alpha: true });
-        renderer.setSize(600, 600);
-        document.getElementById("cas").appendChild(renderer.domElement);
+            var renderer = new THREE.WebGLRenderer({ alpha: true });
+            renderer.setSize(600, 600);
+            document.getElementById("cas").appendChild(renderer.domElement);
 
-        var geometry = new THREE.SphereGeometry(1, 30, 30);
-        var texture = new THREE.TextureLoader().load('../images/home/earth.png');
-        var material = new THREE.MeshBasicMaterial({
-            map: texture,
-            opacity: 1,
-            transparent: true,
-            side: THREE.BackSide
-        });
-        var material2 = new THREE.MeshBasicMaterial({
-            map: texture,
-            opacity: 1,
-            transparent: true,
-            side: THREE.FrontSide
-        });
+            var geometry = new THREE.SphereGeometry(1, 30, 30);
+            var texture = new THREE.TextureLoader().load('../images/home/earth.png');
+            var material = new THREE.MeshBasicMaterial({
+                map: texture,
+                opacity: 1,
+                transparent: true,
+                side: THREE.BackSide
+            });
+            var material2 = new THREE.MeshBasicMaterial({
+                map: texture,
+                opacity: 1,
+                transparent: true,
+                side: THREE.FrontSide
+            });
 
-        var sphere = new THREE.Mesh(geometry, material);
-        sphere2 = new THREE.Mesh(geometry, material2);
-        scene.add(sphere);
-        scene.add(sphere2);
+            var sphere = new THREE.Mesh(geometry, material);
+            sphere2 = new THREE.Mesh(geometry, material2);
+            scene.add(sphere);
+            scene.add(sphere2);
 
-        camera.position.z = 5;
+            camera.position.z = 5;
 
-        var animate = function () {
-            requestAnimationFrame(animate);
-            sphere.rotation.y += 0.01;
-            sphere2.rotation.y += 0.01;
-            renderer.render(scene, camera);
-        };
+            var animate = function () {
+                requestAnimationFrame(animate);
+                sphere.rotation.y += 0.01;
+                sphere2.rotation.y += 0.01;
+                renderer.render(scene, camera);
+            };
 
-        animate();
+            animate();
+        })()
     </script>
 }
 
