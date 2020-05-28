@@ -117,10 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Download Neo logo and other brand assets here. Please refer to Neo Brand book for application guidelines." xml:space="preserve">
-    <value>欢迎下载 Neo logo 和其他品牌素材。请参照 Neo Brand Book 获取详细的应用指引。</value>
+  <data name="&quot;GAS&quot; represents the utility token on the Neo blockchain." xml:space="preserve">
+    <value>“GAS” 为Neo区块链上的燃料通证。</value>
+  </data>
+  <data name="&quot;Neo&quot; represents the brand and the platform." xml:space="preserve">
+    <value>“Neo” 为Neo区块链的品牌与项目名称。</value>
+  </data>
+  <data name="&quot;NEO&quot; represents the governance token on the Neo blockchain." xml:space="preserve">
+    <value>“NEO” 为Neo区块链上的治理通证。</value>
+  </data>
+  <data name="Neo's branding is a graphical representation of Neo's vision and identity." xml:space="preserve">
+    <value>Neo 品牌形象是对 Neo 的愿景与身份最直接的视觉传达</value>
+  </data>
+  <data name="Neo: The platform" xml:space="preserve">
+    <value>Neo 区块链</value>
   </data>
   <data name="Press Kit" xml:space="preserve">
     <value>媒体资源</value>
+  </data>
+  <data name="The GAS token" xml:space="preserve">
+    <value>GAS 通证</value>
+  </data>
+  <data name="The horizontal lockup shall be used in most circumstances. The vertical lockup and the Neo doorway symbol shall only be used for constrained spaces." xml:space="preserve">
+    <value>横向 Logo 适用于大部分场景，纵向 Logo 与 Neo 门状标识仅在受空间局限时使用。</value>
+  </data>
+  <data name="The Logo" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="The NEO token" xml:space="preserve">
+    <value>NEO 通证</value>
   </data>
 </root>
