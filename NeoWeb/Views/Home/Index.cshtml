@@ -41,8 +41,8 @@
                 <use xlink:href="#icon" x="142" y="323" />
             </a>
             <a class="hover" href="https://neoresearch.io" target="_blank" title="NeoR">
-                <text class="svg-title" transform="translate(71.7 149.9)">NeoResearch</text>
-                <use class="svg-ani" xlink:href="#ani" x="261" y="126" transform="scale(0.93)"/>
+                <text class="svg-title" transform="translate(100 149.9)">NeoResearch</text>
+                <use class="svg-ani" xlink:href="#ani" x="261" y="126" transform="scale(0.93)" />
                 <use xlink:href="#icon" x="261" y="126" transform="scale(0.93)" />
             </a>
             <a class="hover" href="https://neo-one.io" target="_blank" title="NEO ONE">
@@ -74,15 +74,16 @@
             </a>
 
             <a class="hover" href="https://github.com/alienworks" target="_blank" title="Alienworks">
-                <use class="svg-ani" xlink:href="#ani" x="420" y="918" transform="scale(0.55)"/>
-                <use xlink:href="#code" x="420" y="918" transform="scale(0.55)" />
-                <text class="svg-title" transform="translate(91.9 528.5)">Alienworks</text>
+                <use class="svg-ani" xlink:href="#ani" x="1180" y="918" transform="scale(0.55)" />
+                <use xlink:href="#code" x="1180" y="918" transform="scale(0.55)" />
+                <text class="svg-title" transform="translate(530 528.5)">Alienworks</text>
             </a>
 
+
             <a class="hover" href="https://neonewstoday.com/" target="_blank" title="NNT">
-                <use class="svg-ani" xlink:href="#ani" x="640" y="455" />
-                <use xlink:href="#code" x="640" y="455" />
-                <text class="svg-title" transform="translate(713.9 488.4)">Neo News Today</text>
+                <use class="svg-ani" xlink:href="#ani" x="400" y="455" transform="scale(0.85)" />
+                <use xlink:href="#code" x="400" y="455" transform="scale(0.85)"/>
+                <text class="svg-title" transform="translate(410 420)">Neo News Today</text>
             </a>
         </svg>
         <div id="cas"></div>
@@ -232,7 +233,7 @@
             var camera = new THREE.PerspectiveCamera(25, 1, 1, 100);
 
             var renderer = new THREE.WebGLRenderer({ alpha: true });
-            renderer.setSize(600, 600);
+            renderer.setSize(700, 700);
             document.getElementById("cas").appendChild(renderer.domElement);
 
             var geometry = new THREE.SphereGeometry(1, 30, 30);
@@ -259,8 +260,8 @@
 
             var animate = function () {
                 requestAnimationFrame(animate);
-                sphere.rotation.y += 0.01;
-                sphere2.rotation.y += 0.01;
+                sphere.rotation.y += 0.005;
+                sphere2.rotation.y += 0.005;
                 renderer.render(scene, camera);
             };
 
