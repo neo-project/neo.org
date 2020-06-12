@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Neo3 Converter";
+}
+
+    <form action="/converter/index" method="post">
+        <label class="col-form-label" for="input">请输入待转换的文本</label>
+        @if (ViewBag.Input != null)
+        {
+            <textarea class="form-control" name="input" rows=2>@ViewBag.Input</textarea>
+        }
+        else
+        {
+            <textarea class="form-control" name="input" rows=2></textarea>
+        }
+        <input type="submit" value="转换" class="btn btn-primary mt-2" />
+    </form>
+@if (ViewBag.Result != null)
+{
+    <div>结果如下：</div>
+    @foreach (var item in ViewBag.Result as List<string>)
+    {
+        <p>@item</p>
+    }
+}
+<div class="mt-5">
+    <div>不知道填什么？试试下面的吧</div>
+    <code>
+        7472616e73666572
+    </code>
+    <a class="copy" data-original-title="复制到剪贴板" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="复制到剪贴板" data-clipboard-text="7472616e73666572" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
+    <code>
+        00a3e111
+    </code>
+    <a class="copy" data-original-title="复制到剪贴板" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="复制到剪贴板" data-clipboard-text="00a3e111" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
+    <code>
+        0x3ff68d232a60f23a5805b8c40f7e61747f6f61ce
+    </code>
+    <a class="copy" data-original-title="复制到剪贴板" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="复制到剪贴板" data-clipboard-text="0x3ff68d232a60f23a5805b8c40f7e61747f6f61ce" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
+    <code>
+        zmFvf3Rhfg/EuAVYOvJgKiON9j8=
+    </code>
+    <a class="copy" data-original-title="复制到剪贴板" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="复制到剪贴板" data-clipboard-text="zmFvf3Rhfg/EuAVYOvJgKiON9j8=" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
+    <code>
+        AHVYXVTcKw==
+    </code>
+    <a class="copy" data-original-title="复制到剪贴板" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="复制到剪贴板" data-clipboard-text="AHVYXVTcKw==" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
+    <code>
+        03dab84c1243ec01ab2500e1a8c7a1546a26d734628180b0cf64e72bf776536997
+    </code>
+    <a class="copy" data-original-title="复制到剪贴板" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="复制到剪贴板" data-clipboard-text="03dab84c1243ec01ab2500e1a8c7a1546a26d734628180b0cf64e72bf776536997" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
+    <code>
+        EMAMBG5hbWUMFPn4FJfD+bYrqT9zxxHUGx7v9QwjQWJ9W1I=
+    </code>
+    <a class="copy" data-original-title="复制到剪贴板" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="复制到剪贴板" data-clipboard-text="EMAMBG5hbWUMFPn4FJfD+bYrqT9zxxHUGx7v9QwjQWJ9W1I=" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
+
+</div>
+@section Scripts
+{
+    <script>
+        $('[data-toggle="tooltip"]').tooltip();
+        //地址复制
+        $(function () {
+            var clipboard = new ClipboardJS('.copy');
+            clipboard.on('success', function (t) {
+                $(t.trigger).attr("title", "已复制!").tooltip("_fixTitle").tooltip("show").attr("title", "复制到剪贴板").tooltip("_fixTitle");
+            });
+            clipboard.on("error", function (t) {
+                var e = /Mac/i.test(navigator.userAgent) ? "⌘" : "Ctrl-";
+                var n = "请按 " + e + "C 复制";
+
+                $(t.trigger).attr("title", n).tooltip("_fixTitle").tooltip("show").attr("title", "复制到剪贴板").tooltip("_fixTitle");
+            });
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+}
