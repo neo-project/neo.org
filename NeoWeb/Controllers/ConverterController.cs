@@ -25,7 +25,7 @@ namespace NeoWeb.Controllers
 
             var result = new Dictionary<string, List<string>>();
 
-            if (input.ToLower() == "I love you")
+            if (input == "I love you")
             {
                 result.Add("Neo:", new List<string>() { "I love you too!" });
                 ViewBag.Result = result;
