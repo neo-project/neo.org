@@ -13,10 +13,10 @@
     <input type="text" class="form-control" name="input" value="@ViewBag.Input" />
     <input type="submit" value="@Localizer["Convert"]" class="btn btn-primary mt-3" />
 </form>
-<div class="row mt-4">
+<div class="row">
     @if (ViewBag.Result != null)
     {
-        <div class="col-md-6">
+        <div class="col-md-6 mt-4">
             <div>@Localizer["Conversion result:"]</div>
             @foreach (var item in ViewBag.Result as Dictionary<string, List<string>>)
             {
@@ -30,7 +30,7 @@
             }
         </div>
     }
-    <div class="col-md-6">
+    <div class="col-md-6 mt-4">
         <div>@Localizer["Don't know what to enter? Try the following"]</div>
         <code>
             7472616e73666572
