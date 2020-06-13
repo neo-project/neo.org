@@ -21,22 +21,23 @@ namespace NeoWeb.Controllers
         [HttpPost]
         public IActionResult Index(string input)
         {
-            if(string.IsNullOrEmpty(input)) return View();
+            if (string.IsNullOrEmpty(input)) return View();
+            input = input.Trim();
+            ViewBag.Input = input;
 
             var result = new Dictionary<string, List<string>>();
 
+            //彩蛋
             if (input == "I love you")
             {
                 result.Add("Neo:", new List<string>() { "I love you too!" });
                 ViewBag.Result = result;
-                ViewBag.Input = input;
                 return View();
             }
             if (input == "我喜欢你")
             {
                 result.Add("Neo:", new List<string>() { "我也喜欢你！" });
                 ViewBag.Result = result;
-                ViewBag.Input = input;
                 return View();
             }
 
@@ -66,6 +67,12 @@ namespace NeoWeb.Controllers
             //可能是 16 进制小端序字符串
             else if (new Regex("^([0-9a-f]{2})+$").IsMatch(input))
             {
+                try
+                {
+                    var output = ConverterHelper.ScriptHashToAddress(input);
+                    result.Add(_localizer["Script hash to Neo3 address:"], new List<string>() { output });
+                }
+                catch (Exception) { }
                 try
                 {
                     var output = ConverterHelper.HexNumberToBigInteger(input);
@@ -233,7 +240,6 @@ namespace NeoWeb.Controllers
                 }
             }
             ViewBag.Result = result;
-            ViewBag.Input = input;
             return View();
         }
 
