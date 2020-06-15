@@ -183,8 +183,62 @@ namespace NeoWeb.Controllers
                 }
                 catch (Exception) { }
             }
+            //可能是 Base64 格式的字符串 或 普通字符串
+            else if (new Regex("^([0-9a-zA-Z/+=]{4})+$").IsMatch(input))
+            {
+                try
+                {
+                    var output = ConverterHelper.Base64StringToAddress(input);
+                    result.Add(_localizer["Base64 script hash to Neo 3 address:"], new List<string>() { output });
+
+                }
+                catch (Exception) { }
+                try
+                {
+                    var output = ConverterHelper.AddressToScriptHash(ConverterHelper.Base64StringToAddress(input)).little;
+                    result.Add(_localizer["Base64 script hash to script hash (little-endian):"], new List<string>() { output });
+
+                }
+                catch (Exception) { }
+                try
+                {
+                    var output = ConverterHelper.AddressToScriptHash(ConverterHelper.Base64StringToAddress(input)).big;
+                    result.Add(_localizer["Base64 script hash to script hash (big-endian):"], new List<string>() { output });
+
+                }
+                catch (Exception) { }
+                try
+                {
+                    var output = ConverterHelper.Base64StringToBigInteger(input);
+                    if (new Regex("^[0-9]{1,20}$").IsMatch(output))
+                    {
+                        result.Add(_localizer["Base64 string to big integer:"], new List<string>() { output });
+
+                    }
+                }
+                catch (Exception) { }
+                try
+                {
+                    var output = ConverterHelper.Base64StringToString(input);
+                    if (IsSupportedAsciiString(output))
+                    {
+                        result.Add(_localizer["Base64 decoding:"], new List<string>() { output });
+
+                    }
+                }
+                catch (Exception) { }
+                try
+                {
+                    var output = ConverterHelper.ScriptsToOpCode(input);
+                    if (output.Count > 0)
+                    {
+                        result.Add(_localizer["Smart contract script analysis:"], output);
+                    }
+                }
+                catch (Exception) { }
+            }
             //可能是正整数
-            else if (new Regex("^\\d+$").IsMatch(input))
+            if (new Regex("^\\d+$").IsMatch(input))
             {
                 try
                 {
@@ -200,63 +254,6 @@ namespace NeoWeb.Controllers
 
                 }
                 catch (Exception) { }
-            }
-            else
-            {
-                //可能是 Base64 格式的字符串 或 普通字符串
-                if (new Regex("^([0-9a-zA-Z/+=]{4})+$").IsMatch(input))
-                {
-                    try
-                    {
-                        var output = ConverterHelper.Base64StringToAddress(input);
-                        result.Add(_localizer["Base64 script hash to Neo 3 address:"], new List<string>() { output });
-
-                    }
-                    catch (Exception) { }
-                    try
-                    {
-                        var output = ConverterHelper.AddressToScriptHash(ConverterHelper.Base64StringToAddress(input)).little;
-                        result.Add(_localizer["Base64 script hash to script hash (little-endian):"], new List<string>() { output });
-
-                    }
-                    catch (Exception) { }
-                    try
-                    {
-                        var output = ConverterHelper.AddressToScriptHash(ConverterHelper.Base64StringToAddress(input)).big;
-                        result.Add(_localizer["Base64 script hash to script hash (big-endian):"], new List<string>() { output });
-
-                    }
-                    catch (Exception) { }
-                    try
-                    {
-                        var output = ConverterHelper.Base64StringToBigInteger(input);
-                        if (new Regex("^[0-9]{1,20}$").IsMatch(output))
-                        {
-                            result.Add(_localizer["Base64 string to big integer:"], new List<string>() { output });
-
-                        }
-                    }
-                    catch (Exception) { }
-                    try
-                    {
-                        var output = ConverterHelper.Base64StringToString(input);
-                        if (IsSupportedAsciiString(output))
-                        {
-                            result.Add(_localizer["Base64 decoding:"], new List<string>() { output });
-
-                        }
-                    }
-                    catch (Exception) { }
-                    try
-                    {
-                        var output = ConverterHelper.ScriptsToOpCode(input);
-                        if (output.Count > 0)
-                        {
-                            result.Add(_localizer["Smart contract script analysis:"], output);
-                        }
-                    }
-                    catch (Exception) { }
-                }
             }
 
             //当做普通字符串处理
