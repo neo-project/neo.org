@@ -132,8 +132,8 @@
   <data name="Please enter the text to be converted" xml:space="preserve">
     <value>请输入待转换的文本</value>
   </data>
-  <data name="Support conversion of address, script hash, public key, big-endian and little-endian, big-integer, character string, hexadecimal string, Application Log, Base64 encoding, etc. and analysis of smart contract script" xml:space="preserve">
-    <value>支持地址、脚本哈希、公钥、大小端序、大整数、字符串、十六进制字符串、Application Log、Base64 编码等的转换和智能合约脚本的解析</value>
+  <data name="Support conversion of address, script hash, private key, public key, big-endian and little-endian, big-integer, character string, hexadecimal string, Application Log, Base64 encoding, etc. and analysis of smart contract script" xml:space="preserve">
+    <value>支持地址、脚本哈希、私钥、公钥、大小端序、大整数、字符串、十六进制字符串、Application Log、Base64 编码等的转换和智能合约脚本的解析</value>
   </data>
   <data name="请输入待转换的文本" xml:space="preserve">
     <value>Please enter the text to be converted</value>

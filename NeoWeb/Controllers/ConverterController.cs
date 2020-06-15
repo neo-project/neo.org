@@ -257,25 +257,25 @@ namespace NeoWeb.Controllers
                     }
                     catch (Exception) { }
                 }
+            }
 
-                //当做普通字符串处理
-                if (true)
+            //当做普通字符串处理
+            if (true)
+            {
+                try
                 {
-                    try
-                    {
-                        var output = ConverterHelper.UTF8ToHexString(input);
-                        result.Add(_localizer["UTF8 string to hexadecimal string:"], new List<string>() { output });
+                    var output = ConverterHelper.UTF8ToHexString(input);
+                    result.Add(_localizer["UTF8 string to hexadecimal string:"], new List<string>() { output });
 
-                    }
-                    catch (Exception) { }
-                    try
-                    {
-                        var output = ConverterHelper.StringToBase64String(input);
-                        result.Add(_localizer["Base64 encoding:"], new List<string>() { output });
-
-                    }
-                    catch (Exception) { }
                 }
+                catch (Exception) { }
+                try
+                {
+                    var output = ConverterHelper.StringToBase64String(input);
+                    result.Add(_localizer["Base64 encoding:"], new List<string>() { output });
+
+                }
+                catch (Exception) { }
             }
             ViewBag.Result = result;
             return View();
