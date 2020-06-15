@@ -150,6 +150,9 @@
   <data name="Hexadecimal little-endian string to UTF8 string:" xml:space="preserve">
     <value>16 进制小端序字符串转 UTF8 字符串：</value>
   </data>
+  <data name="Hexadecimal private key to WIF private key:" xml:space="preserve">
+    <value>16 进制私钥转 WIF 私钥：</value>
+  </data>
   <data name="Little-endian to big-endian:" xml:space="preserve">
     <value>小端序转大端序：</value>
   </data>
@@ -161,6 +164,18 @@
   </data>
   <data name="Neo 3 address to script hash (little-endian):" xml:space="preserve">
     <value>Neo 3 地址转脚本哈希（小端序）:</value>
+  </data>
+  <data name="Private key to Neo3 address:" xml:space="preserve">
+    <value>私钥转 Neo3 地址：</value>
+  </data>
+  <data name="Private key to public key:" xml:space="preserve">
+    <value>私钥转公钥：</value>
+  </data>
+  <data name="Private key to script hash (big-endian):" xml:space="preserve">
+    <value>私钥转脚本哈希（大端序）:</value>
+  </data>
+  <data name="Private key to script hash (little-endian):" xml:space="preserve">
+    <value>私钥转脚本哈希（小端序）:</value>
   </data>
   <data name="Public key to Neo3 Address:" xml:space="preserve">
     <value>公钥转 Neo3 地址：</value>

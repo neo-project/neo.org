@@ -188,7 +188,8 @@ namespace NeoWeb
         /// <returns>eg:Nd9NceysETPT9PZdWRTeQXJix68WM2x6Wv</returns>
         public static string PublicKeyToAddress(string pubKey)
         {
-            if (!new Regex("^(0[23][0-9a-f]{64})+$").IsMatch(pubKey)) throw new FormatException();
+            pubKey = pubKey.ToLower().Trim();
+            if (!new Regex("^(0[23][0-9a-f]{64})+$").IsMatch(pubKey.ToLower())) throw new FormatException();
 
             return Contract.CreateSignatureContract(ECPoint.Parse(pubKey, ECCurve.Secp256r1)).Address;
         }
@@ -238,6 +239,47 @@ namespace NeoWeb
                 throw new FormatException();
             }
             return Convert.ToBase64String(bigInteger.ToByteArray());
+        }
+
+        /// <summary>
+        /// WIF 私钥转公钥
+        /// </summary>
+        /// <param name="wif">WIF 格式的私钥</param>
+        /// <returns>小端序公钥</returns>
+        public static string PrivateKeyToPublicKey(string wif)
+        {
+            string output;
+            try
+            {
+                var privateKey = Wallet.GetPrivateKeyFromWIF(wif);
+                var account = new KeyPair(privateKey);
+                output = account.PublicKey.ToArray().ToHexString();
+            }
+            catch (Exception)
+            {
+                throw new FormatException();
+            }
+            return output;
+        }
+
+        /// <summary>
+        /// HEX 私钥转 WIF
+        /// </summary>
+        /// <param name="hex">HEX 格式的私钥</param>
+        /// <returns>WIF 格式的私钥</returns>
+        public static string HexPrivateKeyToWIF(string hex)
+        {
+            string output;
+            try
+            {
+                var account = new KeyPair(hex.HexToBytes());
+                output = account.Export();
+            }
+            catch (Exception)
+            {
+                throw new FormatException();
+            }
+            return output;
         }
 
         /// <summary>

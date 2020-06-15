@@ -42,7 +42,7 @@ namespace NeoWeb.Controllers
             }
 
             //可能是公钥
-            if (new Regex("^0[23][0-9a-f]{64}$").IsMatch(input))
+            if (new Regex("^0[23][0-9a-f]{64}$").IsMatch(input.ToLower()))
             {
                 try
                 {
@@ -61,6 +61,16 @@ namespace NeoWeb.Controllers
                     var output = ConverterHelper.AddressToScriptHash(ConverterHelper.PublicKeyToAddress(input)).little;
                     result.Add(_localizer["Public key to script hash (little endian):"], new List<string>() { output });
 
+                }
+                catch (Exception) { }
+            }
+            //可能是 16 进制私钥
+            else if (new Regex("^[0-9a-f]{64}$").IsMatch(input.ToLower()))
+            {
+                try
+                {
+                    var output = ConverterHelper.HexPrivateKeyToWIF(input);
+                    result.Add(_localizer["Hexadecimal private key to WIF private key:"], new List<string>() { output });
                 }
                 catch (Exception) { }
             }
@@ -103,7 +113,7 @@ namespace NeoWeb.Controllers
                 catch (Exception) { }
             }
             //可能是 16 进制大端序字符串
-            else if (new Regex("^0x([0-9a-f]{2})+$").IsMatch(input))
+            else if (new Regex("^0x([0-9a-f]{2})+$").IsMatch(input.ToLower()))
             {
                 try
                 {
@@ -142,6 +152,34 @@ namespace NeoWeb.Controllers
                     var output = ConverterHelper.AddressToBase64String(input);
                     result.Add(_localizer["Neo 3 address to Base64 script hash:"], new List<string>() { output });
 
+                }
+                catch (Exception) { }
+            }
+            //可能是 WIF 私钥
+            else if (new Regex("^(L|K)[1-9a-km-zA-HJ-Z]{51}$").IsMatch(input))
+            {
+                try
+                {
+                    var output = ConverterHelper.PrivateKeyToPublicKey(input);
+                    result.Add(_localizer["Private key to public key:"], new List<string>() { output });
+                }
+                catch (Exception) { }
+                try
+                {
+                    var output = ConverterHelper.PublicKeyToAddress(ConverterHelper.PrivateKeyToPublicKey(input));
+                    result.Add(_localizer["Private key to Neo3 address:"], new List<string>() { output });
+                }
+                catch (Exception) { }
+                try
+                {
+                    var output = ConverterHelper.AddressToScriptHash(ConverterHelper.PublicKeyToAddress(ConverterHelper.PrivateKeyToPublicKey(input))).big;
+                    result.Add(_localizer["Private key to script hash (big-endian):"], new List<string>() { output });
+                }
+                catch (Exception) { }
+                try
+                {
+                    var output = ConverterHelper.AddressToScriptHash(ConverterHelper.PublicKeyToAddress(ConverterHelper.PrivateKeyToPublicKey(input))).little;
+                    result.Add(_localizer["Private key to script hash (little-endian):"], new List<string>() { output });
                 }
                 catch (Exception) { }
             }
