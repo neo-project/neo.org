@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Neo;
 using NeoWeb.Models;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
@@ -205,8 +206,6 @@ namespace NeoWeb
             IPList.Add(new IPItem() { IP = ipv4, Action = action, Time = DateTime.Now });
             return true;
         }
-
-        public static string ToHexString(this byte[] bytes) => BitConverter.ToString(bytes).Replace("-", "");
 
         public static bool VerifySignature(string message, string signature, string pubkey)
         {

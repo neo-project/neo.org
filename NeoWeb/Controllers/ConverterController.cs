@@ -75,7 +75,7 @@ namespace NeoWeb.Controllers
                 catch (Exception) { }
             }
             //可能是 16 进制小端序字符串
-            else if (new Regex("^([0-9a-f]{2})+$").IsMatch(input))
+            else if (new Regex("^([0-9a-f]{2})+$").IsMatch(input.ToLower()))
             {
                 try
                 {
