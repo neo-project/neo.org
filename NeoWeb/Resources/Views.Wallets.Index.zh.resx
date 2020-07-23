@@ -228,8 +228,8 @@
   <data name="It's a cross-platform wallet developed by O3 Labs. This wallet supports most mainstream operating systems, maintains a high update frequency and can support Neo network updates and features in a timely manner." xml:space="preserve">
     <value>O3 Labs 开发的跨平台钱包，支持大部分主流操作系统。此钱包保持高更新频率，能及时支持 Neo 网络更新与特性。</value>
   </data>
-  <data name="It's a digital currency wallet developed by CaspianTechnologies. This wallet needs signatures from multiple parties on transactions, and it is compatible with the Spatium hardware wallet, which possesses the biological recognition technologies. It also focuses on the security." xml:space="preserve">
-    <value>CaspianTechnologies 开发的数字货币钱包，对交易进行多方签名，兼容生物识别的 Spatium 硬件钱包，注重安全性。</value>
+  <data name="Spatium is a non-custodial cryptocurrency wallet eliminating the hassle of private keys for new crypto adopters with the advanced SMPC cryptography and biometry. Spatium replaces the private key with two secrets that are generated, stored and processed independently. It’s impossible to steal the private key from Spatium wallet because it doesn’t even exist. Furthermore, Spatium utilizes anonymous biometric hashes to encrypt backup and make it impossible to lose access to the funds." xml:space="preserve">
+    <value>Spatium 是一个非托管的加密货币钱包，通过高级 SMPC 加密技术和生物识别技术解决了币圈新手管理私钥的麻烦。 Spatium 用两个独立生成存储和计算的密码代替了传统私钥，所以从 Spatium 钱包中窃取私钥是不可能的。 此外，Spatium 利用匿名生物识别哈希来加密备份，为用户的资金使用权提供了充足的保障。</value>
   </data>
   <data name="It's a hardware wallet developed by NewEconoLabs that supports private key import and multi-private key management. Its features include OLED screen, Type-C/Bluetooth and multiple tokens, and it also supports NEO/GAS. Other extended applications can also be used." xml:space="preserve">
     <value>NewEconoLabs 开发的硬件钱包，支持私钥导入及多私钥管理。OLED 屏幕，Type-C/ 蓝牙，多币种，支持 NEO/GAS，可使用其它扩展应用。</value>
@@ -459,5 +459,8 @@
   </data>
   <data name="Uses RocksDBStore to store the blockchain data" xml:space="preserve">
     <value>区块链数据使用 RocksDBStore 存储引擎</value>
+  </data>
+  <data name="This wallet gives users a high degree of control over digital assets. The private key is replaced with two independent secrets. The first is encrypted and stored by the wallet files and biometry on the user’s device. The second is encrypted by the password and stored on the Spatium side. To steal the funds, an intruder would have to get simultaneous access to both sides. However, you should take special care and use complex passwords." xml:space="preserve">
+    <value>该钱包为用户提供了对数字资产的高度控制。 私钥被两个独立的密码代替。 第一个通过钱包文件和生物特征加密并存储在用户设备上。 第二个通过密码加密并存储在 Spatium 的另一侧。 要窃取资金，入侵者必须同时获得双方的访问权限。 但是，你应格外小心并使用复杂的密码。</value>
   </data>
 </root>
