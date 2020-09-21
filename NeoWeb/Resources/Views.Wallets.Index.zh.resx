@@ -436,8 +436,8 @@
   <data name="Send, receive, and exchange your favorite cryptocurrencies like Neo, Bitcoin, Ripple, and more with Exodus." xml:space="preserve">
     <value>使用 Exodus 发送、接收、交换数字货币，例如 Neo、Bitcoin、Ripple 等。</value>
   </data>
-  <data name="Neo-GUI (v3.0 Preview 2) is a full-node application on the Neo 3 blockchain. It uses Electron cross-platform technology and can run on Windows 10, macOS systems." xml:space="preserve">
-    <value>Neo-GUI（v3.0 Preview 2）是 Neo 3 区块链上的全节点的应用程序，采用 Electron 跨平台技术，可在 Windows 10、macOS 系统上运行。</value>
+  <data name="Neo-GUI (v3.0 Preview 3) is a full-node application on the Neo 3 blockchain. It uses Electron cross-platform technology and can run on Windows 10, macOS systems." xml:space="preserve">
+    <value>Neo-GUI（v3.0 Preview 3）是 Neo 3 区块链上的全节点的应用程序，采用 Electron 跨平台技术，可在 Windows 10、macOS 系统上运行。</value>
   </data>
   <data name="Enables RPC for the node" xml:space="preserve">
     <value>提供节点的 RPC 功能</value>
