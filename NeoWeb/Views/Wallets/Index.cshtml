@@ -1,5 +1,6 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
 @{
     ViewData["Title"] = Localizer["Get Wallets"].Value;
@@ -30,7 +31,7 @@
     <ul class="row mt5 client-ul">
         <li class="desktop">
             <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/neo3-gui.png")" />
-up            <header>Neo-GUI <small>(v3.0 Preview 3)</small></header>
+            up            <header>Neo-GUI <small>(v3.0 Preview 3)</small></header>
             <div class="platform">
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Windows">&#xf266;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="macOS">&#xe61f;</i>
@@ -489,37 +490,34 @@ up            <header>Neo-GUI <small>(v3.0 Preview 3)</small></header>
             <div class="desc d-none">
                 <div class="preview-div">
                     <h3>@Localizer["Preview"]</h3>
-                    <a class="plat-btn btn-extension" href="javascript:" onclick="switchPlatform('extension');">@Localizer["Extension"]</a>
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
-                <div class="p-mobile preview">
-                    <img data-original="@Helper.ToCDN("/images/wallets/neoline-mob1.png")" />
-                    <img data-original="@Helper.ToCDN("/images/wallets/neoline-mob2.png")" />
-                    <img data-original="@Helper.ToCDN("/images/wallets/neoline-mob3.png")" />
-                    <img data-original="@Helper.ToCDN("/images/wallets/neoline-mob4.png")" />
-                    <img data-original="@Helper.ToCDN("/images/wallets/neoline-mob5.png")" />
+                <div class="p-mobile preview  @SharedLocalizer["d-none-zh"]">
+                    <img data-original="@Helper.ToCDN("/images/wallets/neoline-en1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/neoline-en2.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/neoline-en3.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/neoline-en4.png")" />
                 </div>
-                <div class="p-extension preview" style="display:none;">
-                    <img data-original="@Helper.ToCDN("/images/wallets/neoline1.png")" />
-                    <img data-original="@Helper.ToCDN("/images/wallets/neoline2.png")" />
-                    <img data-original="@Helper.ToCDN("/images/wallets/neoline3.png")" />
-                    <img data-original="@Helper.ToCDN("/images/wallets/neoline4.png")" />
-                    <img data-original="@Helper.ToCDN("/images/wallets/neoline5.png")" />
+                <div class="p-mobile preview @SharedLocalizer["d-none"]">
+                    <img data-original="@Helper.ToCDN("/images/wallets/neoline-zh1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/neoline-zh2.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/neoline-zh3.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/neoline-zh4.png")" />
                 </div>
-                <p>@Localizer["NeoLine is a variety of digital asset wallets and browser plugins on the Neo blockchain. Supports wallet, multiple address management and multiple verification methods. As  a browser extension wallet of Neo, it contains comprehensive wallet functions and provides dAPI for developers."]</p>
+                <p>@Localizer["NeoLine Chrome Plugin-Wallet is developed by Neo developer community NEXT. It is an open source, multi-functional wallet with dAPI provided for developers. Switcheo and Flamingo are supported."]</p>
                 <p>@Localizer["Languages"]: English / 中文</p>
                 <div>
                     <div class="metrics">
                         <span>@Localizer["Degree of Digital Asset Control"]</span><span class="span-success">@Localizer["High"]</span>
-                        <div>@Localizer["This wallet gives you a high degree of control over digital assets. The private key is encrypted and stored by the Encrypted Key and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the Encrypted Key."]</div>
+                        <div>@Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the wallet file."]</div>
                     </div>
                     <div class="metrics">
                         <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
                         <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                     </div>
                     <div class="metrics">
-                        <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
-                        <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
+                        <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
+                        <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."] @Localizer["Get source code"]: <a href="https://github.com/neonext/neoline" target="_blank">GitHub</a></div>
                     </div>
                     <div class="metrics">
                         <span>@Localizer["Supported NEP"] <small>(@Localizer["Mobile"])</small></span>
