@@ -135,6 +135,9 @@
   <data name="Base64 string to big integer:" xml:space="preserve">
     <value>Base64 格式的字符串转大整数：</value>
   </data>
+  <data name="Base64 string to hexadecimal string:" xml:space="preserve">
+    <value>Base64 格式的字符串转十六进制字符串：</value>
+  </data>
   <data name="Big integer to Base64 string:" xml:space="preserve">
     <value>大整数转 Base64 字符串：</value>
   </data>

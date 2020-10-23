@@ -223,7 +223,6 @@ namespace NeoWeb.Controllers
                     if (IsSupportedAsciiString(output))
                     {
                         result.Add(_localizer["Base64 decoding:"], new List<string>() { output });
-
                     }
                 }
                 catch (Exception) { }
@@ -233,6 +232,15 @@ namespace NeoWeb.Controllers
                     if (output.Count > 0)
                     {
                         result.Add(_localizer["Smart contract script analysis:"], output);
+                    }
+                }
+                catch (Exception) { }
+                try
+                {
+                    var output = ConverterHelper.Base64StringToHexString(input);
+                    if (IsSupportedAsciiString(output))
+                    {
+                        result.Add(_localizer["Base64 string to hexadecimal string:"], new List<string>() { output });
                     }
                 }
                 catch (Exception) { }

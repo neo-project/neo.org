@@ -152,6 +152,25 @@ namespace NeoWeb
         }
 
         /// <summary>
+        /// Base64 格式的字符串转为 HEX 字符串
+        /// </summary>
+        /// <param name="base64">eg:SGVsbG8gV29ybGQh</param>
+        /// <returns>eg:48656c6c6f20576f726c6421</returns>
+        public static string Base64StringToHexString(string base64)
+        {
+            byte[] bytes;
+            try
+            {
+                bytes = Convert.FromBase64String(base64.Trim());
+            }
+            catch (Exception)
+            {
+                throw new FormatException();
+            }
+            return bytes.ToHexString();
+        }
+
+        /// <summary>
         /// UTF8 字符串转为 Base64 格式的字符串
         /// </summary>
         /// <param name="str">eg:Hello World!</param>
@@ -313,7 +332,7 @@ namespace NeoWeb
             }
             //初始化所有 InteropService
             var dic = new Dictionary<uint, string>();
-            ApplicationEngine.Services.ToList().ForEach(p => dic.Add(p.Hash, p.Name));
+            ApplicationEngine.Services.ToList().ForEach(p => dic.Add(p.Value.Hash, p.Value.Name));
 
             //解析 Scripts
             var result = new List<string>();
