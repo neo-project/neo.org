@@ -463,4 +463,13 @@
   <data name="This wallet gives users a high degree of control over digital assets. The private key is replaced with two independent secrets. The first is encrypted and stored by the wallet files and biometry on the user’s device. The second is encrypted by the password and stored on the Spatium side. To steal the funds, an intruder would have to get simultaneous access to both sides. However, you should take special care and use complex passwords." xml:space="preserve">
     <value>该钱包为用户提供了对数字资产的高度控制。 私钥被两个独立的密码代替。 第一个通过钱包文件和生物特征加密并存储在用户设备上。 第二个通过密码加密并存储在 Spatium 的另一侧。 要窃取资金，入侵者必须同时获得双方的访问权限。 但是，你应格外小心并使用复杂的密码。</value>
   </data>
+  <data name="A hardware wallet with multi-currency support, such as NEO, where the private key of the hardware wallet is stored in the hardware chip, with an emphasis on security." xml:space="preserve">
+    <value>一个支持 NEO 等多币种的硬件钱包，硬件钱包的私钥存储在硬件芯片中，注重安全性。</value>
+  </data>
+  <data name="Light Wallet, the app side of this wallet relies on a central service, the hardware side is not networked and runs independently. There is no need to sync block data when using it. Only the transaction data needs to be synchronized on the app side. No payment transactions are generated without hardware authorization." xml:space="preserve">
+    <value>轻钱包，这个钱包APP端依赖于一个中心的服务，硬件端不联网，独立运行。使用时无需同步区块数据。在APP端只需同步交易数据即可。如没有硬件授权不会产生任何支付交易。</value>
+  </data>
+  <data name="This wallet gives you a high degree of control over your digital assets. The private key is encrypted by the hardware wallet stored in the hardware chip. The user is exposed to the full Internet public chain in real time and does not interact with any third party. It is highly secure and needs to be kept safe and secure for the hardware." xml:space="preserve">
+    <value>此钱包让你拥有对数字资产的高度掌控权。私钥是通过硬件钱包加密存储在硬件芯片中的的。使用者实时面对全网公链，不与任何第三方有交互。有极高的安全性，需注意硬件的安全和妥善保管。</value>
+  </data>
 </root>
