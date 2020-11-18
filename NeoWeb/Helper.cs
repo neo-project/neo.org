@@ -13,7 +13,6 @@ using Neo;
 using NeoWeb.Models;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
-using SixLabors.Primitives;
 using static System.Text.RegularExpressions.Regex;
 
 namespace NeoWeb
@@ -107,7 +106,7 @@ namespace NeoWeb
                 }
                 .Contains(Path.GetExtension(cover.FileName).ToLowerInvariant()))
             {
-                throw new ArgumentException(nameof(cover));
+                throw new ArgumentException(null, nameof(cover));
             }
 
             var random = new Random();
@@ -138,11 +137,6 @@ namespace NeoWeb
             var filePath = Path.Combine(env.ContentRootPath, "wwwroot/upload", fileName);
             using var image = Image.Load(filePath);
             return Math.Abs(image.Height - image.Width / 16.0 * 9) < 1;
-        }
-
-        public static bool Contains(this string source, string toCheck, StringComparison comp)
-        {
-            return source.IndexOf(toCheck, comp) >= 0;
         }
 
         public static string ClearHtmlTag(this string html, int length)
@@ -223,7 +217,7 @@ namespace NeoWeb
         public static byte[] HexToBytes(this string value)
         {
             if (value == null || value.Length == 0)
-                return new byte[0];
+                return Array.Empty<byte>();
             if (value.Length % 2 == 1)
                 throw new FormatException();
             byte[] result = new byte[value.Length / 2];

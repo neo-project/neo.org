@@ -103,7 +103,7 @@ namespace NeoWeb
             byte[] data;
             if (scriptHash.StartsWith("0x"))
             {
-                scriptHash = scriptHash.Substring(2); // big endian
+                scriptHash = scriptHash[2..]; // big endian
                 data = scriptHash.HexToBytes();
                 Array.Reverse(data);
             }
@@ -126,7 +126,7 @@ namespace NeoWeb
 
             string result;
             if (hex.StartsWith("0x"))
-                result = hex.Substring(2).HexToBytes().Reverse().ToArray().ToHexString(); // big => little
+                result = hex[2..].HexToBytes().Reverse().ToArray().ToHexString(); // big => little
             else
                 result = "0x" + hex.HexToBytes().Reverse().ToArray().ToHexString();
             return result;
