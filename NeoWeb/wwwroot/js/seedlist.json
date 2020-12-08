@@ -1,24 +1,33 @@
 {
   "name": "MainNet",
   "sites": [
-  {
-    "url": "https://seed1.neo.org",
-    "port": "10331"
-  },
-  {
-    "url": "https://seed3.cityofzion.io",
-    "port": "443"
-  },
-  {
-    "url": "https://seed7.cityofzion.io",
-    "port": "443"
-  },
-  {
-    "url": "https://seed3.switcheo.network",
-    "port": "10331"
-  },
-  {
-    "url": "https://seed4.switcheo.network",
-    "port": "10331"
-  }
-]}
+    {
+      "url": "https://node1.nl.neoblocks.org",
+      "port": "443"
+    },
+    {
+      "url": "https://node2.nl.neoblocks.org",
+      "port": "443"
+    },
+    {
+      "url": "https://main.neologin.io",
+      "port": "443"
+    },
+    {
+      "url": "https://explorer.o3node.org",
+      "port": "443"
+    },
+    {
+      "url": "https://seed1.switcheo.network",
+      "port": "443"
+    },
+    {
+      "url": "https://seed2.switcheo.network",
+      "port": "10331"
+    },
+    {
+      "url": "https://seed3.switcheo.network",
+      "port": "10331"
+    }
+  ]
+}

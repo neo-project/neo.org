@@ -2,7 +2,7 @@
 function getSeed() {
     $.ajax({
         type: "GET",
-        url: "../js/seedlist.json",
+        url: "../js/seedlist.json?v=2",
         dataType: "json",
         success: function (data) {
             var blo_h = 0;
