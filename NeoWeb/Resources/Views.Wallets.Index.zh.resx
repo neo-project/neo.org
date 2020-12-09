@@ -472,4 +472,7 @@
   <data name="This wallet gives you a high degree of control over your digital assets. The private key is encrypted by the hardware wallet stored in the hardware chip. The user is exposed to the full Internet public chain in real time and does not interact with any third party. It is highly secure and needs to be kept safe and secure for the hardware." xml:space="preserve">
     <value>此钱包让你拥有对数字资产的高度掌控权。私钥是通过硬件钱包加密存储在硬件芯片中的的。使用者实时面对全网公链，不与任何第三方有交互。有极高的安全性，需注意硬件的安全和妥善保管。</value>
   </data>
+  <data name="ONTO is a data management application powered by blockchain. You can enjoy an one - stop management of your own digital idenities, data and assets and control the value your own data." xml:space="preserve">
+    <value>ONTO 是基于区块链技术的数据管理应用，一站式自主管理自我的身份、数据、资产信息，让你的数据成为你能掌控的价值资产。</value>
+  </data>
 </root>
