@@ -441,7 +441,7 @@ namespace NeoWeb.Controllers
             return _context.Blogs.Any(e => e.Id == id);
         }
 
-        private string Convert(string input)
+        private static string Convert(string input)
         {
             input = Regex.Replace(input, @"<!\-\-\[if gte mso 9\]>[\s\S]*<!\[endif\]\-\->", ""); //删除 ms office 注解
             input = Regex.Replace(input, "src=\".*/upload", "data-original=\"/upload"); //替换上传图片的链接
@@ -452,7 +452,7 @@ namespace NeoWeb.Controllers
             return input;
         }
 
-        private string XmlEncode(string input)
+        private static string XmlEncode(string input)
         {
             return input?.Replace(">", "&gt;").Replace("<", "&lt;").Replace("&", "&amp;").Replace("'", "&apos;").Replace("\"", "&quot;");
         }

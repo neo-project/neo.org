@@ -19,7 +19,7 @@ namespace NeoWeb
 {
     public static class Helper
     {
-        public static string CurrentDirectory;
+        public static string CurrentDirectory { set; get; }
 
         public static void AddBlogs(IQueryable<Blog> blogs, List<DiscoverViewModel> viewModels, bool isZh)
         {
@@ -246,7 +246,7 @@ namespace NeoWeb
             }
             else if (pubkey.Length != 64)
             {
-                throw new ArgumentException();
+                throw new ArgumentException("pubkey is incorrect.");
             }
             using var ecdsa = ECDsa.Create(new ECParameters
             {
@@ -270,7 +270,7 @@ namespace NeoWeb
             get
             {
 #if DEBUG
-                return "";
+                return string.Empty;
 #endif
 
 #if !DEBUG
