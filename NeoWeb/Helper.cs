@@ -101,6 +101,7 @@ namespace NeoWeb
                 !new string[]
                 {
                     ".gif",
+                    ".jpeg",
                     ".jpg",
                     ".png"
                 }
