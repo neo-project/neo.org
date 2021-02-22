@@ -81,7 +81,7 @@ namespace NeoWeb
             UInt160 scriptHash;
             try
             {
-                scriptHash = address.Trim().ToScriptHash();
+                scriptHash = address.Trim().ToScriptHash(0x35);
             }
             catch (Exception)
             {
@@ -111,7 +111,7 @@ namespace NeoWeb
             {
                 data = scriptHash.HexToBytes(); // little endian
             }
-            return new UInt160(data).ToAddress();
+            return new UInt160(data).ToAddress(0x35);
         }
 
         /// <summary>
@@ -197,7 +197,7 @@ namespace NeoWeb
             {
                 throw new FormatException();
             }
-            return new UInt160(bytes).ToAddress();
+            return new UInt160(bytes).ToAddress(0x35);
         }
 
         /// <summary>
@@ -210,7 +210,7 @@ namespace NeoWeb
             pubKey = pubKey.ToLower().Trim();
             if (!new Regex("^(0[23][0-9a-f]{64})+$").IsMatch(pubKey)) throw new FormatException();
 
-            return Contract.CreateSignatureContract(ECPoint.Parse(pubKey, ECCurve.Secp256r1)).Address;
+            return Contract.CreateSignatureContract(ECPoint.Parse(pubKey, ECCurve.Secp256r1)).ScriptHash.ToAddress(0x35);
         }
 
         /// <summary>
@@ -220,7 +220,7 @@ namespace NeoWeb
         /// <returns>eg:zmFvf3Rhfg/EuAVYOvJgKiON9j8=</returns>
         public static string AddressToBase64String(string address)
         {
-            return Convert.ToBase64String(address.Trim().ToScriptHash().ToArray());
+            return Convert.ToBase64String(address.Trim().ToScriptHash(0x35).ToArray());
         }
 
         /// <summary>
