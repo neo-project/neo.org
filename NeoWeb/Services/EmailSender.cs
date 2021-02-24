@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.Options;
-using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
+using MailKit.Net.Smtp;
+using MailKit;
+using MimeKit;
 using System.IO;
-using System.Linq;
-using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,29 +19,21 @@ namespace NeoWeb.Services
             Options = optionsAccessor.Value;
         }
 
-        public Task SendEmailAsync(string email, string subject, string message)
+        public Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
-            using (MailMessage mail = new MailMessage
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress(Options.FromDisplayName, Options.FromAddress));
+            message.To.Add(new MailboxAddress(email, email));
+            message.Subject = subject;
+            message.Body = new TextPart(MimeKit.Text.TextFormat.Html)
             {
-                From = new MailAddress(Options.FromAddress, Options.FromDisplayName),
-                Subject = subject,
-                BodyEncoding = Encoding.UTF8,
-                Body = message,
-                IsBodyHtml = true
-            })
-            {
-                mail.To.Add(email);
-                using (SmtpClient smtp = new SmtpClient(Options.Host, Options.Port)
-                {
-                    EnableSsl = true,
-                    UseDefaultCredentials = true,
-                    DeliveryMethod = SmtpDeliveryMethod.Network,
-                    Credentials = new System.Net.NetworkCredential(Options.EmailUserName, Options.EmailPassword)
-                })
-                {
-                    smtp.Send(mail);
-                }
-            }
+                Text = htmlMessage
+            };
+            using var client = new SmtpClient();
+            client.Connect(Options.Host, Options.Port, false);
+            client.Authenticate(Options.EmailUserName, Options.EmailPassword);
+            client.Send(message);
+            client.Disconnect(true);
             return Task.Delay(0);
         }
     }
