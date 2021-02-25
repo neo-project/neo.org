@@ -59,7 +59,7 @@
     <div class="col-sm-3">
         <label asp-for="StartTime" class="col-form-label"></label>
         <div>
-            @if (Model.StartTime == null)
+            @if (Model?.StartTime == null)
             {
                 <input asp-for="StartTime" value="@DateTime.Now.AddDays(7).ToString("yyyy-MM-ddT10:00")" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" class="form-control" />
             }
@@ -73,7 +73,7 @@
     <div class="col-sm-3">
         <label asp-for="EndTime" class="col-form-label"></label>
         <div>
-            @if (Model.StartTime == null)
+            @if (Model?.StartTime == null)
             {
                 <input asp-for="EndTime" value="@DateTime.Now.AddDays(7).ToString("yyyy-MM-ddT10:00")" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" class="form-control" />
             }

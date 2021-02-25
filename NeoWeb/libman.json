@@ -3,14 +3,14 @@
   "defaultProvider": "cdnjs",
   "libraries": [
     {
-      "library": "jquery@3.4.1",
+      "library": "jquery@3.5.1",
       "destination": "wwwroot/lib/jquery/",
       "files": [
         "jquery.min.js"
       ]
     },
     {
-      "library": "twitter-bootstrap@4.4.1",
+      "library": "twitter-bootstrap@4.5.3",
       "destination": "wwwroot/lib/bootstrap/",
       "files": [
         "js/bootstrap.min.js",
@@ -27,60 +27,23 @@
       ]
     },
     {
-      "library": "jquery-validate@1.19.1",
+      "library": "jquery-validate@1.19.2",
       "destination": "wwwroot/lib/jquery-validate/",
       "files": [
         "jquery.validate.min.js"
       ]
     },
     {
-      "library": "animate.css@3.7.2",
+      "library": "animate.css@4.1.1",
       "destination": "wwwroot/lib/animate.css/"
     },
     {
-      "library": "tinymce@5.0.16",
+      "library": "tinymce@5.6.1",
       "destination": "wwwroot/lib/tinymce/"
     },
     {
-      "library": "bootstrap-fileinput@5.0.8",
-      "destination": "wwwroot/lib/bootstrap-fileinput/",
-      "files": [
-        "css/fileinput-rtl.css",
-        "css/fileinput-rtl.min.css",
-        "css/fileinput.css",
-        "css/fileinput.min.css",
-        "img/loading-sm.gif",
-        "img/loading.gif",
-        "js/locales/zh.js",
-        "js/locales/zh.min.js",
-        "js/locales/zh.min.js.map",
-        "js/plugins/piexif.js",
-        "js/plugins/piexif.min.js",
-        "js/plugins/purify.js",
-        "js/plugins/purify.min.js",
-        "js/plugins/sortable.js",
-        "js/plugins/sortable.min.js",
-        "js/fileinput.js",
-        "js/fileinput.min.js",
-        "themes/explorer/theme.css",
-        "themes/explorer/theme.js",
-        "themes/explorer/theme.min.css",
-        "themes/explorer/theme.min.js",
-        "themes/explorer-fa/theme.css",
-        "themes/explorer-fa/theme.js",
-        "themes/explorer-fa/theme.min.css",
-        "themes/explorer-fa/theme.min.js",
-        "themes/explorer-fas/theme.css",
-        "themes/explorer-fas/theme.js",
-        "themes/explorer-fas/theme.min.css",
-        "themes/explorer-fas/theme.min.js",
-        "themes/fa/theme.js",
-        "themes/fa/theme.min.js",
-        "themes/fas/theme.js",
-        "themes/fas/theme.min.js",
-        "themes/gly/theme.js",
-        "themes/gly/theme.min.js"
-      ]
+      "library": "bootstrap-fileinput@5.1.3",
+      "destination": "wwwroot/lib/bootstrap-fileinput/"
     },
     {
       "library": "typed.js@2.0.11",
@@ -88,6 +51,10 @@
       "files": [
         "typed.min.js"
       ]
+    },
+    {
+      "library": "template_js@0.8.0",
+      "destination": "wwwroot/lib/template_js/"
     }
   ]
 }

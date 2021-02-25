@@ -1,5 +1,6 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
 @{
     ViewData["Title"] = Localizer["Get Wallets"].Value;
@@ -30,7 +31,7 @@
     <ul class="row mt5 client-ul">
         <li class="desktop">
             <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/neo3-gui.png")" />
-            <header>Neo-GUI <small>(v3.0 Preview 2)</small></header>
+            <header>Neo-GUI <small>(v3.0 Preview 3)</small></header>
             <div class="platform">
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Windows">&#xf266;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="macOS">&#xe61f;</i>
@@ -39,7 +40,7 @@
             <a class="open-source" href="https://github.com/neo-ngd/Neo3-GUI" target="_blank">GitHub</a>
             <div class="developer d-none"><a href="https://github.com/neo-ngd" target="_blank">NEO GLOBAL DEVELOPMENT</a></div>
             <div class="license d-none"><a class="float-left" href="https://github.com/neo-ngd/Neo3-GUI/blob/master/LICENSE" target="_blank">MIT License</a></div>
-            <div class="button d-none"><a class="btn" href="https://github.com/neo-ngd/Neo3-GUI/releases" target="_blank">@Localizer["Download"]</a></div>
+            <div class="button d-none"><a class="btn" href="https://github.com/neo-ngd/Neo3-GUI/releases/tag/v1.1.0" target="_blank">@Localizer["Download"]</a></div>
             <div class="desc d-none">
                 <div class="preview-div">
                     <h3>@Localizer["Preview"]</h3>
@@ -52,7 +53,7 @@
                     <img data-original="@Helper.ToCDN("/images/wallets/neo3-gui4.png")" />
                     <img data-original="@Helper.ToCDN("/images/wallets/neo3-gui5.png")" />
                 </div>
-                <p>@Localizer["Neo-GUI (v3.0 Preview 2) is a full-node application on the Neo 3 blockchain. It uses Electron cross-platform technology and can run on Windows 10, macOS systems."]</p>
+                <p>@Localizer["Neo-GUI (v3.0 Preview 3) is a full-node application on the Neo 3 blockchain. It uses Electron cross-platform technology and can run on Windows 10, macOS systems."]</p>
                 <p>@Localizer["For more information, see:"]<a href="@Localizer["https://docs.neo.org/v3/docs/zh-cn/node/gui/install.html"]" target="_blank">@Localizer["Instructions for use"]</a></p>
                 <p>@Localizer["Languages"]: English / 简体中文</p>
                 <div>
@@ -79,7 +80,7 @@
         </li>
         <li class="desktop">
             <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/cli.png")" />
-            <header>Neo-CLI <small>(v3.0 Preview 2)</small></header>
+            <header>Neo-CLI <small>(v3.0 Preview 3)</small></header>
             <div class="platform">
                 <i class="iconfont" header data-toggle="tooltip" data-placement="bottom" title="Windows">&#xf266;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Linux">&#xe6c1;</i>
@@ -88,7 +89,7 @@
             <a class="open-source" href="https://github.com/neo-project/neo-cli" target="_blank">GitHub</a>
             <div class="developer d-none"><a href="https://github.com/neo-project/neo-cli" target="_blank">The Neo Project</a></div>
             <div class="license d-none"><a href="https://github.com/neo-project/neo-cli/blob/master/LICENSE" target="_blank">MIT License</a></div>
-            <div class="button d-none"><a class="btn" href="https://github.com/neo-project/neo-cli/releases" target="_blank">@Localizer["Download"]</a></div>
+            <div class="button d-none"><a class="btn" href="https://github.com/neo-project/neo-node/releases/tag/v3.0.0-preview3" target="_blank">@Localizer["Download"]</a></div>
             <div class="desc d-none">
                 <div class="preview-div">
                     <h3>@Localizer["Preview"]</h3>
@@ -374,7 +375,7 @@
             </div>
         </li>
         <li class="desktop mobile">
-            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/o3.png")" />
+            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/o3.png", true)" />
             <header>O3 Wallet</header>
             <div class="platform">
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Windows">&#xf266;</i>
@@ -474,52 +475,49 @@
         </li>
         <li class="mobile extension">
             <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/neoline.png", true)" />
-            <header>NEO Line</header>
+            <header>NeoLine</header>
             <div class="platform">
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="extension">&#xe621;</i>
             </div>
-            <a class="open-source" href="https://github.com/NeoNextClub" target="_blank">GitHub</a>
-            <div class="developer d-none"><a href="https://github.com/NeoNextClub" target="_blank">NeoNext</a></div>
+            <a class="open-source" href="https://github.com/NeoNEXT/neoline" target="_blank">GitHub</a>
+            <div class="developer d-none"><a href="https://github.com/NeoNEXT/neoline" target="_blank">NeoNext</a></div>
             <div class="button d-none">
-                <a class="btn" href="https://neoline.cn" target="_blank">@Localizer["Website"]</a>
+                <a class="btn" href="https://neoline.io" target="_blank">@Localizer["Website"]</a>
                 <a class="btn" href="https://chrome.google.com/webstore/detail/neoline/cphhlgmgameodnhkjdmkpanlelnlohao" target="_blank">@Localizer["Download"] <small>(@Localizer["Extension"])</small></a>
             </div>
             <div class="desc d-none">
                 <div class="preview-div">
                     <h3>@Localizer["Preview"]</h3>
-                    <a class="plat-btn btn-extension" href="javascript:" onclick="switchPlatform('extension');">@Localizer["Extension"]</a>
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
-                <div class="p-mobile preview">
-                    <img data-original="@Helper.ToCDN("/images/wallets/neoline-mob1.png")" />
-                    <img data-original="@Helper.ToCDN("/images/wallets/neoline-mob2.png")" />
-                    <img data-original="@Helper.ToCDN("/images/wallets/neoline-mob3.png")" />
-                    <img data-original="@Helper.ToCDN("/images/wallets/neoline-mob4.png")" />
-                    <img data-original="@Helper.ToCDN("/images/wallets/neoline-mob5.png")" />
+                <div class="p-mobile preview  @SharedLocalizer["d-none-zh"]">
+                    <img data-original="@Helper.ToCDN("/images/wallets/neoline-en1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/neoline-en2.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/neoline-en3.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/neoline-en4.png")" />
                 </div>
-                <div class="p-extension preview" style="display:none;">
-                    <img data-original="@Helper.ToCDN("/images/wallets/neoline1.png")" />
-                    <img data-original="@Helper.ToCDN("/images/wallets/neoline2.png")" />
-                    <img data-original="@Helper.ToCDN("/images/wallets/neoline3.png")" />
-                    <img data-original="@Helper.ToCDN("/images/wallets/neoline4.png")" />
-                    <img data-original="@Helper.ToCDN("/images/wallets/neoline5.png")" />
+                <div class="p-mobile preview @SharedLocalizer["d-none"]">
+                    <img data-original="@Helper.ToCDN("/images/wallets/neoline-zh1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/neoline-zh2.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/neoline-zh3.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/neoline-zh4.png")" />
                 </div>
-                <p>@Localizer["NEOLine is a variety of digital asset wallets and browser plugins on the Neo blockchain. Supports wallet, multiple address management and multiple verification methods. As  a browser extension wallet of Neo, it contains comprehensive wallet functions and provides dAPI for developers."]</p>
+                <p>@Localizer["NeoLine Chrome Plugin-Wallet is developed by Neo developer community NEXT. It is an open source, multi-functional wallet with dAPI provided for developers. Switcheo and Flamingo are supported."]</p>
                 <p>@Localizer["Languages"]: English / 中文</p>
                 <div>
                     <div class="metrics">
                         <span>@Localizer["Degree of Digital Asset Control"]</span><span class="span-success">@Localizer["High"]</span>
-                        <div>@Localizer["This wallet gives you a high degree of control over digital assets. The private key is encrypted and stored by the Encrypted Key and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the Encrypted Key."]</div>
+                        <div>@Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the wallet file."]</div>
                     </div>
                     <div class="metrics">
                         <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
                         <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                     </div>
                     <div class="metrics">
-                        <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
-                        <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
+                        <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
+                        <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."] @Localizer["Get source code"]: <a href="https://github.com/neonext/neoline" target="_blank">GitHub</a></div>
                     </div>
                     <div class="metrics">
                         <span>@Localizer["Supported NEP"] <small>(@Localizer["Mobile"])</small></span>
@@ -534,8 +532,53 @@
                 </div>
             </div>
         </li>
+        <li class="mobile">
+            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/onto.png", true)" />
+            <header>ONTO</header>
+            <div class="platform">
+                <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
+                <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
+            </div>
+            <div class="developer d-none"><a href="https://github.com/ontio" target="_blank">Ontology</a></div>
+            <div class="button d-none"><a class="btn" href="https://www.onto.app/" target="_blank">@Localizer["Website"]</a></div>
+            <div class="desc d-none">
+                <div class="preview-div">
+                    <h3>@Localizer["Preview"]</h3>
+                    <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
+                </div>
+                <div class="p-mobile preview">
+                    <img data-original="@Helper.ToCDN("/images/wallets/onto1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/onto2.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/onto3.png")" />
+                </div>
+                <p>
+                    @Localizer["ONTO is a data management application powered by blockchain. You can enjoy an one - stop management of your own digital idenities, data and assets and control the value your own data."]
+                </p>
+                <p>@Localizer["Languages"]: English / 简体中文 / 한국어 / 日本語 / Español</p>
+                <div>
+                    <div class="metrics">
+                        <span>@Localizer["Degree of Digital Asset Control"]</span><span class="span-success">@Localizer["High"]</span>
+                        <div>@Localizer["This wallet gives you a high degree of control over digital assets. The private key is encrypted and stored by the Encrypted Key and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the Encrypted Key."]</div>
+                    </div>
+                    <div class="metrics">
+                        <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
+                        <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
+                    </div>
+                    <div class="metrics">
+                        <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
+                        <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
+                    </div>
+                    <div class="metrics">
+                        <span>@Localizer["Supported NEP"]</span>
+                        <div>
+                            <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki" target="_blank">NEP-5</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
         <li class="mobile hardware">
-            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/spatium.png")" />
+            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/spatium.png?v=2")" />
             <header>Spatium</header>
             <div class="platform">
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
@@ -550,20 +593,20 @@
                     <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
                 </div>
                 <div class="p-mobile preview">
-                    <img data-original="@Helper.ToCDN("/images/wallets/spatium1.png")" />
-                    <img data-original="@Helper.ToCDN("/images/wallets/spatium2.png")" />
-                    <img data-original="@Helper.ToCDN("/images/wallets/spatium3.png")" />
-                    <img data-original="@Helper.ToCDN("/images/wallets/spatium4.png")" />
-                    <img data-original="@Helper.ToCDN("/images/wallets/spatium5.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/spatium1.png?v=2")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/spatium2.png?v=2")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/spatium3.png?v=2")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/spatium4.png?v=2")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/spatium5.png?v=2")" />
                 </div>
                 <p>
-                    @Localizer["It's a digital currency wallet developed by CaspianTechnologies. This wallet needs signatures from multiple parties on transactions, and it is compatible with the Spatium hardware wallet, which possesses the biological recognition technologies. It also focuses on the security."]
+                    @Localizer["Spatium is a non-custodial cryptocurrency wallet eliminating the hassle of private keys for new crypto adopters with the advanced SMPC cryptography and biometry. Spatium replaces the private key with two secrets that are generated, stored and processed independently. It’s impossible to steal the private key from Spatium wallet because it doesn’t even exist. Furthermore, Spatium utilizes anonymous biometric hashes to encrypt backup and make it impossible to lose access to the funds."]
                 </p>
                 <p>@Localizer["Languages"]: English / 简体中文</p>
                 <div>
                     <div class="metrics">
                         <span>@Localizer["Degree of Digital Asset Control"]</span><span class="span-success">@Localizer["High"]</span>
-                        <div>@Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the hardware wallet, so it has extremely high security."]</div>
+                        <div>@Localizer["This wallet gives users a high degree of control over digital assets. The private key is replaced with two independent secrets. The first is encrypted and stored by the wallet files and biometry on the user’s device. The second is encrypted by the password and stored on the Spatium side. To steal the funds, an intruder would have to get simultaneous access to both sides. However, you should take special care and use complex passwords."]</div>
                     </div>
                     <div class="metrics">
                         <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
@@ -953,10 +996,12 @@
                 </div>
             </div>
         </li>
-        <li class="hardware">
+        <li class="mobile hardware">
             <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/safepal.png")" />
             <header>SafePal Wallet</header>
             <div class="platform">
+                <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
+                <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Hardware">&#xe622;</i>
             </div>
             <div class="button d-none"><a class="btn" href="https://www.safepal.io/" target="_blank">@Localizer["Website"]</a></div>
@@ -1183,6 +1228,60 @@
                     <div class="metrics">
                         <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
                         <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
+                    </div>
+                    <div class="metrics">
+                        <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
+                        <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
+                    </div>
+                    <div class="metrics">
+                        <span>@Localizer["Supported NEP"]</span>
+                        <div>
+                            @Localizer["None"]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="desktop mobile hardware">
+            <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/keyfort.png")" />
+            <header>KeyFort Wallet</header>
+            <div class="platform">
+                <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Windows">&#xf266;</i>
+                <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="macOS">&#xe61f;</i>
+                <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
+                <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
+                <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Hardware">&#xe622;</i>
+            </div>
+            <div class="developer d-none"><a href="https://keyfort.io/" target="_blank">KEYFORT Pte. Ltd.</a></div>
+            <div class="button d-none">
+                <a class="btn" href="https://keyfort.io/" target="_blank">@Localizer["Website"]</a>
+            </div>
+            <div class="desc d-none">
+                <div class="preview-div">
+                    <h3>@Localizer["Preview"]</h3>
+                    <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
+                </div>
+                <div class="p-mobile preview">
+                    <img data-original="@Helper.ToCDN("/images/wallets/keyfort1.png")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/keyfort6.jpg")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/keyfort5.jpg")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/keyfort4.jpg")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/keyfort2.jpg")" />
+                    <img data-original="@Helper.ToCDN("/images/wallets/keyfort3.jpg")" />
+                </div>
+
+                <p>@Localizer["A hardware wallet with multi-currency support, such as NEO, where the private key of the hardware wallet is stored in the hardware chip, with an emphasis on security."]</p>
+
+
+                <p>@Localizer["Languages"]: English / 简体中文</p>
+                <div>
+                    <div class="metrics">
+                        <span>@Localizer["Degree of Digital Asset Control"]</span><span class="span-success">@Localizer["High"]</span>
+                        <div>@Localizer["This wallet gives you a high degree of control over your digital assets. The private key is encrypted by the hardware wallet stored in the hardware chip. The user is exposed to the full Internet public chain in real time and does not interact with any third party. It is highly secure and needs to be kept safe and secure for the hardware."]</div>
+                    </div>
+                    <div class="metrics">
+                        <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
+                        <div>@Localizer["Light Wallet, the app side of this wallet relies on a central service, the hardware side is not networked and runs independently. There is no need to sync block data when using it. Only the transaction data needs to be synchronized on the app side. No payment transactions are generated without hardware authorization."]</div>
                     </div>
                     <div class="metrics">
                         <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
@@ -1493,10 +1592,14 @@
                 </div>
             </div>
         </li>
-        <li class="hardware">
+        <li class="desktop mobile hardware">
             <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/ledger.png")" />
             <header>Ledger Nano S</header>
             <div class="platform">
+                <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Windows">&#xf266;</i>
+                <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="macOS">&#xe61f;</i>
+                <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
+                <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Hardware">&#xe622;</i>
             </div>
             <a class="open-source" href="https://github.com/LedgerHQ" target="_blank">GitHub</a>
@@ -1542,10 +1645,14 @@
                 </div>
             </div>
         </li>
-        <li class="hardware">
+        <li class="desktop mobile hardware">
             <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/ledger.png")" />
             <header>Ledger Blue</header>
             <div class="platform">
+                <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Windows">&#xf266;</i>
+                <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="macOS">&#xe61f;</i>
+                <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
+                <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
                 <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Hardware">&#xe622;</i>
             </div>
             <a class="open-source" href="https://github.com/LedgerHQ" target="_blank">GitHub</a>

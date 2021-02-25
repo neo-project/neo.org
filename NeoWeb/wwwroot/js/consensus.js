@@ -88,6 +88,7 @@ function getListdata() {
                     }
                 }
 
+                console.log(_list[j])
                 if (_list[j].Active) {
                     html += template('consensus', _list[j]);
                 } else {

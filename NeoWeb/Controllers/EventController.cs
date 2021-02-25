@@ -269,7 +269,7 @@ namespace NeoWeb.Controllers
             return _context.Events.Any(e => e.Id == id);
         }
 
-        private string EventConvert(string input)
+        private static string EventConvert(string input)
         {
             input = Regex.Replace(input, @"<!\-\-\[if gte mso 9\]>[\s\S]*<!\[endif\]\-\->", ""); //删除 ms office 注解
             input = Regex.Replace(input, "src=\".*/upload", "data-original=\"/upload"); //替换上传图片的链接

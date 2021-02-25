@@ -228,8 +228,8 @@
   <data name="It's a cross-platform wallet developed by O3 Labs. This wallet supports most mainstream operating systems, maintains a high update frequency and can support Neo network updates and features in a timely manner." xml:space="preserve">
     <value>O3 Labs 开发的跨平台钱包，支持大部分主流操作系统。此钱包保持高更新频率，能及时支持 Neo 网络更新与特性。</value>
   </data>
-  <data name="It's a digital currency wallet developed by CaspianTechnologies. This wallet needs signatures from multiple parties on transactions, and it is compatible with the Spatium hardware wallet, which possesses the biological recognition technologies. It also focuses on the security." xml:space="preserve">
-    <value>CaspianTechnologies 开发的数字货币钱包，对交易进行多方签名，兼容生物识别的 Spatium 硬件钱包，注重安全性。</value>
+  <data name="Spatium is a non-custodial cryptocurrency wallet eliminating the hassle of private keys for new crypto adopters with the advanced SMPC cryptography and biometry. Spatium replaces the private key with two secrets that are generated, stored and processed independently. It’s impossible to steal the private key from Spatium wallet because it doesn’t even exist. Furthermore, Spatium utilizes anonymous biometric hashes to encrypt backup and make it impossible to lose access to the funds." xml:space="preserve">
+    <value>Spatium 是一个非托管的加密货币钱包，通过高级 SMPC 加密技术和生物识别技术解决了币圈新手管理私钥的麻烦。 Spatium 用两个独立生成存储和计算的密码代替了传统私钥，所以从 Spatium 钱包中窃取私钥是不可能的。 此外，Spatium 利用匿名生物识别哈希来加密备份，为用户的资金使用权提供了充足的保障。</value>
   </data>
   <data name="It's a hardware wallet developed by NewEconoLabs that supports private key import and multi-private key management. Its features include OLED screen, Type-C/Bluetooth and multiple tokens, and it also supports NEO/GAS. Other extended applications can also be used." xml:space="preserve">
     <value>NewEconoLabs 开发的硬件钱包，支持私钥导入及多私钥管理。OLED 屏幕，Type-C/ 蓝牙，多币种，支持 NEO/GAS，可使用其它扩展应用。</value>
@@ -382,8 +382,8 @@
   <data name="Extension" xml:space="preserve">
     <value>浏览器插件</value>
   </data>
-  <data name="NEOLine is a variety of digital asset wallets and browser plugins on the Neo blockchain. Supports wallet, multiple address management and multiple verification methods. As  a browser extension wallet of Neo, it contains comprehensive wallet functions and provides dAPI for developers." xml:space="preserve">
-    <value>NEOLine 是 Neo 区块链上的多种数字资产钱包和浏览器插件。支持钱包，多地址管理及多种验证方式。同时，作为 Neo 区块链上的浏览器插件钱包，它包含全面的钱包功能，并为开发人员提供了 dAPI。</value>
+  <data name="NeoLine Chrome Plugin-Wallet is developed by Neo developer community NEXT. It is an open source, multi-functional wallet with dAPI provided for developers. Switcheo and Flamingo are supported." xml:space="preserve">
+    <value>NeoLine 浏览器插件钱包由 Neo 开发者社区 NEXT 开发并实现开源，它包含全面的钱包功能，并为开发人员提供了 dAPI，目前支持连接 Switcheo，Flamingo。</value>
   </data>
   <data name="Teemo is a browser extension wallet of Neo.&lt;br/&gt;The extension injects the Neo dApp API into every website's JavaScript context, so that DApps can interact with the blockchain." xml:space="preserve">
     <value>Teemo 是一款 Neo 区块链上的浏览器插件钱包，此扩展将 Neo dApp API 注入到每个网站的 JavaScript 上下文中以便 DApps 可以与区块链进行交互。</value>
@@ -436,8 +436,8 @@
   <data name="Send, receive, and exchange your favorite cryptocurrencies like Neo, Bitcoin, Ripple, and more with Exodus." xml:space="preserve">
     <value>使用 Exodus 发送、接收、交换数字货币，例如 Neo、Bitcoin、Ripple 等。</value>
   </data>
-  <data name="Neo-GUI (v3.0 Preview 2) is a full-node application on the Neo 3 blockchain. It uses Electron cross-platform technology and can run on Windows 10, macOS systems." xml:space="preserve">
-    <value>Neo-GUI（v3.0 Preview 2）是 Neo 3 区块链上的全节点的应用程序，采用 Electron 跨平台技术，可在 Windows 10、macOS 系统上运行。</value>
+  <data name="Neo-GUI (v3.0 Preview 3) is a full-node application on the Neo 3 blockchain. It uses Electron cross-platform technology and can run on Windows 10, macOS systems." xml:space="preserve">
+    <value>Neo-GUI（v3.0 Preview 3）是 Neo 3 区块链上的全节点的应用程序，采用 Electron 跨平台技术，可在 Windows 10、macOS 系统上运行。</value>
   </data>
   <data name="Enables RPC for the node" xml:space="preserve">
     <value>提供节点的 RPC 功能</value>
@@ -459,5 +459,20 @@
   </data>
   <data name="Uses RocksDBStore to store the blockchain data" xml:space="preserve">
     <value>区块链数据使用 RocksDBStore 存储引擎</value>
+  </data>
+  <data name="This wallet gives users a high degree of control over digital assets. The private key is replaced with two independent secrets. The first is encrypted and stored by the wallet files and biometry on the user’s device. The second is encrypted by the password and stored on the Spatium side. To steal the funds, an intruder would have to get simultaneous access to both sides. However, you should take special care and use complex passwords." xml:space="preserve">
+    <value>该钱包为用户提供了对数字资产的高度控制。 私钥被两个独立的密码代替。 第一个通过钱包文件和生物特征加密并存储在用户设备上。 第二个通过密码加密并存储在 Spatium 的另一侧。 要窃取资金，入侵者必须同时获得双方的访问权限。 但是，你应格外小心并使用复杂的密码。</value>
+  </data>
+  <data name="A hardware wallet with multi-currency support, such as NEO, where the private key of the hardware wallet is stored in the hardware chip, with an emphasis on security." xml:space="preserve">
+    <value>一个支持 NEO 等多币种的硬件钱包，硬件钱包的私钥存储在硬件芯片中，注重安全性。</value>
+  </data>
+  <data name="Light Wallet, the app side of this wallet relies on a central service, the hardware side is not networked and runs independently. There is no need to sync block data when using it. Only the transaction data needs to be synchronized on the app side. No payment transactions are generated without hardware authorization." xml:space="preserve">
+    <value>轻钱包，这个钱包APP端依赖于一个中心的服务，硬件端不联网，独立运行。使用时无需同步区块数据。在APP端只需同步交易数据即可。如没有硬件授权不会产生任何支付交易。</value>
+  </data>
+  <data name="This wallet gives you a high degree of control over your digital assets. The private key is encrypted by the hardware wallet stored in the hardware chip. The user is exposed to the full Internet public chain in real time and does not interact with any third party. It is highly secure and needs to be kept safe and secure for the hardware." xml:space="preserve">
+    <value>此钱包让你拥有对数字资产的高度掌控权。私钥是通过硬件钱包加密存储在硬件芯片中的的。使用者实时面对全网公链，不与任何第三方有交互。有极高的安全性，需注意硬件的安全和妥善保管。</value>
+  </data>
+  <data name="ONTO is a data management application powered by blockchain. You can enjoy an one - stop management of your own digital idenities, data and assets and control the value your own data." xml:space="preserve">
+    <value>ONTO 是基于区块链技术的数据管理应用，一站式自主管理自我的身份、数据、资产信息，让你的数据成为你能掌控的价值资产。</value>
   </data>
 </root>

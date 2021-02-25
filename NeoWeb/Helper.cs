@@ -9,17 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Neo;
 using NeoWeb.Models;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
-using SixLabors.Primitives;
 using static System.Text.RegularExpressions.Regex;
 
 namespace NeoWeb
 {
     public static class Helper
     {
-        public static string CurrentDirectory;
+        public static string CurrentDirectory { set; get; }
 
         public static void AddBlogs(IQueryable<Blog> blogs, List<DiscoverViewModel> viewModels, bool isZh)
         {
@@ -101,12 +101,13 @@ namespace NeoWeb
                 !new string[]
                 {
                     ".gif",
+                    ".jpeg",
                     ".jpg",
                     ".png"
                 }
                 .Contains(Path.GetExtension(cover.FileName).ToLowerInvariant()))
             {
-                throw new ArgumentException(nameof(cover));
+                throw new ArgumentException(null, nameof(cover));
             }
 
             var random = new Random();
@@ -137,11 +138,6 @@ namespace NeoWeb
             var filePath = Path.Combine(env.ContentRootPath, "wwwroot/upload", fileName);
             using var image = Image.Load(filePath);
             return Math.Abs(image.Height - image.Width / 16.0 * 9) < 1;
-        }
-
-        public static bool Contains(this string source, string toCheck, StringComparison comp)
-        {
-            return source.IndexOf(toCheck, comp) >= 0;
         }
 
         public static string ClearHtmlTag(this string html, int length)
@@ -206,8 +202,6 @@ namespace NeoWeb
             return true;
         }
 
-        public static string ToHexString(this byte[] bytes) => BitConverter.ToString(bytes).Replace("-", "");
-
         public static bool VerifySignature(string message, string signature, string pubkey)
         {
             var msg = Encoding.Default.GetBytes(message);
@@ -224,7 +218,7 @@ namespace NeoWeb
         public static byte[] HexToBytes(this string value)
         {
             if (value == null || value.Length == 0)
-                return new byte[0];
+                return Array.Empty<byte>();
             if (value.Length % 2 == 1)
                 throw new FormatException();
             byte[] result = new byte[value.Length / 2];
@@ -253,7 +247,7 @@ namespace NeoWeb
             }
             else if (pubkey.Length != 64)
             {
-                throw new ArgumentException();
+                throw new ArgumentException("pubkey is incorrect.");
             }
             using var ecdsa = ECDsa.Create(new ECParameters
             {
@@ -277,7 +271,7 @@ namespace NeoWeb
             get
             {
 #if DEBUG
-                return "";
+                return string.Empty;
 #endif
 
 #if !DEBUG
