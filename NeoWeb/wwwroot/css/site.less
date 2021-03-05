@@ -1,8 +1,6 @@
 ﻿@import 'basic.less';
 @import 'layout.less';
 
-@font: 16px;
-
 html {
     font-size: @font !important;
 }
@@ -20,7 +18,7 @@ html body {
 }
 
 #neo-body {
-    padding-top: 70px;
+    
 }
 
 .container {
@@ -167,6 +165,25 @@ h6, .h6 {
     font-weight: 300;
     font-size: 0.95rem;
     letter-spacing: .2px;
+}
+
+/*字体*/
+.bold {
+    font-weight: 600;
+}
+
+.bolder {
+    font-family: WorkSans-Bold;
+    font-weight: bolder;
+}
+
+.lighter {
+    font-family: WorkSans-Regular;
+    font-weight: lighter;
+}
+
+small, .small {
+    font-size: 80%;
 }
 
 /*间距*/
@@ -1237,4 +1254,23 @@ table, .table {
         margin-top: -120px;
         position: absolute;
     }
+}
+
+.btn-n3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 40px;
+    border-radius: 4px;
+    font-size: 18px;
+    line-height: 1.15;
+    .font-family;
+    .bold;
+    text-transform: uppercase;
+    color: @btn-text-n3;
+    background-color: @green-theme;
+}
+
+.btn-n3:hover {
+    
 }

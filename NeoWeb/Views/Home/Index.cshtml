@@ -7,41 +7,29 @@
     <link rel="stylesheet" href="@Helper.ToCDN("/css/home.min.css", true)" />
 }
 @* 基本块 - Home page *@
-<div id="homeFri" class="bg8 p1">
-    @if (ViewBag.OnTop != null)
-    {
-        <div class="notify">
-            <div class="alert alert-dismissible fade show px-0" role="alert">
-                @{var top = ViewBag.OnTop as DiscoverViewModel;}
-                @if (top.Type == DiscoverViewModelType.Blog)
-                {
-                    <h6><a class="with-space" href="~/blog/details/@top.Blog.Id">@top.Blog.Title</a></h6>
-                }
-                @if (top.Type == DiscoverViewModelType.Event)
-                {
-                    <h6><a class="with-space" href="~/event/details/@top.Event.Id">@top.Event.Name</a></h6>
-                }
-                @if (top.Type == DiscoverViewModelType.News)
-                {
-                    <h6><a class="with-space" href="@top.News.Link" target="_blank">@top.News.Title</a></h6>
-                }
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <i class="iconfont" aria-hidden="true">&#xe620;</i>
-                </button>
-            </div>
-        </div>
-    }
+<div id="home">
 
-    <div class="container">
-        <h3>
-            @Localizer["Join the"]<br />
-            <span class="h1 typetext" id="typetext"></span><br />
-            @Localizer["open network for the smart economy"]
-        </h3>
-        <div class="mt4">
-            <a asp-controller="about" asp-action="index" class="btn">@Localizer["Learn more"]</a>
+<div class="section landing">
+    <div class="sub-section left">
+        <div class="content-wrapper">
+            <img class="logo-img" data-original="@Helper.ToCDN("/images/home/N3Logo.svg")" />
+            <div class="sub-title font-family bold w">@Localizer["Take a look at the latest version of the Neo platform"]</div>
+            <a asp-controller="tour" asp-action="index" class="btn-n3">@Localizer["Take Tour"]</a>
         </div>
     </div>
+    <div class="sub-section right">
+        <div class="content-wrapper">
+            <div class="title font-family-bold bold">@Localizer["The Complete Blockchain Development Platform"]</div>
+            <div class="news-wrapper">
+                <div class="latest-news font-family-bold bold">
+                    @Localizer["LATEST NEWS:"] 
+                </div>
+                <a class="news-link font-family bold" asp-controller="news" asp-action="index" >@Localizer["This is an example of a article on the latest news ticker"]</a>
+            </div>
+        </div>
+    </div>
+
+</div>
 </div>
 <div class="b3">
     <div class="container p2">
@@ -136,7 +124,7 @@
 @section Scripts{
     <script src="@Helper.ToCDN("/lib/typed.js/typed.min.js")"></script>
     <script>
-            var typed = new Typed('#typetext', {
+        var typed = new Typed('#typetext', {
             strings: ["@Localizer["community-driven"]","@Localizer["developer-friendly"]","@Localizer["enterprise-ready"]"],
             typeSpeed: "@SharedLocalizer["en"].Value" == "zh" ? 80 : 40,
             startDelay: 300,

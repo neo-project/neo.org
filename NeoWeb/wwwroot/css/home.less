@@ -1,55 +1,108 @@
 ﻿@import "basic.less";
 
 .layout-container {
+    display: flex;
+    flex-direction: column;
     max-width: none;
+    width: 100vw;
     padding: 0;
     margin: 0;
 }
 
-#homeFri {
-    position: relative;
 
-    .container {
-        position: absolute;
-        top: 50%;
-        margin-top: -138px;
-        right: 0;
-        left: 0;
-    }
+.section {
+    display: flex;
+    flex-flow: nowrap;
+    align-items: center;
+    width: 100%;
 
-    .notify {
-        position: absolute;
-        top: 0;
-        width: 100%;
-        background: fade(@green, 10%);
-        text-align: left;
-        padding-left: 46px;
+    &.landing {
+        @landing-height: 100vh;
+        @landing-max-height: 890px;
+        height: @landing-height;
+        max-height: @landing-max-height;
 
-        @media only screen and (max-width: 991px) {
-            padding-left: 20px;
-        }
+        .sub-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 50%;
+            height: 100%;
+            padding-top: @nav-bar-height;
 
-        .alert {
-            margin-bottom: 0;
-            line-height: 25px;
+            &.left {
+                background: @linear-black;
 
-            h6 {
-                width: calc(100% - 50px);
+                .content-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    padding-left: 15%;
+                    padding-right: 5%;
+
+                    .logo-img {
+                        height: calc((@landing-height - 100px) / 2);
+                        max-height: calc((@landing-max-height - 100px) / 2);
+                        width: calc((@landing-height - 100px) / 2);
+                        max-width: calc((@landing-max-height - 100px) / 2);
+                    }
+
+                    .sub-title {
+                        margin: 50px 0;
+                        width: 365px;
+                        text-align: center;
+                        color: @green-theme;
+                        font-size: @font;
+                        line-height: 20px;
+                        letter-spacing: 3px;
+                        word-wrap: normal;
+                        text-transform: uppercase;
+                    }
+                }
             }
 
-            a {
-                color: @text;
-            }
+            &.right {
+                background: @green-theme;
 
-            &.alert-dismissible .close {
-                outline: none;
-                font-family: iconfont;
-                padding: 1rem 1.25rem;
+                .content-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    margin-left: 54px;
+                    width: 70%;
+                    min-width: 580px;
+                    max-width: 883px;
+                    height: calc((@landing-height - 100px) / 2 + 180px);
+                    max-height: calc((@landing-max-height - 100px) / 2 + 180px);
 
-                .iconfont {
-                    font-size: 20px;
+                    .title {
+                        margin-top: 68px;
+                        font-size: 70px;
+                        line-height: 73px;
+                        text-transform: uppercase;
+                        color: @btn-text-n3;
+                    }
+
+                    .news-wrapper {
+                        display: flex;
+                        flex-direction: column;
+                        color: #000332;
+                        font-size: @font;
+                        line-height: 20px;
+                    }
+
+                    .latest-news {
+                        text-transform: uppercase;
+                    }
+
+                    .news-link {
+                        color: #000332;
+                    }
                 }
             }
         }
     }
 }
+
+
+

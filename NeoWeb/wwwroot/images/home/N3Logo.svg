@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400px" height="410px" viewBox="0 0 400 410" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>N3 Logo</title>
+    <g id="Homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="HOMEPAGE-PT-0.1" transform="translate(-369.000000, -202.000000)">
+            <g id="Blue-left-pane" transform="translate(-34.000000, -2.500000)">
+                <g id="N3-Logo" transform="translate(407.000000, 205.000000)">
+                    <rect id="Rectangle" stroke="#00E599" stroke-width="6.2016" x="0" y="13" width="391.94112" height="391.94112"></rect>
+                    <text id="N3" font-family="WorkSans-ExtraBold, Work Sans" font-size="242.8" font-weight="700" fill="#00E599">
+                        <tspan x="22.2026" y="226.5">N3</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
