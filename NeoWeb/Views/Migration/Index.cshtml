@@ -1,0 +1,26 @@
+﻿@model NeoWeb.Models.Candidate
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+@{
+    ViewData["Title"] = Localizer["Migration"].Value;
+}
+
+@section Styles{
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/migration.min.css", true)" />
+}
+<div class="container">
+    @Localizer["Migration"]
+</div>
+
+
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <environment include="Development">
+        <script src="/js/migration.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="@Helper.ToCDN("/js/migration.min.js", true)"></script>
+    </environment>
+}

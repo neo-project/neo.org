@@ -1,0 +1,10 @@
+# 若要了解有关 .editorconfig 的详细信息，请参阅 https://aka.ms/editorconfigdocs
+root = true
+
+# All files
+[*]
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+end_of_line = lf

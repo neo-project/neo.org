@@ -4,8 +4,8 @@
     "inputFile": "wwwroot/css/wallets.less"
   },
   {
-    "outputFile": "wwwroot/css/consensus.css",
-    "inputFile": "wwwroot/css/consensus.less"
+    "outputFile": "wwwroot/css/gov.css",
+    "inputFile": "wwwroot/css/gov.less"
   },
   {
     "outputFile": "wwwroot/css/dev.css",
@@ -54,5 +54,9 @@
   {
     "outputFile": "wwwroot/css/joinus.css",
     "inputFile": "wwwroot/css/joinus.less"
+  },
+  {
+    "outputFile": "wwwroot/css/migration.css",
+    "inputFile": "wwwroot/css/migration.less"
   }
 ]
