@@ -1,4 +1,4 @@
-﻿@model List<DiscoverViewModel>
+@model List<DiscoverViewModel>
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
@@ -122,16 +122,6 @@
 <div class="mt1"></div>
 
 @section Scripts{
-    <script src="@Helper.ToCDN("/lib/typed.js/typed.min.js")"></script>
-    <script>
-        var typed = new Typed('#typetext', {
-            strings: ["@Localizer["community-driven"]","@Localizer["developer-friendly"]","@Localizer["enterprise-ready"]"],
-            typeSpeed: "@SharedLocalizer["en"].Value" == "zh" ? 80 : 40,
-            startDelay: 300,
-            backDelay: 1500,
-            backSpeed: "@SharedLocalizer["en"].Value" == "zh" ? 40 : 20,
-            loop: true
-        });
-    </script>
+
 }
 
