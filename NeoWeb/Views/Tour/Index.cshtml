@@ -1,5 +1,124 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@{
-}
+@{ Layout = null; }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/site.min.css", true)">
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/tour.min.css", true)">
+    <style>
+        @@font-face {
+            font-family: 'WorkSans-Bold'; /* project id 1408484 */
+            src: url('/font/WorkSans-Bold.ttf');
+        }
+
+        @@font-face {
+            font-family: 'WorkSans-Regular'; /* project id 1408484 */
+            src: url('/font/WorkSans-Regular.ttf');
+        }
+        @@font-face {
+            font-family: 'WorkSans-SemiBold'; /* project id 1408484 */
+            src: url('/font/WorkSans-SemiBold.ttf');
+        }
+    </style>
+    <title>Carousel</title>
+</head>
+
+<body>
+    <div class="tour-container">
+        <div class="left-container">
+            <div class="left-container-content">
+                <div class="tour-left-logo">
+                    <img src="@Helper.CDN/images/tour/neo_color_dark.png" height="52px">
+                </div>
+                <div class="text-guide">
+                    <div class="text-group text-guide-1">
+                        <div class="N3_logo">
+                            <img src="@Helper.CDN/images/tour/N3_Logo.png" height="130px">
+                        </div>
+                        <div class="text-group-1-head1">
+                            <span>
+                                WELCOME
+                            </span><br />
+                            <span style="color: #000033">
+                                TO THE N3 TOUR
+                            </span>
+                        </div>
+                        <div class="text-group-content text-group-1-text">
+                            There is no minimum donation, any sum is appreciated - click here to donate using PayPal. Thank you for your support.
+                        </div>
+                        <div id="start">
+                            START TOUR
+                        </div>
+                    </div>
+                    <div class="text-group text-guide-2 fade-out">
+                        <div class="text-group-content text-group-1-text">
+                            There is no minimum donation, any sum is appreciated - click here to donate using PayPal. Thank you for your support.
+                        </div>
+                    </div>
+                    <div class="text-group text-guide-3 fade-out">
+                        <div class="N3_logo">
+                            <img src="@Helper.CDN/images/tour/N3_Logo.png" height="130px">
+                        </div>
+                        <div class="text-group-1-head1">
+                            <span>
+                                WELCOME
+                            </span><br />
+                            <span>
+                                TO THE N3 TOUR
+                            </span>
+                        </div>
+                        <div class="text-group-content text-group-1-text">
+                            There is no minimum donation, any sum is appreciated - click here to donate using PayPal. Thank you for your support.
+                        </div>
+                    </div>
+                    <div class="text-group text-guide-4 fade-out">
+                        <div class="text-group-content text-group-4-text">
+                            There is no minimum donation, any sum is appreciated - click here to donate using PayPal. Thank you for your support.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-guide" id="bottom-guide">
+                <div class="bottom-title">
+                    Main website
+                </div>
+                <div class="hide" id="bottom-guide-container">
+                    <div id="prev" style="cursor: pointer;">
+                        <i class="iconfont">&#xe6bc;</i>
+                    </div>
+                    <div class="circle-list">
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                    </div>
+                    <div id="next" style="cursor: pointer;">
+                        <i class="iconfont">&#xe6ab;</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-container">
+            <div class="carouselImgs slide1">
+                <h2>Slide1</h2>
+            </div>
+            <div class="carouselImgs fade-out  slide2">
+                <h2>Slide2</h2>
+            </div>
+            <div class="carouselImgs fade-out  slide3">
+                <h2>Slide3</h2>
+            </div>
+            <div class="carouselImgs fade-out  slide4">
+                <h2>Slide4</h2>
+            </div>
+        </div>
+    </div>
+    <script src="@Helper.ToCDN("/lib/jquery/jquery.min.js")"></script>
+    <script src="@Helper.ToCDN("/js/tour.js")"></script>
+</body>
+</html>
