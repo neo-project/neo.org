@@ -1,4 +1,4 @@
-﻿@import 'basic.less';
+@import 'basic.less';
 @import 'layout.less';
 
 html {
@@ -66,6 +66,14 @@ ul.list-none {
 
 .font-family-medium {
     font-family: WorkSans-Regular;
+}
+
+.font-family-light {
+    font-family: WorkSans-Light
+}
+
+.font-family-semibold {
+    font-family: WorkSans-SemiBold
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, p {
@@ -1260,17 +1268,27 @@ table, .table {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 40px;
+    padding: 10px 30px;
     border-radius: 4px;
     font-size: 18px;
     line-height: 1.15;
     .font-family;
     .bold;
     text-transform: uppercase;
-    color: @btn-text-n3;
+    color: @black-theme;
     background-color: @green-theme;
+    cursor: pointer;
+
+    &.black {
+        color: @green-theme;
+        background-color: @black-theme;
+    }
 }
 
 .btn-n3:hover {
     
+}
+
+.green-theme {
+    color: @green-theme;
 }

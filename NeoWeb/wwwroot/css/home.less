@@ -1,108 +1,215 @@
-﻿@import "basic.less";
+@import "basic.less";
 
 .layout-container {
     display: flex;
     flex-direction: column;
     max-width: none;
-    width: 100vw;
     padding: 0;
     margin: 0;
 }
 
 
-.section {
+.landing {
     display: flex;
-    flex-flow: nowrap;
     align-items: center;
     width: 100%;
+    flex-flow: nowrap;
+    @landing-height: 100vh;
+    @landing-max-height: 890px;
+    @landing-min-height: 600px;
+    height: @landing-height;
+    min-height: @landing-min-height;
+    max-height: @landing-max-height;
 
-    &.landing {
-        @landing-height: 100vh;
-        @landing-max-height: 890px;
-        height: @landing-height;
-        max-height: @landing-max-height;
+    .section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 50%;
+        height: 100%;
+        padding-top: @nav-bar-height;
 
-        .sub-section {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            width: 50%;
-            height: 100%;
-            padding-top: @nav-bar-height;
+        &.left {
+            background: @linear-black;
 
-            &.left {
-                background: @linear-black;
+            .content-wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding-left: 15%;
+                padding-right: 5%;
 
-                .content-wrapper {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    padding-left: 15%;
-                    padding-right: 5%;
+                .logo-img {
+                    height: calc((@landing-height - 100px) / 2);
+                    min-height: calc((@landing-min-height - 100px) / 2);
+                    max-height: calc((@landing-max-height - 100px) / 2);
+                    width: calc((@landing-height - 100px) / 2);
+                    min-width: calc((@landing-min-height - 100px) / 2);
+                    max-width: calc((@landing-max-height - 100px) / 2);
+                }
 
-                    .logo-img {
-                        height: calc((@landing-height - 100px) / 2);
-                        max-height: calc((@landing-max-height - 100px) / 2);
-                        width: calc((@landing-height - 100px) / 2);
-                        max-width: calc((@landing-max-height - 100px) / 2);
-                    }
-
-                    .sub-title {
-                        margin: 50px 0;
-                        width: 365px;
-                        text-align: center;
-                        color: @green-theme;
-                        font-size: @font;
-                        line-height: 20px;
-                        letter-spacing: 3px;
-                        word-wrap: normal;
-                        text-transform: uppercase;
-                    }
+                .sub-title {
+                    margin: 50px 0;
+                    width: 365px;
+                    text-align: center;
+                    color: @green-theme;
+                    font-size: @font;
+                    line-height: 20px;
+                    letter-spacing: 3px;
+                    word-wrap: normal;
+                    text-transform: uppercase;
                 }
             }
+        }
 
-            &.right {
-                background: @green-theme;
+        &.right {
+            background: @green-theme;
 
-                .content-wrapper {
+            .content-wrapper {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                margin-left: 54px;
+                width: 70%;
+                min-width: 580px;
+                max-width: 883px;
+                height: calc((@landing-height - 100px) / 2 + 180px);
+                max-height: calc((@landing-max-height - 100px) / 2 + 180px);
+
+                .title {
+                    margin: (@landing-min-height / 20) 0;
+                    font-size: 70px;
+                    line-height: 73px;
+                    text-transform: uppercase;
+                    color: @black-theme;
+                }
+
+                .news-wrapper {
                     display: flex;
                     flex-direction: column;
-                    justify-content: space-between;
-                    margin-left: 54px;
-                    width: 70%;
-                    min-width: 580px;
-                    max-width: 883px;
-                    height: calc((@landing-height - 100px) / 2 + 180px);
-                    max-height: calc((@landing-max-height - 100px) / 2 + 180px);
+                    color: #000332;
+                    font-size: @font;
+                    line-height: 20px;
+                }
 
-                    .title {
-                        margin-top: 68px;
-                        font-size: 70px;
-                        line-height: 73px;
-                        text-transform: uppercase;
-                        color: @btn-text-n3;
-                    }
+                .latest-news {
+                    text-transform: uppercase;
+                }
 
-                    .news-wrapper {
-                        display: flex;
-                        flex-direction: column;
-                        color: #000332;
-                        font-size: @font;
-                        line-height: 20px;
-                    }
-
-                    .latest-news {
-                        text-transform: uppercase;
-                    }
-
-                    .news-link {
-                        color: #000332;
-                    }
+                .news-link {
+                    color: #000332;
                 }
             }
         }
     }
 }
 
+.all-in-one {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 37px;
+
+    .title-img {
+       height: 40px;
+    }
+
+    .highlight-wraper {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 37px;
+        width: 80%;
+        min-width: 1060px;
+    }
+}
+
+.get-started {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 178px;
+
+    .type-text {
+        margin: 58px 0;
+        font-size: 104px;
+        color: #003;
+        text-transform: uppercase;
+
+        .neo {
+            color: @green-theme;
+        }
+    }
+
+    .typed-cursor {
+        font-size: 104px;
+    }
+
+    .explanation {
+        margin-bottom: 62px;
+        font-size: 24px;
+        max-width: 856px;
+    }
+
+    .learn-more {
+        margin-bottom: 22px;
+        color: #070E3A;
+        font-size: 18px;
+        text-transform: uppercase;
+    }
+
+    .get-started-text {
+        margin: 125px 0 56px 0;
+        text-transform: uppercase;
+        font-size: 24px;
+    }
+
+    .get-started-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.dual-tokens {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 318px 10%;
+    background: @linear-black;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        color: #ffffff;
+
+        &.right {
+            .title {
+                font-size: 70px;
+                line-height: 66px;
+                text-transform: uppercase;
+                margin-bottom: 25px;
+            }
+
+            .content {
+                margin: 15px 0;
+                font-size: 18px;
+
+                &.subtitle {
+                    font-size: 24px;
+                }
+            }
+
+            .button-wrapper {
+                display: flex;
+                align-items: center;
+                
+                .button {
+                    margin: 35px 35px 0 0;
+                }
+            }
+        }
+    }
+}
 
 
