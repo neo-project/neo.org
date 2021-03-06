@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 @{
@@ -82,76 +82,6 @@
     <div class="row team-list mb-5" id="community"></div>
 </div>
 
-<script id="coreMember" type="text/html">
-    {{each core value}}
-    <div class="col-6 col-md-3 mt4">
-        <img src={{value.img}} />
-        <div>
-            <div class="h6 green">{{value.name}}</div>
-            <div class="small green">{{if value.nameZh}}{{value.nameZh}}{{/if}}</div>
-            {{if value.job}}<div>{{value.job}}</div>{{/if}}
-            {{if value.intro}}<div>{{value.intro}}</div>{{/if}}
-            <div class="mt7 link">
-                {{if value.linkin}}<a class="iconfont mr3" target="_blank" href={{value.linkin}}>&#xe612;</a>{{/if}}
-                {{if value.github}}<a class="iconfont" target="_blank" href={{value.github}}>&#xe609;</a>{{/if}}
-            </div>
-        </div>
-    </div>
-    {{/each}}
-</script>
-
-<script id="neoMember" type="text/html">
-    {{each neo value}}
-    <div class="col-6 col-md-3 mt4">
-        <img src={{value.img}} />
-        <div>
-            <div class="h6 green">{{value.name}}</div>
-            <div class="small green">{{if value.nameZh}}{{value.nameZh}}{{/if}}</div>
-            <div class="mt7 @SharedLocalizer["d-none-zh"]">{{value.job}}</div>
-            <div class="mt7 @SharedLocalizer["d-none"]">{{value.jobZh}}</div>
-        </div>
-    </div>
-    {{/each}}
-</script>
-
-<script id="comMember" type="text/html">
-    {{each community value}}
-    <div class="col-6 col-md-3 mt4">
-        <img src={{value.img}} />
-        <div>
-            <div class="h6 green">{{value.name}}</div>
-            <div class="small green">{{if value.nameZh}}{{value.nameZh}}{{/if}}</div>
-            <div class="mt7">{{value.job}}</div>
-        </div>
-    </div>
-    {{/each}}
-</script>
-
 @section Scripts{
-    <script src="@Helper.ToCDN("/js/template.js?v=20200602")"></script>
 
-    <script>
-        addMember();
-
-        function addMember() {
-
-            $.ajax({
-                type: "GET",
-                url: "/js/team.json",
-                dataType: 'json',
-                success: function (data) {
-                    var core = "", neo = "", community = "";
-                    core += template("coreMember", data);
-                    document.getElementById("core").innerHTML = core;
-
-                    neo += template("neoMember", data);
-                    document.getElementById("neo").innerHTML = neo;
-
-                    community += template("comMember", data);
-                    document.getElementById("community").innerHTML = community;
-
-                }
-            });
-        }
-    </script>
 }

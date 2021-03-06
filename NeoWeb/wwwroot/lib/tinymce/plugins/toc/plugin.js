@@ -4,7 +4,7 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
- * Version: 5.6.1 (2020-11-25)
+ * Version: 5.7.0 (2021-02-10)
  */
 (function () {
     'use strict';

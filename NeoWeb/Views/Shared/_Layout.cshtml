@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
 
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
@@ -85,7 +85,6 @@ https://github.com/neo-project/neo.org
 
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="about">@Localizer["About"]</a></li>
                 <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="dev">@Localizer["Developer"]</a></li>
                 <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="wallets">@Localizer["Wallets"]</a></li>
                 <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="eco">@Localizer["Ecosystem"]</a></li>
