@@ -129,6 +129,9 @@
   <data name="GAS is used to pay for network fees, smart contract deployments, and in dApp purchases." xml:space="preserve">
     <value />
   </data>
+  <data name="Governance" xml:space="preserve">
+    <value />
+  </data>
   <data name="is new again" xml:space="preserve">
     <value />
   </data>
@@ -151,6 +154,9 @@
     <value />
   </data>
   <data name="NEO token holders are the owners of the network who are able to participate in governance. NEO holders also recieve passive distribution of the network utility token, GAS - No staking required." xml:space="preserve">
+    <value />
+  </data>
+  <data name="On-Chain" xml:space="preserve">
     <value />
   </data>
   <data name="Take a look at the latest version of the Neo platform" xml:space="preserve">

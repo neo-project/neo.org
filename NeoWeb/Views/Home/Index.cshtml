@@ -12,18 +12,18 @@
     <div class="section left">
         <div class="content-wrapper">
             <img class="logo-img" data-original="@Helper.ToCDN("/images/home/N3Logo.svg")" />
-            <div class="sub-title font-family bold w">@Localizer["Take a look at the latest version of the Neo platform"]</div>
+            <div class="sub-title font-family w">@Localizer["Take a look at the latest version of the Neo platform"]</div>
             <a asp-controller="tour" asp-action="index" class="btn-n3">@Localizer["Take Tour"]</a>
         </div>
     </div>
     <div class="section right">
         <div class="content-wrapper">
-            <div class="title font-family-bold bold">@Localizer["The Complete Blockchain Development Platform"]</div>
+            <div class="title font-family-bold">@Localizer["The Complete Blockchain Development Platform"]</div>
             <div class="news-wrapper">
-                <div class="latest-news font-family-bold bold">
+                <div class="latest-news font-family-bold">
                     @Localizer["Latest News:"]
                 </div>
-                <a class="news-link font-family bold" asp-controller="news" asp-action="index">@Localizer["This is an example of a article on the latest news ticker"]</a>
+                <a class="news-link font-family-bold" asp-controller="news" asp-action="index">@Localizer["This is an example of a article on the latest news ticker"]</a>
             </div>
         </div>
     </div>
@@ -36,21 +36,21 @@
     </div>
 </div>
 <div class="get-started">
-    <div class="font-family-bold bold type-text">
+    <div class="font-family-bold type-text">
         <span class="neo">@Localizer["Neo"]</span>
         <span class="type-text" id="typetext"></span>
     </div>
 
-    <div class="font-family-bold bold explanation">
+    <div class="font-family-bold explanation">
         @Localizer["After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]
     </div>
 
-    <div class="font-family-semibold bold learn-more">
+    <div class="font-family-semibold learn-more">
         @Localizer["Learn more about migration"]
     </div>
 
     <a class="btn-n3 black">@Localizer["Migration Guide"]</a>
-    <div class="font-family-bold bold get-started-text black-theme">
+    <div class="font-family-bold get-started-text black-theme">
         @Localizer["Get Started"]
     </div>
     <div class="get-started-wrapper">
@@ -59,27 +59,72 @@
 </div>
 
 <div class="dual-tokens">
-    <div class="container left">
-
+    <div class="dual-container left">
+        <div class="token-row">
+            <div class="token-wrapper">
+                <img class="token-img" />
+                <div class="font-family-bold token-name">
+                    Neo
+                </div>
+            </div>
+            <div class="token-wrapper">
+                <img class="token-img" />
+                <div class="font-family-bold token-name">
+                    Gas
+                </div>
+            </div>
+        </div>
+        <div class="calculator-wrapper">
+            <div class="calculator-header">
+                <img class="calculator-icon" />
+                <div>@Localizer["GAS interest calculator"]</div>
+            </div>
+            <div class="font-family-bold calculator">
+                @Localizer["With"]
+                <input class=".font-family-bold calculator-input"/>
+                @Localizer["NEO"]
+            </div>
+            <div class="font-family-semibold calculator-result">
+                @Localizer["You would receive 10.75 GAS per month"]
+            </div>
+            <div class="font-family-semibold calculator-footnote">
+                @Localizer["GAS rewards increase with governance participation."]
+            </div>
+        </div>
     </div>
-    <div class="container right">
-        <div class="font-family-bold bold title">
+    <div class="dual-container right">
+        <div class="font-family-bold title">
             <span class="green-theme">@Localizer["Dual"]</span><br />
             <span>@Localizer["Tokens"]</span>
         </div>
-        <div class="font-family-bold bold green-theme content">
+        <div class="font-family-bold green-theme content">
             @Localizer["Neo has a unique dual token model that seperates governance from utility."]
         </div>
-        <div class="font-family-semibold bold content">
+        <div class="font-family-semibold content">
             @Localizer["NEO token holders are the owners of the network who are able to participate in governance. NEO holders also recieve passive distribution of the network utility token, GAS - No staking required."]
         </div>
-        <div class="font-family-semibold bold content">
+        <div class="font-family-semibold content">
             @Localizer["GAS is used to pay for network fees, smart contract deployments, and in dApp purchases."]
         </div>
 
         <div class="button-wrapper">
             <a class="btn-n3 button">@Localizer["Learn More"]</a>
             <a class="btn-n3 button">@Localizer["Find A Wallet"]</a>
+        </div>
+    </div>
+</div>
+
+<div class="governance">
+    <div class="governance-section left">
+        <div class="governance-section">
+            <img class="governance-header-img" />
+            <div class="font-family-bold governance-headline">
+                <span class="green-theme">@Localizer["On-Chain"]</span> @Localizer["Governance"]
+            </div>
+        </div>
+    </div>
+    <div class="governance-section right">
+        <div class="governance-section">
         </div>
     </div>
 </div>

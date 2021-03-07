@@ -177,13 +177,99 @@
     padding: 318px 10%;
     background: @linear-black;
 
-    .container {
+    .dual-container {
         display: flex;
         flex-direction: column;
         width: 50%;
         color: #ffffff;
 
+        &.left {
+            margin-right: 8%;
+            min-width: 540px;
+
+            .token-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .token-wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .token-img {
+                margin-bottom: 30px;
+                height: 200px;
+                width: 200px;
+            }
+
+            .token-name {
+                font-size: 31px;
+                text-transform: uppercase;
+            }
+
+            .calculator-wrapper {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 100px;
+                padding: 16px 0;
+                border: 2px solid @green-theme;
+                border-radius: 6px;
+
+                .calculator-header {
+                    display: flex;
+                    align-items: center;
+                    color: @green-theme;
+                    font-size: 24px;
+
+                    .calculator-icon {
+                        margin-right: 8px;
+                        height: 20px;
+                        width: 20px;
+                    }
+                }
+
+                .calculator {
+                    display: flex;
+                    align-items: center;
+                    margin: 28px 0;
+                    text-transform: uppercase;
+                    font-size: 24px;
+
+                    .calculator-input {
+                        margin: 0 10px;
+                        border: 1px solid @green-theme;
+                        border-radius: 3px;
+                        height: 42px;
+                        width: 128px;
+                        line-height: 42px;
+                        vertical-align: middle;
+                        color: #ffffff;
+                        text-align: center;
+                        background-color: #0E1724;
+                    }
+                }
+
+                .calculator-result {
+                    font-size: 18px;
+                    color: @green-theme;
+                }
+
+                .calculator-footnote {
+                    font-size: 14px;
+                    color: #6F85A1;
+                }
+            }
+        }
+
         &.right {
+            margin-left: 8%;
+            max-width: 580px;
+
             .title {
                 font-size: 70px;
                 line-height: 66px;
@@ -203,9 +289,62 @@
             .button-wrapper {
                 display: flex;
                 align-items: center;
-                
+
                 .button {
-                    margin: 35px 35px 0 0;
+                    margin: 68px 35px 0 0;
+                }
+            }
+        }
+    }
+}
+
+.governance {
+    display: flex;
+    align-items: center;
+    height: 1220px;
+
+    .governance-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        height: 100%;
+
+        &.left {
+            background-color: #ffffff;
+
+            .governance-section {
+                margin-left: 8%;
+                width: 50%;
+
+                .governance-header-img {
+                    width: 100%;
+                    max-width: 589px;
+                    height: auto;
+                }
+
+                .governance-headline {
+                    margin: 46px 0 37px 0;
+                    font-size: 70px;
+                    text-transform: uppercase;
+                    line-height: 66px;
+                }
+
+                .green-theme {
+                    color: @green-theme;
+                }
+            }
+        }
+
+        &.right {
+            background-color: @green-theme;
+
+            .governance-section {
+                margin-right: 8%;
+
+                .governance-header {
+                    margin: 46px 0 37px 0;
                 }
             }
         }
