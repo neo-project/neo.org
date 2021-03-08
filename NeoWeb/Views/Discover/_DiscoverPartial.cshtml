@@ -4,7 +4,8 @@
 {
     var item = (Model)[i];
     var count = 24;
-    <div class="col-md-4 group-@(i/count)">
+
+    <div class="news-card">
         @if (item.Type == DiscoverViewModelType.Blog)
         {
             @if (string.IsNullOrEmpty(item.Blog.Cover))
@@ -15,22 +16,21 @@
             {
                 <a class="img" href="~/blog/details/@item.Blog.Id" data-original="@String.Format("/upload/{0}", @item.Blog.Cover).ToLower()"></a>
             }
-            <div>
-                <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span>@item.Type</span></div>
-                <div class="list-title with-space"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></div>
-                <div class="list-summary with-space"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Summary.Substring(0, Math.Min(70, item.Blog.Summary.Length))…</a></div>
+            <div class="content-wrapper">
+                <div class="font-family-bold content-title"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></div>
 
                 @if (ViewBag.UserRules != null && ViewBag.UserRules)
                 {
                     <a asp-action="Edit" asp-controller="Blog" asp-route-id="@item.Blog.Id">Edit</a>
                     <a class="ml-2" asp-action="Delete" asp-controller="Blog" asp-route-id="@item.Blog.Id">Delete</a>
                 }
-                <div class="small">
+                <div class="content-body"></div>
+                <div class="content-tags">
                     @if (!string.IsNullOrEmpty(item.Blog.Tags))
                     {
                         foreach (var tag in item.Blog.Tags.Split(','))
                         {
-                            <a href="~/discover?keywords=@tag.Trim()">#@tag.Trim()</a>
+                            <a class="content-tag" href="~/discover?keywords=@tag.Trim()"># @tag.Trim()</a>
                         }
                     }
                 </div>
