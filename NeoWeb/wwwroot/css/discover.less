@@ -1,8 +1,6 @@
 @import 'basic.less';
 @import 'site.less';
 
-@deapblue: #000332;
-
 .discover-top .d-title a, .discover-top .d-tag a {
     color: @dark;
 }
@@ -19,8 +17,8 @@
     }
 
     select.form-control {
-        border: 1px solid @deapblue;
-        color: @deapblue;
+        border: 1px solid @text;
+        color: @text;
         width: 180px;
         .bolder;
 
@@ -34,7 +32,7 @@
         width: calc(100% - 520px);
 
         span {
-            color: @deapblue;
+            color: @text;
             .bolder;
             display: inline-block;
             height: 20px;
@@ -45,7 +43,7 @@
             width: calc(100% - 60px);
             border: none;
             background-color: @gray2;
-            border-bottom: 1px solid @deapblue;
+            border-bottom: 1px solid @text;
         }
 
         @media only screen and (max-width: 767px) {
@@ -65,7 +63,7 @@
         .search-btn {
             height: 50px;
             margin: 0;
-            background-color: @deepblue;
+            background-color: @text;
             padding: 0 25px;
             color: @white;
             display: inline-block;
@@ -122,6 +120,8 @@
 }
 
 .share {
+    text-align:center;
+
     .facebook-icon {
         pointer-events: none;
     }
@@ -140,6 +140,9 @@
 
     .iconfont {
         cursor: pointer;
+        font-size: @t5;
+        margin-right: 15px;
+        color: @text;
     }
 
     .qr-div {
@@ -175,9 +178,9 @@ article {
         .small;
 
         span {
-            .bold;
-            color: @green;
-            margin-left: @length6;
+            .bolder;
+            color: @text;
+            margin-right: @length6;
         }
     }
 
@@ -232,4 +235,18 @@ article {
             }
         }
     }
+}
+.editor{
+    width: 100%;
+    text-align: center;
+    color: @text;
+    .bolder;
+}
+.details-text{
+    .mt3;
+    .bolder;
+}
+.event-info {
+    background-color: #EDF9F7;
+    padding: 8px 30px;
 }
