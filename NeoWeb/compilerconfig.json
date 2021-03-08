@@ -1,4 +1,4 @@
-﻿[
+[
   {
     "outputFile": "wwwroot/css/wallets.css",
     "inputFile": "wwwroot/css/wallets.less"
@@ -48,8 +48,8 @@
     "inputFile": "wwwroot/css/testnet-list.less"
   },
   {
-    "outputFile": "wwwroot/css/about.css",
-    "inputFile": "wwwroot/css/about.less"
+    "outputFile": "wwwroot/css/platform.css",
+    "inputFile": "wwwroot/css/platform.less"
   },
   {
     "outputFile": "wwwroot/css/joinus.css",

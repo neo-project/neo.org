@@ -30,12 +30,6 @@
     }
   },
   {
-    "outputFileName": "wwwroot/css/layout.min.min.css",
-    "inputFiles": [
-      "wwwroot/css/layout.min.css"
-    ]
-  },
-  {
     "outputFileName": "wwwroot/js/editor.min.js",
     "inputFiles": [
       "wwwroot/js/editor.js"

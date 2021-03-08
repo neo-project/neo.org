@@ -4,26 +4,50 @@
 .discover-top .d-title a, .discover-top .d-tag a {
     color: @dark;
 }
+
 .d-search {
     line-height: 3;
     vertical-align: middle;
 
     input, select {
         display: inline-block;
+        border-radius: 0;
         width: auto;
-        border: none;
+        height: 50px;
+    }
+
+    select.form-control {
+        border: 1px solid @text;
+        color: @text;
+        width: 180px;
+        .bolder;
+
+        @media only screen and (max-width: 767px) {
+            width: 100%;
+            margin-bottom: 18px;
+        }
     }
 
     .search {
-        width: calc(100% - 370px);
+        width: calc(100% - 520px);
+
+        span {
+            color: @text;
+            .bolder;
+            display: inline-block;
+            height: 20px;
+            vertical-align: middle;
+        }
 
         input.form-control {
-            width: calc(100% - 25px);
+            width: calc(100% - 60px);
+            border: none;
             background-color: @gray2;
+            border-bottom: 1px solid @text;
         }
 
         @media only screen and (max-width: 767px) {
-            display: none;
+            width: 100%;
         }
     }
 
@@ -33,8 +57,28 @@
     }
 
     .filter {
-        width: 370px;
+        width: 520px;
         text-align: right;
+
+        .search-btn {
+            height: 50px;
+            margin: 0;
+            background-color: @text;
+            padding: 0 25px;
+            color: @white;
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+
+            .iconfont {
+                margin-right: 6px;
+            }
+
+            @media only screen and (max-width: 767px) {
+                width: 100%;
+                margin-bottom: 18px;
+            }
+        }
     }
 
     @media only screen and (max-width: 767px) {
@@ -76,6 +120,8 @@
 }
 
 .share {
+    text-align:center;
+
     .facebook-icon {
         pointer-events: none;
     }
@@ -94,6 +140,9 @@
 
     .iconfont {
         cursor: pointer;
+        font-size: @t5;
+        margin-right: 15px;
+        color: @text;
     }
 
     .qr-div {
@@ -129,9 +178,9 @@ article {
         .small;
 
         span {
-            .bold;
-            color: @green;
-            margin-left: @length6;
+            .bolder;
+            color: @text;
+            margin-right: @length6;
         }
     }
 
@@ -186,4 +235,18 @@ article {
             }
         }
     }
+}
+.editor{
+    width: 100%;
+    text-align: center;
+    color: @text;
+    .bolder;
+}
+.details-text{
+    .mt3;
+    .bolder;
+}
+.event-info {
+    background-color: #EDF9F7;
+    padding: 8px 30px;
 }
