@@ -1,8 +1,5 @@
 $(document).ready(function () {
     var currentSlide = 1;
-    window.onload = function () {
-        showSlide(currentSlide);
-    }
     function showSlide(slideIndex) {
         const slides = document.getElementsByClassName('text-group');
         const imageSlides = document.getElementsByClassName('carouselImgs');
@@ -24,9 +21,13 @@ $(document).ready(function () {
         
         $("#next").removeClass('arrow-grey');
         $("#prev").removeClass('arrow-grey');
-        if(currentSlide === 2){
+        if (currentSlide === 2) {
+            $(".tour-left-logo").addClass('hide-in-mobile');
+            $(".bottom-title").addClass('hide-in-mobile');
+            $(".N3-logo-container").addClass('hide-in-mobile');
+            $(".right-container").removeClass('hide-in-mobile');
             $("#prev").addClass('arrow-grey');
-        }else if(currentSlide === slides.length){
+        } else if (currentSlide === slides.length) {
             $("#next").addClass('arrow-grey');
         }
     }
@@ -42,7 +43,6 @@ $(document).ready(function () {
     }
 
     $("#start").click(() => {
-        console.log("testing")
         currentSlide = 2;
         showSlide(currentSlide);
         $("#bottom-guide-container").removeClass('hide');
