@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -28,6 +28,7 @@ namespace NeoWeb
                 Id = p.Id,
                 CreateTime = p.CreateTime,
                 Title = isZh ? p.ChineseTitle : p.EnglishTitle,
+                Summary = isZh ? p.ChineseSummary : p.EnglishSummary,
                 Tags = isZh ? p.ChineseTags : p.EnglishTags,
                 Cover = isZh ? p.ChineseCover : p.EnglishCover,
                 IsShow = p.IsShow

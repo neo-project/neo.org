@@ -1,4 +1,4 @@
-﻿@model IEnumerable<NeoWeb.Models.DiscoverViewModel>
+@model IEnumerable<NeoWeb.Models.DiscoverViewModel>
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @{
@@ -17,15 +17,15 @@
     </div>
 }
 
-<form method="get" class="border-bottom d-search form-inline">
+<form method="get" class="d-search form-inline">
     <div class="search">
-        <i class="iconfont">&#xe611;</i>
+        <span>Search</span>
         <input class="form-control" name="keywords" value="@ViewBag.KeyWords" type="text" />
     </div>
     <div class="filter">
         <select id="type" class="form-control" name="type" asp-items="ViewBag.AllType"></select>
         <select id="year" class="form-control" name="year" asp-items="ViewBag.AllYear"></select>
-        <input class="btn" type="submit" value="search" />
+        <div class="search-btn" onclick="$('.d-search').submit()"><i class="iconfont">&#xe602;</i>SEARCH</div>
     </div>
 </form>
 
