@@ -7,34 +7,49 @@
 
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/discover.min.css", true)" />
+    <style>
+        .layout-container {
+            display: flex;
+            flex-direction: column;
+            max-width: none;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
 }
-@if (ViewBag.Ontop != null)
-{
-    <div class="p2">
-        <div class="row align-items-center discover-top">
-            @{await Html.RenderPartialAsync("_TopPartial", (ViewBag.Ontop as DiscoverViewModel));}
+
+
+<div class="container">
+
+    @if (ViewBag.Ontop != null)
+    {
+        <div class="p3">
+            <div class="row align-items-center discover-top">
+                @{await Html.RenderPartialAsync("_TopPartial", (ViewBag.Ontop as DiscoverViewModel));}
+            </div>
         </div>
-    </div>
-}
+    }
 
-<form method="get" class="d-search form-inline">
-    <div class="search">
-        <span>Search</span>
-        <input class="form-control" name="keywords" value="@ViewBag.KeyWords" type="text" />
-    </div>
-    <div class="filter">
-        <select id="type" class="form-control" name="type" asp-items="ViewBag.AllType"></select>
-        <select id="year" class="form-control" name="year" asp-items="ViewBag.AllYear"></select>
-        <div class="search-btn" onclick="$('.d-search').submit()"><i class="iconfont">&#xe600;</i>SEARCH</div>
-    </div>
-</form>
+    <form method="get" class="d-search form-inline">
+        <div class="search">
+            <span>Search</span>
+            <input class="form-control" name="keywords" value="@ViewBag.KeyWords" type="text" />
+        </div>
+        <div class="filter">
+            <select id="type" class="form-control" name="type" asp-items="ViewBag.AllType"></select>
+            <select id="year" class="form-control" name="year" asp-items="ViewBag.AllYear"></select>
+            <div class="search-btn" onclick="$('.d-search').submit()"><i class="iconfont">&#xe600;</i>SEARCH</div>
+        </div>
+    </form>
 
-<div class="row list2">
-    @{await Html.RenderPartialAsync("_DiscoverPartial", Model);}
+    <div class="row list2">
+        @{await Html.RenderPartialAsync("_ItemPartial", Model);}
+    </div>
+    <div class="text-center m-4">
+        <a id="viewmore" href="javascript:" onclick="viewMore()">@Localizer["View more"]</a>
+    </div>
 </div>
-<div class="text-center m-4">
-    <a id="viewmore" href="javascript:" onclick="viewMore()">@Localizer["View more"]</a>
-</div>
+
 @section Scripts {
     <script>
         var group = 0;

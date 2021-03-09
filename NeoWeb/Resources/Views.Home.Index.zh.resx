@@ -135,6 +135,9 @@
   <data name="is new again" xml:space="preserve">
     <value />
   </data>
+  <data name="Keep up to date" xml:space="preserve">
+    <value />
+  </data>
   <data name="Latest News:" xml:space="preserve">
     <value />
   </data>
@@ -172,6 +175,9 @@
     <value />
   </data>
   <data name="Tokens" xml:space="preserve">
+    <value />
+  </data>
+  <data name="View All" xml:space="preserve">
     <value />
   </data>
 </root>
