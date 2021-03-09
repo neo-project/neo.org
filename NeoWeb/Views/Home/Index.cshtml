@@ -2,7 +2,9 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
-
+@{
+    ViewBag.IsWhiteLogo = true;
+}
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/home.min.css", true)" />
 }

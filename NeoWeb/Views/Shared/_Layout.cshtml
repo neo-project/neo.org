@@ -90,7 +90,7 @@ https://github.com/neo-project/neo.org
 <body id="neo-body">
     <nav class="navbar fixed-top navbar-expand-lg">
         <a asp-controller="home" asp-action="index">
-            <img src="@Helper.CDN/images/logo files-dark.svg" alt="Neo Logo" />
+            <img src="@(Helper.CDN + (ViewBag.IsWhiteLogo != null ? "/images/logo files-white.svg" : "/images/logo files-dark.svg"))" alt="Neo Logo" />
         </a>
         <button class="navbar-toggler" type="button">
             <div class="special-button">

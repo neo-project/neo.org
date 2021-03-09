@@ -13,19 +13,19 @@
     <div class="col-md-6 offset-md-1">
         @if (Model?.Type == DiscoverViewModelType.Blog)
         {
-            <a class="bg-img" href="~/blog/details/@Model.Blog.Id" data-original="@(string.IsNullOrEmpty(Model.Blog.Cover) ? Helper.ToCDN("/images/discover/blog.svg") : String.Format("/upload/{0}", Model.Blog.Cover).ToLower())"></a>
+            <a class="bg-img" href="~/blog/details/@Model.Blog.Id" data-original="@(string.IsNullOrEmpty(Model.Blog.Cover) ? Helper.ToCDN("/images/discover/blog.svg") : $"/upload/{Model.Blog.Cover}".ToLower())"></a>
             <div class="mt-1 bold">FEATURED BLOG ARGICLES</div>
             <h4 class="d-title with-space"><a href="~/blog/details/@Model.Blog.Id">@Model.Blog.Title</a></h4>
         }
         else if (Model?.Type == DiscoverViewModelType.Event)
         {
-            <a class="bg-img" href="~/event/details/@Model.Event.Id" data-original="@(string.IsNullOrEmpty(Model.Event.Cover) ? Helper.ToCDN("/images/discover/events.svg") : String.Format("/upload/{0}", Model.Event.Cover).ToLower())"></a>
+            <a class="bg-img" href="~/event/details/@Model.Event.Id" data-original="@(string.IsNullOrEmpty(Model.Event.Cover) ? Helper.ToCDN("/images/discover/events.svg") : $"/upload/{Model.Event.Cover}".ToLower())"></a>
             <div class="mt-1 bold">FEATURED EVENT</div>
             <h4 class="d-title with-space"><a href="~/event/details/@Model.Event.Id">@Model.Event.Name</a></h4>
         }
         else if (Model?.Type == DiscoverViewModelType.News)
         {
-            <a class="bg-img" href="~/event/details/@Model.Event.Id" data-original="@(string.IsNullOrEmpty(Model.Event.Cover) ? Helper.ToCDN("/images/discover/events.svg") : String.Format("/upload/{0}", Model.Event.Cover).ToLower())"></a>
+            <a class="bg-img" href="~/event/details/@Model.Event.Id" data-original="@(string.IsNullOrEmpty(Model.Event.Cover) ? Helper.ToCDN("/images/discover/news.svg") : $"/upload/{Model.News.Cover}".ToLower())"></a>
             <h4 class="d-title with-space"><a href="@Model.News.Link" target="_blank">@Model.News.Title</a></h4>
             @if (ViewBag.UserRules)
             {
