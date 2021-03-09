@@ -32,10 +32,34 @@
     </div>
 </div>
 <div class="all-in-one">
-    <img class="title-img" data-original="@Helper.ToCDN("/images/home/AllInOne.svg")" />
-    <div class="highlight-wrapper">
-        @{ string[] titles = { };
-            string[] urls = { }; }
+    <div class="font-family-bold aio-title  @SharedLocalizer["d-none-zh"]">
+        <span class="aio-green">All</span> in One - <span class="aio-green">All</span> in Neo
+    </div>
+    <div class="aio-title preview @SharedLocalizer["d-none"]">
+        <span class="aio-green">All</span> in One - <span class="aio-green">All</span> in Neo
+    </div>
+    <div class="highlight-container">
+        @{
+            string[,] items = new string[9,2] {
+                { "Interoperability", "/images/home/Interoperability.svg" },
+                { "Native Oracles", "/images/home/NativeOracles.svg" },
+                { "Self-Sovereign ID", "/images/home/Self-SovereignID.png" },
+                { "Decentralized Storage", "/images/home/DecentralizedStorage.svg" },
+                { "Native Name Service", "/images/home/NativeNameService.svg" },
+                { "One Block Finality", "/images/home/OneBlockFinality.svg" },
+                { "Best-In-Class Tooling", "/images/home/BestInClassTooling.svg" },
+                { "Smart Contracts", "/images/home/SmartContracts.svg" },
+                { "Multi-Language", "/images/home/Multi-Language.png" }
+            };
+
+            for (int i = 0; i < items.GetLength(0); i++)
+            {
+                <div class="highlight-wrapper">
+                    <img class="highlight-img png" data-original="@Helper.ToCDN(items[i, 1])" />
+                    <div class="font-family-bold highlight-name">@Localizer[items[i, 0]]</div>
+                </div>
+            }
+        }
     </div>
 </div>
 <div class="get-started">
@@ -65,13 +89,13 @@
     <div class="dual-container left">
         <div class="token-row">
             <div class="token-wrapper">
-                <img class="token-img" />
+                <img class="token-img" data-original="@Helper.ToCDN("/images/home/Neo.svg")" />
                 <div class="font-family-bold token-name">
                     Neo
                 </div>
             </div>
             <div class="token-wrapper">
-                <img class="token-img" />
+                <img class="token-img" data-original="@Helper.ToCDN("/images/home/Gas.svg")" />
                 <div class="font-family-bold token-name">
                     Gas
                 </div>
@@ -79,7 +103,7 @@
         </div>
         <div class="calculator-wrapper">
             <div class="calculator-header">
-                <img class="calculator-icon" />
+                <img class="calculator-icon" data-original="@Helper.ToCDN("/images/home/Tune.png")" />
                 <div>@Localizer["GAS interest calculator"]</div>
             </div>
             <div class="font-family-bold calculator">
@@ -140,24 +164,24 @@
                 @Localizer["Learn More"]
             </div>
             <div class="learn-more-wrapper">
-                <img class="learn-more-icon" />
+                <img class="learn-more-icon" data-original="@Helper.ToCDN("/images/home/Vote.svg")" />
                 <div class="font-family-bold item-wrapper">
                     <div>@Localizer["How to vote"]</div>
-                    <a><img class="nav-icon" /></a>
+                    <a><img class="nav-icon" data-original="@Helper.ToCDN("/images/home/ChevronRight.png")" /></a>
                 </div>
             </div>
             <div class="learn-more-wrapper">
-                <img class="learn-more-icon" />
+                <img class="learn-more-icon"  data-original="@Helper.ToCDN("/images/home/Register.svg")"/>
                 <div class="font-family-bold item-wrapper">
                     <div>@Localizer["Register as a committee candidate"]</div>
-                    <a><img class="nav-icon" /></a>
+                    <a><img class="nav-icon" data-original="@Helper.ToCDN("/images/home/ChevronRight.png")" /></a>
                 </div>
             </div>
             <div class="learn-more-wrapper">
-                <img class="learn-more-icon" />
+                <img class="learn-more-icon" data-original="@Helper.ToCDN("/images/home/Governance.svg")"/>
                 <div class="font-family-bold item-wrapper">
                     <div>@Localizer["General guide to governance"]</div>
-                    <a><img class="nav-icon" /></a>
+                    <a><img class="nav-icon" data-original="@Helper.ToCDN("/images/home/ChevronRight.png")" /></a>
                 </div>
             </div>
 
@@ -167,15 +191,21 @@
 
 <div class="latest-news">
     <div class="latest-news-wrapper">
-        <img class="latest-news-title"  />
+        <div class="font-family-bold latest-news-title  @SharedLocalizer["d-none-zh"]">
+            Latest <span class="latest-news-green">News</span><br />
+            & <span class="latest-news-green">Events</span>
+        </div>
+        <div class="font-family-bold latest-news-title  @SharedLocalizer["d-none"]">
+            Latest <span class="latest-news-green">News</span><br />
+            & <span class="latest-news-green">Events</span>
+        </div>
         <div class="latest-news-subtitle">@Localizer["Keep up to date"]</div>
         <div class="news-list">
-            @{await Html.RenderPartialAsync("../Discover/_DiscoverPartial", Model);}
+            @{await Html.RenderPartialAsync("./_DiscoverPartial", Model);}
         </div>
         <a asp-controller="discover" asp-action="index" class="btn-n3 black view-all-btn">@Localizer["View All"]</a>
     </div>
 </div>
-<div class="mt1"></div>
 
 @section Scripts{
     <script src="@Helper.ToCDN("/lib/typed.js/typed.min.js")"></script>

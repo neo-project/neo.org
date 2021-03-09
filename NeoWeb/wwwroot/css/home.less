@@ -17,6 +17,7 @@
     width: 100%;
     min-width: 980px;
     flex-flow: nowrap;
+    overflow: hidden;
     @landing-height: 100vh;
     @landing-max-height: 890px;
     @landing-min-height: 600px;
@@ -73,8 +74,7 @@
                 flex-direction: column;
                 justify-content: space-around;
                 margin-left: clamp(54px, 10%, 95px);
-                width: 70%;
-                min-width: 580px;
+                width: calc(70% - clamp(54px, 10%, 95px));
                 max-width: 883px;
                 height: calc((@landing-height - 100px) / 2 + 180px);
                 max-height: calc((@landing-max-height - 100px) / 2 + 180px);
@@ -111,19 +111,47 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 37px;
     min-width: 980px;
 
-    .title-img {
-        height: 40px;
+    .aio-title {
+        margin: 46px 10px;
+        font-size: 29px;
+        line-height: 20px;
+        letter-spacing: 5px;
     }
 
-    .highlight-wraper {
+    .aio-green {
+        color: @green-theme;
+    }
+
+    .highlight-container {
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
+        flex-wrap: wrap;
+        grid-row-gap: 46px;
+        column-gap: 28px;
         margin-top: 37px;
-        width: 80%;
-        min-width: 1060px;
+        padding: 20px;
+        width: 90%;
+    }
+
+    .highlight-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 134px;
+        min-width: 134px;
+    }
+
+    .highlight-img {
+        height: 108px;
+    }
+
+    .highlight-name {
+        margin: 31px 0;
+        font-size: 14px;
+        text-align: center;
+        text-transform: uppercase;
     }
 }
 
@@ -389,8 +417,7 @@
 
             .learn-more-icon {
                 margin-right: 22px;
-                width: 76px;
-                height: 76px;
+                width: 72px;
             }
 
             .learn-more-wrapper {
@@ -410,8 +437,8 @@
             }
 
             .nav-icon {
-                width: 45px;
-                height: 45px;
+                width: 15px;
+                height: 23px;
             }
         }
     }
@@ -432,8 +459,14 @@
 
     .latest-news-title {
         margin-bottom: 41px;
-        width: 558px;
-        height: 132px;
+        font-size: 70px;
+        line-height: 66px;
+        color: @black-theme;
+        text-transform: uppercase;
+    }
+
+    .latest-news-green {
+        color: @green-theme;
     }
 
     .latest-news-subtitle {
@@ -490,9 +523,14 @@
         }
 
         .content-body {
+            margin: 8px 0 22px 0;
+            max-height: 64px;
             font-family: NunitoSans-SemiBold;
             font-size: 16px;
             color: #070E3A;
+            line-height: 21px;
+            text-overflow: ellipsis;
+            overflow: hidden;
         }
 
         .content-tags {

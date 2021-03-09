@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="178px" height="204px" viewBox="0 0 178 204" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组</title>
+    <defs>
+        <polygon id="path-1" points="100.1 0 186.789143 50.05 186.789143 150.15 100.1 200.2 13.4108571 150.15 13.4108571 50.05"></polygon>
+        <filter x="-69.7%" y="-69.5%" width="273.4%" height="287.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="1" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="34" dy="48" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feMorphology radius="1" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
+            <feOffset dx="34" dy="48" in="shadowInner" result="shadowInner"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feGaussianBlur stdDeviation="54" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="HOMEPAGE-PT-0.5" transform="translate(-296.000000, -323.000000)">
+            <g id="Group-35" transform="translate(285.000000, 322.500000)">
+                <g id="编组" transform="translate(0.000000, 3.000000)">
+                    <g id="Polygon">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use stroke="#00E599" stroke-width="2" xlink:href="#path-1"></use>
+                    </g>
+                    <g id="NEO_512_512-Copy" transform="translate(39.200000, 39.200000)" fill-rule="nonzero">
+                        <rect id="Rectangle" fill="#FFFFFF" opacity="0" x="0" y="0" width="120.4224" height="120.4224"></rect>
+                        <polygon id="Path" fill="#00E599" points="21.800688 32.090688 21.800688 89.660592 59.178672 103.0764 59.178672 45.02904 99.593088 30.138528 62.916 17.002608"></polygon>
+                        <polygon id="Path" fill="#00AF92" points="62.219808 46.684848 62.219808 78.178128 99.6072 91.570416 99.590736 32.866848"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
