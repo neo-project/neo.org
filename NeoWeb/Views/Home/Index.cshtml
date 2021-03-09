@@ -4,6 +4,7 @@
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 @{
     ViewBag.IsWhiteLogo = true;
+    ViewBag.HiddenBreadCrumb = true;
 }
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/home.min.css", true)" />

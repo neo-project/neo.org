@@ -27,12 +27,10 @@ https://github.com/neo-project/neo.org
     <meta name="application-name" content="neo.org">
     <meta name="renderer" content="ie-stand">
     <meta name="keywords" content="@(ViewData["keywords"] ?? $"{ViewData["keywords"]},")Neo,Blockchain,智能经济,区块链">
-    @{
-        var title = (ViewData["Title"] != null ? $"{ViewData["Title"]} - " : "") + Localizer["Neo Smart Economy"].Value;
-        var details = ViewData["Details"] ?? Localizer["Neo Smart Economy"].Value;
-        var image = (ViewData["Image"] ?? Helper.ToCDN("/images/twitter-img.jpg"));
-        var url = $"{Context.Request.Scheme}://{Context.Request.Host}{Context.Request.Path}{Context.Request.QueryString}";
-    }
+    @{ var title = (ViewData["Title"] != null ? $"{ViewData["Title"]} - " : "") + Localizer["Neo Smart Economy"].Value;
+                    var details = ViewData["Details"] ?? Localizer["Neo Smart Economy"].Value;
+                    var image = (ViewData["Image"] ?? Helper.ToCDN("/images/twitter-img.jpg"));
+                    var url = $"{Context.Request.Scheme}://{Context.Request.Host}{Context.Request.Path}{Context.Request.QueryString}"; }
     <title>@title</title>
     <meta property="og:url" content="@url" />
     <meta property="og:type" content="website" />
@@ -64,18 +62,22 @@ https://github.com/neo-project/neo.org
             font-family: 'WorkSans-Regular'; /* project id 1408484 */
             src: url('/font/WorkSans-Regular.ttf');
         }
+
         @@font-face {
             font-family: 'WorkSans-SemiBold';
             src: url('/font/WorkSans-SemiBold.ttf');
         }
+
         @@font-face {
             font-family: 'NunitoSans-Regular';
             src: url('/font/NunitoSans-Regular.ttf');
         }
+
         @@font-face {
             font-family: 'NunitoSans-Bold';
             src: url('/font/NunitoSans-Bold.ttf');
         }
+
         @@font-face {
             font-family: 'Lato-Bold';
             src: url('/font/Lato-Bold.ttf');
@@ -84,11 +86,10 @@ https://github.com/neo-project/neo.org
     @RenderSection("Styles", required: false)
     @if (SharedLocalizer["en"].Value == "zh")
     {
-        <link href="@Helper.ToCDN("/css/sitecn.css", true)" rel="stylesheet" />
-    }
+<link href="@Helper.ToCDN("/css/sitecn.css", true)" rel="stylesheet" />}
 </head>
 <body id="neo-body">
-    <nav class="navbar fixed-top navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg">
         <a asp-controller="home" asp-action="index">
             <img src="@(Helper.CDN + (ViewBag.IsWhiteLogo != null ? "/images/logo files-white.svg" : "/images/logo files-dark.svg"))" alt="Neo Logo" />
         </a>
@@ -124,6 +125,8 @@ https://github.com/neo-project/neo.org
             </ul>
         </div>
     </nav>
+    @if (ViewBag.HiddenBreadCrumb == null)
+    { await Html.RenderPartialAsync("_BreadCrumbPartial"); }
     <div class="container layout-container">
         @RenderBody()
     </div>
