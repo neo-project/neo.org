@@ -5,6 +5,7 @@
 @model NeoWeb.Models.BlogViewModel
 @{
     ViewData["Title"] = Model.Title;
+    ViewData["ParentTitle"] = SharedLocalizer["Discover"].Value;
     ViewData["Details"] = Model.Summary.Trim();
     ViewData["keywords"] = Model.Tags;
     if (Model.Cover != null)
@@ -33,9 +34,12 @@
 <hr />
 <div class="discover-width">
     <div class="row">
-        <div class="col-12">
-            <img class="img-max my-5" src="@($"/upload/{Model.Cover}".ToLower())" />
-        </div>
+        @if (!string.IsNullOrWhiteSpace(Model.Cover))
+        {
+            <div class="col-12">
+                <img class="img-max my-5" src="@($"/upload/{Model.Cover}".ToLower())" />
+            </div>
+        }
         <div class="col-md-12 col-lg-9">
             <article class="article">
                 <div class="article-time"><span>BLOG</span>@Model.CreateTime.Month.ToMonth() @Model.CreateTime.Day, @Model.CreateTime.Year</div>

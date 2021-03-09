@@ -1,11 +1,10 @@
-﻿@model NeoWeb.Models.FwLink
+@model NeoWeb.Models.FwLink
 
 @{
     ViewData["Title"] = "Delete FwLink";
 }
 
-<div class="p1 text-center">
-    <h1 class="w800">Are you sure you want to delete this?</h1>
+<p class="mt-4">Are you sure you want to delete this?</p>
     <p class="mt5 w600">@Html.DisplayFor(model => model.Name)</p>
     <p class="mt5 w600" style="word-break: break-all">@Html.DisplayFor(model => model.Link)</p>
     <div class="mt5">
@@ -21,4 +20,3 @@
             </form>
         </div>
     </div>
-</div>

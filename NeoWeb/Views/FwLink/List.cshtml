@@ -1,4 +1,4 @@
-﻿@model IEnumerable<NeoWeb.Models.FwLink>
+@model IEnumerable<NeoWeb.Models.FwLink>
 
 @{
     ViewData["Title"] = "FwLink List";
@@ -6,10 +6,8 @@
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/testnet-list.min.css", true)" />
 }
-<div class="p1 text-center">
-    <h1>NEO 短链接生成器</h1>
-    <a class="btn mt5" asp-action="Create">创建新链接</a>
-</div>
+<p class="mt-4">NEO 短链接生成器</p>
+<a class="btn mt5" asp-action="Create">创建新链接</a>
 <table class="m3 apply-list table-striped">
     <thead>
         <tr>

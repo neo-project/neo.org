@@ -1,4 +1,4 @@
-﻿@model IEnumerable<NeoWeb.Models.TestCoin>
+@model IEnumerable<NeoWeb.Models.TestCoin>
 
 @{
     ViewData["Title"] = "测试币申请列表";
@@ -6,9 +6,7 @@
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/testnet-list.min.css", true)" />
 }
-<div class="p1">
-    <h1 class="w800">测试币申请列表</h1>
-</div>
+<p class="mt-4">测试币申请列表</p>
 
 <table class="m2 apply-list table-striped mb-5">
     <thead>

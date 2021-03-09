@@ -1,15 +1,13 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @model NeoWeb.Models.TestCoin
 @{
-    ViewData["Title"] = Localizer["Developer"].Value;
+    ViewData["Title"] = Localizer["Apply For TestNet NEO&GAS"].Value;
 }
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/testnet.min.css", true)" />
-    }
-<div class="p1 bg5">
-    <h1 class="w800">@Localizer["Apply For TestNet NEO&GAS"]</h1>
-</div>
+}
+
 <div class="container">
     <form asp-action="Apply">
         @Html.AntiForgeryToken()

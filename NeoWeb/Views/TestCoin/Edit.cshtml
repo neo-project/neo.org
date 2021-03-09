@@ -1,4 +1,4 @@
-﻿@model NeoWeb.Models.TestCoin
+@model NeoWeb.Models.TestCoin
 
 @{
     ViewData["Title"] = "备注";
@@ -6,9 +6,7 @@
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/editor.min.css", true)" />
 }
-<div class="p1">
-    <h1 class="w800">添加备注</h1>
-</div>
+<p class="mt-4">添加备注</p>
 <form asp-action="Edit">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <input type="hidden" asp-for="Id" />

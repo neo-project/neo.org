@@ -102,26 +102,24 @@ https://github.com/neo-project/neo.org
 
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="platform">@Localizer["Platform"]</a></li>
                 <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="dev">@Localizer["Developer"]</a></li>
-                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="wallets">@Localizer["Wallets"]</a></li>
-                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="eco">@Localizer["Ecosystem"]</a></li>
+                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="eco">@Localizer["Eco-Support"]</a></li>
                 <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="discover">@Localizer["Discover"]</a></li>
 
                 <li class="nav-item border-0"></li>
                 @if (SharedLocalizer["en"].Value == "zh")
                 {
-                    <li class="nav-item nav-lang">
-                        <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
-                        <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
-                    </li>
-                }
-                else
-                {
-                    <li class="nav-item nav-lang">
-                        <a style="font-size: 1em; font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
-                        <a style="font-size: .9em;  font-weight: 500" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
-                    </li>
-                }
+            <li class="nav-item nav-lang">
+                <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
+                <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+            </li> }
+                        else
+                        {
+            <li class="nav-item nav-lang">
+                <a style="font-size: 1em; font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
+                <a style="font-size: .9em;  font-weight: 500" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+            </li>}
             </ul>
         </div>
     </nav>
@@ -129,45 +127,6 @@ https://github.com/neo-project/neo.org
     { await Html.RenderPartialAsync("_BreadCrumbPartial"); }
     <div class="container layout-container">
         @RenderBody()
-    </div>
-
-    <div class="b2 footer-fo text-center p2">
-        <div class="container">
-            <h2>@Localizer["Follow Us"]</h2>
-            <ul class="mt4">
-                <li><a target="_blank" title="GitHub" href="https://github.com/neo-project" class="iconfont">&#xe609;</a></li>
-                <li><a target="_blank" title="Twitter" href="https://twitter.com/neo_blockchain" class="iconfont">&#xe607;</a></li>
-                <li><a target="_blank" title="Medium" href="https://medium.com/neo-smart-economy" class="iconfont">&#xe608;</a></li>
-                <li><a target="_blank" title="Telegram" href="@Localizer["https://t.me/NEO_EN"]" class="iconfont">&#xe606;</a></li>
-                <li><a target="_blank" title="Reddit" href="https://www.reddit.com/r/NEO/" class="iconfont">&#xe60a;</a></li>
-                <li><a target="_blank" title="Discord" href="https://discord.io/neo" class="iconfont">&#xe60b;</a></li>
-                <li><a target="_blank" title="Youtube" href="https://www.youtube.com/channel/UCl1AwEDN0w5lTmfJEMsY5Vw/videos" class="iconfont">&#xe60c;</a></li>
-                <li>
-                    <a title="WeChat" href="javascript:" class="iconfont">&#xe60d;</a>
-                    <img style="width: 130px" src="@Helper.CDN/images/qrcode.jpg" />
-                </li>
-                <li><a target="_blank" title="Weibo" href="https://weibo.com/neosmarteconomy" class="iconfont">&#xe60e;</a></li>
-            </ul>
-            <!-- Begin Mailchimp Signup Form -->
-            <div id="mc_embed_signup" class="mt4">
-                <form action="https://neo.us4.list-manage.com/subscribe/post?u=228d6f3157920dc1cad664104&amp;id=4f3883ac10" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate autocomplete="off">
-                    <div id="mc_embed_signup_scroll">
-                        <div class="mb-3 mc-field-group">
-                            <input type="email" class="form-control required email" value="" name="EMAIL" id="mce-EMAIL" placeholder="@Localizer["Enter Email Address"]">
-                            <button class="btn" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe">@Localizer["SUBSCRIBE"]</button>
-                        </div>
-                        <div id="mce-responses" class="clear">
-                            <div class="response" id="mce-error-response" style="display:none"></div>
-                            <div class="response" id="mce-success-response" style="display:none"></div>
-                        </div>
-                        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_228d6f3157920dc1cad664104_4f3883ac10" tabindex="-1" value=""></div>
-                    </div>
-                </form>
-            </div>
-            <script src="@Helper.ToCDN("/js/mc-validate.min.js", true)"></script>
-            <!--End mc_embed_signup-->
-        </div>
     </div>
     <footer class="b3 px-5">
         <div class="row">

@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @{
     ViewData["Title"] = Localizer["Neo Vulnerability Bounty Program"].Value;
@@ -13,9 +13,6 @@
         }
     </style>
 }
-<div class="p1 bg4">
-    <h1 class="w800">@Localizer["Neo Vulnerability Bounty Program"]</h1>
-</div>
 <div class="container pb-5">
     <p class="mt4">
         @Localizer["The purpose of Neo vulnerability bounty program is to be proactive about blockchain security by providing a channel for security researchers to report potential security vulnerabilities identified related to our underlying infrastructure. Everyone who find the vulnerabilities can send email to <a href='mailto:erik@neo.org'>erik@neo.org</a>. We will try our best to investigate those eligible vulnerabilities and fix the valid issues. All rewards will be paid in the equivalent amount of NEO."]

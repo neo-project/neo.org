@@ -1,4 +1,4 @@
-﻿@model NeoWeb.Models.Event
+@model NeoWeb.Models.Event
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 
@@ -8,9 +8,7 @@
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/editor.min.css", true)" />
 }
-<div class="p1">
-    <h1 class="w800">@Localizer["Post"]</h1>
-</div>
+<p class="mt-4">@Localizer["Post"]</p>
 <form asp-action="Edit" class="form-horizontal" enctype="multipart/form-data">
     @{await Html.RenderPartialAsync("_EditorPartialPage", Model);}
 </form>

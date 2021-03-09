@@ -1,19 +1,11 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 @{
     ViewData["Title"] = @Localizer["Neo 3.0 data converter"].Value;
 }
-<div class="p1 bg3">
-    <h1 class="w800">@Localizer["Neo 3.0 data converter"]</h1>
-    <p class="mt5 w600">@Localizer["Support conversion of address, script hash, private key, public key, big-endian and little-endian, big-integer, character string, hexadecimal string, Application Log, Base64 encoding, etc. and analysis of smart contract script"]</p>
-
-    <div class="row text-center">
-        <div class="col">
-            <small>Neo 3.0.0-CI01223</small>
-        </div>
-    </div>
-</div>
+<p class="mt-4">@Localizer["Support conversion of address, script hash, private key, public key, big-endian and little-endian, big-integer, character string, hexadecimal string, Application Log, Base64 encoding, etc. and analysis of smart contract script"]</p>
+<p>Neo 3.0.0-CI01223</p>
 <form action="/converter/index" method="post">
     <label class="col-form-label" for="input">@Localizer["Please enter the text to be converted"]</label>
     <input type="text" class="form-control" name="input" value="@ViewBag.Input" />

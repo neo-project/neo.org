@@ -117,14 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About" xml:space="preserve">
-    <value>关于 Neo </value>
-  </data>
   <data name="Blogs" xml:space="preserve">
     <value>博客</value>
-  </data>
-  <data name="Consensus" xml:space="preserve">
-    <value>共识节点</value>
   </data>
   <data name="Contact Us" xml:space="preserve">
     <value>联系我们</value>
@@ -138,20 +132,14 @@
   <data name="Developer" xml:space="preserve">
     <value>开发者</value>
   </data>
-  <data name="Developers" xml:space="preserve">
-    <value>开发者</value>
-  </data>
   <data name="Discover" xml:space="preserve">
     <value>发现更多</value>
   </data>
   <data name="Documentation" xml:space="preserve">
     <value>开发者文档</value>
   </data>
-  <data name="EcoBoost" xml:space="preserve">
-    <value>EcoBoost</value>
-  </data>
-  <data name="Ecogrowth" xml:space="preserve">
-    <value>生态发展</value>
+  <data name="Eco-Support" xml:space="preserve">
+    <value>生态支持</value>
   </data>
   <data name="Ecosystem" xml:space="preserve">
     <value>生态</value>
@@ -185,6 +173,9 @@
   </data>
   <data name="News" xml:space="preserve">
     <value>新闻</value>
+  </data>
+  <data name="Platform" xml:space="preserve">
+    <value>平台</value>
   </data>
   <data name="Press Kit" xml:space="preserve">
     <value>媒体资源</value>
