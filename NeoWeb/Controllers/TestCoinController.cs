@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -58,6 +58,13 @@ namespace NeoWeb.Controllers
         // GET: testcoin/apply
         [AllowAnonymous]
         public IActionResult Apply()
+        {
+            return View();
+        }
+
+        // GET: testcoin/completed
+        [AllowAnonymous]
+        public IActionResult Completed()
         {
             return View();
         }

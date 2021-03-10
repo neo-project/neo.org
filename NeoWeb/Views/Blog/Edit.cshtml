@@ -1,17 +1,16 @@
-﻿@model NeoWeb.Models.Blog
+@model NeoWeb.Models.Blog
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
 @{
+    ViewData["ParentTitle"] = SharedLocalizer["Discover"].Value;
     ViewData["Title"] = "Edit Blog";
 }
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/editor.min.css", true)" />
 }
-<div class="text-center mt-5">
-    <h2>@Localizer["Post"]</h2>
-</div>
-<form asp-action="Edit" class="mt-5" enctype="multipart/form-data">
+<form asp-action="Edit" class="py-5" enctype="multipart/form-data">
     @{await Html.RenderPartialAsync("_EditorPartialPage", Model);}
 </form>
 @section Scripts {

@@ -1,12 +1,15 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
 @{
+    ViewData["ParentTitle"] = SharedLocalizer["Developer"].Value;
     ViewData["Title"] = "Completed";
 }
-<div class="container p-5 text-center">
-    <h1 class="w800">@Localizer["The application has been submitted"]</h1>
-    <div class="w800">
-        @Localizer["Your NEO/GAS application has been submitted, and if approved, we will send NEO/GAS to a multiple-signature address within 3 business days and notify you by email of how to add the address to the NEO wallet and how to use it. Please wait patiently."]
-    </div>
+<div class="py-5">
+    <p>@Localizer["The application has been submitted"]</p>
+    <p>
+        @Localizer["Your NEO/GAS application has been submitted, and if approved, we will send NEO/GAS to a multiple-signature address within 3 business days and notify you by email of how to add the address to the Neo wallet and how to use it. Please wait patiently."]
+    </p>
 </div>
 

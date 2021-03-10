@@ -8,8 +8,7 @@
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/editor.min.css", true)" />
 }
-<p class="mt-4">@Localizer["Post"]</p>
-<form asp-action="Edit" class="form-horizontal" enctype="multipart/form-data">
+<form asp-action="Edit" class="form-horizontal py-5" enctype="multipart/form-data">
     @{await Html.RenderPartialAsync("_EditorPartialPage", Model);}
 </form>
 @section Scripts {

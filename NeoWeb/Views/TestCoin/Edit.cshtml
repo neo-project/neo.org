@@ -1,13 +1,15 @@
 @model NeoWeb.Models.TestCoin
 
-@{
-    ViewData["Title"] = "备注";
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+@{ ViewData["ParentTitle"] = SharedLocalizer["Developer"].Value;
+                ViewData["Title"] = "备注";
 }
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/editor.min.css", true)" />
 }
-<p class="mt-4">添加备注</p>
-<form asp-action="Edit">
+<form asp-action="Edit" class="py-5">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <input type="hidden" asp-for="Id" />
     <div class="form-group">
@@ -27,6 +29,7 @@
           window.history.back();">返回上一页</a>
     </div>
 </form>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

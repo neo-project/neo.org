@@ -1,12 +1,14 @@
 @model IEnumerable<NeoWeb.Models.FwLink>
-
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
 @{
+    ViewData["ParentTitle"] = SharedLocalizer["FwLink"].Value;
     ViewData["Title"] = "FwLink List";
 }
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/testnet-list.min.css", true)" />
 }
-<div class="container py-5">
+<div class="py-5">
     <p>NEO 短链接生成器</p>
     <a class="btn mt-4" asp-action="Create">创建新链接</a>
     <table class="mt-3 apply-list table-striped">

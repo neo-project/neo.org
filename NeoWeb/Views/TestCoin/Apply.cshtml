@@ -1,18 +1,21 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @model NeoWeb.Models.TestCoin
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
 @{
+    ViewData["ParentTitle"] = SharedLocalizer["Developer"].Value;
     ViewData["Title"] = Localizer["Apply For TestNet NEO&GAS"].Value;
 }
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/testnet.min.css", true)" />
 }
 
-<div class="container py-5">
+<div class="py-5">
     <form asp-action="Apply">
         @Html.AntiForgeryToken()
         <div class="row test-apply">
-            <div class="form-group col-md-6 my-1>
+            <div class="form-group col-md-6 my-1">
                 <label asp-for="Name">@Localizer["Name"]</label> <span class="red">*</span><br />
                 <input class="form-control" asp-for="Name" type="text"
                        data-val="true" data-val-required="@Localizer["This field is required"]">
@@ -76,7 +79,7 @@
                 <p class="pub-key-hint t4 lh3">@Localizer["Please enter your own Neo public key. If the application is successful, we will send NEO/GAS to a multi-signature address and let you know how to use it."]</p>
             </div>
         </div>
-        <p class="mt-5 text-center mb-5"><input type="submit" class="btn mb-4" value=@Localizer["Submit Application"]></p>
+        <p class="mt-3"><input type="submit" class="btn mb-4" value=@Localizer["Submit Application"]></p>
     </form>
 </div>
 

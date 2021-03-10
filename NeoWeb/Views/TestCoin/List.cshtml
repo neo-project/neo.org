@@ -1,6 +1,9 @@
+@using Microsoft.AspNetCore.Mvc.Localization
 @model IEnumerable<NeoWeb.Models.TestCoin>
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
 @{
+    ViewData["ParentTitle"] = SharedLocalizer["Developer"].Value;
     ViewData["Title"] = "测试币申请列表";
 }
 @section Styles{

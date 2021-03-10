@@ -43,8 +43,8 @@
                 <header><h2 class="article-title mt-4 with-space">@Model.Name</h2></header>
                 <p class="details-text">Details</p>
                 <div class="container mt-1">
-                    <div class="event-info row">
-                        <div class="col-6">
+                    <div class="event-info row py-3 px-4">
+                        <div class="col-6 py-3">
                             @if (Model.StartTime.Date == Model.EndTime.Date)
                             {
                                 <div><span class="iconfont mr-3">&#xe610;</span>@Model.StartTime.DayOfWeek.ToString(), @Model.StartTime.ToString("yyyy-MM-dd")</div>
@@ -54,24 +54,17 @@
                                 <div><span class="iconfont mr-3">&#xe610;</span>@Model.StartTime.ToString("yyyy-MM-dd") - @Model.EndTime.ToString("yyyy-MM-dd")</div>
                             }
                         </div>
-                        <div class="col-6 order-md-2">
-                            <div><span class="iconfont mr-3">&#xe626;</span>@Model.StartTime.ToString("HH:mm") - @Model.EndTime.ToString("HH:mm")</div>
+                        <div class="col-6 py-3 order-md-2">
+                            <span class="iconfont mr-3">&#xe626;</span>@Model.StartTime.ToString("HH:mm") - @Model.EndTime.ToString("HH:mm")
                         </div>
-                        <div class="col-6 order-md-1">
+                        <div class="col-6 py-3 order-md-1">
                             <span class="iconfont mr-3">&#xe60f;</span>@Model.Country - @Model.City
                         </div>
-                        <div class="col-6 order-md-3">
+                        <div class="col-6 py-3 order-md-3">
                             <span class="iconfont mr-3">&#xe614;</span>@(Model.IsFree ? Localizer["Free ticket"].Value : "")
                         </div>
                     </div>
                 </div>
-                <p class="mt-4">
-                    @if (ViewBag.UserRules)
-                    {
-                        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-                        <a class="ml-3" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
-                    }
-                </p>
                 <section>
                     @if (!string.IsNullOrEmpty(Model.Cover))
                     {
