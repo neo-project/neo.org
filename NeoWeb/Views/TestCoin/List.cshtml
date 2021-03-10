@@ -6,77 +6,78 @@
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/testnet-list.min.css", true)" />
 }
-<p class="mt-4">测试币申请列表</p>
-
-<table class="m2 apply-list table-striped mb-5">
-    <thead>
-        <tr class="t4">
-            <th style="width:10%">
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th style="width:10%">
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th style="width:10%">
-                @Html.DisplayNameFor(model => model.Company)
-            </th>
-            <th style="width:10%">
-                @Html.DisplayNameFor(model => model.Version)
-                <div style="font-weight: normal">
-                    <small>
-                        <a href="/testcoin/list">All</a> / <a href="/testcoin/list/?version=2">NEO2</a> / <a href="/testcoin/list/?version=3">NEO3</a>
-                    </small>
-                </div>
-            </th>
-            <th style="width:8%">
-                申请数量 NEO/GAS
-            </th>
-            <th style="width:10%">
-                @Html.DisplayNameFor(model => model.Time)
-            </th>
-            <th style="width:18%">
-                @Html.DisplayNameFor(model => model.PubKey)
-            </th>
-            <th style="width:20%">
-                @Html.DisplayNameFor(model => model.Remark)
-            </th>
-            <th style="width:14%">操作</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Company)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Version)
-                </td>
-                <td>
-                    @(string.IsNullOrEmpty(item.NeoCount) ? "0" : item.NeoCount) / @(string.IsNullOrEmpty(item.GasCount) ? "0" : item.GasCount)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Time)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PubKey)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Remark)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">备注</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">详情</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">删除</a>
-                </td>
+<div class="py-5">
+    <table class="apply-list table-striped">
+        <thead>
+            <tr class="t4">
+                <th style="width:10%">
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th style="width:10%">
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th style="width:10%">
+                    @Html.DisplayNameFor(model => model.Company)
+                </th>
+                <th style="width:10%">
+                    @Html.DisplayNameFor(model => model.Version)
+                    <div style="font-weight: normal">
+                        <small>
+                            <a href="/testcoin/list">All</a> / <a href="/testcoin/list/?version=2">NEO2</a> / <a href="/testcoin/list/?version=3">NEO3</a>
+                        </small>
+                    </div>
+                </th>
+                <th style="width:8%">
+                    申请数量 NEO/GAS
+                </th>
+                <th style="width:10%">
+                    @Html.DisplayNameFor(model => model.Time)
+                </th>
+                <th style="width:18%">
+                    @Html.DisplayNameFor(model => model.PubKey)
+                </th>
+                <th style="width:20%">
+                    @Html.DisplayNameFor(model => model.Remark)
+                </th>
+                <th style="width:14%">操作</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Company)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Version)
+                    </td>
+                    <td>
+                        @(string.IsNullOrEmpty(item.NeoCount) ? "0" : item.NeoCount) / @(string.IsNullOrEmpty(item.GasCount) ? "0" : item.GasCount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Time)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PubKey)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Remark)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">备注</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">详情</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">删除</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

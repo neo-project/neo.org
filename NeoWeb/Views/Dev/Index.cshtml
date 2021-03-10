@@ -6,16 +6,6 @@
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/dev.min.css", true)" />
 }
-<div id="homeFri" class="p-5 bg4">
-    <div class="container">
-        <h1 class="w800">@Localizer["Developer Portal"]</h1>
-        <p class="mt-5 w500 d-flex justify-content-around">
-            <a class="btn" target="_blank" href="https://github.com/neo-project">GitHub</a>
-            <a class="btn" target="_blank" href="https://docs.neo.org">@Localizer["Documentation"]</a>
-            <a class="btn" asp-controller="discover" asp-action="index" asp-route-keywords="neo3">Neo3</a>
-        </p>
-    </div>
-</div>
 <div class="b5 p-5">
     <div class="container">
         <h2>@Localizer["What you can develop on Neo"]</h2>
@@ -115,7 +105,7 @@
             <div class="col-md-4">
                 <ul class="dev-link no-before mt-2">
                     <li class="link-title no-before h6"><span>@Localizer["Neo Blockchain Network"]</span></li>
-                    <li class="bold pt4">@Localizer["Private Net"]</li>
+                    <li class="bold pt-2">@Localizer["Private Net"]</li>
                     <li><a target="_blank" href="https://github.com/neo-ngd/NEO-Private-Net" title="NEO-Private-Net">NEO-Private-Net</a></li>
                     <li><a target="_blank" href="https://github.com/ngdseattle/neo-blockchain-toolkit/blob/master/quickstart.md" title="neo express">neo express</a></li>
                     <li><a target="_blank" href="https://github.com/CityOfZion/neo-local" title="neo-local">neo-local</a></li>
@@ -141,7 +131,7 @@
                 <ul class="dev-link mt-2">
                     <li class="link-title h6"><span>@Localizer["Smart Contract Development"]</span></li>
 
-                    <li class="bold pt4">@Localizer["Toolkit"]</li>
+                    <li class="bold pt-2">@Localizer["Toolkit"]</li>
                     <li><a target="_blank" href="https://github.com/neo-project/neo-blockchain-toolkit/blob/master/quickstart.md" title="neo blockchain toolkit for .NET">neo blockchain toolkit for .NET</a></li>
 
                     <li class="bold">@Localizer["Dev-pack & compiler"]</li>
@@ -160,7 +150,7 @@
             <div class="col-md-4">
                 <ul class="dev-link mt-2">
                     <li class="link-title h6"><span>@Localizer["dApp Integration"]</span></li>
-                    <li class="bold pt4">SDK</li>
+                    <li class="bold pt-2">SDK</li>
                     <li><a target="_blank" href="https://github.com/neo-project/neo/tree/master-2.x" title="neo">neo</a> <span>C#</span></li>
                     <li><a target="_blank" href="https://github.com/CityOfZion/neon-js" title="neon-js">neon-js</a> <span>JavaScript</span></li>
                     <li><a target="_blank" href="https://github.com/neow3j/neow3j" title="neow3j">neow3j</a> <span>Java, Kotlin</span></li>
@@ -230,12 +220,12 @@
 <div class="text-center b5 p-5">
     <div class="container">
         <h2>@Localizer["Join Neo Global Communities"]</h2>
-        <ul class="list-none h3 mt-5 w600">
+        <ul class="list-none h3 mt-5">
             <li class="tag">20<span>@Localizer["Cities"]</span></li>
             <li class="tag">7<span>@Localizer["Countries"]</span></li>
             <li class="tag">10+<span>@Localizer["Communities"]</span></li>
         </ul>
-        <ul class="press mt-4">
+        <ul class="mt-4">
             <li><a href="https://coz.io" target="_blank"><img data-original="@Helper.ToCDN("/images/dev/coz.png")" /></a></li>
             <li><a href="https://neoresearch.io" target="_blank"><img data-original="@Helper.ToCDN("/images/dev/neo_re.png")" /></a></li>
             <li><a href="https://nspcc.ru/" target="_blank"><img data-original="@Helper.ToCDN("/images/dev/nspcc.png")" /></a></li>

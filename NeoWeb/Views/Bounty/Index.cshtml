@@ -3,17 +3,7 @@
 @{
     ViewData["Title"] = Localizer["Neo Vulnerability Bounty Program"].Value;
 }
-@section Styles{
-    <style>
-        .layout-container {
-            max-width: none;
-            padding: 0;
-            margin: 0;
-            line-height: 2;
-        }
-    </style>
-}
-<div class="container pb-5">
+<div class="pb-5">
     <p class="mt-5">
         @Localizer["The purpose of Neo vulnerability bounty program is to be proactive about blockchain security by providing a channel for security researchers to report potential security vulnerabilities identified related to our underlying infrastructure. Everyone who find the vulnerabilities can send email to <a href='mailto:erik@neo.org'>erik@neo.org</a>. We will try our best to investigate those eligible vulnerabilities and fix the valid issues. All rewards will be paid in the equivalent amount of NEO."]
         <br />
@@ -70,7 +60,7 @@
         </p>
     </div>
     <div class="mt-5">
-        <h3 class="">@Localizer["Rewards"]</h3>
+        <h3>@Localizer["Rewards"]</h3>
         <p class="mt-4 lh1">
             @Localizer["Bounties are paid out after a risk assessment (<a href='https://www.owasp.org/index.php/OWASP_Risk_Rating_Methodology' target='_blank'>OWASP</a> risk rating methodology) has been made by our R&D team. There are four rates of severity, Critical, High, Medium, Low. All rewards will be paid in the equivalent amount of NEO. Roughly speaking, we calculate the severity of an issue with the following formula:"]<br />
             <strong>Severity = Impact * Likelihood</strong><br />

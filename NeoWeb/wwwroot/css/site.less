@@ -339,37 +339,6 @@ a[class|=btn] {
     }
 }
 
-.center {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    height: 60%;
-
-    &.n {
-        left: 15px;
-        right: 15px;
-    }
-
-
-    @media only screen and (max-width: 767px) {
-        &.o-des {
-            position: relative;
-
-            &.n {
-                left: 0;
-                right: 0;
-            }
-        }
-    }
-}
-
-.hide {
-    display: none;
-}
-
 hr {
     border-top: 1px solid rgba(150,150,150,.18);
 }
@@ -386,36 +355,6 @@ hr.line {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-}
-
-.w1000 {
-    .w;
-    max-width: 1000px;
-}
-
-.w900 {
-    .w;
-    max-width: 900px;
-}
-
-.w800 {
-    .w;
-    max-width: 800px;
-}
-
-.w700 {
-    .w;
-    max-width: 700px;
-}
-
-.w600 {
-    .w;
-    max-width: 600px;
-}
-
-.w500 {
-    .w;
-    max-width: 500px;
 }
 
 /*border*/
@@ -559,29 +498,6 @@ i.iconfont {
     }
 }
 
-.module1 {
-    .module;
-
-    .module-img {
-        max-width: 330px;
-    }
-
-    .module-text {
-        max-width: 550px;
-    }
-
-    @media only screen and (max-width: 767px) {
-        padding-bottom: @length2;
-        text-align: center;
-
-        .module {
-            .module-img {
-                max-width: 200px;
-            }
-        }
-    }
-}
-
 table, .table {
     display: table;
     width: 100%;
@@ -605,66 +521,10 @@ table, .table {
 
         td, > li {
             display: table-cell;
-            padding: .75rem;
+            padding: .5rem;
             vertical-align: top;
             border: 1px solid #E6E6E6;
             font-weight: 300;
-        }
-    }
-}
-
-.table2 {
-    .table;
-
-
-    tr, .table-head {
-        th, > li {
-            border: none;
-            border-bottom: 1px solid #999999;
-        }
-    }
-
-    .table-row, tr {
-        td, > li {
-            border: none;
-            font-weight: 300;
-        }
-    }
-}
-
-.press {
-    padding: 0;
-    width: 100%;
-    font-size: 0;
-
-    li {
-        margin-top: 1rem;
-        display: inline-block;
-        list-style: none;
-        width: calc(25% - 22px);
-        min-width: 110px;
-        max-width: 160px;
-        text-align: center;
-        margin-left: 10px;
-        margin-right: 10px;
-        vertical-align: middle;
-
-        img {
-            display: inline-block;
-            max-height: 40px;
-            max-width: 100%;
-        }
-    }
-
-
-    @media only screen and (max-width: 767px) {
-
-        li {
-            min-width: 90px;
-
-            img {
-                max-height: 34px;
-            }
         }
     }
 }
