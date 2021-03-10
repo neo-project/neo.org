@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="@Helper.ToCDN("/css/discover.min.css", true)" />
 }
 
-<div class="nav-area mt3">
+<div class="nav-area mt-5">
     <div><i class="iconfont">&#xe618;</i><a asp-action="index" asp-controller="discover">BACK TO LIST</a></div>
     <div class="text-right">
         @if (@ViewBag.PrevEventId != Model.Id)
@@ -29,54 +29,55 @@
 </div>
 <hr />
 <div class="discover-width">
+    @if (!string.IsNullOrWhiteSpace(Model.Cover))
+    {
+        <div class="row d-block d-sm-none ">
+            <img class="img-max my-5" src="@($"/upload/{Model.Cover}".ToLower())" />
+        </div>
+        <img class="d-none d-sm-block img-max my-5" src="@($"/upload/{Model.Cover}".ToLower())" />
+    }
     <div class="row">
-        @if (!string.IsNullOrWhiteSpace(Model.Cover))
-        {
-            <div class="col-12">
-                <img class="img-max my-5" src="@($"/upload/{Model.Cover}".ToLower())" />
-            </div>
-        }
         <div class="col-md-12 col-lg-9">
             <article class="article">
                 <div class="article-time"><span>EVENT</span>@Model.StartTime.Month.ToMonth() @Model.StartTime.Day, @Model.StartTime.Year</div>
-                <header><h2 class="article-title mt5 with-space">@Model.Name</h2></header>
+                <header><h2 class="article-title mt-4 with-space">@Model.Name</h2></header>
                 <p class="details-text">Details</p>
                 <div class="container mt-1">
                     <div class="event-info row">
                         <div class="col-6">
                             @if (Model.StartTime.Date == Model.EndTime.Date)
                             {
-                                <div><span class="iconfont mr3">&#xe610;</span>@Model.StartTime.DayOfWeek.ToString(), @Model.StartTime.ToString("yyyy-MM-dd")</div>
+                                <div><span class="iconfont mr-3">&#xe610;</span>@Model.StartTime.DayOfWeek.ToString(), @Model.StartTime.ToString("yyyy-MM-dd")</div>
                             }
                             else
                             {
-                                <div><span class="iconfont mr3">&#xe610;</span>@Model.StartTime.ToString("yyyy-MM-dd") - @Model.EndTime.ToString("yyyy-MM-dd")</div>
+                                <div><span class="iconfont mr-3">&#xe610;</span>@Model.StartTime.ToString("yyyy-MM-dd") - @Model.EndTime.ToString("yyyy-MM-dd")</div>
                             }
                         </div>
                         <div class="col-6 order-md-2">
-                            <div><span class="iconfont mr3">&#xe626;</span>@Model.StartTime.ToString("HH:mm") - @Model.EndTime.ToString("HH:mm")</div>
+                            <div><span class="iconfont mr-3">&#xe626;</span>@Model.StartTime.ToString("HH:mm") - @Model.EndTime.ToString("HH:mm")</div>
                         </div>
                         <div class="col-6 order-md-1">
-                            <span class="iconfont mr3">&#xe60f;</span>@Model.Country - @Model.City
+                            <span class="iconfont mr-3">&#xe60f;</span>@Model.Country - @Model.City
                         </div>
                         <div class="col-6 order-md-3">
-                            <span class="iconfont mr3">&#xe614;</span>@(Model.IsFree ? Localizer["Free ticket"].Value : "")
+                            <span class="iconfont mr-3">&#xe614;</span>@(Model.IsFree ? Localizer["Free ticket"].Value : "")
                         </div>
                     </div>
                 </div>
-                <p class="mt5">
+                <p class="mt-4">
                     @if (ViewBag.UserRules)
                     {
                         <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-                        <a class="ml2" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+                        <a class="ml-3" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
                     }
                 </p>
                 <section>
                     @if (!string.IsNullOrEmpty(Model.Cover))
                     {
-                        <img class="mt3 img-fluid" src="~/upload/@Model.Cover" />
+                        <img class="mt-5 img-fluid" src="~/upload/@Model.Cover" />
                     }
-                    <div class="mt5 with-space">
+                    <div class="mt-4 with-space">
                         @Html.Raw(Model.Details)
                     </div>
                 </section>
@@ -84,7 +85,7 @@
 
         </div>
         <div class="col-md-12 col-lg-3 text-center text-md-left">
-            <div class="share mt4 gray">
+            <div class="share mt-5 gray">
                 @{
                     var title = (ViewData["Title"] != null ? $"{ViewData["Title"]} - " : "") + "Neo Smart Economy";
                     var details = ViewData["Details"] ?? "Neo Smart Economy";
@@ -122,10 +123,9 @@
             </div>
             @if (ViewBag.UserRules)
             {
-                <p class="mt5">
-                    <hr class="mt5 mb0" />
+                <p class="mt-4">
                     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-                    <a class="ml2" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+                    <a class="ml-3" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
                 </p>
             }
         </div>

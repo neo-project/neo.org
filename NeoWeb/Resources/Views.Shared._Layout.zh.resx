@@ -117,17 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Blogs" xml:space="preserve">
-    <value>博客</value>
-  </data>
   <data name="Contact Us" xml:space="preserve">
     <value>联系我们</value>
-  </data>
-  <data name="Contributors" xml:space="preserve">
-    <value>贡献者</value>
-  </data>
-  <data name="dApps List" xml:space="preserve">
-    <value>dApp 列表</value>
   </data>
   <data name="Developer" xml:space="preserve">
     <value>开发者</value>
@@ -144,17 +135,8 @@
   <data name="Ecosystem" xml:space="preserve">
     <value>生态</value>
   </data>
-  <data name="Enter Email Address" xml:space="preserve">
-    <value>输入邮箱地址</value>
-  </data>
   <data name="Events" xml:space="preserve">
     <value>活动</value>
-  </data>
-  <data name="Follow Us" xml:space="preserve">
-    <value>关注我们</value>
-  </data>
-  <data name="General" xml:space="preserve">
-    <value>其它</value>
   </data>
   <data name="https://t.me/NEO_EN" xml:space="preserve">
     <value>https://t.me/NEO_Chinese</value>

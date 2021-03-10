@@ -1,4 +1,4 @@
-﻿@import "basic.less";
+@import "basic.less";
 
 @nav-bar-height: 80px;
 
@@ -50,7 +50,7 @@
 
 
         @media only screen and (max-width: 991px) {
-            line-height: 56px;
+            line-height: 3.5rem;
             padding: 0;
         }
 
@@ -150,85 +150,24 @@
     }
 }
 
-.footer-fo {
-    ul {
-        padding: 0;
-        font-size: 0;
-    }
-
-    li {
-        display: inline-block;
-        list-style: none;
-        margin: 0 12px;
-        position: relative;
+footer {
+    a.title {
+        display: block;
+        color: white;
+        border-bottom: 1px solid #7f869a;
+        font-size: 18px;
 
         &:hover {
-
-            img {
-                position: absolute;
-                display: block;
-            }
-        }
-
-        img {
-            display: none;
-        }
-
-
-        .iconfont {
-            color: @dark-text;
-            font-size: 2rem;
-            transition: all .2s ease-in-out;
-            text-decoration: none;
+            border-bottom: 1px solid white;
         }
     }
-}
 
-footer {
-    padding-top: 25px;
-    padding-bottom: 30px;
+    a.sub-title {
+        display: block;
+        color: #7f869a;
 
-    a {
-        color: @white;
-    }
-
-    hr.line {
-        margin-top: 100px;
-        margin-bottom: 25px;
-    }
-
-    ul {
-        padding: 0;
-        margin-top: 15px;
-        margin-bottom: 0;
-
-        li {
-            list-style: none;
-            opacity: .9;
-        }
-    }
-}
-
-@media only screen and (max-width: 767px) {
-    footer {
-        padding-top: 0;
-
-        p {
-            &.bold {
-                padding: 15px 0;
-                border-top: 1px solid @line;
-                margin-bottom: 0;
-            }
-        }
-
-        ul {
-            margin-top: 0;
-            line-height: 2;
-            margin-bottom: 2em;
-        }
-
-        .row div:last-child ul {
-            display: block !important;
+        &:hover {
+            color: white;
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @{
     ViewData["Title"] = Localizer["Developer Portal"].Value;
@@ -6,20 +6,20 @@
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/dev.min.css", true)" />
 }
-<div id="homeFri" class="p1 bg4">
+<div id="homeFri" class="p-5 bg4">
     <div class="container">
         <h1 class="w800">@Localizer["Developer Portal"]</h1>
-        <p class="mt3 w500 d-flex justify-content-around">
+        <p class="mt-5 w500 d-flex justify-content-around">
             <a class="btn" target="_blank" href="https://github.com/neo-project">GitHub</a>
             <a class="btn" target="_blank" href="https://docs.neo.org">@Localizer["Documentation"]</a>
             <a class="btn" asp-controller="discover" asp-action="index" asp-route-keywords="neo3">Neo3</a>
         </p>
     </div>
 </div>
-<div class="b5 p1">
+<div class="b5 p-5">
     <div class="container">
         <h2>@Localizer["What you can develop on Neo"]</h2>
-        <div class="row list1 mt5">
+        <div class="row list1 mt-4">
             <div class="col-md-3">
                 <img data-original="@Helper.ToCDN("/images/dev/BlockchainInfrastructure.svg")" />
                 <div>
@@ -51,10 +51,10 @@
         </div>
     </div>
 </div>
-<div class="p1">
+<div class="p-5">
     <div class="container">
         <h2>@Localizer["Why you should develop on Neo"]</h2>
-        <div class="row list1 left mt5">
+        <div class="row list1 left mt-4">
             <div class="col-md-4">
                 <img data-original="@Helper.ToCDN("/images/dev/MultiLanguage.svg")" />
                 <div>
@@ -82,12 +82,12 @@
         </div>
     </div>
 </div>
-<div class="b5 p1">
+<div class="b5 p-5">
     <div class="container">
         <div class="row">
             <div class="col-md-4">
                 <h4 class="line-b">@Localizer["Neo Links"]</h4>
-                <ul class="dev-link mt6">
+                <ul class="dev-link mt-3">
                     <li><a target="_blank" href="https://github.com/neo-project" title="Neo GitHub">GitHub</a></li>
                     <li><a target="_blank" href="https://docs.neo.org/" title="Neo Docs">@Localizer["Documentation"]</a></li>
                     <li><a asp-controller="bounty" asp-action="index" title="@Localizer["Vulnerability Bounty Program"]">@Localizer["Vulnerability Bounty"]</a></li>
@@ -96,7 +96,7 @@
             </div>
             <div class="col-md-4">
                 <h4 class="line-b">@Localizer["NEO & GAS TestNet"]</h4>
-                <ul class="dev-link mt6">
+                <ul class="dev-link mt-3">
                     <li><a asp-controller="testcoin" asp-action="apply" title="Manual Entry">@Localizer["Apply with Manual Entry"]</a></li>
                     <li><a target="_blank" href="http://neowish.ngd.network/" title="Automatic Entry">@Localizer["Apply NEO 2 with Automatic Entry"]</a></li>
                     <li><a target="_blank" href="http://neowish.ngd.network/neo3/" title="Automatic Entry">@Localizer["Apply NEO 3 with Automatic Entry"]</a></li>
@@ -104,16 +104,16 @@
             </div>
             <div class="col-md-4">
                 <h4 class="line-b">@Localizer["Components"]</h4>
-                <ul class="dev-link mt6">
+                <ul class="dev-link mt-3">
                     <li><a target="_blank" href="https://www.seraphid.io/" title="NeoID">NeoID</a></li>
                     <li><a target="_blank" href="https://fs.neo.org/">NeoFS</a></li>
                 </ul>
             </div>
         </div>
-        <h4 class="mt4">@Localizer["Tools"]</h4>
-        <div class="row tools mt6">
+        <h4 class="mt-5">@Localizer["Tools"]</h4>
+        <div class="row tools mt-3">
             <div class="col-md-4">
-                <ul class="dev-link no-before mt7">
+                <ul class="dev-link no-before mt-2">
                     <li class="link-title no-before h6"><span>@Localizer["Neo Blockchain Network"]</span></li>
                     <li class="bold pt4">@Localizer["Private Net"]</li>
                     <li><a target="_blank" href="https://github.com/neo-ngd/NEO-Private-Net" title="NEO-Private-Net">NEO-Private-Net</a></li>
@@ -138,7 +138,7 @@
                 </ul>
             </div>
             <div class="col-md-4">
-                <ul class="dev-link mt7">
+                <ul class="dev-link mt-2">
                     <li class="link-title h6"><span>@Localizer["Smart Contract Development"]</span></li>
 
                     <li class="bold pt4">@Localizer["Toolkit"]</li>
@@ -158,7 +158,7 @@
                 </ul>
             </div>
             <div class="col-md-4">
-                <ul class="dev-link mt7">
+                <ul class="dev-link mt-2">
                     <li class="link-title h6"><span>@Localizer["dApp Integration"]</span></li>
                     <li class="bold pt4">SDK</li>
                     <li><a target="_blank" href="https://github.com/neo-project/neo/tree/master-2.x" title="neo">neo</a> <span>C#</span></li>
@@ -181,11 +181,11 @@
     </div>
 </div>
 
-<div class="p1" name="involved">
+<div class="p-5" name="involved">
     <div class="container text-center">
         <h2>@Localizer["Get involved"]</h2>
-        <p class="mt5"><a class="btn" href="mailto:dev@neo.org">@Localizer["Contact Us"]</a></p>
-        <div class="row list1 mt5">
+        <p class="mt-4"><a class="btn" href="mailto:dev@neo.org">@Localizer["Contact Us"]</a></p>
+        <div class="row list1 mt-4">
             <div class="col-md-4">
                 <img data-original="@Helper.ToCDN("/images/dev/CoreDeveloper.svg")" />
                 <div>
@@ -227,15 +227,15 @@
     </div>
 </div>
 
-<div class="text-center b5 p2">
+<div class="text-center b5 p-5">
     <div class="container">
         <h2>@Localizer["Join Neo Global Communities"]</h2>
-        <ul class="list-none h3 mt4 w600">
+        <ul class="list-none h3 mt-5 w600">
             <li class="tag">20<span>@Localizer["Cities"]</span></li>
             <li class="tag">7<span>@Localizer["Countries"]</span></li>
             <li class="tag">10+<span>@Localizer["Communities"]</span></li>
         </ul>
-        <ul class="press mt5">
+        <ul class="press mt-4">
             <li><a href="https://coz.io" target="_blank"><img data-original="@Helper.ToCDN("/images/dev/coz.png")" /></a></li>
             <li><a href="https://neoresearch.io" target="_blank"><img data-original="@Helper.ToCDN("/images/dev/neo_re.png")" /></a></li>
             <li><a href="https://nspcc.ru/" target="_blank"><img data-original="@Helper.ToCDN("/images/dev/nspcc.png")" /></a></li>

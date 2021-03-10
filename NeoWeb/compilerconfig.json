@@ -32,10 +32,6 @@
     "inputFile": "wwwroot/css/site.less"
   },
   {
-    "outputFile": "wwwroot/css/sitecn.css",
-    "inputFile": "wwwroot/css/sitecn.less"
-  },
-  {
     "outputFile": "wwwroot/css/contributors.css",
     "inputFile": "wwwroot/css/contributors.less"
   },

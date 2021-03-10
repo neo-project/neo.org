@@ -23,22 +23,16 @@ html body {
     }
 }
 
-.container {
-    @media only screen and (max-width: 767px) {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-}
-
 .bread-crumb {
+    //深蓝色块
     .bg1-div {
         height: 90px;
-        background-color: #000332
+        background-color: @text;
     }
-
+    //绿色块
     .bg2-div {
         height: 90px;
-        background-color: #00E599
+        background-color: @green;
     }
 
     .text-div {
@@ -101,12 +95,11 @@ ul.list-none {
 h1, .h1 {
     .font-family-bold;
     font-size: @t1;
-    line-height: 108px;
+    line-height: 1.2;
     letter-spacing: -2px;
 
     @media only screen and (max-width: 767px) {
         font-size: @t2;
-        line-height: 60px;
         letter-spacing: -1px;
     }
 }
@@ -114,12 +107,11 @@ h1, .h1 {
 h2, .h2 {
     .font-family-bold;
     font-size: @t2;
-    line-height: 65px;
+    line-height: 1.3;
     letter-spacing: .8px;
 
     @media only screen and (max-width: 767px) {
         font-size: @t3;
-        line-height: 50px;
         letter-spacing: -.6px;
     }
 }
@@ -127,12 +119,11 @@ h2, .h2 {
 h3, .h3 {
     .font-family-bold;
     font-size: @t3;
-    line-height: 50px;
+    line-height: 1.3;
     letter-spacing: -.8px;
 
     @media only screen and (max-width: 767px) {
         font-size: @t4;
-        line-height: 28px;
         letter-spacing: -.3px;
     }
 }
@@ -140,12 +131,11 @@ h3, .h3 {
 h4, .h4 {
     .font-family-bold;
     font-size: @t4;
-    line-height: 40px;
+    line-height: 1.3;
     letter-spacing: -.6px;
 
     @media only screen and (max-width: 767px) {
         font-size: @t5;
-        line-height: 28px;
         letter-spacing: -.3px;
     }
 }
@@ -153,12 +143,11 @@ h4, .h4 {
 h5, .h5 {
     .font-family;
     font-size: @t4;
-    line-height: 40px;
+    line-height: 1.3;
     letter-spacing: -.8px;
 
     @media only screen and (max-width: 767px) {
         font-size: @t5;
-        line-height: 21px;
         letter-spacing: -.2px;
     }
 }
@@ -166,30 +155,11 @@ h5, .h5 {
 h6, .h6 {
     .font-family-bold;
     font-size: @t5;
-    line-height: 32px;
+    line-height: 1.5;
 
     @media only screen and (max-width: 767px) {
-        line-height: 26px;
         letter-spacing: -.2px;
     }
-}
-
-.font1 {
-    .font-family;
-    font-size: 1rem;
-}
-
-.font2 {
-    .font-family-bold;
-    font-size: 1rem;
-}
-
-.font3 {
-    .font-family;
-    font-size: 0.8rem;
-    font-weight: 300;
-    font-size: 0.95rem;
-    letter-spacing: .2px;
 }
 
 /*字体*/
@@ -210,188 +180,6 @@ h6, .h6 {
 small, .small {
     font-size: 80%;
 }
-
-/*间距*/
-.mt0 {
-    margin-top: 0px !important;
-}
-
-.mb0 {
-    margin-bottom: 0px !important;
-}
-
-.mt1 {
-    margin-top: @length1;
-
-    @media only screen and (max-width: 767px) {
-        margin-top: @length2;
-    }
-}
-
-.mt2 {
-    margin-top: @length2;
-
-    @media only screen and (max-width: 767px) {
-        margin-top: @length3;
-    }
-}
-
-.mt3 {
-    margin-top: @length3;
-
-    @media only screen and (max-width: 767px) {
-        margin-top: @length4;
-    }
-}
-
-.mt4 {
-    margin-top: @length4;
-
-    @media only screen and (max-width: 767px) {
-        margin-top: @length5;
-    }
-}
-
-.mt5 {
-    margin-top: @length5;
-
-    @media only screen and (max-width: 767px) {
-        margin-top: @length6;
-    }
-}
-
-.mt6 {
-    margin-top: @length6;
-
-    @media only screen and (max-width: 767px) {
-        margin-top: @length7;
-    }
-}
-
-.mt7 {
-    margin-top: @length7;
-
-    @media only screen and (max-width: 767px) {
-        margin-top: @length8;
-    }
-}
-
-.ml1 {
-    margin-left: @length4;
-
-    @media only screen and (max-width: 767px) {
-        margin-left: @length5;
-    }
-}
-
-.ml2 {
-    margin-left: @length5;
-
-    @media only screen and (max-width: 767px) {
-        margin-left: @length6;
-    }
-}
-
-.ml3 {
-    margin-left: @length7;
-
-    @media only screen and (max-width: 767px) {
-        margin-left: @length8;
-    }
-}
-
-.mr1 {
-    margin-right: @length4;
-
-    @media only screen and (max-width: 767px) {
-        margin-right: @length5;
-    }
-}
-
-.mr2 {
-    margin-right: @length5;
-
-    @media only screen and (max-width: 767px) {
-        margin-right: @length6;
-    }
-}
-
-.mr3 {
-    margin-right: @length6;
-
-    @media only screen and (max-width: 767px) {
-        margin-right: @length7;
-    }
-}
-
-.mr4 {
-    margin-right: @length7;
-
-    @media only screen and (max-width: 767px) {
-        margin-right: @length8;
-    }
-}
-
-.pt0 {
-    padding-top: 0px !important;
-}
-
-.pb0 {
-    padding-bottom: 0px !important;
-}
-
-.p1 {
-    padding-top: 116px;
-    padding-bottom: 116px;
-
-    @media only screen and (max-width: 767px) {
-        padding-top: 75px;
-        padding-bottom: 75px;
-    }
-}
-
-.p2 {
-    padding-top: 84px;
-    padding-bottom: 84px;
-
-    @media only screen and (max-width: 767px) {
-        padding-top: 52px;
-        padding-bottom: 52px;
-    }
-}
-
-.p3 {
-    padding-top: 54px;
-    padding-bottom: 54px;
-
-    @media only screen and (max-width: 767px) {
-        padding-top: 32px;
-        padding-bottom: 32px;
-    }
-}
-
-.p4 {
-    padding-top: 32px;
-    padding-bottom: 32px;
-
-    @media only screen and (max-width: 767px) {
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-}
-
-.p5 {
-    padding: 20px;
-}
-
-.pt4 {
-    padding-top: 20px !important;
-
-    @media only screen and (max-width: 767px) {
-        padding-top: 12px !important;
-    }
-}
-
 
 /*button*/
 a[class|=btn] {
@@ -447,7 +235,6 @@ a[class|=btn] {
 
 .btn2 {
     .green;
-    .font2;
     float: right;
     display: inline-block;
     cursor: pointer;
@@ -534,12 +321,11 @@ a[class|=btn] {
 
 /*文本*/
 .tag {
-    .mr1;
+    margin-right: 1rem;
     display: inline-block;
     color: @text2;
 
     span {
-        .font3;
         display: block;
         color: @gray;
     }
@@ -551,10 +337,6 @@ a[class|=btn] {
     @media only screen and (max-width: 767px) {
         min-width: 85px;
     }
-}
-
-.b-white {
-    background: #FFFFFF;
 }
 
 .center {
@@ -680,110 +462,6 @@ i.iconfont {
     font-style: normal;
 }
 
-/*list 基础样式*/
-.list-inline {
-    li {
-        display: inline-block;
-    }
-}
-
-.list1 {
-    text-align: center;
-
-    div[class|=col], > li {
-        .mt4;
-        list-style: none;
-
-        div {
-            overflow: hidden;
-            margin-top: @length7;
-        }
-
-        a {
-            .btn2;
-            float: none;
-        }
-    }
-
-    img, .img, > .iconfont {
-        display: inline-block;
-        width: 85px;
-        height: 85px;
-        line-height: 1;
-        font-size: 80px;
-        text-align: center;
-    }
-
-    .list-title {
-        .h4;
-        line-height: 1.2;
-    }
-
-    &.left {
-        text-align: left;
-
-        div[class|=col] {
-            div, .list-title {
-                margin-top: 0;
-                margin-bottom: @length7;
-            }
-        }
-
-        img, .img, .iconfont {
-            .mr2;
-            float: left;
-        }
-    }
-
-    &.right {
-        text-align: left;
-
-        div[class|=col] {
-            div, .list-title {
-                margin-top: 0;
-                margin-bottom: @length8;
-            }
-        }
-
-        img, .img, .iconfont {
-            .mr2;
-            width: 48px;
-            height: 100%;
-            font-size: 40px;
-            line-height: 50px;
-            float: right;
-        }
-    }
-
-    @media only screen and (max-width: 767px) {
-        text-align: left !important;
-
-        div[class|=col], > li {
-            list-style: none;
-
-            div {
-                margin-top: 0;
-            }
-        }
-
-        img, .img, .iconfont {
-            float: left;
-            margin-right: 20px !important;
-        }
-
-        .list-title {
-            line-height: 1.4;
-        }
-
-
-        &.right {
-            img, .img, .iconfont {
-                margin-right: 0 !important;
-            }
-        }
-    }
-}
-
 .bg-img {
     display: block;
     width: 100%;
@@ -804,7 +482,7 @@ i.iconfont {
 }
 
 .module {
-    .mt2;
+    margin-top: 3rem;
 
     .module-img {
         float: right;
@@ -818,11 +496,11 @@ i.iconfont {
         text-align: left;
 
         > * {
-            .mt5;
+            margin-top: .5rem;
         }
 
         .btn, .btn1 {
-            .mt6;
+            margin-top: .5rem;
         }
     }
 
@@ -960,7 +638,7 @@ table, .table {
     font-size: 0;
 
     li {
-        .mt3;
+        margin-top: 1rem;
         display: inline-block;
         list-style: none;
         width: calc(25% - 22px);
@@ -987,50 +665,6 @@ table, .table {
             img {
                 max-height: 34px;
             }
-        }
-    }
-}
-
-/*MailChimp 邮件订阅部分*/
-#mc_embed_signup {
-    max-width: 450px;
-    margin-left: auto;
-    margin-right: auto;
-
-    .mc-field-group{
-        display: flex;
-    }
-    
-    #mce-EMAIL {
-        display: inline-block;
-        max-width: 315px;
-        height: 48px;
-        line-height: 48px;
-        border-radius: 0;
-        border: 0;
-    }
-
-    .btn {
-        margin-left: -5px;
-        color: @white !important;
-        background-color: @dark;
-        display: inline-block;
-        text-shadow: none;
-        height: 48px;
-    }
-
-    div.mce_inline_error {
-        background-color: transparent !important;
-    }
-
-    @media only screen and (max-width: 767px) {
-        #mce-EMAIL {
-            height: 40px;
-            line-height: 40px;
-        }
-
-        .btn {
-            height: 40px;
         }
     }
 }
