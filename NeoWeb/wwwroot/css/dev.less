@@ -189,7 +189,6 @@
 .feature-img {
     flex-shrink: 0;
     width: 101px;
-    object-fit: cover;
 }
 
 .feature-text {
@@ -198,6 +197,7 @@
     font-family: WorkSans-SemiBold, WorkSans;
     font-weight: 600;
     color: #070E3A;
+    text-transform: uppercase;
 }
 
 .menu-page-divider {
@@ -231,7 +231,6 @@
     flex-shrink: 0;
     width: 259px;
     height: 156px;
-    object-fit: cover;
 }
 
 .overview-tutorial-right {
@@ -243,10 +242,10 @@
     font-family: WorkSans-SemiBold, WorkSans;
     font-weight: 600;
     color: #000332;
+    text-transform: uppercase;
 }
 
 .overview-tutorial-author {
-    margin-top: 8px;
     font-size: 16px;
     font-family: NunitoSans-Bold, NunitoSans;
     font-weight: bold;
@@ -272,7 +271,6 @@
     margin-top: 126px;
     width: 600px;
     height: 600px;
-    object-fit: cover;
 }
 
 .view-all-tools {
@@ -333,7 +331,6 @@
 .tool-img {
     width: 156px;
     height: 156px;
-    object-fit: cover;
 }
 
 .view-website {
@@ -384,4 +381,114 @@
     font-family: NunitoSans-SemiBold, NunitoSans;
     font-weight: 600;
     color: #070E3A;
+}
+
+.tutorials-filter {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 76px;
+}
+
+.tutorials-filter-label {
+    font-size: 18px;
+    font-family: WorkSans-SemiBold, WorkSans;
+    font-weight: 600;
+    color: #000332;
+    text-transform: uppercase;
+}
+
+.select-language {
+    width: 195px;
+    margin-left: 13px;
+}
+
+.tutorials {
+    margin-top: 83px;
+}
+
+.tutorial {
+    display: flex;
+
+    &:nth-child(n+2) {
+        margin-top: 40px;
+    }
+}
+
+.tutorial-img {
+    width: 191px;
+    height: 191px;
+}
+
+.tutorial-right {
+    margin-left: 30px;
+}
+
+.tutorial-header {
+    display: flex;
+    align-items: center;
+}
+
+.tutorial-type-img {
+    width: 39px;
+    height: 39px;
+}
+
+.tutorial-header-middle {
+    margin-left: 14px;
+}
+
+.tutorial-title {
+    font-size: 20px;
+    font-family: WorkSans-SemiBold, WorkSans;
+    font-weight: 600;
+    color: #000332;
+}
+
+.tutorial-author {
+    font-size: 16px;
+    font-family: NunitoSans-Bold, NunitoSans;
+    font-weight: bold;
+    color: #828386;
+}
+
+.tutorial-type {
+    position: relative;
+    top: 2px;
+    align-self: flex-start;
+    margin-left: 16px;
+    font-size: 16px;
+    font-family: WorkSans-Bold, WorkSans;
+    font-weight: bold;
+    color: #000332;
+    text-transform: uppercase;
+}
+
+.tutorial-description {
+    font-size: 16px;
+    font-family: NunitoSans-SemiBold, NunitoSans;
+    font-weight: 600;
+    color: #070E3A;
+}
+
+.tutorial-languages {
+    display: flex;
+}
+
+.tutorial-language {
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    height: 24px;
+    margin-top: 16px;
+    border-radius: 11px;
+    background: #000332;
+    font-size: 12px;
+    font-family: WorkSans-SemiBold, WorkSans;
+    font-weight: 600;
+    color: #FFFFFF;
+
+    &:nth-child(n+2) {
+        margin-left: 11px;
+    }
 }

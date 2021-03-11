@@ -130,7 +130,10 @@ at urna. t migrates to N3 - The most powerful and feature rich version of the Ne
                             <a class="view-website btn" target="_blank" href="https://github.com/neo-project">View Website</a>
                         </div>
                         <div class="tool-right">
-                            <div class="tool-title">NEO-CLI</div>
+                            <div class="tool-title-wrapper">
+                                <div class="tool-title">NEO-CLI</div>
+                                <div class="tool-language">Java</div>
+                            </div>
                             <div class="tool-developer">Developer name</div>
                             <div class="tool-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. </div>
                         </div>
@@ -141,7 +144,10 @@ at urna. t migrates to N3 - The most powerful and feature rich version of the Ne
                             <a class="view-website btn" target="_blank" href="https://github.com/neo-project">View Website</a>
                         </div>
                         <div class="tool-right">
-                            <div class="tool-title">NEO-CLI</div>
+                            <div class="tool-title-wrapper">
+                                <div class="tool-title">NEO-CLI</div>
+                                <div class="tool-language">Java</div>
+                            </div>
                             <div class="tool-developer">Developer name</div>
                             <div class="tool-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. </div>
                         </div>
@@ -184,7 +190,7 @@ at urna.
             </div>
             <div class="tutorials-filter">
                 <span class="tutorials-filter-label">Filter by language</span>
-                <select class="select-platform form-control" id="select">
+                <select class="select-language form-control" id="select">
                     <option value="c#">C#</option>
                     <option value="java">Java</option>
                 </select>
@@ -199,6 +205,60 @@ at urna.
                                 <div class="tutorial-title">Getting started with NeoFS: The basics.</div>
                                 <div class="tutorial-author">Neo SPCC</div>
                             </div>
+                            <div class="flex-grow-1"></div>
+                            <div class="tutorial-type">Tutorial</div>
+                        </div>
+                        <div class="tutorial-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in
+                            at urna.
+                        </div>
+                        <div class="tutorial-languages">
+                            <div class="tutorial-language">C#</div>
+                            <div class="tutorial-language">Java</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tutorial">
+                    <img class="tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                    <div class="tutorial-right">
+                        <div class="tutorial-header">
+                            <img class="tutorial-type-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                            <div class="tutorial-header-middle">
+                                <div class="tutorial-title">Getting started with NeoFS: The basics.</div>
+                                <div class="tutorial-author">Neo SPCC</div>
+                            </div>
+                            <div class="flex-grow-1"></div>
+                            <div class="tutorial-type">Tutorial</div>
+                        </div>
+                        <div class="tutorial-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in
+                            at urna.
+                        </div>
+                        <div class="tutorial-languages">
+                            <div class="tutorial-language">C#</div>
+                            <div class="tutorial-language">Java</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tutorial">
+                    <img class="tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                    <div class="tutorial-right">
+                        <div class="tutorial-header">
+                            <img class="tutorial-type-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                            <div class="tutorial-header-middle">
+                                <div class="tutorial-title">Getting started with NeoFS: The basics.</div>
+                                <div class="tutorial-author">Neo SPCC</div>
+                            </div>
+                            <div class="flex-grow-1"></div>
+                            <div class="tutorial-type">Tutorial</div>
+                        </div>
+                        <div class="tutorial-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in
+                            at urna.
+                        </div>
+                        <div class="tutorial-languages">
+                            <div class="tutorial-language">C#</div>
+                            <div class="tutorial-language">Java</div>
                         </div>
                     </div>
                 </div>
@@ -234,7 +294,7 @@ at urna.
                 });
             });
 
-            updateCurrentPage(1);
+            updateCurrentPage(2);
 
             function updateCurrentToolingPage(i) {
                 $('.tab').each((j, tab) => {
