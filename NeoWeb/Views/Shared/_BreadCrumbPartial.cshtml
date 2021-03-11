@@ -9,7 +9,7 @@
             <div class="col-8 bg2-div"></div>
         </div>
         <div class="text-div container">
-            <div class="mt-5 text-white bold">@(ViewData["ParentTitle"] ?? ViewData["Title"])</div>
+            <div class="mt-5 text-white bold text-uppercase">@(ViewData["ParentTitle"] ?? ViewData["Title"])</div>
             <div class="mt-5">
                 <span class="green bold mb-4"><a asp-controller="home" asp-action="index">@SharedLocalizer["Home"]</a></span><span class="bold"> > @(ViewData["ParentTitle"] ?? ViewData["Title"])</span>
             </div>

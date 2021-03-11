@@ -1,6 +1,6 @@
 @import './basic.less';
 
-.header-right {
+.header-end {
     float: right;
     position: relative;
     margin-top: -100px;
@@ -25,6 +25,11 @@
     padding: 38px 0;
 }
 
+.news-start {
+    display: flex;
+    flex-direction: column;
+}
+
 .news-title {
     color: #070E3A;
     font-size: 92px;
@@ -37,6 +42,11 @@
         font-style: normal;
         color: #00E599;
     }
+
+    @media (max-width: 575.98px) {
+        font-size: 42px;
+        line-height: 41px;
+    }
 }
 
 .news-content {
@@ -45,16 +55,30 @@
     font-family: NunitoSans-Bold, NunitoSans;
     font-weight: bold;
     color: #070E3A;
+
+    @media (max-width: 575.98px) {
+        font-size: 18px;
+    }
 }
 
 .learn-more {
+    align-self: flex-start;
     margin-top: 36px;
     text-transform: uppercase;
+
+    @media (max-width: 767.98px) {
+        align-self: center;
+    }
 }
 
 .news-img {
+    flex-shrink: 0;
     margin-left: 36px;
     width: 300px;
+
+    @media (max-width: 767.98px) {
+        display: none;
+    }
 }
 
 .divider {
@@ -66,11 +90,19 @@
 .resources {
     display: flex;
     padding: 62px 0 159px;
+
+    @media (max-width: 575.98px) {
+        flex-direction: column;
+    }
 }
 
-.resources-left {
+.resources-menu {
     width: 278px;
     flex-shrink: 0;
+
+    @media (max-width: 575.98px) {
+        width: unset;
+    }
 }
 
 .menu-item {
@@ -113,7 +145,7 @@
     }
 }
 
-.resources-right {
+.resources-page {
     flex: 1;
     margin-left: 82px;
 }
@@ -206,7 +238,7 @@
     height: 156px;
 }
 
-.overview-tutorial-right {
+.overview-tutorial-end {
     margin-left: 29px;
 }
 
@@ -313,7 +345,7 @@
     white-space: nowrap;
 }
 
-.tool-right {
+.tool-end {
     margin-left: 30px;
 }
 
@@ -393,7 +425,7 @@
     height: 191px;
 }
 
-.tutorial-right {
+.tutorial-end {
     margin-left: 30px;
 }
 

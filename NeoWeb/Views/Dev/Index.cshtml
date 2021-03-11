@@ -1,14 +1,14 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @{
-    ViewData["Title"] = Localizer["Developer Portal"].Value;
+    ViewData["Title"] = Localizer["Developer"].Value;
     //ViewBag.HiddenBreadCrumb = true;
 }
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/dev.min.css", true)" />
 }
 <div class="container">
-    <div class="header-right form-inline ">
+    <div class="header-end form-inline">
         <span class="platform-label">Platform</span>
         <select class="select-platform form-control" id="select">
             <option value="neo2">Neo Legacy</option>
@@ -16,7 +16,7 @@
         </select>
     </div>
     <div class="news">
-        <div class="news-left">
+        <div class="news-start">
             <div class="news-title"><em>Neo</em><br />is getting<br />an upgrade</div>
             <div class="news-content">After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date.</div>
             <a class="learn-more btn" target="_blank" href="https://github.com/neo-project">Learn More</a>
@@ -27,7 +27,7 @@
     <div class="divider"></div>
 
     <div class="resources">
-        <div class="resources-left">
+        <div class="resources-start">
             <div class="menu">
                 <div class="menu-item active">
                     Overview
@@ -48,7 +48,7 @@
             </div>
         </div>
 
-        <div class="resources-right">
+        <div class="resources-end">
             <div class="menu-page active">
                 <div class="menu-page-title">Overview</div>
                 <div class="menu-page-description">
@@ -75,7 +75,7 @@
                 <div class="overview-tutorials">
                     <div class="overview-tutorial">
                         <img class="overview-tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-                        <div class="overview-tutorial-right">
+                        <div class="overview-tutorial-end">
                             <div class="overview-tutorial-title">Getting started with NeoFS: The basics.</div>
                             <div class="overview-tutorial-author">Neo SPCC</div>
                             <div class="overview-tutorial-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in at urna. </div>
@@ -83,7 +83,7 @@
                     </div>
                     <div class="overview-tutorial">
                         <img class="overview-tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-                        <div class="overview-tutorial-right">
+                        <div class="overview-tutorial-end">
                             <div class="overview-tutorial-title">Getting started with NeoFS: The basics.</div>
                             <div class="overview-tutorial-author">Neo SPCC</div>
                             <div class="overview-tutorial-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in at urna. </div>
@@ -91,7 +91,7 @@
                     </div>
                     <div class="overview-tutorial">
                         <img class="overview-tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-                        <div class="overview-tutorial-right">
+                        <div class="overview-tutorial-end">
                             <div class="overview-tutorial-title">Getting started with NeoFS: The basics.</div>
                             <div class="overview-tutorial-author">Neo SPCC</div>
                             <div class="overview-tutorial-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in at urna. </div>
@@ -124,11 +124,11 @@
                     <div class="tab-page-title">Explorers</div>
                     <div class="tools">
                         <div class="tool">
-                            <div class="tool-left">
+                            <div class="tool-start">
                                 <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
                                 <a class="view-website btn" target="_blank" href="https://github.com/neo-project">View Website</a>
                             </div>
-                            <div class="tool-right">
+                            <div class="tool-end">
                                 <div class="tool-title-wrapper">
                                     <div class="tool-title">NEO-CLI</div>
                                     <div class="tool-language">Java</div>
@@ -138,11 +138,11 @@
                             </div>
                         </div>
                         <div class="tool">
-                            <div class="tool-left">
+                            <div class="tool-start">
                                 <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
                                 <a class="view-website btn" target="_blank" href="https://github.com/neo-project">View Website</a>
                             </div>
-                            <div class="tool-right">
+                            <div class="tool-end">
                                 <div class="tool-title-wrapper">
                                     <div class="tool-title">NEO-CLI</div>
                                     <div class="tool-language">Java</div>
@@ -152,11 +152,11 @@
                             </div>
                         </div>
                         <div class="tool">
-                            <div class="tool-left">
+                            <div class="tool-start">
                                 <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
                                 <a class="view-website btn" target="_blank" href="https://github.com/neo-project">View Website</a>
                             </div>
-                            <div class="tool-right">
+                            <div class="tool-end">
                                 <div class="tool-title-wrapper">
                                     <div class="tool-title">NEO-CLI</div>
                                     <div class="tool-language">Java</div>
@@ -167,16 +167,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-page active">
+                <div class="tab-page">
                     <div class="tab-page-title">Smart Contract Compilers</div>
                 </div>
-                <div class="tab-page active">
+                <div class="tab-page">
                     <div class="tab-page-title">Smart Contract Dev & Debug</div>
                 </div>
-                <div class="tab-page active">
+                <div class="tab-page">
                     <div class="tab-page-title">SDK</div>
                 </div>
-                <div class="tab-page active">
+                <div class="tab-page">
                     <div class="tab-page-title">dApp Integration</div>
                 </div>
             </div>
@@ -197,7 +197,7 @@
                 <div class="tutorials">
                     <div class="tutorial">
                         <img class="tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-                        <div class="tutorial-right">
+                        <div class="tutorial-end">
                             <div class="tutorial-header">
                                 <img class="tutorial-type-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
                                 <div class="tutorial-header-middle">
@@ -219,7 +219,7 @@
                     </div>
                     <div class="tutorial">
                         <img class="tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-                        <div class="tutorial-right">
+                        <div class="tutorial-end">
                             <div class="tutorial-header">
                                 <img class="tutorial-type-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
                                 <div class="tutorial-header-middle">
@@ -241,7 +241,7 @@
                     </div>
                     <div class="tutorial">
                         <img class="tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-                        <div class="tutorial-right">
+                        <div class="tutorial-end">
                             <div class="tutorial-header">
                                 <img class="tutorial-type-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
                                 <div class="tutorial-header-middle">
