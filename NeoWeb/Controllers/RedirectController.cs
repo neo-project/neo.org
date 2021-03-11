@@ -53,10 +53,6 @@ namespace NeoWeb.Controllers
         [Route("event/index")]
         public IActionResult Event() => RedirectToAction("index", "discover", new { type = (int)DiscoverViewModelType.Event });
 
-        [Route("news")]
-        [Route("news/index")]
-        public IActionResult News() => RedirectToAction("index", "discover", new { type = (int)DiscoverViewModelType.News });
-
         [Route("dapp")]
         [Route("dapps")]
         public IActionResult Dapps() => Redirect("http://ndapp.org");

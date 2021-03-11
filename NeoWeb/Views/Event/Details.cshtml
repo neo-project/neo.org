@@ -4,7 +4,7 @@
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 @{
     ViewData["Title"] = @Model.Name;
-    ViewData["ParentTitle"] = SharedLocalizer["Discover"].Value;
+    ViewData["ParentTitle"] = SharedLocalizer["News"].Value;
     if (Model.Cover != null)
     {
         ViewData["Image"] = $"https://neo.org/upload/{Model.Cover}";

@@ -1,264 +1,264 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
-@{ ViewData["Title"] = Localizer["Developer Portal"].Value; }
+@{
+    ViewData["Title"] = Localizer["Developer Portal"].Value;
+    //ViewBag.HiddenBreadCrumb = true;
+}
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/dev.min.css", true)" />
 }
-
-<div class="header">
-    <span class="header-left">Developer</span>
-    <div class="header-right">
+<div class="container">
+    <div class="header-right form-inline ">
         <span class="platform-label">Platform</span>
         <select class="select-platform form-control" id="select">
             <option value="neo2">Neo Legacy</option>
             <option value="neo3">N3</option>
         </select>
     </div>
-</div>
-
-<div class="news">
-    <div class="news-left">
-        <div class="news-title"><em>Neo</em><br />is getting<br />an upgrade</div>
-        <div class="news-content">After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date.</div>
-        <a class="learn-more btn" target="_blank" href="https://github.com/neo-project">Learn More</a>
-    </div>
-    <img class="news-img"  data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-</div>
-
-<div class="divider"></div>
-
-<div class="resources">
-    <div class="resources-left">
-        <div class="menu">
-            <div class="menu-item active">
-                Overview
-                <img data-original="@Helper.ToCDN("/images/dev/chevron_right.png", true)" />
-            </div>
-            <div class="menu-item">
-                Tooling
-                <img data-original="@Helper.ToCDN("/images/dev/chevron_right.png", true)" />
-            </div>
-            <div class="menu-item">
-                Example & Tutorials
-                <img data-original="@Helper.ToCDN("/images/dev/chevron_right.png", true)" />
-            </div>
+    <div class="news">
+        <div class="news-left">
+            <div class="news-title"><em>Neo</em><br />is getting<br />an upgrade</div>
+            <div class="news-content">After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date.</div>
+            <a class="learn-more btn" target="_blank" href="https://github.com/neo-project">Learn More</a>
         </div>
-        <div class="links" href="">
-            <a class="link" target="_blank" href="https://github.com/neo-project">GitHub</a>
-            <a class="link" target="_blank" href="https://github.com/neo-project">Documentation</a>
-        </div>
+        <img class="news-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
     </div>
 
-    <div class="resources-right">
-        <div class="menu-page active">
-            <div class="menu-page-title">Overview</div>
-            <div class="menu-page-description">
-                After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date.
-            </div>
+    <div class="divider"></div>
 
-            <div class="features">
-                <div class="feature">
-                    <img class="feature-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-                    <div class="feature-text">Learn about N3 Features</div>
+    <div class="resources">
+        <div class="resources-left">
+            <div class="menu">
+                <div class="menu-item active">
+                    Overview
+                    <img data-original="@Helper.ToCDN("/images/dev/chevron_right.png", true)" />
                 </div>
-                <div class="feature">
-                    <img class="feature-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-                    <div class="feature-text">Learn about N3 Features</div>
+                <div class="menu-item">
+                    Tooling
+                    <img data-original="@Helper.ToCDN("/images/dev/chevron_right.png", true)" />
                 </div>
-                <div class="feature">
-                    <img class="feature-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-                    <div class="feature-text">Learn about N3 Features</div>
-                </div>
-            </div>
-
-            <div class="menu-page-divider"></div>
-            <div class="menu-page-secondary-title">featured tutorials</div>
-            <div class="overview-tutorials">
-                <div class="overview-tutorial">
-                    <img class="overview-tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-                    <div class="overview-tutorial-right">
-                        <div class="overview-tutorial-title">Getting started with NeoFS: The basics.</div>
-                        <div class="overview-tutorial-author">Neo SPCC</div>
-                        <div class="overview-tutorial-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in at urna. </div>
-                    </div>
-                </div>
-                <div class="overview-tutorial">
-                    <img class="overview-tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-                    <div class="overview-tutorial-right">
-                        <div class="overview-tutorial-title">Getting started with NeoFS: The basics.</div>
-                        <div class="overview-tutorial-author">Neo SPCC</div>
-                        <div class="overview-tutorial-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in at urna. </div>
-                    </div>
-                </div>
-                <div class="overview-tutorial">
-                    <img class="overview-tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-                    <div class="overview-tutorial-right">
-                        <div class="overview-tutorial-title">Getting started with NeoFS: The basics.</div>
-                        <div class="overview-tutorial-author">Neo SPCC</div>
-                        <div class="overview-tutorial-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in at urna. </div>
-                    </div>
+                <div class="menu-item">
+                    Example & Tutorials
+                    <img data-original="@Helper.ToCDN("/images/dev/chevron_right.png", true)" />
                 </div>
             </div>
-            <a class="view-all-tutorials btn" target="_blank" href="https://github.com/neo-project">View All Tutorials</a>
-
-            <div class="menu-page-divider"></div>
-            <div class="menu-page-secondary-title">resource overview</div>
-            <div class="menu-page-description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in 
-at urna. t migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date.
-            </div>
-            <img class="resource-overview-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-            <a class="view-all-tools btn" target="_blank" href="https://github.com/neo-project">View All Tools</a>
-        </div>
-
-        <div class="menu-page">
-            <div class="menu-page-title">Tooling</div>
-            <div class="tabs">
-                <span class="tab active">Nodes</span>
-                <span class="tab">Explorers</span>
-                <span class="tab">Smart Contract Compilers</span>
-                <span class="tab">Smart Contract Dev & Debug</span>
-                <span class="tab">SDK</span>
-                <span class="tab">dApp Integration</span>
-            </div>
-            <div class="tab-page active">
-                <div class="tab-page-title">Explorers</div>
-                <div class="tools">
-                    <div class="tool">
-                        <div class="tool-left">
-                            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-                            <a class="view-website btn" target="_blank" href="https://github.com/neo-project">View Website</a>
-                        </div>
-                        <div class="tool-right">
-                            <div class="tool-title-wrapper">
-                                <div class="tool-title">NEO-CLI</div>
-                                <div class="tool-language">Java</div>
-                            </div>
-                            <div class="tool-developer">Developer name</div>
-                            <div class="tool-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. </div>
-                        </div>
-                    </div>
-                    <div class="tool">
-                        <div class="tool-left">
-                            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-                            <a class="view-website btn" target="_blank" href="https://github.com/neo-project">View Website</a>
-                        </div>
-                        <div class="tool-right">
-                            <div class="tool-title-wrapper">
-                                <div class="tool-title">NEO-CLI</div>
-                                <div class="tool-language">Java</div>
-                            </div>
-                            <div class="tool-developer">Developer name</div>
-                            <div class="tool-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. </div>
-                        </div>
-                    </div>
-                    <div class="tool">
-                        <div class="tool-left">
-                            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-                            <a class="view-website btn" target="_blank" href="https://github.com/neo-project">View Website</a>
-                        </div>
-                        <div class="tool-right">
-                            <div class="tool-title-wrapper">
-                                <div class="tool-title">NEO-CLI</div>
-                                <div class="tool-language">Java</div>
-                            </div>
-                            <div class="tool-developer">Developer name</div>
-                            <div class="tool-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-page active">
-                <div class="tab-page-title">Smart Contract Compilers</div>
-            </div>
-            <div class="tab-page active">
-                <div class="tab-page-title">Smart Contract Dev & Debug</div>
-            </div>
-            <div class="tab-page active">
-                <div class="tab-page-title">SDK</div>
-            </div>
-            <div class="tab-page active">
-                <div class="tab-page-title">dApp Integration</div>
+            <div class="links" href="">
+                <a class="link" target="_blank" href="https://github.com/neo-project">GitHub</a>
+                <a class="link" target="_blank" href="https://github.com/neo-project">Documentation</a>
             </div>
         </div>
 
-        <div class="menu-page">
-            <div class="menu-page-title">Example & Tutorials</div>
-            <div class="menu-page-description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in 
-at urna.
-            </div>
-            <div class="tutorials-filter">
-                <span class="tutorials-filter-label">Filter by language</span>
-                <select class="select-language form-control" id="select">
-                    <option value="c#">C#</option>
-                    <option value="java">Java</option>
-                </select>
-            </div>
-            <div class="tutorials">
-                <div class="tutorial">
-                    <img class="tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-                    <div class="tutorial-right">
-                        <div class="tutorial-header">
-                            <img class="tutorial-type-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-                            <div class="tutorial-header-middle">
-                                <div class="tutorial-title">Getting started with NeoFS: The basics.</div>
-                                <div class="tutorial-author">Neo SPCC</div>
-                            </div>
-                            <div class="flex-grow-1"></div>
-                            <div class="tutorial-type">Tutorial</div>
+        <div class="resources-right">
+            <div class="menu-page active">
+                <div class="menu-page-title">Overview</div>
+                <div class="menu-page-description">
+                    After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date.
+                </div>
+
+                <div class="features">
+                    <div class="feature">
+                        <img class="feature-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                        <div class="feature-text">Learn about N3 Features</div>
+                    </div>
+                    <div class="feature">
+                        <img class="feature-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                        <div class="feature-text">Learn about N3 Features</div>
+                    </div>
+                    <div class="feature">
+                        <img class="feature-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                        <div class="feature-text">Learn about N3 Features</div>
+                    </div>
+                </div>
+
+                <div class="menu-page-divider"></div>
+                <div class="menu-page-secondary-title">featured tutorials</div>
+                <div class="overview-tutorials">
+                    <div class="overview-tutorial">
+                        <img class="overview-tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                        <div class="overview-tutorial-right">
+                            <div class="overview-tutorial-title">Getting started with NeoFS: The basics.</div>
+                            <div class="overview-tutorial-author">Neo SPCC</div>
+                            <div class="overview-tutorial-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in at urna. </div>
                         </div>
-                        <div class="tutorial-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in
-                            at urna.
+                    </div>
+                    <div class="overview-tutorial">
+                        <img class="overview-tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                        <div class="overview-tutorial-right">
+                            <div class="overview-tutorial-title">Getting started with NeoFS: The basics.</div>
+                            <div class="overview-tutorial-author">Neo SPCC</div>
+                            <div class="overview-tutorial-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in at urna. </div>
                         </div>
-                        <div class="tutorial-languages">
-                            <div class="tutorial-language">C#</div>
-                            <div class="tutorial-language">Java</div>
+                    </div>
+                    <div class="overview-tutorial">
+                        <img class="overview-tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                        <div class="overview-tutorial-right">
+                            <div class="overview-tutorial-title">Getting started with NeoFS: The basics.</div>
+                            <div class="overview-tutorial-author">Neo SPCC</div>
+                            <div class="overview-tutorial-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in at urna. </div>
                         </div>
                     </div>
                 </div>
-                <div class="tutorial">
-                    <img class="tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-                    <div class="tutorial-right">
-                        <div class="tutorial-header">
-                            <img class="tutorial-type-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-                            <div class="tutorial-header-middle">
-                                <div class="tutorial-title">Getting started with NeoFS: The basics.</div>
-                                <div class="tutorial-author">Neo SPCC</div>
+                <a class="view-all-tutorials btn" target="_blank" href="https://github.com/neo-project">View All Tutorials</a>
+
+                <div class="menu-page-divider"></div>
+                <div class="menu-page-secondary-title">resource overview</div>
+                <div class="menu-page-description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in
+                    at urna. t migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date.
+                </div>
+                <img class="resource-overview-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                <a class="view-all-tools btn" target="_blank" href="https://github.com/neo-project">View All Tools</a>
+            </div>
+
+            <div class="menu-page">
+                <div class="menu-page-title">Tooling</div>
+                <div class="tabs">
+                    <span class="tab active">Nodes</span>
+                    <span class="tab">Explorers</span>
+                    <span class="tab">Smart Contract Compilers</span>
+                    <span class="tab">Smart Contract Dev & Debug</span>
+                    <span class="tab">SDK</span>
+                    <span class="tab">dApp Integration</span>
+                </div>
+                <div class="tab-page active">
+                    <div class="tab-page-title">Explorers</div>
+                    <div class="tools">
+                        <div class="tool">
+                            <div class="tool-left">
+                                <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                                <a class="view-website btn" target="_blank" href="https://github.com/neo-project">View Website</a>
                             </div>
-                            <div class="flex-grow-1"></div>
-                            <div class="tutorial-type">Tutorial</div>
+                            <div class="tool-right">
+                                <div class="tool-title-wrapper">
+                                    <div class="tool-title">NEO-CLI</div>
+                                    <div class="tool-language">Java</div>
+                                </div>
+                                <div class="tool-developer">Developer name</div>
+                                <div class="tool-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. </div>
+                            </div>
                         </div>
-                        <div class="tutorial-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in
-                            at urna.
+                        <div class="tool">
+                            <div class="tool-left">
+                                <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                                <a class="view-website btn" target="_blank" href="https://github.com/neo-project">View Website</a>
+                            </div>
+                            <div class="tool-right">
+                                <div class="tool-title-wrapper">
+                                    <div class="tool-title">NEO-CLI</div>
+                                    <div class="tool-language">Java</div>
+                                </div>
+                                <div class="tool-developer">Developer name</div>
+                                <div class="tool-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. </div>
+                            </div>
                         </div>
-                        <div class="tutorial-languages">
-                            <div class="tutorial-language">C#</div>
-                            <div class="tutorial-language">Java</div>
+                        <div class="tool">
+                            <div class="tool-left">
+                                <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                                <a class="view-website btn" target="_blank" href="https://github.com/neo-project">View Website</a>
+                            </div>
+                            <div class="tool-right">
+                                <div class="tool-title-wrapper">
+                                    <div class="tool-title">NEO-CLI</div>
+                                    <div class="tool-language">Java</div>
+                                </div>
+                                <div class="tool-developer">Developer name</div>
+                                <div class="tool-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="tutorial">
-                    <img class="tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-                    <div class="tutorial-right">
-                        <div class="tutorial-header">
-                            <img class="tutorial-type-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-                            <div class="tutorial-header-middle">
-                                <div class="tutorial-title">Getting started with NeoFS: The basics.</div>
-                                <div class="tutorial-author">Neo SPCC</div>
+                <div class="tab-page active">
+                    <div class="tab-page-title">Smart Contract Compilers</div>
+                </div>
+                <div class="tab-page active">
+                    <div class="tab-page-title">Smart Contract Dev & Debug</div>
+                </div>
+                <div class="tab-page active">
+                    <div class="tab-page-title">SDK</div>
+                </div>
+                <div class="tab-page active">
+                    <div class="tab-page-title">dApp Integration</div>
+                </div>
+            </div>
+
+            <div class="menu-page">
+                <div class="menu-page-title">Example & Tutorials</div>
+                <div class="menu-page-description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in
+                    at urna.
+                </div>
+                <div class="tutorials-filter">
+                    <span class="tutorials-filter-label">Filter by language</span>
+                    <select class="select-language form-control" id="select">
+                        <option value="c#">C#</option>
+                        <option value="java">Java</option>
+                    </select>
+                </div>
+                <div class="tutorials">
+                    <div class="tutorial">
+                        <img class="tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                        <div class="tutorial-right">
+                            <div class="tutorial-header">
+                                <img class="tutorial-type-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                                <div class="tutorial-header-middle">
+                                    <div class="tutorial-title">Getting started with NeoFS: The basics.</div>
+                                    <div class="tutorial-author">Neo SPCC</div>
+                                </div>
+                                <div class="flex-grow-1"></div>
+                                <div class="tutorial-type">Tutorial</div>
                             </div>
-                            <div class="flex-grow-1"></div>
-                            <div class="tutorial-type">Tutorial</div>
+                            <div class="tutorial-description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in
+                                at urna.
+                            </div>
+                            <div class="tutorial-languages">
+                                <div class="tutorial-language">C#</div>
+                                <div class="tutorial-language">Java</div>
+                            </div>
                         </div>
-                        <div class="tutorial-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in
-                            at urna.
+                    </div>
+                    <div class="tutorial">
+                        <img class="tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                        <div class="tutorial-right">
+                            <div class="tutorial-header">
+                                <img class="tutorial-type-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                                <div class="tutorial-header-middle">
+                                    <div class="tutorial-title">Getting started with NeoFS: The basics.</div>
+                                    <div class="tutorial-author">Neo SPCC</div>
+                                </div>
+                                <div class="flex-grow-1"></div>
+                                <div class="tutorial-type">Tutorial</div>
+                            </div>
+                            <div class="tutorial-description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in
+                                at urna.
+                            </div>
+                            <div class="tutorial-languages">
+                                <div class="tutorial-language">C#</div>
+                                <div class="tutorial-language">Java</div>
+                            </div>
                         </div>
-                        <div class="tutorial-languages">
-                            <div class="tutorial-language">C#</div>
-                            <div class="tutorial-language">Java</div>
+                    </div>
+                    <div class="tutorial">
+                        <img class="tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                        <div class="tutorial-right">
+                            <div class="tutorial-header">
+                                <img class="tutorial-type-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                                <div class="tutorial-header-middle">
+                                    <div class="tutorial-title">Getting started with NeoFS: The basics.</div>
+                                    <div class="tutorial-author">Neo SPCC</div>
+                                </div>
+                                <div class="flex-grow-1"></div>
+                                <div class="tutorial-type">Tutorial</div>
+                            </div>
+                            <div class="tutorial-description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in
+                                at urna.
+                            </div>
+                            <div class="tutorial-languages">
+                                <div class="tutorial-language">C#</div>
+                                <div class="tutorial-language">Java</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -266,7 +266,6 @@ at urna.
         </div>
     </div>
 </div>
-
 @section Scripts {
     <script src="@Helper.ToCDN("/lib/jquery/jquery.min.js")"></script>
     <script>

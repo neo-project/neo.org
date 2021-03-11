@@ -5,7 +5,7 @@
 @model NeoWeb.Models.BlogViewModel
 @{
     ViewData["Title"] = Model.Title;
-    ViewData["ParentTitle"] = SharedLocalizer["Discover"].Value;
+    ViewData["ParentTitle"] = SharedLocalizer["News"].Value;
     ViewData["Details"] = Model.Summary.Trim();
     ViewData["keywords"] = Model.Tags;
     if (Model.Cover != null)

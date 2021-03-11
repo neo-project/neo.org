@@ -1,36 +1,9 @@
 @import './basic.less';
 
-.layout-container {
-    max-width: none;
-    padding: 0;
-    margin: 0;
-    margin-top: @nav-bar-height;
-}
-
-.header {
-    display: flex;
-    height: 90px;
-}
-
-.header-left {
-    display: flex;
-    align-items: center;
-    padding: 0 10vw;
-    background: #000332;
-    color: #FFFFFF;
-    font-family: WorkSans-SemiBold, WorkSans;
-    font-weight: 600;
-    font-size: 18px;
-    text-transform: uppercase;
-}
-
 .header-right {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex: 1;
-    padding: 0 10vw;
-    background: #00E599;
+    float: right;
+    position: relative;
+    margin-top: -100px;
 }
 
 .platform-label {
@@ -49,7 +22,7 @@
 .news {
     display: flex;
     align-items: center;
-    padding: 38px 10vw;
+    padding: 38px 0;
 }
 
 .news-title {
@@ -86,13 +59,13 @@
 
 .divider {
     height: 2px;
-    margin: 0 10vw;
+    margin: 0 0;
     background: #000332;
 }
 
 .resources {
     display: flex;
-    padding: 62px 10vw 159px;
+    padding: 62px 0 159px;
 }
 
 .resources-left {
