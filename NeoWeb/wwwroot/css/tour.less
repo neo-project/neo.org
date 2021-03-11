@@ -17,6 +17,9 @@ body {
 .tour-left-logo {
     margin-left: 5%;
     margin-top: 5%;
+    &-img {
+        height:52px;
+    }
 }
 
 .tour-container {
@@ -50,6 +53,7 @@ body {
         color: #00E599;
         line-height: 41px;
     }
+
     &-content {
         font-size: 16px;
         font-family: NunitoSans-Bold, NunitoSans;
@@ -57,12 +61,39 @@ body {
         color: #070E3A;
         width: 65%;
     }
-    &-logo{
-        display:flex;
-        flex-direction:row;
-        &-wrapper{
-            &-img{
-                width:10%;
+
+    &-logo {
+        justify-content: start;
+        width: 65%;
+        padding-bottom: 5%;
+        border-bottom: 1px solid #CFD6DF;
+        display: flex;
+        flex-direction: row;
+        margin-top: 5%;
+
+        &-img {
+            width: 10%;
+            margin-right: 8%
+        }
+    }
+
+    &-2 {
+        &-text {
+            margin-top: 5%;
+            &-2 {
+                margin-top: 2%;
+            }
+        }
+    }
+
+    &-3 {
+        &-text {
+            margin-top: 5%;
+            width: 65%;
+            padding-bottom: 5%;
+            border-bottom: 1px solid #CFD6DF;
+            &-2 {
+                margin-top: 2%;
             }
         }
     }
@@ -180,7 +211,7 @@ body {
     .bottom-guide {
         position: absolute;
         bottom: 5%;
-        width: 30%;
+        width: 32%;
     }
 
     .hide-in-desktop {
@@ -203,10 +234,13 @@ body {
         margin-left: 22%;
     }
 
-    .Neo_logo_mobile {
+    .neo-logo-mobile {
         position: absolute;
         margin-left: 5%;
         margin-top: 5%;
+        &-img{
+            height:40px;
+        }
     }
 
     .N3-logo{
@@ -265,7 +299,7 @@ body {
 
         &-content {
             width: 95%;
-            font-size:14px;
+            font-size: 14px;
         }
 
         &-head {
@@ -275,7 +309,7 @@ body {
     }
 
     .fade-out {
-        display:none;
+        display: none;
     }
 
     .fade-in {
