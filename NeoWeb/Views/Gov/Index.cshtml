@@ -1,4 +1,4 @@
-﻿@model NeoWeb.Models.Candidate
+@model NeoWeb.Models.Candidate
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
@@ -10,10 +10,9 @@
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/gov.min.css", true)" />
 }
-<div class="container">
+<div class="py-5">
     @Localizer["Governance"]
 </div>
-
 
 @section Scripts{
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

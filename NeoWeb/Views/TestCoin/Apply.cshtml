@@ -1,26 +1,27 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @model NeoWeb.Models.TestCoin
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
 @{
-    ViewData["Title"] = Localizer["Developer"].Value;
+    ViewData["ParentTitle"] = SharedLocalizer["Developer"].Value;
+    ViewData["Title"] = Localizer["Apply For TestNet NEO&GAS"].Value;
 }
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/testnet.min.css", true)" />
-    }
-<div class="p1 bg5">
-    <h1 class="w800">@Localizer["Apply For TestNet NEO&GAS"]</h1>
-</div>
-<div class="container">
+}
+
+<div class="py-5">
     <form asp-action="Apply">
         @Html.AntiForgeryToken()
-        <div class="row mt3 test-apply">
-            <div class="form-group col-md-6 m3">
+        <div class="row test-apply">
+            <div class="form-group col-md-6 my-1">
                 <label asp-for="Name">@Localizer["Name"]</label> <span class="red">*</span><br />
                 <input class="form-control" asp-for="Name" type="text"
                        data-val="true" data-val-required="@Localizer["This field is required"]">
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
-            <div class="form-group col-md-6 m3">
+            <div class="form-group col-md-6 my-1">
                 <label asp-for="Email">@Localizer["Email"]</label> <span class="red">*</span><br />
                 <input class="form-control" asp-for="Email" type="email"
                        data-val="true" data-val-required="@Localizer["This field is required"]" data-val-email="@Localizer["Please enter a valid E-mail address"]">
@@ -78,7 +79,7 @@
                 <p class="pub-key-hint t4 lh3">@Localizer["Please enter your own Neo public key. If the application is successful, we will send NEO/GAS to a multi-signature address and let you know how to use it."]</p>
             </div>
         </div>
-        <p class="mt4 text-center mb-5"><input type="submit" class="btn mb-4" value=@Localizer["Submit Application"]></p>
+        <p class="mt-3"><input type="submit" class="btn mb-4" value=@Localizer["Submit Application"]></p>
     </form>
 </div>
 

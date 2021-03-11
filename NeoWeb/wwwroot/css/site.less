@@ -17,19 +17,28 @@ html body {
     }
 }
 
-#neo-body {
-    
-}
-
-.container {
-    @media only screen and (max-width: 767px) {
-        padding-left: 20px;
-        padding-right: 20px;
+@media (min-width: 1600px) {
+    .container, .container-sm, .container-md, .container-lg, .container-xl {
+        max-width: 1417px;
     }
 }
 
-.layout-container {
-    padding-bottom: 50px;
+.bread-crumb {
+    //深蓝色块
+    .bg1-div {
+        height: 90px;
+        background-color: @text;
+    }
+    //绿色块
+    .bg2-div {
+        height: 90px;
+        background-color: @green;
+    }
+
+    .text-div {
+        position: relative;
+        margin-top: -110px;
+    }
 }
 
 a {
@@ -62,6 +71,7 @@ ul.list-none {
 
 .font-family-bold {
     font-family: WorkSans-Bold;
+    font-weight: bold;
 }
 
 .font-family-medium {
@@ -73,7 +83,8 @@ ul.list-none {
 }
 
 .font-family-semibold {
-    font-family: WorkSans-SemiBold
+    font-family: WorkSans-SemiBold;
+    font-weight: 600;
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, p {
@@ -84,12 +95,11 @@ ul.list-none {
 h1, .h1 {
     .font-family-bold;
     font-size: @t1;
-    line-height: 108px;
+    line-height: 1.2;
     letter-spacing: -2px;
 
     @media only screen and (max-width: 767px) {
         font-size: @t2;
-        line-height: 60px;
         letter-spacing: -1px;
     }
 }
@@ -97,12 +107,11 @@ h1, .h1 {
 h2, .h2 {
     .font-family-bold;
     font-size: @t2;
-    line-height: 65px;
+    line-height: 1.3;
     letter-spacing: .8px;
 
     @media only screen and (max-width: 767px) {
         font-size: @t3;
-        line-height: 50px;
         letter-spacing: -.6px;
     }
 }
@@ -110,12 +119,11 @@ h2, .h2 {
 h3, .h3 {
     .font-family-bold;
     font-size: @t3;
-    line-height: 50px;
+    line-height: 1.3;
     letter-spacing: -.8px;
 
     @media only screen and (max-width: 767px) {
         font-size: @t4;
-        line-height: 28px;
         letter-spacing: -.3px;
     }
 }
@@ -123,12 +131,11 @@ h3, .h3 {
 h4, .h4 {
     .font-family-bold;
     font-size: @t4;
-    line-height: 40px;
+    line-height: 1.3;
     letter-spacing: -.6px;
 
     @media only screen and (max-width: 767px) {
         font-size: @t5;
-        line-height: 28px;
         letter-spacing: -.3px;
     }
 }
@@ -136,12 +143,11 @@ h4, .h4 {
 h5, .h5 {
     .font-family;
     font-size: @t4;
-    line-height: 40px;
+    line-height: 1.3;
     letter-spacing: -.8px;
 
     @media only screen and (max-width: 767px) {
         font-size: @t5;
-        line-height: 21px;
         letter-spacing: -.2px;
     }
 }
@@ -149,35 +155,16 @@ h5, .h5 {
 h6, .h6 {
     .font-family-bold;
     font-size: @t5;
-    line-height: 32px;
+    line-height: 1.5;
 
     @media only screen and (max-width: 767px) {
-        line-height: 26px;
         letter-spacing: -.2px;
     }
 }
 
-.font1 {
-    .font-family;
-    font-size: 1rem;
-}
-
-.font2 {
-    .font-family-bold;
-    font-size: 1rem;
-}
-
-.font3 {
-    .font-family;
-    font-size: 0.8rem;
-    font-weight: 300;
-    font-size: 0.95rem;
-    letter-spacing: .2px;
-}
-
 /*字体*/
 .bold {
-    font-weight: 600;
+    font-family: 'WorkSans-SemiBold';
 }
 
 .bolder {
@@ -193,180 +180,6 @@ h6, .h6 {
 small, .small {
     font-size: 80%;
 }
-
-/*间距*/
-.mt0 {
-    margin-top: 0px !important;
-}
-
-.mb0 {
-    margin-bottom: 0px !important;
-}
-
-.mt1 {
-    margin-top: @length1;
-
-    @media only screen and (max-width: 767px) {
-        margin-top: @length2;
-    }
-}
-
-.mt2 {
-    margin-top: @length2;
-
-    @media only screen and (max-width: 767px) {
-        margin-top: @length3;
-    }
-}
-
-.mt3 {
-    margin-top: @length3;
-
-    @media only screen and (max-width: 767px) {
-        margin-top: @length4;
-    }
-}
-
-.mt4 {
-    margin-top: @length4;
-
-    @media only screen and (max-width: 767px) {
-        margin-top: @length5;
-    }
-}
-
-.mt5 {
-    margin-top: @length5;
-
-    @media only screen and (max-width: 767px) {
-        margin-top: @length6;
-    }
-}
-
-.mt6 {
-    margin-top: @length6;
-
-    @media only screen and (max-width: 767px) {
-        margin-top: @length7;
-    }
-}
-
-.mt7 {
-    margin-top: @length7;
-
-    @media only screen and (max-width: 767px) {
-        margin-top: @length8;
-    }
-}
-
-.ml1 {
-    margin-left: @length4;
-
-    @media only screen and (max-width: 767px) {
-        margin-left: @length5;
-    }
-}
-
-.ml2 {
-    margin-left: @length5;
-
-    @media only screen and (max-width: 767px) {
-        margin-left: @length6;
-    }
-}
-
-.ml3 {
-    margin-left: @length7;
-
-    @media only screen and (max-width: 767px) {
-        margin-left: @length8;
-    }
-}
-
-.mr1 {
-    margin-right: @length4;
-
-    @media only screen and (max-width: 767px) {
-        margin-right: @length5;
-    }
-}
-
-.mr2 {
-    margin-right: @length5;
-
-    @media only screen and (max-width: 767px) {
-        margin-right: @length6;
-    }
-}
-
-.mr3 {
-    margin-right: @length6;
-
-    @media only screen and (max-width: 767px) {
-        margin-right: @length7;
-    }
-}
-
-.pt0 {
-    padding-top: 0px !important;
-}
-
-.pb0 {
-    padding-bottom: 0px !important;
-}
-
-.p1 {
-    padding-top: 116px;
-    padding-bottom: 116px;
-
-    @media only screen and (max-width: 767px) {
-        padding-top: 75px;
-        padding-bottom: 75px;
-    }
-}
-
-.p2 {
-    padding-top: 84px;
-    padding-bottom: 84px;
-
-    @media only screen and (max-width: 767px) {
-        padding-top: 52px;
-        padding-bottom: 52px;
-    }
-}
-
-.p3 {
-    padding-top: 54px;
-    padding-bottom: 54px;
-
-    @media only screen and (max-width: 767px) {
-        padding-top: 32px;
-        padding-bottom: 32px;
-    }
-}
-
-.p4 {
-    padding-top: 32px;
-    padding-bottom: 32px;
-
-    @media only screen and (max-width: 767px) {
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-}
-
-.p5 {
-    padding: 20px;
-}
-
-.pt4 {
-    padding-top: 20px !important;
-
-    @media only screen and (max-width: 767px) {
-        padding-top: 12px !important;
-    }
-}
-
 
 /*button*/
 a[class|=btn] {
@@ -422,7 +235,6 @@ a[class|=btn] {
 
 .btn2 {
     .green;
-    .font2;
     float: right;
     display: inline-block;
     cursor: pointer;
@@ -509,13 +321,11 @@ a[class|=btn] {
 
 /*文本*/
 .tag {
-    .mr1;
+    margin-right: 1rem;
     display: inline-block;
-    min-width: 130px;
     color: @text2;
 
     span {
-        .font3;
         display: block;
         color: @gray;
     }
@@ -527,145 +337,6 @@ a[class|=btn] {
     @media only screen and (max-width: 767px) {
         min-width: 85px;
     }
-}
-/*背景色*/
-.bg1 {
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-image: url('../images/home/PartnerWithUs.svg'), @linear2;
-
-    @media only screen and (max-width: 767px) {
-        background-color: @green;
-        background-size: 300%;
-        background-position: 38% 100%;
-    }
-}
-
-.bg2 {
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-image: url('../images/home/PartnerWithUs.svg');
-}
-
-.bg3 {
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-image: url('../images/about/about hero banner_desktop.svg?v=2');
-
-    @media only screen and (max-width: 767px) {
-        background-image: url('../images/about/about hero banner_mobile.svg?v=2');
-    }
-}
-
-.bg4 {
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-image: url('../images/dev/developer hero banner_desktop.svg?v=2');
-
-    @media only screen and (max-width: 767px) {
-        background-image: url('../images/dev/developer hero banner_mobile.svg?v=2');
-    }
-}
-
-.bg5 {
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-image: url('../images/wallets/wallets hero banner-dt.svg?v=2');
-
-    @media only screen and (max-width: 767px) {
-        background-image: url('../images/wallets/wallets hero banner-mb.svg?v=2');
-    }
-}
-
-.bg6 {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: @gray3;
-    background-size: cover;
-    background-image: url('../images/about/about-contributors banner-dt.svg?v=2');
-
-    @media only screen and (max-width: 767px) {
-        background-image: url('../images/about/about-contributors banner-mb.svg?v=2');
-    }
-}
-
-.bg7 {
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-image: url('../images/ecoboost/ecoboost hero banner-dt.svg?v=3');
-
-    @media only screen and (max-width: 767px) {
-        background-image: url('../images/ecoboost/ecoboost hero banner-mb.svg?v=3');
-        background-size: contain;
-    }
-}
-
-.bg8 {
-    background-image: url('../images/home/MostCommunityDriven.svg');
-    background-repeat: no-repeat;
-    background-position: 90%;
-    background-size: 579px;
-
-    @media only screen and (min-width: 1600px) {
-        background-size: 35%;
-    }
-
-    @media only screen and (max-width: 767px) {
-        background-position: 175px;
-        background-size: 496px;
-    }
-}
-
-.bg9 {
-    background-position: top center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-image: url('../images/joinus/neocareer-dt.svg');
-
-    @media only screen and (max-width: 767px) {
-        background-image: url('../images/joinus/neocareer-mb.svg');
-    }
-}
-
-.b-white {
-    background: #FFFFFF;
-}
-
-.center {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    height: 60%;
-
-    &.n {
-        left: 15px;
-        right: 15px;
-    }
-
-
-    @media only screen and (max-width: 767px) {
-        &.o-des {
-            position: relative;
-
-            &.n {
-                left: 0;
-                right: 0;
-            }
-        }
-    }
-}
-
-.hide {
-    display: none;
 }
 
 hr {
@@ -684,36 +355,6 @@ hr.line {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-}
-
-.w1000 {
-    .w;
-    max-width: 1000px;
-}
-
-.w900 {
-    .w;
-    max-width: 900px;
-}
-
-.w800 {
-    .w;
-    max-width: 800px;
-}
-
-.w700 {
-    .w;
-    max-width: 700px;
-}
-
-.w600 {
-    .w;
-    max-width: 600px;
-}
-
-.w500 {
-    .w;
-    max-width: 500px;
 }
 
 /*border*/
@@ -748,8 +389,8 @@ hr.line {
 
 @font-face {
     font-family: 'iconfont'; /* project id 2403071 */
-    src: url('//at.alicdn.com/t/font_2403071_7q5q71uj1vk.eot');
-    src: url('//at.alicdn.com/t/font_2403071_7q5q71uj1vk.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_2403071_7q5q71uj1vk.woff2') format('woff2'), url('//at.alicdn.com/t/font_2403071_7q5q71uj1vk.woff') format('woff'), url('//at.alicdn.com/t/font_2403071_7q5q71uj1vk.ttf') format('truetype'), url('//at.alicdn.com/t/font_2403071_7q5q71uj1vk.svg#iconfont') format('svg');
+    src: url('//at.alicdn.com/t/font_2403071_2f6xga5w95v.eot');
+    src: url('//at.alicdn.com/t/font_2403071_2f6xga5w95v.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_2403071_2f6xga5w95v.woff2') format('woff2'), url('//at.alicdn.com/t/font_2403071_2f6xga5w95v.woff') format('woff'), url('//at.alicdn.com/t/font_2403071_2f6xga5w95v.ttf') format('truetype'), url('//at.alicdn.com/t/font_2403071_2f6xga5w95v.svg#iconfont') format('svg');
 }
 
 .iconfont {
@@ -758,110 +399,6 @@ hr.line {
 
 i.iconfont {
     font-style: normal;
-}
-
-/*list 基础样式*/
-.list-inline {
-    li {
-        display: inline-block;
-    }
-}
-
-.list1 {
-    text-align: center;
-
-    div[class|=col], > li {
-        .mt4;
-        list-style: none;
-
-        div {
-            overflow: hidden;
-            margin-top: @length7;
-        }
-
-        a {
-            .btn2;
-            float: none;
-        }
-    }
-
-    img, .img, > .iconfont {
-        display: inline-block;
-        width: 85px;
-        height: 85px;
-        line-height: 1;
-        font-size: 80px;
-        text-align: center;
-    }
-
-    .list-title {
-        .h4;
-        line-height: 1.2;
-    }
-
-    &.left {
-        text-align: left;
-
-        div[class|=col] {
-            div, .list-title {
-                margin-top: 0;
-                margin-bottom: @length7;
-            }
-        }
-
-        img, .img, .iconfont {
-            .mr2;
-            float: left;
-        }
-    }
-
-    &.right {
-        text-align: left;
-
-        div[class|=col] {
-            div, .list-title {
-                margin-top: 0;
-                margin-bottom: @length8;
-            }
-        }
-
-        img, .img, .iconfont {
-            .mr2;
-            width: 48px;
-            height: 100%;
-            font-size: 40px;
-            line-height: 50px;
-            float: right;
-        }
-    }
-
-    @media only screen and (max-width: 767px) {
-        text-align: left !important;
-
-        div[class|=col], > li {
-            list-style: none;
-
-            div {
-                margin-top: 0;
-            }
-        }
-
-        img, .img, .iconfont {
-            float: left;
-            margin-right: 20px !important;
-        }
-
-        .list-title {
-            line-height: 1.4;
-        }
-
-
-        &.right {
-            img, .img, .iconfont {
-                margin-right: 0 !important;
-            }
-        }
-    }
 }
 
 .bg-img {
@@ -883,124 +420,8 @@ i.iconfont {
     }
 }
 
-.list2 {
-    margin-bottom: @length4;
-
-    div[class|=col], > li {
-        .mt4;
-        list-style: none;
-
-        a {
-            color: @text;
-            text-shadow: none;
-            transition: text-shadow .2s;
-            background-size: cover;
-            animation: back-out ease-out 0.25s;
-
-            &.img {
-                .bg-img;
-                border:1px solid @line3;
-            }
-
-
-            &:hover {
-                text-shadow: 0 0 .1px @text;
-                transition: text-shadow .2s;
-            }
-        }
-
-        div, .list-title {
-            margin-top: @length7;
-            overflow: hidden;
-        }
-
-        div.small {
-            vertical-align: middle;
-            line-height: 1.5;
-            color: @gray;
-
-            span, a {
-                .mr2;
-                display: inline-block;
-                color: @gray;
-
-                &.green {
-                    .ml2;
-                    .bolder;
-                }
-            }
-        }
-
-        .list-title {
-            .h6;
-            line-height: 1.3;
-        }
-
-        .list-con {
-            display: inline-block;
-        }
-    }
-}
-
-.list3 {
-    .p3;
-    .pt0;
-
-    div[class|=col] {
-        .mt3;
-
-        > span {
-            .mt6;
-            float: left;
-            margin-right: 12px;
-            width: 100px;
-            font-weight: 600;
-        }
-
-        .list-ul {
-            .h4;
-            list-style: none;
-            overflow: hidden;
-            padding-left: 0;
-            margin-right: 15px;
-
-            li {
-                .mt6;
-                min-width: 50%;
-                vertical-align: top;
-
-                span {
-                    .font3;
-                    color: @text3;
-                    display: block;
-                }
-            }
-        }
-    }
-
-    @media only screen and (max-width: 991px) {
-        text-align: center;
-        .pt0;
-
-        div[class|=col] {
-            > span {
-                float: none;
-            }
-            .list-ul{
-                li{
-                    min-width: 31%;
-                }
-
-                &.two li{
-                    min-width: 48%;
-                }
-            }
-        }
-    }
-}
-
 .module {
-    .mt2;
+    margin-top: 3rem;
 
     .module-img {
         float: right;
@@ -1014,11 +435,11 @@ i.iconfont {
         text-align: left;
 
         > * {
-            .mt5;
+            margin-top: .5rem;
         }
 
         .btn, .btn1 {
-            .mt6;
+            margin-top: .5rem;
         }
     }
 
@@ -1077,29 +498,6 @@ i.iconfont {
     }
 }
 
-.module1 {
-    .module;
-
-    .module-img {
-        max-width: 330px;
-    }
-
-    .module-text {
-        max-width: 550px;
-    }
-
-    @media only screen and (max-width: 767px) {
-        padding-bottom: @length2;
-        text-align: center;
-
-        .module {
-            .module-img {
-                max-width: 200px;
-            }
-        }
-    }
-}
-
 table, .table {
     display: table;
     width: 100%;
@@ -1123,110 +521,10 @@ table, .table {
 
         td, > li {
             display: table-cell;
-            padding: .75rem;
+            padding: .5rem;
             vertical-align: top;
             border: 1px solid #E6E6E6;
             font-weight: 300;
-        }
-    }
-}
-
-.table2 {
-    .table;
-
-
-    tr, .table-head {
-        th, > li {
-            border: none;
-            border-bottom: 1px solid #999999;
-        }
-    }
-
-    .table-row, tr {
-        td, > li {
-            border: none;
-            font-weight: 300;
-        }
-    }
-}
-
-.press {
-    padding: 0;
-    width: 100%;
-    font-size: 0;
-
-    li {
-        .mt3;
-        display: inline-block;
-        list-style: none;
-        width: calc(25% - 22px);
-        min-width: 110px;
-        max-width: 160px;
-        text-align: center;
-        margin-left: 10px;
-        margin-right: 10px;
-        vertical-align: middle;
-
-        img {
-            display: inline-block;
-            max-height: 40px;
-            max-width: 100%;
-        }
-    }
-
-
-    @media only screen and (max-width: 767px) {
-
-        li {
-            min-width: 90px;
-
-            img {
-                max-height: 34px;
-            }
-        }
-    }
-}
-
-/*MailChimp 邮件订阅部分*/
-#mc_embed_signup {
-    max-width: 450px;
-    margin-left: auto;
-    margin-right: auto;
-
-    .mc-field-group{
-        display: flex;
-    }
-    
-    #mce-EMAIL {
-        display: inline-block;
-        max-width: 315px;
-        height: 48px;
-        line-height: 48px;
-        border-radius: 0;
-        border: 0;
-    }
-
-    .btn {
-        margin-left: -5px;
-        color: @white !important;
-        background-color: @dark;
-        display: inline-block;
-        text-shadow: none;
-        height: 48px;
-    }
-
-    div.mce_inline_error {
-        background-color: transparent !important;
-    }
-
-    @media only screen and (max-width: 767px) {
-        #mce-EMAIL {
-            height: 40px;
-            line-height: 40px;
-        }
-
-        .btn {
-            height: 40px;
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model List<DiscoverViewModel>
+@model List<DiscoverViewModel>
 
 @for (int i = 0; i < Model.Count(); i++)
 {
@@ -16,8 +16,9 @@
                 <a class="img" href="~/blog/details/@item.Blog.Id" data-original="@String.Format("/upload/{0}", @item.Blog.Cover).ToLower()"></a>
             }
             <div>
-                <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green">@item.Type</span></div>
+                <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span>@item.Type</span></div>
                 <div class="list-title with-space"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></div>
+                <div class="list-summary with-space"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Summary.Substring(0, Math.Min(70, item.Blog.Summary.Length))…</a></div>
 
                 @if (ViewBag.UserRules != null && ViewBag.UserRules)
                 {
@@ -29,7 +30,7 @@
                     {
                         foreach (var tag in item.Blog.Tags.Split(','))
                         {
-                            <a href="~/discover?keywords=@tag.Trim()"># @tag.Trim()</a>
+                            <a href="~/discover?keywords=@tag.Trim()">#@tag.Trim()</a>
                         }
                     }
                 </div>

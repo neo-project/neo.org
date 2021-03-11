@@ -1,4 +1,4 @@
-﻿[
+[
   {
     "outputFile": "wwwroot/css/wallets.css",
     "inputFile": "wwwroot/css/wallets.less"
@@ -32,10 +32,6 @@
     "inputFile": "wwwroot/css/site.less"
   },
   {
-    "outputFile": "wwwroot/css/sitecn.css",
-    "inputFile": "wwwroot/css/sitecn.less"
-  },
-  {
     "outputFile": "wwwroot/css/contributors.css",
     "inputFile": "wwwroot/css/contributors.less"
   },
@@ -48,8 +44,8 @@
     "inputFile": "wwwroot/css/testnet-list.less"
   },
   {
-    "outputFile": "wwwroot/css/about.css",
-    "inputFile": "wwwroot/css/about.less"
+    "outputFile": "wwwroot/css/platform.css",
+    "inputFile": "wwwroot/css/platform.less"
   },
   {
     "outputFile": "wwwroot/css/joinus.css",
@@ -58,5 +54,9 @@
   {
     "outputFile": "wwwroot/css/migration.css",
     "inputFile": "wwwroot/css/migration.less"
+  },
+  {
+    "outputFile": "wwwroot/css/tour.css",
+    "inputFile": "wwwroot/css/tour.less"
   }
 ]

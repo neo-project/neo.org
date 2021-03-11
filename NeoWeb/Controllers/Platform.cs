@@ -1,10 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 
 namespace NeoWeb.Controllers
 {
-    public class DemoController : Controller
+    public class Platform : Controller
     {
-        [HttpGet]
         public IActionResult Index()
         {
             return View();

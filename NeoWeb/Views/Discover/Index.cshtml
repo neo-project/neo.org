@@ -1,4 +1,4 @@
-﻿@model IEnumerable<NeoWeb.Models.DiscoverViewModel>
+@model IEnumerable<NeoWeb.Models.DiscoverViewModel>
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @{
@@ -8,33 +8,35 @@
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/discover.min.css", true)" />
 }
+
 @if (ViewBag.Ontop != null)
 {
-    <div class="p2">
+    <div class="py-5">
         <div class="row align-items-center discover-top">
             @{await Html.RenderPartialAsync("_TopPartial", (ViewBag.Ontop as DiscoverViewModel));}
         </div>
     </div>
 }
 
-<form method="get" class="border-bottom d-search form-inline">
+<form method="get" class="d-search form-inline">
     <div class="search">
-        <i class="iconfont">&#xe611;</i>
+        <span>Search</span>
         <input class="form-control" name="keywords" value="@ViewBag.KeyWords" type="text" />
     </div>
     <div class="filter">
         <select id="type" class="form-control" name="type" asp-items="ViewBag.AllType"></select>
         <select id="year" class="form-control" name="year" asp-items="ViewBag.AllYear"></select>
-        <input class="btn" type="submit" value="search" />
+        <div class="search-btn" onclick="$('.d-search').submit()"><i class="iconfont">&#xe600;</i>SEARCH</div>
     </div>
 </form>
 
 <div class="row list2">
-    @{await Html.RenderPartialAsync("_DiscoverPartial", Model);}
+    @{await Html.RenderPartialAsync("_ItemPartial", Model);}
 </div>
 <div class="text-center m-4">
     <a id="viewmore" href="javascript:" onclick="viewMore()">@Localizer["View more"]</a>
 </div>
+
 @section Scripts {
     <script>
         var group = 0;

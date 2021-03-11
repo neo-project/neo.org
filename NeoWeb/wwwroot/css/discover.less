@@ -2,28 +2,60 @@
 @import 'site.less';
 
 .discover-top .d-title a, .discover-top .d-tag a {
-    color: @dark;
+    color: @text;
 }
+img.img-max{
+    width: 100%;
+}
+.discover-width {
+    margin: auto;
+    max-width: 1180px;
+}
+
 .d-search {
     line-height: 3;
     vertical-align: middle;
 
     input, select {
         display: inline-block;
+        border-radius: 0;
         width: auto;
-        border: none;
+        height: 50px;
+    }
+
+    select.form-control {
+        border: 1px solid @text;
+        color: @text;
+        width: 195px;
+        .bolder;
+
+        @media only screen and (max-width: 767px) {
+            width: 100%;
+            margin-bottom: 18px;
+        }
     }
 
     .search {
-        width: calc(100% - 370px);
+        width: calc(100% - 570px);
+
+        span {
+            color: @text;
+            .bolder;
+            display: inline-block;
+            height: 20px;
+            vertical-align: middle;
+        }
 
         input.form-control {
-            width: calc(100% - 25px);
+            width: calc(100% - 70px);
+            border: none;
             background-color: @gray2;
+            border-bottom: 1px solid @text;
         }
 
         @media only screen and (max-width: 767px) {
-            display: none;
+            width: 100%;
+            margin-bottom: 18px;
         }
     }
 
@@ -33,8 +65,28 @@
     }
 
     .filter {
-        width: 370px;
+        width: 570px;
         text-align: right;
+
+        .search-btn {
+            height: 50px;
+            margin: 0;
+            background-color: @text;
+            padding: 0 35px;
+            color: @white;
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+
+            .iconfont {
+                margin-right: 6px;
+            }
+
+            @media only screen and (max-width: 767px) {
+                width: 100%;
+                margin-bottom: 18px;
+            }
+        }
     }
 
     @media only screen and (max-width: 767px) {
@@ -42,6 +94,16 @@
             width: 100%;
         }
     }
+}
+
+.news-card {
+    width: 456px;
+    height: 403px;
+    background-color: #E8F0F5;
+}
+
+hr{
+    background-color: @text;
 }
 
 .nav-area {
@@ -53,15 +115,17 @@
         vertical-align: middle;
         margin-right: .5em;
         margin-bottom: 1px;
+        font-size: @t5;
+        color: @text;
     }
 
     a {
         .bold;
-        color: @gray;
+        color: @text;
         cursor: pointer;
 
         &:hover {
-            text-shadow: 0 0 0.1px @gray;
+            text-shadow: 0 0 0.1px @text;
         }
     }
 
@@ -94,6 +158,9 @@
 
     .iconfont {
         cursor: pointer;
+        font-size: @t4;
+        margin-right: 15px;
+        color: @text;
     }
 
     .qr-div {
@@ -129,9 +196,9 @@ article {
         .small;
 
         span {
-            .bold;
-            color: @green;
-            margin-left: @length6;
+            .bolder;
+            color: @text;
+            margin-right: @length6;
         }
     }
 
@@ -186,4 +253,94 @@ article {
             }
         }
     }
+}
+.article-tag {
+    margin-right: 1rem;
+    display: inline-block;
+    font-size: 0.8rem;
+    color: @btn-text;
+    border-radius: 11px;
+    padding: 2px 10px;
+    background-color: @text;
+}
+.list2 {
+    margin-bottom: @length4;
+
+    div[class|=col], > li {
+        margin-top: 2rem;
+        list-style: none;
+
+        a {
+            color: @text;
+            text-shadow: none;
+            transition: text-shadow .2s;
+            background-size: cover;
+            animation: back-out ease-out 0.25s;
+
+            &.img {
+                .bg-img;
+                border: 1px solid @line3;
+            }
+
+
+            &:hover {
+                text-shadow: 0 0 .1px @text;
+                transition: text-shadow .2s;
+            }
+        }
+
+        div, .list-title {
+            margin-top: @length7;
+            overflow: hidden;
+        }
+
+        div.small {
+            vertical-align: middle;
+            line-height: 1.5;
+            color: @text;
+            .bolder;
+
+            span {
+                float: right;
+                color: @text;
+                text-transform: uppercase;
+            }
+
+            a {
+                .article-tag;
+            }
+        }
+
+        .list-title {
+            .h6;
+            line-height: 1.3;
+        }
+
+        .list-summary {
+            line-height: 1.3;
+        }
+
+        .list-con {
+            display: inline-block;
+        }
+    }
+}
+
+.editor1{
+    width: 100%;
+    color: @text;
+    .bold;
+}
+.editor2 {
+    width: 100%;
+    color: @text;
+    font-size: 1.125rem;
+    .bolder;
+}
+.details-text {
+    margin-top: 1rem;
+    .bolder;
+}
+.event-info {
+    background-color: #EDF9F7;
 }

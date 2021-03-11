@@ -1,12 +1,12 @@
-﻿@model NeoWeb.Models.FwLink
+@model NeoWeb.Models.FwLink
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
 @{
+    ViewData["ParentTitle"] = SharedLocalizer["FwLink"].Value;
     ViewData["Title"] = "Create";
 }
-<div class="p1">
-    <h1 class="w800">Create FwLink</h1>
-</div>
-<form asp-action="Create">
+<form asp-action="Create" class="py-5">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="form-group">
         <label class="control-label" for="Link">Link</label>

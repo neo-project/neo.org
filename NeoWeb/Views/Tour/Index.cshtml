@@ -35,11 +35,11 @@
                     <img src="@Helper.CDN/images/tour/neo_color_dark.png" height="52px">
                 </div>
                 <div class="text-guide">
-                    <div class="text-group text-guide-1">
-                        <div class="N3_logo">
-                            <img src="@Helper.CDN/images/tour/N3_Logo.png" height="130px">
+                    @*<div class="text-group text-guide-1 fade-in">
+                        <div class="N3-logo-container">
+                            <img src="@Helper.CDN/images/tour/N3_Logo.png" class="N3-logo">
                         </div>
-                        <div class="text-group-1-head1">
+                        <div class="text-group-head text-group-1-head1">
                             <span>
                                 WELCOME
                             </span><br />
@@ -50,20 +50,35 @@
                         <div class="text-group-content text-group-1-text">
                             There is no minimum donation, any sum is appreciated - click here to donate using PayPal. Thank you for your support.
                         </div>
-                        <div id="start">
-                            START TOUR
+                        <div class="start-mobile-wrapper">
+                            <div id="start">
+                                START TOUR
+                            </div>
                         </div>
-                    </div>
-                    <div class="text-group text-guide-2 fade-out">
+                    </div>*@
+                    <div class="text-group text-guide-2 fade-in">
+                        <div class="text-group-head text-group-2-head1">
+                            <span>
+                                Multi-Language
+                            </span><br />
+                            <span style="color: #000033">
+                                Support
+                            </span>
+                        </div>
                         <div class="text-group-content text-group-1-text">
                             There is no minimum donation, any sum is appreciated - click here to donate using PayPal. Thank you for your support.
                         </div>
+                        <div class="text-group-logo">
+                            <div class="text-group-logo-wrapper">
+                                <img src="@Helper.CDN/images/tour/N3_Logo.png" class="text-group-logo-img">
+                            </div>
+                        </div>
                     </div>
                     <div class="text-group text-guide-3 fade-out">
-                        <div class="N3_logo">
-                            <img src="@Helper.CDN/images/tour/N3_Logo.png" height="130px">
+                        <div class="N3-logo-container">
+                            <img src="@Helper.CDN/images/tour/N3_Logo.png" class="N3-logo">
                         </div>
-                        <div class="text-group-1-head1">
+                        <div class="text-group-head text-group-3-head1">
                             <span>
                                 WELCOME
                             </span><br />
@@ -71,7 +86,7 @@
                                 TO THE N3 TOUR
                             </span>
                         </div>
-                        <div class="text-group-content text-group-1-text">
+                        <div class="text-group-content text-group-3-text">
                             There is no minimum donation, any sum is appreciated - click here to donate using PayPal. Thank you for your support.
                         </div>
                     </div>
@@ -103,7 +118,10 @@
             </div>
         </div>
 
-        <div class="right-container">
+        <div class="right-container hide-in-mobile">
+            <div class="Neo_logo_mobile hide-in-desktop">
+                <img src="@Helper.CDN/images/logo files-white.svg" height="40px">
+            </div>
             <div class="carouselImgs slide1">
                 <h2>Slide1</h2>
             </div>

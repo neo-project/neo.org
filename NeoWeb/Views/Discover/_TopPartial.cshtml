@@ -1,88 +1,37 @@
-﻿@model DiscoverViewModel
+@model DiscoverViewModel
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
 @if (Model?.Type == DiscoverViewModelType.Blog)
 {
-    <div class="col-md-8">
-        @if (string.IsNullOrEmpty(Model.Blog.Cover))
-        {
-            <a class="bg-img" href="~/blog/details/@Model.Blog.Id" data-original="@Helper.ToCDN("/images/discover/blog.svg")"></a>
-        }
-        else
-        {
-            <a class="bg-img" href="~/blog/details/@Model.Blog.Id" data-original="@String.Format("/upload/{0}", Model.Blog.Cover).ToLower()"></a>
-        }
+    <div class="col-md-5">
+        <h1 class="@SharedLocalizer["d-none-zh"]"><span class="green-theme bolder">NEWS</span><br /><span>& EVENT</span></h1>
+        <h1 class="@SharedLocalizer["d-none"]"><span class="green-theme bolder">新闻</span><br /><span>& 活动</span></h1>
+        <div>After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date.</div>
     </div>
-    <div class="col-md-4">
-        <p class="green bold mt4">BLOG</p>
-        <h4 class="d-title with-space"><a href="~/blog/details/@Model.Blog.Id">@Model.Blog.Title</a></h4>
-        @if (ViewBag.UserRules)
+    <div class="col-md-6 offset-md-1">
+        @if (Model?.Type == DiscoverViewModelType.Blog)
         {
-            <a asp-action="Edit" asp-controller="Blog" asp-route-id="@Model.Blog.Id">Edit</a>
-            <a class="ml-2" asp-action="Delete" asp-controller="Blog" asp-route-id="@Model.Blog.Id">Delete</a>
+            <a class="bg-img" href="~/blog/details/@Model.Blog.Id" data-original="@(string.IsNullOrEmpty(Model.Blog.Cover) ? Helper.ToCDN("/images/discover/blog.svg") : $"/upload/{Model.Blog.Cover}".ToLower())"></a>
+            <div class="mt-1 bold">FEATURED BLOG ARGICLES</div>
+            <h4 class="d-title with-space"><a href="~/blog/details/@Model.Blog.Id">@Model.Blog.Title</a></h4>
         }
-
-        <p class="mt6">
-            @if (!string.IsNullOrEmpty(Model.Blog.Tags))
+        else if (Model?.Type == DiscoverViewModelType.Event)
+        {
+            <a class="bg-img" href="~/event/details/@Model.Event.Id" data-original="@(string.IsNullOrEmpty(Model.Event.Cover) ? Helper.ToCDN("/images/discover/events.svg") : $"/upload/{Model.Event.Cover}".ToLower())"></a>
+            <div class="mt-1 bold">FEATURED EVENT</div>
+            <h4 class="d-title with-space"><a href="~/event/details/@Model.Event.Id">@Model.Event.Name</a></h4>
+        }
+        else if (Model?.Type == DiscoverViewModelType.News)
+        {
+            <a class="bg-img" href="~/event/details/@Model.Event.Id" data-original="@(string.IsNullOrEmpty(Model.Event.Cover) ? Helper.ToCDN("/images/discover/news.svg") : $"/upload/{Model.News.Cover}".ToLower())"></a>
+            <h4 class="d-title with-space"><a href="@Model.News.Link" target="_blank">@Model.News.Title</a></h4>
+            @if (ViewBag.UserRules)
             {
-                foreach (var tag in Model.Blog.Tags.Split(','))
-                {
-                    <small class="d-tag"><a href="~/discover?keywords=@tag.Trim()"># @tag.Trim()</a></small>
-                }
+                <a asp-action="Edit" asp-controller="News" asp-route-id="@Model.News.Id">Edit</a>
+                <a class="ml-2" asp-action="Delete" asp-controller="News" asp-route-id="@Model.News.Id">Delete</a>
             }
-        </p>
-    </div>
-}
-else if (Model?.Type == DiscoverViewModelType.Event)
-{
-    <div class="col-md-8">
-        @if (string.IsNullOrEmpty(Model.Event.Cover))
-        {
-            <a class="bg-img" href="~/event/details/@Model.Event.Id" data-original="@Helper.ToCDN("/images/discover/events.svg")"></a>
         }
-        else
-        {
-            <a class="bg-img" href="~/event/details/@Model.Event.Id" data-original="@String.Format("/upload/{0}", Model.Event.Cover).ToLower()"></a>
-        }
-    </div>
-    <div class="col-md-4">
-        <p class="green bold mt4">EVENT</p>
-        <h4 class="d-title with-space"><a href="~/event/details/@Model.Event.Id">@Model.Event.Name</a></h4>
-        @if (ViewBag.UserRules)
-        {
-            <a asp-action="Edit" asp-controller="Event" asp-route-id="@Model.Event.Id">Edit</a>
-            <a class="ml-2" asp-action="Delete" asp-controller="Event" asp-route-id="@Model.Event.Id">Delete</a>
-        }
-        @if (Model.Event.StartTime.Date == Model.Event.EndTime.Date)
-        {
-            <div class="mt6"><i class="iconfont">&#xe610;</i> @Model.Event.StartTime.DayOfWeek.ToString().Substring(0, 3), @Model.Event.StartTime.ToString("yyyy-MM-dd HH:mm") - @Model.Event.EndTime.ToString("HH:mm")</div>
-        }
-        else
-        {
-            <div class="mt6"><i class="iconfont">&#xe610;</i> @Model.Event.StartTime.ToString("yyyy-MM-dd HH:mm") - @Model.Event.EndTime.ToString("yyyy-MM-dd HH:mm")</div>
-        }
-        <div class="mt6"><i class="iconfont">&#xe60f;</i> @Model.Event.Country, @Model.Event.City</div>
-    </div>
-}
-else if (Model?.Type == DiscoverViewModelType.News)
-{
-    <div class="col-md-8">
-        @if (string.IsNullOrEmpty(Model.News.Cover))
-        {
-            <a class="bg-img" href="@Model.News.Link" data-original="@Helper.ToCDN("/images/discover/news.svg")"></a>
-        }
-        else
-        {
-            <a class="bg-img" href="@Model.News.Link" data-original="@String.Format("/upload/{0}", Model.News.Cover).ToLower()"></a>
-        }
-    </div>
-    <div class="col-md-4">
-        <p class="green bold mt4">NEWS</p>
-        <h4 class="d-title with-space"><a href="@Model.News.Link" target="_blank">@Model.News.Title</a></h4>
-        @if (ViewBag.UserRules)
-        {
-            <a asp-action="Edit" asp-controller="News" asp-route-id="@Model.News.Id">Edit</a>
-            <a class="ml-2" asp-action="Delete" asp-controller="News" asp-route-id="@Model.News.Id">Delete</a>
-        }
-        <div class="small">@Model.News.Time</div>
     </div>
 }
