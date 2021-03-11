@@ -32,10 +32,6 @@
     "inputFile": "wwwroot/css/site.less"
   },
   {
-    "outputFile": "wwwroot/css/sitecn.css",
-    "inputFile": "wwwroot/css/sitecn.less"
-  },
-  {
     "outputFile": "wwwroot/css/contributors.css",
     "inputFile": "wwwroot/css/contributors.less"
   },
@@ -58,5 +54,9 @@
   {
     "outputFile": "wwwroot/css/migration.css",
     "inputFile": "wwwroot/css/migration.less"
+  },
+  {
+    "outputFile": "wwwroot/css/tour.css",
+    "inputFile": "wwwroot/css/tour.less"
   }
 ]

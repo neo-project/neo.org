@@ -1,8 +1,12 @@
-﻿@import "basic.less";
+@import "basic.less";
 
 @nav-bar-height: 80px;
 
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     display: flex;
     align-items: center;
     background-color: transparent;
@@ -12,7 +16,7 @@
     -ms-user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
-    z-index: 1;
+    z-index: 100;
 
     @media only screen and (max-width: 991px) {
         padding: 10px 20px;
@@ -50,7 +54,7 @@
 
 
         @media only screen and (max-width: 991px) {
-            line-height: 56px;
+            line-height: 3.5rem;
             padding: 0;
         }
 
@@ -150,85 +154,30 @@
     }
 }
 
-.footer-fo {
-    ul {
-        padding: 0;
-        font-size: 0;
-    }
-
-    li {
-        display: inline-block;
-        list-style: none;
-        margin: 0 12px;
-        position: relative;
-
-        &:hover {
-
-            img {
-                position: absolute;
-                display: block;
-            }
-        }
-
-        img {
-            display: none;
-        }
-
-
-        .iconfont {
-            color: @dark-text;
-            font-size: 2rem;
-            transition: all .2s ease-in-out;
-            text-decoration: none;
-        }
-    }
+.layout-container {
+    max-width: none;
+    margin: 0;
+    padding: 0;
 }
 
 footer {
-    padding-top: 25px;
-    padding-bottom: 30px;
+    a.title {
+        display: block;
+        color: white;
+        border-bottom: 1px solid #7f869a;
+        font-size: 18px;
 
-    a {
-        color: @white;
-    }
-
-    hr.line {
-        margin-top: 100px;
-        margin-bottom: 25px;
-    }
-
-    ul {
-        padding: 0;
-        margin-top: 15px;
-        margin-bottom: 0;
-
-        li {
-            list-style: none;
-            opacity: .9;
+        &:hover {
+            border-bottom: 1px solid white;
         }
     }
-}
 
-@media only screen and (max-width: 767px) {
-    footer {
-        padding-top: 0;
+    a.sub-title {
+        display: block;
+        color: #7f869a;
 
-        p {
-            &.bold {
-                padding: 15px 0;
-                border-top: 1px solid @line;
-                margin-bottom: 0;
-            }
-        }
-
-        ul {
-            margin-top: 0;
-            line-height: 2;
-            margin-bottom: 2em;
-        }
-
-        .row div:last-child ul {
-            display: block !important;
+        &:hover {
+            color: white;
         }
     }
 }

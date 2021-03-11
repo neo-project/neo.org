@@ -1,0 +1,19 @@
+@model NeoWeb.Models.Candidate
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+@{
+    ViewData["Title"] = Localizer["Platform"].Value;
+}
+
+@section Styles{
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/platform.min.css", true)" />
+}
+<div class="py-5">
+    @Localizer["Platform"]
+</div>
+
+@section Scripts{
+
+}

@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using NeoWeb.Models;
 
 namespace NeoWeb.Controllers
@@ -45,15 +45,13 @@ namespace NeoWeb.Controllers
         public IActionResult PressKit() => RedirectToAction("index", "presskit");
 
         [Route("eco/ecoboost")]
-        public IActionResult EcoBoost() => RedirectToAction("index", "ecoboost");
+        [Route("ecoboost")]
+        [Route("ecoboost/index")]
+        public IActionResult Eco() => RedirectToAction("index", "eco");
 
         [Route("event")]
         [Route("event/index")]
         public IActionResult Event() => RedirectToAction("index", "discover", new { type = (int)DiscoverViewModelType.Event });
-
-        [Route("news")]
-        [Route("news/index")]
-        public IActionResult News() => RedirectToAction("index", "discover", new { type = (int)DiscoverViewModelType.News });
 
         [Route("dapp")]
         [Route("dapps")]

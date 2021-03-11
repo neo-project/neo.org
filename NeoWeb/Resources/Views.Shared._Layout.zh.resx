@@ -117,56 +117,35 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About" xml:space="preserve">
-    <value>关于 Neo </value>
-  </data>
-  <data name="Blogs" xml:space="preserve">
-    <value>博客</value>
-  </data>
-  <data name="Consensus" xml:space="preserve">
-    <value>共识节点</value>
-  </data>
   <data name="Contact Us" xml:space="preserve">
     <value>联系我们</value>
   </data>
-  <data name="Contributors" xml:space="preserve">
-    <value>贡献者</value>
-  </data>
-  <data name="dApps List" xml:space="preserve">
-    <value>dApp 列表</value>
+  <data name="Contributors &amp; Collaborations" xml:space="preserve">
+    <value>贡献者和合作伙伴</value>
   </data>
   <data name="Developer" xml:space="preserve">
-    <value>开发者</value>
-  </data>
-  <data name="Developers" xml:space="preserve">
     <value>开发者</value>
   </data>
   <data name="Discover" xml:space="preserve">
     <value>发现更多</value>
   </data>
+  <data name="Discover Neo" xml:space="preserve">
+    <value>发现 Neo</value>
+  </data>
   <data name="Documentation" xml:space="preserve">
     <value>开发者文档</value>
   </data>
-  <data name="EcoBoost" xml:space="preserve">
-    <value>EcoBoost</value>
-  </data>
-  <data name="Ecogrowth" xml:space="preserve">
-    <value>生态发展</value>
+  <data name="Eco-Support" xml:space="preserve">
+    <value>生态支持</value>
   </data>
   <data name="Ecosystem" xml:space="preserve">
     <value>生态</value>
   </data>
-  <data name="Enter Email Address" xml:space="preserve">
-    <value>输入邮箱地址</value>
-  </data>
   <data name="Events" xml:space="preserve">
     <value>活动</value>
   </data>
-  <data name="Follow Us" xml:space="preserve">
-    <value>关注我们</value>
-  </data>
-  <data name="General" xml:space="preserve">
-    <value>其它</value>
+  <data name="Governance" xml:space="preserve">
+    <value>治理</value>
   </data>
   <data name="https://t.me/NEO_EN" xml:space="preserve">
     <value>https://t.me/NEO_Chinese</value>
@@ -177,6 +156,12 @@
   <data name="Marketing" xml:space="preserve">
     <value>市场</value>
   </data>
+  <data name="NEO &amp; GAS &amp; Wallet" xml:space="preserve">
+    <value>NEO、GAS、钱包</value>
+  </data>
+  <data name="Neo Defined" xml:space="preserve">
+    <value>Neo 介绍</value>
+  </data>
   <data name="Neo is an open-source, community driven platform that is leveraging the intrinsic advantages of blockchain technology to realize the optimized digital world of the future." xml:space="preserve">
     <value>作为一个由社区驱动的开源平台，Neo 正利用区块链技术的内在优势，提供面向未来数字世界的全套解决方案，为实现智能经济打造下一代互联网基础设施。</value>
   </data>
@@ -186,6 +171,9 @@
   <data name="News" xml:space="preserve">
     <value>新闻</value>
   </data>
+  <data name="Platform" xml:space="preserve">
+    <value>平台</value>
+  </data>
   <data name="Press Kit" xml:space="preserve">
     <value>媒体资源</value>
   </data>
@@ -194,6 +182,9 @@
   </data>
   <data name="Technical Documents" xml:space="preserve">
     <value>技术文档</value>
+  </data>
+  <data name="Technology" xml:space="preserve">
+    <value>特色技术</value>
   </data>
   <data name="Vulnerability Bounty" xml:space="preserve">
     <value>安全漏洞奖励</value>

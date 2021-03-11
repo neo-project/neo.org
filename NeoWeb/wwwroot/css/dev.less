@@ -1,153 +1,467 @@
 @import './basic.less';
 
-.layout-container {
-    max-width: none;
-    padding: 0;
-    margin: 0;
+.header-right {
+    float: right;
+    position: relative;
+    margin-top: -100px;
 }
 
-.dev-link {
-    list-style: none;
-    padding: 0;
-    line-height: 1.8;
+.platform-label {
+    color: #000332;
+    font-family: WorkSans-SemiBold, WorkSans;
     font-weight: 600;
+    font-size: 18px;
+    text-transform: uppercase;
+}
 
-    li:not(.link-title) span {
-        font-weight: normal;
+.select-platform {
+    width: 150px;
+    margin-left: 23px;
+}
+
+.news {
+    display: flex;
+    align-items: center;
+    padding: 38px 0;
+}
+
+.news-title {
+    color: #070E3A;
+    font-size: 92px;
+    font-family: WorkSans-Bold, WorkSans;
+    font-weight: bold;
+    line-height: 85px;
+    text-transform: uppercase;
+
+    em {
+        font-style: normal;
+        color: #00E599;
     }
 }
 
+.news-content {
+    margin-top: 36px;
+    font-size: 20px;
+    font-family: NunitoSans-Bold, NunitoSans;
+    font-weight: bold;
+    color: #070E3A;
+}
+
+.learn-more {
+    margin-top: 36px;
+    text-transform: uppercase;
+}
+
+.news-img {
+    margin-left: 36px;
+    width: 300px;
+}
+
+.divider {
+    height: 2px;
+    margin: 0 0;
+    background: #000332;
+}
+
+.resources {
+    display: flex;
+    padding: 62px 0 159px;
+}
+
+.resources-left {
+    width: 278px;
+    flex-shrink: 0;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    font-size: 18px;
+    font-family: NunitoSans-Bold, NunitoSans;
+    font-weight: bold;
+    color: #070E3A;
+    cursor: pointer;
+
+    &.active {
+        background: #E9EEED;
+        border-radius: 6px;
+    }
+}
+
+.links {
+    margin-top: 82px;
+}
+
+.link {
+    display: block;
+    padding: 0 16px;
+    border-radius: 6px;
+    border: 1px solid #010135;
+    font-size: 18px;
+    font-family: NunitoSans-ExtraBold, NunitoSans;
+    font-weight: 800;
+    color: #070E3A;
+
+    &:nth-child(n+2) {
+        margin-top: 11px;
+    }
+
+    &:hover {
+        color: #070E3A;
+    }
+}
+
+.resources-right {
+    flex: 1;
+    margin-left: 82px;
+}
+
+.menu-page {
+   display: none; 
+   flex-direction: column;
+
+   &.active {
+       display: flex;
+   }
+}
+
+.menu-page-title {
+    font-size: 36px;
+    font-family: NunitoSans-ExtraBold, NunitoSans;
+    font-weight: 800;
+    color: #000332;
+}
+
+.menu-page-description {
+    margin-top: 35px;
+    font-size: 20px;
+    font-family: NunitoSans-Bold, NunitoSans;
+    font-weight: bold;
+    color: #070E3A;
+}
+
+.features {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 61px;
+}
+
+.feature {
+    display: flex;
+    background: #FFFFFF;
+    border-radius: 4px 3px 3px 3px;
+    border: 1px solid #87AEA6;
+
+    &:nth-child(n+2) {
+        margin-left: 80px;
+    }
+}
+
+.feature-img {
+    flex-shrink: 0;
+    width: 101px;
+}
+
+.feature-text {
+    padding: 28px;
+    font-size: 17px;
+    font-family: WorkSans-SemiBold, WorkSans;
+    font-weight: 600;
+    color: #070E3A;
+    text-transform: uppercase;
+}
+
+.menu-page-divider {
+    margin-top: 61px;
+    height: 1px;
+    background: #000332;
+}
+
+.menu-page-secondary-title {
+    margin-top: 37px;
+    font-size: 22px;
+    font-family: WorkSans-Bold, WorkSans;
+    font-weight: bold;
+    color: #000332;
+    text-transform: uppercase;
+}
+
+.overview-tutorials {
+    margin-top: 45px;
+}
+
+.overview-tutorial {
+    display: flex;
+
+    &:nth-child(n+2) {
+        margin-top: 44px;
+    }
+}
+
+.overview-tutorial-img {
+    flex-shrink: 0;
+    width: 259px;
+    height: 156px;
+}
+
+.overview-tutorial-right {
+    margin-left: 29px;
+}
+
+.overview-tutorial-title {
+    font-size: 20px;
+    font-family: WorkSans-SemiBold, WorkSans;
+    font-weight: 600;
+    color: #000332;
+    text-transform: uppercase;
+}
+
+.overview-tutorial-author {
+    font-size: 16px;
+    font-family: NunitoSans-Bold, NunitoSans;
+    font-weight: bold;
+    color: #828386;
+}
+
+.overview-tutorial-description {
+    margin-top: 8px;
+    font-size: 16px;
+    font-family: NunitoSans-SemiBold, NunitoSans;
+    font-weight: 600;
+    color: #070E3A;
+}
+
+.view-all-tutorials {
+    align-self: center;
+    margin-top: 69px;
+    text-transform: uppercase;
+}
+
+.resource-overview-img {
+    align-self: center;
+    margin-top: 126px;
+    width: 600px;
+    height: 600px;
+}
+
+.view-all-tools {
+    align-self: center;
+    margin-top: 126px;
+    text-transform: uppercase;
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 2px solid #000332;
+}
+
+.tab {
+    position: relative;
+    top: 5px;
+    flex: auto;
+    padding: 24px;
+    font-size: 18px;
+    font-family: NunitoSans-Bold, NunitoSans;
+    font-weight: bold;
+    color: #070E3A;
+    overflow: hidden;
+
+    &.active {
+        border-bottom: 5px solid #000332;
+    }
+}
+
+.tab-page {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
+
+.tab-page-title {
+    margin-top: 40px;
+    font-size: 22px;
+    font-family: WorkSans-Bold, WorkSans;
+    font-weight: bold;
+    color: #000332;
+    text-transform: uppercase;
+}
 
 .tools {
-    overflow:hidden;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 56px 133px; 
+    margin-top: 41px;
+}
 
-    .dev-link {
-        position: relative;
+.tool {
+    display: flex;
+}
 
-        .bold {
-            padding-top: @length4;
-        }
+.tool-img {
+    width: 156px;
+    height: 156px;
+}
+
+.view-website {
+    display: block;
+    margin-top: 16px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.tool-right {
+    margin-left: 30px;
+}
+
+.tool-title-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tool-title {
+    font-size: 18px;
+    font-family: WorkSans-Bold, WorkSans;
+    font-weight: bold;
+    color: #000332;
+}
+
+.tool-language {
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    height: 24px;
+    border-radius: 11px;
+    background: #000332;
+    font-size: 12px;
+    font-family: WorkSans-SemiBold, WorkSans;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.tool-developer {
+    font-size: 16px;
+    font-family: NunitoSans-Bold, NunitoSans;
+    font-weight: bold;
+    color: #828386;
+}
+
+.tool-description {
+    font-size: 16px;
+    font-family: NunitoSans-SemiBold, NunitoSans;
+    font-weight: 600;
+    color: #070E3A;
+}
+
+.tutorials-filter {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 76px;
+}
+
+.tutorials-filter-label {
+    font-size: 18px;
+    font-family: WorkSans-SemiBold, WorkSans;
+    font-weight: 600;
+    color: #000332;
+    text-transform: uppercase;
+}
+
+.select-language {
+    width: 195px;
+    margin-left: 13px;
+}
+
+.tutorials {
+    margin-top: 83px;
+}
+
+.tutorial {
+    display: flex;
+
+    &:nth-child(n+2) {
+        margin-top: 40px;
     }
+}
 
-    .link-title {
-        position: relative;
-        padding-left: 20px;
-        height:40px;
-        
-        background: @arrow;
+.tutorial-img {
+    width: 191px;
+    height: 191px;
+}
 
-        span {
-            display: inline-block;
-            width: 100%;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            vertical-align: top;
-            padding-top:3px;
-            font-weight:bold;
-        }
+.tutorial-right {
+    margin-left: 30px;
+}
 
-        &:before {
-            content: "";
-            position: absolute;
-            left: -10px;
-            top:0;
-            border-left: 20px solid @gray3;
-            border-right: 20px solid transparent;
-            border-top: 20px solid @arrow;
-            border-bottom: 20px solid @arrow;
-        }
+.tutorial-header {
+    display: flex;
+    align-items: center;
+}
 
-        &:after {
-            content: "";
-            position: absolute;
-            right: -35px;
-            top:0;
-            border-left: 20px solid @arrow;
-            border-right: 20px solid @gray3;
-            border-top: 20px solid @gray3;
-            border-bottom: 20px solid @gray3;
-        }
-    }
+.tutorial-type-img {
+    width: 39px;
+    height: 39px;
+}
 
-    span {
-        font-weight: 300;
-    }
+.tutorial-header-middle {
+    margin-left: 14px;
+}
 
-    .no-before {
-        &:before {
-            border: none;
-        }
-    }
+.tutorial-title {
+    font-size: 20px;
+    font-family: WorkSans-SemiBold, WorkSans;
+    font-weight: 600;
+    color: #000332;
+}
 
-    @media only screen and (max-width: 767px) {
-        .col-md-4 {
-            &:after {
-                content: "";
-                display: block;
-                background: linear-gradient(90deg,@body 40px,@line2 40px);
-                height: 1px;
-                width: 100%;
-                margin-top: 12px;
-                margin-right: 20px;
-                margin-bottom: 12px;
-            }
-        }
+.tutorial-author {
+    font-size: 16px;
+    font-family: NunitoSans-Bold, NunitoSans;
+    font-weight: bold;
+    color: #828386;
+}
 
-        .dev-link {
-            background: @arrow;
-            padding-left: 20px;
-            margin-bottom: 0;
+.tutorial-type {
+    position: relative;
+    top: 2px;
+    align-self: flex-start;
+    margin-left: 16px;
+    font-size: 16px;
+    font-family: WorkSans-Bold, WorkSans;
+    font-weight: bold;
+    color: #000332;
+    text-transform: uppercase;
+}
 
-            li {
-                background: @gray3;
-                padding-left: 20px;
-            }
+.tutorial-description {
+    font-size: 16px;
+    font-family: NunitoSans-SemiBold, NunitoSans;
+    font-weight: 600;
+    color: #070E3A;
+}
 
-            .bold {
-                padding-top: @length5;
-            }
+.tutorial-languages {
+    display: flex;
+}
 
-            &:before {
-                content: "";
-                position: absolute;
-                left: 0;
-                top: -12px;
-                border-left: 10px solid @arrow;
-                border-right: 10px solid @arrow;
-                border-top: 10px solid @gray3;
-                border-bottom: 10px solid @arrow;
-            }
+.tutorial-language {
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    height: 24px;
+    margin-top: 16px;
+    border-radius: 11px;
+    background: #000332;
+    font-size: 12px;
+    font-family: WorkSans-SemiBold, WorkSans;
+    font-weight: 600;
+    color: #FFFFFF;
 
-            &:after {
-                content: "";
-                position: absolute;
-                left: 0;
-                bottom: -20px;
-                border-left: 10px solid @gray3;
-                border-right: 10px solid @gray3;
-                border-top: 10px solid @arrow;
-                border-bottom: 10px solid @gray3;
-            }
-        }
-
-        .link-title {
-            background: @body;
-            padding-left: 0;
-            line-height: 1.2;
-            height: auto;
-
-            &:before,
-            &:after {
-                border: none;
-            }
-        }
-
-
-        .no-before {
-            &:before {
-                border: none;
-            }
-        }
+    &:nth-child(n+2) {
+        margin-left: 11px;
     }
 }
