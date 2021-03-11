@@ -11,36 +11,36 @@
 }
 @* 基本块 - Home page *@
 
-<div class="landing">
-    <div class="section left">
-        <div class="content-wrapper">
-            <img class="logo-img" data-original="@Helper.ToCDN("/images/home/N3Logo.svg")" />
-            <div class="sub-title font-family-semibold">@Localizer["Take a look at the latest version of the Neo platform"]</div>
-            <a asp-controller="tour" asp-action="index" class="btn-n3">@Localizer["Take Tour"]</a>
+<div class="home-container">
+    <div class="row landing-row">
+        <div class="col-12 col-md-6 col-left">
+            <div class="content-wrapper">
+                <img class="logo-img" data-original="@Helper.ToCDN("/images/home/N3Logo.svg")" />
+                <div class="sub-title work-sans-semibold">@Localizer["Take a look at the latest version of the Neo platform"]</div>
+                <a asp-controller="tour" asp-action="index" class="btn-n3">@Localizer["Take Tour"]</a>
+            </div>
         </div>
-    </div>
-    <div class="section right">
-        <div class="content-wrapper">
-            <div class="title font-family-bold">@Localizer["The Complete Blockchain Development Platform"]</div>
-            <div class="news-wrapper">
-                <div class="latest-news-text font-family-bold">
-                    @Localizer["Latest News:"]
+        <div class="col-12 col-md-6 col-right">
+            <div class="content-wrapper">
+                <div class="landing-title work-sans-bold">@Localizer["The Complete Blockchain Development Platform"]</div>
+                <div class="news-wrapper">
+                    <div class="latest-news-text work-sans-bold">
+                        @Localizer["Latest News:"]
+                    </div>
+                    <a class="news-link work-sans-bold" asp-controller="news" asp-action="index">@Localizer["This is an example of a article on the latest news ticker"]</a>
                 </div>
-                <a class="news-link font-family-bold" asp-controller="news" asp-action="index">@Localizer["This is an example of a article on the latest news ticker"]</a>
             </div>
         </div>
     </div>
-</div>
-<div class="all-in-one">
-    <div class="font-family-bold aio-title  @SharedLocalizer["d-none-zh"]">
-        <span class="aio-green">All</span> in One - <span class="aio-green">All</span> in Neo
-    </div>
-    <div class="aio-title preview @SharedLocalizer["d-none"]">
-        <span class="aio-green">All</span> in One - <span class="aio-green">All</span> in Neo
-    </div>
-    <div class="highlight-container">
-        @{
-            string[,] items = new string[9,2] {
+    <div class="row horiz-row">
+        <div class="work-sans-bold aio-title @SharedLocalizer["d-none-zh"]">
+            <span class="green">All</span> in One - <span class="green">All</span> in Neo
+        </div>
+        <div class="work-sans-bold aio-title @SharedLocalizer["d-none"]">
+            <span class="green">All</span> in One - <span class="green">All</span> in Neo
+        </div>
+        <div class="highlight-container">
+            @{ string[,] highlightItems = new string[9, 2] {
                 { "Interoperability", "/images/home/Interoperability.svg" },
                 { "Native Oracles", "/images/home/NativeOracles.svg" },
                 { "Self-Sovereign ID", "/images/home/Self-SovereignID.png" },
@@ -52,16 +52,20 @@
                 { "Multi-Language", "/images/home/Multi-Language.png" }
             };
 
-            for (int i = 0; i < items.GetLength(0); i++)
+            for (int i = 0; i < highlightItems.GetLength(0); i++)
             {
                 <div class="highlight-wrapper">
-                    <img class="highlight-img png" data-original="@Helper.ToCDN(items[i, 1])" />
-                    <div class="font-family-bold highlight-name">@Localizer[items[i, 0]]</div>
+                    <img class="highlight-img png" data-original="@Helper.ToCDN(highlightItems[i, 1])" />
+                    <div class="work-sans-bold highlight-name">@Localizer[highlightItems[i, 0]]</div>
                 </div>
             }
         }
+        </div>
     </div>
+
+
 </div>
+
 <div class="get-started">
     <div class="font-family-bold type-text">
         <span class="neo">@Localizer["Neo"]</span>
@@ -80,8 +84,26 @@
     <div class="font-family-bold get-started-text black-theme">
         @Localizer["Get Started"]
     </div>
-    <div class="get-started-wrapper">
+    <div class="font-family-bold get-started-wrapper">
+        @{
+            string[,] getStartedItems = new string[4, 2]
+            {
+                { "Find A Neo Wallet", "/images/home/FindWallet.svg" },
+                { "Learn about Neo & Gas Tokens", "/images/home/LearnTokens.svg" },
+                { "Learn about Neo's Features", "/images/home/LearnFeatures.svg" },
+                { "Read the Documentation", "/images/home/ReadDocumentation.svg" }
+            };
 
+            for (int i = 0; i < getStartedItems.GetLength(0); i++)
+            {
+                <div class="get-started-card">
+                    <div class="card-text">
+                        @getStartedItems[i, 0]
+                    </div>
+                    <img class="card-img" data-original="@Helper.ToCDN(getStartedItems[i, 1])" />
+                </div>
+            }
+        }
     </div>
 </div>
 

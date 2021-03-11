@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="109px" height="167px" viewBox="0 0 109 167" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 5</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="339" height="191" rx="4"></rect>
+    </defs>
+    <g id="Homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="HOMEPAGE-PT-0.2" transform="translate(-1218.000000, -875.000000)">
+            <g id="Button-bar" transform="translate(266.000000, 767.000000)">
+                <g id="编组-4" transform="translate(722.000000, 84.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Mask"></g>
+                    <g id="Group-5" mask="url(#mask-2)" stroke="#000033" stroke-width="2.88">
+                        <g transform="translate(229.000000, 26.500000)" id="Polygon">
+                            <polygon fill="#FFFFFF" fill-rule="evenodd" points="23 70.5 42.9185843 82 42.9185843 105 23 116.5 3.08141571 105 3.08141571 82"></polygon>
+                            <polygon fill="none" points="42.5 105.5 62.4185843 117 62.4185843 140 42.5 151.5 22.5814157 140 22.5814157 117"></polygon>
+                            <polygon fill="#FFFFFF" fill-rule="evenodd" points="62 70.5 81.9185843 82 81.9185843 105 62 116.5 42.0814157 105 42.0814157 82"></polygon>
+                            <polygon fill="#FFFFFF" fill-rule="evenodd" points="82.5 105 102.418584 116.5 102.418584 139.5 82.5 151 62.5814157 139.5 62.5814157 116.5"></polygon>
+                            <polygon fill="#FFFFFF" fill-rule="evenodd" points="42 35.5 61.9185843 47 61.9185843 70 42 81.5 22.0814157 70 22.0814157 47"></polygon>
+                            <polygon fill="#FFFFFF" fill-rule="evenodd" points="102 140 121.918584 151.5 121.918584 174.5 102 186 82.0814157 174.5 82.0814157 151.5"></polygon>
+                            <polygon fill="none" points="102 70.5 121.918584 82 121.918584 105 102 116.5 82.0814157 105 82.0814157 82"></polygon>
+                            <polygon fill="#FFFFFF" fill-rule="evenodd" points="62 0 81.9185843 11.5 81.9185843 34.5 62 46 42.0814157 34.5 42.0814157 11.5"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

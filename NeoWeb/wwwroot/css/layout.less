@@ -3,6 +3,10 @@
 @nav-bar-height: 80px;
 
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     display: flex;
     align-items: center;
     background-color: transparent;
@@ -12,7 +16,7 @@
     -ms-user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
-    z-index: 1;
+    z-index: 100;
 
     @media only screen and (max-width: 991px) {
         padding: 10px 20px;
@@ -148,6 +152,12 @@
             top: 24px;
         }
     }
+}
+
+.layout-container {
+    max-width: none;
+    margin: 0;
+    padding: 0;
 }
 
 footer {
