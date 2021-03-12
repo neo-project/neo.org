@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace NeoWeb.Models
 {
-    public class News
+    public class Media
     {
         [Key]
         public int Id { get; set; }

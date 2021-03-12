@@ -60,9 +60,9 @@ namespace NeoWeb
             }));
         }
 
-        public static void AddNews(IQueryable<News> news, List<DiscoverViewModel> viewModels, bool isZh)
+        public static void AddMedia(IQueryable<Media> media, List<DiscoverViewModel> viewModels, bool isZh)
         {
-            news.Select(p => new NewsViewModel()
+            media.Select(p => new MediaViewModel()
             {
                 Id = p.Id,
                 Time = p.Time,
@@ -72,7 +72,7 @@ namespace NeoWeb
                 Tags = isZh ? p.ChineseTags : p.EnglishTags
             }).ToList().ForEach(p => viewModels.Add(new DiscoverViewModel()
             {
-                Type = DiscoverViewModelType.News,
+                Type = DiscoverViewModelType.Media,
                 News = p,
                 Time = p.Time
             }));

@@ -16,7 +16,7 @@
                 <a class="img" href="~/blog/details/@item.Blog.Id" data-original="@String.Format("/upload/{0}", @item.Blog.Cover).ToLower()"></a>
             }
             <div class="content-wrapper">
-                <div class="font-family-bold content-title"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></div>
+                <div class="content-title"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></div>
 
                 @if (ViewBag.UserRules != null && ViewBag.UserRules)
                 {
@@ -46,7 +46,7 @@
                 <a class="img" href="~/event/details/@item.Event.Id" data-original="@String.Format("/upload/{0}", @item.Event.Cover).ToLower()"></a>
             }
             <div class="content-wrapper">
-                <div class="font-family-bold content-title"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></div>
+                <div class="content-title"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></div>
 
                 @if (ViewBag.UserRules != null && ViewBag.UserRules)
                 {
@@ -63,7 +63,7 @@
                 </div>
             </div>
         }
-        else if (item.Type == DiscoverViewModelType.News)
+        else if (item.Type == DiscoverViewModelType.Media)
         {
             @if (string.IsNullOrEmpty(item.News.Cover))
             {
@@ -74,7 +74,7 @@
                 <a class="img" href="@item.News.Link" target="_blank" data-original="@String.Format("/upload/{0}", @item.News.Cover).ToLower()"></a>
             }
     <div class="content-wrapper">
-        <div class="font-family-bold content-title"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></div>
+        <div class="content-title"><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></div>
 
         @if (ViewBag.UserRules != null && ViewBag.UserRules)
         {

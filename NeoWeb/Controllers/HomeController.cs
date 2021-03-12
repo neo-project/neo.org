@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
@@ -30,12 +30,12 @@ namespace NeoWeb.Controllers
             var count = 3;
             var blogs = _context.Blogs.OrderByDescending(p => p.CreateTime).Take(count);
             var events = _context.Events.OrderByDescending(p => p.StartTime).Take(count);
-            var news = _context.News.OrderByDescending(p => p.Time).Take(count);
+            var news = _context.Media.OrderByDescending(p => p.Time).Take(count);
             var viewModels = new List<DiscoverViewModel>();
             var isZh = _sharedLocalizer["en"] == "zh";
             Helper.AddBlogs(blogs, viewModels, isZh);
             Helper.AddEvents(events, viewModels, isZh);
-            Helper.AddNews(news, viewModels, isZh);
+            Helper.AddMedia(news, viewModels, isZh);
 
             // 添加置顶内容
             var top = _context.Top.FirstOrDefault();
@@ -50,8 +50,8 @@ namespace NeoWeb.Controllers
                     case DiscoverViewModelType.Event:
                         Helper.AddEvents(_context.Events.Where(p => p.Id == top.ItemId), topItems, isZh);
                         break;
-                    case DiscoverViewModelType.News:
-                        Helper.AddNews(_context.News.Where(p => p.Id == top.ItemId), topItems, isZh);
+                    case DiscoverViewModelType.Media:
+                        Helper.AddMedia(_context.Media.Where(p => p.Id == top.ItemId), topItems, isZh);
                         break;
                 }
                 ViewBag.OnTop = topItems.Count > 0 ? topItems[0] : null;

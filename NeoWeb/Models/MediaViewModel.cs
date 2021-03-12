@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace NeoWeb.Models
 {
-    public class NewsViewModel
+    public class MediaViewModel
     {
         public int Id { get; set; }
 
@@ -19,10 +19,10 @@ namespace NeoWeb.Models
 
         public string Tags { get; set; }
 
-        public NewsViewModel()
+        public MediaViewModel()
         { }
 
-        public NewsViewModel(News news, bool isZh)
+        public MediaViewModel(Media news, bool isZh)
         {
             Id = news.Id;
             Time = news.Time;

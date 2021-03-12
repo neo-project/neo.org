@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -20,7 +20,7 @@ namespace NeoWeb.Data
 
         public DbSet<TestCoin> TestCoins { get; set; }
 
-        public DbSet<News> News { get; set; }
+        public DbSet<Media> Media { get; set; }
 
         public DbSet<Event> Events { get; set; }
 

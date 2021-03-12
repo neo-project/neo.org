@@ -10,7 +10,7 @@ namespace NeoWeb.Models
 
         public BlogViewModel Blog { get; set; }
         public EventViewModel Event { get; set; }
-        public NewsViewModel News { get; set; }
+        public MediaViewModel News { get; set; }
 
         public DiscoverViewModel()
         { }
@@ -29,8 +29,8 @@ namespace NeoWeb.Models
                         Event = new EventViewModel((Event)data, isZh);
                         Time = Event.StartTime;
                         break;
-                    case DiscoverViewModelType.News:
-                        News = new NewsViewModel((News)data, isZh);
+                    case DiscoverViewModelType.Media:
+                        News = new MediaViewModel((Media)data, isZh);
                         Time = News.Time;
                         break;
                     default:
@@ -50,6 +50,6 @@ namespace NeoWeb.Models
     {
         Blog = 1,
         Event = 2,
-        News = 3
+        Media = 3
     }
 }

@@ -3,9 +3,30 @@
 @landing-height: 100vh;
 @landing-max-height: 890px;
 @landing-min-height: 600px;
+@content-wrapper-margin: 120px;
+@typed-text-font-size: 6.5rem;
 
-.home-container {
-    
+.layout-container {
+    max-width: none;
+    margin: -65px 0 0 0;
+    padding: 0;
+
+    @media only screen and (min-width: 1600px) {
+        max-width: none;
+    }
+}
+.navbar .nav-item a {
+    color: @white;
+
+    &:hover {
+        color: @white;
+        .bold;
+    }
+}
+
+
+.dual-row {
+    margin: 0;
 }
 
 .horiz-row {
@@ -23,10 +44,9 @@
     margin: 0;
     padding: 0 5% 0 10%;
     height: 100%;
-    background: @linear-black;
 
-    @media only screen and (max-width: 767px) {
-        height: 100vh;
+    @media only screen and (max-width: 1200px) {
+        padding: 0 2% 0 4%;
     }
 }
 
@@ -38,14 +58,9 @@
     margin: 0;
     padding: 0 10% 0 5%;
     height: 100%;
-    background: @linear-green;
 
-    .content-wrapper {
-        align-items: flex-start;
-    }
-
-    @media only screen and (max-width: 767px) {
-        height: 100vh;
+    @media only screen and (max-width: 1200px) {
+        padding: 0 4% 0 2%;
     }
 }
 
@@ -54,15 +69,35 @@
     flex-direction: column;
     align-items: center;
     margin: 120px 0;
+    width: 100%;
 }
 
 
 
 .landing-row {
-    margin: 0;
     height: @landing-height;
     min-height: @landing-min-height;
     max-height: @landing-max-height;
+
+    .col-left {
+        background: @linear-black;
+
+        @media only screen and (max-width: 767px) {
+            height: 100vh;
+        }
+    }
+
+    .col-right {
+        background: @linear-green;
+
+        .content-wrapper {
+            align-items: flex-start;
+        }
+
+        @media only screen and (max-width: 767px) {
+            height: 100vh;
+        }
+    }
 }
 
 .logo-img {
@@ -80,10 +115,15 @@
     text-align: center;
     color: @green;
     font-size: 1rem;
-    line-height: 20px;
+    line-height: 1.25;
     letter-spacing: 3px;
     word-wrap: normal;
     text-transform: uppercase;
+}
+
+.landing-title-wrapper {
+    justify-content: space-around;
+    height: calc(100% - @content-wrapper-margin - @content-wrapper-margin);
 }
 
 .landing-title {
@@ -108,7 +148,7 @@
     align-items: flex-start;
     color: #000332;
     font-size: 1rem;
-    line-height: 20px;
+    line-height: 1.25;
 }
 
 .latest-news-text {
@@ -122,7 +162,7 @@
 .aio-title {
     margin: 46px 10px;
     font-size: 1.875rem;
-    line-height: 1.25;
+    line-height: 0.7;
     letter-spacing: 0.3125rem;
 }
 
@@ -133,7 +173,6 @@
     flex-wrap: wrap;
     grid-row-gap: 46px;
     column-gap: 28px;
-    margin-top: 37px;
     padding: 20px;
     width: 90%;
 }
@@ -143,7 +182,6 @@
     flex-direction: column;
     align-items: center;
     width: 134px;
-    min-width: 134px;
 }
 
 .highlight-img {
@@ -152,388 +190,329 @@
 
 .highlight-name {
     margin: 31px 0;
-    font-size: 14px;
+    font-size: 0.875rem;
     text-align: center;
+}
+
+.get-started-row {
+    padding: 2.375rem 2.375rem 11.125rem 2.375rem;
+}
+
+.type-text {
+    margin: 3.625rem 0;
+    font-size: @typed-text-font-size;
+}
+
+.typed-cursor {
+    font-size: @typed-text-font-size;
+}
+
+.explanation {
+    margin-bottom: 62px;
+    font-size: 1.5rem;
+    max-width: 856px;
+}
+
+.learn-more {
+    margin-bottom: 22px;
+    color: #070E3A;
+    font-size: 1.125rem;
+}
+
+.get-started-text {
+    margin: 125px 0 56px 0;
+    font-size: 1.5rem;
+}
+
+.get-started-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 22px;
+    grid-row-gap: 22px;
+    flex-wrap: wrap;
+}
+
+.get-started-card {
+    position: relative;
+    width: 340px;
+    height: 192px;
+    background-color: @green;
+    border-radius: 4px;
+
+    .card-text {
+        position: absolute;
+        top: 18px;
+        left: 22px;
+        max-width: 55%;
+        font-size: 1.25rem;
+        line-height: 1.2rem;
+        z-index: 1;
+    }
+
+    .card-img {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        height: 85%;
+        width: auto;
+    }
+}
+
+.dual-tokens-row {
+    color: #ffffff;
+    background: @linear-black;
+}
+
+.dual-token-col {
+    background: none;
+}
+
+
+.token-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.token-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.token-img {
+    margin-bottom: 30px;
+    height: 200px;
+}
+
+.token-name {
+    font-size: 1.875rem;
+    .uppercase;
+}
+
+.calculator-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 100px;
+    padding: 16px;
+    border: 2px solid @green;
+    border-radius: 6px;
+
+    .calculator-header {
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+
+        .calculator-icon {
+            margin-right: 0.5rem;
+            height: 1.5rem;
+            width: 1.5rem;
+        }
+    }
+
+    .calculator {
+        display: flex;
+        align-items: center;
+        margin: 28px 0;
+        font-size: 1.5rem;
+
+        .calculator-input {
+            margin: 0 10px;
+            border: 1px solid @green;
+            border-radius: 3px;
+            height: 42px;
+            width: 128px;
+            line-height: 42px;
+            vertical-align: middle;
+            color: #ffffff;
+            text-align: center;
+            background-color: #0E1724;
+        }
+    }
+
+    .calculator-result {
+        font-size: 1.125rem;
+    }
+
+    .calculator-footnote {
+        font-size: 0.875rem;
+        color: #6F85A1;
+    }
+}
+
+
+.dual-token-title {
+    font-size: 4.375rem;
+    line-height: 0.94;
+    margin-bottom: 1.625rem;
+}
+
+.content {
+    margin: 15px 0;
+    font-size: 1.125rem;
+
+    &.subtitle {
+        font-size: 1.5rem;
+    }
+}
+
+.button-wrapper {
+    display: flex;
+    align-items: center;
+
+    .button {
+        margin: 68px 35px 0 0;
+    }
+}
+
+.governance-row {
+    height: 1220px;
+
+    .col-left {
+        background-color: #ffffff;
+    }
+
+    .col-right {
+        background-color: @green;
+    }
+}
+
+.governance-header-img {
+    width: 100%;
+    height: 340px;
+}
+
+.governance-headline {
+    margin: 2.875rem 0 2.25rem 0;
+    width: 100%;
+    text-align: left;
+    font-size: 4.375rem;
+    line-height: 0.94;
+    .work-sans-bold;
+    .uppercase;
+    .black;
+
+    @media only screen and (max-width: 1200px) {
+        font-size: 3rem;
+    }
+}
+
+.governance-subtitle {
+    margin-bottom: 2.25rem;
+    font-size: 1.5rem;
+    line-height: 1.375;
+
+    @media only screen and (max-width: 1200px) {
+        font-size: 1.125rem;
+    }
+}
+
+.governance-paragraph {
+    margin-bottom: 2.25rem;
+    font-size: 1.125rem;
+    .nunito-sans;
+    line-height: 1.8;
+
+    @media only screen and (max-width: 1200px) {
+        font-size: 1rem;
+    }
+}
+
+.governance-header {
+    margin: 46px 0 37px 0;
+}
+
+.governance-title {
+    margin: 2.125rem 0;
+    font-size: 1.5rem;
+    .work-sans-bold;
+    .uppercase;
+    .black;
+    width: 100%;
+    text-align: left;
+}
+
+.learn-more-icon {
+    margin-right: 22px;
+    width: 72px;
+}
+
+.learn-more-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 42px;
+}
+
+.item-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 286px;
+    font-size: 18px;
+    color: #070e3a;
     text-transform: uppercase;
 }
-    
 
-    .get-started {
+.nav-icon {
+    width: 15px;
+    height: 23px;
+}
+
+
+.latest-news-row {
+    justify-content: center;
+    align-items: center;
+    height: 1220px;
+    background-color: #ffffff;
+}
+
+.latest-news-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.latest-news-title {
+    margin-bottom: 41px;
+    font-size: 4.375rem;
+    line-height: 0.94;
+    .work-sans-bold;
+    .black;
+    .uppercase;
+}
+
+.latest-news-subtitle {
+    margin-bottom: 5.5rem;
+    .nunito-sans-bold;
+    color: #070e3a;
+    font-size: 1.5rem;
+}
+
+.view-all-btn {
+    margin: auto;
+}
+
+.news-list {
+    display: flex;
+    align-items: center;
+    column-gap: 40px;
+    margin-bottom: 62px;
+
+    .news-card {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 178px 78px;
-        min-width: 980px;
+        padding: 8px;
+        width: 456px;
+        height: 403px;
+        background-color: #E8F0F5;
 
-        .type-text {
-            margin: 58px 0;
-            font-size: 104px;
-            color: #003;
-            text-transform: uppercase;
-
-            .neo {
-                color: @green;
-            }
-        }
-
-        .typed-cursor {
-            font-size: 104px;
-        }
-
-        .explanation {
-            margin-bottom: 62px;
-            font-size: 24px;
-            max-width: 856px;
-        }
-
-        .learn-more {
-            margin-bottom: 22px;
-            color: #070E3A;
-            font-size: 18px;
-            text-transform: uppercase;
-        }
-
-        .get-started-text {
-            margin: 125px 0 56px 0;
-            text-transform: uppercase;
-            font-size: 24px;
-        }
-
-        .get-started-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            column-gap: 22px;
-            grid-row-gap: 22px;
-            flex-wrap: wrap;
-        }
-
-        .get-started-card {
-            position: relative;
-            width: 340px;
-            height: 192px;
-            background-color: @green;
-            border-radius: 4px;
-
-            .card-text {
-                position: absolute;
-                top: 18px;
-                left: 22px;
-                max-width: 55%;
-                font-size: 20px;
-                text-transform: uppercase;
-                line-height: 24px;
-                z-index: 1;
-            }
-
-            .card-img {
-                position: absolute;
-                right: 0;
-                bottom: 0;
-                height: 85%;
-                width: auto;
-            }
-        }
-    }
-
-    .dual-tokens {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        padding: 318px 10%;
-        background: @linear-black;
-        min-width: 980px;
-
-        .dual-container {
-            display: flex;
-            flex-direction: column;
-            width: 50%;
-            color: #ffffff;
-
-            &.left {
-                margin-right: clamp(60px, 8%, 130px);
-                // margin-right: 8%;
-                width: 540px;
-
-                .token-row {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    min-width: 440px;
-                }
-
-                .token-wrapper {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                }
-
-                .token-img {
-                    margin-bottom: 30px;
-                    height: 200px;
-                    width: 200px;
-                }
-
-                .token-name {
-                    font-size: 31px;
-                    text-transform: uppercase;
-                }
-
-                .calculator-wrapper {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    align-items: center;
-                    margin-top: 100px;
-                    padding: 16px 0;
-                    border: 2px solid @green;
-                    border-radius: 6px;
-
-                    .calculator-header {
-                        display: flex;
-                        align-items: center;
-                        color: @green;
-                        font-size: 24px;
-
-                        .calculator-icon {
-                            margin-right: 8px;
-                            height: 20px;
-                            width: 20px;
-                        }
-                    }
-
-                    .calculator {
-                        display: flex;
-                        align-items: center;
-                        margin: 28px 0;
-                        text-transform: uppercase;
-                        font-size: 24px;
-
-                        .calculator-input {
-                            margin: 0 10px;
-                            border: 1px solid @green;
-                            border-radius: 3px;
-                            height: 42px;
-                            width: 128px;
-                            line-height: 42px;
-                            vertical-align: middle;
-                            color: #ffffff;
-                            text-align: center;
-                            background-color: #0E1724;
-                        }
-                    }
-
-                    .calculator-result {
-                        font-size: 18px;
-                        color: @green;
-                    }
-
-                    .calculator-footnote {
-                        font-size: 14px;
-                        color: #6F85A1;
-                    }
-                }
-            }
-
-            &.right {
-                margin-left: clamp(60px, 8%, 130px);
-                // margin-left: 8%;
-                min-width: 450px;
-                max-width: 580px;
-
-                .title {
-                    font-size: 70px;
-                    line-height: 66px;
-                    text-transform: uppercase;
-                    margin-bottom: 25px;
-                }
-
-                .content {
-                    margin: 15px 0;
-                    font-size: 18px;
-
-                    &.subtitle {
-                        font-size: 24px;
-                    }
-                }
-
-                .button-wrapper {
-                    display: flex;
-                    align-items: center;
-
-                    .button {
-                        margin: 68px 35px 0 0;
-                    }
-                }
-            }
-        }
-    }
-
-    .governance {
-        display: flex;
-        align-items: center;
-        height: 1220px;
-        min-width: 980px;
-
-        .governance-section {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 50%;
-            height: 100%;
-
-            &.left {
-                background-color: #ffffff;
-                min-width: 580px;
-
-                .governance-content-wrapper {
-                    padding-left: 10%;
-                }
-            }
-
-            &.right {
-                background-color: @green;
-                min-width: 450px;
-
-                .governance-content-wrapper {
-                    padding-right: 20%;
-                }
-            }
-
-            .governance-content-wrapper {
-                color: #070E3A;
-                max-width: 600px;
-
-                .governance-header-img {
-                    width: 100%;
-                    height: 340px;
-                }
-
-                .governance-headline {
-                    margin: 46px 0 37px 0;
-                    font-size: 70px;
-                    text-transform: uppercase;
-                    line-height: 66px;
-                    color: @black;
-                }
-
-                .green-theme {
-                    color: @green;
-                }
-
-                .governance-subtitle {
-                    margin-bottom: 37px;
-                    font-size: 24px;
-                    font-family: NunitoSans-Bold;
-                    font-weight: bold;
-                    line-height: 37px;
-                }
-
-                .governance-paragraph {
-                    margin-bottom: 37px;
-                    font-size: 18px;
-                    font-family: Nunito-Regular;
-                    line-height: 37px;
-                }
-
-                .governance-header {
-                    margin: 46px 0 37px 0;
-                }
-
-                .governance-title {
-                    margin: 35px 0;
-                    font-size: 24px;
-                    color: @black;
-                    text-transform: uppercase;
-                }
-
-                .learn-more-icon {
-                    margin-right: 22px;
-                    width: 72px;
-                }
-
-                .learn-more-wrapper {
-                    display: flex;
-                    align-items: center;
-                    margin-bottom: 42px;
-                }
-
-                .item-wrapper {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    width: 286px;
-                    font-size: 18px;
-                    color: #070e3a;
-                    text-transform: uppercase;
-                }
-
-                .nav-icon {
-                    width: 15px;
-                    height: 23px;
-                }
-            }
-        }
-    }
-
-    .latest-news {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 1220px;
-        background-color: #ffffff;
-
-        .latest-news-wrapper {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .latest-news-title {
-            margin-bottom: 41px;
-            font-size: 70px;
-            line-height: 66px;
-            color: @black;
-            text-transform: uppercase;
-        }
-
-        .latest-news-green {
-            color: @green;
-        }
-
-        .latest-news-subtitle {
-            margin-bottom: 88px;
-            font-family: NunitoSans-Bold;
-            font-weight: bold;
-            color: #070e3a;
-            font-size: 24px;
-        }
-
-        .view-all-btn {
-            margin: auto;
-        }
-
-        .news-list {
-            display: flex;
-            align-items: center;
-            column-gap: 40px;
-            margin-bottom: 62px;
-        }
-
-        .news-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 8px;
-            width: 456px;
-            height: 403px;
-            background-color: #E8F0F5;
-
-            .img {
-                width: 100%;
-                height: 206px;
-            }
+        .img {
+            width: 100%;
+            height: 206px;
         }
 
         .content-wrapper {
@@ -545,10 +524,13 @@
             height: calc(100% - 206px);
 
             .content-title {
-                margin-bottom: 8px;
-                line-height: 22px;
-                font-size: 20px;
-                text-transform: uppercase;
+                margin-bottom: 0.5rem;
+                line-height: 1.1;
+                font-size: 1.25rem;
+                width: 100%;
+                .work-sans-bold;
+                .uppercase;
+                text-align: left;
 
                 a {
                     color: #010135;
@@ -558,18 +540,19 @@
             .content-body {
                 margin: 8px 0 22px 0;
                 max-height: 64px;
-                font-family: NunitoSans-SemiBold;
-                font-size: 16px;
+                .nunito-sans-bold;
+                font-size: 1rem;
                 color: #070E3A;
-                line-height: 21px;
+                line-height: 1.3125;
                 text-overflow: ellipsis;
                 overflow: hidden;
             }
 
             .content-tags {
                 display: flex;
-                align-items: center;
+                align-items: flex-start;
                 column-gap: 9px;
+                width: 100%;
             }
 
             .content-tag {
@@ -578,14 +561,16 @@
                 padding: 2px 8px;
                 border-radius: 10px;
                 min-height: 17px;
-                font-family: Lato-Bold;
-                font-weight: bold;
-                font-size: 12px;
-                line-height: 1;
-                color: @black;
+                .lato-bold;
+                font-size: 0.75rem;
+                line-height: 1.25;
+                .black;
                 background-color: @green;
             }
         }
     }
+}
+
+
 
 
