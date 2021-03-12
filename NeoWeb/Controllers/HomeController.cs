@@ -31,7 +31,7 @@ namespace NeoWeb.Controllers
             var blogs = _context.Blogs.OrderByDescending(p => p.CreateTime).Take(count);
             var events = _context.Events.OrderByDescending(p => p.StartTime).Take(count);
             var news = _context.Media.OrderByDescending(p => p.Time).Take(count);
-            var viewModels = new List<DiscoverViewModel>();
+            var viewModels = new List<NewsViewModel>();
             var isZh = _sharedLocalizer["en"] == "zh";
             Helper.AddBlogs(blogs, viewModels, isZh);
             Helper.AddEvents(events, viewModels, isZh);
@@ -39,18 +39,18 @@ namespace NeoWeb.Controllers
 
             // 添加置顶内容
             var top = _context.Top.FirstOrDefault();
-            var topItems = new List<DiscoverViewModel>();
+            var topItems = new List<NewsViewModel>();
             if (top != null)
             {
                 switch (top.Type)
                 {
-                    case DiscoverViewModelType.Blog:
+                    case NewsViewModelType.Blog:
                         Helper.AddBlogs(_context.Blogs.Where(p => p.Id == top.ItemId), topItems, isZh);
                         break;
-                    case DiscoverViewModelType.Event:
+                    case NewsViewModelType.Event:
                         Helper.AddEvents(_context.Events.Where(p => p.Id == top.ItemId), topItems, isZh);
                         break;
-                    case DiscoverViewModelType.Media:
+                    case NewsViewModelType.Media:
                         Helper.AddMedia(_context.Media.Where(p => p.Id == top.ItemId), topItems, isZh);
                         break;
                 }

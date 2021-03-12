@@ -1,4 +1,4 @@
-@model List<DiscoverViewModel>
+@model List<NewsViewModel>
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
@@ -220,9 +220,9 @@
             </div>
             <div class="latest-news-subtitle">@Localizer["Keep up to date"]</div>
             <div class="news-list">
-                @{await Html.RenderPartialAsync("./_DiscoverPartial", Model);}
+                @{await Html.RenderPartialAsync("./_NewsPartial", Model);}
             </div>
-            <a asp-controller="discover" asp-action="index" class="btn-n3 black view-all-btn">@Localizer["View All"]</a>
+            <a asp-controller="news" asp-action="index" class="btn-n3 black view-all-btn">@Localizer["View All"]</a>
         </div>
     </div>
 </div>

@@ -15,7 +15,7 @@ namespace NeoWeb.Controllers
 {
     [Route("news")]
     [Authorize(Roles = "Admin")]
-    public class DiscoverController : Controller
+    public class NewsController : Controller
     {
         private readonly ApplicationDbContext _context;
         private readonly string _userId;
@@ -23,7 +23,7 @@ namespace NeoWeb.Controllers
         private readonly IWebHostEnvironment _env;
         private readonly IStringLocalizer<SharedResource> _sharedLocalizer;
 
-        public DiscoverController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IStringLocalizer<SharedResource> sharedLocalizer, IWebHostEnvironment env)
+        public NewsController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IStringLocalizer<SharedResource> sharedLocalizer, IWebHostEnvironment env)
         {
             _context = context;
             _sharedLocalizer = sharedLocalizer;
@@ -35,7 +35,7 @@ namespace NeoWeb.Controllers
             }
         }
 
-        // GET: discover
+        // GET: news
         [HttpGet]
         [AllowAnonymous]
         public IActionResult Index(int? type = null, int? year = null, string keywords = null)
@@ -44,7 +44,7 @@ namespace NeoWeb.Controllers
             IQueryable<Event> events = _context.Events;
             IQueryable<Media> news = _context.Media;
 
-            var viewModels = new List<DiscoverViewModel>();
+            var viewModels = new List<NewsViewModel>();
 
             // year filter
             if (year != null)
@@ -98,13 +98,13 @@ namespace NeoWeb.Controllers
             // type filter
             switch (type)
             {
-                case (int)DiscoverViewModelType.Blog:
+                case (int)NewsViewModelType.Blog:
                     Helper.AddBlogs(blogs, viewModels, isZh);
                     break;
-                case (int)DiscoverViewModelType.Event:
+                case (int)NewsViewModelType.Event:
                     Helper.AddEvents(events, viewModels, isZh);
                     break;
-                case (int)DiscoverViewModelType.Media:
+                case (int)NewsViewModelType.Media:
                     Helper.AddMedia(news, viewModels, isZh);
                     break;
                 default:
@@ -120,20 +120,20 @@ namespace NeoWeb.Controllers
             if (type == null && year == null && string.IsNullOrEmpty(keywords))
             {
                 var top = _context.Top.FirstOrDefault();
-                var topItems = new List<DiscoverViewModel>();
+                var topItems = new List<NewsViewModel>();
                 if (top != null)
                 {
                     switch (top.Type)
                     {
-                        case DiscoverViewModelType.Blog:
+                        case NewsViewModelType.Blog:
                             Helper.AddBlogs(_context.Blogs.Where(p => p.Id == top.ItemId), topItems, isZh);
                             viewModels.RemoveAll(p => p.Type == top.Type && p.Blog.Id == top.ItemId);
                             break;
-                        case DiscoverViewModelType.Event:
+                        case NewsViewModelType.Event:
                             Helper.AddEvents(_context.Events.Where(p => p.Id == top.ItemId), topItems, isZh);
                             viewModels.RemoveAll(p => p.Type == top.Type && p.Event.Id == top.ItemId);
                             break;
-                        case DiscoverViewModelType.Media:
+                        case NewsViewModelType.Media:
                             Helper.AddMedia(_context.Media.Where(p => p.Id == top.ItemId), topItems, isZh);
                             viewModels.RemoveAll(p => p.Type == top.Type && p.News.Id == top.ItemId);
                             break;

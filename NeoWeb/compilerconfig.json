@@ -12,8 +12,8 @@
     "inputFile": "wwwroot/css/dev.less"
   },
   {
-    "outputFile": "wwwroot/css/discover.css",
-    "inputFile": "wwwroot/css/discover.less"
+    "outputFile": "wwwroot/css/news.css",
+    "inputFile": "wwwroot/css/news.less"
   },
   {
     "outputFile": "wwwroot/css/eco.css",

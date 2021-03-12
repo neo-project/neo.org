@@ -11,19 +11,46 @@
     margin: -65px 0 0 0;
     padding: 0;
 
+    @media only screen and (max-width: 992px) {
+        margin: -70px 0 0 0;
+    }
+
     @media only screen and (min-width: 1600px) {
         max-width: none;
     }
 }
-.navbar .nav-item a {
-    color: @white;
-
-    &:hover {
-        color: @white;
-        .bold;
-    }
+html body {
+    background: @linear-black;
 }
 
+.navbar {
+    .nav-item {
+        color: @white;
+
+        a, span {
+            display: inline-block;
+            color: @white;
+
+            &:hover {
+                color: @white;
+
+                @media only screen and (max-width: 991px) {
+                    color: @white;
+                }
+            }
+
+            @media only screen and (max-width: 991px) {
+                font-weight: bold;
+                padding: 0 2rem;
+            }
+        }
+    }
+
+    .top,
+    .bottom {
+        background-color: @white;
+    }
+}
 
 .dual-row {
     margin: 0;

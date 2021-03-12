@@ -3,7 +3,16 @@
 @nav-bar-height: 80px;
 
 .navbar {
-    z-index: 100;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    user-select: none;
+    text-align: center;
+    align-items: normal;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    z-index: 1;
 
     @media only screen and (max-width: 991px) {
         padding: 10px 20px;
@@ -79,6 +88,7 @@
 
                 @media only screen and (max-width: 991px) {
                     color: @text;
+                    background-color: rgba(128, 128, 128, .1);
                 }
             }
 
@@ -101,6 +111,17 @@
 
         &:hover, &:active, &:focus {
             outline: none;
+        }
+    }
+
+    .dropdown-menu {
+        background-color: transparent;
+        text-align: center;
+
+        a {
+            &:hover, &:focus {
+                background-color: rgba(128, 128, 128, .1);
+            }
         }
     }
 

@@ -1,15 +1,15 @@
-@model List<DiscoverViewModel>
+@model List<NewsViewModel>
 
 @for (int i = 0; i < Model.Count(); i++)
 {
     var item = (Model)[i];
 
     <div class="news-card">
-        @if (item.Type == DiscoverViewModelType.Blog)
+        @if (item.Type == NewsViewModelType.Blog)
         {
             @if (string.IsNullOrEmpty(item.Blog.Cover))
             {
-                <a class="img" href="~/blog/details/@item.Blog.Id" data-original="@Helper.ToCDN("/images/discover/blog.svg")"></a>
+                <a class="img" href="~/blog/details/@item.Blog.Id" data-original="@Helper.ToCDN("/images/news/blog.svg")"></a>
             }
             else
             {
@@ -29,17 +29,17 @@
                     {
                         foreach (var tag in item.Blog.Tags.Split(','))
                         {
-                            <a class="content-tag" href="~/discover?keywords=@tag.Trim()"># @tag.Trim()</a>
+                            <a class="content-tag" href="~/news?keywords=@tag.Trim()"># @tag.Trim()</a>
                         }
                     }
                 </div>
             </div>
         }
-        else if (item.Type == DiscoverViewModelType.Event)
+        else if (item.Type == NewsViewModelType.Event)
         {
             @if (string.IsNullOrEmpty(item.Event.Cover))
             {
-                <a class="img" href="~/event/details/@item.Event.Id" data-original="@Helper.ToCDN("/images/discover/events.svg")"></a>
+                <a class="img" href="~/event/details/@item.Event.Id" data-original="@Helper.ToCDN("/images/news/events.svg")"></a>
             }
             else
             {
@@ -58,16 +58,16 @@
                     {
                         foreach (var tag in item.Blog.Tags.Split(','))
                         {
-            <a class="content-tag" href="~/discover?keywords=@tag.Trim()"># @tag.Trim()</a>                        }
+            <a class="content-tag" href="~/news?keywords=@tag.Trim()"># @tag.Trim()</a>                        }
                                 }
                 </div>
             </div>
         }
-        else if (item.Type == DiscoverViewModelType.Media)
+        else if (item.Type == NewsViewModelType.Media)
         {
             @if (string.IsNullOrEmpty(item.News.Cover))
             {
-                <a class="img" href="@item.News.Link" target="_blank" data-original="@Helper.ToCDN("/images/discover/news.svg")"></a>
+                <a class="img" href="@item.News.Link" target="_blank" data-original="@Helper.ToCDN("/images/news/media.svg")"></a>
             }
             else
             {
@@ -86,7 +86,7 @@
                     {
                         foreach (var tag in item.Blog.Tags.Split(','))
                         {
-                            <a class="content-tag" href="~/discover?keywords=@tag.Trim()"># @tag.Trim()</a>                        }
+                            <a class="content-tag" href="~/news?keywords=@tag.Trim()"># @tag.Trim()</a>                        }
                         }
                 </div>
             </div>
