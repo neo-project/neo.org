@@ -6,9 +6,24 @@
 @content-wrapper-margin: 120px;
 @typed-text-font-size: 6.5rem;
 
-.home-container {
-    
+.layout-container {
+    max-width: none;
+    margin: -65px 0 0 0;
+    padding: 0;
+
+    @media only screen and (min-width: 1600px) {
+        max-width: none;
+    }
 }
+.navbar .nav-item a {
+    color: @white;
+
+    &:hover {
+        color: @white;
+        .bold;
+    }
+}
+
 
 .dual-row {
     margin: 0;

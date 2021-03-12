@@ -508,7 +508,7 @@ namespace NeoWeb.Data.Migrations
                     b.ToTable("Careers");
                 });
 
-            modelBuilder.Entity("NeoWeb.Models.News", b =>
+            modelBuilder.Entity("NeoWeb.Models.Media", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

@@ -77,10 +77,17 @@ body {
         }
     }
 
+    &-icon {
+        margin-left: 4px;
+        padding-top: 2px;
+    }
+
     &-2 {
         &-text {
             margin-top: 5%;
+
             &-2 {
+                display: flex;
                 margin-top: 2%;
             }
         }
@@ -92,7 +99,9 @@ body {
             width: 65%;
             padding-bottom: 5%;
             border-bottom: 1px solid #CFD6DF;
+
             &-2 {
+                display: flex;
                 margin-top: 2%;
             }
         }
@@ -101,6 +110,11 @@ body {
 
 .text-group-1-text {
     margin-top: 5%
+}
+
+.direction{
+    cursor:pointer;
+    width:16px;
 }
 
 #start {
@@ -140,6 +154,9 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    &-icon{
+        width:12px;
+    }
 }
 
 .circle-list{
@@ -161,10 +178,22 @@ body {
 .circle-black {
     background: #000033;
 }
-.arrow-grey {
-    color: #DDDDDD;
+
+.arrow-grey .arrow-show {
+    display: none;
 }
 
+.arrow-grey .arrow-hide {
+    display: flex;
+}
+
+.arrow-show {
+    display: flex;
+}
+
+.arrow-hide {
+    display: none;
+}
 
 .fade-out {
     opacity: 0;
@@ -238,8 +267,8 @@ body {
         position: absolute;
         margin-left: 5%;
         margin-top: 5%;
-        &-img{
-            height:40px;
+        &-image {
+            height: 40px;
         }
     }
 
@@ -291,11 +320,20 @@ body {
         min-height:55%;
     }
 
+
+    .text-group.text-guide-1 {
+        margin-top: 10%;
+    }
+
+    .text-guide{
+        padding-bottom: 60px;
+    }
+
     .text-group {
         position: static;
         flex-direction: column;
         margin-left: 5%;
-        margin-top: 10%;
+        margin-top: 2%;
 
         &-content {
             width: 95%;

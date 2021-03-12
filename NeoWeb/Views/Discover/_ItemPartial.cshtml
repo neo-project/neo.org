@@ -68,11 +68,11 @@
                 </div>
             </div>
         }
-        else if (item.Type == DiscoverViewModelType.News)
+        else if (item.Type == DiscoverViewModelType.Media)
         {
             @if (string.IsNullOrEmpty(item.News.Cover))
             {
-                <a class="img" href="@item.News.Link" target="_blank" data-original="@Helper.ToCDN("/images/discover/news.svg")"></a>
+                <a class="img" href="@item.News.Link" target="_blank" data-original="@Helper.ToCDN("/images/discover/media.svg")"></a>
             }
             else
             {

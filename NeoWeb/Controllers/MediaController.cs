@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,27 +15,27 @@ using System.Threading.Tasks;
 namespace NeoWeb.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class NewsController : Controller
+    public class MediaController : Controller
     {
         private readonly ApplicationDbContext _context;
         private readonly IWebHostEnvironment _env;
 
-        public NewsController(ApplicationDbContext context, IWebHostEnvironment env)
+        public MediaController(ApplicationDbContext context, IWebHostEnvironment env)
         {
             _context = context;
             _env = env;
         }
 
-        // GET: news/create
+        // GET: media/create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: news/create
+        // POST: media/create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ChineseTitle,EnglishTitle,Link")] News news,
+        public async Task<IActionResult> Create([Bind("Id,ChineseTitle,EnglishTitle,Link")] Media media,
             IFormFile chineseCover, IFormFile englishCover, string isTop)
         {
             ViewBag.IsTop = isTop != null;
@@ -45,7 +45,7 @@ namespace NeoWeb.Controllers
                 {
                     var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
                     if (Helper.ValidateCover(_env, fileName))
-                        news.ChineseCover = fileName;
+                        media.ChineseCover = fileName;
                     else
                         ModelState.AddModelError("ChineseCover", "Cover size must be 16:9");
                 }
@@ -53,26 +53,26 @@ namespace NeoWeb.Controllers
                 {
                     var fileName = Helper.UploadMedia(englishCover, _env, 1000);
                     if (Helper.ValidateCover(_env, fileName))
-                        news.EnglishCover = fileName;
+                        media.EnglishCover = fileName;
                     else
                         ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
                 }
-                if (!ModelState.IsValid) return View(news);
-                news.Time = DateTime.Now;
-                _context.Add(news);
+                if (!ModelState.IsValid) return View(media);
+                media.Time = DateTime.Now;
+                _context.Add(media);
                 await _context.SaveChangesAsync();
                 if (isTop != null)
                 {
                     _context.Top.ToList().ForEach(p => _context.Top.Remove(p));
-                    _context.Add(new Top() { ItemId = news.Id, Type = DiscoverViewModelType.News });
+                    _context.Add(new Top() { ItemId = media.Id, Type = DiscoverViewModelType.Media });
                 }
                 await _context.SaveChangesAsync();
-                return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.News });
+                return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.Media });
             }
-            return View(news);
+            return View(media);
         }
 
-        // GET: news/edit/5
+        // GET: media/edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -80,22 +80,22 @@ namespace NeoWeb.Controllers
                 return NotFound();
             }
 
-            var news = await _context.News.SingleOrDefaultAsync(m => m.Id == id);
-            if (news == null)
+            var meida = await _context.Media.SingleOrDefaultAsync(m => m.Id == id);
+            if (meida == null)
             {
                 return NotFound();
             }
-            return View(news);
+            return View(meida);
         }
 
-        // POST: news/edit/5
+        // POST: media/edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ChineseTitle,EnglishTitle,ChineseTags,EnglishTags,Link")] News news,
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ChineseTitle,EnglishTitle,ChineseTags,EnglishTags,Link")] Media media,
             IFormFile chineseCover, IFormFile englishCover, string isTop)
         {
             ViewBag.IsTop = isTop != null;
-            if (id != news.Id)
+            if (id != media.Id)
             {
                 return NotFound();
             }
@@ -107,9 +107,9 @@ namespace NeoWeb.Controllers
                     var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
                     if (Helper.ValidateCover(_env, fileName))
                     {
-                        if (!string.IsNullOrEmpty(news.ChineseCover))
-                            System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", news.ChineseCover));
-                        news.ChineseCover = fileName;
+                        if (!string.IsNullOrEmpty(media.ChineseCover))
+                            System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", media.ChineseCover));
+                        media.ChineseCover = fileName;
                     }
                     else
                     {
@@ -121,29 +121,29 @@ namespace NeoWeb.Controllers
                     var fileName = Helper.UploadMedia(englishCover, _env, 1000);
                     if (Helper.ValidateCover(_env, fileName))
                     {
-                        if (!string.IsNullOrEmpty(news.EnglishCover))
-                            System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", news.EnglishCover));
-                        news.EnglishCover = fileName;
+                        if (!string.IsNullOrEmpty(media.EnglishCover))
+                            System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", media.EnglishCover));
+                        media.EnglishCover = fileName;
                     }
                     else
                     {
                         ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
                     }
                 }
-                if (!ModelState.IsValid) return View(news);
+                if (!ModelState.IsValid) return View(media);
                 try
                 {
                     if (isTop != null)
                     {
                         _context.Top.ToList().ForEach(p => _context.Top.Remove(p));
-                        _context.Add(new Top() { ItemId = news.Id, Type = DiscoverViewModelType.News });
+                        _context.Add(new Top() { ItemId = media.Id, Type = DiscoverViewModelType.Media });
                     }
-                    _context.Update(news);
+                    _context.Update(media);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!NewsExists(news.Id))
+                    if (!NewsExists(media.Id))
                     {
                         return NotFound();
                     }
@@ -152,12 +152,12 @@ namespace NeoWeb.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.News });
+                return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.Media });
             }
-            return View(news);
+            return View(media);
         }
 
-        // GET: news/delete/5
+        // GET: media/delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -165,30 +165,30 @@ namespace NeoWeb.Controllers
                 return NotFound();
             }
 
-            var news = await _context.News
+            var media = await _context.Media
                 .SingleOrDefaultAsync(m => m.Id == id);
-            if (news == null)
+            if (media == null)
             {
                 return NotFound();
             }
 
-            return View(news);
+            return View(media);
         }
 
-        // POST: news/delete/5
+        // POST: media/delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var news = await _context.News.SingleOrDefaultAsync(m => m.Id == id);
-            _context.News.Remove(news);
+            var media = await _context.Media.SingleOrDefaultAsync(m => m.Id == id);
+            _context.Media.Remove(media);
             await _context.SaveChangesAsync();
-            return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.News });
+            return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.Media });
         }
 
         private bool NewsExists(int id)
         {
-            return _context.News.Any(e => e.Id == id);
+            return _context.Media.Any(e => e.Id == id);
         }
     }
 }

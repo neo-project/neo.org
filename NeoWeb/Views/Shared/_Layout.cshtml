@@ -86,7 +86,7 @@ https://github.com/neo-project/neo.org
     @RenderSection("Styles", required: false)
 </head>
 <body id="neo-body">
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar container navbar-expand-lg">
         <a asp-controller="home" asp-action="index">
             <img src="@(Helper.CDN + (ViewBag.IsWhiteLogo != null ? "/images/logo files-white.svg" : "/images/logo files-dark.svg"))" alt="Neo Logo" />
         </a>
