@@ -23,9 +23,9 @@
             <div class="mt-1 bold">FEATURED EVENT</div>
             <h4 class="d-title with-space"><a href="~/event/details/@Model.Event.Id">@Model.Event.Name</a></h4>
         }
-        else if (Model?.Type == DiscoverViewModelType.News)
+        else if (Model?.Type == DiscoverViewModelType.Media)
         {
-            <a class="bg-img" href="~/event/details/@Model.Event.Id" data-original="@(string.IsNullOrEmpty(Model.Event.Cover) ? Helper.ToCDN("/images/discover/news.svg") : $"/upload/{Model.News.Cover}".ToLower())"></a>
+            <a class="bg-img" href="~/event/details/@Model.Event.Id" data-original="@(string.IsNullOrEmpty(Model.Event.Cover) ? Helper.ToCDN("/images/discover/media.svg") : $"/upload/{Model.News.Cover}".ToLower())"></a>
             <h4 class="d-title with-space"><a href="@Model.News.Link" target="_blank">@Model.News.Title</a></h4>
             @if (ViewBag.UserRules)
             {

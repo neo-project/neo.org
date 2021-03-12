@@ -42,7 +42,7 @@ namespace NeoWeb.Controllers
         {
             IQueryable<Blog> blogs = _context.Blogs;
             IQueryable<Event> events = _context.Events;
-            IQueryable<News> news = _context.News;
+            IQueryable<Media> news = _context.Media;
 
             var viewModels = new List<DiscoverViewModel>();
 
@@ -104,13 +104,13 @@ namespace NeoWeb.Controllers
                 case (int)DiscoverViewModelType.Event:
                     Helper.AddEvents(events, viewModels, isZh);
                     break;
-                case (int)DiscoverViewModelType.News:
-                    Helper.AddNews(news, viewModels, isZh);
+                case (int)DiscoverViewModelType.Media:
+                    Helper.AddMedia(news, viewModels, isZh);
                     break;
                 default:
                     Helper.AddBlogs(blogs, viewModels, isZh);
                     Helper.AddEvents(events, viewModels, isZh);
-                    Helper.AddNews(news, viewModels, isZh);
+                    Helper.AddMedia(news, viewModels, isZh);
                     break;
             }
 
@@ -133,8 +133,8 @@ namespace NeoWeb.Controllers
                             Helper.AddEvents(_context.Events.Where(p => p.Id == top.ItemId), topItems, isZh);
                             viewModels.RemoveAll(p => p.Type == top.Type && p.Event.Id == top.ItemId);
                             break;
-                        case DiscoverViewModelType.News:
-                            Helper.AddNews(_context.News.Where(p => p.Id == top.ItemId), topItems, isZh);
+                        case DiscoverViewModelType.Media:
+                            Helper.AddMedia(_context.Media.Where(p => p.Id == top.ItemId), topItems, isZh);
                             viewModels.RemoveAll(p => p.Type == top.Type && p.News.Id == top.ItemId);
                             break;
                     }
@@ -144,7 +144,7 @@ namespace NeoWeb.Controllers
 
             var blogYear = _context.Blogs.Select(p => p.CreateTime.Year).Distinct();
             var eventYear = _context.Events.Select(p => p.StartTime.Year).Distinct();
-            var newsYear = _context.News.Select(p => p.Time.Year).Distinct();
+            var newsYear = _context.Media.Select(p => p.Time.Year).Distinct();
             var allYear = blogYear.Concat(eventYear).Concat(newsYear).Distinct().OrderByDescending(p => p).Select(p => new SelectListItem { Value = p.ToString(), Text = p.ToString() }).ToList();
             allYear.Insert(0, new SelectListItem("All Year", ""));
 
