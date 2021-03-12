@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="93px" height="131px" viewBox="0 0 93 131" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 6</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="339" height="191" rx="4"></rect>
+    </defs>
+    <g id="Homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="HOMEPAGE-PT-0.2" transform="translate(-1593.000000, -885.000000)">
+            <g id="Button-bar" transform="translate(266.000000, 767.000000)">
+                <g id="编组-5" transform="translate(1081.000000, 84.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Mask"></g>
+                    <g id="编组-6" mask="url(#mask-2)">
+                        <g transform="translate(248.000000, 36.000000)" id="Group">
+                            <g transform="translate(20.000000, 13.500000)">
+                                <path d="M6,0 L76.5,0 C79.8137085,-6.08718376e-16 82.5,2.6862915 82.5,6 L82.5,108 C82.5,111.313708 79.8137085,114 76.5,114 L6,114 C2.6862915,114 4.05812251e-16,111.313708 0,108 L0,6 C-4.05812251e-16,2.6862915 2.6862915,6.08718376e-16 6,0 Z" id="Rectangle" stroke="#000033" stroke-width="2.88" fill="#FFFFFF"></path>
+                                <line x1="13.5" y1="16.5" x2="70.5" y2="16.5" id="Line-2" stroke="#000033" stroke-width="1.3" stroke-linecap="square"></line>
+                                <line x1="6" y1="16.5" x2="7.5" y2="16.5" id="Line-2" stroke="#C1C3CC" stroke-width="3" stroke-linecap="square"></line>
+                                <line x1="6" y1="42" x2="7.5" y2="42" id="Line-2" stroke="#C1C3CC" stroke-width="3" stroke-linecap="square"></line>
+                                <line x1="13.5" y1="21" x2="58.5" y2="21" id="Line-2" stroke="#C1C3CC" stroke-width="3" stroke-linecap="square"></line>
+                                <line x1="13.5" y1="25.5" x2="70.5" y2="25.5" id="Line-2" stroke="#000033" stroke-width="1.3" stroke-linecap="square"></line>
+                                <line x1="13.5" y1="30" x2="40.5" y2="30" id="Line-2" stroke="#C1C3CC" stroke-width="3" stroke-linecap="square"></line>
+                                <line x1="13.5" y1="42" x2="70.5" y2="42" id="Line-2" stroke="#000033" stroke-width="1.3" stroke-linecap="square"></line>
+                                <line x1="13.5" y1="46.5" x2="58.5" y2="46.5" id="Line-2" stroke="#C1C3CC" stroke-width="3" stroke-linecap="square"></line>
+                                <line x1="13.5" y1="51" x2="70.5" y2="51" id="Line-2" stroke="#000033" stroke-width="1.3" stroke-linecap="square"></line>
+                                <line x1="13.5" y1="55.5" x2="40.5" y2="55.5" id="Line-2" stroke="#C1C3CC" stroke-width="3" stroke-linecap="square"></line>
+                                <line x1="6" y1="66" x2="7.5" y2="66" id="Line-2" stroke="#C1C3CC" stroke-width="3" stroke-linecap="square"></line>
+                                <line x1="13.5" y1="66" x2="70.5" y2="66" id="Line-2" stroke="#000033" stroke-width="1.3" stroke-linecap="square"></line>
+                                <line x1="13.5" y1="70.5" x2="58.5" y2="70.5" id="Line-2" stroke="#C1C3CC" stroke-width="3" stroke-linecap="square"></line>
+                                <line x1="13.5" y1="75" x2="70.5" y2="75" id="Line-2" stroke="#000033" stroke-width="1.3" stroke-linecap="square"></line>
+                                <line x1="13.5" y1="79.5" x2="40.5" y2="79.5" id="Line-2" stroke="#C1C3CC" stroke-width="3" stroke-linecap="square"></line>
+                                <line x1="43.5" y1="99" x2="70.5" y2="99" id="Line-2" stroke="#000033" stroke-width="1.3" stroke-linecap="square"></line>
+                            </g>
+                            <g>
+                                <path d="M6,0 L76.5,0 C79.8137085,-6.08718376e-16 82.5,2.6862915 82.5,6 L82.5,108 C82.5,111.313708 79.8137085,114 76.5,114 L6,114 C2.6862915,114 4.05812251e-16,111.313708 0,108 L0,6 C-4.05812251e-16,2.6862915 2.6862915,6.08718376e-16 6,0 Z" id="Rectangle" stroke="#000033" stroke-width="2.88" fill="#FFFFFF"></path>
+                                <line x1="13.5" y1="16.5" x2="70.5" y2="16.5" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
+                                <line x1="6" y1="16.5" x2="7.5" y2="16.5" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
+                                <line x1="6" y1="42" x2="7.5" y2="42" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
+                                <line x1="13.5" y1="21" x2="58.5" y2="21" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
+                                <line x1="13.5" y1="25.5" x2="70.5" y2="25.5" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
+                                <line x1="13.5" y1="30" x2="40.5" y2="30" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
+                                <line x1="13.5" y1="42" x2="70.5" y2="42" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
+                                <line x1="13.5" y1="46.5" x2="58.5" y2="46.5" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
+                                <line x1="13.5" y1="51" x2="70.5" y2="51" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
+                                <line x1="13.5" y1="55.5" x2="40.5" y2="55.5" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
+                                <line x1="6" y1="66" x2="7.5" y2="66" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
+                                <line x1="13.5" y1="66" x2="70.5" y2="66" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
+                                <line x1="13.5" y1="70.5" x2="58.5" y2="70.5" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
+                                <line x1="13.5" y1="75" x2="70.5" y2="75" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
+                                <line x1="13.5" y1="79.5" x2="40.5" y2="79.5" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
+                                <line x1="43.5" y1="99" x2="70.5" y2="99" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
