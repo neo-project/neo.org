@@ -10,7 +10,7 @@ html body {
     .font-family;
     line-height: 1.6;
     background: @body;
-    color: @text;
+    color: @dark;
 
     @media only screen and (max-width: 767px) {
         font-size: 15px;
@@ -19,7 +19,7 @@ html body {
 
 @media (min-width: 1600px) {
     .container, .container-sm, .container-md, .container-lg, .container-xl {
-        // max-width: 1417px;
+        max-width: 1417px;
     }
 }
 
@@ -27,7 +27,7 @@ html body {
     //深蓝色块
     .bg1-div {
         height: 90px;
-        background-color: @text;
+        background-color: @dark;
     }
     //绿色块
     .bg2-div {
@@ -49,7 +49,7 @@ a {
     }
 
     &:hover {
-        color: @green-hover;
+        color: @green;
         text-decoration: none;
     }
 }
@@ -66,20 +66,12 @@ ul.list-none {
 
 /*字体*/
 .font-family {
-    font-family: WorkSans-Regular;
+    font-family: NunitoSans-Regular;
 }
 
 .font-family-bold {
     font-family: WorkSans-Bold;
     font-weight: bold;
-}
-
-.font-family-medium {
-    font-family: WorkSans-Regular;
-}
-
-.font-family-light {
-    font-family: WorkSans-Light
 }
 
 .font-family-semibold {
@@ -189,8 +181,8 @@ a[class|=btn] {
     .font-family;
     display: inline-block;
     font-weight: 600;
-    background: @btn-back;
-    color: @btn-text !important;
+    background: @green;
+    color: @white !important;
     border-radius: 0;
     min-width: 130px;
     padding: 12px 20px;
@@ -241,7 +233,7 @@ a[class|=btn] {
     transition: color .2s;
 
     &:hover {
-        color: @green-hover !important;
+        color: @green !important;
         text-shadow: 0 0 0.2px @green;
     }
 }
@@ -251,8 +243,8 @@ a[class|=btn] {
     font-size: 1rem;
     display: inline-block;
     font-weight: 600;
-    background: @btn-back;
-    color: @btn-text !important;
+    background: @green;
+    color: @white !important;
     border-radius: 0;
     min-width: 130px;
     padding: 10px 20px;
@@ -262,8 +254,8 @@ a[class|=btn] {
     cursor: pointer;
     text-align: center;
     background-color: @white !important;
-    color: @btn-back !important;
-    border: 1px solid @btn-back;
+    color: @green !important;
+    border: 1px solid @green;
     vertical-align: middle;
     margin-bottom: 5px;
 
@@ -280,10 +272,6 @@ a[class|=btn] {
 
 .green {
     color: @green !important;
-}
-
-.green2 {
-    color: @green2 !important;
 }
 
 .red {
@@ -311,32 +299,12 @@ a[class|=btn] {
 }
 
 .b4 {
-    background: @green2;
+    background: @green;
     color: @white !important;
 }
 
 .b5 {
     background-color: @gray3;
-}
-
-/*文本*/
-.tag {
-    margin-right: 1rem;
-    display: inline-block;
-    color: @text2;
-
-    span {
-        display: block;
-        color: @gray;
-    }
-
-    &:last-child {
-        margin-right: 0;
-    }
-
-    @media only screen and (max-width: 767px) {
-        min-width: 85px;
-    }
 }
 
 hr {
@@ -573,13 +541,13 @@ table, .table {
     .font-family;
     .bold;
     text-transform: uppercase;
-    color: @black;
+    color: @dark;
     background-color: @green;
     cursor: pointer;
 
     &.black {
         color: @green;
-        background-color: @black;
+        background-color: @dark;
     }
 }
 

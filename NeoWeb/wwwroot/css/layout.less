@@ -81,19 +81,17 @@
 
         a, span {
             display: inline-block;
-            color: @text;
+            color: @dark;
 
             &:hover {
-                color: @green;
+                text-decoration: underline;
 
                 @media only screen and (max-width: 991px) {
-                    color: @text;
                     background-color: rgba(128, 128, 128, .1);
                 }
             }
 
             @media only screen and (max-width: 991px) {
-                font-weight: bold;
                 padding: 0 2rem;
             }
         }
