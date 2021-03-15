@@ -95,7 +95,7 @@
     width: 278px;
 
     @media (max-width: 767.98px) {
-        width: unset;
+        width: auto;
     }
 }
 
@@ -163,7 +163,7 @@
     display: none;
 
     @media (max-width: 767.98px) {
-        display: unset;
+        display: inline;
     }
 }
 
@@ -172,7 +172,7 @@
     margin-left: 82px;
 
     @media (max-width: 767.98px) {
-        margin-left: unset;
+        margin-left: 0;
         margin-top: 12px;
     }
 }
@@ -302,6 +302,11 @@
 .overview-tutorial-img {
     width: 259px;
     height: 156px;
+
+    @media (max-width: 767.98px) {
+        width: 82px;
+        height: 72px;
+    }
 }
 
 .overview-tutorial-end {
@@ -361,7 +366,7 @@
     margin-top: 39px;
 
     @media (max-width: 767.98px) {
-        display: unset;
+        display: inline;
     }
 }
 
@@ -425,6 +430,11 @@
 .tool-img {
     width: 156px;
     height: 156px;
+
+    @media (max-width: 767.98px) {
+        width: 82px;
+        height: 72px;
+    }
 }
 
 .view-website {
@@ -508,6 +518,10 @@
     justify-content: flex-end;
     align-items: center;
     margin-top: 76px;
+
+    @media (max-width: 767.98px) {
+        margin-top: 39px;
+    }
 }
 
 .tutorials-filter-label {
@@ -516,11 +530,20 @@
     font-weight: 600;
     color: #000332;
     text-transform: uppercase;
+
+    @media (max-width: 767.98px) {
+        display: none;
+    }
 }
 
 .select-language {
     width: 195px;
     margin-left: 13px;
+
+    @media (max-width: 767.98px) {
+        margin-left: 0;
+        width: 100%;
+    }
 }
 
 .tutorials {
@@ -538,6 +561,32 @@
 .tutorial-img {
     width: 191px;
     height: 191px;
+
+
+    @media (max-width: 767.98px) {
+        width: 82px;
+        height: 72px;
+    }
+}
+
+.tutorial-start {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tutorial-left-type {
+    display: none;
+    margin-top: 16px;
+    font-size: 16px;
+    font-family: WorkSans-Bold, WorkSans;
+    font-weight: bold;
+    color: #000332;
+    text-transform: uppercase;
+
+    @media (max-width: 767.98px) {
+        display: block;
+    }
 }
 
 .tutorial-end {
@@ -552,10 +601,18 @@
 .tutorial-type-img {
     width: 39px;
     height: 39px;
+
+    @media (max-width: 767.98px) {
+        display: none;
+    }
 }
 
 .tutorial-header-middle {
     margin-left: 14px;
+
+    @media (max-width: 767.98px) {
+        margin-left: 0;
+    }
 }
 
 .tutorial-title {
@@ -582,6 +639,10 @@
     font-weight: bold;
     color: #000332;
     text-transform: uppercase;
+
+    @media (max-width: 767.98px) {
+        display: none;
+    }
 }
 
 .tutorial-description {

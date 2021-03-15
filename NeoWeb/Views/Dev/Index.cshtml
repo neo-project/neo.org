@@ -222,13 +222,17 @@
             <div class="tutorials-filter">
                 <span class="tutorials-filter-label">Filter by language</span>
                 <select class="select-language form-control">
+                    <option value="all">All Languages</option>
                     <option value="c#">C#</option>
                     <option value="java">Java</option>
                 </select>
             </div>
             <div class="tutorials">
                 <div class="tutorial">
-                    <img class="tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                    <div class="tutorial-start">
+                        <img class="tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                        <div class="tutorial-left-type">Tutorial</div>
+                    </div>
                     <div class="tutorial-end">
                         <div class="tutorial-header">
                             <img class="tutorial-type-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
@@ -250,7 +254,10 @@
                     </div>
                 </div>
                 <div class="tutorial">
-                    <img class="tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                    <div class="tutorial-start">
+                        <img class="tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                        <div class="tutorial-left-type">Tutorial</div>
+                    </div>
                     <div class="tutorial-end">
                         <div class="tutorial-header">
                             <img class="tutorial-type-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
@@ -272,7 +279,10 @@
                     </div>
                 </div>
                 <div class="tutorial">
-                    <img class="tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                    <div class="tutorial-start">
+                        <img class="tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                        <div class="tutorial-left-type">Tutorial</div>
+                    </div>
                     <div class="tutorial-end">
                         <div class="tutorial-header">
                             <img class="tutorial-type-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
@@ -316,6 +326,7 @@
                         $(menuPage).removeClass('active');
                     }
                 });
+                $('.select-menu-page').prop('selectedIndex', i);
             };
 
             $('.menu-item').each((i, menuItem) => {
@@ -345,12 +356,18 @@
                         $(tabPage).removeClass('active');
                     }
                 });
+                $('.select-tab-page').prop('selectedIndex', i);
             }
 
             $('.tab').each((i, tab) => {
                 $(tab).click(() => {
                     updateCurrentToolingPage(i);
                 });
+            });
+
+
+            $('.select-tab-page').change(e => {
+                updateCurrentToolingPage(e.target.selectedIndex);
             });
 
             updateCurrentToolingPage(0);
