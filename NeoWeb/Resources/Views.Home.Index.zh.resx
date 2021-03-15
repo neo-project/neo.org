@@ -132,7 +132,13 @@
   <data name="Decentralized Storage" xml:space="preserve">
     <value />
   </data>
+  <data name="Documentation" xml:space="preserve">
+    <value />
+  </data>
   <data name="Dual" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Example" xml:space="preserve">
     <value />
   </data>
   <data name="Find A Wallet" xml:space="preserve">
@@ -198,6 +204,9 @@
   <data name="One Block Finality" xml:space="preserve">
     <value />
   </data>
+  <data name="Resources" xml:space="preserve">
+    <value />
+  </data>
   <data name="Self-Sovereign ID" xml:space="preserve">
     <value />
   </data>
@@ -210,6 +219,9 @@
   <data name="Take Tour" xml:space="preserve">
     <value />
   </data>
+  <data name="Templates" xml:space="preserve">
+    <value />
+  </data>
   <data name="The Complete Blockchain Development Platform" xml:space="preserve">
     <value />
   </data>
@@ -217,6 +229,9 @@
     <value />
   </data>
   <data name="Tokens" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Tools" xml:space="preserve">
     <value />
   </data>
   <data name="View All" xml:space="preserve">

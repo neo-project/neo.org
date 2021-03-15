@@ -85,12 +85,12 @@
         </div>
         <div class="work-sans-bold get-started-wrapper">
             @{ string[,] getStartedItems = new string[4, 2]
-                   {
+     {
                                 { "Find A Neo Wallet", "/images/home/FindWallet.svg" },
                                 { "Learn about Neo & Gas Tokens", "/images/home/LearnTokens.svg" },
                                 { "Learn about Neo's Features", "/images/home/LearnFeatures.svg" },
                                 { "Read the Documentation", "/images/home/ReadDocumentation.svg" }
-       };
+        };
 
                 for (int i = 0; i < getStartedItems.GetLength(0); i++)
                 {
@@ -152,65 +152,94 @@
                     @Localizer["Write smart contracts in a language you already know, with tools you already love."]
                 </div>
                 <div class="language-list">
-                    <div class="language-wrapper selected">
+                    <div class="language-wrapper-highlight" data-lang="python">
                         <div class="language-name-wrapper">
-                            <img data-original="@Helper.ToCDN("/images/home/PythonHighlight.png")" />
+                            <img data-original="@Helper.ToCDN("/images/home/PythonDark.png")" />
                             <div class="language-name">Python</div>
                         </div>
-                        <img class="language-right-arrow" data-original="@Helper.ToCDN("/images/home/ChevronRight.png")" />
+                        <i class="iconfont language-right-arrow">&#xe6ab;</i>
+                    </div>
+                    <div class="language-wrapper d-none" data-lang="python">
+                        <div class="language-name-wrapper">
+                            <img data-original="@Helper.ToCDN("/images/home/Python.png")" />
+                            <div class="language-name">Python</div>
+                        </div>
+                    </div>
+
+                    <div class="language-wrapper-highlight d-none" data-lang="csharp">
+                        <div class="language-name-wrapper">
+                            <img data-original="@Helper.ToCDN("/images/home/CSharpDark.png")" />
+                            <div class="language-name">C#</div>
+                        </div>
+                        <i class="iconfont language-right-arrow">&#xe6ab;</i>
+                    </div>
+                    <div class="language-wrapper" data-lang="csharp">
+                        <div class="language-name-wrapper">
+                            <img data-original="@Helper.ToCDN("/images/home/CSharp.png")" />
+                            <div class="language-name">C#</div>
+                        </div>
+                    </div>
+
+                    <div class="language-wrapper-highlight d-none" data-lang="go">
+                        <div class="language-name-wrapper">
+                            <img data-original="@Helper.ToCDN("/images/home/GoDark.png")" />
+                            <div class="language-name">Go</div>
+                        </div>
+                        <i class="iconfont language-right-arrow">&#xe6ab;</i>
+                    </div>
+                    <div class="language-wrapper" data-lang="go">
+                        <div class="language-name-wrapper">
+                            <img data-original="@Helper.ToCDN("/images/home/Go.png")" />
+                            <div class="language-name">Go</div>
+                        </div>
+                    </div>
+
+                    <div class="language-wrapper-highlight d-none" data-lang="typescript">
+                        <div class="language-name-wrapper">
+                            <img data-original="@Helper.ToCDN("/images/home/TypescriptDark.png")" />
+                            <div class="language-name">Typescript</div>
+                        </div>
+                        <i class="iconfont language-right-arrow">&#xe6ab;</i>
+                    </div>
+                    <div class="language-wrapper" data-lang="typescript">
+                        <div class="language-name-wrapper">
+                            <img data-original="@Helper.ToCDN("/images/home/Typescript.png")" />
+                            <div class="language-name">Typescript</div>
+                        </div>
+                    </div>
+
+                    <div class="language-wrapper-highlight d-none" data-lang="java">
+                        <div class="language-name-wrapper">
+                            <img data-original="@Helper.ToCDN("/images/home/JavaDark.png")" />
+                            <div class="language-name">Java</div>
+                        </div>
+                        <i class="iconfont language-right-arrow">&#xe6ab;</i>
+                    </div>
+                    <div class="language-wrapper" data-lang="java">
+                        <div class="language-name-wrapper">
+                            <img data-original="@Helper.ToCDN("/images/home/Java.png")" />
+                            <div class="language-name">Java</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-6 col-right code-example-row">
             <div class="content-wrapper">
-                <div class="code-window">
-                    <div class="top-bar">
-                        <img class="dots"/>
-                    </div>
-                        <pre class="green code">
-                        <code>
-using Neo.SmartContract.Framework;
-
-[DisplayName("Nep17 example")]
-[ManifestExtra("Author", "Neo Core Dev")]
-public class Nep17Contract : SmartContract
-{
-    #region Token Settings
-    static readonly ulong TotalSupply = 10_000_000_000_000_000;
-    static readonly UInt160 Owner = "NdHjSPVnw99RDMCoJdCnAcjkE23gvqUeg2".ToScriptHash();
-    #endregion
-
-    #region Notifications
-    [DisplayName("Transfer")]
-
-    public static event Action<UInt160, UInt160, BigInteger>
-    OnTransfer;
-    #endregion
-
-    public static bool Transfer(UInt160 from, UInt160 to, BigInteger amount, object data)
-    {
-        if (!ValidateAddress(from) || !ValidateAddress(to)) throw new Exception("The parameters from and to SHOULD be 20-byte non-zero addresses.");
-        if (amount <= 0) throw new Exception("The parameter amount MUST be greater than 0.");
-        if (!Runtime.CheckWitness(from) && !from.Equals(ExecutionEngine.CallingScriptHash)) throw new Exception("No authorization.");
-        if (AssetStorage.Get(from) < amount) throw new Exception("Insufficient balance.");
-        if (from == to) return true;
-
-        AssetStorage.Reduce(from, amount);
-        AssetStorage.Increase(to, amount);
-
-        OnTransfer(from, to, amount);
-
-        // Validate payable
-        if (IsDeployed(to)) Contract.Call(to, "onPayment", new object[] { from, amount, data });
-        return true;
-    }
-}
-                        </code>
-                    </pre>
-                    <div class="bottom-bar">
-
-                    </div>
+                <div class="code-window" id="code-python">
+                    <partial name="./_CodePythonPartial" />
+                </div>
+                <div class="code-window d-none" id="code-csharp">
+                    <partial name="./_CodeCSharpPartial" />
+                </div>
+                <div class="code-window d-none" id="code-go">
+                    <partial name="./_CodeGoPartial" />
+                </div>
+                <div class="code-window d-none" id="code-typescript">
+                    <partial name="./_CodeTsPartial" />
+                </div>
+                <div class="code-window d-none" id="code-java">
+                    <partial name="./_CodeJavaPartial" />
                 </div>
             </div>
         </div>
@@ -303,21 +332,21 @@ public class Nep17Contract : SmartContract
                     <img class="learn-more-icon" data-original="@Helper.ToCDN("/images/home/Vote.svg")" />
                     <div class="font-family-bold item-wrapper">
                         <div>@Localizer["How to vote"]</div>
-                        <a><img class="nav-icon" data-original="@Helper.ToCDN("/images/home/ChevronRight.png")" /></a>
+                        <a><i class="iconfont nav-icon">&#xe6ab;</i></a>
                     </div>
                 </div>
                 <div class="learn-more-wrapper">
                     <img class="learn-more-icon" data-original="@Helper.ToCDN("/images/home/Register.svg")" />
                     <div class="font-family-bold item-wrapper">
                         <div>@Localizer["Register as a committee candidate"]</div>
-                        <a><img class="nav-icon" data-original="@Helper.ToCDN("/images/home/ChevronRight.png")" /></a>
+                        <a><i class="iconfont nav-icon">&#xe6ab;</i></a>
                     </div>
                 </div>
                 <div class="learn-more-wrapper">
                     <img class="learn-more-icon" data-original="@Helper.ToCDN("/images/home/Governance.svg")" />
                     <div class="font-family-bold item-wrapper">
                         <div>@Localizer["General guide to governance"]</div>
-                        <a><img class="nav-icon" data-original="@Helper.ToCDN("/images/home/ChevronRight.png")" /></a>
+                        <a><i class="iconfont nav-icon">&#xe6ab;</i></a>
                     </div>
                 </div>
             </div>
@@ -363,6 +392,18 @@ public class Nep17Contract : SmartContract
         $(document).ready(function () {
             $('map').imageMapResize();
         });
+
+        $(".language-wrapper").on("click", function () {
+            const lang = $(this).data("lang")
+
+            $(".language-wrapper-highlight").addClass("d-none")
+            $(".language-wrapper").removeClass("d-none")
+            $(this).addClass("d-none")
+            $(`.language-wrapper-highlight[data-lang="${lang}"]`).removeClass("d-none")
+
+            $(".code-window").addClass("d-none")
+            $(".code-window#code-" + lang).removeClass("d-none")
+        }) 
     </script>
 }
 

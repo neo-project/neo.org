@@ -61,6 +61,7 @@ html body {
   flex-direction: column;
   align-items: center;
   margin: 0;
+  background-color: #ffffff;
 }
 
 .col-left {
@@ -332,12 +333,51 @@ html body {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 2.5rem;
+        height: 2.375rem;
         background-color: #D8D1D1;
         border-radius: 17px 17px 0 0;
 
-        .dots {
+        .top-bar-dots {
+            display: flex;
+            align-items: center;
+        }
+
+        .top-bar-dot {
             height: 1rem;
+            width: 1rem;
+            border-radius: 1rem;
+            margin: 0 0.25rem;
+
+            &.left-dot {
+                background-color: @green;
+            }
+
+            &.middle-dot {
+                background-color: #12C4AB;
+            }
+
+            &.right-dot {
+                background-color: #06907D;
+            }
+        }
+
+        .top-bar-title {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 1.75rem 0 1.25rem;
+        }
+
+        .top-bar-icon {
+            height: 1.25rem;
+            margin-right: 0.5rem;
+        }
+
+        .top-bar-name {
+            .work-sans-semibold;
+            .uppercase;
+            color: @black1;
+            font-size: 1rem;
         }
     }
 
@@ -354,9 +394,46 @@ html body {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 0 1.375rem 0 1.75rem;
         height: 3.75rem;
         background-color: #D8D1D1;
         border-radius: 0 0 17px 17px;
+
+        .bottom-bar-title {
+            .work-sans-semibold;
+            .uppercase;
+            color: @black1;
+            font-size: 1rem;
+        }
+
+        .bottom-bar-buttons {
+            display:flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .bottom-bar-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 0.625rem;
+            padding: 0 1rem;
+            height: 2.25rem;
+            color: @black1;
+            .nunito-sans-bold;
+            font-size: 1rem;
+            border: 1px solid #010135;
+            border-radius: 4px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .button-icon {
+            margin-right: 0.5rem;
+            height: 1rem;
+        }
     }
 }
 
@@ -375,10 +452,21 @@ html body {
     padding: 0 1rem;
     height: 4rem;
     width: 20rem;
+    color: #A1B4BF;
     border-radius: 8px;
 
-    &.selected {
-        background-color: #E8ECF5;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.language-wrapper-highlight {
+    .language-wrapper;
+    color: #070E3A;
+    background-color: #E8ECF5;
+
+    &:hover {
+        cursor: unset;
     }
 }
 
@@ -387,7 +475,6 @@ html body {
     align-items: center;
     .work-sans-bold;
     .uppercase;
-    color: #070E3A;
     font-size: 1.125rem;
     line-height: 1.12;
 
@@ -398,7 +485,7 @@ html body {
 }
 
 .language-right-arrow {
-    height: 2rem;
+    font-size: 1.25rem;
 }
 
 
@@ -423,7 +510,7 @@ html body {
 
 .learn-more {
   margin-bottom: 22px;
-  color: #070e3a;
+  color: @black1;
   font-size: 1.125rem;
 }
 
@@ -658,14 +745,13 @@ html body {
   justify-content: space-between;
   align-items: center;
   width: 286px;
-  font-size: 18px;
-  color: #070e3a;
+  font-size: 1.125rem;
+  color: @black1;
   text-transform: uppercase;
 }
 
 .nav-icon {
-  width: 15px;
-  height: 23px;
+  font-size: 1.5rem;
 }
 
 .latest-news-row {
@@ -702,7 +788,7 @@ html body {
 .latest-news-subtitle {
   margin-bottom: 5.5rem;
   .nunito-sans-bold;
-  color: #070e3a;
+  color: @black1;
   font-size: 1.5rem;
 }
 
@@ -768,7 +854,7 @@ html body {
         max-height: 64px;
         .nunito-sans-bold;
         font-size: 1rem;
-        color: #070e3a;
+        color: @black1;
         line-height: 1.3125;
         text-overflow: ellipsis;
         overflow: hidden;
