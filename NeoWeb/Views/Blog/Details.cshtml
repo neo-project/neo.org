@@ -19,7 +19,7 @@
 }
 
 <div class="nav-area mt-5">
-    <div><i class="iconfont">&#xe618;</i><a asp-action="index" asp-controller="news">@Localizer["Back to list"]</a></div>
+    <div><i class="iconfont">&#xe618;</i><h4 class="d-inline"><a asp-action="index" asp-controller="news">@Localizer["Back to list"]</a></h4></div>
     <div class="text-right">
         @if (@ViewBag.PrevBlogId != Model.Id)
         {
@@ -32,7 +32,7 @@
     </div>
 </div>
 <hr />
-<div class="news-width">
+<div class="news-widthh pb-5">
     @if (!string.IsNullOrWhiteSpace(Model.Cover))
     {
         <div class="row d-block d-sm-none ">
@@ -43,7 +43,7 @@
     <div class="row">  
         <div class="col-md-12 col-lg-9">
             <article class="article">
-                <div class="article-time"><span>BLOG</span>@Model.CreateTime.Month.ToMonth() @Model.CreateTime.Day, @Model.CreateTime.Year</div>
+                <div class="article-time"><h4 class="d-inline">BLOG <span class="gray3">@Model.CreateTime.Month.ToMonth() @Model.CreateTime.Day, @Model.CreateTime.Year</span></h4></div>
                 <header><h2 class="article-title mt-4 with-space">@Model.Title</h2></header>
                 <section>
                     <div class="mt-5 with-space">
@@ -86,7 +86,7 @@
                     <div class="editor1">Tags:</div>
                     foreach (var tag in Model.Tags.Split(","))
                     {
-                        <a class="article-tag" href="/news?keywords=@tag">#@tag</a>
+                        <a class="article-tag1" href="/news?keywords=@tag">#@tag</a>
                     }
                 }
             </div>
@@ -118,10 +118,6 @@
         $('[data-original]').lazyload({
             threshold: 200,
             effect: "fadeIn"
-        });
-        //回到顶部
-        $('.back-to-top').click(function () {
-            $('html, body').animate({ scrollTop: 0 }, 500);
         });
     </script>
 }

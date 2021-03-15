@@ -1,11 +1,9 @@
 @import "basic.less";
 
-@nav-bar-height: 80px;
-
 .navbar {
     display: flex;
     align-items: center;
-    background-color: transparent;
+    background-color: @white;
     user-select: none;
     text-align: center;
     align-items: normal;
@@ -13,10 +11,6 @@
     -moz-user-select: none;
     -webkit-user-select: none;
     z-index: 1;
-
-    @media only screen and (max-width: 991px) {
-        padding: 10px 20px;
-    }
 
     & > a {
         padding: 6px 0;
@@ -113,8 +107,11 @@
     }
 
     .dropdown-menu {
-        background-color: transparent;
-        text-align: center;
+        text-align: left;
+
+        @media only screen and (max-width: 991px) {
+            text-align: center;
+        }
 
         a {
             &:hover, &:focus {
@@ -160,7 +157,32 @@
     }
 }
 
+//面包屑导航条
+.bread-crumb {
+    //深蓝色块
+    .bg1-div {
+        height: 90px;
+        background-color: @dark;
+    }
+    //绿色块
+    .bg2-div {
+        height: 90px;
+        background-color: @green;
+    }
+
+    .page-title {
+        font-size: 18px;
+    }
+
+    .text-div {
+        position: relative;
+        margin-top: -101px;
+    }
+}
+
 footer {
+    background-color: @dark;
+
     a.title {
         display: block;
         color: white;
@@ -172,7 +194,7 @@ footer {
         }
     }
 
-    a.sub-title {
+    a.footer-sub-title {
         display: block;
         color: #7f869a;
 

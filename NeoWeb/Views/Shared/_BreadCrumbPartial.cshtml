@@ -8,10 +8,12 @@
             <div class="col-4 bg1-div"></div>
             <div class="col-8 bg2-div"></div>
         </div>
-        <div class="text-div container">
-            <div class="mt-5 text-white bold text-uppercase">@(ViewData["ParentTitle"] ?? ViewData["Title"])</div>
-            <div class="mt-5">
-                <span class="green bold mb-4"><a asp-controller="home" asp-action="index">@SharedLocalizer["Home"]</a></span><span class="bold"> > @(ViewData["ParentTitle"] ?? ViewData["Title"])</span>
+        <div class="row">
+            <div class="text-div container">
+                <h4 class="mt-5 text-white bold text-uppercase">@(ViewData["ParentTitle"] ?? ViewData["Title"])</h4>
+                <div class="mt-5">
+                    <h4 class="green mb-4 d-inline"><a asp-controller="home" asp-action="index">@SharedLocalizer["Home"]</a></h4><h4 class="d-inline"> > @(ViewData["ParentTitle"] ?? ViewData["Title"])</h4>
+                </div>
             </div>
         </div>
     </div>

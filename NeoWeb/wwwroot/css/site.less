@@ -2,15 +2,15 @@
 @import 'layout.less';
 
 html {
-    font-size: @font !important;
+    font-size: 16px;
 }
 
 html body {
-    font-size: @font;
-    .font-family;
+    font-size: @font-size-4;
     line-height: 1.6;
-    background: @body;
     color: @dark;
+    background-color: @white;
+    .nunito-sans-regular;
 
     @media only screen and (max-width: 767px) {
         font-size: 15px;
@@ -20,28 +20,6 @@ html body {
 @media (min-width: 1600px) {
     .container, .container-sm, .container-md, .container-lg, .container-xl {
         max-width: 1417px;
-    }
-}
-
-.bread-crumb {
-    //深蓝色块
-    .bg1-div {
-        height: 90px;
-        background-color: @dark;
-    }
-    //绿色块
-    .bg2-div {
-        height: 90px;
-        background-color: @green;
-    }
-
-    .page-title {
-        font-size: 18px;
-    }
-
-    .text-div {
-        position: relative;
-        margin-top: -110px;
     }
 }
 
@@ -68,248 +46,7 @@ ul.list-none {
     }
 }
 
-/*字体*/
-.font-family {
-    font-family: NunitoSans-Regular;
-}
 
-.font-family-bold {
-    font-family: WorkSans-Bold;
-    font-weight: bold;
-}
-
-.font-family-semibold {
-    font-family: WorkSans-SemiBold;
-    font-weight: 600;
-}
-
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, p {
-    margin-bottom: 0px;
-    vertical-align: middle;
-}
-
-h1, .h1 {
-    .font-family-bold;
-    font-size: @t1;
-    line-height: 1.2;
-    letter-spacing: -2px;
-
-    @media only screen and (max-width: 767px) {
-        font-size: @t2;
-        letter-spacing: -1px;
-    }
-}
-
-h2, .h2 {
-    .font-family-bold;
-    font-size: @t2;
-    line-height: 1.3;
-    letter-spacing: .8px;
-
-    @media only screen and (max-width: 767px) {
-        font-size: @t3;
-        letter-spacing: -.6px;
-    }
-}
-
-h3, .h3 {
-    .font-family-bold;
-    font-size: @t3;
-    line-height: 1.3;
-    letter-spacing: -.8px;
-
-    @media only screen and (max-width: 767px) {
-        font-size: @t4;
-        letter-spacing: -.3px;
-    }
-}
-
-h4, .h4 {
-    .font-family-bold;
-    font-size: @t4;
-    line-height: 1.3;
-    letter-spacing: -.6px;
-
-    @media only screen and (max-width: 767px) {
-        font-size: @t5;
-        letter-spacing: -.3px;
-    }
-}
-
-h5, .h5 {
-    .font-family;
-    font-size: @t4;
-    line-height: 1.3;
-    letter-spacing: -.8px;
-
-    @media only screen and (max-width: 767px) {
-        font-size: @t5;
-        letter-spacing: -.2px;
-    }
-}
-
-h6, .h6 {
-    .font-family-bold;
-    font-size: @t5;
-    line-height: 1.5;
-
-    @media only screen and (max-width: 767px) {
-        letter-spacing: -.2px;
-    }
-}
-
-/*字体*/
-.bold {
-    font-family: 'WorkSans-SemiBold';
-}
-
-.bolder {
-    font-family: WorkSans-Bold;
-    font-weight: bolder;
-}
-
-.lighter {
-    font-family: WorkSans-Regular;
-    font-weight: lighter;
-}
-
-small, .small {
-    font-size: 80%;
-}
-
-/*button*/
-a[class|=btn] {
-}
-
-.btn {
-    .font-family;
-    display: inline-block;
-    font-weight: 600;
-    background: @green;
-    color: @white !important;
-    border-radius: 0;
-    min-width: 130px;
-    padding: 12px 20px;
-    border: none;
-    opacity: 1;
-    transition: opacity 0.2s;
-    cursor: pointer;
-    text-align: center;
-    margin-bottom: 5px;
-
-    &:hover {
-        .b3;
-        color: @white !important;
-    }
-
-    &:focus {
-        box-shadow: none;
-    }
-
-    @media only screen and (max-width: 767px) {
-        min-width: 100px;
-        padding: 5px 12px;
-    }
-}
-
-.b3, .bg1 {
-    .btn:hover, .btn1:hover {
-        background-color: @white !important;
-        color: @dark !important;
-    }
-}
-
-.btn1 {
-    .btn;
-    .b3;
-    color: @white !important;
-
-    &:hover {
-        .b4;
-    }
-}
-
-.btn2 {
-    .green;
-    float: right;
-    display: inline-block;
-    cursor: pointer;
-    transition: color .2s;
-
-    &:hover {
-        color: @green !important;
-        text-shadow: 0 0 0.2px @green;
-    }
-}
-
-.btn-focus, .btn-focus:hover, .btn-focus:focus, .btn-focus:active {
-    .font-family;
-    font-size: 1rem;
-    display: inline-block;
-    font-weight: 600;
-    background: @green;
-    color: @white !important;
-    border-radius: 0;
-    min-width: 130px;
-    padding: 10px 20px;
-    border: none;
-    opacity: 1;
-    transition: opacity 0.2s;
-    cursor: pointer;
-    text-align: center;
-    background-color: @white !important;
-    color: @green !important;
-    border: 1px solid @green;
-    vertical-align: middle;
-    margin-bottom: 5px;
-
-    @media only screen and (max-width: 767px) {
-        min-width: 100px;
-        padding: 3px 12px;
-    }
-}
-
-/*颜色*/
-.color-n {
-    color: @dark !important;
-}
-
-.green {
-    color: @green !important;
-}
-
-.red {
-    color: @red !important;
-}
-
-.gray {
-    color: @gray !important;
-}
-
-/*背景*/
-.b1 {
-    background: @linear;
-    color: @white !important;
-}
-
-.b2 {
-    background: @green;
-    color: @white !important;
-}
-
-.b3 {
-    background: @dark;
-    color: @dark-text !important;
-}
-
-.b4 {
-    background: @green;
-    color: @white !important;
-}
-
-.b5 {
-    background-color: @gray3;
-}
 
 hr {
     border-top: 1px solid rgba(150,150,150,.18);
@@ -371,25 +108,6 @@ hr.line {
 
 i.iconfont {
     font-style: normal;
-}
-
-.bg-img {
-    display: block;
-    width: 100%;
-    background-position: center;
-    background-size: cover;
-    animation: back-out ease-out 0.15s;
-
-    &::before {
-        content: " ";
-        display: block;
-        padding-top: 56.25%;
-    }
-
-    &:hover {
-        animation: back linear 0.25s;
-        animation-fill-mode: forwards;
-    }
 }
 
 .module {
@@ -455,8 +173,8 @@ i.iconfont {
 
         .module-img {
             float: none !important;
-            margin-top: @length4;
-            margin-bottom: @length7;
+            margin-top: @font-size-4;
+            margin-bottom: 8px;
         }
 
         .module-text {
@@ -468,6 +186,9 @@ i.iconfont {
             text-align: center;
         }
     }
+}
+.form-control {
+    .nunito-sans-bold;
 }
 
 table, .table {
@@ -542,8 +263,6 @@ table, .table {
     border-radius: 4px;
     font-size: 18px;
     line-height: 1.15;
-    .font-family;
-    .bold;
     text-transform: uppercase;
     color: @dark;
     background-color: @green;

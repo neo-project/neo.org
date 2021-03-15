@@ -1,39 +1,169 @@
-@t1: 5.619rem; /*h1 95.37*/
-@t2: 3.16rem; /*h2 53.67 - mobile - h1 47.36*/
-@t3: 2.37rem; /*h3 40.27 - mobile - h2 35.53*/
-@t4: 1.778rem; /*h4、h5 30.27 - mobile - h3 26.67*/
-@t5: 1.333rem; /*h6 22.67 - mobile - h4、h5、h6 20*/
-@t6: 1rem;
+/*字号*/
+@font-size-1: 5.75rem;
+@font-size-2: 2.25rem;
+@font-size-3: 1.75rem;
+@font-size-4: 1.25rem; 
+@font-size-5: 1.125rem;
 
-@length1: 116px;/**/
-@length2: 84px; /**/
-@length3: 52px; /**/
-@length4: 32px; /**/
-@length5: 20px; /**/
-@length6: 12px; /**/
-@length7: 8px; /**/
-@length8: 4px; /**/
+/*字体*/
+.work-sans-bold{
+    font-family: WorkSans-bold
+}
+.nunito-sans-extrabold {
+    font-family: NunitoSans-extrabold
+}
+.nunito-sans-bold {
+    font-family: NunitoSans-bold
+}
+.nunito-sans-regular {
+    font-family: NunitoSans-Regular
+}
+.work-sans-semibold {
+    font-family: WorkSans-semibold
+}
 
-@nav-bar-height: 80px;
-@font: 16px;
+h1, .h1 {
+    font-size: @font-size-1;
+    line-height: 0.92;
+    letter-spacing: -0.75px;
+    .work-sans-bold;
+}
 
-/*通用*/
+h2, .h2 {
+    font-size: @font-size-2;
+    line-height: 1.24;
+    letter-spacing: -0.29px;
+    .nunito-sans-extrabold;
+}
+
+h3, .h3 {
+    font-size: @font-size-3;
+    letter-spacing: -0.23px;
+    .nunito-sans-bold;
+}
+
+h4, .h4, h5, .h5, h6, .h6 {
+    font-size: @font-size-5;
+    line-height: 1.2;
+    letter-spacing: -0.15px;
+    .work-sans-bold;
+}
+
+small, .small {
+    font-size: 80%;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, p {
+    margin-bottom: 0px;
+    vertical-align: middle;
+}
+
+/*按钮*/
+.btn-1, .btn-2, .btn-3, .btn-4 {
+    display: inline-block;
+    line-height: 48px;
+    height: 50px;
+    border-radius: 0;
+    min-width: 235px;
+    transition: opacity 0.2s;
+    text-align: center;
+    cursor: pointer;
+    vertical-align: middle;
+    .work-sans-semibold;
+}
+
+.btn-1 {
+    background: #E9EEED;
+    color: @dark;
+    border: 1px solid #E9EEED;
+
+    &:hover, &:focus, &:active {
+        background: @white;
+        color: @dark;
+        border: 1px solid @dark;
+    }
+}
+
+.btn-2 {
+    background: @green;
+    color: @white;
+    border: 1px solid @green;
+
+    &:hover, &:focus, &:active {
+        background: @green;
+        color: @dark;
+        border: 1px solid @green;
+    }
+}
+
+.btn-3 {
+    background: @white;
+    color: @dark;
+    border: 1px solid @dark;
+
+    &:hover, &:focus, &:active {
+        background: @white;
+        color: @green;
+        border: 1px solid @green;
+    }
+}
+
+.btn-4 {
+    background: @dark;
+    color: @white;
+    border: 1px solid @dark;
+
+    &:hover, &:focus, &:active {
+        background: @dark;
+        color: @green;
+        border: 1px solid @dark;
+    }
+}
+
+.article-tag1 {
+    margin-right: .5rem;
+    display: inline-block;
+    font-size: 0.8rem;
+    color: @white;
+    border-radius: 11px;
+    padding: 2px 10px;
+    background-color: @dark;
+    cursor: pointer;
+
+    &:hover {
+        color: @green;
+        background-color: @dark;
+    }
+}
+
+.article-tag2 {
+    margin-right: .5rem;
+    display: inline-block;
+    font-size: 0.8rem;
+    color: @dark;
+    border-radius: 11px;
+    padding: 2px 10px;
+    background-color: @green;
+    cursor: pointer;
+
+    &:hover {
+        color: @white;
+        background-color: @green;
+    }
+}
+
+/*颜色*/
 @dark: #003;
-@dark-text: #fff;
-@linear: linear-gradient(172deg, #02e49b, #00bd9b);
-@linear2: linear-gradient(#02e49b, #02e49b);
-@body: #f9fafa;
+@white: #fff;
 @arrow: rgb(225,225,225);
 
-@linear-black: linear-gradient(180deg, #0F1E32 0%, #09131F 100%);
-@linear-green: linear-gradient(104deg, #00E599 0%, #00D18C 100%);
+@linear-black: linear-gradient(180deg, #0F1E32 0%, darken(#0F1E32, 40%) 100%);
+@linear-green: linear-gradient(104deg, @green 0%, darken(@green, 10%) 100%);
 
-/*常用绿色*/
 @green: #00E599;
 @green3: rgba(75, 197, 63,0.5);
 
 @red:#d00;
-@white: #fff;
 
 @line: rgba(200, 200, 200, 0.7);
 @line2: #ccc;
@@ -41,46 +171,27 @@
 
 @gray: #505050;
 @gray2: #f9fafa;
-@gray3: #f2f4f4;
+@gray3: #919191;
 
-.work-sans {
-    font-family: WorkSans-Regular;
+
+.green {
+    color: @green !important;
 }
 
-.work-sans-bold {
-    font-family: WorkSans-Bold;
+.red {
+    color: @red !important;
 }
 
-.work-sans-semibold {
-    font-family: WorkSans-SemiBold;
+.gray {
+    color: @gray !important;
 }
 
-.nunito-sans {
-    font-family: NunitoSans-Regular;
+.gray2 {
+    color: @gray2 !important;
 }
 
-.nunito-sans-bold {
-    font-family: NunitoSans-Bold;
-}
-
-.nunito-sans-semibold {
-    font-family: NunitoSans-SemiBold;
-}
-
-.lato-bold {
-    font-family: Lato-Bold;
-}
-
-.uppercase {
-    text-transform: uppercase;
-}
-
-.semibold {
-    font-weight: 600;
-}
-
-.bold {
-    font-weight: bold;
+.gray3 {
+    color: @gray3 !important;
 }
 
 .green {
@@ -89,4 +200,31 @@
 
 .black {
     color: @dark;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+
+
+
+
+.bg-img {
+    display: block;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    animation: back-out ease-out 0.15s;
+
+    &::before {
+        content: " ";
+        display: block;
+        padding-top: 56.25%;
+    }
+
+    &:hover {
+        animation: back linear 0.25s;
+        animation-fill-mode: forwards;
+    }
 }

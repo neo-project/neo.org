@@ -3,11 +3,10 @@
 .header-end {
     float: right;
     position: relative;
-    margin-top: -100px;
+    margin-top: -110px;
 }
 
 .platform-label {
-    color: #000332;
     font-family: WorkSans-SemiBold, WorkSans;
     font-weight: 600;
     font-size: 18px;
@@ -35,7 +34,6 @@
 }
 
 .introduction-title {
-    color: #070E3A;
     font-size: 92px;
     font-family: WorkSans-Bold, WorkSans;
     font-weight: bold;
@@ -53,7 +51,6 @@
     font-size: 20px;
     font-family: NunitoSans-Bold, NunitoSans;
     font-weight: bold;
-    color: #070E3A;
 }
 
 .learn-more {
@@ -73,7 +70,7 @@
 
 .divider {
     height: 2px;
-    background: #000332;
+    background: @dark;
 
 
     @media (max-width: 767.98px) {
@@ -114,7 +111,6 @@
     font-size: 18px;
     font-family: NunitoSans-Bold, NunitoSans;
     font-weight: bold;
-    color: #070E3A;
     cursor: pointer;
 
     &.active {
@@ -126,7 +122,7 @@
 .resources-start-divider {
     margin-top: 33px;
     height: 2px;
-    background: #000332;
+    background: @dark;
 
 
     @media (max-width: 767.98px) {
@@ -152,10 +148,10 @@
     font-size: 18px;
     font-family: NunitoSans-Bold, NunitoSans;
     font-weight: bold;
-    color: #070E3A;
+    color: @dark;
 
     &:hover {
-        color: #070E3A;
+        color: @dark;
     }
 }
 
@@ -186,19 +182,11 @@
     }
 }
 
-.menu-page-title {
-    font-size: 36px;
-    font-family: NunitoSans-ExtraBold, NunitoSans;
-    font-weight: 800;
-    color: #000332;
-}
-
 .menu-page-description {
     margin-top: 35px;
     font-size: 20px;
     font-family: NunitoSans-Bold, NunitoSans;
     font-weight: bold;
-    color: #070E3A;
 }
 
 .overview-links {
@@ -216,14 +204,14 @@
     align-items: center;
     height: 60px;
     padding: 0 23px;
-    border: 1px solid #010135;
+    border: 1px solid @dark;
     font-size: 18px;
     font-family: NunitoSans-ExtraBold, NunitoSans;
     font-weight: 800;
-    color: #000033;
+    color: @dark;
 
     &:hover {
-        color: #070E3A;
+        color: @dark;
     }
 }
 
@@ -242,7 +230,7 @@
 .documentation {
     display: flex;
     padding: 0 19px 19px;
-    background: #000033;
+    background: @dark;
 
     @media (max-width: 767.98px) {
         flex: 1;
@@ -260,7 +248,7 @@
     font-size: 18px;
     font-family: NunitoSans-Bold, NunitoSans;
     font-weight: bold;
-    color: #FFFFFF;
+    color: @white;
     line-height: 18px;
 }
 
@@ -272,7 +260,7 @@
 .menu-page-divider {
     margin-top: 61px;
     height: 1px;
-    background: #000332;
+    background: @dark;
 
     @media (max-width: 767.98px) {
         height: 2px;
@@ -284,7 +272,6 @@
     font-size: 22px;
     font-family: WorkSans-Bold, WorkSans;
     font-weight: bold;
-    color: #000332;
 }
 
 .overview-tutorials {
@@ -317,7 +304,6 @@
     font-size: 20px;
     font-family: WorkSans-SemiBold, WorkSans;
     font-weight: 600;
-    color: #000332;
 }
 
 .overview-tutorial-author {
@@ -354,7 +340,7 @@
 
 .tabs {
     display: flex;
-    border-bottom: 2px solid #000332;
+    border-bottom: 2px solid @dark;
 
     @media (max-width: 767.98px) {
         display: none;
@@ -380,9 +366,10 @@
     font-weight: bold;
     color: #070E3A;
     overflow: hidden;
+    cursor: pointer;
 
     &.active {
-        border-bottom: 5px solid #000332;
+        border-bottom: 5px solid @dark;
     }
 }
 
@@ -399,7 +386,6 @@
     font-size: 22px;
     font-family: WorkSans-Bold, WorkSans;
     font-weight: bold;
-    color: #000332;
     text-transform: uppercase;
 }
 
@@ -461,7 +447,6 @@
     font-size: 18px;
     font-family: WorkSans-Bold, WorkSans;
     font-weight: bold;
-    color: #000332;
 }
 
 .tool-language {
@@ -470,11 +455,11 @@
     padding: 0 24px;
     height: 24px;
     border-radius: 11px;
-    background: #000332;
+    background: @dark;
     font-size: 12px;
     font-family: WorkSans-SemiBold, WorkSans;
     font-weight: 600;
-    color: #FFFFFF;
+    color: @white;
 
     @media (max-width: 767.98px) {
         display: none;
@@ -488,11 +473,11 @@
     padding: 0 24px;
     border-radius: 11px;
     margin-top: 24px;
-    background: #000332;
+    background: @dark;
     font-size: 12px;
     font-family: WorkSans-SemiBold, WorkSans;
     font-weight: 600;
-    color: #FFFFFF;
+    color: @white;
 
     @media (max-width: 767.98px) {
         display: inline-flex;
@@ -528,7 +513,6 @@
     font-size: 18px;
     font-family: WorkSans-SemiBold, WorkSans;
     font-weight: 600;
-    color: #000332;
     text-transform: uppercase;
 
     @media (max-width: 767.98px) {
@@ -581,7 +565,6 @@
     font-size: 16px;
     font-family: WorkSans-Bold, WorkSans;
     font-weight: bold;
-    color: #000332;
     text-transform: uppercase;
 
     @media (max-width: 767.98px) {
@@ -619,7 +602,6 @@
     font-size: 20px;
     font-family: WorkSans-SemiBold, WorkSans;
     font-weight: 600;
-    color: #000332;
 }
 
 .tutorial-author {
@@ -637,7 +619,6 @@
     font-size: 16px;
     font-family: WorkSans-Bold, WorkSans;
     font-weight: bold;
-    color: #000332;
     text-transform: uppercase;
 
     @media (max-width: 767.98px) {
@@ -650,26 +631,4 @@
     font-family: NunitoSans-SemiBold, NunitoSans;
     font-weight: 600;
     color: #070E3A;
-}
-
-.tutorial-languages {
-    display: flex;
-}
-
-.tutorial-language {
-    display: flex;
-    align-items: center;
-    padding: 0 24px;
-    height: 24px;
-    margin-top: 16px;
-    border-radius: 11px;
-    background: #000332;
-    font-size: 12px;
-    font-family: WorkSans-SemiBold, WorkSans;
-    font-weight: 600;
-    color: #FFFFFF;
-
-    &:nth-child(n+2) {
-        margin-left: 11px;
-    }
 }
