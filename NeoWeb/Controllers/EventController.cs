@@ -123,10 +123,10 @@ namespace NeoWeb.Controllers
                 if (isTop != null)
                 {
                     _context.Top.ToList().ForEach(p => _context.Top.Remove(p));
-                    _context.Add(new Top() { ItemId = evt.Id, Type = DiscoverViewModelType.Event });
+                    _context.Add(new Top() { ItemId = evt.Id, Type = NewsViewModelType.Event });
                 }
                 await _context.SaveChangesAsync();
-                return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.Event });
+                return RedirectToAction("index", "news", new { type = NewsViewModelType.Event });
             }
             ViewBag.Countries = _context.Countries.Select(c => new SelectListItem { Value = c.Id.ToString(), Text = $"{c.Name} - {c.ZhName}" }).ToList();
             return View(evt);
@@ -214,7 +214,7 @@ namespace NeoWeb.Controllers
                     if (isTop != null)
                     {
                         _context.Top.ToList().ForEach(p => _context.Top.Remove(p));
-                        _context.Add(new Top() { ItemId = evt.Id, Type = DiscoverViewModelType.Event });
+                        _context.Add(new Top() { ItemId = evt.Id, Type = NewsViewModelType.Event });
                     }
                     await _context.SaveChangesAsync();
                 }
@@ -261,7 +261,7 @@ namespace NeoWeb.Controllers
             var @event = await _context.Events.SingleOrDefaultAsync(m => m.Id == id);
             _context.Events.Remove(@event);
             await _context.SaveChangesAsync();
-            return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.Event });
+            return RedirectToAction("index", "news", new { type = NewsViewModelType.Event });
         }
 
         private bool EventExists(int id)

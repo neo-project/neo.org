@@ -15,11 +15,11 @@
 }
 
 @section Styles{
-    <link rel="stylesheet" href="@Helper.ToCDN("/css/discover.min.css", true)" />
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/news.min.css", true)" />
 }
 
 <div class="nav-area mt-5">
-    <div><i class="iconfont">&#xe618;</i><a asp-action="index" asp-controller="discover">@Localizer["Back to list"]</a></div>
+    <div><i class="iconfont">&#xe618;</i><a asp-action="index" asp-controller="news">@Localizer["Back to list"]</a></div>
     <div class="text-right">
         @if (@ViewBag.PrevBlogId != Model.Id)
         {
@@ -32,7 +32,7 @@
     </div>
 </div>
 <hr />
-<div class="discover-width">
+<div class="news-width">
     @if (!string.IsNullOrWhiteSpace(Model.Cover))
     {
         <div class="row d-block d-sm-none ">
@@ -86,7 +86,7 @@
                     <div class="editor1">Tags:</div>
                     foreach (var tag in Model.Tags.Split(","))
                     {
-                        <a class="article-tag" href="/discover?keywords=@tag">#@tag</a>
+                        <a class="article-tag" href="/news?keywords=@tag">#@tag</a>
                     }
                 }
             </div>

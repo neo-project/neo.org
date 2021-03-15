@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 
 namespace NeoWeb.Models
 {
-    public class DiscoverViewModel
+    public class NewsViewModel
     {
-        public DiscoverViewModelType Type { get; set; }
+        public NewsViewModelType Type { get; set; }
 
         public DateTime Time { get; set; }
 
@@ -12,24 +12,24 @@ namespace NeoWeb.Models
         public EventViewModel Event { get; set; }
         public MediaViewModel News { get; set; }
 
-        public DiscoverViewModel()
+        public NewsViewModel()
         { }
 
-        public DiscoverViewModel(DiscoverViewModelType type, object data, bool isZh)
+        public NewsViewModel(NewsViewModelType type, object data, bool isZh)
         {
             try
             {
                 switch (type)
                 {
-                    case DiscoverViewModelType.Blog:
+                    case NewsViewModelType.Blog:
                         Blog = new BlogViewModel((Blog)data, isZh);
                         Time = Blog.CreateTime;
                         break;
-                    case DiscoverViewModelType.Event:
+                    case NewsViewModelType.Event:
                         Event = new EventViewModel((Event)data, isZh);
                         Time = Event.StartTime;
                         break;
-                    case DiscoverViewModelType.Media:
+                    case NewsViewModelType.Media:
                         News = new MediaViewModel((Media)data, isZh);
                         Time = News.Time;
                         break;
@@ -46,7 +46,7 @@ namespace NeoWeb.Models
         }
     }
 
-    public enum DiscoverViewModelType
+    public enum NewsViewModelType
     {
         Blog = 1,
         Event = 2,

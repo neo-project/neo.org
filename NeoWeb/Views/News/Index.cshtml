@@ -1,4 +1,4 @@
-@model IEnumerable<NeoWeb.Models.DiscoverViewModel>
+@model IEnumerable<NeoWeb.Models.NewsViewModel>
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @{
@@ -6,14 +6,14 @@
 }
 
 @section Styles{
-    <link rel="stylesheet" href="@Helper.ToCDN("/css/discover.min.css", true)" />
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/news.min.css", true)" />
 }
 
 @if (ViewBag.Ontop != null)
 {
     <div class="py-5">
-        <div class="row align-items-center discover-top">
-            @{await Html.RenderPartialAsync("_TopPartial", (ViewBag.Ontop as DiscoverViewModel));}
+        <div class="row align-items-center news-top">
+            @{await Html.RenderPartialAsync("_TopPartial", (ViewBag.Ontop as NewsViewModel));}
         </div>
     </div>
 }

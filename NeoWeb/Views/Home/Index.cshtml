@@ -1,4 +1,4 @@
-@model List<DiscoverViewModel>
+@model List<NewsViewModel>
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
@@ -33,34 +33,37 @@
         </div>
     </div>
 
-    <div class="row horiz-row">
-        <div class="work-sans-bold aio-title @SharedLocalizer["d-none-zh"]">
-            <span class="green">All</span> in One - <span class="green">All</span> in Neo
-        </div>
-        <div class="work-sans-bold aio-title @SharedLocalizer["d-none"]">
-            <span class="green">All</span> in One - <span class="green">All</span> in Neo
-        </div>
-        <div class="highlight-container">
-            @{ string[,] highlightItems = new string[9, 2] {
-                    { "Interoperability", "/images/home/Interoperability.svg" },
-                    { "Native Oracles", "/images/home/NativeOracles.svg" },
-                    { "Self-Sovereign ID", "/images/home/Self-SovereignID.png" },
-                    { "Decentralized Storage", "/images/home/DecentralizedStorage.svg" },
-                    { "Native Name Service", "/images/home/NativeNameService.svg" },
-                    { "One Block Finality", "/images/home/OneBlockFinality.svg" },
-                    { "Best-In-Class Tooling", "/images/home/BestInClassTooling.svg" },
-                    { "Smart Contracts", "/images/home/SmartContracts.svg" },
-                    { "Multi-Language", "/images/home/Multi-Language.png" }
+    <div class="row horiz-row aio-row">
+        <div class="col-12 col-md-12">
+            <div class="work-sans-bold aio-title @SharedLocalizer["d-none-zh"]">
+                <span class="green">All</span> in One - <span class="green">All</span> in Neo
+            </div>
+            <div class="work-sans-bold aio-title @SharedLocalizer["d-none"]">
+                <span class="green">All</span> in One - <span class="green">All</span> in Neo
+            </div>
+            <div class="highlight-container">
+                @{ string[,] highlightItems = new string[9, 2] {
+                                            { "Interoperability", "/images/home/Interoperability.svg" },
+                                            { "Native Oracles", "/images/home/NativeOracles.svg" },
+                                            { "Self-Sovereign ID", "/images/home/Self-SovereignID.png" },
+                                            { "Decentralized Storage", "/images/home/DecentralizedStorage.svg" },
+                                            { "Native Name Service", "/images/home/NativeNameService.svg" },
+                                            { "One Block Finality", "/images/home/OneBlockFinality.svg" },
+                                            { "Best-In-Class Tooling", "/images/home/BestInClassTooling.svg" },
+                                            { "Smart Contracts", "/images/home/SmartContracts.svg" },
+                                            { "Multi-Language", "/images/home/Multi-Language.png" }
             };
 
-                for (int i = 0; i < highlightItems.GetLength(0); i++)
-                {
-    <div class="highlight-wrapper">
-        <img class="highlight-img png" data-original="@Helper.ToCDN(highlightItems[i, 1])" />
-        <div class="work-sans-bold uppercase highlight-name">@Localizer[highlightItems[i, 0]]</div>
-    </div> } }
+                    for (int i = 0; i < highlightItems.GetLength(0); i++)
+                    {
+        <div class="highlight-wrapper">
+            <img class="highlight-img png" data-original="@Helper.ToCDN(highlightItems[i, 1])" />
+            <div class="work-sans-bold uppercase highlight-name">@Localizer[highlightItems[i, 0]]</div>
+        </div> } }
+            </div>
         </div>
     </div>
+
 
     <div class="row horiz-row get-started-row">
         <div class="work-sans-bold type-text">
@@ -82,12 +85,12 @@
         </div>
         <div class="work-sans-bold get-started-wrapper">
             @{ string[,] getStartedItems = new string[4, 2]
-                 {
-                        { "Find A Neo Wallet", "/images/home/FindWallet.svg" },
-                        { "Learn about Neo & Gas Tokens", "/images/home/LearnTokens.svg" },
-                        { "Learn about Neo's Features", "/images/home/LearnFeatures.svg" },
-                        { "Read the Documentation", "/images/home/ReadDocumentation.svg" }
-             };
+                   {
+                                { "Find A Neo Wallet", "/images/home/FindWallet.svg" },
+                                { "Learn about Neo & Gas Tokens", "/images/home/LearnTokens.svg" },
+                                { "Learn about Neo's Features", "/images/home/LearnFeatures.svg" },
+                                { "Read the Documentation", "/images/home/ReadDocumentation.svg" }
+       };
 
                 for (int i = 0; i < getStartedItems.GetLength(0); i++)
                 {
@@ -97,6 +100,119 @@
         </div>
         <img class="card-img" data-original="@Helper.ToCDN(getStartedItems[i, 1])" />
     </div> } }
+        </div>
+    </div>
+
+    <div class="row horiz-row building-blocks-row">
+        <div class="building-blocks-title @SharedLocalizer["d-none-zh"]">
+            <span class="green">
+                @Localizer["Building Blocks"]
+            </span> @Localizer["for the Next Generation Internet"]
+        </div>
+        <div class="building-blocks-title @SharedLocalizer["d-none"]">
+            <span class="green">
+                @Localizer["Building Blocks"]
+            </span> @Localizer["for the Next Generation Internet"]
+        </div>
+        <div class="building-blocks-subtitle @SharedLocalizer["d-none-zh"]">
+            @Localizer["Neo provides a full stack of features out of the box, but doesn't keep you boxed in."]
+        </div>
+        <div class="building-blocks-subtitle @SharedLocalizer["d-none"]">
+            @Localizer["Neo provides a full stack of features out of the box, but doesn't keep you boxed in."]
+        </div>
+        <div class="building-blocks-body @SharedLocalizer["d-none-zh"]">
+            @Localizer["Native functionality provides all the infrustructures you need to build complete decentralized applications, while advanced interoperabilty allows you to harness the power of the global blockchain ecosystem."]
+        </div>
+        <div class="building-blocks-body @SharedLocalizer["d-none"]">
+            @Localizer["Native functionality provides all the infrustructures you need to build complete decentralized applications, while advanced interoperabilty allows you to harness the power of the global blockchain ecosystem."]
+        </div>
+
+        <img class="blocks-img" usemap="#blocksmap" data-original="@Helper.ToCDN("/images/home/BuildingBlocks.png")">
+        <map name="blocksmap">
+            <area shape="rect" coords="125 20 800 325" title="Neo Name Service" alt="Neo Name Service" href="https://www.google.com" />
+            <area shape="rect" coords="0 450 500 700" title="Neo ID" alt="Neo ID" href="https://www.google.com" />
+            <area shape="rect" coords="275 950 925 1200" title="Interoperability" alt="Interoperability" href="https://www.google.com" />
+            <area shape="rect" coords="1100 1225 1725 1450" title="One Block Finality" alt="One Block Finality" href="https://www.google.com" />
+            <area shape="rect" coords="1900 950 2450 1175" title="Smart Contracts" alt="Smart Contracts" href="https://www.google.com" />
+            <area shape="rect" coords="2375 425 2875 675" title="Neo ID" alt="Neo ID" href="https://www.google.com" />
+            <area shape="rect" coords="2000 50 2600 275" title="Neo Name Service" alt="Neo Name Service" href="https://www.google.com" />
+        </map>
+    </div>
+
+    <div class="row dual-row code-example-row">
+        <div class="col-12 col-lg-6 col-left code-example-row">
+            <div class="content-wrapper">
+                <div class="code-example-title @SharedLocalizer["d-none-zh"]">
+                    <span class="green">@Localizer["Blockchain"]</span> @Localizer["You Know"]
+                </div>
+                <div class="code-example-title @SharedLocalizer["d-none"]">
+                    <span class="green">@Localizer["Blockchain"]</span> @Localizer["You Know"]
+                </div>
+                <div class="code-example-subtitle">
+                    @Localizer["Write smart contracts in a language you already know, with tools you already love."]
+                </div>
+                <div class="language-list">
+                    <div class="language-wrapper selected">
+                        <div class="language-name-wrapper">
+                            <img data-original="@Helper.ToCDN("/images/home/PythonHighlight.png")" />
+                            <div class="language-name">Python</div>
+                        </div>
+                        <img class="language-right-arrow" data-original="@Helper.ToCDN("/images/home/ChevronRight.png")" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-right code-example-row">
+            <div class="content-wrapper">
+                <div class="code-window">
+                    <div class="top-bar">
+                        <img class="dots"/>
+                    </div>
+                        <pre class="green code">
+                        <code>
+using Neo.SmartContract.Framework;
+
+[DisplayName("Nep17 example")]
+[ManifestExtra("Author", "Neo Core Dev")]
+public class Nep17Contract : SmartContract
+{
+    #region Token Settings
+    static readonly ulong TotalSupply = 10_000_000_000_000_000;
+    static readonly UInt160 Owner = "NdHjSPVnw99RDMCoJdCnAcjkE23gvqUeg2".ToScriptHash();
+    #endregion
+
+    #region Notifications
+    [DisplayName("Transfer")]
+
+    public static event Action<UInt160, UInt160, BigInteger>
+    OnTransfer;
+    #endregion
+
+    public static bool Transfer(UInt160 from, UInt160 to, BigInteger amount, object data)
+    {
+        if (!ValidateAddress(from) || !ValidateAddress(to)) throw new Exception("The parameters from and to SHOULD be 20-byte non-zero addresses.");
+        if (amount <= 0) throw new Exception("The parameter amount MUST be greater than 0.");
+        if (!Runtime.CheckWitness(from) && !from.Equals(ExecutionEngine.CallingScriptHash)) throw new Exception("No authorization.");
+        if (AssetStorage.Get(from) < amount) throw new Exception("Insufficient balance.");
+        if (from == to) return true;
+
+        AssetStorage.Reduce(from, amount);
+        AssetStorage.Increase(to, amount);
+
+        OnTransfer(from, to, amount);
+
+        // Validate payable
+        if (IsDeployed(to)) Contract.Call(to, "onPayment", new object[] { from, amount, data });
+        return true;
+    }
+}
+                        </code>
+                    </pre>
+                    <div class="bottom-bar">
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -220,9 +336,9 @@
             </div>
             <div class="latest-news-subtitle">@Localizer["Keep up to date"]</div>
             <div class="news-list">
-                @{await Html.RenderPartialAsync("./_DiscoverPartial", Model);}
+                @{await Html.RenderPartialAsync("./_NewsPartial", Model);}
             </div>
-            <a asp-controller="discover" asp-action="index" class="btn-n3 black view-all-btn">@Localizer["View All"]</a>
+            <a asp-controller="news" asp-action="index" class="btn-n3 black view-all-btn">@Localizer["View All"]</a>
         </div>
     </div>
 </div>
@@ -239,6 +355,13 @@
             loop: true,
             cursorChar: '_',
             shuffle: true,
+        });
+    </script>
+
+    <script src="@Helper.ToCDN("/lib/image-map-resizer/js/imageMapResizer.js")"></script>
+    <script>
+        $(document).ready(function () {
+            $('map').imageMapResize();
         });
     </script>
 }
