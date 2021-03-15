@@ -9,18 +9,18 @@
 }
 <div class="header-end form-inline">
     <span class="platform-label">Platform</span>
-    <select class="select-platform form-control" id="select">
+    <select class="select-platform form-control">
         <option value="neo2">Neo Legacy</option>
         <option value="neo3">N3</option>
     </select>
 </div>
-<div class="news">
-    <div class="news-start">
-        <div class="news-title"><em>Neo</em><br />is getting<br />an upgrade</div>
-        <div class="news-content">After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date.</div>
+<div class="introduction">
+    <div class="introduction-start">
+        <div class="introduction-title"><em>Neo</em><br />is getting<br />an upgrade</div>
+        <div class="introduction-content">After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date.</div>
         <a class="learn-more btn" target="_blank" href="https://github.com/neo-project">Learn More</a>
     </div>
-    <img class="news-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+    <img class="introduction-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
 </div>
 
 <div class="divider"></div>
@@ -41,10 +41,22 @@
                 <img data-original="@Helper.ToCDN("/images/dev/chevron_right.png", true)" />
             </div>
         </div>
-        <div class="links" href="">
-            <a class="link" target="_blank" href="https://github.com/neo-project">GitHub</a>
-            <a class="link" target="_blank" href="https://github.com/neo-project">Documentation</a>
+        <div class="resources-start-divider"></div>
+        <div class="links">
+            <a class="link" target="_blank" href="https://github.com/neo-project">
+                GitHub
+                <img data-original="@Helper.ToCDN("/images/dev/external_link.png", true)" />
+            </a>
+            <a class="link" target="_blank" href="https://github.com/neo-project">
+                Documentation
+                <img data-original="@Helper.ToCDN("/images/dev/external_link.png", true)" />
+            </a>
         </div>
+        <select class="select-menu-page form-control">
+            <option>Overview</option>
+            <option>Tooling</option>
+            <option>Example & Tutorials</option>
+        </select>
     </div>
 
     <div class="resources-end">
@@ -53,24 +65,34 @@
             <div class="menu-page-description">
                 After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date.
             </div>
+            <div class="overview-links">
+                <a class="overview-link" target="_blank" href="https://github.com/neo-project">GitHub</a>
+                <a class="overview-link" target="_blank" href="https://github.com/neo-project">Documentation</a>
+            </div>
 
-            <div class="features">
-                <div class="feature">
-                    <img class="feature-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-                    <div class="feature-text">Learn about N3 Features</div>
+            <div class="documentations">
+                <div class="documentation">
+                    <div class="documentation-bookmark"></div>
+                    <div class="documentation-title">Documentation</div>
+                    <div class="flex-grow-1"></div>
+                    <img class="documentation-img" data-original="@Helper.ToCDN("/images/dev/documentation.png", true)"/>
                 </div>
-                <div class="feature">
-                    <img class="feature-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-                    <div class="feature-text">Learn about N3 Features</div>
+                <div class="documentation">
+                    <div class="documentation-bookmark"></div>
+                    <div class="documentation-title">Documentation</div>
+                    <div class="flex-grow-1"></div>
+                    <img class="documentation-img" data-original="@Helper.ToCDN("/images/dev/documentation.png", true)"/>
                 </div>
-                <div class="feature">
-                    <img class="feature-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-                    <div class="feature-text">Learn about N3 Features</div>
+                <div class="documentation">
+                    <div class="documentation-bookmark"></div>
+                    <div class="documentation-title">Documentation</div>
+                    <div class="flex-grow-1"></div>
+                    <img class="documentation-img" data-original="@Helper.ToCDN("/images/dev/documentation.png", true)"/>
                 </div>
             </div>
 
             <div class="menu-page-divider"></div>
-            <div class="menu-page-secondary-title">featured tutorials</div>
+            <div class="menu-page-secondary-title">Featured Tutorials</div>
             <div class="overview-tutorials">
                 <div class="overview-tutorial">
                     <img class="overview-tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
@@ -119,6 +141,14 @@
                 <span class="tab">SDK</span>
                 <span class="tab">dApp Integration</span>
             </div>
+            <select class="select-tab-page form-control">
+                <option>Nodes</option>
+                <option>Explorers</option>
+                <option>Smart Contract Compilers</option>
+                <option>Smart Contract Dev & Debug</option>
+                <option>SDK</option>
+                <option>dApp Integration</option>
+            </select>
             <div class="tab-page active">
                 <div class="tab-page-title">Explorers</div>
                 <div class="tools">
@@ -134,6 +164,7 @@
                             </div>
                             <div class="tool-developer">Developer name</div>
                             <div class="tool-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. </div>
+                            <div class="tool-bottom-language">Java</div>
                         </div>
                     </div>
                     <div class="tool">
@@ -148,6 +179,7 @@
                             </div>
                             <div class="tool-developer">Developer name</div>
                             <div class="tool-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. </div>
+                            <div class="tool-bottom-language">Java</div>
                         </div>
                     </div>
                     <div class="tool">
@@ -162,6 +194,7 @@
                             </div>
                             <div class="tool-developer">Developer name</div>
                             <div class="tool-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. </div>
+                            <div class="tool-bottom-language">Java</div>
                         </div>
                     </div>
                 </div>
@@ -188,7 +221,7 @@
             </div>
             <div class="tutorials-filter">
                 <span class="tutorials-filter-label">Filter by language</span>
-                <select class="select-language form-control" id="select">
+                <select class="select-language form-control">
                     <option value="c#">C#</option>
                     <option value="java">Java</option>
                 </select>
@@ -291,7 +324,11 @@
                 });
             });
 
-            updateCurrentPage(2);
+            $('.select-menu-page').change(e => {
+                updateCurrentPage(e.target.selectedIndex);
+            });
+
+            updateCurrentPage(0);
 
             function updateCurrentToolingPage(i) {
                 $('.tab').each((j, tab) => {
