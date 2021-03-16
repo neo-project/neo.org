@@ -108,6 +108,7 @@
     align-items: center;
     padding: 12px 16px;
     border-left: 5px solid transparent;
+    color: @dark;
     font-size: 18px;
     font-family: NunitoSans-Bold, NunitoSans;
     font-weight: bold;
@@ -174,12 +175,8 @@
 }
 
 .menu-page {
-    display: none;
+    display: flex;
     flex-direction: column;
-
-    &.active {
-        display: flex;
-    }
 }
 
 .menu-page-description {
@@ -631,4 +628,26 @@
     font-family: NunitoSans-SemiBold, NunitoSans;
     font-weight: 600;
     color: #070E3A;
+}
+
+.tutorial-languages {
+    display: flex;
+}
+
+.tutorial-language {
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    height: 24px;
+    margin-top: 16px;
+    border-radius: 11px;
+    background: #000332;
+    font-size: 12px;
+    font-family: WorkSans-SemiBold, WorkSans;
+    font-weight: 600;
+    color: #FFFFFF;
+
+    &:nth-child(n+2) {
+        margin-left: 11px;
+    }
 }
