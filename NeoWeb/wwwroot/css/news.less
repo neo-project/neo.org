@@ -217,6 +217,25 @@ article {
         }
     }
 }
+.bg-img {
+    display: block;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    animation: back-out ease-out 0.15s;
+
+    &::before {
+        content: " ";
+        display: block;
+        padding-top: 56.25%;
+    }
+
+    &:hover {
+        animation: back linear 0.25s;
+        animation-fill-mode: forwards;
+    }
+}
+
 .list2 {
     margin-bottom: @font-size-4;
 
@@ -225,7 +244,10 @@ article {
         list-style: none;
 
         a.img {
-            .bg-img;
+            .bg-img {
+                
+            }
+
             border: 1px solid @custom6;
         }
 
@@ -239,9 +261,7 @@ article {
 
                 &.img {
                     .bg-img;
-                    border: 1px solid @custom6;
                 }
-
 
                 &:hover {
                     text-shadow: 0 0 .1px @dark-blue;
