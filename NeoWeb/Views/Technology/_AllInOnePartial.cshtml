@@ -1,0 +1,39 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+<h2 class="menu-page-title">All in one</h2>
+<div class="menu-page-description">
+    <span class="bold">
+        The blockchain sphere has evolved tremendously over the past few years. As one of the most important domains within this space, the competition among public blockchains is more intensified than ever on multiple fronts: performance, developer experience, infrastructure, ecosystem and etc.
+    </span>
+    <br /><br />
+    To strategically position itself in this journey, Neo is launching its N3 upgrade, the most ambitious and long-anticipated Neo upgrade so far, aiming to establish a solid foundation to provide the All-in-one experience for institutions, developers and users.
+    <br /><br />
+    <span class="bold">
+        At the protocol level, the keywords for N3 are: performance, simplicity, and sustainability:
+    </span>
+</div>
+
+<div class="aio-container">
+    @{ string[,] items = new string[3, 3]
+    {
+        { "Performance", "/images/discover/placeholder.png", " A complete system architecture design in consensus mechanism, P2P communication/compression, an optimized Virtual Machine and many other aspects. In combined, providing a balanced experience of high throughput, security and modularization." },
+        { "Simplicity", "/images/discover/placeholder.png", "A unified account model replacing the UTXO/account model hybrid and a matching streamlined smart contract system that enables sophisticated on-chain logics across the blockchain for any digital assets." },
+        { "Sustainability", "/images/discover/placeholder.png", " A redesigned economic model and an on-chain governance mechanism that ensures the long-term adaptability of the blockchain in a fair and decentralized way." },
+    };
+
+        for (int i = 0; i < items.GetLength(0); i++)
+        {
+<div class="aio-item">
+    <div class="aio-title">@items[i, 0]</div>
+    <div class="content-wrapper">
+        <img class="content-img" data-original="@Helper.ToCDN(items[i, 1], true)" />
+        <div class="aio-body">
+            @Localizer[items[i, 2]]
+        </div>
+    </div>
+</div> } }
+
+
+</div>

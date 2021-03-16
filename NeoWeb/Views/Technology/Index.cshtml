@@ -19,7 +19,7 @@
 <div class="resources">
     <div class="resources-start">
         <div class="menu">
-            <div class="menu-item active">
+            <div class="menu-item">
                 @Localizer["All in One"]
                 <i class="iconfont">&#xe6ab;</i>
             </div>
@@ -63,7 +63,6 @@
             <option>@Localizer["NeoFS"]</option>
             <option>@Localizer["NeoID"]</option>
             <option>@Localizer["Oracles"]</option>
-            <option>@Localizer["NeoFS"]</option>
             <option>@Localizer["Neo Name Service"]</option>
             <option>@Localizer["dBFT 2.0"]</option>
             <option>@Localizer["Interoperability"]</option>
@@ -72,8 +71,32 @@
     </div>
 
     <div class="resources-end">
-        <div class="menu-page active">
+        <div class="menu-page">
             <partial name="./_AllInOnePartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_SmartContractsPartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_NeoFSPartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_NeoIDPartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_OraclesPartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_NeoNameServicePartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_dBFTPartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_InteroperabilityPartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_ArchitecturePartial" />
         </div>
     </div>
 </div>
@@ -82,66 +105,42 @@
 @section Scripts {
     <script src="@Helper.ToCDN("/lib/jquery/jquery.min.js")"></script>
     <script>$(document).ready(() => {
-        function updateCurrentPage(i) {
-            $('.menu-item').each((j, menuItem) => {
-                if (i === j) {
-                    $(menuItem).addClass('active');
-                } else {
-                    $(menuItem).removeClass('active');
-                }
-            });
-            $('.menu-page').each((j, menuPage) => {
-                if (i === j) {
-                    $(menuPage).addClass('active');
-                } else {
-                    $(menuPage).removeClass('active');
-                }
-            });
-            $('.select-menu-page').prop('selectedIndex', i);
-        };
+    const hashArray = ['all-in-one', 'smart-contracts', 'neo-fs', 'neo-id', 'oracles', 'neo-name-service', 'dbft-2.0', 'interoperability', 'architecture']
 
-        $('.menu-item').each((i, menuItem) => {
-            $(menuItem).click(() => {
-                updateCurrentPage(i);
-            });
+    function updateCurrentPage(i) {
+        $('.menu-item').each((j, menuItem) => {
+            if (i === j) {
+                $(menuItem).addClass('active');
+                window.location.hash = hashArray[i];
+            } else {
+                $(menuItem).removeClass('active');
+            }
         });
-
-        $('.select-menu-page').change(e => {
-            updateCurrentPage(e.target.selectedIndex);
+        $('.menu-page').each((j, menuPage) => {
+            if (i === j) {
+                $(menuPage).addClass('active');
+                window.location.hash = hashArray[i];
+            } else {
+                $(menuPage).removeClass('active');
+            }
         });
+        $('.select-menu-page').prop('selectedIndex', i);
+    };
 
-        updateCurrentPage(0);
-
-        function updateCurrentToolingPage(i) {
-            $('.tab').each((j, tab) => {
-                if (i === j) {
-                    $(tab).addClass('active');
-                } else {
-                    $(tab).removeClass('active');
-                }
-            });
-            $('.tab-page').each((j, tabPage) => {
-                if (i === j) {
-                    $(tabPage).addClass('active');
-                } else {
-                    $(tabPage).removeClass('active');
-                }
-            });
-            $('.select-tab-page').prop('selectedIndex', i);
-        }
-
-        $('.tab').each((i, tab) => {
-            $(tab).click(() => {
-                updateCurrentToolingPage(i);
-            });
+    $('.menu-item').each((i, menuItem) => {
+        $(menuItem).click(() => {
+            updateCurrentPage(i);
         });
+    });
 
+    $('.select-menu-page').change(e => {
+        updateCurrentPage(e.target.selectedIndex);
+    });
 
-        $('.select-tab-page').change(e => {
-            updateCurrentToolingPage(e.target.selectedIndex);
-        });
+    const hash = window.location.hash.replace(/#/g, '');
+    const index = hashArray.indexOf(hash);
 
-        updateCurrentToolingPage(0);
+    updateCurrentPage(index >= 0 ? index : 0);
     });
 </script>
 }

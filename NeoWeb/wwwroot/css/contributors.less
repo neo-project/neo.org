@@ -143,18 +143,34 @@
     }
 }
 
+.menu-page-title {
+    .nunito-sans-extrabold;
+    font-size: 2.25rem;
+    line-height: 1.25;
+    letter-spacing: -0.02rem;
+}
+
 .menu-page-description {
     margin: 35px 0;
     font-size: 1.25rem;
-    .nunito-sans-bold;
+    .nunito-sans-regular;
 }
 
+
+// Core Developers
 .people-card-container {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     column-gap: 20px;
     grid-row-gap: 48px;
+
+    @media only screen and (max-width: 767.98px) {
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: nowrap;
+        min-width: 340px;
+    }
 }
 
 .people-card {
@@ -201,7 +217,83 @@
 }
 
 .people-description {
-    color: #727272;
+    color: @custom;
     .nunito-sans-semibold;
     font-size: 1rem;
 }
+
+
+// communities
+.communities-container {
+    display: flex;
+    flex-direction: column;
+    grid-row-gap: 80px;
+
+    @media only screen and (max-width: 767.98px) {
+        grid-row-gap: 60px;
+    }
+}
+
+.communities-item {
+    display: flex;
+
+    @media only screen and (max-width: 767.98px) {
+        flex-direction: column;
+    }
+
+    .content-img {
+        margin-top: 12px;
+        width: 220px;
+        height: 160px;
+
+        @media only screen and (max-width: 767.98px) {
+            margin-bottom: 24px;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .content-wrapper {
+        display: flex;
+        flex-direction: column;
+        margin-left: 20px;
+
+        @media only screen and (max-width: 767.98px) {
+            margin-left: 0px;
+        }
+    }
+
+    .communities-name {
+        margin-bottom: 12px;
+        .nunito-sans-extrabold;
+        .dark-blue;
+        font-size: 1.5rem;
+        letter-spacing: 0.0125rem;
+    }
+
+    .communities-description {
+        margin-bottom: 12px;
+        .nunito-sans-regular;
+        .dark-blue;
+        font-size: 1.25rem;
+        line-height: 1.4;
+    }
+
+    .link-wrapper {
+        margin: 3px;
+        display: flex;
+        align-items: center;
+        .nunito-sans-bold;
+        font-size: 1.25rem;
+    }
+
+    .link-icon {
+        margin-right: 12px;
+        height: 1.875rem;
+        font-size: 1.875rem;
+        color: @dark-blue;
+        line-height: 1;
+    }
+}
+
+
