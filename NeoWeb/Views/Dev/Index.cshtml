@@ -1,70 +1,117 @@
-<div class="menu-page">
-    <h2 class="menu-page-title">Overview</h2>
-    <div class="menu-page-description">
-        After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date.
-    </div>
-    <div class="overview-links">
-        <a class="overview-link" target="_blank" href="https://github.com/neo-project">GitHub</a>
-        <a class="overview-link" target="_blank" href="https://github.com/neo-project">Documentation</a>
-    </div>
-
-    <div class="documentations">
-        <div class="documentation">
-            <div class="documentation-bookmark"></div>
-            <div class="documentation-title">Documentation</div>
-            <div class="flex-grow-1"></div>
-            <img class="documentation-img" data-original="@Helper.ToCDN("/images/dev/documentation.png", true)" />
-        </div>
-        <div class="documentation">
-            <div class="documentation-bookmark"></div>
-            <div class="documentation-title">Documentation</div>
-            <div class="flex-grow-1"></div>
-            <img class="documentation-img" data-original="@Helper.ToCDN("/images/dev/documentation.png", true)" />
-        </div>
-        <div class="documentation">
-            <div class="documentation-bookmark"></div>
-            <div class="documentation-title">Documentation</div>
-            <div class="flex-grow-1"></div>
-            <img class="documentation-img" data-original="@Helper.ToCDN("/images/dev/documentation.png", true)" />
-        </div>
-    </div>
-
-    <div class="menu-page-divider"></div>
-    <div class="menu-page-secondary-title">Featured Tutorials</div>
-    <div class="overview-tutorials">
-        <div class="overview-tutorial">
-            <img class="overview-tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-            <div class="overview-tutorial-end">
-                <div class="overview-tutorial-title">Getting started with NeoFS: The basics.</div>
-                <div class="overview-tutorial-author">Neo SPCC</div>
-                <div class="overview-tutorial-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in at urna. </div>
-            </div>
-        </div>
-        <div class="overview-tutorial">
-            <img class="overview-tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-            <div class="overview-tutorial-end">
-                <div class="overview-tutorial-title">Getting started with NeoFS: The basics.</div>
-                <div class="overview-tutorial-author">Neo SPCC</div>
-                <div class="overview-tutorial-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in at urna. </div>
-            </div>
-        </div>
-        <div class="overview-tutorial">
-            <img class="overview-tutorial-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-            <div class="overview-tutorial-end">
-                <div class="overview-tutorial-title">Getting started with NeoFS: The basics.</div>
-                <div class="overview-tutorial-author">Neo SPCC</div>
-                <div class="overview-tutorial-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in at urna. </div>
-            </div>
-        </div>
-    </div>
-    <a class="view-all-tutorials btn-2" asp-controller="dev" asp-action="tutorials">View All Tutorials</a>
-
-    <div class="menu-page-divider"></div>
-    <div class="menu-page-secondary-title">resource overview</div>
-    <div class="menu-page-description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in
-        at urna. t migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date.
-    </div>
-    <img class="resource-overview-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-    <a class="view-all-tools btn-2" asp-controller="dev" asp-action="tooling">View All Tools</a>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = Localizer["Developer"].Value;
+}
+@section Styles{
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/dev.min.css", true)" />
+}
+<div class="header-end form-inline">
+    <span class="platform-label">Platform</span>
+    <select class="select-platform form-control">
+        <option value="neo2" selected="selected">Neo Legacy</option>
+        <option value="neo3">N3</option>
+    </select>
 </div>
+<div class="introduction">
+    <div class="introduction-start">
+        <div class="introduction-title"><em>Neo</em><br />is getting<br />an upgrade</div>
+        <div class="introduction-content">After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date.</div>
+        <a class="learn-more btn-2" target="_blank" href="https://github.com/neo-project">Learn More</a>
+    </div>
+    <img class="introduction-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+</div>
+
+<div class="divider"></div>
+
+<div class="resources">
+    <div class="resources-start">
+        <div class="menu">
+            <a class="menu-item active" asp-controller="dev" asp-action="index" asp-fragment="overview">
+                Overview
+                <i class="iconfont">&#xe6ab;</i>
+            </a>
+            <a class="menu-item" asp-controller="dev" asp-action="index" asp-fragment="tooling">
+                Tooling
+                <i class="iconfont">&#xe6ab;</i>
+            </a>
+            <a class="menu-item" asp-controller="dev" asp-action="index" asp-fragment="examples">
+                Examples & Tutorials
+                <i class="iconfont">&#xe6ab;</i>
+            </a>
+        </div>
+        <div class="resources-start-divider"></div>
+        <div class="links">
+            <a class="link" target="_blank" href="https://github.com/neo-project">
+                GitHub
+                <i class="iconfont">&#xe681;</i>
+            </a>
+            <a class="link" target="_blank" href="https://github.com/neo-project">
+                Documentation
+                <i class="iconfont">&#xe681;</i>
+            </a>
+        </div>
+        <select class="select-menu-page form-control">
+            <option selected="selected">Overview</option>
+            <option>Tooling</option>
+            <option>Examples & Tutorials</option>
+        </select>
+    </div>
+
+    <div class="resources-end">
+        <partial name="./Overview" />
+        <partial name="./Tooling" />
+        <partial name="./Examples" />
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(() => {
+            function updateCurrentPage(i) {
+                $('.menu-item').each((j, menuItem) => {
+                    if (i === j) {
+                        $(menuItem).addClass('active');
+                    } else {
+                        $(menuItem).removeClass('active');
+                    }
+                });
+                $('.menu-page').each((j, menuPage) => {
+                    if (i === j) {
+                        $(menuPage).addClass('active');
+                    } else {
+                        $(menuPage).removeClass('active');
+                    }
+                });
+                $('.select-menu-page').prop('selectedIndex', i);
+            }
+
+            function updateCurrentPageWithHash() {
+                const hash = location.hash.slice(1);
+                if (hash === "overview") {
+                    updateCurrentPage(0);
+                } else if (hash === "tooling"){
+                    updateCurrentPage(1);
+                } else if (hash === "examples"){
+                    updateCurrentPage(2);
+                }
+            }
+
+            $('.select-menu-page').change(e => {
+                const index = e.target.selectedIndex;
+                if (index === 0) {
+                    location.href = "@Url.Action("index", "dev", null, null, null, "overview")";
+                } else if (index === 1) {
+                    location.href = "@Url.Action("index", "dev", null, null, null, "tooling")";
+                } else if (index === 2) {
+                    location.href = "@Url.Action("index", "dev", null, null, null, "examples")";
+                }
+            });
+
+            $(window).on('hashchange', function (e) {
+                updateCurrentPageWithHash();
+            });
+            updateCurrentPageWithHash();
+        });
+    </script>
+}
