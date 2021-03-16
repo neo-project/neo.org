@@ -5,6 +5,46 @@
 @font-size-4: 1.25rem; 
 @font-size-5: 1.125rem;
 
+/*品牌颜色*/
+@green: #00E599;
+@green2: #6FEDB2; //未使用
+@green3: #7EF2CC; //未使用
+@green4: #BFF7E5; //未使用
+
+@seagreen: #00AF92; //未使用
+@seagreen2: #59C0AC; //未使用
+@seagreen3: #7FD6C6; //未使用
+@seagreen4: #BFEAE2; //未使用
+
+@black: #242424; //未使用
+@black2: #5B5B5B; //未使用
+@black3: #919191; //未使用
+@black4: #C6C6C6; //未使用
+
+@dark-blue: #003; //未使用
+@dark-blue2: #3F3F66; //未使用
+@dark-blue3: #7F7F9A; //未使用
+@dark-blue4: #BEBFCC; //未使用
+
+@seagreen: #2B393F; //未使用
+@seagreen2: #616B70; //未使用
+@seagreen3: #939B9E; //未使用
+@seagreen4: #C9CCCE; //未使用
+
+@gray: #969696;
+@gray2: #AFAFAF; //未使用
+@gray3: #C9C9C9; //未使用
+
+@lightgray: #F9FAFA; //未使用
+
+/*其它颜色*/
+@custom: #727272;
+@custom2: #E9EEED;
+@custom3: #DDDDDD;
+@custom4: #F0F5F6;
+@custom5: #E4EEF0;
+@custom6: #DFE3E3;
+
 /*字体*/
 .work-sans-bold{
     font-family: WorkSans-bold
@@ -58,6 +98,19 @@ small, .small {
     vertical-align: middle;
 }
 
+/*常用色样式*/
+.green {
+    color: @green;
+}
+
+.dark-blue {
+    color: @dark-blue;
+}
+
+.gray {
+    color: @gray;
+}
+
 /*按钮*/
 .btn-1, .btn-2, .btn-3, .btn-4 {
     display: inline-block;
@@ -74,49 +127,49 @@ small, .small {
 
 .btn-1 {
     background: #E9EEED;
-    color: @dark;
+    color: @dark-blue;
     border: 1px solid #E9EEED;
 
     &:hover, &:focus, &:active {
-        background: @white;
-        color: @dark;
-        border: 1px solid @dark;
+        background: white;
+        color: @dark-blue;
+        border: 1px solid @dark-blue;
     }
 }
 
 .btn-2 {
     background: @green;
-    color: @white;
+    color: white;
     border: 1px solid @green;
 
     &:hover, &:focus, &:active {
         background: @green;
-        color: @dark;
+        color: @dark-blue;
         border: 1px solid @green;
     }
 }
 
 .btn-3 {
-    background: @white;
-    color: @dark;
-    border: 1px solid @dark;
+    background: white;
+    color: @dark-blue;
+    border: 1px solid @dark-blue;
 
     &:hover, &:focus, &:active {
-        background: @white;
+        background: white;
         color: @green;
         border: 1px solid @green;
     }
 }
 
 .btn-4 {
-    background: @dark;
-    color: @white;
-    border: 1px solid @dark;
+    background: @dark-blue;
+    color: white;
+    border: 1px solid @dark-blue;
 
     &:hover, &:focus, &:active {
-        background: @dark;
+        background: @dark-blue;
         color: @green;
-        border: 1px solid @dark;
+        border: 1px solid @dark-blue;
     }
 }
 
@@ -124,15 +177,15 @@ small, .small {
     margin-right: .5rem;
     display: inline-block;
     font-size: 0.8rem;
-    color: @white;
+    color: white;
     border-radius: 11px;
     padding: 2px 10px;
-    background-color: @dark;
+    background-color: @dark-blue;
     cursor: pointer;
 
     &:hover {
         color: @green;
-        background-color: @dark;
+        background-color: @dark-blue;
     }
 }
 
@@ -140,75 +193,17 @@ small, .small {
     margin-right: .5rem;
     display: inline-block;
     font-size: 0.8rem;
-    color: @dark;
+    color: @dark-blue;
     border-radius: 11px;
     padding: 2px 10px;
     background-color: @green;
     cursor: pointer;
 
     &:hover {
-        color: @white;
+        color: white;
         background-color: @green;
     }
 }
-
-/*颜色*/
-@dark: #003;
-@white: #fff;
-@arrow: rgb(225,225,225);
-
-@linear-black: linear-gradient(180deg, #0F1E32 0%, darken(#0F1E32, 40%) 100%);
-@linear-green: linear-gradient(104deg, @green 0%, darken(@green, 10%) 100%);
-
-@green: #00E599;
-@green3: rgba(75, 197, 63,0.5);
-
-@red:#d00;
-
-@line: rgba(200, 200, 200, 0.7);
-@line2: #ccc;
-@line3: #dfe3e3;
-
-@gray: #505050;
-@gray2: #f9fafa;
-@gray3: #919191;
-
-
-.green {
-    color: @green !important;
-}
-
-.red {
-    color: @red !important;
-}
-
-.gray {
-    color: @gray !important;
-}
-
-.gray2 {
-    color: @gray2 !important;
-}
-
-.gray3 {
-    color: @gray3 !important;
-}
-
-.green {
-    color: @green;
-}
-
-.black {
-    color: @dark;
-}
-
-.uppercase {
-    text-transform: uppercase;
-}
-
-
-
-
 
 .bg-img {
     display: block;

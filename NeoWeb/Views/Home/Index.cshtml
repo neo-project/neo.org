@@ -58,7 +58,7 @@
                     {
         <div class="highlight-wrapper">
             <img class="highlight-img png" data-original="@Helper.ToCDN(highlightItems[i, 1])" />
-            <div class="work-sans-bold uppercase highlight-name">@Localizer[highlightItems[i, 0]]</div>
+            <div class="work-sans-bold text-uppercase highlight-name">@Localizer[highlightItems[i, 0]]</div>
         </div> } }
             </div>
         </div>
@@ -68,19 +68,19 @@
     <div class="row horiz-row get-started-row">
         <div class="work-sans-bold type-text">
             <span class="green">@Localizer["Neo"]</span>
-            <span class="black uppercase type-text" id="typetext"></span>
+            <span class="dark-blue text-uppercase type-text" id="typetext"></span>
         </div>
 
         <div class="work-sans-bold explanation">
             @Localizer["After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]
         </div>
 
-        <div class="work-sans-semibold uppercase learn-more">
+        <div class="work-sans-semibold text-uppercase learn-more">
             @Localizer["Learn more about migration"]
         </div>
 
-        <a class="btn-n3 black">@Localizer["Migration Guide"]</a>
-        <div class="work-sans-bold get-started-text uppercase black">
+        <a class="btn-n3 dark-blue">@Localizer["Migration Guide"]</a>
+        <div class="work-sans-bold get-started-text text-uppercase dark-blue">
             @Localizer["Get Started"]
         </div>
         <div class="work-sans-bold get-started-wrapper">
@@ -95,7 +95,7 @@
                 for (int i = 0; i < getStartedItems.GetLength(0); i++)
                 {
     <div class="get-started-card">
-        <div class="uppercase card-text">
+        <div class="text-uppercase card-text">
             @getStartedItems[i, 0]
         </div>
         <img class="card-img" data-original="@Helper.ToCDN(getStartedItems[i, 1])" />
@@ -267,7 +267,7 @@
                         <img class="calculator-icon" data-original="@Helper.ToCDN("/images/home/Tune.png")" />
                         <div>@Localizer["GAS interest calculator"]</div>
                     </div>
-                    <div class="nunito-sans-bold uppercase calculator">
+                    <div class="nunito-sans-bold text-uppercase calculator">
                         @Localizer["With"]
                         <input class="nunito-sans-bold calculator-input" />
                         @Localizer["NEO"]
@@ -283,11 +283,11 @@
         </div>
         <div class="col-12 col-md-6 col-right dual-token-col">
             <div class="content-wrapper">
-                <div class="font-family-bold uppercase dual-token-title">
-                    <span class="green-theme">@Localizer["Dual"]</span><br />
+                <div class="font-family-bold text-uppercase dual-token-title">
+                    <span class="green">@Localizer["Dual"]</span><br />
                     <span>@Localizer["Tokens"]</span>
                 </div>
-                <div class="font-family-bold green-theme content">
+                <div class="font-family-bold green content">
                     @Localizer["Neo has a unique dual token model that seperates governance from utility."]
                 </div>
                 <div class="font-family-semibold content">
@@ -310,7 +310,7 @@
             <div class="content-wrapper">
                 <img class="governance-header-img" />
                 <div class="governance-headline">
-                    <span class="green-theme">@Localizer["On-Chain"]</span><br />@Localizer["Governance"]
+                    <span class="green">@Localizer["On-Chain"]</span><br />@Localizer["Governance"]
                 </div>
                 <div class="nunito-sans-bold governance-subtitle">
                     @Localizer["A dynamic on-chain council voted in by the NEO token holders."]
@@ -367,7 +367,7 @@
             <div class="news-list">
                 @{await Html.RenderPartialAsync("./_NewsPartial", Model);}
             </div>
-            <a asp-controller="news" asp-action="index" class="btn-n3 black view-all-btn">@Localizer["View All"]</a>
+            <a asp-controller="news" asp-action="index" class="btn-n3 dark-blue view-all-btn">@Localizer["View All"]</a>
         </div>
     </div>
 </div>

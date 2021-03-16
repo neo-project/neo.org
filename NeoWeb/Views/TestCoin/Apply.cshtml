@@ -16,13 +16,13 @@
         @Html.AntiForgeryToken()
         <div class="row test-apply">
             <div class="form-group col-md-6 my-1">
-                <label asp-for="Name">@Localizer["Name"]</label> <span class="red">*</span><br />
+                <label asp-for="Name">@Localizer["Name"]</label> <span>*</span><br />
                 <input class="form-control" asp-for="Name" type="text"
                        data-val="true" data-val-required="@Localizer["This field is required"]">
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group col-md-6 my-1">
-                <label asp-for="Email">@Localizer["Email"]</label> <span class="red">*</span><br />
+                <label asp-for="Email">@Localizer["Email"]</label> <span>*</span><br />
                 <input class="form-control" asp-for="Email" type="email"
                        data-val="true" data-val-required="@Localizer["This field is required"]" data-val-email="@Localizer["Please enter a valid E-mail address"]">
                 <span asp-validation-for="Email" class="text-danger"></span>
@@ -40,13 +40,13 @@
                 <span asp-validation-for="QQ" class="text-danger"></span>
             </div>
             <div class="form-group col-md-12">
-                <label asp-for="Company">@Localizer["Company Name/Project Name"]</label> <span class="red">*</span><br />
+                <label asp-for="Company">@Localizer["Company Name/Project Name"]</label> <span>*</span><br />
                 <input class="form-control" asp-for="Company" type="text" placeholder=@Localizer["Company Name/Project Name"]
                        data-val="true" data-val-required="@Localizer["This field is required"]" />
                 <span asp-validation-for="Company" class="text-danger"></span>
             </div>
             <div class="form-group col-md-12">
-                <label asp-for="Reason">@Localizer["Reasons For Application"]</label> <span class="red">*</span><br />
+                <label asp-for="Reason">@Localizer["Reasons For Application"]</label> <span>*</span><br />
                 <textarea class="form-control" asp-for="Reason" type="text" rows="2" cols="20"
                           data-val="true" data-val-required="@Localizer["This field is required"]" data-val-length-min="50" data-val-length-max="300" data-val-length="@Localizer["Application reason at least 50 characters, up to 300 characters"]"></textarea>
                 <span asp-validation-for="Reason" class="text-danger"></span>

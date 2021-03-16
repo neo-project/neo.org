@@ -73,7 +73,7 @@ namespace NeoWeb
             }).ToList().ForEach(p => viewModels.Add(new NewsViewModel()
             {
                 Type = NewsViewModelType.Media,
-                News = p,
+                Media = p,
                 Time = p.Time
             }));
         }

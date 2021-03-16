@@ -25,12 +25,12 @@
         }
         else if (Model?.Type == NewsViewModelType.Media)
         {
-            <a class="bg-img" href="~/event/details/@Model.Event.Id" data-original="@(string.IsNullOrEmpty(Model.Event.Cover) ? Helper.ToCDN("/images/news/media.svg") : $"/upload/{Model.News.Cover}".ToLower())"></a>
-            <h4 class="d-title with-space"><a href="@Model.News.Link" target="_blank">@Model.News.Title</a></h4>
+            <a class="bg-img" href="~/event/details/@Model.Event.Id" data-original="@(string.IsNullOrEmpty(Model.Event.Cover) ? Helper.ToCDN("/images/news/media.svg") : $"/upload/{Model.Media.Cover}".ToLower())"></a>
+            <h4 class="d-title with-space"><a href="@Model.Media.Link" target="_blank">@Model.Media.Title</a></h4>
             @if (ViewBag.UserRules)
             {
-                <a asp-action="Edit" asp-controller="News" asp-route-id="@Model.News.Id">Edit</a>
-                <a class="ml-2" asp-action="Delete" asp-controller="News" asp-route-id="@Model.News.Id">Delete</a>
+                <a asp-action="Edit" asp-controller="media" asp-route-id="@Model.Media.Id">Edit</a>
+                <a class="ml-2" asp-action="Delete" asp-controller="media" asp-route-id="@Model.Media.Id">Delete</a>
             }
         }
     </div>

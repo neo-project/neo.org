@@ -10,7 +10,7 @@ namespace NeoWeb.Models
 
         public BlogViewModel Blog { get; set; }
         public EventViewModel Event { get; set; }
-        public MediaViewModel News { get; set; }
+        public MediaViewModel Media { get; set; }
 
         public NewsViewModel()
         { }
@@ -30,8 +30,8 @@ namespace NeoWeb.Models
                         Time = Event.StartTime;
                         break;
                     case NewsViewModelType.Media:
-                        News = new MediaViewModel((Media)data, isZh);
-                        Time = News.Time;
+                        Media = new MediaViewModel((Media)data, isZh);
+                        Time = Media.Time;
                         break;
                     default:
                         throw new ArgumentException("Type does not match.");
