@@ -59,14 +59,15 @@
     </div>
 
     <div class="resources-end">
-        <partial name="./Overview" />
-        <partial name="./Tooling" />
-        <partial name="./Examples" />
+        @{await Html.RenderPartialAsync("_OverviewPartialPage");}
+        @{await Html.RenderPartialAsync("_ToolingPartialPage");}
+        @{await Html.RenderPartialAsync("_ExamplesPartialPage");}
     </div>
 </div>
 
 @section Scripts {
     <script>
+        // index
         $(document).ready(() => {
             function updateCurrentPage(i) {
                 $('.menu-item').each((j, menuItem) => {
@@ -113,5 +114,39 @@
             });
             updateCurrentPageWithHash();
         });
+
+        // tooling
+        $(document).ready(() => {
+            function updateCurrentPage(i) {
+                $('.tab').each((j, tab) => {
+                    if (i === j) {
+                        $(tab).addClass('active');
+                    } else {
+                        $(tab).removeClass('active');
+                    }
+                });
+                $('.tab-page').each((j, tabPage) => {
+                    if (i === j) {
+                        $(tabPage).addClass('active');
+                    } else {
+                        $(tabPage).removeClass('active');
+                    }
+                });
+                $('.select-tab-page').prop('selectedIndex', i);
+            }
+
+            $('.tab').each((i, tab) => {
+                $(tab).click(() => {
+                    console.log(i);
+                    updateCurrentPage(i);
+                });
+            });
+
+
+            $('.select-tab-page').change(e => {
+                updateCurrentPage(e.target.selectedIndex);
+            });
+        });
+
     </script>
 }

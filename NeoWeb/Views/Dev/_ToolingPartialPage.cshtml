@@ -103,6 +103,7 @@
 
             $('.tab').each((i, tab) => {
                 $(tab).click(() => {
+                    console.log(i);
                     updateCurrentPage(i);
                 });
             });

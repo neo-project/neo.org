@@ -2,94 +2,92 @@
 
 @for (int i = 0; i < Model.Count(); i++)
 {
-    @for (int j = 0; j < 10; j++)
-    {
-        var item = (Model)[i];
-        var count = 24;
-        <div class="col-md-4 group-@(i/count)">
-            @if (item.Type == NewsViewModelType.Blog)
+    var item = (Model)[i];
+    var count = 24;
+    <div class="col-md-4 group-@(i/count)">
+        @if (item.Type == NewsViewModelType.Blog)
+        {
+            @if (string.IsNullOrEmpty(item.Blog.Cover))
             {
-                @if (string.IsNullOrEmpty(item.Blog.Cover))
-                {
-                    <a class="img" href="~/blog/details/@item.Blog.Id" data-original="@Helper.ToCDN("/images/news/blog.svg")"></a>
-                }
-                else
-                {
-                    <a class="img" href="~/blog/details/@item.Blog.Id" data-original="@String.Format("/upload/{0}", @item.Blog.Cover).ToLower()"></a>
-                }
-                <div>
-                    <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span>@item.Type</span></div>
-                    <div class="list-title with-space"><h3><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></h3></div>
-                    <div class="list-summary with-space"><h4><a href="~/blog/details/@item.Blog.Id">@item.Blog.Summary.Substring(0, Math.Min(70, item.Blog.Summary.Length))…</a></h4></div>
+                <a class="img" href="~/blog/details/@item.Blog.Id" data-original="@Helper.ToCDN("/images/news/blog.svg")"></a>
+            }
+            else
+            {
+                <a class="img" href="~/blog/details/@item.Blog.Id" data-original="@String.Format("/upload/{0}", @item.Blog.Cover).ToLower()"></a>
+            }
+            <div>
+                <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span>@item.Type</span></div>
+                <div class="list-title with-space"><h3><a href="~/blog/details/@item.Blog.Id">@item.Blog.Title</a></h3></div>
+                <div class="list-summary with-space"><h4><a href="~/blog/details/@item.Blog.Id">@item.Blog.Summary.Substring(0, Math.Min(70, item.Blog.Summary.Length))…</a></h4></div>
 
-                    @if (ViewBag.UserRules != null && ViewBag.UserRules)
+                @if (ViewBag.UserRules != null && ViewBag.UserRules)
+                {
+                    <a asp-action="Edit" asp-controller="Blog" asp-route-id="@item.Blog.Id">Edit</a>
+                    <a class="ml-2" asp-action="Delete" asp-controller="Blog" asp-route-id="@item.Blog.Id">Delete</a>
+                }
+                <div class="small">
+                    @if (!string.IsNullOrEmpty(item.Blog.Tags))
                     {
-                        <a asp-action="Edit" asp-controller="Blog" asp-route-id="@item.Blog.Id">Edit</a>
-                        <a class="ml-2" asp-action="Delete" asp-controller="Blog" asp-route-id="@item.Blog.Id">Delete</a>
-                    }
-                    <div class="small">
-                        @if (!string.IsNullOrEmpty(item.Blog.Tags))
+                        foreach (var tag in item.Blog.Tags.Split(','))
                         {
-                            foreach (var tag in item.Blog.Tags.Split(','))
-                            {
-                                <a class="article-tag1" href="~/news?keywords=@tag.Trim()">#@tag.Trim()</a>
-                            }
+                            <a class="article-tag1" href="~/news?keywords=@tag.Trim()">#@tag.Trim()</a>
                         }
-                    </div>
-                </div>
-            }
-            else if (item.Type == NewsViewModelType.Event)
-            {
-                @if (string.IsNullOrEmpty(item.Event.Cover))
-                {
-                    <a class="img" href="~/event/details/@item.Event.Id" data-original="@Helper.ToCDN("/images/news/events.svg")"></a>
-                }
-                else
-                {
-                    <a class="img" href="~/event/details/@item.Event.Id" data-original="@String.Format("/upload/{0}", @item.Event.Cover).ToLower()"></a>
-                }
-                <div>
-                    <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green">@item.Type</span></div>
-                    <div class="list-title with-space"><a href="~/event/details/@item.Event.Id">@item.Event.Name</a></div>
-                    @if (ViewBag.UserRules != null && ViewBag.UserRules)
-                    {
-                        <a asp-action="Edit" asp-controller="Event" asp-route-id="@item.Event.Id">Edit</a>
-                        <a class="ml-2" asp-action="Delete" asp-controller="Event" asp-route-id="@item.Event.Id">Delete</a>
                     }
+                </div>
+            </div>
+        }
+        else if (item.Type == NewsViewModelType.Event)
+        {
+            @if (string.IsNullOrEmpty(item.Event.Cover))
+            {
+                <a class="img" href="~/event/details/@item.Event.Id" data-original="@Helper.ToCDN("/images/news/events.svg")"></a>
+            }
+            else
+            {
+                <a class="img" href="~/event/details/@item.Event.Id" data-original="@String.Format("/upload/{0}", @item.Event.Cover).ToLower()"></a>
+            }
+            <div>
+                <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green">@item.Type</span></div>
+                <div class="list-title with-space"><a href="~/event/details/@item.Event.Id">@item.Event.Name</a></div>
+                @if (ViewBag.UserRules != null && ViewBag.UserRules)
+                {
+                    <a asp-action="Edit" asp-controller="Event" asp-route-id="@item.Event.Id">Edit</a>
+                    <a class="ml-2" asp-action="Delete" asp-controller="Event" asp-route-id="@item.Event.Id">Delete</a>
+                }
 
-                    <div class="small">
-                        @if (item.Event.StartTime.Date == item.Event.EndTime.Date)
-                        {
-                            <div><i class="iconfont">&#xe610;</i> @item.Event.StartTime.DayOfWeek.ToString().Substring(0, 3), @item.Event.StartTime.ToString("yyyy-MM-dd HH:mm") - @item.Event.EndTime.ToString("HH:mm")</div>
-                        }
-                        else
-                        {
-                            <div><i class="iconfont">&#xe610;</i> @item.Event.StartTime.ToString("yyyy-MM-dd HH:mm") - @item.Event.EndTime.ToString("yyyy-MM-dd HH:mm")</div>
-                        }
-                        <div><i class="iconfont">&#xe60f;</i> @item.Event.Country - @item.Event.City</div>
-                    </div>
-                </div>
-            }
-            else if (item.Type == NewsViewModelType.Media)
-            {
-                @if (string.IsNullOrEmpty(item.News.Cover))
-                {
-                    <a class="img" href="@item.News.Link" target="_blank" data-original="@Helper.ToCDN("/images/news/media.svg")"></a>
-                }
-                else
-                {
-                    <a class="img" href="@item.News.Link" target="_blank" data-original="@String.Format("/upload/{0}", @item.News.Cover).ToLower()"></a>
-                }
-                <div>
-                    <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green">@item.Type</span></div>
-                    <div class="list-title with-space"><a href="@item.News.Link" target="_blank">@item.News.Title</a></div>
-                    @if (ViewBag.UserRules != null && ViewBag.UserRules)
+                <div class="small">
+                    @if (item.Event.StartTime.Date == item.Event.EndTime.Date)
                     {
-                        <a asp-action="Edit" asp-controller="News" asp-route-id="@item.News.Id">Edit</a>
-                        <a class="ml-2" asp-action="Delete" asp-controller="News" asp-route-id="@item.News.Id">Delete</a>
+                        <div><i class="iconfont">&#xe610;</i> @item.Event.StartTime.DayOfWeek.ToString().Substring(0, 3), @item.Event.StartTime.ToString("yyyy-MM-dd HH:mm") - @item.Event.EndTime.ToString("HH:mm")</div>
                     }
-                    <div class="small">@item.News.Tags</div>
+                    else
+                    {
+                        <div><i class="iconfont">&#xe610;</i> @item.Event.StartTime.ToString("yyyy-MM-dd HH:mm") - @item.Event.EndTime.ToString("yyyy-MM-dd HH:mm")</div>
+                    }
+                    <div><i class="iconfont">&#xe60f;</i> @item.Event.Country - @item.Event.City</div>
                 </div>
+            </div>
+        }
+        else if (item.Type == NewsViewModelType.Media)
+        {
+            @if (string.IsNullOrEmpty(item.Media.Cover))
+            {
+                <a class="img" href="@item.Media.Link" target="_blank" data-original="@Helper.ToCDN("/images/news/media.svg")"></a>
             }
-        </div>}
+            else
+            {
+                <a class="img" href="@item.Media.Link" target="_blank" data-original="@String.Format("/upload/{0}", @item.Media.Cover).ToLower()"></a>
+            }
+            <div>
+                <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green">@item.Type</span></div>
+                <div class="list-title with-space"><a href="@item.Media.Link" target="_blank">@item.Media.Title</a></div>
+                @if (ViewBag.UserRules != null && ViewBag.UserRules)
+                {
+                    <a asp-action="Edit" asp-controller="media" asp-route-id="@item.Media.Id">Edit</a>
+                    <a class="ml-2" asp-action="Delete" asp-controller="media" asp-route-id="@item.Media.Id">Delete</a>
+                }
+                <div class="small">@item.Media.Tags</div>
+            </div>
+        }
+    </div>
 }

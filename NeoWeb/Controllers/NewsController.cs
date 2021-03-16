@@ -135,7 +135,7 @@ namespace NeoWeb.Controllers
                             break;
                         case NewsViewModelType.Media:
                             Helper.AddMedia(_context.Media.Where(p => p.Id == top.ItemId), topItems, isZh);
-                            viewModels.RemoveAll(p => p.Type == top.Type && p.News.Id == top.ItemId);
+                            viewModels.RemoveAll(p => p.Type == top.Type && p.Media.Id == top.ItemId);
                             break;
                     }
                     ViewBag.OnTop = topItems.Count > 0 ? topItems[0] : null;
