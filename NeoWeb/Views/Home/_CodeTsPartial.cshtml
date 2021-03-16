@@ -11,7 +11,48 @@
 </div>
 <pre class="green code">
 <code>
+import {  SmartContract} from '@neo-one/smart-contract';
 
+export class NEP17Contract extends SmartContract {
+  public readonly properties = {
+    name: 'NEO•ONE NEP17 Example',
+    groups: [],
+    trusts: '*',
+    permissions: [],
+  };
+  public readonly name = 'NEO•ONE NEP17 Example';
+  public readonly decimals = 8;
+
+  private readonly notifyTransfer = createEventNotifier<Address | undefined, Address | undefined, Fixed<8>>(
+    'Transfer', 'from', 'to', 'amount',
+  );
+
+  public transfer(from: Address, to: Address, amount: Fixed<8>, data?: any): boolean {
+    if (amount < 0) {throw new Error(`Amount must be greater than 0: ${amount}`);}
+
+    const fromBalance = this.balanceOf(from);
+    if (fromBalance < amount) { return false;}
+
+    const contract = Contract.for(to);
+    if (contract !== undefined && !Address.isCaller(to)) {
+      const smartContract = SmartContract.for<TokenPayableContract>(to);
+      if (!smartContract.approveReceiveTransfer(from, amount, this.address)) {
+        return false;
+      }
+    }
+
+    const toBalance = this.balanceOf(to);
+    this.balances.set(from, fromBalance - amount);
+    this.balances.set(to, toBalance + amount);
+    this.notifyTransfer(from, to, amount);
+
+    if (contract !== undefined) {
+      const smartContract = SmartContract.for<TokenPayableContract>(to);
+      smartContract.onNEP17Payable(from, amount, data);
+    }
+    return true;
+  }
+}
 </code>
 </pre>
 <div class="bottom-bar">
