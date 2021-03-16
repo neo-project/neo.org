@@ -1,0 +1,18 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+@{ ViewData["Title"] = Localizer["Contributors"].Value; }
+@section Styles{
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/about.min.css", true)" />
+}
+
+<div class="introduction">
+    <div class="introduction-start">
+        <div class="introduction-title"><em>NEO</em><br />@Localizer["Defined"]</div>
+        <div class="introduction-content">@Localizer["After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]</div>
+    </div>
+    <img class="introduction-img" data-original="@Helper.ToCDN("/images/discover/placeholder.png", true)" />
+</div>
+
+<div class="divider"></div>
+

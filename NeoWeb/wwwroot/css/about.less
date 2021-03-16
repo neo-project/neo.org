@@ -1,0 +1,55 @@
+@import 'basic.less';
+
+.introduction {
+    display: flex;
+    align-items: center;
+    padding: 38px 0;
+
+    @media (max-width: 767.98px) {
+        display: none;
+    }
+}
+
+.introduction-start {
+    display: flex;
+    flex-direction: column;
+}
+
+.introduction-title {
+    font-size: 5.75rem;
+    font-family: WorkSans-Bold, WorkSans;
+    font-weight: bold;
+    line-height: 0.87;
+    text-transform: uppercase;
+
+    em {
+        font-style: normal;
+        color: #00E599;
+    }
+}
+
+.introduction-content {
+    margin-top: 2.25rem;
+    font-size: 1.25rem;
+    font-family: NunitoSans-Bold, NunitoSans;
+    font-weight: bold;
+}
+
+.introduction-img {
+    margin-left: 2.25rem;
+    width: 300px;
+
+    @media (max-width: 767.98px) {
+        display: none;
+    }
+}
+
+.divider {
+    height: 2px;
+    background: @dark;
+
+
+    @media (max-width: 767.98px) {
+        display: none;
+    }
+}
