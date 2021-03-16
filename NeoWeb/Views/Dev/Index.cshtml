@@ -59,9 +59,15 @@
     </div>
 
     <div class="resources-end">
-        @{await Html.RenderPartialAsync("_OverviewPartialPage");}
-        @{await Html.RenderPartialAsync("_ToolingPartialPage");}
-        @{await Html.RenderPartialAsync("_ExamplesPartialPage");}
+        <div class="menu-page active">
+            <partial name="./_OverviewPartialPage" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_ToolingPartialPage" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_ExamplesPartialPage" />
+        </div>
     </div>
 </div>
 

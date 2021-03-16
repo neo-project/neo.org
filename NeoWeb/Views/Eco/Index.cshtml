@@ -1,18 +1,103 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
-
-@{
-    ViewData["Title"] = Localizer["Eco Support"].Value;
-}
+@{ ViewData["Title"] = Localizer["Eco Support"].Value; }
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/eco.min.css", true)" />
 }
-<div class="py-5">
-    @Localizer["Eco Support"]
+<div class="introduction">
+    <div class="introduction-start">
+        <div class="introduction-title"><em>Eco</em><br />Support</div>
+        <div class="introduction-content">After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date.</div>
+    </div>
+    <img class="introduction-img" data-original="@Helper.ToCDN("/images/eco/placeholder.png", true)" />
 </div>
 
-@section Scripts{
+<div class="divider"></div>
+
+<div class="resources">
+    <div class="resources-start">
+        <div class="menu">
+            <a class="menu-item active" asp-controller="eco" asp-action="index" asp-fragment="overview">
+                Overview
+                <i class="iconfont">&#xe6ab;</i>
+            </a>
+            <a class="menu-item" asp-controller="eco" asp-action="index" asp-fragment="ecoboost">
+                EcoBoost
+                <i class="iconfont">&#xe6ab;</i>
+            </a>
+            <a class="menu-item" asp-controller="eco" asp-action="index" asp-fragment="ecofund">
+                EcoFund
+                <i class="iconfont">&#xe6ab;</i>
+            </a>
+        </div>
+        <select class="select-menu-page form-control">
+            <option selected="selected">Overview</option>
+            <option>EcoBoost</option>
+            <option>EcoFund</option>
+        </select>
+    </div>
+
+    <div class="resources-end">
+        <div class="menu-page active">
+            <partial name="./_OverviewPartialPage" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_EcoBoostPartialPage" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_EcoFundPartialPage" />
+        </div>
+    </div>
+</div>
+
+@section Scripts {
     <script>
-        
+        // index
+        $(document).ready(() => {
+            function updateCurrentPage(i) {
+                $('.menu-item').each((j, menuItem) => {
+                    if (i === j) {
+                        $(menuItem).addClass('active');
+                    } else {
+                        $(menuItem).removeClass('active');
+                    }
+                });
+                $('.menu-page').each((j, menuPage) => {
+                    if (i === j) {
+                        $(menuPage).addClass('active');
+                    } else {
+                        $(menuPage).removeClass('active');
+                    }
+                });
+                $('.select-menu-page').prop('selectedIndex', i);
+            }
+
+            function updateCurrentPageWithHash() {
+                const hash = location.hash.slice(1);
+                if (hash === "overview") {
+                    updateCurrentPage(0);
+                } else if (hash === "ecoboost"){
+                    updateCurrentPage(1);
+                } else if (hash === "ecofund"){
+                    updateCurrentPage(2);
+                }
+            }
+
+            $('.select-menu-page').change(e => {
+                const index = e.target.selectedIndex;
+                if (index === 0) {
+                    location.href = "@Url.Action("index", "eco", null, null, null, "overview")";
+                } else if (index === 1) {
+                    location.href = "@Url.Action("index", "eco", null, null, null, "ecoboost")";
+                } else if (index === 2) {
+                    location.href = "@Url.Action("index", "eco", null, null, null, "ecofund")";
+                }
+            });
+
+            $(window).on('hashchange', function (e) {
+                updateCurrentPageWithHash();
+            });
+            updateCurrentPageWithHash();
+        });
     </script>
 }
