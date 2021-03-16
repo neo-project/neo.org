@@ -7,9 +7,17 @@
 
   <ItemGroup>
     <Compile Remove="CandidateBackgrounder\**" />
+    <Compile Remove="Views\People\**" />
     <Content Remove="CandidateBackgrounder\**" />
+    <Content Remove="Views\People\**" />
     <EmbeddedResource Remove="CandidateBackgrounder\**" />
+    <EmbeddedResource Remove="Views\People\**" />
     <None Remove="CandidateBackgrounder\**" />
+    <None Remove="Views\People\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\css\news.css" />
   </ItemGroup>
   
   <ItemGroup>
@@ -42,6 +50,10 @@
     <Content Update="libman.json">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\discover\" />
   </ItemGroup>
 
 </Project>

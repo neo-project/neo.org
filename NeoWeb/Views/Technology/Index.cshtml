@@ -1,0 +1,147 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+@{ ViewData["Title"] = Localizer["Contributors"].Value; }
+@section Styles{
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/technology.min.css", true)" />
+}
+
+<div class="introduction">
+    <div class="introduction-start">
+        <div class="introduction-title"><em>NEO</em><br />@Localizer["Technology"]</div>
+        <div class="introduction-content">@Localizer["After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]</div>
+    </div>
+    <img class="introduction-img" data-original="@Helper.ToCDN("/images/discover/placeholder.png", true)" />
+</div>
+
+<div class="divider"></div>
+
+<div class="resources">
+    <div class="resources-start">
+        <div class="menu">
+            <div class="menu-item active">
+                @Localizer["All in One"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+            <div class="menu-item">
+                @Localizer["Smart Contracts"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+            <div class="menu-item">
+                @Localizer["NeoFS"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+            <div class="menu-item">
+                @Localizer["NeoID"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+            <div class="menu-item">
+                @Localizer["Oracles"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+            <div class="menu-item">
+                @Localizer["Neo Name Service"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+            <div class="menu-item">
+                @Localizer["dBFT 2.0"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+            <div class="menu-item">
+                @Localizer["Interoperability"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+            <div class="menu-item">
+                @Localizer["Architecture"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+        </div>
+
+        <select class="select-menu-page form-control">
+            <option>@Localizer["All in One"]</option>
+            <option>@Localizer["Smart Contracts"]</option>
+            <option>@Localizer["NeoFS"]</option>
+            <option>@Localizer["NeoID"]</option>
+            <option>@Localizer["Oracles"]</option>
+            <option>@Localizer["NeoFS"]</option>
+            <option>@Localizer["Neo Name Service"]</option>
+            <option>@Localizer["dBFT 2.0"]</option>
+            <option>@Localizer["Interoperability"]</option>
+            <option>@Localizer["Architecture"]</option>
+        </select>
+    </div>
+
+    <div class="resources-end">
+        <div class="menu-page active">
+            <partial name="./_AllInOnePartial" />
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="@Helper.ToCDN("/lib/jquery/jquery.min.js")"></script>
+    <script>$(document).ready(() => {
+        function updateCurrentPage(i) {
+            $('.menu-item').each((j, menuItem) => {
+                if (i === j) {
+                    $(menuItem).addClass('active');
+                } else {
+                    $(menuItem).removeClass('active');
+                }
+            });
+            $('.menu-page').each((j, menuPage) => {
+                if (i === j) {
+                    $(menuPage).addClass('active');
+                } else {
+                    $(menuPage).removeClass('active');
+                }
+            });
+            $('.select-menu-page').prop('selectedIndex', i);
+        };
+
+        $('.menu-item').each((i, menuItem) => {
+            $(menuItem).click(() => {
+                updateCurrentPage(i);
+            });
+        });
+
+        $('.select-menu-page').change(e => {
+            updateCurrentPage(e.target.selectedIndex);
+        });
+
+        updateCurrentPage(0);
+
+        function updateCurrentToolingPage(i) {
+            $('.tab').each((j, tab) => {
+                if (i === j) {
+                    $(tab).addClass('active');
+                } else {
+                    $(tab).removeClass('active');
+                }
+            });
+            $('.tab-page').each((j, tabPage) => {
+                if (i === j) {
+                    $(tabPage).addClass('active');
+                } else {
+                    $(tabPage).removeClass('active');
+                }
+            });
+            $('.select-tab-page').prop('selectedIndex', i);
+        }
+
+        $('.tab').each((i, tab) => {
+            $(tab).click(() => {
+                updateCurrentToolingPage(i);
+            });
+        });
+
+
+        $('.select-tab-page').change(e => {
+            updateCurrentToolingPage(e.target.selectedIndex);
+        });
+
+        updateCurrentToolingPage(0);
+    });
+</script>
+}

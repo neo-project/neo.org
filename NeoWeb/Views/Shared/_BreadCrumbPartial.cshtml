@@ -2,6 +2,10 @@
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
+@section Styles{
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/layout.min.css", true)" />
+}
+
 <div class="layout-container bread-crumb">
     <div class="container-fluid">
         <div class="row">
@@ -12,7 +16,10 @@
             <div class="text-div container">
                 <h4 class="mt-5 text-white bold text-uppercase">@(ViewData["ParentTitle"] ?? ViewData["Title"])</h4>
                 <div class="mt-5">
-                    <h4 class="green mb-4 d-inline"><a asp-controller="home" asp-action="index">@SharedLocalizer["Home"]</a></h4><h4 class="d-inline"> > @(ViewData["ParentTitle"] ?? ViewData["Title"])</h4>
+                    <h4 class="green mb-4 d-inline">
+                        <a asp-controller="home" asp-action="index">@SharedLocalizer["Home"]</a>
+                    </h4>
+                    <h4 class="d-inline"> <i class="iconfont chevron-right">&#xe6ab;</i> @(ViewData["ParentTitle"] ?? ViewData["Title"])</h4>
                 </div>
             </div>
         </div>

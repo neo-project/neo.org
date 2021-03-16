@@ -1,0 +1,110 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+@{ ViewData["Title"] = Localizer["Contributors"].Value; }
+@section Styles{
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/neogas.min.css", true)" />
+}
+
+<div class="introduction">
+    <div class="introduction-start">
+        <div class="introduction-title"><em>NEO</em><br />&amp; GAS</div>
+        <div class="introduction-content">@Localizer["After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]</div>
+    </div>
+    <img class="introduction-img" data-original="@Helper.ToCDN("/images/discover/placeholder.png", true)" />
+</div>
+
+<div class="divider"></div>
+
+<div class="resources">
+    <div class="resources-start">
+        <div class="menu">
+            <div class="menu-item active">
+                @Localizer["Tokens"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+            <div class="menu-item">
+                @Localizer["Wallets"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+        </div>
+
+        <select class="select-menu-page form-control">
+            <option>@Localizer["Tokens"]</option>
+            <option>@Localizer["Wallets"]</option>
+        </select>
+    </div>
+
+    <div class="resources-end">
+        <div class="menu-page active">
+            <partial name="./_TokensPartial" />
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="@Helper.ToCDN("/lib/jquery/jquery.min.js")"></script>
+    <script>$(document).ready(() => {
+        function updateCurrentPage(i) {
+            $('.menu-item').each((j, menuItem) => {
+                if (i === j) {
+                    $(menuItem).addClass('active');
+                } else {
+                    $(menuItem).removeClass('active');
+                }
+            });
+            $('.menu-page').each((j, menuPage) => {
+                if (i === j) {
+                    $(menuPage).addClass('active');
+                } else {
+                    $(menuPage).removeClass('active');
+                }
+            });
+            $('.select-menu-page').prop('selectedIndex', i);
+        };
+
+        $('.menu-item').each((i, menuItem) => {
+            $(menuItem).click(() => {
+                updateCurrentPage(i);
+            });
+        });
+
+        $('.select-menu-page').change(e => {
+            updateCurrentPage(e.target.selectedIndex);
+        });
+
+        updateCurrentPage(0);
+
+        function updateCurrentToolingPage(i) {
+            $('.tab').each((j, tab) => {
+                if (i === j) {
+                    $(tab).addClass('active');
+                } else {
+                    $(tab).removeClass('active');
+                }
+            });
+            $('.tab-page').each((j, tabPage) => {
+                if (i === j) {
+                    $(tabPage).addClass('active');
+                } else {
+                    $(tabPage).removeClass('active');
+                }
+            });
+            $('.select-tab-page').prop('selectedIndex', i);
+        }
+
+        $('.tab').each((i, tab) => {
+            $(tab).click(() => {
+                updateCurrentToolingPage(i);
+            });
+        });
+
+
+        $('.select-tab-page').change(e => {
+            updateCurrentToolingPage(e.target.selectedIndex);
+        });
+
+        updateCurrentToolingPage(0);
+    });
+    </script>
+}

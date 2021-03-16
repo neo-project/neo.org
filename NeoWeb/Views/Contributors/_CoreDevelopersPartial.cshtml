@@ -1,0 +1,44 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+<h2 class="menu-page-title">Overview</h2>
+<div class="menu-page-description">
+    After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date.
+</div>
+
+<div class="people-card-container">
+
+    @{
+        string[,] people = new string[6, 4]
+        {
+            { "Erik Zhang", "张铮文", "Founder NEO", "Author, dBFT" },
+            { "Fernando Diaz Toledano", "Shargon", "Founder Red4Sec", "Expert in security" },
+            { "Igor M. Coelho", "TBD", "Co-Founder, NeoResearch", "Researcher & Professor" },
+            { "Victor Nazaio Coelho", "", "Co-Founder, NeoResearch", "Researcher" },
+            { "Roman Khimov", "", "Principal Software Engineer, Neo Spcc", "" },
+            { "Harry Pieson", "", "Chief Architect, NGD Enterprise", "" },
+        };
+
+        for (int i = 0; i < people.GetLength(0); i++)
+        {
+            <div class="people-card">
+                <img class="people-img" data-original="@Helper.ToCDN("/images/discover/placeholder.svg")" />
+                <div class="content-row">
+                    <div class="primary-name">@people[i, 0]</div>
+                    <a href="https://www.github.com" target="_blank"><i class="iconfont link-icon">&#xe609;</i></a>
+                </div>
+                <div class="content-row ">
+                    <div class="secondary-name">@people[i, 1]</div>
+                    <a href="https://www.linkedin.com" target="_blank"><img class="link-icon" data-original="@Helper.ToCDN("/images/discover/LinkedIn.svg")" /></a>
+                </div>
+                <div class="content-row">
+                    <div class="title-name">@people[i, 2]</div>
+                </div>
+                <div class="content-row">
+                    <div class="people-description">@people[i, 3]</div>
+                </div>
+            </div>
+        }
+    }
+</div>

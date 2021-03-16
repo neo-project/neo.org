@@ -1,5 +1,21 @@
 [
   {
+    "outputFile": "wwwroot/css/about.css",
+    "inputFile": "wwwroot/css/about.less"
+  },
+  {
+    "outputFile": "wwwroot/css/contributors.css",
+    "inputFile": "wwwroot/css/contributors.less"
+  },
+  {
+    "outputFile": "wwwroot/css/neogas.css",
+    "inputFile": "wwwroot/css/neogas.less"
+  },
+  {
+    "outputFile": "wwwroot/css/technology.css",
+    "inputFile": "wwwroot/css/technology.less"
+  },
+  {
     "outputFile": "wwwroot/css/wallets.css",
     "inputFile": "wwwroot/css/wallets.less"
   },
