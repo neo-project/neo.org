@@ -401,16 +401,16 @@ footer {
 }
 .btn-1, .btn-2, .btn-4 {
     &.disabled, &.disabled:hover, &.disabled:focus, &.disabled:active {
-        background-color: @custom6;
-        border: 1px solid @custom6;
+        background-color: fade(@dark-blue, 26%);
+        border: 1px solid transparent;
         cursor: not-allowed;
         color: white;
     }
 }
 .btn-3 {
     &.disabled, &.disabled:hover, &.disabled:focus, &.disabled:active {
-        color: @custom6;
-        border: 1px solid @custom6;
+        color: fade(@dark-blue, 26%);
+        border: 1px solid fade(@dark-blue, 26%);
         cursor: not-allowed;
     }
 }
