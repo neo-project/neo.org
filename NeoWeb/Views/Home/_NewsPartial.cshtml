@@ -23,7 +23,7 @@
                     {
                         foreach (var tag in item.Blog.Tags.Split(','))
                         {
-                            <a class="article-tag1" href="~/news?keywords=@tag.Trim()"># @tag.Trim()</a>
+                            <a class="article-tag1 mr-1" href="~/news?keywords=@tag.Trim()"># @tag.Trim()</a>
                         }
                     }
                 </div>
@@ -52,7 +52,7 @@
                     }
                     <div><i class="iconfont">&#xe60f;</i> @item.Event.Country - @item.Event.City</div>
                 </div>
-                <div class="article-tag1">
+                <div class="article-tag1 mr-1">
                     @if (!string.IsNullOrEmpty(item.Event.Tags))
                     {
                         foreach (var tag in item.Event.Tags.Split(','))
@@ -79,7 +79,7 @@
                     {
                         foreach (var tag in item.Media.Tags.Split(','))
                         {
-                            <a class="article-tag1" href="~/news?keywords=@tag.Trim()">#@tag.Trim()</a>
+                            <a class="article-tag1 mr-1" href="~/news?keywords=@tag.Trim()">#@tag.Trim()</a>
                         }
                     }
                 </div>
