@@ -48,7 +48,6 @@
     height: 2px;
     background: @dark-blue;
 
-
     @media (max-width: 767.98px) {
         display: none;
     }
@@ -113,3 +112,149 @@
     }
 }
 
+.overview-introduction {
+    margin-top: 46px;
+}
+
+.overview-introduction-img {
+    float: left;
+    width: 250px;
+    height: 250px;
+    margin-right: 83px;
+    margin-bottom: 63px;
+}
+
+.overview-introduction-title {
+    font-size: 32px;
+    font-family: NunitoSans-ExtraBold, NunitoSans;
+    font-weight: 800;
+}
+
+.overview-introduction-description {
+    margin-top: 16px;
+    font-size: 20px;
+    font-family: NunitoSans-SemiBold, NunitoSans;
+    font-weight: 600;
+    color: #070E3A;
+}
+
+.menu-page-divider {
+    margin-top: 61px;
+    height: 1px;
+    background: @dark-blue;
+
+    @media (max-width: 767.98px) {
+        height: 2px;
+    }
+}
+
+.menu-page-secondary-title {
+    margin-top: 37px;
+}
+
+.menu-page-secondary-title-img {
+    width: 47px;
+    height: 47px;
+}
+
+.menu-page-secondary-title-text {
+    margin-left: 16px;
+    font-size: 22px;
+    font-family: WorkSans-Bold, WorkSans;
+    font-weight: bold;
+}
+
+.menu-page-tertiary-title {
+    margin-top: 46px;
+    font-size: 18px;
+    font-family: WorkSans-Bold, WorkSans;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.supports {
+    margin-top: 36px;
+}
+
+.support {
+    position: relative;
+    display: flex;
+    background: #EDF9F7;
+    padding: 37px 29px 31px 111px;
+
+    & + & {
+        margin-top: 31px;
+    }
+}
+
+.support-i-am {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 110px;
+    height: 110px;
+    border: 4px solid @dark-blue;
+    background: #FFFFFF;
+    font-size: 22px;
+    font-family: NunitoSans-Bold, NunitoSans;
+    font-weight: bold;
+    transform: translate(-50%, -50%);
+}
+
+.support-start {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    background: #ffffff;
+    padding: 25px 52px 25px 110px;
+}
+
+.predicative {
+    display: flex;
+
+    & + & {
+        margin-top: 12px;
+    }
+}
+
+.predicative-img {
+    width: 32px;
+    height: 32px;
+}
+
+.predicative-text {
+    margin-left: 15px;
+    font-size: 18px;
+    font-family: NunitoSans-SemiBold, NunitoSans;
+    font-weight: 600;
+}
+
+.support-end {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 262px;
+    padding: 26px;
+    background: @green;
+}
+
+.support-end-img {
+    width: 89px;
+    height: 89px;
+}
+
+.support-end-text {
+    margin-top: 25px;
+    font-size: 16px;
+    font-family: NunitoSans-Bold, NunitoSans;
+    font-weight: bold;
+    text-align: center;
+}
+
+.support-end-btn {
+    margin-top: 25px;
+}

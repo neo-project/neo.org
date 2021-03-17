@@ -123,6 +123,7 @@ table, .table {
     font-size: 18px;
     line-height: 1.15;
     text-transform: uppercase;
+    white-space: nowrap;
     color: @dark-blue;
     background-color: @green;
     cursor: pointer;
@@ -362,10 +363,16 @@ footer {
     text-align: center;
     cursor: pointer;
     vertical-align: middle;
+    text-transform: uppercase;
     .work-sans-semibold;
-    &.btn-small{
+
+    &.btn-small {
         font-size: 0.875rem;
         width: 155px;
+    }
+
+    &[disabled="disabled"] {
+        cursor: not-allowed;
     }
 }
 
