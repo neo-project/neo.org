@@ -372,6 +372,11 @@ footer {
         color: @dark-blue;
         font-size: 1rem;
         .work-sans-semibold;
+
+        .iconfont{
+            font-size: 1.8rem;
+            margin-right: .8rem;
+        }
     }
 }
 /*按钮*/
@@ -396,6 +401,20 @@ footer {
 
     &[disabled="disabled"] {
         cursor: not-allowed;
+    }
+}
+.btn-1, .btn-2, .btn-4 {
+    &.disabled, &.disabled:hover, &.disabled:focus, &.disabled:active {
+        background-color: @custom6;
+        border: 1px solid @custom6;
+        cursor: not-allowed;
+        color: white;
+    }
+}
+.btn-3 {
+    &.disabled, &.disabled:hover, &.disabled:focus, &.disabled:active {
+        color: @custom6;
+        border: 1px solid @custom6;
     }
 }
 
