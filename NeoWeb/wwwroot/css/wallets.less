@@ -27,7 +27,7 @@ ul, li {
         }
     }
 
-    header {
+    h4 {
         margin: 12px 0;
         cursor: pointer;
     }
@@ -44,10 +44,6 @@ ul, li {
 
     .open-source {
         color: @green;
-
-        @media only screen and (max-width: 767px) {
-            display: none;
-        }
     }
 }
 .platform {
@@ -161,7 +157,7 @@ ul, li {
     .preview-div {
         margin: 32px 0;
 
-        h3 {
+        h4 {
             display: inline-block;
 
             @media only screen and (max-width: 767px) {
@@ -219,4 +215,55 @@ ul, li {
         display: inline-block;
         vertical-align: middle;
     }
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 2px solid @dark-blue;
+
+    @media (max-width: 767.98px) {
+        display: none;
+    }
+}
+
+.select-tab-page {
+    display: none;
+    margin-top: 39px;
+
+    @media (max-width: 767.98px) {
+        display: inline;
+    }
+}
+
+.tab {
+    position: relative;
+    top: 5px;
+    flex: auto;
+    padding: 24px;
+    font-size: 18px;
+    font-family: NunitoSans-Bold, NunitoSans;
+    font-weight: bold;
+    color: #070E3A;
+    overflow: hidden;
+    cursor: pointer;
+
+    &.active {
+        border-bottom: 5px solid @dark-blue;
+    }
+}
+
+.tab-page {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
+
+.tab-page-title {
+    margin-top: 40px;
+    font-size: 22px;
+    font-family: WorkSans-Bold, WorkSans;
+    font-weight: bold;
+    text-transform: uppercase;
 }
