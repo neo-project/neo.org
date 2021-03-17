@@ -19,7 +19,7 @@
 <div class="resources">
     <div class="resources-start">
         <div class="menu">
-            <div class="menu-item active">
+            <div class="menu-item">
                 @Localizer["Tokens"]
                 <i class="iconfont">&#xe6ab;</i>
             </div>
@@ -36,8 +36,11 @@
     </div>
 
     <div class="resources-end">
-        <div class="menu-page active">
+        <div class="menu-page">
             <partial name="./_TokensPartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_WalletsPartial" />
         </div>
     </div>
 </div>
@@ -45,66 +48,42 @@
 @section Scripts {
     <script src="@Helper.ToCDN("/lib/jquery/jquery.min.js")"></script>
     <script>$(document).ready(() => {
-        function updateCurrentPage(i) {
+    const hashArray = ['tokens', 'wallets']
+
+    function updateCurrentPage(i) {
             $('.menu-item').each((j, menuItem) => {
                 if (i === j) {
                     $(menuItem).addClass('active');
+                    window.location.hash = hashArray[i];
                 } else {
                     $(menuItem).removeClass('active');
                 }
             });
-            $('.menu-page').each((j, menuPage) => {
-                if (i === j) {
-                    $(menuPage).addClass('active');
-                } else {
-                    $(menuPage).removeClass('active');
-                }
-            });
-            $('.select-menu-page').prop('selectedIndex', i);
-        };
+        $('.menu-page').each((j, menuPage) => {
+            if (i === j) {
+            $(menuPage).addClass('active');
+                window.location.hash = hashArray[i];
+            } else {
+            $(menuPage).removeClass('active');
+            }
+        });
+        $('.select-menu-page').prop('selectedIndex', i);
+    };
 
-        $('.menu-item').each((i, menuItem) => {
+    $('.menu-item').each((i, menuItem) => {
             $(menuItem).click(() => {
                 updateCurrentPage(i);
             });
-        });
+    });
 
-        $('.select-menu-page').change(e => {
+    $('.select-menu-page').change(e => {
             updateCurrentPage(e.target.selectedIndex);
-        });
+    });
 
-        updateCurrentPage(0);
+    const hash = window.location.hash.replace(/#/g, '');
+    const index = hashArray.indexOf(hash);
 
-        function updateCurrentToolingPage(i) {
-            $('.tab').each((j, tab) => {
-                if (i === j) {
-                    $(tab).addClass('active');
-                } else {
-                    $(tab).removeClass('active');
-                }
-            });
-            $('.tab-page').each((j, tabPage) => {
-                if (i === j) {
-                    $(tabPage).addClass('active');
-                } else {
-                    $(tabPage).removeClass('active');
-                }
-            });
-            $('.select-tab-page').prop('selectedIndex', i);
-        }
-
-        $('.tab').each((i, tab) => {
-            $(tab).click(() => {
-                updateCurrentToolingPage(i);
-            });
-        });
-
-
-        $('.select-tab-page').change(e => {
-            updateCurrentToolingPage(e.target.selectedIndex);
-        });
-
-        updateCurrentToolingPage(0);
+    updateCurrentPage(index >= 0 ? index : 0);
     });
     </script>
 }
