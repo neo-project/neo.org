@@ -7,9 +7,17 @@
     <link rel="stylesheet" href="@Helper.ToCDN("/css/contributors.min.css", true)" />
 }
 
-<div class="introduction">
+<div class="introduction others">
     <div class="introduction-start">
         <div class="introduction-title"><em>NEO</em><br />@Localizer["People"]</div>
+        <div class="introduction-content">@Localizer["After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]</div>
+    </div>
+    <img class="introduction-img" data-original="@Helper.ToCDN("/images/discover/placeholder.png", true)" />
+</div>
+
+<div class="introduction industry-collaboration">
+    <div class="introduction-start">
+        <div class="introduction-title"><em>Industry</em><br />@Localizer["Collaboration"]</div>
         <div class="introduction-content">@Localizer["After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]</div>
     </div>
     <img class="introduction-img" data-original="@Helper.ToCDN("/images/discover/placeholder.png", true)" />
@@ -40,6 +48,10 @@
                 @Localizer["Outstanding Contributors"]
                 <i class="iconfont">&#xe6ab;</i>
             </div>
+            <div class="menu-item">
+                @Localizer["Industry Collabration"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
         </div>
         
         <select class="select-menu-page form-control">
@@ -48,6 +60,7 @@
             <option>@Localizer["Neo Foundation"]</option>
             <option>@Localizer["Neo Global Development"]</option>
             <option>@Localizer["Outstanding Contributors"]</option>
+            <option>@Localizer["Industry Collabration"]</option>
         </select>
     </div>
 
@@ -67,6 +80,9 @@
         <div class="menu-page">
             <partial name="./_OutStandingContributorsPartial" />
         </div>
+        <div class="menu-page">
+            <partial name="./_IndustryCollaborationPartial" />
+        </div>
     </div>
 </div>
 
@@ -74,9 +90,18 @@
     <script src="@Helper.ToCDN("/lib/jquery/jquery.min.js")"></script>
     <script>
         $(document).ready(() => {
-            const hashArray = ['core-developers', 'communities', 'neo-fundation', 'neo-global-development', 'outstanding-contributors']
+            const hashArray = ['core-developers', 'communities', 'neo-fundation', 'neo-global-development', 'outstanding-contributors', 'industry-collabration']
 
             function updateCurrentPage(i) {
+                const icIndex = hashArray.indexOf('industry-collabration')
+                if (i === icIndex) {
+                    $(".introduction.industry-collaboration").removeClass("d-none")
+                    $(".introduction.others").addClass("d-none")
+                } else {
+                    $(".introduction.industry-collaboration").addClass("d-none")
+                    $(".introduction.others").removeClass("d-none")
+                }
+
                 $('.menu-item').each((j, menuItem) => {
                     if (i === j) {
                         $(menuItem).addClass('active');
