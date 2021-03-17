@@ -29,9 +29,11 @@ html body {
 @nav-color: #0F1E32 ;
 .navbar {
     background: transparent;
+    transition: background 0.75s;
 
     &.scrolled-up {
-        background: linear-gradient(180deg, @nav-color 0%, darken(@nav-color, 1%) 100%);
+        background-color: fade(#0F1E32, 90%);
+        box-shadow: 0px 35px 30px 0px rgba(81, 94, 90, 0.26), -10px 17px 13px 0px rgba(0, 0, 0, 0.14);
     }
 
     @media only screen and (max-width: 991px) {
@@ -40,7 +42,7 @@ html body {
 
     &.show {
         @media only screen and (max-width: 991px) {
-            background: linear-gradient(180deg, @nav-color 0%, darken(@nav-color, 7%) 100%);
+            background: linear-gradient(180deg, fade(@nav-color, 97%) 0%, darken(fade(@nav-color, 97%), 7%) 100%);
         }
     }
 
@@ -66,10 +68,11 @@ html body {
     }
 
     .dropdown-menu {
-        background-color: lighten(@nav-color, 1%);
+        background-color: fade(#0F1E32, 90%);
+        box-shadow: 0px 35px 30px 0px rgba(81, 94, 90, 0.26), -10px 17px 13px 0px rgba(0, 0, 0, 0.14);
 
         a {
-            background-color: lighten(@nav-color, 2%);
+            background-color: fade(lighten(@nav-color, 2%), 75%);
             border-bottom: 3px solid darken(@green, 30%);
         }
     }
