@@ -11,7 +11,7 @@
 </div>
 <pre class="green code">
 <code>
-import {  SmartContract} from '@neo-one/smart-contract';
+import {  SmartContract} from '&#64;neo-one/smart-contract';
 
 export class NEP17Contract extends SmartContract {
   public readonly properties = {
@@ -23,19 +23,19 @@ export class NEP17Contract extends SmartContract {
   public readonly name = 'NEO•ONE NEP17 Example';
   public readonly decimals = 8;
 
-  private readonly notifyTransfer = createEventNotifier<Address | undefined, Address | undefined, Fixed<8>>(
+  private readonly notifyTransfer = createEventNotifier&lt;Address | undefined, Address | undefined, Fixed&lt;8&gt;&gt;(
     'Transfer', 'from', 'to', 'amount',
   );
 
-  public transfer(from: Address, to: Address, amount: Fixed<8>, data?: any): boolean {
-    if (amount < 0) {throw new Error(`Amount must be greater than 0: ${amount}`);}
+  public transfer(from: Address, to: Address, amount: Fixed&lt;8&gt;, data?: any): boolean {
+    if (amount < 0) {throw new Error(&#96;Amount must be greater than 0: $&#123;amount&#125;&#96;);}
 
     const fromBalance = this.balanceOf(from);
-    if (fromBalance < amount) { return false;}
+    if (fromBalance < amount) { return false; }
 
     const contract = Contract.for(to);
     if (contract !== undefined && !Address.isCaller(to)) {
-      const smartContract = SmartContract.for<TokenPayableContract>(to);
+      const smartContract = SmartContract.for&lt;TokenPayableContract&gt;(to);
       if (!smartContract.approveReceiveTransfer(from, amount, this.address)) {
         return false;
       }
@@ -47,7 +47,7 @@ export class NEP17Contract extends SmartContract {
     this.notifyTransfer(from, to, amount);
 
     if (contract !== undefined) {
-      const smartContract = SmartContract.for<TokenPayableContract>(to);
+      const smartContract = SmartContract.for&lt;TokenPayableContract&gt;(to);
       smartContract.onNEP17Payable(from, amount, data);
     }
     return true;

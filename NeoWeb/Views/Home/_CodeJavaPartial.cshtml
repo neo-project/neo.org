@@ -10,11 +10,11 @@
     </div>
 </div>
 <pre class="green code">
-<code>
+    <code>
 import io.neow3j.devpack.contracts.ContractManagement;
 
-@ManifestExtra(key = "Name", value = "Nep17 example")
-@ManifestExtra(key = "Author", value = "neow3j")
+&#64;ManifestExtra(key = "Name", value = "Nep17 example")
+&#64;ManifestExtra(key = "Author", value = "neow3j")
 public class Nep17Contract {
 
     static final Hash160 contractOwner = addressToScriptHash("NdHjSPVnw99RDMCoJdCnAcjkE23gvqUeg2");
@@ -23,8 +23,9 @@ public class Nep17Contract {
     static final StorageContext ctx = Storage.getStorageContext();
     static final StorageMap tokenOwnerMap = ctx.createMap("tokenOwner");
 
-    @DisplayName("Transfer")
-    static Event3Args<Hash160, Hash160, Integer> onTransfer;
+    &#64;DisplayName("Transfer")
+    static Event3Args<Hash160, Hash160, Integer>
+    onTransfer;
 
     // Transfers a token.
     public static boolean transfer(Hash160 from, Hash160 to, int amount, Object[] data) throws Exception {
@@ -32,7 +33,7 @@ public class Nep17Contract {
             throw new Exception("From or To address is not a valid address.");
         }
         if (amount < 0) {throw new Exception("The transfer amount was negative.");}
-      
+
         if (!Runtime.checkWitness(from) && from != ExecutionEngine.getCallingScriptHash()) {
             throw new Exception("Invalid sender signature. The sender of the tokens needs to be the signing account.");
         }
@@ -49,7 +50,7 @@ public class Nep17Contract {
         return true;
     }
 }
-</code>
+    </code>
 </pre>
 <div class="bottom-bar">
     <div class="bottom-bar-title">Java @Localizer["Resources"]</div>
