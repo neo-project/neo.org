@@ -86,50 +86,56 @@ https://github.com/neo-project/neo.org
     @RenderSection("Styles", required: false)
 </head>
 <body id="neo-body">
-    <nav class="navbar container navbar-expand-lg">
-        <a asp-controller="home" asp-action="index">
-            <img src="@(Helper.CDN + (ViewBag.IsWhiteLogo != null ? "/images/logo files-white.svg" : "/images/logo files-dark.svg"))" alt="Neo Logo" />
-        </a>
-        <button class="navbar-toggler" type="button">
-            <div class="special-button">
-                <div class="top"></div>
-                <div class="bottom"></div>
-            </div>
-        </button>
-
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        @Localizer["Discover Neo"]
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <div class="row">
-                            <div class="col-md-3"><a class="dropdown-item" asp-action="index" asp-controller="about">@Localizer["Neo Defined"]</a></div>
-                            <div class="col-md-3"><a class="dropdown-item" asp-action="index" asp-controller="neogas">@Localizer["NEO & GAS"]</a></div>
-                            <div class="col-md-3"><a class="dropdown-item" asp-action="index" asp-controller="technology">@Localizer["Neo Technology"]</a></div>
-                            <div class="col-md-3"><a class="dropdown-item" asp-action="index" asp-controller="contributors">@Localizer["Contributors"]</a></div>
+    <nav class="navbar smart-scroll container-fluid navbar-expand-lg">
+        <div class="container">
+            <a class="mt-1" asp-controller="home" asp-action="index">
+                <img src="@(Helper.CDN + (ViewBag.IsWhiteLogo != null ? "/images/logo files-white.svg" : "/images/logo files-dark.svg"))" alt="Neo Logo" />
+            </a>
+            <button class="navbar-toggler" type="button">
+                <div class="special-button">
+                    <div class="top"></div>
+                    <div class="bottom"></div>
+                </div>
+            </button>
+            
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            @Localizer["Discover Neo"]
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-6 col-md-3"><a class="dropdown-item my-2 py-3 my-md-3 py-md-5" asp-action="index" asp-controller="about"><div class="text-center"><img src="@Helper.CDN/images/nav-1.png" /></div>@Localizer["Neo Defined"]</a></div>
+                                    <div class="col-6 col-md-3"><a class="dropdown-item my-2 py-3 my-md-3 py-md-5" asp-action="index" asp-controller="neogas"><div class="text-center"><img src="@Helper.CDN/images/nav-1.png" /></div>@Localizer["NEO & GAS"]</a></div>
+                                    <div class="col-6 col-md-3"><a class="dropdown-item my-2 py-3 my-md-3 py-md-5" asp-action="index" asp-controller="technology"><div class="text-center"><img src="@Helper.CDN/images/nav-1.png" /></div>@Localizer["Neo Technology"]</a></div>
+                                    <div class="col-6 col-md-3"><a class="dropdown-item my-2 py-3 my-md-3 py-md-5" asp-action="index" asp-controller="contributors"><div class="text-center"><img src="@Helper.CDN/images/nav-1.png" /></div>@Localizer["Contributors"]</a></div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="gov">@Localizer["Governance"]</a></li>
-                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="dev">@Localizer["Developer"]</a></li>
-                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="eco">@Localizer["Eco-Support"]</a></li>
-                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="news">@Localizer["News"]</a></li>
-
-                @if (SharedLocalizer["en"].Value == "zh")
-                {
-    <li class="nav-item nav-lang">
-        <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
-        <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
-    </li> }
-                else
-                {
-    <li class="nav-item nav-lang">
-        <a style="font-size: 1em; font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
-        <a style="font-size: .9em;  font-weight: 500" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
-    </li>}
-            </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="gov">@Localizer["Governance"]</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="dev">@Localizer["Developer"]</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="eco">@Localizer["Eco-Support"]</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="news">@Localizer["News"]</a></li>
+            
+                    @if (SharedLocalizer["en"].Value == "zh")
+                    {
+                        <li class="nav-item nav-lang">
+                            <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
+                            <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item nav-lang">
+                            <a style="font-size: 1em; font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
+                            <a style="font-size: .9em;  font-weight: 500" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+                        </li>
+                    }
+                </ul>
+            </div>
         </div>
     </nav>
     @if (ViewBag.HiddenBreadCrumb == null)
@@ -242,6 +248,30 @@ https://github.com/neo-project/neo.org
         gtag('js', new Date());
 
         gtag('config', 'UA-130525731-3');
+    </script>
+
+    <script>
+        $('body').css('padding-top', $('.navbar').outerHeight() + 'px')
+
+        // detect scroll top or down
+        if ($('.smart-scroll').length > 0) { // check if element exists
+            var last_scroll_top = 0;
+            var scroll_active_top = 150;
+            $(window).on('scroll', function () {
+                scroll_top = $(this).scrollTop();
+                if (scroll_top <= 0) {
+                    $('.smart-scroll').removeClass('scrolled-up').removeClass('scrolled-down');
+                }
+                if (scroll_top < scroll_active_top) return;
+                if (scroll_top < last_scroll_top) {
+                    $('.smart-scroll').removeClass('scrolled-down').addClass('scrolled-up');
+                }
+                else {
+                    $('.smart-scroll').removeClass('scrolled-up').addClass('scrolled-down');
+                }
+                last_scroll_top = scroll_top;
+            });
+        }
     </script>
 
     @RenderSection("Scripts", required: false)

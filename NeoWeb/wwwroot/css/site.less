@@ -151,21 +151,20 @@ table, .table {
     }
 
     &.show {
-        @media only screen and (max-width: 991px) {
-            height: calc(100vh);
-        }
+        padding-bottom: 5rem;
+        height: 100%;
 
         & > a, .navbar-toggler {
             height: 50px;
         }
 
-        .navbar-collapse {
-            margin-top: -200px;
-        }
-
         .nav-item {
-            border-bottom: 1px solid @custom3;
+            border-bottom: 1px solid rgba(128, 128, 128, .2);
         }
+    }
+
+    .container {
+        align-items: start;
     }
 
     img {
@@ -175,7 +174,7 @@ table, .table {
     .nav-item {
         min-width: 50px;
         padding: 0 .5rem;
-
+        font-size: 1rem;
 
         @media only screen and (max-width: 991px) {
             line-height: 3.5rem;
@@ -213,14 +212,6 @@ table, .table {
 
             &:hover {
                 text-decoration: underline;
-
-                @media only screen and (max-width: 991px) {
-                    background-color: rgba(128, 128, 128, .1);
-                }
-            }
-
-            @media only screen and (max-width: 991px) {
-                padding: 0 2rem;
             }
         }
     }
@@ -243,14 +234,23 @@ table, .table {
     .dropdown-menu {
         text-align: center;
         width: 100%;
+        border: none;
+        border-radius: 0;
+        margin: 0;
+        background-color: @custom4;
+
+
+        .row {
+            min-width: 100%;
+        }
+
         @media only screen and (max-width: 991px) {
             text-align: center;
         }
 
         a {
-            &:hover, &:focus {
-                background-color: rgba(128, 128, 128, .1);
-            }
+            background-color: @custom5;
+            border-bottom: 3px solid @green;
         }
     }
 
@@ -288,6 +288,28 @@ table, .table {
             transform: rotate(-45deg);
             top: 24px;
         }
+    }
+
+    &.smart-scroll {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    &.scrolled-down {
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+
+        .dropdown-menu {
+            visibility: hidden;
+        }
+    }
+
+    &.scrolled-up {
+        transform: translateY(0);
+        transition: transform 0.3s ease-in-out;
     }
 }
 
@@ -342,6 +364,7 @@ footer {
         min-width: 148px;
         line-height: 44px;
         height: 46px;
+        width: auto;
     }
 
     a {
@@ -425,7 +448,6 @@ footer {
 }
 
 .article-tag1 {
-    margin-right: .5rem;
     display: inline-block;
     font-size: 0.8rem;
     color: white;
@@ -441,7 +463,6 @@ footer {
 }
 
 .article-tag2 {
-    margin-right: .5rem;
     display: inline-block;
     font-size: 0.8rem;
     color: @dark-blue;
@@ -491,4 +512,49 @@ small, .small {
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, p {
     margin-bottom: 0px;
     vertical-align: middle;
+}
+
+.work-sans-semibold {
+    .work-sans-semibold()
+}
+
+.work-sans-bold {
+    .work-sans-bold()
+}
+
+.nunito-sans-extrabold {
+    .nunito-sans-extrabold()
+}
+
+.nunito-sans-bold {
+    .nunito-sans-bold()
+}
+
+.nunito-sans-regular {
+    .nunito-sans-regular()
+}
+
+.nunito-sans-semibold {
+    .nunito-sans-semibold()
+}
+
+.uppercase {
+    .uppercase()
+}
+
+.bold {
+    .bold()
+}
+
+/*常用色样式*/
+.green {
+    .green()
+}
+
+.dark-blue {
+    .dark-blue()
+}
+
+.gray {
+    .gray()
 }

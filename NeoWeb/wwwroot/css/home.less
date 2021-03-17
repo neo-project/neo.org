@@ -26,15 +26,34 @@
 html body {
     background: @linear-black;
 }
-
+@nav-color: #0F1E32 ;
 .navbar {
-    background-color: transparent;
+    background: transparent;
+
+    &.scrolled-up {
+        background: linear-gradient(180deg, @nav-color 0%, darken(@nav-color, 1%) 100%);
+    }
+
+    @media only screen and (max-width: 991px) {
+        background: linear-gradient(180deg, @nav-color 0%, darken(@nav-color, 1%) 100%);
+    }
+
+    &.show {
+        @media only screen and (max-width: 991px) {
+            background: linear-gradient(180deg, @nav-color 0%, darken(@nav-color, 7%) 100%);
+        }
+    }
 
     .nav-item {
         color: white;
 
+
         a, span {
             color: white;
+
+            @media only screen and (max-width: 991px) {
+                color: white;
+            }
 
             &:hover {
                 color: white;
@@ -47,7 +66,12 @@ html body {
     }
 
     .dropdown-menu {
-        background-color: transparent;
+        background-color: lighten(@nav-color, 1%);
+
+        a {
+            background-color: lighten(@nav-color, 2%);
+            border-bottom: 3px solid darken(@green, 30%);
+        }
     }
 
     .top, .bottom {

@@ -16,3 +16,114 @@
 
 <div class="divider"></div>
 
+<div class="content-wrapper">
+    <div class="title-row">
+        <div class="title">History</div>
+        <div class="arrow-buttons">
+            <i class="iconfont disabled" id="scroll-left-btn">&#xe61c;</i>
+            <i class="iconfont" id="scroll-right-btn">&#xe61b;</i>
+        </div>
+    </div>
+    <div class="scroll-wrapper" id="scroll-wrapper">
+        <img id="scroll-img"  data-original="@Helper.ToCDN("/images/discover/History.png", true)" />
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-md-6 headline">
+            Neo was founded by Da Hongfei and Erik Zhang in 2014 under the name Antshares. The original source code was published to GitHub in July 2015 and the MainNet subsequently launched in October 2016.
+        </div>
+        <div class="col-12 col-md-6 paragraph">
+            In 2017, Antshares was rebranded to Neo as it implemented Smart Contracts 2.0. It underwent aggressive global expansion as hundreds of new developers poured onto the blockchain. Neo leadership began distributing NEO token rewards to groups and individuals that contributed to the growth of the Neo platform. Some of the earliest groups to join Neo included COZ, NewEconoLabs, and O3 Labs.
+            <br /><br />
+            In 2021, Neo is being upgraded to version 3.0, known as N3. As a project that began in June 2018, the N3 upgrade represents the biggest advancement in Neo’s history. It is aimed at bringing the first all-in-one blockchain development experience to the industry, packed with powerful native features such as distributed storage, oracles, name services, and identity. Neo N3 also boasts a simpler and more modular architecture than its predecessors, along with an improved governance and economic model.
+            <br /><br />
+            Neo was a pioneer in the early blockchain industry. Not only was it the first public smart contract platform to be founded in China, it was also the first chain to use a dual token model and the first to implement a BFT style consensus mechanism. Further, it is still the first and only token sale to return all the original raised funds to its participants once it had generated enough money to be self-sustaining.
+
+        </div>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="content-wrapper">
+    <div class="title-row">
+        <div class="title">Execution Philsophy</div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-md-6 paragraph">
+            <span>Over the years, Neo’s organizational structure matured as its Shanghai based operation grew from less than a dozen to over 50. The number of community groups dedicated to advancing Neo’s technology also increased. Today, Neo has developers all over the world contributing to core development, infrastructure, and tooling, including alumni from organizations such as Microsoft, Facebook, Amazon, Samsung, Dell, Seagate, and others.</span>
+            <br /><br />
+            <span class="bold">The main groups working on Neo can be broken down as follows:</span>
+            <div class="bullet-container">
+                <div class="bullet-row"><div class="green-dot"></div>Neo Foundation</div>
+                <div class="bullet-row"><div class="green-dot"></div>Core Developers</div>
+                <div class="bullet-row"><div class="green-dot"></div>Neo Global Development</div>
+                <div class="bullet-row"><div class="green-dot"></div>Sponsored Community Groups</div>
+            </div>
+            <span class="bold">
+                In the eyes of the idealist, the overarching goal of Neo is to be a decentralized and open network for the Smart Economy. The pragmatist, however, knows that in order for this goal to be realised in a timely manner, some centralized coordination must occur.
+                <br /><br />
+            </span>
+            <span>
+                To this end, the Neo Foundation was established as a strategic guide for the Neo platform. As an organisation, the Neo Foundation sets the overall goals for the project and provides funding to other self-governed groups to pursue these goals as they see fit.
+                <br /><br />
+                Neo also knows that the blockchain industry cannot circumvent existing legal systems or create solutions that are wholly incompatible with existing business frameworks. Instead, we must all work together to build the Smart Economy of tomorrow.
+            </span>
+        </div>
+        <div class="col-12 col-md-6 paragraph">
+            Neo has approached this issue by founding and joining several industry groups designed to establish standards, educate law-makers, and increase access to infrastructure.
+            <br /><br />
+            In 2021, Neo will take its biggest step forward toward decentralization with the launch of Neo N3. NEO holders will have the opportunity to vote in a Neo Council responsible for governing the blockchain, running consensus nodes, and setting critical blockchain parameters such as transaction fees.
+            <br /><br />
+            <span class="bold">
+                Neo practices a philosophy of “Pragmatic Idealism”
+            </span>
+            <img class="quote-img" data-original="@Helper.ToCDN("/images/discover/placeholder.png", true)"
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="@Helper.ToCDN("/lib/jquery/jquery.min.js")"></script>
+    <script>$(document).ready(() => {
+    const scrollDistance = 300;
+
+    $("#scroll-left-btn").click(function (e) {
+        if ($(this).hasClass("disabled")) {
+            e.preventDefault();
+            return;
+        }
+        
+        $("#scroll-wrapper").animate({
+            scrollLeft: "-=" + scrollDistance
+        }, 1000)
+
+        const wrapper = $("#scroll-wrapper")
+        const scrollPosition = +(wrapper.scrollLeft())
+        $("#scroll-right-btn").removeClass("disabled")
+        if (scrollPosition < scrollDistance) {
+            $("#scroll-left-btn").addClass("disabled")
+        }
+    })
+
+    $("#scroll-right-btn").click(function (e) {
+        if ($(this).hasClass("disabled")) {
+            e.preventDefault();
+            return;
+        }
+        $("#scroll-wrapper").animate({
+            scrollLeft: "+=" + scrollDistance
+        }, 1000)
+
+        const wrapper = $("#scroll-wrapper")
+        const imgWidth = +($("#scroll-img").width())
+        const scrollPosition = +(wrapper.scrollLeft())
+        $("#scroll-left-btn").removeClass("disabled")
+        if (wrapper.innerWidth() + scrollDistance + scrollPosition >= imgWidth) {
+            $("#scroll-right-btn").addClass("disabled")
+        }
+    })
+
+    });</script>
+}
