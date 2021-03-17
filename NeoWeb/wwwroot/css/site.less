@@ -398,10 +398,6 @@ footer {
         font-size: 0.875rem;
         width: 155px;
     }
-
-    &[disabled="disabled"] {
-        cursor: not-allowed;
-    }
 }
 .btn-1, .btn-2, .btn-4 {
     &.disabled, &.disabled:hover, &.disabled:focus, &.disabled:active {
@@ -415,6 +411,7 @@ footer {
     &.disabled, &.disabled:hover, &.disabled:focus, &.disabled:active {
         color: @custom6;
         border: 1px solid @custom6;
+        cursor: not-allowed;
     }
 }
 
