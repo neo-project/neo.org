@@ -115,11 +115,24 @@
         $(".select-tab-page").change(function () {
             showPlatform($(this).val());
         });
+
+        $(".select-version-page").change(function () {
+            showVersion($(this).val());
+        });
         function showPlatform(name) {
             $("body").trigger("scroll");
             name = name == 'all' ? "" : name;
             if (name) {
                 $('.client-ul li').not('.' + name).hide();
+                $('.' + name).show();
+            }
+            else
+                $('.client-ul li').show();
+        }
+        function showVersion(name) {
+            $("body").trigger("scroll");
+            if (name) {
+                $('.client-ul').not('.' + name).hide();
                 $('.' + name).show();
             }
             else

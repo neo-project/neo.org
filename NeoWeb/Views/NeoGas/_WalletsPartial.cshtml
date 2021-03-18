@@ -3,6 +3,11 @@
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
 <h2 class="menu-page-title">Wallets</h2>
+<select class="select-version-page form-control">
+    <option value="n3" selected="selected">Neo N3</option>
+    <option value="legacy">Neo Legacy</option>
+</select>
+
 <div class="menu-page-description lighter">
     At magnum periculum adiit in oculis quidem faciunt, ut summo bono, dolorem aspernari ut aut ad naturam aut rerum hic tenetur a se esse ratione intellegi posse et dolorem ipsum, quia voluptas sit, voluptatem et accusamus et quas molestias.
 </div>
@@ -23,17 +28,16 @@
     <option value="hardware">Hardware</option>
     <option value="web">Web</option>
 </select>
-
-<ul class="row mt-4 client-ul">
+<ul class="row mt-4 client-ul n3">
     <li class="desktop">
         <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/neo3-gui.png")" />
-        <h4>Neo-GUI <small>(v3.0 Preview 3)</small></h4>
+        <h4>Neo-GUI <small>(V3.0.0-RC1)</small></h4>
         <div class="platform">
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Windows">&#xf266;</i>
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="macOS">&#xe61f;</i>
             <a class="open-source" href="https://github.com/neo-ngd/Neo3-GUI" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
         </div>
-        
+
         <div class="developer d-none"><a href="https://github.com/neo-ngd" target="_blank">NEO GLOBAL DEVELOPMENT</a></div>
         <div class="license d-none"><a class="float-left" href="https://github.com/neo-ngd/Neo3-GUI/blob/master/LICENSE" target="_blank">MIT License</a></div>
         <div class="button d-none"><a class="btn-2 btn-small" href="https://github.com/neo-ngd/Neo3-GUI/releases/tag/v1.1.0" target="_blank">@Localizer["Download"]</a></div>
@@ -76,14 +80,14 @@
     </li>
     <li class="desktop">
         <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/cli.png")" />
-        <h4>Neo-CLI <small>(v3.0 Preview 3)</small></h4>
+        <h4>Neo-CLI <small>(V3.0.0-RC1)</small></h4>
         <div class="platform">
             <i class="iconfont" h4 data-toggle="tooltip" data-placement="bottom" title="Windows">&#xf266;</i>
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Linux">&#xe6c1;</i>
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="macOS">&#xe61f;</i>
             <a class="open-source" href="https://github.com/neo-project/neo-cli" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
         </div>
-        
+
         <div class="developer d-none"><a href="https://github.com/neo-project/neo-cli" target="_blank">The Neo Project</a></div>
         <div class="license d-none"><a href="https://github.com/neo-project/neo-cli/blob/master/LICENSE" target="_blank">MIT License</a></div>
         <div class="button d-none"><a class="btn-2 btn-small" href="https://github.com/neo-project/neo-node/releases/tag/v3.0.0-preview3" target="_blank">@Localizer["Download"]</a></div>
@@ -187,12 +191,13 @@
             </div>
         </div>
     </li>
+</ul>
+<ul class="row mt-4 client-ul legacy" style="display: none">
     <li class="desktop">
         <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/gui.png")" />
         <h4>Neo-GUI</h4>
         <div class="platform">
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Windows">&#xf266;</i>
-            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="macOS">&#xe61f;</i>
             <a class="open-source" href="https://github.com/neo-project/neo-gui" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
         </div>
         <div class="developer d-none"><a href="https://github.com/neo-project/neo-gui" target="_blank">The Neo Project</a></div>
@@ -262,7 +267,7 @@
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="macOS">&#xe61f;</i>
             <a class="open-source" href="https://github.com/neo-project/neo-cli" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
         </div>
-        
+
         <div class="developer d-none"><a href="https://github.com/neo-project/neo-cli" target="_blank">The Neo Project</a></div>
         <div class="license d-none"><a href="https://github.com/neo-project/neo-cli/blob/master/LICENSE" target="_blank">MIT License</a></div>
         <div class="button d-none"><a class="btn-2 btn-small" href="https://github.com/neo-project/neo-cli/releases" target="_blank">@Localizer["Download"]</a></div>
@@ -383,7 +388,7 @@
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
             <a class="open-source" href="https://github.com/O3Labs" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
         </div>
-        
+
         <div class="developer d-none"><a href="https://o3.network/" target="_blank">O3 Labs</a></div>
         <div class="license d-none"><a href="https://github.com/O3Labs/OzoneWalletIOS/blob/master/LICENSE" target="_blank">MIT License</a></div>
         <div class="button d-none"><a class="btn-2 btn-small" href="https://o3.network/" target="_blank">@Localizer["Website"]</a></div>
@@ -437,7 +442,7 @@
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="macOS">&#xe61f;</i>
             <a class="open-source" href="https://github.com/CityOfZion/neon-wallet" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
         </div>
-        
+
         <div class="developer d-none"><a href="https://github.com/CityOfZion/neon-wallet" target="_blank">City of Zion</a></div>
         <div class="license d-none"><a href="https://github.com/CityOfZion/neon-wallet/blob/dev/LICENSE.md" target="_blank">MIT License</a></div>
         <div class="button d-none"><a class="btn-2 btn-small" href="https://neonwallet.com/" target="_blank">@Localizer["Website"]</a></div>
@@ -482,7 +487,7 @@
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="extension">&#xe621;</i>
             <a class="open-source" href="https://github.com/NeoNEXT/neoline" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
         </div>
-        
+
         <div class="developer d-none"><a href="https://github.com/NeoNEXT/neoline" target="_blank">NeoNext</a></div>
         <div class="button d-none">
             <a class="btn-2 btn-small" href="https://neoline.io" target="_blank">@Localizer["Website"]</a>
@@ -771,7 +776,7 @@
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Web">&#xe623;</i>
             <a class="open-source" href="https://github.com/ext-studio/iwallic" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
         </div>
-        
+
         <div class="developer d-none"><a href="https://github.com/ext-studio" target="_blank">e-studio</a></div>
         <div class="button d-none">
             <a class="btn-2 btn-small" href="https://iwallic.com" target="_blank">@Localizer["Website"]</a>
@@ -822,7 +827,7 @@
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
             <a class="open-source" href="https://github.com/Atomicwallet" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
         </div>
-        
+
         <div class="developer d-none"><a href="https://github.com/Atomicwallet" target="_blank">Atomicwallet</a></div>
         <div class="button d-none"><a class="btn-2 btn-small" href="https://atomicwallet.io/" target="_blank">@Localizer["Website"]</a></div>
         <div class="desc d-none">
@@ -868,7 +873,7 @@
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
             <a class="open-source" href="https://github.com/AnyBitIO/anybit-Android" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
         </div>
-        
+
         <div class="developer d-none"><a href="https://www.anybit.io/" target="_blank">AnyBit</a></div>
         <div class="license d-none"><a href="https://github.com/AnyBitIO/anybit-iOS/blob/master/LICENSE" target="_blank">Apache License</a></div>
         <div class="button d-none"><a class="btn-2 btn-small" href="https://www.anybit.io/" target="_blank">@Localizer["Website"]</a></div>
@@ -917,7 +922,7 @@
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="extension">&#xe621;</i>
             <a class="open-source" href="https://github.com/NewEconoLab/TeemoWallet" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
         </div>
-        
+
         <div class="developer d-none"><a href="https://github.com/NewEconoLab" target="_blank">NewEconoLab</a></div>
         <div class="button d-none"><a class="btn-2 btn-small" href="https://chrome.google.com/webstore/detail/teemo-wallet/faddjfhplkcfackpcjnmmeapchnkobjk" target="_blank">@Localizer["Download"]</a></div>
         <div class="desc d-none">
@@ -1057,7 +1062,7 @@
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="extension">&#xe621;</i>
             <a class="open-source" href="https://github.com/guardaco" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
         </div>
-        
+
         <div class="button d-none"><a class="btn-2 btn-small" href="https://guarda.co/" target="_blank">@Localizer["Website"]</a></div>
         <div class="desc d-none">
             <div class="preview-div">
@@ -1405,7 +1410,7 @@
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Web">&#xe623;</i>
             <a class="open-source" href="https://github.com/neotracker/neotracker-wallet" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
         </div>
-        
+
         <div class="developer d-none"><a href="https://github.com/neotracker/" target="_blank">NEO Tracker</a></div>
         <div class="license d-none"><a href="https://github.com/neotracker/neotracker-wallet/blob/master/LICENSE.md" target="_blank">MIT License</a></div>
         <div class="button d-none"><a class="btn-2 btn-small" href="https://neotracker.io/wallet" target="_blank">@Localizer["Go to Web Wallet"]</a></div>
@@ -1456,7 +1461,7 @@
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Web">&#xe623;</i>
             <a class="open-source" href="https://github.com/NewEconoLab/NELBrowser-Web-React" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
         </div>
-        
+
         <div class="developer d-none"><a href="https://nel.group/" target="_blank">NewEconoLabs</a></div>
         <div class="license d-none"><a href="https://github.com/NewEconoLab/NELBrowser-Web-React/blob/master/LICENSE" target="_blank">MIT License</a></div>
         <div class="button d-none"><a class="btn-2 btn-small" href="https://wallet.nel.group/" target="_blank">@Localizer["Go to Web Wallet"]</a></div>
@@ -1507,7 +1512,7 @@
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Web">&#xe623;</i>
             <a class="open-source" href="https://github.com/safudex/neologin" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
         </div>
-        
+
         <div class="developer d-none"><a href="https://github.com/safudex" target="_blank">SafuDEX</a></div>
         <div class="license d-none"><a href="https://github.com/safudex/neologin/blob/master/LICENSE" target="_blank">MIT License</a></div>
         <div class="button d-none"><a class="btn-2 btn-small" href="https://neologin.io/" target="_blank">@Localizer["Website"]</a></div>
@@ -1615,7 +1620,7 @@
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Web">&#xe623;</i>
             <a class="open-source" href="https://github.com/snowypowers/ansy" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
         </div>
-        
+
         <div class="developer d-none"><a href="https://github.com/snowypowers/" target="_blank">Snowypowers</a></div>
         <div class="license d-none"><a href="https://github.com/snowypowers/ansy/blob/master/LICENSE" target="_blank">MIT License</a></div>
         <div class="button d-none"><a class="btn-2 btn-small" href="https://snowypowers.github.io/ansy/" target="_blank">@Localizer["Go to Web Wallet"]</a></div>
@@ -1664,7 +1669,7 @@
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Hardware">&#xe622;</i>
             <a class="open-source" href="https://github.com/LedgerHQ" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
         </div>
-        
+
         <div class="developer d-none"><a href="https://github.com/LedgerHQ" target="_blank">Ledger SAS</a></div>
         <div class="license d-none"><a href="https://github.com/LedgerHQ/ledger-wallet-chrome/blob/master/LICENSE" target="_blank">MIT License</a></div>
         <div class="button d-none"><a class="btn-2 btn-small" href="https://www.ledgerwallet.com" target="_blank">@Localizer["Website"]</a></div>
