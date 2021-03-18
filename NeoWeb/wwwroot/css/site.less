@@ -2,6 +2,10 @@
 
 html {
     font-size: 16px;
+
+    @media only screen and (max-width: 767px) {
+        font-size: 15px;
+    }
 }
 
 html body {
@@ -10,10 +14,6 @@ html body {
     color: @dark-blue;
     background-color: white;
     .nunito-sans-regular;
-
-    @media only screen and (max-width: 767px) {
-        font-size: 15px;
-    }
 }
 
 @media (min-width: 1600px) {

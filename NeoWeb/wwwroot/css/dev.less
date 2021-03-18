@@ -4,24 +4,28 @@
     float: right;
     position: relative;
     margin-top: -110px;
+
+    @media (max-width: 767.98px) {
+        margin-top: -100px;
+    }
 }
 
 .platform-label {
     font-family: WorkSans-SemiBold, WorkSans;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 1.125rem;
     text-transform: uppercase;
 }
 
 .select-platform {
-    width: 150px;
-    margin-left: 23px;
+    width: 9.375rem;
+    margin-left: 1.5rem;
 }
 
 .introduction {
     display: flex;
     align-items: center;
-    padding: 48px 0 100px;
+    padding: 3rem 0 6.25rem;
 
     @media (max-width: 767.98px) {
         display: none;
@@ -34,10 +38,10 @@
 }
 
 .introduction-title {
-    font-size: 92px;
+    font-size: 5.75rem;
     font-family: WorkSans-Bold, WorkSans;
     font-weight: bold;
-    line-height: 85px;
+    line-height: 0.85;
     text-transform: uppercase;
 
     em {
@@ -47,20 +51,20 @@
 }
 
 .introduction-content {
-    margin-top: 36px;
-    font-size: 20px;
+    margin-top: 2.25rem;
+    font-size: 1.25rem;
     font-family: NunitoSans-Bold, NunitoSans;
     font-weight: bold;
 }
 
 .learn-more {
     align-self: flex-start;
-    margin-top: 36px;
+    margin-top: 2.25rem;
 }
 
 .introduction-img {
-    margin-left: 36px;
-    width: 300px;
+    margin-left: 2.25rem;
+    width: 18.75rem;
 
     @media (max-width: 767.98px) {
         display: none;
@@ -79,16 +83,16 @@
 
 .resources {
     display: flex;
-    padding: 62px 0 159px;
+    padding: 3.5rem 0 10rem;
 
     @media (max-width: 767.98px) {
         flex-direction: column;
-        padding-top: 10px; 
+        padding-top: 0.625rem; 
     }
 }
 
 .resources-start {
-    width: 278px;
+    width: 17.375rem;
 
     @media (max-width: 767.98px) {
         width: auto;
@@ -105,10 +109,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 16px;
+    padding: 0.75rem 1rem;
     border-left: 5px solid transparent;
     color: @dark-blue;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-family: NunitoSans-Bold, NunitoSans;
     font-weight: bold;
 
@@ -119,7 +123,7 @@
 }
 
 .resources-start-divider {
-    margin-top: 33px;
+    margin-top: 2rem;
     height: 2px;
     background: @dark-blue;
 
@@ -130,7 +134,7 @@
 }
 
 .links {
-    margin-top: 33px;
+    margin-top: 2rem;
 
     @media (max-width: 767.98px) {
         display: none;
@@ -141,11 +145,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 47px;
-    padding: 0 16px;
+    height: 3rem;
+    padding: 0 1rem;
     border-left: 5px solid transparent;
     color: @dark-blue;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-family: NunitoSans-Bold, NunitoSans;
     font-weight: bold;
 }
@@ -160,11 +164,11 @@
 
 .resources-end {
     flex: 1;
-    margin-left: 82px;
+    margin-left: 5rem;
 
     @media (max-width: 767.98px) {
         margin-left: 0;
-        margin-top: 12px;
+        margin-top: 0.75rem;
     }
 }
 
@@ -177,16 +181,23 @@
     }
 }
 
+.menu-page-title {
+    font-size: 2.25rem;
+    font-family: NunitoSans-ExtraBold, NunitoSans;
+    font-weight: 800;
+    color: #000033;
+}
+
 .menu-page-description {
-    margin-top: 35px;
-    font-size: 20px;
+    margin-top: 2.25rem;
+    font-size: 1.25rem;
     font-family: NunitoSans-Bold, NunitoSans;
     font-weight: bold;
 }
 
 .overview-links {
     display: none;
-    margin-top: 35px;
+    margin-top: 2.25rem;
 
     @media (max-width: 767.98px) {
         display: flex;
@@ -197,10 +208,10 @@
 .overview-link {
     display: flex;
     align-items: center;
-    height: 60px;
-    padding: 0 23px;
+    height: 3.75rem;
+    padding: 0 1.5rem;
     border: 1px solid @dark-blue;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-family: NunitoSans-ExtraBold, NunitoSans;
     font-weight: 800;
     color: @dark-blue;
@@ -214,17 +225,17 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    grid-gap: 22px 22px;
-    margin-top: 61px;
+    grid-gap: 1.5rem 1.5rem;
+    margin-top: 3.75rem;
 
     @media (max-width: 767.98px) {
-        margin-top: 35px;
+        margin-top: 2.25rem;
     }
 }
 
 .documentation {
     display: flex;
-    padding: 0 19px 19px;
+    padding: 0 1.125rem 1.125rem;
     background: @dark-blue;
 
     @media (max-width: 767.98px) {
@@ -239,21 +250,20 @@
 
 .documentation-title {
     align-self: flex-end;
-    margin-left: 14px;
-    font-size: 18px;
+    margin-left: 0.875rem;
+    font-size: 1.125rem;
     font-family: NunitoSans-Bold, NunitoSans;
     font-weight: bold;
     color: white;
-    line-height: 18px;
 }
 
 .documentation-img {
-    margin-top: 22px;
-    margin-left: 14px;
+    margin-top: 1.5rem;
+    margin-left: 0.875rem;
 }
 
 .menu-page-divider {
-    margin-top: 61px;
+    margin-top: 3.75rem;
     height: 1px;
     background: @dark-blue;
 
@@ -263,54 +273,54 @@
 }
 
 .menu-page-secondary-title {
-    margin-top: 37px;
-    font-size: 22px;
+    margin-top: 2.25rem;
+    font-size: 1.5rem;
     font-family: WorkSans-Bold, WorkSans;
     font-weight: bold;
 }
 
 .overview-examples {
-    margin-top: 45px;
+    margin-top: 3rem;
 }
 
 .overview-example {
     display: flex;
 
     & + & {
-        margin-top: 44px;
+        margin-top: 2.5rem;
     }
 }
 
 .overview-example-img {
-    width: 259px;
-    height: 156px;
+    width: 16rem;
+    height: 9.75rem;
 
     @media (max-width: 767.98px) {
-        width: 82px;
-        height: 72px;
+        width: 5rem;
+        height: 4.5rem;
     }
 }
 
 .overview-example-end {
-    margin-left: 29px;
+    margin-left: 1.5rem;
 }
 
 .overview-example-title {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-family: WorkSans-SemiBold, WorkSans;
     font-weight: 600;
 }
 
 .overview-example-author {
-    font-size: 16px;
+    font-size: 1rem;
     font-family: NunitoSans-Bold, NunitoSans;
     font-weight: bold;
     color: #828386;
 }
 
 .overview-example-description {
-    margin-top: 8px;
-    font-size: 16px;
+    margin-top: 0.5rem;
+    font-size: 1rem;
     font-family: NunitoSans-SemiBold, NunitoSans;
     font-weight: 600;
     color: #070E3A;
@@ -318,17 +328,17 @@
 
 .view-all-examples {
     align-self: center;
-    margin-top: 69px;
+    margin-top: 4rem;
 }
 
 .resource-overview-img {
     align-self: center;
-    margin-top: 126px;
+    margin-top: 8rem;
 }
 
 .view-all-tools {
     align-self: center;
-    margin-top: 126px;
+    margin-top: 8rem;
 }
 
 .tabs {
@@ -342,7 +352,7 @@
 
 .select-tab-page {
     display: none;
-    margin-top: 39px;
+    margin-top: 2.5rem;
 
     @media (max-width: 767.98px) {
         display: inline;
@@ -353,8 +363,8 @@
     position: relative;
     top: 5px;
     flex: auto;
-    padding: 24px;
-    font-size: 18px;
+    padding: 1.5rem;
+    font-size: 1.125rem;
     font-family: NunitoSans-Bold, NunitoSans;
     font-weight: bold;
     color: #070E3A;
@@ -375,8 +385,8 @@
 }
 
 .tab-page-title {
-    margin-top: 40px;
-    font-size: 22px;
+    margin-top: 2.5rem;
+    font-size: 1.5rem;
     font-family: WorkSans-Bold, WorkSans;
     font-weight: bold;
     text-transform: uppercase;
@@ -385,8 +395,8 @@
 .tools {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 56px 133px;
-    margin-top: 41px;
+    grid-gap: 3.5rem 8rem;
+    margin-top: 2.5rem;
 
     @media (max-width: 767.98px) {
         display: flex;
@@ -407,18 +417,18 @@
 }
 
 .tool-img {
-    width: 156px;
-    height: 156px;
+    width: 9.75rem;
+    height: 9.75rem;
 
     @media (max-width: 767.98px) {
-        width: 82px;
-        height: 72px;
+        width: 5rem;
+        height: 4.5rem;
     }
 }
 
 .view-website {
     display: block;
-    margin-top: 16px;
+    margin-top: 1rem;
 
     @media (max-width: 767.98px) {
         display: none;
@@ -426,7 +436,7 @@
 }
 
 .tool-end {
-    margin-left: 30px;
+    margin-left: 2rem;
 }
 
 .tool-title-wrapper {
@@ -435,7 +445,7 @@
 }
 
 .tool-title {
-    font-size: 18px;
+    font-size: 1.125rem;
     font-family: WorkSans-Bold, WorkSans;
     font-weight: bold;
 }
@@ -443,12 +453,12 @@
 .tool-language {
     display: flex;
     align-items: center;
-    height: 24px;
-    padding: 0 24px;
-    margin-left: 11px;
-    border-radius: 11px;
+    height: 1.5rem;
+    padding: 0 1.5rem;
+    margin-left: 0.75rem;
+    border-radius: 0.75rem;
     background: @dark-blue;
-    font-size: 12px;
+    font-size: 0.75rem;
     font-family: WorkSans-SemiBold, WorkSans;
     font-weight: 600;
     color: white;
@@ -461,12 +471,12 @@
 .tool-bottom-language {
     display: none;
     align-items: center;
-    height: 24px;
-    padding: 0 24px;
-    border-radius: 11px;
-    margin-top: 24px;
+    height: 1.5rem;
+    padding: 0 1.5rem;
+    border-radius: 0.75rem;
+    margin-top: 1.5rem;
     background: @dark-blue;
-    font-size: 12px;
+    font-size: 0.75rem;
     font-family: WorkSans-SemiBold, WorkSans;
     font-weight: 600;
     color: white;
@@ -477,14 +487,14 @@
 }
 
 .tool-developer {
-    font-size: 16px;
+    font-size: 1rem;
     font-family: NunitoSans-Bold, NunitoSans;
     font-weight: bold;
     color: #828386;
 }
 
 .tool-description {
-    font-size: 16px;
+    font-size: 1rem;
     font-family: NunitoSans-SemiBold, NunitoSans;
     font-weight: 600;
     color: #070E3A;
@@ -494,15 +504,15 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin-top: 76px;
+    margin-top: 4.5rem;
 
     @media (max-width: 767.98px) {
-        margin-top: 39px;
+        margin-top: 2.5rem;
     }
 }
 
 .examples-filter-label {
-    font-size: 18px;
+    font-size: 1.125rem;
     font-family: WorkSans-SemiBold, WorkSans;
     font-weight: 600;
     text-transform: uppercase;
@@ -513,8 +523,8 @@
 }
 
 .select-language {
-    width: 195px;
-    margin-left: 13px;
+    width: 12rem;
+    margin-left: 0.75rem;
 
     @media (max-width: 767.98px) {
         margin-left: 0;
@@ -523,25 +533,25 @@
 }
 
 .examples {
-    margin-top: 83px;
+    margin-top: 5rem;
 }
 
 .example {
     display: flex;
 
     & + & {
-        margin-top: 40px;
+        margin-top: 2.5rem;
     }
 }
 
 .example-img {
-    width: 191px;
-    height: 191px;
+    width: 12rem;
+    height: 12rem;
 
 
     @media (max-width: 767.98px) {
-        width: 82px;
-        height: 72px;
+        width: 5rem;
+        height: 4.5rem;
     }
 }
 
@@ -553,8 +563,8 @@
 
 .example-left-type {
     display: none;
-    margin-top: 16px;
-    font-size: 16px;
+    margin-top: 1rem;
+    font-size: 1rem;
     font-family: WorkSans-Bold, WorkSans;
     font-weight: bold;
     text-transform: uppercase;
@@ -565,7 +575,7 @@
 }
 
 .example-end {
-    margin-left: 30px;
+    margin-left: 2rem;
 }
 
 .example-header {
@@ -574,8 +584,8 @@
 }
 
 .example-type-img {
-    width: 39px;
-    height: 39px;
+    width: 2.5rem;
+    height: 2.5rem;
 
     @media (max-width: 767.98px) {
         display: none;
@@ -583,7 +593,7 @@
 }
 
 .example-header-middle {
-    margin-left: 14px;
+    margin-left: 0.875rem;
 
     @media (max-width: 767.98px) {
         margin-left: 0;
@@ -591,13 +601,13 @@
 }
 
 .example-title {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-family: WorkSans-SemiBold, WorkSans;
     font-weight: 600;
 }
 
 .example-author {
-    font-size: 16px;
+    font-size: 1rem;
     font-family: NunitoSans-Bold, NunitoSans;
     font-weight: bold;
     color: #828386;
@@ -607,8 +617,8 @@
     position: relative;
     top: 2px;
     align-self: flex-start;
-    margin-left: 16px;
-    font-size: 16px;
+    margin-left: 1rem;
+    font-size: 1rem;
     font-family: WorkSans-Bold, WorkSans;
     font-weight: bold;
     text-transform: uppercase;
@@ -619,7 +629,7 @@
 }
 
 .example-description {
-    font-size: 16px;
+    font-size: 1rem;
     font-family: NunitoSans-SemiBold, NunitoSans;
     font-weight: 600;
     color: #070E3A;
@@ -632,17 +642,17 @@
 .example-language {
     display: flex;
     align-items: center;
-    padding: 0 24px;
-    height: 24px;
-    margin-top: 16px;
-    border-radius: 11px;
+    padding: 0 1.5rem;
+    height: 1.5rem;
+    margin-top: 1rem;
+    border-radius: 0.75rem;
     background: @dark-blue;
-    font-size: 12px;
+    font-size: 0.75rem;
     font-family: WorkSans-SemiBold, WorkSans;
     font-weight: 600;
     color: #FFFFFF;
 
     & + & {
-        margin-left: 11px;
+        margin-left: 0.75rem;
     }
 }
