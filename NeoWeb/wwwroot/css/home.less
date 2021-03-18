@@ -158,11 +158,13 @@ html body {
         background: @linear-green;
 
         .content-wrapper {
+            max-height: calc(@landing-max-height - 100px);
             align-items: flex-start;
         }
 
         @media only screen and (max-width: 767px) {
-            height: 100vh;
+            padding: 1.5rem 2.375rem 3rem 2.375rem;
+            max-height: unset;
         }
     }
 }
@@ -172,8 +174,8 @@ html body {
     min-height: calc((@landing-min-height - 100px) / 2);
     max-height: calc((@landing-max-height - 100px) / 2);
     width: calc((@landing-height - 100px) / 2);
-    min-width: calc((@landing-min-height - 100px) / 2);
-    max-width: calc((@landing-max-height - 100px) / 2);
+    min-width: calc((@landing-min-height - 100px) / 2.5);
+    max-width: calc((@landing-max-height - 100px) / 2.5);
 }
 
 .sub-title {
@@ -194,11 +196,12 @@ html body {
 }
 
 .landing-title {
+    .work-sans-bold;
     margin: (@landing-min-height / 20) 0;
     font-size: 4.375rem;
     line-height: 1.04;
     text-transform: uppercase;
-    color: @dark-blue;
+    .dark-blue;
 
     @media only screen and (max-width: 1200px) {
         font-size: 3.125rem;
@@ -206,6 +209,12 @@ html body {
 
     @media only screen and (max-width: 991px) {
         font-size: 2.5rem;
+        line-height: 1.1;
+    }
+
+    @media only screen and (max-width: 767.98px) {
+        font-size: 2.25rem;
+        line-height: 1.1;
     }
 }
 
@@ -213,24 +222,29 @@ html body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    color: #000332;
     font-size: 1rem;
     line-height: 1.25;
 }
 
 .latest-news-text {
     text-transform: uppercase;
+    letter-spacing: 0.125rem;
 }
 
 .news-link {
-    color: #000332;
+    .nunito-sans-semibold;
+    .dark-blue;
+
+    &:hover {
+        color: fade(@dark-blue, 60%);
+    }
 }
 
 .aio-row {
     padding: 5%;
 
-    @media only screen and (max-width: 767px) {
-        height: 100%;
+    @media only screen and (max-width: 767.98px) {
+        display: none;
     }
 }
 
@@ -523,12 +537,54 @@ html body {
 
 
 .get-started-row {
+    background-color: #ffffff;
     padding: 2.375rem 2.375rem 11.125rem 2.375rem;
+    .work-sans-bold;
+
+    .left-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        height: 50.125rem;
+        text-align: right;
+        padding-right: 5%;
+        border-right: 1px solid @green;
+
+        @media only screen and (max-width: 767.98px) {
+            align-items: flex-start;
+            padding: 5.125rem 0;
+            height: 100%;
+            border-right: none;
+            text-align: left;
+        }
+    }
+
+    .right-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        padding-left: 5%;
+        height: 50.125rem;
+
+        @media only screen and (max-width: 767.98px) {
+            height: 100%;
+            padding-left: 15px;
+        }
+    }
 }
 
 .type-text {
-    margin: 3.625rem 0;
+    margin-bottom: 1.875rem;
     font-size: @typed-text-font-size;
+    line-height: 0.85;
+
+    @media only screen and (max-width: 767.98px) {
+        margin: 1.5rem 0;
+        font-size: 5.5rem;
+        line-height: 0.92;
+    }
 }
 
 .typed-cursor {
@@ -536,9 +592,12 @@ html body {
 }
 
 .explanation {
-    margin-bottom: 62px;
+    margin-bottom: 1.875rem;
     font-size: 1.5rem;
-    max-width: 856px;
+
+    @media only screen and (max-width: 767.98px) {
+        margin: 1.875rem 0 3rem 0;
+    }
 }
 
 .learn-more {
@@ -554,24 +613,36 @@ html body {
 
 .get-started-wrapper {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     column-gap: 22px;
     grid-row-gap: 22px;
     flex-wrap: wrap;
+
+    @media only screen and (max-width: 767.98px) {
+        align-items: center;
+    }
 }
 
 .get-started-card {
     position: relative;
     width: 340px;
-    height: 192px;
-    background-color: @green;
+    height: 102px;
+    background-color: #F0F5F6;
     border-radius: 4px;
+    box-shadow: -30px 35px 30px 0px rgba(81, 94, 90, 0.26), -10px 17px 13px 0px rgba(0, 0, 0, 0.14);
+
+    @media only screen and (max-width: 767.98px) {
+        width: 90%;
+        min-width: 260px;
+    }
 
     .card-text {
+        .nunito-sans-bold;
         position: absolute;
-        top: 18px;
-        left: 22px;
+        bottom: 10%;
+        left: 15%;
         max-width: 55%;
         font-size: 1.25rem;
         line-height: 1.2rem;

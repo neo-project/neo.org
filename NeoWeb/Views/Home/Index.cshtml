@@ -22,7 +22,7 @@
         </div>
         <div class="col-12 col-md-6 col-right">
             <div class="content-wrapper landing-title-wrapper">
-                <div class="landing-title work-sans-bold">@Localizer["The Complete Blockchain Development Platform"]</div>
+                <div class="landing-title">@Localizer["The Complete Blockchain Development Platform"]</div>
                 <div class="news-wrapper">
                     <div class="latest-news-text work-sans-bold">
                         @Localizer["Latest News:"]
@@ -65,41 +65,36 @@
     </div>
 
 
-    <div class="row horiz-row get-started-row">
-        <div class="work-sans-bold type-text">
-            <span class="green">@Localizer["Neo"]</span>
-            <span class="dark-blue text-uppercase type-text" id="typetext"></span>
+    <div class="row dual-row get-started-row">
+        <div class="col-12 col-md-6 left-col">
+            <div class="work-sans-bold type-text">
+                <span class="green">@Localizer["Neo"]</span>
+                <span class="dark-blue text-uppercase type-text" id="typetext"></span>
+            </div>
+            <div class="explanation">
+                @Localizer["After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]
+            </div>
+            <a class="btn-2">@Localizer["Migration Guide"]</a>
         </div>
+        <div class="col-12 col-md-6 right-col">
+            <div class="work-sans-bold get-started-wrapper">
+                @{ string[,] getStartedItems = new string[4, 2]
+          {
+                                        { "Find a Wallet", "/images/home/FindWallet.svg" },
+                                        { "Neo & Gas Tokens", "/images/home/LearnTokens.svg" },
+                                        { "Neo's Features", "/images/home/LearnFeatures.svg" },
+                                        { "Documentation", "/images/home/ReadDocumentation.svg" }
+     };
 
-        <div class="work-sans-bold explanation">
-            @Localizer["After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]
-        </div>
-
-        <div class="work-sans-semibold text-uppercase learn-more">
-            @Localizer["Learn more about migration"]
-        </div>
-
-        <a class="btn-n3 dark-blue">@Localizer["Migration Guide"]</a>
-        <div class="work-sans-bold get-started-text text-uppercase dark-blue">
-            @Localizer["Get Started"]
-        </div>
-        <div class="work-sans-bold get-started-wrapper">
-            @{ string[,] getStartedItems = new string[4, 2]
-     {
-                                { "Find A Neo Wallet", "/images/home/FindWallet.svg" },
-                                { "Learn about Neo & Gas Tokens", "/images/home/LearnTokens.svg" },
-                                { "Learn about Neo's Features", "/images/home/LearnFeatures.svg" },
-                                { "Read the Documentation", "/images/home/ReadDocumentation.svg" }
-        };
-
-                for (int i = 0; i < getStartedItems.GetLength(0); i++)
-                {
-    <div class="get-started-card">
-        <div class="text-uppercase card-text">
-            @getStartedItems[i, 0]
-        </div>
-        <img class="card-img" data-original="@Helper.ToCDN(getStartedItems[i, 1])" />
-    </div> } }
+                    for (int i = 0; i < getStartedItems.GetLength(0); i++)
+                    {
+        <div class="get-started-card">
+            <div class="text-uppercase card-text">
+                @getStartedItems[i, 0]
+            </div>
+            <img class="card-img" data-original="@Helper.ToCDN(getStartedItems[i, 1])" />
+        </div> } }
+            </div>
         </div>
     </div>
 
