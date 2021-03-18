@@ -257,7 +257,11 @@ https://github.com/neo-project/neo.org
         if ($('.smart-scroll').length > 0) { // check if element exists
             var last_scroll_top = 0;
             var scroll_active_top = 150;
-            $(window).on('scroll', function () {
+            $(window).on('scroll', function (e) {
+                if ($(this).hasClass("show")) {
+                    return e.preventDefault()
+                }
+
                 scroll_top = $(this).scrollTop();
                 if (scroll_top <= 0) {
                     $('.smart-scroll').removeClass('scrolled-up').removeClass('scrolled-down');
