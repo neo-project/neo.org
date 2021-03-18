@@ -364,7 +364,6 @@ footer {
 
     #mc_embed_signup_scroll .btn-2 {
         min-width: 148px;
-        line-height: 44px;
         height: 46px;
         width: auto;
     }
@@ -384,10 +383,9 @@ footer {
 /*按钮*/
 .btn-1, .btn-2, .btn-3, .btn-4 {
     display: inline-block;
-    line-height: 2.4;
     border-radius: 0;
-    width: 235px;
-    max-width: 100%;
+    min-width: 15rem;
+    padding: 0.5rem 2rem;
     transition: opacity 0.2s;
     text-align: center;
     cursor: pointer;
@@ -396,8 +394,9 @@ footer {
     .work-sans-semibold;
 
     &.btn-small {
+        min-width: 13.125rem;
         font-size: 0.875rem;
-        width: 155px;
+        padding: 0.4375rem 1.75rem;
     }
 }
 .btn-1, .btn-2, .btn-4 {
