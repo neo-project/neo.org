@@ -76,11 +76,11 @@
 
             function updateCurrentPageWithHash() {
                 const hash = location.hash.slice(1);
-                if (hash === "overview") {
+                if (hash === 'overview') {
                     updateCurrentPage(0);
-                } else if (hash === "ecoboost"){
+                } else if (hash === 'ecoboost'){
                     updateCurrentPage(1);
-                } else if (hash === "ecofund"){
+                } else if (hash === 'ecofund'){
                     updateCurrentPage(2);
                 }
             }
@@ -88,11 +88,11 @@
             $('.select-menu-page').change(e => {
                 const index = e.target.selectedIndex;
                 if (index === 0) {
-                    location.href = "@Url.Action("index", "eco", null, null, null, "overview")";
+                    location.href = '@Url.Action("index", "eco", null, null, null, "overview")';
                 } else if (index === 1) {
-                    location.href = "@Url.Action("index", "eco", null, null, null, "ecoboost")";
+                    location.href = '@Url.Action("index", "eco", null, null, null, "ecoboost")';
                 } else if (index === 2) {
-                    location.href = "@Url.Action("index", "eco", null, null, null, "ecofund")";
+                    location.href = '@Url.Action("index", "eco", null, null, null, "ecofund")';
                 }
             });
 
@@ -103,49 +103,51 @@
 
         $(document).ready(() => {
             const scrollDistance = 400;
+            $('.projects').each((i, ele) => {
+                $(ele).find('.projects-controller-left').click(function (e) {
+                    if ($(this).hasClass('disabled')) {
+                        e.preventDefault();
+                        return;
+                    }
 
-            $(".projects-controller-left").click(function (e) {
-                if ($(this).hasClass("disabled")) {
-                    e.preventDefault();
-                    return;
+                    $(ele).find('.projects-content').stop().animate({
+                        scrollLeft: '-=' + scrollDistance,
+                    }, 1000);
+                });
+
+                $(ele).find('.projects-controller-right').click(function (e) {
+                    if ($(this).hasClass('disabled')) {
+                        e.preventDefault();
+                        return;
+                    }
+                    $(ele).find('.projects-content').stop().animate({
+                        scrollLeft: '+=' + scrollDistance,
+                    }, 1000);
+                });
+
+                function updateControllerState() {
+                    const scroller = $(ele).find('.projects-content');
+
+                    const scrollable = scroller.prop('scrollWidth') !== scroller.prop('clientWidth')
+                    $(ele).find('.projects-controller-left').toggleClass('hidden', !scrollable);
+                    $(ele).find('.projects-controller-right').toggleClass('hidden', !scrollable);
+
+                    const leftmost = scroller.prop('scrollLeft') <= 0;
+                    $(ele).find('.projects-controller-left').toggleClass('disabled', leftmost);
+
+                    const rightmost = scroller.prop('scrollLeft') >= scroller.prop('scrollWidth') - scroller.prop('clientWidth');
+                    $(ele).find('.projects-controller-right').toggleClass('disabled', rightmost);
                 }
 
-                $(".projects-content").stop().animate({
-                    scrollLeft: "-=" + scrollDistance,
-                }, 1000);
+                $(ele).find('.projects-content').scroll(updateControllerState);
+
+                $(ele).find('.projects-content').visibilityChanged({ callback: updateControllerState });
+
+                $(window).resize(updateControllerState);
+
+                updateControllerState();
+
             });
-
-            $(".projects-controller-right").click(function (e) {
-                if ($(this).hasClass("disabled")) {
-                    e.preventDefault();
-                    return;
-                }
-                $(".projects-content").stop().animate({
-                    scrollLeft: "+=" + scrollDistance,
-                }, 1000);
-            });
-
-            function updateControllerState() {
-                const ele = $(".projects-content");
-
-                const scrollable = ele.prop('scrollWidth') !== ele.prop('clientWidth')
-                $(".projects-controller-left").toggleClass('hidden', !scrollable);
-                $(".projects-controller-right").toggleClass('hidden', !scrollable);
-
-                const leftmost = ele.prop('scrollLeft') <= 0;
-                $(".projects-controller-left").toggleClass('disabled', leftmost);
-
-                const rightmost = ele.prop('scrollLeft') >= ele.prop('scrollWidth') - ele.prop('clientWidth');
-                $(".projects-controller-right").toggleClass('disabled', rightmost);
-            }
-
-            $(".projects-content").scroll(updateControllerState);
-
-            $(".projects-content").visibilityChanged({ callback: updateControllerState });
-
-            $(window).resize(updateControllerState);
-
-            updateControllerState();
         });
     </script>
 }

@@ -95,11 +95,11 @@
 
             function updateCurrentPageWithHash() {
                 const hash = location.hash.slice(1);
-                if (hash === "overview") {
+                if (hash === 'overview') {
                     updateCurrentPage(0);
-                } else if (hash === "tooling"){
+                } else if (hash === 'tooling'){
                     updateCurrentPage(1);
-                } else if (hash === "examples"){
+                } else if (hash === 'examples'){
                     updateCurrentPage(2);
                 }
             }
@@ -107,11 +107,11 @@
             $('.select-menu-page').change(e => {
                 const index = e.target.selectedIndex;
                 if (index === 0) {
-                    location.href = "@Url.Action("index", "dev", null, null, null, "overview")";
+                    location.href = '@Url.Action("index", "dev", null, null, null, "overview")';
                 } else if (index === 1) {
-                    location.href = "@Url.Action("index", "dev", null, null, null, "tooling")";
+                    location.href = '@Url.Action("index", "dev", null, null, null, "tooling")';
                 } else if (index === 2) {
-                    location.href = "@Url.Action("index", "dev", null, null, null, "examples")";
+                    location.href = '@Url.Action("index", "dev", null, null, null, "examples")';
                 }
             });
 
