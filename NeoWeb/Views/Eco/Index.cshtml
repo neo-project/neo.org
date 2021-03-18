@@ -52,6 +52,7 @@
 </div>
 
 @section Scripts {
+    <script src="@Helper.ToCDN("/js/visibilityChanged.js")"></script>
     <script>
         // index
         $(document).ready(() => {
@@ -95,10 +96,56 @@
                 }
             });
 
-            $(window).on('hashchange', function (e) {
-                updateCurrentPageWithHash();
-            });
+            $(window).on('hashchange', updateCurrentPageWithHash);
+
             updateCurrentPageWithHash();
+        });
+
+        $(document).ready(() => {
+            const scrollDistance = 400;
+
+            $(".projects-controller-left").click(function (e) {
+                if ($(this).hasClass("disabled")) {
+                    e.preventDefault();
+                    return;
+                }
+
+                $(".projects-content").stop().animate({
+                    scrollLeft: "-=" + scrollDistance,
+                }, 1000);
+            });
+
+            $(".projects-controller-right").click(function (e) {
+                if ($(this).hasClass("disabled")) {
+                    e.preventDefault();
+                    return;
+                }
+                $(".projects-content").stop().animate({
+                    scrollLeft: "+=" + scrollDistance,
+                }, 1000);
+            });
+
+            function updateControllerState() {
+                const ele = $(".projects-content");
+
+                const scrollable = ele.prop('scrollWidth') !== ele.prop('clientWidth')
+                $(".projects-controller-left").toggleClass('hidden', !scrollable);
+                $(".projects-controller-right").toggleClass('hidden', !scrollable);
+
+                const leftmost = ele.prop('scrollLeft') <= 0;
+                $(".projects-controller-left").toggleClass('disabled', leftmost);
+
+                const rightmost = ele.prop('scrollLeft') >= ele.prop('scrollWidth') - ele.prop('clientWidth');
+                $(".projects-controller-right").toggleClass('disabled', rightmost);
+            }
+
+            $(".projects-content").scroll(updateControllerState);
+
+            $(".projects-content").visibilityChanged({ callback: updateControllerState });
+
+            $(window).resize(updateControllerState);
+
+            updateControllerState();
         });
     </script>
 }

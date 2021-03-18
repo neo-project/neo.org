@@ -1,8 +1,6 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
-@{
-    ViewData["Title"] = Localizer["Developer"].Value;
-}
+@{ ViewData["Title"] = Localizer["Developer"].Value; }
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/dev.min.css", true)" />
 }
@@ -117,9 +115,8 @@
                 }
             });
 
-            $(window).on('hashchange', function (e) {
-                updateCurrentPageWithHash();
-            });
+            $(window).on('hashchange', updateCurrentPageWithHash);
+
             updateCurrentPageWithHash();
         });
 
@@ -145,7 +142,6 @@
 
             $('.tab').each((i, tab) => {
                 $(tab).click(() => {
-                    console.log(i);
                     updateCurrentPage(i);
                 });
             });
