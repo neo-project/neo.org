@@ -66,9 +66,10 @@
 
 
     <div class="row dual-row get-started-row">
-        <div class="col-12 col-md-6 left-col">
+        <div class="col-12 col-md-6 col-left">
             <div class="work-sans-bold type-text">
-                <span class="green">@Localizer["Neo"]</span>
+                <span><span class="green">@Localizer["Neo"]</span> @Localizer["is"]</span>
+                <br />
                 <span class="dark-blue text-uppercase type-text" id="typetext"></span>
             </div>
             <div class="explanation">
@@ -76,7 +77,7 @@
             </div>
             <a class="btn-2">@Localizer["Migration Guide"]</a>
         </div>
-        <div class="col-12 col-md-6 right-col">
+        <div class="col-12 col-md-6 col-right">
             <div class="work-sans-bold get-started-wrapper">
                 @{ string[,] getStartedItems = new string[4, 2]
           {
@@ -98,40 +99,40 @@
         </div>
     </div>
 
-    <div class="row horiz-row building-blocks-row">
-        <div class="building-blocks-title @SharedLocalizer["d-none-zh"]">
-            <span class="green">
-                @Localizer["Building Blocks"]
-            </span> @Localizer["for the Next Generation Internet"]
+    <div class="row building-blocks-row">
+        <div class="col-12 col-lg-auto col-xl-4">
+            <div class="building-blocks-title @SharedLocalizer["d-none-zh"]">
+                <span>
+                    <span class="green">
+                        @Localizer["Building Blocks"]
+                    </span> @Localizer["for the Next Generation Internet"]
+                </span>
+            </div>
+            <div class="building-blocks-title @SharedLocalizer["d-none"]">
+                <span>
+                    <span class="green">
+                        @Localizer["Building Blocks"]
+                    </span> @Localizer["for the Next Generation Internet"]
+                </span>
+            </div>
         </div>
-        <div class="building-blocks-title @SharedLocalizer["d-none"]">
-            <span class="green">
-                @Localizer["Building Blocks"]
-            </span> @Localizer["for the Next Generation Internet"]
-        </div>
-        <div class="building-blocks-subtitle @SharedLocalizer["d-none-zh"]">
-            @Localizer["Neo provides a full stack of features out of the box, but doesn't keep you boxed in."]
-        </div>
-        <div class="building-blocks-subtitle @SharedLocalizer["d-none"]">
-            @Localizer["Neo provides a full stack of features out of the box, but doesn't keep you boxed in."]
-        </div>
-        <div class="building-blocks-body @SharedLocalizer["d-none-zh"]">
-            @Localizer["Native functionality provides all the infrustructures you need to build complete decentralized applications, while advanced interoperabilty allows you to harness the power of the global blockchain ecosystem."]
-        </div>
-        <div class="building-blocks-body @SharedLocalizer["d-none"]">
-            @Localizer["Native functionality provides all the infrustructures you need to build complete decentralized applications, while advanced interoperabilty allows you to harness the power of the global blockchain ecosystem."]
-        </div>
+        <div class="col-12 col-lg col-xl-8 col-right">
+            <div class="building-blocks-subtitle @SharedLocalizer["d-none-zh"]">
+                @Localizer["Neo provides a full stack of features out of the box, but doesn't keep you boxed in."]
+            </div>
+            <div class="building-blocks-subtitle @SharedLocalizer["d-none"]">
+                @Localizer["Neo provides a full stack of features out of the box, but doesn't keep you boxed in."]
+            </div>
+            <div class="building-blocks-body @SharedLocalizer["d-none-zh"]">
+                @Localizer["Native functionality provides all the infrustructures you need to build complete decentralized applications, while advanced interoperabilty allows you to harness the power of the global blockchain ecosystem."]
+            </div>
+            <div class="building-blocks-body @SharedLocalizer["d-none"]">
+                @Localizer["Native functionality provides all the infrustructures you need to build complete decentralized applications, while advanced interoperabilty allows you to harness the power of the global blockchain ecosystem."]
+            </div>
 
-        <img class="blocks-img" usemap="#blocksmap" data-original="@Helper.ToCDN("/images/home/BuildingBlocks.png")">
-        <map name="blocksmap">
-            <area shape="rect" coords="125 20 800 325" title="Neo Name Service" alt="Neo Name Service" href="https://www.google.com" />
-            <area shape="rect" coords="0 450 500 700" title="Neo ID" alt="Neo ID" href="https://www.google.com" />
-            <area shape="rect" coords="275 950 925 1200" title="Interoperability" alt="Interoperability" href="https://www.google.com" />
-            <area shape="rect" coords="1100 1225 1725 1450" title="One Block Finality" alt="One Block Finality" href="https://www.google.com" />
-            <area shape="rect" coords="1900 950 2450 1175" title="Smart Contracts" alt="Smart Contracts" href="https://www.google.com" />
-            <area shape="rect" coords="2375 425 2875 675" title="Neo ID" alt="Neo ID" href="https://www.google.com" />
-            <area shape="rect" coords="2000 50 2600 275" title="Neo Name Service" alt="Neo Name Service" href="https://www.google.com" />
-        </map>
+            <a class="btn-2">@Localizer["Learn More"]</a>
+        </div>
+        <img class="blocks-large-img" data-original="@Helper.ToCDN("/images/home/BlocksLarge.svg")" />
     </div>
 
     <div class="row dual-row code-example-row">
@@ -437,13 +438,13 @@
     <script src="@Helper.ToCDN("/lib/typed.js/typed.min.js")"></script>
     <script>
             var typed = new Typed('#typetext', {
-            strings: ["@Localizer["is new again"]","@Localizer["is new again"]","@Localizer["is new again"]"],
-            typeSpeed: "@SharedLocalizer["en"].Value" == "zh" ? 60 : 30,
+            strings: ["@Localizer["new again"]","@Localizer["new again"]","@Localizer["new again"]"],
+            typeSpeed: "@SharedLocalizer["en"].Value" == "zh" ? 50 : 25,
             startDelay: 300,
             backDelay: 1500,
-            backSpeed: "@SharedLocalizer["en"].Value" == "zh" ? 40 : 20,
+            backSpeed: "@SharedLocalizer["en"].Value" == "zh" ? 35 : 15,
             loop: true,
-            cursorChar: '_',
+            cursorChar: '',
             shuffle: true,
         });
     </script>
