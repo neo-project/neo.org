@@ -146,6 +146,8 @@ html body {
     width: 100%;
 }
 
+
+// Landing
 .landing-row {
     height: @landing-height;
     min-height: @landing-min-height;
@@ -257,6 +259,8 @@ html body {
     }
 }
 
+
+// All-in-One
 .aio-row {
     padding: 2% 5%;
 
@@ -316,6 +320,149 @@ html body {
     }
 }
 
+
+// Getting Started
+.get-started-row {
+    background-color: #ffffff;
+    padding: 2.375rem 2.375rem 11.125rem 2.375rem;
+    .work-sans-bold;
+
+    .col-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        height: 50.125rem;
+        text-align: right;
+        padding: 0 5%;
+        border-right: 3px solid @green;
+
+        @media only screen and (max-width: 767.98px) {
+            align-items: flex-start;
+            padding: 5.125rem 0;
+            height: 100%;
+            border-right: none;
+            text-align: left;
+        }
+    }
+
+    .col-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        padding-left: 5%;
+        height: 50.125rem;
+
+        @media only screen and (max-width: 767.98px) {
+            height: 100%;
+            padding-left: 15px;
+        }
+    }
+}
+
+.type-text {
+    margin-bottom: 1.875rem;
+    max-width: 41.25rem;
+    font-size: @typed-text-font-size;
+    min-height: calc(@typed-text-font-size * 2);
+    line-height: 0.85;
+
+    @media only screen and (max-width: 767.98px) {
+        margin: 1.5rem 0;
+        font-size: 5.5rem;
+        line-height: 0.92;
+    }
+}
+
+.typed-cursor {
+    font-size: @typed-text-font-size;
+}
+
+.explanation {
+    margin-bottom: 1.875rem;
+    max-width: 41.25rem;
+    font-size: 1.5rem;
+
+    @media only screen and (max-width: 767.98px) {
+        margin: 1.875rem 0 3rem 0;
+    }
+}
+
+.learn-more {
+    margin-bottom: 22px;
+    color: @dark-blue;
+    font-size: 1.125rem;
+}
+
+.get-started-text {
+    margin: 125px 0 56px 0;
+    font-size: 1.5rem;
+}
+
+.get-started-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    column-gap: 22px;
+    grid-row-gap: 22px;
+    flex-wrap: wrap;
+
+    @media only screen and (max-width: 767.98px) {
+        align-items: center;
+        width: 100%;
+    }
+}
+
+.get-started-card {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 340px;
+    height: 102px;
+    background-color: #F0F5F6;
+    border-radius: 4px;
+    box-shadow: -30px 35px 30px 0px rgba(81, 94, 90, 0.26), -10px 17px 13px 0px rgba(0, 0, 0, 0.14);
+
+    @media only screen and (max-width: 767.98px) {
+        width: 90%;
+        min-width: 260px;
+    }
+
+    .card-text-wrapper {
+        display: flex;
+        height: 100%;
+        width: 100%;
+    }
+
+    .green-vertline {
+        height: 80%;
+        width: 3px;
+        background-color: @green;
+        transform: translate(40px, 0);
+    }
+
+    .card-text {
+        .nunito-sans-bold;
+        max-width: 55%;
+        font-size: 0.94rem;
+        line-height: 1.25rem;
+        z-index: 1;
+        transform: translate(60px, 60px);
+        height: 1.25rem;
+    }
+
+    .card-img {
+        margin-right: 20px;
+        height: 60%;
+        width: auto;
+    }
+}
+
+
+// Building Blocks
 .building-blocks-row {
     display: flex;
     flex-direction: row;
@@ -438,6 +585,7 @@ html body {
 .blocks-large-img {
     width: 100%;
     transform: translateY(-64px);
+    margin-bottom: -32px;
 
     @media only screen and (max-width: 1200px) {
         display: none;
@@ -447,6 +595,7 @@ html body {
 .blocks-medium-img {
     width: 95%;
     transform: translateY(32px);
+    margin-bottom: 48px;
 
     @media only screen and (min-width: 1200px) {
         display: none;
@@ -517,25 +666,46 @@ html body {
     line-height: 1.25rem;
 }
 
+.code-squre {
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+    padding: 2.375rem;
+    width: 29.375rem;
+    height: 20.25rem;
+    border: 6px solid @green;
 
+    @media only screen and (max-width: 1200px) {
+    }
+
+    @media only screen and (max-width: 767.98px) {
+    }
+}
+
+.code-square-headline {
+    .work-sans-bold;
+    .uppercase;
+    font-size: 3.125rem;
+    line-height: 1;
+}
+
+.code-square-body {
+    .nunito-sans-bold;
+    .dark-blue;
+    font-size: 1.5rem;
+    line-height: 1.375;
+}
+
+.code-learn-more {
+    align-self: flex-end;
+    margin-top: 28px;
+}
+
+
+// Code Example
 .code-example-row {
-    height: 1220px;
-
-    .col-left {
-        background-color: white;
-
-        .content-wrapper {
-            align-items: flex-start;
-        }
-    }
-
-    .col-right {
-        background-color: @green;
-
-        @media only screen and (max-width: 767.98px) {
-            display: none;
-        }
-    }
+    display: flex;
+    flex-direction: column;
 }
 
 .code-example-title {
@@ -729,145 +899,6 @@ html body {
     font-size: 1.25rem;
 }
 
-
-.get-started-row {
-    background-color: #ffffff;
-    padding: 2.375rem 2.375rem 11.125rem 2.375rem;
-    .work-sans-bold;
-
-    .col-left {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-end;
-        height: 50.125rem;
-        text-align: right;
-        padding: 0 5%;
-        border-right: 3px solid @green;
-
-        @media only screen and (max-width: 767.98px) {
-            align-items: flex-start;
-            padding: 5.125rem 0;
-            height: 100%;
-            border-right: none;
-            text-align: left;
-        }
-    }
-
-    .col-right {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: left;
-        padding-left: 5%;
-        height: 50.125rem;
-
-        @media only screen and (max-width: 767.98px) {
-            height: 100%;
-            padding-left: 15px;
-        }
-    }
-}
-
-.type-text {
-    margin-bottom: 1.875rem;
-    max-width: 41.25rem;
-    font-size: @typed-text-font-size;
-    min-height: calc(@typed-text-font-size * 2);
-    line-height: 0.85;
-
-    @media only screen and (max-width: 767.98px) {
-        margin: 1.5rem 0;
-        font-size: 5.5rem;
-        line-height: 0.92;
-    }
-}
-
-.typed-cursor {
-    font-size: @typed-text-font-size;
-}
-
-.explanation {
-    margin-bottom: 1.875rem;
-    max-width: 41.25rem;
-    font-size: 1.5rem;
-
-    @media only screen and (max-width: 767.98px) {
-        margin: 1.875rem 0 3rem 0;
-    }
-}
-
-.learn-more {
-    margin-bottom: 22px;
-    color: @dark-blue;
-    font-size: 1.125rem;
-}
-
-.get-started-text {
-    margin: 125px 0 56px 0;
-    font-size: 1.5rem;
-}
-
-.get-started-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    column-gap: 22px;
-    grid-row-gap: 22px;
-    flex-wrap: wrap;
-
-    @media only screen and (max-width: 767.98px) {
-        align-items: center;
-        width: 100%;
-    }
-}
-
-.get-started-card {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 340px;
-    height: 102px;
-    background-color: #F0F5F6;
-    border-radius: 4px;
-    box-shadow: -30px 35px 30px 0px rgba(81, 94, 90, 0.26), -10px 17px 13px 0px rgba(0, 0, 0, 0.14);
-
-    @media only screen and (max-width: 767.98px) {
-        width: 90%;
-        min-width: 260px;
-    }
-
-    .card-text-wrapper {
-        display: flex;
-        height: 100%;
-        width: 100%;
-    }
-
-    .green-vertline {
-        height: 80%;
-        width: 3px;
-        background-color: @green;
-        transform: translate(40px, 0);
-    }
-
-    .card-text {
-        .nunito-sans-bold;
-        max-width: 55%;
-        font-size: 0.94rem;
-        line-height: 1.25rem;
-        z-index: 1;
-        transform: translate(60px, 60px);
-        height: 1.25rem;
-    }
-
-    .card-img {
-        margin-right: 20px;
-        height: 60%;
-        width: auto;
-    }
-}
 
 .dual-tokens-row {
     color: white;

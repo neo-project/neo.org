@@ -143,34 +143,33 @@
         <img class="blocks-large-img" data-original="@Helper.ToCDN("/images/home/BlocksLarge.svg")" />
         <img class="blocks-medium-img" data-original="@Helper.ToCDN("/images/home/BlocksMedium.svg")" />
         <div class="blocks-container">
-            @{ 
-                string[,] blocks = new string[7, 3]
-                {
-                    {
+            @{ string[,] blocks = new string[7, 3]
+                            {
+                                    {
                         "/images/home/OneBlockFinality.svg", "One Block Finality", "Poly.Network enabled cross-chain interoperability with Ethereum, Binance Chain, and more."
                     },
-                    {
+                                    {
                         "/images/home/oracles.svg", "Oracles", "A built-in oracle enabling secured access to any off-chain data."
                     },
-                    {
+                                    {
                         "/images/home/NeoFS.svg", "NeoFS", "A distributed data storage solution made for scalability and privacy."
                     },
-                    {
+                                    {
                         "/images/home/SmartContracts.svg", "Smart Contracts", "Smart contracts  ipsum dolor sit amet, consectetur adipiscing elit. "
                     },
-                    {
+                                    {
                         "/images/home/NeoNameService.svg", "Neo Name Service", "A decentralized .neo domain name service for next-gen internet web applications. "
                     },
-                    {
+                                    {
                         "/images/home/Interoperability.svg", "Interoperability", "Smart contracts  ipsum dolor sit amet, consectetur adipiscing elit. "
                     },
-                    {
+                                    {
                         "/images/home/NeoID.svg", "NeoID", "Smart contracts  ipsum dolor sit amet, consectetur adipiscing elit. "
                     }
-                };
+            };
 
-                for (int i = 0; i < blocks.GetLength(0); i++)
-            {
+                            for (int i = 0; i < blocks.GetLength(0); i++)
+                            {
                 <div class="block-wrapper">
                     <img class="block-icon" data-original="@blocks[i, 0]" />
                     <div class="block-content-wrapper">
@@ -182,116 +181,138 @@
                             @blocks[i, 2]
                         </div>
                     </div>
-                </div>
-            }
-            }
+                </div> } }
         </div>
+
+        <div class="code-squre">
+            <span class="@SharedLocalizer["d-none-zh"]">
+                <span class="code-square-headline green">
+                    @Localizer["Blockchain"]
+                </span>
+                <br />
+                <span class="code-square-headline">
+                    @Localizer["You know"]
+                </span>
+                <br />
+                <span class="code-square-body">
+                    <br />
+                    @Localizer["Write smart contracts in a language you already know, with tools you already love"]
+                </span>
+            </span>
+        </div>
+        <a class="btn-2 code-learn-more">@Localizer["Learn More"]</a>
     </div>
 
-    <div class="row dual-row code-example-row">
-        <div class="col-12 col-lg-6 col-left code-example-row">
-            <div class="content-wrapper">
-                <div class="code-example-title @SharedLocalizer["d-none-zh"]">
-                    <span class="green">@Localizer["Blockchain"]</span> @Localizer["You Know"]
+    <div class="code-example-row">
+        <div class="language-list">
+
+        </div>
+
+        <!--
+    <div class="col-12 col-lg-6 col-left code-example-row">
+        <div class="content-wrapper">
+            <div class="code-example-title @SharedLocalizer["d-none-zh"]">
+                <span class="green">@Localizer["Blockchain"]</span> @Localizer["You Know"]
+            </div>
+            <div class="code-example-title @SharedLocalizer["d-none"]">
+                <span class="green">@Localizer["Blockchain"]</span> @Localizer["You Know"]
+            </div>
+            <div class="code-example-subtitle">
+                @Localizer["Write smart contracts in a language you already know, with tools you already love."]
+            </div>
+            <div class="language-list">
+                <div class="language-wrapper-highlight" data-lang="python">
+                    <div class="language-name-wrapper">
+                        <img data-original="@Helper.ToCDN("/images/home/PythonDark.png")" />
+                        <div class="language-name">Python</div>
+                    </div>
+                    <i class="iconfont language-right-arrow">&#xe6ab;</i>
                 </div>
-                <div class="code-example-title @SharedLocalizer["d-none"]">
-                    <span class="green">@Localizer["Blockchain"]</span> @Localizer["You Know"]
+                <div class="language-wrapper d-none" data-lang="python">
+                    <div class="language-name-wrapper">
+                        <img data-original="@Helper.ToCDN("/images/home/Python.png")" />
+                        <div class="language-name">Python</div>
+                    </div>
                 </div>
-                <div class="code-example-subtitle">
-                    @Localizer["Write smart contracts in a language you already know, with tools you already love."]
+
+                <div class="language-wrapper-highlight d-none" data-lang="csharp">
+                    <div class="language-name-wrapper">
+                        <img data-original="@Helper.ToCDN("/images/home/CSharpDark.png")" />
+                        <div class="language-name">C#</div>
+                    </div>
+                    <i class="iconfont language-right-arrow">&#xe6ab;</i>
                 </div>
-                <div class="language-list">
-                    <div class="language-wrapper-highlight" data-lang="python">
-                        <div class="language-name-wrapper">
-                            <img data-original="@Helper.ToCDN("/images/home/PythonDark.png")" />
-                            <div class="language-name">Python</div>
-                        </div>
-                        <i class="iconfont language-right-arrow">&#xe6ab;</i>
+                <div class="language-wrapper" data-lang="csharp">
+                    <div class="language-name-wrapper">
+                        <img data-original="@Helper.ToCDN("/images/home/CSharp.png")" />
+                        <div class="language-name">C#</div>
                     </div>
-                    <div class="language-wrapper d-none" data-lang="python">
-                        <div class="language-name-wrapper">
-                            <img data-original="@Helper.ToCDN("/images/home/Python.png")" />
-                            <div class="language-name">Python</div>
-                        </div>
-                    </div>
+                </div>
 
-                    <div class="language-wrapper-highlight d-none" data-lang="csharp">
-                        <div class="language-name-wrapper">
-                            <img data-original="@Helper.ToCDN("/images/home/CSharpDark.png")" />
-                            <div class="language-name">C#</div>
-                        </div>
-                        <i class="iconfont language-right-arrow">&#xe6ab;</i>
+                <div class="language-wrapper-highlight d-none" data-lang="go">
+                    <div class="language-name-wrapper">
+                        <img data-original="@Helper.ToCDN("/images/home/GoDark.png")" />
+                        <div class="language-name">Go</div>
                     </div>
-                    <div class="language-wrapper" data-lang="csharp">
-                        <div class="language-name-wrapper">
-                            <img data-original="@Helper.ToCDN("/images/home/CSharp.png")" />
-                            <div class="language-name">C#</div>
-                        </div>
+                    <i class="iconfont language-right-arrow">&#xe6ab;</i>
+                </div>
+                <div class="language-wrapper" data-lang="go">
+                    <div class="language-name-wrapper">
+                        <img data-original="@Helper.ToCDN("/images/home/Go.png")" />
+                        <div class="language-name">Go</div>
                     </div>
+                </div>
 
-                    <div class="language-wrapper-highlight d-none" data-lang="go">
-                        <div class="language-name-wrapper">
-                            <img data-original="@Helper.ToCDN("/images/home/GoDark.png")" />
-                            <div class="language-name">Go</div>
-                        </div>
-                        <i class="iconfont language-right-arrow">&#xe6ab;</i>
+                <div class="language-wrapper-highlight d-none" data-lang="typescript">
+                    <div class="language-name-wrapper">
+                        <img data-original="@Helper.ToCDN("/images/home/TypescriptDark.png")" />
+                        <div class="language-name">Typescript</div>
                     </div>
-                    <div class="language-wrapper" data-lang="go">
-                        <div class="language-name-wrapper">
-                            <img data-original="@Helper.ToCDN("/images/home/Go.png")" />
-                            <div class="language-name">Go</div>
-                        </div>
+                    <i class="iconfont language-right-arrow">&#xe6ab;</i>
+                </div>
+                <div class="language-wrapper" data-lang="typescript">
+                    <div class="language-name-wrapper">
+                        <img data-original="@Helper.ToCDN("/images/home/Typescript.png")" />
+                        <div class="language-name">Typescript</div>
                     </div>
+                </div>
 
-                    <div class="language-wrapper-highlight d-none" data-lang="typescript">
-                        <div class="language-name-wrapper">
-                            <img data-original="@Helper.ToCDN("/images/home/TypescriptDark.png")" />
-                            <div class="language-name">Typescript</div>
-                        </div>
-                        <i class="iconfont language-right-arrow">&#xe6ab;</i>
+                <div class="language-wrapper-highlight d-none" data-lang="java">
+                    <div class="language-name-wrapper">
+                        <img data-original="@Helper.ToCDN("/images/home/JavaDark.png")" />
+                        <div class="language-name">Java</div>
                     </div>
-                    <div class="language-wrapper" data-lang="typescript">
-                        <div class="language-name-wrapper">
-                            <img data-original="@Helper.ToCDN("/images/home/Typescript.png")" />
-                            <div class="language-name">Typescript</div>
-                        </div>
-                    </div>
-
-                    <div class="language-wrapper-highlight d-none" data-lang="java">
-                        <div class="language-name-wrapper">
-                            <img data-original="@Helper.ToCDN("/images/home/JavaDark.png")" />
-                            <div class="language-name">Java</div>
-                        </div>
-                        <i class="iconfont language-right-arrow">&#xe6ab;</i>
-                    </div>
-                    <div class="language-wrapper" data-lang="java">
-                        <div class="language-name-wrapper">
-                            <img data-original="@Helper.ToCDN("/images/home/Java.png")" />
-                            <div class="language-name">Java</div>
-                        </div>
+                    <i class="iconfont language-right-arrow">&#xe6ab;</i>
+                </div>
+                <div class="language-wrapper" data-lang="java">
+                    <div class="language-name-wrapper">
+                        <img data-original="@Helper.ToCDN("/images/home/Java.png")" />
+                        <div class="language-name">Java</div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-right code-example-row">
-            <div class="content-wrapper">
-                <div class="code-window" id="code-python">
-                    <partial name="./_CodePythonPartial" />
-                </div>
-                <div class="code-window d-none" id="code-csharp">
-                    <partial name="./_CodeCSharpPartial" />
-                </div>
-                <div class="code-window d-none" id="code-go">
-                    <partial name="./_CodeGoPartial" />
-                </div>
-                <div class="code-window d-none" id="code-typescript">
-                    <partial name="./_CodeTsPartial" />
-                </div>
-                <div class="code-window d-none" id="code-java">
-                    <partial name="./_CodeJavaPartial" />
-                </div>
+    </div>
+    <div class="col-md-6 col-right code-example-row">
+        <div class="content-wrapper">
+            <div class="code-window" id="code-python">
+                <partial name="./_CodePythonPartial" />
+            </div>
+            <div class="code-window d-none" id="code-csharp">
+                <partial name="./_CodeCSharpPartial" />
+            </div>
+            <div class="code-window d-none" id="code-go">
+                <partial name="./_CodeGoPartial" />
+            </div>
+            <div class="code-window d-none" id="code-typescript">
+                <partial name="./_CodeTsPartial" />
+            </div>
+            <div class="code-window d-none" id="code-java">
+                <partial name="./_CodeJavaPartial" />
             </div>
         </div>
+    </div>
+        -->
     </div>
 
     <div class="row dual-row dual-tokens-row">
