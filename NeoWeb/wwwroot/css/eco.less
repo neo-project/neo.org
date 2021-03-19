@@ -261,7 +261,6 @@
 .support-i-am {
     position: absolute;
     top: 50%;
-    left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -275,9 +274,9 @@
     transform: translate(-50%, -50%);
 
     @media (max-width: 991.98px) {
-        top: 0;
+        top: auto;
         left: 50%;
-        transform: translate(-50%, -20%);
+        transform: translate(-50%, -70%);
     }
 }
 
@@ -676,7 +675,6 @@
     justify-content: flex-end;
     align-items: center;
     flex: 1;
-    margin-left: 0.25rem;
     padding: 0.75rem 2rem;
     background: @dark-blue;
     font-size: 1rem;
