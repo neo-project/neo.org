@@ -43,15 +43,15 @@
             </div>
             <div class="highlight-container">
                 @{ string[,] highlightItems = new string[9, 2] {
-                                            { "Interoperability", "/images/home/Interoperability.svg" },
-                                            { "Native Oracles", "/images/home/NativeOracles.svg" },
-                                            { "Self-Sovereign ID", "/images/home/Self-SovereignID.png" },
-                                            { "Decentralized Storage", "/images/home/DecentralizedStorage.svg" },
-                                            { "Native Name Service", "/images/home/NativeNameService.svg" },
-                                            { "One Block Finality", "/images/home/OneBlockFinality.svg" },
-                                            { "Best-In-Class Tooling", "/images/home/BestInClassTooling.svg" },
-                                            { "Smart Contracts", "/images/home/SmartContracts.svg" },
-                                            { "Multi-Language", "/images/home/Multi-Language.png" }
+                                                    { "Interoperability", "/images/home/Interoperability.svg" },
+                                                    { "Native Oracles", "/images/home/NativeOracles.svg" },
+                                                    { "Self-Sovereign ID", "/images/home/Self-SovereignID.png" },
+                                                    { "Decentralized Storage", "/images/home/DecentralizedStorage.svg" },
+                                                    { "Native Name Service", "/images/home/NativeNameService.svg" },
+                                                    { "One Block Finality", "/images/home/OneBlockFinality.svg" },
+                                                    { "Best-In-Class Tooling", "/images/home/BestInClassTooling.svg" },
+                                                    { "Smart Contracts", "/images/home/SmartContracts.svg" },
+                                                    { "Multi-Language", "/images/home/Multi-Language.png" }
             };
 
                     for (int i = 0; i < highlightItems.GetLength(0); i++)
@@ -80,18 +80,21 @@
         <div class="col-12 col-md-6 col-right">
             <div class="work-sans-bold get-started-wrapper">
                 @{ string[,] getStartedItems = new string[4, 2]
-          {
-                                        { "Find a Wallet", "/images/home/FindWallet.svg" },
-                                        { "Neo & Gas Tokens", "/images/home/LearnTokens.svg" },
-                                        { "Neo's Features", "/images/home/LearnFeatures.svg" },
-                                        { "Documentation", "/images/home/ReadDocumentation.svg" }
-     };
+           {
+                                                { "Find a Wallet", "/images/home/FindWallet.svg" },
+                                                { "Neo & Gas Tokens", "/images/home/LearnTokens.svg" },
+                                                { "Neo's Features", "/images/home/LearnFeatures.svg" },
+                                                { "Documentation", "/images/home/ReadDocumentation.svg" }
+};
 
                     for (int i = 0; i < getStartedItems.GetLength(0); i++)
                     {
         <div class="get-started-card">
-            <div class="text-uppercase card-text">
-                @getStartedItems[i, 0]
+            <div class="card-text-wrapper">
+                <div class="green-vertline"></div>
+                <div class="text-uppercase card-text">
+                    @getStartedItems[i, 0]
+                </div>
             </div>
             <img class="card-img" data-original="@Helper.ToCDN(getStartedItems[i, 1])" />
         </div> } }
@@ -99,40 +102,90 @@
         </div>
     </div>
 
-    <div class="row building-blocks-row">
-        <div class="col-12 col-lg-auto col-xl-4">
-            <div class="building-blocks-title @SharedLocalizer["d-none-zh"]">
+    <div class="building-blocks-container">
+        <div class="building-blocks-row">
+            <div class="col-left">
+                <div class="building-blocks-title @SharedLocalizer["d-none-zh"]">
+                    <span>
+                        <span class="green">
+                            @Localizer["Building Blocks"]
+                        </span> @Localizer["for the Next Generation Internet"]
+                    </span>
+                </div>
+                <div class="building-blocks-title @SharedLocalizer["d-none"]">
+                    <span>
+                        <span class="green">
+                            @Localizer["Building Blocks"]
+                        </span> @Localizer["for the Next Generation Internet"]
+                    </span>
+                </div>
+            </div>
+            <div class="col-right">
                 <span>
-                    <span class="green">
-                        @Localizer["Building Blocks"]
-                    </span> @Localizer["for the Next Generation Internet"]
-                </span>
-            </div>
-            <div class="building-blocks-title @SharedLocalizer["d-none"]">
-                <span>
-                    <span class="green">
-                        @Localizer["Building Blocks"]
-                    </span> @Localizer["for the Next Generation Internet"]
-                </span>
-            </div>
-        </div>
-        <div class="col-12 col-lg col-xl-8 col-right">
-            <div class="building-blocks-subtitle @SharedLocalizer["d-none-zh"]">
-                @Localizer["Neo provides a full stack of features out of the box, but doesn't keep you boxed in."]
-            </div>
-            <div class="building-blocks-subtitle @SharedLocalizer["d-none"]">
-                @Localizer["Neo provides a full stack of features out of the box, but doesn't keep you boxed in."]
-            </div>
-            <div class="building-blocks-body @SharedLocalizer["d-none-zh"]">
-                @Localizer["Native functionality provides all the infrustructures you need to build complete decentralized applications, while advanced interoperabilty allows you to harness the power of the global blockchain ecosystem."]
-            </div>
-            <div class="building-blocks-body @SharedLocalizer["d-none"]">
-                @Localizer["Native functionality provides all the infrustructures you need to build complete decentralized applications, while advanced interoperabilty allows you to harness the power of the global blockchain ecosystem."]
-            </div>
+                    <span class="building-blocks-subtitle @SharedLocalizer["d-none-zh"]">
+                        @Localizer["Neo provides a full stack of features out of the box, but doesn't keep you boxed in."]
+                    </span>
+                    <span class="building-blocks-subtitle @SharedLocalizer["d-none"]">
+                        @Localizer["Neo provides a full stack of features out of the box, but doesn't keep you boxed in."]
+                    </span>
 
-            <a class="btn-2">@Localizer["Learn More"]</a>
+                    <br /><br />
+                    <span class="building-blocks-body @SharedLocalizer["d-none-zh"]">
+                        @Localizer["Native functionality provides all the infrustructures you need to build complete decentralized applications, while advanced interoperabilty allows you to harness the power of the global blockchain ecosystem."]
+                    </span>
+                    <span class="building-blocks-body @SharedLocalizer["d-none"]">
+                        @Localizer["Native functionality provides all the infrustructures you need to build complete decentralized applications, while advanced interoperabilty allows you to harness the power of the global blockchain ecosystem."]
+                    </span>
+                </span>
+                <a class="btn-2 building-blocks-btn">@Localizer["Learn More"]</a>
+            </div>
         </div>
         <img class="blocks-large-img" data-original="@Helper.ToCDN("/images/home/BlocksLarge.svg")" />
+        <img class="blocks-medium-img" data-original="@Helper.ToCDN("/images/home/BlocksMedium.svg")" />
+        <div class="blocks-container">
+            @{ 
+                string[,] blocks = new string[7, 3]
+                {
+                    {
+                        "/images/home/OneBlockFinality.svg", "One Block Finality", "Poly.Network enabled cross-chain interoperability with Ethereum, Binance Chain, and more."
+                    },
+                    {
+                        "/images/home/oracles.svg", "Oracles", "A built-in oracle enabling secured access to any off-chain data."
+                    },
+                    {
+                        "/images/home/NeoFS.svg", "NeoFS", "A distributed data storage solution made for scalability and privacy."
+                    },
+                    {
+                        "/images/home/SmartContracts.svg", "Smart Contracts", "Smart contracts  ipsum dolor sit amet, consectetur adipiscing elit. "
+                    },
+                    {
+                        "/images/home/NeoNameService.svg", "Neo Name Service", "A decentralized .neo domain name service for next-gen internet web applications. "
+                    },
+                    {
+                        "/images/home/Interoperability.svg", "Interoperability", "Smart contracts  ipsum dolor sit amet, consectetur adipiscing elit. "
+                    },
+                    {
+                        "/images/home/NeoID.svg", "NeoID", "Smart contracts  ipsum dolor sit amet, consectetur adipiscing elit. "
+                    }
+                };
+
+                for (int i = 0; i < blocks.GetLength(0); i++)
+            {
+                <div class="block-wrapper">
+                    <img class="block-icon" data-original="@blocks[i, 0]" />
+                    <div class="block-content-wrapper">
+                        <div class="block-title">
+                            <i class="iconfont block-title-icon">&#xe6ab;</i>
+                            @blocks[i, 1]
+                        </div>
+                        <div class="block-paragraph">
+                            @blocks[i, 2]
+                        </div>
+                    </div>
+                </div>
+            }
+            }
+        </div>
     </div>
 
     <div class="row dual-row code-example-row">
