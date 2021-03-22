@@ -1,4 +1,4 @@
-﻿@model NeoWeb.Models.Candidate
+@model NeoWeb.Models.Candidate
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
@@ -11,7 +11,28 @@
     <link rel="stylesheet" href="@Helper.ToCDN("/css/migration.min.css", true)" />
 }
 <div class="container">
-    @Localizer["Migration"]
+    <div class="row">
+        <div class="col-md-6">
+            <h1 class="uppercase">@Localizer["Migration"]</h1>
+            <p>@Localizer["After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]</p>
+        </div>
+        <div class="col-md-4 offset-md-2">
+            <img class="img-fluid" src="~/images/home/N3Logo.svg" />
+        </div>
+    </div>
+    <hr />
+    <h2 class="mt-5">@Localizer["What is N3?"]</h2>
+    <h3 class="mt-4">@Localizer["A whole new world"]</h3>
+    <p>@Localizer["<strong>N3</strong> is the latest version of the Neo blockchain. It was first announced in 2018 by Erik Zhang as an upgrade to the current Neo protocol. "]</p>
+    <p>@Localizer["<strong>N3</strong> improves on previous versions by offering an improved development experience. It boasts more powerful and complete features, a highly modular architecture, and an enhanced governance and economic model. It offers everything the hobbyist developer needs to build their first dApp, through to the power and scalability required by enterprise applications."]</p>
+    <p>@Localizer["Due to the extent of improvements found in version <strong>N3</strong>, certain features are not backwards compatible with the existing Neo Legacy blockchain. This means that Neo's <strong>N3</strong> upgrade will be implemented through a new genesis block. The Neo blockchain running <strong>N3</strong> will coexist alongside the current Neo Legacy blockchain for an extended period of time. This will provide users with ample opportunity to migrate their tokens and applications to the new chain."]</p>
+    <p><strong>@Localizer["At this moment, no action is required on the part of token holders. "]</strong></p>
+    <p>@Localizer["When the new chain is closer to a MainNet launch, Neo will publish detailed information on how to safely migrate your assets from the Legacy to <strong>N3</strong> version of Neo."]</p>
+
+    <h3 class="mt-4 border-bottom">@Localizer["New features in N3"]</h3>
+    <h3 class="mt-4 border-bottom">@Localizer["Timeline"]</h3>
+    <img />
+    <h3 class="mt-4 border-bottom">@Localizer["Frequently asked questions"]</h3>
 </div>
 
 
