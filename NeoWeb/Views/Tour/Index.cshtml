@@ -1,6 +1,5 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 @{ Layout = null; }
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +18,7 @@
             font-family: 'WorkSans-Regular'; /* project id 1408484 */
             src: url('/font/WorkSans-Regular.ttf');
         }
+
         @@font-face {
             font-family: 'WorkSans-SemiBold'; /* project id 1408484 */
             src: url('/font/WorkSans-SemiBold.ttf');
@@ -32,7 +32,7 @@
         <div class="left-container">
             <div class="left-container-content">
                 <div class="tour-left-logo">
-                    <img src="@Helper.CDN/images/tour/neo_color_dark.png"  class="tour-left-logo-img">
+                    <img src="@Helper.CDN/images/tour/neo_color_dark.png" class="tour-left-logo-img">
                 </div>
                 <div class="text-guide">
                     <div class="text-group text-guide-1 fade-in">
@@ -48,7 +48,7 @@
                             </span>
                         </div>
                         <div class="text-group-content text-group-1-text">
-                            There is no minimum donation, any sum is appreciated - click here to donate using PayPal. Thank you for your support.
+                            @Localizer["There is no minimum donation, any sum is appreciated - click here to donate using PayPal. Thank you for your support."]
                         </div>
                         <div class="start-mobile-wrapper">
                             <div id="start">
@@ -152,7 +152,7 @@
                 <div class="hide" id="bottom-guide-container">
                     <div id="prev" style="cursor: pointer;">
                         <img class="bottom-guide-container-icon arrow-show" src="@Helper.CDN/images/tour/previous_arrow.png">
-                        <img class="bottom-guide-container-icon arrow-hide"  src="@Helper.CDN/images/tour/previous_arrow_grey.png">
+                        <img class="bottom-guide-container-icon arrow-hide" src="@Helper.CDN/images/tour/previous_arrow_grey.png">
                     </div>
                     <div class="circle-list">
                         <div class="circle"></div>
