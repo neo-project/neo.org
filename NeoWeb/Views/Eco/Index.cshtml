@@ -137,15 +137,19 @@
 
                     const rightmost = scroller.prop('scrollLeft') >= scroller.prop('scrollWidth') - scroller.prop('clientWidth');
                     $(ele).find('.projects-controller-right').toggleClass('disabled', rightmost);
+
+                    $(window).trigger('scroll');
                 }
 
-                $(ele).find('.projects-content').scroll(updateControllerState);
+                throttleUpdateCurrentPage = $.throttle(updateControllerState, 200, undefined, undefined, true);
 
-                $(ele).find('.projects-content').visibilityChanged({ callback: updateControllerState });
+                $(ele).find('.projects-content').scroll(throttleUpdateCurrentPage);
 
-                $(window).resize(updateControllerState);
+                $(ele).find('.projects-content').visibilityChanged({ callback: throttleUpdateCurrentPage });
 
-                updateControllerState();
+                $(window).resize(throttleUpdateCurrentPage);
+
+                throttleUpdateCurrentPage();
 
             });
         });

@@ -14,19 +14,19 @@
         <div class="documentation-bookmark"></div>
         <div class="documentation-title">Documentation</div>
         <div class="flex-grow-1"></div>
-        <img class="documentation-img" data-original="@Helper.ToCDN("/images/dev/documentation.png", true)" />
+        <img class="documentation-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
     </div>
     <div class="documentation">
         <div class="documentation-bookmark"></div>
         <div class="documentation-title">Documentation</div>
         <div class="flex-grow-1"></div>
-        <img class="documentation-img" data-original="@Helper.ToCDN("/images/dev/documentation.png", true)" />
+        <img class="documentation-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
     </div>
     <div class="documentation">
         <div class="documentation-bookmark"></div>
         <div class="documentation-title">Documentation</div>
         <div class="flex-grow-1"></div>
-        <img class="documentation-img" data-original="@Helper.ToCDN("/images/dev/documentation.png", true)" />
+        <img class="documentation-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
     </div>
 </div>
 
@@ -34,11 +34,12 @@
 
 <div class="menu-page-secondary-title">Featured Tutorials</div>
 
-
-<div class="overview-examples-wrapper">
 <div class="overview-examples">
     <div class="overview-example">
-        <img class="overview-example-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+        <div class="overview-example-start">
+            <img class="overview-example-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+            <div class="overview-example-type">Tutorial</div>
+        </div>
         <div class="overview-example-end">
             <div class="overview-example-title">Getting started with NeoFS: The basics.</div>
             <div class="overview-example-author">Neo SPCC</div>
@@ -46,7 +47,10 @@
         </div>
     </div>
     <div class="overview-example">
-        <img class="overview-example-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+        <div class="overview-example-start">
+            <img class="overview-example-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+            <div class="overview-example-type">Tutorial</div>
+        </div>
         <div class="overview-example-end">
             <div class="overview-example-title">Getting started with NeoFS: The basics.</div>
             <div class="overview-example-author">Neo SPCC</div>
@@ -54,27 +58,168 @@
         </div>
     </div>
     <div class="overview-example">
-        <img class="overview-example-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+        <div class="overview-example-start">
+            <img class="overview-example-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+            <div class="overview-example-type">Tutorial</div>
+        </div>
         <div class="overview-example-end">
             <div class="overview-example-title">Getting started with NeoFS: The basics.</div>
             <div class="overview-example-author">Neo SPCC</div>
             <div class="overview-example-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in at urna. </div>
         </div>
     </div>
-</div>
 </div>
 
 <a class="view-all-examples btn-2" asp-controller="dev" asp-action="index" asp-fragment="tooling">View All Tutorials</a>
 
-<div class="menu-page-divider"></div>
 
-<div class="menu-page-secondary-title">Resource Overview</div>
+<div class="overview-tooling">
+    <div class="menu-page-divider"></div>
 
-<div class="menu-page-description">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae purus euismod, ornare felis at, consequat nisl. Nullam viverra risus risus, sed commodo mauris ultricies et. Aliquam vel justo sit amet nisl iaculis imperdiet in
-    at urna. t migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date.
+    <div class="menu-page-secondary-title">Tooling Overview</div>
+
+    <div class="menu-page-description">
+        With the support of our global developer community, Neo is proud to offer a complete range of blockchain development tools, including SDKs, smart contract compilers, debuggers, explorers, dApp integration frameworks, and much more.
+    </div>
+
+    <div class="overview-tool-groups">
+        <div class="overview-tool-groups-header">
+            <div class="overview-tool-groups-title">
+                Application support
+            </div>
+            <div class="view-more-tools">
+                <span class="view-more-tools-label">
+                    View more
+                </span>
+                <i class="view-more-tools-indicator iconfont">
+                    &#xe6ab;
+                </i>
+            </div>
+        </div>
+        <div class="overview-tool-groups-content">
+            <div class="overview-tool-group" style="grid-column: 1">
+                <div class="overview-tool-group-title">
+                    NEO SDK
+                </div>
+                <div class="overview-tools">
+                    <div class="overview-tool">
+                        <div class="overview-tool-imgs">
+                            <img class="overview-tool-background-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                            <img class="overview-tool-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                        </div>
+                        <div class="overview-tool-title">Neon-js</div>
+                    </div>
+                    <div class="overview-tool">
+                        <div class="overview-tool-imgs">
+                            <img class="overview-tool-background-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                            <img class="overview-tool-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                        </div>
+                        <div class="overview-tool-title">Neon-js</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="overview-tool-group" style="grid-column: 2">
+                <div class="overview-tool-group-title">
+                    NEO SDK
+                </div>
+                <div class="overview-tools">
+                    <div class="overview-tool">
+                        <div class="overview-tool-imgs">
+                            <img class="overview-tool-background-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                            <img class="overview-tool-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                        </div>
+                        <div class="overview-tool-title">Neon-js</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="overview-tool-group" style="grid-column: 1">
+                <div class="overview-tool-group-title">
+                    NEO SDK
+                </div>
+                <div class="overview-tools">
+                    <div class="overview-tool">
+                        <div class="overview-tool-imgs">
+                            <img class="overview-tool-background-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                            <img class="overview-tool-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                        </div>
+                        <div class="overview-tool-title">Neon-js</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="overview-tool-groups">
+        <div class="overview-tool-groups-header">
+            <div class="overview-tool-groups-title">
+                Application support
+            </div>
+            <div class="view-more-tools">
+                <span class="view-more-tools-label">
+                    View more
+                </span>
+                <i class="view-more-tools-indicator iconfont">
+                    &#xe6ab;
+                </i>
+            </div>
+        </div>
+        <div class="overview-tool-groups-content">
+            <div class="overview-tool-group" style="grid-column: 1">
+                <div class="overview-tool-group-title">
+                    NEO SDK
+                </div>
+                <div class="overview-tools">
+                    <div class="overview-tool">
+                        <div class="overview-tool-imgs">
+                            <img class="overview-tool-background-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                            <img class="overview-tool-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                        </div>
+                        <div class="overview-tool-title">Neon-js</div>
+                    </div>
+                    <div class="overview-tool">
+                        <div class="overview-tool-imgs">
+                            <img class="overview-tool-background-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                            <img class="overview-tool-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                        </div>
+                        <div class="overview-tool-title">Neon-js</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="overview-tool-group" style="grid-column: 2">
+                <div class="overview-tool-group-title">
+                    NEO SDK
+                </div>
+                <div class="overview-tools">
+                    <div class="overview-tool">
+                        <div class="overview-tool-imgs">
+                            <img class="overview-tool-background-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                            <img class="overview-tool-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                        </div>
+                        <div class="overview-tool-title">Neon-js</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="overview-tool-group" style="grid-column: 3">
+                <div class="overview-tool-group-title">
+                    NEO SDK
+                </div>
+                <div class="overview-tools">
+                    <div class="overview-tool">
+                        <div class="overview-tool-imgs">
+                            <img class="overview-tool-background-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                            <img class="overview-tool-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
+                        </div>
+                        <div class="overview-tool-title">Neon-js</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>
-
-<img class="resource-overview-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
-
-<a class="view-all-tools btn-2" asp-controller="dev" asp-action="index" asp-fragment="examples">View All Tools</a>
