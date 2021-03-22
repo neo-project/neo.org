@@ -123,11 +123,11 @@ namespace NeoWeb.Controllers
                 if (isTop != null)
                 {
                     _context.Top.ToList().ForEach(p => _context.Top.Remove(p));
-                    _context.Add(new Top() { ItemId = blog.Id, Type = DiscoverViewModelType.Blog });
+                    _context.Add(new Top() { ItemId = blog.Id, Type = NewsViewModelType.Blog });
                 }
                 await _context.SaveChangesAsync();
                 await UpdateRSSAsync();
-                return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.Blog });
+                return RedirectToAction("index", "news", new { type = NewsViewModelType.Blog });
             }
             return View(blog);
         }
@@ -209,7 +209,7 @@ namespace NeoWeb.Controllers
                     if (isTop != null)
                     {
                         _context.Top.ToList().ForEach(p => _context.Top.Remove(p));
-                        _context.Add(new Top() { ItemId = blog.Id, Type = DiscoverViewModelType.Blog });
+                        _context.Add(new Top() { ItemId = blog.Id, Type = NewsViewModelType.Blog });
                     }
                     await _context.SaveChangesAsync();
                     await UpdateRSSAsync();
@@ -255,7 +255,7 @@ namespace NeoWeb.Controllers
             var blog = await _context.Blogs.SingleOrDefaultAsync(m => m.Id == id);
             _context.Blogs.Remove(blog);
             await _context.SaveChangesAsync();
-            return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.Blog });
+            return RedirectToAction("index", "news", new { type = NewsViewModelType.Blog });
         }
         private async Task UpdateRSSAsync()
         {

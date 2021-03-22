@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 
 namespace NeoWeb.Controllers
 {
@@ -8,6 +8,7 @@ namespace NeoWeb.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            ViewBag.MenuIndex = 0;
             return View();
         }
     }

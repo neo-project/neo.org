@@ -36,10 +36,6 @@ namespace NeoWeb.Controllers
         [Route("contributor/index")]
         public IActionResult Team() => RedirectToAction("index", "contributors");
 
-        [Route("blog")]
-        [Route("blog/index")]
-        public IActionResult Blog() => RedirectToAction("index", "discover", new { type = (int)DiscoverViewModelType.Blog });
-
         [Route("logo")]
         [Route("logo/index")]
         public IActionResult PressKit() => RedirectToAction("index", "presskit");
@@ -49,9 +45,17 @@ namespace NeoWeb.Controllers
         [Route("ecoboost/index")]
         public IActionResult Eco() => RedirectToAction("index", "eco");
 
+        [Route("discover")]
+        [Route("discover/index")]
+        public IActionResult News() => RedirectToAction("index", "news", new { type = (int)NewsViewModelType.Event });
+
         [Route("event")]
         [Route("event/index")]
-        public IActionResult Event() => RedirectToAction("index", "discover", new { type = (int)DiscoverViewModelType.Event });
+        public IActionResult Event() => RedirectToAction("index", "news", new { type = (int)NewsViewModelType.Event });
+
+        [Route("blog")]
+        [Route("blog/index")]
+        public IActionResult Blog() => RedirectToAction("index", "news", new { type = (int)NewsViewModelType.Blog });
 
         [Route("dapp")]
         [Route("dapps")]

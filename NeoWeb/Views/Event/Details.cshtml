@@ -11,11 +11,11 @@
     }
 }
 @section Styles{
-    <link rel="stylesheet" href="@Helper.ToCDN("/css/discover.min.css", true)" />
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/news.min.css", true)" />
 }
 
 <div class="nav-area mt-5">
-    <div><i class="iconfont">&#xe618;</i><a asp-action="index" asp-controller="discover">BACK TO LIST</a></div>
+    <div><i class="iconfont">&#xe618;</i><h4 class="d-inline"><a asp-action="index" asp-controller="news">BACK TO LIST</a></h4></div>
     <div class="text-right">
         @if (@ViewBag.PrevEventId != Model.Id)
         {
@@ -28,7 +28,7 @@
     </div>
 </div>
 <hr />
-<div class="discover-width">
+<div class="news-width pb-5">
     @if (!string.IsNullOrWhiteSpace(Model.Cover))
     {
         <div class="row d-block d-sm-none ">
@@ -39,7 +39,7 @@
     <div class="row">
         <div class="col-md-12 col-lg-9">
             <article class="article">
-                <div class="article-time"><span>EVENT</span>@Model.StartTime.Month.ToMonth() @Model.StartTime.Day, @Model.StartTime.Year</div>
+                <div class="article-time"><h4 class="d-inline">EVENT</h4><span class="gray">@Model.StartTime.Month.ToMonth() @Model.StartTime.Day, @Model.StartTime.Year</span></div>
                 <header><h2 class="article-title mt-4 with-space">@Model.Name</h2></header>
                 <p class="details-text">Details</p>
                 <div class="container mt-1">
@@ -109,7 +109,7 @@
                         <div class="editor1">Tags:</div>
                         foreach (var tag in Model.Tags.Split(","))
                         {
-                            <a class="article-tag" href="/discover?keywords=@tag">#@tag</a>
+                            <a class="article-tag1 mr-1" href="/news?keywords=@tag">#@tag</a>
                         }
                     }
                 </div>

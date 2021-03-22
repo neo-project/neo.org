@@ -1,0 +1,179 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+@{ ViewData["Title"] = Localizer["Contributors"].Value; }
+@section Styles{
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/neogas.min.css", true)" />
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/wallets.min.css", true)" />
+}
+
+<div class="introduction">
+    <div class="introduction-start">
+        <div class="introduction-title"><em>NEO</em><br />&amp; GAS</div>
+        <div class="introduction-content">@Localizer["After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]</div>
+    </div>
+    <img class="introduction-img" data-original="@Helper.ToCDN("/images/discover/placeholder.png", true)" />
+</div>
+
+<div class="divider"></div>
+
+<div class="resources">
+    <div class="resources-start">
+        <div class="menu">
+            <div class="menu-item">
+                @Localizer["Tokens"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+            <div class="menu-item">
+                @Localizer["Wallets"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+        </div>
+
+        <select class="select-menu-page form-control">
+            <option>@Localizer["Tokens"]</option>
+            <option>@Localizer["Wallets"]</option>
+        </select>
+    </div>
+
+    <div class="resources-end">
+        <div class="menu-page">
+            <partial name="./_TokensPartial" />
+        </div>
+        <div class="menu-page">
+            @{await Html.RenderPartialAsync("_WalletsPartial");}
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(() => {
+            const hashArray = ['tokens', 'wallets']
+
+            function updateCurrentPage(i) {
+                $('.menu-item').each((j, menuItem) => {
+                    if (i === j) {
+                        $(menuItem).addClass('active');
+                        window.location.hash = hashArray[i];
+                    } else {
+                        $(menuItem).removeClass('active');
+                    }
+                });
+                $('.menu-page').each((j, menuPage) => {
+                    if (i === j) {
+                        $(menuPage).addClass('active');
+                        window.location.hash = hashArray[i];
+                    } else {
+                        $(menuPage).removeClass('active');
+                    }
+                });
+                $('.select-menu-page').prop('selectedIndex', i);
+            };
+
+            $('.menu-item').each((i, menuItem) => {
+                $(menuItem).click(() => {
+                    updateCurrentPage(i);
+                });
+            });
+
+            $('.select-menu-page').change(e => {
+                updateCurrentPage(e.target.selectedIndex);
+            });
+
+            const hash = window.location.hash.replace(/#/g, '');
+            const index = hashArray.indexOf(hash);
+
+            updateCurrentPage(index >= 0 ? index : 0);
+        });
+    </script>
+
+    @* Wallet *@
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+            $(".client-ul li img").click(function () {
+                zoomin(this);
+            });
+            $(".client-ul li header").click(function () {
+                zoomin(this);
+            });
+            $(".card-header").attr("onclick", "showDetails(this)");
+            if (window.location.hash) {
+                var _num = parseInt(window.location.hash.substr(1, 1));
+                var _str = window.location.hash.substr(2);
+                console.log(_num);
+                console.log(_str);
+                showPlatform($('.nav-client li')[_num], _str);
+            }
+        })
+        $(".tab").click(function () {
+            showPlatform($(this).text().toLowerCase());
+            $(this).parent().children().removeClass("active");
+            $(this).addClass("active");
+        });
+        $(".select-tab-page").change(function () {
+            showPlatform($(this).val());
+        });
+
+        $(".select-version-page").change(function () {
+            showVersion($(this).val());
+        });
+        function showPlatform(name) {
+            $("body").trigger("scroll");
+            name = name == 'all' ? "" : name;
+            if (name) {
+                $('.client-ul li').not('.' + name).hide();
+                $('.' + name).show();
+            }
+            else
+                $('.client-ul li').show();
+        }
+        function showVersion(name) {
+            $("body").trigger("scroll");
+            if (name) {
+                $('.client-ul').not('.' + name).hide();
+                $('.' + name).show();
+            }
+            else
+                $('.client-ul li').show();
+        }
+        function switchPlatform(obj) {
+            $(".modal .preview").hide();
+            $(".modal .p-" + obj).show();
+            $(".modal .plat-btn").removeClass("active");
+            $(".modal .btn-" + obj).addClass("active");
+        }
+        function zoomin(obj) {
+            var img = $(obj).parent().find("img");
+            var name = $(obj).parent().find("h4");
+            var developer = $(obj).parent().find(".developer");
+            var platform = $(obj).parent().find(".platform");
+            var desc = $(obj).parent().find(".desc");
+            var link = $(obj).parent().find(".link");
+            var button = $(obj).parent().find(".button");
+            var license = $(obj).parent().find(".license");
+            $("#modal").modal();
+            $("#model_img").html("");
+            $("#model_name").html("");
+            $("#model_dev").html("");
+            $("#model_platform").html("");
+            $("#model_button").html("");
+            $("#model_license").html("");
+            $("#model_desc").html("");
+            $("#model_link").html("");
+            desc.find("img").each(function () {
+                $(this).attr("src", $(this).data("original"));
+            });;
+
+            $("#model_img").attr("src", img.attr("src"));
+            $("#model_name").html(name.html());
+            $("#model_dev").html(developer.html());
+            $("#model_platform").html(platform.html());
+            $("#model_button").html(button.html());
+            $("#model_license").html(license.html());
+            $("#model_desc").html(desc.html());
+            $("#model_link").html(link.html());
+        }
+    </script>
+}

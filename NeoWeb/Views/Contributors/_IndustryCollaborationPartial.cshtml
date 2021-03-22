@@ -1,0 +1,42 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+<h2 class="menu-page-title">@Localizer["Communities"]</h2>
+<div class="menu-page-description">
+    @Localizer["At magnum periculum adiit in oculis quidem faciunt, ut summo bono, dolorem aspernari ut aut ad naturam aut rerum hic tenetur a se esse ratione intellegi posse et dolorem ipsum, quia voluptas sit, voluptatem et accusamus et quas molestias."]
+</div>
+
+<div class="communities-container">
+    @{ string[,] items = new string[6, 5]
+                      {
+        { "/images/discover/placeholder.png", "COZ", "COZ is a software development group specializing in blockchain and distributed technologies. Since its humble beginnings as an open source, community driven organization, COZ has become one of blockchain’s most respected development organizations, consistently delivering groundbreaking products.", "https://coz.io", "https://ww.github.com" },
+        { "/images/discover/placeholder.png", "COZ", "COZ is a software development group specializing in blockchain and distributed technologies. Since its humble beginnings as an open source, community driven organization, COZ has become one of blockchain’s most respected development organizations, consistently delivering groundbreaking products.", "https://coz.io", "https://ww.github.com" },
+        { "/images/discover/placeholder.png", "COZ", "COZ is a software development group specializing in blockchain and distributed technologies. Since its humble beginnings as an open source, community driven organization, COZ has become one of blockchain’s most respected development organizations, consistently delivering groundbreaking products.", "https://coz.io", "https://ww.github.com" },
+        { "/images/discover/placeholder.png", "COZ", "COZ is a software development group specializing in blockchain and distributed technologies. Since its humble beginnings as an open source, community driven organization, COZ has become one of blockchain’s most respected development organizations, consistently delivering groundbreaking products.", "https://coz.io", "https://ww.github.com" },
+        { "/images/discover/placeholder.png", "COZ", "COZ is a software development group specializing in blockchain and distributed technologies. Since its humble beginnings as an open source, community driven organization, COZ has become one of blockchain’s most respected development organizations, consistently delivering groundbreaking products.", "https://coz.io", "https://ww.github.com" },
+        { "/images/discover/placeholder.png", "COZ", "COZ is a software development group specializing in blockchain and distributed technologies. Since its humble beginnings as an open source, community driven organization, COZ has become one of blockchain’s most respected development organizations, consistently delivering groundbreaking products.", "https://coz.io", "https://ww.github.com" },
+                      };
+
+        for (int i = 0; i < items.GetLength(0); i++)
+        {
+<div class="communities-item">
+    <img class="content-img" data-original="@Helper.ToCDN(items[i, 0], true)" />
+    <div class="content-wrapper">
+        <div class="communities-name">@items[i, 1]</div>
+        <div class="communities-description">
+            @Localizer[items[i, 2]];
+        </div>
+        <a class="link-wrapper" href="@items[i, 3]">
+            <img class="link-icon" data-original="@Helper.ToCDN("/images/discover/WebLink.svg", true)" />
+            <div>Coz.io</div>
+        </a>
+        <a class="link-wrapper" href="@items[i, 4]">
+            <i class="iconfont link-icon">&#xe609;</i>
+            <div>github.com/CityOfZion</div>
+        </a>
+    </div>
+</div> } }
+
+
+</div>

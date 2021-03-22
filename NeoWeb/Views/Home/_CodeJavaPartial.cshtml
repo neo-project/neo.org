@@ -1,0 +1,71 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+<div class="top-bar">
+    <div class="top-bar-dots">
+    </div>
+    <div class="top-bar-title">
+        <img class="top-bar-icon" data-original="@Helper.ToCDN("/images/home/JavaDark.png")" />
+        <div class="top-bar-name">@Localizer["Example"] Java</div>
+    </div>
+</div>
+<pre class="green code">
+    <code>
+import io.neow3j.devpack.contracts.ContractManagement;
+
+&#64;ManifestExtra(key = "Name", value = "Nep17 example")
+&#64;ManifestExtra(key = "Author", value = "neow3j")
+public class Nep17Contract {
+
+    static final Hash160 contractOwner = addressToScriptHash("NdHjSPVnw99RDMCoJdCnAcjkE23gvqUeg2");
+    static final int initialSupply = 10_000_000_000_000_000;
+
+    static final StorageContext ctx = Storage.getStorageContext();
+    static final StorageMap tokenOwnerMap = ctx.createMap("tokenOwner");
+
+    &#64;DisplayName("Transfer")
+    static Event3Args<Hash160, Hash160, Integer>
+    onTransfer;
+
+    // Transfers a token.
+    public static boolean transfer(Hash160 from, Hash160 to, int amount, Object[] data) throws Exception {
+        if (!from.isValid() || !to.isValid()) {
+            throw new Exception("From or To address is not a valid address.");
+        }
+        if (amount < 0) {throw new Exception("The transfer amount was negative.");}
+
+        if (!Runtime.checkWitness(from) && from != ExecutionEngine.getCallingScriptHash()) {
+            throw new Exception("Invalid sender signature. The sender of the tokens needs to be the signing account.");
+        }
+        if (assetGet(from) < amount) {return false;}
+
+        if (from != to && amount != 0) {
+            deductFromBalance(from, amount);
+            addToBalance(to, amount);
+        }
+        if (ContractManagement.getContract(to) != null) {
+            Contract.call(to, "onNEP17Payment", CallFlags.ALL, data);
+        }
+        onTransfer.notify(from, to, amount);
+        return true;
+    }
+}
+    </code>
+</pre>
+<div class="bottom-bar">
+    <div class="bottom-bar-title">Java @Localizer["Resources"]</div>
+    <div class="bottom-bar-buttons">
+        <a class="bottom-bar-button">
+            <img class="button-icon" data-original="@Helper.ToCDN("/images/home/Documentation.png")" />
+            @Localizer["Documentation"]
+        </a>
+        <a class="bottom-bar-button">
+            <img class="button-icon" data-original="@Helper.ToCDN("/images/home/Templates.png")" />
+            @Localizer["Templates"]
+        </a>
+        <a class="bottom-bar-button">
+            <img class="button-icon" data-original="@Helper.ToCDN("/images/home/Tools.png")" />
+            @Localizer["Tools"]
+        </a>
+    </div>
+</div>

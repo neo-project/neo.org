@@ -52,6 +52,10 @@
         "img/loading-sm.gif",
         "img/loading.gif"
       ]
+    },
+    {
+      "library": "image-map-resizer@1.0.10",
+      "destination": "wwwroot/lib/image-map-resizer/"
     }
   ]
 }

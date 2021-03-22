@@ -8,7 +8,7 @@ namespace NeoWeb.Models
         public int Id { get; set; }
 
         [Required]
-        public DiscoverViewModelType Type { get; set; }
+        public NewsViewModelType Type { get; set; }
 
         [Required]
         public int ItemId { get; set; }

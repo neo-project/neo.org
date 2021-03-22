@@ -27,7 +27,7 @@ ul, li {
         }
     }
 
-    header {
+    h4 {
         margin: 12px 0;
         cursor: pointer;
     }
@@ -44,10 +44,6 @@ ul, li {
 
     .open-source {
         color: @green;
-
-        @media only screen and (max-width: 767px) {
-            display: none;
-        }
     }
 }
 .platform {
@@ -86,6 +82,9 @@ ul, li {
     .modal-header {
         border: none;
         padding: 0;
+        .open-source{
+            float: right;
+        }
 
         img {
             width: 128px;
@@ -114,7 +113,6 @@ ul, li {
 
         .metrics {
             margin: 20px 0;
-            line-height: @t4;
         }
 
         .metrics {
@@ -130,7 +128,7 @@ ul, li {
                 margin-left: 1em;
                 font-size: 12.8px;
                 font-weight: bold;
-                color: @dark;
+                color: @dark-blue;
             }
 
             .span-success {
@@ -155,13 +153,13 @@ ul, li {
         min-width: 0;
         margin-top: 12px;
         padding: 8px 16px;
-        color: @dark-text !important;
+        color: white !important;
     }
 
     .preview-div {
         margin: 32px 0;
 
-        h3 {
+        h4 {
             display: inline-block;
 
             @media only screen and (max-width: 767px) {
@@ -187,7 +185,7 @@ ul, li {
         margin-top: 10px;
         float: right;
         border-left-width: 0;
-        color: @text;
+        color: @dark-blue;
         font-weight: bold;
         font-size: 12.8px;
 
@@ -219,4 +217,63 @@ ul, li {
         display: inline-block;
         vertical-align: middle;
     }
+}
+.menu-page{
+    position: relative;
+}
+.select-version-page {
+    width: 200px;
+    position: absolute;
+    right: 0;
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 2px solid @dark-blue;
+
+    @media (max-width: 767.98px) {
+        display: none;
+    }
+}
+
+.select-tab-page {
+    display: none;
+    margin-top: 39px;
+
+    @media (max-width: 767.98px) {
+        display: inline;
+    }
+}
+
+.tab {
+    position: relative;
+    top: 5px;
+    flex: auto;
+    padding: 24px;
+    font-size: 18px;
+    font-family: NunitoSans-Bold, NunitoSans;
+    font-weight: bold;
+    color: #070E3A;
+    overflow: hidden;
+    cursor: pointer;
+
+    &.active {
+        border-bottom: 5px solid @dark-blue;
+    }
+}
+
+.tab-page {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
+
+.tab-page-title {
+    margin-top: 40px;
+    font-size: 22px;
+    font-family: WorkSans-Bold, WorkSans;
+    font-weight: bold;
+    text-transform: uppercase;
 }

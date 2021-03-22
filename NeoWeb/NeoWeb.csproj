@@ -7,12 +7,21 @@
 
   <ItemGroup>
     <Compile Remove="CandidateBackgrounder\**" />
+    <Compile Remove="Views\People\**" />
     <Content Remove="CandidateBackgrounder\**" />
+    <Content Remove="Views\People\**" />
     <EmbeddedResource Remove="CandidateBackgrounder\**" />
+    <EmbeddedResource Remove="Views\People\**" />
     <None Remove="CandidateBackgrounder\**" />
+    <None Remove="Views\People\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\css\news.css" />
   </ItemGroup>
   
   <ItemGroup>
+    <PackageReference Include="BuildWebCompiler" Version="1.12.394" />
     <PackageReference Include="MailKit" Version="2.10.1" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.3" />
@@ -42,6 +51,10 @@
     <Content Update="libman.json">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\discover\" />
   </ItemGroup>
 
 </Project>

@@ -1,105 +1,92 @@
-@t1: 5.619rem; /*h1 95.37*/
-@t2: 3.16rem; /*h2 53.67 - mobile - h1 47.36*/
-@t3: 2.37rem; /*h3 40.27 - mobile - h2 35.53*/
-@t4: 1.778rem; /*h4、h5 30.27 - mobile - h3 26.67*/
-@t5: 1.333rem; /*h6 22.67 - mobile - h4、h5、h6 20*/
-@t6: 1rem;
+/*字号*/
+@font-size-1: 5.75rem;
+@font-size-2: 2.25rem;
+@font-size-3: 1.75rem;
+@font-size-4: 1.25rem;
+@font-size-5: 1.125rem;
 
-@length1: 116px;/**/
-@length2: 84px; /**/
-@length3: 52px; /**/
-@length4: 32px; /**/
-@length5: 20px; /**/
-@length6: 12px; /**/
-@length7: 8px; /**/
-@length8: 4px; /**/
-
-@nav-bar-height: 80px;
-@font: 16px;
-
-/*通用*/
-@dark: #030322;
-@dark-text: #FFFFFF;
-@linear: linear-gradient(172deg, #02e49b, #00bd9b);
-@linear2: linear-gradient(#02e49b, #02e49b);
-@body: #f9fafa;
-@arrow: rgb(225,225,225);
-
-@linear-black: linear-gradient(180deg, #0F1E32 0%, #09131F 100%);
-@linear-green: linear-gradient(104deg, #00E599 0%, #00D18C 100%);
-
-/*常用绿色*/
+/*品牌颜色*/
 @green: #00E599;
-@green2: #02e49b;
-@green3: rgba(75, 197, 63,0.5);
-@green-hover: #00af92;
-@black: #000033;
-@black1: #070E3A;
+@green2: #6FEDB2; //未使用
+@green3: #7EF2CC; //未使用
+@green4: #BFF7E5; //未使用
 
-@red:#DD0000;
-@white: #FFFFFF;
-@back:#457b86;
+@seagreen: #00AF92; //未使用
+@seagreen2: #59C0AC; //未使用
+@seagreen3: #7FD6C6; //未使用
+@seagreen4: #BFEAE2; //未使用
 
-/*btn*/
-@btn-back: #02e49b;
-@btn-text: #FFFFFF;
-/*文本*/
-@text: #000332;
-@text2: #476872;
-@text3: #a1c8c9;
+@black: #242424; //未使用
+@black2: #5B5B5B; //未使用
+@black3: #919191; //未使用
+@black4: #C6C6C6; //未使用
 
-@line: rgba(200, 200, 200, 0.7);
-@line2: #CCCCCC;
-@line3: #dee2e6;
+@dark-blue: #003; //未使用
+@dark-blue2: #3F3F66; //未使用
+@dark-blue3: #7F7F9A; //未使用
+@dark-blue4: #BEBFCC; //未使用
 
-@gray: #505050;
-@gray2: #f9fafa;
-@gray3: #f2f4f4;
+@seagreen: #2B393F; //未使用
+@seagreen2: #616B70; //未使用
+@seagreen3: #939B9E; //未使用
+@seagreen4: #C9CCCE; //未使用
 
-.work-sans {
-    font-family: WorkSans-Regular;
+@gray: #969696;
+@gray2: #AFAFAF; //未使用
+@gray3: #C9C9C9; //未使用
+
+@lightgray: #F9FAFA; //未使用
+
+/*其它颜色*/
+@custom: #727272;
+@custom2: #E9EEED;
+@custom3: #DDDDDD;
+@custom4: #F0F5F6;
+@custom5: #E4EEF0;
+@custom6: #DFE3E3;
+
+/*字体*/
+.work-sans-semibold() {
+    font-family: WorkSans-semibold
 }
 
-.work-sans-bold {
-    font-family: WorkSans-Bold;
+.work-sans-bold() {
+    font-family: WorkSans-bold
 }
 
-.work-sans-semibold {
-    font-family: WorkSans-SemiBold;
+.nunito-sans-extrabold() {
+    font-family: NunitoSans-extrabold
 }
 
-.nunito-sans {
-    font-family: NunitoSans-Regular;
+.nunito-sans-bold() {
+    font-family: NunitoSans-bold
 }
 
-.nunito-sans-bold {
-    font-family: NunitoSans-Bold;
+.nunito-sans-regular() {
+    font-family: NunitoSans-Regular
 }
 
-.nunito-sans-semibold {
-    font-family: NunitoSans-SemiBold;
+.nunito-sans-semibold() {
+    font-family: NunitoSans-Semibold
 }
 
-.lato-bold {
-    font-family: Lato-Bold;
-}
-
-.uppercase {
+.uppercase() {
     text-transform: uppercase;
 }
 
-.semibold {
-    font-weight: 600;
-}
-
-.bold {
+.bold() {
     font-weight: bold;
 }
 
+/*常用色样式*/
 .green {
     color: @green;
 }
 
-.black {
-    color: @black;
+.dark-blue {
+    color: @dark-blue;
+}
+
+.gray {
+    color: @gray;
 }

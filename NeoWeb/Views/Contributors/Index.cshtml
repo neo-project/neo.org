@@ -1,80 +1,140 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
-@{
-    ViewData["Title"] = Localizer["Contributors"].Value;
-}
+
+@{ ViewData["Title"] = Localizer["Contributors"].Value; }
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/contributors.min.css", true)" />
 }
-<div class="py-5">
-    <p>@Localizer["Neo Foundation Key Members"]</p>
-    <div class="row mt-5 team-list align-items-center">
-        <div class="col-6 col-md-5 col-lg-4">
-            <img data-original="@Helper.ToCDN("/images/team/da.jpg", true)" />
-        </div>
-        <div class="col-6 col-md-6 offset-md-1 col-lg-6 offset-lg-1 ">
-            <div class="row">
-                <h3 class="col-12">@Localizer["Hongfei Da"]</h3>
-                <div class="col-12 bolder mt-3">@Localizer["Founder of Neo, Chair of Neo Foundation, CEO of NGD"]</div>
-                <div class="d-none d-md-block col-12 mt-4">@Localizer["Hongfei Da is the founder of Neo, a leading open source blockchain platform that is building the infrastructure of the next-gen Internet with a vision to create a smart economy. As a pioneer in the international blockchain technology space, he founded AntShares in 2014 which was later renamed to Neo in June 2017. Leveraging on his extensive experience and expertise in blockchain technologies and innovations, he is widely recognized as a pioneering and visionary leader in the global blockchain industry."]</div>
-                <div class="col-12 h6 mt-2 mt-md-1 link">
-                    <a class="iconfont mr-3" target="_blank" href="https://www.linkedin.com/in/dahongfei/">&#xe612;</a>
-                    <a class="iconfont mr-3" target="_blank" href="https://twitter.com/dahongfei">&#xe607;</a>
-                    <a class="iconfont" target="_blank" href="https://github.com/dahongfei">&#xe609;</a>
-                </div>
-            </div>
-        </div>
-        <div class="d-block d-md-none mt-2 col-12">@Localizer["Hongfei Da is the founder of Neo, a leading open source blockchain platform that is building the infrastructure of the next-gen Internet with a vision to create a smart economy. As a pioneer in the international blockchain technology space, he founded AntShares in 2014 which was later renamed to Neo in June 2017. Leveraging on his extensive experience and expertise in blockchain technologies and innovations, he is widely recognized as a pioneering and visionary leader in the global blockchain industry."]</div>
+
+<div class="introduction others">
+    <div class="introduction-start">
+        <div class="introduction-title"><em>NEO</em><br />@Localizer["People"]</div>
+        <div class="introduction-content">@Localizer["After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]</div>
     </div>
-
-    <div class="row mt-5 team-list align-items-center">
-        <div class="col-6 col-md-5 col-lg-4">
-            <img data-original="@Helper.ToCDN("/images/team/erik.jpg", true)" />
-        </div>
-        <div class="col-6 col-md-6 offset-md-1 col-lg-6 offset-lg-1 ">
-            <div class="row">
-                <h3 class="col-12">@Localizer["Erik Zhang"]</h3>
-                <div class="col-12 bolder mt-3">@Localizer["Founder and core developer of Neo, Chair of Neo Foundation"]</div>
-                <div class="d-none d-md-block col-12 mt-4">@Localizer["Erik is the founder and a core developer of Neo, author of the dBFT consensus mechanism. He is an expert on blockchain technology and information security, as well as a strong advocate for open source development. He leads Neo's global developer communities to continuously innovate, apply and promote technology in the blockchain field. Currently he is leading the development of Neo3, enhancing the developer experience, to get ready for enterprise blockchain applications."]</div>
-                <div class="col-12 h6 mt-2 mt-md-1 link">
-                    <a class="iconfont mr-3" target="_blank" href="https://www.linkedin.com/in/erik-zhang-5a6b14ab/">&#xe612;</a>
-                    <a class="iconfont mr-3" target="_blank" href="https://twitter.com/neoerikzhang">&#xe607;</a>
-                    <a class="iconfont" target="_blank" href="https://github.com/erikzhang">&#xe609;</a>
-                </div>
-            </div>
-        </div>
-        <div class="d-block d-md-none mt-2 col-12">@Localizer["Erik is the founder and a core developer of Neo, author of the dBFT consensus mechanism. He is an expert on blockchain technology and information security, as well as a strong advocate for open source development. He leads Neo's global developer communities to continuously innovate, apply and promote technology in the blockchain field. Currently he is leading the development of Neo3, enhancing the developer experience, to get ready for enterprise blockchain applications."]</div>
-    </div>
-
-    <div class="row mt-5 team-list align-items-center">
-        <div class="col-6 col-md-5 col-lg-4">
-            <img data-original="@Helper.ToCDN("/images/team/deVadoss.jpg", true)" />
-        </div>
-        <div class="col-6 col-md-6 offset-md-1 col-lg-6 offset-lg-1 ">
-            <div class="row">
-                <h3 class="col-12">@Localizer["John deVadoss"]</h3>
-                <div class="col-12 bolder mt-3">@Localizer["Director of Enterprise Adoption"]</div>
-                <div class="d-none d-md-block col-12 mt-4">@Localizer["John leads the Enterprise Strategy & adoption and Neo Global Development in Seattle, WA, with a focus on the developer experience and tools. Previously he built and successfully exited two Machine Learning start-ups. Earlier in his career at Microsoft, John incubated and built Microsoft Digital from zero to $0.5B in revenue, and he led Architecture, Product, and Developer Engagement for the .NET platform v1. He has published a number of books on Software Architecture, and is currently working on a book on Decentralized Systems."]</div>
-                <div class="col-12 h6 mt-2 mt-md-1 link">
-                    <a class="iconfont mr-3" target="_blank" href="https://www.linkedin.com/in/johnkdevadoss/">&#xe612;</a>
-                    <a class="iconfont" target="_blank" href="https://twitter.com/john_devadoss">&#xe607;</a>
-                </div>
-            </div>
-        </div>
-        <div class="d-block d-md-none mt-2 col-12">@Localizer["John leads the Enterprise Strategy & adoption and Neo Global Development in Seattle, WA, with a focus on the developer experience and tools. Previously he built and successfully exited two Machine Learning start-ups. Earlier in his career at Microsoft, John incubated and built Microsoft Digital from zero to $0.5B in revenue, and he led Architecture, Product, and Developer Engagement for the .NET platform v1. He has published a number of books on Software Architecture, and is currently working on a book on Decentralized Systems."]</div>
-    </div>
-
-    <h4 class="mt-5">@Localizer["Neo Core Developers"]</h4>
-    <div class="row team-list" id="core"></div>
-
-    <h4 class="mt-5">@Localizer["Neo Global Development (NGD) Key Members"]</h4>
-    <div class="row team-list" id="neo"></div>
-
-    <h4 class="mt-5">@Localizer["Neo Community Outstanding Contributors"]</h4>
-    <div class="row team-list mb-5" id="community"></div>
+    <img class="introduction-img" data-original="@Helper.ToCDN("/images/discover/placeholder.png", true)" />
 </div>
 
-@section Scripts{
+<div class="introduction industry-collaboration">
+    <div class="introduction-start">
+        <div class="introduction-title"><em>Industry</em><br />@Localizer["Collaboration"]</div>
+        <div class="introduction-content">@Localizer["After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]</div>
+    </div>
+    <img class="introduction-img" data-original="@Helper.ToCDN("/images/discover/placeholder.png", true)" />
+</div>
 
+<div class="divider"></div>
+
+<div class="resources">
+    <div class="resources-start">
+        <div class="menu">
+            <div class="menu-item">
+                @Localizer["Core Developers"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+            <div class="menu-item">
+                @Localizer["Communities"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+            <div class="menu-item">
+                @Localizer["Neo Foundation"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+            <div class="menu-item">
+                @Localizer["Neo Global Development"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+            <div class="menu-item">
+                @Localizer["Outstanding Contributors"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+            <div class="menu-item">
+                @Localizer["Industry Collabration"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+        </div>
+        
+        <select class="select-menu-page form-control">
+            <option>@Localizer["Core Developers"]</option>
+            <option>@Localizer["Communities"]</option>
+            <option>@Localizer["Neo Foundation"]</option>
+            <option>@Localizer["Neo Global Development"]</option>
+            <option>@Localizer["Outstanding Contributors"]</option>
+            <option>@Localizer["Industry Collabration"]</option>
+        </select>
+    </div>
+
+    <div class="resources-end">
+        <div class="menu-page">
+            <partial name="./_CoreDevelopersPartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_CommunitiesPartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_NeoFoundationPartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_NeoGlobalDevelopmentPartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_OutStandingContributorsPartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_IndustryCollaborationPartial" />
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="@Helper.ToCDN("/lib/jquery/jquery.min.js")"></script>
+    <script>
+        $(document).ready(() => {
+            const hashArray = ['core-developers', 'communities', 'neo-fundation', 'neo-global-development', 'outstanding-contributors', 'industry-collabration']
+
+            function updateCurrentPage(i) {
+                const icIndex = hashArray.indexOf('industry-collabration')
+                if (i === icIndex) {
+                    $(".introduction.industry-collaboration").removeClass("d-none")
+                    $(".introduction.others").addClass("d-none")
+                } else {
+                    $(".introduction.industry-collaboration").addClass("d-none")
+                    $(".introduction.others").removeClass("d-none")
+                }
+
+                $('.menu-item').each((j, menuItem) => {
+                    if (i === j) {
+                        $(menuItem).addClass('active');
+                        window.location.hash = hashArray[i];
+                    } else {
+                        $(menuItem).removeClass('active');
+                    }
+                });
+                $('.menu-page').each((j, menuPage) => {
+                    if (i === j) {
+                        $(menuPage).addClass('active');
+                        window.location.hash = hashArray[i];
+                    } else {
+                        $(menuPage).removeClass('active');
+                    }
+                });
+                $('.select-menu-page').prop('selectedIndex', i);
+            };
+
+            $('.menu-item').each((i, menuItem) => {
+                $(menuItem).click(() => {
+                    updateCurrentPage(i);
+                });
+            });
+
+            $('.select-menu-page').change(e => {
+                updateCurrentPage(e.target.selectedIndex);
+            });
+
+            const hash = window.location.hash.replace(/#/g, '');
+            const index = hashArray.indexOf(hash);
+
+            updateCurrentPage(index >= 0 ? index : 0);
+        });
+    </script>
 }

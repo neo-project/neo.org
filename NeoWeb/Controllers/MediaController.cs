@@ -64,10 +64,10 @@ namespace NeoWeb.Controllers
                 if (isTop != null)
                 {
                     _context.Top.ToList().ForEach(p => _context.Top.Remove(p));
-                    _context.Add(new Top() { ItemId = media.Id, Type = DiscoverViewModelType.Media });
+                    _context.Add(new Top() { ItemId = media.Id, Type = NewsViewModelType.Media });
                 }
                 await _context.SaveChangesAsync();
-                return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.Media });
+                return RedirectToAction("index", "news", new { type = NewsViewModelType.Media });
             }
             return View(media);
         }
@@ -136,7 +136,7 @@ namespace NeoWeb.Controllers
                     if (isTop != null)
                     {
                         _context.Top.ToList().ForEach(p => _context.Top.Remove(p));
-                        _context.Add(new Top() { ItemId = media.Id, Type = DiscoverViewModelType.Media });
+                        _context.Add(new Top() { ItemId = media.Id, Type = NewsViewModelType.Media });
                     }
                     _context.Update(media);
                     await _context.SaveChangesAsync();
@@ -152,7 +152,7 @@ namespace NeoWeb.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.Media });
+                return RedirectToAction("index", "news", new { type = NewsViewModelType.Media });
             }
             return View(media);
         }
@@ -183,7 +183,7 @@ namespace NeoWeb.Controllers
             var media = await _context.Media.SingleOrDefaultAsync(m => m.Id == id);
             _context.Media.Remove(media);
             await _context.SaveChangesAsync();
-            return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.Media });
+            return RedirectToAction("index", "news", new { type = NewsViewModelType.Media });
         }
 
         private bool NewsExists(int id)

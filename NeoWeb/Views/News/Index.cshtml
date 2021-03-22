@@ -1,0 +1,58 @@
+@model IEnumerable<NeoWeb.Models.NewsViewModel>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = @Localizer["News"].Value;
+}
+
+@section Styles{
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/news.min.css", true)" />
+}
+
+@if (ViewBag.Ontop != null)
+{
+    <div class="py-5">
+        <div class="row align-items-center news-top">
+            @{await Html.RenderPartialAsync("_TopPartial", (ViewBag.Ontop as NewsViewModel));}
+        </div>
+    </div>
+}
+
+<form method="get" class="d-search form-inline">
+    <div class="search">
+        <h3 class="d-inline">Search</h3>
+        <input class="form-control" name="keywords" value="@ViewBag.KeyWords" type="text" />
+    </div>
+    <div class="filter">
+        <select id="type" class="form-control" name="type" asp-items="ViewBag.AllType"></select>
+        <select id="year" class="form-control" name="year" asp-items="ViewBag.AllYear"></select>
+        <div class="search-btn btn-4 d-inline-block" onclick="$('.d-search').submit()"><i class="iconfont">&#xe600;</i>SEARCH</div>
+    </div>
+</form>
+
+<div class="row list2">
+    @{await Html.RenderPartialAsync("_ItemPartial", Model);}
+</div>
+<div class="text-center m-4">
+    <a id="viewmore" href="javascript:" onclick="viewMore()">@Localizer["View more"]</a>
+</div>
+
+@section Scripts {
+    <script>
+        var group = 0;
+        for (var i = 1; i < 10; i++) {
+            $(".group-" + i).hide();
+        }
+        function viewMore() {
+            $(".group-" + ++group).show("fast");
+            if ($(".group-" + (group + 1)).length <= 0)
+                $("#viewmore").hide();
+        }
+        if ($(".group-" + (group + 1)).length <= 0)
+                $("#viewmore").hide();
+        if ("@ViewBag.Type".length > 0)
+            $("#type").val("@ViewBag.Type");
+        if ("@ViewBag.Year".length > 0)
+            $("#year").val("@ViewBag.Year");
+    </script>
+}

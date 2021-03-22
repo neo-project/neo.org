@@ -1,0 +1,37 @@
+@model NewsViewModel
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+@if (Model?.Type == NewsViewModelType.Blog)
+{
+    <div class="col-md-5">
+        <h1 class="@SharedLocalizer["d-none-zh"]"><span class="green work-sans-bold">NEWS</span><br /><span>& EVENT</span></h1>
+        <h1 class="@SharedLocalizer["d-none"]"><span class="green work-sans-bold">新闻</span><br /><span>& 活动</span></h1>
+        <div>After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date.</div>
+    </div>
+    <div class="col-md-6 offset-md-1">
+        @if (Model?.Type == NewsViewModelType.Blog)
+        {
+            <a class="bg-img" href="~/blog/details/@Model.Blog.Id" data-original="@(string.IsNullOrEmpty(Model.Blog.Cover) ? Helper.ToCDN("/images/news/blog.svg") : $"/upload/{Model.Blog.Cover}".ToLower())"></a>
+            <div class="mt-1 bold">FEATURED BLOG ARGICLES</div>
+            <h4 class="d-title with-space"><a href="~/blog/details/@Model.Blog.Id">@Model.Blog.Title</a></h4>
+        }
+        else if (Model?.Type == NewsViewModelType.Event)
+        {
+            <a class="bg-img" href="~/event/details/@Model.Event.Id" data-original="@(string.IsNullOrEmpty(Model.Event.Cover) ? Helper.ToCDN("/images/news/events.svg") : $"/upload/{Model.Event.Cover}".ToLower())"></a>
+            <div class="mt-1 bold">FEATURED EVENT</div>
+            <h4 class="d-title with-space"><a href="~/event/details/@Model.Event.Id">@Model.Event.Name</a></h4>
+        }
+        else if (Model?.Type == NewsViewModelType.Media)
+        {
+            <a class="bg-img" href="~/event/details/@Model.Event.Id" data-original="@(string.IsNullOrEmpty(Model.Event.Cover) ? Helper.ToCDN("/images/news/media.svg") : $"/upload/{Model.Media.Cover}".ToLower())"></a>
+            <h4 class="d-title with-space"><a href="@Model.Media.Link" target="_blank">@Model.Media.Title</a></h4>
+            @if (ViewBag.UserRules)
+            {
+                <a asp-action="Edit" asp-controller="media" asp-route-id="@Model.Media.Id">Edit</a>
+                <a class="ml-2" asp-action="Delete" asp-controller="media" asp-route-id="@Model.Media.Id">Delete</a>
+            }
+        }
+    </div>
+}
