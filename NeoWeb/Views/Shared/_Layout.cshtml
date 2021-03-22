@@ -89,7 +89,8 @@ https://github.com/neo-project/neo.org
     <nav class="navbar smart-scroll container-fluid navbar-expand-lg">
         <div class="container">
             <a class="mt-1" asp-controller="home" asp-action="index">
-                <img src="@(Helper.CDN + (ViewBag.IsWhiteLogo != null ? "/images/logo files-white.svg" : "/images/logo files-dark.svg"))" alt="Neo Logo" />
+                <img id="whitelogo" src="@Helper.CDN/images/logo files-white.svg" alt="Neo Logo" />
+                <img id="darklogo" src="@Helper.CDN/images/logo files-dark.svg" alt="Neo Logo" />
             </a>
             <button class="navbar-toggler" type="button">
                 <div class="special-button">
@@ -263,11 +264,10 @@ https://github.com/neo-project/neo.org
                 }
 
                 scroll_top = $(this).scrollTop();
-                if (scroll_top <= 0) {
+                if (scroll_top <= 0 || scroll_top < scroll_active_top) {
                     $('.smart-scroll').removeClass('scrolled-up').removeClass('scrolled-down');
                 }
-                if (scroll_top < scroll_active_top) return;
-                if (scroll_top < last_scroll_top) {
+                else if (scroll_top < last_scroll_top) {
                     $('.smart-scroll').removeClass('scrolled-down').addClass('scrolled-up');
                 }
                 else {

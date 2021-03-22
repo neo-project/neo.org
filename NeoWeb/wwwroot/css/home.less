@@ -34,55 +34,26 @@ html body {
     background: @linear-black;
 }
 @nav-color: #0F1E32 ;
-.navbar {
+.navbar&:not(.show):not(.scrolled-up) {
     background: transparent;
-    transition: background 0.75s;
 
-    &.scrolled-up {
-        background-color: fade(#0F1E32, 88%);
-        backdrop-filter: blur(10px);
-        box-shadow: 0px 35px 30px 0px rgba(81, 94, 90, 0.12), -10px 17px 13px 0px rgba(0, 0, 0, 0.07);
+    #whitelogo {
+        display: block;
     }
 
-    @media only screen and (max-width: 991px) {
-        background: linear-gradient(180deg, @nav-color 0%, darken(@nav-color, 1%) 100%);
+    #darklogo {
+        display: none;
     }
 
-    &.show {
-        @media only screen and (max-width: 991px) {
-            backdrop-filter: blur(10px);
-            background: linear-gradient(180deg, fade(@nav-color, 95%) 0%, darken(fade(@nav-color, 95%), 7%) 100%);
-        }
-    }
-
-    .nav-item {
-        color: white;
-
-
-        a, span {
-            color: white;
-
-            @media only screen and (max-width: 991px) {
-                color: white;
-            }
-
-            &:hover {
+    @media only screen and (min-width: 992px) {
+        &:not(.scrolled-up) {
+            a.nav-link, li.nav-item {
                 color: white;
 
-                @media only screen and (max-width: 991px) {
+                &:hover {
                     color: white;
                 }
             }
-        }
-    }
-
-    .dropdown-menu {
-        background-color: fade(#0F1E32, 90%);
-        box-shadow: 0px 35px 30px 0px rgba(81, 94, 90, 0.12), -10px 17px 13px 0px rgba(0, 0, 0, 0.07);
-
-        a {
-            background-color: fade(lighten(@nav-color, 2%), 75%);
-            border-bottom: 3px solid darken(@green, 30%);
         }
     }
 

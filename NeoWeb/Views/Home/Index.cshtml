@@ -3,7 +3,6 @@
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 @{
-    ViewBag.IsWhiteLogo = true;
     ViewBag.HiddenBreadCrumb = true;
 }
 @section Styles{
@@ -540,6 +539,9 @@
             $(".code-window").addClass("d-none")
             $(".code-window#code-" + lang).removeClass("d-none")
         }) 
+    </script>
+    <script>
+        var scroll_active_top = 650;
     </script>
 }
 

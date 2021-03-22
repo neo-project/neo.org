@@ -150,6 +150,14 @@ table, .table {
     -webkit-user-select: none;
     z-index: 1;
 
+    #whitelogo {
+        display: none;
+    }
+
+    #darklogo {
+        display: block;
+    }
+
     & > a {
         padding: 6px 0;
     }
@@ -163,7 +171,7 @@ table, .table {
         }
 
         .nav-item {
-            border-bottom: 1px solid rgba(128, 128, 128, .2);
+            border: none;
         }
     }
 
@@ -312,11 +320,9 @@ table, .table {
     }
 
     &.scrolled-up {
-        background-color: fade(#ffffff, 90%);
-        backdrop-filter: blur(10px);
+        background-color: white;
         transform: translateY(0);
         transition: transform 0.3s ease-in-out;
-        box-shadow: 0px 35px 30px 0px rgba(81, 94, 90, 0.12), -10px 17px 13px 0px rgba(0, 0, 0, 0.07);
     }
 }
 
