@@ -28,9 +28,9 @@ https://github.com/neo-project/neo.org
     <meta name="renderer" content="ie-stand">
     <meta name="keywords" content="@(ViewData["keywords"] ?? $"{ViewData["keywords"]},")Neo,Blockchain,智能经济,区块链">
     @{ var title = (ViewData["Title"] != null ? $"{ViewData["Title"]} - " : "") + Localizer["Neo Smart Economy"].Value;
-                    var details = ViewData["Details"] ?? Localizer["Neo Smart Economy"].Value;
-                    var image = (ViewData["Image"] ?? Helper.ToCDN("/images/twitter-img.jpg"));
-                    var url = $"{Context.Request.Scheme}://{Context.Request.Host}{Context.Request.Path}{Context.Request.QueryString}"; }
+        var details = ViewData["Details"] ?? Localizer["Neo Smart Economy"].Value;
+        var image = (ViewData["Image"] ?? Helper.ToCDN("/images/twitter-img.jpg"));
+        var url = $"{Context.Request.Scheme}://{Context.Request.Host}{Context.Request.Path}{Context.Request.QueryString}"; }
     <title>@title</title>
     <meta property="og:url" content="@url" />
     <meta property="og:type" content="website" />
@@ -103,7 +103,7 @@ https://github.com/neo-project/neo.org
                     <div class="bottom"></div>
                 </div>
             </button>
-            
+
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -125,21 +125,19 @@ https://github.com/neo-project/neo.org
                     <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="dev">@Localizer["Developer"]</a></li>
                     <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="eco">@Localizer["Eco-Support"]</a></li>
                     <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="news">@Localizer["News"]</a></li>
-            
+
                     @if (SharedLocalizer["en"].Value == "zh")
                     {
-                        <li class="nav-item nav-lang">
-                            <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
-                            <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
-                        </li>
-                    }
+        <li class="nav-item nav-lang">
+            <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
+            <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+        </li> }
                     else
                     {
-                        <li class="nav-item nav-lang">
-                            <a style="font-size: 1em; font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
-                            <a style="font-size: .9em;  font-weight: 500" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
-                        </li>
-                    }
+        <li class="nav-item nav-lang">
+            <a style="font-size: 1em; font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
+            <a style="font-size: .9em;  font-weight: 500" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+        </li>}
                 </ul>
             </div>
         </div>
@@ -147,6 +145,10 @@ https://github.com/neo-project/neo.org
     @if (ViewBag.HiddenBreadCrumb == null)
     { await Html.RenderPartialAsync("_BreadCrumbPartial"); }
     <div class="container layout-container">
+        @if (ViewBag.HiddenMigration == null)
+        {
+            <div class="migration-div"><a asp-action="index" asp-controller="migration"><h4 class="migration-text"><img src="~/images/presskit/Neo symbol.svg" />MIGRATE TO N3 </h4></a></div>
+        }
         @RenderBody()
     </div>
     <footer class="py-5">
@@ -228,7 +230,7 @@ https://github.com/neo-project/neo.org
             </div>
         </div>
     </footer>
-    
+
 
     <form id="form_language" asp-action="SetLanguage" asp-controller="home" method="post">
         @Html.AntiForgeryToken()
