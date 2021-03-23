@@ -43,7 +43,6 @@ $(document).ready(function () {
     }
 
     $("#start").click(() => {
-        console.log("test");
         currentSlide = 2;
         showSlide(currentSlide);
         $("#bottom-guide-container").removeClass('hide');
@@ -57,4 +56,28 @@ $(document).ready(function () {
     $("#next").click(() => {
         nextSlide();
     })
+
+
+    window.addEventListener("keydown", function (event) {
+        if (event.defaultPrevented) {
+            return; // Do nothing if the event was already processed
+        }
+        switch (event.key) {
+            case "Right": // IE/Edge specific value
+            case "ArrowRight":
+                if (currentSlide !== 1) {
+                    nextSlide();
+                }
+                break;
+            case "Left":
+            case "ArrowLeft":
+                previousSlide();
+                break;
+            default:
+                return; // Quit when this doesn't handle the key event.
+        }
+
+        // Cancel the default action to avoid it being handled twice
+        event.preventDefault();
+    }, true);
 });
