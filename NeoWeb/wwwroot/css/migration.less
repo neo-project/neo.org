@@ -1,9 +1,24 @@
 @import 'basic.less';
+html{
+    overflow-x: hidden;
+}
 .border-bottom {
     border-bottom: 1px solid @dark-blue !important;
 }
 hr{
     background-color: @dark-blue;
+}
+.scroll-x{
+    overflow-x: scroll;
+    img{
+        max-height: 750px;
+    }
+}
+.img-box {
+    width: 140%;
+}
+.description{
+    width: calc(100% - 200px);
 }
 #accordion h5 {
     color: @dark-blue;
@@ -29,3 +44,4 @@ hr{
     display: block;
     color: @green;
 }
+
