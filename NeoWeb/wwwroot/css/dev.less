@@ -22,15 +22,17 @@
     display: flex;
     align-items: center;
     padding: 3rem 0 6.25rem;
+    background: url(/images/dev/n3-bg.png) top right -20% no-repeat;
 
     @media (max-width: 991.98px) {
         display: none;
     }
 }
 
-.introduction-start {
+.introduction-content {
     display: flex;
     flex-direction: column;
+    width: 50%;
 }
 
 .introduction-title {
@@ -46,7 +48,7 @@
     }
 }
 
-.introduction-content {
+.introduction-description {
     margin-top: 2.25rem;
     font-size: 1.25rem;
     font-family: NunitoSans-Bold, NunitoSans;
@@ -56,15 +58,6 @@
 .learn-more {
     align-self: flex-start;
     margin-top: 2.25rem;
-}
-
-.introduction-img {
-    margin-left: 2.25rem;
-    width: 18.75rem;
-
-    @media (max-width: 991.98px) {
-        display: none;
-    }
 }
 
 .divider {
@@ -231,9 +224,20 @@
 
 .documentation {
     display: flex;
+    min-height: 6rem;
+    width: 20rem;
     padding: 0 1.125rem 1.125rem;
     background: #F0F5F6;
     box-shadow: -14px 16px 30px 0px rgba(81, 94, 90, 0.26), -3px 9px 13px 0px rgba(0, 0, 0, 0.14);
+    color: inherit;
+
+    &:hover {
+        color: inherit;
+    }
+
+    @media (max-width: 991.98px) {
+        width: auto;
+    }
 }
 
 .documentation-bookmark {
@@ -250,8 +254,9 @@
 }
 
 .documentation-img {
+    flex-shrink: 0;
     margin-top: 1.5rem;
-    margin-left: 0.875rem;
+    margin-left: 2rem;
 }
 
 .menu-page-divider {
@@ -286,6 +291,10 @@
 .overview-example {
     display: flex;
     box-sizing: content-box;
+
+    &:hover {
+        color: inherit;
+    }
 
     & + & {
         margin-top: 2.5rem;
@@ -324,6 +333,7 @@
 .overview-example-img {
     width: 16rem;
     height: 9.75rem;
+    object-fit: cover;
 }
 
 .overview-example-type {
@@ -417,23 +427,21 @@
 .overview-tool-groups-content {
     display: grid;
     grid-auto-columns: auto;
-    grid-gap: 3rem;
+    grid-gap: 2rem;
     margin-top: 1rem;
-}
-
-.overview-tool-group {
 }
 
 .overview-tool-group-title {
     font-size: 1rem;
     font-family: WorkSans-Bold, WorkSans;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 .overview-tools {
     display: flex;
     flex-wrap: wrap;
-    grid-gap: 0.25rem 2rem;
+    grid-gap: 2rem 0;
     margin-top: 1rem;
 }
 
@@ -447,23 +455,20 @@
     position: relative;
 }
 
-.overview-tool-background-img {
-    width: 7.5rem;
-    height: 7.5rem;
-}
-
 .overview-tool-img {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 44%;
+    left: 54%;
     transform: translate(-50%, -50%);
 }
 
 .overview-tool-title {
+    max-width: 8rem;
     margin-top: 0.75rem;
     font-size: 1rem;
     font-family: NunitoSans-ExtraBold, NunitoSans;
     font-weight: 800;
+    text-align: center;
 }
 
 .tabs {
