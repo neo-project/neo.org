@@ -1,4 +1,4 @@
-@using Microsoft.AspNetCore.Mvc.Localization
+﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @{ Layout = null; }
 <!DOCTYPE html>
@@ -32,13 +32,13 @@
         <div class="left-container">
             <div class="left-container-content">
                 <div class="tour-left-logo">
-                    <img src="@Helper.CDN/images/tour/neo_color_dark.png" class="tour-left-logo-img">
+                    <img src="@Helper.CDN/images/tour/neo_color_dark.png" class="tour-left-logo-img"/>
                 </div>
                 <div class="text-guide">
                     <div class="text-group text-guide-1 fade-in">
-                        <div class="N3-logo-container">
-                            <img src="@Helper.CDN/images/tour/N3_Logo.png" class="N3-logo">
-                        </div>
+                        @*<div class="N3-logo-container">
+                            <img src="@Helper.CDN/images/tour/N3_Logo.png" class="N3-logo"/>
+                        </div>*@
                         <div class="text-group-head text-group-1-head1">
                             <span>
                                 WELCOME
@@ -69,16 +69,16 @@
                             There is no minimum donation, any sum is appreciated - click here to donate using PayPal. Thank you for your support.
                         </div>
                         <div class="text-group-logo">
-                            <img src="@Helper.CDN/images/tour/N3_Logo.png" class="text-group-logo-img">
-                            <img src="@Helper.CDN/images/tour/N3_Logo.png" class="text-group-logo-img">
-                            <img src="@Helper.CDN/images/tour/N3_Logo.png" class="text-group-logo-img">
-                            <img src="@Helper.CDN/images/tour/N3_Logo.png" class="text-group-logo-img">
-                            <img src="@Helper.CDN/images/tour/N3_Logo.png" class="text-group-logo-img">
+                            <img src="@Helper.CDN/images/tour/N3_Logo.png" class="text-group-logo-img"/>
+                            <img src="@Helper.CDN/images/tour/N3_Logo.png" class="text-group-logo-img"/>
+                            <img src="@Helper.CDN/images/tour/N3_Logo.png" class="text-group-logo-img"/>
+                            <img src="@Helper.CDN/images/tour/N3_Logo.png" class="text-group-logo-img"/>
+                            <img src="@Helper.CDN/images/tour/N3_Logo.png" class="text-group-logo-img"/>
                         </div>
                         <div class="text-group-content text-group-2-text-2">
                             Learn how to build dApps in your language 2
                             <div class="text-group-icon">
-                                <img class="direction" src="@Helper.CDN/images/tour/direct.png">
+                                <img class="direction" src="@Helper.CDN/images/tour/direct.png"/>
                             </div>
                         </div>
                     </div>
@@ -97,19 +97,19 @@
                         <div class="text-group-content text-group-3-text-2">
                             Learn how to build dApps in your language 2
                             <div class="text-group-icon">
-                                <img class="direction" src="@Helper.CDN/images/tour/direct.png">
+                                <img class="direction" src="@Helper.CDN/images/tour/direct.png"/>
                             </div>
                         </div>
                         <div class="text-group-content text-group-3-text-2">
                             Learn how to build dApps in your language 2
                             <div class="text-group-icon">
-                                <img class="direction" src="@Helper.CDN/images/tour/direct.png">
+                                <img class="direction" src="@Helper.CDN/images/tour/direct.png"/>
                             </div>
                         </div>
                         <div class="text-group-content text-group-3-text-2">
                             Learn how to build dApps in your language 2
                             <div class="text-group-icon">
-                                <img class="direction" src="@Helper.CDN/images/tour/direct.png">
+                                <img class="direction" src="@Helper.CDN/images/tour/direct.png"/>
                             </div>
                         </div>
                     </div>
@@ -118,30 +118,35 @@
                             There is no minimum donation, any sum is appreciated - click here to donate using PayPal. Thank you for your support.
                         </div>
                     </div>
-                    <div class="text-group text-guide-4 fade-out">
+                    <div class="text-group text-guide-5 fade-out">
                         <div class="text-group-content text-group-4-text">
                             There is no minimum donation, any sum is appreciated - click here to donate using PayPal. Thank you for your support.
                         </div>
                     </div>
-                    <div class="text-group text-guide-4 fade-out">
+                    <div class="text-group text-guide-6 fade-out">
                         <div class="text-group-content text-group-4-text">
                             There is no minimum donation, any sum is appreciated - click here to donate using PayPal. Thank you for your support.
                         </div>
                     </div>
-                    <div class="text-group text-guide-4 fade-out">
+                    <div class="text-group text-guide-7 fade-out">
                         <div class="text-group-content text-group-4-text">
                             There is no minimum donation, any sum is appreciated - click here to donate using PayPal. Thank you for your support.
                         </div>
                     </div>
-                    <div class="text-group text-guide-4 fade-out">
+                    <div class="text-group text-guide-8 fade-out">
                         <div class="text-group-content text-group-4-text">
                             There is no minimum donation, any sum is appreciated - click here to donate using PayPal. Thank you for your support.
                         </div>
                     </div>
-                    <div class="text-group text-guide-4 fade-out">
+                    <div class="text-group text-guide-9 fade-out">
                         <div class="text-group-content text-group-4-text">
                             There is no minimum donation, any sum is appreciated - click here to donate using PayPal. Thank you for your support.
                         </div>
+                    </div>
+                    <div class="text-group text-guide-10 fade-out">
+                        <div class="text-group-content text-group-4-text">
+                            The end
+                         </div>
                     </div>
                 </div>
             </div>
@@ -151,8 +156,8 @@
                 </div>
                 <div class="hide" id="bottom-guide-container">
                     <div id="prev" style="cursor: pointer;">
-                        <img class="bottom-guide-container-icon arrow-show" src="@Helper.CDN/images/tour/previous_arrow.png">
-                        <img class="bottom-guide-container-icon arrow-hide" src="@Helper.CDN/images/tour/previous_arrow_grey.png">
+                        <img class="bottom-guide-container-icon arrow-show" src="@Helper.CDN/images/tour/previous_arrow.png"/>
+                        <img class="bottom-guide-container-icon arrow-hide" src="@Helper.CDN/images/tour/previous_arrow_grey.png"/>
                     </div>
                     <div class="circle-list">
                         <div class="circle"></div>
@@ -164,10 +169,11 @@
                         <div class="circle"></div>
                         <div class="circle"></div>
                         <div class="circle"></div>
+                        <div class="circle"></div>
                     </div>
                     <div id="next" style="cursor: pointer;">
-                        <img class="bottom-guide-container-icon arrow-show" src="@Helper.CDN/images/tour/next_arrow.png">
-                        <img class="bottom-guide-container-icon arrow-hide" src="@Helper.CDN/images/tour/next_arrow_grey.png">
+                        <img class="bottom-guide-container-icon arrow-show" src="@Helper.CDN/images/tour/next_arrow.png"/>
+                        <img class="bottom-guide-container-icon arrow-hide" src="@Helper.CDN/images/tour/next_arrow_grey.png"/>
                     </div>
                 </div>
             </div>
@@ -177,32 +183,35 @@
             <div class="neo-logo-mobile hide-in-desktop">
                 <img src="@Helper.CDN/images/logo files-white.svg" class="neo-logo-mobile-image">
             </div>
-            <div class="carouselImgs slide1">
-                <h2>Slide1</h2>
+            <div class="carouselImgs slide0">
+                <img class="carouse-pic" src="@Helper.CDN/images/tour/tour0.png" />
+            </div>
+            <div class="carouselImgs fade-out  slide1">
+                <img class="carouse-pic" src="@Helper.CDN/images/tour/tour1.png" />
             </div>
             <div class="carouselImgs fade-out  slide2">
-                <h2>Slide2</h2>
+                <img class="carouse-pic" src="@Helper.CDN/images/tour/tour2.png" />
             </div>
             <div class="carouselImgs fade-out  slide3">
-                <h2>Slide3</h2>
+                <img class="carouse-pic" src="@Helper.CDN/images/tour/tour3.png" />
             </div>
             <div class="carouselImgs fade-out  slide4">
-                <h2>Slide4</h2>
+                <img class="carouse-pic" src="@Helper.CDN/images/tour/tour4.png" />
             </div>
             <div class="carouselImgs fade-out  slide5">
-                <h2>Slide5</h2>
+                <img class="carouse-pic" src="@Helper.CDN/images/tour/tour5.png" />
             </div>
             <div class="carouselImgs fade-out  slide6">
-                <h2>Slide6</h2>
+                <img class="carouse-pic" src="@Helper.CDN/images/tour/tour6.png" />
             </div>
             <div class="carouselImgs fade-out  slide7">
-                <h2>Slide7</h2>
+                <img class="carouse-pic" src="@Helper.CDN/images/tour/tour7.png" />
             </div>
             <div class="carouselImgs fade-out  slide8">
-                <h2>Slide8</h2>
+                <img class="carouse-pic" src="@Helper.CDN/images/tour/tour8.png" />
             </div>
             <div class="carouselImgs fade-out  slide9">
-                <h2>Slide9</h2>
+                <img class="carouse-pic" src="@Helper.CDN/images/tour/tour9.png" />
             </div>
         </div>
     </div>

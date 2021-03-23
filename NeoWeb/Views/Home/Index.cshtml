@@ -42,15 +42,15 @@
             </div>
             <div class="highlight-container">
                 @{ string[,] highlightItems = new string[9, 2] {
-                                                    { "Interoperability", "/images/home/Interoperability.svg" },
-                                                    { "Native Oracles", "/images/home/NativeOracles.svg" },
-                                                    { "Self-Sovereign ID", "/images/home/Self-SovereignID.png" },
-                                                    { "Decentralized Storage", "/images/home/DecentralizedStorage.svg" },
-                                                    { "Native Name Service", "/images/home/NativeNameService.svg" },
-                                                    { "One Block Finality", "/images/home/OneBlockFinality.svg" },
-                                                    { "Best-In-Class Tooling", "/images/home/BestInClassTooling.svg" },
-                                                    { "Smart Contracts", "/images/home/SmartContracts.svg" },
-                                                    { "Multi-Language", "/images/home/Multi-Language.png" }
+                                                            { "Interoperability", "/images/home/Interoperability.svg" },
+                                                            { "Native Oracles", "/images/home/NativeOracles.svg" },
+                                                            { "Self-Sovereign ID", "/images/home/Self-SovereignID.png" },
+                                                            { "Decentralized Storage", "/images/home/DecentralizedStorage.svg" },
+                                                            { "Native Name Service", "/images/home/NativeNameService.svg" },
+                                                            { "One Block Finality", "/images/home/OneBlockFinality.svg" },
+                                                            { "Best-In-Class Tooling", "/images/home/BestInClassTooling.svg" },
+                                                            { "Smart Contracts", "/images/home/SmartContracts.svg" },
+                                                            { "Multi-Language", "/images/home/Multi-Language.png" }
             };
 
                     for (int i = 0; i < highlightItems.GetLength(0); i++)
@@ -79,11 +79,11 @@
         <div class="col-12 col-md-6 col-right">
             <div class="work-sans-bold get-started-wrapper">
                 @{ string[,] getStartedItems = new string[4, 2]
-           {
-                                                { "Find a Wallet", "/images/home/FindWallet.svg" },
-                                                { "Neo & Gas Tokens", "/images/home/LearnTokens.svg" },
-                                                { "Neo's Features", "/images/home/LearnFeatures.svg" },
-                                                { "Documentation", "/images/home/ReadDocumentation.svg" }
+            {
+                                                        { "Find a Wallet", "/images/home/FindWallet.svg" },
+                                                        { "Neo & Gas Tokens", "/images/home/LearnTokens.svg" },
+                                                        { "Neo's Features", "/images/home/LearnFeatures.svg" },
+                                                        { "Documentation", "/images/home/ReadDocumentation.svg" }
 };
 
                     for (int i = 0; i < getStartedItems.GetLength(0); i++)
@@ -143,44 +143,44 @@
         <img class="blocks-medium-img" data-original="@Helper.ToCDN("/images/home/BlocksMedium.svg")" />
         <div class="blocks-container">
             @{ string[,] blocks = new string[7, 3]
-                            {
-                                    {
+                             {
+                                        {
                         "/images/home/OneBlockFinality.svg", "One Block Finality", "Poly.Network enabled cross-chain interoperability with Ethereum, Binance Chain, and more."
                     },
-                                    {
+                                        {
                         "/images/home/oracles.svg", "Oracles", "A built-in oracle enabling secured access to any off-chain data."
                     },
-                                    {
+                                        {
                         "/images/home/NeoFS.svg", "NeoFS", "A distributed data storage solution made for scalability and privacy."
                     },
-                                    {
+                                        {
                         "/images/home/SmartContracts.svg", "Smart Contracts", "Smart contracts  ipsum dolor sit amet, consectetur adipiscing elit. "
                     },
-                                    {
+                                        {
                         "/images/home/NeoNameService.svg", "Neo Name Service", "A decentralized .neo domain name service for next-gen internet web applications. "
                     },
-                                    {
+                                        {
                         "/images/home/Interoperability.svg", "Interoperability", "Smart contracts  ipsum dolor sit amet, consectetur adipiscing elit. "
                     },
-                                    {
+                                        {
                         "/images/home/NeoID.svg", "NeoID", "Smart contracts  ipsum dolor sit amet, consectetur adipiscing elit. "
                     }
-            };
+         };
 
-                            for (int i = 0; i < blocks.GetLength(0); i++)
-                            {
-                <div class="block-wrapper">
-                    <img class="block-icon" data-original="@blocks[i, 0]" />
-                    <div class="block-content-wrapper">
-                        <div class="block-title">
-                            <i class="iconfont block-title-icon">&#xe6ab;</i>
-                            @blocks[i, 1]
-                        </div>
-                        <div class="block-paragraph">
-                            @blocks[i, 2]
-                        </div>
-                    </div>
-                </div> } }
+                for (int i = 0; i < blocks.GetLength(0); i++)
+                {
+    <div class="block-wrapper">
+        <img class="block-icon" data-original="@blocks[i, 0]" />
+        <div class="block-content-wrapper">
+            <div class="block-title">
+                <i class="iconfont block-title-icon">&#xe6ab;</i>
+                @blocks[i, 1]
+            </div>
+            <div class="block-paragraph">
+                @blocks[i, 2]
+            </div>
+        </div>
+    </div> } }
         </div>
 
         <div class="code-squre">
@@ -192,11 +192,9 @@
                 <span class="code-square-headline">
                     @Localizer["You know"]
                 </span>
-                <br />
-                <span class="code-square-body">
-                    <br />
+                <div class="code-square-body">
                     @Localizer["Write smart contracts in a language you already know, with tools you already love"]
-                </span>
+                </div>
             </span>
         </div>
         <a class="btn-2 code-learn-more">@Localizer["Learn More"]</a>
@@ -204,175 +202,155 @@
 
     <div class="code-example-row">
         <div class="language-list">
-
-        </div>
-
-        <!--
-    <div class="col-12 col-lg-6 col-left code-example-row">
-        <div class="content-wrapper">
-            <div class="code-example-title @SharedLocalizer["d-none-zh"]">
-                <span class="green">@Localizer["Blockchain"]</span> @Localizer["You Know"]
+            <div class="language-wrapper">
+                <div class="language-name">
+                    Python
+                </div>
+                <div class="language-icon python selected" data-lang="python">
+                    <img class="language-img dark" data-original="@Helper.ToCDN("/images/home/PythonDark.png", true)" />
+                    <img class="language-img light" data-original="@Helper.ToCDN("/images/home/Python.png", true)" />
+                </div>
             </div>
-            <div class="code-example-title @SharedLocalizer["d-none"]">
-                <span class="green">@Localizer["Blockchain"]</span> @Localizer["You Know"]
+            <div class="language-wrapper">
+                <div class="language-name">
+                    C#
+                </div>
+                <div class="language-icon csharp" data-lang="csharp">
+                    <img class="language-img dark" data-original="@Helper.ToCDN("/images/home/CSharpDark.png", true)" />
+                    <img class="language-img light" data-original="@Helper.ToCDN("/images/home/CSharp.png", true)" />
+                </div>
             </div>
-            <div class="code-example-subtitle">
-                @Localizer["Write smart contracts in a language you already know, with tools you already love."]
+            <div class="language-wrapper">
+                <div class="language-name">
+                    Go
+                </div>
+                <div class="language-icon go" data-lang="go">
+                    <img class="language-img dark" data-original="@Helper.ToCDN("/images/home/GoDark.png", true)" />
+                    <img class="language-img light" data-original="@Helper.ToCDN("/images/home/Go.png", true)" />
+                </div>
             </div>
-            <div class="language-list">
-                <div class="language-wrapper-highlight" data-lang="python">
-                    <div class="language-name-wrapper">
-                        <img data-original="@Helper.ToCDN("/images/home/PythonDark.png")" />
-                        <div class="language-name">Python</div>
-                    </div>
-                    <i class="iconfont language-right-arrow">&#xe6ab;</i>
+            <div class="language-wrapper">
+                <div class="language-name">
+                    Typescript
                 </div>
-                <div class="language-wrapper d-none" data-lang="python">
-                    <div class="language-name-wrapper">
-                        <img data-original="@Helper.ToCDN("/images/home/Python.png")" />
-                        <div class="language-name">Python</div>
-                    </div>
+                <div class="language-icon typescript" data-lang="typescript">
+                    <img class="language-img dark" data-original="@Helper.ToCDN("/images/home/TypescriptDark.png", true)" />
+                    <img class="language-img light" data-original="@Helper.ToCDN("/images/home/Typescript.png", true)" />
                 </div>
-
-                <div class="language-wrapper-highlight d-none" data-lang="csharp">
-                    <div class="language-name-wrapper">
-                        <img data-original="@Helper.ToCDN("/images/home/CSharpDark.png")" />
-                        <div class="language-name">C#</div>
-                    </div>
-                    <i class="iconfont language-right-arrow">&#xe6ab;</i>
+            </div>
+            <div class="language-wrapper ">
+                <div class="language-name">
+                    Java
                 </div>
-                <div class="language-wrapper" data-lang="csharp">
-                    <div class="language-name-wrapper">
-                        <img data-original="@Helper.ToCDN("/images/home/CSharp.png")" />
-                        <div class="language-name">C#</div>
-                    </div>
-                </div>
-
-                <div class="language-wrapper-highlight d-none" data-lang="go">
-                    <div class="language-name-wrapper">
-                        <img data-original="@Helper.ToCDN("/images/home/GoDark.png")" />
-                        <div class="language-name">Go</div>
-                    </div>
-                    <i class="iconfont language-right-arrow">&#xe6ab;</i>
-                </div>
-                <div class="language-wrapper" data-lang="go">
-                    <div class="language-name-wrapper">
-                        <img data-original="@Helper.ToCDN("/images/home/Go.png")" />
-                        <div class="language-name">Go</div>
-                    </div>
-                </div>
-
-                <div class="language-wrapper-highlight d-none" data-lang="typescript">
-                    <div class="language-name-wrapper">
-                        <img data-original="@Helper.ToCDN("/images/home/TypescriptDark.png")" />
-                        <div class="language-name">Typescript</div>
-                    </div>
-                    <i class="iconfont language-right-arrow">&#xe6ab;</i>
-                </div>
-                <div class="language-wrapper" data-lang="typescript">
-                    <div class="language-name-wrapper">
-                        <img data-original="@Helper.ToCDN("/images/home/Typescript.png")" />
-                        <div class="language-name">Typescript</div>
-                    </div>
-                </div>
-
-                <div class="language-wrapper-highlight d-none" data-lang="java">
-                    <div class="language-name-wrapper">
-                        <img data-original="@Helper.ToCDN("/images/home/JavaDark.png")" />
-                        <div class="language-name">Java</div>
-                    </div>
-                    <i class="iconfont language-right-arrow">&#xe6ab;</i>
-                </div>
-                <div class="language-wrapper" data-lang="java">
-                    <div class="language-name-wrapper">
-                        <img data-original="@Helper.ToCDN("/images/home/Java.png")" />
-                        <div class="language-name">Java</div>
-                    </div>
+                <div class="language-icon java" data-lang="java">
+                    <img class="language-img dark" data-original="@Helper.ToCDN("/images/home/JavaDark.png", true)" />
+                    <img class="language-img light" data-original="@Helper.ToCDN("/images/home/Java.png", true)" />
                 </div>
             </div>
         </div>
+
+        <div class="code-window" id="code-python">
+            <partial name="./_CodePythonPartial" />
+        </div>
+        <div class="code-window d-none" id="code-csharp">
+            <partial name="./_CodeCSharpPartial" />
+        </div>
+        <div class="code-window d-none" id="code-go">
+            <partial name="./_CodeGoPartial" />
+        </div>
+        <div class="code-window d-none" id="code-typescript">
+            <partial name="./_CodeTsPartial" />
+        </div>
+        <div class="code-window d-none" id="code-java">
+            <partial name="./_CodeJavaPartial" />
+        </div>
+        <a class="btn-2 code-learn-more-mobile">@Localizer["Learn More"]</a>
     </div>
-    <div class="col-md-6 col-right code-example-row">
-        <div class="content-wrapper">
-            <div class="code-window" id="code-python">
-                <partial name="./_CodePythonPartial" />
+
+
+
+    <div class="row gap-row">
+        <div class="col-12">
+            <div class="green-vertline"></div>
+        </div>
+    </div>
+    <div class="dual-tokens-row">
+        <div class="col-left">
+            <div class="dual-tokens-header">
+                <span class="green">Dual</span>
+                Tokens
+                <span class="dual-tokens-subtitle">
+                    @Localizer["Neo has a unique dual token model that seperates governance from utility"]
+                </span>
             </div>
-            <div class="code-window d-none" id="code-csharp">
-                <partial name="./_CodeCSharpPartial" />
-            </div>
-            <div class="code-window d-none" id="code-go">
-                <partial name="./_CodeGoPartial" />
-            </div>
-            <div class="code-window d-none" id="code-typescript">
-                <partial name="./_CodeTsPartial" />
-            </div>
-            <div class="code-window d-none" id="code-java">
-                <partial name="./_CodeJavaPartial" />
+        </div>
+        <div class="col-right">
+            <div class="header-img-wrapper">
+
             </div>
         </div>
     </div>
-        -->
-    </div>
 
-    <div class="row dual-row dual-tokens-row">
-        <div class="col-12 col-md-6 col-left dual-token-col">
-            <div class="content-wrapper">
-                <div class="token-row">
-                    <div class="token-wrapper">
-                        <img class="token-img" data-original="@Helper.ToCDN("/images/home/Neo.svg")" />
-                        <div class="font-family-bold token-name">
-                            Neo
+    <div class="dual-tokens-row">
+        <div class="col-left">
+            <div class="dual-tokens-paragraph">
+                @Localizer["NEO token holders are the owners of the network who are able to participate in governance. NEO holders also recieve passive distribution of the network utility token, GAS - No staking required. GAS rewards are increased for voting participation."]
+                </br /><br />             @Localizer["GAS is used to pay for network fees, smart contract deployments, and in dApp purchases."]
+            </div>
+
+            <div class="dual-tokens-horizLine"></div>
+            <div class="dual-tokens-buttons">
+                <a class="btn-2">@Localizer["Learn More"]</a>
+                <a class="btn-4">@Localizer["Find a Wallet"]</a>
+            </div>
+        </div>
+        <div class="col-right">
+            <div class="calculator">
+                <div class="calculator-header">
+                    <div class="calculator-title">
+                        NEO &amp; GAS Calculator
+                    </div>
+                    <div class="calculator-title-empty"></div>
+                </div>
+                <div class="slider-row">
+                    <div class="slider-before">
+                        @Localizer["A user with"]
+                    </div>
+                    <input type="range" min="10" max="1000" value="500" class="slider" id="calculator-slider">
+                    <div class="slider-after">
+                        <img class="slider-neo-icon" data-original="@Helper.ToCDN("/images/home/Neo-Symbol.svg")" />
+                        <div id="slider-current-value">500</div>
+                    </div>
+                </div>
+                <div class="middle-text">
+                    would receive up to
+                </div>
+                <div class="results-row">
+                    <div class="result-col">
+                        <span class="result-num" id="result-holding">0.44</span>
+                        <div class="gas-wrapper">
+                            <img class="gas-icon" data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
+                            <span>Gas Per Month<span class="green">*</span></span><br /><br />
+                            <span class="status-text">For holding Neo</span>
                         </div>
                     </div>
-                    <div class="token-wrapper">
-                        <img class="token-img" data-original="@Helper.ToCDN("/images/home/Gas.svg")" />
-                        <div class="font-family-bold token-name">
-                            Gas
+                    <div class="plug-sign">+</div>
+                    <div class="result-col">
+                        <span class="result-num" id="result-governance">17.52</span>
+                        <div class="gas-wrapper">
+                            <img class="gas-icon" data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
+                            <span>Gas Per Month<span class="green">*</span></span><br /><br />
+                            <span class="status-text">For Governance Participation</span>
                         </div>
                     </div>
                 </div>
-                <div class="calculator-wrapper">
-                    <div class="green calculator-header">
-                        <img class="calculator-icon" data-original="@Helper.ToCDN("/images/home/Tune.png")" />
-                        <div>@Localizer["GAS interest calculator"]</div>
-                    </div>
-                    <div class="nunito-sans-bold text-uppercase calculator">
-                        @Localizer["With"]
-                        <input class="nunito-sans-bold calculator-input" />
-                        @Localizer["NEO"]
-                    </div>
-                    <div class="nunito-sans-semibold green calculator-result">
-                        @Localizer["You would receive 10.75 GAS per month"]
-                    </div>
-                    <div class="nunito-sans-semibold calculator-footnote">
-                        @Localizer["GAS rewards increase with governance participation."]
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-md-6 col-right dual-token-col">
-            <div class="content-wrapper">
-                <div class="work-sans-bold uppercase dual-token-title">
-                    <span class="green">@Localizer["Dual"]</span><br />
-                    <span>@Localizer["Tokens"]</span>
-                </div>
-                <div class="font-family-bold green-theme content">
-                    @Localizer["Neo has a unique dual token model that seperates governance from utility."]
-                </div>
-                <div class="work-sans-semibold content">
-                    @Localizer["NEO token holders are the owners of the network who are able to participate in governance. NEO holders also recieve passive distribution of the network utility token, GAS - No staking required."]
-                </div>
-                <div class="work-sans-semibold content">
-                    @Localizer["GAS is used to pay for network fees, smart contract deployments, and in dApp purchases."]
-                </div>
-
-                <div class="button-wrapper">
-                    <a class="btn-n3 button">@Localizer["Learn More"]</a>
-                    <a class="btn-n3 button">@Localizer["Find A Wallet"]</a>
+                <div class="foot-note">
+                    <span class="green">*</span>estimate based on average 20% circulating NEO voting participation
                 </div>
             </div>
         </div>
     </div>
+
 
     <div class="row dual-row governance-row">
         <div class="col-12 col-md-6 col-left">
@@ -528,17 +506,25 @@
             $('map').imageMapResize();
         });
 
-        $(".language-wrapper").on("click", function () {
+        $(".language-icon").on("click", function () {
+            $(".language-icon.selected").removeClass("selected")
+            $(this).addClass("selected")
+
             const lang = $(this).data("lang")
-
-            $(".language-wrapper-highlight").addClass("d-none")
-            $(".language-wrapper").removeClass("d-none")
-            $(this).addClass("d-none")
-            $(`.language-wrapper-highlight[data-lang="${lang}"]`).removeClass("d-none")
-
             $(".code-window").addClass("d-none")
-            $(".code-window#code-" + lang).removeClass("d-none")
-        }) 
+            $("#code-" + lang).removeClass("d-none")
+        })
+
+        $("#calculator-slider").on("input", function (e) {
+            const { value } = e.currentTarget
+            $("#slider-current-value").html(value)
+
+            const holdingGas = (+value * 10512000 * 0.1 / 100000000 / 12).toFixed(2)
+            const governanceGas = (+value * 10512000 * 0.8 / 20000000 / 12).toFixed(2)
+
+            $("#result-holding").html(holdingGas)
+            $("#result-governance").html(governanceGas)
+        })
     </script>
     <script>
         var scroll_active_top = 650;
