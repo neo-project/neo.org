@@ -4,15 +4,17 @@
     display: flex;
     align-items: center;
     padding: 3rem 0 6.25rem;
+    background: url(/images/eco/introduction-bg.png) top right no-repeat;
 
     @media (max-width: 991.98px) {
         display: none;
     }
 }
 
-.introduction-start {
+.introduction-content {
     display: flex;
     flex-direction: column;
+    width: 50%;
 }
 
 .introduction-title {
@@ -28,20 +30,11 @@
     }
 }
 
-.introduction-content {
+.introduction-description {
     margin-top: 2.25rem;
     font-size: 1.25rem;
     font-family: NunitoSans-Bold, NunitoSans;
     font-weight: bold;
-}
-
-.introduction-img {
-    margin-left: 2.25rem;
-    width: 18.75rem;
-
-    @media (max-width: 991.98px) {
-        display: none;
-    }
 }
 
 .divider {
@@ -163,8 +156,6 @@
 
 .menu-page-introduction-img {
     float: left;
-    width: 15.625rem;
-    height: 15.625rem;
     margin-right: 5rem;
     margin-bottom: 4rem;
 
@@ -193,12 +184,13 @@
     font-weight: 600;
     color: #070E3A;
 
-    p + p {
-        margin-top: 1rem;
+    strong {
+        font-family: NunitoSans-Bold, NunitoSans;
+        font-weight: bold;
     }
 
-    .highlighted {
-        font-family: NunitoSans-Bold, NunitoSans;
+    p + p {
+        margin-top: 1rem;
     }
 }
 
@@ -218,15 +210,6 @@
     font-size: 1.5rem;
     font-family: WorkSans-Bold, WorkSans;
     font-weight: bold;
-}
-
-.menu-page-secondary-title-img {
-    width: 3rem;
-    height: 3rem;
-}
-
-.menu-page-secondary-title-text {
-    margin-left: 1rem;
 }
 
 .menu-page-tertiary-title {
@@ -364,6 +347,15 @@
     font-size: 1.25rem;
     font-family: NunitoSans-Regular, NunitoSans;
     font-weight: 400;
+
+    strong {
+        font-family: NunitoSans-Bold, NunitoSans;
+        font-weight: bold;
+    }
+
+    p + p {
+        margin-top: 1rem;
+    }
 }
 
 .projects {
@@ -499,6 +491,7 @@
     font-size: 1.125rem;
     font-family: WorkSans-Bold, WorkSans;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 .scope-items {
@@ -676,7 +669,7 @@
 
 .apply-text {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     flex: 1;
     padding: 0.75rem 2rem;

@@ -22,7 +22,7 @@
     display: flex;
     align-items: center;
     padding: 3rem 0 6.25rem;
-    background: url(/images/dev/n3-bg.png) top right -20% no-repeat;
+    background: url(/images/dev/introduction-bg.png) top right -20% no-repeat;
 
     @media (max-width: 991.98px) {
         display: none;
@@ -182,6 +182,15 @@
     font-size: 1.25rem;
     font-family: NunitoSans-Regular, NunitoSans;
     font-weight: 400;
+
+    strong {
+        font-family: NunitoSans-Bold, NunitoSans;
+        font-weight: bold;
+    }
+
+    p + p {
+        margin-top: 1rem;
+    }
 }
 
 .overview-links {
@@ -330,10 +339,17 @@
     }
 }
 
-.overview-example-img {
+.overview-example-img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 16rem;
     height: 9.75rem;
-    object-fit: cover;
+    background: #00E599;
+}
+
+.overview-example-img {
+    transform: translate(0, -1rem);
 }
 
 .overview-example-type {
@@ -579,14 +595,32 @@
     align-self: flex-start;
 }
 
-.example-img {
+.example-img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 12rem;
     height: 12rem;
 
+    .example[data-type=example] & {
+        background: #21404A;
+    }
+
+    .example[data-type=tutorial] & {
+        background: #00E599;
+    }
 
     @media (max-width: 991.98px) {
         width: 5rem;
-        height: 4.5rem;
+        height: 5rem;
+    }
+}
+
+.example-img {
+    transform: translate(0, -1rem);
+
+    @media (max-width: 991.98px) {
+        transform: scale(0.5)
     }
 }
 
@@ -600,9 +634,16 @@
     font-size: 1rem;
     font-family: WorkSans-Bold, WorkSans;
     font-weight: bold;
-    color: #FFFFFF;
     text-align: center;
     text-transform: uppercase;
+
+    .example[data-type=example] & {
+        color: #00E599;
+    }
+
+    .example[data-type=tutorial] & {
+        color: #FFFFFF;
+    }
 
 
     @media (max-width: 991.98px) {
@@ -611,7 +652,14 @@
         background: transparent;
         margin-top: 1rem;
         display: block;
-        color: @dark-blue;
+
+        .example[data-type=example] & {
+            color: @dark-blue;
+        }
+
+        .example[data-type=tutorial] & {
+            color: @dark-blue;
+        }
     }
 }
 
