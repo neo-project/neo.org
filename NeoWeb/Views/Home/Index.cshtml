@@ -42,15 +42,15 @@
             </div>
             <div class="highlight-container">
                 @{ string[,] highlightItems = new string[9, 2] {
-                                                            { "Interoperability", "/images/home/Interoperability.svg" },
-                                                            { "Native Oracles", "/images/home/NativeOracles.svg" },
-                                                            { "Self-Sovereign ID", "/images/home/Self-SovereignID.png" },
-                                                            { "Decentralized Storage", "/images/home/DecentralizedStorage.svg" },
-                                                            { "Native Name Service", "/images/home/NativeNameService.svg" },
-                                                            { "One Block Finality", "/images/home/OneBlockFinality.svg" },
-                                                            { "Best-In-Class Tooling", "/images/home/BestInClassTooling.svg" },
-                                                            { "Smart Contracts", "/images/home/SmartContracts.svg" },
-                                                            { "Multi-Language", "/images/home/Multi-Language.png" }
+                                                                            { "Interoperability", "/images/home/Interoperability.svg" },
+                                                                            { "Native Oracles", "/images/home/NativeOracles.svg" },
+                                                                            { "Self-Sovereign ID", "/images/home/Self-SovereignID.png" },
+                                                                            { "Decentralized Storage", "/images/home/DecentralizedStorage.svg" },
+                                                                            { "Native Name Service", "/images/home/NativeNameService.svg" },
+                                                                            { "One Block Finality", "/images/home/OneBlockFinality.svg" },
+                                                                            { "Best-In-Class Tooling", "/images/home/BestInClassTooling.svg" },
+                                                                            { "Smart Contracts", "/images/home/SmartContracts.svg" },
+                                                                            { "Multi-Language", "/images/home/Multi-Language.png" }
             };
 
                     for (int i = 0; i < highlightItems.GetLength(0); i++)
@@ -79,16 +79,16 @@
         <div class="col-12 col-md-6 col-right">
             <div class="work-sans-bold get-started-wrapper">
                 @{ string[,] getStartedItems = new string[4, 2]
-            {
-                                                        { "Find a Wallet", "/images/home/FindWallet.svg" },
-                                                        { "Neo & Gas Tokens", "/images/home/LearnTokens.svg" },
-                                                        { "Neo's Features", "/images/home/LearnFeatures.svg" },
-                                                        { "Documentation", "/images/home/ReadDocumentation.svg" }
+              {
+                                                                        { "Find a Wallet", "/images/home/FindWallet.svg" },
+                                                                        { "Neo & Gas Tokens", "/images/home/LearnTokens.svg" },
+                                                                        { "Neo's Features", "/images/home/LearnFeatures.svg" },
+                                                                        { "Documentation", "/images/home/ReadDocumentation.svg" }
 };
 
                     for (int i = 0; i < getStartedItems.GetLength(0); i++)
                     {
-        <div class="get-started-card">
+        <div class="float-card">
             <div class="card-text-wrapper">
                 <div class="green-vertline"></div>
                 <div class="text-uppercase card-text">
@@ -104,19 +104,19 @@
     <div class="building-blocks-container">
         <div class="building-blocks-row">
             <div class="col-left">
-                <div class="building-blocks-title @SharedLocalizer["d-none-zh"]">
-                    <span>
+                <div class="square-block building-blocks @SharedLocalizer["d-none-zh"]">
+                    <div class="square-block-title">
                         <span class="green">
                             @Localizer["Building Blocks"]
                         </span> @Localizer["for the Next Generation Internet"]
-                    </span>
+                    </div>
                 </div>
-                <div class="building-blocks-title @SharedLocalizer["d-none"]">
-                    <span>
+                <div class="square-block building-blocks @SharedLocalizer["d-none"]">
+                    <div class="square-block-title">
                         <span class="green">
                             @Localizer["Building Blocks"]
                         </span> @Localizer["for the Next Generation Internet"]
-                    </span>
+                    </div>
                 </div>
             </div>
             <div class="col-right">
@@ -143,29 +143,29 @@
         <img class="blocks-medium-img" data-original="@Helper.ToCDN("/images/home/BlocksMedium.svg")" />
         <div class="blocks-container">
             @{ string[,] blocks = new string[7, 3]
-                             {
-                                        {
+                               {
+                                                {
                         "/images/home/OneBlockFinality.svg", "One Block Finality", "Poly.Network enabled cross-chain interoperability with Ethereum, Binance Chain, and more."
                     },
-                                        {
+                                                {
                         "/images/home/oracles.svg", "Oracles", "A built-in oracle enabling secured access to any off-chain data."
                     },
-                                        {
+                                                {
                         "/images/home/NeoFS.svg", "NeoFS", "A distributed data storage solution made for scalability and privacy."
                     },
-                                        {
+                                                {
                         "/images/home/SmartContracts.svg", "Smart Contracts", "Smart contracts  ipsum dolor sit amet, consectetur adipiscing elit. "
                     },
-                                        {
+                                                {
                         "/images/home/NeoNameService.svg", "Neo Name Service", "A decentralized .neo domain name service for next-gen internet web applications. "
                     },
-                                        {
+                                                {
                         "/images/home/Interoperability.svg", "Interoperability", "Smart contracts  ipsum dolor sit amet, consectetur adipiscing elit. "
                     },
-                                        {
+                                                {
                         "/images/home/NeoID.svg", "NeoID", "Smart contracts  ipsum dolor sit amet, consectetur adipiscing elit. "
                     }
-         };
+   };
 
                 for (int i = 0; i < blocks.GetLength(0); i++)
                 {
@@ -183,19 +183,16 @@
     </div> } }
         </div>
 
-        <div class="code-squre">
-            <span class="@SharedLocalizer["d-none-zh"]">
-                <span class="code-square-headline green">
+        <div class="square-block blockchain">
+            <div class="square-block-title @SharedLocalizer["d-none-zh"]">
+                <span class="green">
                     @Localizer["Blockchain"]
                 </span>
-                <br />
-                <span class="code-square-headline">
-                    @Localizer["You know"]
-                </span>
-                <div class="code-square-body">
-                    @Localizer["Write smart contracts in a language you already know, with tools you already love"]
-                </div>
-            </span>
+                <br />@Localizer["You know"]
+            </div>
+            <div class="square-block-subtitle">
+                @Localizer["Write smart contracts in a language you already know, with tools you already love"]
+            </div>
         </div>
         <a class="btn-2 code-learn-more">@Localizer["Learn More"]</a>
     </div>
@@ -268,20 +265,20 @@
     </div>
 
 
-
-    <div class="row gap-row">
-        <div class="col-12">
-            <div class="green-vertline"></div>
-        </div>
+    <div class="connection-line-row">
+        <div class="before-dual-tokens"></div>
     </div>
+
     <div class="dual-tokens-row">
         <div class="col-left">
-            <div class="dual-tokens-header">
-                <span class="green">Dual</span>
-                Tokens
-                <span class="dual-tokens-subtitle">
+            <div class="square-block dual-tokens">
+                <div class="square-block-title">
+                    <span class="green">Dual</span><br />
+                    Tokens
+                </div>
+                <div class="square-block-subtitle">
                     @Localizer["Neo has a unique dual token model that seperates governance from utility"]
-                </span>
+                </div>
             </div>
         </div>
         <div class="col-right">
@@ -370,50 +367,175 @@
         </div>
     </div>
 
+    <div class="connection-line-row">
+        <div class="before-governance"></div>
+    </div>
 
-    <div class="row dual-row governance-row">
-        <div class="col-12 col-md-6 col-left">
-            <div class="content-wrapper">
-                <img class="governance-header-img" />
-                <div class="governance-headline">
-                    <span class="green">@Localizer["On-Chain"]</span><br />@Localizer["Governance"]
+
+    <div class="governance-section-pc">
+        <div class="col-left">
+            <div class="governance-img-container">
+                <img class="governance-img-horiz" data-original="@Helper.ToCDN("/images/home/placeholder.svg")" />
+            </div>
+            <div class="governance-cards">
+                <span class="governance-learn-more">Learn More</span>
+                <div class="governance-card-container">
+                    @{ string[,] governanceItems = new string[3, 2]
+                                     {
+                                                                { "How to vote", "/images/home/vote.svg" },
+                                                                { "General guide to governance", "/images/home/documentation.svg" },
+                                                                { "Register as a committee candidate", "/images/home/register.svg" }
+ };
+
+                        for (int i = 0; i < governanceItems.GetLength(0); i++)
+                        {
+            <div class="float-card">
+                <div class="card-text-wrapper">
+                    <div class="green-vertline"></div>
+                    <div class="text-uppercase card-text">
+                        @governanceItems[i, 0]
+                    </div>
                 </div>
-                <div class="nunito-sans-bold governance-subtitle">
-                    @Localizer["A dynamic on-chain council voted in by the NEO token holders."]
-                </div>
-                <div class="governance-paragraph">
-                    @Localizer["NEO holders vote in committee members and consensus nodes that maintain the liveliness of the Neo network and adjust critical blockchain parameters."]
-                </div>
-                <div class="governance-paragraph">
-                    @Localizer["GAS rewards are distributed to both voters and committee members."]
+                <img class="card-img" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
+            </div> } }
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-right">
-            <div class="content-wrapper">
-                <div class="governance-title">
-                    @Localizer["Learn More"]
+        <div class="col-right">
+            <div class="square-block governance">
+                <div class="square-block-title governance">
+                    <span class="green">On-chain</span><br />
+                    Governance
                 </div>
-                <div class="learn-more-wrapper">
-                    <img class="learn-more-icon" data-original="@Helper.ToCDN("/images/home/Vote.svg")" />
-                    <div class="font-family-bold item-wrapper">
-                        <div>@Localizer["How to vote"]</div>
-                        <a><i class="iconfont nav-icon">&#xe6ab;</i></a>
+                <div class="square-block-subtitle governance">
+                    A dynamic on-chain council voted in by the NEO token holders.
+                </div>
+            </div>
+            <div class="governance-paragraph">
+                <span>
+                    N3 introduces the ability for NEO holders to vote in council members and consensus nodes that maintain the liveliness of the Neo network and adjust critical blockchain parameters.
+                    <br /><br />
+                    <span class="governance-paragraph bold">
+                        GAS rewards are distributed to both voters and committee members.
+                    </span>
+                </span>
+                <div class="governance-green-horizline"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="governance-section-tablet">
+        <div class="governance-top-row">
+            <div class="governance-img-container">
+                <img class="governance-img-vert" data-original="@Helper.ToCDN("/images/home/placeholder.svg")" />
+            </div>
+            <div class="col-right">
+                <div class="square-block governance">
+                    <div class="square-block-title governance">
+                        <span class="green">On-chain</span><br />
+                        Governance
+                    </div>
+                    <div class="square-block-subtitle governance">
+                        A dynamic on-chain council voted in by the NEO token holders.
                     </div>
                 </div>
-                <div class="learn-more-wrapper">
-                    <img class="learn-more-icon" data-original="@Helper.ToCDN("/images/home/Register.svg")" />
-                    <div class="font-family-bold item-wrapper">
-                        <div>@Localizer["Register as a committee candidate"]</div>
-                        <a><i class="iconfont nav-icon">&#xe6ab;</i></a>
-                    </div>
+                <div class="governance-paragraph">
+                    <span>
+                        N3 introduces the ability for NEO holders to vote in council members and consensus nodes that maintain the liveliness of the Neo network and adjust critical blockchain parameters.
+                        <br /><br />
+                        <span class="governance-paragraph bold">
+                            GAS rewards are distributed to both voters and committee members.
+                        </span>
+                    </span>
+                    <div class="governance-green-horizline"></div>
                 </div>
-                <div class="learn-more-wrapper">
-                    <img class="learn-more-icon" data-original="@Helper.ToCDN("/images/home/Governance.svg")" />
-                    <div class="font-family-bold item-wrapper">
-                        <div>@Localizer["General guide to governance"]</div>
-                        <a><i class="iconfont nav-icon">&#xe6ab;</i></a>
-                    </div>
+            </div>
+        </div>
+        <div class="governance-cards">
+            <span class="governance-learn-more">Learn More</span>
+            <div class="governance-card-container">
+                @{ for (int i = 0; i < governanceItems.GetLength(0); i++)
+                                {
+                    <div class="float-card">
+                        <div class="card-text-wrapper">
+                            <div class="green-vertline"></div>
+                            <div class="text-uppercase card-text">
+                                @governanceItems[i, 0]
+                            </div>
+                        </div>
+                        <img class="card-img" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
+                    </div> } }
+            </div>
+        </div>
+    </div>
+
+    <div class="governance-section-mobile">
+        <div class="square-block governance">
+            <div class="square-block-title governance">
+                <span class="green">On-chain</span><br />
+                Governance
+            </div>
+            <div class="square-block-subtitle governance">
+                A dynamic on-chain council voted in by the NEO token holders.
+            </div>
+        </div>
+        <div class="governance-img-container">
+            <img class="governance-img-vert" data-original="@Helper.ToCDN("/images/home/placeholder.svg")" />
+        </div>
+        <div class="governance-paragraph">
+            <span>
+                N3 introduces the ability for NEO holders to vote in council members and consensus nodes that maintain the liveliness of the Neo network and adjust critical blockchain parameters.
+                <br /><br />
+                <span class="governance-paragraph bold">
+                    GAS rewards are distributed to both voters and committee members.
+                </span>
+            </span>
+            <div class="governance-green-horizline"></div>
+        </div>
+        <div class="governance-cards">
+            <span class="governance-learn-more">Learn More</span>
+            <div class="governance-card-container">
+                @{ for (int i = 0; i < governanceItems.GetLength(0); i++)
+                    {
+        <div class="float-card">
+            <div class="card-text-wrapper">
+                <div class="green-vertline"></div>
+                <div class="text-uppercase card-text">
+                    @governanceItems[i, 0]
+                </div>
+            </div>
+            <img class="card-img" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
+        </div> } }
+            </div>
+        </div>
+    </div>
+
+    <div class="connection-line-row">
+        <div class="before-contributors"></div>
+    </div>
+
+    <div class="row contributors-row">
+        <div class=" col-12 col-md">
+            <div class="square-block contributors">
+                <div class="square-block-title contributors">
+                    <span class="green">Global</span><br />
+                    Contributors
+                </div>
+                <div class="square-block-subtitle contributors">
+                    Neo is joint effort by community groups from all over the world.
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-auto col-github">
+            <div class="github-container">
+                <div class="github-status">
+                    <span class="github-status-num" id="github-stars"></span>stars
+                </div>
+                <div class="github-status">
+                    <span class="github-status-num" id="github-forks"></span>forks
+                </div>
+                <div class="github-status">
+                    <span class="github-status-num" id="github-sub"></span>subscribers
                 </div>
             </div>
         </div>
@@ -523,6 +645,21 @@
     <script>
         $(document).ready(function () {
             $('map').imageMapResize();
+
+            $.get("https://api.github.com/repos/neo-project/neo", function (data, status) {
+                const starsCount = +(data.stargazers_count);
+                const stars = starsCount > 1000 ? `${(starsCount / 1000).toFixed(1)}K` : `${starsCount}`;
+                $("#github-stars").html(stars);
+
+                const forksCount = +(data.forks_count);
+                const forks = forksCount > 1000 ? `${(forksCount / 1000).toFixed(1)}K` : `${forksCount}`;
+                $("#github-forks").html(forks);
+
+                const subCount = +(data.subscribers_count);
+                const sub = subCount > 1000 ? `${(subCount / 1000).toFixed(1)}K` : `${subCount}`
+
+                $("#github-sub").html(sub);
+            });
         });
 
         $(".language-icon").on("click", function () {

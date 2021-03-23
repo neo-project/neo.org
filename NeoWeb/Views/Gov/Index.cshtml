@@ -10,8 +10,61 @@
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/gov.min.css", true)" />
 }
-<div class="py-5">
-    @Localizer["Governance"]
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1 class="uppercase mt-5">@Localizer["Governance"]</h1>
+            <p>@Localizer["NEO token holders decide who is in charge of maintaining the Neo network through the election of a Neo Council. GAS token rewards are distributed to voters and council members alike."]</p>
+        </div>
+        <div class="col-md-4 offset-md-1">
+            <img class="img-fluid" src="@Helper.CDN/images/gov/gov.png" />
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-12 col-lg-9">
+            <h2 class="mt-5">@Localizer["By the people, for the people"]</h2>
+            <p><strong>@Localizer["Neo is becoming a more decentralized blockchain through its new on-chain governance mechanism."]</strong></p>
+            <p>@Localizer["NEO holders participate in governance by voting in a Neo Council to manage the Neo Blockchain.The Neo Council will consist of council members and consensus nodes who provide services, maintain the liveness of the network, and adjust critical blockchain params. GAS rewards will be distributed to both NEO votes and council members."]</p>
+            <p><strong>@Localizer["Voting is planned to begin three months after the launch of the Neo N3 MainNet."]</strong></p>
+        </div>
+    </div>
+    <h3 class="mt-5 border-bottom">@Localizer["Key groups in Governance "]</h3>
+    <div class="row">
+        <div class="col-md-4 mt-5">
+            <h5>ROLE</h5>
+            <h2><span class="green">NEO</span> TOKEN<br />HOLDERS</h2>
+            <hr />
+            <p><strong>@Localizer["NEO holders are the stakeholders of the Neo ecosystem."]</strong></p>
+            <p class="mt-5">
+                @Localizer["Each NEO token represents one vote in the election of the Neo Council, who is responsible for making decisions for the Neo blockchain. NEO holders should vote in candidates that they feel will represent their needs and are capable of maintaining the health of the Neo network."]
+            </p>
+        </div>
+        <div class="col-md-4 mt-5">
+            <h5>ROLE</h5>
+            <h2><span class="green">COUNCIL</span><br />CANDIDATES</h2>
+            <hr />
+            <p><strong>@Localizer["NEO holders are the stakeholders of the Neo ecosystem."]</strong></p>
+            <p class="mt-5">
+                @Localizer["Each NEO token represents one vote in the election of the Neo Council, who is responsible for making decisions for the Neo blockchain. NEO holders should vote in candidates that they feel will represent their needs and are capable of maintaining the health of the Neo network."]
+            </p>
+        </div>
+        <div class="col-md-4 mt-5">
+            <h5>ROLE</h5>
+            <h2><span class="green">NEO</span><br />COUNCIL</h2>
+            <hr />
+            <p><strong>@Localizer["NEO holders are the stakeholders of the Neo ecosystem."]</strong></p>
+            <p class="mt-5">
+                @Localizer["Each NEO token represents one vote in the election of the Neo Council, who is responsible for making decisions for the Neo blockchain. NEO holders should vote in candidates that they feel will represent their needs and are capable of maintaining the health of the Neo network."]
+            </p>
+        </div>
+    </div>
+    <h3 class="mt-5 border-bottom">@Localizer["Breakdown of the process"]</h3>
+    <h2 class="mt-5 text-center">@Localizer["Governance consists of four main stages"]</h2>
+    <img class="img-fluid d-none d-md-block my-5" src="@Helper.CDN/images/gov/gov2.png" />
+    <img class="img-fluid d-block d-md-none my-5" src="@Helper.CDN/images/gov/gov2-xs.png" />
+    <h3 class="mt-5 border-bottom">@Localizer["GAS distribution "]</h3>
+    <div class="scroll-x"><img class="my-5" src="@Helper.CDN/images/gov/gov3.png" /></div>
 </div>
 
 @section Scripts{

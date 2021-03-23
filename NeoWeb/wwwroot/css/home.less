@@ -1,8 +1,6 @@
 @import "basic.less";
 
-@landing-height: 85vh;
-@landing-max-height: 1200px;
-@landing-min-height: 880px;
+@landing-height: 80vh;
 @content-wrapper-margin: 120px;
 @typed-text-font-size: 6.5rem;
 
@@ -80,16 +78,7 @@ html body {
     justify-content: center;
     align-items: center;
     margin: 0;
-    padding: 0 5% 0 10%;
     height: 100%;
-
-    @media only screen and (max-width: 1200px) {
-        padding: 0 2% 0 4%;
-    }
-
-    @media only screen and (max-width: 767px) {
-        padding: 2%;
-    }
 }
 
 .col-right {
@@ -98,12 +87,7 @@ html body {
     justify-content: center;
     align-items: center;
     margin: 0;
-    padding: 0 10% 0 5%;
     height: 100%;
-
-    @media only screen and (max-width: 1200px) {
-        padding: 0 4% 0 2%;
-    }
 
     @media only screen and (max-width: 767px) {
         padding: 2%;
@@ -117,13 +101,156 @@ html body {
     width: 100%;
 }
 
+.square-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: right;
+    padding: 3.125rem 2.25rem 3.125rem 0.5rem;
+    border: 6px solid @green;
+
+    &.building-blocks {
+        height: 26.25rem;
+        width: 28.75rem;
+    }
+
+    &.blockchain {
+        align-self: flex-end;
+        width: 29.375rem;
+        height: 18.25rem;
+    }
+
+    &.dual-tokens {
+        margin-top: 1.75rem;
+        padding-right: 2.375rem;
+        padding-left: 4.5rem;
+        width: 26.25rem;
+        height: 19.875rem;
+    }
+
+    &.governance {
+        align-items: flex-start;
+        text-align: left;
+        padding-left: 2.25rem;
+        padding-right: 0.5rem;
+        width: 30rem;
+        height: 17.375rem;
+    }
+
+    @media only screen and (max-width: 1400px) {
+        padding: 1.5rem 0.5rem 1rem 0.5rem;
+        border: 3px solid @green;
+
+        &.building-blocks {
+            width: 14.375rem;
+            height: 13.125rem;
+        }
+
+        &.blockchain {
+            align-self: center;
+            align-items: flex-start;
+            padding-left: 0.75rem;
+            padding-right: 0.1rem;
+            text-align: left;
+            width: 14.375rem;
+            height: 13.125rem;
+        }
+
+        &.dual-tokens {
+            margin-top: 1.25rem;
+            padding-right: 0.5rem;
+            padding-left: 0.5rem;
+            width: 14.375rem;
+            height: 13.125rem;
+        }
+
+        &.governance {
+            align-items: flex-start;
+            text-align: left;
+            padding-left: 0.625rem;
+            padding-right: 0.1rem;
+            width: 14.375rem;
+            height: 11.875rem;
+        }
+    }
+
+    @media only screen and (max-width: 767.98px) {
+        align-self: center;
+        align-items: flex-start;
+        text-align: left;
+        border: 5px solid @green;
+        width: 16.5rem;
+        height: 18.125rem;
+
+        &.building-blocks {
+            padding: 1.875rem 0.5rem 1.25rem 0.875rem;
+            width: 18.125rem;
+            height: 16.5rem;
+        }
+
+        &.blockchain {
+            padding: 1.875rem 0.5rem 1.25rem 0.875rem;
+            width: 18.125rem;
+            height: 16.5rem;
+        }
+
+        &.dual-tokens {
+            padding: 1.875rem 0.5rem 1.25rem 0.875rem;
+            width: 18.125rem;
+            height: 16.875rem;
+        }
+
+        &.governance {
+            padding: 1.875rem 0.5rem 1.25rem 0.5rem;
+            width: 18.125rem;
+            height: 16.75rem;
+        }
+    }
+
+    .square-block-title {
+        .work-sans-bold;
+        font-size: 3.125rem;
+        line-height: 1;
+        margin-bottom: 1.125rem;
+        .uppercase;
+
+        @media only screen and (max-width: 1400px) {
+            font-size: 1.875rem;
+            margin-bottom: 0.625rem;
+        }
+
+        @media only screen and (max-width: 767.98px) {
+            font-size: 2.375rem;
+            line-height: 0.94;
+            margin-bottom: 0.75rem;
+        }
+    }
+
+    .square-block-subtitle {
+        .nunito-sans-bold;
+        .dark-blue;
+        font-size: 1.25rem;
+        line-height: 1.375;
+
+        @media only screen and (max-width: 1400px) {
+            font-size: 1.25rem;
+            line-height: 1.2;
+        }
+
+        @media only screen and (max-width: 767.98px) {
+            font-size: 1.5rem;
+            line-height: 1.25;
+        }
+    }
+}
+
 
 // Landing
 .landing-row {
     height: @landing-height;
-    min-height: @landing-min-height;
 
-    @media only screen and (max-height: @landing-min-height) {
+    @media only screen and (max-height: @landing-height) {
         min-height: 700px;
     }
 
@@ -134,19 +261,31 @@ html body {
     }
 
     .col-left {
+        padding: 0 5% 0 10%;
         background: @linear-black;
 
-        @media only screen and (max-width: 767px) {
+        @media only screen and (max-width: 1200px) {
+            padding: 0 2% 0 4%;
+        }
+
+        @media only screen and (max-width: 767.98px) {
             height: 100vh;
+            padding: 2%;
         }
     }
 
     .col-right {
+        padding: 0 10% 0 5%;
         background: @linear-green;
 
         .content-wrapper {
-            max-height: calc(@landing-max-height - 100px);
+            max-height: calc(@landing-height - 100px);
             align-items: flex-start;
+        }
+
+
+        @media only screen and (max-width: 1200px) {
+            padding: 0 4% 0 2%;
         }
 
         @media only screen and (max-width: 767px) {
@@ -175,7 +314,7 @@ html body {
     word-wrap: normal;
     text-transform: uppercase;
 
-    @media only screen and (max-height: @landing-min-height) {
+    @media only screen and (max-height: @landing-height) {
         margin: 1.5rem 0;
     }
 }
@@ -187,7 +326,7 @@ html body {
 
 .landing-title {
     .work-sans-bold;
-    margin: (@landing-min-height / 20) 0;
+    margin: (@landing-height / 20) 0;
     font-size: 4.375rem;
     line-height: 1.04;
     text-transform: uppercase;
@@ -298,6 +437,10 @@ html body {
     padding: 2.375rem 2.375rem 11.125rem 2.375rem;
     .work-sans-bold;
 
+    @media only screen and (max-width: 767.98px) {
+        padding: 2.125rem 1rem 6.125rem 1rem;
+    }
+
     .col-left {
         display: flex;
         flex-direction: column;
@@ -386,7 +529,7 @@ html body {
     }
 }
 
-.get-started-card {
+.float-card {
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -416,13 +559,16 @@ html body {
     }
 
     .card-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
         .nunito-sans-bold;
-        max-width: 55%;
+        max-width: 70%;
         font-size: 0.94rem;
         line-height: 1.25rem;
         z-index: 1;
-        transform: translate(60px, 60px);
-        height: 1.25rem;
+        transform: translate(60px, 0);
+        height: calc(100% - 1.25rem);
     }
 
     .card-img {
@@ -480,40 +626,6 @@ html body {
         @media only screen and (max-width: 767.98px) { // mobile
             padding: 0 2.375rem;
         }
-    }
-}
-
-.building-blocks-title {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    .work-sans-bold;
-    .uppercase;
-    line-height: 0.95;
-    border: 6px solid @green;
-
-    width: 28.75rem;
-    height: 26.25rem;
-    font-size: 3.625rem;
-    text-align: right;
-    padding-right: 2.875rem;
-
-    @media only screen and (max-width: 1200px) {
-        padding-right: 1.125rem;
-        width: 14.375rem;
-        height: 13.125rem;
-        font-size: 1.875rem;
-        line-height: 1;
-    }
-
-    @media only screen and (max-width: 767.98px) {
-        justify-content: flex-start;
-        padding: 0 0 0 1.25rem;
-        width: 18.125rem;
-        height: 16.5rem;
-        font-size: 2.375rem;
-        line-height: 0.95;
-        text-align: left;
     }
 }
 
@@ -635,33 +747,6 @@ html body {
     .dark-blue;
     font-size: 1rem;
     line-height: 1.25rem;
-}
-
-.code-squre {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-self: flex-end;
-    padding: 2.375rem;
-    width: 29.375rem;
-    height: 20.25rem;
-    border: 6px solid @green;
-
-    @media only screen and (max-width: 1400px) {
-        margin-right: 2.5%;
-    }
-
-    @media only screen and (max-width: 1200px) {
-        margin-right: 12px;
-    }
-
-    @media only screen and (max-width: 767.98px) {
-        margin: 0;
-        align-self: center;
-        padding: 0.875rem;
-        width: 18.5rem;
-        height: 16.875rem;
-    }
 }
 
 .code-square-headline {
@@ -973,22 +1058,44 @@ html body {
     }
 }
 
-
-.gap-row {
-    display: flex;
+.connection-line-row {
     align-self: center;
-    width: 1200px;
+    width: 1400px;
 
-    .green-vertline {
-        width: 25%;
-        height: 240px;
-        border-right: 2px solid @green;
+    @media only screen and (max-width: 1400px) {
+        width: 767px;
     }
 
     @media only screen and (max-width: 767.98px) {
         display: none;
     }
+
+    .before-dual-tokens {
+        width: 25%;
+        height: 240px;
+        border-right: 2px solid @green;
+    }
+
+    .before-governance {
+        margin-bottom: 1.375rem;
+        width: 80%;
+        height: 10.25rem;
+        border-right: 2px solid @green;
+
+        @media only screen and (max-width: 1400px) {
+            width: 90%;
+        }
+    }
+
+    .before-contributors {
+        width: 10%;
+        margin-top: 1.5rem;
+        margin-bottom: 1.25rem;
+        height: 5.75rem;
+        border-right: 2px solid @green;
+    }
 }
+
 
 // Dual Tokens
 .dual-tokens-row {
@@ -1053,40 +1160,6 @@ html body {
             grid-row-gap: 3.375rem;
             width: 100%;
         }
-    }
-}
-
-.dual-tokens-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    margin-top: 1.5rem;
-    padding: 2.25rem;
-    height: 318px;
-    border: 6px solid @green;
-    .work-sans-bold;
-    .uppercase;
-    .dark-blue;
-    font-size: 3.125rem;
-    line-height: 1;
-    width: 100%;
-
-    @media only screen and (max-width: 1200px) {
-        margin-top: 1.25rem;
-        padding: 1.5rem 0.5rem;
-        height: 210px;
-        font-size: 1.875rem;
-    }
-
-    @media only screen and (max-width: 767.98px) {
-        align-self: center;
-        align-items: flex-start;
-        text-align: left;
-        font-size: 2.375rem;
-        line-height: 1;
-        height: 16.875rem;
-        width: 18.25rem;
     }
 }
 
@@ -1451,108 +1524,228 @@ html body {
 }
 
 
-
 // Governance
-.governance-row {
-    height: 1220px;
+.governance-section-pc {
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    width: 1380px;
+    column-gap: 80px;
+
+    @media only screen and (max-width: 1400px) {
+        display: none;
+    }
 
     .col-left {
-        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        grid-row-gap: 4rem;
+        padding: 0;
+        height: 100%;
+        width: 100%;
     }
 
     .col-right {
-        background-color: @green;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        grid-row-gap: 4rem;
+        padding: 0;
+        width: 30rem;
+        min-width: 30rem;
     }
 }
 
-.governance-header-img {
-    width: 100%;
-    height: 340px;
-}
+.governance-section-tablet {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    align-self: center;
+    width: 767px;
 
-.governance-headline {
-    margin: 2.875rem 0 2.25rem 0;
-    width: 100%;
-    text-align: left;
-    font-size: 4.375rem;
-    line-height: 0.94;
-    .work-sans-bold;
-    text-transform: uppercase;
-    color: @dark-blue;
+    @media only screen and (max-width: 767.98px) {
+        display: none;
+    }
 
-    @media only screen and (max-width: 1200px) {
-        font-size: 3rem;
+    @media only screen and (min-width: 1400px) {
+        display: none;
+    }
+
+    .governance-top-row {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+
+    .col-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        grid-row-gap: 1.75rem;
+        margin: 0 2%;
+        width: 14.375rem;
     }
 }
 
-.governance-subtitle {
-    margin-bottom: 2.25rem;
-    font-size: 1.5rem;
-    line-height: 1.375;
+.governance-section-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 6rem 0;
+    width: 100%;
+    padding: 0 14px;
 
-    @media only screen and (max-width: 1200px) {
-        font-size: 1.125rem;
+    @media only screen and (min-width: 767.98px) {
+        display: none;
     }
 }
 
 .governance-paragraph {
-    margin-bottom: 2.25rem;
-    font-size: 1.125rem;
-    .nunito-sans-regular;
-    line-height: 1.8;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    .nunito-sans-semibold;
 
-    @media only screen and (max-width: 1200px) {
-        font-size: 1rem;
+    &.bold {
+        .nunito-sans-bold;
+    }
+
+    @media only screen and (max-width: 1400px) {
+        width: 14.375rem;
+    }
+
+    @media only screen and (max-width: 767.98px) {
+        width: 100%;
     }
 }
 
-.governance-header {
-    margin: 46px 0 37px 0;
+.governance-green-horizline {
+    height: 7px;
+    width: 84px;
+    background-color: @green;
+    margin: 1.75rem 0;
+
+    @media only screen and (max-width: 767.98px) {
+        align-self: center;
+    }
 }
 
-.governance-title {
-    margin: 2.125rem 0;
-    font-size: 1.5rem;
-    .work-sans-bold;
-    text-transform: uppercase;
-    color: @dark-blue;
-    width: 100%;
-    text-align: left;
-}
-
-.learn-more-icon {
-    margin-right: 22px;
-    width: 72px;
-}
-
-.learn-more-wrapper {
+.governance-cards {
     display: flex;
-    align-items: center;
-    margin-bottom: 42px;
+    flex-direction: column;
+    align-items: flex-end;
+    grid-row-gap: 2.125rem;
+
+    @media only screen and (max-width: 1400px) {
+        grid-row-gap: 1.625rem;
+        align-items: flex-start;
+    }
+
+    @media only screen and (max-width: 767.98px) {
+        grid-row-gap: 2.25rem;
+        align-items: center;
+        width: 90%;
+    }
 }
 
-.item-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 286px;
+.governance-learn-more {
+    .work-sans-semibold;
+    .uppercase;
+    .dark-blue;
     font-size: 1.125rem;
-    color: @dark-blue;
-    text-transform: uppercase;
+    text-align: right;
+
+    @media only screen and (max-width: 767.98px) {
+        text-align: center;
+    }
 }
 
-.nav-icon {
-    font-size: 1.5rem;
+.governance-card-container {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    width: 100%;
+    grid-row-gap: 3.25rem;
+    column-gap: 3.125rem;
+
+    @media only screen and (max-width: 1400px) {
+        flex-direction: row;
+        column-gap: 2.625rem;
+        grid-row-gap: 2.875rem;
+    }
+
+    @media only screen and (max-width: 767.98px) {
+        flex-direction: column;
+        align-items: center;
+        column-gap: 2.625rem;
+        grid-row-gap: 2.875rem;
+        width: 100%;
+    }
 }
 
-.contributors-row {
-    justify-content: center;
+.governance-img-container {
+    display: flex;
     align-items: center;
-    padding: 3.125rem 1rem;
-    height: 100%;
-    background: @linear-black;
+    width: 100%;
+    height: 17.375rem;
+
+    @media only screen and (max-width: 1400px) {
+        height: 500px;
+    }
 }
 
+.governance-img-horiz {
+    width: 100%;
+    height: 9.5rem;
+}
+
+.governance-img-vert {
+    display: none;
+
+    @media only screen and (max-width: 1400px) {
+        width: 100%;
+        height: 372px;
+    }
+}
+
+
+// Contributors row
+.contributors-row {
+    align-self: center;
+    width: 1480px;
+}
+
+.col-github {
+    display: flex;
+    align-items: center;
+}
+
+.github-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 814px;
+    grid-row-gap: 1rem;
+}
+
+.github-status {
+    display: flex;
+    align-items: flex-end;
+    .work-sans-semibold;
+    .dark-blue;
+    .uppercase;
+    font-size: 1rem;
+    width: 49%;
+}
+
+.github-status-num {
+    .green;
+    .work-sans-light;
+    line-height: 0.8;
+    font-size: 6.75rem;
+}
+// Contributors
 .contributors-wrapper {
     display: flex;
     flex-direction: column;
