@@ -83,28 +83,17 @@ body {
         padding-top: 2px;
     }
 
-    &-2 {
-        &-text {
-            margin-top: 5%;
-
-            &-2 {
-                display: flex;
-                margin-top: 2%;
-            }
-        }
+    &-border {
+        width: 65%;
+        margin-top: 5%;
+        padding-bottom: 5%;
+        border-bottom: 1px solid #CFD6DF;
     }
 
-    &-3 {
-        &-text {
-            margin-top: 5%;
-            width: 65%;
-            padding-bottom: 5%;
-            border-bottom: 1px solid #CFD6DF;
-
-            &-2 {
-                display: flex;
-                margin-top: 2%;
-            }
+    &-text {
+        &-2 {
+            display: flex;
+            margin-top: 2%;
         }
     }
 }
@@ -147,6 +136,8 @@ body {
     padding-top: 12px;
     margin-left: 15%;
     width: 80%;
+    display:flex;
+    flex-direction:row;
 }
 
 .bottom-guide-container {
@@ -197,10 +188,12 @@ body {
 }
 
 .fade-out {
+    z-index:unset;
     opacity: 0;
 }
 
 .fade-in {
+    z-index:1;
     opacity: 1;
 }
 
@@ -304,8 +297,10 @@ body {
     }
 
     .carouselImgs {
-        position: static;
-        width: 200px;
+        height: 100%;
+        .carouse-pic{
+            width:100%;
+        }
     }
 
     .tour-container {
