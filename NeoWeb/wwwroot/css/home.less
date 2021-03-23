@@ -1212,6 +1212,10 @@ html body {
     column-gap: 48px;
     margin: 1.25rem 2.75rem;
 
+    @media only screen and (max-width: 1200px) {
+        margin: 2rem 1.375rem;
+    }
+
     @media only screen and (max-width: 767.98px) {
         flex-direction: column;
         grid-row-gap: 16px;
@@ -1222,6 +1226,11 @@ html body {
     .nunito-sans-bold;
     font-size: 1.5rem;
     min-width: 9.125rem;
+
+    @media only screen and (max-width: 1200px) {
+        font-size: 1.125rem;
+        min-width: 6.25rem;
+    }
 }
 
 .slider {
@@ -1256,14 +1265,28 @@ html body {
     .work-sans-semibold;
     font-size: 2.5rem;
 
+    @media only screen and (max-width: 1200px) {
+        font-size: 1.75rem;
+    }
+
     .slider-neo-icon {
         margin-right: 0.5rem;
         height: 2.875rem;
         width: 2.875rem;
+
+        @media only screen and (max-width: 1200px) {
+            margin-right: 0.25rem;
+            height: 1.69rem;
+            width: 1.5rem;
+        }
     }
 
     #slider-current-value {
         width: 6.25rem;
+
+        @media only screen and (max-width: 1200px) {
+            width: 4.375rem;
+        }
     }
 }
 
@@ -1280,9 +1303,7 @@ html body {
     margin-bottom: 2.125rem;
 
     @media only screen and (max-width: 767.98px) {
-        flex-direction: column;
-        grid-row-gap: 16px;
-        align-items: center;
+        display: none;
     }
 }
 
@@ -1290,12 +1311,20 @@ html body {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media only screen and (max-width: 767.98px) {
+        display: none;
+    }
 }
 
 .result-num {
     .work-sans-light;
     font-size: 5.75rem;
     .green;
+
+    @media only screen and (max-width: 1200px) {
+        font-size: 5rem;
+    }
 }
 
 .gas-wrapper {
@@ -1305,14 +1334,30 @@ html body {
     text-align: center;
     width: 13.75rem;
 
+    @media only screen and (max-width: 1200px) {
+        font-size: 0.75rem;
+        width: 9rem;
+    }
+
     img {
         margin-right: 12px;
         width: 25px;
         height: 28px;
+
+        @media only screen and (max-width: 1200px) {
+            margin-right: 0;
+            width: 1.125rem;
+            height: 1.25rem;
+        }
     }
 
     .status-text {
         font-size: 1.125rem;
+
+        @media only screen and (max-width: 1200px) {
+            font-size: 0.875rem;
+            line-height: 0.93;
+        }
     }
 }
 
@@ -1330,11 +1375,20 @@ html body {
     border-radius: 2.625rem;
     line-height: 1;
 
+    @media only screen and (max-width: 1200px) {
+        width: 3.625rem;
+        height: 3.625rem;
+        font-size: 3.625rem;
+        border-radius: 1.8125rem;
+        margin-top: 2.125rem;
+    }
+
     @media only screen and (max-width: 767.98px) {
         width: 2rem;
         height: 2rem;
         font-size: 2rem;
         border-radius: 1rem;
+        margin: 24px 0;
     }
 }
 
@@ -1345,7 +1399,58 @@ html body {
     .nunito-sans-bold;
     font-size: 0.75rem;
     text-align: center;
+
+    @media only screen and (max-width: 767.98px) {
+        margin: 18px 0;
+        font-size: 0.75rem;
+        line-height: 0.5;
+    }
 }
+
+
+.results-row-mobile {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+
+    @media only screen and (max-width: 767.98px) {
+        display: flex;
+    }
+}
+.result-row {
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+}
+
+.result-num-mobile {
+    .work-sans-light;
+    font-size: 2.625rem;
+    line-height: 1.19;
+    .green;
+}
+
+.gas-wrapper-mobile {
+    display: flex;
+    align-items: center;
+    font-size: 0.75rem;
+    .work-sans-semibold;
+    .uppercase;
+    line-height: 1.17;
+    height: 100%;
+
+    img {
+        width: 18px;
+        height: 20px;
+    }
+}
+
+.status-text-mobile {
+    .work-sans-semibold;
+    font-size: 0.875rem;
+}
+
+
 
 // Governance
 .governance-row {
