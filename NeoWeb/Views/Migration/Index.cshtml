@@ -5,6 +5,7 @@
 
 @{
     ViewData["Title"] = Localizer["Migration"].Value;
+    ViewBag.HiddenMigration = true;
 }
 
 @section Styles{
@@ -16,53 +17,62 @@
             <h1 class="uppercase mt-5">@Localizer["Migration"]</h1>
             <p>@Localizer["After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]</p>
         </div>
-        <div class="col-md-4 offset-md-2">
-            <img class="img-fluid" src="~/images/home/N3Logo.svg" />
+        <div class="col-md-3 offset-md-2">
+            <img class="img-fluid" src="@Helper.CDN/images/migration/n3.png" />
         </div>
     </div>
     <hr />
-    <h2 class="mt-5">@Localizer["What is N3?"]</h2>
-    <h3 class="mt-5">@Localizer["A whole new world"]</h3>
-    <p>@Localizer["<strong>N3</strong> is the latest version of the Neo blockchain. It was first announced in 2018 by Erik Zhang as an upgrade to the current Neo protocol. "]</p>
-    <p>@Localizer["<strong>N3</strong> improves on previous versions by offering an improved development experience. It boasts more powerful and complete features, a highly modular architecture, and an enhanced governance and economic model. It offers everything the hobbyist developer needs to build their first dApp, through to the power and scalability required by enterprise applications."]</p>
-    <p>@Localizer["Due to the extent of improvements found in version <strong>N3</strong>, certain features are not backwards compatible with the existing Neo Legacy blockchain. This means that Neo's <strong>N3</strong> upgrade will be implemented through a new genesis block. The Neo blockchain running <strong>N3</strong> will coexist alongside the current Neo Legacy blockchain for an extended period of time. This will provide users with ample opportunity to migrate their tokens and applications to the new chain."]</p>
-    <p><strong>@Localizer["At this moment, no action is required on the part of token holders. "]</strong></p>
-    <p>@Localizer["When the new chain is closer to a MainNet launch, Neo will publish detailed information on how to safely migrate your assets from the Legacy to <strong>N3</strong> version of Neo."]</p>
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <h2 class="mt-5">@Localizer["What is N3?"]</h2>
+            <h3 class="mt-5">@Localizer["A whole new world"]</h3>
+            <p>@Localizer["<strong>N3</strong> is the latest version of the Neo blockchain. It was first announced in 2018 by Erik Zhang as an upgrade to the current Neo protocol. "]</p>
+            <p>@Localizer["<strong>N3</strong> improves on previous versions by offering an improved development experience. It boasts more powerful and complete features, a highly modular architecture, and an enhanced governance and economic model. It offers everything the hobbyist developer needs to build their first dApp, through to the power and scalability required by enterprise applications."]</p>
+            <p>@Localizer["Due to the extent of improvements found in version <strong>N3</strong>, certain features are not backwards compatible with the existing Neo Legacy blockchain. This means that Neo's <strong>N3</strong> upgrade will be implemented through a new genesis block. The Neo blockchain running <strong>N3</strong> will coexist alongside the current Neo Legacy blockchain for an extended period of time. This will provide users with ample opportunity to migrate their tokens and applications to the new chain."]</p>
+            <p><strong>@Localizer["At this moment, no action is required on the part of token holders. "]</strong></p>
+            <p>@Localizer["When the new chain is closer to a MainNet launch, Neo will publish detailed information on how to safely migrate your assets from the Legacy to <strong>N3</strong> version of Neo."]</p>
+        </div>
+        <div class="col-lg-6">
+            <img class="img-box" src="@Helper.CDN/images/migration/box.png" />
+        </div>
+    </div>
 
     <h3 class="mt-5 border-bottom">@Localizer["New features in N3"]</h3>
     <div class="row my-5">
-        <div class="col-sm-6 col-md-4">
-            <img class="img-fluid" src="~/images/migration/feature1.png" />
-            <div class="d-inline-block align-middle">Built in oracle<br />(internet resource access)</div>
+        <div class="col-sm-6 col-md-4 text-center text-xl-left">
+            <img class="img-fluid" src="@Helper.CDN/images/migration/feature1.png" />
+            <div class="d-inline-block align-middle description">Built in oracle (internet resource access)</div>
         </div>
-        <div class="col-sm-6 col-md-4">
-            <img class="img-fluid" src="~/images/migration/feature1.png" />
-            <div class="d-inline-block align-middle">Built in oracle<br />(internet resource access)</div>
-        </div>
-
-        <div class="col-sm-6 col-md-4">
-            <img class="img-fluid" src="~/images/migration/feature1.png" />
-            <div class="d-inline-block align-middle">Built in oracle<br />(internet resource access)</div>
-
+        <div class="col-sm-6 col-md-4 text-center text-xl-left">
+            <img class="img-fluid" src="@Helper.CDN/images/migration/feature1.png" />
+            <div class="d-inline-block align-middle description">Neo Name Service domain protocol</div>
         </div>
 
-        <div class="col-sm-6 col-md-4">
-            <img class="img-fluid" src="~/images/migration/feature1.png" />
-            <div class="d-inline-block align-middle">Built in oracle<br />(internet resource access)</div>
+        <div class="col-sm-6 col-md-4 text-center text-xl-left">
+            <img class="img-fluid" src="@Helper.CDN/images/migration/feature1.png" />
+            <div class="d-inline-block align-middle description">On-chain governance & economic model</div>
+
         </div>
 
-        <div class="col-sm-6 col-md-4">
-            <img class="img-fluid" src="~/images/migration/feature1.png" />
-            <div class="d-inline-block align-middle">Built in oracle<br />(internet resource access)</div>
+        <div class="col-sm-6 col-md-4 text-center text-xl-left">
+            <img class="img-fluid" src="@Helper.CDN/images/migration/feature1.png" />
+            <div class="d-inline-block align-middle description">NeoID decentralized identity protocol</div>
         </div>
 
-        <div class="col-sm-6 col-md-4">
-            <img class="img-fluid" src="~/images/migration/feature1.png" />
-            <div class="d-inline-block align-middle">Built in oracle<br />(internet resource access)</div>
+        <div class="col-sm-6 col-md-4 text-center text-xl-left">
+            <img class="img-fluid" src="@Helper.CDN/images/migration/feature1.png" />
+            <div class="d-inline-block align-middle description">NeoFS distributed object storage system</div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 text-center text-xl-left">
+            <img class="img-fluid" src="@Helper.CDN/images/migration/feature1.png" />
+            <div class="d-inline-block align-middle description">Simplified architecture</div>
         </div>
     </div>
     <h3 class="mt-5 border-bottom">@Localizer["Timeline"]</h3>
-    <img src="~/images/migration/timeline.png" class="img-max my-5" />
+    <div class="scroll-x">
+        <img src="@Helper.CDN/images/migration/timeline.png" class="my-5" />
+    </div>
     <h3 class="my-5 border-bottom">@Localizer["Frequently asked questions"]</h3>
     <div id="accordion">
         <div class="my-4">

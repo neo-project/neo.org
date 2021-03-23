@@ -12,8 +12,8 @@
             <div class="text-div container">
                 <h4 class="mt-5 text-white bold text-uppercase">@(ViewData["ParentTitle"] ?? ViewData["Title"])</h4>
                 <div class="mt-5">
-                    <h4 class="green mb-4 d-inline">
-                        <a asp-controller="home" asp-action="index">@SharedLocalizer["Home"]</a>
+                    <h4 class="mb-4 d-inline">
+                        <a class="green" asp-controller="home" asp-action="index">@SharedLocalizer["Home"]</a>
                     </h4>
                     <h4 class="d-inline"> <i class="iconfont bold">&#xe6ab;</i> @(ViewData["ParentTitle"] ?? ViewData["Title"])</h4>
                 </div>

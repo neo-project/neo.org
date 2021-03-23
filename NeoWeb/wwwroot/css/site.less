@@ -27,7 +27,7 @@ html body {
 }
 
 a {
-    color: @green;
+    color: inherit;
 
     &.disabled {
         cursor: not-allowed
@@ -584,4 +584,28 @@ small, .small {
 
 .bold {
     .bold()
+}
+.migration-div {
+    position: absolute;
+    top: 15rem;
+    right: 0;
+    background-color: @dark-blue;
+    width: 3rem;
+    height: 14rem;
+    border-radius: .75rem 0px 0px .75rem;
+    box-shadow: -11px 2px 40px 0px rgba(6, 20, 29, 0.36);
+    z-index: 1000;
+}
+.migration-text {
+    transform: rotate(90deg);
+    display: block;
+    width: 11rem;
+    top: 6.7rem;
+    position: absolute;
+    right: -4rem;
+    color: white;
+    img{
+        width: 1.2rem;
+        margin-right: .5rem
+    }
 }
