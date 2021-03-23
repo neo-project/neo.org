@@ -43,6 +43,7 @@ $(document).ready(function () {
     }
 
     $("#start").click(() => {
+        console.log("test");
         currentSlide = 2;
         showSlide(currentSlide);
         $("#bottom-guide-container").removeClass('hide');
