@@ -1,2 +1,31 @@
-﻿body {
+@import 'basic.less';
+.border-bottom {
+    border-bottom: 1px solid @dark-blue !important;
+}
+hr{
+    background-color: @dark-blue;
+}
+#accordion h5 {
+    color: @dark-blue;
+    cursor: pointer;
+    border-bottom: 1px solid @dark-blue;
+    margin: 1rem 0;
+    padding-bottom: .5rem;
+
+    &:hover, &:active, &:visited {
+        color: @dark-blue;
+    }
+}
+#accordion p{
+    display: none;
+}
+.sub{
+    float: right;
+    display: none;
+    color: @dark-blue;
+}
+.add {
+    float: right;
+    display: block;
+    color: @green;
 }
