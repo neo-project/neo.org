@@ -89,6 +89,10 @@ https://github.com/neo-project/neo.org
         }
     </style>
     @RenderSection("Styles", required: false)
+    @if (SharedLocalizer["en"].Value == "zh")
+    {
+        <link href="@Helper.ToCDN("/css/sitecn.min.css", true)" rel="stylesheet" />
+    }
 </head>
 <body id="neo-body">
     <nav class="navbar smart-scroll container-fluid navbar-expand-lg">
@@ -126,7 +130,7 @@ https://github.com/neo-project/neo.org
                                         <img src="@Helper.CDN/images/nav-3.png" />
                                         <div>
                                             <strong>@Localizer["Neo Technology"]</strong>
-                                            <span>@Localizer["Explore the features "]</span>
+                                            <span>@Localizer["Explore the features"]</span>
                                         </div>
                                     </a>
                                 </div>
@@ -136,7 +140,7 @@ https://github.com/neo-project/neo.org
 
                                         <div>
                                             <strong>@Localizer["NEO & GAS"]</strong>
-                                            <span>@Localizer["Neo’s unique duel token model "]</span>
+                                            <span>@Localizer["Neo’s unique duel token model"]</span>
                                         </div>
                                     </a>
                                 </div>
@@ -145,7 +149,7 @@ https://github.com/neo-project/neo.org
                                         <img src="@Helper.CDN/images/nav-4.png" />
                                         <div>
                                             <strong>@Localizer["Contributors & Collaborators"]</strong>
-                                            <span>@Localizer["A global effort "]</span>
+                                            <span>@Localizer["A global effort"]</span>
                                         </div>
                                     </a>
                                 </div>

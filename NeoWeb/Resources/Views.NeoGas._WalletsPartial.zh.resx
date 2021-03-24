@@ -463,7 +463,7 @@
     <value>一个支持 NEO 等多币种的硬件钱包，硬件钱包的私钥存储在硬件芯片中，注重安全性。</value>
   </data>
   <data name="Light Wallet, the app side of this wallet relies on a central service, the hardware side is not networked and runs independently. There is no need to sync block data when using it. Only the transaction data needs to be synchronized on the app side. No payment transactions are generated without hardware authorization." xml:space="preserve">
-    <value>轻钱包，这个钱包APP端依赖于一个中心的服务，硬件端不联网，独立运行。使用时无需同步区块数据。在APP端只需同步交易数据即可。如没有硬件授权不会产生任何支付交易。</value>
+    <value>轻钱包，这个钱包 APP 端依赖于一个中心的服务，硬件端不联网，独立运行。使用时无需同步区块数据。在 APP 端只需同步交易数据即可。如没有硬件授权不会产生任何支付交易。</value>
   </data>
   <data name="This wallet gives you a high degree of control over your digital assets. The private key is encrypted by the hardware wallet stored in the hardware chip. The user is exposed to the full Internet public chain in real time and does not interact with any third party. It is highly secure and needs to be kept safe and secure for the hardware." xml:space="preserve">
     <value>此钱包让你拥有对数字资产的高度掌控权。私钥是通过硬件钱包加密存储在硬件芯片中的的。使用者实时面对全网公链，不与任何第三方有交互。有极高的安全性，需注意硬件的安全和妥善保管。</value>
@@ -472,10 +472,10 @@
     <value>ONTO 是基于区块链技术的数据管理应用，一站式自主管理自我的身份、数据、资产信息，让你的数据成为你能掌控的价值资产。</value>
   </data>
   <data name="Crypto.com App covers all your basic cryptocurrency needs:&lt;br /&gt;- Buy crypto AT TRUE COST, no fees, and no hidden spread markups.&lt;br /&gt;- Buy Bitcoin(BTC), Dogecoin(DOGE), Ether(ETH), Litecoin(LTC), Neo(NEO) and other leading coins with your credit / debit card or bank transfer.&lt;br /&gt;- Securely store, send and receive cryptocurrencies.&lt;br /&gt;- Track 200 + coins with our cryptocurrency price tracker." xml:space="preserve">
-    <value>Crypto.com应用程序涵盖了您所有的基本加密货币需求。
+    <value>Crypto.com 应用程序涵盖了您所有的基本加密货币需求。
 &lt;br /&gt;- 以真实成本购买加密货币，没有费用，也没有隐藏的点差加成。
-&lt;br /&gt;- 用您的信用卡/借记卡或银行转账购买比特币(BTC)、Dogecoin(DOGE)、以太币(ETH)、Litecoin(LTC)、Neo(NEO)和其他主要币种。
+&lt;br /&gt;- 用您的信用卡 / 借记卡或银行转账购买比特币(BTC)、Dogecoin(DOGE)、以太币(ETH)、Litecoin(LTC)、Neo(NEO)和其他主要币种。
 &lt;br /&gt;- 安全地存储、发送和接收加密货币。
-&lt;br /&gt;- 使用我们的加密货币价格跟踪器跟踪200多种硬币。</value>
+&lt;br /&gt;- 使用我们的加密货币价格跟踪器跟踪 200 多种硬币。</value>
   </data>
 </root>

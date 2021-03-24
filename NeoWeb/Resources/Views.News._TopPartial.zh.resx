@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,85 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Base64 decoding:" xml:space="preserve">
-    <value>Base64 解码：</value>
+  <data name="After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
+    <value>经历了4年的稳定主网运行，Neo正在经历有史以来最大的一次进化-向N3版本进行迁移。Neo N3是Neo区块链迄今为止最强大、功能最丰富的版本。</value>
   </data>
-  <data name="Base64 encoding:" xml:space="preserve">
-    <value>Base64 编码：</value>
+  <data name="EVENT" xml:space="preserve">
+    <value>活动</value>
   </data>
-  <data name="Base64 script hash to Neo 3 address:" xml:space="preserve">
-    <value>Base64 脚本哈希转 Neo 3 地址：</value>
+  <data name="FEATURED BLOG ARGICLES" xml:space="preserve">
+    <value>热门博客文章</value>
   </data>
-  <data name="Base64 script hash to script hash (big-endian):" xml:space="preserve">
-    <value>Base64 脚本哈希转脚本哈希（大端序）:</value>
+  <data name="FEATURED EVENT" xml:space="preserve">
+    <value>热门活动</value>
   </data>
-  <data name="Base64 script hash to script hash (little-endian):" xml:space="preserve">
-    <value>Base64 脚本哈希转脚本哈希（小端序）:</value>
-  </data>
-  <data name="Base64 string to big integer:" xml:space="preserve">
-    <value>Base64 格式的字符串转大整数：</value>
-  </data>
-  <data name="Base64 string to hexadecimal string:" xml:space="preserve">
-    <value>Base64 格式的字符串转十六进制字符串：</value>
-  </data>
-  <data name="Big integer to Base64 string:" xml:space="preserve">
-    <value>大整数转 Base64 字符串：</value>
-  </data>
-  <data name="Big integer to hexadecimal string:" xml:space="preserve">
-    <value>大整数转十六进制字符串：</value>
-  </data>
-  <data name="Big-endian to little-endian:" xml:space="preserve">
-    <value>大端序转小端序：</value>
-  </data>
-  <data name="Hexadecimal little-endian string to big integer:" xml:space="preserve">
-    <value>16 进制小端序字符串转大整数：</value>
-  </data>
-  <data name="Hexadecimal little-endian string to UTF8 string:" xml:space="preserve">
-    <value>16 进制小端序字符串转 UTF8 字符串：</value>
-  </data>
-  <data name="Hexadecimal private key to WIF private key:" xml:space="preserve">
-    <value>16 进制私钥转 WIF 私钥：</value>
-  </data>
-  <data name="Little-endian to big-endian:" xml:space="preserve">
-    <value>小端序转大端序：</value>
-  </data>
-  <data name="Neo 3 address to Base64 script hash:" xml:space="preserve">
-    <value>Neo 3 地址转 Base64 脚本哈希：</value>
-  </data>
-  <data name="Neo 3 address to script hash (big-endian):" xml:space="preserve">
-    <value>Neo 3 地址转脚本哈希（大端序）:</value>
-  </data>
-  <data name="Neo 3 address to script hash (little-endian):" xml:space="preserve">
-    <value>Neo 3 地址转脚本哈希（小端序）:</value>
-  </data>
-  <data name="Private key to Neo3 address:" xml:space="preserve">
-    <value>私钥转 Neo3 地址：</value>
-  </data>
-  <data name="Private key to public key:" xml:space="preserve">
-    <value>私钥转公钥：</value>
-  </data>
-  <data name="Private key to script hash (big-endian):" xml:space="preserve">
-    <value>私钥转脚本哈希（大端序）:</value>
-  </data>
-  <data name="Private key to script hash (little-endian):" xml:space="preserve">
-    <value>私钥转脚本哈希（小端序）:</value>
-  </data>
-  <data name="Public key to Neo3 Address:" xml:space="preserve">
-    <value>公钥转 Neo3 地址：</value>
-  </data>
-  <data name="Public key to script hash (big endian):" xml:space="preserve">
-    <value>公钥转脚本哈希（大端序）:</value>
-  </data>
-  <data name="Public key to script hash (little endian):" xml:space="preserve">
-    <value>公钥转脚本哈希（小端序）:</value>
-  </data>
-  <data name="Script hash to Neo3 address:" xml:space="preserve">
-    <value>脚本哈希转 Neo3 地址：</value>
-  </data>
-  <data name="Smart contract script analysis:" xml:space="preserve">
-    <value>智能合约脚本解析：</value>
-  </data>
-  <data name="UTF8 string to hexadecimal string:" xml:space="preserve">
-    <value>UTF8 字符串转十六进制字符串：</value>
+  <data name="NEWS" xml:space="preserve">
+    <value>新闻</value>
   </data>
 </root>

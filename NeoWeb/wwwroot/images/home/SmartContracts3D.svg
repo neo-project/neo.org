@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="83px" height="91px" viewBox="0 0 83 91" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon</title>
+    <defs>
+        <polygon id="path-1" points="38.34 -2.13162821e-14 67.8021842 17.01 67.8021842 51.03 38.34 68.04 8.87781576 51.03 8.87781576 17.01"></polygon>
+        <filter x="-31.5%" y="-19.1%" width="145.4%" height="158.8%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="-6" dy="7" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.316369017   0 0 0 0 0.366987588   0 0 0 0 0.353495709  0 0 0 0.257409583 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="-3" dy="3" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="2.5" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.144614907 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="HOMEPAGE-MOBILE" transform="translate(-4.000000, -3220.000000)">
+            <g id="Building-blocks-panel" transform="translate(8.000000, 2180.000000)">
+                <g id="Features" transform="translate(0.000000, 643.000000)">
+                    <g id="Smart-Contracts" transform="translate(5.000000, 400.000000)">
+                        <g id="Icon" transform="translate(0.500000, 1.000000)">
+                            <polygon id="Polygon-Copy-2" stroke="#00E599" stroke-width="0.648" fill="#FFFFFF" points="34.02 8.28 63.4821842 25.29 63.4821842 59.31 34.02 76.32 4.55781576 59.31 4.55781576 25.29"></polygon>
+                            <g id="Polygon-Copy-7">
+                                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                                <use fill="#F0F5F6" fill-rule="evenodd" xlink:href="#path-1"></use>
+                            </g>
+                            <g id="Group-21" transform="translate(28.080000, 21.240000)">
+                                <path d="M5.19378964,2.69677539 L19.27695,2.69677539 C19.9389002,2.69677539 20.4755168,3.23339204 20.4755168,3.89534223 L20.4755168,24.2709785 C20.4755168,24.9329287 19.9389002,25.4695453 19.27695,25.4695453 L5.19378964,25.4695453 C4.53183945,25.4695453 3.9952228,24.9329287 3.9952228,24.2709785 L3.9952228,3.89534223 C3.9952228,3.23339204 4.53183945,2.69677539 5.19378964,2.69677539 Z" id="Rectangle" stroke="#000033" stroke-width="0.575312083" fill="#FFFFFF"></path>
+                                <line x1="6.69199819" y1="5.9928342" x2="18.0783832" y2="5.9928342" id="Line-2" stroke="#000033" stroke-width="0.5" stroke-linecap="square"></line>
+                                <line x1="6.69199819" y1="6.8568342" x2="18.0783832" y2="6.8568342" id="Line-2" stroke="#000033" stroke-width="0.5" stroke-linecap="square"></line>
+                                <line x1="5.19378964" y1="5.9928342" x2="5.49343135" y2="5.9928342" id="Line-2" stroke="#000033" stroke-width="0.59928342" stroke-linecap="square"></line>
+                                <line x1="5.19378964" y1="11.0867433" x2="5.49343135" y2="11.0867433" id="Line-2" stroke="#000033" stroke-width="0.59928342" stroke-linecap="square"></line>
+                                <line x1="6.69199819" y1="6.89175933" x2="15.6812495" y2="6.89175933" id="Line-2" stroke="#000033" stroke-width="0.59928342" stroke-linecap="square"></line>
+                                <line x1="6.69199819" y1="7.79068446" x2="18.0783832" y2="7.79068446" id="Line-2" stroke="#000033" stroke-width="0.5" stroke-linecap="square"></line>
+                                <line x1="6.69199819" y1="8.68960958" x2="12.085549" y2="8.68960958" id="Line-2" stroke="#000033" stroke-width="0.59928342" stroke-linecap="square"></line>
+                                <line x1="6.69199819" y1="11.0867433" x2="18.0783832" y2="11.0867433" id="Line-2" stroke="#000033" stroke-width="0.5" stroke-linecap="square"></line>
+                                <line x1="6.69199819" y1="11.9856684" x2="15.6812495" y2="11.9856684" id="Line-2" stroke="#000033" stroke-width="0.59928342" stroke-linecap="square"></line>
+                                <line x1="6.69199819" y1="12.8845935" x2="18.0783832" y2="12.8845935" id="Line-2" stroke="#000033" stroke-width="0.5" stroke-linecap="square"></line>
+                                <line x1="6.69199819" y1="13.7835187" x2="12.085549" y2="13.7835187" id="Line-2" stroke="#000033" stroke-width="0.59928342" stroke-linecap="square"></line>
+                                <line x1="5.19378964" y1="15.8810106" x2="5.49343135" y2="15.8810106" id="Line-2" stroke="#000033" stroke-width="0.59928342" stroke-linecap="square"></line>
+                                <line x1="6.69199819" y1="15.8810106" x2="18.0783832" y2="15.8810106" id="Line-2" stroke="#000033" stroke-width="0.5" stroke-linecap="square"></line>
+                                <line x1="6.69199819" y1="16.7799357" x2="15.6812495" y2="16.7799357" id="Line-2" stroke="#000033" stroke-width="0.59928342" stroke-linecap="square"></line>
+                                <line x1="6.69199819" y1="17.6788609" x2="18.0783832" y2="17.6788609" id="Line-2" stroke="#000033" stroke-width="0.5" stroke-linecap="square"></line>
+                                <line x1="6.69199819" y1="18.577786" x2="12.085549" y2="18.577786" id="Line-2" stroke="#000033" stroke-width="0.59928342" stroke-linecap="square"></line>
+                                <line x1="12.6848324" y1="22.4731282" x2="18.0783832" y2="22.4731282" id="Line-2" stroke="#000033" stroke-width="0.5" stroke-linecap="square"></line>
+                                <path d="M1.19856684,-9.82254278e-14 L15.2817272,-9.82254278e-14 C15.9436774,-9.95228858e-14 16.480294,0.536616652 16.480294,1.19856684 L16.480294,21.5742031 C16.480294,22.2361533 15.9436774,22.7727699 15.2817272,22.7727699 L1.19856684,22.7727699 C0.536616652,22.7727699 9.69243937e-16,22.2361533 0,21.5742031 L0,1.19856684 C1.40979087e-16,0.536616652 0.536616652,-9.81038295e-14 1.19856684,-9.82254278e-14 Z" id="Rectangle" stroke="#000033" stroke-width="0.575312083" fill="#FFFFFF"></path>
+                                <line x1="1.19856684" y1="8.38996787" x2="1.49820855" y2="8.38996787" id="Line-2" stroke="#000033" stroke-width="0.5" stroke-linecap="square"></line>
+                                <line x1="2.69677539" y1="8.38996787" x2="14.0831604" y2="8.38996787" id="Line-2" stroke="#000033" stroke-width="0.5" stroke-linecap="square"></line>
+                                <line x1="2.69677539" y1="9.288893" x2="11.6860267" y2="9.288893" id="Line-2" stroke="#000033" stroke-width="0.5" stroke-linecap="square"></line>
+                                <line x1="2.69677539" y1="10.1878181" x2="14.0831604" y2="10.1878181" id="Line-2" stroke="#000033" stroke-width="0.5" stroke-linecap="square"></line>
+                                <line x1="2.69677539" y1="11.0867433" x2="8.09032616" y2="11.0867433" id="Line-2" stroke="#000033" stroke-width="0.5" stroke-linecap="square"></line>
+                                <line x1="2.97832616" y1="6.11874326" x2="14.1383262" y2="6.11874326" id="Line-2" stroke="#000033" stroke-width="0.5" stroke-linecap="square"></line>
+                                <line x1="2.97832616" y1="5.25474326" x2="14.1383262" y2="5.25474326" id="Line-2" stroke="#000033" stroke-width="0.5" stroke-linecap="square"></line>
+                                <line x1="2.97832616" y1="4.39074326" x2="14.1383262" y2="4.39074326" id="Line-2" stroke="#000033" stroke-width="0.5" stroke-linecap="square"></line>
+                                <line x1="2.97832616" y1="3.52674326" x2="14.1383262" y2="3.52674326" id="Line-2" stroke="#000033" stroke-width="0.5" stroke-linecap="square"></line>
+                                <line x1="1.19856684" y1="13.1842352" x2="1.49820855" y2="13.1842352" id="Line-2" stroke="#000033" stroke-width="0.5" stroke-linecap="square"></line>
+                                <line x1="2.69677539" y1="13.1842352" x2="14.0831604" y2="13.1842352" id="Line-2" stroke="#000033" stroke-width="0.5" stroke-linecap="square"></line>
+                                <line x1="2.69677539" y1="14.0831604" x2="11.6860267" y2="14.0831604" id="Line-2" stroke="#000033" stroke-width="0.5" stroke-linecap="square"></line>
+                                <line x1="2.69677539" y1="14.9820855" x2="14.0831604" y2="14.9820855" id="Line-2" stroke="#000033" stroke-width="0.5" stroke-linecap="square"></line>
+                                <line x1="2.69677539" y1="15.8810106" x2="8.09032616" y2="15.8810106" id="Line-2" stroke="#000033" stroke-width="0.5" stroke-linecap="square"></line>
+                                <line x1="8.68960958" y1="19.7763528" x2="14.0831604" y2="19.7763528" id="Line-2" stroke="#00E599" stroke-width="0.5" stroke-linecap="square"></line>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
