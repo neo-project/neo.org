@@ -1,33 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="123px" height="160px" viewBox="0 0 123 160" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>编组 3</title>
-    <defs>
-        <rect id="path-1" x="0" y="0" width="339" height="191" rx="4"></rect>
-    </defs>
-    <g id="Homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="HOMEPAGE-PT-0.2" transform="translate(-843.000000, -882.000000)">
-            <g id="Button-bar" transform="translate(266.000000, 767.000000)">
-                <g id="Group-4-+-Group-4-Copy-Mask" transform="translate(361.000000, 84.000000)">
-                    <rect id="Mask" fill="#00E599" x="0" y="0" width="339" height="191" rx="4"></rect>
-                    <g id="编组-3">
-                        <mask id="mask-2" fill="white">
-                            <use xlink:href="#path-1"></use>
-                        </mask>
-                        <g id="蒙版"></g>
-                        <g mask="url(#mask-2)">
-                            <g transform="translate(212.500000, 34.500000)">
-                                <g id="Group-4" transform="translate(42.500000, 0.000000)">
-                                    <polygon id="Polygon" stroke="#000033" stroke-width="3.168" fill="#FFFFFF" points="59.4594 1.68824954e-14 110.952751 29.7297 110.952751 89.1891 59.4594 118.9188 7.96604911 89.1891 7.96604911 29.7297"></polygon>
-                                    <polygon id="Path" fill="#000033" fill-rule="nonzero" points="36.2344087 42.3466687 36.2344087 76.5431916 58.4369312 84.5121816 58.4369312 50.0320498 82.4430943 41.1870856 60.656904 33.3843492"></polygon>
-                                    <polygon id="Path" stroke="#000033" stroke-width="0.99" fill="#000033" fill-rule="nonzero" points="60.243366 51.0155997 60.243366 69.722608 82.4514768 77.6776271 82.4416972 42.8077077"></polygon>
-                                </g>
-                                <g id="Group-4-Copy" transform="translate(0.000000, 52.000000)">
-                                    <polygon id="Polygon" stroke="#000033" stroke-width="3.168" fill="#FFFFFF" points="59.4594 1.68824954e-14 110.952751 29.7297 110.952751 89.1891 59.4594 118.9188 7.96604911 89.1891 7.96604911 29.7297"></polygon>
-                                    <polygon id="Path" stroke="#000033" stroke-width="1.32" fill-rule="nonzero" points="36.2344087 42.3466687 36.2344087 76.5431916 58.4369312 84.5121816 58.4369312 50.0320498 82.4430943 41.1870856 60.656904 33.3843492"></polygon>
-                                    <polygon id="Path" stroke="#000033" stroke-width="1.32" fill-rule="nonzero" points="61.343366 51.5655997 61.343366 70.272608 83.5514768 78.2276271 83.5416972 43.3577077"></polygon>
-                                </g>
-                            </g>
+<svg width="59px" height="64px" viewBox="0 0 59 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 2</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="HOMEPAGE-Desktop" transform="translate(-1318.000000, -1559.000000)" stroke="#000033">
+            <g id="Neo-IS-NEW-AGAIN-panel" transform="translate(261.500000, 1264.706357)">
+                <g id="Group-7" transform="translate(803.500000, 276.793643)">
+                    <g id="Group-2" transform="translate(254.000000, 20.500000)">
+                        <g id="Group-4" transform="translate(14.809200, 0.000000)">
+                            <polygon id="Polygon" stroke-width="0.86688" fill="#FFFFFF" points="20.5884 0 38.4184774 10.2942 38.4184774 30.8826 20.5884 41.1768 2.75832258 30.8826 2.75832258 10.2942"></polygon>
+                            <path d="M20.6818325,11.8785197 L27.3154117,14.3185608 L19.6170321,17.2316662 L19.6170321,29.188079 L12.5808,26.5943495 L12.5808,14.9317132 L20.6818325,11.8785197 Z" id="Path" stroke-width="0.6" fill="#00E599" fill-rule="nonzero"></path>
+                            <path d="M27.8705336,15.6136008 L27.8734865,27.013036 L21.2496,24.4441071 L21.2496,18.264176 L27.8705336,15.6136008 Z" id="Path" stroke-width="0.6" fill="#00E599" fill-rule="nonzero"></path>
                         </g>
+                        <polygon id="Polygon" stroke-width="0.86688" fill="#FFFFFF" points="20.5884 18.06 38.4184774 28.3542 38.4184774 48.9426 20.5884 59.2368 2.75832258 48.9426 2.75832258 28.3542"></polygon>
+                        <polygon id="Path" stroke-width="0.5" fill="#FFFFFF" fill-rule="nonzero" points="12.2808 32.7841804 12.2808 44.8634956 19.9170321 47.6784 19.9170321 35.498905 28.1736 32.3745783 20.6805592 29.6184"></polygon>
+                        <polygon id="Path" stroke-width="0.5" fill="#FFFFFF" fill-rule="nonzero" points="20.9496 36.1211288 20.9496 42.7095303 28.1736 45.5112 28.1704188 33.2304"></polygon>
                     </g>
                 </g>
             </g>
