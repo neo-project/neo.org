@@ -1,11 +1,11 @@
-@using Microsoft.AspNetCore.Mvc.Localization
+﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @{ Layout = null; }
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @*<link rel="stylesheet" href="@Helper.ToCDN("/css/site.min.css", true)">*@
     <link rel="stylesheet" href="@Helper.ToCDN("/css/tour.min.css", true)">
     <style>
@@ -55,7 +55,7 @@
                     <div class="text-group text-guide-1 fade-in">
                         <div class="text-group-head text-group-1-head1">
                             <span>
-                                @Localizer["YOU DIN'T KNOW"]
+                                @Localizer["YOU DIDN'T KNOW"]
                             </span>
                             <br />
                             <span style="color: #000033">

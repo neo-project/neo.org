@@ -106,17 +106,13 @@ $(document).ready(function () {
 
         if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
             if (xDiff > 0) {
-                nextSlide();
+                if (currentSlide !== 1) {
+                    nextSlide();
+                }
             } else {
                 previousSlide();
             }
-        } else {
-            if (yDiff > 0) {
-                /* up swipe */
-            } else {
-                /* down swipe */
-            }
-        }
+        } 
         /* reset values */
         xDown = null;
         yDown = null;
