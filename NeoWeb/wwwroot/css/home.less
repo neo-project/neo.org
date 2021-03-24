@@ -515,9 +515,9 @@ html body {
     flex-direction: column;
     align-items: center;
     align-self: center;
-    max-width: 1200px;
+    max-width: 1380px;
 
-    @media only screen and (max-width: 1200px) { // tablet
+    @media only screen and (max-width: 1400px) { // tablet
         max-width: 991px;
     }
 
@@ -642,9 +642,8 @@ html body {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    grid-column-gap: 22px;
-    grid-row-gap: 22px;
     flex-wrap: wrap;
+    .work-sans-bold;
 
     @media only screen and (max-width: 767.98px) {
         align-items: center;
@@ -653,6 +652,7 @@ html body {
 }
 
 .float-card {
+    margin: 11px;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -665,7 +665,7 @@ html body {
     cursor: pointer;
 
     @media only screen and (max-width: 1400px) {
-        width: 17.625rem;
+        width: 282px;
     }
 
     @media only screen and (max-width: 767.98px) {
@@ -821,8 +821,8 @@ html body {
 
 .blocks-medium-img {
     width: 95%;
-    transform: translateY(-3rem);
-    margin-bottom: -6rem;
+    transform: translateY(-24px);
+    margin-bottom: -72px;
 
     @media only screen and (min-width: 1400px) {
         display: none;
@@ -912,10 +912,6 @@ html body {
     z-index: 1;
 
     @media only screen and (max-width: 1400px) {
-        margin-right: 2.5%;
-    }
-
-    @media only screen and (max-width: 1200px) {
         margin-right: 12px;
     }
 
@@ -938,7 +934,7 @@ html body {
     display: flex;
     flex-direction: column;
     align-self: center;
-    width: 1400px;
+    width: 1380px;
     transform: translateY(-48px);
     margin-bottom: -24px;
 
@@ -995,7 +991,7 @@ html body {
     box-shadow: -30px 35px 30px 0px rgba(81, 94, 90, 0.26), -10px 17px 13px 0px rgba(0, 0, 0, 0.14);
     cursor: pointer;
 
-    @media only screen and (max-width: 1200px) {
+    @media only screen and (max-width: 1400px) {
         height: 88px;
         width: 88px;
     }
@@ -1004,7 +1000,7 @@ html body {
         .language-img {
             width: 64px;
 
-            @media only screen and (max-width: 1200px) {
+            @media only screen and (max-width: 1400px) {
                 width: 48px;
             }
         }
@@ -1014,7 +1010,7 @@ html body {
         .language-img {
             width: 64px;
 
-            @media only screen and (max-width: 1200px) {
+            @media only screen and (max-width: 1400px) {
                 width: 48px;
             }
         }
@@ -1024,7 +1020,7 @@ html body {
         .language-img {
             width: 86px;
 
-            @media only screen and (max-width: 1200px) {
+            @media only screen and (max-width: 1400px) {
                 width: 64px;
             }
         }
@@ -1034,7 +1030,7 @@ html body {
         .language-img {
             width: 52px;
 
-            @media only screen and (max-width: 1200px) {
+            @media only screen and (max-width: 1400px) {
                 width: 40px;
             }
         }
@@ -1044,7 +1040,7 @@ html body {
         .language-img {
             width: 54px;
 
-            @media only screen and (max-width: 1200px) {
+            @media only screen and (max-width: 1400px) {
                 width: 40px;
             }
         }
@@ -1272,7 +1268,7 @@ html body {
 
 .connection-line-row {
     align-self: center;
-    width: 1400px;
+    width: 1380px;
 
     @media only screen and (max-width: 1400px) {
         width: 767px;
@@ -1313,7 +1309,7 @@ html body {
 .dual-tokens-row {
     display: flex;
     align-self: center;
-    width: 1400px;
+    width: 1380px;
     grid-column-gap: 7.375rem;
     margin-bottom: 80px;
 
@@ -1357,10 +1353,12 @@ html body {
         flex-direction: column;
         grid-row-gap: 3.5rem;
         padding: 0 2% 0 0;
+        width: 820px;
 
         @media only screen and (max-width: 1400px) {
             grid-row-gap: 2.175rem;
             padding: 0;
+            width: 480px;
         }
 
         @media only screen and (max-width: 767.98px) {
@@ -1442,12 +1440,12 @@ html body {
 .header-img-wrapper {
     margin-top: 1.5rem;
     height: 318px;
-    width: 613px;
+    width: 874px;
 
     @media only screen and (max-width: 1400px) {
         margin-top: 1.25rem;
         height: 13.125rem;
-        width: 30rem;
+        width: 480px;
         overflow: hidden;
     }
 
@@ -1975,7 +1973,7 @@ html body {
     justify-content: space-between;
     align-items: center;
     align-self: center;
-    width: 1400px;
+    width: 1380px;
     grid-column-gap: 4.5rem;
 
     @media only screen and (max-width: 1400px) {
@@ -2009,7 +2007,6 @@ html body {
 
     @media only screen and (max-width: 767.98px) {
         grid-row-gap: 0.8rem;
-        justify-content: space-between;
     }
 }
 
@@ -2040,13 +2037,25 @@ html body {
     }
 }
 
+.github-icon {
+    width: 13.875rem;
+    height: 4.375rem;
 
+    @media only screen and (max-width: 1400px) {
+        width: 134px;
+        height: 44px;
+    }
+
+    @media only screen and (max-width: 767.98px) {
+        width: 109px;
+        height: 30px;
+    }
+}
 // Global Contributors Img
-
 .contributors-img-wrapper {
     margin-top: 7.875rem;
     align-self: center;
-    width: 1400px;
+    width: 1380px;
 
     @media only screen and (max-width: 1400px) {
         width: 90%;
@@ -2059,7 +2068,7 @@ html body {
 }
 
 .contributors-img {
-    width: 1400px;
+    width: 1380px;
     align-self: center;
 
     @media only screen and (max-width: 1400px) {
@@ -2072,7 +2081,7 @@ html body {
     justify-content: space-between;
     align-self: center;
     align-items: center;
-    width: 1400px;
+    width: 1380px;
     .bold;
     font-size: 2.25rem;
 
@@ -2148,7 +2157,7 @@ html body {
     height: 100%;
     background-color: white;
 
-    @media only screen and (max-width: 1200px) {
+    @media only screen and (max-width: 1400px) {
         padding: 5%;
     }
 
@@ -2201,7 +2210,7 @@ html body {
         height: 403px;
         background-color: #e8f0f5;
 
-        @media only screen and (max-width: 1200px) {
+        @media only screen and (max-width: 1400px) {
             width: 35%;
         }
 
