@@ -124,7 +124,7 @@
     <value>治理委员会成员将有机会成为共识节点，我们推荐所有候选人在注册前进行相关节点设置。</value>
   </data>
   <data name="Any Neo wallet address can register as a candidate to be elected to the Neo Council." xml:space="preserve">
-    <value>任何Neo钱包地址都可以注册成为参选Neo理事会的候选人。</value>
+    <value>任何 Neo 钱包地址都可以注册成为参选 Neo 理事会的候选人。</value>
   </data>
   <data name="Breakdown of the process" xml:space="preserve">
     <value>流程详解</value>
@@ -136,10 +136,13 @@
     <value>候选人</value>
   </data>
   <data name="COUNCIL" xml:space="preserve">
-    <value>节点</value>
+    <value>理事会</value>
   </data>
   <data name="Each NEO token represents one vote in the election of the Neo Council, who is responsible for making decisions for the Neo blockchain. NEO holders should vote in candidates that they feel will represent their needs and are capable of maintaining the health of the Neo network." xml:space="preserve">
-    <value>每个NEO通证代表一张Neo理事会成员的选票。NEO持有者应将选票投给可代表社区需求并将保证Neo健康发展的候选人。</value>
+    <value>每个 NEO 通证代表一张 Neo 理事会成员的选票。NEO 持有者应将选票投给可代表社区需求并将保证 Neo 健康发展的候选人。</value>
+  </data>
+  <data name="GAS distribution" xml:space="preserve">
+    <value>GAS 分发机制</value>
   </data>
   <data name="Governance" xml:space="preserve">
     <value>治理</value>
@@ -151,33 +154,33 @@
     <value>主要参与治理的角色</value>
   </data>
   <data name="NEO holders are the stakeholders of the Neo ecosystem." xml:space="preserve">
-    <value>NEO持有者是Neo区块链的所有者。</value>
+    <value>NEO 持有者是 Neo 区块链的所有者。</value>
   </data>
   <data name="NEO holders participate in governance by voting in a Neo Council to manage the Neo Blockchain.The Neo Council will consist of council members and consensus nodes who provide services, maintain the liveness of the network, and adjust critical blockchain params. GAS rewards will be distributed to both NEO votes and council members." xml:space="preserve">
-    <value>通过引入链上治理委员会机制，Neo在去中心化的道路上迈出了更坚实的一步。</value>
+    <value>通过引入链上治理委员会机制，Neo 在去中心化的道路上迈出了更坚实的一步。</value>
   </data>
   <data name="Neo is becoming a more decentralized blockchain through its new on-chain governance mechanism." xml:space="preserve">
-    <value>通过引入链上治理委员会机制，Neo在去中心化的道路上迈出了更坚实的一步。</value>
+    <value>通过引入链上治理委员会机制，Neo 在去中心化的道路上迈出了更坚实的一步。</value>
   </data>
   <data name="NEO token holders decide who is in charge of maintaining the Neo network through the election of a Neo Council. GAS token rewards are distributed to voters and council members alike." xml:space="preserve">
-    <value>NEO持有者将通过选举Neo理事会成员来决定Neo区块链的治理权。投票者与理事会成员都将会获得GAS激励。</value>
+    <value>NEO 持有者将通过选举 Neo 理事会成员来决定 Neo 区块链的治理权。投票者与理事会成员都将会获得 GAS 激励。</value>
   </data>
   <data name="ROLE" xml:space="preserve">
     <value>角色</value>
   </data>
-  <data name="String1" xml:space="preserve">
-    <value>理事会</value>
-  </data>
   <data name="The council is responsible for maintaining the health and liveness of the Neo network. Responsibilities include adjusting blockchain parameters, such as system fees, and electing oracle nodes." xml:space="preserve">
-    <value>理事会成员负责维护Neo区块链的正常运行与活跃度。理事会可对网络费用等链上数据进行修改提案，并可指派Oracle节点等角色。</value>
+    <value>理事会成员负责维护 Neo 区块链的正常运行与活跃度。理事会可对网络费用等链上数据进行修改提案，并可指派 Oracle 节点等角色。</value>
   </data>
   <data name="The council is responsible for maintaining the health and liveness of the Neo network.Responsibilities include adjusting blockchain parameters, such as system fees, and electing oracle nodes." xml:space="preserve">
-    <value>理事会成员负责维护Neo区块链的正常运行与活跃度。理事会可对网络费用等链上数据进行修改提案，并可指派Oracle节点等角色。</value>
+    <value>理事会成员负责维护 Neo 区块链的正常运行与活跃度。理事会可对网络费用等链上数据进行修改提案，并可指派 Oracle 节点等角色。</value>
   </data>
   <data name="The top 21 candidates are voted in as members of the Neo Council." xml:space="preserve">
-    <value>排名前21位的候选人将入选Neo理事会。</value>
+    <value>排名前 21 位的候选人将入选 Neo 理事会。</value>
   </data>
   <data name="TOKEN&lt;br /&gt;HOLDERS" xml:space="preserve">
     <value>&lt;br /&gt;持有者</value>
+  </data>
+  <data name="Voting is planned to begin three months after the launch of the Neo N3 MainNet." xml:space="preserve">
+    <value>投票预计将在 Neo N3 主网上线 3 个月后开启。</value>
   </data>
 </root>
