@@ -66,10 +66,10 @@
 
     <div class="row dual-row get-started-row">
         <div class="col-12 col-md-6 col-left">
-            <div class="work-sans-bold type-text">
-                <span><span class="green">@Localizer["Neo"]</span> @Localizer["is"]</span>
+            <div class="get-started-title">
+                <span class="green">@Localizer["Neo"]</span> @Localizer["is"]
                 <br />
-                <span class="dark-blue text-uppercase type-text" id="typetext"></span>
+                @Localizer["new again"]
             </div>
             <div class="explanation">
                 @Localizer["After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]
@@ -91,7 +91,7 @@
         <div class="float-card">
             <div class="card-text-wrapper">
                 <div class="green-vertline"></div>
-                <div class="text-uppercase card-text">
+                <div class="card-text">
                     @getStartedItems[i, 0]
                 </div>
             </div>
@@ -292,7 +292,7 @@
         <div class="col-left">
             <div class="dual-tokens-paragraph">
                 @Localizer["NEO token holders are the owners of the network who are able to participate in governance. NEO holders also recieve passive distribution of the network utility token, GAS - No staking required. GAS rewards are increased for voting participation."]
-                </br /><br />             @Localizer["GAS is used to pay for network fees, smart contract deployments, and in dApp purchases."]
+                <br /><br />             @Localizer["GAS is used to pay for network fees, smart contract deployments, and in dApp purchases."]
             </div>
 
             <div class="dual-tokens-horizLine"></div>
@@ -514,8 +514,8 @@
         <div class="before-contributors"></div>
     </div>
 
-    <div class="row contributors-row">
-        <div class=" col-12 col-md">
+    <div class="contributors-row">
+        <div class="col-left">
             <div class="square-block contributors">
                 <div class="square-block-title contributors">
                     <span class="green">Global</span><br />
@@ -526,7 +526,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-auto col-github">
+        <div class="col-right">
             <div class="github-container">
                 <div class="github-status">
                     <span class="github-status-num" id="github-stars"></span>stars
@@ -541,68 +541,62 @@
         </div>
     </div>
 
-    <div class="row horiz-row contributors-row">
-        <div class="contributors-wrapper">
-            <div class="contributors-title @SharedLocalizer["d-none-zh"]">
-                <span class="green">@Localizer["Global"]</span> @Localizer["Contributors"]
-            </div>
-            <div class="contributors-title @SharedLocalizer["d-none"]">
-                <span class="green">@Localizer["Global"]</span> @Localizer["Contributors"]
-            </div>
-            <div class="contributors-subtitle">
-                @Localizer["Neo is joint effort by community groups from all over the world."]
-            </div>
+    
+    <div class="contributors-img-wrapper" id="scroll-wrapper">
+        <img class="contributors-img" usemap="#contributorsmap" data-original="@Helper.ToCDN("/images/home/Contributors.png")">
+        <map name="contributorsmap">
+            <area shape="rect" coords="1950 550 2125 605" alt="NDG Enterprise" href="https://www.google.com" />
+            <area shape="rect" coords="2150 550 2335 605" alt="NDG Enterprise" href="https://www.google.com" />
+        </map>
+    </div>
+    <div class="scroll-buttons">
+        <i class="iconfont disabled" id="scroll-left-btn">&#xe61c;</i>
+        <i class="iconfont" id="scroll-right-btn">&#xe61b;</i>
+    </div>
 
-            <img class="contributors-img" usemap="#contributorsmap" data-original="@Helper.ToCDN("/images/home/Contributors.png")">
-            <map name="contributorsmap">
-                <area shape="rect" coords="800 375 1100 525" alt="NDG Enterprise" href="https://www.google.com" />
-            </map>
-
-            <div class="additional-wrapper">
-                <div class="additional-item">
-                    <div class="additional-title  @SharedLocalizer["d-none-zh"]">
-                        @Localizer["Join the"] <span class="green">@Localizer["Community"]</span>
-                    </div>
-                    <div class="additional-title  @SharedLocalizer["d-none"]">
-                        @Localizer["Join the"] <span class="green">@Localizer["Community"]</span>
-                    </div>
-                    <div class="additional-icons">
-                        <i class="iconfont additional-icon">&#xe616;</i>
-                        <i class="iconfont additional-icon">&#xe60a;</i>
-                        <i class="iconfont additional-icon">&#xe60d;</i>
-                        <i class="iconfont additional-icon">&#xe606;</i>
-                        <i class="iconfont additional-icon">&#xe60e;</i>
-                        <i class="iconfont additional-icon">&#xe607;</i>
-                        <i class="iconfont additional-icon">&#xe60a;</i>
-                        <i class="iconfont additional-icon">&#xe608;</i>
-                    </div>
-                </div>
-                <div class="additional-item">
-                    <div class="additional-title  @SharedLocalizer["d-none-zh"]">
-                        @Localizer["Explore the"] <span class="green">@Localizer["Ecosystem"]</span>
-                    </div>
-                    <div class="additional-title  @SharedLocalizer["d-none"]">
-                        @Localizer["Explore the"] <span class="green">@Localizer["Ecosystem"]</span>
-                    </div>
-                    <div class="additional-icons">
-                        <i class="iconfont additional-icon">&#xe611;</i>
-                    </div>
-                </div>
-                <div class="additional-item">
-                    <div class="additional-title  @SharedLocalizer["d-none-zh"]">
-                        @Localizer["Industry"] <span class="green">@Localizer["Partners"]</span>
-                    </div>
-                    <div class="additional-title  @SharedLocalizer["d-none"]">
-                        @Localizer["Industry"] <span class="green">@Localizer["Partners"]</span>
-                    </div>
-                    <div class="additional-icons">
-                        <i class="iconfont additional-icon">&#xe620;</i>
-                        <img class="additional-img" data-original="@Helper.ToCDN("/images/home/PolyNetwork.png")" />
-                        <i class="iconfont additional-icon">&#xe625;</i>
-                        <i class="iconfont additional-icon">&#xe628;</i>
-                        <i class="iconfont additional-icon">&#xe62a;</i>
-                    </div>
-                </div>
+    <div class="additional-wrapper">
+        <div class="additional-item">
+            <div class="additional-title  @SharedLocalizer["d-none-zh"]">
+                @Localizer["Join the"] <span class="green">@Localizer["Community"]</span>
+            </div>
+            <div class="additional-title  @SharedLocalizer["d-none"]">
+                @Localizer["Join the"] <span class="green">@Localizer["Community"]</span>
+            </div>
+            <div class="additional-icons">
+                <i class="iconfont additional-icon">&#xe616;</i>
+                <i class="iconfont additional-icon">&#xe60a;</i>
+                <i class="iconfont additional-icon">&#xe60d;</i>
+                <i class="iconfont additional-icon">&#xe606;</i>
+                <i class="iconfont additional-icon">&#xe60e;</i>
+                <i class="iconfont additional-icon">&#xe607;</i>
+                <i class="iconfont additional-icon">&#xe60a;</i>
+                <i class="iconfont additional-icon">&#xe608;</i>
+            </div>
+        </div>
+        <div class="additional-item">
+            <div class="additional-title  @SharedLocalizer["d-none-zh"]">
+                @Localizer["Explore the"] <span class="green">@Localizer["Ecosystem"]</span>
+            </div>
+            <div class="additional-title  @SharedLocalizer["d-none"]">
+                @Localizer["Explore the"] <span class="green">@Localizer["Ecosystem"]</span>
+            </div>
+            <div class="additional-icons">
+                <i class="iconfont additional-icon">&#xe611;</i>
+            </div>
+        </div>
+        <div class="additional-item">
+            <div class="additional-title  @SharedLocalizer["d-none-zh"]">
+                @Localizer["Industry"] <span class="green">@Localizer["Partners"]</span>
+            </div>
+            <div class="additional-title  @SharedLocalizer["d-none"]">
+                @Localizer["Industry"] <span class="green">@Localizer["Partners"]</span>
+            </div>
+            <div class="additional-icons">
+                <i class="iconfont additional-icon">&#xe620;</i>
+                <img class="additional-img" data-original="@Helper.ToCDN("/images/home/PolyNetwork.png")" />
+                <i class="iconfont additional-icon">&#xe625;</i>
+                <i class="iconfont additional-icon">&#xe628;</i>
+                <i class="iconfont additional-icon">&#xe62a;</i>
             </div>
         </div>
     </div>
@@ -680,6 +674,59 @@
 
             $("#result-holding").html(holdingGas)
             $("#result-governance").html(governanceGas)
+        })
+
+        const scrollDistance = 300;
+
+        function debounce(func, wait, immediate) {
+            var timeout;
+            return function () {
+                var context = this, args = arguments;
+                var later = function () {
+                    timeout = null;
+                    if (!immediate) func.apply(context, args);
+                };
+                var callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) func.apply(context, args);
+            };
+        };
+
+        $("#scroll-wrapper").on("scroll", debounce(function (e) {
+            const scrollWrapper = $("#scroll-wrapper")
+            console.log(scrollWrapper.scrollLeft(), scrollWrapper.innerWidth());
+            if (scrollWrapper.scrollLeft() > 0) {
+                $("#scroll-left-btn").removeClass("disabled")
+            } else {
+                $("#scroll-left-btn").addClass("disabled")
+            }
+            if (scrollWrapper.scrollLeft() + 8 < scrollWrapper.width()) {
+                $("#scroll-right-btn").removeClass("disabled")
+            } else {
+                $("#scroll-right-btn").addClass("disabled")
+            }
+        }, 50))
+
+        $("#scroll-left-btn").click(function (e) {
+            if ($(this).hasClass("disabled")) {
+                e.preventDefault();
+                return;
+            }
+
+            $("#scroll-wrapper").animate({
+                scrollLeft: "-=" + scrollDistance
+            }, 650)
+        })
+
+        $("#scroll-right-btn").click(function (e) {
+            if ($(this).hasClass("disabled")) {
+                e.preventDefault();
+                return;
+            }
+            $("#scroll-wrapper").animate({
+                scrollLeft: "+=" + scrollDistance
+            }, 650)
         })
     </script>
     <script>
