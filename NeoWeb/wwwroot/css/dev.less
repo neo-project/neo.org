@@ -467,25 +467,24 @@
 
 .tool {
     display: flex;
+
+    &:hover {
+        color: inherit;
+    }
 }
 
 .tool-img {
-    width: 9.75rem;
-    height: 9.75rem;
+    width: 8rem;
+    height: 8rem;
 
     @media (max-width: 991.98px) {
         width: 5rem;
-        height: 4.5rem;
+        height: 5rem;
     }
 }
 
 .tool-end {
     margin-left: 2rem;
-}
-
-.tool-title-wrapper {
-    display: flex;
-    justify-content: space-between;
 }
 
 .tool-title {
@@ -494,12 +493,16 @@
     font-weight: bold;
 }
 
+.tool-languages {
+    display: flex;
+    margin-top: 1rem;
+}
+
 .tool-language {
     display: flex;
     align-items: center;
     height: 1.5rem;
     padding: 0 1.5rem;
-    margin-left: 0.75rem;
     border-radius: 0.75rem;
     background: @dark-blue;
     font-size: 0.75rem;
@@ -507,26 +510,8 @@
     font-weight: 600;
     color: white;
 
-    @media (max-width: 991.98px) {
-        display: none;
-    }
-}
-
-.tool-bottom-language {
-    display: none;
-    align-items: center;
-    height: 1.5rem;
-    padding: 0 1.5rem;
-    border-radius: 0.75rem;
-    margin-top: 1.5rem;
-    background: @dark-blue;
-    font-size: 0.75rem;
-    font-family: WorkSans-SemiBold, WorkSans;
-    font-weight: 600;
-    color: white;
-
-    @media (max-width: 991.98px) {
-        display: inline-flex;
+    & + & {
+        margin-left: 0.75rem;
     }
 }
 
@@ -719,6 +704,7 @@
 
 .example-languages {
     display: flex;
+    margin-top: 1rem;
 }
 
 .example-language {
@@ -726,7 +712,6 @@
     align-items: center;
     padding: 0 1.5rem;
     height: 1.5rem;
-    margin-top: 1rem;
     border-radius: 0.75rem;
     background: @dark-blue;
     font-size: 0.75rem;
