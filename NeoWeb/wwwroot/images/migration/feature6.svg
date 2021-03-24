@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="163px" height="181px" viewBox="0 0 163 181" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 7</title>
+    <defs>
+        <polygon id="path-1" points="75.04 -4.26325641e-14 133.964368 34.02 133.964368 102.06 75.04 136.08 16.1156315 102.06 16.1156315 34.02"></polygon>
+        <filter x="-30.4%" y="-19.5%" width="144.7%" height="158.1%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="-11" dy="13" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="11" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.316369017   0 0 0 0 0.366987588   0 0 0 0 0.353495709  0 0 0 0.257409583 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="-5" dy="5" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="4.5" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.144614907 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Migration-S1" transform="translate(-527.000000, -296.000000)">
+            <g id="编组-7" transform="translate(544.500000, 305.000000)">
+                <polygon id="Polygon" stroke="#000033" stroke-width="2.88" points="86.125 13 130.725308 38.75 130.725308 90.25 86.125 116 41.5246917 90.25 41.5246917 38.75"></polygon>
+                <polygon id="Path-20" stroke="#000033" stroke-width="1.2226896" fill="#FFFFFF" stroke-linejoin="round" points="66.8 51.8768178 66.8 74.7633612 86.8578089 86.347793 86.8578089 62.2753486"></polygon>
+                <polygon id="Path-20" stroke="#000033" stroke-width="1.2226896" fill="#FFFFFF" stroke-linejoin="round" transform="translate(96.795825, 69.112305) scale(-1, 1) translate(-96.795825, -69.112305) " points="86.766921 51.8768178 86.766921 74.7633612 106.82473 86.347793 106.82473 62.2753486"></polygon>
+                <polygon id="Path-21" stroke="#000033" stroke-width="1.2226896" fill="#FFFFFF" stroke-linejoin="round" points="106.82473 51.8768178 86.766921 62.2753486 66.8 51.8768178 86.8578089 41.0097566"></polygon>
+                <polygon id="Polygon-Copy" stroke="#00E599" stroke-width="1.296" fill="#FFFFFF" points="68.04 13.68 126.964368 47.7 126.964368 115.74 68.04 149.76 9.11563153 115.74 9.11563153 47.7"></polygon>
+                <g id="Polygon-Copy-11">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#F0F5F6" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <polygon id="Path-20" stroke="#000033" stroke-width="1.44277373" fill="#FFFFFF" stroke-linejoin="round" points="51 54.3231322 51 81.3292534 74.6682145 94.998883 74.6682145 66.5933985"></polygon>
+                <polygon id="Path-20" stroke="#000033" stroke-width="1.44277373" fill="#FFFFFF" stroke-linejoin="round" transform="translate(86.395074, 74.661008) scale(-1, 1) translate(-86.395074, -74.661008) " points="74.5609668 54.3231322 74.5609668 81.3292534 98.2291813 94.998883 98.2291813 66.5933985"></polygon>
+                <polygon id="Path-21" stroke="#000033" stroke-width="1.44277373" fill="#FFFFFF" stroke-linejoin="round" points="98.2291813 54.3231322 74.5609668 66.5933985 51 54.3231322 74.6682145 41.5"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

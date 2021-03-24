@@ -2,12 +2,20 @@
 @inject IViewLocalizer Localizer
 
 <div class="top-bar">
-    <div class="top-bar-dots">
-    </div>
     <div class="top-bar-title">
         Typescript
     </div>
 </div>
+<div class="top-bar-mobile">
+    <div class="top-bar-title-wrapper">
+        <img class="top-bar-title-icon" data-original="@Helper.ToCDN("/images/home/TypescriptDark.png")" />
+        <div class="top-bar-title">
+            Typescript
+        </div>
+    </div>
+    <i class="iconfont close-icon">&#xe603;</i>
+</div>
+
 <pre class="green code">
 <code>
 import {  SmartContract} from '&#64;neo-one/smart-contract';

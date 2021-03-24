@@ -203,7 +203,7 @@
                 <div class="language-name">
                     Python
                 </div>
-                <div class="language-icon python selected" data-lang="python">
+                <div class="language-icon python" data-lang="python">
                     <img class="language-img dark" data-original="@Helper.ToCDN("/images/home/PythonDark.png", true)" />
                     <img class="language-img light" data-original="@Helper.ToCDN("/images/home/Python.png", true)" />
                 </div>
@@ -622,19 +622,6 @@
 
 @section Scripts{
     <script src="@Helper.ToCDN("/lib/typed.js/typed.min.js")"></script>
-    <script>
-            var typed = new Typed('#typetext', {
-            strings: ["@Localizer["new again"]","@Localizer["new again"]","@Localizer["new again"]"],
-            typeSpeed: "@SharedLocalizer["en"].Value" == "zh" ? 50 : 25,
-            startDelay: 300,
-            backDelay: 1500,
-            backSpeed: "@SharedLocalizer["en"].Value" == "zh" ? 35 : 15,
-            loop: true,
-            cursorChar: '',
-            shuffle: true,
-        });
-    </script>
-
     <script src="@Helper.ToCDN("/lib/image-map-resizer/js/imageMapResizer.js")"></script>
     <script>
         $(document).ready(function () {
@@ -728,6 +715,30 @@
                 scrollLeft: "+=" + scrollDistance
             }, 650)
         })
+
+        function resizeHandler() {
+            if ($(this).innerWidth() < 768) {
+                $(".language-icon").removeClass("selected")
+                $(".code-window").addClass("d-none")
+            } else {
+                if ($(".language-icon.selected").length === 0) {
+                    $(".language-icon.python").addClass("selected")
+                }
+            }
+        }
+
+        $(".close-icon").on("click", function () {
+            $(".language-icon.selected").removeClass("selected");
+            $(".code-window").addClass("d-none")
+        })
+
+        resizeHandler()
+        window.addEventListener("resize", debounce(resizeHandler, 50))
+
+        window.onunload = function () {
+            window.removeEventListener('resize', debounce);
+            return;
+        }
     </script>
     <script>
         var scroll_active_top = 650;

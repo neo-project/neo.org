@@ -156,6 +156,7 @@ https://github.com/neo-project/neo.org
                     <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="dev">@Localizer["Developer"]</a></li>
                     <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="eco">@Localizer["Eco-Support"]</a></li>
                     <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="news">@Localizer["News"]</a></li>
+                    <li class="nav-item d-block d-md-none"><a class="nav-link" asp-action="index" asp-controller="migration">@Localizer["Migration"]</a></li>
 
                     @if (SharedLocalizer["en"].Value == "zh")
                     {
@@ -163,14 +164,14 @@ https://github.com/neo-project/neo.org
                             <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
                             <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
                         </li>
- }
+                    }
                     else
                     {
                         <li class="nav-item nav-lang">
                             <a style="font-size: 1em; font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
                             <a style="font-size: .9em;  font-weight: 500" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
                         </li>
-}
+                    }
                 </ul>
             </div>
         </div>
@@ -180,16 +181,22 @@ https://github.com/neo-project/neo.org
     <div class="container layout-container">
         @if (ViewBag.HiddenMigration == null)
         {
-            <div class="migration-div d-none d-md-block"><a asp-action="index" asp-controller="migration"><h4 class="migration-text"><img src="@Helper.CDN/images/presskit/Neo symbol.svg" />MIGRATE TO N3 </h4></a><span style="color: white; cursor: pointer; margin: 230px 0 0 20px;float: left;text-shadow: 1px 1px 1px black" onclick="$('.migration-div').hide()">X</span></div>
+            @if (SharedLocalizer["en"].Value == "zh")
+            {
+                <div class="migration-div d-none d-md-block" style="height: 11rem;"><a asp-action="index" asp-controller="migration"><h4 class="migration-text"><img src="@Helper.CDN/images/presskit/Neo symbol.svg" />@Localizer["MIGRATE TO N3"]</h4></a><span style="color: white; cursor: pointer; margin: 180px 0 0 20px;float: left;text-shadow: 1px 1px 1px black" onclick="$('.migration-div').hide()">X</span></div> }
+            else
+            {
+                <div class="migration-div d-none d-md-block"><a asp-action="index" asp-controller="migration"><h4 class="migration-text"><img src="@Helper.CDN/images/presskit/Neo symbol.svg" />@Localizer["MIGRATE TO N3"]</h4></a><span style="color: white; cursor: pointer; margin: 230px 0 0 20px;float: left;text-shadow: 1px 1px 1px black" onclick="$('.migration-div').hide()">X</span></div>
+            }
         }
         @RenderBody()
     </div>
     <footer class="py-5">
         <div class="container-fluid">
             <div class="container">
-                <h4 class="d-inline">Subscribe to our monthly newsletter.</h4>
+                <h4 class="d-inline">@Localizer["Subscribe to our monthly newsletter."]</h4>
                 <br />
-                <span>Keep up to date on all the news, events and developments.</span>
+                <span><small>@Localizer["Keep up to date on all the news, events and developments."]</small></span>
                 <!-- Begin Mailchimp Signup Form -->
                 <form action="https://neo.us4.list-manage.com/subscribe/post?u=228d6f3157920dc1cad664104&amp;id=4f3883ac10" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate autocomplete="off">
                     <div id="mc_embed_signup_scroll">
@@ -232,7 +239,7 @@ https://github.com/neo-project/neo.org
                 </div>
                 <div class="col-md-2">
                     <h4 class="my-3">@Localizer["Contact NGD"]</h4>
-                    <a href="/joinus">@Localizer["Join us"]</a>
+                    <a href="/joinus">@Localizer["Join US"]</a>
                     <a href="mailto:marketing@neo.org">@Localizer["Marketing"]</a>
                     <a href="mailto:eg@neo.org">@Localizer["EcoGrowth"]</a>
                     <a href="mailto:about@neo.org">@Localizer["General"]</a>
