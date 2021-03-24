@@ -61,10 +61,16 @@
     </div>
     <h3 class="mt-5 border-bottom">@Localizer["Breakdown of the process"]</h3>
     <h2 class="mt-5 text-center">@Localizer["Governance consists of four main stages"]</h2>
-    <img class="img-fluid d-none d-md-block my-5 @SharedLocalizer["d-none"]" src="@Helper.CDN/images/gov/gov2-zh.png" />
-    <img class="img-fluid d-block d-md-none my-5 @SharedLocalizer["d-none"]" src="@Helper.CDN/images/gov/gov2-xs-zh.png" />
-    <img class="img-fluid d-none d-md-block my-5 @SharedLocalizer["d-none-zh"]" src="@Helper.CDN/images/gov/gov2.png" />
-    <img class="img-fluid d-block d-md-none my-5 @SharedLocalizer["d-none-zh"]" src="@Helper.CDN/images/gov/gov2-xs.png" />
+    @if (SharedLocalizer["en"].Value == "zh")
+    {
+        <img class="img-fluid d-none d-md-block my-5 @SharedLocalizer["d-none"]" src="@Helper.CDN/images/gov/gov2-zh.png" />
+        <img class="img-fluid d-block d-md-none my-5 @SharedLocalizer["d-none"]" src="@Helper.CDN/images/gov/gov2-xs-zh.png" />
+    }
+    else
+    {
+        <img class="img-fluid d-none d-md-block my-5 @SharedLocalizer["d-none-zh"]" src="@Helper.CDN/images/gov/gov2.png" />
+        <img class="img-fluid d-block d-md-none my-5 @SharedLocalizer["d-none-zh"]" src="@Helper.CDN/images/gov/gov2-xs.png" />
+    }
     <h3 class="mt-5 border-bottom">@Localizer["GAS distribution"]</h3>
     <div class="scroll-x">
         <img class="my-5 @SharedLocalizer["d-none-zh"]" src="@Helper.CDN/images/gov/gov3.png" />
