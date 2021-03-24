@@ -90,6 +90,8 @@
                     }
                 });
                 $('.select-menu-page').prop('selectedIndex', i);
+
+                $(window).trigger('scroll');
             }
 
             function updateCurrentPageWithHash() {
