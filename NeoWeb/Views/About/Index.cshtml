@@ -110,7 +110,7 @@
             <span class="bold">
                 Neo practices a philosophy of “Pragmatic Idealism”
             </span>
-            <img class="quote-img" data-original="@Helper.ToCDN("/images/discover/placeholder.png", true)"
+            <img class="quote-img" data-original="@Helper.ToCDN("/images/discover/placeholder.png", true)" />
         </div>
     </div>
 </div>
@@ -120,6 +120,36 @@
     <script>$(document).ready(() => {
     const scrollDistance = 300;
 
+    function debounce(func, wait, immediate) {
+        var timeout;
+        return function () {
+            var context = this, args = arguments;
+            var later = function () {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    };
+
+    $("#scroll-wrapper").on("scroll", debounce(function (e) {
+        const scrollWrapper = $("#scroll-wrapper")
+        console.log(scrollWrapper.scrollLeft(), scrollWrapper.innerWidth());
+        if (scrollWrapper.scrollLeft() > 0) {
+            $("#scroll-left-btn").removeClass("disabled")
+        } else {
+            $("#scroll-left-btn").addClass("disabled")
+        }
+        if (scrollWrapper.scrollLeft() + 8 < scrollWrapper.width()) {
+            $("#scroll-right-btn").removeClass("disabled")
+        } else {
+            $("#scroll-right-btn").addClass("disabled")
+        }
+    }, 50))
+
     $("#scroll-left-btn").click(function (e) {
         if ($(this).hasClass("disabled")) {
             e.preventDefault();
@@ -128,14 +158,7 @@
         
         $("#scroll-wrapper").animate({
             scrollLeft: "-=" + scrollDistance
-        }, 1000)
-
-        const wrapper = $("#scroll-wrapper")
-        const scrollPosition = +(wrapper.scrollLeft())
-        $("#scroll-right-btn").removeClass("disabled")
-        if (scrollPosition < scrollDistance) {
-            $("#scroll-left-btn").addClass("disabled")
-        }
+        }, 650)
     })
 
     $("#scroll-right-btn").click(function (e) {
@@ -145,15 +168,7 @@
         }
         $("#scroll-wrapper").animate({
             scrollLeft: "+=" + scrollDistance
-        }, 1000)
-
-        const wrapper = $("#scroll-wrapper")
-        const imgWidth = +($("#scroll-img").width())
-        const scrollPosition = +(wrapper.scrollLeft())
-        $("#scroll-left-btn").removeClass("disabled")
-        if (wrapper.innerWidth() + scrollDistance + scrollPosition >= imgWidth) {
-            $("#scroll-right-btn").addClass("disabled")
-        }
+        }, 650)
     })
 
     });</script>

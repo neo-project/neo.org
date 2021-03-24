@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $('map').imageMapResize();
     var currentSlide = 1;
     function showSlide(slideIndex) {
         const slides = document.getElementsByClassName('text-group');
@@ -43,7 +44,6 @@ $(document).ready(function () {
     }
 
     $("#start").click(() => {
-        console.log("test");
         currentSlide = 2;
         showSlide(currentSlide);
         $("#bottom-guide-container").removeClass('hide');
@@ -57,4 +57,34 @@ $(document).ready(function () {
     $("#next").click(() => {
         nextSlide();
     })
+
+    $(".circle").click((e) => {
+        const page = $(e.currentTarget).data('page') 
+        if (page !== 1) {
+            currentSlide = page;
+            showSlide(currentSlide);
+        }
+    })
+
+    window.addEventListener("keydown", function (event) {
+        if (event.defaultPrevented) {
+            return; // Do nothing if the event was already processed
+        }
+        switch (event.key) {
+            case "Right": 
+            case "ArrowRight":
+                if (currentSlide !== 1) {
+                    nextSlide();
+                }
+                break;
+            case "Left":
+            case "ArrowLeft":
+                previousSlide();
+                break;
+            default:
+                return; // Quit when this doesn't handle the key event.
+        }
+        // Cancel the default action to avoid it being handled twice
+        event.preventDefault();
+    }, true);
 });

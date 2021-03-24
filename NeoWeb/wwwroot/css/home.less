@@ -2,7 +2,6 @@
 
 @landing-height: 80vh;
 @content-wrapper-margin: 120px;
-@typed-text-font-size: 6.5rem;
 
 @linear-black: linear-gradient(180deg, #0F1E32 0%, darken(#0F1E32, 40%) 100%);
 @linear-green: linear-gradient(104deg, @green 0%, darken(@green, 10%) 100%);
@@ -110,104 +109,6 @@ html body {
     padding: 3.125rem 2.25rem 3.125rem 0.5rem;
     border: 6px solid @green;
 
-    &.building-blocks {
-        height: 26.25rem;
-        width: 28.75rem;
-    }
-
-    &.blockchain {
-        align-self: flex-end;
-        width: 29.375rem;
-        height: 18.25rem;
-    }
-
-    &.dual-tokens {
-        margin-top: 1.75rem;
-        padding-right: 2.375rem;
-        padding-left: 4.5rem;
-        width: 26.25rem;
-        height: 19.875rem;
-    }
-
-    &.governance {
-        align-items: flex-start;
-        text-align: left;
-        padding-left: 2.25rem;
-        padding-right: 0.5rem;
-        width: 30rem;
-        height: 17.375rem;
-    }
-
-    @media only screen and (max-width: 1400px) {
-        padding: 1.5rem 0.5rem 1rem 0.5rem;
-        border: 3px solid @green;
-
-        &.building-blocks {
-            width: 14.375rem;
-            height: 13.125rem;
-        }
-
-        &.blockchain {
-            align-self: center;
-            align-items: flex-start;
-            padding-left: 0.75rem;
-            padding-right: 0.1rem;
-            text-align: left;
-            width: 14.375rem;
-            height: 13.125rem;
-        }
-
-        &.dual-tokens {
-            margin-top: 1.25rem;
-            padding-right: 0.5rem;
-            padding-left: 0.5rem;
-            width: 14.375rem;
-            height: 13.125rem;
-        }
-
-        &.governance {
-            align-items: flex-start;
-            text-align: left;
-            padding-left: 0.625rem;
-            padding-right: 0.1rem;
-            width: 14.375rem;
-            height: 11.875rem;
-        }
-    }
-
-    @media only screen and (max-width: 767.98px) {
-        align-self: center;
-        align-items: flex-start;
-        text-align: left;
-        border: 5px solid @green;
-        width: 16.5rem;
-        height: 18.125rem;
-
-        &.building-blocks {
-            padding: 1.875rem 0.5rem 1.25rem 0.875rem;
-            width: 18.125rem;
-            height: 16.5rem;
-        }
-
-        &.blockchain {
-            padding: 1.875rem 0.5rem 1.25rem 0.875rem;
-            width: 18.125rem;
-            height: 16.5rem;
-        }
-
-        &.dual-tokens {
-            padding: 1.875rem 0.5rem 1.25rem 0.875rem;
-            width: 18.125rem;
-            height: 16.875rem;
-        }
-
-        &.governance {
-            padding: 1.875rem 0.5rem 1.25rem 0.5rem;
-            width: 18.125rem;
-            height: 16.75rem;
-        }
-    }
-
     .square-block-title {
         .work-sans-bold;
         font-size: 3.125rem;
@@ -241,6 +142,141 @@ html body {
         @media only screen and (max-width: 767.98px) {
             font-size: 1.5rem;
             line-height: 1.25;
+        }
+    }
+
+    &.building-blocks {
+        height: 26.25rem;
+        width: 28.75rem;
+    }
+
+    &.blockchain {
+        align-self: flex-end;
+        width: 29.375rem;
+        height: 18.25rem;
+    }
+
+    &.dual-tokens {
+        margin-top: 1.75rem;
+        padding-right: 2.375rem;
+        padding-left: 4.5rem;
+        width: 26.25rem;
+        height: 19.875rem;
+    }
+
+    &.governance {
+        align-items: flex-start;
+        text-align: left;
+        padding-left: 2.25rem;
+        padding-right: 0.5rem;
+        width: 30rem;
+        height: 17.375rem;
+    }
+
+    &.contributors {
+        padding-left: 0.5rem;
+        padding-right: 2.5rem;
+        width: 31.125rem;
+        height: 18rem;
+
+        .square-block-title {
+            font-size: 3.125rem;
+            line-height: 1;
+        }
+    }
+
+    @media only screen and (max-width: 1400px) {
+        padding: 1.5rem 0.5rem 1rem 0.5rem;
+        border: 3px solid @green;
+
+        &.building-blocks {
+            width: 14.375rem;
+            height: 13.125rem;
+        }
+
+        &.blockchain {
+            margin-right: 12px;
+            align-self: flex-end;
+            align-items: flex-start;
+            padding-left: 0.75rem;
+            padding-right: 0.1rem;
+            text-align: left;
+            width: 14.375rem;
+            height: 13.125rem;
+        }
+
+        &.dual-tokens {
+            margin-top: 1.25rem;
+            padding-right: 0.5rem;
+            padding-left: 0.5rem;
+            width: 14.375rem;
+            height: 13.125rem;
+        }
+
+        &.governance {
+            align-items: flex-start;
+            text-align: left;
+            padding-left: 0.625rem;
+            padding-right: 0.1rem;
+            width: 14.375rem;
+            height: 11.875rem;
+        }
+
+        &.contributors {
+            padding-left: 0.625rem;
+            padding-right: 0.5rem;
+            width: 14.375rem;
+            height: 11.875rem;
+
+            .square-block-title {
+                font-size: 1.625rem;
+                line-height: 0.92;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 767.98px) {
+        align-self: center;
+        align-items: flex-start;
+        text-align: left;
+        border: 5px solid @green;
+        width: 16.5rem;
+        height: 18.125rem;
+
+        &.building-blocks {
+            padding: 1.875rem 0.5rem 1.25rem 0.875rem;
+            width: 18.125rem;
+            height: 16.5rem;
+        }
+
+        &.blockchain {
+            align-self: center;
+            padding: 1.875rem 0.5rem 1.25rem 0.875rem;
+            width: 18.125rem;
+            height: 16.5rem;
+        }
+
+        &.dual-tokens {
+            padding: 1.875rem 0.5rem 1.25rem 0.875rem;
+            width: 18.125rem;
+            height: 16.875rem;
+        }
+
+        &.governance {
+            padding: 1.875rem 0.5rem 1.25rem 0.5rem;
+            width: 18.125rem;
+            height: 16.75rem;
+        }
+
+        &.contributors {
+            padding: 1.875rem 0.3rem 1.25rem 0.5rem;
+            width: 18.125rem;
+            height: 16.75rem;
+
+            .square-block-title {
+                font-size: 2rem;
+                line-height: 0.94;
+            }
         }
     }
 }
@@ -316,6 +352,15 @@ html body {
 
     @media only screen and (max-height: @landing-height) {
         margin: 1.5rem 0;
+    }
+}
+
+.tour-btn {
+    .work-sans-semibold;
+
+    &:hover {
+        .dark-blue;
+        opacity: 0.8;
     }
 }
 
@@ -425,8 +470,8 @@ html body {
     }
 
     @media only screen and (max-width: 767.98px) { // mobile
-        max-width: unset;
-        padding: 0 2.375rem;
+        max-width: 100%;
+        padding: 0 0.875rem;
     }
 }
 
@@ -475,12 +520,18 @@ html body {
     }
 }
 
-.type-text {
-    margin-bottom: 1.875rem;
-    max-width: 41.25rem;
-    font-size: @typed-text-font-size;
-    min-height: calc(@typed-text-font-size * 2);
+.get-started-title {
+    .work-sans-bold;
+    .uppercase;
+    font-size: 6.625rem;;
+    margin-bottom: 0.5rem;
     line-height: 0.85;
+
+    @media only screen and (max-width: 1400px) {
+        font-size: 5.875rem;
+        margin-bottom: 1.875rem;
+        line-height: 0.92;
+    }
 
     @media only screen and (max-width: 767.98px) {
         margin: 1.5rem 0;
@@ -489,11 +540,8 @@ html body {
     }
 }
 
-.typed-cursor {
-    font-size: @typed-text-font-size;
-}
-
 .explanation {
+    .nunito-sans-bold;
     margin-bottom: 1.875rem;
     max-width: 41.25rem;
     font-size: 1.5rem;
@@ -593,8 +641,8 @@ html body {
     }
 
     @media only screen and (max-width: 767.98px) { // mobile
-        max-width: unset;
-        padding: 0 2.375rem;
+        max-width: 100%;
+        padding: 0 0.875rem;
         flex-direction: column;
         height: 100%;
     }
@@ -806,15 +854,12 @@ html body {
     display: flex;
     flex-direction: column;
     align-self: center;
-    width: 1200px;
+    width: 1400px;
     transform: translateY(-48px);
     margin-bottom: -24px;
 
-    @media only screen and (max-width: 1200px) { // tablet
-        width: 991px;
-    }
-
-    @media only screen and (max-width: 992px) {
+    @media only screen and (max-width: 1400px) { // tablet
+        padding: 0.5rem;
         width: 767px;
     }
 
@@ -934,6 +979,7 @@ html body {
     }
 
     &.selected {
+        box-shadow: none;
         border: 1px solid @dark-blue;
         cursor: not-allowed;
         background: #ffffff;
@@ -967,8 +1013,8 @@ html body {
     line-height: 1.23;
     background-color: transparent;
 
-    @media only screen and (max-width: 1200px) {
-        width: 95%;
+    @media only screen and (max-width: 1400px) {
+        width: 100%;
         height: 662px;
     }
 
@@ -1713,8 +1759,25 @@ html body {
 
 // Contributors row
 .contributors-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     align-self: center;
     width: 1480px;
+    column-gap: 4.5rem;
+
+    @media only screen and (max-width: 1400px) {
+        column-gap: 3.125rem;
+        width: 767px;
+    }
+
+    @media only screen and (max-width: 767.98px) {
+        column-gap: 0;
+        grid-row-gap: 2rem;
+        padding: 0 0.875rem;
+        width: 100%;
+        flex-direction: column;
+    }
 }
 
 .col-github {
@@ -1725,8 +1788,17 @@ html body {
 .github-container {
     display: flex;
     flex-wrap: wrap;
-    width: 814px;
+    width: 100%;
     grid-row-gap: 1rem;
+
+    @media only screen and (max-width: 1400px) {
+        grid-row-gap: 0.8rem;
+    }
+
+    @media only screen and (max-width: 767.98px) {
+        grid-row-gap: 0.8rem;
+        justify-content: space-between;
+    }
 }
 
 .github-status {
@@ -1736,7 +1808,7 @@ html body {
     .dark-blue;
     .uppercase;
     font-size: 1rem;
-    width: 49%;
+    width: calc(50% - 1px);
 }
 
 .github-status-num {
@@ -1744,39 +1816,82 @@ html body {
     .work-sans-light;
     line-height: 0.8;
     font-size: 6.75rem;
-}
-// Contributors
-.contributors-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+
+    @media only screen and (max-width: 1400px) {
+        line-height: 0.85;
+        font-size: 5rem;
+    }
+
+    @media only screen and (max-width: 767.98px) {
+        line-height: 0.95;
+        font-size: 3.5rem;
+    }
 }
 
-.contributors-title {
-    .work-sans-bold;
-    .uppercase;
-    color: #ffffff;
-    font-size: 4.375rem;
-    line-height: 0.94;
-}
 
-.contributors-subtitle {
-    margin: 2.75rem 0;
-    .nunito-sans-bold;
-    color: #ffffff;
-    font-size: 1.5rem;
-    line-height: 1.375;
+// Global Contributors Img
+
+.contributors-img-wrapper {
+    margin-top: 7.875rem;
+    align-self: center;
+    width: 1400px;
+
+    @media only screen and (max-width: 1400px) {
+        width: 90%;
+        overflow-x: scroll;
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 .contributors-img {
-    width: 90%;
+    width: 1400px;
+    align-self: center;
+
+    @media only screen and (max-width: 1400px) {
+        
+    }
+}
+
+.scroll-buttons {
+    display: none;
+    justify-content: space-between;
+    align-self: center;
+    align-items: center;
+    width: 1400px;
+    .bold;
+    font-size: 2.25rem;
+
+    @media only screen and (max-width: 1400px) {
+        display: flex;
+        width: 90%;
+    }
+
+    #scroll-left-btn, #scroll-right-btn {
+        cursor: pointer;
+
+        &.disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+    }
 }
 
 .additional-wrapper {
     display: flex;
     justify-content: space-around;
-    width: 100%;
+    width: 90%;
+
+    @media only screen and (max-width: 1400px) {
+        align-self: center;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        grid-row-gap: 3.125rem;
+        margin-bottom: 3.125rem;
+    }
 }
 
 .additional-item {
@@ -1788,7 +1903,7 @@ html body {
 .additional-title {
     .work-sans-bold;
     .uppercase;
-    color: #ffffff;
+    .dark-blue;
     font-size: 1.25rem;
     line-height: 1.3;
     margin: 2.5rem 0;
