@@ -126,6 +126,9 @@
   <data name="Any Neo wallet address can register as a candidate to be elected to the Neo Council." xml:space="preserve">
     <value>任何Neo钱包地址都可以注册成为参选Neo理事会的候选人。</value>
   </data>
+  <data name="Breakdown of the process" xml:space="preserve">
+    <value>流程详解</value>
+  </data>
   <data name="By the people, for the people" xml:space="preserve">
     <value>生于社区 用于社区</value>
   </data>
@@ -144,11 +147,23 @@
   <data name="Governance consists of four main stages" xml:space="preserve">
     <value>治理的四个主要阶段</value>
   </data>
+  <data name="Key groups in Governance" xml:space="preserve">
+    <value>主要参与治理的角色</value>
+  </data>
   <data name="NEO holders are the stakeholders of the Neo ecosystem." xml:space="preserve">
     <value>NEO持有者是Neo区块链的所有者。</value>
   </data>
+  <data name="NEO holders participate in governance by voting in a Neo Council to manage the Neo Blockchain.The Neo Council will consist of council members and consensus nodes who provide services, maintain the liveness of the network, and adjust critical blockchain params. GAS rewards will be distributed to both NEO votes and council members." xml:space="preserve">
+    <value>通过引入链上治理委员会机制，Neo在去中心化的道路上迈出了更坚实的一步。</value>
+  </data>
   <data name="Neo is becoming a more decentralized blockchain through its new on-chain governance mechanism." xml:space="preserve">
     <value>通过引入链上治理委员会机制，Neo在去中心化的道路上迈出了更坚实的一步。</value>
+  </data>
+  <data name="NEO token holders decide who is in charge of maintaining the Neo network through the election of a Neo Council. GAS token rewards are distributed to voters and council members alike." xml:space="preserve">
+    <value>NEO持有者将通过选举Neo理事会成员来决定Neo区块链的治理权。投票者与理事会成员都将会获得GAS激励。</value>
+  </data>
+  <data name="ROLE" xml:space="preserve">
+    <value>角色</value>
   </data>
   <data name="String1" xml:space="preserve">
     <value>理事会</value>

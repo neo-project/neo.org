@@ -1,7 +1,7 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
-@{ ViewData["Title"] = Localizer["Contributors"].Value; }
+@{ ViewData["Title"] = "NEO & GAS"; }
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/neogas.min.css", true)" />
     <link rel="stylesheet" href="@Helper.ToCDN("/css/wallets.min.css", true)" />

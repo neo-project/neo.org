@@ -120,7 +120,10 @@
   <data name="After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
     <value />
   </data>
+  <data name="Neo Technology" xml:space="preserve">
+    <value>Neo 科技</value>
+  </data>
   <data name="Technology" xml:space="preserve">
-    <value />
+    <value>科技</value>
   </data>
 </root>

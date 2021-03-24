@@ -126,6 +126,12 @@
   <data name="Communities" xml:space="preserve">
     <value />
   </data>
+  <data name="Contributors" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Contributors &amp; Collaborators" xml:space="preserve">
+    <value>贡献者</value>
+  </data>
   <data name="Core Developers" xml:space="preserve">
     <value>核心开发者</value>
   </data>
