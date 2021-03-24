@@ -1,4 +1,4 @@
-@using Microsoft.AspNetCore.Mvc.Localization
+﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @{ Layout = null; }
 <!DOCTYPE html>
@@ -355,7 +355,13 @@
                 <img class="carouse-pic" src="@Helper.CDN/images/tour/tour9.png" />
             </div>
             <div class="carouselImgs fade-out slide10">
-                <img class="carouse-pic" src="@Helper.CDN/images/tour/tour10.png" />
+                <div class="slide10-up">
+                    <img class="carouse-pic" src="@Helper.CDN/images/tour/tour11.png" />
+                </div>
+                <div class="slide10-down">
+                    <img class="carouse-pic" src="@Helper.CDN/images/tour/tour12.png" />
+                </div>
+                @*<img class="carouse-pic" src="@Helper.CDN/images/tour/tour10.png" />*@
                 <img class="carouse-blocks" usemap="#actionmap" src="@Helper.CDN/images/tour/blocks.png" />
                 <map name="actionmap">
                     <area shape="rect" coords="120 4 800 208" alt="Download a Wallet" href="https://www.google.com" />
@@ -363,9 +369,6 @@
                     <area shape="rect" coords="121 249 800 453" alt="Developer Resources" href="https://www.google.com" />
                     <area shape="rect" coords="847 249 1525 453" alt="Read Documentation" href="https://www.google.com" />
                 </map>
-
-                @*<div class="slide10-up">up</div>
-        <div class="slide10-down">down</div>*@
             </div>
         </div>
     </div>
