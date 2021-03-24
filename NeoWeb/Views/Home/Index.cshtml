@@ -11,25 +11,26 @@
 @* 基本块 - Home page *@
 
 <div class="home-container">
-    <div class="row dual-row landing-row">
-        <div class="col-12 col-md-6 col-left">
-            <div class="content-wrapper">
+    <div class="landing-row">
+        <div class="col-left">
+            <div class="col-left-content">
                 <img class="logo-img" data-original="@Helper.ToCDN("/images/home/N3Logo.svg")" />
                 <div class="sub-title work-sans-semibold">@Localizer["Take a look at the latest version of the Neo platform"]</div>
                 <a asp-controller="tour" asp-action="index" class="btn-n3 tour-btn">@Localizer["Take Tour"]</a>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-right">
-            <div class="content-wrapper landing-title-wrapper">
-                <div class="landing-title">@Localizer["The Complete Blockchain Development Platform"]</div>
-                <div class="news-wrapper">
-                    <div class="latest-news-text work-sans-bold">
-                        @Localizer["Latest News:"]
-                    </div>
-                    <a class="news-link work-sans-bold" asp-controller="news" asp-action="index">@Localizer["This is an example of a article on the latest news ticker"]</a>
+
+        <div class="col-right">
+            <div class="landing-title">@Localizer["The Complete Blockchain Development Platform"]</div>
+            <div class="news-wrapper">
+                <div class="latest-news-text">
+                    @Localizer["Latest News:"]
                 </div>
+                    <a class="news-link" asp-controller="news" asp-action="index">@Localizer["This is an example of a article on the latest news ticker"]  <i class="iconfont circle-arrow-icon green">&#xe6ab;</i></a>
+                    
             </div>
         </div>
+
     </div>
 
     <div class="row horiz-row aio-row">
@@ -173,7 +174,7 @@
         <img class="block-icon" data-original="@blocks[i, 0]" />
         <div class="block-content-wrapper">
             <div class="block-title">
-                <i class="iconfont block-title-icon">&#xe6ab;</i>
+                <i class="iconfont circle-arrow-icon">&#xe6ab;</i>
                 @blocks[i, 1]
             </div>
             <div class="block-paragraph">
@@ -246,7 +247,7 @@
             </div>
         </div>
 
-        <div class="code-window" id="code-python">
+        <div class="code-window d-none" id="code-python">
             <partial name="./_CodePythonPartial" />
         </div>
         <div class="code-window d-none" id="code-csharp">
@@ -281,9 +282,13 @@
                 </div>
             </div>
         </div>
-        <div class="col-right">
+        <div class="col-right header-imgs">
             <div class="header-img-wrapper">
-
+                <div class="header-token-wrapper">
+                    <img class="header-token" data-original="@Helper.ToCDN("/images/home/NeoTokenPolygon.svg")" />
+                    <img class="header-token" data-original="@Helper.ToCDN("/images/home/GasTokenPolygon.svg")" />
+                </div>
+                <img class="dot-wall" data-original="@Helper.ToCDN("/images/home/DotWall.svg")" />
             </div>
         </div>
     </div>
@@ -324,7 +329,7 @@
                 </div>
                 <div class="results-row">
                     <div class="result-col">
-                        <span class="result-num" id="result-holding">0.44</span>
+                        <span class="result-num result-holding">0.44</span>
                         <div class="gas-wrapper">
                             <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
                             <span>Gas Per Month<span class="green">*</span></span><br /><br />
@@ -333,7 +338,7 @@
                     </div>
                     <div class="plug-sign">+</div>
                     <div class="result-col">
-                        <span class="result-num" id="result-governance">17.52</span>
+                        <span class="result-num result-governance">17.52</span>
                         <div class="gas-wrapper">
                             <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
                             <span>Gas Per Month<span class="green">*</span></span><br /><br />
@@ -343,7 +348,7 @@
                 </div>
                 <div class="results-row-mobile">
                     <div class="result-row">
-                        <span class="result-num-mobile" id="result-holding">0.44</span>
+                        <span class="result-num-mobile result-holding">0.44</span>
                         <div class="gas-wrapper-mobile">
                             <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
                             <span>Gas Per Month<span class="green">*</span></span><br /><br />
@@ -352,7 +357,7 @@
                     <span class="status-text-mobile">For holding Neo</span>
                     <div class="plug-sign">+</div>
                     <div class="result-row">
-                        <span class="result-num-mobile" id="result-governance">17.52</span>
+                        <span class="result-num-mobile result-governance">17.52</span>
                         <div class="gas-wrapper-mobile">
                             <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
                             <span>Gas Per Month<span class="green">*</span></span><br /><br />
@@ -375,7 +380,7 @@
     <div class="governance-section-pc">
         <div class="col-left">
             <div class="governance-img-container">
-                <img class="governance-img-horiz" data-original="@Helper.ToCDN("/images/home/placeholder.svg")" />
+                <img class="governance-img-horiz" data-original="@Helper.ToCDN("/images/home/Governance.svg")" />
             </div>
             <div class="governance-cards">
                 <span class="governance-learn-more">Learn More</span>
@@ -427,7 +432,7 @@
     <div class="governance-section-tablet">
         <div class="governance-top-row">
             <div class="governance-img-container">
-                <img class="governance-img-vert" data-original="@Helper.ToCDN("/images/home/placeholder.svg")" />
+                <img class="governance-img-vert" data-original="@Helper.ToCDN("/images/home/GovernanceTablet.svg")" />
             </div>
             <div class="col-right">
                 <div class="square-block governance">
@@ -529,13 +534,13 @@
         <div class="col-right">
             <div class="github-container">
                 <div class="github-status">
-                    <span class="github-status-num" id="github-stars"></span>stars
+                    <span class="github-status-num" id="github-stars">-</span>stars
                 </div>
                 <div class="github-status">
-                    <span class="github-status-num" id="github-forks"></span>forks
+                    <span class="github-status-num" id="github-forks">-</span>forks
                 </div>
                 <div class="github-status">
-                    <span class="github-status-num" id="github-sub"></span>subscribers
+                    <span class="github-status-num" id="github-sub">-</span>subscribers
                 </div>
             </div>
         </div>
@@ -543,7 +548,7 @@
 
     
     <div class="contributors-img-wrapper" id="scroll-wrapper">
-        <img class="contributors-img" usemap="#contributorsmap" data-original="@Helper.ToCDN("/images/home/Contributors.png")">
+        <img class="contributors-img" usemap="#contributorsmap" data-original="@Helper.ToCDN("/images/home/Contributors.svg")">
         <map name="contributorsmap">
             <area shape="rect" coords="1950 550 2125 605" alt="NDG Enterprise" href="https://www.google.com" />
             <area shape="rect" coords="2150 550 2335 605" alt="NDG Enterprise" href="https://www.google.com" />
@@ -659,8 +664,8 @@
             const holdingGas = (+value * 10512000 * 0.1 / 100000000 / 12).toFixed(2)
             const governanceGas = (+value * 10512000 * 0.8 / 20000000 / 12).toFixed(2)
 
-            $("#result-holding").html(holdingGas)
-            $("#result-governance").html(governanceGas)
+            $(".result-holding").html(holdingGas)
+            $(".result-governance").html(governanceGas)
         })
 
         const scrollDistance = 300;
@@ -723,6 +728,10 @@
             } else {
                 if ($(".language-icon.selected").length === 0) {
                     $(".language-icon.python").addClass("selected")
+                    $("#code-python").removeClass("d-none")
+                } else {
+                    const currLang = $(".language-icon.selected").data("lang")
+                    $("#code-" + currLang).removeClass("d-none")
                 }
             }
         }
@@ -732,7 +741,8 @@
             $(".code-window").addClass("d-none")
         })
 
-        resizeHandler()
+        const initialRun = resizeHandler.bind(this)
+        initialRun()
         window.addEventListener("resize", debounce(resizeHandler, 50))
 
         window.onunload = function () {

@@ -5,6 +5,7 @@ html {
 body {
     height: 100%;
     margin: 0px;
+    background: #FFFFFF;
 }
 
 
@@ -53,7 +54,7 @@ body {
         font-family: WorkSans-Bold, WorkSans;
         font-weight: bold;
         color: #00E599;
-        line-height: 41px;
+        line-height: 45px;
     }
 
     &-content {
@@ -299,6 +300,10 @@ body {
 
 
 @media only screen and (max-width: 540px) {
+    body {
+        background: #F0F5F6;
+    }
+
     .tour-left-logo {
         img{
             height:32px;
@@ -333,7 +338,7 @@ body {
         width: 100%;
         position: fixed;
         padding-bottom: 5%;
-        background: #f9fafa;
+        background: #F0F5F6;
     }
 
     .bottom-title {
@@ -411,14 +416,24 @@ body {
         display: flex;
     }
 
-    .right-corner{
-        width:10%;
+    .right-corner {
+        display: none;
+        &-mobile {
+            position: absolute;
+            width: 10%;
+            right: 2%;
+            margin-top: 10px;
+            margin-right: 10px;
+            &-pic {
+                width: 100%;
+            }
+        }
     }
 
     .mobile-block-wrapper {
         width:100%;
         .mobile-block{
-
+            width:90%;
         }
     }
 }

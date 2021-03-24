@@ -1,58 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="93px" height="131px" viewBox="0 0 93 131" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>编组 6</title>
-    <defs>
-        <rect id="path-1" x="0" y="0" width="339" height="191" rx="4"></rect>
-    </defs>
-    <g id="Homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="HOMEPAGE-PT-0.2" transform="translate(-1593.000000, -885.000000)">
-            <g id="Button-bar" transform="translate(266.000000, 767.000000)">
-                <g id="编组-5" transform="translate(1081.000000, 84.000000)">
-                    <mask id="mask-2" fill="white">
-                        <use xlink:href="#path-1"></use>
-                    </mask>
-                    <g id="Mask"></g>
-                    <g id="编组-6" mask="url(#mask-2)">
-                        <g transform="translate(248.000000, 36.000000)" id="Group">
-                            <g transform="translate(20.000000, 13.500000)">
-                                <path d="M6,0 L76.5,0 C79.8137085,-6.08718376e-16 82.5,2.6862915 82.5,6 L82.5,108 C82.5,111.313708 79.8137085,114 76.5,114 L6,114 C2.6862915,114 4.05812251e-16,111.313708 0,108 L0,6 C-4.05812251e-16,2.6862915 2.6862915,6.08718376e-16 6,0 Z" id="Rectangle" stroke="#000033" stroke-width="2.88" fill="#FFFFFF"></path>
-                                <line x1="13.5" y1="16.5" x2="70.5" y2="16.5" id="Line-2" stroke="#000033" stroke-width="1.3" stroke-linecap="square"></line>
-                                <line x1="6" y1="16.5" x2="7.5" y2="16.5" id="Line-2" stroke="#C1C3CC" stroke-width="3" stroke-linecap="square"></line>
-                                <line x1="6" y1="42" x2="7.5" y2="42" id="Line-2" stroke="#C1C3CC" stroke-width="3" stroke-linecap="square"></line>
-                                <line x1="13.5" y1="21" x2="58.5" y2="21" id="Line-2" stroke="#C1C3CC" stroke-width="3" stroke-linecap="square"></line>
-                                <line x1="13.5" y1="25.5" x2="70.5" y2="25.5" id="Line-2" stroke="#000033" stroke-width="1.3" stroke-linecap="square"></line>
-                                <line x1="13.5" y1="30" x2="40.5" y2="30" id="Line-2" stroke="#C1C3CC" stroke-width="3" stroke-linecap="square"></line>
-                                <line x1="13.5" y1="42" x2="70.5" y2="42" id="Line-2" stroke="#000033" stroke-width="1.3" stroke-linecap="square"></line>
-                                <line x1="13.5" y1="46.5" x2="58.5" y2="46.5" id="Line-2" stroke="#C1C3CC" stroke-width="3" stroke-linecap="square"></line>
-                                <line x1="13.5" y1="51" x2="70.5" y2="51" id="Line-2" stroke="#000033" stroke-width="1.3" stroke-linecap="square"></line>
-                                <line x1="13.5" y1="55.5" x2="40.5" y2="55.5" id="Line-2" stroke="#C1C3CC" stroke-width="3" stroke-linecap="square"></line>
-                                <line x1="6" y1="66" x2="7.5" y2="66" id="Line-2" stroke="#C1C3CC" stroke-width="3" stroke-linecap="square"></line>
-                                <line x1="13.5" y1="66" x2="70.5" y2="66" id="Line-2" stroke="#000033" stroke-width="1.3" stroke-linecap="square"></line>
-                                <line x1="13.5" y1="70.5" x2="58.5" y2="70.5" id="Line-2" stroke="#C1C3CC" stroke-width="3" stroke-linecap="square"></line>
-                                <line x1="13.5" y1="75" x2="70.5" y2="75" id="Line-2" stroke="#000033" stroke-width="1.3" stroke-linecap="square"></line>
-                                <line x1="13.5" y1="79.5" x2="40.5" y2="79.5" id="Line-2" stroke="#C1C3CC" stroke-width="3" stroke-linecap="square"></line>
-                                <line x1="43.5" y1="99" x2="70.5" y2="99" id="Line-2" stroke="#000033" stroke-width="1.3" stroke-linecap="square"></line>
-                            </g>
-                            <g>
-                                <path d="M6,0 L76.5,0 C79.8137085,-6.08718376e-16 82.5,2.6862915 82.5,6 L82.5,108 C82.5,111.313708 79.8137085,114 76.5,114 L6,114 C2.6862915,114 4.05812251e-16,111.313708 0,108 L0,6 C-4.05812251e-16,2.6862915 2.6862915,6.08718376e-16 6,0 Z" id="Rectangle" stroke="#000033" stroke-width="2.88" fill="#FFFFFF"></path>
-                                <line x1="13.5" y1="16.5" x2="70.5" y2="16.5" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
-                                <line x1="6" y1="16.5" x2="7.5" y2="16.5" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
-                                <line x1="6" y1="42" x2="7.5" y2="42" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
-                                <line x1="13.5" y1="21" x2="58.5" y2="21" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
-                                <line x1="13.5" y1="25.5" x2="70.5" y2="25.5" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
-                                <line x1="13.5" y1="30" x2="40.5" y2="30" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
-                                <line x1="13.5" y1="42" x2="70.5" y2="42" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
-                                <line x1="13.5" y1="46.5" x2="58.5" y2="46.5" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
-                                <line x1="13.5" y1="51" x2="70.5" y2="51" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
-                                <line x1="13.5" y1="55.5" x2="40.5" y2="55.5" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
-                                <line x1="6" y1="66" x2="7.5" y2="66" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
-                                <line x1="13.5" y1="66" x2="70.5" y2="66" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
-                                <line x1="13.5" y1="70.5" x2="58.5" y2="70.5" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
-                                <line x1="13.5" y1="75" x2="70.5" y2="75" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
-                                <line x1="13.5" y1="79.5" x2="40.5" y2="79.5" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
-                                <line x1="43.5" y1="99" x2="70.5" y2="99" id="Line-2" stroke="#000033" stroke-width="1.2" stroke-linecap="square"></line>
-                            </g>
-                        </g>
+<svg width="53px" height="64px" viewBox="0 0 53 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 21</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="HOMEPAGE-Desktop" transform="translate(-1320.000000, -1808.000000)" stroke="#000033">
+            <g id="Neo-IS-NEW-AGAIN-panel" transform="translate(261.500000, 1264.706357)">
+                <g id="Group-6" transform="translate(803.500000, 527.793643)">
+                    <g id="Group-21" transform="translate(257.500000, 18.500000)">
+                        <path d="M12.0226612,6.24253562 L44.6225694,6.24253562 C46.1548615,6.24253562 47.3970297,7.4847038 47.3970297,9.0169959 L47.3970297,56.1828206 C47.3970297,57.7151127 46.1548615,58.9572809 44.6225694,58.9572809 L12.0226612,58.9572809 C10.4903691,58.9572809 9.24820092,57.7151127 9.24820092,56.1828206 L9.24820092,9.0169959 C9.24820092,7.4847038 10.4903691,6.24253562 12.0226612,6.24253562 Z" id="Rectangle" stroke-width="1.33174093" fill="#FFFFFF"></path>
+                        <line x1="15.4907365" y1="13.8723014" x2="41.8481092" y2="13.8723014" id="Line-2" stroke-width="0.60113306" stroke-linecap="square"></line>
+                        <line x1="15.4907365" y1="15.8723014" x2="41.8481092" y2="15.8723014" id="Line-2" stroke-width="0.60113306" stroke-linecap="square"></line>
+                        <line x1="12.0226612" y1="13.8723014" x2="12.7162763" y2="13.8723014" id="Line-2" stroke-width="1.38723014" stroke-linecap="square"></line>
+                        <line x1="12.0226612" y1="25.6637576" x2="12.7162763" y2="25.6637576" id="Line-2" stroke-width="1.38723014" stroke-linecap="square"></line>
+                        <line x1="15.4907365" y1="15.9531466" x2="36.2991886" y2="15.9531466" id="Line-2" stroke-width="1.38723014" stroke-linecap="square"></line>
+                        <line x1="15.4907365" y1="18.0339918" x2="41.8481092" y2="18.0339918" id="Line-2" stroke-width="0.60113306" stroke-linecap="square"></line>
+                        <line x1="15.4907365" y1="20.114837" x2="27.9758078" y2="20.114837" id="Line-2" stroke-width="1.38723014" stroke-linecap="square"></line>
+                        <line x1="15.4907365" y1="25.6637576" x2="41.8481092" y2="25.6637576" id="Line-2" stroke-width="0.60113306" stroke-linecap="square"></line>
+                        <line x1="15.4907365" y1="27.7446028" x2="36.2991886" y2="27.7446028" id="Line-2" stroke-width="1.38723014" stroke-linecap="square"></line>
+                        <line x1="15.4907365" y1="29.825448" x2="41.8481092" y2="29.825448" id="Line-2" stroke-width="0.60113306" stroke-linecap="square"></line>
+                        <line x1="15.4907365" y1="31.9062932" x2="27.9758078" y2="31.9062932" id="Line-2" stroke-width="1.38723014" stroke-linecap="square"></line>
+                        <line x1="12.0226612" y1="36.7615987" x2="12.7162763" y2="36.7615987" id="Line-2" stroke-width="1.38723014" stroke-linecap="square"></line>
+                        <line x1="15.4907365" y1="36.7615987" x2="41.8481092" y2="36.7615987" id="Line-2" stroke-width="0.60113306" stroke-linecap="square"></line>
+                        <line x1="15.4907365" y1="38.8424439" x2="36.2991886" y2="38.8424439" id="Line-2" stroke-width="1.38723014" stroke-linecap="square"></line>
+                        <line x1="15.4907365" y1="40.9232891" x2="41.8481092" y2="40.9232891" id="Line-2" stroke-width="0.60113306" stroke-linecap="square"></line>
+                        <line x1="15.4907365" y1="43.0041343" x2="27.9758078" y2="43.0041343" id="Line-2" stroke-width="1.38723014" stroke-linecap="square"></line>
+                        <line x1="29.3630379" y1="52.0211302" x2="41.8481092" y2="52.0211302" id="Line-2" stroke-width="0.60113306" stroke-linecap="square"></line>
+                        <path d="M2.77446028,-2.27373675e-13 L35.3743685,-2.27373675e-13 C36.9066606,-2.24016396e-13 38.1488288,1.24216818 38.1488288,2.77446028 L38.1488288,49.940285 C38.1488288,51.4725771 36.9066606,52.7147452 35.3743685,52.7147452 L2.77446028,52.7147452 C1.24216818,52.7147452 6.04685483e-15,51.4725771 0,49.940285 L0,2.77446028 C-1.87651661e-16,1.24216818 1.24216818,-2.28868555e-13 2.77446028,-2.27373675e-13 Z" id="Rectangle" stroke-width="1.33174093" fill="#FFFFFF"></path>
+                        <line x1="2.77446028" y1="19.4212219" x2="3.46807534" y2="19.4212219" id="Line-2" stroke-width="0.554892055" stroke-linecap="square"></line>
+                        <line x1="6.24253562" y1="19.4212219" x2="32.5999082" y2="19.4212219" id="Line-2" stroke-width="0.554892055" stroke-linecap="square"></line>
+                        <line x1="6.24253562" y1="21.5020671" x2="27.0509877" y2="21.5020671" id="Line-2" stroke-width="0.554892055" stroke-linecap="square"></line>
+                        <line x1="6.24253562" y1="23.5829123" x2="32.5999082" y2="23.5829123" id="Line-2" stroke-width="0.554892055" stroke-linecap="square"></line>
+                        <line x1="6.24253562" y1="25.6637576" x2="18.7276069" y2="25.6637576" id="Line-2" stroke-width="0.554892055" stroke-linecap="square"></line>
+                        <line x1="20.2425356" y1="14.1637576" x2="32.7276069" y2="14.1637576" id="Line-2" stroke-width="0.554892055" stroke-linecap="square"></line>
+                        <line x1="20.2425356" y1="12.1637576" x2="32.7276069" y2="12.1637576" id="Line-2" stroke-width="0.554892055" stroke-linecap="square"></line>
+                        <line x1="20.2425356" y1="10.1637576" x2="32.7276069" y2="10.1637576" id="Line-2" stroke-width="0.554892055" stroke-linecap="square"></line>
+                        <line x1="20.2425356" y1="8.16375755" x2="32.7276069" y2="8.16375755" id="Line-2" stroke-width="0.554892055" stroke-linecap="square"></line>
+                        <line x1="2.77446028" y1="30.519063" x2="3.46807534" y2="30.519063" id="Line-2" stroke-width="0.554892055" stroke-linecap="square"></line>
+                        <line x1="6.24253562" y1="30.519063" x2="32.5999082" y2="30.519063" id="Line-2" stroke-width="0.554892055" stroke-linecap="square"></line>
+                        <line x1="6.24253562" y1="32.5999082" x2="27.0509877" y2="32.5999082" id="Line-2" stroke-width="0.554892055" stroke-linecap="square"></line>
+                        <line x1="6.24253562" y1="34.6807535" x2="32.5999082" y2="34.6807535" id="Line-2" stroke-width="0.554892055" stroke-linecap="square"></line>
+                        <line x1="6.24253562" y1="36.7615987" x2="18.7276069" y2="36.7615987" id="Line-2" stroke-width="0.554892055" stroke-linecap="square"></line>
+                        <line x1="20.114837" y1="45.7785946" x2="32.5999082" y2="45.7785946" id="Line-2" stroke-width="0.554892055" stroke-linecap="square"></line>
+                        <rect id="Rectangle" fill="#00E599" x="6" y="6" width="10" height="10" rx="1"></rect>
                     </g>
                 </g>
             </g>
