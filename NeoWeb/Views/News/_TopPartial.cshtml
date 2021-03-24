@@ -6,7 +6,7 @@
 @if (Model?.Type == NewsViewModelType.Blog)
 {
     <div class="col-md-5">
-        <h1><span class="green work-sans-bold">@Localizer["NEWS"]</span><br /><span>& @Localizer["EVENT"]</span></h1>
+        <h1><span class="green work-sans-bold">@Localizer["NEWS"]</span><br class="@SharedLocalizer["d-none-zh"]" /><span> & @Localizer["EVENT"]</span></h1>
         <div>@Localizer["After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]</div>
     </div>
     <div class="col-md-6 offset-md-1">

@@ -16,7 +16,7 @@
             <div class="col-left-content">
                 <img class="logo-img" data-original="@Helper.ToCDN("/images/home/N3Logo.svg")" />
                 <div class="sub-title work-sans-semibold">@Localizer["Take a look at the latest version of the Neo platform"]</div>
-                <a asp-controller="tour" asp-action="index" class="btn-n3 tour-btn">@Localizer["Take Tour"]</a>
+                <a asp-controller="tour" asp-action="index" class="btn-n3 tour-btn" target="_blank">@Localizer["Take Tour"]</a>
             </div>
         </div>
 
@@ -75,21 +75,21 @@
             <div class="explanation">
                 @Localizer["After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]
             </div>
-            <a class="btn-2">@Localizer["Migration Guide"]</a>
+            <a class="btn-2" asp-controller="migration" asp-action="index">@Localizer["Migration Guide"]</a>
         </div>
         <div class="col-12 col-md-6 col-right">
-            <div class="work-sans-bold get-started-wrapper">
-                @{ string[,] getStartedItems = new string[4, 2]
+            <div class="get-started-wrapper">
+                @{ string[,] getStartedItems = new string[4, 3]
               {
-                                                                        { "Find a Wallet", "/images/home/FindWallet.svg" },
-                                                                        { "Neo & Gas Tokens", "/images/home/LearnTokens.svg" },
-                                                                        { "Neo's Features", "/images/home/LearnFeatures.svg" },
-                                                                        { "Documentation", "/images/home/ReadDocumentation.svg" }
+                                                                        { "Find a Wallet", "/images/home/FindWallet.svg", "neogas#wallets" },
+                                                                        { "Neo & Gas Tokens", "/images/home/LearnTokens.svg", "neogas#tokens" },
+                                                                        { "Neo's Features", "/images/home/LearnFeatures.svg", "technology" },
+                                                                        { "Documentation", "/images/home/ReadDocumentation.svg", "https://docs.neo.org/v3/docs/en-us/index.html" }
 };
 
                     for (int i = 0; i < getStartedItems.GetLength(0); i++)
                     {
-        <div class="float-card">
+        <a class="float-card" href="@getStartedItems[i, 2]">
             <div class="card-text-wrapper">
                 <div class="green-vertline"></div>
                 <div class="card-text">
@@ -97,7 +97,7 @@
                 </div>
             </div>
             <img class="card-img" data-original="@Helper.ToCDN(getStartedItems[i, 1])" />
-        </div> } }
+        </a> } }
             </div>
         </div>
     </div>
@@ -137,36 +137,55 @@
                         @Localizer["Native functionality provides all the infrustructures you need to build complete decentralized applications, while advanced interoperabilty allows you to harness the power of the global blockchain ecosystem."]
                     </span>
                 </span>
-                <a class="btn-2 building-blocks-btn">@Localizer["Learn More"]</a>
+                <a class="btn-2 building-blocks-btn" href="technology#all-in-one">@Localizer["Learn More"]</a>
             </div>
         </div>
-        <img class="blocks-large-img" data-original="@Helper.ToCDN("/images/home/BlocksLarge.svg")" />
-        <img class="blocks-medium-img" data-original="@Helper.ToCDN("/images/home/BlocksMedium.svg")" />
+        <img class="blocks-large-img" usemap="#blockslargemap" data-original="@Helper.ToCDN("/images/home/BlocksLarge.svg")" />
+        <map name="blockslargemap">
+            <area shape="rect" coords="965 225 1262 328" alt="One Block Finality" href="technology#dbft-2.0" />
+            <area shape="rect" coords="230 530 524 616" alt="Oracles" href="technology#oracles" />
+            <area shape="rect" coords="975 530 1264 616" alt="NeoFS" href="technology#neo-fs" />
+            <area shape="rect" coords="230 790 516 872" alt="Smart Contracts" href="technology#smart-contracts" />
+            <area shape="rect" coords="975 790 1264 890" alt="Neo Name Service" href="technology#neo-name-service" />
+            <area shape="rect" coords="230 1050 520 1130" alt="Interoperability" href="technology#interoperability" />
+            <area shape="rect" coords="975 1056 1256 1134" alt="NeoID" href="technology#neo-id" />
+        </map>
+        <img class="blocks-medium-img" usemap="#blocksmediummap" data-original="@Helper.ToCDN("/images/home/BlocksMedium.png")" />
+        <map name="blocksmediummap">
+            <area shape="rect" coords="588 250 790 344" alt="One Block Finality" href="technology#dbft-2.0" />
+            <area shape="rect" coords="204 454 378 528" alt="Oracles" href="technology#oracles" />
+            <area shape="rect" coords="590 456 764 532" alt="NeoFS" href="technology#neo-fs" />
+            <area shape="rect" coords="206 644 396 724" alt="Smart Contracts" href="technology#smart-contracts" />
+            <area shape="rect" coords="590 638 778 732" alt="Neo Name Service" href="technology#neo-name-service" />
+            <area shape="rect" coords="212 828 394 922" alt="Interoperability" href="technology#interoperability" />
+            <area shape="rect" coords="588 830 744 920" alt="NeoID" href="technology#neo-id" />
+        </map>
+
         <div class="blocks-container">
-            @{ string[,] blocks = new string[7, 3]
-                               {
-                                                {
-                        "/images/home/OneBlockFinality.svg", "One Block Finality", "Poly.Network enabled cross-chain interoperability with Ethereum, Binance Chain, and more."
+            @{ string[,] blocks = new string[7, 4]
+                                {
+                                                    {
+                        "/images/home/OneBlockFinality3D.svg", "One Block Finality", "Poly.Network enabled cross-chain interoperability with Ethereum, Binance Chain, and more.", "technology#dbft-2.0"
                     },
-                                                {
-                        "/images/home/oracles.svg", "Oracles", "A built-in oracle enabling secured access to any off-chain data."
+                                                    {
+                        "/images/home/NativeOracles3D.svg", "Oracles", "A built-in oracle enabling secured access to any off-chain data.", "technology#oracles"
                     },
-                                                {
-                        "/images/home/NeoFS.svg", "NeoFS", "A distributed data storage solution made for scalability and privacy."
+                                                    {
+                        "/images/home/NeoFS3D.svg", "NeoFS", "A distributed data storage solution made for scalability and privacy.", "technology#neo-fs"
                     },
-                                                {
-                        "/images/home/SmartContracts.svg", "Smart Contracts", "Smart contracts  ipsum dolor sit amet, consectetur adipiscing elit. "
+                                                    {
+                        "/images/home/SmartContracts3D.svg", "Smart Contracts", "Smart contracts  ipsum dolor sit amet, consectetur adipiscing elit. ", "technology#smart-contracts"
                     },
-                                                {
-                        "/images/home/NeoNameService.svg", "Neo Name Service", "A decentralized .neo domain name service for next-gen internet web applications. "
+                                                    {
+                        "/images/home/NeoNameService3D.svg", "Neo Name Service", "A decentralized .neo domain name service for next-gen internet web applications. ", "technology#neo-name-service"
                     },
-                                                {
-                        "/images/home/Interoperability.svg", "Interoperability", "Smart contracts  ipsum dolor sit amet, consectetur adipiscing elit. "
+                                                    {
+                        "/images/home/Interoperability3D.svg", "Interoperability", "Smart contracts  ipsum dolor sit amet, consectetur adipiscing elit. ", "technology#interoperability"
                     },
-                                                {
-                        "/images/home/NeoID.svg", "NeoID", "Smart contracts  ipsum dolor sit amet, consectetur adipiscing elit. "
+                                                    {
+                        "/images/home/NeoID3D.svg", "NeoID", "Smart contracts  ipsum dolor sit amet, consectetur adipiscing elit. ", "technology#neo-id"
                     }
-   };
+};
 
                 for (int i = 0; i < blocks.GetLength(0); i++)
                 {
@@ -195,7 +214,7 @@
                 @Localizer["Write smart contracts in a language you already know, with tools you already love"]
             </div>
         </div>
-        <a class="btn-2 code-learn-more">@Localizer["Learn More"]</a>
+        <a class="btn-2 code-learn-more" href="technology#smart-contracts">@Localizer["Learn More"]</a>
     </div>
 
     <div class="code-example-row">
@@ -302,8 +321,8 @@
 
             <div class="dual-tokens-horizLine"></div>
             <div class="dual-tokens-buttons">
-                <a class="btn-2">@Localizer["Learn More"]</a>
-                <a class="btn-4">@Localizer["Find a Wallet"]</a>
+                <a class="btn-2" href="neogas#tokens">@Localizer["Learn More"]</a>
+                <a class="btn-4" href="neogas#wallets">@Localizer["Find a Wallet"]</a>
             </div>
         </div>
         <div class="col-right">
@@ -329,7 +348,7 @@
                 </div>
                 <div class="results-row">
                     <div class="result-col">
-                        <span class="result-num result-holding">0.44</span>
+                        <div class="result-num result-holding">0.44</div>
                         <div class="gas-wrapper">
                             <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
                             <span>Gas Per Month<span class="green">*</span></span><br /><br />
@@ -338,7 +357,7 @@
                     </div>
                     <div class="plug-sign">+</div>
                     <div class="result-col">
-                        <span class="result-num result-governance">17.52</span>
+                        <div class="result-num result-governance">17.52</div>
                         <div class="gas-wrapper">
                             <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
                             <span>Gas Per Month<span class="green">*</span></span><br /><br />
@@ -348,7 +367,7 @@
                 </div>
                 <div class="results-row-mobile">
                     <div class="result-row">
-                        <span class="result-num-mobile result-holding">0.44</span>
+                        <div class="result-num-mobile result-holding">0.44</div>
                         <div class="gas-wrapper-mobile">
                             <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
                             <span>Gas Per Month<span class="green">*</span></span><br /><br />
@@ -357,7 +376,7 @@
                     <span class="status-text-mobile">For holding Neo</span>
                     <div class="plug-sign">+</div>
                     <div class="result-row">
-                        <span class="result-num-mobile result-governance">17.52</span>
+                        <div class="result-num-mobile result-governance">17.52</div>
                         <div class="gas-wrapper-mobile">
                             <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
                             <span>Gas Per Month<span class="green">*</span></span><br /><br />
@@ -385,16 +404,16 @@
             <div class="governance-cards">
                 <span class="governance-learn-more">Learn More</span>
                 <div class="governance-card-container">
-                    @{ string[,] governanceItems = new string[3, 2]
+                    @{ string[,] governanceItems = new string[3, 3]
                                      {
-                                                                { "How to vote", "/images/home/vote.svg" },
-                                                                { "General guide to governance", "/images/home/documentation.svg" },
-                                                                { "Register as a committee candidate", "/images/home/register.svg" }
+                                                                { "How to vote", "/images/home/vote.svg", "https://www.google.com" },
+                                                                { "General guide to governance", "/images/home/ReadDocumentation.svg", "gov" },
+                                                                { "Register as a committee candidate", "/images/home/register.svg", "https://www.google.com" }
  };
 
                         for (int i = 0; i < governanceItems.GetLength(0); i++)
                         {
-            <div class="float-card">
+            <a class="float-card" href="@governanceItems[i, 2]">
                 <div class="card-text-wrapper">
                     <div class="green-vertline"></div>
                     <div class="text-uppercase card-text">
@@ -402,7 +421,7 @@
                     </div>
                 </div>
                 <img class="card-img" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
-            </div> } }
+            </a> } }
                 </div>
             </div>
         </div>
@@ -485,7 +504,7 @@
             </div>
         </div>
         <div class="governance-img-container">
-            <img class="governance-img-vert" data-original="@Helper.ToCDN("/images/home/placeholder.svg")" />
+            <img class="governance-img-vert" data-original="@Helper.ToCDN("/images/home/GovernanceTablet.svg")" />
         </div>
         <div class="governance-paragraph">
             <span>
@@ -542,6 +561,7 @@
                 <div class="github-status">
                     <span class="github-status-num" id="github-sub">-</span>subscribers
                 </div>
+                <a href="https://github.com/neo-project"><img class="github-icon" data-original="@Helper.ToCDN("/images/home/Github.png")" /></a>
             </div>
         </div>
     </div>

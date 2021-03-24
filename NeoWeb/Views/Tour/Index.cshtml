@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @{ Layout = null; }
 <!DOCTYPE html>
@@ -44,7 +44,7 @@
         <div class="left-container">
             <div class="left-container-content">
                 <div class="tour-left-logo hide-in-mobile">
-                    <a href="/">
+                    <a asp-controller="home" asp-action="index">
                         <img src="@Helper.CDN/images/tour/neo_color_dark.png" class="tour-left-logo-img" />
                     </a>
                 </div>
@@ -124,13 +124,13 @@
                                 @Localizer["NATIVE"]
                             </span><br />
                             <span style="color: #000033">
-                                @Localizer["ORACLES"]
+                                @Localizer["ORACLE"]
                             </span>
                         </div>
                         <div class="text-group-content text-group-4-text text-group-border">
                             @Localizer["With Neo's native oracle service, it becomes trivial for developers to tap into any external resources."]
                             <br /><br />
-                            @Localizer["Smart contracts are a revolutionary tool, but their usefulness is naturally limited by the data they can access.The native oracle service introduced in N3 allows developers to access rich off - chain data sources through HTTPS or NeoFS requests, opening up new opportunities to create valuable decentralized services."]
+                            @Localizer["Smart contracts are a revolutionary tool, but their usefulness is naturally limited by the data they can access. The native oracle service introduced in N3 allows developers to access rich off-chain data sources through HTTPS or NeoFS requests, opening up new opportunities to create valuable decentralized services."]
                         </div>
                         <div class="text-group-content text-group-text-2">
                             @Localizer["Learn more about Neo's native oracles"]

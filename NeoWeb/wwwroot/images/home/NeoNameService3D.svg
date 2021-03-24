@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="82px" height="91px" viewBox="0 0 82 91" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon</title>
+    <defs>
+        <polygon id="path-1" points="37.8 -2.13162821e-14 67.2621842 17.01 67.2621842 51.03 37.8 68.04 8.33781576 51.03 8.33781576 17.01"></polygon>
+        <filter x="-31.5%" y="-19.1%" width="145.4%" height="158.8%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="-6" dy="7" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.316369017   0 0 0 0 0.366987588   0 0 0 0 0.353495709  0 0 0 0.257409583 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="-3" dy="3" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="2.5" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.144614907 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="HOMEPAGE-MOBILE" transform="translate(-3.000000, -3357.000000)">
+            <g id="Building-blocks-panel" transform="translate(8.000000, 2180.000000)">
+                <g id="Features" transform="translate(0.000000, 643.000000)">
+                    <g id="NEO-NAME-SERVICE" transform="translate(4.000000, 529.000000)">
+                        <g id="icon" transform="translate(0.000000, 9.000000)">
+                            <polygon id="Polygon-Copy" stroke="#00E599" stroke-width="0.648" fill="#FFFFFF" points="34.02 6.84 63.4821842 23.85 63.4821842 57.87 34.02 74.88 4.55781576 57.87 4.55781576 23.85"></polygon>
+                            <g id="Polygon-Copy-11">
+                                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                                <use fill="#F0F5F6" fill-rule="evenodd" xlink:href="#path-1"></use>
+                            </g>
+                            <g id="Group-3" transform="translate(23.580000, 24.840000)" stroke="#000033">
+                                <g id="Group-2" transform="translate(0.252000, 0.000000)">
+                                    <rect id="Rectangle" stroke-width="0.756" fill="#FFFFFF" x="0" y="0" width="27.216" height="21.168" rx="1.008"></rect>
+                                    <circle id="Oval" stroke-width="0.504" cx="1.26" cy="1.512" r="1"></circle>
+                                    <circle id="Oval" stroke-width="0.504" cx="2.52" cy="1.512" r="1"></circle>
+                                    <circle id="Oval" stroke-width="0.504" cx="3.78" cy="1.512" r="1"></circle>
+                                    <rect id="Rectangle" stroke-width="0.504" fill="#00E599" x="7.812" y="1.008" width="11.088" height="1.008" rx="0.504"></rect>
+                                    <line x1="26.964" y1="3.024" x2="0.252" y2="3.024" id="Line" stroke-width="0.504" stroke-linecap="square"></line>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

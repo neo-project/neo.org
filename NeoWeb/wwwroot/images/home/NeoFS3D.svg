@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="82px" height="91px" viewBox="0 0 82 91" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon</title>
+    <defs>
+        <polygon id="path-1" points="37.8 -2.13162821e-14 67.2621842 17.01 67.2621842 51.03 37.8 68.04 8.33781576 51.03 8.33781576 17.01"></polygon>
+        <filter x="-31.5%" y="-19.1%" width="145.4%" height="158.8%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="-6" dy="7" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.316369017   0 0 0 0 0.366987588   0 0 0 0 0.353495709  0 0 0 0.257409583 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="-3" dy="3" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="2.5" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.144614907 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="HOMEPAGE-MOBILE" transform="translate(-4.000000, -3097.000000)">
+            <g id="Building-blocks-panel" transform="translate(8.000000, 2180.000000)">
+                <g id="Features" transform="translate(0.000000, 643.000000)">
+                    <g id="NEOFS" transform="translate(5.000000, 269.000000)">
+                        <g id="icon" transform="translate(0.000000, 9.000000)">
+                            <polygon id="Polygon" stroke="#00E599" stroke-width="0.648" fill="#FFFFFF" points="34.02 7.38 63.4821842 24.39 63.4821842 58.41 34.02 75.42 4.55781576 58.41 4.55781576 24.39"></polygon>
+                            <g id="Polygon-Copy-8">
+                                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                                <use fill="#F0F5F6" fill-rule="evenodd" xlink:href="#path-1"></use>
+                            </g>
+                            <g id="Group-14" transform="translate(23.940000, 20.880000)" stroke="#000033" stroke-width="0.6552">
+                                <g id="Group-10" transform="translate(11.044800, 10.296000)">
+                                    <path d="M3.79297815,0.0700501603 L6.71893248,1.72487516 C6.79786827,1.76951868 6.84667113,1.85318738 6.84667113,1.94387312 L6.84667113,5.24460688 C6.84667113,5.33529262 6.79786827,5.41896132 6.71893248,5.46360484 L3.79297815,7.11842984 C3.71612595,7.16189496 3.62211405,7.16189496 3.54526185,7.11842984 L0.619307516,5.46360484 C0.540371728,5.41896132 0.49156887,5.33529262 0.49156887,5.24460688 L0.49156887,1.94387312 C0.49156887,1.85318738 0.540371728,1.76951868 0.619307516,1.72487516 L3.54526185,0.0700501603 C3.62211405,0.0265850431 3.71612595,0.0265850431 3.79297815,0.0700501603 Z" id="Polygon" fill="#00E599"></path>
+                                    <line x1="3.66912" y1="7.03872" x2="3.66912" y2="3.59424" id="Line-6" stroke-linecap="round"></line>
+                                    <line x1="0.44928" y1="1.94688" x2="3.59424" y2="3.59424" id="Line-4" stroke-linecap="round"></line>
+                                    <line x1="6.7392" y1="1.94688" x2="3.59424" y2="3.59424" id="Line-5" stroke-linecap="round"></line>
+                                </g>
+                                <g id="Group-10" transform="translate(0.000000, 10.296000)">
+                                    <path d="M3.79297815,0.0700501603 L6.71893248,1.72487516 C6.79786827,1.76951868 6.84667113,1.85318738 6.84667113,1.94387312 L6.84667113,5.24460688 C6.84667113,5.33529262 6.79786827,5.41896132 6.71893248,5.46360484 L3.79297815,7.11842984 C3.71612595,7.16189496 3.62211405,7.16189496 3.54526185,7.11842984 L0.619307516,5.46360484 C0.540371728,5.41896132 0.49156887,5.33529262 0.49156887,5.24460688 L0.49156887,1.94387312 C0.49156887,1.85318738 0.540371728,1.76951868 0.619307516,1.72487516 L3.54526185,0.0700501603 C3.62211405,0.0265850431 3.71612595,0.0265850431 3.79297815,0.0700501603 Z" id="Polygon" fill="#FFFFFF"></path>
+                                    <line x1="3.66912" y1="7.03872" x2="3.66912" y2="3.59424" id="Line-6" stroke-linecap="round"></line>
+                                    <line x1="0.44928" y1="1.94688" x2="3.59424" y2="3.59424" id="Line-4" stroke-linecap="round"></line>
+                                    <line x1="6.7392" y1="1.94688" x2="3.59424" y2="3.59424" id="Line-5" stroke-linecap="round"></line>
+                                </g>
+                                <g id="Group-10" transform="translate(22.464000, 10.296000)">
+                                    <path d="M3.79297815,0.0700501603 L6.71893248,1.72487516 C6.79786827,1.76951868 6.84667113,1.85318738 6.84667113,1.94387312 L6.84667113,5.24460688 C6.84667113,5.33529262 6.79786827,5.41896132 6.71893248,5.46360484 L3.79297815,7.11842984 C3.71612595,7.16189496 3.62211405,7.16189496 3.54526185,7.11842984 L0.619307516,5.46360484 C0.540371728,5.41896132 0.49156887,5.33529262 0.49156887,5.24460688 L0.49156887,1.94387312 C0.49156887,1.85318738 0.540371728,1.76951868 0.619307516,1.72487516 L3.54526185,0.0700501603 C3.62211405,0.0265850431 3.71612595,0.0265850431 3.79297815,0.0700501603 Z" id="Polygon" fill="#FFFFFF"></path>
+                                    <line x1="3.66912" y1="7.03872" x2="3.66912" y2="3.59424" id="Line-6" stroke-linecap="round"></line>
+                                    <line x1="0.44928" y1="1.94688" x2="3.59424" y2="3.59424" id="Line-4" stroke-linecap="round"></line>
+                                    <line x1="6.7392" y1="1.94688" x2="3.59424" y2="3.59424" id="Line-5" stroke-linecap="round"></line>
+                                </g>
+                                <g id="Group-10" transform="translate(11.044800, 0.000000)">
+                                    <path d="M3.79297815,0.0700501603 L6.71893248,1.72487516 C6.79786827,1.76951868 6.84667113,1.85318738 6.84667113,1.94387312 L6.84667113,5.24460688 C6.84667113,5.33529262 6.79786827,5.41896132 6.71893248,5.46360484 L3.79297815,7.11842984 C3.71612595,7.16189496 3.62211405,7.16189496 3.54526185,7.11842984 L0.619307516,5.46360484 C0.540371728,5.41896132 0.49156887,5.33529262 0.49156887,5.24460688 L0.49156887,1.94387312 C0.49156887,1.85318738 0.540371728,1.76951868 0.619307516,1.72487516 L3.54526185,0.0700501603 C3.62211405,0.0265850431 3.71612595,0.0265850431 3.79297815,0.0700501603 Z" id="Polygon" fill="#FFFFFF"></path>
+                                    <line x1="3.66912" y1="7.03872" x2="3.66912" y2="3.59424" id="Line-6" stroke-linecap="round"></line>
+                                    <line x1="0.44928" y1="1.94688" x2="3.59424" y2="3.59424" id="Line-4" stroke-linecap="round"></line>
+                                    <line x1="6.7392" y1="1.94688" x2="3.59424" y2="3.59424" id="Line-5" stroke-linecap="round"></line>
+                                </g>
+                                <g id="Group-10" transform="translate(11.044800, 20.966400)">
+                                    <path d="M3.79297815,0.0700501603 L6.71893248,1.72487516 C6.79786827,1.76951868 6.84667113,1.85318738 6.84667113,1.94387312 L6.84667113,5.24460688 C6.84667113,5.33529262 6.79786827,5.41896132 6.71893248,5.46360484 L3.79297815,7.11842984 C3.71612595,7.16189496 3.62211405,7.16189496 3.54526185,7.11842984 L0.619307516,5.46360484 C0.540371728,5.41896132 0.49156887,5.33529262 0.49156887,5.24460688 L0.49156887,1.94387312 C0.49156887,1.85318738 0.540371728,1.76951868 0.619307516,1.72487516 L3.54526185,0.0700501603 C3.62211405,0.0265850431 3.71612595,0.0265850431 3.79297815,0.0700501603 Z" id="Polygon" fill="#FFFFFF"></path>
+                                    <line x1="3.66912" y1="7.03872" x2="3.66912" y2="3.59424" id="Line-6" stroke-linecap="round"></line>
+                                    <line x1="0.44928" y1="1.94688" x2="3.59424" y2="3.59424" id="Line-4" stroke-linecap="round"></line>
+                                    <line x1="6.7392" y1="1.94688" x2="3.59424" y2="3.59424" id="Line-5" stroke-linecap="round"></line>
+                                </g>
+                                <line x1="22.8384" y1="14.2272" x2="17.9712" y2="14.2272" id="Line-7" stroke-linecap="square"></line>
+                                <line x1="11.52" y1="14.22" x2="7.2" y2="14.22" id="Line-7" stroke-linecap="square"></line>
+                                <line x1="14.7888" y1="20.592" x2="14.7888" y2="17.5968" id="Line-7" stroke-linecap="square"></line>
+                                <line x1="14.7888" y1="10.1088" x2="14.7888" y2="7.1136" id="Line-7" stroke-linecap="square"></line>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

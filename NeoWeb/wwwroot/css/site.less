@@ -3,12 +3,12 @@
 html {
     font-size: 16px;
 
-    @media only screen and (max-width: 991.98px) {
-        font-size: 15px;
+    @media only screen and (max-width: 1399.98px) {
+        font-size: 14px;
     }
 
     @media only screen and (max-width: 767.98px) {
-        font-size: 14px;
+        font-size: 12px;
     }
 }
 
@@ -41,8 +41,8 @@ a {
 
 @font-face {
     font-family: 'iconfont'; /* project id 2403071 */
-    src: url('//at.alicdn.com/t/font_2403071_z4olhkpv4nj.eot');
-    src: url('//at.alicdn.com/t/font_2403071_z4olhkpv4nj.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_2403071_z4olhkpv4nj.woff2') format('woff2'), url('//at.alicdn.com/t/font_2403071_z4olhkpv4nj.woff') format('woff'), url('//at.alicdn.com/t/font_2403071_z4olhkpv4nj.ttf') format('truetype'), url('//at.alicdn.com/t/font_2403071_z4olhkpv4nj.svg#iconfont') format('svg');
+    src: url('//at.alicdn.com/t/font_2403071_3gmv8ob4hin.eot');
+    src: url('//at.alicdn.com/t/font_2403071_3gmv8ob4hin.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_2403071_3gmv8ob4hin.woff2') format('woff2'), url('//at.alicdn.com/t/font_2403071_3gmv8ob4hin.woff') format('woff'), url('//at.alicdn.com/t/font_2403071_3gmv8ob4hin.ttf') format('truetype'), url('//at.alicdn.com/t/font_2403071_3gmv8ob4hin.svg#iconfont') format('svg');
 }
 
 .iconfont {
@@ -575,7 +575,7 @@ h4, .h4, h5, .h5, h6, .h6 {
     font-size: @font-size-5;
     line-height: 1.2;
     letter-spacing: -0.15px;
-    .work-sans-bold;
+    .nunito-sans-semibold;
 }
 
 p {
@@ -646,6 +646,16 @@ hr {
     border-radius: .75rem 0px 0px .75rem;
     box-shadow: -11px 2px 40px 0px rgba(6, 20, 29, 0.36);
     z-index: 1000;
+
+    .iconfont {
+        color: white;
+        cursor: pointer;
+        margin: 0 14px -24px;
+        float: left;
+        text-shadow: 1px 1px 1px black;
+        position: absolute;
+        bottom: 0
+    }
 }
 
 .migration-text {
@@ -656,6 +666,7 @@ hr {
     position: absolute;
     right: -4rem;
     color: white;
+    text-align: center;
 
     img {
         width: 1.2rem;
