@@ -401,6 +401,7 @@
     align-self: center;
     margin-top: 4rem;
 }
+
 .tabs {
     display: flex;
     border-bottom: 2px solid @dark-blue;
@@ -582,6 +583,14 @@
 .example {
     display: flex;
 
+    &:hover {
+        color: inherit;
+    }
+
+    &.hidden {
+        display: none;
+    }
+
     & + & {
         margin-top: 2.5rem;
     }
@@ -728,4 +737,9 @@
     & + & {
         margin-left: 0.75rem;
     }
+}
+
+.load-more-examples {
+    align-self: center;
+    margin-top: 4rem;
 }

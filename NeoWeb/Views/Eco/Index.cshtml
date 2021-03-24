@@ -55,7 +55,7 @@
     <script>
         // index
         $(document).ready(() => {
-            function updateCurrentPage(i) {
+            function updateMenu(i) {
                 $('.menu-item').each((j, menuItem) => {
                     if (i === j) {
                         $(menuItem).addClass('active');
@@ -75,14 +75,14 @@
                 $(window).trigger('scroll');
             }
 
-            function updateCurrentPageWithHash() {
+            function updateMenuWithHash() {
                 const hash = location.hash.slice(1);
                 if (hash === 'overview') {
-                    updateCurrentPage(0);
+                    updateMenu(0);
                 } else if (hash === 'ecoboost'){
-                    updateCurrentPage(1);
+                    updateMenu(1);
                 } else if (hash === 'ecofund'){
-                    updateCurrentPage(2);
+                    updateMenu(2);
                 }
             }
 
@@ -97,9 +97,9 @@
                 }
             });
 
-            $(window).on('hashchange', updateCurrentPageWithHash);
+            $(window).on('hashchange', updateMenuWithHash);
 
-            updateCurrentPageWithHash();
+            updateMenuWithHash();
         });
 
         $(document).ready(() => {
