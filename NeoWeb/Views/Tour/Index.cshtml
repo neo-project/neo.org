@@ -23,6 +23,18 @@
             font-family: 'WorkSans-SemiBold'; /* project id 1408484 */
             src: url('/font/WorkSans-SemiBold.ttf');
         }
+        @@font-face {
+            font-family: 'NunitoSans-Regular'; /* project id 1408484 */
+            src: url('/font/NunitoSans-Regular.ttf');
+        }
+        @@font-face {
+            font-family: 'NunitoSans-Bold'; /* project id 1408484 */
+            src: url('/font/NunitoSans-Bold.ttf');
+        }
+        @@font-face {
+            font-family: 'NunitoSans-SemiBold'; /* project id 1408484 */
+            src: url('/font/NunitoSans-SemiBold.ttf');
+        }
     </style>
     <title>N3 TOUR</title>
 </head>
@@ -32,7 +44,7 @@
         <div class="left-container">
             <div class="left-container-content">
                 <div class="tour-left-logo hide-in-mobile">
-                    <a href="https://neo.org/">
+                    <a href="/">
                         <img src="@Helper.CDN/images/tour/neo_color_dark.png" class="tour-left-logo-img" />
                     </a>
                 </div>
@@ -74,13 +86,6 @@
                             <br /><br />
                             @Localizer["As with any new paradigm, blockchain development comes with a learning curve.Rather than introducing additional overhead, Neo helps developers by integrating seamlessly with the world's most widely used languages and tools."]
                         </div>
-                        @*<div class="text-group-logo">
-                                <img src="@Helper.CDN/images/tour/N3_Logo.png" class="text-group-logo-img" />
-                                <img src="@Helper.CDN/images/tour/N3_Logo.png" class="text-group-logo-img" />
-                                <img src="@Helper.CDN/images/tour/N3_Logo.png" class="text-group-logo-img" />
-                                <img src="@Helper.CDN/images/tour/N3_Logo.png" class="text-group-logo-img" />
-                                <img src="@Helper.CDN/images/tour/N3_Logo.png" class="text-group-logo-img" />
-                            </div>*@
                         <div class="text-group-content text-group-text-2">
                             @Localizer["Learn more about Neo's multi-language support"]
                             <div class="text-group-icon">
@@ -98,9 +103,13 @@
                             </span>
                         </div>
                         <div class="text-group-content text-group-3-text text-group-border">
-                            @Localizer["NeoFS: Your data, securely encrypted wherever you want it, and available whenever you need it."]
+                            @Localizer["Enjoy the benefits with no compromises on NeoFS."]
                             <br /><br />
-                            @Localizer["Phase out centralized depencies or simply bring your operational costs down with the most reliable and performant decentralized storage solution.With HTTP and S3 gateways, no rearchitecting is required to integrate existing applications or users with NeoFS."]
+                            @Localizer["Your data, always securely encrypted and available. Maintain full control over where it is placed and how it is accessed to deliver your users a first class experience."]
+                            <br /><br />
+                            @Localizer["Phase out centralized dependencies with the most reliable and performant decentralized storage solution. With HTTP and S3 gateways, no rearchitecting is required to integrate existing applications or users with NeoFS."]
+                            <br /><br />
+                            @Localizer["Not looking to integrate, but want to participate? Earn GAS for leasing your unused storage."]
                         </div>
                         <div class="text-group-content text-group-text-2">
                             @Localizer["Learn more about the NeoFS network"]
@@ -108,18 +117,6 @@
                                 <img class="direction" src="@Helper.CDN/images/tour/direct.png" />
                             </div>
                         </div>
-                        @*<div class="text-group-content text-group-3-text-2">
-                                Learn how to build dApps in your language 2
-                                <div class="text-group-icon">
-                                    <img class="direction" src="@Helper.CDN/images/tour/direct.png"/>
-                                </div>
-                            </div>
-                            <div class="text-group-content text-group-3-text-2">
-                                Learn how to build dApps in your language 2
-                                <div class="text-group-icon">
-                                    <img class="direction" src="@Helper.CDN/images/tour/direct.png"/>
-                                </div>
-                            </div>*@
                     </div>
                     <div class="text-group text-guide-4 fade-out">
                         <div class="text-group-head text-group-4-head1">
@@ -152,7 +149,8 @@
                             </span>
                         </div>
                         <div class="text-group-content text-group-5-text text-group-border">
-                            @Localizer["While some decentralized applications can be freely invoked by anyone, others may require an extra level of authentication. With Neo's digital identity tools, apps can integrate the precise level of verification they need to function correctly while users remain in full control over their private data."]
+                            @Localizer["Use verifiable credentials to add a layer of authentication to your application."]
+                            @Localizer["Through NeoID, you can customize the precise level of attribute verification needed to ensure your contract operates correctly. Ensure regulatory compliance, filter out bots, or leave the doors open to everyone. Through its open claim issuance and validation tools, users can remain in full control of their personal information."]
                         </div>
                         <div class="text-group-content text-group-text-2">
                             @Localizer["Learn more about NeoID"]
@@ -164,7 +162,7 @@
                     <div class="text-group text-guide-6 fade-out">
                         <div class="text-group-head text-group-6-head1">
                             <span>
-                                @Localizer["NATIVE NAME"]
+                                @Localizer["DOMAIN NAME"]
                             </span><br />
                             <span style="color: #000033">
                                 @Localizer["SERVICE"]
@@ -173,7 +171,7 @@
                         <div class="text-group-content text-group-6-text text-group-border">
                             @Localizer["Neo makes it easy for users to interact with the next generation of decentralized services."]
                             <br /><br />
-                            @Localizer["Neo's native name service provides domain-mapping for a number of record types. Powered by NFTs to enable open trading, NNS functions as both a redirection service for NeoFS-based app frontends and as an alias service to replace hard-to-use public addresses. "]
+                            @Localizer["Neo's native name service provides domain-mapping for a number of record types. Powered by NFTs to enable open trading, NNS aliases can be used to replace public addresses, contract hashes, and NeoFS containers with human-friendly names."]
                         </div>
                         <div class="text-group-content text-group-text-2">
                             @Localizer["Learn more about Neo's native domain service"]
@@ -192,12 +190,12 @@
                             </span>
                         </div>
                         <div class="text-group-content text-group-7-text text-group-border">
-                            @Localizer["As a founding member of the interoperability protocol alliance Poly Network, Neo makes cross-chain interaction as easy as a native transaction. "]
+                            @Localizer["As a founding member of the interoperability protocol alliance Poly Network, Neo makes cross-chain interaction as easy as a native transaction."]
                             <br /><br />
-                            @Localizer["Connected with an ever - growing list of other blockchains, applications on Neo are not limited to interacting with native assets or contracts, but can easily tap into resources from heterogenous networks."]
+                            @Localizer["Connected with an ever-growing list of other blockchains, applications on Neo are not limited to interacting with native assets or contracts, but can easily tap into resources from heterogenous networks."]
                         </div>
                         <div class="text-group-content text-group-text-2">
-                            @Localizer["Learn more about Neo's Poly Network Integration"]
+                            @Localizer["Learn more about Neo's Poly Network integration"]
                             <div class="text-group-icon">
                                 <img class="direction" src="@Helper.CDN/images/tour/direct.png" />
                             </div>
@@ -215,10 +213,10 @@
                         <div class="text-group-content text-group-8-text text-group-border">
                             @Localizer["Neo's fork-proof dBFT consensus makes it the most powerful settlement engine in the world."]
                             <br /><br />
-                            @Localizer["Neo was the first truly immutable blockchain.With majority approval between consensus nodes required for each new block, transactions on Neo are given immediate, irrevocable finality as soon as they are added to the blockchain.Neo's landmark dBFT consensus mechanism sparked a growing trend of adoption for BFT-based mechanisms across the industry."]
+                            @Localizer["Neo was the first truly immutable blockchain. With majority approval between consensus nodes required for each new block, transactions on Neo are given immediate, irrevocable finality as soon as they are added to the blockchain. Neo's high performance dBFT consensus mechanism sparked a growing trend of adoption for BFT-based mechanisms across the industry."]
                         </div>
                         <div class="text-group-content text-group-text-2">
-                            @Localizer["Learn more about Neo's dBFT Consensus Mechanism"]
+                            @Localizer["Learn more about Neo's dBFT consensus mechanism"]
                             <div class="text-group-icon">
                                 <img class="direction" src="@Helper.CDN/images/tour/direct.png" />
                             </div>
@@ -259,7 +257,7 @@
                         <div class="text-group-content text-group-10-text text-group-border">
                             @Localizer["Neo's goal has always been to be the most developer friendly platform."]
                             <br /><br />
-                            @Localizer["The crown jewel of Neo's developer experience is the Neo Blockchain Toolkit for VS Code. Built by Microsoft-alumni at NGD Enterprise, the toolkit offers industry best tools for easy network deployment, testing, and smart contract debugging. "]
+                            @Localizer["The crown jewel of Neo's developer experience is the Neo Blockchain Toolkit for VS Code. Built by Microsoft-alumni at NGD Enterprise, the toolkit offers industry best tools for easy network deployment, testing, and smart contract debugging."]
                             <br /><br />
                             @Localizer["Neo also boasts many other powerful community-built SDKs, compilers, code examples, and resources for all supported languages, including C#, Python, TypeScript, Java, and Golang."]
                             <br /><br />
@@ -286,16 +284,16 @@
                             <br /><br />
                             @Localizer["Hop into our developer quickstart guides and example libraries to begin building your decentralized application on Neo."]
                         </div>
+                        <div class="mobile-block-wrapper hide-in-desktop">
+                            <img class="mobile-block" src="@Helper.CDN/images/tour/block1.png" />
+                            <img class="mobile-block" src="@Helper.CDN/images/tour/block2.png" />
+                            <img class="mobile-block" src="@Helper.CDN/images/tour/block3.png" />
+                            <img class="mobile-block" src="@Helper.CDN/images/tour/block4.png" />
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="bottom-guide" id="bottom-guide">
-                @*<div class="bottom-title">
-                        @Localizer["Main website"]
-                        <div class="text-group-icon">
-                            <img class="direction" src="@Helper.CDN/images/tour/direct.png" />
-                        </div>
-                    </div>*@
+            <div class="bottom-guide hide-in-mobile" id="bottom-guide">
                 <div class="hide" id="bottom-guide-container">
                     <div id="prev" style="cursor: pointer;">
                         <img class="bottom-guide-container-icon arrow-show" src="@Helper.CDN/images/tour/previous_arrow.png" />
@@ -323,8 +321,15 @@
         </div>
 
         <div class="right-container">
-            <div class="neo-logo-mobile hide-in-desktop">
-                <img src="@Helper.CDN/images/logo files-dark.svg" class="neo-logo-mobile-image">
+            <div class="neo-logo-mobile hide-in-desktop logo-white">
+                <a href="https://neo.org/">
+                    <img src="@Helper.CDN/images/logo files-white.svg" class="neo-logo-mobile-image">
+                </a>
+            </div>
+            <div class="neo-logo-mobile hide-in-desktop logo-dark hide-in-mobile">
+                <a href="https://neo.org/">
+                    <img src="@Helper.CDN/images/logo files-dark.svg" class="neo-logo-mobile-image">
+                </a>
             </div>
             <div class="carouselImgs slide0">
                 <img class="carouse-pic" src="@Helper.CDN/images/tour/tour0.png" />
@@ -385,16 +390,17 @@
             </div>
             <div class="carouselImgs fade-out slide10">
                 <div class="slide10-up">
-                    <img class="carouse-pic" src="@Helper.CDN/images/tour/tour11.png" />
+                    <img class="carouse-pic hide-in-desktop" src="@Helper.CDN/images/tour/tour0.png" />
+                    <img class="carouse-pic hide-in-mobile" src="@Helper.CDN/images/tour/tour11.png" />
                 </div>
-                <div class="slide10-down">
+                <div class="slide10-down hide-in-mobile">
                     <img class="carouse-pic" src="@Helper.CDN/images/tour/tour12.png" />
                 </div>
-                <div class="right-corner">
+                <div class="right-corner hide-in-mobile">
                     <img class="right-corner-pic" src="@Helper.CDN/images/tour/corner.png" />
                 </div>
                 @*<img class="carouse-pic" src="@Helper.CDN/images/tour/tour10.png" />*@
-                <img class="carouse-blocks" usemap="#actionmap" src="@Helper.CDN/images/tour/blocks.png" />
+                <img class="carouse-blocks hide-in-mobile" usemap="#actionmap" src="@Helper.CDN/images/tour/blocks.png" />
                 <map name="actionmap">
                     <area shape="rect" coords="120 4 800 208" alt="Download a Wallet" href="https://www.google.com" />
                     <area shape="rect" coords="846 0 1525 204" alt="Migration Guide" href="https://www.google.com" />

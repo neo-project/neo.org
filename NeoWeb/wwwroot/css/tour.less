@@ -329,10 +329,11 @@ body {
     }
 
     .bottom-guide {
-        bottom: 3%;
-        width: 90%;
-        margin-left: 5%;
+        bottom: 0;
+        width: 100%;
         position: fixed;
+        padding-bottom: 5%;
+        background: #f9fafa;
     }
 
     .bottom-title {
@@ -342,13 +343,19 @@ body {
     }
 
     .bottom-guide-container {
-        margin-left:0px;
+        margin-right: 20px;
+        margin-left: 20px;
+        margin-top: 2px;
+        padding-top: 20px;
+        border-top: 1px solid #CFD6DF;
     }
 
     .carouselImgs {
         height: 100%;
-        .carouse-pic{
-            width:100%;
+        .carouse-pic {
+            width: 100%;
+            object-fit: cover;
+            height:100%;
         }
     }
 
@@ -376,7 +383,7 @@ body {
     }
 
     .text-guide{
-        padding-bottom: 60px;
+        padding-bottom: 80px;
     }
 
     .text-group {
@@ -402,5 +409,16 @@ body {
 
     .fade-in {
         display: flex;
+    }
+
+    .right-corner{
+        width:10%;
+    }
+
+    .mobile-block-wrapper {
+        width:100%;
+        .mobile-block{
+
+        }
     }
 }

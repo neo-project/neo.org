@@ -2,6 +2,7 @@ $(document).ready(function () {
     $('map').imageMapResize();
     var currentSlide = 1;
     function showSlide(slideIndex) {
+        window.scrollTo(0,0);
         const slides = document.getElementsByClassName('text-group');
         const imageSlides = document.getElementsByClassName('carouselImgs');
         const circles = document.getElementsByClassName('circle');
@@ -23,12 +24,21 @@ $(document).ready(function () {
         $("#next").removeClass('arrow-grey');
         $("#prev").removeClass('arrow-grey');
         if (currentSlide === 2) {
+            $(".logo-white").addClass('hide-in-mobile');
+            $(".logo-dark").removeClass('hide-in-mobile');
             //$(".tour-left-logo").addClass('hide-in-mobile');
-            //$(".right-container").removeClass('hide-in-mobile');
+            $("#bottom-guide").removeClass('hide-in-mobile');
             $("#prev").addClass('arrow-grey');
+        } else if (currentSlide === 11) {
+            $(".logo-dark").addClass('hide-in-mobile');
+            $(".logo-white").removeClass('hide-in-mobile');
         } else if (currentSlide === slides.length) {
             $("#next").addClass('arrow-grey');
+        } else {
+            $(".logo-white").addClass('hide-in-mobile');
+            $(".logo-dark").removeClass('hide-in-mobile');
         }
+
     }
 
     function nextSlide() {
