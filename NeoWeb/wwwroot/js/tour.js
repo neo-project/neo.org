@@ -22,7 +22,7 @@ $(document).ready(function () {
         $(imageSlides[currentSlide - 1]).removeClass('fade-out');
         $(imageSlides[currentSlide - 1]).addClass('fade-in');
         $(circles[currentSlide - 1]).addClass('circle-black');
-        
+
         $("#next").removeClass('arrow-grey');
         $("#prev").removeClass('arrow-grey');
         if (currentSlide === 2) {
@@ -32,10 +32,9 @@ $(document).ready(function () {
             $("#bottom-guide").removeClass('hide-in-mobile');
             $(".right-corner-mobile").removeClass('hide-in-mobile');
             $("#prev").addClass('arrow-grey');
-        } else if (currentSlide === 11) {
+        } else if (currentSlide === slides.length) {
             $(".logo-dark").addClass('hide-in-mobile');
             $(".logo-white").removeClass('hide-in-mobile');
-        } else if (currentSlide === slides.length) {
             $("#next").addClass('arrow-grey');
         } else {
             $(".logo-white").addClass('hide-in-mobile');
@@ -76,6 +75,52 @@ $(document).ready(function () {
             showSlide(currentSlide);
         }
     })
+
+    document.addEventListener('touchstart', handleTouchStart, false);
+    document.addEventListener('touchmove', handleTouchMove, false);
+
+    var xDown = null;
+    var yDown = null;
+
+    function getTouches(evt) {
+        return evt.touches ||             // browser API
+            evt.originalEvent.touches; // jQuery
+    }
+
+    function handleTouchStart(evt) {
+        const firstTouch = getTouches(evt)[0];
+        xDown = firstTouch.clientX;
+        yDown = firstTouch.clientY;
+    };
+
+    function handleTouchMove(evt) {
+        if (!xDown || !yDown) {
+            return;
+        }
+
+        var xUp = evt.touches[0].clientX;
+        var yUp = evt.touches[0].clientY;
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+
+        if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
+            if (xDiff > 0) {
+                nextSlide();
+            } else {
+                previousSlide();
+            }
+        } else {
+            if (yDiff > 0) {
+                /* up swipe */
+            } else {
+                /* down swipe */
+            }
+        }
+        /* reset values */
+        xDown = null;
+        yDown = null;
+    };
 
     window.addEventListener("keydown", function (event) {
         if (event.defaultPrevented) {
