@@ -220,14 +220,14 @@
 }
 
 .documentations {
-    display: flex;
+    display: grid;
     justify-content: space-between;
-    flex-wrap: wrap;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     grid-gap: 1.5rem 1.5rem;
     margin-top: 3.75rem;
 
     @media (max-width: 991.98px) {
-        flex-direction: column;
+        grid-template-columns: 1fr;
     }
 }
 

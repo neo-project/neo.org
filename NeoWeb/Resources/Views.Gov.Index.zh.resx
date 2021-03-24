@@ -157,7 +157,7 @@
     <value>NEO 持有者是 Neo 区块链的所有者。</value>
   </data>
   <data name="NEO holders participate in governance by voting in a Neo Council to manage the Neo Blockchain.The Neo Council will consist of council members and consensus nodes who provide services, maintain the liveness of the network, and adjust critical blockchain params. GAS rewards will be distributed to both NEO votes and council members." xml:space="preserve">
-    <value>通过引入链上治理委员会机制，Neo 在去中心化的道路上迈出了更坚实的一步。</value>
+    <value>Neo 区块链的治理。Neo 理事会包括普通理事会成员与共识节点，负责维护 Neo 区块链的正常运行与活跃度。理事会可对网络费用等链上数据进行修改。投票者与理事会成员都将会获得 GAS 激励。</value>
   </data>
   <data name="Neo is becoming a more decentralized blockchain through its new on-chain governance mechanism." xml:space="preserve">
     <value>通过引入链上治理委员会机制，Neo 在去中心化的道路上迈出了更坚实的一步。</value>

@@ -13,7 +13,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h1 class="uppercase mt-5">@Localizer["Governance"]</h1>
+            <h1 class="uppercase mt-5"><span class="green">NEO</span> <br class="@SharedLocalizer["d-none-zh"]" /> @Localizer["Governance"]</h1>
             <p>@Localizer["NEO token holders decide who is in charge of maintaining the Neo network through the election of a Neo Council. GAS token rewards are distributed to voters and council members alike."]</p>
         </div>
         <div class="col-md-4 offset-md-1">
@@ -61,10 +61,16 @@
     </div>
     <h3 class="mt-5 border-bottom">@Localizer["Breakdown of the process"]</h3>
     <h2 class="mt-5 text-center">@Localizer["Governance consists of four main stages"]</h2>
-    <img class="img-fluid d-none d-md-block my-5 @SharedLocalizer["d-none"]" src="@Helper.CDN/images/gov/gov2-zh.png" />
-    <img class="img-fluid d-block d-md-none my-5 @SharedLocalizer["d-none"]" src="@Helper.CDN/images/gov/gov2-xs-zh.png" />
-    <img class="img-fluid d-none d-md-block my-5 @SharedLocalizer["d-none-zh"]" src="@Helper.CDN/images/gov/gov2.png" />
-    <img class="img-fluid d-block d-md-none my-5 @SharedLocalizer["d-none-zh"]" src="@Helper.CDN/images/gov/gov2-xs.png" />
+    @if (SharedLocalizer["en"].Value == "zh")
+    {
+        <img class="img-fluid d-none d-md-block my-5 @SharedLocalizer["d-none"]" src="@Helper.CDN/images/gov/gov2-zh.png" />
+        <img class="img-fluid d-block d-md-none my-5 @SharedLocalizer["d-none"]" src="@Helper.CDN/images/gov/gov2-xs-zh.png" />
+    }
+    else
+    {
+        <img class="img-fluid d-none d-md-block my-5 @SharedLocalizer["d-none-zh"]" src="@Helper.CDN/images/gov/gov2.png" />
+        <img class="img-fluid d-block d-md-none my-5 @SharedLocalizer["d-none-zh"]" src="@Helper.CDN/images/gov/gov2-xs.png" />
+    }
     <h3 class="mt-5 border-bottom">@Localizer["GAS distribution"]</h3>
     <div class="scroll-x">
         <img class="my-5 @SharedLocalizer["d-none-zh"]" src="@Helper.CDN/images/gov/gov3.png" />

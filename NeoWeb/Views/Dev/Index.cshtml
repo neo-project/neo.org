@@ -1,6 +1,10 @@
 @using Microsoft.AspNetCore.Mvc.Localization
+
 @inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
 @{ ViewData["Title"] = Localizer["Developer"].Value; }
+
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/dev.min.css", true)" />
 }
@@ -15,9 +19,9 @@
 
 <div class="introduction">
     <div class="introduction-content">
-        <div class="introduction-title"><em>Neo</em><br />is getting<br />an upgrade</div>
+        <h1 class="introduction-title"><em>Neo</em><br/>is getting<br/>an upgrade</h1>
         <div class="introduction-description">After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date.</div>
-        <a class="learn-more btn-2">Learn More</a>
+        <a class="learn-more btn-2" asp-controller="migration" asp-action="index">Learn More</a>
     </div>
 </div>
 
@@ -41,11 +45,11 @@
         </div>
         <div class="resources-start-divider"></div>
         <div class="links">
-            <a class="link" target="_blank" href="">
+            <a class="link" target="_blank" href="https://github.com/neo-project">
                 GitHub
                 <i class="iconfont">&#xe681;</i>
             </a>
-            <a class="link" target="_blank" href="">
+            <a class="link" target="_blank" href="https://docs.neo.org/v3/docs/en-us/index.html">
                 Documentation
                 <i class="iconfont">&#xe681;</i>
             </a>

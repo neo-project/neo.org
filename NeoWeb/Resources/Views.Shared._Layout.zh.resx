@@ -159,6 +159,9 @@
   <data name="Ecosystem" xml:space="preserve">
     <value>生态</value>
   </data>
+  <data name="Enter Email Address" xml:space="preserve">
+    <value>输入邮箱地址</value>
+  </data>
   <data name="Events" xml:space="preserve">
     <value>活动</value>
   </data>
@@ -239,6 +242,9 @@
   </data>
   <data name="Subscribe to our monthly newsletter." xml:space="preserve">
     <value>订阅我们的 Newsletter</value>
+  </data>
+  <data name="Sumbit" xml:space="preserve">
+    <value>提交</value>
   </data>
   <data name="Technical Documents" xml:space="preserve">
     <value>技术文档</value>
