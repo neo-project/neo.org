@@ -121,13 +121,13 @@
     <value>Neo 安全漏洞奖励</value>
   </data>
   <data name="The purpose of Neo vulnerability bounty program is to be proactive about blockchain security by providing a channel for security researchers to report potential security vulnerabilities identified related to our underlying infrastructure. Everyone who find the vulnerabilities can send email to &lt;a href='mailto:erik@neo.org'&gt;erik@neo.org&lt;/a&gt;. We will try our best to investigate those eligible vulnerabilities and fix the valid issues. All rewards will be paid in the equivalent amount of NEO." xml:space="preserve">
-    <value>Neo Vulnerability Bounty Program 成立的目的在于保障 Neo区块链系统的安全性，给广大的社区安全专家们提供一个通道，如果发现关于我们的区块链底层的潜在安全性问题或者威胁，都可通过发送邮件至 &lt;a href='mailto:erik@neo.org'&gt;erik@neo.org&lt;/a&gt;，我们将调查所有合格的漏洞报告，并尽最大努力迅速解决问题。奖励将以美元等值的 NEO 的形式发放。</value>
+    <value>Neo Vulnerability Bounty Program 成立的目的在于保障 Neo 区块链系统的安全性，给广大的社区安全专家们提供一个通道，如果发现关于我们的区块链底层的潜在安全性问题或者威胁，都可通过发送邮件至 &lt;a href='mailto:erik@neo.org'&gt;erik@neo.org&lt;/a&gt;，我们将调查所有合格的漏洞报告，并尽最大努力迅速解决问题。奖励将以美元等值的 NEO 的形式发放。</value>
   </data>
   <data name="Note: Higher rewards will be paid out in case of vulnerabilities of certain interest and criticality. Before reporting any issues, please check the following disclosures on responsibilities, program rules and reporting manner notice." xml:space="preserve">
     <value>注意：根据评定的漏洞严重程度等级，漏洞的严重程度、影响度越高，奖励越高。在报告任何安全漏洞之前，请查看本页了解我们的责任披露政策、奖励方式以及编写报告内容的注意事项。</value>
   </data>
   <data name="Level of vulnerabilities will undergo evaluation by the Neo R&amp;D team based on severity, influence and other dimensions. As we will prioritize report assessment by risks and other factors, it may take time for our response. Time to first response (from report submission) will be 5 business days; time to triage (from report submission) will be 10 business days. Neo will regularly update the feedback on its website and social media channels. Rewards will be distributed within 3 days following official announcement. Neo reserves the right of final interpretation of the event." xml:space="preserve">
-    <value>安全漏洞的等级评估将会由 Neo内部工程师根据严重程度、影响程度等多个维度进行判定打分。我们会根据风险和其他因素按优先顺序评估报告，因此可能需要一段时间才能回复您。第一个响应时间（从提交开始）为 5 个工作日，漏洞评估的时间（从提交开始）为 10 个工作日。Neo将会定期在官网以及社交媒体上发布项目反馈，获得奖励的参与者可在官方宣布结果的 3 天内收到奖金。最终解释权归 Neo 所有。</value>
+    <value>安全漏洞的等级评估将会由 Neo 内部工程师根据严重程度、影响程度等多个维度进行判定打分。我们会根据风险和其他因素按优先顺序评估报告，因此可能需要一段时间才能回复您。第一个响应时间（从提交开始）为 5 个工作日，漏洞评估的时间（从提交开始）为 10 个工作日。Neo 将会定期在官网以及社交媒体上发布项目反馈，获得奖励的参与者可在官方宣布结果的 3 天内收到奖金。最终解释权归 Neo 所有。</value>
   </data>
   <data name="Program Rules" xml:space="preserve">
     <value>项目规则</value>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,14 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="A global effort" xml:space="preserve">
+    <value>全球努力</value>
+  </data>
   <data name="About Neo" xml:space="preserve">
-    <value>关于Neo</value>
+    <value>关于 Neo</value>
   </data>
   <data name="Blogs" xml:space="preserve">
     <value>博客</value>
   </data>
   <data name="Contact NGD" xml:space="preserve">
-    <value>联系NGD</value>
+    <value>联系 NGD</value>
   </data>
   <data name="Contact Us" xml:space="preserve">
     <value>联系我们</value>
@@ -162,6 +165,9 @@
   <data name="Examples &amp; Tutorials" xml:space="preserve">
     <value>案例与教学</value>
   </data>
+  <data name="Explore the features" xml:space="preserve">
+    <value>探索功能</value>
+  </data>
   <data name="For Developers" xml:space="preserve">
     <value>开发者</value>
   </data>
@@ -189,6 +195,9 @@
   <data name="Keep up to date on all the news, events and developments." xml:space="preserve">
     <value>不错过最新消息与项目进展。</value>
   </data>
+  <data name="Learn about the Neo project" xml:space="preserve">
+    <value>了解 Neo 项目</value>
+  </data>
   <data name="Marketing" xml:space="preserve">
     <value>市场运营</value>
   </data>
@@ -211,7 +220,10 @@
     <value>Neo 智能经济</value>
   </data>
   <data name="Neo Technology" xml:space="preserve">
-    <value>Neo科技</value>
+    <value>Neo 科技</value>
+  </data>
+  <data name="Neo’s unique duel token model" xml:space="preserve">
+    <value>Neo 独特的双代币模型</value>
   </data>
   <data name="News" xml:space="preserve">
     <value>新闻</value>
@@ -226,7 +238,7 @@
     <value>订阅</value>
   </data>
   <data name="Subscribe to our monthly newsletter." xml:space="preserve">
-    <value>订阅我们的Newsletter</value>
+    <value>订阅我们的 Newsletter</value>
   </data>
   <data name="Technical Documents" xml:space="preserve">
     <value>技术文档</value>

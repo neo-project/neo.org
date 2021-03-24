@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,16 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="&lt;strong&gt;N3&lt;/strong&gt; improves on previous versions by offering an improved development experience. It boasts more powerful and complete features, a highly modular architecture, and an enhanced governance and economic model. It offers everything the hobbyist developer needs to build their first dApp, through to the power and scalability required by enterprise applications." xml:space="preserve">
-    <value>较之先前版本，&lt;strong&gt;N3&lt;/strong&gt;在开发体验上进一步提升。新版本集合强大而完善的功能，高度模块化的架构设计，增强治理和经济模型。它可以提供一个开发爱好者完成自己第一个dApp所需一切，也能满足企业级应用所需的性能和扩容需求。</value>
+    <value>较之先前版本，&lt;strong&gt;N3&lt;/strong&gt;在开发体验上进一步提升。新版本集合强大而完善的功能，高度模块化的架构设计，增强治理和经济模型。它可以提供一个开发爱好者完成自己第一个 dApp 所需一切，也能满足企业级应用所需的性能和扩容需求。</value>
   </data>
   <data name="&lt;strong&gt;N3&lt;/strong&gt; is the latest version of the Neo blockchain. It was first announced in 2018 by Erik Zhang as an upgrade to the current Neo protocol." xml:space="preserve">
-    <value>N3是Neo区块链的最新版本。作为现行Neo协议层的升级，2018年Neo创始人张铮文首次宣布了该计划。</value>
+    <value>N3 是 Neo 区块链的最新版本。作为现行 Neo 协议层的升级，2018 年 Neo 创始人张铮文首次宣布了该计划。</value>
   </data>
   <data name="A whole new world" xml:space="preserve">
     <value>一个崭新的世界</value>
   </data>
   <data name="After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
-    <value>N3是Neo区块链至今最强大也是功能最为完善的版本。迁移到N3是Neo主网平稳运营四年以来面临的最大变革。</value>
+    <value>N3 是 Neo 区块链至今最强大也是功能最为完善的版本。迁移到 N3 是 Neo 主网平稳运营四年以来面临的最大变革。</value>
   </data>
   <data name="At this moment, no action is required on the part of token holders." xml:space="preserve">
     <value>现阶段通证持有者无需做任何行动。</value>
@@ -136,7 +136,7 @@
     <value>内置预言机 （接入互联网）</value>
   </data>
   <data name="Due to the extent of improvements found in version &lt;strong&gt;N3&lt;/strong&gt;, certain features are not backwards compatible with the existing Neo Legacy blockchain. This means that Neo's &lt;strong&gt;N3&lt;/strong&gt; upgrade will be implemented through a new genesis block. The Neo blockchain running &lt;strong&gt;N3&lt;/strong&gt; will coexist alongside the current Neo Legacy blockchain for an extended period of time. This will provide users with ample opportunity to migrate their tokens and applications to the new chain." xml:space="preserve">
-    <value>因为&lt;strong&gt;N3&lt;/strong&gt;版本的改进涉及范围太广，部分功能无法与现行的Neo Legacy区块链追溯兼容。这意味着Neo &lt;strong&gt;N3&lt;/strong&gt;版本的更新需要从一个全新的创世块开始升级。运行着N3版本的Neo区块链会与现行的Neo Legacy在未来一定时间内并行，让用户有足够的时间来迁移通证和应用。</value>
+    <value>因为 &lt;strong&gt;N3&lt;/strong&gt;版本的改进涉及范围太广，部分功能无法与现行的 Neo Legacy 区块链追溯兼容。这意味着 Neo &lt;strong&gt;N3&lt;/strong&gt;版本的更新需要从一个全新的创世块开始升级。运行着 N3 版本的 Neo 区块链会与现行的 Neo Legacy 在未来一定时间内并行，让用户有足够的时间来迁移通证和应用。</value>
   </data>
   <data name="Frequently asked questions" xml:space="preserve">
     <value>常见问题</value>
@@ -148,72 +148,72 @@
     <value>迁移</value>
   </data>
   <data name="Neo Global Development will be working with exchanges to ensure the smoothest possible transition, including automatic migration of assets where appropriate." xml:space="preserve">
-    <value>NGD将会于各交易所一起确保迁移期间的流畅过度，包括自动化的交易所资产迁移。</value>
+    <value>NGD 将会于各交易所一起确保迁移期间的流畅过度，包括自动化的交易所资产迁移。</value>
   </data>
   <data name="Neo Legacy will move into long-term support after the Neo N3 MainNet is launched and migration begins, giving you an extended period of time to complete the migration. However, we still recommend that you migrate sooner rather than later to take full advantage of the new features available in N3." xml:space="preserve">
-    <value>迁移开始后，Neo Legacy将会进入长期维护状态，您将会有足够的时间来完成迁移。不过我们仍鼓励项目与用户尽早进行迁移，以尽早体验N3的先进特性。</value>
+    <value>迁移开始后，Neo Legacy 将会进入长期维护状态，您将会有足够的时间来完成迁移。不过我们仍鼓励项目与用户尽早进行迁移，以尽早体验 N3 的先进特性。</value>
   </data>
   <data name="Neo Name Service domain protocol" xml:space="preserve">
-    <value>Neo域名服务协议</value>
+    <value>Neo 域名服务协议</value>
   </data>
   <data name="NeoFS distributed object storage system" xml:space="preserve">
-    <value>NeoFS分布式物理储存系统</value>
+    <value>NeoFS 分布式物理储存系统</value>
   </data>
   <data name="NeoID decentralized identity protocol" xml:space="preserve">
-    <value>NeoID去中心化身份协议</value>
+    <value>NeoID 去中心化身份协议</value>
   </data>
   <data name="New features in N3" xml:space="preserve">
-    <value>N3新特性</value>
+    <value>N3 新特性</value>
   </data>
   <data name="On-chain governance &amp; economic model" xml:space="preserve">
-    <value>线上治理&amp;经济模型</value>
+    <value>线上治理 &amp;经济模型</value>
   </data>
   <data name="Projects and developers can participate in the Early Adopter program prior to the MainNet launch to thoroughly test their applications and tokens on TestNet. Financial and technical support will be provided to facilitate the process. More details on the early adopter program will be released soon." xml:space="preserve">
     <value>在主网上线之前，项目与开发者可以通过参与“早期迁移计划”在测试网上对应用与资产进行深入测试。该计划将提供全套技术与资金支持以协助迁移流程顺利进行。</value>
   </data>
   <data name="Public NEO &amp; GAS token migration will begin approximately one month after the Neo N3 MainNet is officially launched." xml:space="preserve">
-    <value>NEO与GAS的迁移大约将在N3主网上线后开始。</value>
+    <value>NEO 与 GAS 的迁移大约将在 N3 主网上线后开始。</value>
   </data>
   <data name="Right here in the migration section of neo.org. The most up-to-date information will be published as soon as it’s available." xml:space="preserve">
-    <value>在Neo官方网站上的“迁移”板块，您可以找到最新的迁移信息与指南。</value>
+    <value>在 Neo 官方网站上的“迁移”板块，您可以找到最新的迁移信息与指南。</value>
   </data>
   <data name="Simplified architecture" xml:space="preserve">
     <value>简化架构设计</value>
   </data>
   <data name="Some of the major improvements found in &lt;strong&gt;N3&lt;/strong&gt;, such as the removal of UTXO assets in favour of an account model, are not compatible with the Legacy version of the Neo blockchain. In order to provide the best possible blockchain platform and developer experience, it is necessary to launch the &lt;strong&gt;N3&lt;/strong&gt; version from a new genesis block." xml:space="preserve">
-    <value>&lt;strong&gt;N3&lt;/strong&gt;版本中的一些重大改进，例如支持账户模型而移除全局资产(UTXO)，与现行的Neo Legacy版本无法兼容。为了提供最佳区块链平台和开发体验，我们必须从创世块启动N3版本。</value>
+    <value>&lt;strong&gt;N3&lt;/strong&gt;版本中的一些重大改进，例如支持账户模型而移除全局资产(UTXO)，与现行的 Neo Legacy 版本无法兼容。为了提供最佳区块链平台和开发体验，我们必须从创世块启动 N3 版本。</value>
   </data>
   <data name="The short answer is yes, however it is up to each individual project with a token on Neo Legacy to determine how they want to handle the migration. Neo Global Development will provide support and work closely with projects who need assistance to ensure the smoothest possible transition." xml:space="preserve">
-    <value>简单来说是的，不过具体的迁移计划将视每个项目自己的迁移决定而定。NGD将为每个项目提供全套支持以保证顺利的资产迁移。</value>
+    <value>简单来说是的，不过具体的迁移计划将视每个项目自己的迁移决定而定。NGD 将为每个项目提供全套支持以保证顺利的资产迁移。</value>
   </data>
   <data name="Timeline" xml:space="preserve">
     <value>时间线</value>
   </data>
   <data name="What is N3?" xml:space="preserve">
-    <value>什么是N3?</value>
+    <value>什么是 N3?</value>
   </data>
   <data name="When do I have to do the migration? How long do I have to complete the migration?" xml:space="preserve">
     <value>我需要什么时候完成迁移？</value>
   </data>
   <data name="When the new chain is closer to a MainNet launch, Neo will publish detailed information on how to safely migrate your assets from the Legacy to &lt;strong&gt;N3&lt;/strong&gt; version of Neo." xml:space="preserve">
-    <value>临近新链主网发布，Neo会公布详细的信息，协助您安全的将资产从Legacy迁移到Neo &lt;strong&gt;N3&lt;/strong&gt;版本上。</value>
+    <value>临近新链主网发布，Neo 会公布详细的信息，协助您安全的将资产从 Legacy 迁移到 Neo &lt;strong&gt;N3&lt;/strong&gt;版本上。</value>
   </data>
   <data name="Where will I find instructions on how to complete the migration safely?" xml:space="preserve">
     <value>我在哪里可以找到安全迁移的指引？</value>
   </data>
   <data name="Why is Neo launching a new chain?" xml:space="preserve">
-    <value>Neo为什么要开启一条新链？</value>
+    <value>Neo 为什么要开启一条新链？</value>
   </data>
   <data name="Will I need to migrate my NEO &amp; GAS tokens from the current Neo Legacy to Neo N3?" xml:space="preserve">
-    <value>我是否需要将自己的NEO和GAS通证从现行的Neo Legacy迁移到Neo N3版本上？</value>
+    <value>我是否需要将自己的 NEO 和 GAS 通证从现行的 Neo Legacy 迁移到 Neo N3 版本上？</value>
   </data>
   <data name="Will I need to migrate my NEP-5 tokens from the current Neo Legacy to Neo N3?" xml:space="preserve">
-    <value>我是否需要将自己的NEP-5通证从现行的Neo Legacy迁移到Neo N3版本上？</value>
+    <value>我是否需要将自己的 NEP-5 通证从现行的 Neo Legacy 迁移到 Neo N3 版本上？</value>
   </data>
   <data name="Will trading on exchanges be interupted?" xml:space="preserve">
     <value>交易所里的资产交易是否会中断？</value>
   </data>
   <data name="Yes, when the new Neo MainNet running N3 is live, NEO &amp; GAS token holders will need to migrate their assets from Neo Legacy. NEO and GAS tokens will be migrated at a ratio of 1:1." xml:space="preserve">
-    <value>是的。当Neo N3主网上线之后，NEO与GAS持有者需要将自己的资产从Neo Legacy迁出。NEO与GAS都将以1:1比例迁移至N3。</value>
+    <value>是的。当 Neo N3 主网上线之后，NEO 与 GAS 持有者需要将自己的资产从 Neo Legacy 迁出。NEO 与 GAS 都将以 1:1 比例迁移至 N3。</value>
   </data>
 </root>
