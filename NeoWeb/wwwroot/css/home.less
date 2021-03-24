@@ -488,8 +488,8 @@ html body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    grid-gap: 46px;
-    column-gap: 28px;
+    grid-row-gap: 46px;
+    grid-column-gap: 28px;
     padding: 20px;
 }
 
@@ -642,8 +642,8 @@ html body {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    column-gap: 22px;
-    grid-gap: 22px;
+    grid-column-gap: 22px;
+    grid-row-gap: 22px;
     flex-wrap: wrap;
 
     @media only screen and (max-width: 767.98px) {
@@ -837,7 +837,7 @@ html body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    grid-gap: 2.25rem;
+    grid-row-gap: 2.25rem;
     margin: 3.625rem 0;
 
     @media only screen and (min-width: 767.98px) {
@@ -960,12 +960,12 @@ html body {
 .language-list {
     display: flex;
     align-items: center;
-    column-gap: 1.25rem;
+    grid-column-gap: 1.25rem;
 
     @media only screen and (max-width: 767.98px) {
         width: 100%;
         flex-wrap: wrap;
-        grid-gap: 1.5rem;
+        grid-row-gap: 1.5rem;
     }
 }
 
@@ -1314,17 +1314,17 @@ html body {
     display: flex;
     align-self: center;
     width: 1400px;
-    column-gap: 7.375rem;
+    grid-column-gap: 7.375rem;
     margin-bottom: 80px;
 
     @media only screen and (max-width: 1400px) {
         width: 767px;
-        column-gap: 2.5rem;
+        grid-column-gap: 2.5rem;
         margin-bottom: 36px;
     }
 
     @media only screen and (max-width: 767.98px) {
-        grid-gap: 28px;
+        grid-row-gap: 28px;
         flex-direction: column;
         width: 100%;
         margin-bottom: 2.875rem;
@@ -1335,19 +1335,19 @@ html body {
         flex-direction: column;
         align-items: flex-end;
         padding: 0 0 0 2%;
-        grid-gap: 3.5rem;
+        grid-row-gap: 3.5rem;
         text-align: right;
         width: 420px;
 
         @media only screen and (max-width: 1400px) {
             width: 230px;
-            grid-gap: 2.175rem;
+            grid-row-gap: 2.175rem;
         }
 
         @media only screen and (max-width: 767.98px) {
             align-items: center;
             padding: 0 2%;
-            grid-gap: 3.375rem;
+            grid-row-gap: 3.375rem;
             width: 100%;
         }
     }
@@ -1355,18 +1355,18 @@ html body {
     .col-right {
         display: flex;
         flex-direction: column;
-        grid-gap: 3.5rem;
+        grid-row-gap: 3.5rem;
         padding: 0 2% 0 0;
 
         @media only screen and (max-width: 1400px) {
-            grid-gap: 2.175rem;
+            grid-row-gap: 2.175rem;
             padding: 0;
         }
 
         @media only screen and (max-width: 767.98px) {
             align-items: center;
             padding: 0 2%;
-            grid-gap: 3.375rem;
+            grid-row-gap: 3.375rem;
             width: 100%;
         }
 
@@ -1432,7 +1432,7 @@ html body {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    grid-gap: 24px;
+    grid-row-gap: 24px;
 
     a {
         width: 14.625rem;
@@ -1530,7 +1530,7 @@ html body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    column-gap: 48px;
+    grid-column-gap: 48px;
     margin: 1.25rem 2.75rem;
 
     @media only screen and (max-width: 1400px) {
@@ -1539,7 +1539,7 @@ html body {
 
     @media only screen and (max-width: 767.98px) {
         flex-direction: column;
-        grid-gap: 16px;
+        grid-row-gap: 16px;
     }
 }
 
@@ -1745,7 +1745,7 @@ html body {
 .result-row {
     display: flex;
     align-items: center;
-    column-gap: 12px;
+    grid-column-gap: 12px;
 }
 
 .result-num-mobile {
@@ -1782,7 +1782,7 @@ html body {
     justify-content: space-between;
     align-self: center;
     width: 1380px;
-    column-gap: 80px;
+    grid-column-gap: 80px;
 
     @media only screen and (max-width: 1400px) {
         display: none;
@@ -1792,7 +1792,7 @@ html body {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        grid-gap: 4rem;
+        grid-row-gap: 4rem;
         padding: 0;
         height: 100%;
         width: 100%;
@@ -1802,7 +1802,7 @@ html body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        grid-gap: 4rem;
+        grid-row-gap: 4rem;
         padding: 0;
         width: 30rem;
         min-width: 30rem;
@@ -1835,7 +1835,7 @@ html body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        grid-gap: 1.75rem;
+        grid-row-gap: 1.75rem;
         margin: 0 2%;
         width: 14.375rem;
     }
@@ -1888,15 +1888,15 @@ html body {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    grid-gap: 2.125rem;
+    grid-row-gap: 2.125rem;
 
     @media only screen and (max-width: 1400px) {
-        grid-gap: 1.625rem;
+        grid-row-gap: 1.625rem;
         align-items: flex-start;
     }
 
     @media only screen and (max-width: 767.98px) {
-        grid-gap: 2.25rem;
+        grid-row-gap: 2.25rem;
         align-items: center;
         width: 90%;
     }
@@ -1919,20 +1919,20 @@ html body {
     flex-direction: row-reverse;
     flex-wrap: wrap;
     width: 100%;
-    grid-gap: 3.25rem;
-    column-gap: 3.125rem;
+    grid-row-gap: 3.25rem;
+    grid-column-gap: 3.125rem;
 
     @media only screen and (max-width: 1400px) {
         flex-direction: row;
-        column-gap: 2.625rem;
-        grid-gap: 2.875rem;
+        grid-column-gap: 2.625rem;
+        grid-row-gap: 2.875rem;
     }
 
     @media only screen and (max-width: 767.98px) {
         flex-direction: column;
         align-items: center;
-        column-gap: 2.625rem;
-        grid-gap: 2.875rem;
+        grid-column-gap: 2.625rem;
+        grid-row-gap: 2.875rem;
         width: 100%;
     }
 }
@@ -1976,16 +1976,16 @@ html body {
     align-items: center;
     align-self: center;
     width: 1400px;
-    column-gap: 4.5rem;
+    grid-column-gap: 4.5rem;
 
     @media only screen and (max-width: 1400px) {
-        column-gap: 2.235rem;
+        grid-column-gap: 2.235rem;
         width: 767px;
     }
 
     @media only screen and (max-width: 767.98px) {
-        column-gap: 0;
-        grid-gap: 2rem;
+        grid-column-gap: 0;
+        grid-row-gap: 2rem;
         padding: 0 0.875rem;
         width: 100%;
         flex-direction: column;
@@ -2001,14 +2001,14 @@ html body {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    grid-gap: 1rem;
+    grid-row-gap: 1rem;
 
     @media only screen and (max-width: 1400px) {
-        grid-gap: 0.8rem;
+        grid-row-gap: 0.8rem;
     }
 
     @media only screen and (max-width: 767.98px) {
-        grid-gap: 0.8rem;
+        grid-row-gap: 0.8rem;
         justify-content: space-between;
     }
 }
@@ -2102,7 +2102,7 @@ html body {
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        grid-gap: 3.125rem;
+        grid-row-gap: 3.125rem;
         margin-bottom: 3.125rem;
     }
 }
@@ -2127,8 +2127,8 @@ html body {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    column-gap: 1.5rem;
-    grid-gap: 1.5rem;
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 1.5rem;
 }
 
 .additional-icon {
@@ -2186,8 +2186,8 @@ html body {
 .news-list {
     display: flex;
     align-items: center;
-    column-gap: 40px;
-    grid-gap: 40px;
+    grid-column-gap: 40px;
+    grid-row-gap: 40px;
     margin-bottom: 62px;
     flex-wrap: wrap;
     width: 100%;
@@ -2250,7 +2250,7 @@ html body {
             .content-tags {
                 display: flex;
                 align-items: flex-start;
-                column-gap: 9px;
+                grid-column-gap: 9px;
                 width: 100%;
             }
         }
