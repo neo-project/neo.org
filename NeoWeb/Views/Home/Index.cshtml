@@ -84,7 +84,7 @@
                                                                         { "Find a Wallet", "/images/home/FindWallet.svg", "neogas#wallets" },
                                                                         { "Neo & Gas Tokens", "/images/home/LearnTokens.svg", "neogas#tokens" },
                                                                         { "Neo's Features", "/images/home/LearnFeatures.svg", "technology" },
-                                                                        { "Documentation", "/images/home/ReadDocumentation.svg", "https://www.google.com" }
+                                                                        { "Documentation", "/images/home/ReadDocumentation.svg", "https://docs.neo.org/v3/docs/en-us/index.html" }
 };
 
                     for (int i = 0; i < getStartedItems.GetLength(0); i++)
@@ -214,7 +214,7 @@
                 @Localizer["Write smart contracts in a language you already know, with tools you already love"]
             </div>
         </div>
-        <a class="btn-2 code-learn-more">@Localizer["Learn More"]</a>
+        <a class="btn-2 code-learn-more" href="technology#smart-contracts">@Localizer["Learn More"]</a>
     </div>
 
     <div class="code-example-row">
@@ -321,8 +321,8 @@
 
             <div class="dual-tokens-horizLine"></div>
             <div class="dual-tokens-buttons">
-                <a class="btn-2">@Localizer["Learn More"]</a>
-                <a class="btn-4">@Localizer["Find a Wallet"]</a>
+                <a class="btn-2" href="neogas#tokens">@Localizer["Learn More"]</a>
+                <a class="btn-4" href="neogas#wallets">@Localizer["Find a Wallet"]</a>
             </div>
         </div>
         <div class="col-right">
@@ -348,7 +348,7 @@
                 </div>
                 <div class="results-row">
                     <div class="result-col">
-                        <span class="result-num result-holding">0.44</span>
+                        <div class="result-num result-holding">0.44</div>
                         <div class="gas-wrapper">
                             <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
                             <span>Gas Per Month<span class="green">*</span></span><br /><br />
@@ -357,7 +357,7 @@
                     </div>
                     <div class="plug-sign">+</div>
                     <div class="result-col">
-                        <span class="result-num result-governance">17.52</span>
+                        <div class="result-num result-governance">17.52</div>
                         <div class="gas-wrapper">
                             <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
                             <span>Gas Per Month<span class="green">*</span></span><br /><br />
@@ -367,7 +367,7 @@
                 </div>
                 <div class="results-row-mobile">
                     <div class="result-row">
-                        <span class="result-num-mobile result-holding">0.44</span>
+                        <div class="result-num-mobile result-holding">0.44</div>
                         <div class="gas-wrapper-mobile">
                             <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
                             <span>Gas Per Month<span class="green">*</span></span><br /><br />
@@ -376,7 +376,7 @@
                     <span class="status-text-mobile">For holding Neo</span>
                     <div class="plug-sign">+</div>
                     <div class="result-row">
-                        <span class="result-num-mobile result-governance">17.52</span>
+                        <div class="result-num-mobile result-governance">17.52</div>
                         <div class="gas-wrapper-mobile">
                             <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
                             <span>Gas Per Month<span class="green">*</span></span><br /><br />
@@ -404,16 +404,16 @@
             <div class="governance-cards">
                 <span class="governance-learn-more">Learn More</span>
                 <div class="governance-card-container">
-                    @{ string[,] governanceItems = new string[3, 2]
+                    @{ string[,] governanceItems = new string[3, 3]
                                      {
-                                                                { "How to vote", "/images/home/vote.svg" },
-                                                                { "General guide to governance", "/images/home/documentation.svg" },
-                                                                { "Register as a committee candidate", "/images/home/register.svg" }
+                                                                { "How to vote", "/images/home/vote.svg", "https://www.google.com" },
+                                                                { "General guide to governance", "/images/home/ReadDocumentation.svg", "gov" },
+                                                                { "Register as a committee candidate", "/images/home/register.svg", "https://www.google.com" }
  };
 
                         for (int i = 0; i < governanceItems.GetLength(0); i++)
                         {
-            <div class="float-card">
+            <a class="float-card" href="@governanceItems[i, 2]">
                 <div class="card-text-wrapper">
                     <div class="green-vertline"></div>
                     <div class="text-uppercase card-text">
@@ -421,7 +421,7 @@
                     </div>
                 </div>
                 <img class="card-img" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
-            </div> } }
+            </a> } }
                 </div>
             </div>
         </div>

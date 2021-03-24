@@ -185,13 +185,7 @@ https://github.com/neo-project/neo.org
     <div class="container layout-container">
         @if (ViewBag.HiddenMigration == null)
         {
-            @if (SharedLocalizer["en"].Value == "zh")
-            {
-                <div class="migration-div d-none d-md-block" style="height: 11rem;"><a asp-action="index" asp-controller="migration"><h4 class="migration-text"><img src="@Helper.CDN/images/presskit/Neo symbol.svg" />@Localizer["MIGRATE TO N3"]</h4></a><span style="color: white; cursor: pointer; margin: 180px 0 0 20px;float: left;text-shadow: 1px 1px 1px black" onclick="$('.migration-div').hide()">X</span></div> }
-            else
-            {
-                <div class="migration-div d-none d-md-block"><a asp-action="index" asp-controller="migration"><h4 class="migration-text"><img src="@Helper.CDN/images/presskit/Neo symbol.svg" />@Localizer["MIGRATE TO N3"]</h4></a><span style="color: white; cursor: pointer; margin: 230px 0 0 20px;float: left;text-shadow: 1px 1px 1px black" onclick="$('.migration-div').hide()">X</span></div>
-            }
+            <div class="migration-div d-none d-md-block"><a asp-action="index" asp-controller="migration"><h4 class="migration-text"><img src="@Helper.CDN/images/presskit/Neo symbol.svg" />@Localizer["MIGRATE TO N3"]</h4></a><span class="iconfont" onclick="$('.migration-div').removeClass('d-md-block')">&#xe641;</span></div>
         }
         @RenderBody()
     </div>
