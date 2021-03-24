@@ -807,8 +807,8 @@ html body {
 
 .blocks-large-img {
     width: 100%;
-    transform: translateY(144px);
-    margin-bottom: 160px;
+    transform: translateY(-64px);
+    margin-bottom: -40px;
 
     @media only screen and (max-width: 1200px) {
         display: none;
@@ -1367,6 +1367,7 @@ html body {
 
         &.header-imgs {
             position: relative;
+            overflow: hidden;
         }
     }
 }
@@ -1436,7 +1437,7 @@ html body {
 .header-img-wrapper {
     margin-top: 1.5rem;
     height: 318px;
-    width: 100%;
+    width: 613px;
 
     @media only screen and (max-width: 1400px) {
         margin-top: 1.25rem;
@@ -1459,6 +1460,10 @@ html body {
         @media only screen and (max-width: 1400px) {
             height: 13.125rem;
             width: 467px;
+        }
+
+        @media only screen and (max-width: 767.98px) {
+            width: 30rem;
         }
     }
 
@@ -2081,6 +2086,7 @@ html body {
     display: flex;
     justify-content: space-around;
     width: 90%;
+    align-self: center;
 
     @media only screen and (max-width: 1400px) {
         align-self: center;
