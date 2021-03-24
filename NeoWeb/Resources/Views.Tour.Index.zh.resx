@@ -141,6 +141,9 @@
   <data name="DOMAIN" xml:space="preserve">
     <value>域名</value>
   </data>
+  <data name="DOMAIN NAME" xml:space="preserve">
+    <value>域名</value>
+  </data>
   <data name="DUAL TOKEN" xml:space="preserve">
     <value>双通证</value>
   </data>
@@ -242,6 +245,9 @@
   </data>
   <data name="SELF-SOVEREIGN" xml:space="preserve">
     <value>自主</value>
+  </data>
+  <data name="SERVICE" xml:space="preserve">
+    <value>服务</value>
   </data>
   <data name="Smart contracts are a revolutionary tool, but their usefulness is naturally limited by the data they can access.The native oracle service introduced in N3 allows developers to access rich off - chain data sources through HTTPS or NeoFS requests, opening up new opportunities to create valuable decentralized services." xml:space="preserve">
     <value>智能合约是一个革命性工具，然而其可用性天生受限于可访问的数据源。N3中集成的原生预言机允许开发者通过HTTPS或NeoFS请求访问丰富的链下数据源，极大拓展创造各种有价值的去中心化服务的可能性。</value>
