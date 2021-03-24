@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=s, initial-scale=1.0">
-    <link rel="stylesheet" href="@Helper.ToCDN("/css/site.min.css", true)">
+    @*<link rel="stylesheet" href="@Helper.ToCDN("/css/site.min.css", true)">*@
     <link rel="stylesheet" href="@Helper.ToCDN("/css/tour.min.css", true)">
     <style>
         @@font-face {
@@ -49,10 +49,10 @@
                     </a>
                 </div>
                 <div class="text-guide">
+                    <div class="right-corner-mobile hide-in-mobile hide-in-desktop">
+                        <img class="right-corner-mobile-pic" src="@Helper.CDN/images/tour/corner.png" />
+                    </div>
                     <div class="text-group text-guide-1 fade-in">
-                        @*<div class="N3-logo-container">
-                                <img src="@Helper.CDN/images/tour/N3_Logo.png" class="N3-logo"/>
-                            </div>*@
                         <div class="text-group-head text-group-1-head1">
                             <span>
                                 @Localizer["YOU DIN'T KNOW"]
