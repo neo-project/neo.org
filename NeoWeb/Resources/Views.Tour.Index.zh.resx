@@ -117,7 +117,181 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ADVANCED" xml:space="preserve">
+    <value>领先的</value>
+  </data>
+  <data name="After four years of stable MainNet operation, Neo is undergoing its biggest evolution as it migrates to N3 - the most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
+    <value>经过4年的稳定运行，Neo即将迎来自主网启动以来最大规模的全新升级-N3. N3将会成为迄今为止，最强大，功能最丰富的Neo区块链版本。</value>
+  </data>
+  <data name="As a founding member of the interoperability protocol alliance Poly Network, Neo makes cross-chain interaction as easy as a native transaction." xml:space="preserve">
+    <value>作为互操作性协议Poly Network的创始成员之一，在Neo区块链上进行跨链操作的体验就如同原生链上交易一样便捷。</value>
+  </data>
+  <data name="As with any new paradigm, blockchain development comes with a learning curve.Rather than introducing additional overhead, Neo helps developers by integrating seamlessly with the world's most widely used languages and tools." xml:space="preserve">
+    <value>理解一种新的范式的总是伴随着陡峭的学习曲线，区块链开发亦不例外。为尽量避免这些无意义的学习负担，Neo通过无缝整合全球的通用开发语言和工具，帮助开发者快速入门。</value>
+  </data>
+  <data name="BEST IN CLASS" xml:space="preserve">
+    <value>行业领先的</value>
+  </data>
+  <data name="Connected with an ever-growing list of other blockchains, applications on Neo are not limited to interacting with native assets or contracts, but can easily tap into resources from heterogenous networks." xml:space="preserve">
+    <value>随着更多的区块链加入Poly Network, Neo区块链上的应用不仅能够与原生的资产和智能合约进行交互，同时能够与更多异构区块链进行原子性交互。</value>
+  </data>
+  <data name="DECENTRALIZED" xml:space="preserve">
+    <value>去中心化</value>
+  </data>
+  <data name="DOMAIN" xml:space="preserve">
+    <value>域名</value>
+  </data>
+  <data name="DUAL TOKEN" xml:space="preserve">
+    <value>双通证</value>
+  </data>
+  <data name="Enjoy the benefits with no compromises on NeoFS." xml:space="preserve">
+    <value>尽情享受NeoFS的便捷，毫无妥协。</value>
+  </data>
+  <data name="FINALITY" xml:space="preserve">
+    <value>终局性</value>
+  </data>
+  <data name="Hit the ground running with a language you already know and love." xml:space="preserve">
+    <value>用你最熟悉和热爱的开发语言即刻上手。</value>
+  </data>
+  <data name="Hop into our developer quickstart guides and example libraries to begin building your decentralized application on Neo." xml:space="preserve">
+    <value>欢迎浏览我们开发者入门指南和代码示例，开启你的去中心化应用开发之旅。</value>
+  </data>
+  <data name="IDENTITY" xml:space="preserve">
+    <value>身份</value>
+  </data>
+  <data name="INTEROPERBILITY" xml:space="preserve">
+    <value>互操作性</value>
+  </data>
+  <data name="IT WAS THIS GOOD" xml:space="preserve">
+    <value>超乎你想象</value>
+  </data>
+  <data name="JUMP" xml:space="preserve">
+    <value>即刻</value>
+  </data>
+  <data name="Learn more about NEO &amp; GAS" xml:space="preserve">
+    <value>了解关于NEO和GAS的更多信息</value>
+  </data>
+  <data name="Learn more about Neo's dBFT consensus mechanism" xml:space="preserve">
+    <value>了解关于dBFT共识机制的更多信息</value>
+  </data>
+  <data name="Learn more about Neo's multi-language support" xml:space="preserve">
+    <value>了解关于NeoFS网络的更多信息</value>
+  </data>
+  <data name="Learn more about Neo's native domain service" xml:space="preserve">
+    <value>了解关于原生域名服务的更多信息</value>
+  </data>
+  <data name="Learn more about Neo's native oracles" xml:space="preserve">
+    <value>了解关于原生预言机的更多信息</value>
+  </data>
+  <data name="Learn more about Neo's Poly Network integration" xml:space="preserve">
+    <value>了解关于Poly Network集成的更多信息</value>
+  </data>
+  <data name="Learn more about NeoID" xml:space="preserve">
+    <value>了解关于NeoID的更多信息</value>
+  </data>
+  <data name="Learn more about the NeoFS network" xml:space="preserve">
+    <value>无集成需求，如何参与？- 出租你的储存空间获得GAS.</value>
+  </data>
+  <data name="MODEL" xml:space="preserve">
+    <value>模型</value>
+  </data>
+  <data name="MULTI LANGUAGE" xml:space="preserve">
+    <value>多开发语言</value>
+  </data>
+  <data name="NAME SERVICE" xml:space="preserve">
+    <value>服务</value>
+  </data>
+  <data name="NATIVE" xml:space="preserve">
+    <value>原生</value>
+  </data>
+  <data name="Neo also boasts many other powerful community-built SDKs, compilers, code examples, and resources for all supported languages, including C#, Python, TypeScript, Java, and Golang." xml:space="preserve">
+    <value>Neo也不遗余力的推动大量由社区开发的优秀工具：SDKs、编译器、代码模版和其他各种开发者资源。目前支持的开发语言包括C#、Python、TypeScript、Java和Golang。</value>
+  </data>
+  <data name="Neo makes it easy for users to interact with the next generation of decentralized services." xml:space="preserve">
+    <value>与下一代去中心化服务交互，比以往更自然。</value>
+  </data>
+  <data name="Neo seperates governance from utility with two tokens - NEO &amp; GAS." xml:space="preserve">
+    <value>Neo拥有两种分工明确的原生治理和燃料通证 - NEO和GAS.</value>
+  </data>
+  <data name="Neo was the first truly immutable blockchain. With majority approval between consensus nodes required for each new block, transactions on Neo are given immediate, irrevocable finality as soon as they are added to the blockchain. Neo's high performance dBFT consensus mechanism sparked a growing trend of adoption for BFT-based mechanisms across the industry." xml:space="preserve">
+    <value>Neo作为首个具有单区块终局性的区块链，每个区块的产生都需要大多数共识节点的许可，每笔交易都可立即获得不可逆的最终确认。Neo高性能的dBFT共识机制已经逐渐成为行业标杆，越来越多的区块链正在采用基于BFT的底层共识机制。</value>
+  </data>
+  <data name="Neo's fork-proof dBFT consensus makes it the most powerful settlement engine in the world." xml:space="preserve">
+    <value>Neo采用的防分叉dBFT共识机制，让Neo区块链成为全球最强大的清算引擎。</value>
+  </data>
+  <data name="Neo's goal has always been to be the most developer friendly platform." xml:space="preserve">
+    <value>Neo致力于成为最开发者友好的区块链平台。</value>
+  </data>
+  <data name="Neo's native name service provides domain-mapping for a number of record types. Powered by NFTs to enable open trading, NNS aliases can be used to replace public addresses, contract hashes, and NeoFS containers with human-friendly names." xml:space="preserve">
+    <value>N3中集成的原生域名服务提供多种类型的域名映射，为公钥、合约哈希或者NeoFS容器提供更便于理解和记忆的域名。同时，这些NNS域名本身是一种NFT, 用户可以在公开市场进行自由交易。</value>
+  </data>
+  <data name="Not looking to integrate, but want to participate? Earn GAS for leasing your unused storage." xml:space="preserve">
+    <value>无集成需求，如何参与？- 出租你的储存空间获得GAS.</value>
+  </data>
+  <data name="ONE BLOCK" xml:space="preserve">
+    <value>单区块</value>
+  </data>
+  <data name="ORACLES" xml:space="preserve">
+    <value>预言机</value>
+  </data>
+  <data name="Phase out centralized dependencies with the most reliable and performant decentralized storage solution. With HTTP and S3 gateways, no rearchitecting is required to integrate existing applications or users with NeoFS." xml:space="preserve">
+    <value>在享受最可靠高效的去中心解决方案同时，逐渐摆脱对中心化服务依赖和降低运营成本。通过HTTP和S3网关，无需架构改造即可无缝与现存服务集成。</value>
+  </data>
+  <data name="RIGHT IN" xml:space="preserve">
+    <value>体验！</value>
+  </data>
+  <data name="SELF-SOVEREIGN" xml:space="preserve">
+    <value>自主</value>
+  </data>
+  <data name="Smart contracts are a revolutionary tool, but their usefulness is naturally limited by the data they can access.The native oracle service introduced in N3 allows developers to access rich off - chain data sources through HTTPS or NeoFS requests, opening up new opportunities to create valuable decentralized services." xml:space="preserve">
+    <value>智能合约是一个革命性工具，然而其可用性天生受限于可访问的数据源。N3中集成的原生预言机允许开发者通过HTTPS或NeoFS请求访问丰富的链下数据源，极大拓展创造各种有价值的去中心化服务的可能性。</value>
+  </data>
+  <data name="Start exploiting Neo's developer resources" xml:space="preserve">
+    <value>开始探索Neo的开发者资源</value>
+  </data>
+  <data name="Start exploring Neo's developer resources" xml:space="preserve">
+    <value>开始探索Neo的开发者资源</value>
+  </data>
+  <data name="STORAGE" xml:space="preserve">
+    <value>存储</value>
+  </data>
+  <data name="SUPPORT" xml:space="preserve">
+    <value>支持</value>
+  </data>
+  <data name="The crown jewel of Neo's developer experience is the Neo Blockchain Toolkit for VS Code. Built by Microsoft-alumni at NGD Enterprise, the toolkit offers industry best tools for easy network deployment, testing, and smart contract debugging." xml:space="preserve">
+    <value>Neo Blockchian Toolkit for VS Code是Neo开发者体验中一个核心组成部分。该工具由位于西雅图，前微软员工组成的NGD Enterprise部门设计开发，提供了行业领先的网络部署，测试和先进的“时间旅行”调试体验。</value>
+  </data>
+  <data name="The wait is finally over, N3 is here. It’s time to change the world with the most powerful and feature-rich smart contract platform." xml:space="preserve">
+    <value>N3来了！别再犹豫，加入Neo - 功能丰富的强大区块链平台，一起来改变世界吧！</value>
+  </data>
   <data name="There is no minimum donation, any sum is appreciated - click here to donate using PayPal. Thank you for your support." xml:space="preserve">
     <value>不设最低捐款额，欢迎任何金额的捐款 - 点击这里使用PayPal捐款。谢谢您的支持。</value>
+  </data>
+  <data name="Through NeoID, you can customize the precise level of attribute verification needed to ensure your contract operates correctly. Ensure regulatory compliance, filter out bots, or leave the doors open to everyone. Through its open claim issuance and validation tools, users can remain in full control of their personal information." xml:space="preserve">
+    <value>通过Neo ID,你可以准确定义你合约中所需的身份信息以保证合规性和过滤机器人，让每个真实用户都能无忧体验优秀的去中心化应用。通过使用NeoID提供的开放身份的发行和验证工具，保证用户可以对个人的隐私信息有最完整的控制。</value>
+  </data>
+  <data name="TOOLING" xml:space="preserve">
+    <value>工具集</value>
+  </data>
+  <data name="Use verifiable credentials to add a layer of authentication to your application." xml:space="preserve">
+    <value>为你的去中心化应用，提供可验证的身份认证。</value>
+  </data>
+  <data name="We're happy to do a bake-off with anyone. Seriously." xml:space="preserve">
+    <value>欢迎开发者来体验和比较，对于开发者体验，我们是认真的！</value>
+  </data>
+  <data name="With a fixed supply of 100M and no divisibility, NEO is one of the most scarce crypto assets." xml:space="preserve">
+    <value>总供给量固定1亿个且不可分割，为NEO成为最稀缺的数字资产奠定了坚实的基础。</value>
+  </data>
+  <data name="With Neo's native oracle service, it becomes trivial for developers to tap into any external resources." xml:space="preserve">
+    <value>使用Neo的原生预言机，开发者访问链下资源比以往都容易。</value>
+  </data>
+  <data name="YOU DIN'T KNOW" xml:space="preserve">
+    <value>好得</value>
+  </data>
+  <data name="You wouldn't use your Starbucks shares to buy a cup of coffee, so why spend your share of the blockchain on transaction fees? NEO tokens represents ownership of the network, while GAS is used to pay for all operations and services. NEO holders can participate in governance and recieve distribution of GAS tokens to spend on the blockchain." xml:space="preserve">
+    <value>你并不会用你的星巴克股份来购买一杯咖啡，同理，你也不会用区块链的“股份”来为了你的链上交易付费吧？ NEO通证对应着Neo区块链所有权，而GAS是用来为各种操作和服务付费。NEO通证的所有者可以通过持有和参与治理来获得GAS分配，并用GAS在链上进行操作。</value>
+  </data>
+  <data name="Your data, always securely encrypted and available. Maintain full control over where it is placed and how it is accessed to deliver your users a first class experience." xml:space="preserve">
+    <value>你的数据, 始终安全加密, 随时取用。数据存放何处如何访问，尽在你掌握之中。</value>
   </data>
 </root>
