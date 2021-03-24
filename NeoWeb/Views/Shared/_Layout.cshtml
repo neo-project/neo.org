@@ -89,6 +89,10 @@ https://github.com/neo-project/neo.org
         }
     </style>
     @RenderSection("Styles", required: false)
+    @if (SharedLocalizer["en"].Value == "zh")
+    {
+        <link href="@Helper.ToCDN("/css/sitecn.min.css", true)" rel="stylesheet" />
+    }
 </head>
 <body id="neo-body">
     <nav class="navbar smart-scroll container-fluid navbar-expand-lg">
