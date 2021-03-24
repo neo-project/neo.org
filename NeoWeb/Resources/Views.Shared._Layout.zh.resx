@@ -117,11 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About Neo" xml:space="preserve">
+    <value>关于Neo</value>
+  </data>
+  <data name="Blogs" xml:space="preserve">
+    <value>博客</value>
+  </data>
+  <data name="Contact NGD" xml:space="preserve">
+    <value>联系NGD</value>
+  </data>
   <data name="Contact Us" xml:space="preserve">
     <value>联系我们</value>
   </data>
   <data name="Contributors &amp; Collaborations" xml:space="preserve">
     <value>贡献者和合作伙伴</value>
+  </data>
+  <data name="Contributors &amp; Collaborators" xml:space="preserve">
+    <value>贡献者</value>
   </data>
   <data name="Developer" xml:space="preserve">
     <value>开发者</value>
@@ -138,11 +150,29 @@
   <data name="Eco-Support" xml:space="preserve">
     <value>生态支持</value>
   </data>
+  <data name="EcoGrowth" xml:space="preserve">
+    <value>生态发展</value>
+  </data>
   <data name="Ecosystem" xml:space="preserve">
     <value>生态</value>
   </data>
   <data name="Events" xml:space="preserve">
     <value>活动</value>
+  </data>
+  <data name="Examples &amp; Tutorials" xml:space="preserve">
+    <value>案例与教学</value>
+  </data>
+  <data name="For Developers" xml:space="preserve">
+    <value>开发者</value>
+  </data>
+  <data name="For Media" xml:space="preserve">
+    <value>媒体</value>
+  </data>
+  <data name="For token holders" xml:space="preserve">
+    <value>社区成员</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>一般事务</value>
   </data>
   <data name="Governance" xml:space="preserve">
     <value>治理</value>
@@ -153,8 +183,20 @@
   <data name="Join US" xml:space="preserve">
     <value>加入我们</value>
   </data>
+  <data name="Keep in touch" xml:space="preserve">
+    <value>保持联系</value>
+  </data>
+  <data name="Keep up to date on all the news, events and developments." xml:space="preserve">
+    <value>不错过最新消息与项目进展。</value>
+  </data>
   <data name="Marketing" xml:space="preserve">
-    <value>市场</value>
+    <value>市场运营</value>
+  </data>
+  <data name="MIGRATE TO N3" xml:space="preserve">
+    <value>迁移到 N3</value>
+  </data>
+  <data name="Migration" xml:space="preserve">
+    <value>迁移</value>
   </data>
   <data name="NEO &amp; GAS &amp; Wallet" xml:space="preserve">
     <value>NEO、GAS、钱包</value>
@@ -168,6 +210,9 @@
   <data name="Neo Smart Economy" xml:space="preserve">
     <value>Neo 智能经济</value>
   </data>
+  <data name="Neo Technology" xml:space="preserve">
+    <value>Neo科技</value>
+  </data>
   <data name="News" xml:space="preserve">
     <value>新闻</value>
   </data>
@@ -180,14 +225,23 @@
   <data name="SUBSCRIBE" xml:space="preserve">
     <value>订阅</value>
   </data>
+  <data name="Subscribe to our monthly newsletter." xml:space="preserve">
+    <value>订阅我们的Newsletter</value>
+  </data>
   <data name="Technical Documents" xml:space="preserve">
     <value>技术文档</value>
   </data>
   <data name="Technology" xml:space="preserve">
     <value>特色技术</value>
   </data>
+  <data name="Tooling" xml:space="preserve">
+    <value>工具</value>
+  </data>
   <data name="Vulnerability Bounty" xml:space="preserve">
     <value>安全漏洞奖励</value>
+  </data>
+  <data name="Wallet" xml:space="preserve">
+    <value>钱包</value>
   </data>
   <data name="Wallets" xml:space="preserve">
     <value>钱包</value>
