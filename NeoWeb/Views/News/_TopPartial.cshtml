@@ -6,14 +6,14 @@
 @if (Model?.Type == NewsViewModelType.Blog)
 {
     <div class="col-md-5">
-        <h1><span class="green work-sans-bold">@Localizer["NEWS"]</span><br /><span>& @Localizer["EVENT"]</span></h1>
+        <h1><span class="green work-sans-bold">@Localizer["NEWS"]</span><br /><span>& @Localizer["EVENTS"]</span></h1>
         <div>@Localizer["After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]</div>
     </div>
     <div class="col-md-6 offset-md-1">
         @if (Model?.Type == NewsViewModelType.Blog)
         {
             <a class="bg-img" href="~/blog/details/@Model.Blog.Id" data-original="@(string.IsNullOrEmpty(Model.Blog.Cover) ? Helper.ToCDN("/images/news/blog.svg") : $"/upload/{Model.Blog.Cover}".ToLower())"></a>
-            <div class="mt-1 bold">@Localizer["FEATURED BLOG ARGICLES"]</div>
+            <div class="mt-1 bold">@Localizer["FEATURED BLOG ARTICLES"]</div>
             <h4 class="d-title with-space"><a href="~/blog/details/@Model.Blog.Id">@Model.Blog.Title</a></h4>
         }
         else if (Model?.Type == NewsViewModelType.Event)
