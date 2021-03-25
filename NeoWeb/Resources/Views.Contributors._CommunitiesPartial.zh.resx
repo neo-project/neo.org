@@ -147,4 +147,7 @@
   <data name="SpccDescrition" xml:space="preserve">
     <value>在Neo Foundation的支持下，Neo SPCC作为国际开发者社区的一员参与Neo生态系统项目。Neo SPCC核心项目包括与Neo区块链集成的去中心化对象存储平台NeoFS，以及Go语言下的高性能Neo节点实现和SDK NeoGo。&lt;br /&gt;&lt;br /&gt;Neo SPCC的长期目标是使用Neo技术建立一个真正的去中心化云平台，在去中心化环境下解决几乎所有现实世界的B2B和B2C问题。</value>
   </data>
+  <data name="Neo has sponsored various self-governed communities around the world to help build out Neo’s developer tools and infrastructure. The communities also provide support to new developers joining the ecosystem and provide outreach and learning opportunities to local groups in their various regions.">
+      <value>Neo向全球各地的自治社区提供赞助，由社区协助Neo构建开发工具和基础设施。此外，社区还将支持新开发者加入Neo生态系统，并为其所在地的组织团体提供扩展和和学习的机会。</value>
+  </data>
 </root>
