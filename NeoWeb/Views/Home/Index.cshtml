@@ -26,7 +26,7 @@
                 <div class="latest-news-text">
                     @Localizer["Latest News:"]
                 </div>
-                    <a class="news-link" asp-controller="news" asp-action="index">@Localizer["This is an example of a article on the latest news ticker"]  <i class="iconfont circle-arrow-icon green">&#xe6ab;</i></a>
+                    <a class="news-link" href="~/blog/details/@Model[0].Blog.Id">@Localizer["This is an example of a article on the latest news ticker"]  <i class="iconfont circle-arrow-icon green">&#xe6ab;</i></a>
                     
             </div>
         </div>
@@ -333,59 +333,61 @@
                     </div>
                     <div class="calculator-title-empty"></div>
                 </div>
-                <div class="slider-row">
-                    <div class="slider-before">
-                        @Localizer["A user with"]
-                    </div>
-                    <input type="range" min="10" max="1000" value="500" class="slider" id="calculator-slider">
-                    <div class="slider-after">
-                        <img class="slider-neo-icon" data-original="@Helper.ToCDN("/images/home/Neo-Symbol.svg")" />
-                        <div id="slider-current-value">500</div>
-                    </div>
-                </div>
-                <div class="middle-text">
-                    would receive up to
-                </div>
-                <div class="results-row">
-                    <div class="result-col">
-                        <div class="result-num result-holding">0.44</div>
-                        <div class="gas-wrapper">
-                            <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
-                            <span>Gas Per Month<span class="green">*</span></span><br /><br />
-                            <span class="status-text">For holding Neo</span>
+                <div class="calculator-body">
+                    <div class="slider-row">
+                        <div class="slider-before">
+                            @Localizer["A user with"]
+                        </div>
+                        <input type="range" min="10" max="1000" value="500" class="slider" id="calculator-slider">
+                        <div class="slider-after">
+                            <img class="slider-neo-icon" data-original="@Helper.ToCDN("/images/home/Neo-Symbol.svg")" />
+                            <div id="slider-current-value">500</div>
                         </div>
                     </div>
-                    <div class="plug-sign">+</div>
-                    <div class="result-col">
-                        <div class="result-num result-governance">17.52</div>
-                        <div class="gas-wrapper">
-                            <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
-                            <span>Gas Per Month<span class="green">*</span></span><br /><br />
-                            <span class="status-text">For Governance Participation</span>
+                    <div class="middle-text">
+                        would receive up to
+                    </div>
+                    <div class="results-row">
+                        <div class="result-col">
+                            <div class="result-num result-holding">0.44</div>
+                            <div class="gas-wrapper">
+                                <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
+                                <span>Gas Per Month<span class="green">*</span></span><br /><br />
+                                <span class="status-text">For holding Neo</span>
+                            </div>
+                        </div>
+                        <div class="plug-sign">+</div>
+                        <div class="result-col">
+                            <div class="result-num result-governance">17.52</div>
+                            <div class="gas-wrapper">
+                                <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
+                                <span>Gas Per Month<span class="green">*</span></span><br /><br />
+                                <span class="status-text">For Governance Participation</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="results-row-mobile">
-                    <div class="result-row">
-                        <div class="result-num-mobile result-holding">0.44</div>
-                        <div class="gas-wrapper-mobile">
-                            <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
-                            <span>Gas Per Month<span class="green">*</span></span><br /><br />
+                    <div class="results-row-mobile">
+                        <div class="result-row">
+                            <div class="result-num-mobile result-holding">0.44</div>
+                            <div class="gas-wrapper-mobile">
+                                <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
+                                <span>Gas Per Month<span class="green">*</span></span><br /><br />
+                            </div>
                         </div>
-                    </div>
-                    <span class="status-text-mobile">For holding Neo</span>
-                    <div class="plug-sign">+</div>
-                    <div class="result-row">
-                        <div class="result-num-mobile result-governance">17.52</div>
-                        <div class="gas-wrapper-mobile">
-                            <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
-                            <span>Gas Per Month<span class="green">*</span></span><br /><br />
+                        <span class="status-text-mobile">For holding Neo</span>
+                        <div class="plug-sign">+</div>
+                        <div class="result-row">
+                            <div class="result-num-mobile result-governance">17.52</div>
+                            <div class="gas-wrapper-mobile">
+                                <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
+                                <span>Gas Per Month<span class="green">*</span></span><br /><br />
+                            </div>
                         </div>
+                        <span class="status-text-mobile">For Governance Participation</span>
                     </div>
-                    <span class="status-text-mobile">For Governance Participation</span>
-                </div>
-                <div class="foot-note">
-                    <span class="green">*</span>estimate based on average 20% circulating NEO voting participation
+                    <div class="foot-note">
+                        <span class="green">*</span>estimate based on average 20% circulating NEO voting participation
+                    </div>
                 </div>
             </div>
         </div>
@@ -407,7 +409,7 @@
                     @{ string[,] governanceItems = new string[3, 3]
                                      {
                                                                 { "How to vote", "/images/home/vote.svg", "https://www.google.com" },
-                                                                { "General guide to governance", "/images/home/ReadDocumentation.svg", "gov" },
+                                                                { "General guide to governance", "/images/home/ReadDocumentation.svg", "/gov" },
                                                                 { "Register as a committee candidate", "/images/home/register.svg", "https://www.google.com" }
  };
 
@@ -416,7 +418,7 @@
             <a class="float-card" href="@governanceItems[i, 2]">
                 <div class="card-text-wrapper">
                     <div class="green-vertline"></div>
-                    <div class="text-uppercase card-text">
+                    <div class="card-text">
                         @governanceItems[i, 0]
                     </div>
                 </div>
@@ -483,7 +485,7 @@
                     <div class="float-card">
                         <div class="card-text-wrapper">
                             <div class="green-vertline"></div>
-                            <div class="text-uppercase card-text">
+                            <div class="card-text">
                                 @governanceItems[i, 0]
                             </div>
                         </div>
@@ -524,7 +526,7 @@
         <div class="float-card">
             <div class="card-text-wrapper">
                 <div class="green-vertline"></div>
-                <div class="text-uppercase card-text">
+                <div class="card-text">
                     @governanceItems[i, 0]
                 </div>
             </div>
@@ -607,8 +609,8 @@
             </div>
             <div class="additional-icons">
                 <a href="https://www.facebook.com/NEOSmartEcon/" target="_blank"><i class="iconfont additional-icon">&#xe616;</i></a>
-                <a href="https://discord.io/neo" target="_blank"><i class="iconfont additional-icon">&#xe60b;</i></a>
-                <a href="https://www.google.com" target="_blank"><i class="iconfont additional-icon">&#xe60d;</i></a>
+                <a href="https://discord.gg/jwBp5P9ryb" target="_blank"><i class="iconfont additional-icon">&#xe60b;</i></a>
+                <a href="https://neo3.azureedge.net/images/qrcode.jpg" target="_blank"><i class="iconfont additional-icon">&#xe60d;</i></a>
                 <a href="https://t.me/NEO_EN" target="_blank"><i class="iconfont additional-icon">&#xe606;</i></a>
                 <a href="https://weibo.com/neosmarteconomy" target="_blank"><i class="iconfont additional-icon">&#xe60e;</i></a>
                 <a href="https://twitter.com/NEO_Blockchain" target="_blank"><i class="iconfont additional-icon">&#xe607;</i></a>
