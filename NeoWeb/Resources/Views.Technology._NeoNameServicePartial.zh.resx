@@ -117,51 +117,27 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Smart Contracts">
-    <value>智能合约</value>
-</data>
+    <data name="Neo Name Service">
+        <value>Neo 域名服务</value>
+    </data>
 
-<data name="Neo strives to be the most developer-friendly blockchain. It achieves this with full-stack development tools for multiple programming languages. Neo believes in bringing blockchain technology to developers, rather than forcing developers to learn new languages or tools.">
-    <value>Neo立志成为对开发者最友好的区块链。通过提供面向多种编程语言的全栈开发工具，Neo不断努力将区块链技术带给更多开发者，而无需让开发者学习新的语言或开发工具。</value>
-</data>
+    <data name="Neo Name Service (NNS) is a decentralized name service built as a native service on the Neo blockchain. It is used to map human-readable domain names to different types of data, such as IP addresses, aliases, or other strings.">
+        <value>Neo 域名服务（NNS）是Neo区块链上的原生的去中心化域名服务。它可以将普通用户易于记忆的域名映射到不同类型的数据上，例如IP地址、别名或其他字符串。</value>
+    </data>
 
-<data name="Your language, your way">
-    <value>更熟悉的开发语言</value>
-</data>
+    <data name="One of the most prominent barriers to entry in the blockchain space is the user experience of public key cryptography. Even after conversion to more readable address formats, interaction with blockchain protocols remains tedious and error prone.">
+        <value>加密公钥地址复杂难记，是入门区块链世界最主要门槛之一，与协议的交互也极为繁琐且容易出错。</value>
+    </data>
 
-<data name="Courtesy of its global development communities, Neo’s tooling and infrastructure already supports numerous languages. Developers can write, compile, and deploy contracts written in C#, Python, Go, TypeScript, and Java.">
-    <value>依托于遍布全球的开发者社区，Neo的工具集和基础架构支持多种编程语言。开发者可以用以C＃，Python，Go，TypeScript和Java来编写、编译和部署智能合约。</value>
-</data>
+    <data name="To successfully onboard the next generation of users, the blockchain UX must enter the realm of the familiar. Through simple TXT records, both user wallet and smart contract addresses can be given easily typed and identifiable representations.">
+        <value>为了成功吸引更多新用户，区块链应用的用户体验必须向传统世界靠拢。通过简单的TXT记录，无论用户钱包或是合约地址都可以被轻松输入并识别。</value>
+    </data>
 
-<data name="After compilation to the standard NEF (Neo Execution Format), contracts can be executed within NeoVM, Neo’s lightweight virtual machine. Newly upgraded for the N3 network, NeoVM delivers substantial performance improvements over the previous generation, with some instruction set runtimes improved by as much as 16x. NeoVM uses a modular architecture, allowing for easy integration into other applications or off-chain scenarios.">
-    <value>编译为标准NEF（Neo执行格式）后，开发者可以在轻型虚拟机NeoVM中执行智能合约。 NeoVM针对N3网络进行了重大升级，性能较上一代得到了显着提高，其中某些指令集的运行速度提高了16倍。 NeoVM使用模块化架构，可以轻松被集成到其他应用程序或链下应用中。</value>
-</data>
+    <data name="Aliases also prove useful in various other situations. In NeoFS, they can be used as aliases for stored containers, or used to configure GeoDNS for the NeoFS CDN for improved data retrieval speeds. Applied in this manner, applications can ensure their users encounter minimal latency and fast download speeds while retaining all the benefits of true decentralized storage.">
+        <value>在NeoFS中，别名服务可以为存储容器创建别名，或为NeoFS CDN配置GeoDNS，以提高数据检索速度。用这种方式，应用可以确保其用户在享有去中心化存储的所有优势同时获得最短的延迟与最快的下载速度。</value>
+    </data>
 
-<data name="Smarter contracts">
-    <value>更智能的合约</value>
-</data>
-
-<data name="The N3 smart contract system introduces a wide range of new functionality to improve the contract development experience for developers. Examples include a new dual-level permission setting, defined at the Manifest and Call levels, and the new NEP-17 token standard to simplify token transfers and enable contracts to add custom logic to trigger when receiving tokens.">
-    <value>
-N3的智能合约系统引入了大量的新功能，以改善开发者的合约开发体验。包括在Manifest和Call级别新增的双层权限自定义设置，以及新的NEP-17通证标准。这项标准简化了通证传输，并使合约可以在接收通证时触发自定义逻辑。
-</value>
-</data>
-
-<data name="Benefits also extend to off-chain applications. Improvements such as the new contract upgrade mechanism eliminates the issue of a contract hash changes and ensures data is retained.
-">
-    <value>更新后的智能合约系统也增强了链下应用的功能。例如新的合约升级机制避免了合约哈希更改后带来的问题，并确保之前的数据可以被保留。</value>
-</data>
-
-<data name="The price is right">
-    <value>更低廉的成本</value>
-</data>
-
-<data name="Developers will also note a dramatic reduction in the costs of deploying and executing smart contracts. With fees lowered by an average of approximately 100 times, N3 provides a far more competitively priced platform to developers, allowing the free 10 GAS crutch to be removed. Combined with the GAS inflation mechanism and the burning of system fees, a sustainable economic model has been established. ">
-    <value>开发者在N3进行合约部署与执行的成本将大大降低。为了给开发者提供一个更具价格竞争力的开发平台，N3中的平均费用相比之前版本降低约100倍。结合GAS的发放机制和系统费用的大幅降低，N3已经拥有了一套可持续的经济模型。</value>
-</data>
-
-<data name="All fees related to the contract system are now adjustable through the on-chain governance mechanism, providing the additional benefit of resistance to market volatility on the Neo system as the price of GAS changes.">
-    <value>另一方面，与合约系统有关的所有费用都可以通过链上治理机制进行调整。这意味着Neo生态具备了抵御GAS价格波动的重要优势。</value>
-</data>
-
+    <data name="NNS employs an innovative NFT-based approach. Each domain is represented as an NFT, enabling NNS users to freely transfer the ownership of domain names. All necessary functionality for a complete domain life cycle is provided, including registry, renewal, resolution, expiration, and permission control.">
+        <value>NNS采用了基于NFT的创新方法，每个域名都是一个NFT，NNS用户可以自由转让域名所有权。与此同时，NNS还提供了域名全生命周期的所有必需功能，包括注册表、续订、解析、到期和权限控制等。</value>
+    </data>
 </root>

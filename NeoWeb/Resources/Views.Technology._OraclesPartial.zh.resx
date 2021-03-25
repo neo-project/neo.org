@@ -117,51 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Smart Contracts">
-    <value>智能合约</value>
-</data>
+    <data name="Oracle">
+        <value>预言机</value>
+    </data>
 
-<data name="Neo strives to be the most developer-friendly blockchain. It achieves this with full-stack development tools for multiple programming languages. Neo believes in bringing blockchain technology to developers, rather than forcing developers to learn new languages or tools.">
-    <value>Neo立志成为对开发者最友好的区块链。通过提供面向多种编程语言的全栈开发工具，Neo不断努力将区块链技术带给更多开发者，而无需让开发者学习新的语言或开发工具。</value>
-</data>
+    <data name="Smart contracts represent a revolutionary breakthrough for the way that we do business online, but adoption of the technology remains slow. There are many barriers to overcome before decentralized applications are ready for the mainstream, but one of the most notable is the inherent limitation for contracts by the data they have access to. Most existing blockchain applications must rely purely on transactions as a source of input data.">
+        <value>智能合约为在线交易带来了革命性突破，但这项技术的落地仍然较为缓慢。在去中心化应用获得大规模应用之前，仍有许多障碍需要克服。最显着的障碍之一就是智能合约的数据访问权限受代码限制，现有的大多数区块链应用都必须依靠发生的交易作为唯一的数据来源。</value>
+    </data>
 
-<data name="Your language, your way">
-    <value>更熟悉的开发语言</value>
-</data>
+    <data name="This is adequate for simple applications where a contract already stores the data that it requires to authenticate a particular transaction—a user’s token balance for instance. But if a service wants to use dynamic, real-world data, a trusted source of obtaining that information is required.">
+        <value>仅访问链上生成的数据对于查询余额等简单场景来说已经足够，但是，如果应用需要使用动态的真实数据，则需要获取可靠的外部信息。</value>
+    </data>
 
-<data name="Courtesy of its global development communities, Neo’s tooling and infrastructure already supports numerous languages. Developers can write, compile, and deploy contracts written in C#, Python, Go, TypeScript, and Java.">
-    <value>依托于遍布全球的开发者社区，Neo的工具集和基础架构支持多种编程语言。开发者可以用以C＃，Python，Go，TypeScript和Java来编写、编译和部署智能合约。</value>
-</data>
+    <data name="Open your world with native oracles">
+        <value>通过内置预言机通向世界</value>
+    </data>
 
-<data name="After compilation to the standard NEF (Neo Execution Format), contracts can be executed within NeoVM, Neo’s lightweight virtual machine. Newly upgraded for the N3 network, NeoVM delivers substantial performance improvements over the previous generation, with some instruction set runtimes improved by as much as 16x. NeoVM uses a modular architecture, allowing for easy integration into other applications or off-chain scenarios.">
-    <value>编译为标准NEF（Neo执行格式）后，开发者可以在轻型虚拟机NeoVM中执行智能合约。 NeoVM针对N3网络进行了重大升级，性能较上一代得到了显着提高，其中某些指令集的运行速度提高了16倍。 NeoVM使用模块化架构，可以轻松被集成到其他应用程序或链下应用中。</value>
-</data>
+    <data name="The Internet plays host to an unimaginable wealth of data, ready to be put to use to generate new forms and flows of value. With the native oracle service introduced in N3, it becomes trivial for any developer to tap into any external resources over HTTPS.">
+        <value>互联网承载着超乎想象的海量数据，可随时产生新的应用和价值流。随着N3引入内置预言机服务，任何开发者都可以在智能合约中通过HTTPS轻松访问任意外部资源。</value>
+    </data>
 
-<data name="Smarter contracts">
-    <value>更智能的合约</value>
-</data>
+    <data name="Contracts deployed on Neo can invoke the native oracle contract to trigger a data request, specifying a target URL and a filter. Oracle nodes, elected through the Neo Council, will work together to guarantee the truthfulness and reliability of the results.">
+        <value>部署在Neo上的智能合约可以调用原生Oracle合约来触发数据请求，并指定目标URL和过滤条件。通过Neo理事会选举产生的Oracle节点将承担起维护信息真实可靠的责任。</value>
+    </data>
 
-<data name="The N3 smart contract system introduces a wide range of new functionality to improve the contract development experience for developers. Examples include a new dual-level permission setting, defined at the Manifest and Call levels, and the new NEP-17 token standard to simplify token transfers and enable contracts to add custom logic to trigger when receiving tokens.">
-    <value>
-N3的智能合约系统引入了大量的新功能，以改善开发者的合约开发体验。包括在Manifest和Call级别新增的双层权限自定义设置，以及新的NEP-17通证标准。这项标准简化了通证传输，并使合约可以在接收通证时触发自定义逻辑。
-</value>
-</data>
+    <data name="Decentralize everything">
+        <value>真正的去中心化未来</value>
+    </data>
 
-<data name="Benefits also extend to off-chain applications. Improvements such as the new contract upgrade mechanism eliminates the issue of a contract hash changes and ensures data is retained.
-">
-    <value>更新后的智能合约系统也增强了链下应用的功能。例如新的合约升级机制避免了合约哈希更改后带来的问题，并确保之前的数据可以被保留。</value>
-</data>
+    <data name="Many “decentralized” applications leverage the name for its appearance of trust, but in reality only deliver a partially decentralized experience. Some application logic may be contained within a smart contract, but a service’s dependency on cloud providers for frontend hosting or database provisioning introduces new centralized points of failure.">
+        <value>许多“去中心化”应用程序标榜其去中心化特性以获取用户信任，但实际上仅提供了部分去中心化的体验。智能合约中可能包含一些应用程序逻辑，但仍依赖中心化的前端服务或云存储服务，这可能会带来新的中心化故障点。</value>
+    </data>
 
-<data name="The price is right">
-    <value>更低廉的成本</value>
-</data>
+    <data name="With the power of Neo's native oracle and NeoFS, blockchain-based applications can take the next step forward into true decentralization. Any extra data required by an application can simply be stored off-chain with NeoFS then retrieved in a decentralized manner through the oracle service.">
+        <value>借助Neo的原生预言机和NeoFS组件，基于区块链的应用程序可以轻松实现真正的去中心化。应用程序所需的任何外部数据都可以简单地通过NeoFS进行链下存储，然后以去中心化的方式通过Oracle服务读取。</value>
+    </data>
 
-<data name="Developers will also note a dramatic reduction in the costs of deploying and executing smart contracts. With fees lowered by an average of approximately 100 times, N3 provides a far more competitively priced platform to developers, allowing the free 10 GAS crutch to be removed. Combined with the GAS inflation mechanism and the burning of system fees, a sustainable economic model has been established. ">
-    <value>开发者在N3进行合约部署与执行的成本将大大降低。为了给开发者提供一个更具价格竞争力的开发平台，N3中的平均费用相比之前版本降低约100倍。结合GAS的发放机制和系统费用的大幅降低，N3已经拥有了一套可持续的经济模型。</value>
-</data>
-
-<data name="All fees related to the contract system are now adjustable through the on-chain governance mechanism, providing the additional benefit of resistance to market volatility on the Neo system as the price of GAS changes.">
-    <value>另一方面，与合约系统有关的所有费用都可以通过链上治理机制进行调整。这意味着Neo生态具备了抵御GAS价格波动的重要优势。</value>
-</data>
-
+    <data name="Smart contracts can fetch and manipulate data off-chain in an uncensorable, reliable, and tamper-proof manner.">
+        <value>智能合约可以以抗审查、可靠和防篡改的方式在链下获取并使用数据。</value>
+    </data>
 </root>

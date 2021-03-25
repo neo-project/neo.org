@@ -117,51 +117,39 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Smart Contracts">
-    <value>智能合约</value>
-</data>
+    <data name="Developer Experience">
+        <value>开发者体验</value>
+    </data>
 
-<data name="Neo strives to be the most developer-friendly blockchain. It achieves this with full-stack development tools for multiple programming languages. Neo believes in bringing blockchain technology to developers, rather than forcing developers to learn new languages or tools.">
-    <value>Neo立志成为对开发者最友好的区块链。通过提供面向多种编程语言的全栈开发工具，Neo不断努力将区块链技术带给更多开发者，而无需让开发者学习新的语言或开发工具。</value>
-</data>
+    <data name="Supporting multiple languages is only one small part of what Neo offers to developers. It caters to varying end user needs with both traditional and web-based IDE integrations. One-stop shop smart contract and dApp development frameworks are also provided to quickly bootstrap developers and get them up and running as architects for the next-generation Internet.">
+        <value>对多种编程语言的支持仅仅是Neo开发者友好度的部分体现。通过传统的与基于Web的IDE集成，Neo可以满足不断变化的用户需求。除此之外，Neo还提供一站式智能合约和dApp开发框架，帮助开发人员快速入门并成长为下一代互联网的架构师。</value>
+    </data>
 
-<data name="Your language, your way">
-    <value>更熟悉的开发语言</value>
-</data>
+    <data name="Thanks to the contributions of Neo's independent developer community, users can begin creating applications for the Neo blockchain without ever needing to install any software. Tools such as NEO-ONE, NeoCompiler Eco, and Neo Playground, built by teams from the US, Brazil, and Switzerland respectively, are all accessible directly from within a browser.">
+        <value>得益于Neo遍布全球的地理社区开发团队，开发者无需安装任何软件便可开始开发应用。包括由Neo美国，巴西和瑞士的开发者社区构建的NEO-ONE，NeoCompiler Eco和Neo Playground等工具都可以在浏览器中直接访问。</value>
+    </data>
 
-<data name="Courtesy of its global development communities, Neo’s tooling and infrastructure already supports numerous languages. Developers can write, compile, and deploy contracts written in C#, Python, Go, TypeScript, and Java.">
-    <value>依托于遍布全球的开发者社区，Neo的工具集和基础架构支持多种编程语言。开发者可以用以C＃，Python，Go，TypeScript和Java来编写、编译和部署智能合约。</value>
-</data>
+    <data name="To take the platform's developer friendliness to the next level, Neo teamed up with ex-Microsoft veterans to establish NGD Enterprise, a Seattle-based office focused purely on developer experience.">
+        <value>为了将Neo开发者友好度带来飞跃式提升，Neo与前微软资深开发者合作建立了位于西雅图的NGD Enterprise，专门致力于开发者体验方面的创新与合作。</value>
+    </data>
 
-<data name="After compilation to the standard NEF (Neo Execution Format), contracts can be executed within NeoVM, Neo’s lightweight virtual machine. Newly upgraded for the N3 network, NeoVM delivers substantial performance improvements over the previous generation, with some instruction set runtimes improved by as much as 16x. NeoVM uses a modular architecture, allowing for easy integration into other applications or off-chain scenarios.">
-    <value>编译为标准NEF（Neo执行格式）后，开发者可以在轻型虚拟机NeoVM中执行智能合约。 NeoVM针对N3网络进行了重大升级，性能较上一代得到了显着提高，其中某些指令集的运行速度提高了16倍。 NeoVM使用模块化架构，可以轻松被集成到其他应用程序或链下应用中。</value>
-</data>
+    <data name="As its flagship project, NGD Enterprise created the Neo Blockchain Toolkit for VS Code, allowing developers to easily deploy private Neo networks then create, deploy, and interact with smart contracts coded in any language. Over the last few years VS Code has emerged as a top choice for developers, cornering over half of the current market share for code editors. This made it a natural choice for integration with Neo tooling, helping the platform meet developers where they already are.">
+        <value>作为其旗舰项目，NGD Enterprise创建了针对VS Code的Neo区块链工具包，使开发者可以轻松部署私有Neo网络，以自己熟悉的语言创建部署智能合约并与之交互。在过去的几年中，VS Code已成为半数以上开发者的选，Neo区块链工具包将从很大程度上满足广大开发者的需求。</value>
+    </data>
 
-<data name="Smarter contracts">
-    <value>更智能的合约</value>
-</data>
+    <data name="From MVP to production-ready">
+        <value>完善的合约调试</value>
+    </data>
 
-<data name="The N3 smart contract system introduces a wide range of new functionality to improve the contract development experience for developers. Examples include a new dual-level permission setting, defined at the Manifest and Call levels, and the new NEP-17 token standard to simplify token transfers and enable contracts to add custom logic to trigger when receiving tokens.">
-    <value>
-N3的智能合约系统引入了大量的新功能，以改善开发者的合约开发体验。包括在Manifest和Call级别新增的双层权限自定义设置，以及新的NEP-17通证标准。这项标准简化了通证传输，并使合约可以在接收通证时触发自定义逻辑。
-</value>
-</data>
+    <data name="Put your contract through its paces with automated contract testing tools. As advocates of a test-driven development approach, NGD Enterprise provides an expandable testing framework. Set up a private blockchain, deploy a contract, then analyze it for issues with your own custom unit test suite—all in a single click.">
+        <value>作为由测试驱动开发理念的倡导者，NGD Enterprise提供了极富可扩展的性测试框架，借助自动化的合约测试工具来逐步完善开发。开发者可以一键设置私有区块链，部署合约，然后使用自定义的单元测试套件对可能出现的问题进行分析。</value>
+    </data>
 
-<data name="Benefits also extend to off-chain applications. Improvements such as the new contract upgrade mechanism eliminates the issue of a contract hash changes and ensures data is retained.
-">
-    <value>更新后的智能合约系统也增强了链下应用的功能。例如新的合约升级机制避免了合约哈希更改后带来的问题，并确保之前的数据可以被保留。</value>
-</data>
+    <data name="Sometimes errors happen, even in a carefully tested application, and in a decentralized environment they can be very difficult to replicate. Thanks to execution trace capture, you can grab and investigate any transaction on a Neo network and replay it through the Neo Debugger.">
+        <value>即使经过仔细的测试，应用中的错误有时也难以避免。在分布式的环境下，这些错误也会更加难以重现。借助Neo调试器提供的追踪捕获功能，开发者可以捕获和调查Neo网络上的任何事务，然后通过Neo调试器让它重现。</value>
+    </data>
 
-<data name="The price is right">
-    <value>更低廉的成本</value>
-</data>
-
-<data name="Developers will also note a dramatic reduction in the costs of deploying and executing smart contracts. With fees lowered by an average of approximately 100 times, N3 provides a far more competitively priced platform to developers, allowing the free 10 GAS crutch to be removed. Combined with the GAS inflation mechanism and the burning of system fees, a sustainable economic model has been established. ">
-    <value>开发者在N3进行合约部署与执行的成本将大大降低。为了给开发者提供一个更具价格竞争力的开发平台，N3中的平均费用相比之前版本降低约100倍。结合GAS的发放机制和系统费用的大幅降低，N3已经拥有了一套可持续的经济模型。</value>
-</data>
-
-<data name="All fees related to the contract system are now adjustable through the on-chain governance mechanism, providing the additional benefit of resistance to market volatility on the Neo system as the price of GAS changes.">
-    <value>另一方面，与合约系统有关的所有费用都可以通过链上治理机制进行调整。这意味着Neo生态具备了抵御GAS价格波动的重要优势。</value>
-</data>
-
+    <data name="The debugger provides a disassembled bytecode view, source code mapping, and revolutionary time-travel debugging tools. Armed with these powerful resources, you can skip the tedious hours spent tracking down bugs by directly stepping forward or backward through both the source code and bytecode, inspecting carefully for any unexpected state changes.">
+        <value>Neo调试器提供了反汇编的字节码视图，源代码映射和革命性的时间旅行调试工具。有了这些强大的工具，开发者可以直接在源代码和字节码之间前进或后退，并捕捉任何意外的状态更改，从极大程度上减少了乏味枯燥的测试流程。</value>
+    </data>
 </root>
