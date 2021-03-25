@@ -125,8 +125,45 @@
             updateMenuWithHash();
         });
 
+        // overview
+        $(document).ready(() => {
+            let currentVersion = 'neo3';
+
+            function updateDocumentations() {
+                $('.documentation').each((i, documentation) => {
+                    const version = $(documentation).attr('data-version');
+                    if (version.includes(currentVersion)) {
+                        $(documentation).removeClass('hidden');
+                    } else {
+                        $(documentation).addClass('hidden');
+                    }
+                });
+                $(window).trigger('scroll');
+            }
+
+            function updateOverviewExamples() {
+                $('.overview-example').each((i, example) => {
+                    const version = $(example).attr('data-version');
+                    if (version.includes(currentVersion)) {
+                        $(example).removeClass('hidden');
+                    } else {
+                        $(example).addClass('hidden');
+                    }
+                });
+                $(window).trigger('scroll');
+            }
+
+            $('.select-platform').change(e => {
+                currentVersion = $(e.target).val();
+                updateDocumentations();
+                updateOverviewExamples();
+            });
+        });
+
         // tooling
         $(document).ready(() => {
+            let currentVersion = 'neo3';
+
             function updateTabs(i) {
                 $('.tab').each((j, tab) => {
                     if (i === j) {
@@ -143,6 +180,19 @@
                     }
                 });
                 $('.select-tab-page').prop('selectedIndex', i);
+                $(window).trigger('scroll');
+            }
+
+            function updateTools() {
+                $('.tool').each((i, tool) => {
+                    const version = $(tool).attr('data-version');
+                    if (version.includes(currentVersion)) {
+                        $(tool).removeClass('hidden');
+                    } else {
+                        $(tool).addClass('hidden');
+                    }
+                });
+                $(window).trigger('scroll');
             }
 
             $('.tab').each((i, tab) => {
@@ -151,9 +201,13 @@
                 });
             });
 
-
             $('.select-tab-page').change(e => {
                 updateTabs(e.target.selectedIndex);
+            });
+
+            $('.select-platform').change(e => {
+                currentVersion = $(e.target).val();
+                updateTools();
             });
         });
 
