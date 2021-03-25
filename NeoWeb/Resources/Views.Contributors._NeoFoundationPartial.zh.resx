@@ -117,7 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="After four years of stable MainNet operation, Neo is undergoing its biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
-    <value>经历了4年的稳定主网运行，Neo正在经历有史以来最大的一次进化-向N3版本进行迁移。Neo N3是Neo区块链迄今为止最强大、功能最丰富的版本。</value>
+  <data name="Developer Community Strategist" xml:space="preserve">
+    <value>开发社区战略师
+</value>
+  </data>
+  <data name="Director of Enterprise Adoption" xml:space="preserve">
+    <value>企业业务负责人</value>
+  </data>
+  <data name="Founder and Core developer of Neo, Chair of Neo Foundation" xml:space="preserve">
+    <value>Neo创始人及核心开发者，NGD CEO</value>
+  </data>
+  <data name="Founder of Neo, Chair of Neo Foundation, CEO of NGD" xml:space="preserve">
+    <value>Neo创始人，Neo基金会主席，NGD CEO</value>
+  </data>
+  <data name="Neo Foundation" xml:space="preserve">
+    <value>Neo Foundation</value>
+  </data>
+  <data name="Program Manager" xml:space="preserve">
+    <value>项目规划经理</value>
+  </data>
+  <data name="The Neo Foundation is responsible for setting the strategic direction for the Neo project and distributing funding to various groups for execution. Led by project founders Da Hongfei and Erik Zhang, the Neo Foundation primarily liaises with Neo Global Development, sponsored communities, and core developers." xml:space="preserve">
+    <value>Neo Foundation负责制定Neo项目的战略方向，并将资金分配给各个部门使用。Neo Foundation由项目创始人达鸿飞和张铮文领导，主要与NGD、Neo社区和核心开发者联系紧密。</value>
   </data>
 </root>

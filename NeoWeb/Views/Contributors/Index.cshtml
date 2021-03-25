@@ -9,15 +9,23 @@
 
 <div class="introduction others">
     <div class="introduction-start">
-        <h1 class="uppercase"><span class="green">NEO</span> <br class="@SharedLocalizer["d-none-zh"]" /> @Localizer["Contributors & Collaborators"]</h1>
-        <div class="introduction-content">@Localizer["After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]</div>
+        <h1 class="uppercase"><span class="green">@Localizer["NEO"]</span> <br class="@SharedLocalizer["d-none-zh"]" /> @Localizer["Contributors"]</h1>
+        <div class="introduction-content">@Localizer["Many hands make light work. Neo is a collaborative project with contributors from many different groups and organizations across the globe."]</div>
+    </div>
+    <img class="introduction-img" data-original="@Helper.ToCDN("/images/discover/placeholder.png", true)" />
+</div>
+
+<div class="introduction outstanding-contributors">
+    <div class="introduction-start">
+        <div class="introduction-title"><em>@Localizer["Outstanding"]</em><br />@Localizer["Contributors"]</div>
+        <div class="introduction-content">@Localizer["Community projects like Neo attract people from all walks of life with all kinds of skills and abilities. Some may work with the project long term, while others may make impactful contributions over a short period of time. We like to provide special acknowledgement of these outstanding community members and thank them for their contributions to the Neo project."]</div>
     </div>
     <img class="introduction-img" data-original="@Helper.ToCDN("/images/discover/placeholder.png", true)" />
 </div>
 
 <div class="introduction industry-collaboration">
     <div class="introduction-start">
-        <div class="introduction-title"><em>Industry</em><br />@Localizer["Collaboration"]</div>
+        <div class="introduction-title"><em>@Localizer["Industry"]</em><br />@Localizer["Collaboration"]</div>
         <div class="introduction-content">@Localizer["After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]</div>
     </div>
     <img class="introduction-img" data-original="@Helper.ToCDN("/images/discover/placeholder.png", true)" />
@@ -94,11 +102,18 @@
 
             function updateCurrentPage(i) {
                 const icIndex = hashArray.indexOf('industry-collabration')
+                const ocIndex = hashArray.indexOf('outstanding-contributors')
                 if (i === icIndex) {
                     $(".introduction.industry-collaboration").removeClass("d-none")
+                    $(".introduction.outstanding-contributors").addClass("d-none")
+                    $(".introduction.others").addClass("d-none")
+                } else if (i === ocIndex) {
+                    $(".introduction.outstanding-contributors").removeClass("d-none")
+                    $(".introduction.industry-collaboration").addClass("d-none")
                     $(".introduction.others").addClass("d-none")
                 } else {
                     $(".introduction.industry-collaboration").addClass("d-none")
+                    $(".introduction.outstanding-contributors").addClass("d-none")
                     $(".introduction.others").removeClass("d-none")
                 }
 

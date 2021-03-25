@@ -2,59 +2,35 @@
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
-<h2 class="menu-page-title">Neo Global Development</h2>
-<div class="menu-page-description">
-    At magnum periculum adiit in oculis quidem faciunt, ut summo bono, dolorem aspernari ut aut ad naturam aut rerum hic tenetur a se esse ratione intellegi posse et dolorem ipsum, quia voluptas sit, voluptatem et accusamus et quas molestias.
+<h2 class="main-title">@Localizer["Neo Global Development"]</h2>
+<div class="page-paragraph">
+    @Localizer["Neo Global Development can be considered as the main execution arm of the Neo Foundation. It is responsible for tasks such as business development, marketing, events management, and direct technical support to partner organizations."]
 </div>
 
 <div class="people-card-container">
-    @{ string[,] people = new string[12, 4]
+    @{ string[,] people = new string[4, 4]
                     {
-                    { "John Doe", "", "Founder Neo", "Author, dBFT" },
-                    { "John Doe", "", "Founder Neo", "Author, dBFT" },
-                    { "John Doe", "", "Founder Neo", "Author, dBFT" },
-                    { "John Doe", "", "Founder Neo", "Author, dBFT" },
-                    { "John Doe", "", "Founder Neo", "Author, dBFT" },
-                    { "John Doe", "", "Founder Neo", "Author, dBFT" },
-                    { "John Doe", "", "Founder Neo", "Author, dBFT" },
-                    { "John Doe", "", "Founder Neo", "Author, dBFT" },
-                    { "John Doe", "", "Founder Neo", "Author, dBFT" },
-                    { "John Doe", "", "Founder Neo", "Author, dBFT" },
-                    { "John Doe", "", "Founder Neo", "Author, dBFT" },
-                    { "John Doe", "", "Founder Neo", "Author, dBFT" },
+                    { "Da Hongfei", "Leadership", "CEO", "/images/discover/DaHongfei.jpg" },
+                    { "John Wang", "EcoGrowth", "Head of Eco-Growth", "/images/discover/JohnWang.jpg" },
+                    { "Zhang Zhihong", "Development", "Quality Assurance Manager", "/images/discover/ZhihongZhang.jpg" },
+                    { "Steven Liu", "Development", "Head of Development", "/images/discover/RendongLiu.jpg" },
             };
 
 
                     for (int i = 0; i < people.GetLength(0); i++)
                     {
         <div class="people-card">
-            <img class="people-img" data-original="@Helper.ToCDN("/images/discover/placeholder.svg")" />
-
-            @if (!String.IsNullOrEmpty(people[i, 0]))
-            {
-<div class="content-row">
-    <div class="primary-name">@people[i, 0]</div>
-    <a href="https://www.github.com" target="_blank"><i class="iconfont link-icon">&#xe609;</i></a>
-</div>}
-
-            @if (!String.IsNullOrEmpty(people[i, 1]))
-            {
-<div class="content-row">
-    <div class="secondary-name">@people[i, 1]</div>
-    <a href="https://www.linkedin.com" target="_blank"><img class="link-icon" data-original="@Helper.ToCDN("/images/discover/LinkedIn.svg")" /></a>
-</div>}
-
-            @if (!String.IsNullOrEmpty(people[i, 2]))
-            {
-<div class="content-row">
-    <div class="title-name">@people[i, 2]</div>
-</div>}
-
-            @if (!String.IsNullOrEmpty(people[0, 3]))
-            {
-<div class="content-row">
-    <div class="people-description">@people[i, 3]</div>
-</div>}
-
+            <img class="people-img" data-original="@Helper.ToCDN(people[i, 3])" />
+            <div class="people-content">
+                <div class="col-name">
+                    <div class="primary-name">@people[i, 0]</div>
+                    @if (!String.IsNullOrEmpty(people[i, 1]))
+                    {
+            <div class="title-name">@Localizer[people[i, 1]]</div>}
+                    @if (!String.IsNullOrEmpty(people[0, 2]))
+                    {
+            <div class="people-description">@people[i, 2]</div>}
+                </div>
+            </div>
         </div> } }
 </div>

@@ -117,7 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="After four years of stable MainNet operation, Neo is undergoing its biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
-    <value>经历了4年的稳定主网运行，Neo正在经历有史以来最大的一次进化-向N3版本进行迁移。Neo N3是Neo区块链迄今为止最强大、功能最丰富的版本。</value>
+  <data name="Core Developers" xml:space="preserve">
+    <value>核心开发者</value>
+  </data>
+  <data name="The core developers are a highly skilled and dedicated team of subject matter experts responsible for advancing Neo’s core protocol. Anyone can contribute to the Neo codebase, however core developers have the permissions to review and merge pull requests. Developers who consistently provide high quality contributions to the Neo project may become eligible for an invite to the core group." xml:space="preserve">
+    <value>Neo拥有一个由高技能专家组成的核心开发者团队，专门负责更新Neo的核心协议。任何人都可以参与Neo代码库的建设，但只有核心开发者有权审查和合并PR。始终高质量地参与Neo项目开发的开发者有被邀请加入核心开发者队伍的可能。</value>
   </data>
 </root>
