@@ -6,8 +6,6 @@
 @linear-black: linear-gradient(180deg, #0F1E32 0%, darken(#0F1E32, 40%) 100%);
 @linear-green: linear-gradient(104deg, @green 0%, darken(@green, 10%) 100%);
 
-
-
 .layout-container {
     max-width: none;
     margin: -65px 0 0 0;
@@ -27,6 +25,10 @@
     flex-direction: column;
     align-items: stretch;
     background-color: #fff;
+
+    @media only screen and (min-width: 1200px) and (max-width: 1440px) {
+        zoom: 80%;
+    }
 }
 
 html body {
@@ -131,7 +133,7 @@ html body {
         margin-bottom: 1.125rem;
         .uppercase;
 
-        @media only screen and (max-width: 1400px) {
+        @media only screen and (max-width: 1200px) {
             font-size: 1.875rem;
             margin-bottom: 0.625rem;
         }
@@ -149,7 +151,7 @@ html body {
         font-size: 1.25rem;
         line-height: 1.375;
 
-        @media only screen and (max-width: 1400px) {
+        @media only screen and (max-width: 1200px) {
             font-size: 1.25rem;
             line-height: 1.2;
         }
@@ -200,7 +202,7 @@ html body {
         }
     }
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         padding: 1.5rem 0.5rem 1rem 0.5rem;
         border: 3px solid @green;
 
@@ -306,7 +308,7 @@ html body {
     height: 80vh;
     min-height: 740px;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         flex-direction: column;
         height: 100%;
     }
@@ -329,7 +331,7 @@ html body {
             .green;
         }
 
-        @media only screen and (max-width: 1400px) {
+        @media only screen and (max-width: 1200px) {
             width: 100%;
             align-items: center;
             padding-right: 0;
@@ -352,7 +354,7 @@ html body {
         .dark-blue;
         background: @linear-green;
 
-        @media only screen and (max-width: 1400px) {
+        @media only screen and (max-width: 1200px) {
             justify-content: center;
             align-items: center;
             padding-right: 0;
@@ -365,7 +367,7 @@ html body {
 .logo-img {
     width: 400px;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         width: 19.625rem;
     }
 
@@ -414,10 +416,10 @@ html body {
     margin-bottom: 8.5rem;
 
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         text-align: center;
         font-size: 3.125rem;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
         width: 90%;
     }
 
@@ -434,8 +436,15 @@ html body {
     font-size: 1rem;
     line-height: 1.25;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         align-items: center;
+        width: 50%;
+        align-self: center;
+        text-align: center;
+    }
+
+    @media only screen and (max-width: 767.98px) {
+        width: 80%;
     }
 }
 
@@ -524,7 +533,7 @@ html body {
     align-self: center;
     max-width: 1380px;
 
-    @media only screen and (max-width: 1400px) { // tablet
+    @media only screen and (max-width: 1200px) { // tablet
         max-width: 991px;
     }
 
@@ -541,9 +550,9 @@ html body {
     padding: 2.375rem 2.375rem 11.125rem 2.375rem;
     .work-sans-bold;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         align-self: center;
-        padding: 2.375rem 1rem 8.625rem 1rem;
+        padding: 2.375rem 0.5rem 8.625rem 0.5rem;
         width: 767px;
     }
 
@@ -562,7 +571,7 @@ html body {
         padding: 0 4.25rem 0 0rem;
         border-right: 3px solid @green;
 
-        @media only screen and (max-width: 1400px) {
+        @media only screen and (max-width: 1200px) {
             padding: 0 2.875rem 0 0;
         }
 
@@ -585,7 +594,7 @@ html body {
         padding-left: 5.5rem;
         height: 50.125rem;
 
-        @media only screen and (max-width: 1400px) {
+        @media only screen and (max-width: 1200px) {
             padding: 0 0 0 2.875rem;
         }
 
@@ -601,10 +610,10 @@ html body {
     .work-sans-bold;
     .uppercase;
     font-size: 6.625rem;
-    margin-bottom: 0.5rem;
-    line-height: 0.85;
+    margin-bottom: 1rem;
+    line-height: 0.9;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         font-size: 5.875rem;
         margin-bottom: 1.875rem;
         line-height: 0.92;
@@ -623,7 +632,7 @@ html body {
     width: 36.25rem;
     font-size: 1.5rem;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         width: 18.125rem;
     }
 
@@ -656,7 +665,7 @@ html body {
         margin-top: 20px;
     }
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         & > * + * {
             margin-top: 17px;
         }
@@ -684,7 +693,7 @@ html body {
     box-shadow: -30px 35px 30px 0px rgba(81, 94, 90, 0.26), -10px 17px 13px 0px rgba(0, 0, 0, 0.14);
     cursor: pointer;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         width: 282px;
     }
 
@@ -705,7 +714,7 @@ html body {
         background-color: @green;
         transform: translate(20px, 0);
 
-        @media only screen and (max-width: 1400px) {
+        @media only screen and (max-width: 1200px) {
             transform: translate(15px, 0);
         }
 
@@ -727,7 +736,7 @@ html body {
         height: calc(100% - 1.25rem);
         .uppercase;
 
-        @media only screen and (max-width: 1400px) {
+        @media only screen and (max-width: 1200px) {
             transform: translate(35px, 0);
         }
 
@@ -753,7 +762,7 @@ html body {
     height: 26.25rem;
     z-index: 1;
 
-    @media only screen and (max-width: 1400px) { // tablet
+    @media only screen and (max-width: 1200px) { // tablet
         max-width: 767px;
         height: 13.125rem;
     }
@@ -769,7 +778,7 @@ html body {
         padding: 0;
         height: 100%;
 
-        @media only screen and (max-width: 1400px) { // tablet
+        @media only screen and (max-width: 1200px) { // tablet
         }
 
         @media only screen and (max-width: 767.98px) { // mobile
@@ -785,7 +794,7 @@ html body {
         padding: 2.375rem;
         height: 100%;
 
-        @media only screen and (max-width: 1400px) {
+        @media only screen and (max-width: 1200px) {
             padding: 0 1rem;
         }
 
@@ -801,7 +810,7 @@ html body {
     font-size: 1.5rem;
     line-height: 1.375;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         font-size: 1.375rem;
         line-height: 1.37;
     }
@@ -812,7 +821,7 @@ html body {
     font-size: 1.125rem;
     line-height: 1.83;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         font-size: 1rem;
         line-height: 1.5;
     }
@@ -821,7 +830,7 @@ html body {
 .building-blocks-btn {
     margin-top: 1.7rem;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         margin-bottom: 1.25rem;
         z-index: 1;
     }
@@ -836,7 +845,12 @@ html body {
     transform: translateY(-56px);
     margin-bottom: -32px;
 
-    @media only screen and (max-width: 1400px) {
+    &.zh {
+        transform: translateY(-56px);
+        margin-bottom: -32px;
+    }
+
+    @media only screen and (max-width: 1200px) {
         display: none;
     }
 }
@@ -846,7 +860,12 @@ html body {
     transform: translateY(6px);
     margin-bottom: 6px;
 
-    @media only screen and (min-width: 1400px) {
+    &.zh {
+        transform: translateY(-25px);
+        margin-bottom: -25px;
+    }
+
+    @media only screen and (min-width: 1200px) {
         display: none;
     }
 
@@ -938,7 +957,7 @@ html body {
     margin-top: 28px;
     z-index: 1;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         margin-right: 12px;
     }
 
@@ -965,7 +984,7 @@ html body {
     transform: translateY(-48px);
     margin-bottom: -24px;
 
-    @media only screen and (max-width: 1400px) { // tablet
+    @media only screen and (max-width: 1200px) { // tablet
         padding: 0.5rem;
         width: 767px;
     }
@@ -1026,7 +1045,7 @@ html body {
     box-shadow: -30px 35px 30px 0px rgba(81, 94, 90, 0.26), -10px 17px 13px 0px rgba(0, 0, 0, 0.14);
     cursor: pointer;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         height: 88px;
         width: 88px;
     }
@@ -1035,7 +1054,7 @@ html body {
         .language-img {
             width: 64px;
 
-            @media only screen and (max-width: 1400px) {
+            @media only screen and (max-width: 1200px) {
                 width: 48px;
             }
         }
@@ -1045,7 +1064,7 @@ html body {
         .language-img {
             width: 64px;
 
-            @media only screen and (max-width: 1400px) {
+            @media only screen and (max-width: 1200px) {
                 width: 48px;
             }
         }
@@ -1055,7 +1074,7 @@ html body {
         .language-img {
             width: 86px;
 
-            @media only screen and (max-width: 1400px) {
+            @media only screen and (max-width: 1200px) {
                 width: 64px;
             }
         }
@@ -1065,7 +1084,7 @@ html body {
         .language-img {
             width: 52px;
 
-            @media only screen and (max-width: 1400px) {
+            @media only screen and (max-width: 1200px) {
                 width: 40px;
             }
         }
@@ -1075,7 +1094,7 @@ html body {
         .language-img {
             width: 54px;
 
-            @media only screen and (max-width: 1400px) {
+            @media only screen and (max-width: 1200px) {
                 width: 40px;
             }
         }
@@ -1128,7 +1147,7 @@ html body {
     line-height: 1.23;
     background-color: transparent;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         width: 100%;
         height: 662px;
     }
@@ -1274,7 +1293,7 @@ html body {
             font-size: 1rem;
             border-left: 1px solid @dark-blue;
 
-            @media only screen and (max-width: 1400px) {
+            @media only screen and (max-width: 1200px) {
                 padding: 0 2.25rem;
             }
 
@@ -1305,7 +1324,7 @@ html body {
     align-self: center;
     width: 1380px;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         width: 767px;
     }
 
@@ -1325,7 +1344,7 @@ html body {
         height: 10.25rem;
         border-right: 2px solid @green;
 
-        @media only screen and (max-width: 1400px) {
+        @media only screen and (max-width: 1200px) {
             width: 90%;
         }
     }
@@ -1339,7 +1358,7 @@ html body {
         transform: translateY(-150px);
         margin-bottom: -100px;
 
-        @media only screen and (max-width: 1400px) {
+        @media only screen and (max-width: 1200px) {
             height: 92px;
             transform: translateY(0);
             margin-bottom: 20px;
@@ -1360,7 +1379,7 @@ html body {
         margin-left: 7.375rem;
     }
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         width: 767px;
         margin-bottom: 36px;
         // grid-column-gap: 2.5rem;
@@ -1394,8 +1413,9 @@ html body {
             margin-top: 3.5rem;
         }
 
-        @media only screen and (max-width: 1400px) {
+        @media only screen and (max-width: 1200px) {
             width: 230px;
+            padding: 0 0 0 3%;
             // grid-row-gap: 2.175rem;
 
             & > * + * {
@@ -1426,7 +1446,7 @@ html body {
             margin-top: 3.5rem;
         }
 
-        @media only screen and (max-width: 1400px) {
+        @media only screen and (max-width: 1200px) {
             padding: 0;
             width: 464px;
             // grid-row-gap: 2.175rem;
@@ -1461,7 +1481,7 @@ html body {
     line-height: 1.33;
     text-transform: initial;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         margin-top: 1.125rem;
         font-size: 1.125rem;
     }
@@ -1479,7 +1499,7 @@ html body {
     font-size: 1.125rem;
     line-height: 1.4;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         font-size: 1rem;
         line-height: 1.5;
     }
@@ -1496,7 +1516,7 @@ html body {
     height: 4px;
     background-color: @green;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         width: 60px;
     }
 
@@ -1525,7 +1545,7 @@ html body {
     height: 318px;
     width: 783px;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         margin-top: 1.25rem;
         height: 210px;
         width: 464px;
@@ -1543,7 +1563,7 @@ html body {
         height: 318px;
         width: 800px;
 
-        @media only screen and (max-width: 1400px) {
+        @media only screen and (max-width: 1200px) {
             height: 210px;
             width: 464px;
         }
@@ -1564,7 +1584,7 @@ html body {
         left: 0;
         height: 318px;
 
-        @media only screen and (max-width: 1400px) {
+        @media only screen and (max-width: 1200px) {
             height: 210px;
         }
 
@@ -1582,7 +1602,7 @@ html body {
     background-color: @custom4;
     box-shadow: -30px 35px 30px 0px rgba(81, 94, 90, 0.26), -10px 17px 10px 0px rgba(0, 0, 0, 0.09);
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         height: 420px;
     }
 
@@ -1618,7 +1638,7 @@ html body {
     padding: 42px;
     height: 474px;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         padding: 18px;
         height: 378px;
     }
@@ -1646,7 +1666,7 @@ html body {
         margin-left: 24px;
     }
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         margin-bottom: 16px;
 
         & > * + * {
@@ -1670,7 +1690,7 @@ html body {
     font-size: 1.5rem;
     min-width: 9.125rem;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         font-size: 1.125rem;
         min-width: 6.25rem;
     }
@@ -1708,7 +1728,7 @@ html body {
     .work-sans-semibold;
     font-size: 2.5rem;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         font-size: 1.75rem;
     }
 
@@ -1717,7 +1737,7 @@ html body {
         height: 2.875rem;
         width: 2.875rem;
 
-        @media only screen and (max-width: 1400px) {
+        @media only screen and (max-width: 1200px) {
             margin-right: 0.25rem;
             height: 1.69rem;
             width: 1.5rem;
@@ -1727,7 +1747,7 @@ html body {
     #slider-current-value {
         width: 6.25rem;
 
-        @media only screen and (max-width: 1400px) {
+        @media only screen and (max-width: 1200px) {
             width: 4.375rem;
         }
     }
@@ -1740,7 +1760,7 @@ html body {
     font-size: 1.5rem;
     margin-bottom: 1rem;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         margin-bottom: 0.75rem;
     }
 }
@@ -1760,7 +1780,7 @@ html body {
     flex-direction: column;
     align-items: center;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         width: 9.375rem;
     }
 
@@ -1776,7 +1796,7 @@ html body {
     width: 13.75rem;
     line-height: 1.2;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         font-size: 4rem;
         width: 100%;
     }
@@ -1793,7 +1813,7 @@ html body {
     text-align: center;
     width: 13.75rem;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         font-size: 0.75rem;
         width: 9rem;
     }
@@ -1803,7 +1823,7 @@ html body {
         width: 25px;
         height: 28px;
 
-        @media only screen and (max-width: 1400px) {
+        @media only screen and (max-width: 1200px) {
             margin-right: 0;
             width: 1.125rem;
             height: 1.25rem;
@@ -1813,7 +1833,7 @@ html body {
     .status-text {
         font-size: 1.125rem;
 
-        @media only screen and (max-width: 1400px) {
+        @media only screen and (max-width: 1200px) {
             font-size: 0.875rem;
             line-height: 0.93;
         }
@@ -1834,7 +1854,7 @@ html body {
     border-radius: 2.625rem;
     line-height: 1;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         width: 3.625rem;
         height: 3.625rem;
         font-size: 3.625rem;
@@ -1926,7 +1946,7 @@ html body {
         margin-left: 80px;
     }
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         display: none;
     }
 
@@ -1971,7 +1991,7 @@ html body {
         display: none;
     }
 
-    @media only screen and (min-width: 1400px) {
+    @media only screen and (min-width: 1200px) {
         display: none;
     }
 
@@ -2018,7 +2038,7 @@ html body {
         .nunito-sans-bold;
     }
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         width: 14.375rem;
     }
 
@@ -2048,7 +2068,7 @@ html body {
         margin-top: 2.125rem;
     }
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         align-items: flex-start;
         // grid-row-gap: 1.625rem;
 
@@ -2093,7 +2113,7 @@ html body {
         margin-left: 3.125rem;
     }
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         flex-direction: row;
         // grid-column-gap: 2.625rem;
         // grid-row-gap: 2.875rem;
@@ -2126,7 +2146,7 @@ html body {
     width: 100%;
     height: 17.375rem;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         height: 500px;
     }
 }
@@ -2136,7 +2156,7 @@ html body {
     width: 100%;
     height: 9.5rem;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         display: none;
     }
 }
@@ -2144,7 +2164,7 @@ html body {
 .governance-img-vert {
     display: none;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         display: flex;
         width: 100%;
         height: 372px;
@@ -2166,7 +2186,7 @@ html body {
         margin-left: 4.5rem;
     }
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         width: 767px;
         padding-left: 0;
         // grid-column-gap: 2.235rem;
@@ -2205,7 +2225,7 @@ html body {
         margin-top: 1rem;
     }
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         // grid-row-gap: 0.8rem;
 
         & > * + * {
@@ -2238,7 +2258,11 @@ html body {
     line-height: 0.8;
     font-size: 6.75rem;
 
-    @media only screen and (max-width: 1400px) {
+    &.zh {
+        line-height: 0.95;
+    }
+
+    @media only screen and (max-width: 1200px) {
         line-height: 0.85;
         font-size: 5rem;
     }
@@ -2249,11 +2273,16 @@ html body {
     }
 }
 
+.github-icon-wrapper {
+    display: flex;
+    align-items: center;
+}
+
 .github-icon {
     width: 13.875rem;
     height: 4.375rem;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         width: 134px;
         height: 44px;
     }
@@ -2269,7 +2298,7 @@ html body {
     align-self: center;
     width: 1380px;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         width: 90%;
         overflow-x: scroll;
     }
@@ -2283,7 +2312,7 @@ html body {
     width: 1380px;
     align-self: center;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         
     }
 }
@@ -2297,7 +2326,7 @@ html body {
     .bold;
     font-size: 2.25rem;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         display: flex;
         width: 90%;
     }
@@ -2318,7 +2347,7 @@ html body {
     width: 90%;
     align-self: center;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         align-self: center;
         flex-direction: column;
         justify-content: flex-start;
@@ -2381,7 +2410,7 @@ html body {
     height: 100%;
     background-color: white;
 
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1200px) {
         padding: 5%;
     }
 
@@ -2397,12 +2426,17 @@ html body {
 }
 
 .latest-news-title {
-    margin-bottom: 41px;
-    font-size: 4.375rem;
-    line-height: 0.94;
+    margin-bottom: 24px;
+    font-size: 3.125rem;
+    line-height: 1;
     .work-sans-bold;
     color: @dark-blue;
     text-transform: uppercase;
+    text-align: center;
+    padding: 24px;
+    border: 6px solid @green;
+    width: fit-content();
+    align-self: center;
 }
 
 .latest-news-subtitle {
@@ -2438,7 +2472,7 @@ html body {
     margin-bottom: @font-size-4;
 
     div[class|=col] {
-        margin-top: 5.3rem;
+        margin: 2.5rem 0;
         list-style: none;
 
         & > div {
