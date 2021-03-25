@@ -9,13 +9,14 @@
 
 <div class="people-card-container">
     @{
-        string[,] people = new string[5, 5]
+        string[,] people = new string[6, 6]
         {
-            { "Erik Zhang", "张铮文", "Neo Founder", "Founder and Core developer of Neo, Chair of Neo Foundation", "https://www.linkedin.com/in/erik-zhang-5a6b14ab/" },
-            { "Da Hongfei", "达鸿飞", "Neo Founder", "Founder of Neo, Chair of Neo Foundation, CEO of NGD", "https://www.linkedin.com/in/dahongfei/" },
-            { "John deVadoss", "", "NGD Enterprise Founder", "Director of Enterprise Adoption", "https://www.linkedin.com/in/johnkdevadoss/" },
-            { "Longfei Wang", "王龙飞", "NEO Foundation", "Developer Community Strategist", "https://www.linkedin.com/in/longfei-wang-a7b3b125/" },
-            { "Grace Gui", "桂海芳", "NEO Foundation", "Program Manager", "https://www.linkedin.com/in/grace-gui-95906635/" }
+            { "Erik Zhang", "张铮文", "Neo Founder", "Author of dBFT", "https://github.com/erikzhang", "https://www.linkedin.com/in/erik-zhang-5a6b14ab/" },
+            { "Fernando Díaz Toledano", "SHARGON", "RED4SEC FOUNDER", "Expert in security", "https://github.com/shargon", "https://www.linkedin.com/in/fernando-diaz-toledano/" },
+            { "Igor M. Coelho", "", "NEORESEARCH CO-FOUNDER", "Researcher & professor", "https://github.com/igormcoelho/", "https://www.linkedin.com/in/imcoelho/" },
+            { "Victor Nazario Coelho", "", "NEORESEARCH CO-FOUNDER", "Researcher", "https://github.com/vncoelho", "https://www.linkedin.com/in/vitor-nazário-coelho-b76511a1/" },
+            { "Roman Khimov", "", "NEO SPCC", "Principal Software Engineer", "https://github.com/roman-khimov", "" },
+            { "Harry Pierson", "", "NGD ENTERPRISE", "Chief Architect", "https://github.com/devhawk", "https://www.linkedin.com/in/harrypierson/" }
         };
 
 
@@ -24,32 +25,33 @@
         <div class="people-card">
             <img class="people-img" data-original="@Helper.ToCDN("/images/discover/placeholder.svg")" />
 
-            @if (!String.IsNullOrEmpty(people[i, 0]))
-            {
-        <div class="content-row">
-            <div class="primary-name">@people[i, 0]</div>
-            <a href="https://www.github.com" target="_blank"><i class="iconfont link-icon">&#xe609;</i></a>
-        </div>}
-
-            @if (!String.IsNullOrEmpty(people[i, 1]))
-            {
-        <div class="content-row">
-            <div class="secondary-name">@people[i, 1]</div>
-            <a href="@people[i, 4]" target="_blank"><img class="link-icon" data-original="@Helper.ToCDN("/images/discover/LinkedIn.svg")" /></a>
-        </div>}
-
-            @if (!String.IsNullOrEmpty(people[i, 2]))
-            {
-        <div class="content-row">
-            <div class="title-name">@Localizer[people[i, 2]]</div>
-        </div>}
-
-            @if (!String.IsNullOrEmpty(people[0, 3]))
-            {
-        <div class="content-row">
-            <div class="people-description">@people[i, 3]</div>
-        </div>}
-
+            <div class="people-content">
+                <div class="col-name">
+                    <div class="primary-name">@people[i, 0]</div>
+                    @if (!String.IsNullOrEmpty(people[i, 1]))
+                    {
+                        <div class="secondary-name">@people[i, 1]</div>
+                    }
+                    @if (!String.IsNullOrEmpty(people[i, 2]))
+                    {
+                        <div class="title-name">@Localizer[people[i, 2]]</div>
+                    }
+                    @if (!String.IsNullOrEmpty(people[0, 3]))
+                    {
+                        <div class="people-description">@people[i, 3]</div>
+                    }
+                </div>
+                <div class="col-icon">
+                    @if (!String.IsNullOrEmpty(people[i, 4]))
+                    {
+                        <a href="@people[i, 4]" target="_blank"><i class="iconfont link-icon">&#xe609;</i></a>
+                    }
+                    @if (!String.IsNullOrEmpty(people[i, 5]))
+                    {
+                        <a href="@people[i, 5]" target="_blank"><i class="iconfont link-icon">&#xe609;</i></a>
+                    }
+                </div>
+            </div>
         </div>
         }
     }

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,28 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
-    <value />
+  <data name="AlienworksDescription" xml:space="preserve">
+    <value>Alienworks is a global group of developers formed to build tools and resources to support current and future developers in Neo's ecosystem and beyond. Its goal is to provide users and developers with the convenience of using and building a future-oriented smart economy in the crypto world.</value>
   </data>
-  <data name="Communities" xml:space="preserve">
-    <value />
+  <data name="AxLabsDescription" xml:space="preserve">
+    <value>AxLabs is a community developing and maintaining projects in the Neo Ecosystem, mainly focusing on Developer Experience (DevEx). AxLabs joined Neo in late 2018, and since then has been building various tools to make the DevEx on Neo as smooth and intuitive as possible. Examples are tools for Java/Kotlin developers, like the neow3j SDK, the neow3j compiler &amp; devpack, as well as the Neo Playground. &lt;br /&gt;&lt;br /&gt;The team consists of passionate builders and open-source enthusiasts, with a track record in projects in the blockchain scene. Alongside its broad software engineering experience, AxLabs team members share a strong academic background, with close ties to educational institutions in Switzerland - giving workshops, lectures, and tutorials for a broad audience across the globe.</value>
   </data>
-  <data name="Contributors" xml:space="preserve">
-    <value />
+  <data name="CozDescription" xml:space="preserve">
+    <value>COZ is a software development group specializing in blockchain and distributed technologies. Since its humble beginnings as an open source, community driven organization, COZ has become one of blockchain’s most respected development organizations, consistently delivering groundbreaking products. COZ is responsible for projects such as Neon wallet, Dora, the Neo Python suite, and Neon-js.</value>
   </data>
-  <data name="Contributors &amp; Collaborators" xml:space="preserve">
-    <value>贡献者</value>
+  <data name="NeoNewsTodayDescription" xml:space="preserve">
+    <value>Neo News Today is a community run news website dedicated to delivering up-to-date information on all things connected to the Neo ecosystem. NNT provides breaking news, interviews, guides, and resources materials, carefully delivered to the community with an emphasis on accuracy and reliability.</value>
   </data>
-  <data name="Core Developers" xml:space="preserve">
-    <value>核心开发者</value>
+  <data name="NeoResearchDescription" xml:space="preserve">
+    <value>NeoResearch is an open-source community which supports the ecosystem with teaching, researching and applied development for blockchain technology. The group welcomes contributors to discuss, investigate and propose solutions for challenges that are present on a variety of core components of the Neo Blockchain. In this sense, monitoring, analysis, testing and experimentation are core concepts embraced by NeoResearch. Empowering the ecosystem with didactic tools is a path for technology adoption and a positive identity consolidation is NeoResearch's vision.</value>
   </data>
-  <data name="Example &amp; Tutorials" xml:space="preserve">
-    <value />
+  <data name="NeoTrackerDescription" xml:space="preserve">
+    <value>NEO Tracker is the team is behind the NEO•ONE and NEO Tracker tools. NEO•ONE is an open source end-to-end framework that makes coding, testing and deploying Neo dapps easy, fast, efficient and enjoyable. NEO Tracker is a blockchain explorer and web wallet which gives users a gateway to interact with the Neo Blockchain. The NEO Tracker team aims to provide powerful, intuitive and approachable tools for the community.</value>
   </data>
-  <data name="People" xml:space="preserve">
-    <value />
+  <data name="NewEconoLabsDescription" xml:space="preserve">
+    <value>NEL is a Chinese developer community committed to providing developer-friendly tools to improve Neo's ease of use. It has developed and maintained many blockchain tools such as NELScan browser, NEORAY online contract development tool, Teemo wallet, etc.</value>
   </data>
-  <data name="Tooling" xml:space="preserve">
-    <value />
+  <data name="NextDescription" xml:space="preserve">
+    <value>NEXT is a next-generation internet application lab, delivering Neo open network infrastructure services. The community was created as a dApp incubator, seeking to pull more developers into the Neo community and spearhead innovation in the blockchain sector.</value>
+  </data>
+  <data name="Red4SecDescription" xml:space="preserve">
+    <value>Red4Sec is a Cybersecurity company located in Madrid, Spain, specializing in blockchain technologies, ethical hacking, penetration testing, and code audits. Rec4Sec was formed by a team of experts and security analysts with many years of experience in the Cybersecurity sector. In recent years, Red4Sec has become increasingly focused on blockchain and smart contract code audits and has partnered with great blockchain projects such as Neo.</value>
+  </data>
+  <data name="SpccDescrition" xml:space="preserve">
+    <value>With support from Neo Foundation, Neo SPCC works on Neo ecosystem projects as a part of the international community of developers. Neo SPCC core projects are NeoFS, a decentralized object storage platform integrated with Neo Blockchain, and NeoGo, high-performance Neo node implementation and SDK for Go programming language. &lt;br /&gt;&lt;br /&gt;Neo SPCC's long-term goal is to build a true decentralized cloud platform using Neo technologies that will allow solving almost any real-world B2B and B2C problems in a decentralized setting.</value>
   </data>
 </root>

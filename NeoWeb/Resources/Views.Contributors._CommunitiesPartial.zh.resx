@@ -117,7 +117,39 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Neo has sponsored various self-governed communities around the world to help build out Neo’s developer tools and infrastructure. The communities also provide support to new developers joining the ecosystem and provide outreach and learning opportunities to local groups in their various regions." xml:space="preserve">
-    <value>Neo向全球各地的自治社区提供赞助，由社区协助Neo构建开发工具和基础设施。此外，社区还将支持新开发者加入Neo生态系统，并为其所在地的组织团体提供扩展和和学习的机会。</value>
+  <data name="AlienworksDescription" xml:space="preserve">
+    <value>Alienworks是一个全球性的开发团队，他们向Neo生态系统当前和未来的开发者提供工具、资源等支持。其目标是便于用户和开发者构建和使用面向未来的加密智能经济。</value>
+  </data>
+<<<<<<<< HEAD:NeoWeb/Resources/Views.Contributors._CommunitiesPartial.zh.resx
+  <data name="AxLabsDescription" xml:space="preserve">
+    <value>AxLabs是在Neo生态系统中负责开发和维护项目的社区，主要致力于提升开发者体验(DevEx)。AxLabs于2018年底加入Neo，一直致力于构建各种工具，以使Neo上的DevEx尽可能流畅和直观。例如Java/Kotlin开发人员的neow3j SDK、neow3j编译器、开发包等，以及Neo Playground。&lt;br /&gt;&lt;br /&gt;该团队由充满激情的建设者和开源爱好者组成，在区块链领域的项目中反应良好。AxLabs团队成员拥有资深的软件工程经验和强大的学术背景，与瑞士的教育机构联系密切——为全球无数受众提供讲习班、讲座和教程。</value>
+  </data>
+  <data name="CozDescription" xml:space="preserve">
+    <value>COZ是一个专门从事区块链和分布式技术的软件开发小组。作为一个开源且社区驱动的组织，COZ曾经默默无闻，如今却已经成为最受尊敬的区块链开发组织之一，交付了一个又一个开创性的产品。COZ负责Neon wallet、Dora、Neo Python suite、Neon-js等项目。</value>
+========
+  <data name="Communities" xml:space="preserve">
+    <value />
+>>>>>>>> 5e7a52d (adding translation, update homepage blocks img):NeoWeb/Resources/Views.Contributors.Index.zh.resx
+  </data>
+  <data name="NeoNewsTodayDescription" xml:space="preserve">
+    <value>Neo News Today是一个由社区运营的新闻网站，致力于提供与Neo生态系统相关的最新信息。NNT向社区提供准确可靠的突发新闻、采访、指南和资源材料。</value>
+  </data>
+  <data name="NeoResearchDescription" xml:space="preserve">
+    <value>NeoResearch是一个开源社区，其通过区块链技术的教学、研究和应用开发来支持生态系统。NeoResearch欢迎其参与者对Neo区块链核心组件所面临的挑战进行讨论和调查，并提出解决方案。据此而言，监测、分析、测试和实验是NeoResearch的核心概念，使用教学工具增强生态系统是技术采纳的途径，而积极的身份巩固则代表了NeoResearch的远见。</value>
+  </data>
+  <data name="NeoTrackerDescription" xml:space="preserve">
+    <value>NEO Tracker是开发NEO•ONE和NEO Tracker工具的团队。NEO•ONE是一个开源的E2E框架，使NEO dapps的编码、测试和部署都变得简单、高效而愉快。NEO Tracker是一个区块链浏览器和网络钱包，它为用户提供了一个与NEO区块链交互的网关。NEO Tracker团队的目标是为社区提供强大、直观、易操作的工具。</value>
+  </data>
+  <data name="NewEconoLabsDescription" xml:space="preserve">
+    <value>NEL是一个中国开发者社区，致力于通过提供便捷工具从而提高Neo的开发友好性。NEL开发并维护了NELScan浏览器、NEORAY在线合同开发工具、Teemo钱包等区块链工具。</value>
+  </data>
+  <data name="NextDescription" xml:space="preserve">
+    <value>NEXT是一个新世代互联网应用实验室，提供Neo开放网络基础设施服务。该社区是作为dApp孵化器创建的，旨在吸引更多开发者加入Neo社区，引领区块链创新发展。</value>
+  </data>
+  <data name="Red4SecDescription" xml:space="preserve">
+    <value>Red4Sec是一家位于西班牙马德里的网络安全公司，专门从事区块链技术、道德黑客、渗透测试和代码审计。Rec4Sec是由在网络安全领域拥有多年经验的专家和安全分析师组成的团队。近年来，Red4Sec越来越关注区块链和智能合约代码审计，并与Neo等先进区块链项目达成了合作。</value>
+  </data>
+  <data name="SpccDescrition" xml:space="preserve">
+    <value>在Neo Foundation的支持下，Neo SPCC作为国际开发者社区的一员参与Neo生态系统项目。Neo SPCC核心项目包括与Neo区块链集成的去中心化对象存储平台NeoFS，以及Go语言下的高性能Neo节点实现和SDK NeoGo。&lt;br /&gt;&lt;br /&gt;Neo SPCC的长期目标是使用Neo技术建立一个真正的去中心化云平台，在去中心化环境下解决几乎所有现实世界的B2B和B2C问题。</value>
   </data>
 </root>
