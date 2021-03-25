@@ -1330,11 +1330,19 @@ html body {
     }
 
     .before-contributors {
-        width: 10%;
-        margin-top: 1.5rem;
-        margin-bottom: 1.25rem;
-        height: 5.75rem;
+        width: 20%;
+        margin-top: 0;
+        margin-bottom: 0;
+        height: 300px;
         border-right: 2px solid @green;
+        transform: translateY(-150px);
+        margin-bottom: -100px;
+
+        @media only screen and (max-width: 1400px) {
+            height: 92px;
+            transform: translateY(0);
+            margin-bottom: 20px;
+        }
     }
 }
 
@@ -2122,6 +2130,7 @@ html body {
     align-items: center;
     align-self: center;
     width: 1380px;
+    padding-left: 80px;
     // grid-column-gap: 4.5rem;
 
     & > * + * {
@@ -2130,6 +2139,7 @@ html body {
 
     @media only screen and (max-width: 1400px) {
         width: 767px;
+        padding-left: 0;
         // grid-column-gap: 2.235rem;
 
         & > * + * {
