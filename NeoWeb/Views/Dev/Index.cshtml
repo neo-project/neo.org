@@ -132,7 +132,7 @@
             function updateDocumentations() {
                 $('.documentation').each((i, documentation) => {
                     const version = $(documentation).attr('data-version');
-                    if (version.includes(currentVersion)) {
+                    if (version.split(' ').includes(currentVersion)) {
                         $(documentation).removeClass('hidden');
                     } else {
                         $(documentation).addClass('hidden');
@@ -144,7 +144,7 @@
             function updateOverviewExamples() {
                 $('.overview-example').each((i, example) => {
                     const version = $(example).attr('data-version');
-                    if (version.includes(currentVersion)) {
+                    if (version.split(' ').includes(currentVersion)) {
                         $(example).removeClass('hidden');
                     } else {
                         $(example).addClass('hidden');
@@ -186,7 +186,7 @@
             function updateTools() {
                 $('.tool').each((i, tool) => {
                     const version = $(tool).attr('data-version');
-                    if (version.includes(currentVersion)) {
+                    if (version.split(' ').includes(currentVersion)) {
                         $(tool).removeClass('hidden');
                     } else {
                         $(tool).addClass('hidden');
@@ -207,7 +207,7 @@
 
             $('.select-platform').change(e => {
                 currentVersion = $(e.target).val();
-                updateTools();
+                // updateTools();
             });
         });
 
@@ -224,9 +224,11 @@
                 $('.example').each((i, example) => {
                     const version = $(example).attr('data-version');
                     const language = $(example).attr('data-language');
-                    if (version.includes(currentVersion) && (currentLanguage === 'all' || language.includes(currentLanguage))) {
+                    if (version.split(' ').includes(currentVersion)
+                        && (currentLanguage === 'all' || language.split(' ').includes(currentLanguage))) {
                         if (j < currentPage * pageSize) {
                             j++;
+                            console.log(example, version, language);
                             $(example).removeClass('hidden');
                         } else {
                             allLoaded = true;
