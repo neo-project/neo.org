@@ -43,7 +43,7 @@
 
     <div class="resources-end">
         <div class="menu-page active">
-            <partial name="./_OverviewPartial" />
+            @{await Html.RenderPartialAsync("_OverviewPartial");}
         </div>
         <div class="menu-page">
             <partial name="./_EcoBoostPartial" />

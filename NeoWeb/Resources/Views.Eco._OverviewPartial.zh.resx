@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="A medium sized business" xml:space="preserve">
+    <value>中型企业</value>
+  </data>
+  <data name="A small team with many seed users" xml:space="preserve">
+    <value>拥有许多种子用户的小型团队</value>
+  </data>
+  <data name="A wallet or trading platform with existing users" xml:space="preserve">
+    <value>已有一定用户基础的钱包或交易平台</value>
+  </data>
+  <data name="An established blockchain-based business with substantial ties to the Neo ecosystem" xml:space="preserve">
+    <value>拥有与Neo生态系统有实质性联系的成熟链上业务</value>
+  </data>
+  <data name="An institution or education platform" xml:space="preserve">
+    <value>教育机构或教育平台</value>
+  </data>
+  <data name="Coming soon" xml:space="preserve">
+    <value>即将到来</value>
+  </data>
+  <data name="Contributing to the security of the Neo project" xml:space="preserve">
+    <value>为Neo项目的安保做出贡献</value>
+  </data>
+  <data name="EcoBoost" xml:space="preserve">
+    <value>EcoBoost</value>
+  </data>
+  <data name="EcoFund" xml:space="preserve">
+    <value>EcoFund</value>
+  </data>
+  <data name="Existing dApps or blockchain - related business" xml:space="preserve">
+    <value>现存dAPP或区块链相关业务</value>
+  </data>
+  <data name="Find the support that is right for you" xml:space="preserve">
+    <value>找到您需要的支持：</value>
+  </data>
+  <data name="Get all the funding aid you need with EcoFund" xml:space="preserve">
+    <value>从Ecofund获得你需要的资助</value>
+  </data>
+  <data name="Get all the support and guidence you need with EcoBoost" xml:space="preserve">
+    <value>从EcoBoost获得你需要的支持和指导</value>
+  </data>
+  <data name="Getting my dApp idea or project off the ground" xml:space="preserve">
+    <value>使自己的dApp想法或项目开始运作</value>
+  </data>
+  <data name="I am" xml:space="preserve">
+    <value>如果你</value>
+  </data>
+  <data name="If you would  benefit from a little help during your journey on the Neo blockchain, simply identify the track below that best describes your current situation.Full details on how to apply can be found by following the relevant links." xml:space="preserve">
+    <value>如果你想从Neo区块链中得到一点帮助，找出下列最符合您现状的轨道即可。详细信息请参阅有关链接。</value>
+  </data>
+  <data name="Infrastructure and tools development" xml:space="preserve">
+    <value>基础设施和工具开发</value>
+  </data>
+  <data name="Looking for full lifecycle support" xml:space="preserve">
+    <value>寻找全周期支持的项目团队</value>
+  </data>
+  <data name="Looking for funding in exchange for equity or tokens" xml:space="preserve">
+    <value>希望通过股权或通证获得投资</value>
+  </data>
+  <data name="Neo core-protocol development" xml:space="preserve">
+    <value>Neo核心协议开发</value>
+  </data>
+  <data name="Neo has initiated a number of support tracks to grow the Neo ecosystem, offering various types of assistance depending on your project needs, interests, and maturity.Options are available for grassroots developers, start up projects, established businesses, institutions, and everything in between." xml:space="preserve">
+    <value>Neo已经启动了许多支持轨道来发展Neo生态系统，根据您的项目需求、兴趣和成熟度提供各种类型的帮助。业余开发者、初创项目、已存续的企业、机构等均可酌情选择。</value>
+  </data>
+  <data name="Neo is committed to helping quality projects succeed. Take a look at some of the recent groups and organisations we have supported - We’d love to add you to the list!" xml:space="preserve">
+    <value>Neo致力于帮助高质量项目获得成功。这是我们最近支持的团体和组织名单——期待您的加入!</value>
+  </data>
+  <data name="Operating with a viable revenue model" xml:space="preserve">
+    <value>拥有证实可行的盈利模式</value>
+  </data>
+  <data name="other businesses" xml:space="preserve">
+    <value>其他业务</value>
+  </data>
+  <data name="Our Nature is Nuture" xml:space="preserve">
+    <value>“培养”是我们的天性</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>情况概览</value>
+  </data>
+  <data name="Participating in research intiatives" xml:space="preserve">
+    <value>参与研究计划</value>
+  </data>
+  <data name="Partner" xml:space="preserve">
+    <value>合作伙伴</value>
+  </data>
+  <data name="Project" xml:space="preserve">
+    <value>项目</value>
+  </data>
+  <data name="Project, Partner" xml:space="preserve">
+    <value>项目，合作伙伴</value>
+  </data>
+  <data name="Projects and organisations we have supported" xml:space="preserve">
+    <value>我们正在支持的项目和组织</value>
+  </data>
+  <data name="take a look at the latest projects" xml:space="preserve">
+    <value>最新项目概览</value>
+  </data>
+  <data name="We have a range of new grant programs and initiatives launching very shorly. Check back soon!" xml:space="preserve">
+    <value>更多新资助计划即将启动，敬请期待</value>
+  </data>
+  <data name="…interested in" xml:space="preserve">
+    <value>对以下方面感兴趣：</value>
+  </data>
+</root>
