@@ -659,8 +659,8 @@
                 & <span class="latest-news-green">Events</span>
             </div>
             <div class="latest-news-subtitle">@Localizer["Keep up to date"]</div>
-            <div class="news-list">
-                @{await Html.RenderPartialAsync("./_NewsPartial", Model);}
+            <div class="row list2">
+                @{await Html.RenderPartialAsync("../News/_ItemPartial", Model);}
             </div>
             <a asp-controller="news" asp-action="index" class="btn-n3 dark-blue view-all-btn">@Localizer["View All"]</a>
         </div>
