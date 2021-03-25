@@ -9,35 +9,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @*<link rel="stylesheet" href="@Helper.ToCDN("/css/site.min.css", true)">*@
     <link rel="stylesheet" href="@Helper.ToCDN("/css/tour.min.css", true)">
+    @if (SharedLocalizer["en"].Value == "zh")
+    {
+        <link href="@Helper.ToCDN("/css/sitecn.min.css", true)" rel="stylesheet" />
+    }
     <style>
         @@font-face {
-            font-family: 'WorkSans-Bold'; /* project id 1408484 */
+            font-family: 'WorkSans'; /* project id 1408484 */
             src: url('/font/WorkSans-Bold.ttf');
+            font-weight: 700;
         }
 
         @@font-face {
-            font-family: 'WorkSans-Regular'; /* project id 1408484 */
+            font-family: 'WorkSan'; /* project id 1408484 */
             src: url('/font/WorkSans-Regular.ttf');
+            font-weight: 400;
         }
 
         @@font-face {
-            font-family: 'WorkSans-SemiBold'; /* project id 1408484 */
+            font-family: 'WorkSans'; /* project id 1408484 */
             src: url('/font/WorkSans-SemiBold.ttf');
+            font-weight: 600;
         }
 
         @@font-face {
-            font-family: 'NunitoSans-Regular'; /* project id 1408484 */
+            font-family: 'NunitoSans'; /* project id 1408484 */
             src: url('/font/NunitoSans-Regular.ttf');
+            font-weight: 400;
         }
 
         @@font-face {
-            font-family: 'NunitoSans-Bold'; /* project id 1408484 */
+            font-family: 'NunitoSans'; /* project id 1408484 */
             src: url('/font/NunitoSans-Bold.ttf');
+            font-weight: 700;
         }
 
         @@font-face {
-            font-family: 'NunitoSans-SemiBold'; /* project id 1408484 */
+            font-family: 'NunitoSans'; /* project id 1408484 */
             src: url('/font/NunitoSans-SemiBold.ttf');
+            font-weight: 600;
         }
     </style>
     <title>N3 TOUR</title>
