@@ -248,11 +248,13 @@
             });
 
             $('.select-platform').change(e => {
+                currentPage = 1;
                 currentVersion = $(e.target).val();
                 updateExamples();
             });
 
             $('.select-language').change(e => {
+                currentPage = 1;
                 currentLanguage = $(e.target).val();
                 updateExamples();
             });
