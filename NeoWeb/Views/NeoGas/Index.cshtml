@@ -176,4 +176,19 @@
             $("#model_link").html(link.html());
         }
     </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#calculator-slider").on("input", function (e) {
+                const { value } = e.currentTarget
+                $("#slider-current-value").html(value)
+
+                const holdingGas = (+value * 10512000 * 0.1 / 100000000 / 12).toFixed(2)
+                const governanceGas = (+value * 10512000 * 0.8 / 20000000 / 12).toFixed(2)
+
+                $(".result-holding").html(holdingGas)
+                $(".result-governance").html(governanceGas)
+            })
+        });
+    </script>
 }
