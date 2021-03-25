@@ -121,7 +121,7 @@
     <value>领先的</value>
   </data>
   <data name="After four years of stable MainNet operation, Neo is undergoing its biggest evolution as it migrates to N3 - the most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
-    <value>经过 4 年的稳定运行，Neo 即将迎来自主网启动以来最大规模的全新升级 -N3. N3 将会成为迄今为止，最强大，功能最丰富的 Neo 区块链版本。</value>
+    <value>经过4年的稳定运行，Neo即将迎来自主网启动以来最大规模的全新升级-N3. N3将会成为迄今为止，最强大，功能最丰富的Neo区块链版本。</value>
   </data>
   <data name="As a founding member of the interoperability protocol alliance Poly Network, Neo makes cross-chain interaction as easy as a native transaction." xml:space="preserve">
     <value>作为互操作性协议 Poly Network 的创始成员之一，在 Neo 区块链上进行跨链操作的体验就如同原生链上交易一样便捷。</value>
@@ -165,8 +165,8 @@
   <data name="INTEROPERBILITY" xml:space="preserve">
     <value>互操作性</value>
   </data>
-  <data name="IT WAS THIS GOOD" xml:space="preserve">
-    <value>超乎你想象</value>
+  <data name="UNLEASHED" xml:space="preserve">
+    <value>全面绽放</value>
   </data>
   <data name="JUMP" xml:space="preserve">
     <value>即刻</value>
@@ -181,7 +181,7 @@
     <value>了解关于 dBFT 共识机制的更多信息</value>
   </data>
   <data name="Learn more about Neo's multi-language support" xml:space="preserve">
-    <value>了解关于 NeoFS 网络的更多信息</value>
+    <value>了解关于多开发语言支持的更多信息</value>
   </data>
   <data name="Learn more about Neo's native domain service" xml:space="preserve">
     <value>了解关于原生域名服务的更多信息</value>
@@ -201,7 +201,7 @@
   <data name="MODEL" xml:space="preserve">
     <value>模型</value>
   </data>
-  <data name="MULTI LANGUAGE" xml:space="preserve">
+  <data name="MULTI-LANGUAGE" xml:space="preserve">
     <value>多开发语言</value>
   </data>
   <data name="NAME SERVICE" xml:space="preserve">
