@@ -600,7 +600,7 @@ html body {
 .get-started-title {
     .work-sans-bold;
     .uppercase;
-    font-size: 6.625rem;;
+    font-size: 6.625rem;
     margin-bottom: 0.5rem;
     line-height: 0.85;
 
@@ -833,8 +833,8 @@ html body {
 
 .blocks-large-img {
     width: 100%;
-    transform: translateY(-4rem);
-    margin-bottom: -2.5rem;
+    transform: translateY(-56px);
+    margin-bottom: -32px;
 
     @media only screen and (max-width: 1400px) {
         display: none;
@@ -843,8 +843,8 @@ html body {
 
 .blocks-medium-img {
     width: 95%;
-    transform: translateY(-24px);
-    margin-bottom: -72px;
+    transform: translateY(6px);
+    margin-bottom: 6px;
 
     @media only screen and (min-width: 1400px) {
         display: none;
@@ -1124,7 +1124,7 @@ html body {
     height: 634px;
     background: @custom4;
     box-shadow: -24px 28px 24px 0px rgba(81, 94, 90, 0.26), -8px 14px 10px 0px rgba(0, 0, 0, 0.14);
-    font-size: 0.75rem;
+    font-size: 0.95rem;
     line-height: 1.23;
     background-color: transparent;
 
@@ -2365,7 +2365,7 @@ html body {
     font-size: 1.875rem;
 
     &:hover {
-        // .green;
+        .green;
     }
 }
 
@@ -2415,86 +2415,87 @@ html body {
 .view-all-btn {
     margin: auto;
 }
-
-.news-list {
-    display: flex;
-    align-items: center;
-    margin-bottom: 62px;
-    flex-wrap: wrap;
+.bg-img {
+    display: block;
     width: 100%;
-    // grid-row-gap: 40px;
-    // grid-column-gap: 40px;
+    background-position: center;
+    background-size: cover;
+    animation: back-out ease-out 0.15s;
 
-    & > * {
-        margin-bottom: 40px;
-        margin-right: 40px;
+    &::before {
+        content: " ";
+        display: block;
+        padding-top: 56.25%;
     }
 
-    .news-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 8px;
-        width: 456px;
-        height: 403px;
-        background-color: #e8f0f5;
+    &:hover {
+        animation: back linear 0.25s;
+        animation-fill-mode: forwards;
+    }
+}
 
-        @media only screen and (max-width: 1400px) {
-            width: 35%;
-        }
+.list2 {
+    margin-bottom: @font-size-4;
 
-        @media only screen and (max-width: 767px) {
-            width: 100%;
-        }
+    div[class|=col] {
+        margin-top: 5.3rem;
+        list-style: none;
 
-        .img {
-            width: 100%;
-            height: 206px;
-        }
+        & > div {
+            background-color: @custom4;
+            box-shadow: -30px 35px 30px 0px rgba(81, 94, 90, 0.26);
 
-        .content-wrapper {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 10px 8px 8px 8px;
-            width: 100%;
-            height: calc(100% - 206px);
-
-            .content-title {
-                margin-bottom: 0.5rem;
-                line-height: 1.1;
-                font-size: 1.25rem;
-                width: 100%;
-                .work-sans-bold;
-                text-transform: uppercase;
-                text-align: left;
-
-                a {
-                    color: @dark-blue;
-                }
+            > div {
+                padding: 1rem;
             }
+        }
 
-            .content-body {
-                margin: 8px 0 22px 0;
-                max-height: 64px;
-                .nunito-sans-bold;
-                font-size: 1rem;
-                color: @dark-blue;
-                line-height: 1.3125;
-                text-overflow: ellipsis;
+        a.img {
+            .bg-img;
+            border: 1px solid @custom6;
+        }
+
+        .list-title, .list-summary {
+            h3 {
+                height: 3.5rem;
+                font-size: @font-size-4;
                 overflow: hidden;
             }
 
-            .content-tags {
-                display: flex;
-                align-items: flex-start;
-                width: 100%;
-                // grid-column-gap: 9px;
+            h4 {
+                height: 3.5rem;
+                font-size: @font-size-5;
+                font-weight: normal;
+                margin-bottom: 1rem;
+                overflow: hidden;
+            }
 
-                & > * + * {
-                    margin-left: 9px;
+            a {
+                color: @dark-blue;
+                text-shadow: none;
+                transition: text-shadow .2s;
+                background-size: cover;
+                animation: back-out ease-out 0.25s;
+
+                &.img {
+                    .bg-img;
+                }
+
+                &:hover {
+                    text-shadow: 0 0 .1px @dark-blue;
+                    transition: text-shadow .2s;
                 }
             }
+        }
+
+        .small span {
+            font-weight: bold;
+            float: right;
+        }
+
+        div, .list-title {
+            margin-top: 8px;
+            overflow: hidden;
         }
     }
 }

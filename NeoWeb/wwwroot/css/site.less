@@ -41,8 +41,8 @@ a {
 
 @font-face {
     font-family: 'iconfont'; /* project id 2403071 */
-    src: url('//at.alicdn.com/t/font_2403071_nb0p7bidjwg.eot');
-    src: url('//at.alicdn.com/t/font_2403071_nb0p7bidjwg.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_2403071_nb0p7bidjwg.woff2') format('woff2'), url('//at.alicdn.com/t/font_2403071_nb0p7bidjwg.woff') format('woff'), url('//at.alicdn.com/t/font_2403071_nb0p7bidjwg.ttf') format('truetype'), url('//at.alicdn.com/t/font_2403071_nb0p7bidjwg.svg#iconfont') format('svg');
+    src: url('//at.alicdn.com/t/font_2403071_nmxtkj810w.eot');
+    src: url('//at.alicdn.com/t/font_2403071_nmxtkj810w.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_2403071_nmxtkj810w.woff2') format('woff2'), url('//at.alicdn.com/t/font_2403071_nmxtkj810w.woff') format('woff'), url('//at.alicdn.com/t/font_2403071_nmxtkj810w.ttf') format('truetype'), url('//at.alicdn.com/t/font_2403071_nmxtkj810w.svg#iconfont') format('svg');
 }
 
 .iconfont {
@@ -672,4 +672,73 @@ hr {
         width: 1.2rem;
         margin-right: .5rem
     }
+}
+.bg-img {
+    display: block;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    animation: back-out ease-out 0.15s;
+
+    &::before {
+        content: " ";
+        display: block;
+        padding-top: 56.25%;
+    }
+
+    &:hover {
+        animation: back linear 0.25s;
+        animation-fill-mode: forwards;
+    }
+}
+
+.list2 {
+    margin-bottom: @font-size-4;
+
+    div[class|=col], > li {
+        margin-top: 5.3rem;
+        list-style: none;
+
+        a.img {
+            .bg-img;
+            border: 1px solid @custom6;
+        }
+
+        .list-title, .list-summary {
+            a {
+                color: @dark-blue;
+                text-shadow: none;
+                transition: text-shadow .2s;
+                background-size: cover;
+                animation: back-out ease-out 0.25s;
+
+                &.img {
+                    .bg-img;
+                }
+
+                &:hover {
+                    text-shadow: 0 0 .1px @dark-blue;
+                    transition: text-shadow .2s;
+                }
+            }
+        }
+
+        div, .list-title {
+            margin-top: 8px;
+            overflow: hidden;
+        }
+    }
+}
+.wechat1, .wechat2 {
+    position: absolute;
+    display: none;
+    img {
+        width: 150px;
+    }
+}
+.wechat1 {
+    margin: 190px 0 0 60px !important
+}
+.wechat2 {
+    margin: -150px 0 0 -110px;
 }
