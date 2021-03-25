@@ -90,7 +90,7 @@
             <div class="card-text-wrapper">
                 <div class="green-vertline"></div>
                 <div class="card-text">
-                    @getStartedItems[i, 0]
+                    @Localizer[getStartedItems[i, 0]]
                 </div>
             </div>
             <img class="card-img" data-original="@Helper.ToCDN(getStartedItems[i, 1])" />
@@ -111,26 +111,21 @@
                 </div>
                 <div class="square-block building-blocks @SharedLocalizer["d-none"]">
                     <div class="square-block-title">
+                        @Localizer["for the Next Generation Internet"]<br />
                         <span class="green">
                             @Localizer["Building Blocks"]
-                        </span> @Localizer["for the Next Generation Internet"]
+                        </span>
                     </div>
                 </div>
             </div>
             <div class="col-right">
                 <span>
-                    <span class="building-blocks-subtitle @SharedLocalizer["d-none-zh"]">
-                        @Localizer["Neo provides a full stack of features out of the box, but doesn't keep you boxed in."]
-                    </span>
-                    <span class="building-blocks-subtitle @SharedLocalizer["d-none"]">
+                    <span class="building-blocks-subtitle">
                         @Localizer["Neo provides a full stack of features out of the box, but doesn't keep you boxed in."]
                     </span>
 
                     <br /><br />
-                    <span class="building-blocks-body @SharedLocalizer["d-none-zh"]">
-                        @Localizer["Native functionality provides all the infrustructures you need to build complete decentralized applications, while advanced interoperabilty allows you to harness the power of the global blockchain ecosystem."]
-                    </span>
-                    <span class="building-blocks-body @SharedLocalizer["d-none"]">
+                    <span class="building-blocks-body">
                         @Localizer["Native functionality provides all the infrustructures you need to build complete decentralized applications, while advanced interoperabilty allows you to harness the power of the global blockchain ecosystem."]
                     </span>
                 </span>
@@ -138,7 +133,7 @@
             </div>
         </div>
         <img class="blocks-large-img @SharedLocalizer["d-none-zh"]" usemap="#blockslargemap" data-original="@Helper.ToCDN("/images/home/BlocksLarge.svg")" />
-        <img class="blocks-large-img @SharedLocalizer["d-none"]" usemap="#blockslargemap" data-original="@Helper.ToCDN("/images/home/BlocksLarge-zh.svg")" />
+        <img class="blocks-large-img zh @SharedLocalizer["d-none"]" usemap="#blockslargemap" data-original="@Helper.ToCDN("/images/home/BlocksLarge-zh.svg")" />
         <map name="blockslargemap">
             <area shape="rect" coords="982 226 1266 342" alt="One Block Finality" href="technology#dbft-2.0" />
             <area shape="rect" coords="246 520 550 625" alt="Oracles" href="technology#oracles" />
@@ -149,7 +144,7 @@
             <area shape="rect" coords="994 1048 1314 1156" alt="NeoID" href="technology#neo-id" />
         </map>
         <img class="blocks-medium-img @SharedLocalizer["d-none-zh"]" usemap="#blocksmediummap" data-original="@Helper.ToCDN("/images/home/BlocksMedium.svg")" />
-        <img class="blocks-medium-img @SharedLocalizer["d-none"]" usemap="#blocksmediummap" data-original="@Helper.ToCDN("/images/home/BlocksMedium-zh.svg")" />
+        <img class="blocks-medium-img zh @SharedLocalizer["d-none"]" usemap="#blocksmediummap" data-original="@Helper.ToCDN("/images/home/BlocksMedium-zh.svg")" />
         <map name="blocksmediummap">
             <area shape="rect" coords="560 210 777 314" alt="One Block Finality" href="technology#dbft-2.0" />
             <area shape="rect" coords="176 411 366 503" alt="Oracles" href="technology#oracles" />
@@ -166,23 +161,23 @@
                                                             {
                         "/images/home/OneBlockFinality3D.svg", "One Block Finality", "dBFT consensus mechanism guarantees fast and efficient finality in a single block.", "technology#dbft-2.0"
                     },
-                                                                {
-                        "/images/home/NativeOracles3D.svg", "Oracles", "A built-in oracle enabling secured access to any off-chain data.", "technology#oracles"
+                                                            {
+                        "/images/home/NativeOracles3D.svg", "Oracle", "A built-in oracle enabling secured access to any off-chain data.", "technology#oracles"
                     },
                                                                 {
                         "/images/home/NeoFS3D.svg", "NeoFS", "A distributed data storage solution made for scalability and privacy.", "technology#neo-fs"
                     },
                                                             {
-                        "/images/home/SmartContracts3D.svg", "Smart Contracts", "Write your smart contracts in C#, Go, Python, Java, or TypeScript. ", "technology#smart-contracts"
+                        "/images/home/SmartContracts3D.svg", "Smart Contracts", "Write your smart contracts in C#, Go, Python, Java, or TypeScript.", "technology#smart-contracts"
                     },
-                                                                {
-                        "/images/home/NeoNameService3D.svg", "Neo Name Service", "A decentralized .neo domain name service for next-gen internet web applications. ", "technology#neo-name-service"
+                                                            {
+                        "/images/home/NeoNameService3D.svg", "Neo Name Service", "A decentralized .neo domain name service for next-gen internet web applications.", "technology#neo-name-service"
                     },
                                                             {
                         "/images/home/Interoperability3D.svg", "Interoperability", "Poly.Network enabled cross-chain interoperability with Ethereum, Binance Chain, and more.", "technology#interoperability"
                     },
                                                             {
-                        "/images/home/NeoID3D.svg", "NeoID", "A set of self-sovereign decentralized identity solution standards", "technology#neo-id"
+                        "/images/home/NeoID3D.svg", "NeoID", "A set of self-sovereign decentralized identity solution standards.", "technology#neo-id"
                     }
 };
 
@@ -193,10 +188,10 @@
         <div class="block-content-wrapper">
             <div class="block-title">
                 <i class="iconfont circle-arrow-icon">&#xe6ab;</i>
-                @blocks[i, 1]
+                @Localizer[blocks[i, 1]]
             </div>
             <div class="block-paragraph">
-                @blocks[i, 2]
+                @Localizer[@blocks[i, 2]]
             </div>
         </div>
     </div> } }
@@ -208,6 +203,12 @@
                     @Localizer["Blockchain"]
                 </span>
                 <br />@Localizer["You know"]
+            </div>
+            <div class="square-block-title @SharedLocalizer["d-none"]">
+                @Localizer["You know"] <br />
+                <span class="green">
+                    @Localizer["Blockchain"]
+                </span>
             </div>
             <div class="square-block-subtitle">
                 @Localizer["Write smart contracts in a language you already know, with tools you already love"]
@@ -292,11 +293,11 @@
         <div class="col-left">
             <div class="square-block dual-tokens">
                 <div class="square-block-title">
-                    <span class="green">Dual</span><br />
-                    Tokens
+                    <span class="green">@Localizer["Dual"]</span><br />
+                    @Localizer["Tokens"]
                 </div>
                 <div class="square-block-subtitle">
-                    @Localizer["Neo has a unique dual token model that seperates governance from utility"]
+                    @Localizer["Neo has a unique dual token model that seperates governance from utility."]
                 </div>
             </div>
         </div>
@@ -328,7 +329,7 @@
             <div class="calculator">
                 <div class="calculator-header">
                     <div class="calculator-title">
-                        NEO &amp; GAS Calculator
+                        @Localizer["NEO & GAS Calculator"]
                     </div>
                     <div class="calculator-title-empty"></div>
                 </div>
@@ -344,16 +345,16 @@
                         </div>
                     </div>
                     <div class="middle-text">
-                        would receive up to
+                        @Localizer["would receive up to"]
                     </div>
                     <div class="results-row">
                         <div class="result-col">
                             <div class="result-num result-holding">0.44</div>
                             <div class="gas-wrapper">
                                 <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
-                                <span>Gas Per Month<span class="green">*</span></span><br /><br />
-                                <span class="status-text">For holding Neo</span>
-                            </div>
+                                <span>
+                                    @Localizer["Gas Per Month"]<span class="green">*</span></span><br /><br />
+                                                                                                        <span class="status-text">@Localizer["For holding Neo"]</span></div>
                         </div>
                         <div class="plug-sign">+</div>
                         <div class="result-col">
@@ -361,7 +362,7 @@
                             <div class="gas-wrapper">
                                 <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
                                 <span>Gas Per Month<span class="green">*</span></span><br /><br />
-                                <span class="status-text">For Governance Participation</span>
+                                                                                            <span class="status-text">@Localizer["For Governance Participation"]</span>
                             </div>
                         </div>
                     </div>
@@ -385,7 +386,7 @@
                         <span class="status-text-mobile">For Governance Participation</span>
                     </div>
                     <div class="foot-note">
-                        <span class="green">*</span>estimate based on average 20% circulating NEO voting participation
+                        <span class="green">*</span>@Localizer["estimate based on average 20% circulating NEO voting participation"]
                     </div>
                 </div>
             </div>
@@ -418,7 +419,7 @@
                 <div class="card-text-wrapper">
                     <div class="green-vertline"></div>
                     <div class="card-text">
-                        @governanceItems[i, 0]
+                        @Localizer[governanceItems[i, 0]]
                     </div>
                 </div>
                 <img class="card-img" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
@@ -429,20 +430,20 @@
         <div class="col-right">
             <div class="square-block governance">
                 <div class="square-block-title governance">
-                    <span class="green">On-chain</span><br />
-                    Governance
+                    <span class="green">@Localizer["On-chain"]</span><br />
+                    @Localizer["Governance"]
                 </div>
                 <div class="square-block-subtitle governance">
-                    A dynamic on-chain council voted in by the NEO token holders.
+                    @Localizer["A dynamic on-chain council voted in by the NEO token holders."]
                 </div>
             </div>
             <div class="governance-paragraph">
                 <span>
-                    N3 introduces the ability for NEO holders to vote in council members and consensus nodes that maintain the liveliness of the Neo network and adjust critical blockchain parameters.
+                    @Localizer["N3 introduces the ability for NEO holders to vote in council members and consensus nodes that maintain the liveliness of the Neo network and adjust critical blockchain parameters."]
                     <br /><br />
-                    <span class="governance-paragraph bold">
-                        GAS rewards are distributed to both voters and committee members.
-                    </span>
+                          <span class="governance-paragraph bold">
+                              @Localizer["GAS rewards are distributed to both voters and committee members."]
+                          </span>
                 </span>
                 <div class="governance-green-horizline"></div>
             </div>
@@ -457,27 +458,27 @@
             <div class="col-right">
                 <div class="square-block governance">
                     <div class="square-block-title governance">
-                        <span class="green">On-chain</span><br />
-                        Governance
+                        <span class="green">@Localizer["On-chain"]</span><br />
+                        @Localizer["Governance"]
                     </div>
                     <div class="square-block-subtitle governance">
-                        A dynamic on-chain council voted in by the NEO token holders.
+                        @Localizer["A dynamic on-chain council voted in by the NEO token holders."]
                     </div>
                 </div>
                 <div class="governance-paragraph">
                     <span>
-                        N3 introduces the ability for NEO holders to vote in council members and consensus nodes that maintain the liveliness of the Neo network and adjust critical blockchain parameters.
+                        @Localizer["N3 introduces the ability for NEO holders to vote in council members and consensus nodes that maintain the liveliness of the Neo network and adjust critical blockchain parameters."]
                         <br /><br />
-                        <span class="governance-paragraph bold">
-                            GAS rewards are distributed to both voters and committee members.
-                        </span>
+                              <span class="governance-paragraph bold">
+                                  @Localizer["GAS rewards are distributed to both voters and committee members."]
+                              </span>
                     </span>
                     <div class="governance-green-horizline"></div>
                 </div>
             </div>
         </div>
         <div class="governance-cards">
-            <span class="governance-learn-more">Learn More</span>
+            <span class="governance-learn-more">@Localizer["Learn More"]</span>
             <div class="governance-card-container">
                 @{ for (int i = 0; i < governanceItems.GetLength(0); i++)
                                 {
@@ -485,7 +486,7 @@
                         <div class="card-text-wrapper">
                             <div class="green-vertline"></div>
                             <div class="card-text">
-                                @governanceItems[i, 0]
+                                @Localizer[governanceItems[i, 0]]
                             </div>
                         </div>
                         <img class="card-img" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
@@ -497,11 +498,11 @@
     <div class="governance-section-mobile">
         <div class="square-block governance">
             <div class="square-block-title governance">
-                <span class="green">On-chain</span><br />
-                Governance
+                <span class="green">@Localizer["On-chain"]</span><br />
+                @Localizer["Governance"]
             </div>
             <div class="square-block-subtitle governance">
-                A dynamic on-chain council voted in by the NEO token holders.
+                @Localizer["A dynamic on-chain council voted in by the NEO token holders."]
             </div>
         </div>
         <div class="governance-img-container">
@@ -509,11 +510,11 @@
         </div>
         <div class="governance-paragraph">
             <span>
-                N3 introduces the ability for NEO holders to vote in council members and consensus nodes that maintain the liveliness of the Neo network and adjust critical blockchain parameters.
+                @Localizer["N3 introduces the ability for NEO holders to vote in council members and consensus nodes that maintain the liveliness of the Neo network and adjust critical blockchain parameters."]
                 <br /><br />
-                <span class="governance-paragraph bold">
-                    GAS rewards are distributed to both voters and committee members.
-                </span>
+                      <span class="governance-paragraph bold">
+                          @Localizer["GAS rewards are distributed to both voters and committee members."]
+                      </span>
             </span>
             <div class="governance-green-horizline"></div>
         </div>
@@ -526,7 +527,7 @@
             <div class="card-text-wrapper">
                 <div class="green-vertline"></div>
                 <div class="card-text">
-                    @governanceItems[i, 0]
+                    @Localizer[governanceItems[i, 0]]
                 </div>
             </div>
             <img class="card-img" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
@@ -543,26 +544,35 @@
         <div class="col-left">
             <div class="square-block contributors">
                 <div class="square-block-title contributors">
-                    <span class="green">Global</span><br />
-                    Contributors
+                    <span class="green">@Localizer["Global"]</span><br />
+                    @Localizer["Contributors"]
                 </div>
                 <div class="square-block-subtitle contributors">
-                    Neo is joint effort by community groups from all over the world.
+                    @Localizer["Neo is joint effort by community groups from all over the world."]
                 </div>
             </div>
         </div>
         <div class="col-right">
             <div class="github-container">
-                <div class="github-status">
-                    <span class="github-status-num" id="github-stars">-</span>stars
+                <div class="github-status @SharedLocalizer["d-none-zh"]">
+                    <span class="github-status-num github-stars">-</span>stars
                 </div>
-                <div class="github-status">
-                    <span class="github-status-num" id="github-forks">-</span>forks
+                <div class="github-status @SharedLocalizer["d-none"]">
+                    <span class="github-status-num zh github-stars">-</span>stars
                 </div>
-                <div class="github-status">
-                    <span class="github-status-num" id="github-sub">-</span>subscribers
+                <div class="github-status @SharedLocalizer["d-none-zh"]">
+                    <span class="github-status-num github-forks">-</span>forks
                 </div>
-                <a href="https://github.com/neo-project" target="_blank"><img class="github-icon" data-original="@Helper.ToCDN("/images/home/Github.png")" /></a>
+                <div class="github-status @SharedLocalizer["d-none"]">
+                    <span class="github-status-num zh github-forks">-</span>forks
+                </div>
+                <div class="github-status @SharedLocalizer["d-none-zh"]">
+                    <span class="github-status-num github-sub">-</span>subscribers
+                </div>
+                <div class="github-status @SharedLocalizer["d-none"]">
+                    <span class="github-status-num zh github-sub">-</span>subscribers
+                </div>
+                <a href="https://github.com/neo-project" target="_blank" class="github-icon-wrapper"><img class="github-icon" data-original="@Helper.ToCDN("/images/home/Github.png")" /></a>
             </div>
         </div>
     </div>
@@ -600,10 +610,7 @@
 
     <div class="additional-wrapper">
         <div class="additional-item">
-            <div class="additional-title  @SharedLocalizer["d-none-zh"]">
-                @Localizer["Join the"] <span class="green">@Localizer["Community"]</span>
-            </div>
-            <div class="additional-title  @SharedLocalizer["d-none"]">
+            <div class="additional-title">
                 @Localizer["Join the"] <span class="green">@Localizer["Community"]</span>
             </div>
             <div class="additional-icons">
@@ -619,10 +626,7 @@
             </div>
         </div>
         <div class="additional-item">
-            <div class="additional-title  @SharedLocalizer["d-none-zh"]">
-                @Localizer["Explore the"] <span class="green">@Localizer["Ecosystem"]</span>
-            </div>
-            <div class="additional-title  @SharedLocalizer["d-none"]">
+            <div class="additional-title">
                 @Localizer["Explore the"] <span class="green">@Localizer["Ecosystem"]</span>
             </div>
             <div class="additional-icons">
@@ -630,10 +634,7 @@
             </div>
         </div>
         <div class="additional-item">
-            <div class="additional-title  @SharedLocalizer["d-none-zh"]">
-                @Localizer["Industry"] <span class="green">@Localizer["Partners"]</span>
-            </div>
-            <div class="additional-title  @SharedLocalizer["d-none"]">
+            <div class="additional-title">
                 @Localizer["Industry"] <span class="green">@Localizer["Partners"]</span>
             </div>
             <div class="additional-icons">
@@ -648,15 +649,9 @@
 
     <div class="row horiz-row latest-news-row">
         <div class="latest-news-wrapper">
-            <div class="latest-news-title  @SharedLocalizer["d-none-zh"]">
-                Latest <span class="green">News</span><br />
-                & <span class="green">Events</span>
+            <div class="latest-news-title">
+                <span class="green">@Localizer["Latest"]</span> @Localizer["News"]
             </div>
-            <div class="latest-news-title  @SharedLocalizer["d-none"]">
-                Latest <span class="latest-news-green">News</span><br />
-                & <span class="latest-news-green">Events</span>
-            </div>
-            <div class="latest-news-subtitle">@Localizer["Keep up to date"]</div>
             <div class="row list2">
                 @{await Html.RenderPartialAsync("../News/_ItemPartial", Model);}
             </div>
@@ -675,16 +670,16 @@
             $.get("https://api.github.com/repos/neo-project/neo", function (data, status) {
                 const starsCount = +(data.stargazers_count);
                 const stars = starsCount > 1000 ? `${(starsCount / 1000).toFixed(1)}K` : `${starsCount}`;
-                $("#github-stars").html(stars);
+                $(".github-stars").html(stars);
 
                 const forksCount = +(data.forks_count);
                 const forks = forksCount > 1000 ? `${(forksCount / 1000).toFixed(1)}K` : `${forksCount}`;
-                $("#github-forks").html(forks);
+                $(".github-forks").html(forks);
 
                 const subCount = +(data.subscribers_count);
                 const sub = subCount > 1000 ? `${(subCount / 1000).toFixed(1)}K` : `${subCount}`
 
-                $("#github-sub").html(sub);
+                $(".github-sub").html(sub);
             });
         });
 

@@ -417,7 +417,7 @@ html body {
     @media only screen and (max-width: 1400px) {
         text-align: center;
         font-size: 3.125rem;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
         width: 90%;
     }
 
@@ -436,6 +436,13 @@ html body {
 
     @media only screen and (max-width: 1400px) {
         align-items: center;
+        width: 50%;
+        align-self: center;
+        text-align: center;
+    }
+
+    @media only screen and (max-width: 767.98px) {
+        width: 80%;
     }
 }
 
@@ -543,7 +550,7 @@ html body {
 
     @media only screen and (max-width: 1400px) {
         align-self: center;
-        padding: 2.375rem 1rem 8.625rem 1rem;
+        padding: 2.375rem 0.5rem 8.625rem 0.5rem;
         width: 767px;
     }
 
@@ -601,8 +608,8 @@ html body {
     .work-sans-bold;
     .uppercase;
     font-size: 6.625rem;
-    margin-bottom: 0.5rem;
-    line-height: 0.85;
+    margin-bottom: 1rem;
+    line-height: 0.9;
 
     @media only screen and (max-width: 1400px) {
         font-size: 5.875rem;
@@ -836,6 +843,11 @@ html body {
     transform: translateY(-56px);
     margin-bottom: -32px;
 
+    &.zh {
+        transform: translateY(-56px);
+        margin-bottom: -32px;
+    }
+
     @media only screen and (max-width: 1400px) {
         display: none;
     }
@@ -845,6 +857,11 @@ html body {
     width: 95%;
     transform: translateY(6px);
     margin-bottom: 6px;
+
+    &.zh {
+        transform: translateY(-25px);
+        margin-bottom: -25px;
+    }
 
     @media only screen and (min-width: 1400px) {
         display: none;
@@ -1396,6 +1413,7 @@ html body {
 
         @media only screen and (max-width: 1400px) {
             width: 230px;
+            padding: 0 0 0 3%;
             // grid-row-gap: 2.175rem;
 
             & > * + * {
@@ -2238,6 +2256,10 @@ html body {
     line-height: 0.8;
     font-size: 6.75rem;
 
+    &.zh {
+        line-height: 0.95;
+    }
+
     @media only screen and (max-width: 1400px) {
         line-height: 0.85;
         font-size: 5rem;
@@ -2247,6 +2269,11 @@ html body {
         line-height: 0.95;
         font-size: 3.5rem;
     }
+}
+
+.github-icon-wrapper {
+    display: flex;
+    align-items: center;
 }
 
 .github-icon {
@@ -2397,12 +2424,17 @@ html body {
 }
 
 .latest-news-title {
-    margin-bottom: 41px;
-    font-size: 4.375rem;
-    line-height: 0.94;
+    margin-bottom: 24px;
+    font-size: 3.125rem;
+    line-height: 1;
     .work-sans-bold;
     color: @dark-blue;
     text-transform: uppercase;
+    text-align: center;
+    padding: 24px;
+    border: 6px solid @green;
+    width: fit-content();
+    align-self: center;
 }
 
 .latest-news-subtitle {
@@ -2438,7 +2470,7 @@ html body {
     margin-bottom: @font-size-4;
 
     div[class|=col] {
-        margin-top: 5.3rem;
+        margin: 2.5rem 0;
         list-style: none;
 
         & > div {
