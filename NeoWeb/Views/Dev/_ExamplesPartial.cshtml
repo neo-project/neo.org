@@ -1,13 +1,18 @@
-<div class="menu-page-title">Example & Tutorials</div>
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+<div class="menu-page-title">@Localizer["Example & Tutorials"]</div>
 
 <div class="menu-page-description">
-    <strong>Whether you want to learn Neo blockchain fundamentals or explore advanced topics, we have examples and tutorials to get you coding. Check back reguarly to find new content authored by our global developer community.</strong>
+    <strong>@Localizer["Whether you want to learn Neo blockchain fundamentals or explore advanced topics, we have examples and tutorials to get you coding. Check back reguarly to find new content authored by our global developer community."]</strong>
 </div>
 
 <div class="examples-filter">
-    <span class="examples-filter-label">Filter by language</span>
+    <span class="examples-filter-label">@Localizer["Filter by language"]</span>
     <select class="select-language form-control">
-        <option value="all" selected="selected">All</option>
+        <option value="all" selected="selected">@Localizer["All"]</option>
         <option value="python">Python</option>
         <option value="c#">C#</option>
         <option value="go">Golang</option>
@@ -258,5 +263,5 @@
     </a>
 </div>
 
-<a class="load-more-examples btn-1">Load More</a>
+<a class="load-more-examples btn-1">@Localizer["Load More"]</a>
 
