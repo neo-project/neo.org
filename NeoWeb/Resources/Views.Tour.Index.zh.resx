@@ -171,6 +171,9 @@
   <data name="JUMP" xml:space="preserve">
     <value>即刻</value>
   </data>
+  <data name="START TOUR" xml:space="preserve">
+    <value>开启N3之旅</value>
+  </data>
   <data name="Learn more about NEO &amp; GAS" xml:space="preserve">
     <value>了解关于 NEO 和 GAS 的更多信息</value>
   </data>
