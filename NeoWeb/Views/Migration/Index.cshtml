@@ -18,7 +18,7 @@
             <p>@Localizer["After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]</p>
         </div>
         <div class="col-md-3 offset-md-2">
-            <img class="img-fluid" src="@Helper.CDN/images/migration/n3.png" />
+            <img class="img-fluid my-5" src="@Helper.CDN/images/migration/n3.svg" />
         </div>
     </div>
     <hr />
@@ -71,8 +71,14 @@
     </div>
     <h3 class="mt-5 border-bottom">@Localizer["Timeline"]</h3>
     <div class="scroll-x">
-        <img class="my-5 @SharedLocalizer["d-none"]" src="@Helper.CDN/images/migration/timeline-zh.png" />
-        <img class="my-5 @SharedLocalizer["d-none-zh"]" src="@Helper.CDN/images/migration/timeline.png" />
+        @if (SharedLocalizer["en"].Value == "zh")
+        {
+            <img class="my-5" src="@Helper.CDN/images/migration/timeline-zh.svg" />
+        }
+        else
+        {
+            <img class="my-5" src="@Helper.CDN/images/migration/timeline.svg" />
+        }
     </div>
     <h3 class="my-5 border-bottom">@Localizer["Frequently asked questions"]</h3>
     <div id="accordion">

@@ -185,7 +185,14 @@ https://github.com/neo-project/neo.org
     <div class="container layout-container">
         @if (ViewBag.HiddenMigration == null)
         {
-            <div class="migration-div d-none d-md-block"><a asp-action="index" asp-controller="migration"><h4 class="migration-text"><img src="@Helper.CDN/images/presskit/Neo symbol.svg" />@Localizer["MIGRATE TO N3"]</h4></a><span class="iconfont" onclick="$('.migration-div').removeClass('d-md-block')">&#xe641;</span></div>
+            <div class="migration-div d-none d-md-block">
+                <a asp-action="index" asp-controller="migration">
+                    <h4 class="migration-text">
+                        <img src="@Helper.CDN/images/presskit/Neo symbol.svg" />
+                        @Localizer["MIGRATE TO N3"]
+                    </h4>
+                </a>
+            </div>
         }
         @RenderBody()
     </div>
@@ -217,7 +224,7 @@ https://github.com/neo-project/neo.org
         <div class="container">
             <div class="row pt-4">
                 <div class="col-md-2">
-                    <img class="my-3" data-original="@Helper.CDN/images/logo files-dark.svg" style="width: 120px" />
+                    <img class="my-3 img-fluid" data-original="@Helper.CDN/images/logo files-dark.svg" style="width: 120px" />
                 </div>
                 <div class="col-md-2">
                     <h4 class="my-3">@Localizer["For Developers"]</h4>
