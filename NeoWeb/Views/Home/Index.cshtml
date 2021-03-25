@@ -2,9 +2,7 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
-@{
-    ViewBag.HiddenBreadCrumb = true;
-}
+@{ ViewBag.HiddenBreadCrumb = true; }
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/home.min.css", true)" />
 }
@@ -26,8 +24,8 @@
                 <div class="latest-news-text">
                     @Localizer["Latest News:"]
                 </div>
-                    <a class="news-link" href="~/blog/details/@Model[0].Blog.Id">@Localizer["This is an example of a article on the latest news ticker"]  <i class="iconfont circle-arrow-icon green">&#xe6ab;</i></a>
-                    
+                <a class="news-link" href="~/blog/details/@Model[0].Blog.Id">@Localizer["This is an example of a article on the latest news ticker"]  <i class="iconfont circle-arrow-icon green">&#xe6ab;</i></a>
+
             </div>
         </div>
 
@@ -43,15 +41,15 @@
             </div>
             <div class="highlight-container">
                 @{ string[,] highlightItems = new string[9, 2] {
-                                                                            { "Interoperability", "/images/home/Interoperability.svg" },
-                                                                            { "Native Oracles", "/images/home/NativeOracles.svg" },
-                                                                            { "Self-Sovereign ID", "/images/home/Self-SovereignID.png" },
-                                                                            { "Decentralized Storage", "/images/home/DecentralizedStorage.svg" },
-                                                                            { "Native Name Service", "/images/home/NativeNameService.svg" },
-                                                                            { "One Block Finality", "/images/home/OneBlockFinality.svg" },
-                                                                            { "Best-In-Class Tooling", "/images/home/BestInClassTooling.svg" },
-                                                                            { "Smart Contracts", "/images/home/SmartContracts.svg" },
-                                                                            { "Multi-Language", "/images/home/Multi-Language.png" }
+                                                                                    { "Interoperability", "/images/home/Interoperability.svg" },
+                                                                                    { "Native Oracles", "/images/home/NativeOracles.svg" },
+                                                                                    { "Self-Sovereign ID", "/images/home/Self-SovereignID.png" },
+                                                                                    { "Decentralized Storage", "/images/home/DecentralizedStorage.svg" },
+                                                                                    { "Native Name Service", "/images/home/NativeNameService.svg" },
+                                                                                    { "One Block Finality", "/images/home/OneBlockFinality.svg" },
+                                                                                    { "Best-In-Class Tooling", "/images/home/BestInClassTooling.svg" },
+                                                                                    { "Smart Contracts", "/images/home/SmartContracts.svg" },
+                                                                                    { "Multi-Language", "/images/home/Multi-Language.png" }
             };
 
                     for (int i = 0; i < highlightItems.GetLength(0); i++)
@@ -80,11 +78,11 @@
         <div class="col-12 col-md-6 col-right">
             <div class="get-started-wrapper">
                 @{ string[,] getStartedItems = new string[4, 3]
-              {
-                                                                        { "Find a Wallet", "/images/home/FindWallet.svg", "neogas#wallets" },
-                                                                        { "Neo & Gas Tokens", "/images/home/LearnTokens.svg", "neogas#tokens" },
-                                                                        { "Neo's Features", "/images/home/LearnFeatures.svg", "technology" },
-                                                                        { "Documentation", "/images/home/ReadDocumentation.svg", "https://docs.neo.org/v3/docs/en-us/index.html" }
+               {
+                                                                                { "Find a Wallet", "/images/home/FindWallet.svg", "neogas#wallets" },
+                                                                                { "Neo & Gas Tokens", "/images/home/LearnTokens.svg", "neogas#tokens" },
+                                                                                { "Neo's Features", "/images/home/LearnFeatures.svg", "technology" },
+                                                                                { "Documentation", "/images/home/ReadDocumentation.svg", "https://docs.neo.org/v3/docs/en-us/index.html" }
 };
 
                     for (int i = 0; i < getStartedItems.GetLength(0); i++)
@@ -169,16 +167,16 @@
                                                             {
                         "/images/home/OneBlockFinality3D.svg", "One Block Finality", "dBFT consensus mechanism guarantees fast and efficient finality in a single block.", "technology#dbft-2.0"
                     },
-                                                            {
+                                                                {
                         "/images/home/NativeOracles3D.svg", "Oracles", "A built-in oracle enabling secured access to any off-chain data.", "technology#oracles"
                     },
-                                                            {
+                                                                {
                         "/images/home/NeoFS3D.svg", "NeoFS", "A distributed data storage solution made for scalability and privacy.", "technology#neo-fs"
                     },
                                                             {
                         "/images/home/SmartContracts3D.svg", "Smart Contracts", "Write your smart contracts in C#, Go, Python, Java, or TypeScript. ", "technology#smart-contracts"
                     },
-                                                            {
+                                                                {
                         "/images/home/NeoNameService3D.svg", "Neo Name Service", "A decentralized .neo domain name service for next-gen internet web applications. ", "technology#neo-name-service"
                     },
                                                             {
@@ -570,7 +568,7 @@
         </div>
     </div>
 
-    
+
     <div class="contributors-img-wrapper" id="scroll-wrapper">
         <img class="contributors-img" usemap="#contributorsmap" data-original="@Helper.ToCDN("/images/home/Contributors.svg")">
         <map name="contributorsmap">
@@ -645,7 +643,7 @@
                 <a href="https://bsnbase.io/g/main/index" target="_blank"><i class="iconfont additional-icon">&#xe625;</i></a>
                 <a href="https://dotnetfoundation.org" target="_blank"><i class="iconfont additional-icon">&#xe628;</i></a>
                 <a href="https://www.ieee.org" target="_blank"><i class="iconfont additional-icon">&#xe62a;</i></a>
-</div>
+            </div>
         </div>
     </div>
 
