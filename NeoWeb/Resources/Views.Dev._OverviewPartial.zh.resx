@@ -117,8 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="A VS Code extension that provides frictionless edit-build-debug-deployment across PrivateNet, TestNet and MainNet. Learn how to get started and write your first Neo smart contract." xml:space="preserve">
+    <value>Neo区块链工具包是基于Visual Studio Code的一个扩展包，提供横跨私有链、测试网与主网的搭建-调试-部署全流程Neo智能合约开发无摩擦体验。学习如何开始编写你的第一个Neo智能合约。</value>
+  </data>
+  <data name="An introduction to commands in the command line node, including how to create a wallet, import and export private keys, transfer assets, start consensus, and more." xml:space="preserve">
+    <value>命令行模式中各种命令的简介，包括如何创建钱包、导入和导出私钥、迁移资产，启动共识等等。</value>
+  </data>
+  <data name="An introduction to the NEP-17 token standard, which provides systems with a generalized interaction mechanism for tokenized smart contracts." xml:space="preserve">
+    <value>NEP-17通证标准的简介，该标准为各系统提供了一种标准化通证化智能合约交互方式。</value>
+  </data>
   <data name="Develop a smart contract" xml:space="preserve">
     <value>开发智能合约</value>
+  </data>
+  <data name="Develop a smart contract with the Neo Blockchain Toolkit" xml:space="preserve">
+    <value>使用Neo区块链工具包开发智能合约</value>
   </data>
   <data name="Documentation" xml:space="preserve">
     <value>文档</value>
@@ -129,14 +141,32 @@
   <data name="Find a comprehensive collection of tools and resources to help you build outstanding applications on the Neo blockchain." xml:space="preserve">
     <value>我们准备了完备的工具集与资源，助力开发者在Neo区块链上开发出色的应用。</value>
   </data>
+  <data name="Getting familiar with Neo-CLI commands" xml:space="preserve">
+    <value>了解Neo-CLI命令行</value>
+  </data>
   <data name="GitHub" xml:space="preserve">
     <value>GitHub</value>
+  </data>
+  <data name="Introduction to NEO·ONE" xml:space="preserve">
+    <value>了解NEO-ONE</value>
   </data>
   <data name="Learn about N3 features" xml:space="preserve">
     <value>了解N3特性</value>
   </data>
+  <data name="Learn how to set up a private network using Neo-GO, make RPC calls, and deploy a smart contract." xml:space="preserve">
+    <value>了解如何使用Neo-GO建立私有网络，进行RPC调用并部署智能合约。</value>
+  </data>
+  <data name="Learn how to set up the NEO·ONE Javascript framework, create a token, and integrate NEO·ONE into a dApp." xml:space="preserve">
+    <value>了解如何设置NEO·ONE Javascript框架，创建通证并将NEO·ONE集成到dApp中。</value>
+  </data>
+  <data name="Learn how to write a NEP-17 contract" xml:space="preserve">
+    <value>学习如何编写NEP-17智能合约</value>
+  </data>
   <data name="Neo Legacy TestNet faucet" xml:space="preserve">
     <value>Neo Legacy测试网入口</value>
+  </data>
+  <data name="Oracle solutions enable blockchains to obtain external data from outside networks. Learn how to get started with Neo’s built-in Oracle service." xml:space="preserve">
+    <value>预言机可以让区块链获取外部数据。学习如何使用Neo的内置预言机服务。</value>
   </data>
   <data name="Overview" xml:space="preserve">
     <value>概览</value>
@@ -146,6 +176,15 @@
   </data>
   <data name="Set up a development chain" xml:space="preserve">
     <value>搭建开发链</value>
+  </data>
+  <data name="Smart contract development with Neo-GO" xml:space="preserve">
+    <value>使用Neo-GO开发智能合约</value>
+  </data>
+  <data name="The basics of Neo’s native Oracle" xml:space="preserve">
+    <value>Neo内置预言机入门</value>
+  </data>
+  <data name="Tutorial" xml:space="preserve">
+    <value>教学</value>
   </data>
   <data name="View All Tutorials" xml:space="preserve">
     <value>查看所有教学案例</value>

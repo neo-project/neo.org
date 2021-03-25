@@ -408,14 +408,14 @@
                 <div class="governance-card-container">
                     @{ string[,] governanceItems = new string[3, 3]
                                      {
-                                                                { "How to vote", "/images/home/vote.svg", "/gov" },
-                                                                { "General guide to governance", "/images/home/ReadDocumentation.svg", "/gov" },
-                                                                { "Register as a committee candidate", "/images/home/register.svg", "/gov" }
+                                                                { "How to vote", "/images/home/vote.svg", "gov" },
+                                                                { "General guide to governance", "/images/home/ReadDocumentation.svg", "gov" },
+                                                                { "Register as a committee candidate", "/images/home/register.svg", "gov" }
  };
 
                         for (int i = 0; i < governanceItems.GetLength(0); i++)
                         {
-            <a class="float-card" href="@governanceItems[i, 2]">
+            <a class="float-card" asp-controller="@governanceItems[i, 2]" asp-action="index" >
                 <div class="card-text-wrapper">
                     <div class="green-vertline"></div>
                     <div class="card-text">
@@ -519,7 +519,7 @@
             <div class="governance-green-horizline"></div>
         </div>
         <div class="governance-cards">
-            <span class="governance-learn-more">Learn More</span>
+            <span class="governance-learn-more">@Localizer["Learn More"]</span>
             <div class="governance-card-container">
                 @{ for (int i = 0; i < governanceItems.GetLength(0); i++)
                     {

@@ -117,13 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
-    <value />
+  <data name="Smart contracts" xml:space="preserve">
+    <value>Smart contracts</value>
   </data>
-  <data name="" xml:space="preserve">
-    <value></value>
+  <data name="Smart contracts-p" xml:space="preserve">
+    <value>The N3 smart contract system introduces a wide range of new functionality to improve the contract development experience for developers. Examples include a new dual-level permission setting, defined at the Manifest and Call levels, and the new NEP-17 token standard to simplify token transfers and enable contracts to add custom logic to trigger when receiving tokens.
+
+Benefits also extend to off-chain applications. Improvements such as the new contract upgrade mechanism eliminates the issue of a contract hash changes and ensures data is retained.</value>
   </data>
-  <data name="" xml:space="preserve">
-    <value></value>
+  <data name="SmartContractsTagline" xml:space="preserve">
+    <value>Neo strives to be the most developer-friendly blockchain. It achieves this with full-stack development tools for multiple programming languages. Neo believes in bringing blockchain technology to developers, rather than forcing developers to learn new languages or tools.</value>
+  </data>
+  <data name="The price is right" xml:space="preserve">
+    <value>The price is right</value>
+  </data>
+  <data name="The price is right-p" xml:space="preserve">
+    <value>Developers will also note a dramatic reduction in the costs of deploying and executing smart contracts. With fees lowered by an average of approximately 100 times, N3 provides a far more competitively priced platform to developers, allowing the free 10 GAS crutch to be removed. Combined with the GAS inflation mechanism and the burning of system fees, a sustainable economic model has been established. 
+
+All fees related to the contract system are now adjustable through the on-chain governance mechanism, providing the additional benefit of resistance to market volatility on the Neo system as the price of GAS changes.</value>
+  </data>
+  <data name="Your language, your way" xml:space="preserve">
+    <value>Your language, your way</value>
+  </data>
+  <data name="Your language, your way-p" xml:space="preserve">
+    <value>Courtesy of its global development communities, Neo’s tooling and infrastructure already supports numerous languages. Developers can write, compile, and deploy contracts written in C#, Python, Go, TypeScript, and Java.
+
+After compilation to the standard NEF (Neo Execution Format), contracts can be executed within NeoVM, Neo’s lightweight virtual machine. Newly upgraded for the N3 network, NeoVM delivers substantial performance improvements over the previous generation, with some instruction set runtimes improved by as much as 16x. NeoVM uses a modular architecture, allowing for easy integration into other applications or off-chain scenarios.</value>
   </data>
 </root>
