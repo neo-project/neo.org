@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -120,16 +120,11 @@
   <data name="AlienworksDescription" xml:space="preserve">
     <value>Alienworks是一个全球性的开发团队，他们向Neo生态系统当前和未来的开发者提供工具、资源等支持。其目标是便于用户和开发者构建和使用面向未来的加密智能经济。</value>
   </data>
-<<<<<<<< HEAD:NeoWeb/Resources/Views.Contributors._CommunitiesPartial.zh.resx
   <data name="AxLabsDescription" xml:space="preserve">
     <value>AxLabs是在Neo生态系统中负责开发和维护项目的社区，主要致力于提升开发者体验(DevEx)。AxLabs于2018年底加入Neo，一直致力于构建各种工具，以使Neo上的DevEx尽可能流畅和直观。例如Java/Kotlin开发人员的neow3j SDK、neow3j编译器、开发包等，以及Neo Playground。&lt;br /&gt;&lt;br /&gt;该团队由充满激情的建设者和开源爱好者组成，在区块链领域的项目中反应良好。AxLabs团队成员拥有资深的软件工程经验和强大的学术背景，与瑞士的教育机构联系密切——为全球无数受众提供讲习班、讲座和教程。</value>
   </data>
   <data name="CozDescription" xml:space="preserve">
     <value>COZ是一个专门从事区块链和分布式技术的软件开发小组。作为一个开源且社区驱动的组织，COZ曾经默默无闻，如今却已经成为最受尊敬的区块链开发组织之一，交付了一个又一个开创性的产品。COZ负责Neon wallet、Dora、Neo Python suite、Neon-js等项目。</value>
-========
-  <data name="Communities" xml:space="preserve">
-    <value />
->>>>>>>> 5e7a52d (adding translation, update homepage blocks img):NeoWeb/Resources/Views.Contributors.Index.zh.resx
   </data>
   <data name="NeoNewsTodayDescription" xml:space="preserve">
     <value>Neo News Today是一个由社区运营的新闻网站，致力于提供与Neo生态系统相关的最新信息。NNT向社区提供准确可靠的突发新闻、采访、指南和资源材料。</value>
