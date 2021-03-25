@@ -2,20 +2,19 @@
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
-<h2 class="menu-page-title">@Localizer["Communities"]</h2>
+<h2 class="menu-page-title">@Localizer["Industry Collaboration"]</h2>
 <div class="menu-page-description">
-    @Localizer["At magnum periculum adiit in oculis quidem faciunt, ut summo bono, dolorem aspernari ut aut ad naturam aut rerum hic tenetur a se esse ratione intellegi posse et dolorem ipsum, quia voluptas sit, voluptatem et accusamus et quas molestias."]
+    @Localizer["Neo prides itself on being a leader in the blockchain space and takes this responsibility seriously. Neo has partnered with various groups to advance blockchain standards and adoption across traditional industries."]
 </div>
 
 <div class="communities-container">
-    @{ string[,] items = new string[6, 5]
+    @{ string[,] items = new string[5, 4]
                       {
-        { "/images/discover/placeholder.png", "COZ", "COZ is a software development group specializing in blockchain and distributed technologies. Since its humble beginnings as an open source, community driven organization, COZ has become one of blockchain’s most respected development organizations, consistently delivering groundbreaking products.", "https://coz.io", "https://ww.github.com" },
-        { "/images/discover/placeholder.png", "COZ", "COZ is a software development group specializing in blockchain and distributed technologies. Since its humble beginnings as an open source, community driven organization, COZ has become one of blockchain’s most respected development organizations, consistently delivering groundbreaking products.", "https://coz.io", "https://ww.github.com" },
-        { "/images/discover/placeholder.png", "COZ", "COZ is a software development group specializing in blockchain and distributed technologies. Since its humble beginnings as an open source, community driven organization, COZ has become one of blockchain’s most respected development organizations, consistently delivering groundbreaking products.", "https://coz.io", "https://ww.github.com" },
-        { "/images/discover/placeholder.png", "COZ", "COZ is a software development group specializing in blockchain and distributed technologies. Since its humble beginnings as an open source, community driven organization, COZ has become one of blockchain’s most respected development organizations, consistently delivering groundbreaking products.", "https://coz.io", "https://ww.github.com" },
-        { "/images/discover/placeholder.png", "COZ", "COZ is a software development group specializing in blockchain and distributed technologies. Since its humble beginnings as an open source, community driven organization, COZ has become one of blockchain’s most respected development organizations, consistently delivering groundbreaking products.", "https://coz.io", "https://ww.github.com" },
-        { "/images/discover/placeholder.png", "COZ", "COZ is a software development group specializing in blockchain and distributed technologies. Since its humble beginnings as an open source, community driven organization, COZ has become one of blockchain’s most respected development organizations, consistently delivering groundbreaking products.", "https://coz.io", "https://ww.github.com" },
+        { "/images/discover/placeholder.png", "InterWork Alliance", "InterWork Alliance Description", "https://interwork.org/"},
+        { "/images/discover/placeholder.png", "PolyNetwork", "PolyNetwork Description", "https://www.poly.network"},
+        { "/images/discover/placeholder.png", ".NET Foundation", "NET Foundation Description", "https://dotnetfoundation.org/"},
+        { "/images/discover/placeholder.png", "BSN", "BSN Description", "https://bsnbase.io/"},
+        { "/images/discover/placeholder.png", "IEEE", "IEEE Description", "https://ieee.org"}
                       };
 
         for (int i = 0; i < items.GetLength(0); i++)
@@ -29,11 +28,7 @@
         </div>
         <a class="link-wrapper" href="@items[i, 3]">
             <img class="link-icon" data-original="@Helper.ToCDN("/images/discover/WebLink.svg", true)" />
-            <div>Coz.io</div>
-        </a>
-        <a class="link-wrapper" href="@items[i, 4]">
-            <i class="iconfont link-icon">&#xe609;</i>
-            <div>github.com/CityOfZion</div>
+            <div>@items[i, 3]</div>
         </a>
     </div>
 </div> } }

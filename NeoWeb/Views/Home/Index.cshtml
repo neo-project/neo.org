@@ -24,8 +24,7 @@
                 <div class="latest-news-text">
                     @Localizer["Latest News:"]
                 </div>
-                <a class="news-link" href="~/blog/details/@Model[0].Blog.Id">@Localizer["This is an example of a article on the latest news ticker"]  <i class="iconfont circle-arrow-icon green">&#xe6ab;</i></a>
-
+                <a class="news-link" href="~/blog/details/@Model.FirstOrDefault(p => p.Type == NewsViewModelType.Blog).Blog.Id">@Model[0].Blog.Title <i class="iconfont circle-arrow-icon green">&#xe6ab;</i></a>
             </div>
         </div>
 
