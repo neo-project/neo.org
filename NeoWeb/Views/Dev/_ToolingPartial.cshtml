@@ -1,25 +1,30 @@
-<div class="menu-page-title">Tooling</div>
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+<div class="menu-page-title">@Localizer["Tooling"]</div>
 
 <div class="tabs">
-    <span class="tab active">Nodes</span>
-    <span class="tab">Explorers</span>
-    <span class="tab">Smart Contract Compilers</span>
-    <span class="tab">Smart Contract Dev & Debug</span>
-    <span class="tab">SDK</span>
-    <span class="tab">dApp Integration</span>
+    <span class="tab active">@Localizer["Nodes"]</span>
+    <span class="tab">@Localizer["Explorers"]</span>
+    <span class="tab">@Localizer["Smart Contract Compilers"]</span>
+    <span class="tab">@Localizer["Smart Contract Dev & Debug"]</span>
+    <span class="tab">@Localizer["SDK"]</span>
+    <span class="tab">@Localizer["dApp Integration"]</span>
 </div>
 
 <select class="select-tab-page form-control">
-    <option selected="selected">Nodes</option>
-    <option>Explorers</option>
-    <option>Smart Contract Compilers</option>
-    <option>Smart Contract Dev & Debug</option>
-    <option>SDK</option>
-    <option>dApp Integration</option>
+    <option selected="selected">@Localizer["Nodes"]</option>
+    <option>@Localizer["Explorers"]</option>
+    <option>@Localizer["Smart Contract Compilers"]</option>
+    <option>@Localizer["Smart Contract Dev & Debug"]</option>
+    <option>@Localizer["SDK"]</option>
+    <option>@Localizer["dApp Integration"]</option>
 </select>
 
 <div class="tab-page active">
-    <div class="tab-page-title">Nodes</div>
+    <div class="tab-page-title">@Localizer["Nodes"]</div>
     <div class="tools">
         <a class="tool" target="_blank" href="https://github.com/neo-project/neo-node/releases">
             <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
@@ -52,7 +57,7 @@
 </div>
 
 <div class="tab-page">
-    <div class="tab-page-title">Explorers</div>
+    <div class="tab-page-title">@Localizer["Explorers"]</div>
     <div class="tools">
         <a class="tool" target="_blank" href="https://neo3.neotube.io/">
             <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
@@ -74,7 +79,7 @@
 </div>
 
 <div class="tab-page">
-    <div class="tab-page-title">Smart Contract Compilers</div>
+    <div class="tab-page-title">@Localizer["Smart Contract Compilers"]</div>
     <div class="tools">
         <a class="tool" target="_blank" href="https://github.com/nspcc-dev/neo-go/releases">
             <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
@@ -124,7 +129,7 @@
 </div>
 
 <div class="tab-page">
-    <div class="tab-page-title">Smart Contract Dev & Debug</div>
+    <div class="tab-page-title">@Localizer["Smart Contract Dev & Debug"]</div>
     <div class="tools">
         <a class="tool" target="_blank" href="https://marketplace.visualstudio.com/items?itemName=ngd-seattle.neo-blockchain-toolkit">
             <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
@@ -178,7 +183,7 @@
 </div>
 
 <div class="tab-page">
-    <div class="tab-page-title">SDK</div>
+    <div class="tab-page-title">@Localizer["SDK"]</div>
     <div class="tools">
         <a class="tool" target="_blank" href="https://github.com/nspcc-dev/neo-go/releases">
             <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
@@ -249,7 +254,7 @@
 </div>
 
 <div class="tab-page">
-    <div class="tab-page-title">dApp Integration</div>
+    <div class="tab-page-title">@Localizer["dApp Integration"]</div>
     <div class="tools">
         <a class="tool" target="_blank" href="https://neoline.io/">
             <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />
@@ -279,6 +284,7 @@
                     <div class="tool-language">Java</div>
                 </div>
             </div>
+    height: calc(1.5em + .75rem + 2px);
         </a>
         <a class="tool" target="_blank" href="https://github.com/nspcc-dev/neofs-dev-env">
             <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/placeholder.png", true)" />

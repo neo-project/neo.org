@@ -1,30 +1,53 @@
-<div class="menu-page-title">Overview</div>
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+<div class="menu-page-title">@Localizer["Overview"]</div>
 
 <div class="menu-page-description">
-    <strong>Find a comprehensive collection of tools and resources to help you build outstanding applications on the Neo blockchain.</strong>
+    <strong>@Localizer["Find a comprehensive collection of tools and resources to help you build outstanding applications on the Neo blockchain."]</strong>
 </div>
 
 <div class="overview-links">
-    <a class="overview-link" target="_blank" href="https://github.com/neo-project">GitHub</a>
-    <a class="overview-link" target="_blank" href="https://github.com/neo-project">Documentation</a>
+    <a class="overview-link" target="_blank" href="https://github.com/neo-project">@Localizer["GitHub"]</a>
+    <a class="overview-link" target="_blank" href="https://github.com/neo-project">@Localizer["Documentation"]</a>
 </div>
 
 <div class="documentations">
-    <a class="documentation" target="_blank" href="https://medium.com/neo-smart-economy/neo3-a-new-beginning-for-pragmatic-idealists-c8d8f607036d">
+    <a data-version="neo3" class="documentation" target="_blank" href="https://medium.com/neo-smart-economy/neo3-a-new-beginning-for-pragmatic-idealists-c8d8f607036d">
         <div class="documentation-bookmark"></div>
-        <div class="documentation-title">Learn about N3 features</div>
+        <div class="documentation-title">@Localizer["Learn about N3 features"]</div>
         <div class="flex-grow-1"></div>
         <img class="documentation-img" data-original="@Helper.ToCDN("/images/dev/document-1.png", true)" />
     </a>
-    <a class="documentation" target="_blank" href="https://docs.neo.org/v3/docs/en-us/develop/network/private-chain/solo.html">
+    <a data-version="neo3" class="documentation" target="_blank" href="https://docs.neo.org/v3/docs/en-us/develop/network/private-chain/solo.html">
         <div class="documentation-bookmark"></div>
-        <div class="documentation-title">Set up a development chain</div>
+        <div class="documentation-title">@Localizer["Set up a development chain"]</div>
         <div class="flex-grow-1"></div>
         <img class="documentation-img" data-original="@Helper.ToCDN("/images/dev/document-2.png", true)" />
     </a>
-    <a class="documentation" target="_blank" href="https://neowish.ngd.network/neo3">
+    <a data-version="neo3" class="documentation" target="_blank" href="https://neowish.ngd.network/neo3">
         <div class="documentation-bookmark"></div>
-        <div class="documentation-title">RC1 TestNet faucet</div>
+        <div class="documentation-title">@Localizer["RC1 TestNet faucet"]</div>
+        <div class="flex-grow-1"></div>
+        <img class="documentation-img" data-original="@Helper.ToCDN("/images/dev/document-3.png", true)" />
+    </a>
+    <a data-version="neo2" class="documentation hidden" target="_blank" href="https://docs.neo.org/docs/en-us/network/private-chain/solo.html">
+        <div class="documentation-bookmark"></div>
+        <div class="documentation-title">@Localizer["Set up a development chain"]</div>
+        <div class="flex-grow-1"></div>
+        <img class="documentation-img" data-original="@Helper.ToCDN("/images/dev/document-2.png", true)" />
+    </a>
+    <a data-version="neo2" class="documentation hidden" target="_blank" href="https://docs.neo.org/docs/en-us/sc/gettingstarted/develop.html">
+        <div class="documentation-bookmark"></div>
+        <div class="documentation-title">@Localizer["Develop a smart contract"]</div>
+        <div class="flex-grow-1"></div>
+        <img class="documentation-img" data-original="@Helper.ToCDN("/images/dev/document-4.png", true)" />
+    </a>
+    <a data-version="neo2" class="documentation hidden" target="_blank" href="https://neowish.ngd.network/">
+        <div class="documentation-bookmark"></div>
+        <div class="documentation-title">@Localizer["Neo Legacy TestNet faucet"]</div>
         <div class="flex-grow-1"></div>
         <img class="documentation-img" data-original="@Helper.ToCDN("/images/dev/document-3.png", true)" />
     </a>
@@ -32,7 +55,7 @@
 
 <div class="menu-page-divider"></div>
 
-<div class="menu-page-secondary-title">Featured Tutorials</div>
+<div class="menu-page-secondary-title">@Localizer["Featured Tutorials"]</div>
 
 <div class="overview-examples">
     <a class="overview-example" target="_blank" href="https://docs.neo.org/v3/docs/en-us/node/cli/cli.html">
@@ -128,5 +151,5 @@
     </a>
 </div>
 
-<a class="view-all-examples btn-2" asp-controller="dev" asp-action="index" asp-fragment="examples">View All Tutorials</a>
+<a class="view-all-examples btn-2" asp-controller="dev" asp-action="index" asp-fragment="examples">@Localizer["View All Tutorials"]</a>
 

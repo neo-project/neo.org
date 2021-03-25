@@ -10,18 +10,18 @@
 }
 
 <div class="header-end form-inline">
-    <span class="platform-label">Platform</span>
+    <span class="platform-label">@Localizer["Platform"]</span>
     <select class="select-platform form-control">
-        <option value="neo2">Neo Legacy</option>
-        <option value="neo3" selected="selected">Neo(N3)</option>
+        <option value="neo2">@Localizer["Neo Legacy"]</option>
+        <option value="neo3" selected="selected">@Localizer["Neo(N3)"]</option>
     </select>
 </div>
 
 <div class="introduction">
     <div class="introduction-content">
-        <h1 class="introduction-title"><em>Neo</em><br/>is getting<br/>an upgrade</h1>
-        <div class="introduction-description">After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date.</div>
-        <a class="learn-more btn-2" asp-controller="migration" asp-action="index">Learn More</a>
+        <h1 class="introduction-title">@Localizer["<em>Neo</em><br/>is getting<br/>an upgrade"]</h1>
+        <div class="introduction-description">@Localizer["After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]</div>
+        <a class="learn-more btn-2" asp-controller="migration" asp-action="index">@Localizer["Learn More"]</a>
     </div>
 </div>
 
@@ -31,33 +31,33 @@
     <div class="resources-start">
         <div class="menu">
             <a class="menu-item active" asp-controller="dev" asp-action="index" asp-fragment="overview">
-                Overview
+                @Localizer["Overview"]
                 <i class="iconfont">&#xe6ab;</i>
             </a>
             <a class="menu-item" asp-controller="dev" asp-action="index" asp-fragment="tooling">
-                Tooling
+                @Localizer["Tooling"]
                 <i class="iconfont">&#xe6ab;</i>
             </a>
             <a class="menu-item" asp-controller="dev" asp-action="index" asp-fragment="examples">
-                Examples & Tutorials
+                @Localizer["Examples & Tutorials"]
                 <i class="iconfont">&#xe6ab;</i>
             </a>
         </div>
         <div class="resources-start-divider"></div>
         <div class="links">
             <a class="link" target="_blank" href="https://github.com/neo-project">
-                GitHub
+                @Localizer["GitHub"]
                 <i class="iconfont">&#xe681;</i>
             </a>
             <a class="link" target="_blank" href="https://docs.neo.org/v3/docs/en-us/index.html">
-                Documentation
+                @Localizer["Documentation"]
                 <i class="iconfont">&#xe681;</i>
             </a>
         </div>
         <select class="select-menu-page form-control">
-            <option selected="selected">Overview</option>
-            <option>Tooling</option>
-            <option>Examples & Tutorials</option>
+            <option selected="selected">@Localizer["Overview"]</option>
+            <option>@Localizer["Tooling"]</option>
+            <option>@Localizer["Examples & Tutorials"]</option>
         </select>
     </div>
 
@@ -125,8 +125,45 @@
             updateMenuWithHash();
         });
 
+        // overview
+        $(document).ready(() => {
+            let currentVersion = 'neo3';
+
+            function updateDocumentations() {
+                $('.documentation').each((i, documentation) => {
+                    const version = $(documentation).attr('data-version');
+                    if (version.includes(currentVersion)) {
+                        $(documentation).removeClass('hidden');
+                    } else {
+                        $(documentation).addClass('hidden');
+                    }
+                });
+                $(window).trigger('scroll');
+            }
+
+            function updateOverviewExamples() {
+                $('.overview-example').each((i, example) => {
+                    const version = $(example).attr('data-version');
+                    if (version.includes(currentVersion)) {
+                        $(example).removeClass('hidden');
+                    } else {
+                        $(example).addClass('hidden');
+                    }
+                });
+                $(window).trigger('scroll');
+            }
+
+            $('.select-platform').change(e => {
+                currentVersion = $(e.target).val();
+                updateDocumentations();
+                updateOverviewExamples();
+            });
+        });
+
         // tooling
         $(document).ready(() => {
+            let currentVersion = 'neo3';
+
             function updateTabs(i) {
                 $('.tab').each((j, tab) => {
                     if (i === j) {
@@ -143,6 +180,19 @@
                     }
                 });
                 $('.select-tab-page').prop('selectedIndex', i);
+                $(window).trigger('scroll');
+            }
+
+            function updateTools() {
+                $('.tool').each((i, tool) => {
+                    const version = $(tool).attr('data-version');
+                    if (version.includes(currentVersion)) {
+                        $(tool).removeClass('hidden');
+                    } else {
+                        $(tool).addClass('hidden');
+                    }
+                });
+                $(window).trigger('scroll');
             }
 
             $('.tab').each((i, tab) => {
@@ -151,9 +201,13 @@
                 });
             });
 
-
             $('.select-tab-page').change(e => {
                 updateTabs(e.target.selectedIndex);
+            });
+
+            $('.select-platform').change(e => {
+                currentVersion = $(e.target).val();
+                updateTools();
             });
         });
 

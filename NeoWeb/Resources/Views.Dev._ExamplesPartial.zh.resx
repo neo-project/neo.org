@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,40 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&lt;em&gt;Neo&lt;/em&gt;&lt;br/&gt;is getting&lt;br/&gt;an upgrade" xml:space="preserve">
-    <value>Neo&lt;br/&gt;现已升级</value>
+  <data name="All" xml:space="preserve">
+    <value>全部</value>
   </data>
-  <data name="After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
-    <value>经历了4年的稳定主网运行，Neo正在经历有史以来最大的一次进化-向N3版本进行迁移。Neo N3是Neo区块链迄今为止最强大、功能最丰富的版本。</value>
-  </data>
-  <data name="Developer" xml:space="preserve">
-    <value>开发者</value>
-  </data>
-  <data name="Documentation" xml:space="preserve">
-    <value>文档</value>
-  </data>
-  <data name="Examples &amp; Tutorials" xml:space="preserve">
+  <data name="Example &amp; Tutorials" xml:space="preserve">
     <value>案例&amp;教学</value>
   </data>
-  <data name="GitHub" xml:space="preserve">
-    <value>GitHub</value>
+  <data name="Filter by language" xml:space="preserve">
+    <value>按语言筛选</value>
   </data>
-  <data name="Learn More" xml:space="preserve">
-    <value>了解更多</value>
+  <data name="Load More" xml:space="preserve">
+    <value>加载更多</value>
   </data>
-  <data name="Neo Legacy" xml:space="preserve">
-    <value>Neo Legacy</value>
-  </data>
-  <data name="Neo(N3)" xml:space="preserve">
-    <value>Neo(N3)</value>
-  </data>
-  <data name="Overview" xml:space="preserve">
-    <value>概览</value>
-  </data>
-  <data name="Platform" xml:space="preserve">
-    <value>平台</value>
-  </data>
-  <data name="Tooling" xml:space="preserve">
-    <value>工具集</value>
+  <data name="Whether you want to learn Neo blockchain fundamentals or explore advanced topics, we have examples and tutorials to get you coding. Check back reguarly to find new content authored by our global developer community." xml:space="preserve">
+    <value>无论是入门开发还是探索深奥话题，我们都为你准备了配套教学。我们将不断更新本页面，请记得时常来这里看看来自Neo全球开发者社区的最新教程。</value>
   </data>
 </root>
