@@ -143,13 +143,13 @@
         <img class="blocks-large-img @SharedLocalizer["d-none-zh"]" usemap="#blockslargemap" data-original="@Helper.ToCDN("/images/home/BlocksLarge.svg")" />
         <img class="blocks-large-img @SharedLocalizer["d-none"]" usemap="#blockslargemap" data-original="@Helper.ToCDN("/images/home/BlocksLarge-zh.svg")" />
         <map name="blockslargemap">
-            <area shape="rect" coords="965 225 1262 328" alt="One Block Finality" href="technology#dbft-2.0" />
-            <area shape="rect" coords="230 530 524 616" alt="Oracles" href="technology#oracles" />
-            <area shape="rect" coords="975 530 1264 616" alt="NeoFS" href="technology#neo-fs" />
-            <area shape="rect" coords="230 790 516 872" alt="Smart Contracts" href="technology#smart-contracts" />
-            <area shape="rect" coords="975 790 1264 890" alt="Neo Name Service" href="technology#neo-name-service" />
-            <area shape="rect" coords="230 1050 520 1130" alt="Interoperability" href="technology#interoperability" />
-            <area shape="rect" coords="975 1056 1256 1134" alt="NeoID" href="technology#neo-id" />
+            <area shape="rect" coords="982 226 1266 342" alt="One Block Finality" href="technology#dbft-2.0" />
+            <area shape="rect" coords="246 520 550 625" alt="Oracles" href="technology#oracles" />
+            <area shape="rect" coords="988 525 1306 632" alt="NeoFS" href="technology#neo-fs" />
+            <area shape="rect" coords="246 787 546 882" alt="Smart Contracts" href="technology#smart-contracts" />
+            <area shape="rect" coords="986 785 1302 893" alt="Neo Name Service" href="technology#neo-name-service" />
+            <area shape="rect" coords="258 1043 546 1158" alt="Interoperability" href="technology#interoperability" />
+            <area shape="rect" coords="994 1048 1314 1156" alt="NeoID" href="technology#neo-id" />
         </map>
         <img class="blocks-medium-img @SharedLocalizer["d-none-zh"]" usemap="#blocksmediummap" data-original="@Helper.ToCDN("/images/home/BlocksMedium.svg")" />
         <img class="blocks-medium-img @SharedLocalizer["d-none"]" usemap="#blocksmediummap" data-original="@Helper.ToCDN("/images/home/BlocksMedium-zh.svg")" />
@@ -484,7 +484,7 @@
             <div class="governance-card-container">
                 @{ for (int i = 0; i < governanceItems.GetLength(0); i++)
                                 {
-                    <div class="float-card">
+                    <a class="float-card">
                         <div class="card-text-wrapper">
                             <div class="green-vertline"></div>
                             <div class="card-text">
@@ -492,7 +492,7 @@
                             </div>
                         </div>
                         <img class="card-img" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
-                    </div> } }
+                    </a> } }
             </div>
         </div>
     </div>
