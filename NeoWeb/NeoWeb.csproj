@@ -15,18 +15,6 @@
     <None Remove="CandidateBackgrounder\**" />
     <None Remove="Views\People\**" />
   </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Remove="Resources\Views.Contributors._CommunitiesPartial.zh.resx" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="wwwroot\css\news.css" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Resources\Views.Contributors._CommunitiesPartial.zh.resx" />
-  </ItemGroup>
   
   <ItemGroup>
     <PackageReference Include="BuildWebCompiler" Version="1.12.394" />
@@ -59,10 +47,6 @@
     <Content Update="libman.json">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\images\discover\" />
   </ItemGroup>
 
 </Project>
