@@ -1,101 +1,285 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- 
-		Microsoft ResX Schema
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
 
-		Version 1.3
-
-		The primary goals of this format is to allow a simple XML format 
-		that is mostly human readable. The generation and parsing of the 
-		various data types are done through the TypeConverter classes 
-		associated with the data types.
-
-		Example:
-
-		... ado.net/XML headers & schema ...
-		<resheader name="resmimetype">text/microsoft-resx</resheader>
-		<resheader name="version">1.3</resheader>
-		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-		<data name="Name1">this is my long string</data>
-		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-			[base64 mime encoded serialized .NET Framework object]
-		</data>
-		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-			[base64 mime encoded string representing a byte array form of the .NET Framework object]
-		</data>
-
-		There are any number of "resheader" rows that contain simple 
-		name/value pairs.
-
-		Each data row contains a name, and value. The row also contains a 
-		type or mimetype. Type corresponds to a .NET class that support 
-		text/value conversion through the TypeConverter architecture. 
-		Classes that don't support this are serialized and stored with the 
-		mimetype set.
-
-		The mimetype is used for serialized objects, and tells the 
-		ResXResourceReader how to depersist the object. This is currently not 
-		extensible. For a given mimetype the value must be set accordingly:
-
-		Note - application/x-microsoft.net.object.binary.base64 is the format 
-		that the ResXResourceWriter will generate, however the reader can 
-		read any of the formats listed below.
-
-		mimetype: application/x-microsoft.net.object.binary.base64
-		value   : The object must be serialized with 
-			: System.Serialization.Formatters.Binary.BinaryFormatter
-			: and then encoded with base64 encoding.
-
-		mimetype: application/x-microsoft.net.object.soap.base64
-		value   : The object must be serialized with 
-			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-			: and then encoded with base64 encoding.
-
-		mimetype: application/x-microsoft.net.object.bytearray.base64
-		value   : The object must be serialized into a byte array 
-			: using a System.ComponentModel.TypeConverter
-			: and then encoded with base64 encoding.
-	-->
-	
-	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-		<xsd:element name="root" msdata:IsDataSet="true">
-			<xsd:complexType>
-				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="data">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
-							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="resheader">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-						</xsd:complexType>
-					</xsd:element>
-				</xsd:choice>
-			</xsd:complexType>
-		</xsd:element>
-	</xsd:schema>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>1.3</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="&quot;Milestones you have achieved, along with short, medium, and long term goals" xml:space="preserve">
+    <value>您已经获得的成就，及您短中长期的目标</value>
+  </data>
+  <data name="A Medium sized teams with a mature business model and existing community / customer base" xml:space="preserve">
+    <value>拥有成熟商业模式和现有社区/客户基础的中型团队。</value>
+  </data>
+  <data name="A Project or business looking to migrate to, or integrate Neo" xml:space="preserve">
+    <value>计划迁移到Neo或加入Neo的项目或企业</value>
+  </data>
+  <data name="A Project or business within the Neo ecosystem" xml:space="preserve">
+    <value>Neo生态系统中的项目或业务</value>
+  </data>
+  <data name="A Small team with innovative ideas and seed users, or" xml:space="preserve">
+    <value>拥有创新想法和种子用户的小团队</value>
+  </data>
+  <data name="Access to the Neo community" xml:space="preserve">
+    <value>Neo社区权限</value>
+  </data>
+  <data name="Access to the network of EcoBoost partners for tailored support" xml:space="preserve">
+    <value>访问EcoBoost合作网络获取个性化支持 的权限</value>
+  </data>
+  <data name="Application requirements" xml:space="preserve">
+    <value>申请需求</value>
+  </data>
+  <data name="Apply for a Partner EcoBoost now, NGD EcoGrowth will generally respond within one month." xml:space="preserve">
+    <value>向EcoBoost计划提交申请（NGD EcoGrowth一般会在一个月内回复）</value>
+  </data>
+  <data name="Apply for a Project EcoBoost now, NGD EcoGrowth will generally respond within one month." xml:space="preserve">
+    <value>向EcoBoost计划提交申请（NGD EcoGrowth一般会在一个月内回复）</value>
+  </data>
+  <data name="Apply Now" xml:space="preserve">
+    <value>立即申请</value>
+  </data>
+  <data name="Challenges you see in the short to medium term" xml:space="preserve">
+    <value>您在中短期内遇到的困难与挑战</value>
+  </data>
+  <data name="dApp directory" xml:space="preserve">
+    <value>dApp目录</value>
+  </data>
+  <data name="Detailed information on why you think a partnership with EcoBoost would be mutually beneficial for yourself the Neo ecosystem." xml:space="preserve">
+    <value>详述您方会如何与EcoBoost实现共赢</value>
+  </data>
+  <data name="Detailed information outlining:" xml:space="preserve">
+    <value>详情简介:</value>
+  </data>
+  <data name="EcoBoost" xml:space="preserve">
+    <value>EcoBoost</value>
+  </data>
+  <data name="EcoBoost could provide…" xml:space="preserve">
+    <value>EcoBoost可以提供：</value>
+  </data>
+  <data name="EcoBoost Partners" xml:space="preserve">
+    <value>Ecoboost 合作方</value>
+  </data>
+  <data name="EcoBoost partners are leveraged to provide full lifecycle support to Neo projects, based on the individual requirements of each project. For example, media partners can assist with outreach and publicity, exchange partners can help list tokens and stimulate liquidity, and institutional partners can provide industry resources." xml:space="preserve">
+    <value>EcoBoost合作方会根据不同Neo项目的具体需求为其提供全周期支持。例如，媒体合作方可以协助进行外联和宣传，交易所合作方可以帮助上市代币和刺激流动性，公共机构合作方则可以提供行业资源。</value>
+  </data>
+  <data name="EcoBoost partners will benefit from business growth opportunities provided by access to the Neo ecosystem and its global community." xml:space="preserve">
+    <value>同时，EcoBoost合作方也将从Neo生态系统及其全球社区提供的业务增长机会中受益。</value>
+  </data>
+  <data name="Educational organization" xml:space="preserve">
+    <value>教育组织</value>
+  </data>
+  <data name="Exchange" xml:space="preserve">
+    <value>交易</value>
+  </data>
+  <data name="First announced at Consenus 2019, EcoBoost is a US $100 million intiative designed to grow the Neo ecosystem." xml:space="preserve">
+    <value>2019年，Neo EcoBoost计划在全球瞩目的Consensus大会上首次公布。该计划总斥资一亿美元，旨在促进Neo生态系统的发展。</value>
+  </data>
+  <data name="Full lifecycle support, including funding, technology support, community access, and marketing assistance" xml:space="preserve">
+    <value>全周期支持，包括资金、技术支持、社区权限和市场援助</value>
+  </data>
+  <data name="Funding of up to US $50,000" xml:space="preserve">
+    <value>最高达5万美元的资金支持</value>
+  </data>
+  <data name="How to apply" xml:space="preserve">
+    <value>如何申请</value>
+  </data>
+  <data name="How you think EcoBoost can help you achieve your goals and what kind of support you are looking for" xml:space="preserve">
+    <value>您认为EcoBoost计划可以怎样帮您实现您的目标?您需要何种支持？</value>
+  </data>
+  <data name="If you are a…" xml:space="preserve">
+    <value>如果您是：</value>
+  </data>
+  <data name="If you are…" xml:space="preserve">
+    <value>如果你是：</value>
+  </data>
+  <data name="If you feel your company would benefit from becoming a preferred partner of the Neo ecosystem through EcoBoost, please contact NGD EcoGrowth with the following information:" xml:space="preserve">
+    <value>如果您认为您的公司就是EcoBoost寻找的Neo生态系统首选合作伙伴，请联系NGD 生态发展部门，并提供以下信息:</value>
+  </data>
+  <data name="If you feel your project would benefit from EcoBoost support, please contact NGD EcoGrowth with the following information:" xml:space="preserve">
+    <value>如果您认为您的项目能受益于EcoBoost计划的支持，请联系NGD EcoGrowth部门并提供以下信息:</value>
+  </data>
+  <data name="Links to your website or application" xml:space="preserve">
+    <value>您的网站或申请的链接</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>地点</value>
+  </data>
+  <data name="Main contact details" xml:space="preserve">
+    <value>主要联系方式</value>
+  </data>
+  <data name="Media organization" xml:space="preserve">
+    <value>媒体组织</value>
+  </data>
+  <data name="Milestones you have achieved, along with short, medium, and long term goals" xml:space="preserve">
+    <value>您已经获得的成就，及您短中长期的目标</value>
+  </data>
+  <data name="Operated by the Neo Global Development EcoGrowth department, the program works by building up a partner network to provide assistance to Neo-based projects." xml:space="preserve">
+    <value>EcoBoost计划由Neo Global Development（NGD）生态增长（EG)部门负责运营，运作机制是通过建立合作网络，为基于Neo的项目提供援助。</value>
+  </data>
+  <data name="Opportunity to grow your busines through exposure to the Neo ecosystem" xml:space="preserve">
+    <value>通过Neo生态系统发展业务的机会</value>
+  </data>
+  <data name="partners" xml:space="preserve">
+    <value>合作方</value>
+  </data>
+  <data name="Project or company name" xml:space="preserve">
+    <value>项目或公司名称</value>
+  </data>
+  <data name="projects" xml:space="preserve">
+    <value>项目</value>
+  </data>
+  <data name="Projects and partners" xml:space="preserve">
+    <value>项目方与合作方</value>
+  </data>
+  <data name="Projects or organizations that believe they fit the scope of the EcoBoost program are welcome to apply." xml:space="preserve">
+    <value>欢迎认为自身符合EcoBoost计划合作范围的项目或组织申请。</value>
+  </data>
+  <data name="Recently boosted projects" xml:space="preserve">
+    <value>近期推进的项目</value>
+  </data>
+  <data name="Security expert" xml:space="preserve">
+    <value>安全专家</value>
+  </data>
+  <data name="Size of current user or customer base" xml:space="preserve">
+    <value>当前用户/消费者的规模</value>
+  </data>
+  <data name="Team size, names, experience, and location" xml:space="preserve">
+    <value>团队规模、人员姓名、经历和地址</value>
+  </data>
+  <data name="Technical support" xml:space="preserve">
+    <value>技术支持</value>
+  </data>
+  <data name="The nature of your project or business" xml:space="preserve">
+    <value>您的项目或业务的性质</value>
+  </data>
+  <data name="The Neo Global Development EcoGrowth team will work with EcoBoost partners and projects to ensure mutially beneficial outcomes for all participants." xml:space="preserve">
+    <value>NG-EG团队将与EcoBoost合作方和项目方精诚合作，携手共赢。</value>
+  </data>
+  <data name="Wallet" xml:space="preserve">
+    <value>钱包</value>
+  </data>
+  <data name="We are very proud of the partners in our EcoBoost network and the projects that we have supported. We’d love to add your name to the list." xml:space="preserve">
+    <value>我们因EcoBoost网络的合作方和支持项目而自豪。希望能将您的名字也添加到名单上。</value>
+  </data>
+  <data name="Working in tandem with various partners, the EcoBoost program provides full lifecycle support for high-potential projects." xml:space="preserve">
+    <value>Neo EcoBoost通过多方合作，为高潜项目提供全周期支持。</value>
+  </data>
+  <data name="Working together" xml:space="preserve">
+    <value>合作</value>
+  </data>
+  <data name="Your unique value proposition" xml:space="preserve">
+    <value>您的独特价值观</value>
+  </data>
 </root>
