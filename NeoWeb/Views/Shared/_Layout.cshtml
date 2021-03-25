@@ -225,7 +225,8 @@ https://github.com/neo-project/neo.org
                     <a class="d-inline" target="_blank" href="https://weibo.com/neosmarteconomy"><i class="iconfont">&#xe60e;</i></a>
                     <a class="d-inline" target="_blank" href="https://twitter.com/neo_blockchain"><i class="iconfont">&#xe607;</i></a>
                     <a class="d-inline" target="_blank" href="https://discord.gg/jwBp5P9ryb"><i class="iconfont">&#xe60b;</i></a>
-                    <a class="d-inline" target="_blank" href="@Helper.CDN/images/qrcode.jpg"><i class="iconfont">&#xe60d;</i></a>
+                    <a class="d-inline" href="javascript:" onclick="$('.wechat2').toggle('fast')"><i class="iconfont">&#xe60d;</i></a>
+                    <a class="wechat2" href="@Helper.CDN/images/qrcode.jpg" target="_blank"><img src="@Helper.CDN/images/qrcode.jpg" /></a>
                     @if (SharedLocalizer["en"].Value == "zh")
                     {
                         <a class="d-inline" target="_blank" href="https://t.me/NEO_Chinese"><i class="iconfont">&#xe606;</i></a>
@@ -245,7 +246,7 @@ https://github.com/neo-project/neo.org
     </footer>
 
 
-    <form id="form_language" asp-action="SetLanguage" asp-controller="home" method="post">
+    <form class="d-none" id="form_language" asp-action="SetLanguage" asp-controller="home" method="post">
         @Html.AntiForgeryToken()
         <p><input type="hidden" id="culture" name="culture" /><input type="hidden" id="returnUrl" name="returnUrl" /></p>
     </form>
