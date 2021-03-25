@@ -117,13 +117,68 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
-    <value />
-  </data>
-  <data name="" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="" xml:space="preserve">
-    <value></value>
-  </data>
+
+      <data name="Blockchain technology has evolved tremendously over the past few years. Public blockchains in particular have remained the most important domain, with fierce competition between different platforms across multiple fronts, including Layer 1 performance, developer experience, infrastructure, and ecosystem—among others.">
+        <value>区块链技术在过去几年的时间内以惊人的速度在进化和发展。公链，作为整个行业中最重要的基础赛道，平台之间的竞争也异常的激烈和立体，从早起的性能之争，逐渐演化成包含开发者体验、基础设施及生态系统等方面的全面竞争。</value>
+    </data>
+
+    <data name="Building a world-class protocol and all the required infrastructure for developers is a daunting task, especially without substantial community backing. It's only natural then that the majority of competing smart contract platforms today are predominantly forks of Ethereum, the most dominant player in the space. By borrowing the Ethereum codebase or even just the EVM, projects can bootstrap their ecosystems and applications with existing Ethereum-based tooling, avoiding the need to construct original solutions.">
+        <value>建立起一套世界领先的协议体系和相应开发者基础设施是极其艰巨的任务，尤其是在没有足够社区支持的前提下。因此，大多数智能合约平台很自然的选择了与以太坊相似的技术体系，或多或少借鉴或者直接分叉了以太坊的代码库、EVM 和工具集。以此快速冷启动整个生态系统和应用场景，绕过前期漫长的技术和代码储备阶段。</value>
+    </data>
+
+    <data name="As more and more platforms have discovered, this shortcut does not come without drawbacks.Inheriting from Ethereum also means inheriting its existing flaws, and places them in direct competition with it for developer mindshare. Although the inherent weakness of Ethereum’s PoW - based Layer 1 has opened the door to its would - be successors, Ethereum’s own pursuit of perfection in its upcoming 2.0 iteration and the maturity of scalability solutions means that the window of opportunity for copycats is rapidly closing.">
+        <value>这些平台很快会发现，选择捷径也有其代价。继承以太坊的体系也意味着继承以太坊的诸多不足，且让他们陷入与以太坊的直接竞争之中。尽管目前基于POW的以太坊有诸多不足，也为这些竞争者提供了其短期比较优势舞台，然而，随着以太坊2.0的落地以及扩容技术的成熟，这些竞争者的机会窗口正在快速的关闭。</value>
+    </data>
+
+    <data name="Since it was first founded, Neo has opted for the path less travelled. Not content with the compromises found in other platforms, and the resulting poor developer or user experiences, Neo has sought to provide only the best-in-class across every possible category. With its pioneering consensus mechanism, original codebase, and multi-language developer-friendly infrastructure, Neo accepted no compromise.">
+        <value>从创立伊始，Neo 就选择走这样一条少有人走的路径。不因为方便，就妥协接受其它平台的不足，而致力于在每个可能的方面都提供行业最优的解决方案和用户体验：作为先锋引领全新的共识机制的普及；坚持原创代码库；及建设多编程语言兼容的开发基础设施。Neo不接受妥协。</value>
+    </data>
+
+    <data name="Program the future">
+        <value>编码未来</value>
+    </data>
+
+    <data name="Scripting functionality opens a lot of doors to blockchain developers. This has been clear ever since smart contract platforms first started to gain in popularity. However, what has also become clear is that a far wider range of functionality than simple Turing-completeness is required for the next generation of distributed applications.">
+        <value>脚本功能为众多区块链开发者开启了大门，这点从智能合约平台开始流行之初，就显而易见。然而，随着区块链技术的深入发展，我们也清晰认识到，下一代分布式应用所需的多种功能范围，远比简单的图灵完备性能要广泛得多。</value>
+    </data>
+
+    <data name="Some applications depend heavily on data retrieved from the physical world, introducing the need for data oracles. Others, out of concern for regulatory compliance or Sybil defense, require methods for user authentication or attribute verification.">
+        <value>一些应用严重依赖于从物理世界中获得的数据，从而引入了对预言机的需求。也有一些应用，出于对合规性或者防范女巫攻击的考量，要求用户进行身份验证或属性验证。</value>
+    </data>
+
+    <data name="Many applications depend heavily on interoperability, allowing them to transact and interact across multiple blockchains. A variety of use cases also express a desire for decentralized storage, but without the prohibitive cost of on-chain persistence.">
+        <value>许多应用依赖于互操作性，从而允许它们在多个区块链之间进行交易和交互。不少实用场景也提出了对成本可控的非链上去中心化存储的需求。</value>
+    </data>
+
+    <data name="Solutions to each of these problems exist, typically encapsulated in one project or another. But this dependency on multiple projects to meet basic blockchain developer requirements ends in yet another significant barrier to entry.">
+        <value>上述问题的解决方案，往往分散在一个个单独的项目中。为满足日渐复杂的应用需求所产生的对于多个项目的依靠，为开发者带来了巨大的进入壁垒。</value>
+    </data>
+
+    <data name="This barrier means mainstream adoption is inevitably hindered. It appears that smart contract platforms are simply not that smart yet.">
+        <value>这些门槛不可避免地阻碍了去中心化应用的大规模落地。看来，智能合约平台还不那么智能。</value>
+    </data>
+
+    <data name="Neo is the ONE">
+        <value>选择Neo</value>
+    </data>
+
+    <data name="Enter N3, the most significant upgrade to the Neo blockchain to date. At the protocol level, all users and applications will naturally benefit from its vastly improved architecture—meaning better performance, simplicity and ease-of-use, improved economics, and the introduction of on-chain governance to ensure the platform's longevity in a decentralized manner.">
+        <value>N3是迄今为止Neo区块链最重要的升级。在协议层面，用户和应用自然会从其大大改进的架构设计中受益，其中包括更好的性能、简单性和易用性；改进的经济模型以及链上治理的引入，会确保平台以去中心化的形式长期发展。</value>
+    </data>
+
+    <data name="Despite the lofty achievements of Neo's core developers in optimizing its base layer, the real beauty of N3 lies in its diverse set of essential components for applications. Decentralized storage, identity tools, data oracles, interoperability, and a domain name service; all natively integrated for a seamless UX/DX that will stand the test of time.">
+        <value>Neo的核心开发者们在优化基础层方面取得了巨大的成就，但N3的真正魅力在于其为复杂应用提供的丰富的基本组件集。去中心化存储、身份工具、预言机、互操作性和域名服务，所有这些都原生集成实现无缝的用户/开发体验（UX / DX），以经起时间的考验。</value>
+    </data>
+
+    <data name="As blockchain-based applications become increasingly sophisticated, the need for these critical functions will only continue to increase. With its out-of-the-box functionality, available to all developers regardless of their language preferences, Neo provides value to developers that simply cannot be matched by other platforms today. Yet at the same time, Neo developers are never boxed in, always able to choose the right tools for their needs.">
+        <value>基于区块链的应用日益复杂，对这些关键功能的需求也会只增不减。无论开发者编程语言偏好如何，Neo都希望能为其提供开箱即用的完整体验，这是其它平台无法提供的独有价值。与此同时，Neo开发者也并不应局限于此，永远有选择使用其认为最合适的工具的权力。</value>
+    </data>
+
+    <data name="Neo N3 is a wakeup call to blockchain developers who demand a better platform for their applications. But perhaps most importantly, it substantially lowers the barrier to entry for blockchain development. ">
+        <value>Neo N3希望以此能唤醒那些需要选择更好的平台的应用开发者，但更重要的是，最大程度降低区块链应用开发的门槛，树立行业开发者体验标杆。</value>
+    </data>
+
+    <data name="Rather than simply compete over existing developers in a niche industry, it opens the floodgates to the millions of traditional developers who are ready to take their first step into this brave new world. And once you've tried Neo, you'll never settle for less.">
+        <value>除希望能够在现有的利基市场中竞争存量开发者，Neo更希望为准备勇敢迈入区块链新世界的以百万计的传统行业开发者打开大门。一旦你尝试了Neo，其它都变成了将就。</value>
+    </data>
 </root>

@@ -117,13 +117,48 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
-    <value />
-  </data>
-  <data name="" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="" xml:space="preserve">
-    <value></value>
-  </data>
+    <data name="dBFT 2.0">
+        <value>dBFT 2.0</value>
+    </data>
+
+    <data name="When Satoshi Nakamoto introduced Bitcoin and the eponymous Nakamoto consensus mechanism to the world, the value of trustless and borderless transaction settlement was realized for the first time.">
+        <value>当中本聪将比特币与其共识机制介绍给这个世界时，去信任化与无边界化的交易结算价值也第一次被我们所认知。</value>
+    </data>
+
+    <data name="Bitcoin and the many blockchains that followed typically achieve consensus with probabilistic finality. In other words, the transaction settlement is not necessarily guaranteed. In most cases, settlement becomes more difficult to overturn as the transaction becomes more deeply embedded in the blockchain.">
+        <value>比特币以及随之诞生的许多区块链通常以概率终局性达成共识。换句话说，在区块链上不一定可以保证交易结算成功执行。而随着交易越来越深入地被嵌入到区块链条中，在大多数情况下结算也就变得更加难以被推翻。</value>
+    </data>
+
+    <data name="This is adequate for the needs of some applications, such as low-priority transfers or the simple storage of value. But for most user-facing or highly liquid applications, more reliable assurances are required regarding transaction settlement.">
+        <value>这样的机制足以满足低优先级转账或简单价值存储等应用的需求，但是对于面向大量用户或流动性很高的应用程序，则要求在交易结算方面提供更可靠的保证。</value>
+    </data>
+
+    <data name="One block finality, maximum confidence">
+        <value>单区块终局性，确定性最大化</value>
+    </data>
+
+    <data name="Since its inception, Neo has championed a BFT-powered, safety-first approach that has been rapidly gaining in popularity in the blockchain industry—and for good reason.">
+        <value>从立项以来，Neo一直引领着基于BFT，安全优先的共识机制。拥有着独特优势，BFT类共识机制近期在区块链行业内得到了迅速普及。</value>
+    </data>
+
+    <data name="Neo’s consensus mechanism, delegated Byzantine Fault Tolerance, represents a new evolution of the groundbreaking PBFT. Similar to its predecessor, dBFT requires a ⅔ majority agreement between validators called consensus nodes before new blocks can be committed to the blockchain.">
+        <value>Neo的共识机制--dBFT（delegated Byzantine Fault Tolerance，委托拜占庭容错），是源于PBFT的突破式新发展。与PBFT相似，dBFT需要在共识节点之间达成多数一致，然后才能将新区块添加到区块链中。</value>
+    </data>
+
+    <data name="This means the blockchain will never fork, and every transaction is permanently settled as soon as it is included in a confirmed block. In other words, Neo’s consensus mechanism immediately eliminates the possibility of transaction reversal. All applications based on Neo’s Layer 1 inherit this safety property.">
+        <value>这意味着Neo区块链将永远不会分叉，每笔交易一旦包含在已确认的区块中，便会永久成立。换言之，Neo的共识机制立即消除了交易逆转的可能性。所有基于Neo的Layer 1的应用都将继承这一属性。</value>
+    </data>
+
+    <data name="With Neo, users can always enjoy fast, low-cost transactions that are fully finalized within a single block.">
+        <value>Neo区块链上的用户始终可以享受快速、低成本的交易，这些交易都将在一个区块内全部完成。</value>
+    </data>
+
+    <data name="Democratic decentralization">
+        <value>去中心化民主</value>
+    </data>
+
+    <data name="Like other Proof of Stake-based blockchains, Neo combines cryptographic tools and game theory to establish a robust and sustainable network. Governance voting by NEO stakeholders ensure all participants are economically aligned in a shared interest to safeguard the blockchain and its growing ecosystem. This democratic mechanism provides the Neo blockchain with all the tools required to fully decentralize control over the network.">
+        <value>与其他基于PoS共识机制的区块链一样，Neo结合了加密学与博弈论，从而建立一个强大而可持续的网络。NEO持有者可通过投票获得相应激励，这将有助于所有治理参与者共同对Neo区块链的安全及可持续性发展负责。这种民主机制为Neo区块链提供了去中心化链上治理所需的所有工具。</value>
+    </data>
+
 </root>

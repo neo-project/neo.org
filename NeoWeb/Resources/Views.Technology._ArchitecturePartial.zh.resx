@@ -117,13 +117,39 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
-    <value />
-  </data>
-  <data name="" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="" xml:space="preserve">
-    <value></value>
-  </data>
+    <data name="Developer Experience">
+        <value>开发者体验</value>
+    </data>
+
+    <data name="Supporting multiple languages is only one small part of what Neo offers to developers. It caters to varying end user needs with both traditional and web-based IDE integrations. One-stop shop smart contract and dApp development frameworks are also provided to quickly bootstrap developers and get them up and running as architects for the next-generation Internet.">
+        <value>对多种编程语言的支持仅仅是Neo开发者友好度的部分体现。通过传统的与基于Web的IDE集成，Neo可以满足不断变化的用户需求。除此之外，Neo还提供一站式智能合约和dApp开发框架，帮助开发人员快速入门并成长为下一代互联网的架构师。</value>
+    </data>
+
+    <data name="Thanks to the contributions of Neo's independent developer community, users can begin creating applications for the Neo blockchain without ever needing to install any software. Tools such as NEO-ONE, NeoCompiler Eco, and Neo Playground, built by teams from the US, Brazil, and Switzerland respectively, are all accessible directly from within a browser.">
+        <value>得益于Neo遍布全球的地理社区开发团队，开发者无需安装任何软件便可开始开发应用。包括由Neo美国，巴西和瑞士的开发者社区构建的NEO-ONE，NeoCompiler Eco和Neo Playground等工具都可以在浏览器中直接访问。</value>
+    </data>
+
+    <data name="To take the platform's developer friendliness to the next level, Neo teamed up with ex-Microsoft veterans to establish NGD Enterprise, a Seattle-based office focused purely on developer experience.">
+        <value>为了将Neo开发者友好度带来飞跃式提升，Neo与前微软资深开发者合作建立了位于西雅图的NGD Enterprise，专门致力于开发者体验方面的创新与合作。</value>
+    </data>
+
+    <data name="As its flagship project, NGD Enterprise created the Neo Blockchain Toolkit for VS Code, allowing developers to easily deploy private Neo networks then create, deploy, and interact with smart contracts coded in any language. Over the last few years VS Code has emerged as a top choice for developers, cornering over half of the current market share for code editors. This made it a natural choice for integration with Neo tooling, helping the platform meet developers where they already are.">
+        <value>作为其旗舰项目，NGD Enterprise创建了针对VS Code的Neo区块链工具包，使开发者可以轻松部署私有Neo网络，以自己熟悉的语言创建部署智能合约并与之交互。在过去的几年中，VS Code已成为半数以上开发者的选，Neo区块链工具包将从很大程度上满足广大开发者的需求。</value>
+    </data>
+
+    <data name="From MVP to production-ready">
+        <value>完善的合约调试</value>
+    </data>
+
+    <data name="Put your contract through its paces with automated contract testing tools. As advocates of a test-driven development approach, NGD Enterprise provides an expandable testing framework. Set up a private blockchain, deploy a contract, then analyze it for issues with your own custom unit test suite—all in a single click.">
+        <value>作为由测试驱动开发理念的倡导者，NGD Enterprise提供了极富可扩展的性测试框架，借助自动化的合约测试工具来逐步完善开发。开发者可以一键设置私有区块链，部署合约，然后使用自定义的单元测试套件对可能出现的问题进行分析。</value>
+    </data>
+
+    <data name="Sometimes errors happen, even in a carefully tested application, and in a decentralized environment they can be very difficult to replicate. Thanks to execution trace capture, you can grab and investigate any transaction on a Neo network and replay it through the Neo Debugger.">
+        <value>即使经过仔细的测试，应用中的错误有时也难以避免。在分布式的环境下，这些错误也会更加难以重现。借助Neo调试器提供的追踪捕获功能，开发者可以捕获和调查Neo网络上的任何事务，然后通过Neo调试器让它重现。</value>
+    </data>
+
+    <data name="The debugger provides a disassembled bytecode view, source code mapping, and revolutionary time-travel debugging tools. Armed with these powerful resources, you can skip the tedious hours spent tracking down bugs by directly stepping forward or backward through both the source code and bytecode, inspecting carefully for any unexpected state changes.">
+        <value>Neo调试器提供了反汇编的字节码视图，源代码映射和革命性的时间旅行调试工具。有了这些强大的工具，开发者可以直接在源代码和字节码之间前进或后退，并捕捉任何意外的状态更改，从极大程度上减少了乏味枯燥的测试流程。</value>
+    </data>
 </root>

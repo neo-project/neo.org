@@ -117,13 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
-    <value />
-  </data>
-  <data name="" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="" xml:space="preserve">
-    <value></value>
-  </data>
+    <data name="Oracle">
+        <value>预言机</value>
+    </data>
+
+    <data name="Smart contracts represent a revolutionary breakthrough for the way that we do business online, but adoption of the technology remains slow. There are many barriers to overcome before decentralized applications are ready for the mainstream, but one of the most notable is the inherent limitation for contracts by the data they have access to. Most existing blockchain applications must rely purely on transactions as a source of input data.">
+        <value>智能合约为在线交易带来了革命性突破，但这项技术的落地仍然较为缓慢。在去中心化应用获得大规模应用之前，仍有许多障碍需要克服。最显着的障碍之一就是智能合约的数据访问权限受代码限制，现有的大多数区块链应用都必须依靠发生的交易作为唯一的数据来源。</value>
+    </data>
+
+    <data name="This is adequate for simple applications where a contract already stores the data that it requires to authenticate a particular transaction—a user’s token balance for instance. But if a service wants to use dynamic, real-world data, a trusted source of obtaining that information is required.">
+        <value>仅访问链上生成的数据对于查询余额等简单场景来说已经足够，但是，如果应用需要使用动态的真实数据，则需要获取可靠的外部信息。</value>
+    </data>
+
+    <data name="Open your world with native oracles">
+        <value>通过内置预言机通向世界</value>
+    </data>
+
+    <data name="The Internet plays host to an unimaginable wealth of data, ready to be put to use to generate new forms and flows of value. With the native oracle service introduced in N3, it becomes trivial for any developer to tap into any external resources over HTTPS.">
+        <value>互联网承载着超乎想象的海量数据，可随时产生新的应用和价值流。随着N3引入内置预言机服务，任何开发者都可以在智能合约中通过HTTPS轻松访问任意外部资源。</value>
+    </data>
+
+    <data name="Contracts deployed on Neo can invoke the native oracle contract to trigger a data request, specifying a target URL and a filter. Oracle nodes, elected through the Neo Council, will work together to guarantee the truthfulness and reliability of the results.">
+        <value>部署在Neo上的智能合约可以调用原生Oracle合约来触发数据请求，并指定目标URL和过滤条件。通过Neo理事会选举产生的Oracle节点将承担起维护信息真实可靠的责任。</value>
+    </data>
+
+    <data name="Decentralize everything">
+        <value>真正的去中心化未来</value>
+    </data>
+
+    <data name="Many “decentralized” applications leverage the name for its appearance of trust, but in reality only deliver a partially decentralized experience. Some application logic may be contained within a smart contract, but a service’s dependency on cloud providers for frontend hosting or database provisioning introduces new centralized points of failure.">
+        <value>许多“去中心化”应用程序标榜其去中心化特性以获取用户信任，但实际上仅提供了部分去中心化的体验。智能合约中可能包含一些应用程序逻辑，但仍依赖中心化的前端服务或云存储服务，这可能会带来新的中心化故障点。</value>
+    </data>
+
+    <data name="With the power of Neo's native oracle and NeoFS, blockchain-based applications can take the next step forward into true decentralization. Any extra data required by an application can simply be stored off-chain with NeoFS then retrieved in a decentralized manner through the oracle service.">
+        <value>借助Neo的原生预言机和NeoFS组件，基于区块链的应用程序可以轻松实现真正的去中心化。应用程序所需的任何外部数据都可以简单地通过NeoFS进行链下存储，然后以去中心化的方式通过Oracle服务读取。</value>
+    </data>
+
+    <data name="Smart contracts can fetch and manipulate data off-chain in an uncensorable, reliable, and tamper-proof manner.">
+        <value>智能合约可以以抗审查、可靠和防篡改的方式在链下获取并使用数据。</value>
+    </data>
 </root>

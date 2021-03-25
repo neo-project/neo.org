@@ -117,13 +117,27 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
-    <value />
-  </data>
-  <data name="" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="" xml:space="preserve">
-    <value></value>
-  </data>
+    <data name="Interoperability">
+    <value>互操作性</value>
+    </data>
+
+    <data name="Neo strives to be the best platform for building decentralized applications. It achieves this with an unmatched feature set for blockchain that is accessible to developers of all backgrounds. But Neo alone cannot play host to the entire next-generation Internet, and some applications may want to take advantage of unique benefits from other ecosystems.">
+        <value>Neo致力于成为开发dApp的最佳平台，它为开发者提供了无与伦比的区块链开发功能集，使用任何开发语言的开发者都可以轻松上手。然而，仅靠Neo自身的发展无法承载整个下一代互联网的未来。在Neo区块链上进行开发的同时，某些应用可能会希望同时利用到其他生态系统的自身优势。</value>
+    </data>
+
+    <data name="So easy, it feels native">
+        <value>因为原生，所以简单</value>
+    </data>
+
+    <data name="As a founding member of the interoperability protocol alliance Poly Network, Neo makes cross-chain interaction as easy as a native transaction. Users and applications on the Neo blockchain can easily send assets or tap services from all other participating networks through Poly Network’s bridges.">
+        <value>作为互操作性协议联盟Poly Network的创始成员，Neo使跨链交互就像处理本地事务一样容易。 Neo区块链上的用户和应用可以通过Poly Network轻松地与所有成员链进行资产与服务的双向交互。</value>
+    </data>
+
+    <data name="Most importantly, Poly Network provides an interoperability solution without an extra token. This design ensures the blockchain complements each protocol it integrates with, providing new use cases and opportunities to all.">
+        <value>更重要的是，Poly Network提供了一种生态中立的互操作性解决方案。这种设计可确保各成员链在无需使用额外通证的情况下，与其他所有成员链进行互补，从而多个生态扩展新的使用场景。</value>
+    </data>
+
+    <data name="Poly Network has already transferred more than US $3 billion in equivalent value to Neo Legacy from participating networks. More than 8 networks are already supported, including Bitcoin, Ethereum, Binance Smart Chain, Elrond, Zilliqa, Huobi Eco Chain, Ontology, Switcheo and other Cosmos-based blockchains.">
+        <value>在Neo之外，Poly Network已经为多个网络提供支持，包括比特币、以太坊、币安智能链，Elrond、Zilliqa、火币生态链、本体，Switcheo以及其他基于Cosmos的区块链。这些成员链已向Neo Legacy迁移了等值超过30亿美元的资产。</value>
+    </data>
 </root>
