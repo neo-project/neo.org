@@ -1,25 +1,26 @@
-
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 @{
     ViewData["Title"] = "Demo";
 }
 <div class="my-5">
     <h2 class="mt-5" style="color: black;">Typography</h2>
-    <h1 class="my-4">H1 Work sans - Bold 92px</h1>
-    <h2 class="my-4">H2 Nunito sans - ExtraBold 36px</h2>
-    <h3 class="m7-4">H3 Nunito sans - Bold 28px</h3>
-    <h4 class="my-4">H4 Work sans - Bold 18px</h4>
-    <p class="my-4">Body copy Nunito sans - Regular 20px</p>
-    <h2 class="mt-5" style="color: black;">Buttons</h2>
-    <a class="btn-1 my-4" href="javascript:">Load more</a>
-    <a class="btn-2 my-4" href="javascript:">view all tutorials</a>
-    <a class="btn-3 my-4" href="javascript:">Documentation</a>
-    <a class="btn-4 my-4" href="javascript:">view all tutorials</a>
+    <h1 class="my-4">@Localizer["H1"] @Localizer["Font ABCD abcd"]<br />@Localizer["Font ABCD abcd"]</h1>
+    <h2 class="my-4">@Localizer["H2"] @Localizer["Font ABCD abcd"]<br />@Localizer["Font ABCD abcd"]</h2>
+    <h3 class="m7-4">@Localizer["H3"] @Localizer["Font ABCD abcd"]<br />@Localizer["Font ABCD abcd"]</h3>
+    <h4 class="my-4">@Localizer["H4"] @Localizer["Font ABCD abcd"]<br />@Localizer["Font ABCD abcd"]</h4>
+    <p class="my-4">@Localizer["Body"] @Localizer["Font ABCD abcd"] @Localizer["Font ABCD abcd"]<br />@Localizer["Font ABCD abcd"] @Localizer["Font ABCD abcd"]</p>
+    <h2 class="mt-5" style="color: black;">@Localizer["Button"]</h2>
+    <a class="btn-1 my-4" href="javascript:">@Localizer["Button"]</a>
+    <a class="btn-2 my-4" href="javascript:">@Localizer["Button"]</a>
+    <a class="btn-3 my-4" href="javascript:">@Localizer["Button"]</a>
+    <a class="btn-4 my-4" href="javascript:">@Localizer["Button"]</a>
     <br />
-    <a class="btn-1 disabled my-4" href="javascript:">Load more</a>
-    <a class="btn-2 disabled my-4" href="javascript:">view all tutorials</a>
-    <a class="btn-3 disabled my-4" href="javascript:">Documentation</a>
-    <a class="btn-4 disabled my-4" href="javascript:">view all tutorials</a>
+    <a class="btn-1 disabled my-4" href="javascript:">@Localizer["Button"]</a>
+    <a class="btn-2 disabled my-4" href="javascript:">@Localizer["Button"]</a>
+    <a class="btn-3 disabled my-4" href="javascript:">@Localizer["Button"]</a>
+    <a class="btn-4 disabled my-4" href="javascript:">@Localizer["Button"]</a>
     <br />
-    <a class="article-tag1 mr-1 my-4" href="javascript:">article-tag1</a>
-    <a class="article-tag2 mr-1 my-4" href="javascript:">article-tag2</a>
+    <a class="article-tag1 mr-1 my-4" href="javascript:">@Localizer["Tag"]</a>
+    <a class="article-tag2 mr-1 my-4" href="javascript:">@Localizer["Tag"]</a>
 </div>

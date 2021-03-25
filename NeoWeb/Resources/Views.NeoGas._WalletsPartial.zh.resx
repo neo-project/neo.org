@@ -478,4 +478,13 @@
 &lt;br /&gt;- 安全地存储、发送和接收加密货币。
 &lt;br /&gt;- 使用我们的加密货币价格跟踪器跟踪 200 多种硬币。</value>
   </data>
+  <data name="Neo’s two token model allows users to participate in the ecosystem without reducing their stake in the network." xml:space="preserve">
+    <value>Neo 的双通证模型允许用户参与生态系统而不会减少他们在网络中的股份。</value>
+  </data>
+  <data name="The Neo community has developed a wide range of wallets suitable for different types of users and applications. Search below to find a  wallet that best fits your needs. If you have any questions regarding their use, please contact the developer directly." xml:space="preserve">
+    <value>Neo 社区的开发团队开发了多种钱包供不同用户与应用选择。请按照自己的使用需求选择钱包。如果在使用过程中遇到任何问题，请联系开发人员。</value>
+  </data>
+  <data name="When creating a new Neo wallet, please remember to back up your private key in a secure manner. Your private key is the only way to control your Neo assets." xml:space="preserve">
+    <value>使用钱包时，请将私钥进行安全备份。私钥是您控制自己的 Neo 资产的唯一方法。</value>
+  </data>
 </root>

@@ -52,47 +52,11 @@ https://github.com/neo-project/neo.org
 
     <link href="@Helper.ToCDN("/lib/bootstrap/css/bootstrap.min.css")" rel="stylesheet" />
     <link href="@Helper.ToCDN("/css/site.min.css", true)" rel="stylesheet" />
-    <style>
-        @@font-face {
-            font-family: 'WorkSans-Light';
-            src: url('/font/WorkSans-Light.ttf');
-        }
-
-        @@font-face {
-            font-family: 'WorkSans-Bold'; /* project id 1408484 */
-            src: url('/font/WorkSans-Bold.ttf');
-        }
-
-        @@font-face {
-            font-family: 'WorkSans-SemiBold';
-            src: url('/font/WorkSans-SemiBold.ttf');
-        }
-
-        @@font-face {
-            font-family: 'NunitoSans-ExtraBold';
-            src: url('/font/NunitoSans-ExtraBold.ttf');
-        }
-
-        @@font-face {
-            font-family: 'NunitoSans-Bold';
-            src: url('/font/NunitoSans-Bold.ttf');
-        }
-
-        @@font-face {
-            font-family: 'NunitoSans-SemiBold';
-            src: url('/font/NunitoSans-SemiBold.ttf');
-        }
-
-        @@font-face {
-            font-family: 'NunitoSans-Regular';
-            src: url('/font/NunitoSans-Regular.ttf');
-        }
-    </style>
+    @{ await Html.RenderPartialAsync("_FontPartial"); }
     @RenderSection("Styles", required: false)
     @if (SharedLocalizer["en"].Value == "zh")
     {
-        <link href="@Helper.ToCDN("/css/sitecn.min.css", true)" rel="stylesheet" />
-    }
+        <link href="@Helper.ToCDN("/css/sitecn.min.css", true)" rel="stylesheet" />}
 </head>
 <body id="neo-body">
     <nav class="navbar smart-scroll container-fluid navbar-expand-lg">
@@ -110,11 +74,12 @@ https://github.com/neo-project/neo.org
 
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
+                    <li class="nav-item" style="position: relative;">
                         <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             @Localizer["Discover Neo"]
                         </a>
                         <div class="dropdown-menu p-2" aria-labelledby="dropdownMenuButton">
+                            <i class="iconfont">&#xeb21;</i>
                             <div class="row text-center text-md-left">
                                 <div class="col-md-6">
                                     <a class="dropdown-item my-1 py-2 my-md-2 py-md-3" asp-action="index" asp-controller="about">
@@ -256,14 +221,21 @@ https://github.com/neo-project/neo.org
                 </div>
                 <div class="col-md-2">
                     <h4 class="my-3">@Localizer["Keep in touch"]</h4>
-                    <a class="d-inline" target="_blank" href="javascript:"><i class="iconfont">&#xe616;</i></a>
-                    <a class="d-inline" target="_blank" href="javascript:"><i class="iconfont">&#xe60e;</i></a>
-                    <a class="d-inline" target="_blank" href="javascript:"><i class="iconfont">&#xe607;</i></a>
-                    <a class="d-inline" target="_blank" href="javascript:"><i class="iconfont">&#xe60b;</i></a>
-                    <a class="d-inline" target="_blank" href="javascript:"><i class="iconfont">&#xe60d;</i></a>
-                    <a class="d-inline" target="_blank" href="javascript:"><i class="iconfont">&#xe606;</i></a>
-                    <a class="d-inline" target="_blank" href="javascript:"><i class="iconfont">&#xe60a;</i></a>
-                    <a class="d-inline" target="_blank" href="javascript:"><i class="iconfont">&#xe608;</i></a>
+                    <a class="d-inline" target="_blank" href="https://www.facebook.com/NeoBlockchainOfficial"><i class="iconfont">&#xe616;</i></a>
+                    <a class="d-inline" target="_blank" href="https://weibo.com/neosmarteconomy"><i class="iconfont">&#xe60e;</i></a>
+                    <a class="d-inline" target="_blank" href="https://twitter.com/neo_blockchain"><i class="iconfont">&#xe607;</i></a>
+                    <a class="d-inline" target="_blank" href="https://discord.gg/jwBp5P9ryb"><i class="iconfont">&#xe60b;</i></a>
+                    <a class="d-inline" target="_blank" href="@Helper.CDN/images/qrcode.jpg"><i class="iconfont">&#xe60d;</i></a>
+                    @if (SharedLocalizer["en"].Value == "zh")
+                    {
+                        <a class="d-inline" target="_blank" href="https://t.me/NEO_Chinese"><i class="iconfont">&#xe606;</i></a>
+                    }
+                    else
+                    {
+                        <a class="d-inline" target="_blank" href="https://t.me/NEO_EN"><i class="iconfont">&#xe606;</i></a>
+                    }
+                    <a class="d-inline" target="_blank" href="https://www.reddit.com/r/NEO/"><i class="iconfont">&#xe60a;</i></a>
+                    <a class="d-inline" target="_blank" href="https://medium.com/neo-smart-economy"><i class="iconfont">&#xe608;</i></a>
                 </div>
             </div>
             <div class="mt-3">

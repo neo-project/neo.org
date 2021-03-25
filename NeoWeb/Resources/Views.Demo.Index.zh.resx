@@ -117,19 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
-    <value>经历了 4 年的稳定主网运行，Neo 正在经历有史以来最大的一次进化-向 N3 版本进行迁移。Neo N3 是 Neo 区块链迄今为止最强大、功能最丰富的版本。</value>
+  <data name="Body" xml:space="preserve">
+    <value>正文文本</value>
   </data>
-  <data name="EVENT" xml:space="preserve">
-    <value>活动</value>
+  <data name="Button" xml:space="preserve">
+    <value>按钮</value>
   </data>
-  <data name="FEATURED BLOG ARGICLES" xml:space="preserve">
-    <value>热门博客文章</value>
+  <data name="Font ABCD abcd" xml:space="preserve">
+    <value>字体 测试文本测试文本</value>
   </data>
-  <data name="FEATURED EVENT" xml:space="preserve">
-    <value>热门活动</value>
+  <data name="H1" xml:space="preserve">
+    <value>一级标题</value>
   </data>
-  <data name="NEWS" xml:space="preserve">
-    <value>资讯</value>
+  <data name="H2" xml:space="preserve">
+    <value>二级标题</value>
+  </data>
+  <data name="H3" xml:space="preserve">
+    <value>三级标题</value>
+  </data>
+  <data name="H4" xml:space="preserve">
+    <value>四级标题</value>
+  </data>
+  <data name="Tag" xml:space="preserve">
+    <value>标签</value>
   </data>
 </root>

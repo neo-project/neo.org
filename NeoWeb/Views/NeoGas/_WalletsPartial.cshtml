@@ -9,7 +9,8 @@
 </select>
 
 <div class="menu-page-description lighter">
-    At magnum periculum adiit in oculis quidem faciunt, ut summo bono, dolorem aspernari ut aut ad naturam aut rerum hic tenetur a se esse ratione intellegi posse et dolorem ipsum, quia voluptas sit, voluptatem et accusamus et quas molestias.
+    @Localizer["The Neo community has developed a wide range of wallets suitable for different types of users and applications. Search below to find a  wallet that best fits your needs. If you have any questions regarding their use, please contact the developer directly."]
+    @Localizer["When creating a new Neo wallet, please remember to back up your private key in a secure manner. Your private key is the only way to control your Neo assets."]
 </div>
 <div class="tabs d-none d-md-flex">
     <span class="tab active">All</span>
@@ -72,14 +73,14 @@
                 <div class="metrics">
                     <span>@Localizer["Supported NEP"]</span>
                     <div>
-                        <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki" target="_blank">NEP-5</a>, <a href="https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki" target="_blank">NEP-6</a> </p>
+                        <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki" target="_blank">NEP-17</a>, <a href="https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki" target="_blank">NEP-6</a> </p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
     <li class="desktop">
-        <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/cli.png")" />
+        <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/cli-n3.png")" />
         <h4>Neo-CLI <small>(V3.0.0-RC1)</small></h4>
         <div class="platform">
             <i class="iconfont" h4 data-toggle="tooltip" data-placement="bottom" title="Windows">&#xf266;</i>
@@ -185,7 +186,67 @@
                 <div class="metrics">
                     <span>@Localizer["Supported NEP"]</span>
                     <div>
-                        <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki" target="_blank">NEP-5</a>, <a href="https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki" target="_blank">NEP-6</a> </p>
+                        <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki" target="_blank">NEP-17</a>, <a href="https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki" target="_blank">NEP-6</a> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="mobile extension">
+        <img class="client-logo" data-original="@Helper.ToCDN("/images/wallets/logo/neoline.png", true)" />
+        <h4>NeoLine <small>(V3.0.0-RC1)</small></h4>
+        <div class="platform">
+            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
+            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
+            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="extension">&#xe621;</i>
+            <a class="open-source" href="https://github.com/NeoNEXT/neoline" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
+        </div>
+
+        <div class="developer d-none"><a href="https://github.com/NeoNEXT/neoline" target="_blank">NeoNext</a></div>
+        <div class="button d-none">
+            <a class="btn-2 btn-small" href="https://neoline.io" target="_blank">@Localizer["Website"]</a>
+            <a class="btn-2 btn-small" href="https://chrome.google.com/webstore/detail/neoline/cphhlgmgameodnhkjdmkpanlelnlohao" target="_blank">@Localizer["Download"] <small>(@Localizer["Extension"])</small></a>
+        </div>
+        <div class="desc d-none">
+            <div class="preview-div">
+                <h4>@Localizer["Preview"]</h4>
+                <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
+            </div>
+            <div class="p-mobile preview  @SharedLocalizer["d-none-zh"]">
+                <img data-original="@Helper.ToCDN("/images/wallets/neoline-en1.png")" />
+                <img data-original="@Helper.ToCDN("/images/wallets/neoline-en2.png")" />
+                <img data-original="@Helper.ToCDN("/images/wallets/neoline-en3.png")" />
+                <img data-original="@Helper.ToCDN("/images/wallets/neoline-en4.png")" />
+            </div>
+            <div class="p-mobile preview @SharedLocalizer["d-none"]">
+                <img data-original="@Helper.ToCDN("/images/wallets/neoline-zh1.png")" />
+                <img data-original="@Helper.ToCDN("/images/wallets/neoline-zh2.png")" />
+                <img data-original="@Helper.ToCDN("/images/wallets/neoline-zh3.png")" />
+                <img data-original="@Helper.ToCDN("/images/wallets/neoline-zh4.png")" />
+            </div>
+            <p>@Localizer["NeoLine Chrome Plugin-Wallet is developed by Neo developer community NEXT. It is an open source, multi-functional wallet with dAPI provided for developers. Switcheo and Flamingo are supported."]</p>
+            <p>@Localizer["Languages"]: English / 中文</p>
+            <div>
+                <div class="metrics">
+                    <span>@Localizer["Degree of Digital Asset Control"]</span><span class="span-success">@Localizer["High"]</span>
+                    <div>@Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the wallet file."]</div>
+                </div>
+                <div class="metrics">
+                    <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
+                    <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
+                </div>
+                <div class="metrics">
+                    <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
+                    <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."] @Localizer["Get source code"]: <a href="https://github.com/neonext/neoline" target="_blank">GitHub</a></div>
+                </div>
+                <div class="metrics">
+                    <span>@Localizer["Supported NEP"] <small>(@Localizer["Mobile"])</small></span>
+                    <div>
+                        <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki" target="_blank">NEP-2</a>, <a href="https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki" target="_blank">NEP-17</a></p>
+                    </div>
+                    <span>@Localizer["Supported NEP"] <small>(@Localizer["Extension"])</small></span>
+                    <div>
+                        <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki" target="_blank">NEP-17</a>, <a href="https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki" target="_blank">NEP-6</a></p>
                     </div>
                 </div>
             </div>

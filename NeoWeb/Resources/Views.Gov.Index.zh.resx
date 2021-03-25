@@ -130,7 +130,7 @@
     <value>流程详解</value>
   </data>
   <data name="By the people, for the people" xml:space="preserve">
-    <value>生于社区 用于社区</value>
+    <value>源于社区 用于社区</value>
   </data>
   <data name="CANDIDATES" xml:space="preserve">
     <value>候选人</value>
@@ -139,7 +139,7 @@
     <value>理事会</value>
   </data>
   <data name="Each NEO token represents one vote in the election of the Neo Council, who is responsible for making decisions for the Neo blockchain. NEO holders should vote in candidates that they feel will represent their needs and are capable of maintaining the health of the Neo network." xml:space="preserve">
-    <value>每个 NEO 通证代表一张 Neo 理事会成员的选票。NEO 持有者应将选票投给可代表社区需求并将保证 Neo 健康发展的候选人。</value>
+    <value>每个 NEO 通证代表一张选举 Neo 理事会成员选票，而 Neo 理事会需要对 Neo 区块链的决策负责。NEO 持有者应将选票投给可代表其需求并能保证 Neo 网络健康发展的候选人。</value>
   </data>
   <data name="GAS distribution" xml:space="preserve">
     <value>GAS 分发机制</value>
@@ -169,10 +169,7 @@
     <value>角色</value>
   </data>
   <data name="The council is responsible for maintaining the health and liveness of the Neo network. Responsibilities include adjusting blockchain parameters, such as system fees, and electing oracle nodes." xml:space="preserve">
-    <value>理事会成员负责维护 Neo 区块链的正常运行与活跃度。理事会可对网络费用等链上数据进行修改提案，并可指派 Oracle 节点等角色。</value>
-  </data>
-  <data name="The council is responsible for maintaining the health and liveness of the Neo network.Responsibilities include adjusting blockchain parameters, such as system fees, and electing oracle nodes." xml:space="preserve">
-    <value>理事会成员负责维护 Neo 区块链的正常运行与活跃度。理事会可对网络费用等链上数据进行修改提案，并可指派 Oracle 节点等角色。</value>
+    <value>理事会成员负责维护 Neo 区块链的正常运行与活跃度。理事会可对网络费用等链上参数进行修改提案，并可指派 Oracle 节点等角色。</value>
   </data>
   <data name="The top 21 candidates are voted in as members of the Neo Council." xml:space="preserve">
     <value>排名前 21 位的候选人将入选 Neo 理事会。</value>
