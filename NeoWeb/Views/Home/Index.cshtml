@@ -32,10 +32,10 @@
 
     <div class="row horiz-row aio-row">
         <div class="col-12 col-md-12">
-            <div class="work-sans-bold aio-title @SharedLocalizer["d-none-zh"]">
+            <div class="aio-title @SharedLocalizer["d-none-zh"]">
                 <span class="green">All</span> in One - <span class="green">All</span> in Neo
             </div>
-            <div class="work-sans-bold aio-title @SharedLocalizer["d-none"]">
+            <div class="aio-title @SharedLocalizer["d-none"]">
                 <span class="green">All</span> in One - <span class="green">All</span> in Neo
             </div>
             <div class="highlight-container">
@@ -55,7 +55,7 @@
                     {
         <div class="highlight-wrapper">
             <img class="highlight-img png" data-original="@Helper.ToCDN(highlightItems[i, 1])" />
-            <div class="work-sans-bold text-uppercase highlight-name">@Localizer[highlightItems[i, 0]]</div>
+            <div class="highlight-name">@Localizer[highlightItems[i, 0]]</div>
         </div> } }
             </div>
         </div>
@@ -757,7 +757,7 @@
         })
 
         function resizeHandler() {
-            if ($(this).innerWidth() < 768) {
+            if ($(this).outerWidth() < 768) {
                 $(".language-icon").removeClass("selected")
                 $(".code-window").addClass("d-none")
             } else {
