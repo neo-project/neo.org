@@ -75,7 +75,7 @@
             <div class="explanation">
                 @Localizer["After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]
             </div>
-            <a class="btn-2" asp-controller="migration" asp-action="index">@Localizer["Migration Guide"]</a>
+            <a class="btn-2" asp-controller="migration" asp-action="index">@Localizer["Learn More"]</a>
         </div>
         <div class="col-12 col-md-6 col-right">
             <div class="get-started-wrapper">
@@ -167,7 +167,7 @@
             @{ string[,] blocks = new string[7, 4]
                                   {
                                                             {
-                        "/images/home/OneBlockFinality3D.svg", "One Block Finality", "Poly.Network enabled cross-chain interoperability with Ethereum, Binance Chain, and more.", "technology#dbft-2.0"
+                        "/images/home/OneBlockFinality3D.svg", "One Block Finality", "dBFT consensus mechanism guarantees fast and efficient finality in a single block.", "technology#dbft-2.0"
                     },
                                                             {
                         "/images/home/NativeOracles3D.svg", "Oracles", "A built-in oracle enabling secured access to any off-chain data.", "technology#oracles"
@@ -176,16 +176,16 @@
                         "/images/home/NeoFS3D.svg", "NeoFS", "A distributed data storage solution made for scalability and privacy.", "technology#neo-fs"
                     },
                                                             {
-                        "/images/home/SmartContracts3D.svg", "Smart Contracts", "Smart contracts  ipsum dolor sit amet, consectetur adipiscing elit. ", "technology#smart-contracts"
+                        "/images/home/SmartContracts3D.svg", "Smart Contracts", "Write your smart contracts in C#, Go, Python, Java, or TypeScript. ", "technology#smart-contracts"
                     },
                                                             {
                         "/images/home/NeoNameService3D.svg", "Neo Name Service", "A decentralized .neo domain name service for next-gen internet web applications. ", "technology#neo-name-service"
                     },
                                                             {
-                        "/images/home/Interoperability3D.svg", "Interoperability", "Smart contracts  ipsum dolor sit amet, consectetur adipiscing elit. ", "technology#interoperability"
+                        "/images/home/Interoperability3D.svg", "Interoperability", "Poly.Network enabled cross-chain interoperability with Ethereum, Binance Chain, and more.", "technology#interoperability"
                     },
                                                             {
-                        "/images/home/NeoID3D.svg", "NeoID", "Smart contracts  ipsum dolor sit amet, consectetur adipiscing elit. ", "technology#neo-id"
+                        "/images/home/NeoID3D.svg", "NeoID", "A set of self-sovereign decentralized identity solution standards", "technology#neo-id"
                     }
 };
 
@@ -410,9 +410,9 @@
                 <div class="governance-card-container">
                     @{ string[,] governanceItems = new string[3, 3]
                                      {
-                                                                { "How to vote", "/images/home/vote.svg", "https://www.google.com" },
+                                                                { "How to vote", "/images/home/vote.svg", "/gov" },
                                                                 { "General guide to governance", "/images/home/ReadDocumentation.svg", "/gov" },
-                                                                { "Register as a committee candidate", "/images/home/register.svg", "https://www.google.com" }
+                                                                { "Register as a committee candidate", "/images/home/register.svg", "/gov" }
  };
 
                         for (int i = 0; i < governanceItems.GetLength(0); i++)
@@ -610,15 +610,16 @@
                 @Localizer["Join the"] <span class="green">@Localizer["Community"]</span>
             </div>
             <div class="additional-icons">
-                <a href="https://www.facebook.com/NEOSmartEcon/" target="_blank"><i class="iconfont additional-icon">&#xe616;</i></a>
+                <a href="https://www.facebook.com/NeoBlockchainOfficial" target="_blank"><i class="iconfont additional-icon">&#xe616;</i></a>
                 <a href="https://discord.gg/jwBp5P9ryb" target="_blank"><i class="iconfont additional-icon">&#xe60b;</i></a>
                 <a href="https://neo3.azureedge.net/images/qrcode.jpg" target="_blank"><i class="iconfont additional-icon">&#xe60d;</i></a>
-                <a href="https://t.me/NEO_EN" target="_blank"><i class="iconfont additional-icon">&#xe606;</i></a>
+                <a class="@SharedLocalizer["d-none-zh"]" href="https://t.me/NEO_EN" target="_blank"><i class="iconfont additional-icon">&#xe606;</i></a>
+                <a class="@SharedLocalizer["d-none"]" href="https://t.me/NEO_Chinese" target="_blank"><i class="iconfont additional-icon">&#xe606;</i></a>
                 <a href="https://weibo.com/neosmarteconomy" target="_blank"><i class="iconfont additional-icon">&#xe60e;</i></a>
                 <a href="https://twitter.com/NEO_Blockchain" target="_blank"><i class="iconfont additional-icon">&#xe607;</i></a>
                 <a href="https://www.reddit.com/r/NEO/" target="_blank"><i class="iconfont additional-icon">&#xe60a;</i></a>
                 <a href="https://medium.com/neo-smart-economy" target="_blank"><i class="iconfont additional-icon">&#xe608;</i></a>
-</div>
+            </div>
         </div>
         <div class="additional-item">
             <div class="additional-title  @SharedLocalizer["d-none-zh"]">
