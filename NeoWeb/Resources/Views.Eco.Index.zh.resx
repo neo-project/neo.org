@@ -118,9 +118,21 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="&lt;em&gt;Eco&lt;/em&gt;&lt;br/&gt;Support" xml:space="preserve">
-    <value>生态支持</value>
+    <value>&lt;em&gt;生态&lt;/em&gt;支持</value>
   </data>
   <data name="Eco Support" xml:space="preserve">
     <value>生态支持</value>
+  </data>
+  <data name="EcoBoost" xml:space="preserve">
+    <value>EcoBoost</value>
+  </data>
+  <data name="EcoFund" xml:space="preserve">
+    <value>EcoFund</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>情况概览</value>
+  </data>
+  <data name="Whether you are a hobbyist developer, a fledgling start-up, or an established business, we have a range of initiatives to help you bring your vision to life on the Neo blockchain." xml:space="preserve">
+    <value>无论是业余开发者、初创企业或是已成型的企业，都能在Neo区块链上实现您的愿景。</value>
   </data>
 </root>

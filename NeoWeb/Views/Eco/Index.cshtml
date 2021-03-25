@@ -12,7 +12,7 @@
 <div class="introduction">
     <div class="introduction-content">
         <h1 class="introduction-title">@Localizer["<em>Eco</em><br/>Support"]</h1>
-        <div class="introduction-description">Whether you are a hobbyist developer, a fledgling start-up, or an established business, we have a range of initiatives to help you bring your vision to life on the Neo blockchain.</div>
+        <div class="introduction-description">@Localizer["Whether you are a hobbyist developer, a fledgling start-up, or an established business, we have a range of initiatives to help you bring your vision to life on the Neo blockchain."]</div>
     </div>
 </div>
 
@@ -22,34 +22,34 @@
     <div class="resources-start">
         <div class="menu">
             <a class="menu-item active" asp-controller="eco" asp-action="index" asp-fragment="overview">
-                Overview
+                @Localizer["Overview"]
                 <i class="iconfont">&#xe6ab;</i>
             </a>
             <a class="menu-item" asp-controller="eco" asp-action="index" asp-fragment="ecoboost">
-                EcoBoost
+                @Localizer["EcoBoost"]
                 <i class="iconfont">&#xe6ab;</i>
             </a>
             <a class="menu-item" asp-controller="eco" asp-action="index" asp-fragment="ecofund">
-                EcoFund
+                @Localizer["EcoFund"]
                 <i class="iconfont">&#xe6ab;</i>
             </a>
         </div>
         <select class="select-menu-page form-control">
-            <option selected="selected">Overview</option>
-            <option>EcoBoost</option>
-            <option>EcoFund</option>
+            <option selected="selected">@Localizer["Overview"]</option>
+            <option>@Localizer["EcoBoost"]</option>
+            <option>@Localizer["EcoFund"]</option>
         </select>
     </div>
 
     <div class="resources-end">
         <div class="menu-page active">
-            <partial name="./_OverviewPartialPage" />
+            <partial name="./_OverviewPartial" />
         </div>
         <div class="menu-page">
-            <partial name="./_EcoBoostPartialPage" />
+            <partial name="./_EcoBoostPartial" />
         </div>
         <div class="menu-page">
-            <partial name="./_EcoFundPartialPage" />
+            <partial name="./_EcoFundPartial" />
         </div>
     </div>
 </div>
