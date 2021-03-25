@@ -1,7 +1,12 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
 <div class="menu-page-title">
     <img class="menu-page-title-img" data-original="@Helper.ToCDN("/images/eco/eco-fund-title.png", true)" />
     <span class="menu-page-title-text">
-        EcoFund
+        @Localizer["EcoFund"]
     </span>
 </div>
 
@@ -10,47 +15,47 @@
     <div class="menu-page-title">
         <img class="menu-page-title-img" data-original="@Helper.ToCDN("/images/eco/eco-fund-title.png", true)" />
         <span class="menu-page-title-text">
-            EcoFund
+            @Localizer["EcoFund"]
         </span>
     </div>
     <div class="menu-page-introduction-title">
-        Funding success
+        @Localizer["Funding success"]
     </div>
     <div class="menu-page-introduction-description">
-        <p><strong>Neo EcoFund is an investment fund established by the Neo Foundation.</strong> Its goal is to bring diversified help to the Neo ecosystem while creating long-term value and sustainable returns for Neo Foundation. </p>
-        <p>Neo EcoFund was established in 2018 and has continued to contribute to the expansion and incubation of Neo ecosystem.</p>
+        <p><strong>@Localizer["Neo EcoFund is an investment fund established by the Neo Foundation."]</strong>@Localizer[" Its goal is to bring diversified help to the Neo ecosystem while creating long-term value and sustainable returns for Neo Foundation. "]</p>
+        <p>@Localizer["Neo EcoFund was established in 2018 and has continued to contribute to the expansion and incubation of Neo ecosystem."]</p>
     </div>
 </div>
 
 <div class="scopes">
     <div class="scope">
-        <div class="scope-title">Business scope</div>
+        <div class="scope-title">@Localizer["Business scope"]</div>
         <ul class="scope-items">
             <li>
-                Investing in private equity and unlisted projects
+                @Localizer["Investing in private equity and unlisted projects"]
             </li>
             <li>
-                Managing the fund's crypto assets
+                @Localizer["Managing the fund's crypto assets"]
             </li>
             <li>
-                Incubating invested portfolio
+                @Localizer["Incubating invested portfolio"]
             </li>
             <li>
-                Project post-investment management
+                @Localizer["Project post-investment management"]
             </li>
         </ul>
     </div>
     <div class="scope">
-        <div class="scope-title">Investment direction</div>
+        <div class="scope-title">@Localizer["Investment direction"]</div>
         <ul class="scope-items">
             <li>
-                Infrastructure - Blockchain infrastructures serving the Neo ecosystem
+                @Localizer["Infrastructure - Blockchain infrastructures serving the Neo ecosystem"]
             </li>
             <li>
-                dApps - Projects built on Neo MainNet with a viable business model
+                @Localizer["dApps - Projects built on Neo MainNet with a viable business model"]
             </li>
             <li>
-                Blockchain Ecosystem - Potential blockchain ecosystem projects that can cooperate with Neo
+                @Localizer["Blockchain Ecosystem - Potential blockchain ecosystem projects that can cooperate with Neo"]
             </li>
         </ul>
     </div>
@@ -59,50 +64,50 @@
 <div class="menu-page-divider"></div>
 
 <div class="menu-page-secondary-title">
-    How to apply
+    @Localizer["How to apply"]
 </div>
 
 <div class="menu-page-description">
-    <strong>Projects or organizations that believe they fit the scope of the EcoBoost program are welcome to apply.</strong>
+    <strong>@Localizer["Projects or organizations that believe they fit the scope of the EcoBoost program are welcome to apply."]</strong>
 </div>
 
 <div class="menu-page-tertiary-title">
-    projects
+    @Localizer["projects"]
 </div>
 
 <div class="application">
     <div class="application-start">
         <div class="application-start-title">
-            If you are…
+            @Localizer["If you are…"]
         </div>
         <ul class="application-start-items">
             <li>
-                An established blockchain-based operation with substantial ties to the Neo ecosystem
+                @Localizer["An established blockchain-based operation with substantial ties to the Neo ecosystem"]
             </li>
             <li>
-                A project with a viable business model
+                @Localizer["A project with a viable business model"]
             </li>
             <li>
-                Looking for an investment in exchange for tokens or equity.
+                @Localizer["Looking for an investment in exchange for tokens or equity."]
             </li>
         </ul>
     </div>
     <div class="application-end">
         <i class="application-chevron iconfont">&#xe6ab;</i>
         <div class="application-end-title">
-            EcoFund could provide…
+            @Localizer["EcoFund could provide…"]
         </div>
         <div class="application-end-items">
             <div class="application-end-item">
                 <img class="application-end-item-img" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
                 <span class="application-end-item-text">
-                    Funding opportunities to help you achive your business goals
+                    @Localizer["Funding opportunities to help you achive your business goals"]
                 </span>
             </div>
             <div class="application-end-item">
                 <img class="application-end-item-img" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
                 <span class="application-end-item-text">
-                    Incubation support
+                    @Localizer["Incubation support"]
                 </span>
             </div>
         </div>
@@ -110,58 +115,58 @@
 </div>
 
 <div class="requirements-title">
-    Application requirements
+    @Localizer["Application requirements"]
 </div>
 
 <div class="menu-page-description">
-    <strong>If you feel your project is right for EcoFund, please contact NGD EcoGrowth with the following information: </strong>
+    <strong>@Localizer["If you feel your project is right for EcoFund, please contact NGD EcoGrowth with the following information: "]</strong>
 </div>
 
 <ul class="requirements">
     <li>
-        Project or company name
+        @Localizer["Project or company name"]
     </li>
     <li>
-        Team size, names, experience, and location
+        @Localizer["Team size, names, experience, and location"]
     </li>
     <li>
-        Detailed information outlining:
+        @Localizer["Detailed information outlining:"]
         <ul class="requirements-sublist">
             <li>
-                The nature of your project or business
+                @Localizer["The nature of your project or business"]
             </li>
             <li>
-                Your company structure
+                @Localizer["Your company structure"]
             </li>
             <li>
-                Milestones you have achieved, along with short, medium, and long term goals
+                @Localizer["Milestones you have achieved, along with short, medium, and long term goals"]
             </li>
             <li>
-                Your unique value proposition
+                @Localizer["Your unique value proposition"]
             </li>
             <li>
-                Challenges you see in the short to medium term
+                @Localizer["Challenges you see in the short to medium term"]
             </li>
             <li>
-                Size of current user or customer base
+                @Localizer["Size of current user or customer base"]
             </li>
         </ul>
     </li>
     <li>
-        A detailed investment proposal including the amount of funding you are looking for and how much you are offering in equity / tokens.
+        @Localizer["A detailed investment proposal including the amount of funding you are looking for and how much you are offering in equity / tokens."]
     </li>
     <li>
-        Links to your website or application
+        @Localizer["Links to your website or application"]
     </li>
     <li>
-        Main contact details
+        @Localizer["Main contact details"]
     </li>
 </ul>
 
 <div class="apply">
-    <div class="apply-text">Apply for a Project EcoFund now, NGD EcoGrowth will generally respond within one month.</div>
+    <div class="apply-text">@Localizer["Apply for a Project EcoFund now, NGD EcoGrowth will generally respond within one month."]</div>
     <a class="apply-btn btn-2 btn-small">
-        Apply Now&nbsp;&nbsp;<i class="iconfont">&#xe6ab;</i>
+        @Localizer["Apply Now"]&nbsp;&nbsp;<i class="iconfont">&#xe6ab;</i>
     </a>
 </div>
 
@@ -169,15 +174,15 @@
 <div class="menu-page-divider"></div>
 
 <div class="menu-page-secondary-title">
-    EcoFund portfolio
+    @Localizer["EcoFund portfolio"]
 </div>
 
 <div class="menu-page-description">
-    We are very proud of the projects in the EcoFund portfolio. We’d love to add your name to the list.
+    @Localizer["We are very proud of the projects in the EcoFund portfolio. We’d love to add your name to the list."]
 </div>
 
 <div class="menu-page-tertiary-title">
-    Recently boosted projects
+    @Localizer["Recently boosted projects"]
 </div>
 
 <div class="projects">

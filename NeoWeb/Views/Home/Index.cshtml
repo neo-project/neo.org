@@ -26,7 +26,7 @@
                 <div class="latest-news-text">
                     @Localizer["Latest News:"]
                 </div>
-                    <a class="news-link" asp-controller="news" asp-action="index">@Localizer["This is an example of a article on the latest news ticker"]  <i class="iconfont circle-arrow-icon green">&#xe6ab;</i></a>
+                    <a class="news-link" href="~/blog/details/@Model[0].Blog.Id">@Localizer["This is an example of a article on the latest news ticker"]  <i class="iconfont circle-arrow-icon green">&#xe6ab;</i></a>
                     
             </div>
         </div>
@@ -333,59 +333,61 @@
                     </div>
                     <div class="calculator-title-empty"></div>
                 </div>
-                <div class="slider-row">
-                    <div class="slider-before">
-                        @Localizer["A user with"]
-                    </div>
-                    <input type="range" min="10" max="1000" value="500" class="slider" id="calculator-slider">
-                    <div class="slider-after">
-                        <img class="slider-neo-icon" data-original="@Helper.ToCDN("/images/home/Neo-Symbol.svg")" />
-                        <div id="slider-current-value">500</div>
-                    </div>
-                </div>
-                <div class="middle-text">
-                    would receive up to
-                </div>
-                <div class="results-row">
-                    <div class="result-col">
-                        <div class="result-num result-holding">0.44</div>
-                        <div class="gas-wrapper">
-                            <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
-                            <span>Gas Per Month<span class="green">*</span></span><br /><br />
-                            <span class="status-text">For holding Neo</span>
+                <div class="calculator-body">
+                    <div class="slider-row">
+                        <div class="slider-before">
+                            @Localizer["A user with"]
+                        </div>
+                        <input type="range" min="10" max="1000" value="500" class="slider" id="calculator-slider">
+                        <div class="slider-after">
+                            <img class="slider-neo-icon" data-original="@Helper.ToCDN("/images/home/Neo-Symbol.svg")" />
+                            <div id="slider-current-value">500</div>
                         </div>
                     </div>
-                    <div class="plug-sign">+</div>
-                    <div class="result-col">
-                        <div class="result-num result-governance">17.52</div>
-                        <div class="gas-wrapper">
-                            <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
-                            <span>Gas Per Month<span class="green">*</span></span><br /><br />
-                            <span class="status-text">For Governance Participation</span>
+                    <div class="middle-text">
+                        would receive up to
+                    </div>
+                    <div class="results-row">
+                        <div class="result-col">
+                            <div class="result-num result-holding">0.44</div>
+                            <div class="gas-wrapper">
+                                <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
+                                <span>Gas Per Month<span class="green">*</span></span><br /><br />
+                                <span class="status-text">For holding Neo</span>
+                            </div>
+                        </div>
+                        <div class="plug-sign">+</div>
+                        <div class="result-col">
+                            <div class="result-num result-governance">17.52</div>
+                            <div class="gas-wrapper">
+                                <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
+                                <span>Gas Per Month<span class="green">*</span></span><br /><br />
+                                <span class="status-text">For Governance Participation</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="results-row-mobile">
-                    <div class="result-row">
-                        <div class="result-num-mobile result-holding">0.44</div>
-                        <div class="gas-wrapper-mobile">
-                            <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
-                            <span>Gas Per Month<span class="green">*</span></span><br /><br />
+                    <div class="results-row-mobile">
+                        <div class="result-row">
+                            <div class="result-num-mobile result-holding">0.44</div>
+                            <div class="gas-wrapper-mobile">
+                                <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
+                                <span>Gas Per Month<span class="green">*</span></span><br /><br />
+                            </div>
                         </div>
-                    </div>
-                    <span class="status-text-mobile">For holding Neo</span>
-                    <div class="plug-sign">+</div>
-                    <div class="result-row">
-                        <div class="result-num-mobile result-governance">17.52</div>
-                        <div class="gas-wrapper-mobile">
-                            <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
-                            <span>Gas Per Month<span class="green">*</span></span><br /><br />
+                        <span class="status-text-mobile">For holding Neo</span>
+                        <div class="plug-sign">+</div>
+                        <div class="result-row">
+                            <div class="result-num-mobile result-governance">17.52</div>
+                            <div class="gas-wrapper-mobile">
+                                <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
+                                <span>Gas Per Month<span class="green">*</span></span><br /><br />
+                            </div>
                         </div>
+                        <span class="status-text-mobile">For Governance Participation</span>
                     </div>
-                    <span class="status-text-mobile">For Governance Participation</span>
-                </div>
-                <div class="foot-note">
-                    <span class="green">*</span>estimate based on average 20% circulating NEO voting participation
+                    <div class="foot-note">
+                        <span class="green">*</span>estimate based on average 20% circulating NEO voting participation
+                    </div>
                 </div>
             </div>
         </div>
@@ -407,7 +409,7 @@
                     @{ string[,] governanceItems = new string[3, 3]
                                      {
                                                                 { "How to vote", "/images/home/vote.svg", "https://www.google.com" },
-                                                                { "General guide to governance", "/images/home/ReadDocumentation.svg", "gov" },
+                                                                { "General guide to governance", "/images/home/ReadDocumentation.svg", "/gov" },
                                                                 { "Register as a committee candidate", "/images/home/register.svg", "https://www.google.com" }
  };
 
@@ -416,7 +418,7 @@
             <a class="float-card" href="@governanceItems[i, 2]">
                 <div class="card-text-wrapper">
                     <div class="green-vertline"></div>
-                    <div class="text-uppercase card-text">
+                    <div class="card-text">
                         @governanceItems[i, 0]
                     </div>
                 </div>
@@ -483,7 +485,7 @@
                     <div class="float-card">
                         <div class="card-text-wrapper">
                             <div class="green-vertline"></div>
-                            <div class="text-uppercase card-text">
+                            <div class="card-text">
                                 @governanceItems[i, 0]
                             </div>
                         </div>
@@ -524,7 +526,7 @@
         <div class="float-card">
             <div class="card-text-wrapper">
                 <div class="green-vertline"></div>
-                <div class="text-uppercase card-text">
+                <div class="card-text">
                     @governanceItems[i, 0]
                 </div>
             </div>
@@ -561,7 +563,7 @@
                 <div class="github-status">
                     <span class="github-status-num" id="github-sub">-</span>subscribers
                 </div>
-                <a href="https://github.com/neo-project"><img class="github-icon" data-original="@Helper.ToCDN("/images/home/Github.png")" /></a>
+                <a href="https://github.com/neo-project" target="_blank"><img class="github-icon" data-original="@Helper.ToCDN("/images/home/Github.png")" /></a>
             </div>
         </div>
     </div>
@@ -570,8 +572,26 @@
     <div class="contributors-img-wrapper" id="scroll-wrapper">
         <img class="contributors-img" usemap="#contributorsmap" data-original="@Helper.ToCDN("/images/home/Contributors.svg")">
         <map name="contributorsmap">
-            <area shape="rect" coords="1950 550 2125 605" alt="NDG Enterprise" href="https://www.google.com" />
-            <area shape="rect" coords="2150 550 2335 605" alt="NDG Enterprise" href="https://www.google.com" />
+            <area shape="rect" coords="306 87 377 112" alt="NDG Enterprise Github" href="https://github.com/ngdenterprise" target="_blank" />
+            <area shape="rect" coords="306 119 377 142" alt="NDG Enterprise Website" href="https://ngdenterprise.com" target="_blank" />
+            <area shape="rect" coords="321 219 392 242" alt="NDG Tracker Github" href="https://github.com/neo-one-suite" target="_blank" />
+            <area shape="rect" coords="320 249 392 242" alt="NDG Tracker Website" href="https://neo-one.io" target="_blank" />
+            <area shape="rect" coords="402 303 473 325" alt="COZ Github" href="https://github.com/CityOfZion" target="_blank" />
+            <area shape="rect" coords="402 333 472 356" alt="COZ Website" href="https://coz.io" target="_blank" />
+            <area shape="rect" coords="715 174 787 196" alt="NEO Research Github" href="https://github.com/neoresearch" target="_blank" />
+            <area shape="rect" coords="715 203 787 226" alt="NEO Research Website" href="https://neoresearch.io" target="_blank" />
+            <area shape="rect" coords="805 304 876 326" alt="Red4Sec Github" href="https://github.com/red4sec" target="_blank" />
+            <area shape="rect" coords="805 335 876 356" alt="Red4Sec Website" href="https://red4sec.com/en" target="_blank" />
+            <area shape="rect" coords="932 221 1004 243" alt="AxLabs Github" href="https://github.com/AxLabs" target="_blank" />
+            <area shape="rect" coords="932 250 1004 273" alt="AxLabs Website" href="https://axlabs.com" target="_blank" />
+            <area shape="rect" coords="1053 316 1124 338" alt="NEO S.Petersburg Center Github" href="https://github.com/nspcc-dev/" target="_blank" />
+            <area shape="rect" coords="1053 340 1124 368" alt="NEO S.Petersburg Center Website" href="https://nspcc.ru/en/" target="_blank" />
+            <area shape="rect" coords="1053 316 1124 338" alt="NGD Shanghai Github" href="https://github.com/neo-project" target="_blank" />
+            <area shape="rect" coords="1053 340 1124 368" alt="NGD Shanghai Website" href="https://neo.org" target="_blank" />
+            <area shape="rect" coords="1479 205 1550 228" alt="NewEconoLab Github" href="https://github.com/NewEconoLab" target="_blank" />
+            <area shape="rect" coords="1479 235 1500 258" alt="NewEconoLab Website" href="https://nel.group/index-En.html" target="_blank" />
+            <area shape="rect" coords="1484 345 1554 366" alt="NEXT Github" href="https://github.com/NeoNEXT" target="_blank" />
+            <area shape="rect" coords="1484 235 1554 396" alt="NEXT Website" href="https://neonext.io" target="_blank" />
         </map>
     </div>
     <div class="scroll-buttons">
@@ -588,15 +608,15 @@
                 @Localizer["Join the"] <span class="green">@Localizer["Community"]</span>
             </div>
             <div class="additional-icons">
-                <i class="iconfont additional-icon">&#xe616;</i>
-                <i class="iconfont additional-icon">&#xe60a;</i>
-                <i class="iconfont additional-icon">&#xe60d;</i>
-                <i class="iconfont additional-icon">&#xe606;</i>
-                <i class="iconfont additional-icon">&#xe60e;</i>
-                <i class="iconfont additional-icon">&#xe607;</i>
-                <i class="iconfont additional-icon">&#xe60a;</i>
-                <i class="iconfont additional-icon">&#xe608;</i>
-            </div>
+                <a href="https://www.facebook.com/NEOSmartEcon/" target="_blank"><i class="iconfont additional-icon">&#xe616;</i></a>
+                <a href="https://discord.gg/jwBp5P9ryb" target="_blank"><i class="iconfont additional-icon">&#xe60b;</i></a>
+                <a href="https://neo3.azureedge.net/images/qrcode.jpg" target="_blank"><i class="iconfont additional-icon">&#xe60d;</i></a>
+                <a href="https://t.me/NEO_EN" target="_blank"><i class="iconfont additional-icon">&#xe606;</i></a>
+                <a href="https://weibo.com/neosmarteconomy" target="_blank"><i class="iconfont additional-icon">&#xe60e;</i></a>
+                <a href="https://twitter.com/NEO_Blockchain" target="_blank"><i class="iconfont additional-icon">&#xe607;</i></a>
+                <a href="https://www.reddit.com/r/NEO/" target="_blank"><i class="iconfont additional-icon">&#xe60a;</i></a>
+                <a href="https://medium.com/neo-smart-economy" target="_blank"><i class="iconfont additional-icon">&#xe608;</i></a>
+</div>
         </div>
         <div class="additional-item">
             <div class="additional-title  @SharedLocalizer["d-none-zh"]">
@@ -606,7 +626,7 @@
                 @Localizer["Explore the"] <span class="green">@Localizer["Ecosystem"]</span>
             </div>
             <div class="additional-icons">
-                <i class="iconfont additional-icon">&#xe611;</i>
+                <a href="https://ndapp.org" target="_blank"><i class="iconfont additional-icon">&#xe611;</i></a>
             </div>
         </div>
         <div class="additional-item">
@@ -617,12 +637,12 @@
                 @Localizer["Industry"] <span class="green">@Localizer["Partners"]</span>
             </div>
             <div class="additional-icons">
-                <i class="iconfont additional-icon">&#xe620;</i>
-                <img class="additional-img" data-original="@Helper.ToCDN("/images/home/PolyNetwork.png")" />
-                <i class="iconfont additional-icon">&#xe625;</i>
-                <i class="iconfont additional-icon">&#xe628;</i>
-                <i class="iconfont additional-icon">&#xe62a;</i>
-            </div>
+                <a href="https://interwork.org" target="_blank"><i class="iconfont additional-icon">&#xe620;</i></a>
+                <a href="https://www.poly.network" target="_blank"><img class="additional-img" data-original="@Helper.ToCDN("/images/home/PolyNetwork.png")" /></a>
+                <a href="https://bsnbase.io/g/main/index" target="_blank"><i class="iconfont additional-icon">&#xe625;</i></a>
+                <a href="https://dotnetfoundation.org" target="_blank"><i class="iconfont additional-icon">&#xe628;</i></a>
+                <a href="https://www.ieee.org" target="_blank"><i class="iconfont additional-icon">&#xe62a;</i></a>
+</div>
         </div>
     </div>
 

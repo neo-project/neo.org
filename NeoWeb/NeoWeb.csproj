@@ -17,7 +17,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Remove="Resources\Views.Contributors._CommunitiesPartial.zh.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\css\news.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\Views.Contributors._CommunitiesPartial.zh.resx" />
   </ItemGroup>
   
   <ItemGroup>

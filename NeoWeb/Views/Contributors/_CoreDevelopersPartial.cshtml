@@ -9,14 +9,13 @@
 
 <div class="people-card-container">
     @{
-        string[,] people = new string[6, 4]
+        string[,] people = new string[5, 5]
         {
-            { "Erik Zhang", "张铮文", "Founder NEO", "Author, dBFT" },
-            { "Fernando Diaz Toledano", "Shargon", "Founder Red4Sec", "Expert in security" },
-            { "Igor M. Coelho", "TBD", "Co-Founder, NeoResearch", "Researcher & Professor" },
-            { "Victor Nazaio Coelho", "", "Co-Founder, NeoResearch", "Researcher" },
-            { "Roman Khimov", "", "Principal Software Engineer, Neo Spcc", "" },
-            { "Harry Pieson", "", "Chief Architect, NGD Enterprise", "" },
+            { "Erik Zhang", "张铮文", "Neo Founder", "Founder and Core developer of Neo, Chair of Neo Foundation", "https://www.linkedin.com/in/erik-zhang-5a6b14ab/" },
+            { "Da Hongfei", "达鸿飞", "Neo Founder", "Founder of Neo, Chair of Neo Foundation, CEO of NGD", "https://www.linkedin.com/in/dahongfei/" },
+            { "John deVadoss", "", "NGD Enterprise Founder", "Director of Enterprise Adoption", "https://www.linkedin.com/in/johnkdevadoss/" },
+            { "Longfei Wang", "王龙飞", "NEO Foundation", "Developer Community Strategist", "https://www.linkedin.com/in/longfei-wang-a7b3b125/" },
+            { "Grace Gui", "桂海芳", "NEO Foundation", "Program Manager", "https://www.linkedin.com/in/grace-gui-95906635/" }
         };
 
 
@@ -36,13 +35,13 @@
             {
         <div class="content-row">
             <div class="secondary-name">@people[i, 1]</div>
-            <a href="https://www.linkedin.com" target="_blank"><img class="link-icon" data-original="@Helper.ToCDN("/images/discover/LinkedIn.svg")" /></a>
+            <a href="@people[i, 4]" target="_blank"><img class="link-icon" data-original="@Helper.ToCDN("/images/discover/LinkedIn.svg")" /></a>
         </div>}
 
             @if (!String.IsNullOrEmpty(people[i, 2]))
             {
         <div class="content-row">
-            <div class="title-name">@people[i, 2]</div>
+            <div class="title-name">@Localizer[people[i, 2]]</div>
         </div>}
 
             @if (!String.IsNullOrEmpty(people[0, 3]))

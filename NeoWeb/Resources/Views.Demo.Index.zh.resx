@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,157 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="A global effort" xml:space="preserve">
-    <value>全球努力</value>
+  <data name="Body" xml:space="preserve">
+    <value>正文文本</value>
   </data>
-  <data name="About Neo" xml:space="preserve">
-    <value>关于 Neo</value>
+  <data name="Button" xml:space="preserve">
+    <value>按钮</value>
   </data>
-  <data name="Blogs" xml:space="preserve">
-    <value>博客</value>
+  <data name="Font ABCD abcd" xml:space="preserve">
+    <value>字体 测试文本测试文本</value>
   </data>
-  <data name="Contact NGD" xml:space="preserve">
-    <value>联系 NGD</value>
+  <data name="H1" xml:space="preserve">
+    <value>一级标题</value>
   </data>
-  <data name="Contact Us" xml:space="preserve">
-    <value>联系我们</value>
+  <data name="H2" xml:space="preserve">
+    <value>二级标题</value>
   </data>
-  <data name="Contributors &amp; Collaborations" xml:space="preserve">
-    <value>贡献者和合作伙伴</value>
+  <data name="H3" xml:space="preserve">
+    <value>三级标题</value>
   </data>
-  <data name="Contributors &amp; Collaborators" xml:space="preserve">
-    <value>贡献者</value>
+  <data name="H4" xml:space="preserve">
+    <value>四级标题</value>
   </data>
-  <data name="Developer" xml:space="preserve">
-    <value>开发者</value>
-  </data>
-  <data name="Discover" xml:space="preserve">
-    <value>发现更多</value>
-  </data>
-  <data name="Discover Neo" xml:space="preserve">
-    <value>发现 Neo</value>
-  </data>
-  <data name="Documentation" xml:space="preserve">
-    <value>开发者文档</value>
-  </data>
-  <data name="Eco-Support" xml:space="preserve">
-    <value>生态支持</value>
-  </data>
-  <data name="EcoGrowth" xml:space="preserve">
-    <value>生态发展</value>
-  </data>
-  <data name="Ecosystem" xml:space="preserve">
-    <value>生态</value>
-  </data>
-  <data name="Enter Email Address" xml:space="preserve">
-    <value>输入邮箱地址</value>
-  </data>
-  <data name="Events" xml:space="preserve">
-    <value>活动</value>
-  </data>
-  <data name="Examples &amp; Tutorials" xml:space="preserve">
-    <value>案例与教学</value>
-  </data>
-  <data name="Explore the features" xml:space="preserve">
-    <value>探索功能</value>
-  </data>
-  <data name="For Developers" xml:space="preserve">
-    <value>开发者</value>
-  </data>
-  <data name="For Media" xml:space="preserve">
-    <value>媒体</value>
-  </data>
-  <data name="For token holders" xml:space="preserve">
-    <value>社区成员</value>
-  </data>
-  <data name="General" xml:space="preserve">
-    <value>一般事务</value>
-  </data>
-  <data name="Governance" xml:space="preserve">
-    <value>治理</value>
-  </data>
-  <data name="https://t.me/NEO_EN" xml:space="preserve">
-    <value>https://t.me/NEO_Chinese</value>
-  </data>
-  <data name="Join US" xml:space="preserve">
-    <value>加入我们</value>
-  </data>
-  <data name="Keep in touch" xml:space="preserve">
-    <value>保持联系</value>
-  </data>
-  <data name="Keep up to date on all the news, events and developments." xml:space="preserve">
-    <value>不错过最新消息与项目进展。</value>
-  </data>
-  <data name="Learn about the Neo project" xml:space="preserve">
-    <value>了解 Neo 项目</value>
-  </data>
-  <data name="Marketing" xml:space="preserve">
-    <value>市场运营</value>
-  </data>
-  <data name="MIGRATE TO N3" xml:space="preserve">
-    <value>迁移到 N3</value>
-  </data>
-  <data name="Migration" xml:space="preserve">
-    <value>迁移</value>
-  </data>
-  <data name="NEO &amp; GAS &amp; Wallet" xml:space="preserve">
-    <value>NEO、GAS、钱包</value>
-  </data>
-  <data name="Neo Defined" xml:space="preserve">
-    <value>Neo 介绍</value>
-  </data>
-  <data name="Neo is an open-source, community driven platform that is leveraging the intrinsic advantages of blockchain technology to realize the optimized digital world of the future." xml:space="preserve">
-    <value>作为一个由社区驱动的开源平台，Neo 正利用区块链技术的内在优势，提供面向未来数字世界的全套解决方案，为实现智能经济打造下一代互联网基础设施。</value>
-  </data>
-  <data name="Neo Smart Economy" xml:space="preserve">
-    <value>Neo 智能经济</value>
-  </data>
-  <data name="Neo Technology" xml:space="preserve">
-    <value>Neo 科技</value>
-  </data>
-  <data name="Neo’s unique duel token model" xml:space="preserve">
-    <value>Neo 独特的双代币模型</value>
-  </data>
-  <data name="News" xml:space="preserve">
-    <value>新闻</value>
-  </data>
-  <data name="Platform" xml:space="preserve">
-    <value>平台</value>
-  </data>
-  <data name="Press Kit" xml:space="preserve">
-    <value>媒体资源</value>
-  </data>
-  <data name="Submit" xml:space="preserve">
-    <value>提交</value>
-  </data>
-  <data name="Subscribe to our monthly newsletter." xml:space="preserve">
-    <value>订阅我们的 Newsletter</value>
-  </data>
-  <data name="Sumbit" xml:space="preserve">
-    <value>提交</value>
-  </data>
-  <data name="Technical Documents" xml:space="preserve">
-    <value>技术文档</value>
-  </data>
-  <data name="Technology" xml:space="preserve">
-    <value>特色技术</value>
-  </data>
-  <data name="Tooling" xml:space="preserve">
-    <value>工具</value>
-  </data>
-  <data name="Vulnerability Bounty" xml:space="preserve">
-    <value>安全漏洞奖励</value>
-  </data>
-  <data name="Wallet" xml:space="preserve">
-    <value>钱包</value>
-  </data>
-  <data name="Wallets" xml:space="preserve">
-    <value>钱包</value>
-  </data>
-  <data name="WeChat" xml:space="preserve">
-    <value>微信</value>
-  </data>
-  <data name="Weibo" xml:space="preserve">
-    <value>微博</value>
+  <data name="Tag" xml:space="preserve">
+    <value>标签</value>
   </data>
 </root>

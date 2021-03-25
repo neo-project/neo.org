@@ -1,252 +1,235 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
 <div class="menu-page-title">
     <img class="menu-page-title-img" data-original="@Helper.ToCDN("/images/eco/eco-boost-title.png", true)" />
     <span class="menu-page-title-text">
-        EcoBoost
+        @Localizer["EcoBoost"]
     </span>
 </div>
-
 <div class="menu-page-introduction clearfix">
     <img class="menu-page-introduction-img" data-original="@Helper.ToCDN("/images/eco/eco-boost.png", true)" />
     <div class="menu-page-title">
         <img class="menu-page-title-img" data-original="@Helper.ToCDN("/images/eco/eco-boost-title.png", true)" />
         <span class="menu-page-title-text">
-            EcoBoost
+            @Localizer["EcoBoost"]
         </span>
     </div>
     <div class="menu-page-introduction-title">
-        Working together
+        @Localizer["Working together"]
     </div>
     <div class="menu-page-introduction-description">
-        <p><strong>Working in tandem with various partners, the EcoBoost program provides full lifecycle support for high-potential projects.</strong></p>
-        <p>First announced at Consenus 2019, EcoBoost is a US $100 million intiative designed to grow the Neo ecosystem.</p>
-        <p>Operated by the Neo Global Development EcoGrowth department, the program works by building up a partner network to provide assistance to Neo-based projects.</p>
-        <p>EcoBoost partners are leveraged to provide full lifecycle support to Neo projects, based on the individual requirements of each project. For example, media partners can assist with outreach and publicity, exchange partners can help list tokens and stimulate liquidity, and institutional partners can provide industry resources.</p>
-        <p>EcoBoost partners will benefit from business growth opportunities provided by access to the Neo ecosystem and its global community.</p>
-        <p>The Neo Global Development EcoGrowth team will work with EcoBoost partners and projects to ensure mutially beneficial outcomes for all participants.</p>
+        <p><strong>@Localizer["Working in tandem with various partners, the EcoBoost program provides full lifecycle support for high-potential projects."]</strong></p>
+        <p>@Localizer["First announced at Consenus 2019, EcoBoost is a US $100 million intiative designed to grow the Neo ecosystem."]</p>
+        <p>@Localizer["Operated by the Neo Global Development EcoGrowth department, the program works by building up a partner network to provide assistance to Neo-based projects."]</p>
+        <p>@Localizer["EcoBoost partners are leveraged to provide full lifecycle support to Neo projects, based on the individual requirements of each project. For example, media partners can assist with outreach and publicity, exchange partners can help list tokens and stimulate liquidity, and institutional partners can provide industry resources."]</p>
+        <p>@Localizer["EcoBoost partners will benefit from business growth opportunities provided by access to the Neo ecosystem and its global community."]</p>
+        <p>@Localizer["The Neo Global Development EcoGrowth team will work with EcoBoost partners and projects to ensure mutially beneficial outcomes for all participants."]</p>
     </div>
 </div>
 
-
 <div class="menu-page-divider"></div>
-
 <div class="menu-page-secondary-title">
-    How to apply
+    @Localizer["How to apply"]
 </div>
-
 <div class="menu-page-description">
-    <strong>Projects or organizations that believe they fit the scope of the EcoBoost program are welcome to apply.</strong>
+    <strong>@Localizer["Projects or organizations that believe they fit the scope of the EcoBoost program are welcome to apply."]</strong>
 </div>
-
 <div class="menu-page-tertiary-title">
-    projects
+    @Localizer["projects"]
 </div>
-
 <div class="application">
     <div class="application-start">
         <div class="application-start-title">
-            If you are…
+            @Localizer["If you are…"]
         </div>
         <ul class="application-start-items">
             <li>
-                A Project or business within the Neo ecosystem
+                @Localizer["A Project or business within the Neo ecosystem"]
             </li>
             <li>
-                A Project or business looking to migrate to, or integrate Neo
+                @Localizer["A Project or business looking to migrate to, or integrate Neo"]
             </li>
             <li>
-                A Small team with innovative ideas and seed users, or
+                @Localizer["A Small team with innovative ideas and seed users, or"]
             </li>
             <li>
-                A Medium sized teams with a mature business model and existing community / customer base
+                @Localizer["A Medium sized teams with a mature business model and existing community / customer base"]
             </li>
         </ul>
     </div>
     <div class="application-end">
         <i class="application-chevron iconfont">&#xe6ab;</i>
         <div class="application-end-title">
-            EcoBoost could provide…
+            @Localizer["EcoBoost could provide…"]
         </div>
         <div class="application-end-items">
             <div class="application-end-item">
                 <img class="application-end-item-img" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
                 <span class="application-end-item-text">
-                    Access to the network of EcoBoost partners for tailored support 
+                    @Localizer["Access to the network of EcoBoost partners for tailored support"]                 </span>
+            </div>
+            <div class="application-end-item">
+                <img class="application-end-item-img" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
+                <span class="application-end-item-text">
+                    @Localizer["Full lifecycle support, including funding, technology support, community access, and marketing assistance"]
                 </span>
             </div>
             <div class="application-end-item">
                 <img class="application-end-item-img" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
                 <span class="application-end-item-text">
-                    Full lifecycle support, including funding, technology support, community access, and marketing assistance
-                </span>
-            </div>
-            <div class="application-end-item">
-                <img class="application-end-item-img" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
-                <span class="application-end-item-text">
-                    Funding of up to US $50,000
+                    @Localizer["Funding of up to US $50,000"]
                 </span>
             </div>
         </div>
     </div>
 </div>
-
 <div class="requirements-title">
-    Application requirements
+    @Localizer["Application requirements"]
 </div>
-
 <div class="menu-page-description">
-    <strong>If you feel your project would benefit from EcoBoost support, please contact NGD EcoGrowth with the following information:</strong>
+    <strong>@Localizer["If you feel your project would benefit from EcoBoost support, please contact NGD EcoGrowth with the following information:"]</strong>
 </div>
-
 <ul class="requirements">
     <li>
-        Project or company name
+        @Localizer["Project or company name"]
     </li>
     <li>
-        Team size, names, experience, and location
+        @Localizer["Team size, names, experience, and location"]
     </li>
     <li>
-        Detailed information outlining:
+        @Localizer["Detailed information outlining:"]
         <ul class="requirements-sublist">
             <li>
-                The nature of your project or business
+                @Localizer["The nature of your project or business"]
             </li>
             <li>
-                Milestones you have achieved, along with short, medium, and long term goals
+                @Localizer["Milestones you have achieved, along with short, medium, and long term goals"]
             </li>
             <li>
-                Your unique value proposition
+                @Localizer["Your unique value proposition"]
             </li>
             <li>
-                Challenges you see in the short to medium term
+                @Localizer["Challenges you see in the short to medium term"]
             </li>
             <li>
-                Size of current user or customer base
+                @Localizer["Size of current user or customer base"]
             </li>
         </ul>
     </li>
     <li>
-        How you think EcoBoost can help you achieve your goals and what kind of support you are looking for
+        @Localizer["How you think EcoBoost can help you achieve your goals and what kind of support you are looking for"]
     </li>
     <li>
-        Links to your website or application
+        @Localizer["Links to your website or application"]
     </li>
     <li>
-        Main contact details
+        @Localizer["Main contact details"]
     </li>
 </ul>
-
 <div class="apply">
-    <div class="apply-text">Apply for a Project EcoBoost now, NGD EcoGrowth will generally respond within one month.</div>
+    <div class="apply-text">@Localizer["Apply for a Project EcoBoost now, NGD EcoGrowth will generally respond within one month."]</div>
     <a class="apply-btn btn-2 btn-small">
-        Apply Now&nbsp;&nbsp;<i class="iconfont">&#xe6ab;</i>
+        @Localizer["Apply Now"]&nbsp;&nbsp;<i class="iconfont">&#xe6ab;</i>
     </a>
 </div>
-
 <div class="menu-page-tertiary-title">
-    partners
+    @Localizer["partners"]
 </div>
-
 <div class="application">
     <div class="application-start">
         <div class="application-start-title">
-            If you are a…
+            @Localizer["If you are a…"]
         </div>
         <ul class="application-start-items">
             <li>
-                Media organization
+                @Localizer["Media organization"]
             </li>
             <li>
-                Exchange
+                @Localizer["Exchange"]
             </li>
             <li>
-                Wallet
+                @Localizer["Wallet"]
             </li>
             <li>
-                dApp directory
+                @Localizer["dApp directory"]
             </li>
             <li>
-                Educational organization
+                @Localizer["Educational organization"]
             </li>
             <li>
-                Security expert
+                @Localizer["Security expert"]
             </li>
         </ul>
     </div>
     <div class="application-end">
         <i class="application-chevron iconfont">&#xe6ab;</i>
         <div class="application-end-title">
-            EcoBoost could provide…
+            @Localizer["EcoBoost could provide…"]
         </div>
         <div class="application-end-items">
             <div class="application-end-item">
                 <img class="application-end-item-img" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
                 <span class="application-end-item-text">
-                    Opportunity to grow your busines through exposure to the Neo ecosystem
+                    @Localizer["Opportunity to grow your busines through exposure to the Neo ecosystem"]
                 </span>
             </div>
             <div class="application-end-item">
                 <img class="application-end-item-img" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
                 <span class="application-end-item-text">
-                    Access to the Neo community
+                    @Localizer["Access to the Neo community"]
                 </span>
             </div>
             <div class="application-end-item">
                 <img class="application-end-item-img" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
                 <span class="application-end-item-text">
-                    Technical support
+                    @Localizer["Technical support"]
                 </span>
             </div>
         </div>
     </div>
 </div>
-
 <div class="requirements-title">
-    Application requirements
+    @Localizer["Application requirements"]
 </div>
-
 <div class="menu-page-description">
-    <strong>If you feel your company would benefit from becoming a preferred partner of the Neo ecosystem through EcoBoost, please contact NGD EcoGrowth with the following information:</strong>
+    <strong>@Localizer["If you feel your company would benefit from becoming a preferred partner of the Neo ecosystem through EcoBoost, please contact NGD EcoGrowth with the following information:"]</strong>
 </div>
-
 <ul class="requirements">
     <li>
-        Project or company name
+        @Localizer["Project or company name"]
     </li>
     <li>
-        Location
+        @Localizer["Location"]
     </li>
     <li>
-        Detailed information on why you think a partnership with EcoBoost would be mutually beneficial for yourself the Neo ecosystem.
+        @Localizer["Detailed information on why you think a partnership with EcoBoost would be mutually beneficial for yourself the Neo ecosystem."]
     </li>
     <li>
-        Links to your website or application
+        @Localizer["Links to your website or application"]
     </li>
     <li>
-        Main contact details
+        @Localizer["Main contact details"]
     </li>
 </ul>
-
 <div class="apply">
-    <div class="apply-text">Apply for a Partner EcoBoost now, NGD EcoGrowth will generally respond within one month.</div>
+    <div class="apply-text">@Localizer["Apply for a Partner EcoBoost now, NGD EcoGrowth will generally respond within one month."]</div>
     <a class="apply-btn btn-2 btn-small">
-        Apply Now&nbsp;&nbsp;<i class="iconfont">&#xe6ab;</i>
+        @Localizer["Apply Now"]&nbsp;&nbsp;<i class="iconfont">&#xe6ab;</i>
     </a>
 </div>
-
 <div class="menu-page-divider"></div>
-
 <div class="menu-page-secondary-title">
-    Projects we have supported
+    @Localizer["Projects we have supported"]
 </div>
-
 <div class="menu-page-description">
-    At magnum periculum adiit in oculis quidem faciunt, ut summo bono, dolorem aspernari ut aut ad naturam aut rerum hic tenetur a se esse ratione intellegi posse et dolorem ipsum, quia voluptas sit, voluptatem et accusamus et quas molestias.
+    @Localizer["At magnum periculum adiit in oculis quidem faciunt, ut summo bono, dolorem aspernari ut aut ad naturam aut rerum hic tenetur a se esse ratione intellegi posse et dolorem ipsum, quia voluptas sit, voluptatem et accusamus et quas molestias."]
 </div>
-
 <div class="menu-page-tertiary-title">
-    Recently boosted projects
+    @Localizer["Recently boosted projects"]
 </div>
-
 <div class="projects">
     <i class="projects-controller-left iconfont">&#xe61c;</i>
     <i class="projects-controller-right iconfont">&#xe61b;</i>
@@ -255,37 +238,32 @@
             <a href="https://switcheo.network/">
                 <img class="project-img" data-original="@Helper.ToCDN("/images/eco/Switcheo logo.png", true)" />
             </a>
-            <div class="project-name">Switcheo</div>
-            <div class="project-description">Project, Partner</div>
+            <div class="project-name">@Localizer["Switcheo"]</div>
         </div>
         <div class="project">
             <a href="https://o3.network/">
                 <img class="project-img" data-original="@Helper.ToCDN("/images/eco/O3 logo.png", true)" />
             </a>
-            <div class="project-name">O3</div>
-            <div class="project-description">Project, Partner</div>
+            <div class="project-name">@Localizer["O3"]</div>
         </div>
+
         <div class="project">
             <a href="https://www.liquefy.com/">
                 <img class="project-img" data-original="@Helper.ToCDN("/images/eco/Liquefy logo.png", true)" />
             </a>
-            <div class="project-name">Liquefy</div>
-            <div class="project-description">Project, Partner</div>
+            <div class="project-name">@Localizer["Liquefy"]</div>
         </div>
         <div class="project">
             <a href="https://neoline.io/en/">
                 <img class="project-img" data-original="@Helper.ToCDN("/images/eco/neo-line-logo.png", true)" />
             </a>
-            <div class="project-name">NeoLine</div>
-            <div class="project-description">Project</div>
+            <div class="project-name">@Localizer["NeoLine"]</div>
         </div>
     </div>
 </div>
-
 <div class="menu-page-tertiary-title">
-    EcoBoost Partners
+    @Localizer["EcoBoost Partners"]
 </div>
-
 <div class="projects">
     <i class="projects-controller-left iconfont">&#xe61c;</i>
     <i class="projects-controller-right iconfont">&#xe61b;</i>
@@ -295,93 +273,80 @@
                 <img class="project-img" data-original="@Helper.ToCDN("/images/eco/Switcheo logo.png", true)" />
             </a>
             <div class="project-name">Switcheo</div>
-            <div class="project-description">Project, Partner</div>
+            <div class="project-description">@Localizer["Project, Partner"]</div>
         </div>
         <div class="project">
             <a href="https://o3.network/">
                 <img class="project-img" data-original="@Helper.ToCDN("/images/eco/O3 logo.png", true)" />
             </a>
             <div class="project-name">O3</div>
-            <div class="project-description">Project, Partner</div>
         </div>
         <div class="project">
             <a href="https://www.liquefy.com/">
                 <img class="project-img" data-original="@Helper.ToCDN("/images/eco/Liquefy logo.png", true)" />
             </a>
             <div class="project-name">Liquefy</div>
-            <div class="project-description">Project, Partner</div>
         </div>
         <div class="project">
             <a href="https://bittrex.com">
                 <img class="project-img" data-original="@Helper.ToCDN("/images/eco/Bittrex logo.png", true)" />
             </a>
             <div class="project-name">Bittrex</div>
-            <div class="project-description">Partner</div>
         </div>
         <div class="project">
             <a href="https://www.digifinex.com/en-ww/">
                 <img class="project-img" data-original="@Helper.ToCDN("/images/eco/DigiFinex logo.png", true)" />
             </a>
             <div class="project-name">DigiFinex</div>
-            <div class="project-description">Partner</div>
         </div>
         <div class="project">
             <a href="https://www.bibox.com/en">
                 <img class="project-img" data-original="@Helper.ToCDN("/images/eco/Bibox logo.png", true)" />
             </a>
             <div class="project-name">Bibox</div>
-            <div class="project-description">Partner</div>
         </div>
         <div class="project">
             <a href="https://www.bitmart.com/">
                 <img class="project-img" data-original="@Helper.ToCDN("/images/eco/BitMart logo.png", true)" />
             </a>
             <div class="project-name">BitMart</div>
-            <div class="project-description">Partner</div>
         </div>
         <div class="project">
             <a href="https://arkane.network">
                 <img class="project-img" data-original="@Helper.ToCDN("/images/eco/Arkane Network logo.png", true)" />
             </a>
             <div class="project-name">Arkane Network</div>
-            <div class="project-description">Partner</div>
         </div>
         <div class="project">
             <a href="https://cobo.com/">
                 <img class="project-img" data-original="@Helper.ToCDN("/images/eco/Cobo logo.png", true)" />
             </a>
             <div class="project-name">Cobo</div>
-            <div class="project-description">Partner</div>
         </div>
         <div class="project">
             <a href="https://trustwallet.com">
                 <img class="project-img" data-original="@Helper.ToCDN("/images/eco/Trust wallet logo.svg", true)" />
             </a>
             <div class="project-name">Trust Wallet</div>
-            <div class="project-description">Partner</div>
         </div>
         <div class="project">
             <a href="https://www.dapp.com">
                 <img class="project-img" data-original="@Helper.ToCDN("/images/eco/dapp dot com logo.png", true)" />
             </a>
             <div class="project-name">dapp.com</div>
-            <div class="project-description">Partner</div>
         </div>
         <div class="project">
             <a href="https://www.stateofthedapps.com">
                 <img class="project-img" data-original="@Helper.ToCDN("/images/eco/State of the Dapps logo.svg", true)" />
             </a>
             <div class="project-name">State of the Dapps</div>
-            <div class="project-description">Partner</div>
         </div>
         <div class="project">
             <a href="https://certik.org">
                 <img class="project-img" data-original="@Helper.ToCDN("/images/eco/Certik logo.png", true)" />
             </a>
             <div class="project-name">Certik</div>
-            <div class="project-description">Partner</div>
         </div>
     </div>
 </div>
-
 
