@@ -157,7 +157,7 @@
 
         <div class="blocks-container">
             @{ string[,] blocks = new string[7, 4]
-                                          {
+                                           {
                                                                                             {
                         "/images/home/OneBlockFinality3D.svg", "One Block Finality", "dBFT consensus mechanism guarantees fast and efficient finality in a single block.", "technology#dbft-2.0"
                     },
@@ -179,12 +179,12 @@
                                                             {
                         "/images/home/NeoID3D.svg", "NeoID", "A set of self-sovereign decentralized identity solution standards.", "technology#neo-id"
                     }
-};
+ };
 
                 for (int i = 0; i < blocks.GetLength(0); i++)
                 {
     <div class="block-wrapper">
-        <img class="block-icon" data-original="@blocks[i, 0]" />
+        <img class="block-icon" data-original="@Helper.ToCDN(blocks[i, 0])" />
         <div class="block-content-wrapper">
             <div class="block-title">
                 <i class="iconfont circle-arrow-icon">&#xe6ab;</i>
