@@ -38,7 +38,7 @@
 
 .introduction-img {
     margin-left: 2.25rem;
-    width: 300px;
+    width: 40%;
 
     @media (max-width: 767.98px) {
         display: none;
@@ -161,11 +161,15 @@
 .bullet-container {
     display: flex;
     flex-direction: column;
-    grid-row-gap: 12px;
     margin: 32px 0;
     .dark-blue;
     .nunito-sans-semibold;
     font-size: 1.25rem;
+    // grid-row-gap: 12px;
+
+    & > * + * {
+        margin-top: 12px;
+    }
 }
 
 .bullet-row {
