@@ -899,9 +899,9 @@ html body {
 }
 
 .blocks-large-img {
-    width: 100%;
-    transform: translateY(-56px);
-    margin-bottom: -32px;
+    transform: translateY(-48px);
+    margin-bottom: -26px;
+    align-self: center;
 
     &.zh {
         transform: translateY(-56px);
@@ -913,10 +913,11 @@ html body {
     }
 }
 
-.blocks-medium-img1 {
-    width: 95%;
-    transform: translateY(6px);
-    margin-bottom: 6px;
+.blocks-medium-img {
+    // transform: translateY(6px);
+    // margin-bottom: 6px;
+    align-self: center;
+    padding: 0 12px;
 
     &.zh {
         transform: translateY(-25px);
@@ -939,6 +940,7 @@ html body {
     // grid-row-gap: 2.25rem;
     margin: 3.625rem 0;
     width: 100%;
+    z-index: 1;
 
     & > * + * {
         margin-top: 2.25rem;
