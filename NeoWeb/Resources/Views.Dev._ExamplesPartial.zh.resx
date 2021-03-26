@@ -171,9 +171,6 @@
   <data name="Getting familiar with Neo-CLI commands" xml:space="preserve">
     <value>了解Neo-CLI命令行</value>
   </data>
-  <data name="How to use the Neo Blockchain Toolkits to interact with the blockchain and develop a smart contract." xml:space="preserve">
-    <value>使用Neo区块链工具包进行链上交互并开发智能合约。</value>
-  </data>
   <data name="Introduction to NEO·ONE" xml:space="preserve">
     <value>了解NEO-ONE</value>
   </data>
@@ -188,9 +185,6 @@
   </data>
   <data name="Load More" xml:space="preserve">
     <value>加载更多</value>
-  </data>
-  <data name="Neo Blockchain Toolkit for .NET Quickstart" xml:space="preserve">
-    <value>Neo 区块链工具包快速上手</value>
   </data>
   <data name="NEP-17 Python smart contract" xml:space="preserve">
     <value>NEP-17 Python 智能合约</value>
