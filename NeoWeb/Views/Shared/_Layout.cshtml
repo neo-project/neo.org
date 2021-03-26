@@ -250,12 +250,12 @@ https://github.com/neo-project/neo.org
         @Html.AntiForgeryToken()
         <p><input type="hidden" id="culture" name="culture" /><input type="hidden" id="returnUrl" name="returnUrl" /></p>
     </form>
-    <script src="@Helper.ToCDN("/lib/jquery/jquery.min.js")"></script>
-    <script src="@Helper.ToCDN("/lib/popper.js/popper.min.js")"></script>
-    <script src="@Helper.ToCDN("/lib/bootstrap/js/bootstrap.min.js")"></script>
-    <script src="@Helper.ToCDN("/js/jquery.lazyload.min.js")"></script>
-    <script src="@Helper.ToCDN("/js/jquery.throttle.min.js")"></script>
-    <script src="@Helper.ToCDN("/js/text-autospace.js")"></script>
+    <script src="@Helper.ToCDN("/lib/jquery/jquery.min.js", true)"></script>
+    <script src="@Helper.ToCDN("/lib/popper.js/popper.min.js", true)"></script>
+    <script src="@Helper.ToCDN("/lib/bootstrap/js/bootstrap.min.js", true)"></script>
+    <script src="@Helper.ToCDN("/js/jquery.lazyload.min.js", true)"></script>
+    <script src="@Helper.ToCDN("/js/jquery.throttle.min.js", true)"></script>
+    <script src="@Helper.ToCDN("/js/text-autospace.js", true)"></script>
     <environment include="Development">
         <script src="/js/site.js" asp-append-version="true"></script>
     </environment>
