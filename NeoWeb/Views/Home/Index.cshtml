@@ -651,15 +651,17 @@
         </div>
     </div>
 
-    <div class="row horiz-row latest-news-row">
-        <div class="latest-news-wrapper">
-            <div class="latest-news-title">
-                <span class="green">@Localizer["Latest"]</span> @Localizer["News"]
+    <div class="container">
+        <div class="row horiz-row latest-news-row">
+            <div class="latest-news-wrapper">
+                <div class="latest-news-title">
+                    <span class="green">@Localizer["Latest"]</span> @Localizer["News"]
+                </div>
+                <div class="row list2">
+                    @{await Html.RenderPartialAsync("../News/_ItemPartial", Model);}
+                </div>
+                <a asp-controller="news" asp-action="index" class="btn-n3 dark-blue view-all-btn">@Localizer["View All"]</a>
             </div>
-            <div class="row list2">
-                @{await Html.RenderPartialAsync("../News/_ItemPartial", Model);}
-            </div>
-            <a asp-controller="news" asp-action="index" class="btn-n3 dark-blue view-all-btn">@Localizer["View All"]</a>
         </div>
     </div>
 </div>
