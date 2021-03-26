@@ -2,26 +2,26 @@
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
-<h2 class="menu-page-title">Neo Foundation</h2>
-<div class="menu-page-description">
-    At magnum periculum adiit in oculis quidem faciunt, ut summo bono, dolorem aspernari ut aut ad naturam aut rerum hic tenetur a se esse ratione intellegi posse et dolorem ipsum, quia voluptas sit, voluptatem et accusamus et quas molestias.
+<h2 class="main-title">@Localizer["Neo Foundation"]</h2>
+<div class="page-paragraph">
+    @Localizer["The Neo Foundation is responsible for setting the strategic direction for the Neo project and distributing funding to various groups for execution. Led by project founders Da Hongfei and Erik Zhang, the Neo Foundation primarily liaises with Neo Global Development, sponsored communities, and core developers."]
 </div>
 
 <div class="people-card-container">
-    @{ string[,] people = new string[5, 5]
+    @{ string[,] people = new string[5, 6]
     {
-        { "Erik Zhang", "张铮文", "NEO FOUNDER", "Founder and Core developer of Neo, Chair of Neo Foundation", "https://www.linkedin.com/in/erik-zhang-5a6b14ab/" },
-        { "Da Hongfei", "达鸿飞", "NEO FOUNDER ", "Founder of Neo, Chair of Neo Foundation, CEO of NGD", "https://www.linkedin.com/in/dahongfei/" },
-        { "John deVadoss", "", "NGD ENTEPRISE FOUNDER", "Director of Enterprise Adoption", "https://www.linkedin.com/in/johnkdevadoss/" },
-        { "Longfei Wang", "王龙飞", "NEO FOUNDATION", "Developer Community Strategist", "https://www.linkedin.com/in/longfei-wang-a7b3b125/" },
-        { "Grace Gui", "桂海芳", "NEO FOUNDATION", "Program Manager", "" },
+        { "Erik Zhang", "张铮文", "NEO FOUNDER", "Founder and Core developer of Neo, Chair of Neo Foundation", "https://www.linkedin.com/in/erik-zhang-5a6b14ab/", "/images/discover/ErikZhang.jpg" },
+        { "Da Hongfei", "达鸿飞", "NEO FOUNDER ", "Founder of Neo, Chair of Neo Foundation, CEO of NGD", "https://www.linkedin.com/in/dahongfei/", "/images/discover/DaHongfei.jpg" },
+        { "John deVadoss", "", "NGD ENTEPRISE FOUNDER", "Director of Enterprise Adoption", "https://www.linkedin.com/in/johnkdevadoss/", "/images/discover/JohnDevadoss.jpg" },
+        { "Longfei Wang", "王龙飞", "NEO FOUNDATION", "Developer Community Strategist", "https://www.linkedin.com/in/longfei-wang-a7b3b125/", "/images/discover/LongfeiWang.jpg" },
+        { "Grace Gui", "桂海芳", "NEO FOUNDATION", "Program Manager", "", "/images/discover/GraceGui.jpg" },
     };
 
 
         for (int i = 0; i < people.GetLength(0); i++)
                     {
         <div class="people-card">
-            <img class="people-img" data-original="@Helper.ToCDN("/images/discover/placeholder.svg")" />
+            <img class="people-img" data-original="@Helper.ToCDN(people[i, 5])" />
 
             <div class="people-content">
                 <div class="col-name">

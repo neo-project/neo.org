@@ -117,8 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
-    <value />
+  <data name="After four years of stable MainNet operation, Neo is undergoing its biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
+    <value>&lt;strong&gt;N3&lt;/strong&gt; 是 Neo 区块链至今最强大也是功能最为完善的版本。迁移到 &lt;strong&gt;N3&lt;/strong&gt; 是 Neo 主网平稳运营四年以来面临的最大变革。</value>
+  </data>
+  <data name="Dev experience" xml:space="preserve">
+    <value>开发体验</value>
   </data>
   <data name="Neo Technology" xml:space="preserve">
     <value>Neo 科技</value>

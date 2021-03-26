@@ -2,59 +2,57 @@
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
-<h2 class="menu-page-title">Outstanding Contributers</h2>
-<div class="menu-page-description">
-    At magnum periculum adiit in oculis quidem faciunt, ut summo bono, dolorem aspernari ut aut ad naturam aut rerum hic tenetur a se esse ratione intellegi posse et dolorem ipsum, quia voluptas sit, voluptatem et accusamus et quas molestias.
+<h2 class="main-title">@Localizer["Outstanding Contributers"]</h2>
+<div class="page-paragraph">
+    @Localizer["Community projects like Neo attract people from all walks of life with all kinds of skills and abilities. Some may work with the project long term, while others may make impactful contributions over a short period of time. We like to provide special acknowledgement of these outstanding community members and thank them for their contributions to the Neo project."]
 </div>
 
 <div class="people-card-container">
-    @{ string[,] people = new string[12, 4]
-                     {
-                { "John Doe", "", "Founder Neo", "Author, dBFT" },
-                { "John Doe", "", "Founder Neo", "Author, dBFT" },
-                { "John Doe", "", "Founder Neo", "Author, dBFT" },
-                { "John Doe", "", "Founder Neo", "Author, dBFT" },
-                { "John Doe", "", "Founder Neo", "Author, dBFT" },
-                { "John Doe", "", "Founder Neo", "Author, dBFT" },
-                { "John Doe", "", "Founder Neo", "Author, dBFT" },
-                { "John Doe", "", "Founder Neo", "Author, dBFT" },
-                { "John Doe", "", "Founder Neo", "Author, dBFT" },
-                { "John Doe", "", "Founder Neo", "Author, dBFT" },
-                { "John Doe", "", "Founder Neo", "Author, dBFT" },
-                { "John Doe", "", "Founder Neo", "Author, dBFT" },
-                 };
+    @{ string[,] people = new string[24, 4]
+                        {
+                { "Fábio César Canesin", "COZ", "Co-Founder", "/images/discover/FabioCesarCanesin.jpg" },
+                { "Tyler B Adams", "COZ", "Co-Founder", "/images/discover/TylerBAdams.jpg" },
+                { "Fabian Wahle", "COZ | Neo SPCC", "Co-Founder | Founder", "/images/discover/FabianWahle.jpg" },
+                { "Dean Jeffs", "Neo News Today", "Founder", "/images/discover/DeanJeffs.jpg" },
+                { "Lights Li", "Core Developer | NEL", "Alumnus | Co-founder", "/images/discover/LightsLi.jpg" },
+                { "Thomas Saunders", "COZ | Neo Python", "Co-founder | Author", "/images/discover/ThomasSaunders.jpg" },
+                { "Jeff Solinsky", "Core Developer", "Alumnus", "/images/discover/JeffSolinsky.jpg" },
+                { "Jaime Kindelan Alonso", "Core Developer | Red4Sec", "Alumnus | Co-founder", "/images/discover/JaimeKindelanAlonso.jpg" },
+                { "Ashley Rolleston", "Core Developer | COZ", "Alumnus | Co-founder", "/images/discover/AshleyRolleston.jpg" },
+                { "Guilherme Sperb Machado", "AxLabs", "Founder", "/images/discover/GuilhermeSperbMachado.jpg" },
+                { "Edison Chen", "NEXT", "Founder", "/images/discover/EdisonChen.jpg" },
+                { "Alex Dicarlo", "NEO Tracker", "Founder", "/images/discover/AlexDicarlo.jpg" },
+                { "Peter Lin", "Alienworks", "Founder", "/images/discover/PeterLin.jpg" },
+                { "Yongxin Liu", "NewEconoLabs", "Co-founder", "/images/discover/YongxinLiu.jpg" },
+                { "Apisit Toompakdee", "O3 Labs", "Co-founder", "/images/discover/ApisitToompakdee.jpg" },
+                { "Brett Rhodes", "Neo News Today", "Editor", "/images/discover/placeholder.jpg" },
+                { "Chris Hager", "COZ", "Developer", "/images/discover/ChrisHager.jpg" },
+                { "Ethan Fast", "COZ | Neon Wallet", "Co-founder | Author", "/images/discover/EthanFast.jpg" },
+                { "Erik van den Brink", "COZ", "Developer", "/images/discover/ErikVanDenBrink.jpg" },
+                { "Luciano Engel", "COZ | Neoscan", "Co-founder | Author", "/images/discover/LucianoEngel.jpg" },
+                { "Anthony De Meulemeester", "COZ | NeoGo / NeoStorm", "Developer | Author", "/images/discover/AnthonyDeMeulemeester.jpg" },
+                { "Andrei Terentiev", "O3 Labs", "Co-founder", "/images/discover/AndreiTerentiev.jpg" },
+                { "Dylan Grabowski", "Neo News Today", "Editor", "/images/discover/placeholder.jpg" },
+                { "Joe Stewart", "COZ", "Developer", "/images/discover/JoeStewart.jpg" },
+        };
 
 
         for (int i = 0; i < people.GetLength(0); i++)
         {
-<div class="people-card">
-    <img class="people-img" data-original="@Helper.ToCDN("/images/discover/placeholder.svg")" />
+        <div class="people-card">
+            <img class="people-img" data-original="@Helper.ToCDN(people[i, 3])" />
+            <div class="people-content">
+                <div class="col-name">
+                    <div class="primary-name">@people[i, 0]</div>
+                    @if (!String.IsNullOrEmpty(people[i, 1]))
+                    {
+            <div class="title-name">@Localizer[people[i, 1]]</div>}
+                    @if (!String.IsNullOrEmpty(people[0, 2]))
+                    {
+            <div class="people-description">@people[i, 2]</div>}
+                </div>
+            </div>
 
-    @if (!String.IsNullOrEmpty(people[i, 0]))
-    {
-<div class="content-row">
-    <div class="primary-name">@people[i, 0]</div>
-    <a href="https://www.github.com" target="_blank"><i class="iconfont link-icon">&#xe609;</i></a>
-</div>}
 
-    @if (!String.IsNullOrEmpty(people[i, 1]))
-    {
-<div class="content-row">
-    <div class="secondary-name">@people[i, 1]</div>
-    <a href="https://www.linkedin.com" target="_blank"><img class="link-icon" data-original="@Helper.ToCDN("/images/discover/LinkedIn.svg")" /></a>
-</div>}
-
-    @if (!String.IsNullOrEmpty(people[i, 2]))
-    {
-<div class="content-row">
-    <div class="title-name">@people[i, 2]</div>
-</div>}
-
-    @if (!String.IsNullOrEmpty(people[0, 3]))
-    {
-<div class="content-row">
-    <div class="people-description">@people[i, 3]</div>
-</div>}
-
-</div> } }
+        </div> } }
 </div>
