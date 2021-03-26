@@ -661,7 +661,7 @@ html body {
 
         @media only screen and (max-width: 767.98px) {
             height: 100%;
-            padding-left: 15px;
+            padding-left: 0;
             width: 100%;
         }
     }
@@ -1221,7 +1221,8 @@ html body {
         left: 0;
         margin: 0;
         padding: 0;
-        height: 100vh;
+        height: 100%;
+        width: 100%;
         background-color: #010135;
     }
 
@@ -2319,8 +2320,7 @@ html body {
         // grid-column-gap: 0;
 
         & > * + * {
-            margin-top: 2rem;
-            margin-left: 8rem;
+            margin: 2rem 0 0 0;
         }
     }
 }
@@ -2336,23 +2336,23 @@ html body {
     width: 100%;
     // grid-row-gap: 1rem;
 
-    & > * + * {
-        margin-top: 1rem;
+    & > * {
+        margin: 0.5rem;
     }
 
     @media only screen and (max-width: 1200px) {
         // grid-row-gap: 0.8rem;
 
-        & > * + * {
-            margin-top: 0.8rem;
+        & > * {
+            margin: 0.4rem;
         }
     }
 
     @media only screen and (max-width: 767.98px) {
         // grid-row-gap: 0.8rem;
 
-        & > * + * {
-            margin-top: 0.8rem;
+        & > * {
+            margin-top: 0.3rem;
         }
     }
 }
@@ -2364,7 +2364,11 @@ html body {
     .dark-blue;
     .uppercase;
     font-size: 1rem;
-    width: calc(50% - 10px);
+    width: calc(50% - 1rem);
+
+    @media only screen and (max-width: 767.98px) {
+        font-size: 0.6rem;
+    }
 }
 
 .github-status-num {
@@ -2383,7 +2387,7 @@ html body {
     }
 
     @media only screen and (max-width: 767.98px) {
-        line-height: 0.95;
+        line-height: 0.85;
         font-size: 3.5rem;
     }
 }
