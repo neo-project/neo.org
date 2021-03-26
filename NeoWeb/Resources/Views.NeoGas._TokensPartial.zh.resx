@@ -117,34 +117,73 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AlienworksDescription" xml:space="preserve">
-    <value>Alienworks is a global group of developers formed to build tools and resources to support current and future developers in Neo's ecosystem and beyond. Its goal is to provide users and developers with the convenience of using and building a future-oriented smart economy in the crypto world.</value>
+  <data name="100 million NEO were generated at genesis, with approximately 50% reserved by the Neo Foundation to incentivise the development of the Neo ecosystem. The release schedule can be found in the Neo White Paper." xml:space="preserve">
+    <value>创世块共产生了一亿个NEO通证，其中约50％由Neo基金会保留，以激励Neo生态系统的发展。 具体释放时间表可以在《Neo白皮书》中找到。</value>
   </data>
-  <data name="AxLabsDescription" xml:space="preserve">
-    <value>AxLabs is a community developing and maintaining projects in the Neo Ecosystem, mainly focusing on Developer Experience (DevEx). AxLabs joined Neo in late 2018, and since then has been building various tools to make the DevEx on Neo as smooth and intuitive as possible. Examples are tools for Java/Kotlin developers, like the neow3j SDK, the neow3j compiler &amp; devpack, as well as the Neo Playground. &lt;br /&gt;&lt;br /&gt;The team consists of passionate builders and open-source enthusiasts, with a track record in projects in the blockchain scene. Alongside its broad software engineering experience, AxLabs team members share a strong academic background, with close ties to educational institutions in Switzerland - giving workshops, lectures, and tutorials for a broad audience across the globe.</value>
+  <data name="5 GAS tokens are generated every block and distributed in three parts:" xml:space="preserve">
+    <value>每个区块产生五个GAS。并分配到三个地方：</value>
   </data>
-  <data name="CozDescription" xml:space="preserve">
-    <value>COZ is a software development group specializing in blockchain and distributed technologies. Since its humble beginnings as an open source, community driven organization, COZ has become one of blockchain’s most respected development organizations, consistently delivering groundbreaking products. COZ is responsible for projects such as Neon wallet, Dora, the Neo Python suite, and Neon-js.</value>
+  <data name="A user with" xml:space="preserve">
+    <value>用户持有</value>
   </data>
-  <data name="NeoNewsTodayDescription" xml:space="preserve">
-    <value>Neo News Today is a community run news website dedicated to delivering up-to-date information on all things connected to the Neo ecosystem. NNT provides breaking news, interviews, guides, and resources materials, carefully delivered to the community with an emphasis on accuracy and reliability.</value>
+  <data name="estimate based on average 20% circulating NEO voting participation" xml:space="preserve">
+    <value>根据20%投票参与率预估</value>
   </data>
-  <data name="NeoResearchDescription" xml:space="preserve">
-    <value>NeoResearch is an open-source community which supports the ecosystem with teaching, researching and applied development for blockchain technology. The group welcomes contributors to discuss, investigate and propose solutions for challenges that are present on a variety of core components of the Neo Blockchain. In this sense, monitoring, analysis, testing and experimentation are core concepts embraced by NeoResearch. Empowering the ecosystem with didactic tools is a path for technology adoption and a positive identity consolidation is NeoResearch's vision.</value>
+  <data name="For Governance Participation" xml:space="preserve">
+    <value>参与治理</value>
   </data>
-  <data name="NeoTrackerDescription" xml:space="preserve">
-    <value>NEO Tracker is the team is behind the NEO•ONE and NEO Tracker tools. NEO•ONE is an open source end-to-end framework that makes coding, testing and deploying Neo dapps easy, fast, efficient and enjoyable. NEO Tracker is a blockchain explorer and web wallet which gives users a gateway to interact with the Neo Blockchain. The NEO Tracker team aims to provide powerful, intuitive and approachable tools for the community.</value>
+  <data name="For holding NEO" xml:space="preserve">
+    <value>持有NEO</value>
   </data>
-  <data name="NewEconoLabsDescription" xml:space="preserve">
-    <value>NEL is a Chinese developer community committed to providing developer-friendly tools to improve Neo's ease of use. It has developed and maintained many blockchain tools such as NELScan browser, NEORAY online contract development tool, Teemo wallet, etc.</value>
+  <data name="GAS" xml:space="preserve">
+    <value>GAS</value>
   </data>
-  <data name="NextDescription" xml:space="preserve">
-    <value>NEXT is a next-generation internet application lab, delivering Neo open network infrastructure services. The community was created as a dApp incubator, seeking to pull more developers into the Neo community and spearhead innovation in the blockchain sector.</value>
+  <data name="Gas Per Month" xml:space="preserve">
+    <value>GAS/月</value>
   </data>
-  <data name="Red4SecDescription" xml:space="preserve">
-    <value>Red4Sec is a Cybersecurity company located in Madrid, Spain, specializing in blockchain technologies, ethical hacking, penetration testing, and code audits. Rec4Sec was formed by a team of experts and security analysts with many years of experience in the Cybersecurity sector. In recent years, Red4Sec has become increasingly focused on blockchain and smart contract code audits and has partnered with great blockchain projects such as Neo.</value>
+  <data name="Migration" xml:space="preserve">
+    <value>迁移</value>
   </data>
-  <data name="SpccDescrition" xml:space="preserve">
-    <value>With support from Neo Foundation, Neo SPCC works on Neo ecosystem projects as a part of the international community of developers. Neo SPCC core projects are NeoFS, a decentralized object storage platform integrated with Neo Blockchain, and NeoGo, high-performance Neo node implementation and SDK for Go programming language. &lt;br /&gt;&lt;br /&gt;Neo SPCC's long-term goal is to build a true decentralized cloud platform using Neo technologies that will allow solving almost any real-world B2B and B2C problems in a decentralized setting.</value>
+  <data name="migration page" xml:space="preserve">
+    <value>迁移页面</value>
+  </data>
+  <data name="NEO" xml:space="preserve">
+    <value>NEO</value>
+  </data>
+  <data name="NEO &amp; GAS Calculator" xml:space="preserve">
+    <value>NEO &amp; GAS计算机</value>
+  </data>
+  <data name="NEO holders participate in governance by voting for the Neo Committee, composed of members and consensus nodes that govern the Neo blockchain. The Neo Committee provides specific services, such as maintaining the liveness of the network and adjusting critical blockchain parameters." xml:space="preserve">
+    <value>NEO持有者通过投票选出Neo委员会参与治理，该委员会由管理Neo区块链的成员和共识节点组成。 Neo委员会提供特定的服务，例如维护网络的活跃性和调整关键的区块链参数。</value>
+  </data>
+  <data name="Neo is undergoing its biggest upgrade as it migrates to its latest version, N3. As part of this upgrade, users may be required to migrate their token assets to the new network." xml:space="preserve">
+    <value>将Neo迁移到最新版本N3是至今为止最大的升级。作为此升级的一部分，可能需要用户配合将其通证资产迁移到新网络。</value>
+  </data>
+  <data name="Neo is unique in that it was the first public blockchain platform to adopt a dual token mechanism. It separates the rights of governance from the rights of using the network. It also provides a means of acquiring the tokens needing to pay transaction fees." xml:space="preserve">
+    <value>Neo的独特之处在于它是第一个采用双通证机制的公链平台。 它将治理权与网络使用权分开。 它还提供了一种获取可以用来支付交易费的代币的方法。</value>
+  </data>
+  <data name="The largest portion of GAS is distributed to voters as a reward for playing an active role in network governance. NEO holders will need to ensure they choose a wallet that supports voting if they wish to participate." xml:space="preserve">
+    <value>最大块的GAS会分发给选民，作为对在网络治理中发挥积极作用的奖励。 如果NEO持有者想要参与治理，必须确保选择的钱包支持投票功能。</value>
+  </data>
+  <data name="The minimum unit of GAS is 0.00 000001. There is no NEO staking required in order to claim GAS tokens. Most Neo wallets will include a claim function, allowing you to collect your GAS with the click of a button. Please be aware that some exchanges distribute GAS to users that hold NEO on their platform, and others do not." xml:space="preserve">
+    <value>GAS的最小单位为0.00000001。不需要质押NEO即可申领GAS通证。大多数Neo钱包都包含申领功能，使您只需单击一下按钮即可申领GAS。 请注意，一部分交易所会将GAS分发给在其平台上持有NEO的用户，而另一些则不会。</value>
+  </data>
+  <data name="The minimum unit of NEO is 1 and tokens are indivisible. This means if you are withdrawing from an exchange to your wallet, you must withdraw in whole numbers. It also means that NEO is one of the scarcest public blockchain tokens, as it cannot be broken down into smaller pieces." xml:space="preserve">
+    <value>NEO的最小单位为1，通证不可分割。 这意味着，如果您要从交易所提款到钱包，则必须提取整数。 这也意味着NEO是最稀缺的公链代币之一，因为它在数量上无法再细分。</value>
+  </data>
+  <data name="The Neo network charges GAS for the operation and storage of tokens and smart contracts, preventing the abuse of node resources. System fees are burned, while network fees are redistributed to consensus nodes, creating an economic incentive for their services." xml:space="preserve">
+    <value>在Neo网络中操作和储存通证和智能合约需要花费GAS，这是为了防止节点资源的滥用。 系统费用会被销毁，而网络费用则被重新分配给共识节点，作为其服务的经济激励。</value>
+  </data>
+  <data name="To find out more information, please visit the" xml:space="preserve">
+    <value>要了解更多信息，请访问 </value>
+  </data>
+  <data name="Tokens" xml:space="preserve">
+    <value>通证</value>
+  </data>
+  <data name="With a total of 100 million tokens, NEO has two main features:" xml:space="preserve">
+    <value>总供给一亿个通证，NEO有两大功能：</value>
+  </data>
+  <data name="would receive up to" xml:space="preserve">
+    <value>最多可获得</value>
   </data>
 </root>

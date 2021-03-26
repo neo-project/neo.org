@@ -14,7 +14,7 @@
             <div class="col-left-content">
                 <img class="logo-img" data-original="@Helper.ToCDN("/images/home/N3Logo.svg")" />
                 <div class="sub-title work-sans-semibold">@Localizer["Take a look at the latest version of the Neo platform"]</div>
-                <a asp-controller="tour" asp-action="index" class="btn-n3 tour-btn" target="_blank">@Localizer["Take Tour"]</a>
+                <a asp-controller="tour" asp-action="index" class="btn-n3 tour-btn" target="_blank">@Localizer["Take A Tour"]</a>
             </div>
         </div>
 
@@ -40,16 +40,16 @@
             </div>
             <div class="highlight-container">
                 @{ string[,] highlightItems = new string[9, 2] {
-                        { "Interoperability", "/images/home/Interoperability.svg" },
-                        { "Native Oracles", "/images/home/NativeOracles.svg" },
-                        { "Self-Sovereign ID", "/images/home/Self-SovereignID.png" },
-                        { "Decentralized Storage", "/images/home/DecentralizedStorage.svg" },
-                        { "Native Name Service", "/images/home/NativeNameService.svg" },
-                        { "One Block Finality", "/images/home/OneBlockFinality.svg" },
-                        { "Best-In-Class Tooling", "/images/home/BestInClassTooling.svg" },
-                        { "Smart Contracts", "/images/home/SmartContracts.svg" },
-                        { "Multi-Language", "/images/home/Multi-Language.png" }
-                   };
+                                                                                    { "Interoperability", "/images/home/Interoperability.svg" },
+                                                                                    { "Native Oracles", "/images/home/NativeOracles.svg" },
+                                                                                    { "Self-Sovereign ID", "/images/home/Self-SovereignID.png" },
+                                                                                    { "Decentralized Storage", "/images/home/DecentralizedStorage.svg" },
+                                                                                    { "Neo Name Service", "/images/home/NativeNameService.svg" },
+                                                                                    { "One Block Finality", "/images/home/OneBlockFinality.svg" },
+                                                                                    { "Best-In-Class Tooling", "/images/home/BestInClassTooling.svg" },
+                                                                                    { "Smart Contracts", "/images/home/SmartContracts.svg" },
+                                                                                    { "Multi-Language", "/images/home/Multi-Language.png" }
+            };
 
                     for (int i = 0; i < highlightItems.GetLength(0); i++)
                     {
@@ -78,11 +78,11 @@
             <div class="get-started-wrapper">
                 @{ string[,] getStartedItems = new string[4, 3]
                        {
-                                                                                                                                                { "Find a Wallet", "/images/home/FindWallet.svg", "neogas#wallets" },
-                                                                                                                                                { "Neo & Gas Tokens", "/images/home/LearnTokens.svg", "neogas#tokens" },
-                                                                                                                                                { "Neo's Features", "/images/home/LearnFeatures.svg", "technology" },
-                                                                                                                                                { "Documentation", "/images/home/ReadDocumentation.svg", "https://docs.neo.org/v3/docs/en-us/index.html" }
-};
+                           { "Find a Wallet", "/images/home/FindWallet.svg", "/neogas#wallets" },
+                           { "Neo & Gas Tokens", "/images/home/LearnTokens.svg", "/neogas#tokens" },
+                           { "Neo's Features", "/images/home/LearnFeatures.svg", "/technology" },
+                           { "Documentation", "/images/home/ReadDocumentation.svg", "https://docs.neo.org/v3/docs/en-us/index.html" }
+                        };
 
                     for (int i = 0; i < getStartedItems.GetLength(0); i++)
                     {
@@ -109,7 +109,7 @@
                         </span> @Localizer["for the Next Generation Internet"]
                     </div>
                 </div>
-                <div class="square-block building-blocks @SharedLocalizer["d-none"]">
+                <div class="square-block building-blocks zh @SharedLocalizer["d-none"]">
                     <div class="square-block-title">
                         @Localizer["for the Next Generation Internet"]<br />
                         <span class="green">
@@ -129,30 +129,30 @@
                         @Localizer["Native functionality provides all the infrustructures you need to build complete decentralized applications, while advanced interoperabilty allows you to harness the power of the global blockchain ecosystem."]
                     </span>
                 </span>
-                <a class="btn-2 building-blocks-btn" href="technology#all-in-one">@Localizer["Learn More"]</a>
+                <a class="btn-2 building-blocks-btn" href="/technology#all-in-one">@Localizer["Learn More"]</a>
             </div>
         </div>
         <img class="blocks-large-img @SharedLocalizer["d-none-zh"]" usemap="#blockslargemap" data-original="@Helper.ToCDN("/images/home/BlocksLarge.svg")" />
         <img class="blocks-large-img zh @SharedLocalizer["d-none"]" usemap="#blockslargemap" data-original="@Helper.ToCDN("/images/home/BlocksLarge-zh.svg")" />
         <map name="blockslargemap">
-            <area shape="rect" coords="982 226 1266 342" alt="One Block Finality" href="technology#dbft-2.0" />
-            <area shape="rect" coords="246 520 550 625" alt="Oracles" href="technology#oracles" />
-            <area shape="rect" coords="988 525 1306 632" alt="NeoFS" href="technology#neo-fs" />
-            <area shape="rect" coords="246 787 546 882" alt="Smart Contracts" href="technology#smart-contracts" />
-            <area shape="rect" coords="986 785 1302 893" alt="Neo Name Service" href="technology#neo-name-service" />
-            <area shape="rect" coords="258 1043 546 1158" alt="Interoperability" href="technology#interoperability" />
-            <area shape="rect" coords="994 1048 1314 1156" alt="NeoID" href="technology#neo-id" />
+            <area shape="rect" coords="982 226 1266 342" alt="One Block Finality" href="/technology#dbft-2.0" />
+            <area shape="rect" coords="246 520 550 625" alt="Oracles" href="/technology#oracles" />
+            <area shape="rect" coords="988 525 1306 632" alt="NeoFS" href="/technology#neo-fs" />
+            <area shape="rect" coords="246 787 546 882" alt="Smart Contracts" href="/technology#smart-contracts" />
+            <area shape="rect" coords="986 785 1302 893" alt="Neo Name Service" href="/technology#neo-name-service" />
+            <area shape="rect" coords="258 1043 546 1158" alt="Interoperability" href="/technology#interoperability" />
+            <area shape="rect" coords="994 1048 1314 1156" alt="NeoID" href="/technology#neo-id" />
         </map>
         <img class="blocks-medium-img @SharedLocalizer["d-none-zh"]" usemap="#blocksmediummap" data-original="@Helper.ToCDN("/images/home/BlocksMedium.svg")" />
         <img class="blocks-medium-img zh @SharedLocalizer["d-none"]" usemap="#blocksmediummap" data-original="@Helper.ToCDN("/images/home/BlocksMedium-zh.svg")" />
         <map name="blocksmediummap">
-            <area shape="rect" coords="560 210 777 314" alt="One Block Finality" href="technology#dbft-2.0" />
-            <area shape="rect" coords="176 411 366 503" alt="Oracles" href="technology#oracles" />
-            <area shape="rect" coords="562 412 764 514" alt="NeoFS" href="technology#neo-fs" />
-            <area shape="rect" coords="177 605 396 708" alt="Smart Contracts" href="technology#smart-contracts" />
-            <area shape="rect" coords="555 602 770 702" alt="Neo Name Service" href="technology#neo-name-service" />
-            <area shape="rect" coords="180 788 383 908" alt="Interoperability" href="technology#interoperability" />
-            <area shape="rect" coords="558 789 760 886" alt="NeoID" href="technology#neo-id" />
+            <area shape="rect" coords="560 210 777 314" alt="One Block Finality" href="/technology#dbft-2.0" />
+            <area shape="rect" coords="176 411 366 503" alt="Oracles" href="/technology#oracles" />
+            <area shape="rect" coords="562 412 764 514" alt="NeoFS" href="/technology#neo-fs" />
+            <area shape="rect" coords="177 605 396 708" alt="Smart Contracts" href="/technology#smart-contracts" />
+            <area shape="rect" coords="555 602 770 702" alt="Neo Name Service" href="/technology#neo-name-service" />
+            <area shape="rect" coords="180 788 383 908" alt="Interoperability" href="/technology#interoperability" />
+            <area shape="rect" coords="558 789 760 886" alt="NeoID" href="/technology#neo-id" />
         </map>
 
         <div class="blocks-container">
@@ -214,7 +214,7 @@
                 @Localizer["Write smart contracts in a language you already know, with tools you already love"]
             </div>
         </div>
-        <a class="btn-2 code-learn-more" href="technology#smart-contracts">@Localizer["Learn More"]</a>
+        <a class="btn-2 code-learn-more" href="/technology#smart-contracts">@Localizer["Learn More"]</a>
     </div>
 
     <div class="code-example-row">
@@ -281,7 +281,7 @@
         <div class="code-window d-none" id="code-java">
             <partial name="./_CodeJavaPartial" />
         </div>
-        <a class="btn-2 code-learn-more-mobile">@Localizer["Learn More"]</a>
+        <a class="btn-2 code-learn-more-mobile" href="/technology#smart-contracts">@Localizer["Learn More"]</a>
     </div>
 
 
@@ -315,14 +315,14 @@
     <div class="dual-tokens-row">
         <div class="col-left">
             <div class="dual-tokens-paragraph">
-                @Localizer["NEO token holders are the owners of the network who are able to participate in governance. NEO holders also recieve passive distribution of the network utility token, GAS - No staking required. GAS rewards are increased for voting participation."]
+                @Localizer["NEO token holders are the owners of the network who are able to participate in governance. NEO holders also receive passive distribution of the network utility token, GAS - No staking required. GAS rewards are increased for voting participation."]
                 <br /><br />             @Localizer["GAS is used to pay for network fees, smart contract deployments, and in dApp purchases."]
             </div>
 
             <div class="dual-tokens-horizLine"></div>
             <div class="dual-tokens-buttons">
-                <a class="btn-2" href="neogas#tokens">@Localizer["Learn More"]</a>
-                <a class="btn-4" href="neogas#wallets">@Localizer["Find a Wallet"]</a>
+                <a class="btn-2" href="/neogas#tokens">@Localizer["Learn More"]</a>
+                <a class="btn-4" href="/neogas#wallets">@Localizer["Find a Wallet"]</a>
             </div>
         </div>
         <div class="col-right">
@@ -353,16 +353,19 @@
                             <div class="gas-wrapper">
                                 <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
                                 <span>
-                                    @Localizer["Gas Per Month"]<span class="green">*</span></span><br /><br />
-                                                                                                        <span class="status-text">@Localizer["For holding NEO"]</span></div>
+                                    @Localizer["Gas Per Month"]<span class="green">*</span>
+                                </span><br /><br />
+                                <span class="status-text">@Localizer["For holding NEO"]</span>
+                            </div>
                         </div>
-                        <div class="plug-sign">+</div>
+                        <div class="plus-sign @SharedLocalizer["d-none-zh"]"><i class="iconfont">&#xe603;</i></div>
+                        <div class="plus-sign-zh @SharedLocalizer["d-none"]"><i class="iconfont">&#xe603;</i></div>
                         <div class="result-col">
                             <div class="result-num result-governance">17.52</div>
                             <div class="gas-wrapper">
                                 <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
-                                <span>Gas Per Month<span class="green">*</span></span><br /><br />
-                                                                                            <span class="status-text">@Localizer["For Governance Participation"]</span>
+                                <span>@Localizer["Gas Per Month"]<span class="green">*</span></span><br /><br />
+                                <span class="status-text">@Localizer["For Governance Participation"]</span>
                             </div>
                         </div>
                     </div>
@@ -371,19 +374,20 @@
                             <div class="result-num-mobile result-holding">0.44</div>
                             <div class="gas-wrapper-mobile">
                                 <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
-                                <span>Gas Per Month<span class="green">*</span></span><br /><br />
+                                <span>@Localizer["Gas Per Month"]<span class="green">*</span></span><br /><br />
                             </div>
                         </div>
                         <span class="status-text-mobile">@Localizer["For holding NEO"]</span>
-                        <div class="plug-sign">+</div>
+                        <div class="plus-sign @SharedLocalizer["d-none-zh"]"><i class="iconfont">&#xe603;</i></div>
+                        <div class="plus-sign-zh @SharedLocalizer["d-none"]"><i class="iconfont">&#xe603;</i></div>
                         <div class="result-row">
                             <div class="result-num-mobile result-governance">17.52</div>
                             <div class="gas-wrapper-mobile">
                                 <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
-                                <span>Gas Per Month<span class="green">*</span></span><br /><br />
+                                <span>@Localizer["Gas Per Month"]<span class="green">*</span></span><br /><br />
                             </div>
                         </div>
-                        <span class="status-text-mobile">For Governance Participation</span>
+                        <span class="status-text-mobile">@Localizer["For Governance Participation"]</span>
                     </div>
                     <div class="foot-note">
                         <span class="green">*</span>@Localizer["estimate based on average 20% circulating NEO voting participation"]
@@ -404,13 +408,13 @@
                 <img class="governance-img-horiz" data-original="@Helper.ToCDN("/images/home/Governance.svg")" />
             </div>
             <div class="governance-cards">
-                <span class="governance-learn-more">Learn More</span>
+                <span class="governance-learn-more">@Localizer["Learn More"]</span>
                 <div class="governance-card-container">
                     @{ string[,] governanceItems = new string[3, 3]
-                                     {
-                                                                { "How to vote", "/images/home/vote.svg", "gov" },
-                                                                { "General guide to governance", "/images/home/ReadDocumentation.svg", "gov" },
-                                                                { "Register as a committee candidate", "/images/home/register.svg", "gov" }
+                    {
+                       { "How to vote", "/images/home/vote.svg", "/gov" },
+                       { "General guide to governance", "/images/home/ReadDocumentation.svg", "/gov" },
+                       { "Register as a committee candidate", "/images/home/register.svg", "/gov" }
  };
 
                         for (int i = 0; i < governanceItems.GetLength(0); i++)
@@ -555,22 +559,22 @@
         <div class="col-right">
             <div class="github-container">
                 <div class="github-status @SharedLocalizer["d-none-zh"]">
-                    <span class="github-status-num github-stars">-</span>stars
+                    <span class="github-status-num github-stars">3.2K</span>stars
                 </div>
                 <div class="github-status @SharedLocalizer["d-none"]">
-                    <span class="github-status-num zh github-stars">-</span>stars
+                    <span class="github-status-num zh github-stars">3.2K</span>stars
                 </div>
                 <div class="github-status @SharedLocalizer["d-none-zh"]">
-                    <span class="github-status-num github-forks">-</span>forks
+                    <span class="github-status-num github-forks">927</span>forks
                 </div>
                 <div class="github-status @SharedLocalizer["d-none"]">
-                    <span class="github-status-num zh github-forks">-</span>forks
+                    <span class="github-status-num zh github-forks">927</span>forks
                 </div>
                 <div class="github-status @SharedLocalizer["d-none-zh"]">
-                    <span class="github-status-num github-sub">-</span>subscribers
+                    <span class="github-status-num github-sub">386</span>subscribers
                 </div>
                 <div class="github-status @SharedLocalizer["d-none"]">
-                    <span class="github-status-num zh github-sub">-</span>subscribers
+                    <span class="github-status-num zh github-sub">386</span>subscribers
                 </div>
                 <a href="https://github.com/neo-project" target="_blank" class="github-icon-wrapper"><img class="github-icon" data-original="@Helper.ToCDN("/images/home/Github.png")" /></a>
             </div>
@@ -665,20 +669,26 @@
         $(document).ready(function () {
             $('map').imageMapResize();
 
-            $.get("https://api.github.com/repos/neo-project/neo", function (data, status) {
-                const starsCount = +(data.stargazers_count);
-                const stars = starsCount > 1000 ? `${(starsCount / 1000).toFixed(1)}K` : `${starsCount}`;
-                $(".github-stars").html(stars);
+            try {
+                $.get("home/githubstatus", function (data) {
+                    if (!data) return;
 
-                const forksCount = +(data.forks_count);
-                const forks = forksCount > 1000 ? `${(forksCount / 1000).toFixed(1)}K` : `${forksCount}`;
-                $(".github-forks").html(forks);
+                    const starsCount = +(data.stargazers_count);
+                    const stars = starsCount > 1000 ? `${(starsCount / 1000).toFixed(1)}K` : `${starsCount}`;
+                    $(".github-stars").html(stars);
 
-                const subCount = +(data.subscribers_count);
-                const sub = subCount > 1000 ? `${(subCount / 1000).toFixed(1)}K` : `${subCount}`
+                    const forksCount = +(data.forks_count);
+                    const forks = forksCount > 1000 ? `${(forksCount / 1000).toFixed(1)}K` : `${forksCount}`;
+                    $(".github-forks").html(forks);
 
-                $(".github-sub").html(sub);
-            });
+                    const subCount = +(data.subscribers_count);
+                    const sub = subCount > 1000 ? `${(subCount / 1000).toFixed(1)}K` : `${subCount}`
+
+                    $(".github-sub").html(sub);
+                });
+            } catch {
+                console.log('Failed to get github status.')
+            }
         });
 
         $(".language-icon").on("click", function () {
@@ -756,8 +766,8 @@
 
         function resizeHandler() {
             if ($(this).outerWidth() < 768) {
-                $(".language-icon").removeClass("selected")
                 $(".code-window").addClass("d-none")
+                $(".language-icon").removeClass("selected")
             } else {
                 if ($(".language-icon.selected").length === 0) {
                     $(".language-icon.python").addClass("selected")

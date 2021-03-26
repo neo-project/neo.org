@@ -4,7 +4,7 @@
 
 <h2 class="main-title">@Localizer["Tokens"]</h2>
 <div class="page-paragraph">
-    @Localizer["Neo is unique in that it was the first public blockchain platform to adopt a dual token mechanism. It separates the rights of governance from the rights of using the network. It also provides a means of aquiring the tokens needed to pay transaction fees."]
+    @Localizer["Neo is unique in that it was the first public blockchain platform to adopt a dual token mechanism. It separates the rights of governance from the rights of using the network. It also provides a means of acquiring the tokens needing to pay transaction fees."]
 </div>
 
 <div class="section">
@@ -17,18 +17,20 @@
     </div>
     <div class="row">
         <div class="col-12 col-md-6">
-            <img class="content-img" data-original="@Helper.ToCDN("/images/discover/placeholder.png")" />
+            <img class="content-img @SharedLocalizer["d-none-zh"]" data-original="@Helper.ToCDN("/images/discover/Vote.svg")" />
+            <img class="content-img @SharedLocalizer["d-none"]" data-original="@Helper.ToCDN("/images/discover/Vote-zh.svg")" />
         </div>
         <div class="col-12 col-md-6">
-            <img class="content-img" data-original="@Helper.ToCDN("/images/discover/placeholder.png")" />
+            <img class="content-img @SharedLocalizer["d-none-zh"]" data-original="@Helper.ToCDN("/images/discover/ClaimGas.svg")" />
+            <img class="content-img @SharedLocalizer["d-none"]" data-original="@Helper.ToCDN("/images/discover/ClaimGas-zh.svg")" />
         </div>
     </div>
     <div class="page-paragraph">
-        @Localizer["NEO holders participate in governance by voting for the Neo Council, comprised of members and consensus nodes that govern the Neo blockchain. The Neo Council provides specific services, such as maintaining the liveness of the network and adjusting critical blockchain parameters."]
+        @Localizer["NEO holders participate in governance by voting for the Neo Committee, composed of members and consensus nodes that govern the Neo blockchain. The Neo Committee provides specific services, such as maintaining the liveness of the network and adjusting critical blockchain parameters."]
         <br /><br />
-        @Localizer["The minimum unit of NEO is 1 and tokens are indivisible. This means if you are withdrawing from an exchange to your wallet, you must withdraw in whole numbers. It also means that NEO is one of the scarcest public blockchain tokens, as it cannot be broken down into smaller peices."]
+        @Localizer["The minimum unit of NEO is 1 and tokens are indivisible. This means if you are withdrawing from an exchange to your wallet, you must withdraw in whole numbers. It also means that NEO is one of the scarcest public blockchain tokens, as it cannot be broken down into smaller pieces."]
         <br /><br />
-        @Localizer["100 million NEO were generated at genesis, with approximately 50 % sold through a public token sale, and the other 50% reserved by the Neo Foundation to insentivise the development of the Neo ecosystem.It's release schedule can be found in the Neo White Paper."]
+        @Localizer["100 million NEO were generated at genesis, with approximately 50% reserved by the Neo Foundation to incentivise the development of the Neo ecosystem. The release schedule can be found in the Neo White Paper."]
     </div>
 </div>
 
@@ -38,16 +40,17 @@
     </div>
     <div class="divider margin-bottom"></div>
     <div class="page-paragraph">
-        @Localizer["The Neo network charges GAS for the operation and storage of tokens and smart contracts, thereby creating economic incentives for consensus nodes and preventing the abuse of resources."]
+        @Localizer["The Neo network charges GAS for the operation and storage of tokens and smart contracts, preventing the abuse of node resources. System fees are burned, while network fees are redistributed to consensus nodes, creating an economic incentive for their services."]
     </div>
     <div class="headline">
         @Localizer["5 GAS tokens are generated every block and distributed in three parts:"]
     </div>
 
-    <img class="content-img margin-bottom" data-original="@Helper.ToCDN("/images/discover/placeholder.png")" />
+    <img class="content-img margin-bottom @SharedLocalizer["d-none-zh"]" data-original="@Helper.ToCDN("/images/discover/GasUsage.svg")" />
+    <img class="content-img margin-bottom @SharedLocalizer["d-none"]" data-original="@Helper.ToCDN("/images/discover/GasUsage-zh.svg")" />
 
     <div class="page-paragraph">
-        @Localizer["The minimum unit of GAS is 0.00000001. There is no NEO staking required in order to claim GAS tokens. Most Neo wallets will include a  claim function, allowing you to collect your GAS with the click of a button. Please be aware that some exchanges distribute GAS to users that hold NEO on their platform, and others do not."]
+        @Localizer["The minimum unit of GAS is 0.00 000001. There is no NEO staking required in order to claim GAS tokens. Most Neo wallets will include a claim function, allowing you to collect your GAS with the click of a button. Please be aware that some exchanges distribute GAS to users that hold NEO on their platform, and others do not."]
         <br /><br />
         @Localizer["The largest portion of GAS is distributed to voters as a reward for playing an active role in network governance. NEO holders will need to ensure they choose a wallet that supports voting if they wish to participate."]
     </div>
@@ -57,6 +60,7 @@
     @Localizer["CALCULATE"]
 </div>
 <div class="divider margin-bottom"></div>
+
 <div class="calculator">
     <div class="calculator-header">
         <div class="calculator-title">
@@ -86,15 +90,16 @@
                     <span>
                         @Localizer["Gas Per Month"]<span class="green">*</span>
                     </span><br /><br />
-                    <span class="status-text">@Localizer["For holding Neo"]</span>
+                    <span class="status-text">@Localizer["For holding NEO"]</span>
                 </div>
             </div>
-            <div class="plug-sign">+</div>
+            <div class="plus-sign @SharedLocalizer["d-none-zh"]"><i class="iconfont">&#xe603;</i></div>
+            <div class="plus-sign-zh @SharedLocalizer["d-none"]"><i class="iconfont">&#xe603;</i></div>
             <div class="result-col">
                 <div class="result-num result-governance">17.52</div>
                 <div class="gas-wrapper">
                     <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
-                    <span>Gas Per Month<span class="green">*</span></span><br /><br />
+                    <span>@Localizer["Gas Per Month"]<span class="green">*</span></span><br /><br />
                     <span class="status-text">@Localizer["For Governance Participation"]</span>
                 </div>
             </div>
@@ -104,19 +109,20 @@
                 <div class="result-num-mobile result-holding">0.44</div>
                 <div class="gas-wrapper-mobile">
                     <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
-                    <span>Gas Per Month<span class="green">*</span></span><br /><br />
+                    <span>@Localizer["Gas Per Month"]<span class="green">*</span></span><br /><br />
                 </div>
             </div>
-            <span class="status-text-mobile">For holding Neo</span>
-            <div class="plug-sign">+</div>
+            <span class="status-text-mobile">@Localizer["For holding NEO"]</span>
+            <div class="plus-sign @SharedLocalizer["d-none-zh"]"><i class="iconfont">&#xe603;</i></div>
+            <div class="plus-sign-zh @SharedLocalizer["d-none"]"><i class="iconfont">&#xe603;</i></div>
             <div class="result-row">
                 <div class="result-num-mobile result-governance">17.52</div>
                 <div class="gas-wrapper-mobile">
                     <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
-                    <span>Gas Per Month<span class="green">*</span></span><br /><br />
+                    <span>@Localizer["Gas Per Month"]<span class="green">*</span></span><br /><br />
                 </div>
             </div>
-            <span class="status-text-mobile">For Governance Participation</span>
+            <span class="status-text-mobile">@Localizer["For Governance Participation"]</span>
         </div>
         <div class="foot-note">
             <span class="green">*</span>@Localizer["estimate based on average 20% circulating NEO voting participation"]
@@ -124,17 +130,19 @@
     </div>
 </div>
 
-<div class="sub-title">
-    @Localizer["MIGRATION"]
+<br /><br />
+
+<div class="sub-title uppercase">
+    @Localizer["Migration"]
 </div>
 <div class="divider margin-bottom"></div>
 
 <div class="page-paragraph">
-    @Localizer["Neo is undergoing its biggest upgrade as it migrates to its latest version, N3. Are part of this upgrade, users may be required to migrate their token assets to the new network."]
+    @Localizer["Neo is undergoing its biggest upgrade as it migrates to its latest version, N3. As part of this upgrade, users may be required to migrate their token assets to the new network."]
 
 </div>
 
 <div class="headline">
-    @Localizer["To find out more information, please visit the"] <span class="green"><a href="https://www.google.com">@Localizer["migration page"]</a></span>.
+    @Localizer["To find out more information, please visit the"] <span class="green"><a href="/migration">@Localizer["migration page"]</a></span>.
 </div>
 

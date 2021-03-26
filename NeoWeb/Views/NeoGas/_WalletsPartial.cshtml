@@ -2,32 +2,36 @@
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
-<h2 class="menu-page-title">Wallets</h2>
+<h2 class="main-title">@Localizer["Wallets"]</h2>
 <select class="select-version-page form-control">
     <option value="n3" selected="selected">Neo N3</option>
     <option value="legacy">Neo Legacy</option>
 </select>
 
-<div class="menu-page-description lighter">
+<div class="page-paragraph">
     @Localizer["The Neo community has developed a wide range of wallets suitable for different types of users and applications. Search below to find a  wallet that best fits your needs. If you have any questions regarding their use, please contact the developer directly."]
     @Localizer["When creating a new Neo wallet, please remember to back up your private key in a secure manner. Your private key is the only way to control your Neo assets."]
 </div>
+
+<br />
+<br />
+
 <div class="tabs d-none d-md-flex">
-    <span class="tab active">All</span>
-    <span class="tab">Desktop</span>
-    <span class="tab">Mobile</span>
-    <span class="tab">Extension</span>
-    <span class="tab">Hardware</span>
-    <span class="tab">Web</span>
+    <span class="tab active">@Localizer["All"]</span>
+    <span class="tab">@Localizer["Desktop"]</span>
+    <span class="tab">@Localizer["Mobile"]</span>
+    <span class="tab">@Localizer["Extension"]</span>
+    <span class="tab">@Localizer["Hardware"]</span>
+    <span class="tab">@Localizer["Web"]</span>
 </div>
 
 <select class="select-tab-page form-control d-flex d-md-none my-3">
-    <option value="" selected="selected">All</option>
-    <option value="desktop">Desktop</option>
-    <option value="mobile">Mobile</option>
-    <option value="extension">Extension</option>
-    <option value="hardware">Hardware</option>
-    <option value="web">Web</option>
+    <option value="" selected="selected">@Localizer["All"]</option>
+    <option value="desktop">@Localizer["Desktop"]</option>
+    <option value="mobile">@Localizer["Mobile"]</option>
+    <option value="extension">@Localizer["Extension"]</option>
+    <option value="hardware">@Localizer["Hardware"]</option>
+    <option value="web">@Localizer["Web"]</option>
 </select>
 <ul class="row mt-4 client-ul n3">
     <li class="desktop">
@@ -1645,7 +1649,7 @@
                 <img data-original="@Helper.ToCDN("/images/wallets/yez-web1.png")" />
                 <img data-original="@Helper.ToCDN("/images/wallets/yez-web2.png")" />
             </div>
-            <p>@Localizer["YEZ Wallet is a NEP-5 Wallet. We focuses on easy on-boarding with Google/Facebook Login integration.User can send/receive NEO, GAS, YEZ and other NEP-5 digital assets."]</p>
+            <p>@Localizer["YEZ Wallet is a NEP-5 Wallet. We focuses on easy on-boarding with Google/Facebook Login integration. User can send/receive NEO, GAS, YEZ and other NEP-5 digital assets."]</p>
             <p>@Localizer["Languages"]: English / 简体中文<br>
             <p>@Localizer["Supported Browser"]: Chrome / Edge</p>
             <div>

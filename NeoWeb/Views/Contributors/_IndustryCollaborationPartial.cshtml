@@ -2,19 +2,19 @@
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
-<h2 class="menu-page-title">@Localizer["Industry Collaboration"]</h2>
-<div class="menu-page-description">
+<h2 class="main-title">@Localizer["Industry Collaboration"]</h2>
+<div class="page-paragraph">
     @Localizer["Neo prides itself on being a leader in the blockchain space and takes this responsibility seriously. Neo has partnered with various groups to advance blockchain standards and adoption across traditional industries."]
 </div>
 
 <div class="communities-container">
     @{ string[,] items = new string[5, 4]
                       {
-        { "/images/discover/placeholder.png", "InterWork Alliance", "InterWork Alliance Description", "https://interwork.org/"},
-        { "/images/discover/placeholder.png", "PolyNetwork", "PolyNetwork Description", "https://www.poly.network"},
-        { "/images/discover/placeholder.png", ".NET Foundation", "NET Foundation Description", "https://dotnetfoundation.org/"},
-        { "/images/discover/placeholder.png", "BSN", "BSN Description", "https://bsnbase.io/"},
-        { "/images/discover/placeholder.png", "IEEE", "IEEE Description", "https://ieee.org"}
+        { "/images/discover/IWA.png", "InterWork Alliance", "InterWork Alliance Description", "https://interwork.org/"},
+        { "/images/discover/PolyNetwork.png", "PolyNetwork", "PolyNetwork Description", "https://www.poly.network"},
+        { "/images/discover/NetFoundation.png", ".NET Foundation", "NET Foundation Description", "https://dotnetfoundation.org/"},
+        { "/images/discover/BSN.png", "BSN", "BSN Description", "https://bsnbase.io/"},
+        { "/images/discover/IEEE.png", "IEEE", "IEEE Description", "https://ieee.org"}
                       };
 
         for (int i = 0; i < items.GetLength(0); i++)
