@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -153,7 +153,7 @@
   <data name="NEO &amp; GAS Calculator" xml:space="preserve">
     <value>NEO &amp; GAS计算机</value>
   </data>
-  <data name="NEO holders participate in governance by voting for the Neo Committee, composed of members and consensus nodes that govern the Neo blockchain. The Neo Committee provides specific services, such as maintaining the liveness of the network and adjusting critical blockchain parameters." xml:space="preserve">
+  <data name="NEO holders participate in governance by voting for the Neo Committee, composed of members and consensus nodes that govern the Neo blockchain. The Neo Committee provides specific services, such as maintaining the liveliness of the network and adjusting critical blockchain parameters." xml:space="preserve">
     <value>NEO持有者通过投票选出Neo委员会参与治理，该委员会由管理Neo区块链的成员和共识节点组成。 Neo委员会提供特定的服务，例如维护网络的活跃性和调整关键的区块链参数。</value>
   </data>
   <data name="Neo is undergoing its biggest upgrade as it migrates to its latest version, N3. As part of this upgrade, users may be required to migrate their token assets to the new network." xml:space="preserve">
