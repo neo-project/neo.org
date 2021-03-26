@@ -25,13 +25,20 @@ $(document).ready(function () {
 
         $("#next").removeClass('arrow-grey');
         $("#prev").removeClass('arrow-grey');
-        if (currentSlide === 2) {
+        if (currentSlide === 1) {
+            $(".logo-white").removeClass('hide-in-mobile');
+            $(".logo-dark").addClass('hide-in-mobile');
+            $("#bottom-guide").addClass('hide-in-mobile');
+            $(".right-corner-mobile").addClass('hide-in-mobile');
+            $("#bottom-guide-container").addClass('hide');
+            $("#bottom-guide-container").removeClass('bottom-guide-container');
+        }else if (currentSlide === 2) {
             $(".logo-white").addClass('hide-in-mobile');
             $(".logo-dark").removeClass('hide-in-mobile');
             //$(".tour-left-logo").addClass('hide-in-mobile');
             $("#bottom-guide").removeClass('hide-in-mobile');
             $(".right-corner-mobile").removeClass('hide-in-mobile');
-            $("#prev").addClass('arrow-grey');
+            //$("#prev").addClass('arrow-grey');
         } else if (currentSlide === slides.length) {
             $(".logo-dark").addClass('hide-in-mobile');
             $(".logo-white").removeClass('hide-in-mobile');
@@ -47,7 +54,7 @@ $(document).ready(function () {
         showSlide(currentSlide += 1);
     }
     function previousSlide() {
-        if (currentSlide !== 2) {
+        if (currentSlide !== 1) {
             showSlide(currentSlide -= 1);
         }
 
