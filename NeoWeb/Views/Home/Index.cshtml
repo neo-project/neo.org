@@ -14,7 +14,7 @@
             <div class="col-left-content">
                 <img class="logo-img" data-original="@Helper.ToCDN("/images/home/N3Logo.svg")" />
                 <div class="sub-title work-sans-semibold">@Localizer["Take a look at the latest version of the Neo platform"]</div>
-                <a asp-controller="tour" asp-action="index" class="btn-n3 tour-btn" target="_blank">@Localizer["Take Tour"]</a>
+                <a asp-controller="tour" asp-action="index" class="btn-n3 tour-btn" target="_blank">@Localizer["Take A Tour"]</a>
             </div>
         </div>
 
@@ -40,16 +40,16 @@
             </div>
             <div class="highlight-container">
                 @{ string[,] highlightItems = new string[9, 2] {
-                        { "Interoperability", "/images/home/Interoperability.svg" },
-                        { "Native Oracles", "/images/home/NativeOracles.svg" },
-                        { "Self-Sovereign ID", "/images/home/Self-SovereignID.png" },
-                        { "Decentralized Storage", "/images/home/DecentralizedStorage.svg" },
-                        { "Native Name Service", "/images/home/NativeNameService.svg" },
-                        { "One Block Finality", "/images/home/OneBlockFinality.svg" },
-                        { "Best-In-Class Tooling", "/images/home/BestInClassTooling.svg" },
-                        { "Smart Contracts", "/images/home/SmartContracts.svg" },
-                        { "Multi-Language", "/images/home/Multi-Language.png" }
-                   };
+                                                                                    { "Interoperability", "/images/home/Interoperability.svg" },
+                                                                                    { "Native Oracles", "/images/home/NativeOracles.svg" },
+                                                                                    { "Self-Sovereign ID", "/images/home/Self-SovereignID.png" },
+                                                                                    { "Decentralized Storage", "/images/home/DecentralizedStorage.svg" },
+                                                                                    { "Neo Name Service", "/images/home/NativeNameService.svg" },
+                                                                                    { "One Block Finality", "/images/home/OneBlockFinality.svg" },
+                                                                                    { "Best-In-Class Tooling", "/images/home/BestInClassTooling.svg" },
+                                                                                    { "Smart Contracts", "/images/home/SmartContracts.svg" },
+                                                                                    { "Multi-Language", "/images/home/Multi-Language.png" }
+            };
 
                     for (int i = 0; i < highlightItems.GetLength(0); i++)
                     {
@@ -109,7 +109,7 @@
                         </span> @Localizer["for the Next Generation Internet"]
                     </div>
                 </div>
-                <div class="square-block building-blocks @SharedLocalizer["d-none"]">
+                <div class="square-block building-blocks zh @SharedLocalizer["d-none"]">
                     <div class="square-block-title">
                         @Localizer["for the Next Generation Internet"]<br />
                         <span class="green">
@@ -353,16 +353,19 @@
                             <div class="gas-wrapper">
                                 <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
                                 <span>
-                                    @Localizer["Gas Per Month"]<span class="green">*</span></span><br /><br />
-                                                                                                        <span class="status-text">@Localizer["For holding NEO"]</span></div>
+                                    @Localizer["Gas Per Month"]<span class="green">*</span>
+                                </span><br /><br />
+                                <span class="status-text">@Localizer["For holding NEO"]</span>
+                            </div>
                         </div>
-                        <div class="plug-sign">+</div>
+                        <div class="plus-sign @SharedLocalizer["d-none-zh"]"><i class="iconfont">&#xe603;</i></div>
+                        <div class="plus-sign-zh @SharedLocalizer["d-none"]"><i class="iconfont">&#xe603;</i></div>
                         <div class="result-col">
                             <div class="result-num result-governance">17.52</div>
                             <div class="gas-wrapper">
                                 <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
-                                <span>Gas Per Month<span class="green">*</span></span><br /><br />
-                                                                                            <span class="status-text">@Localizer["For Governance Participation"]</span>
+                                <span>@Localizer["Gas Per Month"]<span class="green">*</span></span><br /><br />
+                                <span class="status-text">@Localizer["For Governance Participation"]</span>
                             </div>
                         </div>
                     </div>
@@ -371,19 +374,20 @@
                             <div class="result-num-mobile result-holding">0.44</div>
                             <div class="gas-wrapper-mobile">
                                 <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
-                                <span>Gas Per Month<span class="green">*</span></span><br /><br />
+                                <span>@Localizer["Gas Per Month"]<span class="green">*</span></span><br /><br />
                             </div>
                         </div>
                         <span class="status-text-mobile">@Localizer["For holding NEO"]</span>
-                        <div class="plug-sign">+</div>
+                        <div class="plus-sign @SharedLocalizer["d-none-zh"]"><i class="iconfont">&#xe603;</i></div>
+                        <div class="plus-sign-zh @SharedLocalizer["d-none"]"><i class="iconfont">&#xe603;</i></div>
                         <div class="result-row">
                             <div class="result-num-mobile result-governance">17.52</div>
                             <div class="gas-wrapper-mobile">
                                 <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
-                                <span>Gas Per Month<span class="green">*</span></span><br /><br />
+                                <span>@Localizer["Gas Per Month"]<span class="green">*</span></span><br /><br />
                             </div>
                         </div>
-                        <span class="status-text-mobile">For Governance Participation</span>
+                        <span class="status-text-mobile">@Localizer["For Governance Participation"]</span>
                     </div>
                     <div class="foot-note">
                         <span class="green">*</span>@Localizer["estimate based on average 20% circulating NEO voting participation"]
@@ -404,7 +408,7 @@
                 <img class="governance-img-horiz" data-original="@Helper.ToCDN("/images/home/Governance.svg")" />
             </div>
             <div class="governance-cards">
-                <span class="governance-learn-more">Learn More</span>
+                <span class="governance-learn-more">@Localizer["Learn More"]</span>
                 <div class="governance-card-container">
                     @{ string[,] governanceItems = new string[3, 3]
                                      {
@@ -756,8 +760,8 @@
 
         function resizeHandler() {
             if ($(this).outerWidth() < 768) {
-                $(".language-icon").removeClass("selected")
                 $(".code-window").addClass("d-none")
+                $(".language-icon").removeClass("selected")
             } else {
                 if ($(".language-icon.selected").length === 0) {
                     $(".language-icon.python").addClass("selected")

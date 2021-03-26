@@ -9,6 +9,12 @@
     @media (max-width: 991px) {
         display: none;
     }
+
+    &.outstanding-contributors {
+        .introduction-img {
+            width: 45%;
+        }
+    }
 }
 
 .introduction-start {
@@ -17,28 +23,26 @@
 }
 
 .introduction-title {
-    font-size: 5.75rem;
-    font-family: WorkSans;
-    font-weight: bold;
+    font-size: 3.5rem;
     line-height: 0.87;
-    text-transform: uppercase;
+    .uppercase;
+    .work-sans-bold;
+    .dark-blue;
 
-    em {
-        font-style: normal;
-        color: #00E599;
+    &.zh {
+        line-height: 1
     }
 }
 
 .introduction-content {
     margin-top: 2.25rem;
     font-size: 1.25rem;
-    font-family: NunitoSans;
-    font-weight: bold;
+    .nunito-sans-bold;
 }
 
 .introduction-img {
     margin-left: 2.25rem;
-    width: 300px;
+    width: 60%;
 
     @media (max-width: 991px) {
         display: none;
@@ -144,7 +148,7 @@
     font-size: 2.25rem;
     line-height: 1.25;
     letter-spacing: -0.02rem;
-    margin-bottom: 1.375rem;
+    margin-bottom: 2.875rem;
 }
 
 .tagline {
@@ -259,10 +263,19 @@
 .communities-container {
     display: flex;
     flex-direction: column;
-    grid-row-gap: 80px;
+    margin-top: 80px;
+    // grid-row-gap: 80px;
+
+    & > * {
+        margin-bottom: 80px;
+    }
 
     @media only screen and (max-width: 991px) {
-        grid-row-gap: 60px;
+        // grid-row-gap: 60px;
+
+        & > * {
+            margin-bottom: 60px;
+        }
     }
 }
 

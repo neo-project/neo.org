@@ -2,6 +2,7 @@
 
 .introduction {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 38px 0;
 
@@ -37,7 +38,7 @@
 
 .introduction-img {
     margin-left: 2.25rem;
-    width: 300px;
+    width: 40%;
 
     @media (max-width: 991px) {
         display: none;
@@ -143,7 +144,7 @@
     font-size: 2.25rem;
     line-height: 1.25;
     letter-spacing: -0.02rem;
-    margin-bottom: 1.375rem;
+    margin-bottom: 2.875rem;
 }
 
 .tagline {
@@ -151,6 +152,10 @@
     .dark-blue;
     line-height: 1.4;
     font-size: 1.25rem;
+
+    &.margin-bottom {
+        margin-bottom: 2rem;
+    }
 }
 
 .sub-title {
@@ -167,54 +172,4 @@
     .dark-blue;
     font-size: 1.25rem;
     line-height: 1.4;
-}
-
-
-// all-in-one
-.aio-container {
-    display: flex;
-    flex-direction: column;
-    grid-row-gap: 50px;
-}
-
-.aio-item {
-    display: flex;
-    flex-direction: column;
-
-    .aio-title {
-        margin-bottom: 23px;
-        .nunito-sans-bold;
-        font-size: 1.75rem;
-        .dark-blue;
-    }
-
-    .content-img {
-        width: 220px;
-        height: 220px;
-
-        @media only screen and (max-width: 991px) {
-            margin-left: 32px;
-        }
-    }
-
-    .content-wrapper {
-        display: flex;
-
-        @media only screen and (max-width: 991px) {
-            flex-direction: column;
-        }
-    }
-
-    .aio-body {
-        margin-top: 28px;
-        margin-left: 22px;
-        .nunito-sans-regular;
-        font-size: 1.25rem;
-        line-height: 1.4;
-
-        @media only screen and (max-width: 991px) {
-            margin-top: 40px;
-            margin-left: 0;
-        }
-    }
 }

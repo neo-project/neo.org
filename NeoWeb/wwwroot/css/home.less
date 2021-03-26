@@ -25,14 +25,20 @@
     flex-direction: column;
     align-items: stretch;
     background-color: #fff;
-
+    /*
     @media only screen and (min-width: 1200px) and (max-width: 1440px) {
-        zoom: 80%;
+        zoom: 88%;
     }
+
+    @media only screen and (min-width: 992px) and (max-width: 1199.98px) {
+        zoom: 86%;
+    }
+    */
 }
 
 html body {
-    background: @linear-black;
+    background: #ffffff;
+    overflow-x: hidden;
 }
 @nav-color: #0F1E32 ;
 .navbar&:not(.show):not(.scrolled-up) {
@@ -165,6 +171,18 @@ html body {
     &.building-blocks {
         height: 26.25rem;
         width: 28.75rem;
+
+        &.zh {
+            .square-block-title {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-end;
+                font-size: 3.75rem;
+                line-height: 1.4;
+                margin-bottom: 0;
+            }
+        }
     }
 
     &.blockchain {
@@ -209,6 +227,18 @@ html body {
         &.building-blocks {
             width: 14.375rem;
             height: 13.125rem;
+
+            &.zh {
+                .square-block-title {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-end;
+                    font-size: 2.75rem;
+                    line-height: 1.2;
+                    margin-bottom: 0;
+                }
+            }
         }
 
         &.blockchain {
@@ -263,6 +293,15 @@ html body {
             padding: 1.875rem 0.5rem 1.25rem 0.875rem;
             width: 18.125rem;
             height: 16.5rem;
+
+            &.zh {
+                .square-block-title {
+                    align-items: flex-start;
+                    font-size: 3.25rem;
+                    line-height: 1.1;
+                    margin-bottom: 0;
+                }
+            }
         }
 
         &.blockchain {
@@ -305,7 +344,15 @@ html body {
     align-items: stretch;
     width: 100%;
     height: calc(100vh - 300px);
-    min-height: 740px;
+
+    @media only screen and (max-height: 740px) {
+        min-height: 740px;
+    }
+
+    @media only screen and (min-height: 740px) and (max-height: 1040px) {
+        min-height: 340px;
+        height: 75vh;
+    }
 
     @media only screen and (max-width: 1200px) {
         flex-direction: column;
@@ -365,6 +412,10 @@ html body {
 
 .logo-img {
     width: 400px;
+
+    @media only screen and (min-height: 740px) and (max-height: 1040px) {
+        width: 240px;
+    }
 
     @media only screen and (max-width: 1200px) {
         width: 19.625rem;
@@ -479,6 +530,11 @@ html body {
 
 // All-in-One
 .aio-row {
+
+    @media only screen and (max-height: 1040px) {
+        zoom: 80%;
+    }
+
     @media only screen and (max-width: 767.98px) {
         display: none;
     }
@@ -557,7 +613,8 @@ html body {
     @media only screen and (max-width: 1200px) {
         align-self: center;
         padding: 2.375rem 0.5rem 8.625rem 0.5rem;
-        width: 767px;
+        width: 750px;
+        align-self: center;
     }
 
     @media only screen and (max-width: 767.98px) {
@@ -988,7 +1045,7 @@ html body {
 
     @media only screen and (max-width: 1200px) { // tablet
         padding: 0.5rem;
-        width: 767px;
+        width: 750px;
     }
 
     @media only screen and (max-width: 767.98px) { // mobile
@@ -1150,12 +1207,12 @@ html body {
     background-color: transparent;
 
     @media only screen and (max-width: 1200px) {
-        width: 100%;
+        width: 90%;
         height: 662px;
+        align-self: center;
     }
 
     @media only screen and (max-width: 767.98px) {
-        display: flex;
         position: fixed;
         z-index: 10;
         top: 0;
@@ -1450,7 +1507,7 @@ html body {
 
         @media only screen and (max-width: 1200px) {
             padding: 0;
-            width: 464px;
+            width: 440px;
             // grid-row-gap: 2.175rem;
 
             & > * + * {
@@ -1596,6 +1653,7 @@ html body {
 
         @media only screen and (max-width: 767.98px) {
             height: 150px;
+            transform: translateX(40%)
         }
     }
 }
@@ -1700,6 +1758,12 @@ html body {
         font-size: 1.125rem;
         min-width: 6.25rem;
     }
+
+    @media only screen and (max-width: 767.98px) {
+        font-size: 1.125rem;
+        min-width: unset;
+        margin-bottom: 1.25rem;
+    }
 }
 
 .slider {
@@ -1738,6 +1802,11 @@ html body {
         font-size: 1.75rem;
     }
 
+    @media only screen and (max-width: 767.98px) {
+        font-size: 1.5rem;
+        margin-top: 2.25rem;
+    }
+
     .slider-neo-icon {
         margin-right: 0.5rem;
         height: 2.875rem;
@@ -1745,6 +1814,11 @@ html body {
 
         @media only screen and (max-width: 1200px) {
             margin-right: 0.25rem;
+            height: 1.69rem;
+            width: 1.5rem;
+        }
+
+        @media only screen and (max-width: 767.98px) {
             height: 1.69rem;
             width: 1.5rem;
         }
@@ -1846,7 +1920,7 @@ html body {
     }
 }
 
-.plug-sign {
+.plus-sign {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1873,7 +1947,38 @@ html body {
         height: 2rem;
         font-size: 2rem;
         border-radius: 1rem;
-        margin: 24px 0;
+        margin: 12px 0;
+    }
+}
+
+.plus-sign-zh {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4.75rem;
+    width: 4.75rem;
+    margin-top: 1.5rem;
+    .nunito-sans-bold;
+    font-size: 2rem;
+    color: #ffffff;
+    background-color: @green;
+    border-radius: 2.375rem;
+    line-height: 1;
+
+    @media only screen and (max-width: 1200px) {
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 1.75rem;
+        border-radius: 1.75rem;
+        margin-top: 1rem;
+    }
+
+    @media only screen and (max-width: 767.98px) {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.25rem;
+        border-radius: 1.25rem;
+        margin: 12px 0;
     }
 }
 
@@ -2076,6 +2181,7 @@ html body {
 
     @media only screen and (max-width: 1200px) {
         align-items: flex-start;
+        padding-left: 12px;
         // grid-row-gap: 1.625rem;
 
         & > * + * {
@@ -2194,7 +2300,7 @@ html body {
 
     @media only screen and (max-width: 1200px) {
         width: 767px;
-        padding-left: 0;
+        padding-left: 12px;
         // grid-column-gap: 2.235rem;
         
         & > * + * {
