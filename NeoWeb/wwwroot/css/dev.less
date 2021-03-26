@@ -19,13 +19,9 @@
 }
 
 .introduction {
+    position: relative;
     display: flex;
-    align-items: center;
     padding: 3rem 0 6.25rem;
-    background: url(/images/dev/introduction-bg.png);
-    background-position: 110% center;
-    background-size: contain;
-    background-repeat: no-repeat;
 
     @media (max-width: 991.98px) {
         display: none;
@@ -49,6 +45,15 @@
         font-style: normal;
         color: @green;
     }
+}
+
+.introduction-img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    object-fit: contain;
+    z-index: -1;
 }
 
 .introduction-description {
