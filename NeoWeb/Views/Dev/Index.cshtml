@@ -159,6 +159,12 @@
                 updateDocumentations();
                 updateOverviewExamples();
             });
+
+            $(document).ready(() => {
+                $('.view-all-examples').click(() => {
+                    $(window).scrollTop($('.resources').offset().top);
+                });
+            });
         });
 
         // tooling

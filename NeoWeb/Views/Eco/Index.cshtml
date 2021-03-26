@@ -108,6 +108,12 @@
         });
 
         $(document).ready(() => {
+            $('.support-end-btn').click(() => {
+                $(window).scrollTop($('.resources').offset().top);
+            });
+        });
+
+        $(document).ready(() => {
             const scrollDistance = 400;
             $('.projects').each((i, ele) => {
                 $(ele).find('.projects-controller-left').click(function (e) {

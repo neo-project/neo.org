@@ -52,7 +52,7 @@
         <div class="support-end">
             <img class="support-end-img" data-original="@Helper.ToCDN("/images/eco/overview-eco-boost.png", true)" />
             <div class="support-end-text">@Localizer["Get all the support and guidence you need with EcoBoost"]</div>
-            <a class="support-end-btn btn-4 btn-small">@Localizer["EcoBoost"]</a>
+            <a class="support-end-btn btn-4 btn-small" asp-controller="eco" asp-action="index" asp-fragment="ecoboost">@Localizer["EcoBoost"]</a>
         </div>
     </div>
     <div class="support">
@@ -76,7 +76,7 @@
         <div class="support-end">
             <img class="support-end-img" data-original="@Helper.ToCDN("/images/eco/overview-eco-fund.png", true)" />
             <div class="support-end-text">@Localizer["Get all the funding aid you need with EcoFund"]</div>
-            <a class="support-end-btn btn-4 btn-small">@Localizer["EcoFund"]</a>
+            <a class="support-end-btn btn-4 btn-small" asp-controller="eco" asp-action="index" asp-fragment="ecofund">@Localizer["EcoFund"]</a>
         </div>
     </div>
 </div>
