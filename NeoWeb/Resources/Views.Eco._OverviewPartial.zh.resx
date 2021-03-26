@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -162,7 +162,7 @@
   <data name="I am" xml:space="preserve">
     <value>如果你</value>
   </data>
-  <data name="If you would  benefit from a little help during your journey on the Neo blockchain, simply identify the track below that best describes your current situation.Full details on how to apply can be found by following the relevant links." xml:space="preserve">
+  <data name="If you would  benefit from a little help during your journey on the Neo blockchain, simply identify the track below that best describes your current situation. Full details on how to apply can be found by following the relevant links." xml:space="preserve">
     <value>如果你想从Neo区块链中得到一点帮助，找出下列最符合您现状的轨道即可。详细信息请参阅有关链接。</value>
   </data>
   <data name="Infrastructure and tools development" xml:space="preserve">
@@ -177,7 +177,7 @@
   <data name="Neo core-protocol development" xml:space="preserve">
     <value>Neo核心协议开发</value>
   </data>
-  <data name="Neo has initiated a number of support tracks to grow the Neo ecosystem, offering various types of assistance depending on your project needs, interests, and maturity.Options are available for grassroots developers, start up projects, established businesses, institutions, and everything in between." xml:space="preserve">
+  <data name="Neo has initiated a number of support tracks to grow the Neo ecosystem, offering various types of assistance depending on your project needs, interests, and maturity. Options are available for grassroots developers, start up projects, established businesses, institutions, and everything in between." xml:space="preserve">
     <value>Neo已经启动了许多支持轨道来发展Neo生态系统，根据您的项目需求、兴趣和成熟度提供各种类型的帮助。业余开发者、初创项目、已存续的企业、机构等均可酌情选择。</value>
   </data>
   <data name="Neo is committed to helping quality projects succeed. Take a look at some of the recent groups and organisations we have supported - We’d love to add you to the list!" xml:space="preserve">
