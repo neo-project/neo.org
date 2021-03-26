@@ -40,16 +40,16 @@
             </div>
             <div class="highlight-container">
                 @{ string[,] highlightItems = new string[9, 2] {
-                                                                                    { "Interoperability", "/images/home/Interoperability.svg" },
-                                                                                    { "Native Oracles", "/images/home/NativeOracles.svg" },
-                                                                                    { "Self-Sovereign ID", "/images/home/Self-SovereignID.png" },
-                                                                                    { "Decentralized Storage", "/images/home/DecentralizedStorage.svg" },
-                                                                                    { "Native Name Service", "/images/home/NativeNameService.svg" },
-                                                                                    { "One Block Finality", "/images/home/OneBlockFinality.svg" },
-                                                                                    { "Best-In-Class Tooling", "/images/home/BestInClassTooling.svg" },
-                                                                                    { "Smart Contracts", "/images/home/SmartContracts.svg" },
-                                                                                    { "Multi-Language", "/images/home/Multi-Language.png" }
-            };
+                        { "Interoperability", "/images/home/Interoperability.svg" },
+                        { "Native Oracles", "/images/home/NativeOracles.svg" },
+                        { "Self-Sovereign ID", "/images/home/Self-SovereignID.png" },
+                        { "Decentralized Storage", "/images/home/DecentralizedStorage.svg" },
+                        { "Native Name Service", "/images/home/NativeNameService.svg" },
+                        { "One Block Finality", "/images/home/OneBlockFinality.svg" },
+                        { "Best-In-Class Tooling", "/images/home/BestInClassTooling.svg" },
+                        { "Smart Contracts", "/images/home/SmartContracts.svg" },
+                        { "Multi-Language", "/images/home/Multi-Language.png" }
+                   };
 
                     for (int i = 0; i < highlightItems.GetLength(0); i++)
                     {
@@ -77,11 +77,11 @@
         <div class="col-12 col-md-6 col-right">
             <div class="get-started-wrapper">
                 @{ string[,] getStartedItems = new string[4, 3]
-               {
-                                                                                { "Find a Wallet", "/images/home/FindWallet.svg", "neogas#wallets" },
-                                                                                { "Neo & Gas Tokens", "/images/home/LearnTokens.svg", "neogas#tokens" },
-                                                                                { "Neo's Features", "/images/home/LearnFeatures.svg", "technology" },
-                                                                                { "Documentation", "/images/home/ReadDocumentation.svg", "https://docs.neo.org/v3/docs/en-us/index.html" }
+                       {
+                                                                                                                                                { "Find a Wallet", "/images/home/FindWallet.svg", "neogas#wallets" },
+                                                                                                                                                { "Neo & Gas Tokens", "/images/home/LearnTokens.svg", "neogas#tokens" },
+                                                                                                                                                { "Neo's Features", "/images/home/LearnFeatures.svg", "technology" },
+                                                                                                                                                { "Documentation", "/images/home/ReadDocumentation.svg", "https://docs.neo.org/v3/docs/en-us/index.html" }
 };
 
                     for (int i = 0; i < getStartedItems.GetLength(0); i++)
@@ -157,14 +157,14 @@
 
         <div class="blocks-container">
             @{ string[,] blocks = new string[7, 4]
-                                  {
-                                                            {
+                                          {
+                                                                                            {
                         "/images/home/OneBlockFinality3D.svg", "One Block Finality", "dBFT consensus mechanism guarantees fast and efficient finality in a single block.", "technology#dbft-2.0"
                     },
                                                             {
                         "/images/home/NativeOracles3D.svg", "Oracle", "A built-in oracle enabling secured access to any off-chain data.", "technology#oracles"
                     },
-                                                                {
+                                                                                                {
                         "/images/home/NeoFS3D.svg", "NeoFS", "A distributed data storage solution made for scalability and privacy.", "technology#neo-fs"
                     },
                                                             {
@@ -173,7 +173,7 @@
                                                             {
                         "/images/home/NeoNameService3D.svg", "Neo Name Service", "A decentralized .neo domain name service for next-gen internet web applications.", "technology#neo-name-service"
                     },
-                                                            {
+                                                                                            {
                         "/images/home/Interoperability3D.svg", "Interoperability", "Poly.Network enabled cross-chain interoperability with Ethereum, Binance Chain, and more.", "technology#interoperability"
                     },
                                                             {
@@ -481,16 +481,16 @@
             <span class="governance-learn-more">@Localizer["Learn More"]</span>
             <div class="governance-card-container">
                 @{ for (int i = 0; i < governanceItems.GetLength(0); i++)
-                                {
-                    <a class="float-card">
-                        <div class="card-text-wrapper">
-                            <div class="green-vertline"></div>
-                            <div class="card-text">
-                                @Localizer[governanceItems[i, 0]]
-                            </div>
-                        </div>
-                        <img class="card-img" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
-                    </a> } }
+                    {
+        <a class="float-card" href="@governanceItems[i, 2]">
+            <div class="card-text-wrapper">
+                <div class="green-vertline"></div>
+                <div class="card-text">
+                    @Localizer[governanceItems[i, 0]]
+                </div>
+            </div>
+            <img class="card-img" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
+        </a> } }
             </div>
         </div>
     </div>
@@ -523,7 +523,7 @@
             <div class="governance-card-container">
                 @{ for (int i = 0; i < governanceItems.GetLength(0); i++)
                     {
-        <div class="float-card">
+        <a class="float-card" href="@governanceItems[i, 2]">
             <div class="card-text-wrapper">
                 <div class="green-vertline"></div>
                 <div class="card-text">
@@ -531,7 +531,7 @@
                 </div>
             </div>
             <img class="card-img" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
-        </div> } }
+        </a> } }
             </div>
         </div>
     </div>
