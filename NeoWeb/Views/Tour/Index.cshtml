@@ -1,4 +1,4 @@
-@using Microsoft.AspNetCore.Mvc.Localization
+﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 @{ Layout = null; }
@@ -170,6 +170,7 @@
                         </div>
                         <div class="text-group-content text-group-5-text text-group-border">
                             @Localizer["Use verifiable credentials to add a layer of authentication to your application."]
+                            <br /><br />
                             @Localizer["Through NeoID, you can customize the precise level of attribute verification needed to ensure your contract operates correctly. Ensure regulatory compliance, filter out bots, or leave the doors open to everyone. Through its open claim issuance and validation tools, users can remain in full control of their personal information."]
                         </div>
                         <div class="text-group-content text-group-text-2">
