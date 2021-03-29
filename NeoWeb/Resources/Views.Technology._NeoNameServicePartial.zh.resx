@@ -121,18 +121,18 @@
     <value>Neo 域名服务</value>
   </data>
   <data name="Neo Name Service (NNS) is a decentralized name service built as a native service on the Neo blockchain. It is used to map human-readable domain names to different types of data, such as IP addresses, aliases, or other strings." xml:space="preserve">
-    <value>Neo 域名服务（NNS）是Neo区块链上的原生的去中心化域名服务。它可以将普通用户易于记忆的域名映射到不同类型的数据上，例如IP地址、别名或其他字符串。</value>
+    <value>Neo 域名服务（NNS）是 Neo 区块链上的原生的去中心化域名服务。它可以将普通用户易于记忆的域名映射到不同类型的数据上，例如 IP 地址、别名或其他字符串。</value>
   </data>
   <data name="One of the most prominent barriers to entry in the blockchain space is the user experience of public key cryptography. Even after conversion to more readable address formats, interaction with blockchain protocols remains tedious and error prone." xml:space="preserve">
     <value>加密公钥地址复杂难记，是入门区块链世界最主要门槛之一，与协议的交互也极为繁琐且容易出错。</value>
   </data>
   <data name="To successfully onboard the next generation of users, the blockchain UX must enter the realm of the familiar. Through simple TXT records, both user wallet and smart contract addresses can be given easily typed and identifiable representations." xml:space="preserve">
-    <value>为了成功吸引更多新用户，区块链应用的用户体验必须向传统世界靠拢。通过简单的TXT记录，无论用户钱包或是合约地址都可以被轻松输入并识别。</value>
+    <value>为了成功吸引更多新用户，区块链应用的用户体验必须向传统世界靠拢。通过简单的 TXT 记录，无论用户钱包或是合约地址都可以被轻松输入并识别。</value>
   </data>
   <data name="Aliases also prove useful in various other situations. In NeoFS, they can be used as aliases for stored containers, or used to configure GeoDNS for the NeoFS CDN for improved data retrieval speeds. Applied in this manner, applications can ensure their users encounter minimal latency and fast download speeds while retaining all the benefits of true decentralized storage." xml:space="preserve">
-    <value>在NeoFS中，别名服务可以为存储容器创建别名，或为NeoFS CDN配置GeoDNS，以提高数据检索速度。用这种方式，应用可以确保其用户在享有去中心化存储的所有优势同时获得最短的延迟与最快的下载速度。</value>
+    <value>在 NeoFS 中，别名服务可以为存储容器创建别名，或为 NeoFS CDN 配置 GeoDNS，以提高数据检索速度。用这种方式，应用可以确保其用户在享有去中心化存储的所有优势同时获得最短的延迟与最快的下载速度。</value>
   </data>
   <data name="NNS employs an innovative NFT-based approach. Each domain is represented as an NFT, enabling NNS users to freely transfer the ownership of domain names. All necessary functionality for a complete domain life cycle is provided, including registry, renewal, resolution, expiration, and permission control." xml:space="preserve">
-    <value>NNS采用了基于NFT的创新方法，每个域名都是一个NFT，NNS用户可以自由转让域名所有权。与此同时，NNS还提供了域名全生命周期的所有必需功能，包括注册表、续订、解析、到期和权限控制等。</value>
+    <value>NNS 采用了基于 NFT 的创新方法，每个域名都是一个 NFT，NNS 用户可以自由转让域名所有权。与此同时，NNS 还提供了域名全生命周期的所有必需功能，包括注册表、续订、解析、到期和权限控制等。</value>
   </data>
 </root>

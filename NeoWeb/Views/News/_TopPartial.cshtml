@@ -6,20 +6,20 @@
 @if (Model?.Type == NewsViewModelType.Blog)
 {
     <div class="col-md-5">
-        <h1><span class="green">@Localizer["NEWS"]</span><br class="@SharedLocalizer["d-none-zh"]" /><span> & @Localizer["EVENT"]</span></h1>
+        <h1><span class="green">@Localizer["NEWS"]</span><br class="@SharedLocalizer["d-none-zh"]" /><span> & @Localizer["EVENTS"]</span></h1>
         <div>@Localizer["After four years of stable MainNet operation, Neo is undergoing its biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]</div>
     </div>
     <div class="col-md-6 offset-md-1">
         @if (Model?.Type == NewsViewModelType.Blog)
         {
             <a class="bg-img" href="~/blog/details/@Model.Blog.Id" data-original="@(string.IsNullOrEmpty(Model.Blog.Cover) ? Helper.ToCDN("/images/news/blog.svg") : $"/upload/{Model.Blog.Cover}".ToLower())"></a>
-            <div class="mt-1 bold">@Localizer["FEATURED BLOG ARGICLES"]</div>
-            <h3 class="d-title with-space"><a href="~/blog/details/@Model.Blog.Id">@Model.Blog.Title</a></h3>
+            <div class="mt-1 bold">@Localizer["FEATURED BLOG ARTICLES"]</div>
+            <h4 class="d-title with-space"><a href="~/blog/details/@Model.Blog.Id">@Model.Blog.Title</a></h4>
         }
         else if (Model?.Type == NewsViewModelType.Event)
         {
             <a class="bg-img" href="~/event/details/@Model.Event.Id" data-original="@(string.IsNullOrEmpty(Model.Event.Cover) ? Helper.ToCDN("/images/news/events.svg") : $"/upload/{Model.Event.Cover}".ToLower())"></a>
-            <div class="mt-1 bold">@Localizer["FEATURED EVENT"]</div>
+            <div class="mt-1 bold">@Localizer["FEATURED EVENTS"]</div>
             <h3 class="d-title with-space"><a href="~/event/details/@Model.Event.Id">@Model.Event.Name</a></h3>
         }
         else if (Model?.Type == NewsViewModelType.Media)

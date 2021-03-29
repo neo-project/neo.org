@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -121,10 +121,10 @@
     <value>合作</value>
   </data>
   <data name="Communities" xml:space="preserve">
-    <value>Neo社区</value>
+    <value>Neo 社区</value>
   </data>
   <data name="Community projects like Neo attract people from all walks of life with all kinds of skills and abilities. Some may work with the project long term, while others may make impactful contributions over a short period of time. We like to provide special acknowledgement of these outstanding community members and thank them for their contributions to the Neo project." xml:space="preserve">
-    <value>Neo社区项目吸引了来自各行各业的杰出人才，其中一些人与Neo保持着长期合作，另一些人则在短期内就做出了巨大的贡献。在此，我们特别鸣谢这些优秀的社区成员。</value>
+    <value>Neo 社区项目吸引了来自各行各业的杰出人才，其中一些人与 Neo 保持着长期合作，另一些人则在短期内就做出了巨大的贡献。在此，我们特别鸣谢这些优秀的社区成员。</value>
   </data>
   <data name="Contributors" xml:space="preserve">
     <value>贡献者</value>
@@ -139,7 +139,7 @@
     <value>行业合作</value>
   </data>
   <data name="Many hands make light work. Neo is a collaborative project with contributors from many different groups and organizations across the globe." xml:space="preserve">
-    <value>齐心协力，众志成城。Neo是一个由全球各地的组织团体共同参与的合作项目。</value>
+    <value>齐心协力，众志成城。Neo 是一个由全球各地的组织团体共同参与的合作项目。</value>
   </data>
   <data name="NEO" xml:space="preserve">
     <value>NEO</value>
@@ -148,7 +148,7 @@
     <value>Neo Foundation</value>
   </data>
   <data name="Neo Global Development" xml:space="preserve">
-    <value>Neo全球发展部门（NGD）</value>
+    <value>Neo 全球发展部门（NGD）</value>
   </data>
   <data name="Outstanding" xml:space="preserve">
     <value>杰出</value>

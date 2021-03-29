@@ -121,13 +121,13 @@
     <value>内置预言机，让应用以去中心化的方式安全地访问任何链下数据。</value>
   </data>
   <data name="A decentralized .neo domain name service for next-gen internet web applications." xml:space="preserve">
-    <value>为下一代互联网应用设计的去中心化.neo域名服务。</value>
+    <value>为下一代互联网应用设计的去中心化.neo 域名服务。</value>
   </data>
   <data name="A distributed data storage solution made for scalability and privacy." xml:space="preserve">
     <value>为增强扩容与隐私性打造的分布式数据存储解决方案。</value>
   </data>
   <data name="A dynamic on-chain council voted in by the NEO token holders." xml:space="preserve">
-    <value>由NEO持有者投票产生&lt;br /&gt;动态链上治理委员会。</value>
+    <value>由 NEO 持有者投票产生 &lt;br /&gt; 动态链上治理委员会。</value>
   </data>
   <data name="A set of self-sovereign decentralized identity solution standards." xml:space="preserve">
     <value>全局自主权去中心化身份解决方案。</value>
@@ -136,7 +136,7 @@
     <value>用户持有</value>
   </data>
   <data name="After four years of stable MainNet operation, Neo is undergoing its biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
-    <value>经历4年的主网稳定运行，Neo正在经历向有史以来最强大且全能的版本--N3迁移的重大进化。</value>
+    <value>经历 4 年的主网稳定运行，Neo 正在经历向有史以来最强大且全能的版本 --N3 迁移的重大进化。</value>
   </data>
   <data name="Best-In-Class Tooling" xml:space="preserve">
     <value>最优开发工具</value>
@@ -154,7 +154,7 @@
     <value>贡献者</value>
   </data>
   <data name="dBFT consensus mechanism guarantees fast and efficient finality in a single block." xml:space="preserve">
-    <value>dBFT共识机制可以确保快速且安全的单区块终局性。</value>
+    <value>dBFT 共识机制可以确保快速且安全的单区块终局性。</value>
   </data>
   <data name="Decentralized Storage" xml:space="preserve">
     <value>去中心化存储</value>
@@ -169,31 +169,31 @@
     <value>生态</value>
   </data>
   <data name="estimate based on average 20% circulating NEO voting participation" xml:space="preserve">
-    <value>根据20%投票参与率预估</value>
+    <value>根据 20% 投票参与率预估</value>
   </data>
   <data name="Explore the" xml:space="preserve">
     <value>了解</value>
   </data>
   <data name="Find a Wallet" xml:space="preserve">
-    <value>选择NEO钱包</value>
+    <value>选择 NEO 钱包</value>
   </data>
   <data name="For Governance Participation" xml:space="preserve">
     <value>参与治理</value>
   </data>
   <data name="For holding NEO" xml:space="preserve">
-    <value>持有NEO</value>
+    <value>持有 NEO</value>
   </data>
   <data name="for the Next Generation Internet" xml:space="preserve">
-    <value>下一代&lt;br /&gt;互联网的</value>
+    <value>下一代 &lt;br /&gt; 互联网的</value>
   </data>
   <data name="GAS is used to pay for network fees, smart contract deployments, and in dApp purchases." xml:space="preserve">
-    <value>GAS可以被用来支付Neo区块链上的网络费用、智能合约部署费用，以及dAPP内购等。</value>
+    <value>GAS 可以被用来支付 Neo 区块链上的网络费用、智能合约部署费用，以及 dAPP 内购等。</value>
   </data>
   <data name="Gas Per Month" xml:space="preserve">
-    <value>GAS/月</value>
+    <value>GAS/ 月</value>
   </data>
   <data name="GAS rewards are distributed to both voters and committee members." xml:space="preserve">
-    <value>投票者与委员会成员都将获得GAS奖励。</value>
+    <value>投票者与委员会成员都将获得 GAS 奖励。</value>
   </data>
   <data name="General guide to governance" xml:space="preserve">
     <value>治理指南</value>
@@ -232,10 +232,10 @@
     <value>多种语言支持</value>
   </data>
   <data name="N3 introduces the ability for NEO holders to vote in council members and consensus nodes that maintain the liveliness of the Neo network and adjust critical blockchain parameters." xml:space="preserve">
-    <value>NEO持有者投票产生的委员会成员与共识节点，将承担保持Neo网络活跃度与提案调整关键链上参数的职责。</value>
+    <value>NEO 持有者投票产生的委员会成员与共识节点，将承担保持 Neo 网络活跃度与提案调整关键链上参数的职责。</value>
   </data>
-  <data name="Native functionality provides all the infrustructures you need to build complete decentralized applications, while advanced interoperabilty allows you to harness the power of the global blockchain ecosystem." xml:space="preserve">
-    <value>Neo不但原生提供开发去中心化应用所需的全套基础设施，更支持先进的互操作性，帮助开发者轻松触达整个区块链生态系统。</value>
+  <data name="Native functionality provides all the infrastructure you need to build complete decentralized applications, while advanced interoperabilty allows you to harness the power of the global blockchain ecosystem." xml:space="preserve">
+    <value>Neo 不但原生提供开发去中心化应用所需的全套基础设施，更支持先进的互操作性，帮助开发者轻松触达整个区块链生态系统。</value>
   </data>
   <data name="Native Name Service" xml:space="preserve">
     <value>原生域名服务</value>
@@ -253,22 +253,22 @@
     <value>NEO &amp; GAS 代币</value>
   </data>
   <data name="Neo has a unique dual token model that seperates governance from utility." xml:space="preserve">
-    <value>Neo特有的双通证机制&lt;br /&gt;将治理与燃料通证&lt;br /&gt;有效区分。</value>
+    <value>Neo 特有的双通证机制 &lt;br /&gt; 将治理与燃料通证 &lt;br /&gt; 有效区分。</value>
   </data>
-  <data name="Neo is joint effort by community groups from all over the world." xml:space="preserve">
-    <value>遍布全球的社区成员&lt;br /&gt;正在共同为Neo的发展努力。</value>
+  <data name="Neo is a joint effort by community groups from all over the world." xml:space="preserve">
+    <value>遍布全球的社区成员 &lt;br /&gt; 正在共同为 Neo 的发展努力。</value>
   </data>
   <data name="Neo Name Service" xml:space="preserve">
     <value>Neo 域名服务</value>
   </data>
   <data name="Neo provides a full stack of features out of the box, but doesn't keep you boxed in." xml:space="preserve">
-    <value>Neo为开发者提供开箱即用的全栈式开发体验，更助力开发者开拓更广阔的视野。</value>
+    <value>Neo 为开发者提供开箱即用的全栈式开发体验，更助力开发者开拓更广阔的视野。</value>
   </data>
-  <data name="NEO token holders are the owners of the network who are able to participate in governance. NEO holders also receive passive distribution of the network utility token, GAS - No staking required. GAS rewards are increased for voting participation." xml:space="preserve">
-    <value>NEO通证的持有者共享Neo区块链的所有权与治理权。NEO持有者无需进行质押就可以被动分发方式获得GAS。</value>
+  <data name="NEO token holders are the owners of the network and are able to participate in governance. NEO holders also receive passive distribution of the network utility token, GAS - No staking required. GAS rewards are increased for voting participation." xml:space="preserve">
+    <value>NEO 通证的持有者共享 Neo 区块链的所有权与治理权。NEO 持有者无需进行质押就可以被动分发方式获得 GAS。</value>
   </data>
   <data name="Neo's Features" xml:space="preserve">
-    <value>Neo的特征</value>
+    <value>Neo 的特征</value>
   </data>
   <data name="NeoFS" xml:space="preserve">
     <value>NeoFS</value>
@@ -295,7 +295,7 @@
     <value>伙伴</value>
   </data>
   <data name="Poly.Network enabled cross-chain interoperability with Ethereum, Binance Chain, and more." xml:space="preserve">
-    <value>通过Poly Network，实现与以太坊、币安智能链、火币生态链等多个网络的双向跨链互操作。</value>
+    <value>通过 Poly Network，实现与以太坊、币安智能链、火币生态链等多个网络的双向跨链互操作。</value>
   </data>
   <data name="Register as a committee candidate" xml:space="preserve">
     <value>注册成为委员会候选人</value>
@@ -307,13 +307,13 @@
     <value>先进智能合约</value>
   </data>
   <data name="Take a look at the latest version of the Neo platform" xml:space="preserve">
-    <value>最新版本的Neo区块链已经到来</value>
+    <value>最新版本的 Neo 区块链已经到来</value>
   </data>
   <data name="Take A Tour" xml:space="preserve">
-    <value>开启N3之旅</value>
+    <value>开启 N3 之旅</value>
   </data>
   <data name="The Complete Blockchain Development Platform" xml:space="preserve">
-    <value>全功能&lt;br /&gt;区块链&lt;br /&gt;开发平台</value>
+    <value>全功能 &lt;br /&gt; 区块链 &lt;br /&gt; 开发平台</value>
   </data>
   <data name="This is an example of a article on the latest news ticker" xml:space="preserve">
     <value>点击查看最新资讯</value>
@@ -327,11 +327,11 @@
   <data name="would receive up to" xml:space="preserve">
     <value>最多可获得</value>
   </data>
-  <data name="Write smart contracts in a language you already know, with tools you already love" xml:space="preserve">
-    <value>已经掌握的语言+已经熟悉的工具&lt;br /&gt;=轻松编写智能合约。</value>
+  <data name="Write smart contracts in a language you already love" xml:space="preserve">
+    <value>已经掌握的语言 + 已经熟悉的工具 &lt;br /&gt;= 轻松编写智能合约。</value>
   </data>
   <data name="Write your smart contracts in C#, Go, Python, Java, or TypeScript." xml:space="preserve">
-    <value>用C#、Python、Go、Java或TypeScript编写你的智能合约</value>
+    <value>用 C#、Python、Go、Java 或 TypeScript 编写你的智能合约</value>
   </data>
   <data name="You know" xml:space="preserve">
     <value>你已经熟知的</value>

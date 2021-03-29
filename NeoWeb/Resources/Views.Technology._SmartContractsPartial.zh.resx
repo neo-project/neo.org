@@ -121,23 +121,23 @@
     <value>智能合约</value>
   </data>
   <data name="Neo strives to be the most developer-friendly blockchain. It achieves this with full-stack development tools for multiple programming languages. Neo believes in bringing blockchain technology to developers, rather than forcing developers to learn new languages or tools." xml:space="preserve">
-    <value>Neo立志成为对开发者最友好的区块链。通过提供面向多种编程语言的全栈开发工具，Neo不断努力将区块链技术带给更多开发者，而无需让开发者学习新的语言或开发工具。</value>
+    <value>Neo 立志成为对开发者最友好的区块链。通过提供面向多种编程语言的全栈开发工具，Neo 不断努力将区块链技术带给更多开发者，而无需让开发者学习新的语言或开发工具。</value>
   </data>
   <data name="Your language, your way" xml:space="preserve">
     <value>更熟悉的开发语言</value>
   </data>
   <data name="Courtesy of its global development communities, Neo’s tooling and infrastructure already supports numerous languages. Developers can write, compile, and deploy contracts written in C#, Python, Go, TypeScript, and Java." xml:space="preserve">
-    <value>依托于遍布全球的开发者社区，Neo的工具集和基础架构支持多种编程语言。开发者可以用以C＃，Python，Go，TypeScript和Java来编写、编译和部署智能合约。</value>
+    <value>依托于遍布全球的开发者社区，Neo 的工具集和基础架构支持多种编程语言。开发者可以用以 C＃，Python，Go，TypeScript 和 Java 来编写、编译和部署智能合约。</value>
   </data>
   <data name="After compilation to the standard NEF (Neo Execution Format), contracts can be executed within NeoVM, Neo’s lightweight virtual machine. Newly upgraded for the N3 network, NeoVM delivers substantial performance improvements over the previous generation, with some instruction set runtimes improved by as much as 16x. NeoVM uses a modular architecture, allowing for easy integration into other applications or off-chain scenarios." xml:space="preserve">
-    <value>编译为标准NEF（Neo执行格式）后，开发者可以在轻型虚拟机NeoVM中执行智能合约。 NeoVM针对N3网络进行了重大升级，性能较上一代得到了显着提高，其中某些指令集的运行速度提高了16倍。 NeoVM使用模块化架构，可以轻松被集成到其他应用程序或链下应用中。</value>
+    <value>编译为标准 NEF（Neo 执行格式）后，开发者可以在轻型虚拟机 NeoVM 中执行智能合约。 NeoVM 针对 N3 网络进行了重大升级，性能较上一代得到了显着提高，其中某些指令集的运行速度提高了 16 倍。 NeoVM 使用模块化架构，可以轻松被集成到其他应用程序或链下应用中。</value>
   </data>
   <data name="Smarter contracts" xml:space="preserve">
     <value>更智能的合约</value>
   </data>
   <data name="The N3 smart contract system introduces a wide range of new functionality to improve the contract development experience for developers. Examples include a new dual-level permission setting, defined at the Manifest and Call levels, and the new NEP-17 token standard to simplify token transfers and enable contracts to add custom logic to trigger when receiving tokens." xml:space="preserve">
     <value>
-N3的智能合约系统引入了大量的新功能，以改善开发者的合约开发体验。包括在Manifest和Call级别新增的双层权限自定义设置，以及新的NEP-17通证标准。这项标准简化了通证传输，并使合约可以在接收通证时触发自定义逻辑。
+N3 的智能合约系统引入了大量的新功能，以改善开发者的合约开发体验。包括在 Manifest 和 Call 级别新增的双层权限自定义设置，以及新的 NEP-17 通证标准。这项标准简化了通证传输，并使合约可以在接收通证时触发自定义逻辑。
 </value>
   </data>
   <data name="Benefits also extend to off-chain applications. Improvements such as the new contract upgrade mechanism eliminates the issue of a contract hash changes and ensures data is retained." xml:space="preserve">
@@ -147,9 +147,9 @@ N3的智能合约系统引入了大量的新功能，以改善开发者的合约
     <value>更低廉的成本</value>
   </data>
   <data name="Developers will also note a dramatic reduction in the costs of deploying and executing smart contracts. With fees lowered by an average of approximately 100 times, N3 provides a far more competitively priced platform to developers, allowing the free 10 GAS crutch to be removed. Combined with the GAS inflation mechanism and the burning of system fees, a sustainable economic model has been established. " xml:space="preserve">
-    <value>开发者在N3进行合约部署与执行的成本将大大降低。为了给开发者提供一个更具价格竞争力的开发平台，N3中的平均费用相比之前版本降低约100倍。结合GAS的发放机制和系统费用的大幅降低，N3已经拥有了一套可持续的经济模型。</value>
+    <value>开发者在 N3 进行合约部署与执行的成本将大大降低。为了给开发者提供一个更具价格竞争力的开发平台，N3 中的平均费用相比之前版本降低约 100 倍。结合 GAS 的发放机制和系统费用的大幅降低，N3 已经拥有了一套可持续的经济模型。</value>
   </data>
   <data name="All fees related to the contract system are now adjustable through the on-chain governance mechanism, providing the additional benefit of resistance to market volatility on the Neo system as the price of GAS changes." xml:space="preserve">
-    <value>另一方面，与合约系统有关的所有费用都可以通过链上治理机制进行调整。这意味着Neo生态具备了抵御GAS价格波动的重要优势。</value>
+    <value>另一方面，与合约系统有关的所有费用都可以通过链上治理机制进行调整。这意味着 Neo 生态具备了抵御 GAS 价格波动的重要优势。</value>
   </data>
 </root>

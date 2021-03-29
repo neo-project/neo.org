@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -121,67 +121,67 @@
     <value>"Hello World" Python 智能合约</value>
   </data>
   <data name="A smart contract example for querying data using Neo's built-in Oracle." xml:space="preserve">
-    <value>使用智能合约通过Neo的内置预言机获取数据案例。</value>
+    <value>使用智能合约通过 Neo 的内置预言机获取数据案例。</value>
   </data>
   <data name="All" xml:space="preserve">
     <value>全部</value>
   </data>
   <data name="An example &quot;Hello World&quot; smart contract written in Python." xml:space="preserve">
-    <value>用Python编写的“Hello World”智能合约案例</value>
+    <value>用 Python 编写的“Hello World”智能合约案例</value>
   </data>
   <data name="An example NEP-17 token smart contract written in C#." xml:space="preserve">
-    <value>用C#编写的NEP-17 通证智能合约案例</value>
+    <value>用 C# 编写的 NEP-17 通证智能合约案例</value>
   </data>
   <data name="An example NEP-17 token smart contract written in GO." xml:space="preserve">
-    <value>用GO编写的NEP-17 通证智能合约案例</value>
+    <value>用 GO 编写的 NEP-17 通证智能合约案例</value>
   </data>
   <data name="An example NEP-17 token smart contract written in Java" xml:space="preserve">
-    <value>用Java编写的NEP-17 通证智能合约案例</value>
+    <value>用 Java 编写的 NEP-17 通证智能合约案例</value>
   </data>
   <data name="An example NEP-17 token smart contract written in Python." xml:space="preserve">
-    <value>用Python编写的NEP-17 通证智能合约案例</value>
+    <value>用 Python 编写的 NEP-17 通证智能合约案例</value>
   </data>
   <data name="An example token sale smart contract written in C#. Features all NEP-5 methods, purchase of tokens with both NEO and GAS, contract migration, multi-stage vesting, and more." xml:space="preserve">
-    <value>用C#编写的Token sale 智能合约案例。 包含所有NEP-5 methods，合约迁移，多签vesting等。</value>
+    <value>用 C# 编写的 Token sale 智能合约案例。 包含所有 NEP-5 methods，合约迁移，多签 vesting 等。</value>
   </data>
   <data name="An example token sale smart contract written in Python." xml:space="preserve">
-    <value>用Python编写的 Token sale 智能合约案例</value>
+    <value>用 Python 编写的 Token sale 智能合约案例</value>
   </data>
   <data name="An example wrapped NEO smart contract written in Python." xml:space="preserve">
-    <value>用Python编写的Wrapped NEO 智能合约案例</value>
+    <value>用 Python 编写的 Wrapped NEO 智能合约案例</value>
   </data>
   <data name="An introduction to commands in the command line node, including how to create a wallet, import and export private keys, transfer assets, start consensus, and more." xml:space="preserve">
-    <value>通过命令行模式了解Neo节点的所有功能，包括如何创建钱包、导入和导出私钥、迁移资产，启动共识等等。</value>
+    <value>通过命令行模式了解 Neo 节点的所有功能，包括如何创建钱包、导入和导出私钥、迁移资产，启动共识等等。</value>
   </data>
   <data name="An introduction to the NEP-17 token standard, which provides systems with a generalized interaction mechanism for tokenized smart contracts." xml:space="preserve">
-    <value>NEP-17通证标准的简介，该标准为各系统提供了一种标准化通证化智能合约交互方式。</value>
+    <value>NEP-17 通证标准的简介，该标准为各系统提供了一种标准化通证化智能合约交互方式。</value>
   </data>
   <data name="Develop a smart contract with the Neo Blockchain Toolkit" xml:space="preserve">
-    <value>使用Neo区块链工具包开发智能合约</value>
+    <value>使用 Neo 区块链工具包开发智能合约</value>
   </data>
   <data name="Example" xml:space="preserve">
     <value>案例</value>
   </data>
   <data name="Example &amp; Tutorials" xml:space="preserve">
-    <value>案例&amp;教学</value>
+    <value>案例 &amp; 教学</value>
   </data>
   <data name="Filter by language" xml:space="preserve">
     <value>按语言筛选</value>
   </data>
   <data name="Getting familiar with Neo-CLI commands" xml:space="preserve">
-    <value>了解Neo-CLI命令行</value>
+    <value>了解 Neo-CLI 命令行</value>
   </data>
   <data name="Introduction to NEO·ONE" xml:space="preserve">
-    <value>了解NEO-ONE</value>
+    <value>了解 NEO-ONE</value>
   </data>
   <data name="Learn how to set up a private network using Neo-GO, make RPC calls, and deploy a smart contract." xml:space="preserve">
-    <value>了解如何使用Neo-GO建立私有网络，进行RPC调用并部署智能合约。</value>
+    <value>了解如何使用 Neo-GO 建立私有网络，进行 RPC 调用并部署智能合约。</value>
   </data>
   <data name="Learn how to set up the NEO·ONE Javascript framework, create a token, and integrate NEO·ONE into a dApp." xml:space="preserve">
-    <value>了解如何设置NEO·ONE Javascript框架，创建通证并将NEO·ONE集成到dApp中。</value>
+    <value>了解如何设置 NEO·ONE Javascript 框架，创建通证并将 NEO·ONE 集成到 dApp 中。</value>
   </data>
   <data name="Learn how to write a NEP-17 contract" xml:space="preserve">
-    <value>学习如何编写NEP-17智能合约</value>
+    <value>学习如何编写 NEP-17 智能合约</value>
   </data>
   <data name="Load More" xml:space="preserve">
     <value>加载更多</value>
@@ -199,16 +199,16 @@
     <value>NEP-17 智能合约 - Java</value>
   </data>
   <data name="Oracle solutions enable blockchains to obtain external data from outside networks. Learn how to get started with Neo’s built-in Oracle service." xml:space="preserve">
-    <value>Neo|N3内置的预言机为开发者提供了获取链下数据的方式，通过本文章学习N3内置预言机的功能以及如何在智能合约中使用。</value>
+    <value>Neo|N3 内置的预言机为开发者提供了获取链下数据的方式，通过本文章学习 N3 内置预言机的功能以及如何在智能合约中使用。</value>
   </data>
   <data name="Smart contract development with Neo-GO" xml:space="preserve">
-    <value>使用Neo-GO开发智能合约</value>
+    <value>使用 Neo-GO 开发智能合约</value>
   </data>
   <data name="The basics of Neo’s native Oracle" xml:space="preserve">
-    <value>Neo内置预言机入门</value>
+    <value>Neo 内置预言机入门</value>
   </data>
   <data name="The Neo Blockchain Toolkit is a Visual Studio Code extension that provides frictionless edit-build-debug-deployment across PrivateNet, TestNet and MainNet. Learn how to get started and write your first Neo smart contract." xml:space="preserve">
-    <value>Neo区块链工具包是基于Visual Studio Code的一个扩展包，提供横跨私有链、测试网与主网的搭建-调试-部署全流程Neo智能合约开发无摩擦体验。学习如何开始编写你的第一个Neo智能合约。</value>
+    <value>Neo 区块链工具包是基于 Visual Studio Code 的一个扩展包，提供横跨私有链、测试网与主网的搭建 - 调试 - 部署全流程 Neo 智能合约开发无摩擦体验。学习如何开始编写你的第一个 Neo 智能合约。</value>
   </data>
   <data name="Token sale C# smart contract" xml:space="preserve">
     <value>Token sale C# 智能合约</value>
@@ -223,7 +223,7 @@
     <value>在智能合约内使用预言机</value>
   </data>
   <data name="Whether you want to learn Neo blockchain fundamentals or explore advanced topics, we have examples and tutorials to get you coding. Check back reguarly to find new content authored by our global developer community." xml:space="preserve">
-    <value>无论是入门开发还是探索深奥话题，我们都为你准备了配套教学。我们将不断更新本页面，请记得时常来这里看看来自Neo全球开发者社区的最新教程。</value>
+    <value>无论是入门开发还是探索深奥话题，我们都为你准备了配套教学。我们将不断更新本页面，请记得时常来这里看看来自 Neo 全球开发者社区的最新教程。</value>
   </data>
   <data name="Wrapped NEO Python smart contract" xml:space="preserve">
     <value>Wrapped NEO Python 智能合约</value>

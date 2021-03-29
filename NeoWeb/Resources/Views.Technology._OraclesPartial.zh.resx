@@ -134,11 +134,11 @@
     </data>
 
     <data name="The Internet plays host to an unimaginable wealth of data, ready to be put to use to generate new forms and flows of value. With the native oracle service introduced in N3, it becomes trivial for any developer to tap into any external resources over HTTPS.">
-        <value>互联网承载着超乎想象的海量数据，可随时产生新的应用和价值流。随着N3引入内置预言机服务，任何开发者都可以在智能合约中通过HTTPS轻松访问任意外部资源。</value>
+        <value>互联网承载着超乎想象的海量数据，可随时产生新的应用和价值流。随着 N3 引入内置预言机服务，任何开发者都可以在智能合约中通过 HTTPS 轻松访问任意外部资源。</value>
     </data>
 
     <data name="Contracts deployed on Neo can invoke the native oracle contract to trigger a data request, specifying a target URL and a filter. Oracle nodes, elected through the Neo Council, will work together to guarantee the truthfulness and reliability of the results.">
-        <value>部署在Neo上的智能合约可以调用原生Oracle合约来触发数据请求，并指定目标URL和过滤条件。通过Neo理事会选举产生的Oracle节点将承担起维护信息真实可靠的责任。</value>
+        <value>部署在 Neo 上的智能合约可以调用原生 Oracle 合约来触发数据请求，并指定目标 URL 和过滤条件。通过 Neo 理事会选举产生的 Oracle 节点将承担起维护信息真实可靠的责任。</value>
     </data>
 
     <data name="Decentralize everything">
@@ -150,7 +150,7 @@
     </data>
 
     <data name="With the power of Neo's native oracle and NeoFS, blockchain-based applications can take the next step forward into true decentralization. Any extra data required by an application can simply be stored off-chain with NeoFS then retrieved in a decentralized manner through the oracle service.">
-        <value>借助Neo的原生预言机和NeoFS组件，基于区块链的应用程序可以轻松实现真正的去中心化。应用程序所需的任何外部数据都可以简单地通过NeoFS进行链下存储，然后以去中心化的方式通过Oracle服务读取。</value>
+        <value>借助 Neo 的原生预言机和 NeoFS 组件，基于区块链的应用程序可以轻松实现真正的去中心化。应用程序所需的任何外部数据都可以简单地通过 NeoFS 进行链下存储，然后以去中心化的方式通过 Oracle 服务读取。</value>
     </data>
 
     <data name="Smart contracts can fetch and manipulate data off-chain in an uncensorable, reliable, and tamper-proof manner.">

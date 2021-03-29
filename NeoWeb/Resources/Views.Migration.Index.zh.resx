@@ -132,7 +132,7 @@
   <data name="At this moment, no action is required on the part of token holders." xml:space="preserve">
     <value>现阶段通证持有者无需做任何行动。</value>
   </data>
-  <data name="Built in oracle (internet resource access)" xml:space="preserve">
+  <data name="Built-in oracle (internet resource access)" xml:space="preserve">
     <value>内置预言机 （接入互联网）</value>
   </data>
   <data name="Due to the extent of improvements found in version &lt;strong&gt;N3&lt;/strong&gt;, certain features are not backwards compatible with the existing Neo Legacy blockchain. This means that Neo's &lt;strong&gt;N3&lt;/strong&gt; upgrade will be implemented through a new genesis block. The Neo blockchain running &lt;strong&gt;N3&lt;/strong&gt; will coexist alongside the current Neo Legacy blockchain for an extended period of time. This will provide users with ample opportunity to migrate their tokens and applications to the new chain." xml:space="preserve">
@@ -180,7 +180,7 @@
   <data name="Simplified architecture" xml:space="preserve">
     <value>简化架构设计</value>
   </data>
-  <data name="Some of the major improvements found in &lt;strong&gt;N3&lt;/strong&gt;, such as the removal of UTXO assets in favour of an account model, are not compatible with the Legacy version of the Neo blockchain. In order to provide the best possible blockchain platform and developer experience, it is necessary to launch the &lt;strong&gt;N3&lt;/strong&gt; version from a new genesis block." xml:space="preserve">
+  <data name="Some of the major improvements found in &lt;strong&gt;N3&lt;/strong&gt;, such as the removal of UTXO assets in favor of an account model, are not compatible with the Legacy version of the Neo blockchain. In order to provide the best possible blockchain platform and developer experience, it is necessary to launch the &lt;strong&gt;N3&lt;/strong&gt; version from a new genesis block." xml:space="preserve">
     <value>&lt;strong&gt;N3&lt;/strong&gt; 版本中的一些重大改进，例如支持账户模型而移除全局资产(UTXO)，与现行的 Neo Legacy 版本无法兼容。为了提供最佳区块链平台和开发体验，我们必须从创世块启动 N3 版本。</value>
   </data>
   <data name="The short answer is yes, however it is up to each individual project with a token on Neo Legacy to determine how they want to handle the migration. Neo Global Development will provide support and work closely with projects who need assistance to ensure the smoothest possible transition." xml:space="preserve">
