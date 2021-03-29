@@ -234,7 +234,7 @@
   <data name="N3 introduces the ability for NEO holders to vote in council members and consensus nodes that maintain the liveliness of the Neo network and adjust critical blockchain parameters." xml:space="preserve">
     <value>NEO持有者投票产生的委员会成员与共识节点，将承担保持Neo网络活跃度与提案调整关键链上参数的职责。</value>
   </data>
-  <data name="Native functionality provides all the infrustructures you need to build complete decentralized applications, while advanced interoperabilty allows you to harness the power of the global blockchain ecosystem." xml:space="preserve">
+  <data name="Native functionality provides all the infrastructure you need to build complete decentralized applications, while advanced interoperabilty allows you to harness the power of the global blockchain ecosystem." xml:space="preserve">
     <value>Neo不但原生提供开发去中心化应用所需的全套基础设施，更支持先进的互操作性，帮助开发者轻松触达整个区块链生态系统。</value>
   </data>
   <data name="Native Name Service" xml:space="preserve">
@@ -255,7 +255,7 @@
   <data name="Neo has a unique dual token model that seperates governance from utility." xml:space="preserve">
     <value>Neo特有的双通证机制&lt;br /&gt;将治理与燃料通证&lt;br /&gt;有效区分。</value>
   </data>
-  <data name="Neo is joint effort by community groups from all over the world." xml:space="preserve">
+  <data name="Neo is a joint effort by community groups from all over the world." xml:space="preserve">
     <value>遍布全球的社区成员&lt;br /&gt;正在共同为Neo的发展努力。</value>
   </data>
   <data name="Neo Name Service" xml:space="preserve">
@@ -264,7 +264,7 @@
   <data name="Neo provides a full stack of features out of the box, but doesn't keep you boxed in." xml:space="preserve">
     <value>Neo为开发者提供开箱即用的全栈式开发体验，更助力开发者开拓更广阔的视野。</value>
   </data>
-  <data name="NEO token holders are the owners of the network who are able to participate in governance. NEO holders also receive passive distribution of the network utility token, GAS - No staking required. GAS rewards are increased for voting participation." xml:space="preserve">
+  <data name="NEO token holders are the owners of the network and are able to participate in governance. NEO holders also receive passive distribution of the network utility token, GAS - No staking required. GAS rewards are increased for voting participation." xml:space="preserve">
     <value>NEO通证的持有者共享Neo区块链的所有权与治理权。NEO持有者无需进行质押就可以被动分发方式获得GAS。</value>
   </data>
   <data name="Neo's Features" xml:space="preserve">
@@ -327,7 +327,7 @@
   <data name="would receive up to" xml:space="preserve">
     <value>最多可获得</value>
   </data>
-  <data name="Write smart contracts in a language you already know, with tools you already love" xml:space="preserve">
+  <data name="Write smart contracts in a language you already love" xml:space="preserve">
     <value>已经掌握的语言+已经熟悉的工具&lt;br /&gt;=轻松编写智能合约。</value>
   </data>
   <data name="Write your smart contracts in C#, Go, Python, Java, or TypeScript." xml:space="preserve">

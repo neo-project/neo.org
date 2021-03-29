@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -136,7 +136,7 @@
     <value>Neo社区权限</value>
   </data>
   <data name="Access to the network of EcoBoost partners for tailored support" xml:space="preserve">
-    <value>访问EcoBoost合作网络获取个性化支持 的权限</value>
+    <value>访问EcoBoost合作网络获取个性化支持的权限</value>
   </data>
   <data name="Application requirements" xml:space="preserve">
     <value>申请需求</value>
@@ -156,7 +156,7 @@
   <data name="dApp directory" xml:space="preserve">
     <value>dApp目录</value>
   </data>
-  <data name="Detailed information on why you think a partnership with EcoBoost would be mutually beneficial for yourself the Neo ecosystem." xml:space="preserve">
+  <data name="Detailed information on why you think a partnership with EcoBoost would be mutually beneficial for yourself and the Neo ecosystem." xml:space="preserve">
     <value>详述您方会如何与EcoBoost实现共赢</value>
   </data>
   <data name="Detailed information outlining:" xml:space="preserve">
@@ -228,7 +228,7 @@
   <data name="Operated by the Neo Global Development EcoGrowth department, the program works by building up a partner network to provide assistance to Neo-based projects." xml:space="preserve">
     <value>EcoBoost计划由Neo Global Development（NGD）生态增长（EG)部门负责运营，运作机制是通过建立合作网络，为基于Neo的项目提供援助。</value>
   </data>
-  <data name="Opportunity to grow your busines through exposure to the Neo ecosystem" xml:space="preserve">
+  <data name="Opportunity to grow your business through exposure to the Neo ecosystem" xml:space="preserve">
     <value>通过Neo生态系统发展业务的机会</value>
   </data>
   <data name="partners" xml:space="preserve">

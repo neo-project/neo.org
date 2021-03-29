@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -129,7 +129,7 @@
   <data name="Application requirements" xml:space="preserve">
     <value>申请需求</value>
   </data>
-  <data name="Apply for a Project EcoFund now, NGD EcoGrowth will generally respond within one month." xml:space="preserve">
+  <data name="Apply for an investment now. NGD EcoGrowth will generally respond within one month." xml:space="preserve">
     <value>点击提交申请。NGD通常会在1个月之内做出反馈。</value>
   </data>
   <data name="Apply Now" xml:space="preserve">
@@ -159,7 +159,7 @@
   <data name="EcoFund portfolio" xml:space="preserve">
     <value>EcoFund 项目</value>
   </data>
-  <data name="Funding opportunities to help you achive your business goals" xml:space="preserve">
+  <data name="Funding opportunities to help you achieve your business goals" xml:space="preserve">
     <value>帮助你实现商业目标的资金</value>
   </data>
   <data name="Funding success" xml:space="preserve">

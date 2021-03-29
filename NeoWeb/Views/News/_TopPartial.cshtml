@@ -19,7 +19,7 @@
         else if (Model?.Type == NewsViewModelType.Event)
         {
             <a class="bg-img" href="~/event/details/@Model.Event.Id" data-original="@(string.IsNullOrEmpty(Model.Event.Cover) ? Helper.ToCDN("/images/news/events.svg") : $"/upload/{Model.Event.Cover}".ToLower())"></a>
-            <div class="mt-1 bold">@Localizer["FEATURED EVENT"]</div>
+            <div class="mt-1 bold">@Localizer["FEATURED EVENTS"]</div>
             <h3 class="d-title with-space"><a href="~/event/details/@Model.Event.Id">@Model.Event.Name</a></h3>
         }
         else if (Model?.Type == NewsViewModelType.Media)

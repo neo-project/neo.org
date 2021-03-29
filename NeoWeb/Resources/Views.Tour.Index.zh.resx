@@ -162,7 +162,7 @@
   <data name="IDENTITY" xml:space="preserve">
     <value>身份</value>
   </data>
-  <data name="INTEROPERBILITY" xml:space="preserve">
+  <data name="INTEROPERABILITY" xml:space="preserve">
     <value>互操作性</value>
   </data>
   <data name="UNLEASHED" xml:space="preserve">
@@ -255,7 +255,7 @@
   <data name="Smart contracts are a revolutionary tool, but their usefulness is naturally limited by the data they can access. The native oracle service introduced in N3 allows developers to access rich off-chain data sources through HTTPS or NeoFS requests, opening up new opportunities to create valuable decentralized services." xml:space="preserve">
     <value>智能合约是一个革命性工具，然而其可用性天生受限于可访问的数据源。N3 中集成的原生预言机允许开发者通过 HTTPS 或 NeoFS 请求访问丰富的链下数据源，极大拓展创造各种有价值的去中心化服务的可能性。</value>
   </data>
-  <data name="Start exploiting Neo's developer resources" xml:space="preserve">
+  <data name="Start exploring Neo's developer resources" xml:space="preserve">
     <value>开始探索 Neo 的开发者资源</value>
   </data>
   <data name="Start exploring Neo's developer resources" xml:space="preserve">
