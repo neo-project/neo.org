@@ -138,19 +138,19 @@
     </data>
 
     <data name="Since its inception, Neo has championed a BFT-powered, safety-first approach that has been rapidly gaining in popularity in the blockchain industry—and for good reason.">
-        <value>从立项以来，Neo一直引领着基于BFT，安全优先的共识机制。拥有着独特优势，BFT类共识机制近期在区块链行业内得到了迅速普及。</value>
+        <value>从立项以来，Neo 一直引领着基于 BFT，安全优先的共识机制。拥有着独特优势，BFT 类共识机制近期在区块链行业内得到了迅速普及。</value>
     </data>
 
     <data name="Neo’s consensus mechanism, delegated Byzantine Fault Tolerance, represents a new evolution of the groundbreaking PBFT. Similar to its predecessor, dBFT requires a ⅔ majority agreement between validators called consensus nodes before new blocks can be committed to the blockchain.">
-        <value>Neo的共识机制--dBFT（delegated Byzantine Fault Tolerance，委托拜占庭容错），是源于PBFT的突破式新发展。与PBFT相似，dBFT需要在共识节点之间达成多数一致，然后才能将新区块添加到区块链中。</value>
+        <value>Neo 的共识机制 --dBFT（delegated Byzantine Fault Tolerance，委托拜占庭容错），是源于 PBFT 的突破式新发展。与 PBFT 相似，dBFT 需要在共识节点之间达成多数一致，然后才能将新区块添加到区块链中。</value>
     </data>
 
     <data name="This means the blockchain will never fork, and every transaction is permanently settled as soon as it is included in a confirmed block. In other words, Neo’s consensus mechanism immediately eliminates the possibility of transaction reversal. All applications based on Neo’s Layer 1 inherit this safety property.">
-        <value>这意味着Neo区块链将永远不会分叉，每笔交易一旦包含在已确认的区块中，便会永久成立。换言之，Neo的共识机制立即消除了交易逆转的可能性。所有基于Neo的Layer 1的应用都将继承这一属性。</value>
+        <value>这意味着 Neo 区块链将永远不会分叉，每笔交易一旦包含在已确认的区块中，便会永久成立。换言之，Neo 的共识机制立即消除了交易逆转的可能性。所有基于 Neo 的 Layer 1 的应用都将继承这一属性。</value>
     </data>
 
     <data name="With Neo, users can always enjoy fast, low-cost transactions that are fully finalized within a single block.">
-        <value>Neo区块链上的用户始终可以享受快速、低成本的交易，这些交易都将在一个区块内全部完成。</value>
+        <value>Neo 区块链上的用户始终可以享受快速、低成本的交易，这些交易都将在一个区块内全部完成。</value>
     </data>
 
     <data name="Democratic decentralization">
@@ -158,7 +158,7 @@
     </data>
 
     <data name="Like other Proof of Stake-based blockchains, Neo combines cryptographic tools and game theory to establish a robust and sustainable network. Governance voting by NEO stakeholders ensure all participants are economically aligned in a shared interest to safeguard the blockchain and its growing ecosystem. This democratic mechanism provides the Neo blockchain with all the tools required to fully decentralize control over the network.">
-        <value>与其他基于PoS共识机制的区块链一样，Neo结合了加密学与博弈论，从而建立一个强大而可持续的网络。NEO持有者可通过投票获得相应激励，这将有助于所有治理参与者共同对Neo区块链的安全及可持续性发展负责。这种民主机制为Neo区块链提供了去中心化链上治理所需的所有工具。</value>
+        <value>与其他基于 PoS 共识机制的区块链一样，Neo 结合了加密学与博弈论，从而建立一个强大而可持续的网络。NEO 持有者可通过投票获得相应激励，这将有助于所有治理参与者共同对 Neo 区块链的安全及可持续性发展负责。这种民主机制为 Neo 区块链提供了去中心化链上治理所需的所有工具。</value>
     </data>
 
 </root>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CEO" xml:space="preserve">
-    <value>Neo创始人，Neo基金会主席，NGD CEO
+    <value>Neo 创始人，Neo 基金会主席，NGD CEO
 </value>
   </data>
   <data name="Head of Development" xml:space="preserve">
@@ -128,10 +128,10 @@
     <value>生态发展负责人</value>
   </data>
   <data name="Neo Global Development" xml:space="preserve">
-    <value>Neo全球发展部门（NGD）</value>
+    <value>Neo 全球发展部门（NGD）</value>
   </data>
   <data name="Neo Global Development can be considered as the main execution arm of the Neo Foundation. It is responsible for tasks such as business development, marketing, events management, and direct technical support to partner organizations." xml:space="preserve">
-    <value>NGD是Neo Foundation的主要执行机构，负责业务开发、市场营销、事务管理等工作，并直接向合作组织提供技术支持。</value>
+    <value>NGD 是 Neo Foundation 的主要执行机构，负责业务开发、市场营销、事务管理等工作，并直接向合作组织提供技术支持。</value>
   </data>
   <data name="Quality Assurance Manager" xml:space="preserve">
     <value>测试经理</value>

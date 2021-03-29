@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="&quot;GAS&quot; represents the utility token on the Neo blockchain." xml:space="preserve">
-    <value>“GAS” 为Neo区块链上的燃料通证。</value>
+    <value>“GAS” 为 Neo 区块链上的燃料通证。</value>
   </data>
   <data name="&quot;Neo&quot; represents the brand and the platform." xml:space="preserve">
-    <value>“Neo” 为Neo区块链的品牌与项目名称。</value>
+    <value>“Neo” 为 Neo 区块链的品牌与项目名称。</value>
   </data>
   <data name="&quot;NEO&quot; represents the governance token on the Neo blockchain." xml:space="preserve">
-    <value>“NEO” 为Neo区块链上的治理通证。</value>
+    <value>“NEO” 为 Neo 区块链上的治理通证。</value>
   </data>
   <data name="Neo's branding is a graphical representation of Neo's vision and identity." xml:space="preserve">
     <value>Neo 品牌形象是对 Neo 的愿景与身份最直接的视觉传达</value>
