@@ -6,9 +6,8 @@
 @if (Model?.Type == NewsViewModelType.Blog)
 {
     <div class="col-md-5">
-        <h1><span class="green work-sans-bold">@Localizer["NEWS"]</span><br /><span>& @Localizer["EVENTS"]</span></h1>
-        <h1><span class="green work-sans-bold">@Localizer["NEWS"]</span><br class="@SharedLocalizer["d-none-zh"]" /><span> & @Localizer["EVENT"]</span></h1>
-        <div>@Localizer["After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]</div>
+        <h1><span class="green">@Localizer["NEWS"]</span><br class="@SharedLocalizer["d-none-zh"]" /><span> & @Localizer["EVENTS"]</span></h1>
+        <div>@Localizer["After four years of stable MainNet operation, Neo is undergoing its biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]</div>
     </div>
     <div class="col-md-6 offset-md-1">
         @if (Model?.Type == NewsViewModelType.Blog)
@@ -21,12 +20,12 @@
         {
             <a class="bg-img" href="~/event/details/@Model.Event.Id" data-original="@(string.IsNullOrEmpty(Model.Event.Cover) ? Helper.ToCDN("/images/news/events.svg") : $"/upload/{Model.Event.Cover}".ToLower())"></a>
             <div class="mt-1 bold">@Localizer["FEATURED EVENT"]</div>
-            <h4 class="d-title with-space"><a href="~/event/details/@Model.Event.Id">@Model.Event.Name</a></h4>
+            <h3 class="d-title with-space"><a href="~/event/details/@Model.Event.Id">@Model.Event.Name</a></h3>
         }
         else if (Model?.Type == NewsViewModelType.Media)
         {
             <a class="bg-img" href="~/event/details/@Model.Event.Id" data-original="@(string.IsNullOrEmpty(Model.Event.Cover) ? Helper.ToCDN("/images/news/media.svg") : $"/upload/{Model.Media.Cover}".ToLower())"></a>
-            <h4 class="d-title with-space"><a href="@Model.Media.Link" target="_blank">@Model.Media.Title</a></h4>
+            <h3 class="d-title with-space"><a href="@Model.Media.Link" target="_blank">@Model.Media.Title</a></h3>
             @if (ViewBag.UserRules)
             {
                 <a asp-action="Edit" asp-controller="media" asp-route-id="@Model.Media.Id">Edit</a>

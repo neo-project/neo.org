@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="A global effort" xml:space="preserve">
-    <value>全球努力</value>
+    <value>了解Neo全球社区及贡献者</value>
   </data>
   <data name="About Neo" xml:space="preserve">
     <value>关于 Neo</value>
@@ -132,8 +132,8 @@
   <data name="Contact Us" xml:space="preserve">
     <value>联系我们</value>
   </data>
-  <data name="Contributors &amp; Collaborations" xml:space="preserve">
-    <value>贡献者和合作伙伴</value>
+  <data name="Contributors" xml:space="preserve">
+    <value>贡献者</value>
   </data>
   <data name="Contributors &amp; Collaborators" xml:space="preserve">
     <value>贡献者</value>
@@ -169,7 +169,7 @@
     <value>案例与教学</value>
   </data>
   <data name="Explore the features" xml:space="preserve">
-    <value>探索功能</value>
+    <value>探索全新功能</value>
   </data>
   <data name="For Developers" xml:space="preserve">
     <value>开发者</value>
@@ -229,7 +229,7 @@
     <value>Neo 独特的双代币模型</value>
   </data>
   <data name="News" xml:space="preserve">
-    <value>新闻</value>
+    <value>资讯</value>
   </data>
   <data name="Platform" xml:space="preserve">
     <value>平台</value>
@@ -237,8 +237,8 @@
   <data name="Press Kit" xml:space="preserve">
     <value>媒体资源</value>
   </data>
-  <data name="SUBSCRIBE" xml:space="preserve">
-    <value>订阅</value>
+  <data name="Submit" xml:space="preserve">
+    <value>提交</value>
   </data>
   <data name="Subscribe to our monthly newsletter." xml:space="preserve">
     <value>订阅我们的 Newsletter</value>

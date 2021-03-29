@@ -3,13 +3,27 @@
 html {
     font-size: 16px;
 
-    @media only screen and (max-width: 1399.98px) {
+    @media only screen and (max-width: 1599.98px) {
         font-size: 14px;
     }
 
-    @media only screen and (max-width: 767.98px) {
+    @media only screen and (max-width: 1199.98px) {
         font-size: 12px;
     }
+
+    @media only screen and (max-width: 991.98px) {
+        font-size: 15px;
+    }
+
+    /*
+    @media only screen and (min-width: 1200px) and (max-width: 1440px) {
+        zoom: 88%;
+    }
+
+    @media only screen and (min-width: 992px) and (max-width: 1199.98px) {
+        zoom: 86%;
+    }
+    */
 }
 
 html body {
@@ -41,8 +55,8 @@ a {
 
 @font-face {
     font-family: 'iconfont'; /* project id 2403071 */
-    src: url('//at.alicdn.com/t/font_2403071_3gmv8ob4hin.eot');
-    src: url('//at.alicdn.com/t/font_2403071_3gmv8ob4hin.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_2403071_3gmv8ob4hin.woff2') format('woff2'), url('//at.alicdn.com/t/font_2403071_3gmv8ob4hin.woff') format('woff'), url('//at.alicdn.com/t/font_2403071_3gmv8ob4hin.ttf') format('truetype'), url('//at.alicdn.com/t/font_2403071_3gmv8ob4hin.svg#iconfont') format('svg');
+    src: url('//at.alicdn.com/t/font_2403071_nmxtkj810w.eot');
+    src: url('//at.alicdn.com/t/font_2403071_nmxtkj810w.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_2403071_nmxtkj810w.woff2') format('woff2'), url('//at.alicdn.com/t/font_2403071_nmxtkj810w.woff') format('woff'), url('//at.alicdn.com/t/font_2403071_nmxtkj810w.ttf') format('truetype'), url('//at.alicdn.com/t/font_2403071_nmxtkj810w.svg#iconfont') format('svg');
 }
 
 .iconfont {
@@ -249,6 +263,15 @@ table, .table {
         margin: 0;
         background-color: @custom4;
 
+        .iconfont {
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            margin-top: -30px;
+            font-size: 30px;
+            color: @custom4;
+        }
+
         a:hover {
             text-decoration: none;
         }
@@ -274,7 +297,7 @@ table, .table {
 
         @media only screen and (min-width: 992px) {
             width: 700px;
-            margin-left: -300px;
+            margin-left: -350px;
             left: 50%;
         }
     }
@@ -391,7 +414,7 @@ footer {
 
         @media only screen and (min-width: 992px) {
             float: right;
-            margin-top: -1rem;
+            margin-top: -1.95rem;
             max-width: 100%;
             width: auto;
         }
@@ -435,9 +458,10 @@ footer {
 .btn-1, .btn-2, .btn-3, .btn-4 {
     display: inline-block;
     border-radius: 0;
-    padding: 0.625rem 2rem;
-    transition: opacity 0.2s;
-    font-size: 1.125rem;
+    padding: 0 2rem;
+    line-height: 2.24;
+    transition: opacity .2s;
+    font-size: 1rem;
     text-align: center;
     cursor: pointer;
     vertical-align: middle;
@@ -646,16 +670,6 @@ hr {
     border-radius: .75rem 0px 0px .75rem;
     box-shadow: -11px 2px 40px 0px rgba(6, 20, 29, 0.36);
     z-index: 1000;
-
-    .iconfont {
-        color: white;
-        cursor: pointer;
-        margin: 0 14px -24px;
-        float: left;
-        text-shadow: 1px 1px 1px black;
-        position: absolute;
-        bottom: 0
-    }
 }
 
 .migration-text {
@@ -672,4 +686,73 @@ hr {
         width: 1.2rem;
         margin-right: .5rem
     }
+}
+.bg-img {
+    display: block;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    animation: back-out ease-out 0.15s;
+
+    &::before {
+        content: " ";
+        display: block;
+        padding-top: 56.25%;
+    }
+
+    &:hover {
+        animation: back linear 0.25s;
+        animation-fill-mode: forwards;
+    }
+}
+
+.list2 {
+    margin-bottom: @font-size-4;
+
+    div[class|=col], > li {
+        margin-top: 5.3rem;
+        list-style: none;
+
+        a.img {
+            .bg-img;
+            border: 1px solid @custom6;
+        }
+
+        .list-title, .list-summary {
+            a {
+                color: @dark-blue;
+                text-shadow: none;
+                transition: text-shadow .2s;
+                background-size: cover;
+                animation: back-out ease-out 0.25s;
+
+                &.img {
+                    .bg-img;
+                }
+
+                &:hover {
+                    text-shadow: 0 0 .1px @dark-blue;
+                    transition: text-shadow .2s;
+                }
+            }
+        }
+
+        div, .list-title {
+            margin-top: 8px;
+            overflow: hidden;
+        }
+    }
+}
+.wechat1, .wechat2 {
+    position: absolute;
+    display: none;
+    img {
+        width: 150px;
+    }
+}
+.wechat1 {
+    margin: 190px 0 0 60px !important
+}
+.wechat2 {
+    margin: -150px 0 0 -110px;
 }

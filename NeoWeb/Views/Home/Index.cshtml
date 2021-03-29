@@ -2,9 +2,7 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
-@{
-    ViewBag.HiddenBreadCrumb = true;
-}
+@{ ViewBag.HiddenBreadCrumb = true; }
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/home.min.css", true)" />
 }
@@ -16,7 +14,7 @@
             <div class="col-left-content">
                 <img class="logo-img" data-original="@Helper.ToCDN("/images/home/N3Logo.svg")" />
                 <div class="sub-title work-sans-semibold">@Localizer["Take a look at the latest version of the Neo platform"]</div>
-                <a asp-controller="tour" asp-action="index" class="btn-n3 tour-btn" target="_blank">@Localizer["Take Tour"]</a>
+                <a asp-controller="tour" asp-action="index" class="btn-n3 tour-btn" target="_blank">@Localizer["Take A Tour"]</a>
             </div>
         </div>
 
@@ -26,8 +24,7 @@
                 <div class="latest-news-text">
                     @Localizer["Latest News:"]
                 </div>
-                    <a class="news-link" asp-controller="news" asp-action="index">@Localizer["This is an example of a article on the latest news ticker"]  <i class="iconfont circle-arrow-icon green">&#xe6ab;</i></a>
-
+                <a class="news-link" href="~/blog/details/@Model.FirstOrDefault(p => p.Type == NewsViewModelType.Blog).Blog.Id">@Model[0].Blog.Title <i class="iconfont circle-arrow-icon green">&#xe6ab;</i></a>
             </div>
         </div>
 
@@ -35,30 +32,30 @@
 
     <div class="row horiz-row aio-row">
         <div class="col-12 col-md-12">
-            <div class="work-sans-bold aio-title @SharedLocalizer["d-none-zh"]">
+            <div class="aio-title @SharedLocalizer["d-none-zh"]">
                 <span class="green">All</span> in One - <span class="green">All</span> in Neo
             </div>
-            <div class="work-sans-bold aio-title @SharedLocalizer["d-none"]">
+            <div class="aio-title @SharedLocalizer["d-none"]">
                 <span class="green">All</span> in One - <span class="green">All</span> in Neo
             </div>
             <div class="highlight-container">
                 @{ string[,] highlightItems = new string[9, 2] {
-                                                                            { "Interoperability", "/images/home/Interoperability.svg" },
-                                                                            { "Native Oracles", "/images/home/NativeOracles.svg" },
-                                                                            { "Self-Sovereign ID", "/images/home/Self-SovereignID.png" },
-                                                                            { "Decentralized Storage", "/images/home/DecentralizedStorage.svg" },
-                                                                            { "Native Name Service", "/images/home/NativeNameService.svg" },
-                                                                            { "One Block Finality", "/images/home/OneBlockFinality.svg" },
-                                                                            { "Best-In-Class Tooling", "/images/home/BestInClassTooling.svg" },
-                                                                            { "Smart Contracts", "/images/home/SmartContracts.svg" },
-                                                                            { "Multi-Language", "/images/home/Multi-Language.png" }
+                                                                                    { "Interoperability", "/images/home/Interoperability.svg" },
+                                                                                    { "Native Oracles", "/images/home/NativeOracles.svg" },
+                                                                                    { "Self-Sovereign ID", "/images/home/Self-SovereignID.png" },
+                                                                                    { "Decentralized Storage", "/images/home/DecentralizedStorage.svg" },
+                                                                                    { "Neo Name Service", "/images/home/NativeNameService.svg" },
+                                                                                    { "One Block Finality", "/images/home/OneBlockFinality.svg" },
+                                                                                    { "Best-In-Class Tooling", "/images/home/BestInClassTooling.svg" },
+                                                                                    { "Smart Contracts", "/images/home/SmartContracts.svg" },
+                                                                                    { "Multi-Language", "/images/home/Multi-Language.png" }
             };
 
                     for (int i = 0; i < highlightItems.GetLength(0); i++)
                     {
         <div class="highlight-wrapper">
             <img class="highlight-img png" data-original="@Helper.ToCDN(highlightItems[i, 1])" />
-            <div class="work-sans-bold text-uppercase highlight-name">@Localizer[highlightItems[i, 0]]</div>
+            <div class="highlight-name">@Localizer[highlightItems[i, 0]]</div>
         </div> } }
             </div>
         </div>
@@ -73,19 +70,19 @@
                 @Localizer["new again"]
             </div>
             <div class="explanation">
-                @Localizer["After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]
+                @Localizer["After four years of stable MainNet operation, Neo is undergoing its biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]
             </div>
-            <a class="btn-2" asp-controller="migration" asp-action="index">@Localizer["Migration Guide"]</a>
+            <a class="btn-2" asp-controller="migration" asp-action="index">@Localizer["Learn More"]</a>
         </div>
         <div class="col-12 col-md-6 col-right">
             <div class="get-started-wrapper">
                 @{ string[,] getStartedItems = new string[4, 3]
-              {
-                                                                        { "Find a Wallet", "/images/home/FindWallet.svg", "neogas#wallets" },
-                                                                        { "Neo & Gas Tokens", "/images/home/LearnTokens.svg", "neogas#tokens" },
-                                                                        { "Neo's Features", "/images/home/LearnFeatures.svg", "technology" },
-                                                                        { "Documentation", "/images/home/ReadDocumentation.svg", "https://docs.neo.org/v3/docs/en-us/index.html" }
-};
+                       {
+                           { "Find a Wallet", "/images/home/FindWallet.svg", "/neogas#wallets" },
+                           { "Neo & Gas Tokens", "/images/home/LearnTokens.svg", "/neogas#tokens" },
+                           { "Neo's Features", "/images/home/LearnFeatures.svg", "/technology" },
+                           { "Documentation", "/images/home/ReadDocumentation.svg", "https://docs.neo.org/v3/docs/en-us/index.html" }
+                        };
 
                     for (int i = 0; i < getStartedItems.GetLength(0); i++)
                     {
@@ -93,7 +90,7 @@
             <div class="card-text-wrapper">
                 <div class="green-vertline"></div>
                 <div class="card-text">
-                    @getStartedItems[i, 0]
+                    @Localizer[getStartedItems[i, 0]]
                 </div>
             </div>
             <img class="card-img" data-original="@Helper.ToCDN(getStartedItems[i, 1])" />
@@ -112,53 +109,51 @@
                         </span> @Localizer["for the Next Generation Internet"]
                     </div>
                 </div>
-                <div class="square-block building-blocks @SharedLocalizer["d-none"]">
+                <div class="square-block building-blocks zh @SharedLocalizer["d-none"]">
                     <div class="square-block-title">
+                        @Localizer["for the Next Generation Internet"]<br />
                         <span class="green">
                             @Localizer["Building Blocks"]
-                        </span> @Localizer["for the Next Generation Internet"]
+                        </span>
                     </div>
                 </div>
             </div>
             <div class="col-right">
                 <span>
-                    <span class="building-blocks-subtitle @SharedLocalizer["d-none-zh"]">
-                        @Localizer["Neo provides a full stack of features out of the box, but doesn't keep you boxed in."]
-                    </span>
-                    <span class="building-blocks-subtitle @SharedLocalizer["d-none"]">
+                    <span class="building-blocks-subtitle">
                         @Localizer["Neo provides a full stack of features out of the box, but doesn't keep you boxed in."]
                     </span>
 
                     <br /><br />
-                    <span class="building-blocks-body @SharedLocalizer["d-none-zh"]">
-                        @Localizer["Native functionality provides all the infrastructure you need to build complete decentralized applications, while advanced interoperabilty allows you to harness the power of the global blockchain ecosystem."]
-                    </span>
-                    <span class="building-blocks-body @SharedLocalizer["d-none"]">
+                    <span class="building-blocks-body">
                         @Localizer["Native functionality provides all the infrastructure you need to build complete decentralized applications, while advanced interoperabilty allows you to harness the power of the global blockchain ecosystem."]
                     </span>
                 </span>
-                <a class="btn-2 building-blocks-btn" href="technology#all-in-one">@Localizer["Learn More"]</a>
+                <a class="btn-2 building-blocks-btn" href="/technology#all-in-one">@Localizer["Learn More"]</a>
             </div>
         </div>
-        <img class="blocks-large-img" usemap="#blockslargemap" data-original="@Helper.ToCDN("/images/home/BlocksLarge.svg")" />
+        <div class="blocks-large-img @SharedLocalizer["d-none-zh"]"><img usemap="#blockslargemap" data-original="@Helper.ToCDN("/images/home/BlocksLarge.svg")" /></div>
+        <div class="blocks-large-img zh @SharedLocalizer["d-none"]"><img usemap="#blockslargemap" data-original="@Helper.ToCDN("/images/home/BlocksLarge-zh.svg")" /></div>
         <map name="blockslargemap">
-            <area shape="rect" coords="965 225 1262 328" alt="One Block Finality" href="technology#dbft-2.0" />
-            <area shape="rect" coords="230 530 524 616" alt="Oracles" href="technology#oracles" />
-            <area shape="rect" coords="975 530 1264 616" alt="NeoFS" href="technology#neo-fs" />
-            <area shape="rect" coords="230 790 516 872" alt="Smart Contracts" href="technology#smart-contracts" />
-            <area shape="rect" coords="975 790 1264 890" alt="Neo Name Service" href="technology#neo-name-service" />
-            <area shape="rect" coords="230 1050 520 1130" alt="Interoperability" href="technology#interoperability" />
-            <area shape="rect" coords="975 1056 1256 1134" alt="NeoID" href="technology#neo-id" />
+            <area shape="rect" coords="982 226 1266 342" alt="One Block Finality" href="/technology#dbft-2.0" />
+            <area shape="rect" coords="246 520 550 625" alt="Oracles" href="/technology#oracles" />
+            <area shape="rect" coords="988 525 1306 632" alt="NeoFS" href="/technology#neo-fs" />
+            <area shape="rect" coords="246 787 546 882" alt="Smart Contracts" href="/technology#smart-contracts" />
+            <area shape="rect" coords="986 785 1302 893" alt="Neo Name Service" href="/technology#neo-name-service" />
+            <area shape="rect" coords="258 1043 546 1158" alt="Interoperability" href="/technology#interoperability" />
+            <area shape="rect" coords="994 1048 1314 1156" alt="NeoID" href="/technology#neo-id" />
         </map>
-        <img class="blocks-medium-img" usemap="#blocksmediummap" data-original="@Helper.ToCDN("/images/home/BlocksMedium.png")" />
+        <div class="blocks-medium-img @SharedLocalizer["d-none-zh"]"><img  usemap="#blocksmediummap" data-original="@Helper.ToCDN("/images/home/BlocksMedium.svg")" /></div>
+        <div class="blocks-medium-img zh @SharedLocalizer["d-none"]"><img usemap="#blocksmediummap" data-original="@Helper.ToCDN("/images/home/BlocksMedium-zh.svg")" />
+        </div>
         <map name="blocksmediummap">
-            <area shape="rect" coords="588 250 790 344" alt="One Block Finality" href="technology#dbft-2.0" />
-            <area shape="rect" coords="204 454 378 528" alt="Oracles" href="technology#oracles" />
-            <area shape="rect" coords="590 456 764 532" alt="NeoFS" href="technology#neo-fs" />
-            <area shape="rect" coords="206 644 396 724" alt="Smart Contracts" href="technology#smart-contracts" />
-            <area shape="rect" coords="590 638 778 732" alt="Neo Name Service" href="technology#neo-name-service" />
-            <area shape="rect" coords="212 828 394 922" alt="Interoperability" href="technology#interoperability" />
-            <area shape="rect" coords="588 830 744 920" alt="NeoID" href="technology#neo-id" />
+            <area shape="rect" coords="560 210 777 314" alt="One Block Finality" href="/technology#dbft-2.0" />
+            <area shape="rect" coords="176 411 366 503" alt="Oracles" href="/technology#oracles" />
+            <area shape="rect" coords="562 412 764 514" alt="NeoFS" href="/technology#neo-fs" />
+            <area shape="rect" coords="177 605 396 708" alt="Smart Contracts" href="/technology#smart-contracts" />
+            <area shape="rect" coords="555 602 770 702" alt="Neo Name Service" href="/technology#neo-name-service" />
+            <area shape="rect" coords="180 788 383 908" alt="Interoperability" href="/technology#interoperability" />
+            <area shape="rect" coords="558 789 760 886" alt="NeoID" href="/technology#neo-id" />
         </map>
 
         <div class="blocks-container">
@@ -170,52 +165,41 @@
                                                 {
                         "/images/home/NativeOracles3D.svg", "Oracle", "A built-in oracle enabling secured access to any off-chain data."
             @{ string[,] blocks = new string[7, 4]
-                                {
-                                                    {
-                        "/images/home/OneBlockFinality3D.svg", "One Block Finality", "Poly.Network enabled cross-chain interoperability with Ethereum, Binance Chain, and more.", "technology#dbft-2.0"
+                                           {
+                                                                                            {
+                        "/images/home/OneBlockFinality3D.svg", "One Block Finality", "dBFT consensus mechanism guarantees fast and efficient finality in a single block.", "technology#dbft-2.0"
                     },
-                                                    {
-                        "/images/home/NativeOracles3D.svg", "Oracles", "A built-in oracle enabling secured access to any off-chain data.", "technology#oracles"
+                                                            {
+                        "/images/home/NativeOracles3D.svg", "Oracle", "A built-in oracle enabling secured access to any off-chain data.", "technology#oracles"
                     },
-                                                    {
+                                                                                                {
                         "/images/home/NeoFS3D.svg", "NeoFS", "A distributed data storage solution made for scalability and privacy.", "technology#neo-fs"
                     },
-                                                {
-                        "/images/home/SmartContracts3D.svg", "Smart Contracts", "Write your smart contracts in C#, Go, Python, Java, or TypeScript."
+                                                            {
+                        "/images/home/SmartContracts3D.svg", "Smart Contracts", "Write your smart contracts in C#, Go, Python, Java, or TypeScript.", "technology#smart-contracts"
                     },
-                                                {
-                        "/images/home/NeoNameService3D.svg", "Neo Name Service", "A decentralized .neo domain name service for next-gen internet web applications."
+                                                            {
+                        "/images/home/NeoNameService3D.svg", "Neo Name Service", "A decentralized .neo domain name service for next-gen internet web applications.", "technology#neo-name-service"
                     },
-                                                {
-                        "/images/home/Interoperability3D.svg", "Interoperability", "Poly.Network enabled cross-chain interoperability with Ethereum, Binance Chain, and more."
+                                                                                            {
+                        "/images/home/Interoperability3D.svg", "Interoperability", "Poly.Network enabled cross-chain interoperability with Ethereum, Binance Chain, and more.", "technology#interoperability"
                     },
-                                                {
-                        "/images/home/NeoID3D.svg", "NeoID", "A built-in standardized interface for any self-sovereign identity solutions."
-                                                    {
-                        "/images/home/SmartContracts3D.svg", "Smart Contracts", "Smart contracts  ipsum dolor sit amet, consectetur adipiscing elit. ", "technology#smart-contracts"
-                    },
-                                                    {
-                        "/images/home/NeoNameService3D.svg", "Neo Name Service", "A decentralized .neo domain name service for next-gen internet web applications. ", "technology#neo-name-service"
-                    },
-                                                    {
-                        "/images/home/Interoperability3D.svg", "Interoperability", "Smart contracts  ipsum dolor sit amet, consectetur adipiscing elit. ", "technology#interoperability"
-                    },
-                                                    {
-                        "/images/home/NeoID3D.svg", "NeoID", "Smart contracts  ipsum dolor sit amet, consectetur adipiscing elit. ", "technology#neo-id"
+                                                            {
+                        "/images/home/NeoID3D.svg", "NeoID", "A set of self-sovereign decentralized identity solution standards.", "technology#neo-id"
                     }
-};
+ };
 
                 for (int i = 0; i < blocks.GetLength(0); i++)
                 {
     <div class="block-wrapper">
-        <img class="block-icon" data-original="@blocks[i, 0]" />
+        <img class="block-icon" data-original="@Helper.ToCDN(blocks[i, 0])" />
         <div class="block-content-wrapper">
             <div class="block-title">
                 <i class="iconfont circle-arrow-icon">&#xe6ab;</i>
-                @blocks[i, 1]
+                @Localizer[blocks[i, 1]]
             </div>
             <div class="block-paragraph">
-                @blocks[i, 2]
+                @Localizer[@blocks[i, 2]]
             </div>
         </div>
     </div> } }
@@ -228,11 +212,17 @@
                 </span>
                 <br />@Localizer["You know"]
             </div>
+            <div class="square-block-title @SharedLocalizer["d-none"]">
+                @Localizer["You know"] <br />
+                <span class="green">
+                    @Localizer["Blockchain"]
+                </span>
+            </div>
             <div class="square-block-subtitle">
                 @Localizer["Write smart contracts in a language you already love"]
             </div>
         </div>
-        <a class="btn-2 code-learn-more" href="technology#smart-contracts">@Localizer["Learn More"]</a>
+        <a class="btn-2 code-learn-more" href="/technology#smart-contracts">@Localizer["Learn More"]</a>
     </div>
 
     <div class="code-example-row">
@@ -299,7 +289,7 @@
         <div class="code-window d-none" id="code-java">
             <partial name="./_CodeJavaPartial" />
         </div>
-        <a class="btn-2 code-learn-more-mobile">@Localizer["Learn More"]</a>
+        <a class="btn-2 code-learn-more-mobile" href="/technology#smart-contracts">@Localizer["Learn More"]</a>
     </div>
 
 
@@ -311,11 +301,11 @@
         <div class="col-left">
             <div class="square-block dual-tokens">
                 <div class="square-block-title">
-                    <span class="green">Dual</span><br />
-                    Tokens
+                    <span class="green">@Localizer["Dual"]</span><br />
+                    @Localizer["Tokens"]
                 </div>
                 <div class="square-block-subtitle">
-                    @Localizer["Neo has a unique dual token model that seperates governance from utility"]
+                    @Localizer["Neo has a unique dual token model that seperates governance from utility."]
                 </div>
             </div>
         </div>
@@ -339,71 +329,77 @@
 
             <div class="dual-tokens-horizLine"></div>
             <div class="dual-tokens-buttons">
-                <a class="btn-2" href="neogas#tokens">@Localizer["Learn More"]</a>
-                <a class="btn-4" href="neogas#wallets">@Localizer["Find a Wallet"]</a>
+                <a class="btn-2" href="/neogas#tokens">@Localizer["Learn More"]</a>
+                <a class="btn-4" href="/neogas#wallets">@Localizer["Find a Wallet"]</a>
             </div>
         </div>
         <div class="col-right">
             <div class="calculator">
                 <div class="calculator-header">
                     <div class="calculator-title">
-                        NEO &amp; GAS Calculator
+                        @Localizer["NEO & GAS Calculator"]
                     </div>
                     <div class="calculator-title-empty"></div>
                 </div>
-                <div class="slider-row">
-                    <div class="slider-before">
-                        @Localizer["A user with"]
-                    </div>
-                    <input type="range" min="10" max="1000" value="500" class="slider" id="calculator-slider">
-                    <div class="slider-after">
-                        <img class="slider-neo-icon" data-original="@Helper.ToCDN("/images/home/Neo-Symbol.svg")" />
-                        <div id="slider-current-value">500</div>
-                    </div>
-                </div>
-                <div class="middle-text">
-                    would receive up to
-                </div>
-                <div class="results-row">
-                    <div class="result-col">
-                        <div class="result-num result-holding">0.44</div>
-                        <div class="gas-wrapper">
-                            <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
-                            <span>Gas Per Month<span class="green">*</span></span><br /><br />
-                            <span class="status-text">For holding Neo</span>
+                <div class="calculator-body">
+                    <div class="slider-row">
+                        <div class="slider-before">
+                            @Localizer["A user with"]
+                        </div>
+                        <input type="range" min="10" max="1000" value="500" class="slider" id="calculator-slider">
+                        <div class="slider-after">
+                            <img class="slider-neo-icon" data-original="@Helper.ToCDN("/images/home/Neo-Symbol.svg")" />
+                            <div id="slider-current-value">500</div>
                         </div>
                     </div>
-                    <div class="plug-sign">+</div>
-                    <div class="result-col">
-                        <div class="result-num result-governance">17.52</div>
-                        <div class="gas-wrapper">
-                            <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
-                            <span>Gas Per Month<span class="green">*</span></span><br /><br />
-                            <span class="status-text">For Governance Participation</span>
+                    <div class="middle-text">
+                        @Localizer["would receive up to"]
+                    </div>
+                    <div class="results-row">
+                        <div class="result-col">
+                            <div class="result-num result-holding">0.44</div>
+                            <div class="gas-wrapper">
+                                <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
+                                <span>
+                                    @Localizer["Gas Per Month"]<span class="green">*</span>
+                                </span><br /><br />
+                                <span class="status-text">@Localizer["For holding NEO"]</span>
+                            </div>
+                        </div>
+                        <div class="plus-sign @SharedLocalizer["d-none-zh"]"><i class="iconfont">&#xe603;</i></div>
+                        <div class="plus-sign-zh @SharedLocalizer["d-none"]"><i class="iconfont">&#xe603;</i></div>
+                        <div class="result-col">
+                            <div class="result-num result-governance">17.52</div>
+                            <div class="gas-wrapper">
+                                <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
+                                <span>@Localizer["Gas Per Month"]<span class="green">*</span></span><br /><br />
+                                <span class="status-text">@Localizer["For Governance Participation"]</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="results-row-mobile">
-                    <div class="result-row">
-                        <div class="result-num-mobile result-holding">0.44</div>
-                        <div class="gas-wrapper-mobile">
-                            <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
-                            <span>Gas Per Month<span class="green">*</span></span><br /><br />
+                    <div class="results-row-mobile">
+                        <div class="result-row">
+                            <div class="result-num-mobile result-holding">0.44</div>
+                            <div class="gas-wrapper-mobile">
+                                <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
+                                <span>@Localizer["Gas Per Month"]<span class="green">*</span></span><br /><br />
+                            </div>
                         </div>
-                    </div>
-                    <span class="status-text-mobile">For holding Neo</span>
-                    <div class="plug-sign">+</div>
-                    <div class="result-row">
-                        <div class="result-num-mobile result-governance">17.52</div>
-                        <div class="gas-wrapper-mobile">
-                            <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
-                            <span>Gas Per Month<span class="green">*</span></span><br /><br />
+                        <span class="status-text-mobile">@Localizer["For holding NEO"]</span>
+                        <div class="plus-sign @SharedLocalizer["d-none-zh"]"><i class="iconfont">&#xe603;</i></div>
+                        <div class="plus-sign-zh @SharedLocalizer["d-none"]"><i class="iconfont">&#xe603;</i></div>
+                        <div class="result-row">
+                            <div class="result-num-mobile result-governance">17.52</div>
+                            <div class="gas-wrapper-mobile">
+                                <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
+                                <span>@Localizer["Gas Per Month"]<span class="green">*</span></span><br /><br />
+                            </div>
                         </div>
+                        <span class="status-text-mobile">@Localizer["For Governance Participation"]</span>
                     </div>
-                    <span class="status-text-mobile">For Governance Participation</span>
-                </div>
-                <div class="foot-note">
-                    <span class="green">*</span>estimate based on average 20% circulating NEO voting participation
+                    <div class="foot-note">
+                        <span class="green">*</span>@Localizer["estimate based on average 20% circulating NEO voting participation"]
+                    </div>
                 </div>
             </div>
         </div>
@@ -420,22 +416,22 @@
                 <img class="governance-img-horiz" data-original="@Helper.ToCDN("/images/home/Governance.svg")" />
             </div>
             <div class="governance-cards">
-                <span class="governance-learn-more">Learn More</span>
+                <span class="governance-learn-more">@Localizer["Learn More"]</span>
                 <div class="governance-card-container">
                     @{ string[,] governanceItems = new string[3, 3]
-                                     {
-                                                                { "How to vote", "/images/home/vote.svg", "https://www.google.com" },
-                                                                { "General guide to governance", "/images/home/ReadDocumentation.svg", "gov" },
-                                                                { "Register as a committee candidate", "/images/home/register.svg", "https://www.google.com" }
+                    {
+                       { "How to vote", "/images/home/vote.svg", "/gov" },
+                       { "General guide to governance", "/images/home/ReadDocumentation.svg", "/gov" },
+                       { "Register as a committee candidate", "/images/home/register.svg", "/gov" }
  };
 
                         for (int i = 0; i < governanceItems.GetLength(0); i++)
                         {
-            <a class="float-card" href="@governanceItems[i, 2]">
+            <a class="float-card" asp-controller="@governanceItems[i, 2]" asp-action="index" >
                 <div class="card-text-wrapper">
                     <div class="green-vertline"></div>
-                    <div class="text-uppercase card-text">
-                        @governanceItems[i, 0]
+                    <div class="card-text">
+                        @Localizer[governanceItems[i, 0]]
                     </div>
                 </div>
                 <img class="card-img" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
@@ -446,20 +442,20 @@
         <div class="col-right">
             <div class="square-block governance">
                 <div class="square-block-title governance">
-                    <span class="green">On-chain</span><br />
-                    Governance
+                    <span class="green">@Localizer["On-chain"]</span><br />
+                    @Localizer["Governance"]
                 </div>
                 <div class="square-block-subtitle governance">
-                    A dynamic on-chain council voted in by the NEO token holders
+                    @Localizer["A dynamic on-chain council voted in by the NEO token holders."]
                 </div>
             </div>
             <div class="governance-paragraph">
                 <span>
-                    N3 introduces the ability for NEO holders to vote in council members and consensus nodes that maintain the liveness of the Neo network and adjust critical blockchain parameters.
+                    @Localizer["N3 introduces the ability for NEO holders to vote in council members and consensus nodes that maintain the liveliness of the Neo network and adjust critical blockchain parameters."]
                     <br /><br />
-                    <span class="governance-paragraph bold">
-                        GAS rewards are distributed to both voters and committee members.
-                    </span>
+                          <span class="governance-paragraph bold">
+                              @Localizer["GAS rewards are distributed to both voters and committee members."]
+                          </span>
                 </span>
                 <div class="governance-green-horizline"></div>
             </div>
@@ -474,39 +470,39 @@
             <div class="col-right">
                 <div class="square-block governance">
                     <div class="square-block-title governance">
-                        <span class="green">On-chain</span><br />
-                        Governance
+                        <span class="green">@Localizer["On-chain"]</span><br />
+                        @Localizer["Governance"]
                     </div>
                     <div class="square-block-subtitle governance">
-                        A dynamic on-chain council voted in by the NEO token holders
+                        @Localizer["A dynamic on-chain council voted in by the NEO token holders."]
                     </div>
                 </div>
                 <div class="governance-paragraph">
                     <span>
-                        N3 introduces the ability for NEO holders to vote in council members and consensus nodes that maintain the liveness of the Neo network and adjust critical blockchain parameters.
+                        @Localizer["N3 introduces the ability for NEO holders to vote in council members and consensus nodes that maintain the liveliness of the Neo network and adjust critical blockchain parameters."]
                         <br /><br />
-                        <span class="governance-paragraph bold">
-                            GAS rewards are distributed to both voters and committee members.
-                        </span>
+                              <span class="governance-paragraph bold">
+                                  @Localizer["GAS rewards are distributed to both voters and committee members."]
+                              </span>
                     </span>
                     <div class="governance-green-horizline"></div>
                 </div>
             </div>
         </div>
         <div class="governance-cards">
-            <span class="governance-learn-more">Learn More</span>
+            <span class="governance-learn-more">@Localizer["Learn More"]</span>
             <div class="governance-card-container">
                 @{ for (int i = 0; i < governanceItems.GetLength(0); i++)
-                                {
-                    <div class="float-card">
-                        <div class="card-text-wrapper">
-                            <div class="green-vertline"></div>
-                            <div class="text-uppercase card-text">
-                                @governanceItems[i, 0]
-                            </div>
-                        </div>
-                        <img class="card-img" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
-                    </div> } }
+                    {
+        <a class="float-card" href="@governanceItems[i, 2]">
+            <div class="card-text-wrapper">
+                <div class="green-vertline"></div>
+                <div class="card-text">
+                    @Localizer[governanceItems[i, 0]]
+                </div>
+            </div>
+            <img class="card-img" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
+        </a> } }
             </div>
         </div>
     </div>
@@ -514,11 +510,11 @@
     <div class="governance-section-mobile">
         <div class="square-block governance">
             <div class="square-block-title governance">
-                <span class="green">On-chain</span><br />
-                Governance
+                <span class="green">@Localizer["On-chain"]</span><br />
+                @Localizer["Governance"]
             </div>
             <div class="square-block-subtitle governance">
-                A dynamic on-chain council voted in by the NEO token holders
+                @Localizer["A dynamic on-chain council voted in by the NEO token holders."]
             </div>
         </div>
         <div class="governance-img-container">
@@ -526,28 +522,28 @@
         </div>
         <div class="governance-paragraph">
             <span>
-                N3 introduces the ability for NEO holders to vote in council members and consensus nodes that maintain the liveness of the Neo network and adjust critical blockchain parameters.
+                @Localizer["N3 introduces the ability for NEO holders to vote in council members and consensus nodes that maintain the liveliness of the Neo network and adjust critical blockchain parameters."]
                 <br /><br />
-                <span class="governance-paragraph bold">
-                    GAS rewards are distributed to both voters and committee members.
-                </span>
+                      <span class="governance-paragraph bold">
+                          @Localizer["GAS rewards are distributed to both voters and committee members."]
+                      </span>
             </span>
             <div class="governance-green-horizline"></div>
         </div>
         <div class="governance-cards">
-            <span class="governance-learn-more">Learn More</span>
+            <span class="governance-learn-more">@Localizer["Learn More"]</span>
             <div class="governance-card-container">
                 @{ for (int i = 0; i < governanceItems.GetLength(0); i++)
                     {
-        <div class="float-card">
+        <a class="float-card" href="@governanceItems[i, 2]">
             <div class="card-text-wrapper">
                 <div class="green-vertline"></div>
-                <div class="text-uppercase card-text">
-                    @governanceItems[i, 0]
+                <div class="card-text">
+                    @Localizer[governanceItems[i, 0]]
                 </div>
             </div>
             <img class="card-img" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
-        </div> } }
+        </a> } }
             </div>
         </div>
     </div>
@@ -560,36 +556,62 @@
         <div class="col-left">
             <div class="square-block contributors">
                 <div class="square-block-title contributors">
-                    <span class="green">Global</span><br />
-                    Contributors
+                    <span class="green">@Localizer["Global"]</span><br />
+                    @Localizer["Contributors"]
                 </div>
                 <div class="square-block-subtitle contributors">
-                    Neo is a joint effort by community groups from all over the world
+                    @Localizer["Neo is a joint effort by community groups from all over the world."]
                 </div>
             </div>
         </div>
         <div class="col-right">
             <div class="github-container">
-                <div class="github-status">
-                    <span class="github-status-num" id="github-stars">-</span>stars
+                <div class="github-status @SharedLocalizer["d-none-zh"]">
+                    <span class="github-status-num github-stars">3.2K</span>stars
                 </div>
-                <div class="github-status">
-                    <span class="github-status-num" id="github-forks">-</span>forks
+                <div class="github-status @SharedLocalizer["d-none"]">
+                    <span class="github-status-num zh github-stars">3.2K</span>stars
                 </div>
-                <div class="github-status">
-                    <span class="github-status-num" id="github-sub">-</span>subscribers
+                <div class="github-status @SharedLocalizer["d-none-zh"]">
+                    <span class="github-status-num github-forks">927</span>forks
                 </div>
-                <a href="https://github.com/neo-project"><img class="github-icon" data-original="@Helper.ToCDN("/images/home/Github.png")" /></a>
+                <div class="github-status @SharedLocalizer["d-none"]">
+                    <span class="github-status-num zh github-forks">927</span>forks
+                </div>
+                <div class="github-status @SharedLocalizer["d-none-zh"]">
+                    <span class="github-status-num github-sub">386</span>subscribers
+                </div>
+                <div class="github-status @SharedLocalizer["d-none"]">
+                    <span class="github-status-num zh github-sub">386</span>subscribers
+                </div>
+                <a href="https://github.com/neo-project" target="_blank" class="github-icon-wrapper"><img class="github-icon" data-original="@Helper.ToCDN("/images/home/Github.png")" /></a>
             </div>
         </div>
     </div>
 
-
     <div class="contributors-img-wrapper" id="scroll-wrapper">
         <img class="contributors-img" usemap="#contributorsmap" data-original="@Helper.ToCDN("/images/home/Contributors.svg")">
         <map name="contributorsmap">
-            <area shape="rect" coords="1950 550 2125 605" alt="NDG Enterprise" href="https://www.google.com" />
-            <area shape="rect" coords="2150 550 2335 605" alt="NDG Enterprise" href="https://www.google.com" />
+            <area shape="rect" coords="306 87 377 112" alt="NDG Enterprise Github" href="https://github.com/ngdenterprise" target="_blank" />
+            <area shape="rect" coords="306 119 377 142" alt="NDG Enterprise Website" href="https://ngdenterprise.com" target="_blank" />
+            <area shape="rect" coords="321 219 392 242" alt="NDG Tracker Github" href="https://github.com/neo-one-suite" target="_blank" />
+            <area shape="rect" coords="320 249 392 242" alt="NDG Tracker Website" href="https://neo-one.io" target="_blank" />
+            <area shape="rect" coords="402 303 473 325" alt="COZ Github" href="https://github.com/CityOfZion" target="_blank" />
+            <area shape="rect" coords="402 333 472 356" alt="COZ Website" href="https://coz.io" target="_blank" />
+            <area shape="rect" coords="715 174 787 196" alt="NEO Research Github" href="https://github.com/neoresearch" target="_blank" />
+            <area shape="rect" coords="715 203 787 226" alt="NEO Research Website" href="https://neoresearch.io" target="_blank" />
+            <area shape="rect" coords="805 304 876 326" alt="Red4Sec Github" href="https://github.com/red4sec" target="_blank" />
+            <area shape="rect" coords="805 335 876 356" alt="Red4Sec Website" href="https://red4sec.com/en" target="_blank" />
+            <area shape="rect" coords="932 221 1004 243" alt="AxLabs Github" href="https://github.com/AxLabs" target="_blank" />
+            <area shape="rect" coords="932 250 1004 273" alt="AxLabs Website" href="https://axlabs.com" target="_blank" />
+            <area shape="rect" coords="1053 316 1124 338" alt="NEO S.Petersburg Center Github" href="https://github.com/nspcc-dev/" target="_blank" />
+            <area shape="rect" coords="1053 340 1124 368" alt="NEO S.Petersburg Center Website" href="https://nspcc.ru/en/" target="_blank" />
+            <area shape="rect" coords="1053 316 1124 338" alt="NGD Shanghai Github" href="https://github.com/neo-project" target="_blank" />
+            <area shape="rect" coords="1053 340 1124 368" alt="NGD Shanghai Website" href="https://neo.org" target="_blank" />
+            <area shape="rect" coords="1479 205 1550 228" alt="NewEconoLab Github" href="https://github.com/NewEconoLab" target="_blank" />
+            <area shape="rect" coords="1479 235 1500 258" alt="NewEconoLab Website" href="https://nel.group/index-En.html" target="_blank" />
+            <area shape="rect" coords="1484 345 1554 366" alt="NEXT Github" href="https://github.com/NeoNEXT" target="_blank" />
+            <area shape="rect" coords="1484 235 1554 396" alt="NEXT Website" href="https://neonext.io" target="_blank" />
         </map>
     </div>
     <div class="scroll-buttons">
@@ -599,90 +621,84 @@
 
     <div class="additional-wrapper">
         <div class="additional-item">
-            <div class="additional-title  @SharedLocalizer["d-none-zh"]">
-                @Localizer["Join the"] <span class="green">@Localizer["Community"]</span>
-            </div>
-            <div class="additional-title  @SharedLocalizer["d-none"]">
+            <div class="additional-title">
                 @Localizer["Join the"] <span class="green">@Localizer["Community"]</span>
             </div>
             <div class="additional-icons">
-                <i class="iconfont additional-icon">&#xe616;</i>
-                <i class="iconfont additional-icon">&#xe60a;</i>
-                <i class="iconfont additional-icon">&#xe60d;</i>
-                <i class="iconfont additional-icon">&#xe606;</i>
-                <i class="iconfont additional-icon">&#xe60e;</i>
-                <i class="iconfont additional-icon">&#xe607;</i>
-                <i class="iconfont additional-icon">&#xe608;</i>
+                <a href="https://www.facebook.com/NeoBlockchainOfficial" target="_blank"><i class="iconfont additional-icon">&#xe616;</i></a>
+                <a href="https://discord.gg/jwBp5P9ryb" target="_blank"><i class="iconfont additional-icon">&#xe60b;</i></a>
+                <a href="https://neo3.azureedge.net/images/qrcode.jpg" target="_blank"><i class="iconfont additional-icon">&#xe60d;</i></a>
+                <a class="@SharedLocalizer["d-none-zh"]" href="https://t.me/NEO_EN" target="_blank"><i class="iconfont additional-icon">&#xe606;</i></a>
+                <a class="@SharedLocalizer["d-none"]" href="https://t.me/NEO_Chinese" target="_blank"><i class="iconfont additional-icon">&#xe606;</i></a>
+                <a href="https://weibo.com/neosmarteconomy" target="_blank"><i class="iconfont additional-icon">&#xe60e;</i></a>
+                <a href="https://twitter.com/NEO_Blockchain" target="_blank"><i class="iconfont additional-icon">&#xe607;</i></a>
+                <a href="https://www.reddit.com/r/NEO/" target="_blank"><i class="iconfont additional-icon">&#xe60a;</i></a>
+                <a href="https://medium.com/neo-smart-economy" target="_blank"><i class="iconfont additional-icon">&#xe608;</i></a>
             </div>
         </div>
         <div class="additional-item">
-            <div class="additional-title  @SharedLocalizer["d-none-zh"]">
-                @Localizer["Explore the"] <span class="green">@Localizer["Ecosystem"]</span>
-            </div>
-            <div class="additional-title  @SharedLocalizer["d-none"]">
+            <div class="additional-title">
                 @Localizer["Explore the"] <span class="green">@Localizer["Ecosystem"]</span>
             </div>
             <div class="additional-icons">
-                <i class="iconfont additional-icon">&#xe611;</i>
+                <a href="https://ndapp.org" target="_blank"><i class="iconfont additional-icon">&#xe611;</i></a>
             </div>
         </div>
         <div class="additional-item">
-            <div class="additional-title  @SharedLocalizer["d-none-zh"]">
-                @Localizer["Industry"] <span class="green">@Localizer["Partners"]</span>
-            </div>
-            <div class="additional-title  @SharedLocalizer["d-none"]">
+            <div class="additional-title">
                 @Localizer["Industry"] <span class="green">@Localizer["Partners"]</span>
             </div>
             <div class="additional-icons">
-                <i class="iconfont additional-icon">&#xe620;</i>
-                <img class="additional-img" data-original="@Helper.ToCDN("/images/home/PolyNetwork.png")" />
-                <i class="iconfont additional-icon">&#xe625;</i>
-                <i class="iconfont additional-icon">&#xe628;</i>
-                <i class="iconfont additional-icon">&#xe62a;</i>
+                <a href="https://interwork.org" target="_blank"><i class="iconfont additional-icon">&#xe620;</i></a>
+                <a href="https://www.poly.network" target="_blank"><i class="iconfont additional-icon">&#xe62d;</i></a>
+                <a href="https://bsnbase.io/g/main/index" target="_blank"><i class="iconfont additional-icon">&#xe625;</i></a>
+                <a href="https://dotnetfoundation.org" target="_blank"><i class="iconfont additional-icon">&#xe628;</i></a>
+                <a href="https://www.ieee.org" target="_blank"><i class="iconfont additional-icon">&#xe62a;</i></a>
             </div>
         </div>
     </div>
 
-    <div class="row horiz-row latest-news-row">
-        <div class="latest-news-wrapper">
-            <div class="latest-news-title  @SharedLocalizer["d-none-zh"]">
-                Latest <span class="green">News</span><br />
-                & <span class="green">Events</span>
+    <div class="container">
+        <div class="row horiz-row latest-news-row">
+            <div class="latest-news-wrapper">
+                <div class="latest-news-title">
+                    <span class="green">@Localizer["Latest"]</span> @Localizer["News"]
+                </div>
+                <div class="row list2">
+                    @{await Html.RenderPartialAsync("../News/_ItemPartial", Model);}
+                </div>
+                <a asp-controller="news" asp-action="index" class="btn-n3 dark-blue view-all-btn">@Localizer["View All"]</a>
             </div>
-            <div class="latest-news-title  @SharedLocalizer["d-none"]">
-                Latest <span class="latest-news-green">News</span><br />
-                & <span class="latest-news-green">Events</span>
-            </div>
-            <div class="latest-news-subtitle">@Localizer["Keep up to date"]</div>
-            <div class="news-list">
-                @{await Html.RenderPartialAsync("./_NewsPartial", Model);}
-            </div>
-            <a asp-controller="news" asp-action="index" class="btn-n3 dark-blue view-all-btn">@Localizer["View All"]</a>
         </div>
     </div>
 </div>
 
 @section Scripts{
-    <script src="@Helper.ToCDN("/lib/typed.js/typed.min.js")"></script>
     <script src="@Helper.ToCDN("/lib/image-map-resizer/js/imageMapResizer.js")"></script>
     <script>
         $(document).ready(function () {
             $('map').imageMapResize();
 
-            $.get("https://api.github.com/repos/neo-project/neo", function (data, status) {
-                const starsCount = +(data.stargazers_count);
-                const stars = starsCount > 1000 ? `${(starsCount / 1000).toFixed(1)}K` : `${starsCount}`;
-                $("#github-stars").html(stars);
+            try {
+                $.get("home/githubstatus", function (data) {
+                    if (!data) return;
 
-                const forksCount = +(data.forks_count);
-                const forks = forksCount > 1000 ? `${(forksCount / 1000).toFixed(1)}K` : `${forksCount}`;
-                $("#github-forks").html(forks);
+                    const starsCount = +(data.stargazers_count);
+                    const stars = starsCount > 1000 ? `${(starsCount / 1000).toFixed(1)}K` : `${starsCount}`;
+                    $(".github-stars").html(stars);
 
-                const subCount = +(data.subscribers_count);
-                const sub = subCount > 1000 ? `${(subCount / 1000).toFixed(1)}K` : `${subCount}`
+                    const forksCount = +(data.forks_count);
+                    const forks = forksCount > 1000 ? `${(forksCount / 1000).toFixed(1)}K` : `${forksCount}`;
+                    $(".github-forks").html(forks);
 
-                $("#github-sub").html(sub);
-            });
+                    const subCount = +(data.subscribers_count);
+                    const sub = subCount > 1000 ? `${(subCount / 1000).toFixed(1)}K` : `${subCount}`
+
+                    $(".github-sub").html(sub);
+                });
+            } catch {
+                console.log('Failed to get github status.')
+            }
         });
 
         $(".language-icon").on("click", function () {
@@ -759,9 +775,9 @@
         })
 
         function resizeHandler() {
-            if ($(this).innerWidth() < 768) {
-                $(".language-icon").removeClass("selected")
+            if ($(this).outerWidth() < 768) {
                 $(".code-window").addClass("d-none")
+                $(".language-icon").removeClass("selected")
             } else {
                 if ($(".language-icon.selected").length === 0) {
                     $(".language-icon.python").addClass("selected")

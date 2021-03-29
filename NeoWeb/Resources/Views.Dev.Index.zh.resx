@@ -117,7 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="&lt;em&gt;Neo&lt;/em&gt;&lt;br/&gt;is getting&lt;br/&gt;an upgrade" xml:space="preserve">
+    <value>&lt;em&gt;Neo&lt;/em&gt; 现已升级</value>
+  </data>
+  <data name="After four years of stable MainNet operation, Neo is undergoing its biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
+    <value>经历了4年的稳定主网运行，Neo正在经历有史以来最大的一次进化-向N3版本进行迁移。Neo N3是Neo区块链迄今为止最强大、功能最丰富的版本。</value>
+  </data>
   <data name="Developer" xml:space="preserve">
     <value>开发者</value>
+  </data>
+  <data name="Documentation" xml:space="preserve">
+    <value>文档</value>
+  </data>
+  <data name="Examples &amp; Tutorials" xml:space="preserve">
+    <value>案例&amp;教学</value>
+  </data>
+  <data name="GitHub" xml:space="preserve">
+    <value>GitHub</value>
+  </data>
+  <data name="Learn More" xml:space="preserve">
+    <value>了解更多</value>
+  </data>
+  <data name="Neo Legacy" xml:space="preserve">
+    <value>Neo Legacy</value>
+  </data>
+  <data name="Neo(N3)" xml:space="preserve">
+    <value>Neo(N3)</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>概览</value>
+  </data>
+  <data name="Platform" xml:space="preserve">
+    <value>平台</value>
+  </data>
+  <data name="Tooling" xml:space="preserve">
+    <value>工具集</value>
   </data>
 </root>

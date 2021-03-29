@@ -1,0 +1,480 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+<div class="menu-page-title">@Localizer["Tooling"]</div>
+
+<div class="tabs">
+    <span class="tab active">@Localizer["Nodes"]</span>
+    <span class="tab">@Localizer["Explorers"]</span>
+    <span class="tab">@Localizer["Smart Contract Compilers"]</span>
+    <span class="tab">@Localizer["Smart Contract Dev & Debug"]</span>
+    <span class="tab">@Localizer["SDK"]</span>
+    <span class="tab">@Localizer["dApp Integration"]</span>
+</div>
+
+<select class="select-tab-page form-control">
+    <option selected="selected">@Localizer["Nodes"]</option>
+    <option>@Localizer["Explorers"]</option>
+    <option>@Localizer["Smart Contract Compilers"]</option>
+    <option>@Localizer["Smart Contract Dev & Debug"]</option>
+    <option>@Localizer["SDK"]</option>
+    <option>@Localizer["dApp Integration"]</option>
+</select>
+
+<div class="tab-page active">
+    <div class="tab-page-title">@Localizer["Nodes"]</div>
+    <div class="tools">
+        <a data-version="neo3" class="tool" target="_blank" href="https://github.com/neo-project/neo-node/releases">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/projects/neo-cli.svg", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">Neo-CLI</h4>
+                <div class="tool-developer">Neo Global Development</div>
+                <div class="tool-description">@Localizer["Neo-CLI is the reference Neo implementation, a headless node with reliable performance and the full range of core functionality. Designed with application integration in mind, the node can be outfitted with custom logic via plugin modules."]</div>
+            </div>
+        </a>
+        <a data-version="neo2" class="tool hidden" target="_blank" href="https://github.com/neo-project/neo-node/releases/tag/v2.12.2">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/projects/neo-cli.svg", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">Neo-CLI</h4>
+                <div class="tool-developer">Neo Global Development</div>
+                <div class="tool-description">@Localizer["Neo-CLI is the reference Neo implementation, a headless node with reliable performance and the full range of core functionality. Designed with application integration in mind, the node can be outfitted with custom logic via plugin modules."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">C#</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo3" class="tool" target="_blank" href="https://github.com/neo-ngd/Neo3-GUI/releases">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/projects/neo-gui.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">Neo-GUI</h4>
+                <div class="tool-developer">Neo Global Development</div>
+                <div class="tool-description">@Localizer["Neo-GUI is a full-node Neo client, which contains all the basic functions of the Neo network. This node is designed for advanced users, with professional software interaction and extremely high security."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">C#</div>
+                    <div class="tool-language">JavaScript</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo2" class="tool hidden" target="_blank" href="https://github.com/neo-project/neo-gui-2.x/releases/tag/v2.12.2">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/projects/neo-gui.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">Neo-GUI</h4>
+                <div class="tool-developer">Neo Global Development</div>
+                <div class="tool-description">@Localizer["Neo-GUI is a full-node Neo client, which contains all the basic functions of the Neo network. This node is designed for advanced users, with professional software interaction and extremely high security."]</div>
+            </div>
+        </a>
+        <a data-version="neo3" class="tool" target="_blank" href="https://github.com/nspcc-dev/neo-go/releases">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/projects/neo-go.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">NeoGo</h4>
+                <div class="tool-developer">Neo SPCC</div>
+                <div class="tool-description">@Localizer["NeoGo is a fully featured and well documented alternative implementation of the core Neo stack, written in Go. Provides a highly performant node implementation, a compiler for Go smart contracts, and an SDK for app integration."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">Go</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo2" class="tool hidden" target="_blank" href="https://github.com/nspcc-dev/neo-go/releases/tag/v0.78.3">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/projects/neo-go.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">NeoGo</h4>
+                <div class="tool-developer">Neo SPCC</div>
+                <div class="tool-description">@Localizer["NeoGo is a fully featured and well documented alternative implementation of the core Neo stack, written in Go. Provides a highly performant node implementation, a compiler for Go smart contracts, and an SDK for app integration."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">Go</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo2" class="tool hidden" target="_blank" href="https://github.com/CityOfZion/neo-python">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/developers/coz.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">Neo-Python</h4>
+                <div class="tool-developer">CoZ</div>
+                <div class="tool-description">@Localizer["Neo node which is implemented in Python."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">Python</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo3" class="tool" target="_blank" href="https://github.com/nspcc-dev/neo-bench">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/developers/nspcc.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">Neo Bench</h4>
+                <div class="tool-developer">Neo SPCC</div>
+                <div class="tool-description">@Localizer["Neo-bench is a benchmarking tool for testing and comparing the performance of different Neo blockchain node implementations. It makes it easy to test the throughput, CPU usage, and memory consumption across single and multi-node setups."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">Go</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo3" class="tool" target="_blank" href="https://github.com/nspcc-dev/neofs-dev-env">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/developers/nspcc.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">NeoFS DevEnv</h4>
+                <div class="tool-developer">Neo SPCC</div>
+                <div class="tool-description">@Localizer["NeoFS DevEnv is a set of tools created to simplify the creation of local NeoFS storage networks, complete with an integrated N3 private network. S3 and HTTPS gateway services are also included to facilitate easy testing of NeoFS-based applications."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">Go</div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="tab-page">
+    <div class="tab-page-title">@Localizer["Explorers"]</div>
+    <div class="tools">
+        <a data-version="neo3" class="tool" target="_blank" href="https://neo3.neotube.io/">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/projects/neo-tube.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">NeoTube</h4>
+                <div class="tool-developer">NEXT</div>
+                <div class="tool-description">@Localizer["NeoTube is a reliable Neo block explorer with seperate versions for Neo Legacy and N3. Network statistics, fungible and non-fungible assets, and contract lists are all provided."]</div>
+            </div>
+        </a>
+        <a data-version="neo2" class="tool hidden" target="_blank" href="https://neotube.io/">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/projects/neo-tube.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">NeoTube</h4>
+                <div class="tool-developer">NEXT</div>
+                <div class="tool-description">@Localizer["NeoTube is a reliable Neo block explorer with seperate versions for Neo Legacy and N3. Network statistics, fungible and non-fungible assets, and contract lists are all provided."]</div>
+            </div>
+        </a>
+        <a data-version="neo2 neo3" class="tool" target="_blank" href="https://dora.coz.io/">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/projects/dora.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">Dora</h4>
+                <div class="tool-developer">COZ</div>
+                <div class="tool-description">@Localizer["Dora is a high speed block explorer with N3 and Neo Legacy integrations. A public API is also exposed, allowing developers to easily acquire information about supported blockchains including chain stats, contract storage, and more."]</div>
+            </div>
+        </a>
+        <a data-version="neo2" class="tool hidden" target="_blank" href="https://neotracker.io/">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/developers/neo-tracker.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">NEO Tracker</h4>
+                <div class="tool-developer">NEO Tracker</div>
+                <div class="tool-description">@Localizer["NEO Tracker is a blockchain explorer with an included web wallet, making it easy to look up transaction history or perform transfers. The site also provides information pages for assets, smart contracts, and a MoonPay fiat ramp integration."]</div>
+            </div>
+        </a>
+        <a data-version="neo2" class="tool hidden" target="_blank" href="http://monitor.cityofzion.io/">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/developers/coz.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">Node Monitor</h4>
+                <div class="tool-developer">COZ</div>
+                <div class="tool-description">@Localizer["Node Monitor is a Neo network status monitor which tracks availability for popular public RPC nodes or REST endpoints. Developers can use these community-maintained nodes to interact with the Neo network without needing to run their own node."]</div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="tab-page">
+    <div class="tab-page-title">@Localizer["Smart Contract Compilers"]</div>
+    <div class="tools">
+        <a data-version="neo3" class="tool" target="_blank" href="https://github.com/nspcc-dev/neo-go/releases">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/projects/neo-go.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">NeoGo</h4>
+                <div class="tool-developer">Neo SPCC</div>
+                <div class="tool-description">@Localizer["NeoGo is a fully featured and well documented alternative implementation of the core Neo stack, written in Go. Provides a highly performant node implementation, a compiler for Go smart contracts, and an SDK for app integration."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">Go</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo2" class="tool hidden" target="_blank" href="https://github.com/nspcc-dev/neo-go/releases/tag/v0.78.3">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/projects/neo-go.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">NeoGo</h4>
+                <div class="tool-developer">Neo SPCC</div>
+                <div class="tool-description">@Localizer["NeoGo is a fully featured and well documented alternative implementation of the core Neo stack, written in Go. Provides a highly performant node implementation, a compiler for Go smart contracts, and an SDK for app integration."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">Go</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo3" class="tool" target="_blank" href="https://www.nuget.org/packages/Neo.Neon/3.0.0-rc1">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/developers/ngd.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">Neo-devpack-dotnet</h4>
+                <div class="tool-developer">Neo Global Development</div>
+                <div class="tool-description">@Localizer["The core neo devpack for dotnet provides all the tools required to compile smart contracts written in C#. In addition to producing deployable NEF contract files, the compiler also emits manifest files and debug information following a standard format for use in the Neo Debugger."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">C#</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo2" class="tool hidden" target="_blank" href="https://docs.neo.org/docs/en-us/sc/gettingstarted/develop.html#installing-development-environment">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/developers/ngd.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">Neo-devpack-dotnet</h4>
+                <div class="tool-developer">Neo Global Development</div>
+                <div class="tool-description">@Localizer["The core neo devpack for dotnet provides all the tools required to compile smart contracts written in C#. In addition to producing deployable NEF contract files, the compiler also emits manifest files and debug information following a standard format for use in the Neo Debugger."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">C#</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo3" class="tool" target="_blank" href="https://github.com/CityOfZion/neo3-boa">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/projects/boa.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">Boa</h4>
+                <div class="tool-developer">COZ</div>
+                <div class="tool-description">@Localizer["Boa is a compiler for smart contracts written in Python. Designed to feel as natural as possible for Python developers, Boa contracts are assisted with decorators, helper functions, type hints, and support testing against the core VM TestEngine. Debug data generated by the compiler also follows the standard format, enabling debugging through the Neo Blockchain Toolkit."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">Python</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo2" class="tool hidden" target="_blank" href="https://github.com/CityOfZion/neo-boa">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/projects/boa.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">Boa</h4>
+                <div class="tool-developer">COZ</div>
+                <div class="tool-description">@Localizer["Boa is a compiler for smart contracts written in Python. Designed to feel as natural as possible for Python developers, Boa contracts are assisted with decorators, helper functions, type hints, and support testing against the core VM TestEngine. Debug data generated by the compiler also follows the standard format, enabling debugging through the Neo Blockchain Toolkit."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">Python</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo3" class="tool" target="_blank" href="https://github.com/neow3j/neow3j#using-the-neow3j-devpack-and-compiler">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/developers/neow3j.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">Neow3j Compiler</h4>
+                <div class="tool-developer">AxLabs</div>
+                <div class="tool-description">@Localizer["One of the three main components of the Neow3j library, the compiler provides the means to turn Java contracts into the NEF and manifest files required for deployment on N3 networks. A Gradle plugin is provided to aid compilation, which will also produce standard debugging information by default."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">Java</div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="tab-page">
+    <div class="tab-page-title">@Localizer["Smart Contract Dev & Debug"]</div>
+    <div class="tools">
+        <a data-version="neo2 neo3" class="tool" target="_blank" href="https://marketplace.visualstudio.com/items?itemName=ngd-seattle.neo-blockchain-toolkit">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/developers/ngd.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">Neo Blockchain Toolkit</h4>
+                <div class="tool-developer">NGD Enterprise</div>
+                <div class="tool-description">@Localizer["The Neo Blockchain Toolkit is a one-stop-shop for creating and preparing smart contracts for production, seamlessly integrated with VS Code, the most popular code editor. Out of the box, developers can easily deploy private networks, compile, deploy, and invoke smart contracts, or tap into its fully integrated debugging experience. With time-travel debug support, a source-mapped opcode view, and an automated test harness, NBT provides a best-in-class blockchain development experience."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">C#</div>
+                    <div class="tool-language">Python</div>
+                    <div class="tool-language">Go</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo3" class="tool" target="_blank" href="https://neocompiler.io/">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/projects/neocompiler.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">Neo Compiler Eco</h4>
+                <div class="tool-developer">NeoResearch</div>
+                <div class="tool-description">@Localizer["Allows developers to code and compile smart contracts via web interface and deploy them to a TestNet without having to install any other development tools. NeoCompiler Eco currently supports C# for compiling, deployment and testing."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">C#</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo2" class="tool hidden" target="_blank" href="https://neocompiler.io/neo2/index.html">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/projects/neocompiler-legacy.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">Neo Compiler Eco</h4>
+                <div class="tool-developer">NeoResearch</div>
+                <div class="tool-description">@Localizer["Allows developers to code and compile smart contracts via web interface and deploy them to a TestNet without having to install any other development tools. NeoCompiler Eco currently supports C# for compiling, deployment and testing."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">C#</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo3" class="tool" target="_blank" href="https://neo-one.io/">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/projects/neo-one.svg", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">NEO•ONE</h4>
+                <div class="tool-developer">NEO Tracker</div>
+                <div class="tool-description">@Localizer["NEO•ONE is an end-to-end development framework for Neo applications created with TypeScript or JavaScript. Like the Blockchain Toolkit, it includes tools for local network setup, contract compiling and deploying, wallet handling, automated testing, and also provides client APIs to simplify interaction with deployed contracts."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">TypeScript</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo2" class="tool hidden" target="_blank" href="https://github.com/neo-one-suite/neo-one">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/projects/neo-one.svg", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">NEO•ONE</h4>
+                <div class="tool-developer">NEO Tracker</div>
+                <div class="tool-description">@Localizer["NEO•ONE is an end-to-end development framework for Neo applications created with TypeScript or JavaScript. Like the Blockchain Toolkit, it includes tools for local network setup, contract compiling and deploying, wallet handling, automated testing, and also provides client APIs to simplify interaction with deployed contracts."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">TypeScript</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo2 neo3" class="tool" target="_blank" href="https://neo-playground.dev/">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/developers/neow3j.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">Neo Playground</h4>
+                <div class="tool-developer">AxLabs</div>
+                <div class="tool-description">@Localizer["Neo Playground is a VS Code-based IDE pre-installed with all the tools needed to develop Neo dApps without leaving the browser. Intended to help onboard developers, the platform makes it easy to spawn temporary development environments for Java, C#, Go, or other supported languages where contracts can be written, deployed, and tested."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">Java</div>
+                    <div class="tool-language">C#</div>
+                    <div class="tool-language">Go</div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="tab-page">
+    <div class="tab-page-title">@Localizer["SDK"]</div>
+    <div class="tools">
+        <a data-version="neo3" class="tool" target="_blank" href="https://github.com/nspcc-dev/neo-go/releases">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/projects/neo-go.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">NeoGo</h4>
+                <div class="tool-developer">Neo SPCC</div>
+                <div class="tool-description">@Localizer["NeoGo is a fully featured and well documented alternative implementation of the core Neo stack, written in Go. Provides a highly performant node implementation, a compiler for Go smart contracts, and an SDK for app integration."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">Go</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo2" class="tool hidden" target="_blank" href="https://github.com/nspcc-dev/neo-go/releases/tag/v0.78.3">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/projects/neo-go.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">NeoGo</h4>
+                <div class="tool-developer">Neo SPCC</div>
+                <div class="tool-description">@Localizer["NeoGo is a fully featured and well documented alternative implementation of the core Neo stack, written in Go. Provides a highly performant node implementation, a compiler for Go smart contracts, and an SDK for app integration."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">Go</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo3" class="tool" target="_blank" href="https://docs.neo.org/v3/docs/en-us/develop/tool/sdk/introduction.html">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/developers/ngd.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">Neo RPC SDK</h4>
+                <div class="tool-developer">Neo Global Development</div>
+                <div class="tool-description">@Localizer["Neo RPC SDK is a dependency library used to streamline the integration of C# applications with Neo. Well suited for games, wallets, and other projects, the RPC SDK makes it easy to construct transactions, invoke RPC interfaces, and call deployed contracts."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">C#</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo3" class="tool" target="_blank" href="https://docs.coz.io/neo3/neon-js">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/projects/neon-js.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">Neon-js</h4>
+                <div class="tool-developer">COZ</div>
+                <div class="tool-description">@Localizer["Neon-js is a JavaScript SDK with a lightweight library for Neo blockchain interaction. Designed for both backend and frontend use, the SDK is well suited for RPC interaction, wallet manipulation, and contract invoking. The NetworkFacade class provides a quick way to bootstrap developers for easily constructing an interaction."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">JavaScript</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo2" class="tool hidden" target="_blank" href="https://github.com/CityOfZion/neon-js/releases/tag/v4.8.0">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/projects/neon-js.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">Neon-js</h4>
+                <div class="tool-developer">COZ</div>
+                <div class="tool-description">@Localizer["Neon-js is a JavaScript SDK with a lightweight library for Neo blockchain interaction. Designed for both backend and frontend use, the SDK is well suited for RPC interaction, wallet manipulation, and contract invoking. The NetworkFacade class provides a quick way to bootstrap developers for easily constructing an interaction."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">JavaScript</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo3" class="tool" target="_blank" href="https://github.com/CityOfZion/neo-mamba">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/projects/mamba.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">Mamba</h4>
+                <div class="tool-developer">COZ</div>
+                <div class="tool-description">@Localizer["Mamba is an SDK for Neo that is intended as the main point of entry for Python developers wishing to interact with the blockchain. The library includes a number of packages and convenience modules for handling network connectivity, data storage, cryptography, and complex data types specific to N3. Smart contract execution and basic node functionality is now also available."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">Python</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo3" class="tool" target="_blank" href="https://github.com/neo-ngd/neo3-gogogo/releases/tag/v0.2">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/developers/ngd.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">Neo-gogogo</h4>
+                <div class="tool-developer">Neo Global Development</div>
+                <div class="tool-description">@Localizer["Neo-gogogo is a lightweight Go SDK that provides all the structures and methods required to interface with the Neo blockchain. All the necessary tools are available for any kind of application, making it easy to manage wallets, verify state proofs, interact with contracts and tokens, build transactions, send RPC requests, and more."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">Go</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo2" class="tool hidden" target="_blank" href="https://github.com/neo-ngd/neo-gogogo">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/developers/ngd.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">Neo-gogogo</h4>
+                <div class="tool-developer">Neo Global Development</div>
+                <div class="tool-description">@Localizer["Neo-gogogo is a lightweight Go SDK that provides all the structures and methods required to interface with the Neo blockchain. All the necessary tools are available for any kind of application, making it easy to manage wallets, verify state proofs, interact with contracts and tokens, build transactions, send RPC requests, and more."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">Go</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo3" class="tool" target="_blank" href="https://neow3j.io/#/overview/getting_started?id=sdk">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/projects/neow3j.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">Neow3j</h4>
+                <div class="tool-developer">AxLabs</div>
+                <div class="tool-description">@Localizer["Neow3j is a Java library that aims to provide easy and reliable integration with Neo nodes. It supports Neo RPC, asset transfers, smart contract invocations and deployments, NEP-2, NEP-6, building, signing and sending raw transactions, and more."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">Java</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo2" class="tool hidden" target="_blank" href="https://github.com/neow3j/neow3j#neo2">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/projects/neow3j.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">Neow3j</h4>
+                <div class="tool-developer">AxLabs</div>
+                <div class="tool-description">@Localizer["Neow3j is a Java library that aims to provide easy and reliable integration with Neo nodes. It supports Neo RPC, asset transfers, smart contract invocations and deployments, NEP-2, NEP-6, building, signing and sending raw transactions, and more."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">Java</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo3" class="tool" target="_blank" href="https://github.com/nspcc-dev/neofs-api-go">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/developers/nspcc.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">NeoFS API Go</h4>
+                <div class="tool-developer">Neo SPCC</div>
+                <div class="tool-description">@Localizer["NeoFS API Go implements all of the core NeoFS components needed to help applications to integrate with NeoFS via its Protobuf-based API."]</div>
+                <div class="tool-languages">
+                    <div class="tool-language">Go</div>
+                </div>
+            </div>
+        </a>
+        <a data-version="neo3" class="tool" target="_blank" href="https://github.com/nspcc-dev/neofs-api-csharp">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/developers/nspcc.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">NeoFS API CSharp</h4>
+                <div class="tool-developer">Neo SPCC</div>
+                <div class="tool-languages">
+                    <div class="tool-language">C#</div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="tab-page">
+    <div class="tab-page-title">@Localizer["dApp Integration"]</div>
+    <div class="tools">
+        <a data-version="neo2 neo3" class="tool" target="_blank" href="https://neoline.io/">
+            <img class="tool-img" data-original="@Helper.ToCDN("/images/dev/projects/neo-line.png", true)" />
+            <div class="tool-end">
+                <h4 class="tool-title">NeoLine</h4>
+                <div class="tool-developer">NEXT</div>
+                <div class="tool-description">@Localizer["NeoLine is a light wallet for Neo Legacy and N3, available in mobile, web, and Chrome extension versions. The wallet is intended to provide an easy to use solution for all users and includes a dAPI integration for connecting with dApps."]</div>
+            </div>
+        </a>
+    </div>
+</div>

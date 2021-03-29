@@ -7,10 +7,14 @@
 }
 
 .platform-label {
-    font-family: WorkSans-SemiBold, WorkSans;
+    font-family: WorkSans;
     font-weight: 600;
     font-size: 1.125rem;
     text-transform: uppercase;
+
+    @media (max-width: 767.98px) {
+        display: none;
+    }
 }
 
 .select-platform {
@@ -19,10 +23,9 @@
 }
 
 .introduction {
+    position: relative;
     display: flex;
-    align-items: center;
     padding: 3rem 0 6.25rem;
-    background: url(/images/dev/introduction-bg.png) top right -20% no-repeat;
 
     @media (max-width: 991.98px) {
         display: none;
@@ -37,7 +40,7 @@
 
 .introduction-title {
     font-size: 5.75rem;
-    font-family: WorkSans-Bold, WorkSans;
+    font-family: WorkSans;
     font-weight: bold;
     line-height: 0.85;
     text-transform: uppercase;
@@ -48,10 +51,19 @@
     }
 }
 
+.introduction-img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    object-fit: contain;
+    z-index: -1;
+}
+
 .introduction-description {
     margin-top: 2.25rem;
     font-size: 1.25rem;
-    font-family: NunitoSans-Bold, NunitoSans;
+    font-family: NunitoSans;
     font-weight: bold;
 }
 
@@ -102,7 +114,7 @@
     border-left: 5px solid transparent;
     color: @dark-blue;
     font-size: 1.125rem;
-    font-family: NunitoSans-Bold, NunitoSans;
+    font-family: NunitoSans;
     font-weight: bold;
 
     &.active {
@@ -139,7 +151,7 @@
     border-left: 5px solid transparent;
     color: @dark-blue;
     font-size: 1.125rem;
-    font-family: NunitoSans-Bold, NunitoSans;
+    font-family: NunitoSans;
     font-weight: bold;
 }
 
@@ -172,7 +184,7 @@
 
 .menu-page-title {
     font-size: 2.25rem;
-    font-family: NunitoSans-ExtraBold, NunitoSans;
+    font-family: NunitoSans;
     font-weight: 800;
     color: #000033;
 }
@@ -180,11 +192,11 @@
 .menu-page-description {
     margin-top: 2.25rem;
     font-size: 1.25rem;
-    font-family: NunitoSans-Regular, NunitoSans;
+    font-family: NunitoSans;
     font-weight: 400;
 
     strong {
-        font-family: NunitoSans-Bold, NunitoSans;
+        font-family: NunitoSans;
         font-weight: bold;
     }
 
@@ -210,7 +222,7 @@
     padding: 0 1.5rem;
     border: 1px solid @dark-blue;
     font-size: 1.125rem;
-    font-family: NunitoSans-ExtraBold, NunitoSans;
+    font-family: NunitoSans;
     font-weight: 800;
     color: @dark-blue;
 
@@ -247,24 +259,32 @@
     @media (max-width: 991.98px) {
         width: auto;
     }
+
+    &.hidden {
+        display: none;
+    }
 }
 
 .documentation-bookmark {
+    flex-shrink: 0;
     width: 4px;
     background: @green;
 }
 
 .documentation-title {
     align-self: flex-end;
+    margin-top: 1rem;
     margin-left: 0.875rem;
+    margin-bottom: -0.4rem;
     font-size: 1.125rem;
-    font-family: NunitoSans-Bold, NunitoSans;
+    font-family: NunitoSans;
     font-weight: bold;
 }
 
 .documentation-img {
+    align-self: center;
     flex-shrink: 0;
-    margin-top: 1.5rem;
+    margin-top: 1.125rem;
     margin-left: 2rem;
 }
 
@@ -281,7 +301,7 @@
 .menu-page-secondary-title {
     margin-top: 2.25rem;
     font-size: 1.5rem;
-    font-family: WorkSans-Bold, WorkSans;
+    font-family: WorkSans;
     font-weight: bold;
 }
 
@@ -303,6 +323,10 @@
 
     &:hover {
         color: inherit;
+    }
+
+    &.hidden {
+        display: none;
     }
 
     & + & {
@@ -360,7 +384,7 @@
     padding: 0.25rem;
     background: fade(@dark-blue, 22%);
     font-size: 1rem;
-    font-family: WorkSans-Bold, WorkSans;
+    font-family: WorkSans;
     font-weight: bold;
     color: #FFFFFF;
     text-align: center;
@@ -378,13 +402,13 @@
 
 .overview-example-title {
     font-size: 1.25rem;
-    font-family: WorkSans-SemiBold, WorkSans;
+    font-family: WorkSans;
     font-weight: 600;
 }
 
 .overview-example-author {
     font-size: 1rem;
-    font-family: NunitoSans-Bold, NunitoSans;
+    font-family: NunitoSans;
     font-weight: bold;
     color: #828386;
 }
@@ -392,7 +416,7 @@
 .overview-example-description {
     margin-top: 0.5rem;
     font-size: 1rem;
-    font-family: NunitoSans-SemiBold, NunitoSans;
+    font-family: NunitoSans;
     font-weight: 600;
     color: #070E3A;
 }
@@ -426,7 +450,7 @@
     flex: auto;
     padding: 1.5rem;
     font-size: 1.125rem;
-    font-family: NunitoSans-Bold, NunitoSans;
+    font-family: NunitoSans;
     font-weight: bold;
     color: #070E3A;
     overflow: hidden;
@@ -448,7 +472,7 @@
 .tab-page-title {
     margin-top: 2.5rem;
     font-size: 1.5rem;
-    font-family: WorkSans-Bold, WorkSans;
+    font-family: WorkSans;
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -460,8 +484,7 @@
     margin-top: 2.5rem;
 
     @media (max-width: 991.98px) {
-        display: flex;
-        flex-direction: column;
+        grid-template-columns: 1fr;
     }
 }
 
@@ -471,11 +494,17 @@
     &:hover {
         color: inherit;
     }
+
+    &.hidden {
+        display: none;
+    }
 }
 
 .tool-img {
+    flex-shrink: 0;
     width: 8rem;
     height: 8rem;
+    object-fit: contain;
 
     @media (max-width: 991.98px) {
         width: 5rem;
@@ -489,7 +518,7 @@
 
 .tool-title {
     font-size: 1.125rem;
-    font-family: WorkSans-Bold, WorkSans;
+    font-family: WorkSans;
     font-weight: bold;
 }
 
@@ -502,11 +531,11 @@
     display: flex;
     align-items: center;
     height: 1.5rem;
-    padding: 0 1.5rem;
+    padding: 0 1rem;
     border-radius: 0.75rem;
     background: @dark-blue;
     font-size: 0.75rem;
-    font-family: WorkSans-SemiBold, WorkSans;
+    font-family: WorkSans;
     font-weight: 600;
     color: white;
 
@@ -517,14 +546,14 @@
 
 .tool-developer {
     font-size: 1rem;
-    font-family: NunitoSans-Bold, NunitoSans;
+    font-family: NunitoSans;
     font-weight: bold;
     color: #828386;
 }
 
 .tool-description {
     font-size: 1rem;
-    font-family: NunitoSans-SemiBold, NunitoSans;
+    font-family: NunitoSans;
     font-weight: 600;
     color: #070E3A;
 }
@@ -542,7 +571,7 @@
 
 .examples-filter-label {
     font-size: 1.125rem;
-    font-family: WorkSans-SemiBold, WorkSans;
+    font-family: WorkSans;
     font-weight: 600;
     text-transform: uppercase;
 
@@ -626,7 +655,7 @@
     padding: 0.25rem;
     background: fade(@dark-blue, 22%);
     font-size: 1rem;
-    font-family: WorkSans-Bold, WorkSans;
+    font-family: WorkSans;
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
@@ -669,13 +698,13 @@
 
 .example-title {
     font-size: 1.25rem;
-    font-family: WorkSans-SemiBold, WorkSans;
+    font-family: WorkSans;
     font-weight: 600;
 }
 
 .example-author {
     font-size: 1rem;
-    font-family: NunitoSans-Bold, NunitoSans;
+    font-family: NunitoSans;
     font-weight: bold;
     color: #828386;
 }
@@ -686,7 +715,7 @@
     align-self: flex-start;
     margin-left: 1rem;
     font-size: 1rem;
-    font-family: WorkSans-Bold, WorkSans;
+    font-family: WorkSans;
     font-weight: bold;
     text-transform: uppercase;
 
@@ -697,7 +726,7 @@
 
 .example-description {
     font-size: 1rem;
-    font-family: NunitoSans-SemiBold, NunitoSans;
+    font-family: NunitoSans;
     font-weight: 600;
     color: #070E3A;
 }
@@ -710,12 +739,12 @@
 .example-language {
     display: flex;
     align-items: center;
-    padding: 0 1.5rem;
+    padding: 0 1rem;
     height: 1.5rem;
     border-radius: 0.75rem;
     background: @dark-blue;
     font-size: 0.75rem;
-    font-family: WorkSans-SemiBold, WorkSans;
+    font-family: WorkSans;
     font-weight: 600;
     color: #FFFFFF;
 

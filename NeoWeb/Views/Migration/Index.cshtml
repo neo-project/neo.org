@@ -13,12 +13,12 @@
 }
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-lg-6">
             <h1 class="uppercase mt-5"><span class="green">NEO</span> @Localizer["Migration"]</h1>
-            <p>@Localizer["After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]</p>
+            <p>@Localizer["After four years of stable MainNet operation, Neo is undergoing its biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]</p>
         </div>
-        <div class="col-md-3 offset-md-2">
-            <img class="img-fluid" src="@Helper.CDN/images/migration/n3.png" />
+        <div class="col-lg-3 offset-lg-2">
+            <img class="img-fluid my-5" src="@Helper.CDN/images/migration/n3.svg" />
         </div>
     </div>
     <hr />
@@ -39,40 +39,46 @@
 
     <h3 class="mt-5 border-bottom">@Localizer["New features in N3"]</h3>
     <div class="row my-5 feature">
-        <div class="col-sm-6 col-md-4 text-center text-xl-left">
+        <div class="col-sm-6 col-lg-4 text-center text-xl-left">
             <img class="img-fluid" src="@Helper.CDN/images/migration/feature1.svg" />
             <div class="d-inline-block align-middle description">@Localizer["Built-in oracle (internet resource access)"]</div>
         </div>
-        <div class="col-sm-6 col-md-4 text-center text-xl-left">
+        <div class="col-sm-6 col-lg-4 text-center text-xl-left">
             <img class="img-fluid" src="@Helper.CDN/images/migration/feature2.svg" />
             <div class="d-inline-block align-middle description">@Localizer["Neo Name Service domain protocol"]</div>
         </div>
 
-        <div class="col-sm-6 col-md-4 text-center text-xl-left">
+        <div class="col-sm-6 col-lg-4 text-center text-xl-left">
             <img class="img-fluid" src="@Helper.CDN/images/migration/feature3.svg" />
             <div class="d-inline-block align-middle description">@Localizer["On-chain governance & economic model"]</div>
 
         </div>
 
-        <div class="col-sm-6 col-md-4 text-center text-xl-left">
+        <div class="col-sm-6 col-lg-4 text-center text-xl-left">
             <img class="img-fluid" src="@Helper.CDN/images/migration/feature4.svg" />
             <div class="d-inline-block align-middle description">@Localizer["NeoID decentralized identity protocol"]</div>
         </div>
 
-        <div class="col-sm-6 col-md-4 text-center text-xl-left">
+        <div class="col-sm-6 col-lg-4 text-center text-xl-left">
             <img class="img-fluid" src="@Helper.CDN/images/migration/feature5.svg" />
             <div class="d-inline-block align-middle description">@Localizer["NeoFS distributed object storage system"]</div>
         </div>
 
-        <div class="col-sm-6 col-md-4 text-center text-xl-left">
+        <div class="col-sm-6 col-lg-4 text-center text-xl-left">
             <img class="img-fluid" src="@Helper.CDN/images/migration/feature6.svg" />
             <div class="d-inline-block align-middle description">@Localizer["Simplified architecture"]</div>
         </div>
     </div>
     <h3 class="mt-5 border-bottom">@Localizer["Timeline"]</h3>
     <div class="scroll-x">
-        <img class="my-5 @SharedLocalizer["d-none"]" src="@Helper.CDN/images/migration/timeline-zh.png" />
-        <img class="my-5 @SharedLocalizer["d-none-zh"]" src="@Helper.CDN/images/migration/timeline.png" />
+        @if (SharedLocalizer["en"].Value == "zh")
+        {
+            <img class="my-5" src="@Helper.CDN/images/migration/timeline-zh.svg" />
+        }
+        else
+        {
+            <img class="my-5" src="@Helper.CDN/images/migration/timeline.svg" />
+        }
     </div>
     <h3 class="my-5 border-bottom">@Localizer["Frequently asked questions"]</h3>
     <div id="accordion">

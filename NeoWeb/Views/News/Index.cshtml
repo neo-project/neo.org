@@ -11,11 +11,12 @@
 
 @if (ViewBag.Ontop != null)
 {
-    <div class="py-5">
+    <div>
         <div class="row align-items-center news-top">
             @{await Html.RenderPartialAsync("_TopPartial", (ViewBag.Ontop as NewsViewModel));}
         </div>
     </div>
+    <hr class="my-5" />
 }
 
 <form method="get" class="d-search form-inline">

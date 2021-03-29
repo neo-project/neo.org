@@ -10,9 +10,9 @@
 <div class="introduction">
     <div class="introduction-start">
         <h1 class="uppercase"><span class="green">NEO</span> <br class="@SharedLocalizer["d-none-zh"]" /> &amp; GAS</h1>
-        <div class="introduction-content">@Localizer["After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]</div>
+        <div class="introduction-content">@Localizer["Neo’s two token model allows users to participate in the ecosystem without reducing their stake in the network."]</div>
     </div>
-    <img class="introduction-img" data-original="@Helper.ToCDN("/images/discover/placeholder.png", true)" />
+    <img class="introduction-img" data-original="@Helper.ToCDN("/images/discover/DualTokens.svg", true)" />
 </div>
 
 <div class="divider"></div>
@@ -175,5 +175,20 @@
             $("#model_desc").html(desc.html());
             $("#model_link").html(link.html());
         }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#calculator-slider").on("input", function (e) {
+                const { value } = e.currentTarget
+                $("#slider-current-value").html(value)
+
+                const holdingGas = (+value * 10512000 * 0.1 / 100000000 / 12).toFixed(2)
+                const governanceGas = (+value * 10512000 * 0.8 / 20000000 / 12).toFixed(2)
+
+                $(".result-holding").html(holdingGas)
+                $(".result-governance").html(governanceGas)
+            })
+        });
     </script>
 }

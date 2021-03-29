@@ -2,8 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
@@ -18,11 +21,13 @@ namespace NeoWeb.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IStringLocalizer<SharedResource> _sharedLocalizer;
+        private readonly IWebHostEnvironment _env;
 
-        public HomeController(ApplicationDbContext context, IStringLocalizer<SharedResource> sharedLocalizer)
+        public HomeController(ApplicationDbContext context, IStringLocalizer<SharedResource> sharedLocalizer, IWebHostEnvironment env)
         {
             _context = context;
             _sharedLocalizer = sharedLocalizer;
+            _env = env;
         }
 
         public IActionResult Index()
@@ -90,6 +95,24 @@ namespace NeoWeb.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        
+        static string status;
+        static DateTime lastRequest;
+        public IActionResult GitHubStatus()
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(status) || (DateTime.Now - lastRequest).TotalMinutes > 60)
+                {
+                    status = System.IO.File.ReadAllText(Path.Combine(_env.ContentRootPath, "GitHubStatus/neo.json"));
+                    lastRequest = DateTime.Now;
+                }
+            }
+            catch (IOException)
+            {
+            }
+            return Content(status, "application/json");
         }
     }
 }

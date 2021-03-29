@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Neo Name Service" xml:space="preserve">
+    <value>Neo 域名服务</value>
+  </data>
+  <data name="Neo Name Service (NNS) is a decentralized name service built as a native service on the Neo blockchain. It is used to map human-readable domain names to different types of data, such as IP addresses, aliases, or other strings." xml:space="preserve">
+    <value>Neo 域名服务（NNS）是Neo区块链上的原生的去中心化域名服务。它可以将普通用户易于记忆的域名映射到不同类型的数据上，例如IP地址、别名或其他字符串。</value>
+  </data>
+  <data name="One of the most prominent barriers to entry in the blockchain space is the user experience of public key cryptography. Even after conversion to more readable address formats, interaction with blockchain protocols remains tedious and error prone." xml:space="preserve">
+    <value>加密公钥地址复杂难记，是入门区块链世界最主要门槛之一，与协议的交互也极为繁琐且容易出错。</value>
+  </data>
+  <data name="To successfully onboard the next generation of users, the blockchain UX must enter the realm of the familiar. Through simple TXT records, both user wallet and smart contract addresses can be given easily typed and identifiable representations." xml:space="preserve">
+    <value>为了成功吸引更多新用户，区块链应用的用户体验必须向传统世界靠拢。通过简单的TXT记录，无论用户钱包或是合约地址都可以被轻松输入并识别。</value>
+  </data>
+  <data name="Aliases also prove useful in various other situations. In NeoFS, they can be used as aliases for stored containers, or used to configure GeoDNS for the NeoFS CDN for improved data retrieval speeds. Applied in this manner, applications can ensure their users encounter minimal latency and fast download speeds while retaining all the benefits of true decentralized storage." xml:space="preserve">
+    <value>在NeoFS中，别名服务可以为存储容器创建别名，或为NeoFS CDN配置GeoDNS，以提高数据检索速度。用这种方式，应用可以确保其用户在享有去中心化存储的所有优势同时获得最短的延迟与最快的下载速度。</value>
+  </data>
+  <data name="NNS employs an innovative NFT-based approach. Each domain is represented as an NFT, enabling NNS users to freely transfer the ownership of domain names. All necessary functionality for a complete domain life cycle is provided, including registry, renewal, resolution, expiration, and permission control." xml:space="preserve">
+    <value>NNS采用了基于NFT的创新方法，每个域名都是一个NFT，NNS用户可以自由转让域名所有权。与此同时，NNS还提供了域名全生命周期的所有必需功能，包括注册表、续订、解析、到期和权限控制等。</value>
+  </data>
+</root>

@@ -4,23 +4,41 @@
 html {
     font-size: 16px;
 
-    @media only screen and (max-width: 1399.98px) {
+    @media only screen and (max-width: 1599.98px) {
         font-size: 14px;
     }
 
-    @media only screen and (max-width: 767.98px) {
+    @media only screen and (max-width: 1199.98px) {
         font-size: 12px;
     }
+
+    @media only screen and (max-width: 991.98px) {
+        font-size: 14px;
+    }
+    /*
+    @media only screen and (min-width: 1200px) and (max-width: 1440px) {
+        zoom: 88%;
+    }
+
+    @media only screen and (min-width: 992px) and (max-width: 1199.98px) {
+        zoom: 86%;
+    }
+    */
 }
 
 @letter-spacing: 0.03em;
 @line-height: 1.5;
+@font-family: "SF Pro SC", "SF Pro Text", "SF Pro Icons", "PingFang SC", 'Segoe UI', SegoeUI, "Microsoft YaHei", "微软雅黑", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 
 html body {
     font-size: @font-size-4;
     line-height: @line-height;
-    font-family: "SF Pro SC", "SF Pro Text", "SF Pro Icons", "PingFang SC", 'Segoe UI', SegoeUI, "Microsoft YaHei", "微软雅黑", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-family: @font-family;
     letter-spacing: @letter-spacing;
+}
+
+*:not(.iconfont) {
+    font-family: @font-family !important;
 }
 
 h1, .h1 {
@@ -41,12 +59,12 @@ h3, .h3 {
     font-size: @font-size-3;
     line-height: @line-height;
     letter-spacing: @letter-spacing;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 h4, .h4, h5, .h5, h6, .h6 {
-    font-size: @font-size-5;
+    font-size: @font-size-4;
     line-height: @line-height;
     letter-spacing: @letter-spacing;
-    font-weight: 400;
+    font-weight: 600;
 }

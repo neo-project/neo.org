@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="100 million NEO were generated at genesis, with approximately 50% reserved by the Neo Foundation to incentivise the development of the Neo ecosystem. The release schedule can be found in the Neo White Paper." xml:space="preserve">
+    <value>创世块共产生了一亿个NEO通证，其中约50％由Neo基金会保留，以激励Neo生态系统的发展。 具体释放时间表可以在《Neo白皮书》中找到。</value>
+  </data>
+  <data name="5 GAS tokens are generated every block and distributed in three parts:" xml:space="preserve">
+    <value>每个区块产生五个GAS。并分配到三个地方：</value>
+  </data>
+  <data name="A user with" xml:space="preserve">
+    <value>用户持有</value>
+  </data>
+  <data name="estimate based on average 20% circulating NEO voting participation" xml:space="preserve">
+    <value>根据20%投票参与率预估</value>
+  </data>
+  <data name="For Governance Participation" xml:space="preserve">
+    <value>参与治理</value>
+  </data>
+  <data name="For holding NEO" xml:space="preserve">
+    <value>持有NEO</value>
+  </data>
+  <data name="GAS" xml:space="preserve">
+    <value>GAS</value>
+  </data>
+  <data name="Gas Per Month" xml:space="preserve">
+    <value>GAS/月</value>
+  </data>
+  <data name="Migration" xml:space="preserve">
+    <value>迁移</value>
+  </data>
+  <data name="migration page" xml:space="preserve">
+    <value>迁移页面</value>
+  </data>
+  <data name="NEO" xml:space="preserve">
+    <value>NEO</value>
+  </data>
+  <data name="NEO &amp; GAS Calculator" xml:space="preserve">
+    <value>NEO &amp; GAS计算机</value>
+  </data>
+  <data name="NEO holders participate in governance by voting for the Neo Committee, composed of members and consensus nodes that govern the Neo blockchain. The Neo Committee provides specific services, such as maintaining the liveliness of the network and adjusting critical blockchain parameters." xml:space="preserve">
+    <value>NEO持有者通过投票选出Neo委员会参与治理，该委员会由管理Neo区块链的成员和共识节点组成。 Neo委员会提供特定的服务，例如维护网络的活跃性和调整关键的区块链参数。</value>
+  </data>
+  <data name="Neo is undergoing its biggest upgrade as it migrates to its latest version, N3. As part of this upgrade, users may be required to migrate their token assets to the new network." xml:space="preserve">
+    <value>将Neo迁移到最新版本N3是至今为止最大的升级。作为此升级的一部分，可能需要用户配合将其通证资产迁移到新网络。</value>
+  </data>
+  <data name="Neo is unique in that it was the first public blockchain platform to adopt a dual token mechanism. It separates the rights of governance from the rights of using the network. It also provides a means of acquiring the tokens needing to pay transaction fees." xml:space="preserve">
+    <value>Neo的独特之处在于它是第一个采用双通证机制的公链平台。 它将治理权与网络使用权分开。 它还提供了一种获取可以用来支付交易费的代币的方法。</value>
+  </data>
+  <data name="The largest portion of GAS is distributed to voters as a reward for playing an active role in network governance. NEO holders will need to ensure they choose a wallet that supports voting if they wish to participate." xml:space="preserve">
+    <value>最大块的GAS会分发给选民，作为对在网络治理中发挥积极作用的奖励。 如果NEO持有者想要参与治理，必须确保选择的钱包支持投票功能。</value>
+  </data>
+  <data name="The minimum unit of GAS is 0.00 000001. There is no NEO staking required in order to claim GAS tokens. Most Neo wallets will include a claim function, allowing you to collect your GAS with the click of a button. Please be aware that some exchanges distribute GAS to users that hold NEO on their platform, and others do not." xml:space="preserve">
+    <value>GAS的最小单位为0.00000001。不需要质押NEO即可申领GAS通证。大多数Neo钱包都包含申领功能，使您只需单击一下按钮即可申领GAS。 请注意，一部分交易所会将GAS分发给在其平台上持有NEO的用户，而另一些则不会。</value>
+  </data>
+  <data name="The minimum unit of NEO is 1 and tokens are indivisible. This means if you are withdrawing from an exchange to your wallet, you must withdraw in whole numbers. It also means that NEO is one of the scarcest public blockchain tokens, as it cannot be broken down into smaller pieces." xml:space="preserve">
+    <value>NEO的最小单位为1，通证不可分割。 这意味着，如果您要从交易所提款到钱包，则必须提取整数。 这也意味着NEO是最稀缺的公链代币之一，因为它在数量上无法再细分。</value>
+  </data>
+  <data name="The Neo network charges GAS for the operation and storage of tokens and smart contracts, preventing the abuse of node resources. System fees are burned, while network fees are redistributed to consensus nodes, creating an economic incentive for their services." xml:space="preserve">
+    <value>在Neo网络中操作和储存通证和智能合约需要花费GAS，这是为了防止节点资源的滥用。 系统费用会被销毁，而网络费用则被重新分配给共识节点，作为其服务的经济激励。</value>
+  </data>
+  <data name="To find out more information, please visit the" xml:space="preserve">
+    <value>要了解更多信息，请访问 </value>
+  </data>
+  <data name="Tokens" xml:space="preserve">
+    <value>通证</value>
+  </data>
+  <data name="With a total of 100 million tokens, NEO has two main features:" xml:space="preserve">
+    <value>总供给一亿个通证，NEO有两大功能：</value>
+  </data>
+  <data name="would receive up to" xml:space="preserve">
+    <value>最多可获得</value>
+  </data>
+</root>

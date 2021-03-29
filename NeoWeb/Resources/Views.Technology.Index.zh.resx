@@ -117,11 +117,38 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
-    <value />
+  <data name="After four years of stable MainNet operation, Neo is undergoing its biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
+    <value>经历了4年的稳定主网运行，Neo正在经历有史以来最大的一次进化-向N3版本进行迁移。Neo N3是Neo区块链迄今为止最强大、功能最丰富的版本。</value>
+  </data>
+  <data name="All in One" xml:space="preserve">
+    <value>All in One</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>开发者体验</value>
+  </data>
+  <data name="dBFT 2.0" xml:space="preserve">
+    <value>dBFT 2.0</value>
+  </data>
+  <data name="Interoperability" xml:space="preserve">
+    <value>互操作性</value>
+  </data>
+  <data name="Neo Name Service" xml:space="preserve">
+    <value>Neo 域名服务</value>
   </data>
   <data name="Neo Technology" xml:space="preserve">
     <value>Neo 科技</value>
+  </data>
+  <data name="NeoFS" xml:space="preserve">
+    <value>NeoFS</value>
+  </data>
+  <data name="NeoID" xml:space="preserve">
+    <value>NeoID</value>
+  </data>
+  <data name="Oracles" xml:space="preserve">
+    <value>预言机</value>
+  </data>
+  <data name="Smart Contracts" xml:space="preserve">
+    <value>智能合约</value>
   </data>
   <data name="Technology" xml:space="preserve">
     <value>科技</value>

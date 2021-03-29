@@ -1,0 +1,224 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+<div class="menu-page-title">@Localizer["Overview"]</div>
+
+<div class="menu-page-introduction clearfix">
+    <img class="menu-page-introduction-img" data-original="@Helper.ToCDN("/images/eco/overview.png", true)" />
+    <div class="menu-page-title">@Localizer["Overview"]</div>
+    <div class="menu-page-introduction-title">
+        @Localizer["Our Nature is Nuture"]
+    </div>
+    <div class="menu-page-introduction-description">
+        <p>@Localizer["Neo has initiated a number of support tracks to grow the Neo ecosystem, offering various types of assistance depending on your project needs, interests, and maturity. Options are available for grassroots developers, start up projects, established businesses, institutions, and everything in between."]</p>
+        <p>@Localizer["If you would  benefit from a little help during your journey on the Neo blockchain, simply identify the track below that best describes your current situation. Full details on how to apply can be found by following the relevant links."]</p>
+    </div>
+</div>
+<div class="menu-page-divider"></div>
+<div class="menu-page-secondary-title">
+    @Localizer["Find the support that is right for you"]
+</div>
+<div class="menu-page-tertiary-title">
+    @Localizer["Existing dApps or blockchain - related business"]
+</div>
+<div class="supports">
+    <div class="support">
+        <div class="support-i-am">@(SharedLocalizer["en"].Value == "en" ? "I am" : "如果你是")</div>
+        <div class="support-start">
+            <div class="support-start-items">
+                <div class="support-start-item">
+                    <img class="support-start-item-img" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
+                    <span class="support-start-item-text">@Localizer["A small team with many seed users"]</span>
+                </div>
+                <div class="support-start-item">
+                    <img class="support-start-item-img" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
+                    <span class="support-start-item-text">@Localizer["A medium sized business"]</span>
+                </div>
+                <div class="support-start-item">
+                    <img class="support-start-item-img" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
+                    <span class="support-start-item-text">@Localizer["A wallet or trading platform with existing users"]</span>
+                </div>
+                <div class="support-start-item">
+                    <img class="support-start-item-img" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
+                    <span class="support-start-item-text">@Localizer["An institution or education platform"]</span>
+                </div>
+                <div class="support-start-item">
+                    <img class="support-start-item-img" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
+                    <span class="support-start-item-text">@Localizer["Looking for full lifecycle support"]</span>
+                </div>
+                <div class="support-start-item">
+                    <img class="support-start-item-img" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
+                    <span class="support-start-item-text">Looking for full lifecycle support</span>
+                </div>
+            </div>
+        </div>
+        <div class="support-end">
+            <img class="support-end-img" data-original="@Helper.ToCDN("/images/eco/overview-eco-boost.png", true)" />
+            <div class="support-end-text">@Localizer["Get all the support and guidance you need with EcoBoost"]</div>
+            <a class="support-end-btn btn-4 btn-small" asp-controller="eco" asp-action="index" asp-fragment="ecoboost">@Localizer["EcoBoost"]</a>
+        </div>
+    </div>
+    <div class="support">
+        <div class="support-i-am">@Localizer["I am"]</div>
+        <div class="support-start">
+            <div class="support-start-items">
+                <div class="support-start-item">
+                    <img class="support-start-item-img" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
+                    <span class="support-start-item-text">@Localizer["An established blockchain-based business with substantial ties to the Neo ecosystem"]</span>
+                </div>
+                <div class="support-start-item">
+                    <img class="support-start-item-img" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
+                    <span class="support-start-item-text">@Localizer["Operating with a viable revenue model"]</span>
+                </div>
+                <div class="support-start-item">
+                    <img class="support-start-item-img" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
+                    <span class="support-start-item-text">@Localizer["Looking for funding in exchange for equity or tokens"]</span>
+                </div>
+            </div>
+        </div>
+        <div class="support-end">
+            <img class="support-end-img" data-original="@Helper.ToCDN("/images/eco/overview-eco-fund.png", true)" />
+            <div class="support-end-text">@Localizer["Seek an investment with EcoFund"]</div>
+            <a class="support-end-btn btn-4 btn-small" asp-controller="eco" asp-action="index" asp-fragment="ecofund">@Localizer["EcoFund"]</a>
+        </div>
+    </div>
+</div>
+<div class="menu-page-tertiary-title">
+    @Localizer["other businesses"]
+</div>
+<div class="supports">
+    <div class="support">
+        <div class="support-i-am">@Localizer["I am"]</div>
+        <div class="support-start">
+            <div class="support-start-prefix">@Localizer["…interested in"]</div>
+            <div class="support-start-items">
+                <div class="support-start-item">
+                    <img class="support-start-item-img" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
+                    <span class="support-start-item-text">@Localizer["Getting my dApp idea or project off the ground"]</span>
+                </div>
+                <div class="support-start-item">
+                    <img class="support-start-item-img" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
+                    <span class="support-start-item-text">@Localizer["Infrastructure and tools development"]</span>
+                </div>
+                <div class="support-start-item">
+                    <img class="support-start-item-img" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
+                    <span class="support-start-item-text">@Localizer["Neo core-protocol development"]</span>
+                </div>
+                <div class="support-start-item">
+                    <img class="support-start-item-img" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
+                    <span class="support-start-item-text">@Localizer["Participating in research intiatives"]</span>
+                </div>
+                <div class="support-start-item">
+                    <img class="support-start-item-img" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
+                    <span class="support-start-item-text">@Localizer["Contributing to the security of the Neo project"]</span>
+                </div>
+            </div>
+        </div>
+        <div class="support-end">
+            <img class="support-end-img" data-original="@Helper.ToCDN("/images/eco/overview-other-business.png", true)" />
+            <div class="support-end-text">@Localizer["We have a range of new grant programs and initiatives launching very shorly. Check back soon!"]</div>
+            <a class="support-end-btn btn-4 btn-small disabled">@Localizer["Coming soon"]</a>
+        </div>
+    </div>
+</div>
+<div class="menu-page-divider"></div>
+<div class="menu-page-secondary-title">
+    @Localizer["Projects and organisations we have supported"]
+</div>
+<div class="menu-page-description">
+    @Localizer["Neo is committed to helping quality projects succeed. Take a look at some of the recent groups and organisations we have supported - We’d love to add you to the list!"]
+</div>
+<div class="menu-page-tertiary-title">
+    @Localizer["take a look at the latest projects"]
+</div>
+<div class="projects">
+    <i class="projects-controller-left iconfont">&#xe61c;</i>
+    <i class="projects-controller-right iconfont">&#xe61b;</i>
+    <div class="projects-content">
+        <div class="project">
+            <a href="https://switcheo.network/">
+                <img class="project-img" data-original="@Helper.ToCDN("/images/eco/logos/Switcheo.png", true)" />
+            </a>
+            <div class="project-name">Switcheo</div>
+        </div>
+        <div class="project">
+            <a href="https://o3.network/">
+                <img class="project-img" data-original="@Helper.ToCDN("/images/eco/logos/O3.png", true)" />
+            </a>
+            <div class="project-name">O3</div>
+        </div>
+        <div class="project">
+            <a href="https://www.liquefy.com/">
+                <img class="project-img" data-original="@Helper.ToCDN("/images/eco/logos/Liquefy.png", true)" />
+            </a>
+            <div class="project-name">Liquefy</div>
+        </div>
+        <div class="project">
+            <a href="https://neoline.io/en/">
+                <img class="project-img" data-original="@Helper.ToCDN("/images/eco/logos/NeoLine.png", true)" />
+            </a>
+            <div class="project-name">NeoLine</div>
+        </div>
+        <div class="project">
+            <a href="https://bittrex.com">
+                <img class="project-img" data-original="@Helper.ToCDN("/images/eco/logos/Bittrex.png", true)" />
+            </a>
+            <div class="project-name">Bittrex</div>
+        </div>
+        <div class="project">
+            <a href="https://www.digifinex.com/en-ww/">
+                <img class="project-img" data-original="@Helper.ToCDN("/images/eco/logos/DigiFinex.png", true)" />
+            </a>
+            <div class="project-name">DigiFinex</div>
+        </div>
+        <div class="project">
+            <a href="https://www.bibox.com/en">
+                <img class="project-img" data-original="@Helper.ToCDN("/images/eco/logos/Bibox.png", true)" />
+            </a>
+            <div class="project-name">Bibox</div>
+        </div>
+        <div class="project">
+            <a href="https://www.bitmart.com/">
+                <img class="project-img" data-original="@Helper.ToCDN("/images/eco/logos/BitMart.png", true)" />
+            </a>
+            <div class="project-name">BitMart</div>
+        </div>
+        <div class="project">
+            <a href="https://arkane.network">
+                <img class="project-img" data-original="@Helper.ToCDN("/images/eco/logos/Arkane Network.png", true)" />
+            </a>
+            <div class="project-name">Arkane Network</div>
+        </div>
+        <div class="project">
+            <a href="https://cobo.com/">
+                <img class="project-img" data-original="@Helper.ToCDN("/images/eco/logos/Cobo.png", true)" />
+            </a>
+            <div class="project-name">Cobo</div>
+        </div>
+        <div class="project">
+            <a href="https://trustwallet.com">
+                <img class="project-img" data-original="@Helper.ToCDN("/images/eco/logos/Trust wallet.svg", true)" />
+            </a>
+            <div class="project-name">Trust Wallet</div>
+        </div>
+        <div class="project">
+            <a href="https://www.dapp.com">
+                <img class="project-img" data-original="@Helper.ToCDN("/images/eco/logos/dapp dot com.png", true)" />
+            </a>
+            <div class="project-name">dapp.com</div>
+        </div>
+        <div class="project">
+            <a href="https://www.stateofthedapps.com">
+                <img class="project-img" data-original="@Helper.ToCDN("/images/eco/logos/State of the Dapps.svg", true)" />
+            </a>
+            <div class="project-name">State of the Dapps</div>
+        </div>
+        <div class="project">
+            <a href="https://certik.org">
+                <img class="project-img" data-original="@Helper.ToCDN("/images/eco/logos/Certik.png", true)" />
+            </a>
+            <div class="project-name">Certik</div>
+        </div>
+    </div>
+</div>

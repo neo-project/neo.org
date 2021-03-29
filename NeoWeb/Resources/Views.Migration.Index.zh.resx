@@ -126,7 +126,7 @@
   <data name="A whole new world" xml:space="preserve">
     <value>一个崭新的世界</value>
   </data>
-  <data name="After four years of stable MainNet operation, Neo is undergoing it's biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
+  <data name="After four years of stable MainNet operation, Neo is undergoing its biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
     <value>&lt;strong&gt;N3&lt;/strong&gt; 是 Neo 区块链至今最强大也是功能最为完善的版本。迁移到 &lt;strong&gt;N3&lt;/strong&gt; 是 Neo 主网平稳运营四年以来面临的最大变革。</value>
   </data>
   <data name="At this moment, no action is required on the part of token holders." xml:space="preserve">
@@ -157,7 +157,7 @@
     <value>Neo 域名服务协议</value>
   </data>
   <data name="NeoFS distributed object storage system" xml:space="preserve">
-    <value>NeoFS 分布式物理储存系统</value>
+    <value>NeoFS 分布式储存系统</value>
   </data>
   <data name="NeoID decentralized identity protocol" xml:space="preserve">
     <value>NeoID 去中心化身份协议</value>
@@ -172,7 +172,7 @@
     <value>在主网上线之前，项目与开发者可以通过参与“早期迁移计划”在测试网上对应用与资产进行深入测试。该计划将提供全套技术与资金支持以协助迁移流程顺利进行。</value>
   </data>
   <data name="Public NEO &amp; GAS token migration will begin approximately one month after the Neo N3 MainNet is officially launched." xml:space="preserve">
-    <value>NEO 与 GAS 的迁移大约将在 &lt;strong&gt;N3&lt;/strong&gt; 主网上线后开始。</value>
+    <value>NEO 与 GAS 的迁移将在 &lt;strong&gt;N3&lt;/strong&gt; 主网上线后开始。</value>
   </data>
   <data name="Right here in the migration section of neo.org. The most up-to-date information will be published as soon as it’s available." xml:space="preserve">
     <value>在 Neo 官方网站上的“迁移”板块，您可以找到最新的迁移信息与指南。</value>

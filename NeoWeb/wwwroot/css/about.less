@@ -2,6 +2,7 @@
 
 .introduction {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 38px 0;
 
@@ -17,7 +18,7 @@
 
 .introduction-title {
     font-size: 5.75rem;
-    font-family: WorkSans-Bold, WorkSans;
+    font-family: WorkSans;
     font-weight: bold;
     line-height: 0.87;
     text-transform: uppercase;
@@ -31,13 +32,13 @@
 .introduction-content {
     margin-top: 2.25rem;
     font-size: 1.25rem;
-    font-family: NunitoSans-Bold, NunitoSans;
+    font-family: NunitoSans;
     font-weight: bold;
 }
 
 .introduction-img {
     margin-left: 2.25rem;
-    width: 300px;
+    width: 40%;
 
     @media (max-width: 767.98px) {
         display: none;
@@ -122,10 +123,13 @@
     }
 }
 
+#scroll-img {
+    max-height: 640px;
+}
+
 .dual-col-body {
     display: flex;
     justify-content: space-between;
-
 }
 
 .content-headline {
@@ -157,11 +161,15 @@
 .bullet-container {
     display: flex;
     flex-direction: column;
-    grid-row-gap: 12px;
     margin: 32px 0;
     .dark-blue;
     .nunito-sans-semibold;
     font-size: 1.25rem;
+    // grid-row-gap: 12px;
+
+    & > * + * {
+        margin-top: 12px;
+    }
 }
 
 .bullet-row {
