@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="@Helper.ToCDN("/css/editor.min.css", true)" />
 }
 <div class="py-5">
-    <div class="post-type mb-4">Post Type<a asp-controller="blog" asp-action="create">Blogs</a><a asp-controller="event" asp-action="create">Events</a><span>News</span></div>
+    <div class="post-type mb-4">Post Type<a asp-controller="blog" asp-action="create">Blog</a><a asp-controller="event" asp-action="create">Events</a><span>News</span></div>
     <form asp-action="Create" enctype="multipart/form-data">
         @{await Html.RenderPartialAsync("_EditorPartialPage", Model);}
     </form>
