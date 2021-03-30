@@ -108,7 +108,7 @@
             }
         })
         $(".tab").click(function () {
-            showPlatform($(this).text().toLowerCase());
+            showPlatform($(this).data("type"));
             $(this).parent().children().removeClass("active");
             $(this).addClass("active");
         });
