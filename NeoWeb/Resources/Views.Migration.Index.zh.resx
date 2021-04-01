@@ -210,7 +210,7 @@
   <data name="Will I need to migrate my NEP-5 tokens from the current Neo Legacy to Neo N3?" xml:space="preserve">
     <value>我是否需要将自己的 NEP-5 通证从现行的 Neo Legacy 迁移到 Neo N3 版本上？</value>
   </data>
-  <data name="Will trading on exchanges be interupted?" xml:space="preserve">
+  <data name="Will trading on exchanges be interrupted?" xml:space="preserve">
     <value>交易所里的资产交易是否会中断？</value>
   </data>
   <data name="Yes, when the new Neo MainNet running N3 is live, NEO &amp; GAS token holders will need to migrate their assets from Neo Legacy. NEO and GAS tokens will be migrated at a ratio of 1:1." xml:space="preserve">

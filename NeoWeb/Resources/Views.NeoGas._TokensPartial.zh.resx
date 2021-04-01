@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="100 million NEO were generated at genesis, with approximately 50% reserved by the Neo Foundation to incentivise the development of the Neo ecosystem. The release schedule can be found in the Neo White Paper." xml:space="preserve">
+  <data name="100 million NEO were generated at genesis, with approximately 50% reserved by the Neo Foundation to incentivize the development of the Neo ecosystem. The release schedule can be found in the Neo White Paper." xml:space="preserve">
     <value>创世块共产生了一亿个 NEO 通证，其中约 50％由 Neo 基金会保留，以激励 Neo 生态系统的发展。 具体释放时间表可以在《Neo 白皮书》中找到。</value>
   </data>
   <data name="5 GAS tokens are generated every block and distributed in three parts:" xml:space="preserve">

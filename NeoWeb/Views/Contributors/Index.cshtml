@@ -59,7 +59,7 @@
                 <i class="iconfont">&#xe6ab;</i>
             </div>
             <div class="menu-item">
-                @Localizer["Industry Collabration"]
+                @Localizer["Industry collaboration"]
                 <i class="iconfont">&#xe6ab;</i>
             </div>
         </div>
@@ -70,7 +70,7 @@
             <option>@Localizer["Neo Foundation"]</option>
             <option>@Localizer["Neo Global Development"]</option>
             <option>@Localizer["Outstanding Contributors"]</option>
-            <option>@Localizer["Industry Collabration"]</option>
+            <option>@Localizer["Industry collaboration"]</option>
         </select>
     </div>
 
@@ -100,10 +100,10 @@
     <script src="@Helper.ToCDN("/lib/jquery/jquery.min.js")"></script>
     <script>
         $(document).ready(() => {
-            const hashArray = ['core-developers', 'communities', 'neo-fundation', 'neo-global-development', 'outstanding-contributors', 'industry-collabration']
+            const hashArray = ['core-developers', 'communities', 'neo-fundation', 'neo-global-development', 'outstanding-contributors', 'industry-collaboration']
 
             function updateCurrentPage(i) {
-                const icIndex = hashArray.indexOf('industry-collabration')
+                const icIndex = hashArray.indexOf('industry-collaboration')
                 const ocIndex = hashArray.indexOf('outstanding-contributors')
                 if (i === icIndex) {
                     $(".introduction.industry-collaboration").removeClass("d-none")

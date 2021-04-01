@@ -126,7 +126,7 @@
     </data>
 
     <data name="For example, a DAO application not reliant on stakes for vote weighting may opt to substitute some form of ID verification, or another appropriate mechanism for proof of personhood. This would be vital to prevent a Sybil attack from seizing control of the organization.">
-        <value>例如，无需质押就可进行投票的的 DAO 应用可能会选择使用某种身份或实人验证机制， 这对于防止 Sybil 攻击控制治理权至关重要。</value>
+        <value>例如，无需质押就可进行投票的 DAO 应用可能会选择使用某种身份或实人验证机制， 这对于防止 Sybil 攻击控制治理权至关重要。</value>
     </data>
 
     <data name="NeoID provides the identity framework required to support these application scenarios. It allows users to create and manage decentralized identifiers, issue claims as a data verifier, or integrate attribute verification into their own applications as required.">

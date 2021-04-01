@@ -327,7 +327,7 @@
   <data name="This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software." xml:space="preserve">
     <value>此钱包是开源软件，这意味着世界上所有的开发人员都可以审查它的编码并确保最后的软件没有隐藏任何秘密。不过，当您安装或更新软件时，您还是需要信任此钱包的开发者。</value>
   </data>
-  <data name="This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when when you visit a web wallet." xml:space="preserve">
+  <data name="This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when you visit a web wallet." xml:space="preserve">
     <value>此钱包是开源软件，这意味着世界上所有的开发人员都可以审查它的编码并确保最后的软件没有隐藏任何秘密。不过，当您访问网页钱包时，您还是需要信任此钱包的开发者。</value>
   </data>
   <data name="This wallet supports the encryption and decryption of the private key for secure storage. The website itself does not store the private key, so please pay attention to the safe backup and safekeeping of the private key." xml:space="preserve">
@@ -466,9 +466,9 @@
     <value>轻钱包，这个钱包 APP 端依赖于一个中心的服务，硬件端不联网，独立运行。使用时无需同步区块数据。在 APP 端只需同步交易数据即可。如没有硬件授权不会产生任何支付交易。</value>
   </data>
   <data name="This wallet gives you a high degree of control over your digital assets. The private key is encrypted by the hardware wallet stored in the hardware chip. The user is exposed to the full Internet public chain in real time and does not interact with any third party. It is highly secure and needs to be kept safe and secure for the hardware." xml:space="preserve">
-    <value>此钱包让你拥有对数字资产的高度掌控权。私钥是通过硬件钱包加密存储在硬件芯片中的的。使用者实时面对全网公链，不与任何第三方有交互。有极高的安全性，需注意硬件的安全和妥善保管。</value>
+    <value>此钱包让你拥有对数字资产的高度掌控权。私钥是通过硬件钱包加密存储在硬件芯片中的。使用者实时面对全网公链，不与任何第三方有交互。有极高的安全性，需注意硬件的安全和妥善保管。</value>
   </data>
-  <data name="ONTO is a data management application powered by blockchain. You can enjoy an one - stop management of your own digital idenities, data and assets and control the value your own data." xml:space="preserve">
+  <data name="ONTO is a data management application powered by blockchain. You can enjoy an one - stop management of your own digital identities, data and assets and control the value your own data." xml:space="preserve">
     <value>ONTO 是基于区块链技术的数据管理应用，一站式自主管理自我的身份、数据、资产信息，让你的数据成为你能掌控的价值资产。</value>
   </data>
   <data name="Crypto.com App covers all your basic cryptocurrency needs:&lt;br /&gt;- Buy crypto AT TRUE COST, no fees, and no hidden spread markups.&lt;br /&gt;- Buy Bitcoin(BTC), Dogecoin(DOGE), Ether(ETH), Litecoin(LTC), Neo(NEO) and other leading coins with your credit / debit card or bank transfer.&lt;br /&gt;- Securely store, send and receive cryptocurrencies.&lt;br /&gt;- Track 200 + coins with our cryptocurrency price tracker." xml:space="preserve">

@@ -216,7 +216,7 @@
   <data name="Neo makes it easy for users to interact with the next generation of decentralized services." xml:space="preserve">
     <value>与下一代去中心化服务交互，比以往更自然。</value>
   </data>
-  <data name="Neo seperates governance from utility with two tokens - NEO &amp; GAS." xml:space="preserve">
+  <data name="Neo separates governance from utility with two tokens - NEO &amp; GAS." xml:space="preserve">
     <value>Neo 拥有两种分工明确的原生治理和燃料通证 - NEO 和 GAS.</value>
   </data>
   <data name="Neo was the first truly immutable blockchain. With majority approval between consensus nodes required for each new block, transactions on Neo are given immediate, irrevocable finality as soon as they are added to the blockchain. Neo's high performance dBFT consensus mechanism sparked a growing trend of adoption for BFT-based mechanisms across the industry." xml:space="preserve">
@@ -258,9 +258,6 @@
   <data name="Start exploring Neo's developer resources" xml:space="preserve">
     <value>开始探索 Neo 的开发者资源</value>
   </data>
-  <data name="Start exploring Neo's developer resources" xml:space="preserve">
-    <value>开始探索 Neo 的开发者资源</value>
-  </data>
   <data name="STORAGE" xml:space="preserve">
     <value>存储</value>
   </data>
@@ -297,7 +294,7 @@
   <data name="YOU DIDN'T KNOW" xml:space="preserve">
     <value>好得</value>
   </data>
-  <data name="You wouldn't use your Starbucks shares to buy a cup of coffee, so why spend your share of the blockchain on transaction fees? NEO tokens represents ownership of the network, while GAS is used to pay for all operations and services. NEO holders can participate in governance and recieve distribution of GAS tokens to spend on the blockchain." xml:space="preserve">
+  <data name="You wouldn't use your Starbucks shares to buy a cup of coffee, so why spend your share of the blockchain on transaction fees? NEO tokens represents ownership of the network, while GAS is used to pay for all operations and services. NEO holders can participate in governance and receive distribution of GAS tokens to spend on the blockchain." xml:space="preserve">
     <value>你并不会用你的星巴克股份来购买一杯咖啡，同理，你也不会用区块链的“股份”来为了你的链上交易付费吧？ NEO 通证对应着 Neo 区块链所有权，而 GAS 是用来为各种操作和服务付费。NEO 通证的所有者可以通过持有和参与治理来获得 GAS 分配，并用 GAS 在链上进行操作。</value>
   </data>
   <data name="Your data, always securely encrypted and available. Maintain full control over where it is placed and how it is accessed to deliver your users a first class experience." xml:space="preserve">

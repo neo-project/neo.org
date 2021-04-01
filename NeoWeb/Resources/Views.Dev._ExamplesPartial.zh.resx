@@ -177,8 +177,8 @@
   <data name="Learn how to set up a private network using Neo-GO, make RPC calls, and deploy a smart contract." xml:space="preserve">
     <value>了解如何使用 Neo-GO 建立私有网络，进行 RPC 调用并部署智能合约。</value>
   </data>
-  <data name="Learn how to set up the NEO·ONE Javascript framework, create a token, and integrate NEO·ONE into a dApp." xml:space="preserve">
-    <value>了解如何设置 NEO·ONE Javascript 框架，创建通证并将 NEO·ONE 集成到 dApp 中。</value>
+  <data name="Learn how to set up the NEO·ONE JavaScript framework, create a token, and integrate NEO·ONE into a dApp." xml:space="preserve">
+    <value>了解如何设置 NEO·ONE JavaScript 框架，创建通证并将 NEO·ONE 集成到 dApp 中。</value>
   </data>
   <data name="Learn how to write a NEP-17 contract" xml:space="preserve">
     <value>学习如何编写 NEP-17 智能合约</value>
@@ -222,7 +222,7 @@
   <data name="Using Oracle in Smart Contract" xml:space="preserve">
     <value>在智能合约内使用预言机</value>
   </data>
-  <data name="Whether you want to learn Neo blockchain fundamentals or explore advanced topics, we have examples and tutorials to get you coding. Check back reguarly to find new content authored by our global developer community." xml:space="preserve">
+  <data name="Whether you want to learn Neo blockchain fundamentals or explore advanced topics, we have examples and tutorials to get you coding. Check back regularly to find new content authored by our global developer community." xml:space="preserve">
     <value>无论是入门开发还是探索深奥话题，我们都为你准备了配套教学。我们将不断更新本页面，请记得时常来这里看看来自 Neo 全球开发者社区的最新教程。</value>
   </data>
   <data name="Wrapped NEO Python smart contract" xml:space="preserve">
