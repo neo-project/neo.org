@@ -51,3 +51,12 @@ function pageSize() {
 
 //中英文之间添加空格
 text_replace(".with-space");
+
+//target="_blank" rel="noopener noreferrer"
+$("a").each(function () {
+    if ($(this).attr("href") && $(this).attr("href").startsWith("http")) {
+        $(this).attr("target", "_blank");
+        $(this).attr("rel", "noopener noreferrer");
+    }
+});
+
