@@ -298,6 +298,14 @@ https://github.com/neo-project/neo.org
                 last_scroll_top = scroll_top;
             });
         }
+
+        if ("@(SharedLocalizer["en"].Value)" == "zh") {
+            $("a").each(function () {
+                if ($(this).attr("href") && $(this).attr("href").startsWith("https://docs.neo.org")) {
+                    $(this).attr("href", $(this).attr("href").replace("en-us", "zh-cn"));
+                }
+            });
+        }
     </script>
 
     @RenderSection("Scripts", required: false)
