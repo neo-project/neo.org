@@ -10,26 +10,6 @@
     }
   },
   {
-    "outputFileName": "wwwroot/js/gov.min.js",
-    "inputFiles": [
-      "wwwroot/js/gov.js"
-    ],
-    "minify": {
-      "enabled": true,
-      "renameLocals": true
-    }
-  },
-  {
-    "outputFileName": "wwwroot/js/migration.min.js",
-    "inputFiles": [
-      "wwwroot/js/migration.js"
-    ],
-    "minify": {
-      "enabled": true,
-      "renameLocals": true
-    }
-  },
-  {
     "outputFileName": "wwwroot/js/editor.min.js",
     "inputFiles": [
       "wwwroot/js/editor.js"
