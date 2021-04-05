@@ -1,33 +1,7 @@
 @import 'basic.less';
 
-html {
-    font-size: 16px;
-
-    @media only screen and (max-width: 1599.98px) {
-        font-size: 14px;
-    }
-
-    @media only screen and (max-width: 1199.98px) {
-        font-size: 12px;
-    }
-
-    @media only screen and (max-width: 991.98px) {
-        font-size: 15px;
-    }
-
-    /*
-    @media only screen and (min-width: 1200px) and (max-width: 1440px) {
-        zoom: 88%;
-    }
-
-    @media only screen and (min-width: 992px) and (max-width: 1199.98px) {
-        zoom: 86%;
-    }
-    */
-}
-
 html body {
-    font-size: @font-size-4;
+    font-size: 16px;
     line-height: 1.6;
     color: @dark-blue;
     background-color: white;
@@ -461,7 +435,7 @@ footer {
     padding: 0 2rem;
     line-height: 2.24;
     transition: opacity .2s;
-    font-size: 1rem;
+    font-size: @font-size-15px;
     text-align: center;
     cursor: pointer;
     vertical-align: middle;
@@ -507,6 +481,8 @@ footer {
     background: @green;
     color: white;
     border: 1px solid @green;
+    font-size: @font-size-14px;
+    transition: background-color 0.3s, color 0.3s;
 
     &:hover, &:focus, &:active {
         background: @green;
