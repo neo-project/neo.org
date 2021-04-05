@@ -437,8 +437,9 @@ html body {
     word-wrap: normal;
     text-transform: uppercase;
 
-    @media only screen and (max-width: 767.98px) {
-        width: 90%;
+    @media (min-width: 768px) {
+        font-size: @font-size-13px;
+        width: 300px;
     }
 }
 
@@ -450,6 +451,10 @@ html body {
     &:hover {
         .dark-blue;
         opacity: 0.8;
+    }
+
+    @media (min-width: 768px) {
+        font-size: @font-size-14px;
     }
 }
 
@@ -464,38 +469,22 @@ html body {
     .dark-blue;
     font-size: @font-size-37px;
     line-height: 1.1;
-    width: 60%;
+    width: 90%;
     margin-bottom: 32px;
 
-    @media only screen and (max-width: 1200px) {
+    @media (min-width: 768px) {
+        font-size: @font-size-40px;
         text-align: center;
-        font-size: 3.125rem;
-        margin-bottom: 2rem;
-        width: 90%;
-    }
-
-    @media only screen and (max-width: 767.98px) {
-        font-size: 2.25rem;
-        line-height: 1.1;
     }
 }
 
 .news-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
     font-size: 1rem;
     line-height: 1.25;
+    width: 90%;
 
-    @media only screen and (max-width: 1200px) {
-        align-items: center;
-        width: 50%;
-        align-self: center;
+    @media (min-width: 768px) {
         text-align: center;
-    }
-
-    @media only screen and (max-width: 767.98px) {
-        width: 80%;
     }
 }
 
@@ -545,9 +534,8 @@ html body {
 
 .aio-title {
     margin: 46px 10px 23px 10px;
-    font-size: 1.875rem;
-    line-height: 0.7;
-    letter-spacing: 0.3125rem;
+    font-size: @font-size-29px;
+    letter-spacing: 5px;
     text-align: center;
     .uppercase;
     .work-sans-bold;
@@ -585,7 +573,7 @@ html body {
     .work-sans-bold;
     .uppercase;
     margin-top: 30px;
-    font-size: 0.875rem;
+    font-size: @font-size-11px;
     text-align: center;
 }
 
