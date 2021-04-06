@@ -434,14 +434,12 @@
 
 .result-num {
     .work-sans-light;
-    font-size: 5.75rem;
+    font-size: @font-size-43px;
     .green;
-    width: 13.75rem;
     line-height: 1.2;
 
-    @media only screen and (max-width: 1200px) {
-        font-size: 4rem;
-        width: 100%;
+    @media (min-width: 768px) {
+        font-size: @font-size-60px;
     }
 
     &.result-holding {
@@ -546,20 +544,16 @@
 }
 
 .foot-note {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     .nunito-sans-bold;
-    font-size: 0.75rem;
+    font-size: @font-size-12px;
     text-align: center;
+    line-height: 1.2;
+    margin: 24px 0;
 
-    @media only screen and (max-width: 991px) {
-        margin: 18px 0;
-        font-size: 0.75rem;
-        line-height: 0.5;
+    @media (min-width: 768px) {
+        font-size: @font-size-14px;
     }
 }
-
 
 .results-row-mobile {
     display: none;
