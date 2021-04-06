@@ -442,7 +442,7 @@ html body {
     }
 
     @media (min-width: 1024px) {
-        font-size: @font-size-12px;
+        // font-size: @font-size-12px;
     }
 
     @media (min-width: 1440px) {
@@ -608,16 +608,17 @@ html body {
     .work-sans-bold;
     .uppercase;
     margin-top: 30px;
-    font-size: @font-size-11px;
+    // font-size: @font-size-11px;
+    font-size: @font-size-14px;
     text-align: center;
 
-    @media (min-width: 1024px) {
-        font-size: @font-size-10px;
-    }
+    // @media (min-width: 1024px) {
+    //     font-size: @font-size-10px;
+    // }
 
-    @media (min-width: 1440px) {
-        font-size: @font-size-14px;
-    }
+    // @media (min-width: 1440px) {
+    //     font-size: @font-size-14px;
+    // }
 }
 
 .building-blocks-container {
@@ -1331,25 +1332,28 @@ html body {
         }
     }
 
-    .code {
+    pre.code {
         margin: 0;
         padding: 0 1rem;
         color: @green;
         background-color: #010135;
         height: 100%;
         opacity: 1;
-        font-size: @font-size-11px;
 
         @media (min-width: 768px) {
             opacity: 0.9;
         }
 
-        @media (min-width: 1024px) {
-            font-size: @font-size-10px;
-        }
-    
-        @media (min-width: 1440px) {
-            font-size: @font-size-14px;
+        code {
+            font-size: @font-size-11px;
+
+            @media (min-width: 1024px) {
+                font-size: @font-size-10px;
+            }
+        
+            @media (min-width: 1440px) {
+                font-size: @font-size-14px;
+            }
         }
     }
 
