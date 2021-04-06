@@ -16,7 +16,10 @@ https://neo.org/
 Want to make this site better?
 https://github.com/neo-project/neo.org
 -->
-<html>
+@{
+    var langCode = @SharedLocalizer["en"].Value;
+}
+<html lang="@langCode">
 <head prefix="og: http://ogp.me/ns#">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
