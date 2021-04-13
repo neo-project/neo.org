@@ -16,10 +16,8 @@ https://neo.org/
 Want to make this site better?
 https://github.com/neo-project/neo.org
 -->
-@{
-    var langCode = @SharedLocalizer["en"].Value;
-}
-<html lang="@langCode">
+
+<html lang="@SharedLocalizer["en"]">
 <head prefix="og: http://ogp.me/ns#">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -59,7 +57,8 @@ https://github.com/neo-project/neo.org
     @RenderSection("Styles", required: false)
     @if (SharedLocalizer["en"].Value == "zh")
     {
-        <link href="@Helper.ToCDN("/css/sitecn.min.css", true)" rel="stylesheet" />}
+        <link href="@Helper.ToCDN("/css/sitecn.min.css", true)" rel="stylesheet" />
+    }
 </head>
 <body id="neo-body">
     <nav class="navbar smart-scroll container-fluid navbar-expand-lg">
