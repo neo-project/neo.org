@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -64,19 +64,19 @@ namespace NeoWeb.Controllers
                 }
                 catch (Exception) { }
             }
-            //可能是 16 进制私钥
-            else if (new Regex("^[0-9a-f]{64}$").IsMatch(input.ToLower()))
-            {
-                try
-                {
-                    var output = ConverterHelper.HexPrivateKeyToWIF(input);
-                    result.Add(_localizer["Hexadecimal private key to WIF private key:"], new List<string>() { output });
-                }
-                catch (Exception) { }
-            }
             //可能是 16 进制小端序字符串
             else if (new Regex("^([0-9a-f]{2})+$").IsMatch(input.ToLower()))
             {
+                //可能是 16 进制私钥
+                if (new Regex("^[0-9a-f]{64}$").IsMatch(input.ToLower()))
+                {
+                    try
+                    {
+                        var output = ConverterHelper.HexPrivateKeyToWIF(input);
+                        result.Add(_localizer["Hexadecimal private key to WIF private key:"], new List<string>() { output });
+                    }
+                    catch (Exception) { }
+                }
                 try
                 {
                     var output = ConverterHelper.ScriptHashToAddress(input);
