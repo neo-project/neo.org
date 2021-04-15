@@ -4,5 +4,16 @@
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
 <div class="neo-feature-item">
-  ITEM!
+    <div class="block-wrapper">
+        <img class="block-icon" data-original="@ViewData["imagePath"]" />
+        <div class="block-content-wrapper">
+            <div class="block-title">
+                <i class="iconfont circle-arrow-icon">&#xe6ab;</i>
+                @ViewData["title"]
+            </div>
+            <div class="block-paragraph">
+                @ViewData["blurb"]
+            </div>
+        </div>
+    </div>
 </div>

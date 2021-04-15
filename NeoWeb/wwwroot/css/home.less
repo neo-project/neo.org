@@ -2823,8 +2823,28 @@ html body {
 
 // UI Components
 
-.neo-feature-item {
-    background-color: orange;
-    margin: 12px;
-    padding: 12px;
+.neo-features-container {
+    display: flex;
+    flex-direction: column;
+    margin: 48px 0;
+
+    @media (min-width: 768px) {
+        // font-size: @font-size-18px;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .neo-feature-item {
+        // background-color: rgba(orange, 0.1);
+        margin: 12px 0;
+        padding: 12px;
+
+        @media (min-width: 768px) {
+            flex-basis: 50%;
+        }
+
+        @media (min-width: 1024px) {
+            flex-basis: 33%;
+        }
+    }
 }
