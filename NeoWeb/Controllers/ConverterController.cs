@@ -99,7 +99,6 @@ namespace NeoWeb.Controllers
                     if (IsSupportedAsciiString(output))
                     {
                         result.Add(_localizer["Hexadecimal little-endian string to UTF8 string:"], new List<string>() { output });
-
                     }
                 }
                 catch (Exception)
@@ -115,6 +114,16 @@ namespace NeoWeb.Controllers
             //可能是 16 进制大端序字符串
             else if (new Regex("^0x([0-9a-f]{2})+$").IsMatch(input.ToLower()))
             {
+                try
+                {
+                    var output = ConverterHelper.HexStringToUTF8(input);
+                    if (IsSupportedAsciiString(output))
+                    {
+                        result.Add(_localizer["Hexadecimal big-endian string to UTF8 string:"], new List<string>() { output });
+                    }
+                }
+                catch (Exception)
+                { }
                 try
                 {
                     var output = ConverterHelper.ScriptHashToAddress(input);
@@ -257,6 +266,13 @@ namespace NeoWeb.Controllers
                 catch (Exception) { }
                 try
                 {
+                    var temp = ConverterHelper.BigIntegerToHexNumber(input);
+                    var output = ConverterHelper.HexStringToUTF8(temp);
+                    result.Add(_localizer["Big integer to hexadecimal string to UTF8 string:"], new List<string>() { output });
+                }
+                catch (Exception) { }
+                try
+                {
                     var output = ConverterHelper.BigIntegerToBase64String(input);
                     result.Add(_localizer["Big integer to Base64 string:"], new List<string>() { output });
 
@@ -271,7 +287,13 @@ namespace NeoWeb.Controllers
                 {
                     var output = ConverterHelper.UTF8ToHexString(input);
                     result.Add(_localizer["UTF8 string to hexadecimal string:"], new List<string>() { output });
-
+                }
+                catch (Exception) { }
+                try
+                {
+                    var temp = ConverterHelper.UTF8ToHexString(input);
+                    var output = ConverterHelper.HexNumberToBigInteger(temp);
+                    result.Add(_localizer["UTF8 string to hexadecimal string to big integer:"], new List<string>() { output });
                 }
                 catch (Exception) { }
                 try
