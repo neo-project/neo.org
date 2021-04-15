@@ -120,9 +120,6 @@
   <data name="A GAS fee is required to register candidacy. As candidates may be elected to the role of consensus node, it is recommended that all candidates set up a reliable node and are capable of maintenance. Comprehensive knowledge of the Neo blockchain is required to fulfil the responsibility as a council member." xml:space="preserve">
     <value>治理委员会成员将有机会成为共识节点，我们推荐所有候选人在注册前进行相关节点设置。</value>
   </data>
-  <data name="A GAS fee is required to register candidacy. As candidates may be elected to the role of consensus node, it is recommended that all candidates set up a reliable node and are capable of maintenance. Comprehensive knowledge of the Neo blockchain is required to fulfil the responsibility as a council member." xml:space="preserve">
-    <value>治理委员会成员将有机会成为共识节点，我们推荐所有候选人在注册前进行相关节点设置。</value>
-  </data>
   <data name="Any Neo wallet address can register as a candidate to be elected to the Neo Council." xml:space="preserve">
     <value>任何 Neo 钱包地址都可以注册成为参选 Neo 理事会的候选人。</value>
   </data>
