@@ -1,0 +1,12 @@
+@model List<NewsViewModel>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+<div class="neo-features-container">
+  @{for (int i = 0; i < 10; i++) {
+    ViewData["key"] = "KO!";
+    ViewData["desc"] = "some food!!";
+    <partial name="../_Common/_NeoFeatureItem" view-data="ViewData" />
+  }}
+</div>

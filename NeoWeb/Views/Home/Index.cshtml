@@ -132,72 +132,8 @@
                 <a class="btn-2 building-blocks-btn" href="/technology#all-in-one">@Localizer["Learn More"]</a>
             </div>
         </div>
-        <div class="blocks-large-img @SharedLocalizer["d-none-zh"]"><img usemap="#blockslargemap" data-original="@Helper.ToCDN("/images/home/BlocksLarge.svg")" /></div>
-        <div class="blocks-large-img zh @SharedLocalizer["d-none"]"><img usemap="#blockslargemap" data-original="@Helper.ToCDN("/images/home/BlocksLarge-zh.svg")" /></div>
-        <map name="blockslargemap">
-            <area shape="rect" coords="982 226 1266 342" alt="One Block Finality" href="/technology#dbft-2.0" />
-            <area shape="rect" coords="246 520 550 625" alt="Oracles" href="/technology#oracles" />
-            <area shape="rect" coords="988 525 1306 632" alt="NeoFS" href="/technology#neo-fs" />
-            <area shape="rect" coords="246 787 546 882" alt="Smart Contracts" href="/technology#smart-contracts" />
-            <area shape="rect" coords="986 785 1302 893" alt="Neo Name Service" href="/technology#neo-name-service" />
-            <area shape="rect" coords="258 1043 546 1158" alt="Interoperability" href="/technology#interoperability" />
-            <area shape="rect" coords="994 1048 1314 1156" alt="NeoID" href="/technology#neo-id" />
-        </map>
-        <div class="blocks-medium-img @SharedLocalizer["d-none-zh"]"><img usemap="#blocksmediummap" data-original="@Helper.ToCDN("/images/home/BlocksMedium.svg")" /></div>
-        <div class="blocks-medium-img zh @SharedLocalizer["d-none"]">
-            <img usemap="#blocksmediummap" data-original="@Helper.ToCDN("/images/home/BlocksMedium-zh.svg")" />
-        </div>
-        <map name="blocksmediummap">
-            <area shape="rect" coords="560 210 777 314" alt="One Block Finality" href="/technology#dbft-2.0" />
-            <area shape="rect" coords="176 411 366 503" alt="Oracles" href="/technology#oracles" />
-            <area shape="rect" coords="562 412 764 514" alt="NeoFS" href="/technology#neo-fs" />
-            <area shape="rect" coords="177 605 396 708" alt="Smart Contracts" href="/technology#smart-contracts" />
-            <area shape="rect" coords="555 602 770 702" alt="Neo Name Service" href="/technology#neo-name-service" />
-            <area shape="rect" coords="180 788 383 908" alt="Interoperability" href="/technology#interoperability" />
-            <area shape="rect" coords="558 789 760 886" alt="NeoID" href="/technology#neo-id" />
-        </map>
 
-        <div class="blocks-container">
-            @{ string[,] blocks = new string[7, 4]
-                                           {
-                                                                                            {
-                        "/images/home/OneBlockFinality3D.svg", "One Block Finality", "dBFT consensus mechanism guarantees fast and efficient finality in a single block.", "technology#dbft-2.0"
-                    },
-                                                            {
-                        "/images/home/NativeOracles3D.svg", "Oracle", "A built-in oracle enabling secured access to any off-chain data.", "technology#oracles"
-                    },
-                                                                                                {
-                        "/images/home/NeoFS3D.svg", "NeoFS", "A distributed data storage solution made for scalability and privacy.", "technology#neo-fs"
-                    },
-                                                            {
-                        "/images/home/SmartContracts3D.svg", "Smart Contracts", "Write your smart contracts in C#, Go, Python, Java, or TypeScript.", "technology#smart-contracts"
-                    },
-                                                            {
-                        "/images/home/NeoNameService3D.svg", "Neo Name Service", "A decentralized .neo domain name service for next-gen internet web applications.", "technology#neo-name-service"
-                    },
-                                                                                            {
-                        "/images/home/Interoperability3D.svg", "Interoperability", "Poly.Network enabled cross-chain interoperability with Ethereum, Binance Chain, and more.", "technology#interoperability"
-                    },
-                                                            {
-                        "/images/home/NeoID3D.svg", "NeoID", "A set of self-sovereign decentralized identity solution standards.", "technology#neo-id"
-                    }
- };
-
-                for (int i = 0; i < blocks.GetLength(0); i++)
-                {
-                <div class="block-wrapper">
-                    <img class="block-icon" data-original="@Helper.ToCDN(blocks[i, 0])" />
-                    <div class="block-content-wrapper">
-                        <div class="block-title">
-                            <i class="iconfont circle-arrow-icon">&#xe6ab;</i>
-                            @Localizer[blocks[i, 1]]
-                        </div>
-                        <div class="block-paragraph">
-                            @Localizer[@blocks[i, 2]]
-                        </div>
-                    </div>
-                </div> } }
-        </div>
+        <partial name="./_NeoFeatures" />
 
         <div class="square-block blockchain">
             <div class="square-block-title @SharedLocalizer["d-none-zh"]">
