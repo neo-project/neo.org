@@ -6,11 +6,11 @@
 }
 <div class="py-5">
     <p>@Localizer["Support conversion of address, script hash, private key, public key, big-endian and little-endian, big-integer, character string, hexadecimal string, Application Log, Base64 encoding, etc. and analysis of smart contract script"]</p>
-    <p>Neo 3.0.0-CI01223</p>
+    <p>Neo 3.0.0-CI01264</p>
     <form action="/converter/index" method="post">
         <label class="col-form-label" for="input">@Localizer["Please enter the text to be converted"]</label>
         <input type="text" class="form-control" name="input" value="@ViewBag.Input" />
-        <input type="submit" value="@Localizer["Convert"]" class="btn btn-primary mt-3" />
+        <input type="submit" value="@Localizer["Convert"]" class="btn-2 mt-3" />
     </form>
     <div class="row">
         @if (ViewBag.Result != null)
@@ -40,6 +40,14 @@
                 00a3e111
             </code>
             <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="00a3e111" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
+            <code>
+                0x3346454E
+            </code>
+            <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="0x3346454E" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
+            <code>
+                5195086
+            </code>
+            <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="5195086" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
             <code>
                 0x3ff68d232a60f23a5805b8c40f7e61747f6f61ce
             </code>

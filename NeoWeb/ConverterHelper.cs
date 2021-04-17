@@ -1,4 +1,4 @@
-﻿using Neo;
+using Neo;
 using Neo.Cryptography.ECC;
 using Neo.IO;
 using Neo.SmartContract;
@@ -24,9 +24,16 @@ namespace NeoWeb
         public static string HexStringToUTF8(string hex)
         {
             hex = hex.ToLower().Trim();
-            if (!new Regex("^([0-9a-f]{2})+$").IsMatch(hex)) throw new FormatException();
+            if (!new Regex("^(0x)?([0-9a-f]{2})+$").IsMatch(hex)) throw new FormatException();
 
-            return Encoding.UTF8.GetString(hex.HexToBytes());
+            if (new Regex("^([0-9a-f]{2})+$").IsMatch(hex))
+            {
+                return Encoding.UTF8.GetString(hex.HexToBytes());
+            }
+            else
+            {
+                return Encoding.UTF8.GetString(hex[2..].HexToBytes().Reverse().ToArray());
+            }
         }
 
         /// <summary>
