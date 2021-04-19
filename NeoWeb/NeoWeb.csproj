@@ -32,7 +32,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="5.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
-    <PackageReference Include="Neo" Version="3.0.0-CI01264" />
+    <PackageReference Include="Neo" Version="3.0.0-CI01266" />
     <PackageReference Include="neo.sdk.thin" Version="1.0.3" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="SixLabors.ImageSharp" Version="1.0.3" />
