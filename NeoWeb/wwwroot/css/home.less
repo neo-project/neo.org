@@ -2788,18 +2788,19 @@ html body {
         }
 
         @media (min-width: 1024px) {
-            flex-basis: 33%;
+            flex-basis: 32%;
         }
 
         .block-wrapper {
             display: flex;
-            align-items: center;
             width: 90%;
             min-width: 18.375rem;
         }
         
-        .block-icon {
+        .block-icon-wrapper {
             width: 70px;
+            flex-grow: 0;
+            flex-shrink: 0;
 
             @media (min-width: 768px) {
                 width: 140px;
@@ -2808,12 +2809,21 @@ html body {
             @media (min-width: 1440px) {
                 width: 160px;
             }
+
+            img {
+                width: 100%;
+            }
         }
         
         .block-content-wrapper {
             display: flex;
             flex-direction: column;
             margin-left: 12px;
+            padding-top: 12px;
+
+            @media (min-width: 768px) {
+                padding-top: 36px;
+            }
         }
         
         .block-title {
