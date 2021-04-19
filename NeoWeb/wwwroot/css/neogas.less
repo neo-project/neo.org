@@ -249,12 +249,20 @@
     align-items: center;
     padding: 0 2.375rem;
     .nunito-sans-bold;
-    font-size: 1rem;
+    font-size: @font-size-17px;
     min-width: 262px;
     width: 40%;
     color: @green;
     background-color: @dark-blue;
     height: 100%;
+
+    @media (min-width: 1024px) {
+        font-size: @font-size-16px;
+    }
+
+    @media (min-width: 1440px) {
+        font-size: @font-size-24px;
+    }
 }
 
 .calculator-body {
@@ -387,10 +395,17 @@
     }
 
     #slider-current-value {
-        width: 6.25rem;
+        font-size: @font-size-28px;
+        width: 100%;
 
-        @media only screen and (max-width: 1200px) {
+        @media (min-width: 1024px) {
+            font-size: @font-size-27px;
             width: 4.375rem;
+        }
+
+        @media (min-width: 1440px) {
+            font-size: @font-size-40px;
+            width: 6.25rem;
         }
     }
 }
@@ -399,11 +414,15 @@
     .dark-blue;
     align-self: center;
     .nunito-sans-bold;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: @font-size-17px;
 
-    @media only screen and (max-width: 1200px) {
+    @media (min-width: 1024px) {
         margin-bottom: 0.75rem;
+    }
+
+    @media (min-width: 1440px) {
+        font-size: @font-size-24px;
+        margin-bottom: 1rem;
     }
 }
 
@@ -433,14 +452,20 @@
 
 .result-num {
     .work-sans-light;
-    font-size: 5.75rem;
+    font-size: @font-size-43px;
     .green;
-    width: 13.75rem;
     line-height: 1.2;
 
-    @media only screen and (max-width: 1200px) {
-        font-size: 4rem;
-        width: 100%;
+    @media (min-width: 768px) {
+        font-size: @font-size-60px;
+    }
+
+    @media (min-width: 1024px) {
+        font-size: @font-size-77px;
+    }
+
+    @media (min-width: 1440px) {
+        font-size: @font-size-108px;
     }
 
     &.result-holding {
@@ -473,11 +498,10 @@
     }
 
     .status-text {
-        font-size: 1.125rem;
+        font-size: @font-size-14px;
 
-        @media only screen and (max-width: 1200px) {
-            font-size: 0.875rem;
-            line-height: 0.93;
+        @media (min-width: 1440px) {
+            font-size: @font-size-18px;
         }
     }
 }
@@ -545,20 +569,24 @@
 }
 
 .foot-note {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     .nunito-sans-bold;
-    font-size: 0.75rem;
+    font-size: @font-size-12px;
     text-align: center;
+    line-height: 1.2;
+    margin: 24px 0;
 
-    @media only screen and (max-width: 991px) {
-        margin: 18px 0;
-        font-size: 0.75rem;
-        line-height: 0.5;
+    @media (min-width: 768px) {
+        font-size: @font-size-14px;
+    }
+
+    @media (min-width: 1024px) {
+        font-size: @font-size-10px;
+    }
+
+    @media (min-width: 1440px) {
+        font-size: @font-size-12px;
     }
 }
-
 
 .results-row-mobile {
     display: none;
@@ -582,8 +610,7 @@
 
 .result-num-mobile {
     .work-sans-light;
-    font-size: 2.625rem;
-    line-height: 1.19;
+    font-size: @font-size-43px;
     .green;
 }
 
@@ -605,4 +632,5 @@
 .status-text-mobile {
     .work-sans-semibold;
     font-size: 0.875rem;
+    text-transform: uppercase;
 }
