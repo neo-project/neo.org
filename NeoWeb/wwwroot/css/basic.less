@@ -52,6 +52,7 @@
 @font-size-77px: 4.813rem;
 @font-size-80px: 5rem;
 @font-size-88px: 5.5rem;
+@font-size-92px: 5.75rem;
 @font-size-94px: 5.875rem;
 @font-size-107px: 6.688rem;
 @font-size-108px: 6.75rem;
@@ -150,4 +151,60 @@
 
 .gray {
     color: @gray;
+}
+
+// Resuable UI partials
+
+.introduction-splash-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 38px 0;
+
+    @media (max-width: 767.98px) {
+        display: none;
+    }
+
+    .introduction-content {
+        margin-top: 2.25rem;
+
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 60%;
+        word-break: break-all;
+
+        .introduction-title {
+            font-size: @font-size-92px;
+            font-family: WorkSans;
+            font-weight: bold;
+            line-height: 0.87;
+            text-transform: uppercase;
+        
+            em {
+                font-style: normal;
+                color: #00E599;
+            }
+        }
+
+        .introduction-description {
+            margin-top: 12px;
+            font-size: @font-size-20px;
+            font-family: NunitoSans;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+    }
+
+    .introduction-imgage-wrapper {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 40%;
+        overflow: hidden;
+
+        // object-fit: contain;
+
+        img {
+            width: 100%;
+        }
+    }
 }
