@@ -5,7 +5,7 @@
 
 <div class="introduction-splash-container">
   <div class="introduction-content">
-    <h1 class="introduction-title">@ViewData["IS_title"]</h1>
+    <h1 class="introduction-title">@Html.Raw(ViewData["IS_title"])</h1>
     <div class="introduction-description">@ViewData["IS_description"]</div>
   </div>
   <div class="introduction-imgage-wrapper">
