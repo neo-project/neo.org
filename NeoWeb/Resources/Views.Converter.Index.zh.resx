@@ -126,8 +126,8 @@
   <data name="Don't know what to enter? Try the following" xml:space="preserve">
     <value>不知道填什么？试试下面的吧</value>
   </data>
-  <data name="Neo 3.0 data converter" xml:space="preserve">
-    <value>Neo 3.0 数据转换</value>
+  <data name="N3 data converter" xml:space="preserve">
+    <value>N3 数据转换</value>
   </data>
   <data name="Please enter the text to be converted" xml:space="preserve">
     <value>请输入待转换的文本</value>
