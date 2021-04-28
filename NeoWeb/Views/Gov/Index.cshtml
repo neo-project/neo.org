@@ -12,7 +12,7 @@
 }
 <div class="container">
     @{
-        ViewData["IS_title"] = String.Format("<em>NEO</em><br/>{0}", Localizer["Governance"].Value);
+        ViewData["IS_title"] = String.Format("<em>NEO</em> <br class='{0}'/>{1}", SharedLocalizer["d-none-zh"].Value, Localizer["Governance"].Value);
         ViewData["IS_description"] = @Localizer["NEO token holders decide who is in charge of maintaining the Neo network through the election of a Neo Council. GAS token rewards are distributed to voters and council members alike."];
         ViewData["IS_imagePath"] = @Helper.ToCDN("/images/gov/gov.svg", true);
     }
