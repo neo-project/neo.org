@@ -1,0 +1,14 @@
+@model List<NewsViewModel>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+<div class="introduction-splash-container">
+  <div class="introduction-content">
+    <h1 class="introduction-title">@Html.Raw(ViewData["IS_title"])</h1>
+    <div class="introduction-description">@ViewData["IS_description"]</div>
+  </div>
+  <div class="introduction-imgage-wrapper">
+    <img data-original="@ViewData["IS_imagePath"]" />
+  </div>
+</div>
