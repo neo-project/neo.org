@@ -14,7 +14,7 @@
       "/images/home/NeoFS3D.svg", "NeoFS", "A distributed data storage solution made for scalability and privacy.", "technology#neo-fs"
   },
   {
-      "/images/home/SmartContracts3D.svg", Localizer["Smart Contracts"].Value, "Write your smart contracts in C#, Go, Python, Java, or TypeScript.", "technology#smart-contracts"
+      "/images/home/SmartContracts3D.svg", "Smart Contracts", "Write your smart contracts in C#, Go, Python, Java, or TypeScript.", "technology#smart-contracts"
   },
   {
       "/images/home/NeoNameService3D.svg", "Neo Name Service", "A decentralized .neo domain name service for next-gen internet web applications.", "technology#neo-name-service"
@@ -32,7 +32,7 @@
   @{for (int i = 0; i < blocks.GetLength(0); i++) {
     ViewData["imagePath"] = @Helper.ToCDN(blocks[i, 0]);
     ViewData["title"] = @Localizer[blocks[i, 1]];
-    ViewData["blurb"] = @Localizer[@blocks[i, 2]];
+    ViewData["blurb"] = @Localizer[blocks[i, 2]];
     <partial name="../_Common/_NeoFeatureItem" view-data="ViewData" />
   }}
 </div>
