@@ -253,15 +253,13 @@ namespace NeoWeb.Controllers
                 try
                 {
                     var output = ConverterHelper.Base64StringToHexString(input);
-                    if (IsSupportedAsciiString(output))
-                    {
-                        result.Add(_localizer["Base64 string to hexadecimal string:"], new List<string>() { output });
-                    }
+                    result.Add(_localizer["Base64 string to hexadecimal string:"], new List<string>() { output });
+
                 }
                 catch (Exception) { }
             }
             //可能是正整数
-            if (new Regex("^\\d+$").IsMatch(input))
+            if (new Regex("^\\d+$").IsMatch(input) && !input.StartsWith("0"))
             {
                 try
                 {
@@ -274,7 +272,10 @@ namespace NeoWeb.Controllers
                 {
                     var temp = ConverterHelper.BigIntegerToHexNumber(input);
                     var output = ConverterHelper.HexStringToUTF8(temp);
-                    result.Add(_localizer["Big integer to hexadecimal string to UTF8 string:"], new List<string>() { output });
+                    if (IsSupportedAsciiString(output))
+                    {
+                        result.Add(_localizer["Big integer to hexadecimal string to UTF8 string:"], new List<string>() { output });
+                    }
                 }
                 catch (Exception) { }
                 try
