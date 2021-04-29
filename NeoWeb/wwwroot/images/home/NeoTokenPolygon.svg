@@ -21,9 +21,6 @@
             <g id="Duel-tokens-panel" transform="translate(235.500000, 5120.800000)">
                 <g id="Tokens-image" transform="translate(600.500000, 236.000000)">
                     <g id="Group-37" transform="translate(103.000000, 35.700000)">
-                        <text id="NEO-TOKEN" font-family="WorkSans-Bold, Work Sans" font-size="16.8" font-weight="bold" line-spacing="23.1" fill="#000033">
-                            <tspan x="55.52" y="263.95">NEO TOKEN</tspan>
-                        </text>
                         <g id="Polygon-Copy-10">
                             <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
                             <use fill="#F0F5F6" fill-rule="evenodd" xlink:href="#path-1"></use>
