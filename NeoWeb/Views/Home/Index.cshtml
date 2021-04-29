@@ -12,7 +12,7 @@
     <div class="landing-row">
         <div class="col-left">
             <div class="col-left-content">
-                <img class="logo-img" data-original="@Helper.ToCDN("/images/home/N3Logo.svg")" />
+                <img class="logo-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/N3Logo.svg")" />
                 <div class="sub-title work-sans-semibold">@Localizer["Take a look at the latest version of the Neo platform"]</div>
                 <a asp-controller="tour" asp-action="index" class="btn-n3 tour-btn" target="_blank">@Localizer["Take A Tour"]</a>
             </div>
@@ -54,7 +54,7 @@
                     for (int i = 0; i < highlightItems.GetLength(0); i++)
                     {
                     <div class="highlight-wrapper">
-                        <img class="highlight-img png" data-original="@Helper.ToCDN(highlightItems[i, 1])" />
+                        <img class="highlight-img png" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(highlightItems[i, 1])" />
                         <div class="highlight-name">@Localizer[highlightItems[i, 0]]</div>
                     </div> } }
             </div>
@@ -93,7 +93,7 @@
                                 @Localizer[getStartedItems[i, 0]]
                             </div>
                         </div>
-                        <img class="card-img" data-original="@Helper.ToCDN(getStartedItems[i, 1])" />
+                        <img class="card-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(getStartedItems[i, 1])" />
                     </a> } }
             </div>
         </div>
@@ -132,72 +132,8 @@
                 <a class="btn-2 building-blocks-btn" href="/technology#all-in-one">@Localizer["Learn More"]</a>
             </div>
         </div>
-        <div class="blocks-large-img @SharedLocalizer["d-none-zh"]"><img usemap="#blockslargemap" data-original="@Helper.ToCDN("/images/home/BlocksLarge.svg")" /></div>
-        <div class="blocks-large-img zh @SharedLocalizer["d-none"]"><img usemap="#blockslargemap" data-original="@Helper.ToCDN("/images/home/BlocksLarge-zh.svg")" /></div>
-        <map name="blockslargemap">
-            <area shape="rect" coords="982 226 1266 342" alt="One Block Finality" href="/technology#dbft-2.0" />
-            <area shape="rect" coords="246 520 550 625" alt="Oracles" href="/technology#oracles" />
-            <area shape="rect" coords="988 525 1306 632" alt="NeoFS" href="/technology#neo-fs" />
-            <area shape="rect" coords="246 787 546 882" alt="Smart Contracts" href="/technology#smart-contracts" />
-            <area shape="rect" coords="986 785 1302 893" alt="Neo Name Service" href="/technology#neo-name-service" />
-            <area shape="rect" coords="258 1043 546 1158" alt="Interoperability" href="/technology#interoperability" />
-            <area shape="rect" coords="994 1048 1314 1156" alt="NeoID" href="/technology#neo-id" />
-        </map>
-        <div class="blocks-medium-img @SharedLocalizer["d-none-zh"]"><img usemap="#blocksmediummap" data-original="@Helper.ToCDN("/images/home/BlocksMedium.svg")" /></div>
-        <div class="blocks-medium-img zh @SharedLocalizer["d-none"]">
-            <img usemap="#blocksmediummap" data-original="@Helper.ToCDN("/images/home/BlocksMedium-zh.svg")" />
-        </div>
-        <map name="blocksmediummap">
-            <area shape="rect" coords="560 210 777 314" alt="One Block Finality" href="/technology#dbft-2.0" />
-            <area shape="rect" coords="176 411 366 503" alt="Oracles" href="/technology#oracles" />
-            <area shape="rect" coords="562 412 764 514" alt="NeoFS" href="/technology#neo-fs" />
-            <area shape="rect" coords="177 605 396 708" alt="Smart Contracts" href="/technology#smart-contracts" />
-            <area shape="rect" coords="555 602 770 702" alt="Neo Name Service" href="/technology#neo-name-service" />
-            <area shape="rect" coords="180 788 383 908" alt="Interoperability" href="/technology#interoperability" />
-            <area shape="rect" coords="558 789 760 886" alt="NeoID" href="/technology#neo-id" />
-        </map>
 
-        <div class="blocks-container">
-            @{ string[,] blocks = new string[7, 4]
-                                           {
-                                                                                            {
-                        "/images/home/OneBlockFinality3D.svg", "One Block Finality", "dBFT consensus mechanism guarantees fast and efficient finality in a single block.", "technology#dbft-2.0"
-                    },
-                                                            {
-                        "/images/home/NativeOracles3D.svg", "Oracle", "A built-in oracle enabling secured access to any off-chain data.", "technology#oracles"
-                    },
-                                                                                                {
-                        "/images/home/NeoFS3D.svg", "NeoFS", "A distributed data storage solution made for scalability and privacy.", "technology#neo-fs"
-                    },
-                                                            {
-                        "/images/home/SmartContracts3D.svg", "Smart Contracts", "Write your smart contracts in C#, Go, Python, Java, or TypeScript.", "technology#smart-contracts"
-                    },
-                                                            {
-                        "/images/home/NeoNameService3D.svg", "Neo Name Service", "A decentralized .neo domain name service for next-gen internet web applications.", "technology#neo-name-service"
-                    },
-                                                                                            {
-                        "/images/home/Interoperability3D.svg", "Interoperability", "Poly.Network enabled cross-chain interoperability with Ethereum, Binance Chain, and more.", "technology#interoperability"
-                    },
-                                                            {
-                        "/images/home/NeoID3D.svg", "NeoID", "A set of self-sovereign decentralized identity solution standards.", "technology#neo-id"
-                    }
- };
-
-                for (int i = 0; i < blocks.GetLength(0); i++)
-                {
-                <div class="block-wrapper">
-                    <img class="block-icon" data-original="@Helper.ToCDN(blocks[i, 0])" />
-                    <div class="block-content-wrapper">
-                        <div class="block-title">
-                            <i class="iconfont circle-arrow-icon">&#xe6ab;</i>
-                            @Localizer[blocks[i, 1]]
-                        </div>
-                        <div class="block-paragraph">
-                            @Localizer[@blocks[i, 2]]
-                        </div>
-                    </div>
-                </div> } }
-        </div>
+        <partial name="./_NeoFeatures" />
 
         <div class="square-block blockchain">
             <div class="square-block-title @SharedLocalizer["d-none-zh"]">
@@ -226,8 +162,8 @@
                     Python
                 </div>
                 <div class="language-icon python" data-lang="python">
-                    <img class="language-img dark" data-original="@Helper.ToCDN("/images/home/PythonDark.png", true)" />
-                    <img class="language-img light" data-original="@Helper.ToCDN("/images/home/Python.png", true)" />
+                    <img class="language-img dark" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/PythonDark.png", true)" />
+                    <img class="language-img light" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/Python.png", true)" />
                 </div>
             </div>
             <div class="language-wrapper">
@@ -235,8 +171,8 @@
                     C#
                 </div>
                 <div class="language-icon csharp" data-lang="csharp">
-                    <img class="language-img dark" data-original="@Helper.ToCDN("/images/home/CSharpDark.png", true)" />
-                    <img class="language-img light" data-original="@Helper.ToCDN("/images/home/CSharp.png", true)" />
+                    <img class="language-img dark" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/CSharpDark.png", true)" />
+                    <img class="language-img light" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/CSharp.png", true)" />
                 </div>
             </div>
             <div class="language-wrapper">
@@ -244,8 +180,8 @@
                     Go
                 </div>
                 <div class="language-icon go" data-lang="go">
-                    <img class="language-img dark" data-original="@Helper.ToCDN("/images/home/GoDark.png", true)" />
-                    <img class="language-img light" data-original="@Helper.ToCDN("/images/home/Go.png", true)" />
+                    <img class="language-img dark" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/GoDark.png", true)" />
+                    <img class="language-img light" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/Go.png", true)" />
                 </div>
             </div>
             <div class="language-wrapper">
@@ -253,8 +189,8 @@
                     Typescript
                 </div>
                 <div class="language-icon typescript" data-lang="typescript">
-                    <img class="language-img dark" data-original="@Helper.ToCDN("/images/home/TypescriptDark.png", true)" />
-                    <img class="language-img light" data-original="@Helper.ToCDN("/images/home/Typescript.png", true)" />
+                    <img class="language-img dark" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/TypescriptDark.png", true)" />
+                    <img class="language-img light" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/Typescript.png", true)" />
                 </div>
             </div>
             <div class="language-wrapper ">
@@ -262,8 +198,8 @@
                     Java
                 </div>
                 <div class="language-icon java" data-lang="java">
-                    <img class="language-img dark" data-original="@Helper.ToCDN("/images/home/JavaDark.png", true)" />
-                    <img class="language-img light" data-original="@Helper.ToCDN("/images/home/Java.png", true)" />
+                    <img class="language-img dark" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/JavaDark.png", true)" />
+                    <img class="language-img light" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/Java.png", true)" />
                 </div>
             </div>
         </div>
@@ -336,7 +272,7 @@
                         </div>
                         <input type="range" min="10" max="1000" value="500" class="slider" id="calculator-slider">
                         <div class="slider-after">
-                            <img class="slider-neo-icon" data-original="@Helper.ToCDN("/images/home/Neo-Symbol.svg")" />
+                            <img class="slider-neo-icon" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/Neo-Symbol.svg")" />
                             <div id="slider-current-value">500</div>
                         </div>
                     </div>
@@ -347,7 +283,7 @@
                         <div class="result-col">
                             <div class="result-num result-holding">0.44</div>
                             <div class="gas-wrapper">
-                                <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
+                                <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
                                 <span>
                                     @Localizer["Gas Per Month"]<span class="green">*</span>
                                 </span><br /><br />
@@ -359,7 +295,7 @@
                         <div class="result-col">
                             <div class="result-num result-governance">17.52</div>
                             <div class="gas-wrapper">
-                                <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
+                                <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
                                 <span>@Localizer["Gas Per Month"]<span class="green">*</span></span><br /><br />
                                 <span class="status-text">@Localizer["For Governance Participation"]</span>
                             </div>
@@ -369,7 +305,7 @@
                         <div class="result-row">
                             <div class="result-num-mobile result-holding">0.44</div>
                             <div class="gas-wrapper-mobile">
-                                <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
+                                <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
                                 <span>@Localizer["Gas Per Month"]<span class="green">*</span></span><br /><br />
                             </div>
                         </div>
@@ -379,7 +315,7 @@
                         <div class="result-row">
                             <div class="result-num-mobile result-governance">17.52</div>
                             <div class="gas-wrapper-mobile">
-                                <img data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
+                                <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
                                 <span>@Localizer["Gas Per Month"]<span class="green">*</span></span><br /><br />
                             </div>
                         </div>
@@ -401,7 +337,7 @@
     <div class="governance-section-pc">
         <div class="col-left">
             <div class="governance-img-container">
-                <img class="governance-img-horiz" data-original="@Helper.ToCDN("/images/home/Governance.svg")" />
+                <img class="governance-img-horiz" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/Governance.svg")" />
             </div>
             <div class="governance-cards">
                 <span class="governance-learn-more">@Localizer["Learn More"]</span>
@@ -422,7 +358,7 @@
                                     @Localizer[governanceItems[i, 0]]
                                 </div>
                             </div>
-                            <img class="card-img" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
+                            <img class="card-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
                         </a> } }
                 </div>
             </div>
@@ -453,7 +389,7 @@
     <div class="governance-section-tablet">
         <div class="governance-top-row">
             <div class="governance-img-container">
-                <img class="governance-img-vert" data-original="@Helper.ToCDN("/images/home/GovernanceTablet.svg")" />
+                <img class="governance-img-vert" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/GovernanceTablet.svg")" />
             </div>
             <div class="col-right">
                 <div class="square-block governance">
@@ -489,7 +425,7 @@
                                 @Localizer[governanceItems[i, 0]]
                             </div>
                         </div>
-                        <img class="card-img" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
+                        <img class="card-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
                     </a> } }
             </div>
         </div>
@@ -506,7 +442,7 @@
             </div>
         </div>
         <div class="governance-img-container">
-            <img class="governance-img-vert" data-original="@Helper.ToCDN("/images/home/GovernanceTablet.svg")" />
+            <img class="governance-img-vert" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/GovernanceTablet.svg")" />
         </div>
         <div class="governance-paragraph">
             <span>
@@ -530,7 +466,7 @@
                                 @Localizer[governanceItems[i, 0]]
                             </div>
                         </div>
-                        <img class="card-img" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
+                        <img class="card-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
                     </a> } }
             </div>
         </div>
@@ -572,13 +508,13 @@
                 <div class="github-status @SharedLocalizer["d-none"]">
                     <span class="github-status-num zh github-sub">386</span>subscribers
                 </div>
-                <a href="https://github.com/neo-project" target="_blank" class="github-icon-wrapper"><img class="github-icon" data-original="@Helper.ToCDN("/images/home/GitHub.png")" /></a>
+                <a href="https://github.com/neo-project" target="_blank" class="github-icon-wrapper"><img class="github-icon" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/GitHub.png")" /></a>
             </div>
         </div>
     </div>
 
     <div class="contributors-img-wrapper" id="scroll-wrapper">
-        <img class="contributors-img" usemap="#contributorsmap" data-original="@Helper.ToCDN("/images/home/Contributors.svg")">
+        <img class="contributors-img" usemap="#contributorsmap" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/Contributors.svg")">
         <map name="contributorsmap">
             <area shape="rect" coords="306 87 377 112" alt="NDG Enterprise GitHub" href="https://github.com/ngdenterprise" target="_blank" />
             <area shape="rect" coords="306 119 377 142" alt="NDG Enterprise Website" href="https://ngdenterprise.com" target="_blank" />

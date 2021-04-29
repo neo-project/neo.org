@@ -121,7 +121,7 @@
     <value>创世块共产生了一亿个 NEO 通证，其中约 50％由 Neo 基金会保留，以激励 Neo 生态系统的发展。 具体释放时间表可以在《Neo 白皮书》中找到。</value>
   </data>
   <data name="5 GAS tokens are generated every block and distributed in three parts:" xml:space="preserve">
-    <value>每个区块产生五个 GAS。并分配到三个地方：</value>
+    <value>每个区块产生五个 GAS。并分配给三类角色：</value>
   </data>
   <data name="A user with" xml:space="preserve">
     <value>用户持有</value>
@@ -151,28 +151,28 @@
     <value>NEO</value>
   </data>
   <data name="NEO &amp; GAS Calculator" xml:space="preserve">
-    <value>NEO &amp; GAS 计算机</value>
+    <value>NEO &amp; GAS 计算器</value>
   </data>
   <data name="NEO holders participate in governance by voting for the Neo Committee, composed of members and consensus nodes that govern the Neo blockchain. The Neo Committee provides specific services, such as maintaining the liveliness of the network and adjusting critical blockchain parameters." xml:space="preserve">
-    <value>NEO 持有者通过投票选出 Neo 委员会参与治理，该委员会由管理 Neo 区块链的成员和共识节点组成。 Neo 委员会提供特定的服务，例如维护网络的活跃性和调整关键的区块链参数。</value>
+    <value>NEO 持有者通过投票选出 Neo 委员会参与治理，该委员会由管理 Neo 区块链的成员和共识节点组成。 Neo 委员会承担特定的职责，包括维护网络的活跃性和调整关键链上参数。</value>
   </data>
   <data name="Neo is undergoing its biggest upgrade as it migrates to its latest version, N3. As part of this upgrade, users may be required to migrate their token assets to the new network." xml:space="preserve">
-    <value>将 Neo 迁移到最新版本 N3 是至今为止最大的升级。作为此升级的一部分，可能需要用户配合将其通证资产迁移到新网络。</value>
+    <value>将 Neo 的最新版本 N3 是至今为止最大的一次升级。作为此升级的一部分，用户可能需要将通证资产迁移到新网络。</value>
   </data>
   <data name="Neo is unique in that it was the first public blockchain platform to adopt a dual token mechanism. It separates the rights of governance from the rights of using the network. It also provides a means of acquiring the tokens needing to pay transaction fees." xml:space="preserve">
-    <value>Neo 的独特之处在于它是第一个采用双通证机制的公链平台。 它将治理权与网络使用权分开。 它还提供了一种获取可以用来支付交易费的代币的方法。</value>
+    <value>Neo 的独特之处在于它是第一个采用双通证机制的区块链平台。 它将治理权与网络使用权分开，并且提供了可以获取用燃料通证的方法。</value>
   </data>
   <data name="The largest portion of GAS is distributed to voters as a reward for playing an active role in network governance. NEO holders will need to ensure they choose a wallet that supports voting if they wish to participate." xml:space="preserve">
-    <value>最大块的 GAS 会分发给选民，作为对在网络治理中发挥积极作用的奖励。 如果 NEO 持有者想要参与治理，必须确保选择的钱包支持投票功能。</value>
+    <value>大部分的 GAS 会分发给投票者，作为对他们在网络治理中所发挥积极作用的奖励。 如果 NEO 持有者想要参与治理，必须确保使用的钱包支持投票功能。</value>
   </data>
   <data name="The minimum unit of GAS is 0.00 000001. There is no NEO staking required in order to claim GAS tokens. Most Neo wallets will include a claim function, allowing you to collect your GAS with the click of a button. Please be aware that some exchanges distribute GAS to users that hold NEO on their platform, and others do not." xml:space="preserve">
-    <value>GAS 的最小单位为 0.00000001。不需要质押 NEO 即可申领 GAS 通证。大多数 Neo 钱包都包含申领功能，使您只需单击一下按钮即可申领 GAS。 请注意，一部分交易所会将 GAS 分发给在其平台上持有 NEO 的用户，而另一些则不会。</value>
+    <value>GAS 的最小单位为 0.00000001。不需要质押 NEO 即可申领 GAS 通证。大多数 Neo 钱包都包含申领功能，您只需单击一下按钮即可申领 GAS。 请注意，一部分交易所会将 GAS 分发给在其平台上持有 NEO 的用户，而另一些则不会。</value>
   </data>
   <data name="The minimum unit of NEO is 1 and tokens are indivisible. This means if you are withdrawing from an exchange to your wallet, you must withdraw in whole numbers. It also means that NEO is one of the scarcest public blockchain tokens, as it cannot be broken down into smaller pieces." xml:space="preserve">
-    <value>NEO 的最小单位为 1，通证不可分割。 这意味着，如果您要从交易所提款到钱包，则必须提取整数。 这也意味着 NEO 是最稀缺的公链代币之一，因为它在数量上无法再细分。</value>
+    <value>NEO 的最小单位为 1，且不可分割。 这意味着，如果您要从交易所提款至钱包，必须提取整数。 这也意味着 NEO 是最稀缺的通证之一，因为它在数量上无法再细分。</value>
   </data>
   <data name="The Neo network charges GAS for the operation and storage of tokens and smart contracts, preventing the abuse of node resources. System fees are burned, while network fees are redistributed to consensus nodes, creating an economic incentive for their services." xml:space="preserve">
-    <value>在 Neo 网络中操作和储存通证和智能合约需要花费 GAS，这是为了防止节点资源的滥用。 系统费用会被销毁，而网络费用则被重新分配给共识节点，作为其服务的经济激励。</value>
+    <value>在 Neo 网络中操作和储存智能合约都需要花费 GAS，这是为了防止节点资源的滥用。 系统费用会被销毁，而网络费用则会被重新分配给共识节点，作为其提供服务的经济激励。</value>
   </data>
   <data name="To find out more information, please visit the" xml:space="preserve">
     <value>要了解更多信息，请访问</value>
@@ -181,7 +181,7 @@
     <value>通证</value>
   </data>
   <data name="With a total of 100 million tokens, NEO has two main features:" xml:space="preserve">
-    <value>总供给一亿个通证，NEO 有两大功能：</value>
+    <value>总量一亿枚通证，NEO 有两大功能：</value>
   </data>
   <data name="would receive up to" xml:space="preserve">
     <value>最多可获得</value>
