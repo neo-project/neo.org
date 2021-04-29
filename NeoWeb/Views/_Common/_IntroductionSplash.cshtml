@@ -9,6 +9,6 @@
     <div class="introduction-description">@ViewData["IS_description"]</div>
   </div>
   <div class="introduction-imgage-wrapper">
-    <img data-original="@ViewData["IS_imagePath"]" />
+    <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@ViewData["IS_imagePath"]" />
   </div>
 </div>

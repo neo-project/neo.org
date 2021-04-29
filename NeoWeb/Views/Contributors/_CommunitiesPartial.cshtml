@@ -34,7 +34,7 @@
     for (int i = 0; i < items.GetLength(0); i++)
     {
     <div class="communities-item">
-        <img class="content-img" data-original="@Helper.ToCDN(items[i, 0], true)" />
+        <img class="content-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(items[i, 0], true)" />
         <div class="content-wrapper">
             <div class="communities-name">@items[i, 1]</div>
             <div class="communities-description">
@@ -42,7 +42,7 @@
             </div>
             @if (!String.IsNullOrEmpty(@items[i, 3])) {
             <a class="link-wrapper" href="@items[i, 3]">
-                <img class="link-icon" data-original="@Helper.ToCDN("/images/discover/WebLink.svg", true)" />
+                <img class="link-icon" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/discover/WebLink.svg", true)" />
                 <div>@items[i, 3]</div>
             </a>
             }
