@@ -1,63 +1,67 @@
 @import "./basic.less";
 
-.header-img-wrapper {
-  margin-top: 1.5rem;
-  height: 318px;
-  width: 783px;
+.dual-tokens-container {
+  width: 100%;
+  height: 210px;
+  position: relative;
+  overflow: hidden;
+  padding: 12px;
 
-  @media only screen and (max-width: 1200px) {
-    margin-top: 1.25rem;
-    height: 210px;
-    width: 400px;
-    overflow: hidden;
-  }
-
-  @media only screen and (max-width: 767.98px) {
-    width: 95%;
-    align-self: center;
-  }
-
-  .header-token-wrapper {
-    position: absolute;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  @media (min-width: 1440px) {
     height: 318px;
-    width: 800px;
-
-    @media only screen and (max-width: 1200px) {
-      height: 180px;
-      width: 400px;
-    }
-
-    @media only screen and (max-width: 767.98px) {
-      height: 150px;
-      width: 85%;
-    }
+    margin-top: 24px;
   }
 
-  .header-token {
-    height: 80%;
-    z-index: 1;
+  .dual-tokens-wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    height: 100%;
 
-    @media only screen and (max-width: 768px) {
-      height: 120%;
+    .token-wrapper {
+      text-align: center;
+      width: 120px;
+      z-index: 1;
+
+      @media (min-width: 1440px) {
+        width: 240px;
+      }
+
+      .token-image {
+        width: 100%;
+        transform: translate(-12px, 18px);
+
+        @media (min-width: 1440px) {
+          transform: translate(-18px, 30px);
+        }
+      }
+
+      .token-label {
+        .nunito-sans-bold;
+        display: block;
+
+        @media (min-width: 1440px) {
+          transform: translateY(-18px);
+          font-size: @font-size-20px;
+        }
+      }
     }
   }
 
   .dot-wall {
     position: absolute;
+    top: 50%;
     left: 0;
-    height: 318px;
+    width: 100%;
+    transform: translateY(-50%);
 
-    @media only screen and (max-width: 1200px) {
-      height: 210px;
-      transform: translateX(0);
+    @media (min-width: 768px) {
+      width: 155%;
     }
 
-    @media only screen and (max-width: 767.98px) {
-      height: 150px;
-      transform: translateX(5%);
+    @media (min-width: 1440px) {
+      width: 125%;
     }
   }
 }
