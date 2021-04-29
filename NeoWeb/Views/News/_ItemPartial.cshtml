@@ -10,11 +10,11 @@
             {
                 @if (string.IsNullOrEmpty(item.Blog.Cover))
                 {
-                    <a class="img" href="~/blog/details/@item.Blog.Id" data-original="@Helper.ToCDN("/images/news/blog.svg")"></a>
+                    <a class="img" href="~/blog/details/@item.Blog.Id" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/news/blog.svg")"></a>
                 }
                 else
                 {
-                    <a class="img" href="~/blog/details/@item.Blog.Id" data-original="@String.Format("/upload/{0}", @item.Blog.Cover).ToLower()"></a>
+                    <a class="img" href="~/blog/details/@item.Blog.Id" src="@Helper.ToCDN("/images/transparent.png")" data-original="@String.Format("/upload/{0}", @item.Blog.Cover).ToLower()"></a>
                 }
                 <div>
                     <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span> @item.Type</span></div>
@@ -41,11 +41,11 @@
             {
                 @if (string.IsNullOrEmpty(item.Event.Cover))
                 {
-                    <a class="img" href="~/event/details/@item.Event.Id" data-original="@Helper.ToCDN("/images/news/events.svg")"></a>
+                    <a class="img" href="~/event/details/@item.Event.Id" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/news/events.svg")"></a>
                 }
                 else
                 {
-                    <a class="img" href="~/event/details/@item.Event.Id" data-original="@String.Format("/upload/{0}", @item.Event.Cover).ToLower()"></a>
+                    <a class="img" href="~/event/details/@item.Event.Id" src="@Helper.ToCDN("/images/transparent.png")" data-original="@String.Format("/upload/{0}", @item.Event.Cover).ToLower()"></a>
                 }
                 <div>
                     <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green"> @item.Type</span></div>
@@ -73,11 +73,11 @@
             {
                 @if (string.IsNullOrEmpty(item.Media.Cover))
                 {
-                    <a class="img" href="@item.Media.Link" target="_blank" data-original="@Helper.ToCDN("/images/news/media.svg")"></a>
+                    <a class="img" href="@item.Media.Link" target="_blank" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/news/media.svg")"></a>
                 }
                 else
                 {
-                    <a class="img" href="@item.Media.Link" target="_blank" data-original="@String.Format("/upload/{0}", @item.Media.Cover).ToLower()"></a>
+                    <a class="img" href="@item.Media.Link" target="_blank" src="@Helper.ToCDN("/images/transparent.png")" data-original="@String.Format("/upload/{0}", @item.Media.Cover).ToLower()"></a>
                 }
                 <div>
                     <div class="small">@item.Time.Month.ToMonth() @item.Time.Day, @item.Time.Year<span class="green"> @item.Type</span></div>

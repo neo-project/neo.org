@@ -12,19 +12,19 @@
     <div class="col-md-6 offset-md-1">
         @if (Model?.Type == NewsViewModelType.Blog)
         {
-            <a class="bg-img" href="~/blog/details/@Model.Blog.Id" data-original="@(string.IsNullOrEmpty(Model.Blog.Cover) ? Helper.ToCDN("/images/news/blog.svg") : $"/upload/{Model.Blog.Cover}".ToLower())"></a>
+            <a class="bg-img" href="~/blog/details/@Model.Blog.Id" src="@Helper.ToCDN("/images/transparent.png")" data-original="@(string.IsNullOrEmpty(Model.Blog.Cover) ? Helper.ToCDN("/images/news/blog.svg") : $"/upload/{Model.Blog.Cover}".ToLower())"></a>
             <div class="mt-1 bold">@Localizer["FEATURED BLOG ARTICLES"]</div>
             <h4 class="d-title with-space"><a href="~/blog/details/@Model.Blog.Id">@Model.Blog.Title</a></h4>
         }
         else if (Model?.Type == NewsViewModelType.Event)
         {
-            <a class="bg-img" href="~/event/details/@Model.Event.Id" data-original="@(string.IsNullOrEmpty(Model.Event.Cover) ? Helper.ToCDN("/images/news/events.svg") : $"/upload/{Model.Event.Cover}".ToLower())"></a>
+            <a class="bg-img" href="~/event/details/@Model.Event.Id" src="@Helper.ToCDN("/images/transparent.png")" data-original="@(string.IsNullOrEmpty(Model.Event.Cover) ? Helper.ToCDN("/images/news/events.svg") : $"/upload/{Model.Event.Cover}".ToLower())"></a>
             <div class="mt-1 bold">@Localizer["FEATURED EVENTS"]</div>
             <h3 class="d-title with-space"><a href="~/event/details/@Model.Event.Id">@Model.Event.Name</a></h3>
         }
         else if (Model?.Type == NewsViewModelType.Media)
         {
-            <a class="bg-img" href="~/event/details/@Model.Event.Id" data-original="@(string.IsNullOrEmpty(Model.Event.Cover) ? Helper.ToCDN("/images/news/media.svg") : $"/upload/{Model.Media.Cover}".ToLower())"></a>
+            <a class="bg-img" href="~/event/details/@Model.Event.Id" src="@Helper.ToCDN("/images/transparent.png")" data-original="@(string.IsNullOrEmpty(Model.Event.Cover) ? Helper.ToCDN("/images/news/media.svg") : $"/upload/{Model.Media.Cover}".ToLower())"></a>
             <h3 class="d-title with-space"><a href="@Model.Media.Link" target="_blank">@Model.Media.Title</a></h3>
             @if (ViewBag.UserRules)
             {
