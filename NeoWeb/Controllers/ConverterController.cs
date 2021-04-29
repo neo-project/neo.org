@@ -110,6 +110,12 @@ namespace NeoWeb.Controllers
 
                 }
                 catch (Exception) { }
+                try
+                {
+                    var output = ConverterHelper.HexStringToBase64String(input);
+                    result.Add(_localizer["Hexadecimal little-endian string to Base64 string:"], new List<string>() { output });
+                }
+                catch (Exception) { }
             }
             //可能是 16 进制大端序字符串
             else if (new Regex("^0x([0-9a-f]{2})+$").IsMatch(input.ToLower()))
@@ -300,7 +306,6 @@ namespace NeoWeb.Controllers
                 {
                     var output = ConverterHelper.StringToBase64String(input);
                     result.Add(_localizer["Base64 encoding:"], new List<string>() { output });
-
                 }
                 catch (Exception) { }
             }

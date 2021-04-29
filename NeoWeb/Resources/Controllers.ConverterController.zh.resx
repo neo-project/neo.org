@@ -153,6 +153,9 @@
   <data name="Hexadecimal big-endian string to UTF8 string:" xml:space="preserve">
     <value>16 进制大端序字符串转 UTF8 字符串：</value>
   </data>
+  <data name="Hexadecimal little-endian string to Base64 string:" xml:space="preserve">
+    <value>16 进制小端序字符串转 Base64 字符串：</value>
+  </data>
   <data name="Hexadecimal little-endian string to big integer:" xml:space="preserve">
     <value>16 进制小端序字符串转大整数：</value>
   </data>

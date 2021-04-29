@@ -177,6 +177,27 @@ namespace NeoWeb
             return bytes.ToHexString();
         }
 
+
+        /// <summary>
+        /// HEX 字符串 转为 Base64 格式的字符串
+        /// </summary>
+        /// <param name="base64">eg:48656c6c6f20576f726c6421</param>
+        /// <returns>eg:SGVsbG8gV29ybGQh</returns>
+        public static string HexStringToBase64String(string hex)
+        {
+            string base64;
+            try
+            {
+                var bytes = hex.Trim().HexToBytes();
+                base64 = Convert.ToBase64String(hex.Trim().HexToBytes());
+            }
+            catch (Exception)
+            {
+                throw new FormatException();
+            }
+            return base64;
+        }
+
         /// <summary>
         /// UTF8 字符串转为 Base64 格式的字符串
         /// </summary>
