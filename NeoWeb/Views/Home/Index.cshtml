@@ -127,7 +127,7 @@
 
         @{
             ViewData["CS_customClasses"] = "blockchain";
-            ViewData["CS_title"] = @Localizer["Blockchain You know"].Value;
+            ViewData["CS_title"] = @Localizer["<em>Blockchain</em><br />You know"].Value;
             ViewData["CS_subtitle"] = @Localizer["Write smart contracts in a language you already love"].Value;
         }
         <partial name="../_Common/_CaptionSquare" view-data="ViewData" />
@@ -209,18 +209,12 @@
 
     <div class="dual-tokens-row">
         <div class="col-left">
-
-            <div class="square-block dual-tokens">
-                <div class="square-block-title">
-                    <span class="green">@Localizer["Dual"]</span><br />
-                    @Localizer["Tokens"]
-                </div>
-                <div class="square-block-subtitle">
-                    @Localizer["Neo has a unique dual token model that separates governance from utility."]
-                </div>
-            </div>
-
-
+            @{
+                ViewData["CS_customClasses"] = "dual-tokens";
+                ViewData["CS_title"] = @Localizer["<em>Dual</em><br />Tokens"].Value;
+                ViewData["CS_subtitle"] = @Localizer["Neo has a unique dual token model that separates governance from utility."].Value;
+            }
+            <partial name="../_Common/_CaptionSquare" view-data="ViewData" />
         </div>
         <div class="col-right header-imgs">
             <div class="header-img-wrapper">
@@ -353,15 +347,13 @@
             </div>
         </div>
         <div class="col-right">
-            <div class="square-block governance">
-                <div class="square-block-title governance">
-                    <span class="green">@Localizer["On-chain"]</span><br />
-                    @Localizer["Governance"]
-                </div>
-                <div class="square-block-subtitle governance">
-                    @Localizer["A dynamic on-chain council voted in by the NEO token holders."]
-                </div>
-            </div>
+            @{
+                ViewData["CS_customClasses"] = "governance";
+                ViewData["CS_title"] = @Localizer["<em>On-chain</em><br />Governance"].Value;
+                ViewData["CS_subtitle"] = @Localizer["A dynamic on-chain council voted in by the NEO token holders."].Value;
+            }
+            <partial name="../_Common/_CaptionSquare" view-data="ViewData" />
+
             <div class="governance-paragraph">
                 <span>
                     @Localizer["N3 introduces the ability for NEO holders to vote in council members and consensus nodes that maintain the liveliness of the Neo network and adjust critical blockchain parameters."]
@@ -381,15 +373,13 @@
                 <img class="governance-img-vert" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/GovernanceTablet.svg")" />
             </div>
             <div class="col-right">
-                <div class="square-block governance">
-                    <div class="square-block-title governance">
-                        <span class="green">@Localizer["On-chain"]</span><br />
-                        @Localizer["Governance"]
-                    </div>
-                    <div class="square-block-subtitle governance">
-                        @Localizer["A dynamic on-chain council voted in by the NEO token holders."]
-                    </div>
-                </div>
+                @{
+                    ViewData["CS_customClasses"] = "governance";
+                    ViewData["CS_title"] = @Localizer["<em>On-chain</em><br />Governance"].Value;
+                    ViewData["CS_subtitle"] = @Localizer["A dynamic on-chain council voted in by the NEO token holders."].Value;
+                }
+                <partial name="../_Common/_CaptionSquare" view-data="ViewData" />
+
                 <div class="governance-paragraph">
                     <span>
                         @Localizer["N3 introduces the ability for NEO holders to vote in council members and consensus nodes that maintain the liveliness of the Neo network and adjust critical blockchain parameters."]
@@ -421,15 +411,13 @@
     </div>
 
     <div class="governance-section-mobile">
-        <div class="square-block governance">
-            <div class="square-block-title governance">
-                <span class="green">@Localizer["On-chain"]</span><br />
-                @Localizer["Governance"]
-            </div>
-            <div class="square-block-subtitle governance">
-                @Localizer["A dynamic on-chain council voted in by the NEO token holders."]
-            </div>
-        </div>
+        @{
+            ViewData["CS_customClasses"] = "governance";
+            ViewData["CS_title"] = @Localizer["<em>On-chain</em><br />Governance"].Value;
+            ViewData["CS_subtitle"] = @Localizer["A dynamic on-chain council voted in by the NEO token holders."].Value;
+        }
+        <partial name="../_Common/_CaptionSquare" view-data="ViewData" />
+
         <div class="governance-img-container">
             <img class="governance-img-vert" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/GovernanceTablet.svg")" />
         </div>
@@ -467,15 +455,12 @@
 
     <div class="contributors-row">
         <div class="col-left">
-            <div class="square-block contributors">
-                <div class="square-block-title contributors">
-                    <span class="green">@Localizer["Global"]</span><br />
-                    @Localizer["Contributors"]
-                </div>
-                <div class="square-block-subtitle contributors">
-                    @Localizer["Neo is a joint effort by community groups from all over the world."]
-                </div>
-            </div>
+            @{
+                ViewData["CS_customClasses"] = "contributors";
+                ViewData["CS_title"] = @Localizer["<em>Global</em><br />Contributors"].Value;
+                ViewData["CS_subtitle"] = @Localizer["Neo is a joint effort by community groups from all over the world."].Value;
+            }
+            <partial name="../_Common/_CaptionSquare" view-data="ViewData" />
         </div>
         <div class="col-right">
             <div class="github-container">
