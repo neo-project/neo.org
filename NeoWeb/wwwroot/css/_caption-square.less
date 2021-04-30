@@ -9,7 +9,6 @@
   padding: 12px;
   text-align: left;
 
-
   @media (min-width: 768px) {
     border-width: 3px;
     width: 230px;
@@ -18,11 +17,17 @@
   }
 
   @media (min-width: 1024px) {
-
+    border-width: 4px;
+    width: 330px;
+    height: 220px;
+    padding: 24px;
   }
 
   @media (min-width: 1440px) {
-
+    border-width: 6px;
+    width: 460px;
+    height: 300px;
+    padding: 32px;
   }
 
   .caption-square-inner-wrapper {
@@ -42,13 +47,13 @@
       }
 
       @media (min-width: 1024px) {
-        font-size: @font-size-41px;
+        font-size: @font-size-36px;
         line-height: 1.1;
         margin-bottom: 0.625rem;
       }
 
       @media (min-width: 1440px) {
-        font-size: @font-size-58px;
+        font-size: @font-size-50px;
         margin-bottom: 1.125rem;
       }
 
@@ -69,6 +74,14 @@
         font-size: @font-size-20px;
         line-height: 1.2;
       }
+
+      @media (min-width: 1024px) {
+        font-size: @font-size-18px;
+      }
+
+      @media (min-width: 1440px) {
+        font-size: @font-size-24px;
+      }
     }
   }
 }
@@ -76,6 +89,31 @@
 // Customizations
 
 .caption-square-container {
+  &.building-blocks {
+    @media (min-width: 1024px) {
+      height: 300px;
+    }
+
+    @media (min-width: 1440px) {
+      height: 420px;
+    }
+
+    .title {
+      @media (min-width: 1024px) {
+        font-size: @font-size-41px;
+      }
+
+      @media (min-width: 1440px) {
+        font-size: @font-size-58px;
+      }
+    }
+  }
+
+  &.blockchain {
+  }
+
+  &.dual-tokens {
+  }
 
   &.governance {
     @media (min-width: 768px) {
@@ -90,8 +128,14 @@
       @media (min-width: 768px) {
         font-size: @font-size-26px;
       }
+
+      @media (min-width: 1024px) {
+        font-size: @font-size-36px;
+      }
+
+      @media (min-width: 1440px) {
+        font-size: @font-size-48px;
+      }
     }
   }
-
-
 }

@@ -126,219 +126,6 @@ html body {
     border-radius: 50%;
 }
 
-.square-block {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    text-align: right;
-    padding: 3.125rem 2.25rem 3.125rem 0.5rem;
-    border: 6px solid @green;
-
-    .square-block-title {
-        .work-sans-bold;
-        .uppercase;
-        font-size: @font-size-38px;
-        line-height: 1;
-        margin-bottom: 0.75rem;
-
-        @media (min-width: 768px) {
-            font-size: @font-size-30px;
-        }
-
-        @media (min-width: 1024px) {
-            font-size: @font-size-41px;
-            line-height: 1.1;
-            margin-bottom: 0.625rem;
-        }
-
-        @media (min-width: 1440px) {
-            font-size: @font-size-58px;
-            margin-bottom: 1.125rem;
-        }
-    }
-
-    .square-block-subtitle {
-        .nunito-sans-bold;
-        .dark-blue;
-        font-size: @font-size-25px;
-        line-height: 1.23;
-
-        @media (min-width: 768px) {
-            font-size: @font-size-20px;
-            line-height: 1.2;
-        }
-    }
-
-    &.building-blocks {
-        height: 26.25rem;
-        width: 28.75rem;
-
-        &.zh {
-            .square-block-title {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: flex-end;
-                font-size: 3.75rem;
-                line-height: 1.4;
-                margin-bottom: 0;
-            }
-        }
-    }
-
-    &.blockchain {
-        align-self: flex-end;
-        width: 29.375rem;
-        height: 18.25rem;
-    }
-
-    &.dual-tokens {
-        margin-top: 1.75rem;
-        padding-right: 2.375rem;
-        padding-left: 4.5rem;
-        width: 26.25rem;
-        height: 19.875rem;
-    }
-
-    &.governance {
-        align-items: flex-start;
-        text-align: left;
-        padding-left: 2.25rem;
-        padding-right: 0.5rem;
-        width: 30rem;
-        height: 17.375rem;
-    }
-
-    &.contributors {
-        padding-left: 0.5rem;
-        padding-right: 1.5rem;
-        width: 30.125rem;
-        height: 18rem;
-
-        .square-block-title {
-            font-size: 3.125rem;
-            line-height: 1;
-        }
-    }
-
-    @media only screen and (max-width: 1200px) {
-        padding: 1.5rem 0.5rem 1rem 0.5rem;
-        border: 3px solid @green;
-
-        &.building-blocks {
-            width: 14.375rem;
-            height: 13.125rem;
-
-            &.zh {
-                .square-block-title {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: flex-end;
-                    font-size: 2.75rem;
-                    line-height: 1.2;
-                    margin-bottom: 0;
-                }
-            }
-        }
-
-        &.blockchain {
-            margin-right: 12px;
-            align-self: flex-end;
-            align-items: flex-start;
-            padding-left: 0.75rem;
-            padding-right: 0.1rem;
-            text-align: left;
-            width: 14.375rem;
-            height: 13.125rem;
-        }
-
-        &.dual-tokens {
-            margin-top: 1.25rem;
-            padding-right: 0.5rem;
-            padding-left: 0.5rem;
-            width: 14.375rem;
-            height: 13.125rem;
-        }
-
-        &.governance {
-            align-items: flex-start;
-            text-align: left;
-            padding-left: 0.625rem;
-            padding-right: 0.1rem;
-            width: 14.375rem;
-            height: 11.875rem;
-        }
-
-        &.contributors {
-            padding-left: 0.625rem;
-            padding-right: 0.5rem;
-            width: 14.375rem;
-            height: 11.875rem;
-
-            .square-block-title {
-                font-size: 1.625rem;
-            }
-        }
-    }
-
-    @media only screen and (max-width: 767.98px) {
-        align-self: center;
-        align-items: flex-start;
-        text-align: left;
-        border: 5px solid @green;
-        width: 16.5rem;
-        height: 18.125rem;
-
-        &.building-blocks {
-            padding: 1.875rem 0.5rem 1.25rem 0.875rem;
-            width: 18.125rem;
-            height: 16.5rem;
-
-            &.zh {
-                .square-block-title {
-                    align-items: flex-start;
-                    font-size: 3.25rem;
-                    line-height: 1.1;
-                    margin-bottom: 0;
-                }
-            }
-        }
-
-        &.blockchain {
-            align-self: center;
-            padding: 1.875rem 0.5rem 1.25rem 0.875rem;
-            width: 18.125rem;
-            height: 16.5rem;
-        }
-
-        &.dual-tokens {
-            padding: 1.875rem 0.5rem 1.25rem 0.875rem;
-            width: 18.125rem;
-            height: 16.875rem;
-        }
-
-        &.governance {
-            padding: 1.875rem 0.5rem 1.25rem 0.5rem;
-            width: 18.125rem;
-            height: 16.75rem;
-        }
-
-        &.contributors {
-            padding: 1.875rem 0.3rem 1.25rem 0.5rem;
-            width: 18.125rem;
-            height: 16.75rem;
-
-            .square-block-title {
-                font-size: 2rem;
-                line-height: 0.94;
-            }
-        }
-    }
-}
-
-
 // Landing
 .landing-row {
     display: flex;
@@ -981,6 +768,14 @@ html body {
     }
 }
 
+.blockchain-caption-square-row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 0 12px;
+}
+
 .code-square-body {
     margin-top: 1.125rem;
     .nunito-sans-bold;
@@ -1001,7 +796,7 @@ html body {
     z-index: 1;
 
     @media only screen and (max-width: 1200px) {
-        margin-right: 12px;
+        // margin-right: 12px;
     }
 
     @media only screen and (max-width: 767.98px) {
