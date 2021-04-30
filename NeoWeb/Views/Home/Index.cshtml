@@ -125,14 +125,15 @@
 
         <partial name="./_NeoFeatures" />
 
-        @{
-            ViewData["CS_customClasses"] = "blockchain";
-            ViewData["CS_title"] = @Localizer["<em>Blockchain</em><br />You know"].Value;
-            ViewData["CS_subtitle"] = @Localizer["Write smart contracts in a language you already love"].Value;
-        }
-        <partial name="../_Common/_CaptionSquare" view-data="ViewData" />
-
-        <a class="btn-2 code-learn-more" href="/technology#smart-contracts">@Localizer["Learn More"]</a>
+        <div class="blockchain-caption-square-row">
+            @{
+                ViewData["CS_customClasses"] = "blockchain";
+                ViewData["CS_title"] = @Localizer["<em>Blockchain</em><br />You know"].Value;
+                ViewData["CS_subtitle"] = @Localizer["Write smart contracts in a language you already love"].Value;
+            }
+            <partial name="../_Common/_CaptionSquare" view-data="ViewData" />
+            <a class="btn-2 code-learn-more" href="/technology#smart-contracts">@Localizer["Learn More"]</a>
+        </div>
     </div>
 
     <div class="code-example-row">

@@ -1,24 +1,41 @@
 @import "./basic.less";
 
 .caption-square-container {
-  padding: 3.125rem 2.25rem 3.125rem 0.5rem;
-  // border: 6px solid @green;
-  border: 6px solid orange;
+  border: 6px solid @green;
+  background-color: white;
   box-sizing: border-box;
+  width: 312px;
+  height: 312px;
+  padding: 12px;
+  text-align: left;
+
+
+  @media (min-width: 768px) {
+    border-width: 3px;
+    width: 230px;
+    height: 230px;
+    text-align: right;
+  }
+
+  @media (min-width: 1024px) {
+
+  }
+
+  @media (min-width: 1440px) {
+
+  }
 
   .caption-square-inner-wrapper {
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-end;
-    text-align: right;
 
     .title {
       .work-sans-bold;
       .uppercase;
       font-size: @font-size-38px;
       line-height: 1;
-      margin-bottom: 0.75rem;
 
       @media (min-width: 768px) {
         font-size: @font-size-30px;
@@ -46,6 +63,7 @@
       .dark-blue;
       font-size: @font-size-25px;
       line-height: 1.23;
+      padding-top: 18px;
 
       @media (min-width: 768px) {
         font-size: @font-size-20px;
@@ -53,4 +71,27 @@
       }
     }
   }
+}
+
+// Customizations
+
+.caption-square-container {
+
+  &.governance {
+    @media (min-width: 768px) {
+      text-align: left;
+    }
+  }
+
+  &.contributors {
+    .title {
+      font-size: @font-size-33px;
+
+      @media (min-width: 768px) {
+        font-size: @font-size-26px;
+      }
+    }
+  }
+
+
 }
