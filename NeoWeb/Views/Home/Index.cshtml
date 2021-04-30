@@ -102,21 +102,11 @@
     <div class="building-blocks-container">
         <div class="building-blocks-row">
             <div class="col-left">
-                <div class="square-block building-blocks @SharedLocalizer["d-none-zh"]">
-                    <div class="square-block-title">
-                        <span class="green">
-                            @Localizer["Building Blocks"]
-                        </span> @Localizer["for the Next Generation Internet"]
-                    </div>
-                </div>
-                <div class="square-block building-blocks zh @SharedLocalizer["d-none"]">
-                    <div class="square-block-title">
-                        @Localizer["for the Next Generation Internet"]<br />
-                        <span class="green">
-                            @Localizer["Building Blocks"]
-                        </span>
-                    </div>
-                </div>
+                @{
+                    ViewData["CS_customClasses"] = "building-blocks";
+                    ViewData["CS_title"] = @Localizer["<em>Building Blocks</em> for the Next Generation Internet"].Value;
+                }
+                <partial name="../_Common/_CaptionSquare" view-data="ViewData" />
             </div>
             <div class="col-right">
                 <span>
@@ -135,23 +125,13 @@
 
         <partial name="./_NeoFeatures" />
 
-        <div class="square-block blockchain">
-            <div class="square-block-title @SharedLocalizer["d-none-zh"]">
-                <span class="green">
-                    @Localizer["Blockchain"]
-                </span>
-                <br />@Localizer["You know"]
-            </div>
-            <div class="square-block-title @SharedLocalizer["d-none"]">
-                @Localizer["You know"] <br />
-                <span class="green">
-                    @Localizer["Blockchain"]
-                </span>
-            </div>
-            <div class="square-block-subtitle">
-                @Localizer["Write smart contracts in a language you already love"]
-            </div>
-        </div>
+        @{
+            ViewData["CS_customClasses"] = "blockchain";
+            ViewData["CS_title"] = @Localizer["Blockchain You know"].Value;
+            ViewData["CS_subtitle"] = @Localizer["Write smart contracts in a language you already love"].Value;
+        }
+        <partial name="../_Common/_CaptionSquare" view-data="ViewData" />
+
         <a class="btn-2 code-learn-more" href="/technology#smart-contracts">@Localizer["Learn More"]</a>
     </div>
 
@@ -229,6 +209,7 @@
 
     <div class="dual-tokens-row">
         <div class="col-left">
+
             <div class="square-block dual-tokens">
                 <div class="square-block-title">
                     <span class="green">@Localizer["Dual"]</span><br />
@@ -238,6 +219,8 @@
                     @Localizer["Neo has a unique dual token model that separates governance from utility."]
                 </div>
             </div>
+
+
         </div>
         <div class="col-right header-imgs">
             <div class="header-img-wrapper">

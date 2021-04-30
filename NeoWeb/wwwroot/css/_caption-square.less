@@ -1,0 +1,56 @@
+@import "./basic.less";
+
+.caption-square-container {
+  padding: 3.125rem 2.25rem 3.125rem 0.5rem;
+  // border: 6px solid @green;
+  border: 6px solid orange;
+  box-sizing: border-box;
+
+  .caption-square-inner-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: right;
+
+    .title {
+      .work-sans-bold;
+      .uppercase;
+      font-size: @font-size-38px;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+
+      @media (min-width: 768px) {
+        font-size: @font-size-30px;
+      }
+
+      @media (min-width: 1024px) {
+        font-size: @font-size-41px;
+        line-height: 1.1;
+        margin-bottom: 0.625rem;
+      }
+
+      @media (min-width: 1440px) {
+        font-size: @font-size-58px;
+        margin-bottom: 1.125rem;
+      }
+
+      em {
+        font-style: normal;
+        color: @green;
+      }
+    }
+
+    .subtitle {
+      .nunito-sans-bold;
+      .dark-blue;
+      font-size: @font-size-25px;
+      line-height: 1.23;
+
+      @media (min-width: 768px) {
+        font-size: @font-size-20px;
+        line-height: 1.2;
+      }
+    }
+  }
+}
