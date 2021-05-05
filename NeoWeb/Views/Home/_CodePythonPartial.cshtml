@@ -43,25 +43,25 @@ def transfer(from_address: UInt160, to_address: UInt160, amount: int, data: Any)
     # The function MUST return false if the from account balance does not have enough tokens to spend.
     from_balance = get(from_address).to_int()
     if from_balance < amount:
-    return False
+        return False
 
     # The function should check whether the from address equals the caller contract hash.
     if from_address != calling_script_hash:
-    if not check_witness(from_address):
-    return False
+        if not check_witness(from_address):
+            return False
 
     # skip balance changes if transferring to yourself or transferring 0 cryptocurrency
     if from_address != to_address and amount != 0:
-    if from_balance == amount:
-    delete(from_address)
-    else:
-    put(from_address, from_balance - amount)
+        if from_balance == amount:
+            delete(from_address)
+        else:
+            put(from_address, from_balance - amount)
 
-    to_balance = get(to_address).to_int()
-    put(to_address, to_balance + amount)
+        to_balance = get(to_address).to_int()
+        put(to_address, to_balance + amount)
 
     on_transfer(from_address, to_address, amount)
-    # if the to_address is a smart contract, it must call the contracts onPayment
+    # if the to_address is a smart contract, it must call the contract's onPayment method
     post_transfer(from_address, to_address, amount, data)
     return True
 </code>
