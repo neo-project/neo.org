@@ -144,9 +144,6 @@
   <data name="Blockchain" xml:space="preserve">
     <value>区块链</value>
   </data>
-  <data name="Building Blocks" xml:space="preserve">
-    <value>基石</value>
-  </data>
   <data name="Community" xml:space="preserve">
     <value>社区</value>
   </data>
@@ -183,8 +180,8 @@
   <data name="For holding NEO" xml:space="preserve">
     <value>持有 NEO</value>
   </data>
-  <data name="for the Next Generation Internet" xml:space="preserve">
-    <value>下一代 &lt;br /&gt; 互联网</value>
+  <data name="&lt;em&gt;Building Blocks&lt;/em&gt; for the Next Generation Internet" xml:space="preserve">
+    <value>下一代 &lt;br /&gt; 互联网的&lt;br /&gt;&lt;em&gt;基石&lt;/em&gt;</value>
   </data>
   <data name="GAS is used to pay for network fees, smart contract deployments, and in dApp purchases." xml:space="preserve">
     <value>GAS 的使用场景包括支付 Neo 区块链上的网络费用、智能合约部署费用，以及 dAPP 交互等等。</value>
@@ -333,7 +330,16 @@
   <data name="Write your smart contracts in C#, Go, Python, Java, or TypeScript." xml:space="preserve">
     <value>用 C#、Python、Go、Java 或 TypeScript 编写你的智能合约。</value>
   </data>
-  <data name="You know" xml:space="preserve">
-    <value>你已经熟知的</value>
+  <data name="&lt;em&gt;Blockchain&lt;/em&gt;&lt;br /&gt;You know" xml:space="preserve">
+    <value>你已经熟知的&lt;br /&gt;&lt;em&gt;区块链&lt;/em&gt;</value>
+  </data>
+  <data name="&lt;em&gt;Dual&lt;/em&gt;&lt;br /&gt;Tokens" xml:space="preserve">
+    <value>&lt;em&gt;双通证&lt;/em&gt;&lt;br /&gt;机制</value>
+  </data>
+  <data name="&lt;em&gt;On-chain&lt;/em&gt;&lt;br /&gt;Governance" xml:space="preserve">
+    <value>&lt;em&gt;链上&lt;/em&gt;&lt;br /&gt;治理</value>
+  </data>
+  <data name="&lt;em&gt;Global&lt;/em&gt;&lt;br /&gt;Contributors" xml:space="preserve">
+    <value>&lt;em&gt;全球&lt;/em&gt;&lt;br /&gt;贡献者</value>
   </data>
 </root>

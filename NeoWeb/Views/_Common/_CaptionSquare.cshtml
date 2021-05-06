@@ -1,0 +1,16 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+<div class="caption-square-container @ViewData["CS_customClasses"]">
+    <div class="caption-square-inner-wrapper">
+        <div class="title">@Html.Raw(ViewData["CS_title"])</div>
+        @{
+            if (@ViewData["CS_subtitle"] != null)
+            {
+                <div class="subtitle">
+                    @Html.Raw(ViewData["CS_subtitle"])
+                </div>
+            }
+        }
+    </div>
+</div>
