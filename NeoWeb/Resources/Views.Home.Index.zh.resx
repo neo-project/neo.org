@@ -127,7 +127,7 @@
     <value>为增强扩容与隐私性打造的分布式数据存储解决方案。</value>
   </data>
   <data name="A dynamic on-chain council voted in by the NEO token holders." xml:space="preserve">
-    <value>由 NEO 持有者投票产生 &lt;br /&gt; 动态链上治理委员会。</value>
+    <value>NEO 持有者投票产生 &lt;br /&gt; 链上动态治理委员会</value>
   </data>
   <data name="A set of self-sovereign decentralized identity solution standards." xml:space="preserve">
     <value>全局自主权去中心化身份解决方案。</value>
@@ -136,7 +136,7 @@
     <value>用户持有</value>
   </data>
   <data name="After four years of stable MainNet operation, Neo is undergoing its biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
-    <value>经历 4 年的主网稳定运行，Neo 正在经历向有史以来最强大且全能的版本 --N3 迁移的重大进化。</value>
+    <value>2016 年，Neo主网开始稳定运行。2021年，Neo 正向有史以来最强大且全能的版本 N3 进行迁移。</value>
   </data>
   <data name="Best-In-Class Tooling" xml:space="preserve">
     <value>最优开发工具</value>
@@ -160,7 +160,7 @@
     <value>去中心化存储</value>
   </data>
   <data name="Documentation" xml:space="preserve">
-    <value>文档</value>
+    <value>Neo 文档</value>
   </data>
   <data name="Dual" xml:space="preserve">
     <value>双通证</value>
@@ -175,7 +175,7 @@
     <value>了解</value>
   </data>
   <data name="Find a Wallet" xml:space="preserve">
-    <value>选择 NEO 钱包</value>
+    <value>NEO 钱包</value>
   </data>
   <data name="For Governance Participation" xml:space="preserve">
     <value>参与治理</value>
@@ -184,10 +184,10 @@
     <value>持有 NEO</value>
   </data>
   <data name="for the Next Generation Internet" xml:space="preserve">
-    <value>下一代 &lt;br /&gt; 互联网的</value>
+    <value>下一代 &lt;br /&gt; 互联网</value>
   </data>
   <data name="GAS is used to pay for network fees, smart contract deployments, and in dApp purchases." xml:space="preserve">
-    <value>GAS 可以被用来支付 Neo 区块链上的网络费用、智能合约部署费用，以及 dAPP 内购等。</value>
+    <value>GAS 的使用场景包括支付 Neo 区块链上的网络费用、智能合约部署费用，以及 dAPP 交互等等。</value>
   </data>
   <data name="Gas Per Month" xml:space="preserve">
     <value>GAS/ 月</value>
@@ -208,7 +208,7 @@
     <value>如何投票</value>
   </data>
   <data name="Industry" xml:space="preserve">
-    <value>行业</value>
+    <value>助力</value>
   </data>
   <data name="Interoperability" xml:space="preserve">
     <value>多链互操作性</value>
@@ -247,28 +247,28 @@
     <value>Neo</value>
   </data>
   <data name="NEO &amp; GAS Calculator" xml:space="preserve">
-    <value>NEO &amp; GAS 计算器</value>
+    <value>GAS 计算器</value>
   </data>
   <data name="Neo &amp; Gas Tokens" xml:space="preserve">
-    <value>NEO &amp; GAS 代币</value>
+    <value>NEO &amp; GAS 通证</value>
   </data>
   <data name="Neo has a unique dual token model that separates governance from utility." xml:space="preserve">
-    <value>Neo 特有的双通证机制 &lt;br /&gt; 将治理与燃料通证 &lt;br /&gt; 有效区分。</value>
+    <value>Neo 特有的双通证机制 &lt;br /&gt; 有效区分治理权与使用权</value>
   </data>
   <data name="Neo is a joint effort by community groups from all over the world." xml:space="preserve">
-    <value>遍布全球的社区成员 &lt;br /&gt; 正在共同为 Neo 的发展努力。</value>
+    <value>遍布全球的社区成员 &lt;br /&gt; 是 Neo 不断前进的原动力</value>
   </data>
   <data name="Neo Name Service" xml:space="preserve">
     <value>Neo 域名服务</value>
   </data>
   <data name="Neo provides a full stack of features out of the box, but doesn't keep you boxed in." xml:space="preserve">
-    <value>Neo 为开发者提供开箱即用的全栈式开发体验，更助力开发者开拓更广阔的视野。</value>
+    <value>为开发者提供开箱即用的全栈式开发体验，更助力开发者开拓更广阔的视野。</value>
   </data>
   <data name="NEO token holders are the owners of the network and are able to participate in governance. NEO holders also receive passive distribution of the network utility token, GAS - No staking required. GAS rewards are increased for voting participation." xml:space="preserve">
-    <value>NEO 通证的持有者共享 Neo 区块链的所有权与治理权。NEO 持有者无需进行质押就可以被动分发方式获得 GAS。</value>
+    <value>NEO 通证的持有者共享 Neo 区块链的所有权与治理权。NEO 持有者无需进行质押即可被动获得 GAS。</value>
   </data>
   <data name="Neo's Features" xml:space="preserve">
-    <value>Neo 的特征</value>
+    <value>Neo 特性</value>
   </data>
   <data name="NeoFS" xml:space="preserve">
     <value>NeoFS</value>
@@ -292,7 +292,7 @@
     <value>预言机</value>
   </data>
   <data name="Partners" xml:space="preserve">
-    <value>伙伴</value>
+    <value>产业</value>
   </data>
   <data name="Poly.Network enabled cross-chain interoperability with Ethereum, Binance Chain, and more." xml:space="preserve">
     <value>通过 Poly Network，实现与以太坊、币安智能链、火币生态链等多个网络的双向跨链互操作。</value>
@@ -325,13 +325,13 @@
     <value>查看全部</value>
   </data>
   <data name="would receive up to" xml:space="preserve">
-    <value>最多可获得</value>
+    <value>最多获得</value>
   </data>
   <data name="Write smart contracts in a language you already love" xml:space="preserve">
-    <value>已经掌握的语言 + 已经熟悉的工具 &lt;br /&gt;= 轻松编写智能合约。</value>
+    <value>熟悉的语言 + 熟悉的工具 &lt;br /&gt;= 轻松编写智能合约</value>
   </data>
   <data name="Write your smart contracts in C#, Go, Python, Java, or TypeScript." xml:space="preserve">
-    <value>用 C#、Python、Go、Java 或 TypeScript 编写你的智能合约</value>
+    <value>用 C#、Python、Go、Java 或 TypeScript 编写你的智能合约。</value>
   </data>
   <data name="You know" xml:space="preserve">
     <value>你已经熟知的</value>
