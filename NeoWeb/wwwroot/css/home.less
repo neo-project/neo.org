@@ -1,5 +1,8 @@
 @import "basic.less";
 
+// Resuable UI partials used in this page
+@import './_dual-tokens.less';
+
 @landing-height: 80vh;
 @content-wrapper-margin: 120px;
 
@@ -1613,68 +1616,6 @@ html body {
 
     a {
         width: 14.625rem;
-    }
-}
-
-.header-img-wrapper {
-    margin-top: 1.5rem;
-    height: 318px;
-    width: 783px;
-
-    @media only screen and (max-width: 1200px) {
-        margin-top: 1.25rem;
-        height: 210px;
-        width: 400px;
-        overflow: hidden;
-    }
-
-    @media only screen and (max-width: 767.98px) {
-        width: 95%;
-        align-self: center;
-    }
-
-    .header-token-wrapper {
-        position: absolute;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        height: 318px;
-        width: 800px;
-
-        @media only screen and (max-width: 1200px) {
-            height: 180px;
-            width: 400px;
-        }
-
-        @media only screen and (max-width: 767.98px) {
-            height: 150px;
-            width: 85%;
-        }
-    }
-
-    .header-token {
-        height: 80%;
-        z-index: 1;
-
-        @media only screen and (max-width: 768px) {
-            height: 120%;
-        }
-    }
-
-    .dot-wall {
-        position: absolute;
-        left: 0;
-        height: 318px;
-
-        @media only screen and (max-width: 1200px) {
-            height: 210px;
-            transform: translateX(0)
-        }
-
-        @media only screen and (max-width: 767.98px) {
-            height: 150px;
-            transform: translateX(5%)
-        }
     }
 }
 
