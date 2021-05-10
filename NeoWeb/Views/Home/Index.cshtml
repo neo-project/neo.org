@@ -596,11 +596,13 @@
 
         $(".language-icon").on("click", function () {
             $(".language-icon.selected").removeClass("selected")
-            $(this).addClass("selected")
+            const $el = $(this)
+            $el.addClass("selected")
 
-            const lang = $(this).data("lang")
+            const lang = $el.data("lang")
             $(".code-window").addClass("d-none")
             $("#code-" + lang).removeClass("d-none")
+            $('html').attr('data-code-window-open', lang)
         })
 
         $("#calculator-slider").on("input", function (e) {
@@ -685,6 +687,7 @@
         $(".close-icon").on("click", function () {
             $(".language-icon.selected").removeClass("selected");
             $(".code-window").addClass("d-none")
+            $('html').removeAttr('data-code-window-open')
         })
 
         const initialRun = resizeHandler.bind(this)
