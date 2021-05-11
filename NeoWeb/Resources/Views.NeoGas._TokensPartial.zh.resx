@@ -123,23 +123,8 @@
   <data name="5 GAS tokens are generated every block and distributed in three parts:" xml:space="preserve">
     <value>每个区块产生五个 GAS，并分配给三类角色：</value>
   </data>
-  <data name="A user with" xml:space="preserve">
-    <value>用户持有</value>
-  </data>
-  <data name="estimate based on average 20% circulating NEO voting participation" xml:space="preserve">
-    <value>根据 20% 投票参与率预估</value>
-  </data>
-  <data name="For Governance Participation" xml:space="preserve">
-    <value>参与治理</value>
-  </data>
-  <data name="For holding NEO" xml:space="preserve">
-    <value>持有 NEO</value>
-  </data>
   <data name="GAS" xml:space="preserve">
     <value>GAS</value>
-  </data>
-  <data name="Gas Per Month" xml:space="preserve">
-    <value>GAS/ 月</value>
   </data>
   <data name="Migration" xml:space="preserve">
     <value>迁移</value>
@@ -149,9 +134,6 @@
   </data>
   <data name="NEO" xml:space="preserve">
     <value>NEO</value>
-  </data>
-  <data name="NEO &amp; GAS Calculator" xml:space="preserve">
-    <value>GAS 计算器</value>
   </data>
   <data name="NEO holders participate in governance by voting for the Neo Committee, composed of members and consensus nodes that govern the Neo blockchain. The Neo Committee provides specific services, such as maintaining the liveliness of the network and adjusting critical blockchain parameters." xml:space="preserve">
     <value>NEO 持有者通过投票选出 Neo 理事会参与治理，该理事会由管理 Neo 区块链的理事会成员和共识节点组成。 Neo 理事会承担特定的职责，包括维护网络的活跃性和调整关键链上参数。</value>
@@ -182,8 +164,5 @@
   </data>
   <data name="With a total of 100 million tokens, NEO has two main features:" xml:space="preserve">
     <value>总量恒定为一亿枚，NEO 通证有两大功能：</value>
-  </data>
-  <data name="would receive up to" xml:space="preserve">
-    <value>最多获得</value>
   </data>
 </root>
