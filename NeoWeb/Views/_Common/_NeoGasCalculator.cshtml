@@ -1,0 +1,92 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+<div class="calculator">
+    <div class="calculator-header">
+        <div class="calculator-title">
+            @Localizer["NEO & GAS Calculator"]
+        </div>
+        <div class="calculator-title-empty"></div>
+    </div>
+    <div class="calculator-body">
+        <div class="slider-row">
+            <div class="slider-before">
+                @Localizer["A user with"]
+            </div>
+            <input type="range" min="10" max="1000" value="500" class="slider" id="calculator-slider">
+            <div class="slider-after">
+                <img class="slider-neo-icon" src="@Helper.ToCDN("/images/transparent.png")"
+                    data-original="@Helper.ToCDN("/images/home/Neo-Symbol.svg")" />
+                <div id="slider-current-value">500</div>
+            </div>
+        </div>
+        <div class="middle-text">
+            @Localizer["would receive up to"]
+        </div>
+        <div class="results-row">
+            <div class="result-col">
+                <div class="result-num result-holding">0.44</div>
+                <div class="gas-wrapper">
+                    <img src="@Helper.ToCDN("/images/transparent.png")"
+                        data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
+                    <span>
+                        @Localizer["Gas Per Month"]<span class="green">*</span>
+                    </span><br /><br />
+                    <span class="status-text">@Localizer["For holding NEO"]</span>
+                </div>
+            </div>
+            <div class="plus-sign @SharedLocalizer["d-none-zh"]"><i class="iconfont">&#xe603;</i></div>
+            <div class="plus-sign-zh @SharedLocalizer["d-none"]"><i class="iconfont">&#xe603;</i></div>
+            <div class="result-col">
+                <div class="result-num result-governance">17.52</div>
+                <div class="gas-wrapper">
+                    <img src="@Helper.ToCDN("/images/transparent.png")"
+                        data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
+                    <span>@Localizer["Gas Per Month"]<span class="green">*</span></span><br /><br />
+                    <span class="status-text">@Localizer["For Governance Participation"]</span>
+                </div>
+            </div>
+        </div>
+        <div class="results-row-mobile">
+            <div class="result-row">
+                <div class="result-num-mobile result-holding">0.44</div>
+                <div class="gas-wrapper-mobile">
+                    <img src="@Helper.ToCDN("/images/transparent.png")"
+                        data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
+                    <span>@Localizer["Gas Per Month"]<span class="green">*</span></span><br /><br />
+                </div>
+            </div>
+            <span class="status-text-mobile">@Localizer["For holding NEO"]</span>
+            <div class="plus-sign @SharedLocalizer["d-none-zh"]"><i class="iconfont">&#xe603;</i></div>
+            <div class="plus-sign-zh @SharedLocalizer["d-none"]"><i class="iconfont">&#xe603;</i></div>
+            <div class="result-row">
+                <div class="result-num-mobile result-governance">17.52</div>
+                <div class="gas-wrapper-mobile">
+                    <img src="@Helper.ToCDN("/images/transparent.png")"
+                        data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
+                    <span>@Localizer["Gas Per Month"]<span class="green">*</span></span><br /><br />
+                </div>
+            </div>
+            <span class="status-text-mobile">@Localizer["For Governance Participation"]</span>
+        </div>
+        <div class="foot-note">
+            <span class="green">*</span>@Localizer["estimate based on average 20% circulating NEO voting participation"]
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        $("#calculator-slider").on("input", function (e) {
+            const { value } = e.currentTarget
+            $("#slider-current-value").html(value)
+
+            const holdingGas = (+value * 10512000 * 0.1 / 100000000 / 12).toFixed(2)
+            const governanceGas = (+value * 10512000 * 0.8 / 20000000 / 12).toFixed(2)
+
+            $(".result-holding").html(holdingGas)
+            $(".result-governance").html(governanceGas)
+        })
+    })
+</script>
