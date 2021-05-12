@@ -22,6 +22,16 @@
       padding: 8px 18px;
       .nunito-sans-bold;
       font-size: @font-size-17px;
+
+      @media (min-width: 1024px) {
+        font-size: @font-size-16px;
+      }
+
+      @media (min-width: 1440px) {
+        padding-top: 16px;
+        padding-bottom: 16px;
+        font-size: @font-size-24px;
+      }
     }
   }
 
@@ -29,8 +39,6 @@
     padding: 0 18px;
 
     .slider-row {
-      background-color: rgba(red, 0.1);
-
       margin-top: 36px;
       display: flex;
       flex-wrap: nowrap;
@@ -39,19 +47,34 @@
 
       @media (min-width: 768px) {
         flex-direction: row;
+        justify-content: space-between;
+        margin-top: 28px;
       }
 
       @media (min-width: 1024px) {
+        margin-top: 40px;
       }
 
       @media (min-width: 1440px) {
+        margin-top: 56px;
       }
 
       .slider-before {
         .nunito-sans-bold;
         font-size: @font-size-18px;
-        // min-width: 9.125rem;
-        // margin-bottom: 20px;
+
+        @media (min-width: 768px) {
+          width: calc(33% - 18px);
+          text-align: right;
+        }
+
+        @media (min-width: 1024px) {
+          font-size: @font-size-17px;
+        }
+
+        @media (min-width: 1440px) {
+          font-size: @font-size-24px;
+        }
       }
 
       .slider {
@@ -68,6 +91,12 @@
         outline: none;
         margin-top: 20px;
         margin-bottom: 18px;
+
+        @media (min-width: 768px) {
+          margin-left: 18px;
+          margin-right: 18px;
+          width: 33%;
+        }
 
         &:hover {
           opacity: 1;
@@ -90,10 +119,26 @@
         .work-sans-semibold;
         font-size: @font-size-28px;
 
+        @media (min-width: 768px) {
+          width: calc(33% - 18px);
+        }
+
+        @media (min-width: 1024px) {
+          font-size: @font-size-27px;
+        }
+
+        @media (min-width: 1440px) {
+          font-size: @font-size-40px;
+        }
+
         .slider-neo-icon {
           margin-right: 12px;
           height: 24px;
           width: 24px;
+
+          @media (min-width: 768px) {
+            margin-right: 6px;
+          }
         }
       }
     }
@@ -103,12 +148,26 @@
       .dark-blue;
       .nunito-sans-bold;
       font-size: @font-size-17px;
-      margin-top: 24px;
-      margin-bottom: 6px;
+      margin-top: 10px;
+
+      @media (min-width: 768px) {
+        margin-top: 28px;
+        margin-bottom: 16px;
+      }
+
+      @media (min-width: 1024px) {
+        margin-top: 18px;
+        margin-bottom: 24px;
+      }
+
+      @media (min-width: 1440px) {
+        font-size: @font-size-24px;
+        margin-top: 40px;
+        margin-bottom: 32px;
+      }
     }
 
     .results-row {
-      background-color: rgba(blue, 0.1);
       display: flex;
       flex-wrap: nowrap;
       flex-direction: column;
@@ -116,12 +175,17 @@
 
       @media (min-width: 768px) {
         flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
       }
 
       .result-col {
-        background-color: rgba(yellow, 0.1);
-        margin: 18px 0;
+        margin: 10px 0;
         text-align: center;
+
+        @media (min-width: 768px) {
+          width: calc(50% - 30px - 6px);
+        }
 
         .result-num {
           .work-sans-light;
@@ -129,17 +193,13 @@
           .green;
           line-height: 1.2;
 
-          // @media (min-width: 768px) {
-          //     font-size: @font-size-60px;
-          // }
+          @media (min-width: 768px) {
+            font-size: @font-size-60px;
+          }
 
-          // @media (min-width: 1024px) {
-          //     font-size: @font-size-77px;
-          // }
-
-          // @media (min-width: 1440px) {
-          //     font-size: @font-size-108px;
-          // }
+          @media (min-width: 1440px) {
+            font-size: @font-size-108px;
+          }
         }
 
         .gas-wrapper {
@@ -147,17 +207,33 @@
           align-items: center;
           justify-content: center;
 
+          @media (min-width: 1440px) {
+            margin-top: 4px;
+          }
+
           .result-icon {
             width: 18px;
             height: 18px;
-            margin-right: 8px;
+            margin-right: 4px;
+
+            @media (min-width: 768px) {
+              margin-right: 2px;
+            }
           }
 
           .legend {
-            font-size: @font-size-16px;
+            font-size: @font-size-14px;
             .work-sans-semibold;
             .uppercase;
-            // width: 13.75rem;
+            line-height: 1;
+
+            @media (min-width: 768px) {
+              font-size: @font-size-13px;
+            }
+
+            @media (min-width: 1440px) {
+              font-size: @font-size-18px;
+            }
           }
         }
 
@@ -165,6 +241,17 @@
           font-size: @font-size-14px;
           font-weight: 600;
           .uppercase;
+          line-height: 1;
+          margin-top: 8px;
+
+          @media (min-width: 768px) {
+            font-size: @font-size-13px;
+            margin-top: 28px;
+          }
+
+          @media (min-width: 1024px) {
+            margin-top: 24px;
+          }
 
           @media (min-width: 1440px) {
             font-size: @font-size-18px;
@@ -181,6 +268,21 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-top: 8px;
+
+        @media (min-width: 768px) {
+          width: 60px;
+          height: 60px;
+          font-size: 32px;
+          margin-top: 16px;
+        }
+
+        @media (min-width: 1440px) {
+          width: 84px;
+          height: 84px;
+          font-size: 48px;
+          margin-top: 32px;
+        }
       }
     }
 
@@ -189,11 +291,13 @@
       font-size: @font-size-12px;
       text-align: center;
       line-height: 1.2;
-      margin-top: 8px;
-      margin-bottom: 30px;
+      margin-top: 10px;
+      margin-bottom: 32px;
 
       @media (min-width: 768px) {
         font-size: @font-size-14px;
+        margin-top: 32px;
+        margin-bottom: 22px;
       }
 
       @media (min-width: 1024px) {
@@ -202,6 +306,8 @@
 
       @media (min-width: 1440px) {
         font-size: @font-size-12px;
+        margin-top: 52px;
+        margin-bottom: 32px;
       }
     }
   }
