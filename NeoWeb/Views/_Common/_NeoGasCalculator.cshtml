@@ -64,8 +64,6 @@
 
             const holdingGas = (+value * 10512000 * 0.1 / 100000000 / 12).toFixed(2)
             const governanceGas = (+value * 10512000 * 0.8 / 20000000 / 12).toFixed(2)
-            console.log('holdingGas:', holdingGas)
-            console.log('governanceGas:', governanceGas)
             $(".ngc-result-holding").html(holdingGas)
             $(".ngc-result-governance").html(governanceGas)
         })
