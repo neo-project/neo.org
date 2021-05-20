@@ -219,9 +219,6 @@
   <data name="Latest" xml:space="preserve">
     <value>最新</value>
   </data>
-  <data name="Latest News:" xml:space="preserve">
-    <value>最新资讯：</value>
-  </data>
   <data name="Learn More" xml:space="preserve">
     <value>了解更多</value>
   </data>
@@ -302,15 +299,6 @@
   </data>
   <data name="Smart Contracts" xml:space="preserve">
     <value>先进智能合约</value>
-  </data>
-  <data name="Take a look at the latest version of the Neo platform" xml:space="preserve">
-    <value>最新版本的 Neo 区块链已经到来</value>
-  </data>
-  <data name="Take A Tour" xml:space="preserve">
-    <value>开启 N3 之旅</value>
-  </data>
-  <data name="The Complete Blockchain Development Platform" xml:space="preserve">
-    <value>全功能 &lt;br /&gt; 区块链 &lt;br /&gt; 开发平台</value>
   </data>
   <data name="This is an example of a article on the latest news ticker" xml:space="preserve">
     <value>点击查看最新资讯</value>
