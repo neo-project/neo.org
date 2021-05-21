@@ -1,23 +1,64 @@
 @import "./basic.less";
 
 .hero-container.home-frontier {
+  background-image: url('/images/home/n3-frontier/n3-frontier-backdrop-320.jpg');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
   background-color: #101213;
+  color: @green;
+
+  @media (min-width: 768px) {
+    background-image: url('/images/home/n3-frontier/n3-frontier-backdrop-768.jpg');
+  }
+
+  @media (min-width: 1024px) {
+    background-image: url('/images/home/n3-frontier/n3-frontier-backdrop-1440.jpg');
+  }
 
   .hero-inner-wrapper {
     padding-top: 90px;
     padding-bottom: 64px;
-    max-width: 320px;
-    margin: 0 auto;
+    // max-width: 320px;
+    // margin: 0 auto;
     background-color: rgba(white, 0.1);
-    color: @green;
-
-    .col-left {
-      // background-color: rgba(yellow, 0.1);
+    
+    @media (min-width: 1024px) {
+      display: flex;
     }
 
+    .col-left,
     .col-right {
-      // background-color: rgba(yellow, 0.2);
+      overflow: hidden;
+
+      @media (min-width: 1024px) {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 50%;
+      }
+    }
+
+    .col-left {
+      .laptop-container {
+        @media (min-width: 1024px) {
+          display: none;
+        }
+      }
+    }
+
+
+
+    .col-right {
       display: none;
+
+      @media (min-width: 1024px) {
+        display: block;
+        margin-top: 90px; // TODO
+      }
+
+      .news-container {
+        margin-top: 32px;
+      }
     }
 
 
@@ -64,5 +105,48 @@
       }
     }
 
+    .laptop-container {
+
+      @media (min-width: 768px) {
+
+      }
+  
+      @media (min-width: 1024px) {
+        height: 675px;
+      }
+  
+      @media (min-width: 1440px) {
+  
+      }
+
+      > img {
+        height: 100%;
+      }
+    }
+
+    .news-container {
+      text-align: center;
+      
+      .news-wrapper {
+        display: inline-block;
+        text-align: left;
+
+        .caption {
+          font-size: 16px; // TODO
+          line-height: 1;
+          .work-sans-bold;
+          .uppercase;
+          letter-spacing: 3px;
+        }
+  
+        .news-link {
+          color: @green;
+          font-size: 16px; // TODO
+          line-height: 1.2;
+          .work-sans-semibold;
+        }
+      }
+
+    }
   }
 }

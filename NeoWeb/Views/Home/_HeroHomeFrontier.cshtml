@@ -7,6 +7,7 @@
   <div class="hero-inner-wrapper">
 
     <div class="col-left">
+      @* Heading container *@
       <div class="heading-container">
         <div class="n3-logo">
           N3
@@ -18,11 +19,48 @@
         </div>
       </div>
 
-      
+      @* Laptop container *@
+      <div class="laptop-container">
+        <img src="@Helper.ToCDN("/images/transparent.png")"
+             data-original="@Helper.ToCDN("/images/home/n3-frontier/n3-frontier-laptop.png")"
+             alt="" />
+      </div>
+
+      @* Prizes container *@
+      <div class="prizes-container">
+        <div class="caption">$100,000+ in prizes</div>
+        <div class="categories">
+          <div class="category defi">
+            <div class="category-name">DeFi</div>
+            <div class="category-prize">$12,000+</div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <div class="col-right">
-      TBA
+      @* Laptop container *@
+      <div class="laptop-container">
+        <img src="@Helper.ToCDN("/images/transparent.png")"
+             data-original="@Helper.ToCDN("/images/home/n3-frontier/n3-frontier-laptop.png")"
+             alt="" />
+      </div>
+
+      @* News container *@
+      <div class="news-container">
+        <div class="news-wrapper">
+          <div class="caption">
+            @Localizer["Latest News:"]
+          </div>
+          <a class="news-link"
+            href="~/blog/details/@Model.FirstOrDefault(p => p.Type == NewsViewModelType.Blog).Blog.Id">
+            <span>@Model[0].Blog.Title</span>
+            <i class="iconfont circle-arrow-icon green">&#xe6ab;</i>
+          </a>
+        </div>
+
+      </div>
     </div>
   </div>
   
