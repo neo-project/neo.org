@@ -132,9 +132,6 @@
   <data name="A set of self-sovereign decentralized identity solution standards." xml:space="preserve">
     <value>全局自主权去中心化身份解决方案。</value>
   </data>
-  <data name="A user with" xml:space="preserve">
-    <value>用户持有</value>
-  </data>
   <data name="After four years of stable MainNet operation, Neo is undergoing its biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
     <value>2016 年，Neo主网开始稳定运行。2021年，Neo 正向有史以来最强大且全能的版本 N3 进行迁移。</value>
   </data>
@@ -165,29 +162,17 @@
   <data name="Ecosystem" xml:space="preserve">
     <value>生态</value>
   </data>
-  <data name="estimate based on average 20% circulating NEO voting participation" xml:space="preserve">
-    <value>根据 20% 投票参与率预估</value>
-  </data>
   <data name="Explore the" xml:space="preserve">
     <value>了解</value>
   </data>
   <data name="Find a Wallet" xml:space="preserve">
     <value>NEO 钱包</value>
   </data>
-  <data name="For Governance Participation" xml:space="preserve">
-    <value>参与治理</value>
-  </data>
-  <data name="For holding NEO" xml:space="preserve">
-    <value>持有 NEO</value>
-  </data>
   <data name="&lt;em&gt;Building Blocks&lt;/em&gt; for the Next Generation Internet" xml:space="preserve">
     <value>下一代 &lt;br /&gt; 互联网的&lt;br /&gt;&lt;em&gt;基石&lt;/em&gt;</value>
   </data>
   <data name="GAS is used to pay for network fees, smart contract deployments, and in dApp purchases." xml:space="preserve">
     <value>GAS 的使用场景包括支付 Neo 区块链上的网络费用、智能合约部署费用，以及 dAPP 交互等等。</value>
-  </data>
-  <data name="Gas Per Month" xml:space="preserve">
-    <value>GAS/ 月</value>
   </data>
   <data name="GAS rewards are distributed to both voters and committee members." xml:space="preserve">
     <value>投票者与委员会成员都将获得 GAS 奖励。</value>
@@ -239,9 +224,6 @@
   </data>
   <data name="Neo" xml:space="preserve">
     <value>Neo</value>
-  </data>
-  <data name="NEO &amp; GAS Calculator" xml:space="preserve">
-    <value>GAS 计算器</value>
   </data>
   <data name="Neo &amp; Gas Tokens" xml:space="preserve">
     <value>NEO &amp; GAS 通证</value>
@@ -308,9 +290,6 @@
   </data>
   <data name="View All" xml:space="preserve">
     <value>查看全部</value>
-  </data>
-  <data name="would receive up to" xml:space="preserve">
-    <value>最多获得</value>
   </data>
   <data name="Write smart contracts in a language you already love" xml:space="preserve">
     <value>熟悉的语言 + 熟悉的工具 &lt;br /&gt;= 轻松编写智能合约</value>

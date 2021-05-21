@@ -335,6 +335,12 @@ table, .table {
         transition: transform 0.3s ease-in-out;
     }
 }
+// Prevent display of navbar in small viewport when code window is opened
+html[data-code-window-open] .navbar {
+    @media only screen and (max-width: 767.98px) {
+        display: none;
+    }
+}
 
 //面包屑导航条
 .bread-crumb {
