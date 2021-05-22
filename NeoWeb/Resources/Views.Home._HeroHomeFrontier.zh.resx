@@ -117,4 +117,51 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="N3" xml:space="preserve">
+    <value>N3</value>
+  </data>
+<!-- 
+  <data name="Neo Frontier" xml:space="preserve">
+    <value>来来来</value>
+  </data>
+  <data name="Launchpad" xml:space="preserve">
+    <value>来来来</value>
+  </data>
+  <data name="May 24th - July 12th" xml:space="preserve">
+    <value>来来来</value>
+  </data>
+  <data name="$100,000+ in prizes" xml:space="preserve">
+    <value>来来来</value>
+  </data>
+  <data name="DeFi" xml:space="preserve">
+    <value>来来来</value>
+  </data>
+  <data name="NFT" xml:space="preserve">
+    <value>来来来</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>来来来</value>
+  </data>
+  <data name="$12,000+" xml:space="preserve">
+    <value>来来来</value>
+  </data>
+  <data name="+ Plus" xml:space="preserve">
+    <value>来来来</value>
+  </data>
+  <data name="8 x excellence awards of $5,000 each + prize multipliers" xml:space="preserve">
+    <value>来来来</value>
+  </data>
+  <data name="Incubation opportunities to the best teams" xml:space="preserve">
+    <value>来来来</value>
+  </data>
+  <data name="Vested NEO awards for teams that continue to build beyond the hackathon" xml:space="preserve">
+    <value>来来来</value>
+  </data>
+  <data name="Register on Devpost" xml:space="preserve">
+    <value>来来来</value>
+  </data>
+-->
+  <data name="Latest News:" xml:space="preserve">
+    <value>最新资讯：</value>
+  </data>
 </root>
