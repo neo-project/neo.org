@@ -4,23 +4,20 @@
   background-image: url("/images/home/n3-frontier/n3-frontier-backdrop-320.jpg");
   background-repeat: no-repeat;
   background-position: top center;
-  background-size: cover;
+  background-size: contain;
   background-color: #101213;
   color: @green;
 
   @media (min-width: 768px) {
-    // background-image: url('/images/home/n3-frontier/n3-frontier-backdrop-768.jpg');
-    background-image: none;
-    background-color: brown;
+    background-image: url("/images/home/n3-frontier/n3-frontier-backdrop-768.jpg");
   }
 
   @media (min-width: 1024px) {
-    // background-image: url('/images/home/n3-frontier/n3-frontier-backdrop-1440.jpg');
-    background-color: darkslategray;
+    background-image: url("/images/home/n3-frontier/n3-frontier-backdrop-1440.jpg");
+    background-size: cover;
   }
 
   @media (min-width: 1440px) {
-    background-color: darkviolet;
   }
 
   // Layouts
@@ -28,7 +25,6 @@
   .hero-inner-wrapper {
     padding-top: 120px;
     padding-bottom: 64px;
-    background-color: rgba(white, 0.1);
 
     @media (min-width: 768px) {
       padding-top: 170px;
