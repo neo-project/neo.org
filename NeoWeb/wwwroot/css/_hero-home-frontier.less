@@ -9,26 +9,28 @@
   color: @green;
 
   @media (min-width: 768px) {
-    background-image: url('/images/home/n3-frontier/n3-frontier-backdrop-768.jpg');
+    // background-image: url('/images/home/n3-frontier/n3-frontier-backdrop-768.jpg');
+    background-image: none;
+    background-color: brown;
   }
 
   @media (min-width: 1024px) {
-    background-image: url('/images/home/n3-frontier/n3-frontier-backdrop-1440.jpg');
+    // background-image: url('/images/home/n3-frontier/n3-frontier-backdrop-1440.jpg');
   }
 
+  // Layouts
+
   .hero-inner-wrapper {
-    padding-top: 90px;
+    padding-top: 120px;
     padding-bottom: 64px;
-    // max-width: 320px;
-    // margin: 0 auto;
     background-color: rgba(white, 0.1);
     
     @media (min-width: 1024px) {
       display: flex;
     }
 
-    .col-left,
-    .col-right {
+    .primary-section,
+    .secondary-section {
       overflow: hidden;
 
       @media (min-width: 1024px) {
@@ -38,31 +40,33 @@
       }
     }
 
-    .col-left {
+    .primary-section {
       .laptop-container {
+        @media (min-width: 1024px) {
+          display: none;
+        }
+      }
+
+      .news-container {
         @media (min-width: 1024px) {
           display: none;
         }
       }
     }
 
-
-
-    .col-right {
+    .secondary-section {
       display: none;
 
       @media (min-width: 1024px) {
         display: block;
-        margin-top: 90px; // TODO
-      }
-
-      .news-container {
-        margin-top: 32px;
       }
     }
 
+    // Subcomponents
 
     .heading-container {
+      padding: 0 16px;
+
       .n3-logo {
         border: solid 2px @green;
         box-sizing: border-box;
@@ -105,7 +109,103 @@
       }
     }
 
+    .prizes-container {
+      padding: 0 16px;
+      margin-top: 32px;
+
+      .caption {
+        color: white;
+        font-size: 54px; // TODO
+        line-height: 1.2;
+        .work-sans-semibold;
+        .uppercase;
+        text-align: center;
+      }
+
+      .categories {
+        margin-top: 48px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .category {
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin: 16px 0;
+
+          .category-icon {
+            width: 160px;
+
+            img {
+              width: 100%;
+            }
+          }
+
+          .category-name {
+            margin-top: 22px;
+            color: white;
+            font-size: 24px; // TODO
+            line-height: 1;
+            font-weight: bold;
+          }
+
+          .category-prize {
+            margin-top: 18px;
+            font-size: 36px; // TODO
+            line-height: 1;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
+    .plus-container {
+      padding: 0 16px;
+      margin-top: 60px;
+
+      .caption {
+        font-size: 36px; // TODO
+        line-height: 1;
+        .work-sans-semibold;
+        .uppercase;
+        text-align: center;
+      }
+
+      ul {
+        margin-top: 24px;
+        padding-left: 16px;
+        color: white;
+        font-size: 20px; // TODO
+        line-height: 1.4;
+        font-family: WorkSans;
+        
+        li {
+          padding-left: 8px;
+        }
+      }
+    }
+
+    .cta-container {
+      padding: 0 16px;
+      margin-top: 60px;
+      text-align: center;
+
+      .cta {
+        color: #000234;
+        font-size: 18px; // TODO
+        .work-sans-semibold;
+
+        &:hover {
+          color: white;
+        }
+      }
+    }
+
     .laptop-container {
+      height: 320px;
+      margin-top: 48px;
 
       @media (min-width: 768px) {
 
@@ -121,11 +221,13 @@
 
       > img {
         height: 100%;
+        transform: translateX(32px);
       }
     }
 
     .news-container {
-      text-align: center;
+      padding: 0 16px;
+      margin-top: 60px;
       
       .news-wrapper {
         display: inline-block;
@@ -137,6 +239,7 @@
           .work-sans-bold;
           .uppercase;
           letter-spacing: 3px;
+          margin-bottom: 8px;
         }
   
         .news-link {
@@ -144,6 +247,11 @@
           font-size: 16px; // TODO
           line-height: 1.2;
           .work-sans-semibold;
+
+          .circle-arrow-icon {
+            background-color: @green;
+            color: #000234;
+          }
         }
       }
 
