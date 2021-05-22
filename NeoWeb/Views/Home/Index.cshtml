@@ -9,6 +9,7 @@
 @* 基本块 - Home page *@
 @{
     Boolean FRONTIER_PROMOTION_ENABLED = true;
+    Boolean DISPLAY_ADDITIONAL_TAKE_TOUR_BUTTON = true;
 }
 <div class="home-container">
 
@@ -46,6 +47,12 @@
                         <div class="highlight-name">@Localizer[highlightItems[i, 0]]</div>
                     </div> } }
             </div>
+
+            @if(DISPLAY_ADDITIONAL_TAKE_TOUR_BUTTON) {
+                <div class="additional-button-wrapper">
+                    <a asp-controller="tour" asp-action="index" class="btn-2" target="_blank">@Localizer["Take A Tour"]</a>
+                </div>
+            }
         </div>
     </div>
 
@@ -61,6 +68,12 @@
                 @Localizer["After four years of stable MainNet operation, Neo is undergoing its biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]
             </div>
             <a class="btn-2" asp-controller="migration" asp-action="index">@Localizer["Learn More"]</a>
+
+            @if(DISPLAY_ADDITIONAL_TAKE_TOUR_BUTTON) {
+                <div class="additional-button-wrapper">
+                    <a asp-controller="tour" asp-action="index" class="btn-2" target="_blank">@Localizer["Take A Tour"]</a>
+                </div>
+            }
         </div>
         <div class="col-12 col-md-6 col-right">
             <div class="get-started-wrapper">

@@ -221,13 +221,17 @@ html body {
 
 // All-in-One
 .aio-row {
-
     @media only screen and (max-height: 1040px) {
         zoom: 80%;
     }
 
     @media only screen and (max-width: 767.98px) {
         display: none;
+    }
+
+    .additional-button-wrapper {
+        margin-bottom: 40px;
+        text-align: center;
     }
 }
 
@@ -370,6 +374,14 @@ html body {
             height: 100%;
             padding-left: 0;
             width: 100%;
+        }
+    }
+
+    .additional-button-wrapper {
+        margin-top: 8px;
+
+        @media (min-width: 768px) {
+            display: none;
         }
     }
 }
