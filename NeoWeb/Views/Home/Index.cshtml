@@ -7,11 +7,16 @@
     <link rel="stylesheet" href="@Helper.ToCDN("/css/home.min.css", true)" />
 }
 @* 基本块 - Home page *@
-
+@{
+    Boolean FRONTIER_PROMOTION_ENABLED = true;
+}
 <div class="home-container">
 
-    @* <partial name="./_HeroHomeDefault" /> *@
-    <partial name="./_HeroHomeFrontier" />
+    @if(FRONTIER_PROMOTION_ENABLED) {
+        <partial name="./_HeroHomeFrontier" />
+    } else {
+        <partial name="./_HeroHomeDefault" />
+    }
 
     <div class="row horiz-row aio-row">
         <div class="col-12 col-md-12">
