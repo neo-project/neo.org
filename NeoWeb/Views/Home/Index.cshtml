@@ -7,28 +7,17 @@
     <link rel="stylesheet" href="@Helper.ToCDN("/css/home.min.css", true)" />
 }
 @* 基本块 - Home page *@
-
+@{
+    Boolean FRONTIER_PROMOTION_ENABLED = true;
+    Boolean DISPLAY_ADDITIONAL_TAKE_TOUR_BUTTON = true;
+}
 <div class="home-container">
-    <div class="landing-row">
-        <div class="col-left">
-            <div class="col-left-content">
-                <img class="logo-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/N3Logo.svg")" />
-                <div class="sub-title work-sans-semibold">@Localizer["Take a look at the latest version of the Neo platform"]</div>
-                <a asp-controller="tour" asp-action="index" class="btn-n3 tour-btn" target="_blank">@Localizer["Take A Tour"]</a>
-            </div>
-        </div>
 
-        <div class="col-right">
-            <div class="landing-title">@Localizer["The Complete Blockchain Development Platform"]</div>
-            <div class="news-wrapper">
-                <div class="latest-news-text">
-                    @Localizer["Latest News:"]
-                </div>
-                <a class="news-link" href="~/blog/details/@Model.FirstOrDefault(p => p.Type == NewsViewModelType.Blog).Blog.Id">@Model[0].Blog.Title <i class="iconfont circle-arrow-icon green">&#xe6ab;</i></a>
-            </div>
-        </div>
-
-    </div>
+    @if(FRONTIER_PROMOTION_ENABLED) {
+        <partial name="./_HeroHomeFrontier" />
+    } else {
+        <partial name="./_HeroHomeDefault" />
+    }
 
     <div class="row horiz-row aio-row">
         <div class="col-12 col-md-12">
@@ -58,6 +47,12 @@
                         <div class="highlight-name">@Localizer[highlightItems[i, 0]]</div>
                     </div> } }
             </div>
+
+            @if(DISPLAY_ADDITIONAL_TAKE_TOUR_BUTTON) {
+                <div class="additional-button-wrapper">
+                    <a asp-controller="tour" asp-action="index" class="btn-2" target="_blank">@Localizer["Take A Tour"]</a>
+                </div>
+            }
         </div>
     </div>
 
@@ -73,6 +68,12 @@
                 @Localizer["After four years of stable MainNet operation, Neo is undergoing its biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]
             </div>
             <a class="btn-2" asp-controller="migration" asp-action="index">@Localizer["Learn More"]</a>
+
+            @if(DISPLAY_ADDITIONAL_TAKE_TOUR_BUTTON) {
+                <div class="additional-button-wrapper">
+                    <a asp-controller="tour" asp-action="index" class="btn-2" target="_blank">@Localizer["Take A Tour"]</a>
+                </div>
+            }
         </div>
         <div class="col-12 col-md-6 col-right">
             <div class="get-started-wrapper">
