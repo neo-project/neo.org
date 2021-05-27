@@ -57,8 +57,13 @@
       </div>
 
       @* Plus container *@
+      @{
+          Boolean DISPLAY_PLUS_CAPTION = false;
+      }
       <div class="plus-container">
-        <div class="caption">@Localizer["+ Plus"]</div>
+        @if(DISPLAY_PLUS_CAPTION) {
+            <div class="caption">@Localizer["+ Plus"]</div>
+        }
         <ul>
           <li>@Localizer["8 x excellence awards of $5,000 each + prize multipliers"]</li>
           <li>@Localizer["Incubation opportunities to the best teams"]</li>
