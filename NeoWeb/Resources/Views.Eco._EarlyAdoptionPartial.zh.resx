@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="- If not, how will you demonstrate that your project will bring value to the Neo ecosystem?" xml:space="preserve">
+    <value>- 如果没有，您将如何证明您的项目会给 Neo 生态带来价值？</value>
+  </data>
+  <data name="- If so, how is your project different?" xml:space="preserve">
+    <value>- 如果有，您的项目有什么不同？</value>
+  </data>
+  <data name="A summary of why your team is motivated by and interested in developing this project." xml:space="preserve">
+    <value>简要说明您的团队为何对此项目感兴趣（为何选择开发此项目）。</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>关于 Early Adoption</value>
+  </data>
+  <data name="Additional Information" xml:space="preserve">
+    <value>其他信息</value>
+  </data>
+  <data name="AMMs, lending, stablecoins, asset managers, synthetic assets, liquidity pools" xml:space="preserve">
+    <value>AMM、借贷、稳定币、资产管理、合成资产、流动性资金池</value>
+  </data>
+  <data name="An explanation of why this project is important to the Neo ecosystem. Are there any other projects similar to yours in the Neo ecosystem?" xml:space="preserve">
+    <value>该项目对 Neo 生态的重要性体现在何处？Neo 生态中是否有其他相似的现存项目？</value>
+  </data>
+  <data name="Any anticipated challenges or risks to successful delivery and completion of the project." xml:space="preserve">
+    <value>对于成功完成并交付此项目，您有何预期挑战或风险？</value>
+  </data>
+  <data name="Application" xml:space="preserve">
+    <value>申请</value>
+  </data>
+  <data name="Application Template" xml:space="preserve">
+    <value>申请书模版</value>
+  </data>
+  <data name="Business direction" xml:space="preserve">
+    <value>业务方向</value>
+  </data>
+  <data name="Continuously revitalizing the Neo developer community while assisting existing Neo projects with migration from Neo Legacy." xml:space="preserve">
+    <value>进一步壮大 Neo 开发者社区，同时帮助现有项目从 Neo Legacy 上迁移至 Neo N3。</value>
+  </data>
+  <data name="Developer Guidance: documentation and/or tutorials for using the deliverables." xml:space="preserve">
+    <value>开发指南：使用交付成果的文件和 / 或教程。</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>时间段</value>
+  </data>
+  <data name="Early Adoption Program" xml:space="preserve">
+    <value>Early Adoption Program</value>
+  </data>
+  <data name="Early Adoption Program is aimed at accomplishing the following goals:" xml:space="preserve">
+    <value>Early Adoption 项希望达成以下目标：</value>
+  </data>
+  <data name="Eligibility" xml:space="preserve">
+    <value>资格认证</value>
+  </data>
+  <data name="Encouraging more new projects to participate in early development using Neo N3." xml:space="preserve">
+    <value>吸引更多的新项目加入 Neo N3 的早期开发。</value>
+  </data>
+  <data name="Encouraging projects to provide feedback on Neo N3 to ensure continuous optimization." xml:space="preserve">
+    <value>鼓励各项目提供有关 Neo N3 的反馈，促进其持续优化。</value>
+  </data>
+  <data name="Engineering Excellence: in the quality of the software deliverables." xml:space="preserve">
+    <value>卓越性：技术成果的交付质量。</value>
+  </data>
+  <data name="Existing businesses" xml:space="preserve">
+    <value>现有业务</value>
+  </data>
+  <data name="Features" xml:space="preserve">
+    <value>特性</value>
+  </data>
+  <data name="Focus: the project brings value to the Neo ecosystem." xml:space="preserve">
+    <value>规划重点：该项目为 Neo 生态带来的价值。</value>
+  </data>
+  <data name="For each milestone, please provide details for the following sections:" xml:space="preserve">
+    <value>请提供有关每个里程碑的以下详细信息：</value>
+  </data>
+  <data name="Funding" xml:space="preserve">
+    <value>资金</value>
+  </data>
+  <data name="Future Plans" xml:space="preserve">
+    <value>未来规划</value>
+  </data>
+  <data name="Games" xml:space="preserve">
+    <value>游戏</value>
+  </data>
+  <data name="General infrastructure" xml:space="preserve">
+    <value>一般基础设施</value>
+  </data>
+  <data name="Ideal for individuals or small teams looking to get started on N3. Typically, these types of projects will be early stage or proof-of-concept initiatives. Applications should focus on using N3 in ways that demonstrate new functionality, test the limits of N3 capabilities, or provide practical examples to the wider Neo development community." xml:space="preserve">
+    <value>对想要在 N3 上起步的个人或小型团队来说，Early Adoption 项目无疑是一个最佳选择。这种类型的项目往往处于早期阶段，甚至只是对现有概念进行了初步验证。因此，此类项目的申请重点应该放在展示在 N3 上实现的新功能、测试 N3 的能力极限或为广大 Neo 开发社区提供可实践的案例上面。</value>
+  </data>
+  <data name="In order to better understand the project and the team's capability to deliver the project, please clearly outline a detailed project plan, including but not limited to architecture design, its features or the project's Gantt chart, etc. Feel welcome to use any method to demonstrate the idea and features of the project, such as a PoC (proof of concept), MVP (minimum viable product), prototype or design, etc." xml:space="preserve">
+    <value>为了使我们更好地了解您的项目和团队交付能力，请清楚地列出详细的项目计划，包括但不限于架构设计、项目功能或项目甘特图等。您可以用任何方法展示项目构想和功能，如 PoC（概念证明）、MVP（最小可行产品）、原型或设计等。</value>
+  </data>
+  <data name="In terms of the business direction, we are interested in the following:" xml:space="preserve">
+    <value>以下是我们最感兴趣的业务方向：</value>
+  </data>
+  <data name="Introduction to the project and its use cases or scenarios." xml:space="preserve">
+    <value>项目使用案例或应用场景的介绍</value>
+  </data>
+  <data name="Layer2 protocols, scalability, privacy, DAO technologies" xml:space="preserve">
+    <value>Layer2 协议、可扩展性、隐私、DAO</value>
+  </data>
+  <data name="Legal entity information (if you have one)" xml:space="preserve">
+    <value>法人实体信息（如果有）</value>
+  </data>
+  <data name="Marketplaces, explorers, wallets, fractional-ownership, gaming" xml:space="preserve">
+    <value>平台、浏览器、钱包、部分所有权、游戏</value>
+  </data>
+  <data name="Neo is actively seeking out high potential projects for incubation and growth. We are looking forward to working with enthusiastic and driven teams who are committed to exploring and pushing the boundaries of blockchain technology. With your help, we hope to develop new business innovations while implementing novel ideas to achieve the smart economy of tomorrow." xml:space="preserve">
+    <value>Neo 正在积极寻找潜在的生态项目进行孵化培养。我们期待与那些致力于探索和推动区块链技术发展的、充满热情和动力的团队合作，实践新创想、开发新业务，共同实现智能经济的未来。</value>
+  </data>
+  <data name="Neo Name Service 使用案例" xml:space="preserve">
+    <value>Neo Name Service use cases</value>
+  </data>
+  <data name="Neo Oracle use cases" xml:space="preserve">
+    <value>Neo 内置 Oracle 使用案例</value>
+  </data>
+  <data name="NeoFS use cases" xml:space="preserve">
+    <value>NeoFS 使用案例</value>
+  </data>
+  <data name="Please demonstrate that you follow best practices in your project planning (Software Development Life Cycle etc)." xml:space="preserve">
+    <value>请证明您的项目是按照最优化方法进行规划的（软件开发生命周期等）。</value>
+  </data>
+  <data name="Please estimate the development time for each milestone." xml:space="preserve">
+    <value>请预估每个里程碑的开发时间。</value>
+  </data>
+  <data name="Please highlight the iteration plan and corresponding deliverables which should be beta version products that can be tested/verified, and also indicate any relevant documentation or tutorials." xml:space="preserve">
+    <value>请着重说明迭代计划和相应的可交付成果，这些成果应该是可以被测试或验证的测试版产品。同时还需提供所有的相关文档或教程。</value>
+  </data>
+  <data name="Please include a specific feature/capability list which will be delivered for each milestone, and also provide enough details for subsequent product acceptance review." xml:space="preserve">
+    <value>包括每个里程碑将要交付的具体特性 / 功能清单，为后续产品的验收审查提供足够的信息。</value>
+  </data>
+  <data name="Please include a total budget plan for each milestone. This may be broken down into the number of days alongside labor cost per day. An indication of the number of full-time employees working on each milestone will be highly appreciated." xml:space="preserve">
+    <value>请提供一个总预算计划书，包括各个里程碑分别需要多少预算，可以细分为每天的劳动成本。如果可能，也请进一步说明每个里程碑需要多少全职员工。</value>
+  </data>
+  <data name="Please include any additional information that you think is relevant to this application and that hasn't already been included." xml:space="preserve">
+    <value />
+  </data>
+  <data name="Please include the team's longer-term business plans and priorities." xml:space="preserve">
+    <value>团队的长期业务计划和优先级别</value>
+  </data>
+  <data name="Please prioritize these important criteria as the team prepares the roadmap and milestones:" xml:space="preserve">
+    <value>请根据以下条件规划您的路线图和里程碑：</value>
+  </data>
+  <data name="Please provide a personal introduction, team structure and capabilities, as well as individual GitHub and CVs or LinkedIn profiles as reference. Please also indicate who will work full-time on the project." xml:space="preserve">
+    <value>请提供个人介绍、团队结构和能力说明，以及个人 GitHub 和简历或 LinkedIn 简介作为参考。也请说明谁将全职任职于该项目。</value>
+  </data>
+  <data name="Please provide the following:" xml:space="preserve">
+    <value>请提供以下信息：</value>
+  </data>
+  <data name="Please structure the development roadmap into multiple milestones with as much detail as possible. When each milestone is delivered, we will review the milestone report to ensure that everything has been delivered as per the expectations laid down in the proposal roadmap." xml:space="preserve">
+    <value>请将开发路线图结构化为多个里程碑，并尽可能详细地进行阐释和说明。每个里程碑交付后我们都会审查相关报告，以确保与提交的开发路线图相吻合。</value>
+  </data>
+  <data name="Please use the below template to fill in the details of the proposed project and send it to &lt;a href=&quot;mailto: grants@neo.org&quot;&gt;grants@neo.org&lt;/a&gt;. The Neo EcoGrowth team will contact you within approximately two weeks of application receipt." xml:space="preserve">
+    <value>请用以下模板填写拟议项目的细节，并发送至 &lt;a href=\"mailto: grants@neo.org\"&gt;grants@neo.org&lt;/a&gt;。Neo 生态发展部门大约会在收到申请书后的两周内联系您。</value>
+  </data>
+  <data name="Project Introduction" xml:space="preserve">
+    <value>项目介绍</value>
+  </data>
+  <data name="Project Name" xml:space="preserve">
+    <value>项目名称</value>
+  </data>
+  <data name="Project Plan" xml:space="preserve">
+    <value>项目计划</value>
+  </data>
+  <data name="Project Timeframe: up to 6 months is ideal." xml:space="preserve">
+    <value>项目时间：理想为 6 个月内。</value>
+  </data>
+  <data name="Rapidly establishing Neo N3’s infrastructure while bolstering awareness." xml:space="preserve">
+    <value>迅速开发 Neo N3 基础设施，同时加强市场宣传。</value>
+  </data>
+  <data name="Related experience" xml:space="preserve">
+    <value>相关经验</value>
+  </data>
+  <data name="Small or concept projects" xml:space="preserve">
+    <value>小型项目 &amp; 概念项目</value>
+  </data>
+  <data name="Start-up projects" xml:space="preserve">
+    <value>初创项目</value>
+  </data>
+  <data name="Team" xml:space="preserve">
+    <value>团队</value>
+  </data>
+  <data name="Team Composition" xml:space="preserve">
+    <value>团队组成</value>
+  </data>
+  <data name="Team Introduction" xml:space="preserve">
+    <value>团队介绍</value>
+  </data>
+  <data name="Team leader" xml:space="preserve">
+    <value>团队负责人</value>
+  </data>
+  <data name="Team members" xml:space="preserve">
+    <value>团队成员</value>
+  </data>
+  <data name="Team name" xml:space="preserve">
+    <value>团队名称</value>
+  </data>
+  <data name="Team website/GitHub organization" xml:space="preserve">
+    <value>团队网站 /GitHub 组织</value>
+  </data>
+  <data name="Teams that already have a well defined idea or project. Start-up projects are expected to have a clearly defined niche and a sustainable business model. These projects should focus on using Neo N3 to create new business opportunities and provide new applications for Neo ecosystem users. Teams should be prepared to present an existing proof of concept or MVP." xml:space="preserve">
+    <value>初创项目指的是那些已经有了比较明确的想法或发展到了一定阶段的团队。此类项目应该有明确的定位和可持续的商业模式，在申请时应该把重点放在使用 Neo N3 来开发新业务、为 Neo 生态的用户提供新应用上面，同时做好提交现有概念证明或 MVP 的准备。</value>
+  </data>
+  <data name="Teams with an established business model looking to integrate or migrate to Neo N3. These projects should already have an existing user base and will be looking to expand or improve their business through Neo integration. Ideally, teams should be able to bring large scale use cases or well known services to the Neo blockchain." xml:space="preserve">
+    <value>现有业务指已有成熟商业模式的团队，希望将项目整合或迁移到 Neo N3。此类项目应已拥有一定的用户群，并希望通过与 Neo 区块链的整合来扩大或改善他们的业务。理想情况下，此类项目应该能够把大规模应用案例或用户群体带到 Neo 区块链上。</value>
+  </data>
+  <data name="The Early Adoption program will provide financial support to developers (based on the size of the project, team track record, and vision), along with high priority technical and other support." xml:space="preserve">
+    <value>Early Adoption 项目将基于项目团队的规模、产品和愿景提供相应的资金支持、业界领先的技术支持和其他方面的支持。</value>
+  </data>
+  <data name="The launch of N3 is a big milestone for Neo and we've prepared something special for the occasion. To encourage developers to start building on Neo N3, we are launching the Early Adoption Program. This program includes a grant sponsorship funding pool totaling US $10 million and will run from June to September 2021." xml:space="preserve">
+    <value>对于 Neo 来说，N3 主网的正式上线无疑是一个重要的里程碑。为了鼓励开发者们在 Neo N3 上进行开发，我们即将正式启动 Early Adoption 项目。该项目拥有一个总额 1000 万美元的赞助资金池，项目将从 2021 年 6 月运行一直持续到 9 月。</value>
+  </data>
+  <data name="The types of projects welcomed to apply to the Early Adoption Program include:" xml:space="preserve">
+    <value>Early Adoption 欢迎以下类型的项目进行申请：</value>
+  </data>
+  <data name="This information will be used for contractual purposes and for tax declaration as required." xml:space="preserve">
+    <value>此信息将用于订立合同和纳税申报。</value>
+  </data>
+  <data name="Verifiable deliverable" xml:space="preserve">
+    <value>可验证交付物</value>
+  </data>
+  <data name="We appreciate your providing us with related information about your team's experience in the blockchain field, even if it may be in other blockchain ecosystems." xml:space="preserve">
+    <value>请向我们告知您的团队在区块链领域有怎样的相关经验，可以是在其他区块链生态的相关经验。</value>
+  </data>
+</root>

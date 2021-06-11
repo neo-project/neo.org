@@ -14,7 +14,7 @@
         <h1 class="introduction-title">@Localizer["<em>Eco</em><br/>Support"]</h1>
         <div class="introduction-description">@Localizer["Whether you are a hobbyist developer, a fledgling start-up, or an established business, we have a range of initiatives to help you bring your vision to life on the Neo blockchain."]</div>
     </div>
-    <img class="introduction-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/introduction-bg.png", true)" />
+    <img class="introduction-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/introduction-bg.svg", true)" />
 </div>
 
 <div class="divider"></div>
@@ -34,11 +34,16 @@
                 @Localizer["EcoFund"]
                 <i class="iconfont">&#xe6ab;</i>
             </a>
+            <a class="menu-item" asp-controller="eco" asp-action="index" asp-fragment="earlyadoption">
+                @Localizer["Early Adoption Program"]
+                <i class="iconfont">&#xe6ab;</i>
+            </a>
         </div>
         <select class="select-menu-page form-control">
             <option selected="selected">@Localizer["Overview"]</option>
             <option>@Localizer["EcoBoost"]</option>
             <option>@Localizer["EcoFund"]</option>
+            <option>@Localizer["Early Adoption Program"]</option>
         </select>
     </div>
 
@@ -51,6 +56,9 @@
         </div>
         <div class="menu-page">
             <partial name="./_EcoFundPartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_EarlyAdoptionPartial" />
         </div>
     </div>
 </div>
@@ -88,6 +96,8 @@
                     updateMenu(1);
                 } else if (hash === 'ecofund'){
                     updateMenu(2);
+                } else if (hash === 'earlyadoption') {
+                    updateMenu(3);
                 }
             }
 
@@ -99,6 +109,8 @@
                     location.href = '@Url.Action("index", "eco", null, null, null, "ecoboost")';
                 } else if (index === 2) {
                     location.href = '@Url.Action("index", "eco", null, null, null, "ecofund")';
+                } else if (index === 3) {
+                    location.href = '@Url.Action("index", "eco", null, null, null, "earlyadoption")';
                 }
             });
 
@@ -164,6 +176,35 @@
                 throttleUpdateCurrentPage();
 
             });
+        });
+
+        function updateTabs(i) {
+            $('.tab').each((j, tab) => {
+                if (i === j) {
+                    $(tab).addClass('active');
+                } else {
+                    $(tab).removeClass('active');
+                }
+            });
+            $('.tab-page').each((j, tabPage) => {
+                if (i === j) {
+                    $(tabPage).addClass('active');
+                } else {
+                    $(tabPage).removeClass('active');
+                }
+            });
+            $('.select-tab-page').prop('selectedIndex', i);
+            $(window).trigger('scroll');
+        }
+
+        $('.tab').each((i, tab) => {
+            $(tab).click(() => {
+                updateTabs(i);
+            });
+        });
+
+        $('.select-tab-page').change(e => {
+            updateTabs(e.target.selectedIndex);
         });
     </script>
 }

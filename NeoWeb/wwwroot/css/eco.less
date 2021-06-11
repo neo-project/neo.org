@@ -232,129 +232,6 @@
     text-transform: uppercase;
 }
 
-.supports {
-    margin-top: 2.25rem;
-}
-
-.support {
-    position: relative;
-    display: flex;
-    background: #EDF9F7;
-    padding: 2.25rem 1.5rem 2rem 6.875rem;
-
-    & + & {
-        margin-top: 2rem;
-    }
-
-    @media (max-width: 991.98px) {
-        flex-direction: column;
-        padding: 2.88rem 0.81rem 1.13rem;
-        margin-top: 2rem;
-
-        & + & {
-            margin-top: 4rem;
-        }
-    }
-}
-
-.support-i-am {
-    position: absolute;
-    top: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 6.875rem;
-    height: 6.875rem;
-    border: 4px solid @dark-blue;
-    background: #FFFFFF;
-    font-size: 1.25rem;
-    font-family: NunitoSans;
-    font-weight: bold;
-    transform: translate(-50%, -50%);
-
-    @media (max-width: 991.98px) {
-        top: auto;
-        left: 50%;
-        transform: translate(-50%, -70%);
-    }
-}
-
-.support-start {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex: 1;
-    background: #ffffff;
-    padding: 1.5rem 3rem 1.5rem 6.875rem;
-
-    @media (max-width: 991.98px) {
-        padding: 4.5rem 1.31rem 2.56rem;
-    }
-}
-
-.support-start-prefix {
-    margin-left: 3rem;
-    font-size: 1.125rem;
-    font-family: NunitoSans;
-    font-weight: bold;
-
-    & + .support-start-items {
-        margin-top: 0.75rem;
-    }
-}
-
-.support-start-item {
-    display: flex;
-
-    & + & {
-        margin-top: 0.75rem;
-    }
-}
-
-.support-start-item-img {
-    width: 2rem;
-    height: 2rem;
-    object-fit: contain;
-}
-
-.support-start-item-text {
-    margin-left: 1rem;
-    font-size: 1.125rem;
-    font-family: NunitoSans;
-    font-weight: 600;
-}
-
-.support-end {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 16.375rem;
-    padding: 1.5rem;
-    background: @green;
-
-    @media (max-width: 991.98px) {
-        width: auto;
-    }
-}
-
-.support-end-img {
-    width: 5.5rem;
-    height: 5.5rem;
-    object-fit: contain;
-}
-
-.support-end-text {
-    margin-top: 1.5rem;
-    font-size: 1rem;
-    font-family: NunitoSans;
-    font-weight: bold;
-    text-align: center;
-}
-
-.support-end-btn {
-    margin-top: 1.5rem;
-}
 
 .menu-page-description {
     margin-top: 2.25rem;
@@ -700,5 +577,139 @@
     @media (max-width: 991.98px) {
         margin-left: 0;
         margin-top: 0.25rem;
+    }
+}
+.eco-body {
+    a{
+        color: @green;
+    }
+    p, ul {
+        font-size: 1.25rem;
+        line-height: 1.4;
+        margin: 2rem 0;
+    }
+
+    h2 {
+        margin: 2em 0 1em;
+    }
+
+    h4 {
+        margin: 2em 0 1em;
+    }
+}
+.tabs {
+    display: flex;
+    padding: 1.5rem 0;
+    border-bottom: 2px solid @dark-blue;
+
+    @media (max-width: 991.98px) {
+        display: none;
+    }
+}
+
+.select-tab-page {
+    display: none;
+    margin-top: 2.5rem;
+
+    @media (max-width: 991.98px) {
+        display: inline;
+    }
+}
+
+.tab {
+    position: relative;
+    top: 2px;
+    flex: auto;
+    padding: 1.5rem;
+    font-size: 1.125rem;
+    font-family: NunitoSans;
+    font-weight: bold;
+    color: #070E3A;
+    overflow: hidden;
+    cursor: pointer;
+
+    &.active {
+        border-bottom: 5px solid @dark-blue;
+    }
+}
+
+.tab-page {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
+
+.tab-page-title {
+    margin-top: 2.5rem;
+    font-size: 1.5rem;
+    font-family: WorkSans;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.eco-number {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    border-radius: 50%;
+    background-color: @green;
+    color: white;
+    padding: 0 9px;
+    vertical-align: top;
+    margin: 1rem 1rem 0 0;
+
+    & + div {
+        p {
+            margin: 1rem 0 0;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 1rem;
+        }
+    }
+}
+.resources-start {
+    .menu-item {
+        i {
+            display: none;
+        }
+
+        &.active {
+            i {
+                display: block;
+            }
+        }
+    }
+}
+.card-img-top {
+    background-color: #EDF9F7;
+    text-align: center;
+    height: 13.5rem;
+    padding: 2rem;
+    h4{
+        margin-top: 1rem;
+    }
+}
+.card {
+    box-shadow: -27px 3px 30px rgba(0, 0, 0, 0.237341);
+}
+.card-body{
+    height: 363px
+}
+.card-text {
+    margin-top: 1.4rem;
+    img {
+        margin-right: .5rem;
+        vertical-align: top;
+    }
+
+    span {
+        display: inline-block;
+        width: calc(100% - 40px);
+        font-size: 1rem;
+        font-weight: 600;
     }
 }
