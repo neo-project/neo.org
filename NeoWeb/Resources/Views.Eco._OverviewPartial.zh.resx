@@ -210,4 +210,25 @@
   <data name="…interested in" xml:space="preserve">
     <value>对以下方面感兴趣：</value>
   </data>
+  <data name="A project operating with a viable revenue model" xml:space="preserve">
+    <value>一个以可行的收入模式运作的项目</value>
+  </data>
+  <data name="Developers looking to create early POCs that test Neo N3 capabilities" xml:space="preserve">
+    <value>开发人员希望创建早期的 POC，测试 Neo N3 的能力</value>
+  </data>
+  <data name="LEARN MORE" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Projects looking to migrate to Neo N3" xml:space="preserve">
+    <value>希望迁移到 Neo N3 的项目</value>
+  </data>
+  <data name="Suitable for the following:" xml:space="preserve">
+    <value>适用于以下情况：</value>
+  </data>
+  <data name="Teams looking for funding in exchange for equity or tokens" xml:space="preserve">
+    <value>寻找资金以换取股权或代币的团队</value>
+  </data>
+  <data name="Teams looking to deploy first-to-market dApps on Neo N3" xml:space="preserve">
+    <value>希望在 Neo N3 上部署首次上市的 dApps 的团队</value>
+  </data>
 </root>
