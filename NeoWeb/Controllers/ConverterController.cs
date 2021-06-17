@@ -26,7 +26,7 @@ namespace NeoWeb.Controllers
             ViewBag.Input = input;
 
             var result = new Dictionary<string, List<string>>();
-
+            input = ConverterHelper.Base64Fixed(input);
             //彩蛋
             if (input == "I love you")
             {

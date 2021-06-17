@@ -6,6 +6,7 @@ using Neo.VM;
 using Neo.Wallets;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Numerics;
 using System.Reflection;
@@ -158,6 +159,19 @@ namespace NeoWeb
             return Encoding.UTF8.GetString(bytes);
         }
 
+        public static string Base64Fixed(string str)
+        {
+            MatchCollection mc = Regex.Matches(str, @"\\u([\w]{2})([\w]{2})", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+            byte[] bts = new byte[2];
+            foreach (Match m in mc)
+            {
+                bts[0] = (byte)int.Parse(m.Groups[2].Value, NumberStyles.HexNumber);
+                bts[1] = (byte)int.Parse(m.Groups[1].Value, NumberStyles.HexNumber);
+                str = str.Replace(m.ToString(), Encoding.Unicode.GetString(bts));
+            }
+            return str;
+        }
+
         /// <summary>
         /// Base64 格式的字符串转为 HEX 字符串
         /// </summary>
@@ -231,7 +245,7 @@ namespace NeoWeb
         /// <summary>
         /// 公钥转为 Neo3 地址
         /// </summary>
-        /// <param name="base64">eg:03dab84c1243ec01ab2500e1a8c7a1546a26d734628180b0cf64e72bf776536997</param>
+        /// <param name="pubKey">eg:03dab84c1243ec01ab2500e1a8c7a1546a26d734628180b0cf64e72bf776536997</param>
         /// <returns>eg:Nd9NceysETPT9PZdWRTeQXJix68WM2x6Wv</returns>
         public static string PublicKeyToAddress(string pubKey)
         {
