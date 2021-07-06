@@ -360,7 +360,31 @@ namespace NeoWeb
             {
                 throw new FormatException();
             }
+            return ScriptsToOpCode(scripts);
+        }
 
+        /// <summary>
+        /// 将十六进制的脚本转为易读的 OpCode
+        /// 参考：https://github.com/chenzhitong/OpCodeConverter
+        /// </summary>
+        /// <param name="hex">十六进制的脚本</param>
+        /// <returns>List&lt;string&gt; 类型的 OpCode 及操作数</returns>
+        public static List<string> HexScriptsToOpCode(string hex)
+        {
+            List<byte> scripts;
+            try
+            {
+                scripts = hex.HexToBytes().ToList();
+            }
+            catch (Exception)
+            {
+                throw new FormatException();
+            }
+            return ScriptsToOpCode(scripts);
+        }
+
+        private static List<string> ScriptsToOpCode(List<byte> scripts)
+        {
             //初始化所有 OpCode
             var OperandSizePrefixTable = new int[256];
             var OperandSizeTable = new int[256];
