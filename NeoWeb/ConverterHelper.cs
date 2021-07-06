@@ -439,6 +439,10 @@ namespace NeoWeb
                     result.Add($"{op} {(number == 20 ? new UInt160(operand).ToString() : asicii)}");
                     scripts.RemoveRange(0, number);
                 }
+                else
+                {
+                    result.Add($"{op}");
+                }
             }
             return result.ToArray().Reverse().ToList();
         }
