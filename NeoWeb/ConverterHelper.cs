@@ -444,7 +444,7 @@ namespace NeoWeb
                     result.Add($"{op}");
                 }
             }
-            return result.ToArray();
+            return result.ToArray().ToList();
         }
     }
 }
