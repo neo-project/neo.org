@@ -1,0 +1,221 @@
+@import 'basic.less';
+
+// Resuable UI partials used in this page
+
+@import './_neo-gas-calculator.less';
+
+.introduction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 38px 0;
+
+    @media (max-width: 991px) {
+        display: none;
+    }
+}
+
+.introduction-start {
+    display: flex;
+    flex-direction: column;
+}
+
+.introduction-title {
+    font-size: 5.75rem;
+    font-family: WorkSans;
+    font-weight: bold;
+    line-height: 0.87;
+    text-transform: uppercase;
+
+    em {
+        font-style: normal;
+        color: #00E599;
+    }
+}
+
+.introduction-content {
+    margin-top: 2.25rem;
+    font-size: 1.25rem;
+    font-family: NunitoSans;
+    font-weight: bold;
+}
+
+.introduction-img {
+    margin-left: 2.25rem;
+    height: 316px;
+
+    @media only screen and (max-width: 1200px) {
+        height: 261px;
+    }
+
+    @media only scrren and (max-width: 991px) {
+        display: none;
+    }
+}
+
+.divider {
+    height: 2px;
+    background: @dark-blue;
+
+    &.margin-bottom {
+        margin-bottom: 2rem;
+    }
+}
+
+.resources {
+    display: flex;
+    padding: 3.75rem 0 10rem;
+
+    @media (max-width: 991px) {
+        flex-direction: column;
+        padding-top: 0.625rem;
+    }
+}
+
+.resources-start {
+    width: 278px;
+
+    @media (max-width: 991px) {
+        width: auto;
+    }
+}
+
+.menu {
+    @media (max-width: 991px) {
+        display: none;
+    }
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-left: 5px solid transparent;
+    font-size: 1.125rem;
+    font-family: NunitoSans;
+    font-weight: bold;
+    cursor: pointer;
+
+    &.active {
+        border-left: 5px solid #00E599;
+        background: #E9EEED;
+    }
+}
+
+.resources-start-divider {
+    margin-top: 33px;
+    height: 2px;
+    background: @dark-blue;
+
+
+    @media (max-width: 991px) {
+        display: none;
+    }
+}
+
+.links {
+    margin-top: 33px;
+
+    @media (max-width: 991px) {
+        display: none;
+    }
+}
+
+.select-menu-page {
+    display: none;
+
+    @media (max-width: 991px) {
+        display: inline-block;
+        margin: 2rem 0;
+        padding-right: 1.125rem;
+    }
+}
+
+.resources-end {
+    flex: 1;
+    margin-left: 82px;
+
+    @media (max-width: 991px) {
+        margin-left: 0;
+        margin-top: 12px;
+    }
+}
+
+.menu-page {
+    display: none;
+    flex-direction: column;
+
+    &.active {
+        display: flex;
+    }
+}
+
+.main-title {
+    .nunito-sans-extrabold;
+    font-size: 2.25rem;
+    line-height: 1.25;
+    letter-spacing: -0.02rem;
+    margin-bottom: 2.875rem;
+}
+
+.tagline {
+    .nunito-sans-bold;
+    .dark-blue;
+    line-height: 1.4;
+    font-size: 1.25rem;
+}
+
+.sub-title {
+    .nunito-sans-bold;
+    .dark-blue;
+    font-size: 1.75rem;
+    line-height: 1;
+    margin-top: 3.5rem;
+    margin-bottom: 0.625rem;
+}
+
+.headline {
+    .nunito-sans-bold;
+    font-size: 1.25rem;
+    margin: 2.75rem 0 4rem 0;
+}
+
+.calculator-container {
+    margin: 0 auto;
+}
+
+.page-paragraph {
+    .nunito-sans-regular;
+    .dark-blue;
+    font-size: 1.25rem;
+    line-height: 1.4;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .nunito-sans-regular;
+    .dark-blue;
+    font-size: 1.25rem;
+    line-height: 1.4;
+
+    .row {
+        margin-bottom: 3rem;
+    }
+}
+
+.subtitle {
+    margin-bottom: 1.75rem;
+    .nunito-sans-bold;
+}
+
+.content-img {
+    width: 100%;
+    height: 340px;
+
+    &.margin-bottom {
+        margin-bottom: 3rem;
+    }
+}

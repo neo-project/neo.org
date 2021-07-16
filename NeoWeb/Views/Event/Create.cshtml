@@ -1,20 +1,21 @@
-﻿@model NeoWeb.Models.Event
+@model NeoWeb.Models.Event
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
 @{
+    ViewData["ParentTitle"] = SharedLocalizer["News"].Value;
     ViewData["Title"] = "Post Event";
 }
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/editor.min.css", true)" />
 }
-<div class="p1">
-    <h1 class="w800">@Localizer["Post"]</h1>
+<div class="py-5">
+    <div class="post-type mb-4">Post Type<a asp-controller="blog" asp-action="create">Blog</a><span>Events</span><a asp-controller="media" asp-action="create">News</a></div>
+    <form asp-action="Create" enctype="multipart/form-data">
+        @{await Html.RenderPartialAsync("_EditorPartialPage", Model);}
+    </form>
 </div>
-<div class="post-type">Post Type<a asp-controller="blog" asp-action="create">Blogs</a><span>Events</span><a asp-controller="news" asp-action="create">News</a></div>
-<form asp-action="Create" class="form-horizontal" enctype="multipart/form-data">
-    @{await Html.RenderPartialAsync("_EditorPartialPage", Model);}
-</form>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     @{await Html.RenderPartialAsync("_Tiny.ScriptsPartial");}

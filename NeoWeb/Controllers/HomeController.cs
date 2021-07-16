@@ -1,9 +1,12 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
@@ -18,11 +21,13 @@ namespace NeoWeb.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IStringLocalizer<SharedResource> _sharedLocalizer;
+        private readonly IWebHostEnvironment _env;
 
-        public HomeController(ApplicationDbContext context, IStringLocalizer<SharedResource> sharedLocalizer)
+        public HomeController(ApplicationDbContext context, IStringLocalizer<SharedResource> sharedLocalizer, IWebHostEnvironment env)
         {
             _context = context;
             _sharedLocalizer = sharedLocalizer;
+            _env = env;
         }
 
         public IActionResult Index()
@@ -30,28 +35,28 @@ namespace NeoWeb.Controllers
             var count = 3;
             var blogs = _context.Blogs.OrderByDescending(p => p.CreateTime).Take(count);
             var events = _context.Events.OrderByDescending(p => p.StartTime).Take(count);
-            var news = _context.News.OrderByDescending(p => p.Time).Take(count);
-            var viewModels = new List<DiscoverViewModel>();
+            var news = _context.Media.OrderByDescending(p => p.Time).Take(count);
+            var viewModels = new List<NewsViewModel>();
             var isZh = _sharedLocalizer["en"] == "zh";
             Helper.AddBlogs(blogs, viewModels, isZh);
             Helper.AddEvents(events, viewModels, isZh);
-            Helper.AddNews(news, viewModels, isZh);
+            Helper.AddMedia(news, viewModels, isZh);
 
             // 添加置顶内容
             var top = _context.Top.FirstOrDefault();
-            var topItems = new List<DiscoverViewModel>();
+            var topItems = new List<NewsViewModel>();
             if (top != null)
             {
                 switch (top.Type)
                 {
-                    case DiscoverViewModelType.Blog:
+                    case NewsViewModelType.Blog:
                         Helper.AddBlogs(_context.Blogs.Where(p => p.Id == top.ItemId), topItems, isZh);
                         break;
-                    case DiscoverViewModelType.Event:
+                    case NewsViewModelType.Event:
                         Helper.AddEvents(_context.Events.Where(p => p.Id == top.ItemId), topItems, isZh);
                         break;
-                    case DiscoverViewModelType.News:
-                        Helper.AddNews(_context.News.Where(p => p.Id == top.ItemId), topItems, isZh);
+                    case NewsViewModelType.Media:
+                        Helper.AddMedia(_context.Media.Where(p => p.Id == top.ItemId), topItems, isZh);
                         break;
                 }
                 ViewBag.OnTop = topItems.Count > 0 ? topItems[0] : null;
@@ -90,6 +95,24 @@ namespace NeoWeb.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        
+        static string status;
+        static DateTime lastRequest;
+        public IActionResult GitHubStatus()
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(status) || (DateTime.Now - lastRequest).TotalMinutes > 60)
+                {
+                    status = System.IO.File.ReadAllText(Path.Combine(_env.ContentRootPath, "GitHubStatus/neo.json"));
+                    lastRequest = DateTime.Now;
+                }
+            }
+            catch (IOException)
+            {
+            }
+            return Content(status, "application/json");
         }
     }
 }

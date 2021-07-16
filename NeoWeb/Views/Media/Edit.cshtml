@@ -1,0 +1,26 @@
+@model NeoWeb.Models.Media
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+@{
+    ViewData["ParentTitle"] = SharedLocalizer["News"].Value;
+    ViewData["Title"] = "Edit News";
+}
+@section Styles{
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/editor.min.css", true)" />
+}
+<form asp-action="Edit" class="py-5" enctype="multipart/form-data">
+    @{await Html.RenderPartialAsync("_EditorPartialPage", Model);}
+</form>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{await Html.RenderPartialAsync("_Tiny.ScriptsPartial");}
+    <script src="@Helper.ToCDN("/js/editor.min.js")"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            bsCustomFileInput.init()
+        })
+    </script>
+}

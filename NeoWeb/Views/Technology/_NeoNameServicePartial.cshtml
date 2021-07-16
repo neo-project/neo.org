@@ -1,0 +1,23 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+
+<h2 class="main-title">@Localizer["Neo Name Service"]
+</h2>
+
+<div class="tagline">@Localizer["Neo Name Service (NNS) is a decentralized name service built as a native service on the Neo blockchain. It is used to map human-readable domain names to different types of data, such as IP addresses, aliases, or other strings."]
+</div><br>
+
+<div class="page-paragraph">@Localizer["One of the most prominent barriers to entry in the blockchain space is the user experience of public key cryptography. Even after conversion to more readable address formats, interaction with blockchain protocols remains tedious and error prone."]
+</div><br>
+
+<div class="page-paragraph">@Localizer["To successfully onboard the next generation of users, the blockchain UX must enter the realm of the familiar. Through simple TXT records, both user wallet and smart contract addresses can be given easily typed and identifiable representations."]
+</div><br>
+
+<div class="page-paragraph">@Localizer["Aliases also prove useful in various other situations. In NeoFS, they can be used as aliases for stored containers, or used to configure GeoDNS for the NeoFS CDN for improved data retrieval speeds. Applied in this manner, applications can ensure their users encounter minimal latency and fast download speeds while retaining all the benefits of true decentralized storage."]
+</div><br>
+
+<div class="page-paragraph">@Localizer["NNS employs an innovative NFT-based approach. Each domain is represented as an NFT, enabling NNS users to freely transfer the ownership of domain names. All necessary functionality for a complete domain life cycle is provided, including registry, renewal, resolution, expiration, and permission control."]
+</div><br>
+

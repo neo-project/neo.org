@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="82px" height="90px" viewBox="0 0 82 90" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon</title>
+    <defs>
+        <polygon id="path-1" points="40 0 69.4448637 17 69.4448637 51 40 68 10.5551363 51 10.5551363 17"></polygon>
+        <filter x="-31.5%" y="-19.1%" width="145.4%" height="158.8%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="-6" dy="7" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.316369017   0 0 0 0 0.366987588   0 0 0 0 0.353495709  0 0 0 0.257409583 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="-3" dy="3" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="2.5" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.144614907 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="HOMEPAGE-MOBILE" transform="translate(-1.000000, -2830.000000)">
+            <g id="Building-blocks-panel" transform="translate(8.000000, 2180.000000)">
+                <g id="Features" transform="translate(0.000000, 643.000000)">
+                    <g id="Icon" transform="translate(0.000000, 11.000000)">
+                        <polygon id="Polygon-Copy-4" stroke="#00E599" stroke-width="0.648" points="34.5 7.5 63.9448637 24.5 63.9448637 58.5 34.5 75.5 5.05513627 58.5 5.05513627 24.5"></polygon>
+                        <g id="Polygon-Copy-6">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                            <use fill="#F0F5F6" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        </g>
+                        <g id="Group-25" transform="translate(28.000000, 23.000000)" stroke="#000033">
+                            <path d="M13.764312,0.24959059 L24.3925704,6.21997443 C24.6784809,6.38058357 24.8554584,6.6829893 24.8554584,7.01092239 L24.8554584,18.9090776 C24.8554584,19.2370107 24.6784809,19.5394164 24.3925704,19.7000256 L13.764312,25.6704094 C13.4883819,25.8254121 13.1516181,25.8254121 12.875688,25.6704094 L2.24742961,19.7000256 C1.96151911,19.5394164 1.78454162,19.2370107 1.78454162,18.9090776 L1.78454162,7.01092239 C1.78454162,6.6829893 1.96151911,6.38058357 2.24742961,6.21997443 L12.875688,0.24959059 C13.1516181,0.0945878676 13.4883819,0.0945878676 13.764312,0.24959059 Z" id="Polygon" stroke-width="0.5472" fill="#FFFFFF"></path>
+                            <line x1="13.5" y1="25.56" x2="13.5" y2="13.32" id="Line-6" stroke-width="0.5472" stroke-linecap="round"></line>
+                            <line x1="1.98" y1="7.2" x2="13.5" y2="13.32" id="Line-4" stroke-width="0.5472" stroke-linecap="round"></line>
+                            <line x1="24.66" y1="7.2" x2="13.4579216" y2="13.1511041" id="Line-5" stroke-width="0.5472" stroke-linecap="round"></line>
+                            <path d="M16.0083296,6.61369903 L13.5050854,7.94768387 C13.3990866,8.00417084 13.2718987,8.0040731 13.165987,7.94742329 L10.6720056,6.61344914 C10.4966865,6.51967492 10.4305813,6.30153169 10.5243555,6.12621259 C10.5559896,6.06706993 10.6035168,6.01794065 10.6615786,5.98436394 L13.1555792,4.54210165 C13.2668972,4.47772731 13.4040994,4.47761743 13.5155203,4.5418134 L16.0187453,5.984065 C16.1910196,6.08332209 16.2502117,6.30344174 16.1509546,6.475716 C16.1172792,6.53416424 16.0678597,6.58197529 16.0083296,6.61369903 Z" id="Path-9" stroke-width="0.5" fill="#00E599"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

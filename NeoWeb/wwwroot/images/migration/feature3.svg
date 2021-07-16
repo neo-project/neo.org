@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="163px" height="182px" viewBox="0 0 163 182" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 5</title>
+    <defs>
+        <polygon id="path-1" points="76.1 0.5 135.024368 34.52 135.024368 102.56 76.1 136.58 17.1756315 102.56 17.1756315 34.52"></polygon>
+        <filter x="-30.4%" y="-19.5%" width="144.7%" height="158.1%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="-11" dy="13" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="11" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.316369017   0 0 0 0 0.366987588   0 0 0 0 0.353495709  0 0 0 0.257409583 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="-5" dy="5" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="4.5" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.144614907 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Migration-S1" transform="translate(-528.000000, -49.000000)">
+            <g id="编组-5" transform="translate(544.000000, 58.500000)">
+                <g id="Group-4" transform="translate(34.625000, 21.000000)">
+                    <polygon id="Polygon" stroke="#000033" stroke-width="2.88" points="52 0.5 96.6003083 26.25 96.6003083 77.75 52 103.5 7.39969171 77.75 7.39969171 26.25"></polygon>
+                    <polygon id="Path-20" stroke="#000033" stroke-width="1.2226896" fill="#FFFFFF" stroke-linejoin="round" points="32.675 40.8768178 32.675 63.7633612 52.7328089 75.347793 52.7328089 51.2753486"></polygon>
+                    <polygon id="Path-20" stroke="#000033" stroke-width="1.2226896" fill="#FFFFFF" stroke-linejoin="round" transform="translate(62.670825, 58.112305) scale(-1, 1) translate(-62.670825, -58.112305) " points="52.641921 40.8768178 52.641921 63.7633612 72.6997299 75.347793 72.6997299 51.2753486"></polygon>
+                    <polygon id="Path-21" stroke="#000033" stroke-width="1.2226896" fill="#FFFFFF" stroke-linejoin="round" points="72.6997299 40.8768178 52.641921 51.2753486 32.675 40.8768178 52.7328089 30.0097566"></polygon>
+                    <polygon id="Path-20" fill="#000033" points="45.7996194 37.0810509 57.689595 43.7083938 59.2158971 42.8094131 47.344972 36.2895716"></polygon>
+                    <polygon id="Path-20-Copy-4" stroke="#000033" stroke-width="0.8151264" fill="#FFFFFF" points="49.3518669 18.7 49.3518669 32.8382964 57.8099549 37.3661254 57.8099549 23.1087735"></polygon>
+                </g>
+                <g id="icon">
+                    <polygon id="Polygon-Copy" stroke="#00E599" stroke-width="1.296" fill="#FFFFFF" points="68.54 14.18 127.464368 48.2 127.464368 116.24 68.54 150.26 9.61563153 116.24 9.61563153 48.2"></polygon>
+                    <g id="Polygon-Copy-11">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use fill="#F0F5F6" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                </g>
+                <g id="Group-4-Copy-4" transform="translate(52.000000, 31.500000)">
+                    <polygon id="Path-20" stroke="#000033" stroke-width="1.44277373" fill="#FFFFFF" stroke-linejoin="round" points="0.444 26.404645 0.444 53.4107662 24.1122145 67.0803957 24.1122145 38.6749113"></polygon>
+                    <polygon id="Path-20" stroke="#000033" stroke-width="1.44277373" fill="#FFFFFF" stroke-linejoin="round" transform="translate(35.839074, 46.742520) scale(-1, 1) translate(-35.839074, -46.742520) " points="24.0049668 26.404645 24.0049668 53.4107662 47.6731813 67.0803957 47.6731813 38.6749113"></polygon>
+                    <polygon id="Path-21" stroke="#000033" stroke-width="1.44277373" fill="#FFFFFF" stroke-linejoin="round" points="47.6731813 26.404645 24.0049668 38.6749113 0.444 26.404645 24.1122145 13.5815128"></polygon>
+                    <polygon id="Path-20" fill="#000033" points="15.9310509 21.92564 29.9612221 29.7459047 31.7622585 28.6851075 17.754567 20.9916945"></polygon>
+                    <polygon id="Path-20-Copy-4" stroke="#000033" stroke-width="0.961849152" fill="#00E599" points="20.1227029 0.236 20.1227029 16.9191898 30.1032468 22.262028 30.1032468 5.43835278"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

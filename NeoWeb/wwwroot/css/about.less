@@ -1,76 +1,191 @@
-﻿@import 'basic.less';
+@import 'basic.less';
 
-.layout-container {
-    max-width: none;
-    padding: 0;
-    margin: 0;
+.introduction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 38px 0;
+
+    @media (max-width: 767.98px) {
+        display: none;
+    }
 }
 
-.roadmap {
-    position: relative;
-    overflow: hidden;
-    text-align: center;
+.introduction-start {
+    display: flex;
+    flex-direction: column;
+}
 
-    .linear {
-        position: absolute;
-        width: 100px;
-        height: 100%;
-        background-repeat: repeat-y;
-        background-size: contain;
-        z-index: 5;
+.introduction-title {
+    font-size: 5.75rem;
+    font-family: WorkSans;
+    font-weight: bold;
+    line-height: 0.87;
+    text-transform: uppercase;
 
-        &.l {
-            background: linear-gradient(90deg,@gray3,rgba(255,255,255,0));
-            left: 0;
-        }
-
-        &.r {
-            background: linear-gradient(90deg,rgba(255,255,255,0),@gray3);
-            right: 0;
-        }
-
-        @media only screen and (max-width: 767px) {
-            background: none!important;
-
-            &.b {
-                width: 100%;
-                height: 50px;
-                background: linear-gradient(rgba(255,255,255,0),@gray3,@gray3)!important;
-                bottom: 0;
-            }
-        }
+    em {
+        font-style: normal;
+        color: #00E599;
     }
+}
 
-    @media only screen and (max-width: 767px) {
-        height: 500px;
+.introduction-content {
+    margin-top: 2.25rem;
+    font-size: 1.25rem;
+    font-family: NunitoSans;
+    font-weight: bold;
+}
+
+.introduction-img {
+    margin-left: 2.25rem;
+    width: 40%;
+
+    @media (max-width: 767.98px) {
+        display: none;
     }
+}
 
-    #desImg {
-        height: 180px;
+.divider {
+    height: 2px;
+    background: @dark-blue;
+
+
+    @media (max-width: 767.98px) {
+        display: none;
     }
+}
 
-    #mobImg {
-        width: 90%;
-        margin: auto;
-        max-width: 500px;
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 9rem;
+
+    @media only screen and (max-width: 767.98px) {
+        margin-bottom: 4rem;
     }
+}
 
-    .de-tab {
-        text-align: right;
-        padding-right: 15%;
+.title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 66px 0;
+    width: 100%;
+}
 
-        .iconfont {
-            font-size: 30px;
-            cursor: pointer;
-        }
+.title {
+    .nunito-sans-extrabold;
+    font-size: 2.25rem;
+    line-height: 1.25;
+}
+
+.headline {
+    margin-bottom: 1.625rem;
+    .nunito-sans-bold;
+    font-size: 1.75rem;
+    line-height: 1.18;
+}
+
+.subtitle {
+    .work-sans-bold;
+    .uppercase;
+    .dark-blue;
+
+    &.margin-top {
+        margin-top: 1.625rem
     }
+}
 
-    .mob-show {
-        position: absolute;
-        z-index: 10;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
+.body-paragraph {
+    margin: 1.625rem 0;
+    .nunito-sans-semibold;
+    line-height: 1.35;
+}
+
+.scroll-wrapper {
+    margin-bottom: 24px;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: visible;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        display: none;
     }
+}
+
+#scroll-left-btn, #scroll-right-btn {
+    cursor: pointer;
+
+    &.disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+}
+
+#scroll-img {
+    max-height: 640px;
+}
+
+.dual-col-body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-headline {
+    .nunito-sans-bold;
+    .dark-blue;
+    font-size: 1.75rem;
+    line-height: 1.28;
+    text-align: right;
+
+    @media only screen and (max-width: 767.98px) {
+        margin-bottom: 36px;
+        text-align: left;
+    }
+}
+
+.paragraph {
+    display: flex;
+    flex-direction: column;
+    .nunito-sans-regular;
+    .dark-blue;
+    font-size: 1.25rem;
+    line-height: 1.4;
+
+    &.margin-bottom {
+        margin-bottom: 1.625rem;
+    }
+}
+
+.bullet-container {
+    display: flex;
+    flex-direction: column;
+    margin: 32px 0;
+    .dark-blue;
+    .nunito-sans-semibold;
+    font-size: 1.25rem;
+    // grid-row-gap: 12px;
+
+    & > * + * {
+        margin-top: 12px;
+    }
+}
+
+.bullet-row {
+    display: flex;
+    align-items: center;
+}
+
+.green-dot {
+    margin-right: 12px;
+    height: 15px;
+    width: 15px;
+    border-radius: 15px;
+    background-color: @green;
+}
+
+.quote-img {
+    margin-top: 3.75rem;
+    height: 336px;
 }

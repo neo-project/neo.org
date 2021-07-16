@@ -1,194 +1,168 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Localization;
 using NeoWeb.Data;
 using NeoWeb.Models;
 using System;
-using System.IO;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 
 namespace NeoWeb.Controllers
 {
+    [Route("news")]
     [Authorize(Roles = "Admin")]
     public class NewsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly string _userId;
+        private readonly bool _userRules;
         private readonly IWebHostEnvironment _env;
+        private readonly IStringLocalizer<SharedResource> _sharedLocalizer;
 
-        public NewsController(ApplicationDbContext context, IWebHostEnvironment env)
+        public NewsController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IStringLocalizer<SharedResource> sharedLocalizer, IWebHostEnvironment env)
         {
             _context = context;
+            _sharedLocalizer = sharedLocalizer;
+            _userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             _env = env;
+            if (_userId != null)
+            {
+                _userRules = _context.UserRoles.Any(p => p.UserId == _userId);
+            }
         }
 
-        // GET: news/create
-        public IActionResult Create()
+        // GET: news
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult Index(int? type = null, int? year = null, string keywords = null)
         {
-            return View();
-        }
+            IQueryable<Blog> blogs = _context.Blogs;
+            IQueryable<Event> events = _context.Events;
+            IQueryable<Media> news = _context.Media;
 
-        // POST: news/create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ChineseTitle,EnglishTitle,Link")] News news,
-            IFormFile chineseCover, IFormFile englishCover, string isTop)
-        {
-            ViewBag.IsTop = isTop != null;
-            if (ModelState.IsValid)
-            {
-                if (chineseCover != null)
-                {
-                    var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
-                    if (Helper.ValidateCover(_env, fileName))
-                        news.ChineseCover = fileName;
-                    else
-                        ModelState.AddModelError("ChineseCover", "Cover size must be 16:9");
-                }
-                if (englishCover != null)
-                {
-                    var fileName = Helper.UploadMedia(englishCover, _env, 1000);
-                    if (Helper.ValidateCover(_env, fileName))
-                        news.EnglishCover = fileName;
-                    else
-                        ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
-                }
-                if (!ModelState.IsValid) return View(news);
-                news.Time = DateTime.Now;
-                _context.Add(news);
-                await _context.SaveChangesAsync();
-                if (isTop != null)
-                {
-                    _context.Top.ToList().ForEach(p => _context.Top.Remove(p));
-                    _context.Add(new Top() { ItemId = news.Id, Type = DiscoverViewModelType.News });
-                }
-                await _context.SaveChangesAsync();
-                return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.News });
-            }
-            return View(news);
-        }
+            var viewModels = new List<NewsViewModel>();
 
-        // GET: news/edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
+            // year filter
+            if (year != null)
             {
-                return NotFound();
+                blogs = blogs.Where(p => p.CreateTime.Year == year);
+                events = events.Where(p => p.StartTime.Year == year);
+                news = news.Where(p => p.Time.Year == year);
             }
 
-            var news = await _context.News.SingleOrDefaultAsync(m => m.Id == id);
-            if (news == null)
+            // keywords filter
+            if (!string.IsNullOrEmpty(keywords))
             {
-                return NotFound();
-            }
-            return View(news);
-        }
-
-        // POST: news/edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ChineseTitle,EnglishTitle,ChineseTags,EnglishTags,Link")] News news,
-            IFormFile chineseCover, IFormFile englishCover, string isTop)
-        {
-            ViewBag.IsTop = isTop != null;
-            if (id != news.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                if (chineseCover != null)
+                foreach (var item in keywords.Split(" "))
                 {
-                    var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
-                    if (Helper.ValidateCover(_env, fileName))
-                    {
-                        if (!string.IsNullOrEmpty(news.ChineseCover))
-                            System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", news.ChineseCover));
-                        news.ChineseCover = fileName;
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("ChineseCover", "Cover size must be 16:9");
-                    }
+                    blogs = blogs.Where(p => p.ChineseTitle.ToLower().Contains(item.ToLower())
+                        || p.ChineseContent.ToLower().Contains(item.ToLower())
+                        || p.ChineseTags.ToLower() != null && p.ChineseTags.ToLower().Contains(item.ToLower())
+                        || p.ChineseSummary.ToLower() != null && p.ChineseSummary.ToLower().Contains(item.ToLower())
+                        || p.EnglishTitle.ToLower().Contains(item.ToLower())
+                        || p.EnglishContent.ToLower().Contains(item.ToLower())
+                        || p.EnglishTags != null && p.EnglishTags.ToLower().Contains(item.ToLower())
+                        || p.EnglishSummary != null && p.EnglishSummary.ToLower().Contains(item.ToLower()));
+                    if (blogs == null) break;
                 }
-                if (englishCover != null)
+                foreach (var item in keywords.Split(" "))
                 {
-                    var fileName = Helper.UploadMedia(englishCover, _env, 1000);
-                    if (Helper.ValidateCover(_env, fileName))
-                    {
-                        if (!string.IsNullOrEmpty(news.EnglishCover))
-                            System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", news.EnglishCover));
-                        news.EnglishCover = fileName;
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
-                    }
+                    events = events.Where(p => p.ChineseAddress.ToLower().Contains(item.ToLower())
+                                || p.ChineseCity.ToLower().Contains(item.ToLower())
+                                || p.ChineseDetails.ToLower().Contains(item.ToLower())
+                                || p.ChineseName.ToLower().Contains(item.ToLower())
+                                || p.ChineseOrganizers.ToLower().Contains(item.ToLower())
+                                || p.Country != null && p.Country.ZhName.ToLower().Contains(item.ToLower())
+                                || p.Country != null && p.Country.Name.ToLower().Contains(item.ToLower())
+                                || p.EnglishAddress.ToLower().Contains(item.ToLower())
+                                || p.EnglishCity.ToLower().Contains(item.ToLower())
+                                || p.EnglishDetails.ToLower().Contains(item.ToLower())
+                                || p.EnglishName.ToLower().Contains(item.ToLower())
+                                || p.EnglishOrganizers.ToLower().Contains(item.ToLower()));
+                    if (events == null) break;
                 }
-                if (!ModelState.IsValid) return View(news);
-                try
+                foreach (var item in keywords.Split(" "))
                 {
-                    if (isTop != null)
-                    {
-                        _context.Top.ToList().ForEach(p => _context.Top.Remove(p));
-                        _context.Add(new Top() { ItemId = news.Id, Type = DiscoverViewModelType.News });
-                    }
-                    _context.Update(news);
-                    await _context.SaveChangesAsync();
+                    news = news.Where(p => p.ChineseTitle.ToLower().Contains(item.ToLower())
+                        || p.EnglishTitle.ToLower().Contains(item.ToLower())
+                        || p.Link.ToLower().Contains(item.ToLower()));
+                    if (news == null) break;
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!NewsExists(news.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.News });
             }
-            return View(news);
-        }
 
-        // GET: news/delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
+            var isZh = _sharedLocalizer["en"] == "zh";
+            // type filter
+            switch (type)
             {
-                return NotFound();
+                case (int)NewsViewModelType.Blog:
+                    Helper.AddBlogs(blogs, viewModels, isZh);
+                    break;
+                case (int)NewsViewModelType.Event:
+                    Helper.AddEvents(events, viewModels, isZh);
+                    break;
+                case (int)NewsViewModelType.Media:
+                    Helper.AddMedia(news, viewModels, isZh);
+                    break;
+                default:
+                    Helper.AddBlogs(blogs, viewModels, isZh);
+                    Helper.AddEvents(events, viewModels, isZh);
+                    Helper.AddMedia(news, viewModels, isZh);
+                    break;
             }
 
-            var news = await _context.News
-                .SingleOrDefaultAsync(m => m.Id == id);
-            if (news == null)
+            viewModels = viewModels.OrderByDescending(p => p.Time).ToList();
+
+            // 添加置顶内容
+            if (type == null && year == null && string.IsNullOrEmpty(keywords))
             {
-                return NotFound();
+                var top = _context.Top.FirstOrDefault();
+                var topItems = new List<NewsViewModel>();
+                if (top != null)
+                {
+                    switch (top.Type)
+                    {
+                        case NewsViewModelType.Blog:
+                            Helper.AddBlogs(_context.Blogs.Where(p => p.Id == top.ItemId), topItems, isZh);
+                            viewModels.RemoveAll(p => p.Type == top.Type && p.Blog.Id == top.ItemId);
+                            break;
+                        case NewsViewModelType.Event:
+                            Helper.AddEvents(_context.Events.Where(p => p.Id == top.ItemId), topItems, isZh);
+                            viewModels.RemoveAll(p => p.Type == top.Type && p.Event.Id == top.ItemId);
+                            break;
+                        case NewsViewModelType.Media:
+                            Helper.AddMedia(_context.Media.Where(p => p.Id == top.ItemId), topItems, isZh);
+                            viewModels.RemoveAll(p => p.Type == top.Type && p.Media.Id == top.ItemId);
+                            break;
+                    }
+                    ViewBag.OnTop = topItems.Count > 0 ? topItems[0] : null;
+                }
             }
 
-            return View(news);
-        }
+            var blogYear = _context.Blogs.Select(p => p.CreateTime.Year).Distinct();
+            var eventYear = _context.Events.Select(p => p.StartTime.Year).Distinct();
+            var newsYear = _context.Media.Select(p => p.Time.Year).Distinct();
+            var allYear = blogYear.Concat(eventYear).Concat(newsYear).Distinct().OrderByDescending(p => p).Select(p => new SelectListItem { Value = p.ToString(), Text = p.ToString() }).ToList();
+            allYear.Insert(0, new SelectListItem("All Year", ""));
 
-        // POST: news/delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var news = await _context.News.SingleOrDefaultAsync(m => m.Id == id);
-            _context.News.Remove(news);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("index", "discover", new { type = DiscoverViewModelType.News });
-        }
+            ViewBag.AllYear = allYear;
+            ViewBag.AllType = new List<SelectListItem>() {
+                new SelectListItem { Value = "0", Text = "All Type" },
+                new SelectListItem { Value = "1", Text = "Blog" },
+                new SelectListItem { Value = "2", Text = "Event" },
+                new SelectListItem { Value = "3", Text = "News" }
+            };
 
-        private bool NewsExists(int id)
-        {
-            return _context.News.Any(e => e.Id == id);
+            ViewBag.Year = year;
+            ViewBag.KeyWords = keywords;
+            ViewBag.Type = type;
+
+            ViewBag.UserRules = _userRules;
+
+            return View(viewModels);
         }
     }
 }

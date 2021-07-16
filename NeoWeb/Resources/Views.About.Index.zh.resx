@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,73 +117,91 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="A built-in oracle component enabling smart contracts to access external resources" xml:space="preserve">
-    <value>支持智能合约能够访问外部资源的内建预言机组件</value>
+  <data name="Core Developers" xml:space="preserve">
+    <value>核心开发者</value>
   </data>
-  <data name="A consensus algorithm with high stability, high TPS and single block finality" xml:space="preserve">
-    <value>具有高稳定性、高吞吐量和单区块终局性的共识算法</value>
+  <data name="Defined" xml:space="preserve">
+    <value>定义</value>
   </data>
-  <data name="A distributed object storage solution for on-chain data applications" xml:space="preserve">
-    <value>链上数据应用的分布式对象存储解决方案</value>
+  <data name="Execution Philosophy" xml:space="preserve">
+    <value>发展理念</value>
   </data>
-  <data name="An innovative dual token economic model that optimizes on-chain governance and utility" xml:space="preserve">
-    <value>优化链上治理权和应用的创新性双通证经济模型</value>
+  <data name="History" xml:space="preserve">
+    <value>大事记</value>
   </data>
-  <data name="A lightweight, cross-platform and scalable virtual machine" xml:space="preserve">
-    <value>轻量级、跨平台、具备高扩展性的虚拟机</value>
+  <data name="In 2017, Antshares was rebranded to Neo as it implemented Smart Contracts 2.0. It underwent aggressive global expansion as hundreds of new developers poured onto the blockchain. Neo leadership began distributing NEO token rewards to groups and individuals that contributed to the growth of the Neo platform. Some of the earliest groups to join Neo included COZ, NeoEconoLabs, and O3 Labs." xml:space="preserve">
+    <value>2017 年伴随智能合约 2.0 整合，小蚁品牌重塑为 Neo。众多新开发者涌入区块链行业，Neo 更是此次行业扩张狂潮中的佼佼者。最早一批加入 Neo 社区的开发团队包括 CoZ, Neo EconoLabs 和 O3 Labs。</value>
   </data>
-  <data name="A cross platform, multi-language supported smart contract system" xml:space="preserve">
-    <value>支持多种编程语言、跨平台的智能合约系统</value>
+  <data name="In 2021, Neo is being upgraded to version 3.0, known as N3. As a project that began in June 2018, the N3 upgrade represents the biggest advancement in Neo’s history. It is aimed at bringing the first all-in-one blockchain development experience to the industry, packed with powerful native features such as distributed storage, oracles, and name services. Neo N3 also boasts a simpler and more modular architecture than its predecessors, along with an improved governance and economic model." xml:space="preserve">
+    <value>2021 年，Neo 将升级到 N3。 作为一项始于 2018 年 6 月的项目，N3 升级代表着 Neo 的全面进化。 它开创了区块链行业的一站式开发体验，带来包括去中心化存储、预言机和去中心化身份系统在内的诸多原生功能。Neo N3 还拥有更简单，更模块化的架构，以及全新的治理和经济模型。</value>
   </data>
-  <data name="About" xml:space="preserve">
-    <value>关于我们</value>
+  <data name="In 2021, Neo will take its biggest step forward toward decentralization with the launch of Neo N3. NEO holders will have the opportunity to vote in a Neo Council responsible for governing the blockchain, running consensus nodes, and setting critical blockchain parameters such as transaction fees." xml:space="preserve">
+    <value>Neo 将于 2021 年推出 Neo N3，加速推进去中心化进程。 NEO 通证持有者将有机会参与 Neo 委员会选举，该委员会负责管理区块链，运行共识节点并设置关键的链上参数。</value>
   </data>
-  <data name="An Open Network for the Smart Economy" xml:space="preserve">
-    <value>为智能经济打造的开放网络</value>
+  <data name="In the eyes of the idealist, the overarching goal of Neo is to be a decentralized and open network for the Smart Economy. The pragmatist, however, knows that in order for this goal to be realized in a timely manner, some centralized coordination must occur." xml:space="preserve">
+    <value>在理想主义者看来，Neo 的首要目标是成为服务智能经济的去中心化开放网络。 但是，实用主义者更加清楚，为了及时实现这一目标，一定程度的中心化无可避免。</value>
   </data>
-  <data name="Apply" xml:space="preserve">
-    <value>立即申请</value>
+  <data name="Introduction" xml:space="preserve">
+    <value>简介</value>
   </data>
-  <data name="Individuals and entities can become consensus node candidates via application. Through election by NEO holders, candidates can then become consensus nodes on Neo MainNet." xml:space="preserve">
-    <value>个人和机构可申请成为Neo共识节点候选人。通过 NEO 持有者投票选举，候选人可在 Neo 主网成为共识节点。</value>
+  <data name="It is the most feature-complete blockchain platform for building decentralized applications. Neo enables developers to digitize and automate the management of assets through smart contracts. It also provides powerful native infrastructures such as decentralized storage, oracles, and domain name service, creating a solid foundation for the Next-Gen Internet." xml:space="preserve">
+    <value>作为功能最全面的区块链开发平台，Neo 开发者可以通过智能合约将资产数字化并进行自动化管理。Neo 还提供了强大的原生基础设施，包括去中心化存储、预言机和去中心化身份系统，为下一代互联网奠定坚实基础。</value>
   </data>
-  <data name="Explore" xml:space="preserve">
-    <value>了解更多</value>
+  <data name="Mission:" xml:space="preserve">
+    <value>使命：</value>
   </data>
-  <data name="How To Become A Consensus Node" xml:space="preserve">
-    <value>如何成为共识节点</value>
+  <data name="NEO" xml:space="preserve">
+    <value>NEO</value>
   </data>
-  <data name="https://neo-ngd.github.io/reference/How-To-Become-NEO-Consensus-Node.html" xml:space="preserve">
-    <value>https://neo-ngd.github.io/reference/%E5%A6%82%E4%BD%95%E6%88%90%E4%B8%BANEO%E5%85%B1%E8%AF%86%E8%8A%82%E7%82%B9.html</value>
+  <data name="Neo also knows that the blockchain industry cannot circumvent existing legal systems or create solutions that are wholly incompatible with existing business frameworks. Instead, we must all work together to build the Smart Economy of tomorrow." xml:space="preserve">
+    <value>Neo 亦熟知，区块链行业的业务框架需要不断适应现有监管体系。 只有大家共同努力，才能营造智能经济的未来。</value>
   </data>
-  <data name="Learn more" xml:space="preserve">
-    <value>了解更多</value>
+  <data name="Neo Defined" xml:space="preserve">
+    <value>定义 Neo</value>
   </data>
-  <data name="More details:" xml:space="preserve">
-    <value>更多详细信息：</value>
+  <data name="Neo Foundation" xml:space="preserve">
+    <value>Neo 基金会</value>
   </data>
-  <data name="Neo Contributors" xml:space="preserve">
-    <value>Neo 贡献者</value>
+  <data name="Neo Global Development" xml:space="preserve">
+    <value>Neo 全球发展部门（NGD）</value>
   </data>
-  <data name="Become a consensus node and shape your future" xml:space="preserve">
-    <value>成为 Neo 共识节点，共同实现智能经济</value>
+  <data name="Neo has approached this issue by founding and joining several industry groups designed to establish standards, educate law-makers, and increase access to infrastructure." xml:space="preserve">
+    <value>为此，Neo 通过成立并加入多个行业组织，共同建立标准，沟通监管，并不断完善基础设施来解决以上问题。</value>
   </data>
-  <data name="Neo in Retrospect" xml:space="preserve">
-    <value>Neo 大事记</value>
+  <data name="Neo is an open-source community driven blockchain platform." xml:space="preserve">
+    <value>Neo 是一个由开源社区驱动的区块链平台。</value>
   </data>
-  <data name="Neo is an open-source, community driven platform that is leveraging the intrinsic advantages of blockchain technology to realize the optimized digital world of the future." xml:space="preserve">
-    <value>作为一个由社区驱动的开源平台，Neo 正利用区块链技术的内在优势，提供面向未来数字世界的全套解决方案，为实现智能经济打造下一代互联网基础设施。</value>
+  <data name="Neo practices a philosophy of Pragmatic Idealism" xml:space="preserve">
+    <value>Neo 践行务实的理想主义哲学</value>
   </data>
-  <data name="A voting mechanism that enables participation of on-chain governance" xml:space="preserve">
-    <value>赋能链上治理的投票机制</value>
+  <data name="Neo was a pioneer in the early blockchain industry. Not only was it the first public smart contract platform to be founded in China, it was also the first chain to use a dual token model and the first to implement a BFT style consensus mechanism. Further, Neo is still the first and only token sale to return all the original raised funds to its participants once the project had generated enough money to be self-sustaining." xml:space="preserve">
+    <value>Neo 是区块链行业的先行者。 它不仅是第一个在中国诞生的开放智能合约平台，还是第一个使用双通证模型的开放网络，更是第一条使用 BFT 类共识机制的区块链。</value>
   </data>
-  <data name="A customizable decentralized self-sovereign identity protocol" xml:space="preserve">
-    <value>可定制的去中心化自主身份协议</value>
+  <data name="Neo was founded 2014 and has grown into a first-class smart contract platform. It is backed by a global developer community who continue to drive the blockchain forward." xml:space="preserve">
+    <value>2014 年创立至今，Neo 已经成长为领先的智能合约平台。依托全球开发者社区，致力于推动区块链技术的大规模创新与落地。</value>
   </data>
-  <data name="Technology" xml:space="preserve">
-    <value>技术优势</value>
+  <data name="Neo was founded by Da Hongfei and Erik Zhang in 2014 under the name Antshares. The original source code was published to GitHub in July 2015 and the MainNet subsequently launched in October 2016." xml:space="preserve">
+    <value>2014 年达鸿飞和张铮文共同创立小蚁，后正式更名为 Neo。2015 年 7 月在 GitHub 上开源，主网于 2016 年 10 月上线。</value>
   </data>
-  <data name="View more" xml:space="preserve">
-    <value>浏览更多</value>
+  <data name="Over the years, Neo’s organizational structure matured as its Shanghai based operation grew from less than a dozen to over 50. The number of community groups dedicated to advancing Neo’s technology also increased. Today, Neo has developers all over the world contributing to core development, infrastructure, and tooling, including alumni from organizations such as Microsoft, Facebook, Amazon, Samsung, Dell, Seagate, and others." xml:space="preserve">
+    <value>多年来，Neo 的组织结构日趋完善，其在上海的运营团队从不到十二人发展到五十多人。致力于发展 Neo 技术的社区团体也有所增加。 如今，Neo 的开发者已遍布全球，专注于协议层核心开发，基础设施和工具开发，其中不少曾供职于微软，脸书，亚马逊，三星，戴尔，希捷等科技巨头。</value>
+  </data>
+  <data name="Sponsored Community Groups" xml:space="preserve">
+    <value>开发者社区</value>
+  </data>
+  <data name="The main groups working on Neo can be broken down as follows:" xml:space="preserve">
+    <value>Neo 主要的工作组可划分如下：</value>
+  </data>
+  <data name="To be an open network for the Smart Economy." xml:space="preserve">
+    <value>成为为智能经济打造的开放网络。</value>
+  </data>
+  <data name="To make any asset, digital or physical, accessible by human beings and programs with minimized trust and permission." xml:space="preserve">
+    <value>以最小信任和许可让人机触达任意实物和数字资产。</value>
+  </data>
+  <data name="To this end, the Neo Foundation was established as a strategic guide for the Neo platform. As an organisation, the Neo Foundation sets the overall goals for the project and provides funding to other self-governed groups to pursue these goals as they see fit." xml:space="preserve">
+    <value>为此，Neo 基金会应运而生。 作为 Neo 的战略指挥部，Neo 基金会为项目设定了总体目标，并向其他社区团体提供资助，以实现更广阔的发展目标。</value>
+  </data>
+  <data name="Vision:" xml:space="preserve">
+    <value>愿景：</value>
   </data>
 </root>

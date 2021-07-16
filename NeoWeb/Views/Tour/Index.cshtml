@@ -1,0 +1,482 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+@{ Layout = null; }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @*<link rel="stylesheet" href="@Helper.ToCDN("/css/site.min.css", true)">*@
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/tour.min.css", true)">
+    @if (SharedLocalizer["en"].Value == "zh")
+    {
+        <link href="@Helper.ToCDN("/css/sitecn.min.css", true)" rel="stylesheet" />
+    }
+    <style>
+        @@font-face {
+            font-family: 'WorkSans'; /* project id 1408484 */
+            src: url('/font/WorkSans-Bold.ttf');
+            font-weight: 700;
+        }
+
+        @@font-face {
+            font-family: 'WorkSan'; /* project id 1408484 */
+            src: url('/font/WorkSans-Regular.ttf');
+            font-weight: 400;
+        }
+
+        @@font-face {
+            font-family: 'WorkSans'; /* project id 1408484 */
+            src: url('/font/WorkSans-SemiBold.ttf');
+            font-weight: 600;
+        }
+
+        @@font-face {
+            font-family: 'NunitoSans'; /* project id 1408484 */
+            src: url('/font/NunitoSans-Regular.ttf');
+            font-weight: 400;
+        }
+
+        @@font-face {
+            font-family: 'NunitoSans'; /* project id 1408484 */
+            src: url('/font/NunitoSans-Bold.ttf');
+            font-weight: 700;
+        }
+
+        @@font-face {
+            font-family: 'NunitoSans'; /* project id 1408484 */
+            src: url('/font/NunitoSans-SemiBold.ttf');
+            font-weight: 600;
+        }
+    </style>
+    <title>N3 TOUR</title>
+</head>
+
+<body>
+    <div class="tour-container">
+        <div class="left-container">
+            <div class="left-container-content">
+                <div class="tour-left-logo hide-in-mobile">
+                    <a asp-controller="home" asp-action="index">
+                        <img src="@Helper.CDN/images/tour/neo_color_dark.png" class="tour-left-logo-img" />
+                    </a>
+                </div>
+                <div class="text-guide">
+                    <div class="right-corner-mobile hide-in-mobile hide-in-desktop">
+                        <img class="right-corner-mobile-pic" src="@Helper.CDN/images/tour/corner.png" />
+                    </div>
+                    <div class="text-group text-guide-1 fade-in">
+                        <div class="text-group-head text-group-1-head1">
+                            <span>
+                                @Localizer["NEO"]
+                            </span>
+                            <br />
+                            <span style="color: #000033">
+                                @Localizer["UNLEASHED"]
+                            </span>
+                        </div>
+                        <div class="text-group-content text-group-1-text">
+                            @Localizer["After four years of stable MainNet operation, Neo is undergoing its biggest evolution as it migrates to N3 - the most powerful and feature rich version of the Neo blockchain to date."]
+                        </div>
+                        <div class="start-mobile-wrapper">
+                            <div id="start">
+                                @Localizer["TAKE A TOUR"]
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-group text-guide-2 fade-out">
+                        <div class="text-group-head text-group-2-head1">
+                            <span>
+                                @Localizer["MULTI-LANGUAGE"]
+                            </span>
+                            <br />
+                            <span style="color: #000033">
+                                @Localizer["SUPPORT"]
+                            </span>
+                        </div>
+                        <div class="text-group-content text-group-2-text text-group-border">
+                            @Localizer["Hit the ground running with a language you already know and love."]
+                            <br /><br />
+                            @Localizer["As with any new paradigm, blockchain development comes with a learning curve. Rather than introducing additional overhead, Neo helps developers by integrating seamlessly with the world's most widely used languages and tools."]
+                        </div>
+                        <div class="text-group-content text-group-text-2">
+                            @Localizer["Learn more about Neo's multi-language support"]
+                            <div class="text-group-icon">
+                                <a href="/technology#smart-contracts">
+                                    <img class="direction" src="@Helper.CDN/images/tour/direct.png" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-group text-guide-3 fade-out">
+                        <div class="text-group-head text-group-3-head1">
+                            <span>
+                                @Localizer["DECENTRALIZED"]
+                            </span><br />
+                            <span style="color: #000033">
+                                @Localizer["STORAGE"]
+                            </span>
+                        </div>
+                        <div class="text-group-content text-group-3-text text-group-border">
+                            @Localizer["Enjoy the benefits with no compromises on NeoFS."]
+                            <br /><br />
+                            @Localizer["Your data, always securely encrypted and available. Maintain full control over where it is placed and how it is accessed to deliver your users a first class experience."]
+                            <br /><br />
+                            @Localizer["Phase out centralized dependencies with the most reliable and performant decentralized storage solution. With HTTP and S3 gateways, no rearchitecting is required to integrate existing applications or users with NeoFS."]
+                            <br /><br />
+                            @Localizer["Not looking to integrate, but want to participate? Earn GAS for leasing your unused storage."]
+                        </div>
+                        <div class="text-group-content text-group-text-2">
+                            @Localizer["Learn more about the NeoFS network"]
+                            <div class="text-group-icon">
+                                <a href="/technology#neo-fs">
+                                    <img class="direction" src="@Helper.CDN/images/tour/direct.png" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-group text-guide-4 fade-out">
+                        <div class="text-group-head text-group-4-head1">
+                            <span>
+                                @Localizer["NATIVE"]
+                            </span><br />
+                            <span style="color: #000033">
+                                @Localizer["ORACLE"]
+                            </span>
+                        </div>
+                        <div class="text-group-content text-group-4-text text-group-border">
+                            @Localizer["With Neo's native oracle service, it becomes trivial for developers to tap into any external resources."]
+                            <br /><br />
+                            @Localizer["Smart contracts are a revolutionary tool, but their usefulness is naturally limited by the data they can access. The native oracle service introduced in N3 allows developers to access rich off-chain data sources through HTTPS or NeoFS requests, opening up new opportunities to create valuable decentralized services."]
+                        </div>
+                        <div class="text-group-content text-group-text-2">
+                            @Localizer["Learn more about Neo's native oracles"]
+                            <div class="text-group-icon">
+                                <a href="/technology#oracles">
+                                    <img class="direction" src="@Helper.CDN/images/tour/direct.png" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-group text-guide-5 fade-out">
+                        <div class="text-group-head text-group-5-head1">
+                            <span>
+                                @Localizer["SELF-SOVEREIGN"]
+                            </span><br />
+                            <span style="color: #000033">
+                                @Localizer["IDENTITY"]
+                            </span>
+                        </div>
+                        <div class="text-group-content text-group-5-text text-group-border">
+                            @Localizer["Use verifiable credentials to add a layer of authentication to your application."]
+                            <br /><br />
+                            @Localizer["Through NeoID, you can customize the precise level of attribute verification needed to ensure your contract operates correctly. Ensure regulatory compliance, filter out bots, or leave the doors open to everyone. Through its open claim issuance and validation tools, users can remain in full control of their personal information."]
+                        </div>
+                        <div class="text-group-content text-group-text-2">
+                            @Localizer["Learn more about NeoID"]
+                            <div class="text-group-icon">
+                                <a href="/technology#neo-id">
+                                    <img class="direction" src="@Helper.CDN/images/tour/direct.png" />
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-group text-guide-6 fade-out">
+                        <div class="text-group-head text-group-6-head1">
+                            <span>
+                                @Localizer["DOMAIN NAME"]
+                            </span><br />
+                            <span style="color: #000033">
+                                @Localizer["SERVICE"]
+                            </span>
+                        </div>
+                        <div class="text-group-content text-group-6-text text-group-border">
+                            @Localizer["Neo makes it easy for users to interact with the next generation of decentralized services."]
+                            <br /><br />
+                            @Localizer["Neo's native name service provides domain-mapping for a number of record types. Powered by NFTs to enable open trading, NNS aliases can be used to replace public addresses, contract hashes, and NeoFS containers with human-friendly names."]
+                        </div>
+                        <div class="text-group-content text-group-text-2">
+                            @Localizer["Learn more about Neo's native domain service"]
+                            <div class="text-group-icon">
+                                <a href="/technology#neo-name-service">
+                                    <img class="direction" src="@Helper.CDN/images/tour/direct.png" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-group text-guide-7 fade-out">
+                        <div class="text-group-head text-group-7-head1">
+                            <span>
+                                @Localizer["ADVANCED"]
+                            </span><br />
+                            <span style="color: #000033">
+                                @Localizer["INTEROPERABILITY"]
+                            </span>
+                        </div>
+                        <div class="text-group-content text-group-7-text text-group-border">
+                            @Localizer["As a founding member of the interoperability protocol alliance Poly Network, Neo makes cross-chain interaction as easy as a native transaction."]
+                            <br /><br />
+                            @Localizer["Connected with an ever-growing list of other blockchains, applications on Neo are not limited to interacting with native assets or contracts, but can easily tap into resources from heterogenous networks."]
+                        </div>
+                        <div class="text-group-content text-group-text-2">
+                            @Localizer["Learn more about Neo's Poly Network integration"]
+                            <div class="text-group-icon">
+                                <a href="/technology#interoperability">
+                                    <img class="direction" src="@Helper.CDN/images/tour/direct.png" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-group text-guide-8 fade-out">
+                        <div class="text-group-head text-group-8-head1">
+                            <span>
+                                @Localizer["ONE BLOCK"]
+                            </span><br />
+                            <span style="color: #000033">
+                                @Localizer["FINALITY"]
+                            </span>
+                        </div>
+                        <div class="text-group-content text-group-8-text text-group-border">
+                            @Localizer["Neo's fork-proof dBFT consensus makes it the most powerful settlement engine in the world."]
+                            <br /><br />
+                            @Localizer["Neo was the first truly immutable blockchain. With majority approval between consensus nodes required for each new block, transactions on Neo are given immediate, irrevocable finality as soon as they are added to the blockchain. Neo's high performance dBFT consensus mechanism sparked a growing trend of adoption for BFT-based mechanisms across the industry."]
+                        </div>
+                        <div class="text-group-content text-group-text-2">
+                            @Localizer["Learn more about Neo's dBFT consensus mechanism"]
+                            <div class="text-group-icon">
+                                <a href="/technology#dbft-2.0">
+                                    <img class="direction" src="@Helper.CDN/images/tour/direct.png" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-group text-guide-9 fade-out">
+                        <div class="text-group-head text-group-9-head1">
+                            <span>
+                                @Localizer["DUAL TOKEN"]
+                            </span><br />
+                            <span style="color: #000033">
+                                @Localizer["MODEL"]
+                            </span>
+                        </div>
+                        <div class="text-group-content text-group-9-text text-group-border">
+                            @Localizer["Neo separates governance from utility with two tokens - NEO & GAS."]
+                            <br /><br />
+                            @Localizer["You wouldn't use your Starbucks shares to buy a cup of coffee, so why spend your share of the blockchain on transaction fees? NEO tokens represents ownership of the network, while GAS is used to pay for all operations and services. NEO holders can participate in governance and receive distribution of GAS tokens to spend on the blockchain."]
+                            <br /><br />
+                            @Localizer["With a fixed supply of 100M and no divisibility, NEO is one of the most scarce crypto assets."]
+                        </div>
+                        <div class="text-group-content text-group-text-2">
+                            @Localizer["Learn more about NEO & GAS"]
+                            <div class="text-group-icon">
+                                <a href="/neogas#tokens">
+                                    <img class="direction" src="@Helper.CDN/images/tour/direct.png" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-group text-guide-10 fade-out">
+                        <div class="text-group-head text-group-10-head1">
+                            <span>
+                                @Localizer["BEST IN CLASS"]
+                            </span><br />
+                            <span style="color: #000033">
+                                @Localizer["TOOLING"]
+                            </span>
+                        </div>
+                        <div class="text-group-content text-group-10-text text-group-border">
+                            @Localizer["Neo's goal has always been to be the most developer friendly platform."]
+                            <br /><br />
+                            @Localizer["The crown jewel of Neo's developer experience is the Neo Blockchain Toolkit for VS Code. Built by Microsoft-alumni at NGD Enterprise, the toolkit offers industry best tools for easy network deployment, testing, and time-travel debugging."]
+                            <br /><br />
+                            @Localizer["Neo also boasts many other powerful community-built SDKs, compilers, code examples, and resources for all supported languages, including C#, Python, TypeScript, Java, and Golang."]
+                            <br /><br />
+                            @Localizer["We're happy to do a bake-off with anyone. Seriously."]
+                        </div>
+                        <div class="text-group-content text-group-text-2">
+                            @Localizer["Start exploring Neo's developer resources"]
+                            <div class="text-group-icon">
+                                <a href="/dev#overview">
+                                    <img class="direction" src="@Helper.CDN/images/tour/direct.png" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-group text-guide-11 fade-out">
+                        <div class="text-group-head text-group-11-head1">
+                            <span>
+                                @Localizer["JUMP"]
+                            </span><br />
+                            <span style="color: #000033">
+                                @Localizer["RIGHT IN"]
+                            </span>
+                        </div>
+                        <div class="text-group-content text-group-11-text text-group-border" style="border-bottom: 0px;">
+                            @Localizer["The wait is finally over, N3 is here. It’s time to change the world with the most powerful and feature-rich smart contract platform."]
+                            <br /><br />
+                            @Localizer["Hop into our developer quickstart guides and example libraries to begin building your decentralized application on Neo."]
+                        </div>
+                        <div class="mobile-block-wrapper hide-in-desktop">
+                            @if (SharedLocalizer["en"].Value == "zh")
+                            {
+                                <a href="/neogas#wallets">
+                                    <img class="mobile-block" src="@Helper.CDN/images/tour/block1_cn.png" />
+                                </a>
+                                <a href="/migration">
+                                    <img class="mobile-block" src="@Helper.CDN/images/tour/block2_cn.png" />
+                                </a>
+                                <a href="/dev#overview">
+                                    <img class="mobile-block" src="@Helper.CDN/images/tour/block3_cn.png" />
+                                </a>
+                                <a href="https://docs.neo.org/">
+                                    <img class="mobile-block" src="@Helper.CDN/images/tour/block4_cn.png" />
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="/neogas#wallets">
+                                    <img class="mobile-block" src="@Helper.CDN/images/tour/block1.png" />
+                                </a>
+                                <a href="/migration">
+                                    <img class="mobile-block" src="@Helper.CDN/images/tour/block2.png" />
+                                </a>
+                                <a href="/dev#overview">
+                                    <img class="mobile-block" src="@Helper.CDN/images/tour/block3.png" />
+                                </a>
+                                <a href="https://docs.neo.org/">
+                                    <img class="mobile-block" src="@Helper.CDN/images/tour/block4.png" />
+                                </a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-guide hide-in-mobile" id="bottom-guide">
+                <div class="hide" id="bottom-guide-container">
+                    <div id="prev" style="cursor: pointer;">
+                        <img class="bottom-guide-container-icon arrow-show" src="@Helper.CDN/images/tour/previous_arrow.png" />
+                        <img class="bottom-guide-container-icon arrow-hide" src="@Helper.CDN/images/tour/previous_arrow_grey.png" />
+                    </div>
+                    <div class="circle-list">
+                        <div data-page="1" class="circle"></div>
+                        <div data-page="2" class="circle"></div>
+                        <div data-page="3" class="circle"></div>
+                        <div data-page="4" class="circle"></div>
+                        <div data-page="5" class="circle"></div>
+                        <div data-page="6" class="circle"></div>
+                        <div data-page="7" class="circle"></div>
+                        <div data-page="8" class="circle"></div>
+                        <div data-page="9" class="circle"></div>
+                        <div data-page="10" class="circle"></div>
+                        <div data-page="11" class="circle"></div>
+                    </div>
+                    <div id="next" style="cursor: pointer;">
+                        <img class="bottom-guide-container-icon arrow-show" src="@Helper.CDN/images/tour/next_arrow.png" />
+                        <img class="bottom-guide-container-icon arrow-hide" src="@Helper.CDN/images/tour/next_arrow_grey.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-container">
+            <div class="neo-logo-mobile hide-in-desktop logo-white">
+                <a asp-controller="home" asp-action="index">
+                    <img src="@Helper.CDN/images/logo files-white.svg" class="neo-logo-mobile-image">
+                </a>
+            </div>
+            <div class="neo-logo-mobile hide-in-desktop logo-dark hide-in-mobile">
+                <a asp-controller="home" asp-action="index">
+                    <img src="@Helper.CDN/images/logo files-dark.svg" class="neo-logo-mobile-image">
+                </a>
+            </div>
+            <div class="carouselImgs slide0">
+                <img class="carouse-pic" src="@Helper.CDN/images/tour/tour0.png" />
+            </div>
+            <div class="carouselImgs fade-out  slide1">
+                <img class="carouse-pic" src="@Helper.CDN/images/tour/tour1.png" />
+                <div class="right-corner">
+                    <img class="right-corner-pic" src="@Helper.CDN/images/tour/corner.png" />
+                </div>
+            </div>
+            <div class="carouselImgs fade-out  slide2">
+                <img class="carouse-pic" src="@Helper.CDN/images/tour/tour2.png" />
+                <div class="right-corner">
+                    <img class="right-corner-pic" src="@Helper.CDN/images/tour/cornzer.png" />
+                </div>
+            </div>
+            <div class="carouselImgs fade-out  slide3">
+                <img class="carouse-pic" src="@Helper.CDN/images/tour/tour3.png" />
+                <div class="right-corner">
+                    <img class="right-corner-pic" src="@Helper.CDN/images/tour/corner.png" />
+                </div>
+            </div>
+            <div class="carouselImgs fade-out  slide4">
+                <img class="carouse-pic" src="@Helper.CDN/images/tour/tour4.png" />
+                <div class="right-corner">
+                    <img class="right-corner-pic" src="@Helper.CDN/images/tour/corner.png" />
+                </div>
+            </div>
+            <div class="carouselImgs fade-out  slide5">
+                <img class="carouse-pic" src="@Helper.CDN/images/tour/tour5.png" />
+                <div class="right-corner">
+                    <img class="right-corner-pic" src="@Helper.CDN/images/tour/corner.png" />
+                </div>
+            </div>
+            <div class="carouselImgs fade-out  slide6">
+                <img class="carouse-pic" src="@Helper.CDN/images/tour/tour6.png" />
+                <div class="right-corner">
+                    <img class="right-corner-pic" src="@Helper.CDN/images/tour/corner.png" />
+                </div>
+            </div>
+            <div class="carouselImgs fade-out  slide7">
+                <img class="carouse-pic" src="@Helper.CDN/images/tour/tour7.png" />
+                <div class="right-corner">
+                    <img class="right-corner-pic" src="@Helper.CDN/images/tour/corner.png" />
+                </div>
+            </div>
+            <div class="carouselImgs fade-out  slide8">
+                <img class="carouse-pic" src="@Helper.CDN/images/tour/tour8.png" />
+                <div class="right-corner">
+                    <img class="right-corner-pic" src="@Helper.CDN/images/tour/corner.png" />
+                </div>
+            </div>
+            <div class="carouselImgs fade-out  slide9">
+                <img class="carouse-pic" src="@Helper.CDN/images/tour/tour9.png" />
+                <div class="right-corner">
+                    <img class="right-corner-pic" src="@Helper.CDN/images/tour/corner.png" />
+                </div>
+            </div>
+            <div class="carouselImgs fade-out slide10">
+                <div class="slide10-up">
+                    <img class="carouse-pic hide-in-desktop" src="@Helper.CDN/images/tour/tour0.png" />
+                    <img class="carouse-pic hide-in-mobile" src="@Helper.CDN/images/tour/tour11.png" />
+                </div>
+                <div class="slide10-down hide-in-mobile">
+                    <img class="carouse-pic" src="@Helper.CDN/images/tour/tour12.png" />
+                </div>
+                <div class="right-corner hide-in-mobile">
+                    <img class="right-corner-pic" src="@Helper.CDN/images/tour/corner.png" />
+                </div>
+                @if (SharedLocalizer["en"].Value == "zh")
+                {
+                    <img class="carouse-blocks hide-in-mobile" usemap="#actionmap" src="@Helper.CDN/images/tour/blocks_cn.png" />
+                }else
+                {
+                    <img class="carouse-blocks hide-in-mobile" usemap="#actionmap" src="@Helper.CDN/images/tour/blocks.png" />
+                }
+                <map name="actionmap">
+                    <area shape="rect" coords="20 0 317 88" alt="Download a Wallet" href="/neogas#wallets" />
+                    <area shape="rect" coords="344 0 640 88" alt="Migration Guide" href="/migration" />
+                    <area shape="rect" coords="20 112 317 200" alt="Developer Resources" href="/dev#overview" />
+                    <area shape="rect" coords="344 112 640 200" alt="Read Documentation" href="https://docs.neo.org/" />
+                </map>
+             </div>
+        </div>
+    </div>
+    <script src="@Helper.ToCDN("/lib/jquery/jquery.min.js")"></script>
+    <script src="@Helper.ToCDN("/lib/image-map-resizer/js/imageMapResizer.js")"></script>
+    <script src="@Helper.ToCDN("/js/tour.js")"></script>
+</body>
+</html>

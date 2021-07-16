@@ -1,4 +1,4 @@
-﻿using Neo;
+using Neo;
 using Neo.Cryptography.ECC;
 using Neo.IO;
 using Neo.SmartContract;
@@ -6,6 +6,7 @@ using Neo.VM;
 using Neo.Wallets;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Numerics;
 using System.Reflection;
@@ -24,9 +25,16 @@ namespace NeoWeb
         public static string HexStringToUTF8(string hex)
         {
             hex = hex.ToLower().Trim();
-            if (!new Regex("^([0-9a-f]{2})+$").IsMatch(hex)) throw new FormatException();
+            if (!new Regex("^(0x)?([0-9a-f]{2})+$").IsMatch(hex)) throw new FormatException();
 
-            return Encoding.UTF8.GetString(hex.HexToBytes());
+            if (new Regex("^([0-9a-f]{2})+$").IsMatch(hex))
+            {
+                return Encoding.UTF8.GetString(hex.HexToBytes());
+            }
+            else
+            {
+                return Encoding.UTF8.GetString(hex[2..].HexToBytes().Reverse().ToArray());
+            }
         }
 
         /// <summary>
@@ -151,6 +159,19 @@ namespace NeoWeb
             return Encoding.UTF8.GetString(bytes);
         }
 
+        public static string Base64Fixed(string str)
+        {
+            MatchCollection mc = Regex.Matches(str, @"\\u([\w]{2})([\w]{2})", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+            byte[] bts = new byte[2];
+            foreach (Match m in mc)
+            {
+                bts[0] = (byte)int.Parse(m.Groups[2].Value, NumberStyles.HexNumber);
+                bts[1] = (byte)int.Parse(m.Groups[1].Value, NumberStyles.HexNumber);
+                str = str.Replace(m.ToString(), Encoding.Unicode.GetString(bts));
+            }
+            return str;
+        }
+
         /// <summary>
         /// Base64 格式的字符串转为 HEX 字符串
         /// </summary>
@@ -168,6 +189,27 @@ namespace NeoWeb
                 throw new FormatException();
             }
             return bytes.ToHexString();
+        }
+
+
+        /// <summary>
+        /// HEX 字符串 转为 Base64 格式的字符串
+        /// </summary>
+        /// <param name="base64">eg:48656c6c6f20576f726c6421</param>
+        /// <returns>eg:SGVsbG8gV29ybGQh</returns>
+        public static string HexStringToBase64String(string hex)
+        {
+            string base64;
+            try
+            {
+                var bytes = hex.Trim().HexToBytes();
+                base64 = Convert.ToBase64String(hex.Trim().HexToBytes());
+            }
+            catch (Exception)
+            {
+                throw new FormatException();
+            }
+            return base64;
         }
 
         /// <summary>
@@ -203,7 +245,7 @@ namespace NeoWeb
         /// <summary>
         /// 公钥转为 Neo3 地址
         /// </summary>
-        /// <param name="base64">eg:03dab84c1243ec01ab2500e1a8c7a1546a26d734628180b0cf64e72bf776536997</param>
+        /// <param name="pubKey">eg:03dab84c1243ec01ab2500e1a8c7a1546a26d734628180b0cf64e72bf776536997</param>
         /// <returns>eg:Nd9NceysETPT9PZdWRTeQXJix68WM2x6Wv</returns>
         public static string PublicKeyToAddress(string pubKey)
         {
@@ -318,7 +360,31 @@ namespace NeoWeb
             {
                 throw new FormatException();
             }
+            return ScriptsToOpCode(scripts);
+        }
 
+        /// <summary>
+        /// 将十六进制的脚本转为易读的 OpCode
+        /// 参考：https://github.com/chenzhitong/OpCodeConverter
+        /// </summary>
+        /// <param name="hex">十六进制的脚本</param>
+        /// <returns>List&lt;string&gt; 类型的 OpCode 及操作数</returns>
+        public static List<string> HexScriptsToOpCode(string hex)
+        {
+            List<byte> scripts;
+            try
+            {
+                scripts = hex.HexToBytes().ToList();
+            }
+            catch (Exception)
+            {
+                throw new FormatException();
+            }
+            return ScriptsToOpCode(scripts);
+        }
+
+        private static List<string> ScriptsToOpCode(List<byte> scripts)
+        {
             //初始化所有 OpCode
             var OperandSizePrefixTable = new int[256];
             var OperandSizeTable = new int[256];
@@ -373,8 +439,12 @@ namespace NeoWeb
                     result.Add($"{op} {(number == 20 ? new UInt160(operand).ToString() : asicii)}");
                     scripts.RemoveRange(0, number);
                 }
+                else
+                {
+                    result.Add($"{op}");
+                }
             }
-            return result.ToArray().Reverse().ToList();
+            return result.ToArray().ToList();
         }
     }
 }

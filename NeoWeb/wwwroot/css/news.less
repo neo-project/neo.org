@@ -1,0 +1,241 @@
+@import 'basic.less';
+
+.news-top .d-title a, .news-top .d-tag a {
+    color: @dark-blue;
+}
+
+.news-width {
+    margin: auto;
+    max-width: 1180px;
+}
+
+a, .news-top .d-title a, .news-top .d-tag a {
+    color: @green;
+}
+
+.d-search {
+    line-height: 3;
+    vertical-align: middle;
+
+    input, select {
+        display: inline-block;
+        border-radius: 0;
+        width: auto;
+    }
+
+    select.form-control {
+        border: 1px solid @dark-blue;
+        color: @dark-blue;
+        width: 195px;
+
+        @media only screen and (max-width: 991px) {
+            width: 100%;
+            margin-bottom: 18px;
+        }
+    }
+
+    .search {
+        width: calc(100% - 640px);
+
+        input.form-control {
+            width: calc(100% - 110px);
+            border: none;
+            border-bottom: 1px solid @dark-blue;
+        }
+
+        @media only screen and (max-width: 991px) {
+            width: 100%;
+            margin-bottom: 18px;
+        }
+    }
+
+    .filter {
+        width: 640px;
+        text-align: right;
+
+        .search-btn {
+            margin: 0;
+
+            .iconfont {
+                margin-right: 6px;
+            }
+
+            @media only screen and (max-width: 991px) {
+                width: 100%;
+                margin-bottom: 18px;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 991px) {
+        .filter {
+            width: 100%;
+        }
+    }
+}
+
+.news-card {
+    width: 456px;
+    height: 403px;
+}
+
+hr {
+    background-color: @dark-blue;
+}
+
+.nav-area {
+    display: flex;
+    justify-content: space-between;
+
+    .iconfont {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: .5em;
+        margin-bottom: 1px;
+        font-size: @font-size-5;
+        color: @dark-blue;
+    }
+
+    a {
+        color: @dark-blue;
+        cursor: pointer;
+
+        &:hover {
+            text-shadow: 0 0 0.1px @dark-blue;
+        }
+    }
+
+    .small {
+        font-weight: 600;
+        vertical-align: middle;
+    }
+
+    > div {
+        width: 28%;
+    }
+}
+
+.share {
+    .facebook-icon {
+        pointer-events: none;
+    }
+
+    .fb-share-button {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        margin-left: -22px;
+        opacity: 0.0001;
+
+        & * {
+            width: 20px !important;
+        }
+    }
+
+    .iconfont {
+        cursor: pointer;
+        font-size: @font-size-4;
+        margin-right: 15px;
+        color: @dark-blue;
+    }
+
+    .qr-div {
+        display: inline;
+        position: relative;
+        cursor: pointer;
+
+        &:hover {
+            #qrcode {
+                display: block;
+            }
+        }
+
+        #qrcode {
+            background-color: #fff;
+            position: absolute;
+            display: none;
+            padding: 1em;
+        }
+    }
+}
+
+
+article {
+    text-align: left;
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .article-time {
+        span {
+            color: @dark-blue;
+        }
+    }
+
+    section {
+        line-height: 1.8;
+
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: @font-size-4;
+        }
+
+        p {
+            margin-top: @font-size-5;
+            margin-bottom: 8px;
+        }
+
+        ul {
+            li {
+                margin-bottom: 8px;
+            }
+        }
+
+        img {
+            max-width: 100%;
+            margin-bottom: 8px;
+        }
+    }
+
+    @media only screen and (max-width: 767px) {
+        section {
+            line-height: 1.6;
+
+            h1, h2, h3, h4, h5, h6 {
+                margin-top: @font-size-5;
+                margin-bottom: 4px;
+            }
+
+            p {
+                margin-bottom: 4px;
+            }
+
+            ul {
+                li {
+                    margin-bottom: 4px;
+                }
+            }
+        }
+    }
+}
+
+.editor1 {
+    width: 100%;
+    color: @dark-blue;
+    .work-sans-semibold;
+}
+
+.editor2 {
+    width: 100%;
+    color: @dark-blue;
+    font-size: 1.125rem;
+}
+
+.details-text {
+    margin-top: 1rem;
+}
+
+.event-info {
+    background-color: #EDF9F7;
+}

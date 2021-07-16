@@ -1,0 +1,81 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+<div class="top-bar">
+    <div class="top-bar-title">
+        Typescript
+    </div>
+</div>
+<div class="top-bar-mobile">
+    <div class="top-bar-title-wrapper">
+        <img class="top-bar-title-icon" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/TypescriptDark.png")" />
+        <div class="top-bar-title">
+            Typescript
+        </div>
+    </div>
+    <i class="iconfont close-icon">&#xe603;</i>
+</div>
+
+<pre class="green code">
+<code>
+import {  SmartContract} from '&#64;neo-one/smart-contract';
+
+export class NEP17Contract extends SmartContract {
+  public readonly properties = {
+    name: 'NEO•ONE NEP17 Example',
+    groups: [],
+    trusts: '*',
+    permissions: [],
+  };
+  public readonly name = 'NEO•ONE NEP17 Example';
+  public readonly decimals = 8;
+
+  private readonly notifyTransfer = createEventNotifier&lt;Address | undefined, Address | undefined, Fixed&lt;8&gt;&gt;(
+    'Transfer', 'from', 'to', 'amount',
+  );
+
+  public transfer(from: Address, to: Address, amount: Fixed&lt;8&gt;, data?: any): boolean {
+    if (amount < 0) {throw new Error(&#96;Amount must be greater than 0: $&#123;amount&#125;&#96;);}
+
+    const fromBalance = this.balanceOf(from);
+    if (fromBalance < amount) { return false; }
+
+    const contract = Contract.for(to);
+    if (contract !== undefined && !Address.isCaller(to)) {
+      const smartContract = SmartContract.for&lt;TokenPayableContract&gt;(to);
+      if (!smartContract.approveReceiveTransfer(from, amount, this.address)) {
+        return false;
+      }
+    }
+
+    const toBalance = this.balanceOf(to);
+    this.balances.set(from, fromBalance - amount);
+    this.balances.set(to, toBalance + amount);
+    this.notifyTransfer(from, to, amount);
+
+    if (contract !== undefined) {
+      const smartContract = SmartContract.for&lt;TokenPayableContract&gt;(to);
+      smartContract.onNEP17Payable(from, amount, data);
+    }
+    return true;
+  }
+}
+</code>
+</pre>
+<div class="bottom-bar">
+    <div class="bottom-bar-title">Typescript @Localizer["Resources"]</div>
+    <div class="bottom-bar-buttons">
+        <a class="bottom-bar-button">
+            <img class="button-icon" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/Documentation.png")" />
+            @Localizer["Documentation"]
+        </a>
+        <a class="bottom-bar-button">
+            <img class="button-icon" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/Templates.png")" />
+            @Localizer["Templates"]
+        </a>
+        <a class="bottom-bar-button" href="dev#tooling">
+            <img class="button-icon" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/Tools.png")" />
+            @Localizer["Tools"]
+        </a>
+    </div>
+</div>

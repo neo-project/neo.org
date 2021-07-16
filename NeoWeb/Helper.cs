@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -21,25 +21,26 @@ namespace NeoWeb
     {
         public static string CurrentDirectory { set; get; }
 
-        public static void AddBlogs(IQueryable<Blog> blogs, List<DiscoverViewModel> viewModels, bool isZh)
+        public static void AddBlogs(IQueryable<Blog> blogs, List<NewsViewModel> viewModels, bool isZh)
         {
             blogs.Select(p => new BlogViewModel()
             {
                 Id = p.Id,
                 CreateTime = p.CreateTime,
                 Title = isZh ? p.ChineseTitle : p.EnglishTitle,
+                Summary = isZh ? p.ChineseSummary : p.EnglishSummary,
                 Tags = isZh ? p.ChineseTags : p.EnglishTags,
                 Cover = isZh ? p.ChineseCover : p.EnglishCover,
                 IsShow = p.IsShow
-            }).ToList().ForEach(p => viewModels.Add(new DiscoverViewModel()
+            }).ToList().ForEach(p => viewModels.Add(new NewsViewModel()
             {
-                Type = DiscoverViewModelType.Blog,
+                Type = NewsViewModelType.Blog,
                 Blog = p,
                 Time = p.CreateTime
             }));
         }
 
-        public static void AddEvents(IQueryable<Event> events, List<DiscoverViewModel> viewModels, bool isZh)
+        public static void AddEvents(IQueryable<Event> events, List<NewsViewModel> viewModels, bool isZh)
         {
             events.Select(p => new EventViewModel()
             {
@@ -51,17 +52,17 @@ namespace NeoWeb
                 Country = isZh ? p.Country.ZhName : p.Country.Name,
                 City = isZh ? p.ChineseCity : p.EnglishCity,
                 Cover = isZh ? p.ChineseCover : p.EnglishCover
-            }).ToList().ForEach(p => viewModels.Add(new DiscoverViewModel()
+            }).ToList().ForEach(p => viewModels.Add(new NewsViewModel()
             {
-                Type = DiscoverViewModelType.Event,
+                Type = NewsViewModelType.Event,
                 Event = p,
                 Time = p.StartTime
             }));
         }
 
-        public static void AddNews(IQueryable<News> news, List<DiscoverViewModel> viewModels, bool isZh)
+        public static void AddMedia(IQueryable<Media> media, List<NewsViewModel> viewModels, bool isZh)
         {
-            news.Select(p => new NewsViewModel()
+            media.Select(p => new MediaViewModel()
             {
                 Id = p.Id,
                 Time = p.Time,
@@ -69,10 +70,10 @@ namespace NeoWeb
                 Cover = isZh ? p.ChineseCover : p.EnglishCover,
                 Title = isZh ? p.ChineseTitle : p.EnglishTitle,
                 Tags = isZh ? p.ChineseTags : p.EnglishTags
-            }).ToList().ForEach(p => viewModels.Add(new DiscoverViewModel()
+            }).ToList().ForEach(p => viewModels.Add(new NewsViewModel()
             {
-                Type = DiscoverViewModelType.News,
-                News = p,
+                Type = NewsViewModelType.Media,
+                Media = p,
                 Time = p.Time
             }));
         }

@@ -1,0 +1,19 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+<h2 class="main-title">
+    @Localizer["NeoID"]
+</h2>
+
+<div class="tagline">@Localizer["Decentralized identity tools provide much-needed solutions for user authentication in blockchain-based applications. Although many services may be accessed freely by any user, other specific use cases may depend on verification of specific attributes to function properly."]
+</div><br/>
+
+<div class="page-paragraph">@Localizer["For example, a DAO application not reliant on stakes for vote weighting may opt to substitute some form of ID verification, or another appropriate mechanism for proof of personhood. This would be vital to prevent a Sybil attack from seizing control of the organization."]
+</div><br/>
+
+<div class="page-paragraph">@Localizer["NeoID provides the identity framework required to support these application scenarios. It allows users to create and manage decentralized identifiers, issue claims as a data verifier, or integrate attribute verification into their own applications as required."]
+</div><br/>
+
+<div class="page-paragraph">@Localizer["Users can tap into these verified credentials to gain access to applications without ever needing to share their private data, retaining full sovereignty and preventing its possible misuse."]
+</div>

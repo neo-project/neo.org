@@ -1,0 +1,23 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+<div class="layout-container bread-crumb">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6 col-md-4 bg1-div"></div>
+            <div class="col-6 col-md-8 bg2-div"></div>
+        </div>
+        <div class="row">
+            <div class="text-div container">
+                <h4 class="mt-5 text-white bold text-uppercase">@(ViewData["ParentTitle"] ?? ViewData["Title"])</h4>
+                <div class="mt-5">
+                    <h4 class="mb-4 d-inline">
+                        <a class="green" asp-controller="home" asp-action="index">@SharedLocalizer["Home"]</a>
+                    </h4>
+                    <h4 class="d-inline"> <i class="iconfont bold">&#xe6ab;</i> @(ViewData["ParentTitle"] ?? ViewData["Title"])</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
 
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
@@ -16,8 +16,9 @@ https://neo.org/
 Want to make this site better?
 https://github.com/neo-project/neo.org
 -->
-<html>
-<head>
+
+<html lang="@SharedLocalizer["en"]">
+<head prefix="og: http://ogp.me/ns#">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="format-detection" content="telephone=no" />
@@ -27,12 +28,10 @@ https://github.com/neo-project/neo.org
     <meta name="application-name" content="neo.org">
     <meta name="renderer" content="ie-stand">
     <meta name="keywords" content="@(ViewData["keywords"] ?? $"{ViewData["keywords"]},")Neo,Blockchain,智能经济,区块链">
-    @{
-        var title = (ViewData["Title"] != null ? $"{ViewData["Title"]} - " : "") + Localizer["Neo Smart Economy"].Value;
+    @{ var title = (ViewData["Title"] != null ? $"{ViewData["Title"]} - " : "") + Localizer["Neo Smart Economy"].Value;
         var details = ViewData["Details"] ?? Localizer["Neo Smart Economy"].Value;
         var image = (ViewData["Image"] ?? Helper.ToCDN("/images/twitter-img.jpg"));
-        var url = $"{Context.Request.Scheme}://{Context.Request.Host}{Context.Request.Path}{Context.Request.QueryString}";
-    }
+        var url = $"{Context.Request.Scheme}://{Context.Request.Host}{Context.Request.Path}{Context.Request.QueryString}"; }
     <title>@title</title>
     <meta property="og:url" content="@url" />
     <meta property="og:type" content="website" />
@@ -54,89 +53,128 @@ https://github.com/neo-project/neo.org
 
     <link href="@Helper.ToCDN("/lib/bootstrap/css/bootstrap.min.css")" rel="stylesheet" />
     <link href="@Helper.ToCDN("/css/site.min.css", true)" rel="stylesheet" />
-    <style>
-        @@font-face {
-            font-family: 'WorkSans-Bold'; /* project id 1408484 */
-            src: url('/font/WorkSans-Bold.ttf');
-        }
-
-        @@font-face {
-            font-family: 'WorkSans-Regular'; /* project id 1408484 */
-            src: url('/font/WorkSans-Regular.ttf');
-        }
-    </style>
+    @{ await Html.RenderPartialAsync("_FontPartial"); }
     @RenderSection("Styles", required: false)
     @if (SharedLocalizer["en"].Value == "zh")
     {
-        <link href="@Helper.ToCDN("/css/sitecn.css", true)" rel="stylesheet" />
+        <link href="@Helper.ToCDN("/css/sitecn.min.css", true)" rel="stylesheet" />
     }
 </head>
 <body id="neo-body">
-    <nav class="navbar fixed-top navbar-expand-lg">
-        <a asp-controller="home" asp-action="index">
-            <img src="@Helper.CDN/images/logo files-dark.svg" alt="Neo Logo" />
-        </a>
-        <button class="navbar-toggler" type="button">
-            <div class="special-button">
-                <div class="top"></div>
-                <div class="bottom"></div>
+    <nav class="navbar smart-scroll container-fluid navbar-expand-lg">
+        <div class="container">
+            <a class="mt-1" asp-controller="home" asp-action="index">
+                <img id="whitelogo" src="@Helper.CDN/images/logo files-white.svg" alt="Neo Logo" />
+                <img id="darklogo" src="@Helper.CDN/images/logo files-dark.svg" alt="Neo Logo" />
+            </a>
+            <button class="navbar-toggler" type="button">
+                <div class="special-button">
+                    <div class="top"></div>
+                    <div class="bottom"></div>
+                </div>
+            </button>
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item" style="position: relative;">
+                        <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            @Localizer["Discover Neo"]
+                        </a>
+                        <div class="dropdown-menu p-2" aria-labelledby="dropdownMenuButton">
+                            <i class="iconfont">&#xeb21;</i>
+                            <div class="row text-center text-md-left">
+                                <div class="col-md-6">
+                                    <a class="dropdown-item my-1 py-2 my-md-2 py-md-3" asp-action="index" asp-controller="about">
+                                        <img src="@Helper.CDN/images/nav-1.png" />
+                                        <div>
+                                            <strong>@Localizer["Neo Defined"]</strong>
+                                            <span>@Localizer["Learn about the Neo project"]</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="dropdown-item my-1 py-2 my-md-2 py-md-3" asp-action="index" asp-controller="technology">
+                                        <img src="@Helper.CDN/images/nav-3.png" />
+                                        <div>
+                                            <strong>@Localizer["Neo Technology"]</strong>
+                                            <span>@Localizer["Explore the features"]</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="dropdown-item my-1 py-2 my-md-2 py-md-3" asp-action="index" asp-controller="neogas">
+                                        <img src="@Helper.CDN/images/nav-2.png" />
+
+                                        <div>
+                                            <strong>@Localizer["NEO & GAS"]</strong>
+                                            <span>@Localizer["Neo’s unique duel token model"]</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="dropdown-item my-1 py-2 my-md-2 py-md-3" asp-action="index" asp-controller="contributors">
+                                        <img src="@Helper.CDN/images/nav-4.png" />
+                                        <div>
+                                            <strong>@Localizer["Contributors"]</strong>
+                                            <span>@Localizer["A global effort"]</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="gov">@Localizer["Governance"]</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="dev">@Localizer["Developer"]</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="eco">@Localizer["Eco-Support"]</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="news">@Localizer["News"]</a></li>
+                    <li class="nav-item d-block d-md-none"><a class="nav-link" asp-action="index" asp-controller="migration">@Localizer["Migration"]</a></li>
+
+                    @if (SharedLocalizer["en"].Value == "zh")
+                    {
+                        <li class="nav-item nav-lang">
+                            <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
+                            <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item nav-lang">
+                            <a style="font-size: 1em; font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
+                            <a style="font-size: .9em;  font-weight: 500" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+                        </li>
+                    }
+                </ul>
             </div>
-        </button>
-
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="about">@Localizer["About"]</a></li>
-                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="dev">@Localizer["Developer"]</a></li>
-                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="wallets">@Localizer["Wallets"]</a></li>
-                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="eco">@Localizer["Ecosystem"]</a></li>
-                <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="discover">@Localizer["Discover"]</a></li>
-
-                <li class="nav-item border-0"></li>
-                @if (SharedLocalizer["en"].Value == "zh")
-                {
-                    <li class="nav-item nav-lang">
-                        <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
-                        <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
-                    </li>
-                }
-                else
-                {
-                    <li class="nav-item nav-lang">
-                        <a style="font-size: 1em; font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
-                        <a style="font-size: .9em;  font-weight: 500" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
-                    </li>
-                }
-            </ul>
         </div>
     </nav>
+    @if (ViewBag.HiddenBreadCrumb == null)
+    { await Html.RenderPartialAsync("_BreadCrumbPartial"); }
     <div class="container layout-container">
+        @if (ViewBag.HiddenMigration == null)
+        {
+            <div class="migration-div d-none d-md-block">
+                <a asp-action="index" asp-controller="migration">
+                    <h4 class="migration-text">
+                        <img src="@Helper.CDN/images/presskit/Neo symbol.svg" />
+                        @Localizer["MIGRATE TO N3"]
+                    </h4>
+                </a>
+            </div>
+        }
         @RenderBody()
     </div>
-
-    <div class="b2 footer-fo text-center p2">
-        <div class="container">
-            <h2>@Localizer["Follow Us"]</h2>
-            <ul class="mt4">
-                <li><a target="_blank" title="GitHub" href="https://github.com/neo-project" class="iconfont">&#xe609;</a></li>
-                <li><a target="_blank" title="Twitter" href="https://twitter.com/neo_blockchain" class="iconfont">&#xe607;</a></li>
-                <li><a target="_blank" title="Medium" href="https://medium.com/neo-smart-economy" class="iconfont">&#xe608;</a></li>
-                <li><a target="_blank" title="Telegram" href="@Localizer["https://t.me/NEO_EN"]" class="iconfont">&#xe606;</a></li>
-                <li><a target="_blank" title="Reddit" href="https://www.reddit.com/r/NEO/" class="iconfont">&#xe60a;</a></li>
-                <li><a target="_blank" title="Discord" href="https://discord.io/neo" class="iconfont">&#xe60b;</a></li>
-                <li><a target="_blank" title="Youtube" href="https://www.youtube.com/channel/UCl1AwEDN0w5lTmfJEMsY5Vw/videos" class="iconfont">&#xe60c;</a></li>
-                <li>
-                    <a title="WeChat" href="javascript:" class="iconfont">&#xe60d;</a>
-                    <img style="width: 130px" src="@Helper.CDN/images/qrcode.jpg" />
-                </li>
-                <li><a target="_blank" title="Weibo" href="https://weibo.com/neosmarteconomy" class="iconfont">&#xe60e;</a></li>
-            </ul>
-            <!-- Begin Mailchimp Signup Form -->
-            <div id="mc_embed_signup" class="mt4">
+    <footer class="py-5">
+        <div class="container-fluid">
+            <div class="container subscribe-container">
+                <h4 class="d-inline subscribe-title">@Localizer["Subscribe to our monthly newsletter."]</h4>
+                <br />
+                <span class="subscribe-paragraph">@Localizer["Keep up to date on all the news, events and developments."]</span>
+                <!-- Begin Mailchimp Signup Form -->
                 <form action="https://neo.us4.list-manage.com/subscribe/post?u=228d6f3157920dc1cad664104&amp;id=4f3883ac10" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate autocomplete="off">
                     <div id="mc_embed_signup_scroll">
-                        <div class="mb-3 mc-field-group">
+                        <div class="mc-field-group form-inline">
                             <input type="email" class="form-control required email" value="" name="EMAIL" id="mce-EMAIL" placeholder="@Localizer["Enter Email Address"]">
-                            <button class="btn" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe">@Localizer["SUBSCRIBE"]</button>
+                            <button class="form-control btn-2" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe">@Localizer["Submit"]</button>
                         </div>
                         <div id="mce-responses" class="clear">
                             <div class="response" id="mce-error-response" style="display:none"></div>
@@ -146,73 +184,80 @@ https://github.com/neo-project/neo.org
                         <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_228d6f3157920dc1cad664104_4f3883ac10" tabindex="-1" value=""></div>
                     </div>
                 </form>
-            </div>
-            <script src="@Helper.ToCDN("/js/mc-validate.min.js", true)"></script>
-            <!--End mc_embed_signup-->
-        </div>
-    </div>
-    <footer class="b3 px-5">
-        <div class="row">
-            <div class="col-md-12 col-lg">
-                <img class="d-none d-md-block" data-original="@Helper.CDN/images/logo files-white.svg" width="80" height="30" />
-            </div>
-            <div class="col-md-4 mt-md-5 mt-lg-0 col-lg">
-                <p class="bold no-border"><a asp-controller="about" asp-action="index">@Localizer["About"]</a></p>
-                <ul>
-                    <li><a asp-controller="consensus" asp-action="index">@Localizer["Consensus"]</a></li>
-                    <li><a asp-controller="contributors" asp-action="index">@Localizer["Contributors"]</a></li>
-                    <li><a asp-controller="joinus" asp-action="index">@Localizer["Join US"]</a></li>
-                    <li><a asp-controller="presskit" asp-action="index">@Localizer["Press Kit"]</a></li>
-                </ul>
-            </div>
-            <div class="col-md-4 mt-md-5 mt-lg-0 col-lg">
-                <p class="bold"><a asp-controller="dev" asp-action="index">@Localizer["Developers"]</a></p>
-                <ul>
-                    <li><a target="_blank" href="https://docs.neo.org">@Localizer["Documentation"]</a></li>
-                    <li><a target="_blank" href="https://github.com/neo-project">@Localizer["GitHub"]</a></li>
-                    <li><a asp-controller="bounty" asp-action="index">@Localizer["Vulnerability Bounty"]</a></li>
-                </ul>
-            </div>
-            <div class="col-md-4 mt-md-5 mt-lg-0 col-lg">
-                <p class="bold"><a asp-controller="wallets" asp-action="index">@Localizer["Wallets"]</a></p>
-            </div>
-            <div class="col-md-4 mt-md-5 mt-lg-0 col-lg">
-                <p class="bold"><a asp-controller="eco" asp-action="index">@Localizer["Ecosystem"]</a></p>
-                <ul>
-                    <li><a asp-controller="ecoboost" asp-action="index">@Localizer["EcoBoost"]</a></li>
-                    <li><a href="https://ndapp.org" target="_blank">@Localizer["dApps List"]</a></li>
-                </ul>
-            </div>
-            <div class="col-md-4 mt-md-5 mt-lg-0 col-lg">
-                <p class="bold"><a asp-controller="discover" asp-action="index">@Localizer["Discover"]</a></p>
-                <ul>
-                    <li><a asp-controller="discover" asp-action="index" asp-route-type="1">@Localizer["Blogs"]</a></li>
-                    <li><a asp-controller="discover" asp-action="index" asp-route-type="2">@Localizer["Events"]</a></li>
-                    <li><a asp-controller="discover" asp-action="index" asp-route-type="3">@Localizer["News"]</a></li>
-                </ul>
-            </div>
-            <div class="col-md-4 mt-md-5 mt-lg-0 col-lg-3">
-                <p class="bold"><a href="mailto:contact@neo.org">@Localizer["Contact Us"]</a></p>
-                <ul>
-                    <li><a href="mailto:marketing@neo.org">@Localizer["Marketing"]</a></li>
-                    <li><a href="mailto:eg@neo.org">@Localizer["Ecogrowth"]</a></li>
-                    <li><a href="mailto:contact@neo.org">@Localizer["General"]</a></li>
-                </ul>
+                <script src="@Helper.ToCDN("/js/mc-validate.min.js", true)"></script>
+                <!--End mc_embed_signup-->
             </div>
         </div>
-        <div class="mt2">
-            <p class="op-70"><small>Copyright © Neo Team 2014-@DateTime.Now.Year</small></p>
+        <div class="container">
+            <div class="row pt-4">
+                <div class="col-md-2">
+                    <img class="my-3 img-fluid" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.CDN/images/logo files-dark.svg" style="width: 120px" />
+                </div>
+                <div class="col-md-2">
+                    <h4 class="my-3">@Localizer["For Developers"]</h4>
+                    <a href="/dev#tooling">@Localizer["Tooling"]</a>
+                    <a href="/dev#examples">@Localizer["Examples & Tutorials"]</a>
+                    <a target="_blank" href="https://docs.neo.org/">@Localizer["Documentation"]</a>
+                    <a target="_blank" href="https://github.com/neo-project">@Localizer["GitHub"]</a>
+                    <a href="/eco">@Localizer["Eco-Support"]</a>
+                </div>
+                <div class="col-md-2">
+                    <h4 class="my-3">@Localizer["For token holders"]</h4>
+                    <a href="/gov">@Localizer["Governance"]</a>
+                    <a href="/neogas">@Localizer["NEO & GAS"]</a>
+                    <a href="/neogas#wallet">@Localizer["Wallet"]</a>
+                    <a href="/news?type=blog">@Localizer["Blogs"]</a>
+                    <a href="/news?type=event">@Localizer["Events"]</a>
+                </div>
+                <div class="col-md-2">
+                    <h4 class="my-3">@Localizer["Contact NGD"]</h4>
+                    <a href="/joinus">@Localizer["Join US"]</a>
+                    <a href="mailto:marketing@neo.org">@Localizer["Marketing"]</a>
+                    <a href="mailto:eg@neo.org">@Localizer["EcoGrowth"]</a>
+                    <a href="mailto:about@neo.org">@Localizer["General"]</a>
+                </div>
+                <div class="col-md-2">
+                    <h4 class="my-3">@Localizer["For Media"]</h4>
+                    <a href="/about">@Localizer["About Neo"]</a>
+                    <a href="/presskit">@Localizer["Press Kit"]</a>
+                </div>
+                <div class="col-md-2">
+                    <h4 class="my-3">@Localizer["Keep in touch"]</h4>
+                    <a class="d-inline" target="_blank" href="https://www.facebook.com/NeoBlockchainOfficial"><i class="iconfont">&#xe616;</i></a>
+                    <a class="d-inline" target="_blank" href="https://weibo.com/neosmarteconomy"><i class="iconfont">&#xe60e;</i></a>
+                    <a class="d-inline" target="_blank" href="https://twitter.com/neo_blockchain"><i class="iconfont">&#xe607;</i></a>
+                    <a class="d-inline" target="_blank" href="https://discord.gg/rvZFQ5382k"><i class="iconfont">&#xe60b;</i></a>
+                    <a class="d-inline" href="javascript:" onclick="$('.wechat2').toggle('fast')"><i class="iconfont">&#xe60d;</i></a>
+                    <a class="wechat2" href="@Helper.CDN/images/qrcode.jpg" target="_blank"><img src="@Helper.CDN/images/qrcode.jpg" /></a>
+                    @if (SharedLocalizer["en"].Value == "zh")
+                    {
+                        <a class="d-inline" target="_blank" href="https://t.me/NEO_Chinese"><i class="iconfont">&#xe606;</i></a>
+                    }
+                    else
+                    {
+                        <a class="d-inline" target="_blank" href="https://t.me/NEO_EN"><i class="iconfont">&#xe606;</i></a>
+                    }
+                    <a class="d-inline" target="_blank" href="https://www.reddit.com/r/NEO/"><i class="iconfont">&#xe60a;</i></a>
+                    <a class="d-inline" target="_blank" href="https://medium.com/neo-smart-economy"><i class="iconfont">&#xe608;</i></a>
+                </div>
+            </div>
+            <div class="mt-3 copyright-container">
+                <p class="op-70 copyright-paragraph">Copyright © Neo Team 2014-@DateTime.Now.Year</p>
+            </div>
         </div>
     </footer>
-    <form id="form_language" asp-action="SetLanguage" asp-controller="home" method="post">
+
+
+    <form class="d-none" id="form_language" asp-action="SetLanguage" asp-controller="home" method="post">
         @Html.AntiForgeryToken()
         <p><input type="hidden" id="culture" name="culture" /><input type="hidden" id="returnUrl" name="returnUrl" /></p>
     </form>
-    <script src="@Helper.ToCDN("/lib/jquery/jquery.min.js")"></script>
-    <script src="@Helper.ToCDN("/lib/popper.js/popper.min.js")"></script>
-    <script src="@Helper.ToCDN("/lib/bootstrap/js/bootstrap.min.js")"></script>
-    <script src="@Helper.ToCDN("/js/jquery.lazyload.min.js")"></script>
-    <script src="@Helper.ToCDN("/js/text-autospace.js")"></script>
+    <script src="@Helper.ToCDN("/lib/jquery/jquery.min.js", true)"></script>
+    <script src="@Helper.ToCDN("/lib/popper.js/popper.min.js", true)"></script>
+    <script src="@Helper.ToCDN("/lib/bootstrap/js/bootstrap.min.js", true)"></script>
+    <script src="@Helper.ToCDN("/js/jquery.lazyload.min.js", true)"></script>
+    <script src="@Helper.ToCDN("/js/jquery.throttle.min.js", true)"></script>
+    <script src="@Helper.ToCDN("/js/text-autospace.js", true)"></script>
     <environment include="Development">
         <script src="/js/site.js" asp-append-version="true"></script>
     </environment>
@@ -228,6 +273,41 @@ https://github.com/neo-project/neo.org
         gtag('js', new Date());
 
         gtag('config', 'UA-130525731-3');
+    </script>
+
+    <script>
+        $('body').css('padding-top', $('.navbar').outerHeight() + 'px')
+
+        // detect scroll top or down
+        if ($('.smart-scroll').length > 0) { // check if element exists
+            var last_scroll_top = 0;
+            var scroll_active_top = 150;
+            $(window).on('scroll', function (e) {
+                if ($(this).hasClass("show")) {
+                    return e.preventDefault()
+                }
+
+                scroll_top = $(this).scrollTop();
+                if (scroll_top <= 0 || scroll_top < scroll_active_top) {
+                    $('.smart-scroll').removeClass('scrolled-up').removeClass('scrolled-down');
+                }
+                else if (scroll_top < last_scroll_top) {
+                    $('.smart-scroll').removeClass('scrolled-down').addClass('scrolled-up');
+                }
+                else {
+                    $('.smart-scroll').removeClass('scrolled-up').addClass('scrolled-down');
+                }
+                last_scroll_top = scroll_top;
+            });
+        }
+
+        if ("@(SharedLocalizer["en"].Value)" == "zh") {
+            $("a").each(function () {
+                if ($(this).attr("href") && $(this).attr("href").startsWith("https://docs.neo.org")) {
+                    $(this).attr("href", $(this).attr("href").replace("en-us", "zh-cn"));
+                }
+            });
+        }
     </script>
 
     @RenderSection("Scripts", required: false)

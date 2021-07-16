@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -141,11 +141,20 @@
   <data name="Big integer to Base64 string:" xml:space="preserve">
     <value>大整数转 Base64 字符串：</value>
   </data>
+  <data name="Big integer to hexadecimal string to UTF8 string:" xml:space="preserve">
+    <value>大整数转十六进制字符串再转成 UTF8 字符串：</value>
+  </data>
   <data name="Big integer to hexadecimal string:" xml:space="preserve">
     <value>大整数转十六进制字符串：</value>
   </data>
   <data name="Big-endian to little-endian:" xml:space="preserve">
     <value>大端序转小端序：</value>
+  </data>
+  <data name="Hexadecimal big-endian string to UTF8 string:" xml:space="preserve">
+    <value>16 进制大端序字符串转 UTF8 字符串：</value>
+  </data>
+  <data name="Hexadecimal little-endian string to Base64 string:" xml:space="preserve">
+    <value>16 进制小端序字符串转 Base64 字符串：</value>
   </data>
   <data name="Hexadecimal little-endian string to big integer:" xml:space="preserve">
     <value>16 进制小端序字符串转大整数：</value>
@@ -194,6 +203,9 @@
   </data>
   <data name="Smart contract script analysis:" xml:space="preserve">
     <value>智能合约脚本解析：</value>
+  </data>
+  <data name="UTF8 string to hexadecimal string to big integer:" xml:space="preserve">
+    <value>UTF8 字符串转十六进制字符串再转成大整数：</value>
   </data>
   <data name="UTF8 string to hexadecimal string:" xml:space="preserve">
     <value>UTF8 字符串转十六进制字符串：</value>

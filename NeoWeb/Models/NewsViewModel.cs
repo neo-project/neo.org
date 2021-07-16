@@ -1,35 +1,55 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System;
 
 namespace NeoWeb.Models
 {
     public class NewsViewModel
     {
-        public int Id { get; set; }
-
-        public string Title { get; set; }
-
-        public string Link { get; set; }
+        public NewsViewModelType Type { get; set; }
 
         public DateTime Time { get; set; }
 
-        public string Cover { get; set; }
-
-        public string Tags { get; set; }
+        public BlogViewModel Blog { get; set; }
+        public EventViewModel Event { get; set; }
+        public MediaViewModel Media { get; set; }
 
         public NewsViewModel()
         { }
 
-        public NewsViewModel(News news, bool isZh)
+        public NewsViewModel(NewsViewModelType type, object data, bool isZh)
         {
-            Id = news.Id;
-            Time = news.Time;
-            Link = news.Link;
-            Title = isZh ? news.ChineseTitle : news.EnglishTitle;
-            Cover = isZh ? news.ChineseCover : news.EnglishCover;
-            Tags = isZh ? news.ChineseTags : news.EnglishTags;
+            try
+            {
+                switch (type)
+                {
+                    case NewsViewModelType.Blog:
+                        Blog = new BlogViewModel((Blog)data, isZh);
+                        Time = Blog.CreateTime;
+                        break;
+                    case NewsViewModelType.Event:
+                        Event = new EventViewModel((Event)data, isZh);
+                        Time = Event.StartTime;
+                        break;
+                    case NewsViewModelType.Media:
+                        Media = new MediaViewModel((Media)data, isZh);
+                        Time = Media.Time;
+                        break;
+                    default:
+                        throw new ArgumentException("Type does not match.");
+                        //break;
+                }
+            }
+            catch (InvalidCastException)
+            {
+                // re-throwing the exception
+                throw;
+            }
         }
+    }
+
+    public enum NewsViewModelType
+    {
+        Blog = 1,
+        Event = 2,
+        Media = 3
     }
 }

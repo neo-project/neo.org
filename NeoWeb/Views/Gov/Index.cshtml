@@ -1,0 +1,94 @@
+@model NeoWeb.Models.Candidate
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+@{
+    ViewData["Title"] = Localizer["Governance"].Value;
+}
+
+@section Styles{
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/gov.min.css", true)" />
+}
+<div class="container">
+    @{
+        ViewData["IS_title"] = String.Format("<em>NEO</em> <br class='{0}'/>{1}", SharedLocalizer["d-none-zh"].Value, Localizer["Governance"].Value);
+        ViewData["IS_description"] = @Localizer["NEO token holders decide who is in charge of maintaining the Neo network through the election of a Neo Council. GAS token rewards are distributed to voters and council members alike."];
+        ViewData["IS_imagePath"] = @Helper.ToCDN("/images/gov/gov.svg", true);
+    }
+    <partial name="../_Common/_IntroductionSplash" view-data="ViewData" />
+
+    <hr />
+    <div class="row">
+        <div class="col-12 col-lg-9">
+            <h2 class="mt-5">@Localizer["By the people, for the people"]</h2>
+            <p><strong>@Localizer["Neo is becoming a more decentralized blockchain through its new on-chain governance mechanism."]</strong></p>
+            <p>@Localizer["NEO holders participate in governance by voting in a Neo Council to manage the Neo Blockchain. The Neo Council will consist of council members and consensus nodes who provide services, maintain the liveliness of the network, and adjust critical blockchain params. GAS rewards will be distributed to both NEO votes and council members."]</p>
+            <p><strong>@Localizer["Voting is planned to begin three months after the launch of the Neo N3 MainNet."]</strong></p>
+        </div>
+    </div>
+    <h3 class="mt-5 border-bottom">@Localizer["Key groups in Governance"]</h3>
+    <div class="row">
+        <div class="col-lg-4 mt-5">
+            <h5>@Localizer["ROLE"]</h5>
+            <h2><span class="green">NEO</span> @Localizer["TOKEN<br />HOLDERS"]</h2>
+            <hr />
+            <p><strong>@Localizer["NEO holders are the stakeholders of the Neo ecosystem."]</strong></p>
+            <p class="mt-5">
+                @Localizer["Each NEO token represents one vote in the election of the Neo Council, who is responsible for making decisions for the Neo blockchain. NEO holders should vote in candidates that they feel will represent their needs and are capable of maintaining the health of the Neo network."]
+            </p>
+        </div>
+        <div class="col-lg-4 mt-5">
+            <h5>@Localizer["ROLE"]</h5>
+            <h2><span class="green">@Localizer["COUNCIL"]</span><br />@Localizer["CANDIDATES"]</h2>
+            <hr />
+            <p><strong>@Localizer["Any Neo wallet address can register as a candidate to be elected to the Neo Council."]</strong></p>
+            <p class="mt-5">
+                @Localizer["A GAS fee is required to register candidacy. As candidates may be elected to the role of consensus node, it is recommended that all candidates set up a reliable node and are capable of maintenance. Comprehensive knowledge of the Neo blockchain is required to fulfil the responsibility as a council member."]
+            </p>
+        </div>
+        <div class="col-lg-4 mt-5">
+            <h5>@Localizer["ROLE"]</h5>
+            <h2><span class="green">NEO</span><br />@Localizer["COUNCIL"]</h2>
+            <hr />
+            <p><strong>@Localizer["The top 21 candidates are voted in as members of the Neo Council."]</strong></p>
+            <p class="mt-5">
+                @Localizer["The council is responsible for maintaining the health and liveliness of the Neo network. Responsibilities include adjusting blockchain parameters, such as system fees, and electing oracle nodes."]
+            </p>
+        </div>
+    </div>
+    <h3 class="mt-5 border-bottom">@Localizer["Breakdown of the process"]</h3>
+    <h2 class="mt-5 text-center">@Localizer["Governance consists of four main stages"]</h2>
+    <div class="text-center">
+        @if (SharedLocalizer["en"].Value == "zh")
+        {
+            <img class="img-fluid d-none d-lg-inline my-5" src="@Helper.CDN/images/gov/gov2-zh.svg" />
+            <img class="img-fluid d-inline d-lg-none my-5" src="@Helper.CDN/images/gov/gov2-xs-zh.png" />
+        }
+        else
+        {
+            <img class="img-fluid d-none d-lg-inline my-5" src="@Helper.CDN/images/gov/gov2.png" />
+            <img class="img-fluid d-inline d-lg-none my-5" src="@Helper.CDN/images/gov/gov2-xs.svg" />
+        }
+    </div>
+    <h3 class="mt-5 border-bottom">@Localizer["GAS distribution"]</h3>
+    <div class="scroll-x">
+        @if (SharedLocalizer["en"].Value == "zh")
+        {
+            <img class="my-5" src="@Helper.CDN/images/gov/gov3-zh.svg" /> }
+        else
+        {
+            <img class="my-5" src="@Helper.CDN/images/gov/gov3.svg" />
+        }
+    </div>
+</div>
+
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <environment include="Development">
+        <script src="/js/gov.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="@Helper.ToCDN("/js/gov.min.js", true)"></script>
+    </environment>
+}

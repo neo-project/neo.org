@@ -1,19 +1,35 @@
-﻿[
+[
+  {
+    "outputFile": "wwwroot/css/about.css",
+    "inputFile": "wwwroot/css/about.less"
+  },
+  {
+    "outputFile": "wwwroot/css/contributors.css",
+    "inputFile": "wwwroot/css/contributors.less"
+  },
+  {
+    "outputFile": "wwwroot/css/neogas.css",
+    "inputFile": "wwwroot/css/neogas.less"
+  },
+  {
+    "outputFile": "wwwroot/css/technology.css",
+    "inputFile": "wwwroot/css/technology.less"
+  },
   {
     "outputFile": "wwwroot/css/wallets.css",
     "inputFile": "wwwroot/css/wallets.less"
   },
   {
-    "outputFile": "wwwroot/css/consensus.css",
-    "inputFile": "wwwroot/css/consensus.less"
+    "outputFile": "wwwroot/css/gov.css",
+    "inputFile": "wwwroot/css/gov.less"
   },
   {
     "outputFile": "wwwroot/css/dev.css",
     "inputFile": "wwwroot/css/dev.less"
   },
   {
-    "outputFile": "wwwroot/css/discover.css",
-    "inputFile": "wwwroot/css/discover.less"
+    "outputFile": "wwwroot/css/news.css",
+    "inputFile": "wwwroot/css/news.less"
   },
   {
     "outputFile": "wwwroot/css/eco.css",
@@ -32,10 +48,6 @@
     "inputFile": "wwwroot/css/site.less"
   },
   {
-    "outputFile": "wwwroot/css/sitecn.css",
-    "inputFile": "wwwroot/css/sitecn.less"
-  },
-  {
     "outputFile": "wwwroot/css/contributors.css",
     "inputFile": "wwwroot/css/contributors.less"
   },
@@ -48,11 +60,19 @@
     "inputFile": "wwwroot/css/testnet-list.less"
   },
   {
-    "outputFile": "wwwroot/css/about.css",
-    "inputFile": "wwwroot/css/about.less"
-  },
-  {
     "outputFile": "wwwroot/css/joinus.css",
     "inputFile": "wwwroot/css/joinus.less"
+  },
+  {
+    "outputFile": "wwwroot/css/migration.css",
+    "inputFile": "wwwroot/css/migration.less"
+  },
+  {
+    "outputFile": "wwwroot/css/tour.css",
+    "inputFile": "wwwroot/css/tour.less"
+  },
+  {
+    "outputFile": "wwwroot/css/sitecn.css",
+    "inputFile": "wwwroot/css/sitecn.less"
   }
 ]

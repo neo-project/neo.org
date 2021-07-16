@@ -1,0 +1,35 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+
+<h2 class="main-title">@Localizer["Oracle"]
+</h2>
+
+<div class="tagline">@Localizer["Smart contracts represent a revolutionary breakthrough for the way that we do business online, but adoption of the technology remains slow. There are many barriers to overcome before decentralized applications are ready for the mainstream, but one of the most notable is the inherent limitation for contracts by the data they have access to. Most existing blockchain applications must rely purely on transactions as a source of input data."]
+</div><br/>
+
+<div class="page-paragraph">@Localizer["This is adequate for simple applications where a contract already stores the data that it requires to authenticate a particular transaction—a user’s token balance for instance. But if a service wants to use dynamic, real-world data, a trusted source of obtaining that information is required."]
+</div><br/>
+
+<div class="sub-title">@Localizer["Open your world with native oracles"]
+</div>
+
+<div class="page-paragraph">@Localizer["The Internet plays host to an unimaginable wealth of data, ready to be put to use to generate new forms and flows of value. With the native oracle service introduced in N3, it becomes trivial for any developer to tap into any external resources over HTTPS."]
+</div><br/>
+
+<div class="page-paragraph">@Localizer["Contracts deployed on Neo can invoke the native oracle contract to trigger a data request, specifying a target URL and a filter. Oracle nodes, elected through the Neo Council, will work together to guarantee the truthfulness and reliability of the results."]
+</div><br/>
+
+<div class="sub-title">@Localizer["Decentralize everything"]
+</div>
+
+<div class="page-paragraph">@Localizer["Many “decentralized” applications leverage the name for its appearance of trust, but in reality only deliver a partially decentralized experience. Some application logic may be contained within a smart contract, but a service’s dependency on cloud providers for frontend hosting or database provisioning introduces new centralized points of failure."]
+</div><br/>
+
+<div class="page-paragraph">@Localizer["With the power of Neo's native oracle and NeoFS, blockchain-based applications can take the next step forward into true decentralization. Any extra data required by an application can simply be stored off-chain with NeoFS then retrieved in a decentralized manner through the oracle service."]
+</div><br/>
+
+<div class="page-paragraph">@Localizer["Smart contracts can fetch and manipulate data off-chain in an uncensorable, reliable, and tamper-proof manner."]
+</div><br/>
+

@@ -1,0 +1,83 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+<h2 class="main-title">@Localizer["Tokens"]</h2>
+<div class="page-paragraph">
+    @Localizer["Neo is unique in that it was the first public blockchain platform to adopt a dual token mechanism. It separates the rights of governance from the rights of using the network. It also provides a means of acquiring the tokens needing to pay transaction fees."]
+</div>
+
+<div class="section">
+    <div class="sub-title">
+        @Localizer["NEO"]
+    </div>
+    <div class="divider"></div>
+    <div class="headline">
+        @Localizer["With a total of 100 million tokens, NEO has two main features:"]
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <img class="content-img @SharedLocalizer["d-none-zh"]" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/discover/Vote.svg")" />
+            <img class="content-img @SharedLocalizer["d-none"]" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/discover/Vote-zh.svg")" />
+        </div>
+        <div class="col-12 col-md-6">
+            <img class="content-img @SharedLocalizer["d-none-zh"]" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/discover/ClaimGas.svg")" />
+            <img class="content-img @SharedLocalizer["d-none"]" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/discover/ClaimGas-zh.svg")" />
+        </div>
+    </div>
+    <div class="page-paragraph">
+        @Localizer["NEO holders participate in governance by voting for the Neo Committee, composed of members and consensus nodes that govern the Neo blockchain. The Neo Committee provides specific services, such as maintaining the liveliness of the network and adjusting critical blockchain parameters."]
+        <br /><br />
+        @Localizer["The minimum unit of NEO is 1 and tokens are indivisible. This means if you are withdrawing from an exchange to your wallet, you must withdraw in whole numbers. It also means that NEO is one of the scarcest public blockchain tokens, as it cannot be broken down into smaller pieces."]
+        <br /><br />
+        @Localizer["100 million NEO were generated at genesis, with approximately 50% reserved by the Neo Foundation to incentivize the development of the Neo ecosystem. The release schedule can be found in the Neo White Paper."]
+    </div>
+</div>
+
+<div class="section">
+    <div class="sub-title">
+        @Localizer["GAS"]
+    </div>
+    <div class="divider margin-bottom"></div>
+    <div class="page-paragraph">
+        @Localizer["The Neo network charges GAS for the operation and storage of tokens and smart contracts, preventing the abuse of node resources. System fees are burned, while network fees are redistributed to consensus nodes, creating an economic incentive for their services."]
+    </div>
+    <div class="headline">
+        @Localizer["5 GAS tokens are generated every block and distributed in three parts:"]
+    </div>
+
+    <img class="content-img margin-bottom @SharedLocalizer["d-none-zh"]" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/discover/GasUsage.svg")" />
+    <img class="content-img margin-bottom @SharedLocalizer["d-none"]" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/discover/GasUsage-zh.svg")" />
+
+    <div class="page-paragraph">
+        @Localizer["The minimum unit of GAS is 0.00 000001. There is no NEO staking required in order to claim GAS tokens. Most Neo wallets will include a claim function, allowing you to collect your GAS with the click of a button. Please be aware that some exchanges distribute GAS to users that hold NEO on their platform, and others do not."]
+        <br /><br />
+        @Localizer["The largest portion of GAS is distributed to voters as a reward for playing an active role in network governance. NEO holders will need to ensure they choose a wallet that supports voting if they wish to participate."]
+    </div>
+</div>
+
+<div class="sub-title">
+    @Localizer["CALCULATE"]
+</div>
+<div class="divider margin-bottom"></div>
+
+<div class="calculator-container">
+    <partial name="../_Common/_NeoGasCalculator" />
+</div>
+
+<br /><br />
+
+<div class="sub-title uppercase">
+    @Localizer["Migration"]
+</div>
+<div class="divider margin-bottom"></div>
+
+<div class="page-paragraph">
+    @Localizer["Neo is undergoing its biggest upgrade as it migrates to its latest version, N3. As part of this upgrade, users may be required to migrate their token assets to the new network."]
+
+</div>
+
+<div class="headline">
+    @Localizer["To find out more information, please visit the"] <span class="green"><a href="/migration">@Localizer["migration page"]</a></span>.
+</div>
+

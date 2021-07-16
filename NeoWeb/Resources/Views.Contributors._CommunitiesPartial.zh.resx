@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Alienworks is a global group of developers formed to build tools and resources to support current and future developers in Neo's ecosystem and beyond. Its goal is to provide users and developers with the convenience of using and building a future-oriented smart economy in the crypto world." xml:space="preserve">
+    <value>Alienworks 是一个全球性的开发团队，他们向 Neo 生态系统当前和未来的开发者提供工具、资源等支持。其目标是便于用户和开发者构建和使用面向未来的加密智能经济。</value>
+  </data>
+  <data name="AxLabs is a community developing and maintaining projects in the Neo Ecosystem, mainly focusing on Developer Experience (DevEx). AxLabs joined Neo in late 2018, and since then has been building various tools to make the DevEx on Neo as smooth and intuitive as possible. Examples are tools for Java/Kotlin developers, like the neow3j SDK, the neow3j compiler &amp; devpack, as well as the Neo Playground. &lt;br /&gt;&lt;br /&gt;The team consists of passionate builders and open-source enthusiasts, with a track record in projects in the blockchain scene. Alongside its broad software engineering experience, AxLabs team members share a strong academic background, with close ties to educational institutions in Switzerland - giving workshops, lectures, and tutorials for a broad audience across the globe." xml:space="preserve">
+    <value>AxLabs 是在 Neo 生态系统中负责开发和维护项目的社区，主要致力于提升开发者体验(DevEx)。AxLabs 于 2018 年底加入 Neo，一直致力于构建各种工具，以使 Neo 上的 DevEx 尽可能流畅和直观。例如 Java/Kotlin 开发人员的 neow3j SDK、neow3j 编译器、开发包等，以及 Neo Playground。&lt;br /&gt;&lt;br /&gt; 该团队由充满激情的建设者和开源爱好者组成，在区块链领域的项目中反应良好。AxLabs 团队成员拥有资深的软件工程经验和强大的学术背景，与瑞士的教育机构联系密切——为全球无数受众提供讲习班、讲座和教程。</value>
+  </data>
+  <data name="COZ is a software development group specializing in blockchain and distributed technologies. Since its humble beginnings as an open source, community driven organization, COZ has become one of blockchain’s most respected development organizations, consistently delivering groundbreaking products. COZ is responsible for projects such as Neon wallet, Dora, the Neo Python suite, and Neon-js." xml:space="preserve">
+    <value>COZ 是一个专门从事区块链和分布式技术的软件开发小组。作为一个开源且社区驱动的组织，COZ 曾经默默无闻，如今却已经成为最受尊敬的区块链开发组织之一，交付了一个又一个开创性的产品。COZ 负责 Neon wallet、Dora、Neo Python suite、Neon-js 等项目。</value>
+  </data>
+  <data name="Neo News Today is a community run news website dedicated to delivering up-to-date information on all things connected to the Neo ecosystem. NNT provides breaking news, interviews, guides, and resources materials, carefully delivered to the community with an emphasis on accuracy and reliability." xml:space="preserve">
+    <value>Neo News Today 是一个由社区运营的新闻网站，致力于提供与 Neo 生态系统相关的最新信息。NNT 向社区提供准确可靠的突发新闻、采访、指南和资源材料。</value>
+  </data>
+  <data name="NeoResearch is an open-source community which supports the ecosystem with teaching, researching and applied development for blockchain technology. The group welcomes contributors to discuss, investigate and propose solutions for challenges that are present on a variety of core components of the Neo Blockchain. In this sense, monitoring, analysis, testing and experimentation are core concepts embraced by NeoResearch. Empowering the ecosystem with didactic tools is a path for technology adoption and a positive identity consolidation is NeoResearch's vision." xml:space="preserve">
+    <value>NeoResearch 是一个开源社区，其通过区块链技术的教学、研究和应用开发来支持生态系统。NeoResearch 欢迎其参与者对 Neo 区块链核心组件所面临的挑战进行讨论和调查，并提出解决方案。据此而言，监测、分析、测试和实验是 NeoResearch 的核心概念，使用教学工具增强生态系统是技术采纳的途径，而积极的身份巩固则代表了 NeoResearch 的远见。</value>
+  </data>
+  <data name="NEO Tracker is the team is behind the NEO•ONE and NEO Tracker tools. NEO•ONE is an open source end-to-end framework that makes coding, testing and deploying Neo dapps easy, fast, efficient and enjoyable. NEO Tracker is a blockchain explorer and web wallet which gives users a gateway to interact with the Neo Blockchain. The NEO Tracker team aims to provide powerful, intuitive and approachable tools for the community." xml:space="preserve">
+    <value>NEO Tracker 是开发 NEO•ONE 和 NEO Tracker 工具的团队。NEO•ONE 是一个开源的 E2E 框架，使 NEO dapps 的编码、测试和部署都变得简单、高效而愉快。NEO Tracker 是一个区块链浏览器和网络钱包，它为用户提供了一个与 NEO 区块链交互的网关。NEO Tracker 团队的目标是为社区提供强大、直观、易操作的工具。</value>
+  </data>
+  <data name="NEL is a Chinese developer community committed to providing developer-friendly tools to improve Neo's ease of use. It has developed and maintained many blockchain tools such as NELScan browser, NEORAY online contract development tool, Teemo wallet, etc." xml:space="preserve">
+    <value>NEL 是一个中国开发者社区，致力于通过提供便捷工具从而提高 Neo 的开发友好性。NEL 开发并维护了 NELScan 浏览器、NEORAY 在线合同开发工具、Teemo 钱包等区块链工具。</value>
+  </data>
+  <data name="NEXT is a next-generation internet application lab, delivering Neo open network infrastructure services. The community was created as a dApp incubator, seeking to pull more developers into the Neo community and spearhead innovation in the blockchain sector." xml:space="preserve">
+    <value>NEXT 是一个新世代互联网应用实验室，提供 Neo 开放网络基础设施服务。该社区是作为 dApp 孵化器创建的，旨在吸引更多开发者加入 Neo 社区，引领区块链创新发展。</value>
+  </data>
+  <data name="Red4Sec is a Cybersecurity company located in Madrid, Spain, specializing in blockchain technologies, ethical hacking, penetration testing, and code audits. Rec4Sec was formed by a team of experts and security analysts with many years of experience in the Cybersecurity sector. In recent years, Red4Sec has become increasingly focused on blockchain and smart contract code audits and has partnered with great blockchain projects such as Neo." xml:space="preserve">
+    <value>Red4Sec 是一家位于西班牙马德里的网络安全公司，专门从事区块链技术、道德黑客、渗透测试和代码审计。Rec4Sec 是由在网络安全领域拥有多年经验的专家和安全分析师组成的团队。近年来，Red4Sec 越来越关注区块链和智能合约代码审计，并与 Neo 等先进区块链项目达成了合作。</value>
+  </data>
+  <data name="With support from Neo Foundation, Neo SPCC works on Neo ecosystem projects as a part of the international community of developers. Neo SPCC core projects are NeoFS, a decentralized object storage platform integrated with Neo Blockchain, and NeoGo, high-performance Neo node implementation and SDK for Go programming language. &lt;br /&gt;&lt;br /&gt;Neo SPCC's long-term goal is to build a true decentralized cloud platform using Neo technologies that will allow solving almost any real-world B2B and B2C problems in a decentralized setting." xml:space="preserve">
+    <value>在 Neo Foundation 的支持下，Neo SPCC 作为国际开发者社区的一员参与 Neo 生态系统项目。Neo SPCC 核心项目包括与 Neo 区块链集成的去中心化对象存储平台 NeoFS，以及 Go 语言下的高性能 Neo 节点实现和 SDK NeoGo。&lt;br /&gt;&lt;br /&gt;Neo SPCC 的长期目标是使用 Neo 技术建立一个真正的去中心化云平台，在去中心化环境下解决几乎所有现实世界的 B2B 和 B2C 问题。</value>
+  </data>
+  <data name="Neo has sponsored various self-governed communities around the world to help build out Neo’s developer tools and infrastructure. The communities also provide support to new developers joining the ecosystem and provide outreach and learning opportunities to local groups in their various regions." xml:space="preserve">
+    <value>Neo 向在全球协助构建开发工具和基础设施的社区提供资助。此外，Neo 生态还从社区吸收更多新开发者加入，并为其当地的个人或团队提供学习机会。</value>
+  </data>
+  <data name="Communities" xml:space="preserve">
+    <value>NEO 社区</value>
+  </data>
+</root>

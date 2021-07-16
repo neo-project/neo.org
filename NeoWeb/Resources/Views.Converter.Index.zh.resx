@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -126,16 +126,13 @@
   <data name="Don't know what to enter? Try the following" xml:space="preserve">
     <value>不知道填什么？试试下面的吧</value>
   </data>
-  <data name="Neo 3.0 data converter" xml:space="preserve">
-    <value>Neo 3.0 数据转换</value>
+  <data name="N3 data converter" xml:space="preserve">
+    <value>N3 数据转换</value>
   </data>
   <data name="Please enter the text to be converted" xml:space="preserve">
     <value>请输入待转换的文本</value>
   </data>
   <data name="Support conversion of address, script hash, private key, public key, big-endian and little-endian, big-integer, character string, hexadecimal string, Application Log, Base64 encoding, etc. and analysis of smart contract script" xml:space="preserve">
     <value>支持地址、脚本哈希、私钥、公钥、大小端序、大整数、字符串、十六进制字符串、Application Log、Base64 编码等的转换和智能合约脚本的解析</value>
-  </data>
-  <data name="请输入待转换的文本" xml:space="preserve">
-    <value>Please enter the text to be converted</value>
   </data>
 </root>

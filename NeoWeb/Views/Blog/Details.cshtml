@@ -1,10 +1,11 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
 @using System.Xml;
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 @model NeoWeb.Models.BlogViewModel
 @{
     ViewData["Title"] = Model.Title;
+    ViewData["ParentTitle"] = SharedLocalizer["News"].Value;
     ViewData["Details"] = Model.Summary.Trim();
     ViewData["keywords"] = Model.Tags;
     if (Model.Cover != null)
@@ -14,94 +15,89 @@
 }
 
 @section Styles{
-    <link rel="stylesheet" href="@Helper.ToCDN("/css/discover.min.css", true)" />
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/news.min.css", true)" />
 }
 
-<div class="nav-area mt3">
-    <div><i class="iconfont">&#xe618;</i><a class="small" asp-action="index" asp-controller="discover">@Localizer["Back to list"]</a></div>
+<div class="nav-area mt-5">
+    <div><i class="iconfont">&#xe618;</i><h4 class="d-inline"><a asp-action="index" asp-controller="news">@Localizer["Back to list"]</a></h4></div>
     <div class="text-right">
         @if (@ViewBag.PrevBlogId != Model.Id)
         {
-            <a class="icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xe61c;</i><span class="d-none d-md-inline small">@Localizer["Previous article"]</span></a>
+            <a class="icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xe61c;</i></a>
         }
         @if (@ViewBag.NextBlogId != Model.Id)
         {
-            <a class="ml-5" href="~/blog/details/@ViewBag.NextBlogId"><span class="d-none d-md-inline small">@Localizer["Next article"]</span><i class="iconfont">&#xe61b;</i></a>
+            <a class="ml-1" href="~/blog/details/@ViewBag.NextBlogId"><i class="iconfont">&#xe61b;</i></a>
         }
     </div>
 </div>
 <hr />
-<div class="w700 mt3">
-    <article class="article">
-        <div class="article-time">@Model.CreateTime.Month.ToMonth() @Model.CreateTime.Day, @Model.CreateTime.Year<span>BLOG</span></div>
-        <header><h2 class="article-title mt5 with-space">@Model.Title</h2></header>
-        <p class="gray mt5">By @(string.IsNullOrEmpty(Model.Editor) ? "Neo Global Development" : @Model.Editor)</p>
-        <div class="share mt4 gray">
-            @{
-                var title = (ViewData["Title"] != null ? $"{ViewData["Title"]} - " : "") + "Neo Smart Economy";
-                var details = ViewData["Details"] ?? "Neo Smart Economy";
-                var image = (ViewData["Image"] ?? Helper.ToCDN("/images/twitter-img.jpg"));
-                var url = $"{Context.Request.Scheme}://{Context.Request.Host}{Context.Request.Path}{Context.Request.QueryString}";
-            }
-            <a class="gray" target="_blank" href="https://twitter.com/intent/tweet?text=@(System.Net.WebUtility.UrlEncode(title))&url=@(System.Net.WebUtility.UrlEncode(url))&via=NEO_Blockchain&related=NEO_Blockchain"><i class="iconfont">&#xe607;</i></a>
-            <i class="iconfont facebook-icon">&#xe616;</i>
-            <script>
-                (function (d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0];
-                    if (d.getElementById(id)) return;
-                    js = d.createElement(s); js.id = id;
-                    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-                    fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));
-            </script>
-
-            <div class="fb-share-button" data-href="@url" data-layout="button_count"></div>
-            <a class="gray" target="_blank" asp-controller="blog" asp-action="rss" asp-route-language="@SharedLocalizer["en"].Value"><i class="iconfont">&#xf09c;</i></a>
-            <div class="qr-div">
-                <i class="iconfont">&#xe615;</i>
-                <div id="qrcode"></div>
-            </div>
+<div class="news-widthh pb-5">
+    @if (!string.IsNullOrWhiteSpace(Model.Cover))
+    {
+        <div class="row d-block d-sm-none ">
+            <img class="img-max my-5" src="@($"/upload/{Model.Cover}".ToLower())" />
         </div>
-        <p class="mt5">
+        <img class="d-none d-sm-block img-max my-5" src="@($"/upload/{Model.Cover}".ToLower())" />
+    }
+    <div class="row">  
+        <div class="col-md-12 col-lg-9">
+            <article class="article">
+                <div class="article-time"><h4 class="d-inline">BLOG <span class="gray">@Model.CreateTime.Month.ToMonth() @Model.CreateTime.Day, @Model.CreateTime.Year</span></h4></div>
+                <header><h2 class="article-title mt-4 with-space">@Model.Title</h2></header>
+                <section>
+                    <div class="mt-5 with-space">
+                        @Html.Raw(Model.Content)
+                    </div>
+                </section>
+            </article>
+        </div>
+        <div class="col-md-12 col-lg-3 text-center text-md-left">
+            <div class="share mt-5 gray">
+                @{
+                    var title = (ViewData["Title"] != null ? $"{ViewData["Title"]} - " : "") + "Neo Smart Economy";
+                    var details = ViewData["Details"] ?? "Neo Smart Economy";
+                    var image = (ViewData["Image"] ?? Helper.ToCDN("/images/twitter-img.jpg"));
+                    var url = $"{Context.Request.Scheme}://{Context.Request.Host}{Context.Request.Path}{Context.Request.QueryString}";
+                }
+                <a class="gray" target="_blank" href="https://twitter.com/intent/tweet?text=@(System.Net.WebUtility.UrlEncode(title))&url=@(System.Net.WebUtility.UrlEncode(url))&via=NEO_Blockchain&related=NEO_Blockchain"><i class="iconfont">&#xe607;</i></a>
+                <i class="iconfont facebook-icon">&#xe616;</i>
+                <script>
+                    (function (d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return;
+                        js = d.createElement(s); js.id = id;
+                        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));
+                </script>
+
+                <div class="fb-share-button" data-href="@url" data-layout="button_count"></div>
+                <a class="gray" target="_blank" asp-controller="blog" asp-action="rss" asp-route-language="@SharedLocalizer["en"].Value"><i class="iconfont">&#xf09c;</i></a>
+                <div class="qr-div">
+                    <i class="iconfont">&#xe615;</i>
+                    <div id="qrcode"></div>
+                </div>
+            </div>
+            <div class="mt-4"><div class="editor1">Written by:</div><div class="editor2">@(string.IsNullOrEmpty(Model.Editor) ? "Neo Global Development" : @Model.Editor)</div></div>
+            <div>
+                @if (Model.Tags != null)
+                {
+                    <div class="editor1">Tags:</div>
+                    foreach (var tag in Model.Tags.Split(","))
+                    {
+                        <a class="article-tag1 mr-1" href="/news?keywords=@tag">#@tag</a>
+                    }
+                }
+            </div>
             @if (ViewBag.UserRules)
             {
-                <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-                <a class="ml2" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
-            }
-        </p>
-        <hr class="mt5 mb0" />
-
-        <section>
-            <div class="mt4 with-space">
-                @Html.Raw(Model.Content)
-            </div>
-        </section>
-        <hr />
-        <div>
-            @if (Model.Tags != null)
-            {
-                foreach (var tag in Model.Tags.Split(","))
-                {
-                    <a href="/discover?keywords=@tag">#@tag</a>
-                }
+                <p class="mt-4">
+                    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                    <a class="ml-3" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+                </p>
             }
         </div>
-
-    </article>
-</div>
-<hr class="mt3" />
-<div class="nav-area mb-5">
-    <div><i class="iconfont">&#xe618;</i><a class="small" asp-action="index" asp-controller="discover">@Localizer["Back to list"]</a></div>
-    <div class="text-center"><a class="back-to-top" href="javascript:"><i class="iconfont">&#xe619;</i><span class="small">@Localizer["Back to top"]</span></a></div>
-    <div class="text-right">
-        @if (@ViewBag.PrevBlogId != Model.Id)
-        {
-            <a class="icon-left" href="~/blog/details/@ViewBag.PrevBlogId"><i class="iconfont">&#xe61c;</i><span class="d-none d-md-inline small">@Localizer["Previous article"]</span></a>
-        }
-        @if (@ViewBag.NextBlogId != Model.Id)
-        {
-            <a class="ml-5" href="~/blog/details/@ViewBag.NextBlogId"><span class="d-none d-md-inline small">@Localizer["Next article"]</span><i class="iconfont">&#xe61b;</i></a>
-        }
     </div>
 </div>
 
@@ -122,10 +118,6 @@
         $('[data-original]').lazyload({
             threshold: 200,
             effect: "fadeIn"
-        });
-        //回到顶部
-        $('.back-to-top').click(function () {
-            $('html, body').animate({ scrollTop: 0 }, 500);
         });
     </script>
 }

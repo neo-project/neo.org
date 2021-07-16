@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,67 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="20&lt;span&gt;cities&lt;/span&gt;" xml:space="preserve">
-    <value>20 个城市</value>
+  <data name="&lt;em&gt;Eco&lt;/em&gt;&lt;br/&gt;Support" xml:space="preserve">
+    <value>&lt;em&gt; 生态 &lt;/em&gt; 支持</value>
   </data>
-  <data name="30 +&lt;span&gt;Wallets support&lt;/span&gt;" xml:space="preserve">
-    <value>30+ 钱包支持</value>
+  <data name="Early Adoption Program" xml:space="preserve">
+    <value>Early Adoption 计划</value>
   </data>
-  <data name="7&lt;span&gt;countries&lt;/span&gt;" xml:space="preserve">
-    <value>7 个国家</value>
+  <data name="Eco Support" xml:space="preserve">
+    <value>生态支持</value>
   </data>
-  <data name="dApp Platform" xml:space="preserve">
-    <value>dApp 平台</value>
+  <data name="EcoBoost Program" xml:space="preserve">
+    <value>EcoBoost 计划</value>
   </data>
-  <data name="Developer Tool" xml:space="preserve">
-    <value>开发者工具</value>
+  <data name="EcoFund Program" xml:space="preserve">
+    <value>EcoFund 计划</value>
   </data>
-  <data name="EcoBoost Partners" xml:space="preserve">
-    <value>EcoBoost 伙伴</value>
+  <data name="Overview" xml:space="preserve">
+    <value>情况概览</value>
   </data>
-  <data name="Experience the smart economy of the future today! Download your wallet of choice for any device and any OS, and get started transfering and transacting with NEO assets!" xml:space="preserve">
-    <value>现在就开始体验智能经济！无论您使用任何设备与平台，都能在这里找到适合的选择。</value>
+  <data name="Projects" xml:space="preserve">
+    <value>项目</value>
   </data>
-  <data name="Get started" xml:space="preserve">
-    <value>立即体验</value>
-  </data>
-  <data name="Get wallet" xml:space="preserve">
-    <value>获取钱包</value>
-  </data>
-  <data name="Global Neo&lt;br /&gt;Community" xml:space="preserve">
-    <value>Neo 全球社区</value>
-  </data>
-  <data name="Have a cool idea in mind? Neo is dedicated to bringing your ideas to life by offering the most comprehensive and developer-friendly toolkit, from smart contract development to dApp integration. Start building with Neo today!" xml:space="preserve">
-    <value>您有有趣的想法吗？让 Neo 帮您实现。从多语言智能合约开发到 dApp 集成，Neo 提供对开发者最友好的全套开发工具。现在就开始！</value>
-  </data>
-  <data name="Join EcoBoost program and power up for success" xml:space="preserve">
-    <value>加入 EcoBoost</value>
-  </data>
-  <data name="Learn more" xml:space="preserve">
-    <value>了解更多</value>
-  </data>
-  <data name="Neo has more than 10 developer communities globally to support Neo infrastructure building and lower the entry barrier for Neo development.&lt;br /&gt;Neo is a key market influencer with more than 500,000 followers over international social media channels." xml:space="preserve">
-    <value>Neo 在全球有超过 10 个开发者社区，为 Neo 开发基础设施，并降低开发门槛。&lt;br /&gt;Neo 拥有超过 50 万全球社区成员，影响广泛。</value>
-  </data>
-  <data name="Neo is investing USD $100 million through its  EcoBoost program to accelerate the realization of large-scale commercial blockchain solutions by empowering developers and projects in the ecosystem." xml:space="preserve">
-    <value>为构建下一代互联网基础设施，Neo 斥资 1 亿美元打造 EcoBoost，对生态内的开发者与项目进行激励与全生命周期的支持，旨在加速区块链应用的大规模商用落地。目前已有数百个合作伙伴与项目加入 EcoBoost。</value>
-  </data>
-  <data name="Neo Protocol" xml:space="preserve">
-    <value>Neo 协议</value>
-  </data>
-  <data name="Neo&lt;br /&gt;Ecosystem" xml:space="preserve">
-    <value>Neo&lt;br /&gt;生态系统</value>
-  </data>
-  <data name="The blockchain of choice for developers, Neo's powerful infrastructure is powering over 100 dApps enabling real use cases for digital assets." xml:space="preserve">
-    <value>作为开发者首选的区块链平台，Neo 强大的基础设施正为超过 100 个 dApp 提供数字资产使用场景。</value>
-  </data>
-  <data name="The Neo MainNet has been steadily evolving across the 3 years since the launch in 2016. With the release of Neo3 rapidly approaching, Neo is ramping up for a series of major updates on the protocol layer to deliver a most stable, high-performance, and developer-optimized infrastructure to serve as the foundation of next-gen Internet." xml:space="preserve">
-    <value>自 2016 年上线以来的 3 年间，Neo 主网一直在进化。Neo3 上线在即，Neo 的协议层将迎来一系列重大革新，提供更稳定、更高性能、对开发者更友好的下一代互联网基础设施。</value>
-  </data>
-  <data name="Wallet" xml:space="preserve">
-    <value>钱包</value>
-  </data>
-  <data name="With thriving partners and projects, the Neo ecosystem is rapidly growing and developing, thus enabling Neo to become the foundation for next-gen Internet." xml:space="preserve">
-    <value>在众多合作伙伴与项目的不断努力下，Neo 生态正在快速发展壮大，共建下一代互联网基础设施。</value>
+  <data name="Whether you are a hobbyist developer, a fledgling start-up, or an established business, we have a range of initiatives to help you bring your vision to life on the Neo blockchain." xml:space="preserve">
+    <value>无论是业余开发者、初创企业或是已成型的企业，都能在 Neo 区块链上实现您的愿景。</value>
   </data>
 </root>

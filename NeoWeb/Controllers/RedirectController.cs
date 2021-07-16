@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using NeoWeb.Models;
 
 namespace NeoWeb.Controllers
@@ -7,16 +7,10 @@ namespace NeoWeb.Controllers
     {
         [Route("testnet")]
         [Route("testnet/index")]
-        public IActionResult DevIndex()
-        {
-            return RedirectToAction("index", "dev");
-        }
-        
+        public IActionResult DevIndex() => RedirectToAction("index", "dev");
+
         [Route("testnet/list")]
-        public IActionResult TestCoinList()
-        {
-            return RedirectToAction("list", "testcoin");
-        }
+        public IActionResult TestCoinList() => RedirectToAction("list", "testcoin");
 
         [Route("download")]
         [Route("download/index")]
@@ -24,75 +18,51 @@ namespace NeoWeb.Controllers
         [Route("client/index")]
         [Route("wallet")]
         [Route("wallet/index")]
-        public IActionResult WalletsIndex()
-        {
-            return RedirectToAction("index", "wallets");
-        }
+        public IActionResult WalletsIndex() => RedirectToAction("index", "neogas", "wallets");
 
         [Route("testcoin")]
         [Route("testnet/create")]
         [Route("testnet/apply")]
-        public IActionResult TestCoinApply()
-        {
-            return RedirectToAction("apply", "testcoin");
-        }
-        
+        public IActionResult TestCoinApply() => RedirectToAction("apply", "testcoin");
+
         [Route("testnet/bounty")]
         [Route("dev/bounty")]
-        public IActionResult DevBounty()
-        {
-            return RedirectToAction("index", "bounty");
-        }
+        public IActionResult DevBounty() => RedirectToAction("index", "bounty");
 
         [Route("home/team")]
         [Route("team")]
         [Route("team/index")]
         [Route("contributor")]
         [Route("contributor/index")]
-        public IActionResult Team()
-        {
-            return RedirectToAction("index", "contributors");
-        }
-
-        [Route("blog")]
-        [Route("blog/index")]
-        public IActionResult Blog()
-        {
-            return RedirectToAction("index", "discover", new { type = (int)DiscoverViewModelType.Blog });
-        }
+        public IActionResult Team() => RedirectToAction("index", "contributors");
 
         [Route("logo")]
         [Route("logo/index")]
-        public IActionResult PressKit()
-        {
-            return RedirectToAction("index", "presskit");
-        }
+        public IActionResult PressKit() => RedirectToAction("index", "presskit");
 
         [Route("eco/ecoboost")]
-        public IActionResult EcoBoost()
-        {
-            return RedirectToAction("index", "ecoboost");
-        }
+        [Route("ecoboost")]
+        [Route("ecoboost/index")]
+        public IActionResult Eco() => RedirectToAction("index", "eco");
+
+        [Route("discover")]
+        [Route("discover/index")]
+        public IActionResult News() => RedirectToAction("index", "news", new { type = (int)NewsViewModelType.Event });
 
         [Route("event")]
         [Route("event/index")]
-        public IActionResult Event()
-        {
-            return RedirectToAction("index", "discover", new { type = (int)DiscoverViewModelType.Event });
-        }
+        public IActionResult Event() => RedirectToAction("index", "news", new { type = (int)NewsViewModelType.Event });
 
-        [Route("news")]
-        [Route("news/index")]
-        public IActionResult News()
-        {
-            return RedirectToAction("index", "discover", new { type = (int)DiscoverViewModelType.News });
-        }
+        [Route("blog")]
+        [Route("blog/index")]
+        public IActionResult Blog() => RedirectToAction("index", "news", new { type = (int)NewsViewModelType.Blog });
 
         [Route("dapp")]
         [Route("dapps")]
-        public IActionResult Dapps()
-        {
-            return Redirect("http://ndapp.org");
-        }
+        public IActionResult Dapps() => Redirect("http://ndapp.org");
+
+        [Route("consensus")]
+        [Route("consensus/index")]
+        public IActionResult Gov() => RedirectToAction("index", "gov");
     }
 }

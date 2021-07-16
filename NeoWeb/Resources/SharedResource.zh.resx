@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -123,10 +123,19 @@
   <data name="d-none-zh" xml:space="preserve">
     <value>d-none</value>
   </data>
+  <data name="Developer" xml:space="preserve">
+    <value>开发者</value>
+  </data>
   <data name="en" xml:space="preserve">
     <value>zh</value>
   </data>
   <data name="en-us" xml:space="preserve">
     <value>zh-cn</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>首页</value>
+  </data>
+  <data name="News" xml:space="preserve">
+    <value>新闻</value>
   </data>
 </root>

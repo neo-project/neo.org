@@ -1,0 +1,120 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+<div class="menu-page-title">
+    <img class="menu-page-title-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/earlyadoption.svg", true)" />
+    <span class="menu-page-title-text">
+        @Localizer["Early Adoption Program"]
+    </span>
+</div>
+<div class="tabs d-none d-lg-block">
+    <span class="tab active">@Localizer["About"]</span>
+    <span class="tab">@Localizer["Application"]</span>
+</div>
+
+<select class="select-tab-page d-lg-none form-control">
+    <option selected="selected">@Localizer["About"]</option>
+    <option>@Localizer["Application"]</option>
+</select>
+<div class="tab-page active">
+    <div class="row eco-body py-3">
+        <img class="img-fluid col-12 col-lg-6 col-xl-5 d-none d-lg-block" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/eap1.svg", true)" />
+        <div class="col-12 col-lg-6 col-xl-7">
+            <h2>@Localizer["About"]</h2>
+            <div>
+                <p><strong>@Localizer["The launch of N3 is a big milestone for Neo and we've prepared something special for the occasion. To encourage developers to start building on Neo N3, we are launching the Early Adoption Program. This program includes a grant sponsorship funding pool totaling US $10 million and will run from June to September 2021."]</strong></p>
+                <p><strong>@Localizer["Early Adoption Program is aimed at accomplishing the following goals:"]</strong></p>
+                <ul>
+                    <li>
+                        @Localizer["Encouraging more new projects to participate in early development using Neo N3."]
+                    </li>
+                    <li>
+                        @Localizer["Encouraging projects to provide feedback on Neo N3 to ensure continuous optimization."]
+                    </li>
+
+                    <li>
+                        @Localizer["Continuously revitalizing the Neo developer community while assisting existing Neo projects with migration from Neo Legacy."]
+                    </li>
+
+                    <li>
+                        @Localizer["Rapidly establishing Neo N3’s infrastructure while bolstering awareness."]
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-12">
+            <p>@Localizer["The Early Adoption program will provide financial support to developers (based on the size of the project, team track record, and vision), along with high priority technical and other support."]</p>
+            <p>@Localizer["Neo is actively seeking out high potential projects for incubation and growth. We are looking forward to working with enthusiastic and driven teams who are committed to exploring and pushing the boundaries of blockchain technology. With your help, we hope to develop new business innovations while implementing novel ideas to achieve the smart economy of tomorrow."]</p>
+            <h2>@Localizer["Eligibility"]</h2>
+            <h4><strong>@Localizer["The types of projects welcomed to apply to the Early Adoption Program include:"]</strong></h4>
+            <h4><strong>@Localizer["Small or concept projects"]</strong></h4>
+            <p>@Localizer["Ideal for individuals or small teams looking to get started on N3. Typically, these types of projects will be early stage or proof-of-concept initiatives. Applications should focus on using N3 in ways that demonstrate new functionality, test the limits of N3 capabilities, or provide practical examples to the wider Neo development community."]</p>
+            <h4><strong>@Localizer["Start-up projects"]</strong></h4>
+            <p>@Localizer["Teams that already have a well defined idea or project. Start-up projects are expected to have a clearly defined niche and a sustainable business model. These projects should focus on using Neo N3 to create new business opportunities and provide new applications for Neo ecosystem users. Teams should be prepared to present an existing proof of concept or MVP."]</p>
+            <h4><strong>@Localizer["Existing businesses"]</strong></h4>
+            <p>@Localizer["Teams with an established business model looking to integrate or migrate to Neo N3. These projects should already have an existing user base and will be looking to expand or improve their business through Neo integration. Ideally, teams should be able to bring large scale use cases or well known services to the Neo blockchain."]</p>
+            <h2>@Localizer["Business direction"]</h2>
+            <h4><strong>@Localizer["In terms of the business direction, we are interested in the following:"]</strong></h4>
+            <ul>
+                <li><strong>@Localizer["NFT"]</strong> - @Localizer["Marketplaces, explorers, wallets, fractional-ownership, gaming"]</li>
+                <li><strong>@Localizer["DeFi"]</strong> - @Localizer["AMMs, lending, stablecoins, asset managers, synthetic assets, liquidity pools"]</li>
+                <li><strong>@Localizer["NeoFS use cases"]</strong></li>
+                <li><strong>@Localizer["Neo Oracle use cases"]</strong></li>
+                <li><strong>@Localizer["Games"]</strong></li>
+                <li><strong>@Localizer["General infrastructure"]</strong> - @Localizer["Layer2 protocols, scalability, privacy, DAO technologies"]</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="tab-page">
+    <div class="eco-body py-3">
+        <h2>@Localizer["Application"]</h2>
+        <p><strong>@Html.Raw(Localizer["Please use the below template to fill in the details of the proposed project and send it to <a href=\"mailto:eg@neo.org\">eg@neo.org</a>. The Neo EcoGrowth team will contact you within approximately two weeks of application receipt."].Value)</strong></p>
+        <h3><strong>@Localizer["Application Template"]</strong></h3>
+        <h4><strong>@Localizer["Project Name"]</strong></h4>
+        <h4><strong>@Localizer["Project Introduction"]</strong></h4>
+        <p><strong>@Localizer["Please provide the following:"]</strong></p>
+        <ul>
+            <li>@Localizer["Introduction to the project and its use cases or scenarios."]</li>
+            <li>
+                @Localizer["An explanation of why this project is important to the Neo ecosystem. Are there any other projects similar to yours in the Neo ecosystem?"]<br />
+                @Localizer["- If so, how is your project different?"]<br />
+                @Localizer["- If not, how will you demonstrate that your project will bring value to the Neo ecosystem?"]
+            </li>
+            <li>@Localizer["A summary of why your team is motivated by and interested in developing this project."]</li>
+            <li>@Localizer["Any anticipated challenges or risks to successful delivery and completion of the project."]</li>
+        </ul>
+        <h4><strong>@Localizer["Project Plan"]</strong></h4>
+        <h4><strong>@Localizer["Team Introduction"]</strong></h4>
+        <div class="eco-number">1</div>
+        <div class="d-inline-block" style="width: calc(100% - 50px)">
+            <p><strong>@Localizer["Team"]</strong></p>
+            <ul>
+                <li>@Localizer["Team name"]</li>
+                <li>@Localizer["Team website/GitHub organization"]</li>
+                <li>@Localizer["Legal entity information (if you have one)"]</li>
+            </ul>
+        </div>
+        <p><strong>@Localizer["This information will be used for contractual purposes and for tax declaration as required."]</strong></p>
+        <div class="eco-number">2</div>
+        <div class="d-inline-block" style="width: calc(100% - 50px)">
+            <p><strong>@Localizer["Team Composition"]</strong></p>
+            <ul>
+                <li>@Localizer["Team leader"]</li>
+                <li>@Localizer["Team members"]</li>
+            </ul>
+        </div>
+        <p><strong>@Localizer["Please provide a personal introduction, team structure and capabilities, as well as individual GitHub and CVs or LinkedIn profiles as reference. Please also indicate who will work full-time on the project."]</strong></p>
+        <div class="eco-number">3</div>
+        <div class="d-inline-block" style="width: calc(100% - 50px)">
+            <p><strong>@Localizer["Related experience"]</strong></p>
+            <p>@Localizer["We appreciate your providing us with related information about your team's experience in the blockchain field, even if it may be in other blockchain ecosystems."]</p>
+        </div>
+        <h4><strong>@Localizer["Future Plans"]</strong></h4>
+        <p>@Localizer["Please include the team's longer-term business plans and priorities."]</p>
+        <h4><strong>@Localizer["Additional Information"]</strong></h4>
+        <p>@Localizer["Please include any additional information that you think is relevant to this application and that hasn't already been included."]</p>
+    </div>
+</div>

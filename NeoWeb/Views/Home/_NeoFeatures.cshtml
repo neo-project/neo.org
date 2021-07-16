@@ -1,0 +1,38 @@
+@model List<NewsViewModel>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+@{ string[,] blocks = new string[7, 4] {
+  {
+      "/images/home/OneBlockFinality3D.svg", "One Block Finality", "dBFT consensus mechanism guarantees fast and efficient finality in a single block.", "technology#dbft-2.0"
+  },
+  {
+      "/images/home/NativeOracles3D.svg", "Oracle", "A built-in oracle enabling secured access to any off-chain data.", "technology#oracles"
+  },
+    {
+      "/images/home/NeoFS3D.svg", "NeoFS", "A distributed data storage solution made for scalability and privacy.", "technology#neo-fs"
+  },
+  {
+      "/images/home/SmartContracts3D.svg", "Smart Contracts", "Write your smart contracts in C#, Go, Python, Java, or TypeScript.", "technology#smart-contracts"
+  },
+  {
+      "/images/home/NeoNameService3D.svg", "Neo Name Service", "A decentralized .neo domain name service for next-gen internet web applications.", "technology#neo-name-service"
+  },
+  {
+      "/images/home/Interoperability3D.svg", "Interoperability", "Poly.Network enabled cross-chain interoperability with Ethereum, Binance Chain, and more.", "technology#interoperability"
+  },
+  {
+      "/images/home/NeoID3D.svg", "NeoID", "A set of self-sovereign decentralized identity solution standards.", "technology#neo-id"
+  }
+ };
+}
+
+<div class="neo-features-container">
+  @{for (int i = 0; i < blocks.GetLength(0); i++) {
+    ViewData["imagePath"] = @Helper.ToCDN(blocks[i, 0]);
+    ViewData["title"] = @Localizer[blocks[i, 1]];
+    ViewData["blurb"] = @Localizer[blocks[i, 2]];
+    <partial name="../_Common/_NeoFeatureItem" view-data="ViewData" />
+  }}
+</div>

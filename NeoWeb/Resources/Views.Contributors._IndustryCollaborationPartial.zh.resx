@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Neo prides itself on being a leader in the blockchain space and takes this responsibility seriously. Neo has partnered with various groups to advance blockchain standards and adoption across traditional industries.">
+      <value>作为区块链行业的领导者，Neo 自豪而不自矜。现如今，Neo 已经与多个组织达成合作，为提高区块链技术创新、推广区块链大规模落地而努力。</value>
+  </data>
+   <data name="InterWork Alliance Description">
+      <value>Neo 作为五大发起成员创立了平台中立的非营利组织 InterWork Alliance（IWA），携手包括微软、埃森哲、IBM、SDX、纳斯达克与瑞银等在内的各行业领导者，共同开发与推广具备广泛适用性的区块链标准，通过提供大规模、商业上可行的区块链应用程序和解决方案来实现其愿景。</value>
+  </data>
+  <data name="PolyNetwork Description">
+      <value>作为创始成员之一，Neo 通过 Poly Network 与诸多区块链实现互操作。作为先进的异构跨链互操作协议，Poly Network 目前已经整合了比特币、以太坊、Neo、本体、Elrond、Ziliqa、币安智能链、Switcheo 和火币生态链等多条区块链。未来，Neo 将继续利用 Poly Network 优化 N3 的效率和流动性，同时作为 Neo Legacy 至 Neo N3 迁移的基础设施，Poly Network 也将使 Neo 成为第一个通过跨链技术实现重大升级的平台。</value>
+  </data>
+  <data name="NET Foundation Description">
+      <value>Neo 是.NET 基金会的第一个区块链成员。基于其开源共享遗产，Neo 和.NET 基金会通过提供工具和基础设施——如针对.NET 的 Neo 区块链工具包——让数百万计的开发人员共同启动智能合约的开发，加速创新 dAPP 的创建，为智能经济奠定基础。</value>
+  </data>
+  <data name="BSN Description">
+      <value>Neo 与区块链服务网络 BSN 开展了合作，BSN 是一种全球性基础设施，旨在通过为区块链项目和公司提供低成本平台，构建数字经济。BSN 全球公共城市节点和门户网站为 Neo 区块链提供支持，以帮助开发人员克服大规模落地的阻碍。</value>
+  </data>
+  <data name="IEEE Description">
+      <value>NGD 主持了 IEEE 标准 P3215 - 区块链系统共识框架标准的创建。该标准描述了区块链系统一个共识框架，以确保区块链状态数据在分布式网络环境中保持一致，主要包括区块链的共识机制定义、遵循的协议标准、共识算法类型和应用场景等。</value>
+  </data>
+  <data name="Industry Collaboration">
+      <value>行业合作</value>
+  </data>
+</root>

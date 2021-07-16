@@ -1,0 +1,144 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+<div class="menu-page-title">@Localizer["Overview"]</div>
+
+<div class="menu-page-description">
+    <strong>@Localizer["Find a comprehensive collection of tools and resources to help you build outstanding applications on the Neo blockchain."]</strong>
+</div>
+
+<div class="overview-links">
+    <a class="overview-link" target="_blank" href="https://github.com/neo-project">@Localizer["GitHub"]</a>
+    <a class="overview-link" target="_blank" href="https://github.com/neo-project">@Localizer["Documentation"]</a>
+</div>
+
+<div class="documentations">
+    <a data-version="neo3" class="documentation" target="_blank" href="@(SharedLocalizer["en"].Value == "en"
+           ? "https://medium.com/neo-smart-economy/neo3-a-new-beginning-for-pragmatic-idealists-c8d8f607036d"
+           : "https://medium.com/neo-smart-economy/neo3-a-new-beginning-for-pragmatic-idealists-c8d8f607036d")">
+        <div class="documentation-bookmark"></div>
+        <div class="documentation-title">@Localizer["Learn about N3 features"]</div>
+        <div class="flex-grow-1"></div>
+        <img class="documentation-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/dev/document-1.png", true)" />
+    </a>
+    <a data-version="neo3" class="documentation" target="_blank" href="https://docs.neo.org/docs/en-us/develop/network/private-chain/solo.html">
+        <div class="documentation-bookmark"></div>
+        <div class="documentation-title">@Localizer["Set up a development chain"]</div>
+        <div class="flex-grow-1"></div>
+        <img class="documentation-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/dev/document-2.png", true)" />
+    </a>
+    <a data-version="neo3" class="documentation" target="_blank" href="https://neowish.ngd.network/neo3">
+        <div class="documentation-bookmark"></div>
+        <div class="documentation-title">@Localizer["N3 TESTNET FAUCET"]</div>
+        <div class="flex-grow-1"></div>
+        <img class="documentation-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/dev/document-3.png", true)" />
+    </a>
+    <a data-version="neo2" class="documentation hidden" target="_blank" href="https://docs.neo.org/docs/en-us/network/private-chain/solo.html">
+        <div class="documentation-bookmark"></div>
+        <div class="documentation-title">@Localizer["Set up a development chain"]</div>
+        <div class="flex-grow-1"></div>
+        <img class="documentation-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/dev/document-2.png", true)" />
+    </a>
+    <a data-version="neo2" class="documentation hidden" target="_blank" href="https://docs.neo.org/docs/en-us/sc/gettingstarted/develop.html">
+        <div class="documentation-bookmark"></div>
+        <div class="documentation-title">@Localizer["Develop a smart contract"]</div>
+        <div class="flex-grow-1"></div>
+        <img class="documentation-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/dev/document-4.png", true)" />
+    </a>
+    <a data-version="neo2" class="documentation hidden" target="_blank" href="https://neowish.ngd.network/">
+        <div class="documentation-bookmark"></div>
+        <div class="documentation-title">@Localizer["Neo Legacy TestNet faucet"]</div>
+        <div class="flex-grow-1"></div>
+        <img class="documentation-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/dev/document-3.png", true)" />
+    </a>
+</div>
+
+<div class="menu-page-divider"></div>
+
+<div class="menu-page-secondary-title">@Localizer["Featured Tutorials"]</div>
+
+<div class="overview-examples">
+    <a data-version="neo3" class="overview-example" target="_blank" href="https://docs.neo.org/docs/en-us/node/cli/cli.html">
+        <div class="overview-example-start">
+            <div class="overview-example-img-wrapper">
+                <img class="overview-example-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/dev/tutorial.png", true)" />
+            </div>
+            <div class="overview-example-type">@Localizer["Tutorial"]</div>
+        </div>
+        <div class="overview-example-end">
+            <div class="overview-example-title">@Localizer["Getting familiar with Neo-CLI commands"]</div>
+            <div class="overview-example-author">The Neo Project</div>
+            <div class="overview-example-description">@Localizer["An introduction to commands in the command line node, including how to create a wallet, import and export private keys, transfer assets, start consensus, and more."]</div>
+        </div>
+    </a>
+    <a data-version="neo3" class="overview-example" target="_blank" href="https://docs.neo.org/docs/en-us/develop/write/nep17.html">
+        <div class="overview-example-start">
+            <div class="overview-example-img-wrapper">
+                <img class="overview-example-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/dev/tutorial.png", true)" />
+            </div>
+            <div class="overview-example-type">@Localizer["Tutorial"]</div>
+        </div>
+        <div class="overview-example-end">
+            <div class="overview-example-title">@Localizer["Learn how to write a NEP-17 contract"]</div>
+            <div class="overview-example-author">The Neo Project</div>
+            <div class="overview-example-description">@Localizer["An introduction to the NEP-17 token standard, which provides systems with a generalized interaction mechanism for tokenized smart contracts."]</div>
+        </div>
+    </a>
+    <a data-version="neo3" class="overview-example" target="_blank" href="https://docs.neo.org/docs/en-us/advanced/oracle.html">
+        <div class="overview-example-start">
+            <div class="overview-example-img-wrapper">
+                <img class="overview-example-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/dev/tutorial.png", true)" />
+            </div>
+            <div class="overview-example-type">@Localizer["Tutorial"]</div>
+        </div>
+        <div class="overview-example-end">
+            <div class="overview-example-title">@Localizer["The basics of Neo’s native Oracle"]</div>
+            <div class="overview-example-author">The Neo Project</div>
+            <div class="overview-example-description">@Localizer["Oracle solutions enable blockchains to obtain external data from outside networks. Learn how to get started with Neo’s built-in Oracle service."]</div>
+        </div>
+    </a>
+    <a data-version="neo2" class="overview-example hidden" target="_blank" href="https://github.com/neo-project/neo-blockchain-toolkit/blob/master/quickstart.md">
+        <div class="overview-example-start">
+            <div class="overview-example-img-wrapper">
+                <img class="overview-example-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/dev/tutorial.png", true)" />
+            </div>
+            <div class="overview-example-type">@Localizer["Tutorial"]</div>
+        </div>
+        <div class="overview-example-end">
+            <div class="overview-example-title">@Localizer["Develop a smart contract with the Neo Blockchain Toolkit"]</div>
+            <div class="overview-example-author">NGD Enterprise</div>
+            <div class="overview-example-description">@Localizer["A VS Code extension that provides frictionless edit-build-debug-deployment across PrivateNet, TestNet and MainNet. Learn how to get started and write your first Neo smart contract."]</div>
+        </div>
+    </a>
+    <a data-version="neo2" class="overview-example hidden" target="_blank" href="https://neo-one.io/tutorial">
+        <div class="overview-example-start">
+            <div class="overview-example-img-wrapper">
+                <img class="overview-example-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/dev/tutorial.png", true)" />
+            </div>
+            <div class="overview-example-type">@Localizer["Tutorial"]</div>
+        </div>
+        <div class="overview-example-end">
+            <div class="overview-example-title">@Localizer["Introduction to NEO·ONE"]</div>
+            <div class="overview-example-author">NEO Tracker</div>
+            <div class="overview-example-description">@Localizer["Learn how to set up the NEO·ONE JavaScript framework, create a token, and integrate NEO·ONE into a dApp."]</div>
+        </div>
+    </a>
+    <a data-version="neo2" class="overview-example hidden" target="_blank" href="https://github.com/nspcc-dev/neo-go-sc-wrkshp/tree/master-2.x">
+        <div class="overview-example-start">
+            <div class="overview-example-img-wrapper">
+                <img class="overview-example-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/dev/tutorial.png", true)" />
+            </div>
+            <div class="overview-example-type">@Localizer["Tutorial"]</div>
+        </div>
+        <div class="overview-example-end">
+            <div class="overview-example-title">@Localizer["Smart contract development with Neo-GO"]</div>
+            <div class="overview-example-author">Neo SPCC</div>
+            <div class="overview-example-description">@Localizer["Learn how to set up a private network using Neo-GO, make RPC calls, and deploy a smart contract."]</div>
+        </div>
+    </a>
+</div>
+
+<a class="view-all-examples btn-2" asp-controller="dev" asp-action="index" asp-fragment="examples">@Localizer["View All Tutorials"]</a>
+

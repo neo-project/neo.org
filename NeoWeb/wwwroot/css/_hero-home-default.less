@@ -1,0 +1,125 @@
+@import "./basic.less";
+
+@linear-black: linear-gradient(180deg, #0f1e32 0%, darken(#0f1e32, 40%) 100%);
+@linear-green: linear-gradient(104deg, @green 0%, darken(@green, 10%) 100%);
+
+.hero-container.home-default {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 100%;
+    height: calc(100vh - 300px);
+
+    @media only screen and (max-height: 740px) {
+        min-height: 740px;
+    }
+
+    @media only screen and (min-height: 740px) and (max-height: 1040px) {
+        min-height: 340px;
+        height: 75vh;
+    }
+
+    @media only screen and (max-width: 1200px) {
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .col-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        background: @linear-black;
+        padding-top: 60px;
+        padding-right: 12.875rem;
+        width: 50%;
+
+        .col-left-content {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            .green;
+        }
+
+        @media only screen and (max-width: 1200px) {
+            width: 100%;
+            align-items: center;
+            padding-right: 0;
+            height: 80vh;
+            min-height: 700px;
+        }
+
+        @media only screen and (max-width: 767.98px) {
+            height: 100vh;
+        }
+    }
+
+    .col-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 50%;
+        padding-top: 60px;
+        padding-left: 3.375rem;
+        .dark-blue;
+        background: @linear-green;
+
+        @media only screen and (max-width: 1200px) {
+            justify-content: center;
+            align-items: center;
+            padding-right: 0;
+            width: 100%;
+            padding: 2.5rem 0 2rem 0;
+        }
+    }
+
+    .logo-img {
+        width: 400px;
+
+        @media only screen and (min-height: 740px) and (max-height: 1040px) {
+            width: 240px;
+        }
+
+        @media only screen and (max-width: 1200px) {
+            width: 19.625rem;
+        }
+
+        @media only screen and (max-width: 767.98px) {
+            width: 16.25rem;
+        }
+    }
+
+    .landing-title {
+        .work-sans-bold;
+        .uppercase;
+        .dark-blue;
+        font-size: @font-size-37px;
+        line-height: 1.1;
+        width: 90%;
+        margin-bottom: 32px;
+
+        @media (min-width: 768px) {
+            font-size: @font-size-40px;
+            text-align: center;
+        }
+
+        @media (min-width: 1024px) {
+            font-size: @font-size-50px;
+        }
+
+        @media (min-width: 1440px) {
+            font-size: @font-size-70px;
+        }
+    }
+
+    .news-wrapper {
+        font-size: 1rem;
+        line-height: 1.25;
+        width: 90%;
+
+        @media (min-width: 768px) {
+            text-align: center;
+        }
+    }
+}

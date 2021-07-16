@@ -1,149 +1,629 @@
-﻿@model List<DiscoverViewModel>
+@model List<NewsViewModel>
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
-
+@{ ViewBag.HiddenBreadCrumb = true; }
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/home.min.css", true)" />
 }
 @* 基本块 - Home page *@
-<div id="homeFri" class="bg8 p1">
-    @if (ViewBag.OnTop != null)
-    {
-        <div class="notify">
-            <div class="alert alert-dismissible fade show px-0" role="alert">
-                @{var top = ViewBag.OnTop as DiscoverViewModel;}
-                @if (top.Type == DiscoverViewModelType.Blog)
-                {
-                    <h6><a class="with-space" href="~/blog/details/@top.Blog.Id">@top.Blog.Title</a></h6>
-                }
-                @if (top.Type == DiscoverViewModelType.Event)
-                {
-                    <h6><a class="with-space" href="~/event/details/@top.Event.Id">@top.Event.Name</a></h6>
-                }
-                @if (top.Type == DiscoverViewModelType.News)
-                {
-                    <h6><a class="with-space" href="@top.News.Link" target="_blank">@top.News.Title</a></h6>
-                }
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <i class="iconfont" aria-hidden="true">&#xe620;</i>
-                </button>
-            </div>
-        </div>
+@{
+    Boolean FRONTIER_PROMOTION_ENABLED = true;
+    Boolean DISPLAY_ADDITIONAL_TAKE_TOUR_BUTTON = true;
+}
+<div class="home-container">
+
+    @if(FRONTIER_PROMOTION_ENABLED) {
+        <partial name="./_HeroHomeFrontier" />
+    } else {
+        <partial name="./_HeroHomeDefault" />
     }
 
-    <div class="container">
-        <h3>
-            @Localizer["Join the"]<br />
-            <span class="h1 typetext" id="typetext"></span><br />
-            @Localizer["open network for the smart economy"]
-        </h3>
-        <div class="mt4">
-            <a asp-controller="about" asp-action="index" class="btn">@Localizer["Learn more"]</a>
+    <div class="row horiz-row aio-row">
+        <div class="col-12 col-md-12">
+            <div class="aio-title @SharedLocalizer["d-none-zh"]">
+                <span class="green">All</span> in One - <span class="green">All</span> in Neo
+            </div>
+            <div class="aio-title @SharedLocalizer["d-none"]">
+                <span class="green">All</span> in One - <span class="green">All</span> in Neo
+            </div>
+            <div class="highlight-container">
+                @{ string[,] highlightItems = new string[9, 2] {
+                                                                                    { "Interoperability", "/images/home/Interoperability.svg" },
+                                                                                    { "Native Oracles", "/images/home/NativeOracles.svg" },
+                                                                                    { "Self-Sovereign ID", "/images/home/Self-SovereignID.png" },
+                                                                                    { "Decentralized Storage", "/images/home/DecentralizedStorage.svg" },
+                                                                                    { "Neo Name Service", "/images/home/NativeNameService.svg" },
+                                                                                    { "One Block Finality", "/images/home/OneBlockFinality.svg" },
+                                                                                    { "Best-In-Class Tooling", "/images/home/BestInClassTooling.svg" },
+                                                                                    { "Smart Contracts", "/images/home/SmartContracts.svg" },
+                                                                                    { "Multi-Language", "/images/home/Multi-Language.png" }
+            };
+
+                    for (int i = 0; i < highlightItems.GetLength(0); i++)
+                    {
+                    <div class="highlight-wrapper">
+                        <img class="highlight-img png" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(highlightItems[i, 1])" />
+                        <div class="highlight-name">@Localizer[highlightItems[i, 0]]</div>
+                    </div> } }
+            </div>
+
+            @if(DISPLAY_ADDITIONAL_TAKE_TOUR_BUTTON) {
+                <div class="additional-button-wrapper">
+                    <a asp-controller="tour" asp-action="index" class="btn-2" target="_blank">@Localizer["Take A Tour"]</a>
+                </div>
+            }
         </div>
     </div>
-</div>
-<div class="b3">
-    <div class="container p2">
-        <div class="row">
-            <div class="col-md-6 text-center text-md-left">
-                <h2>@Localizer["Become a Neo developer"]</h2>
+
+
+    <div class="row dual-row get-started-row">
+        <div class="col-12 col-md-6 col-left">
+            <div class="get-started-title">
+                <span class="green">@Localizer["Neo"]</span> @Localizer["is"]
+                <br />
+                @Localizer["new again"]
             </div>
-            <div class="col-md-6 text-center text-md-left">
-                <p class="mt6">@Localizer["As the most developer friendly platform, Neo is supporting a global dApp ecosystem with its comprehensive suite of tools and resources to empower anyone from anywhere in the world to join Neo’s vision of a smart economy."]</p>
-                <a asp-controller="dev" asp-action="index" class="btn mt4">@Localizer["Get started"]</a>
+            <div class="explanation">
+                @Localizer["After four years of stable MainNet operation, Neo is undergoing its biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]
+            </div>
+            <a class="btn-2" asp-controller="migration" asp-action="index">@Localizer["Learn More"]</a>
+
+            @if(DISPLAY_ADDITIONAL_TAKE_TOUR_BUTTON) {
+                <div class="additional-button-wrapper">
+                    <a asp-controller="tour" asp-action="index" class="btn-2" target="_blank">@Localizer["Take A Tour"]</a>
+                </div>
+            }
+        </div>
+        <div class="col-12 col-md-6 col-right">
+            <div class="get-started-wrapper">
+                @{ string[,] getStartedItems = new string[4, 3]
+                       {
+                           { "Find a Wallet", "/images/home/FindWallet.svg", "/neogas#wallets" },
+                           { "Neo & Gas Tokens", "/images/home/LearnTokens.svg", "/neogas#tokens" },
+                           { "Neo's Features", "/images/home/LearnFeatures.svg", "/technology" },
+                           { "Documentation", "/images/home/ReadDocumentation.svg", "https://docs.neo.org/docs/en-us/index.html" }
+                        };
+
+                    for (int i = 0; i < getStartedItems.GetLength(0); i++)
+                    {
+                    <a class="float-card" href="@getStartedItems[i, 2]">
+                        <div class="card-text-wrapper">
+                            <div class="green-vertline"></div>
+                            <div class="card-text">
+                                @Localizer[getStartedItems[i, 0]]
+                            </div>
+                        </div>
+                        <img class="card-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(getStartedItems[i, 1])" />
+                    </a> } }
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row list3">
-            <div class="col-lg-4">
-                <span class="green">
-                    @Localizer["Mainstream Languages"]
+
+    <div class="building-blocks-container">
+        <div class="building-blocks-row">
+            <div class="col-left">
+                @{
+                    ViewData["CS_customClasses"] = "building-blocks";
+                    ViewData["CS_title"] = @Localizer["<em>Building Blocks</em> for the Next Generation Internet"].Value;
+                }
+                <partial name="../_Common/_CaptionSquare" view-data="ViewData" />
+            </div>
+            <div class="col-right">
+                <span>
+                    <span class="building-blocks-subtitle">
+                        @Localizer["Neo provides a full stack of features out of the box, but doesn't keep you boxed in."]
+                    </span>
+
+                    <br /><br />
+                    <span class="building-blocks-body">
+                        @Localizer["Native functionality provides all the infrastructure you need to build complete decentralized applications, while advanced interoperability allows you to harness the power of the global blockchain ecosystem."]
+                    </span>
                 </span>
-                <ul class="list-ul list-inline">
-                    <li>C#</li>
-                    <li>Python</li>
-                    <li>Java</li>
-                    <li>JavaScript<br />(JS/TS)</li>
-                    <li>Go</li>
-                </ul>
-            </div>
-            <div class="col-lg-5">
-                <span class="green">@Localizer["Highly Active Network"]</span>
-                <ul class="list-ul list-inline two">
-                    <li>2,000,000+<span>@Localizer["User Addresses"]</span></li>
-                    <li>500,000+<span>@Localizer["Community Members"]</span></li>
-                    <li>100+<span>dApps</span></li>
-                    <li>300+<span>@Localizer["Technical Contributors"]</span></li>
-                </ul>
-            </div>
-            <div class="col-lg-3">
-                <span class="green">@Localizer["Global Neo Communities"]</span>
-                <ul class="list-ul list-inline">
-                    <li>20<span>@Localizer["Cities"]</span></li>
-                    <li>7<span>@Localizer["Countries"]</span></li>
-                    <li>10+<span>@Localizer["Communities"]</span></li>
-                </ul>
+                <a class="btn-2 building-blocks-btn" href="/technology#all-in-one">@Localizer["Learn More"]</a>
             </div>
         </div>
-    </div>
-</div>
 
-<div class="container">
-    <div class="module mt3 p3">
-        <h2 class="module-text">@Localizer["Neo Ecosystem"]</h2>
-        <img class="module-img" data-original="@Helper.ToCDN("/images/ecosystem/Ecosystem.svg")" />
-        <div class="module-text">
-            <p class="mt5">@Localizer["With thriving partners and projects, the Neo ecosystem is rapidly growing and developing, thus enabling Neo to become the foundation for next-gen Internet."]</p>
-            <p class="mt4"><a asp-controller="eco" asp-action="index" class="btn">@Localizer["Learn more"]</a></p>
+        <partial name="./_NeoFeatures" />
+
+        <div class="blockchain-caption-square-row">
+            @{
+                ViewData["CS_customClasses"] = "blockchain";
+                ViewData["CS_title"] = @Localizer["<em>Blockchain</em><br />You know"].Value;
+                ViewData["CS_subtitle"] = @Localizer["Write smart contracts in a language you already love"].Value;
+            }
+            <partial name="../_Common/_CaptionSquare" view-data="ViewData" />
+            <a class="btn-2 code-learn-more" href="/technology#smart-contracts">@Localizer["Learn More"]</a>
         </div>
     </div>
-</div>
 
-<div class="module1 bg1">
-    <div class="container p2">
-        <div class="row">
-            <div class="col-md-6"></div>
-            <div class="col-md-6">
-                <h2>@Localizer["Join EcoBoost program and power up for success"]</h2>
-                <p class="mt5">@Localizer["Neo is investing USD $100 million through its  EcoBoost program to accelerate the realization of large-scale commercial blockchain solutions by empowering developers and projects in the ecosystem."]</p>
-                <p class="mt4"><a asp-controller="ecoboost" asp-action="index" class="btn1">@Localizer["Learn more"]</a></p>
+    <div class="code-example-row">
+        <div class="language-list">
+            <div class="language-wrapper">
+                <div class="language-name">
+                    Python
+                </div>
+                <div class="language-icon python" data-lang="python">
+                    <img class="language-img dark" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/PythonDark.png", true)" />
+                    <img class="language-img light" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/Python.png", true)" />
+                </div>
+            </div>
+            <div class="language-wrapper">
+                <div class="language-name">
+                    C#
+                </div>
+                <div class="language-icon csharp" data-lang="csharp">
+                    <img class="language-img dark" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/CSharpDark.png", true)" />
+                    <img class="language-img light" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/CSharp.png", true)" />
+                </div>
+            </div>
+            <div class="language-wrapper">
+                <div class="language-name">
+                    Go
+                </div>
+                <div class="language-icon go" data-lang="go">
+                    <img class="language-img dark" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/GoDark.png", true)" />
+                    <img class="language-img light" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/Go.png", true)" />
+                </div>
+            </div>
+            <div class="language-wrapper">
+                <div class="language-name">
+                    Typescript
+                </div>
+                <div class="language-icon typescript" data-lang="typescript">
+                    <img class="language-img dark" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/TypescriptDark.png", true)" />
+                    <img class="language-img light" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/Typescript.png", true)" />
+                </div>
+            </div>
+            <div class="language-wrapper ">
+                <div class="language-name">
+                    Java
+                </div>
+                <div class="language-icon java" data-lang="java">
+                    <img class="language-img dark" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/JavaDark.png", true)" />
+                    <img class="language-img light" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/Java.png", true)" />
+                </div>
+            </div>
+        </div>
+
+        <div class="code-window d-none" id="code-python">
+            <partial name="./_CodePythonPartial" />
+        </div>
+        <div class="code-window d-none" id="code-csharp">
+            <partial name="./_CodeCSharpPartial" />
+        </div>
+        <div class="code-window d-none" id="code-go">
+            <partial name="./_CodeGoPartial" />
+        </div>
+        <div class="code-window d-none" id="code-typescript">
+            <partial name="./_CodeTsPartial" />
+        </div>
+        <div class="code-window d-none" id="code-java">
+            <partial name="./_CodeJavaPartial" />
+        </div>
+        <a class="btn-2 code-learn-more-mobile" href="/technology#smart-contracts">@Localizer["Learn More"]</a>
+    </div>
+
+
+    <div class="connection-line-row">
+        <div class="before-dual-tokens"></div>
+    </div>
+
+    <div class="dual-tokens-row">
+        <div class="col-left">
+            @{
+                ViewData["CS_customClasses"] = "dual-tokens";
+                ViewData["CS_title"] = @Localizer["<em>Dual</em><br />Tokens"].Value;
+                ViewData["CS_subtitle"] = @Localizer["Neo has a unique dual token model that separates governance from utility."].Value;
+            }
+            <partial name="../_Common/_CaptionSquare" view-data="ViewData" />
+        </div>
+        <div class="col-right header-imgs">
+            <partial name="./_DualTokens" />
+        </div>
+    </div>
+
+    <div class="dual-tokens-row">
+        <div class="col-left">
+            <div class="dual-tokens-paragraph">
+                @Localizer["NEO token holders are the owners of the network and are able to participate in governance. NEO holders also receive passive distribution of the network utility token, GAS - No staking required. GAS rewards are increased for voting participation."]
+                <br /><br />            @Localizer["GAS is used to pay for network fees, smart contract deployments, and in dApp purchases."]
+            </div>
+
+            <div class="dual-tokens-horizLine"></div>
+            <div class="dual-tokens-buttons">
+                <a class="btn-2" href="/neogas#tokens">@Localizer["Learn More"]</a>
+                <a class="btn-4" href="/neogas#wallets">@Localizer["Find a Wallet"]</a>
+            </div>
+        </div>
+        <div class="col-right">
+            <partial name="../_Common/_NeoGasCalculator" />
+        </div>
+    </div>
+
+    <div class="connection-line-row">
+        <div class="before-governance"></div>
+    </div>
+
+
+    <div class="governance-section-pc">
+        <div class="col-left">
+            <div class="governance-img-container">
+                <img class="governance-img-horiz" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/Governance.svg")" />
+            </div>
+            <div class="governance-cards">
+                <span class="governance-learn-more">@Localizer["Learn More"]</span>
+                <div class="governance-card-container">
+                    @{ string[,] governanceItems = new string[3, 3]
+                    {
+                       { "How to vote", "/images/home/vote.svg", "/gov" },
+                       { "General guide to governance", "/images/home/ReadDocumentation.svg", "/gov" },
+                       { "Register as a committee candidate", "/images/home/register.svg", "/gov" }
+ };
+
+                        for (int i = 0; i < governanceItems.GetLength(0); i++)
+                        {
+                        <a class="float-card" asp-controller="@governanceItems[i, 2]" asp-action="index">
+                            <div class="card-text-wrapper">
+                                <div class="green-vertline"></div>
+                                <div class="card-text">
+                                    @Localizer[governanceItems[i, 0]]
+                                </div>
+                            </div>
+                            <img class="card-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
+                        </a> } }
+                </div>
+            </div>
+        </div>
+        <div class="col-right">
+            @{
+                ViewData["CS_customClasses"] = "governance";
+                ViewData["CS_title"] = @Localizer["<em>On-chain</em><br />Governance"].Value;
+                ViewData["CS_subtitle"] = @Localizer["A dynamic on-chain council voted in by the NEO token holders."].Value;
+            }
+            <partial name="../_Common/_CaptionSquare" view-data="ViewData" />
+
+            <div class="governance-paragraph">
+                <span>
+                    @Localizer["N3 introduces the ability for NEO holders to vote in council members and consensus nodes that maintain the liveliness of the Neo network and adjust critical blockchain parameters."]
+                    <br /><br />
+                    <span class="governance-paragraph bold">
+                        @Localizer["GAS rewards are distributed to both voters and committee members."]
+                    </span>
+                </span>
+                <div class="governance-green-horizline"></div>
             </div>
         </div>
     </div>
-</div>
-<div class="b5 p1">
+
+    <div class="governance-section-tablet">
+        <div class="governance-top-row">
+            <div class="governance-img-container">
+                <img class="governance-img-vert" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/GovernanceTablet.svg")" />
+            </div>
+            <div class="col-right">
+                @{
+                    ViewData["CS_customClasses"] = "governance";
+                    ViewData["CS_title"] = @Localizer["<em>On-chain</em><br />Governance"].Value;
+                    ViewData["CS_subtitle"] = @Localizer["A dynamic on-chain council voted in by the NEO token holders."].Value;
+                }
+                <partial name="../_Common/_CaptionSquare" view-data="ViewData" />
+
+                <div class="governance-paragraph">
+                    <span>
+                        @Localizer["N3 introduces the ability for NEO holders to vote in council members and consensus nodes that maintain the liveliness of the Neo network and adjust critical blockchain parameters."]
+                        <br /><br />
+                        <span class="governance-paragraph bold">
+                            @Localizer["GAS rewards are distributed to both voters and committee members."]
+                        </span>
+                    </span>
+                    <div class="governance-green-horizline"></div>
+                </div>
+            </div>
+        </div>
+        <div class="governance-cards">
+            <span class="governance-learn-more">@Localizer["Learn More"]</span>
+            <div class="governance-card-container">
+                @{ for (int i = 0; i < governanceItems.GetLength(0); i++)
+                    {
+                    <a class="float-card" href="@governanceItems[i, 2]">
+                        <div class="card-text-wrapper">
+                            <div class="green-vertline"></div>
+                            <div class="card-text">
+                                @Localizer[governanceItems[i, 0]]
+                            </div>
+                        </div>
+                        <img class="card-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
+                    </a> } }
+            </div>
+        </div>
+    </div>
+
+    <div class="governance-section-mobile">
+        @{
+            ViewData["CS_customClasses"] = "governance";
+            ViewData["CS_title"] = @Localizer["<em>On-chain</em><br />Governance"].Value;
+            ViewData["CS_subtitle"] = @Localizer["A dynamic on-chain council voted in by the NEO token holders."].Value;
+        }
+        <partial name="../_Common/_CaptionSquare" view-data="ViewData" />
+
+        <div class="governance-img-container">
+            <img class="governance-img-vert" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/GovernanceTablet.svg")" />
+        </div>
+        <div class="governance-paragraph">
+            <span>
+                @Localizer["N3 introduces the ability for NEO holders to vote in council members and consensus nodes that maintain the liveliness of the Neo network and adjust critical blockchain parameters."]
+                <br /><br />
+                <span class="governance-paragraph bold">
+                    @Localizer["GAS rewards are distributed to both voters and committee members."]
+                </span>
+            </span>
+            <div class="governance-green-horizline"></div>
+        </div>
+        <div class="governance-cards">
+            <span class="governance-learn-more">@Localizer["Learn More"]</span>
+            <div class="governance-card-container">
+                @{ for (int i = 0; i < governanceItems.GetLength(0); i++)
+                    {
+                    <a class="float-card" href="@governanceItems[i, 2]">
+                        <div class="card-text-wrapper">
+                            <div class="green-vertline"></div>
+                            <div class="card-text">
+                                @Localizer[governanceItems[i, 0]]
+                            </div>
+                        </div>
+                        <img class="card-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
+                    </a> } }
+            </div>
+        </div>
+    </div>
+
+    <div class="connection-line-row">
+        <div class="before-contributors"></div>
+    </div>
+
+    <div class="contributors-row">
+        <div class="col-left">
+            @{
+                ViewData["CS_customClasses"] = "contributors";
+                ViewData["CS_title"] = @Localizer["<em>Global</em><br />Contributors"].Value;
+                ViewData["CS_subtitle"] = @Localizer["Neo is a joint effort by community groups from all over the world."].Value;
+            }
+            <partial name="../_Common/_CaptionSquare" view-data="ViewData" />
+        </div>
+        <div class="col-right">
+            <div class="github-container">
+                <div class="github-status @SharedLocalizer["d-none-zh"]">
+                    <span class="github-status-num github-stars">3.2K</span>stars
+                </div>
+                <div class="github-status @SharedLocalizer["d-none"]">
+                    <span class="github-status-num zh github-stars">3.2K</span>stars
+                </div>
+                <div class="github-status @SharedLocalizer["d-none-zh"]">
+                    <span class="github-status-num github-forks">927</span>forks
+                </div>
+                <div class="github-status @SharedLocalizer["d-none"]">
+                    <span class="github-status-num zh github-forks">927</span>forks
+                </div>
+                <div class="github-status @SharedLocalizer["d-none-zh"]">
+                    <span class="github-status-num github-sub">386</span>subscribers
+                </div>
+                <div class="github-status @SharedLocalizer["d-none"]">
+                    <span class="github-status-num zh github-sub">386</span>subscribers
+                </div>
+                <a href="https://github.com/neo-project" target="_blank" class="github-icon-wrapper"><img class="github-icon" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/GitHub.png")" /></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="contributors-img-wrapper" id="scroll-wrapper">
+        <img class="contributors-img" usemap="#contributorsmap" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/Contributors.svg")">
+        <map name="contributorsmap">
+            <area shape="rect" coords="306 87 377 112" alt="NDG Enterprise GitHub" href="https://github.com/ngdenterprise" target="_blank" />
+            <area shape="rect" coords="306 119 377 142" alt="NDG Enterprise Website" href="https://ngdenterprise.com" target="_blank" />
+            <area shape="rect" coords="321 219 392 242" alt="NDG Tracker GitHub" href="https://github.com/neo-one-suite" target="_blank" />
+            <area shape="rect" coords="320 249 392 242" alt="NDG Tracker Website" href="https://neo-one.io" target="_blank" />
+            <area shape="rect" coords="402 303 473 325" alt="COZ GitHub" href="https://github.com/CityOfZion" target="_blank" />
+            <area shape="rect" coords="402 333 472 356" alt="COZ Website" href="https://coz.io" target="_blank" />
+            <area shape="rect" coords="715 174 787 196" alt="NEO Research GitHub" href="https://github.com/neoresearch" target="_blank" />
+            <area shape="rect" coords="715 203 787 226" alt="NEO Research Website" href="https://neoresearch.io" target="_blank" />
+            <area shape="rect" coords="805 304 876 326" alt="Red4Sec GitHub" href="https://github.com/red4sec" target="_blank" />
+            <area shape="rect" coords="805 335 876 356" alt="Red4Sec Website" href="https://red4sec.com/en" target="_blank" />
+            <area shape="rect" coords="932 221 1004 243" alt="AxLabs GitHub" href="https://github.com/AxLabs" target="_blank" />
+            <area shape="rect" coords="932 250 1004 273" alt="AxLabs Website" href="https://axlabs.com" target="_blank" />
+            <area shape="rect" coords="1053 316 1124 338" alt="NEO S.Petersburg Center GitHub" href="https://github.com/nspcc-dev/" target="_blank" />
+            <area shape="rect" coords="1053 340 1124 368" alt="NEO S.Petersburg Center Website" href="https://nspcc.ru/en/" target="_blank" />
+            <area shape="rect" coords="1390 291 1461 314" alt="NGD Shanghai GitHub" href="https://github.com/neo-project" target="_blank" />
+            <area shape="rect" coords="1390 321 1461 344" alt="NGD Shanghai Website" href="https://neo.org" target="_blank" />
+            <area shape="rect" coords="1479 205 1550 228" alt="NewEconoLab GitHub" href="https://github.com/NewEconoLab" target="_blank" />
+            <area shape="rect" coords="1479 235 1550 258" alt="NewEconoLab Website" href="https://nel.group/index-En.html" target="_blank" />
+            <area shape="rect" coords="1484 345 1554 366" alt="NEXT GitHub" href="https://github.com/NeoNEXT" target="_blank" />
+            <area shape="rect" coords="1484 335 1554 396" alt="NEXT Website" href="https://neonext.io" target="_blank" />
+        </map>
+    </div>
+    <div class="scroll-buttons">
+        <i class="iconfont disabled" id="scroll-left-btn">&#xe61c;</i>
+        <i class="iconfont" id="scroll-right-btn">&#xe61b;</i>
+    </div>
+
+    <div class="additional-wrapper">
+        <div class="additional-item">
+            <div class="additional-title">
+                @Localizer["Join the"] <span class="green">@Localizer["Community"]</span>
+            </div>
+            <div class="additional-icons">
+                <a href="https://www.facebook.com/NeoBlockchainOfficial" target="_blank"><i class="iconfont additional-icon">&#xe616;</i></a>
+                <a href="https://discord.gg/rvZFQ5382k" target="_blank"><i class="iconfont additional-icon">&#xe60b;</i></a>
+                <a href="https://neo3.azureedge.net/images/qrcode.jpg" target="_blank"><i class="iconfont additional-icon">&#xe60d;</i></a>
+                <a class="@SharedLocalizer["d-none-zh"]" href="https://t.me/NEO_EN" target="_blank"><i class="iconfont additional-icon">&#xe606;</i></a>
+                <a class="@SharedLocalizer["d-none"]" href="https://t.me/NEO_Chinese" target="_blank"><i class="iconfont additional-icon">&#xe606;</i></a>
+                <a href="https://weibo.com/neosmarteconomy" target="_blank"><i class="iconfont additional-icon">&#xe60e;</i></a>
+                <a href="https://twitter.com/NEO_Blockchain" target="_blank"><i class="iconfont additional-icon">&#xe607;</i></a>
+                <a href="https://www.reddit.com/r/NEO/" target="_blank"><i class="iconfont additional-icon">&#xe60a;</i></a>
+                <a href="https://medium.com/neo-smart-economy" target="_blank"><i class="iconfont additional-icon">&#xe608;</i></a>
+            </div>
+        </div>
+        <div class="additional-item">
+            <div class="additional-title">
+                @Localizer["Explore the"] <span class="green">@Localizer["Ecosystem"]</span>
+            </div>
+            <div class="additional-icons">
+                <a href="https://ndapp.org" target="_blank"><i class="iconfont additional-icon">&#xe611;</i></a>
+            </div>
+        </div>
+        <div class="additional-item">
+            <div class="additional-title">
+                @Localizer["Industry"] <span class="green">@Localizer["Partners"]</span>
+            </div>
+            <div class="additional-icons">
+                <a href="https://interwork.org" target="_blank"><i class="iconfont additional-icon">&#xe620;</i></a>
+                <a href="https://www.poly.network" target="_blank"><i class="iconfont additional-icon">&#xe62d;</i></a>
+                <a href="https://bsnbase.io/g/main/index" target="_blank"><i class="iconfont additional-icon">&#xe625;</i></a>
+                <a href="https://dotnetfoundation.org" target="_blank"><i class="iconfont additional-icon">&#xe628;</i></a>
+                <a href="https://www.ieee.org" target="_blank"><i class="iconfont additional-icon">&#xe62a;</i></a>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
-        <div class="module mt0">
-            <img class="module-img" data-original="@Helper.ToCDN("/images/home/GetWallet.svg")" />
-            <div class="module-text">
-                <h2>@Localizer["Get a NEO Wallet today, and take control of your assets!"]</h2>
-                <p class="mt4"><a asp-controller="wallets" asp-action="index" class="btn">@Localizer["Get wallet"]</a></p>
+        <div class="row horiz-row latest-news-row">
+            <div class="latest-news-wrapper">
+                <div class="latest-news-title">
+                    <span class="green">@Localizer["Latest"]</span> @Localizer["News"]
+                </div>
+                <div class="row list2">
+                    @{await Html.RenderPartialAsync("../News/_ItemPartial", Model);}
+                </div>
+                <a asp-controller="news" asp-action="index" class="btn-n3 dark-blue view-all-btn">@Localizer["View All"]</a>
             </div>
         </div>
     </div>
 </div>
-
-<div class="container mt1">
-    <h2>@Localizer["Discover"]<a asp-controller="discover" asp-action="index" class="btn2">@Localizer["View more"]</a></h2>
-    <div class="row list2">
-        @{await Html.RenderPartialAsync("../Discover/_DiscoverPartial", Model);}
-    </div>
-</div>
-<div class="mt1"></div>
 
 @section Scripts{
-    <script src="@Helper.ToCDN("/lib/typed.js/typed.min.js")"></script>
+    <script src="@Helper.ToCDN("/lib/image-map-resizer/js/imageMapResizer.js")"></script>
     <script>
-            var typed = new Typed('#typetext', {
-            strings: ["@Localizer["community-driven"]","@Localizer["developer-friendly"]","@Localizer["enterprise-ready"]"],
-            typeSpeed: "@SharedLocalizer["en"].Value" == "zh" ? 80 : 40,
-            startDelay: 300,
-            backDelay: 1500,
-            backSpeed: "@SharedLocalizer["en"].Value" == "zh" ? 40 : 20,
-            loop: true
+        $(document).ready(function () {
+            $('map').imageMapResize();
+
+            try {
+                $.get("home/githubstatus", function (data) {
+                    if (!data) return;
+
+                    const starsCount = +(data.stargazers_count);
+                    const stars = starsCount > 1000 ? `${(starsCount / 1000).toFixed(1)}K` : `${starsCount}`;
+                    $(".github-stars").html(stars);
+
+                    const forksCount = +(data.forks_count);
+                    const forks = forksCount > 1000 ? `${(forksCount / 1000).toFixed(1)}K` : `${forksCount}`;
+                    $(".github-forks").html(forks);
+
+                    const subCount = +(data.subscribers_count);
+                    const sub = subCount > 1000 ? `${(subCount / 1000).toFixed(1)}K` : `${subCount}`
+
+                    $(".github-sub").html(sub);
+                });
+            } catch {
+                console.log('Failed to get GitHub status.')
+            }
         });
+
+        $(".language-icon").on("click", function () {
+            $(".language-icon.selected").removeClass("selected")
+            const $el = $(this)
+            $el.addClass("selected")
+
+            const lang = $el.data("lang")
+            $(".code-window").addClass("d-none")
+            $("#code-" + lang).removeClass("d-none")
+            $('html').attr('data-code-window-open', lang)
+        })
+
+        const scrollDistance = 300;
+
+        function debounce(func, wait, immediate) {
+            var timeout;
+            return function () {
+                var context = this, args = arguments;
+                var later = function () {
+                    timeout = null;
+                    if (!immediate) func.apply(context, args);
+                };
+                var callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) func.apply(context, args);
+            };
+        };
+
+        $("#scroll-wrapper").on("scroll", debounce(function (e) {
+            const scrollWrapper = $("#scroll-wrapper")
+            console.log(scrollWrapper.scrollLeft(), scrollWrapper.innerWidth());
+            if (scrollWrapper.scrollLeft() > 0) {
+                $("#scroll-left-btn").removeClass("disabled")
+            } else {
+                $("#scroll-left-btn").addClass("disabled")
+            }
+            if (scrollWrapper.scrollLeft() + 8 < scrollWrapper.width()) {
+                $("#scroll-right-btn").removeClass("disabled")
+            } else {
+                $("#scroll-right-btn").addClass("disabled")
+            }
+        }, 50))
+
+        $("#scroll-left-btn").click(function (e) {
+            if ($(this).hasClass("disabled")) {
+                e.preventDefault();
+                return;
+            }
+
+            $("#scroll-wrapper").animate({
+                scrollLeft: "-=" + scrollDistance
+            }, 650)
+        })
+
+        $("#scroll-right-btn").click(function (e) {
+            if ($(this).hasClass("disabled")) {
+                e.preventDefault();
+                return;
+            }
+            $("#scroll-wrapper").animate({
+                scrollLeft: "+=" + scrollDistance
+            }, 650)
+        })
+
+        function resizeHandler() {
+            if ($(this).outerWidth() < 768) {
+                $(".code-window").addClass("d-none")
+                $(".language-icon").removeClass("selected")
+            } else {
+                if ($(".language-icon.selected").length === 0) {
+                    $(".language-icon.python").addClass("selected")
+                    $("#code-python").removeClass("d-none")
+                } else {
+                    const currLang = $(".language-icon.selected").data("lang")
+                    $("#code-" + currLang).removeClass("d-none")
+                }
+            }
+        }
+
+        $(".close-icon").on("click", function () {
+            $(".language-icon.selected").removeClass("selected");
+            $(".code-window").addClass("d-none")
+            $('html').removeAttr('data-code-window-open')
+        })
+
+        const initialRun = resizeHandler.bind(this)
+        initialRun()
+        window.addEventListener("resize", debounce(resizeHandler, 50))
+
+        window.onunload = function () {
+            window.removeEventListener('resize', debounce);
+            return;
+        }
+    </script>
+    <script>
+        var scroll_active_top = 650;
     </script>
 }
 

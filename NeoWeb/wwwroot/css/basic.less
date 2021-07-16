@@ -1,68 +1,217 @@
-﻿@t1: 5.619rem; /*h1 95.37*/
-@t2: 3.16rem; /*h2 53.67 - mobile - h1 47.36*/
-@t3: 2.37rem; /*h3 40.27 - mobile - h2 35.53*/
-@t4: 1.778rem;/*h4、h5 30.27 - mobile - h3 26.67*/
-@t5: 1.333rem; /*h6 22.67 - mobile - h4、h5、h6 20*/
-@t6: 1rem;
+/*字号*/
+@font-size-1: 5.75rem;
+@font-size-2: 2.25rem;
+@font-size-3: 1.75rem;
+@font-size-4: 1.25rem;
+@font-size-5: 1.125rem;
 
-@length1: 116px;/**/
-@length2: 84px; /**/
-@length3: 52px; /**/
-@length4: 32px; /**/
-@length5: 20px; /**/
-@length6: 12px; /**/
-@length7: 8px; /**/
-@length8: 4px; /**/
+/* Assume 16px as base font size... */
+@font-size-8px: 0.5rem;
+@font-size-9px: 0.563rem;
+@font-size-10px: 0.625rem;
+@font-size-11px: 0.688rem;
+@font-size-12px: 0.75rem;
+@font-size-13px: 0.813rem;
+@font-size-14px: 0.875rem;
+@font-size-15px: 0.938rem;
+@font-size-16px: 1rem;
+@font-size-17px: 1.063rem;
+@font-size-18px: 1.125rem;
+@font-size-19px: 1.188rem;
+@font-size-20px: 1.25rem;
+@font-size-21px: 1.313rem;
+@font-size-22px: 1.375rem;
+@font-size-23px: 1.438rem;
+@font-size-24px: 1.5rem;
+@font-size-25px: 1.563rem;
+@font-size-26px: 1.625rem;
+@font-size-27px: 1.688rem;
+@font-size-28px: 1.75rem;
+@font-size-29px: 1.813rem;
+@font-size-30px: 1.875rem;
+@font-size-31px: 1.938rem;
+@font-size-32px: 2rem;
+@font-size-33px: 2.063rem;
+@font-size-34px: 2.125rem;
+@font-size-35px: 2.188rem;
+@font-size-36px: 2.25rem;
+@font-size-37px: 2.313rem;
+@font-size-38px: 2.375rem;
+@font-size-39px: 2.438rem;
+@font-size-40px: 2.5rem;
+@font-size-41px: 2.563rem;
+@font-size-42px: 2.625rem;
+@font-size-43px: 2.688rem;
+@font-size-44px: 2.75rem;
+@font-size-45px: 2.813rem;
+@font-size-46px: 2.875rem;
+@font-size-47px: 2.938rem;
+@font-size-48px: 3rem;
+@font-size-49px: 3.063rem;
+@font-size-50px: 3.125rem;
+@font-size-51px: 3.188rem;
+@font-size-52px: 3.25rem;
+@font-size-53px: 3.313rem;
+@font-size-54px: 3.375rem;
+@font-size-55px: 3.438rem;
+@font-size-56px: 3.5rem;
+@font-size-57px: 3.563rem;
+@font-size-58px: 3.625rem;
+@font-size-59px: 3.688rem;
+@font-size-60px: 3.75rem;
+@font-size-61px: 3.813rem;
+@font-size-62px: 3.875rem;
+@font-size-63px: 3.938rem;
+@font-size-64px: 4rem;
+@font-size-65px: 4.063rem;
+@font-size-66px: 4.125rem;
+@font-size-67px: 4.188rem;
+@font-size-68px: 4.25rem;
+@font-size-69px: 4.313rem;
+@font-size-70px: 4.375rem;
+@font-size-71px: 4.438rem;
+@font-size-72px: 4.5rem;
+@font-size-73px: 4.563rem;
+@font-size-74px: 4.625rem;
+@font-size-75px: 4.688rem;
+@font-size-76px: 4.75rem;
+@font-size-77px: 4.813rem;
+@font-size-78px: 4.875rem;
+@font-size-79px: 4.938rem;
+@font-size-80px: 5rem;
+@font-size-81px: 5.063rem;
+@font-size-82px: 5.125rem;
+@font-size-83px: 5.188rem;
+@font-size-84px: 5.25rem;
+@font-size-85px: 5.313rem;
+@font-size-86px: 5.375rem;
+@font-size-87px: 5.438rem;
+@font-size-88px: 5.5rem;
+@font-size-89px: 5.563rem;
+@font-size-90px: 5.625rem;
+@font-size-91px: 5.688rem;
+@font-size-92px: 5.75rem;
+@font-size-93px: 5.813rem;
+@font-size-94px: 5.875rem;
+@font-size-95px: 5.938rem;
+@font-size-96px: 6rem;
+@font-size-97px: 6.063rem;
+@font-size-98px: 6.125rem;
+@font-size-99px: 6.188rem;
+@font-size-100px: 6.25rem;
+@font-size-101px: 6.313rem;
+@font-size-102px: 6.375rem;
+@font-size-103px: 6.438rem;
+@font-size-104px: 6.5rem;
+@font-size-105px: 6.563rem;
+@font-size-106px: 6.625rem;
+@font-size-107px: 6.688rem;
+@font-size-108px: 6.75rem;
+@font-size-109px: 6.813rem;
+@font-size-110px: 6.875rem;
+@font-size-111px: 6.938rem;
+@font-size-112px: 7rem;
+@font-size-113px: 7.063rem;
+@font-size-114px: 7.125rem;
+@font-size-115px: 7.188rem;
+@font-size-116px: 7.25rem;
+@font-size-117px: 7.313rem;
+@font-size-118px: 7.375rem;
+@font-size-119px: 7.438rem;
+@font-size-120px: 7.5rem;
 
-/*通用*/
-@dark: #2b393f;
-@dark-text: #FFFFFF;
-@linear: linear-gradient(172deg, #02e49b, #00bd9b);
-@linear2: linear-gradient(#02e49b, #02e49b);
-@body: #f9fafa;
-@arrow: rgb(225,225,225);
+/*品牌颜色*/
+@green: #00E599;
+@green2: #6FEDB2; //未使用
+@green3: #7EF2CC; //未使用
+@green4: #BFF7E5; //未使用
 
-/*常用绿色*/
-@green: #00af92;
-@green2: #02e49b;
-@green3: rgba(75, 197, 63,0.5);
-@green-hover: #00af92;
-@red:#DD0000;
-@white: #FFFFFF;
-@back:#457b86;
+@seagreen: #00AF92; //未使用
+@seagreen2: #59C0AC; //未使用
+@seagreen3: #7FD6C6; //未使用
+@seagreen4: #BFEAE2; //未使用
 
-/*btn*/
-@btn-back: #02e49b;
-@btn-text: #FFFFFF;
+@black: #242424; //未使用
+@black2: #5B5B5B; //未使用
+@black3: #919191; //未使用
+@black4: #C6C6C6; //未使用
 
-/*文本*/
-@text: #242424;
-@text2: #476872;
-@text3: #a1c8c9;
+@dark-blue: #003; //未使用
+@dark-blue2: #3F3F66; //未使用
+@dark-blue3: #7F7F9A; //未使用
+@dark-blue4: #BEBFCC; //未使用
 
-@line: rgba(200, 200, 200, 0.7);
-@line2: #CCCCCC;
-@line3: #dee2e6;
+@seagreen: #2B393F; //未使用
+@seagreen2: #616B70; //未使用
+@seagreen3: #939B9E; //未使用
+@seagreen4: #C9CCCE; //未使用
 
-@gray: #505050;
-@gray2: #f9fafa;
-@gray3: #f2f4f4;
+@gray: #969696;
+@gray2: #AFAFAF; //未使用
+@gray3: #C9C9C9; //未使用
+
+@lightgray: #F9FAFA; //未使用
+
+/*其它颜色*/
+@custom: #727272;
+@custom2: #E9EEED;
+@custom3: #DDDDDD;
+@custom4: #F0F5F6;
+@custom6: #DFE3E3;
 
 /*字体*/
-.bold {
+.work-sans-light() {
+    font-family: WorkSans;
+    font-weight: 300;
+}
+
+.work-sans-semibold() {
+    font-family: WorkSans;
     font-weight: 600;
 }
 
-.bolder {
-    font-family: WorkSans-Bold;
-    font-weight: bolder;
+.work-sans-bold() {
+    font-family: WorkSans;
+    font-weight: 700;
 }
 
-.lighter {
-    font-family: WorkSans-Regular;
-    font-weight: lighter;
+.nunito-sans-extrabold() {
+    font-family: NunitoSans;
+    font-weight: 800;
 }
 
-small,.small{
-    font-size:80%;
+.nunito-sans-bold() {
+    font-family: NunitoSans;
+    font-weight: 700;
+}
+
+.nunito-sans-regular() {
+    font-family: NunitoSans;
+    font-weight: 400;
+}
+
+.nunito-sans-semibold() {
+    font-family: NunitoSans;
+    font-weight: 600;
+}
+
+.uppercase() {
+    text-transform: uppercase;
+}
+
+.bold() {
+    font-weight: bold;
+}
+
+/*常用色样式*/
+.green {
+    color: @green;
+}
+
+.dark-blue {
+    color: @dark-blue;
+}
+
+.gray {
+    color: @gray;
 }

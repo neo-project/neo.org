@@ -1,0 +1,36 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+<h2 class="main-title">@Localizer["Neo Global Development"]</h2>
+<div class="page-paragraph">
+    @Localizer["Neo Global Development can be considered as the main execution arm of the Neo Foundation. It is responsible for tasks such as business development, marketing, events management, and direct technical support to partner organizations."]
+</div>
+
+<div class="people-card-container">
+    @{ string[,] people = new string[4, 4]
+                    {
+                    { "Da Hongfei", "Leadership", "CEO", "/images/discover/DaHongfei.jpg" },
+                    { "John Wang", "EcoGrowth", "Head of Eco-Growth", "/images/discover/JohnWang.jpg" },
+                    { "Steven Liu", "Development", "Head of Development", "/images/discover/RendongLiu.jpg" },
+                    { "Zhang Zhihong", "Development", "Quality Assurance Manager", "/images/discover/ZhihongZhang.jpg" },
+            };
+
+
+                    for (int i = 0; i < people.GetLength(0); i++)
+                    {
+        <div class="people-card">
+            <img class="people-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(people[i, 3])" />
+            <div class="people-content">
+                <div class="col-name">
+                    <div class="primary-name">@people[i, 0]</div>
+                    @if (!String.IsNullOrEmpty(people[i, 1]))
+                    {
+            <div class="title-name">@Localizer[people[i, 1]]</div>}
+                    @if (!String.IsNullOrEmpty(people[0, 2]))
+                    {
+            <div class="people-description">@people[i, 2]</div>}
+                </div>
+            </div>
+        </div> } }
+</div>

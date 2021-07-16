@@ -1,109 +1,210 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
-@inject IViewLocalizer Localizer
+@using Microsoft.AspNetCore.Mvc.Localization
 
-@{
-    ViewData["Title"] = "Eco";
-}
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+@{ ViewData["Title"] = Localizer["Eco Support"].Value; }
+
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/eco.min.css", true)" />
 }
 
-<div class="banner">
-    <div class="container module p1 pt0">
-        <img class="module-img" data-original="@Helper.ToCDN("/images/ecosystem/Ecosystem.svg")" />
-        <div class="module-text">
-            <h1>@Localizer["Neo<br />Ecosystem"]</h1>
-            <p class="mt5">@Localizer["With thriving partners and projects, the Neo ecosystem is rapidly growing and developing, thus enabling Neo to become the foundation for next-gen Internet."]</p>
+<div class="introduction">
+    <div class="introduction-content">
+        <h1 class="introduction-title">@Localizer["<em>Eco</em><br/>Support"]</h1>
+        <div class="introduction-description">@Localizer["Whether you are a hobbyist developer, a fledgling start-up, or an established business, we have a range of initiatives to help you bring your vision to life on the Neo blockchain."]</div>
+    </div>
+    <img class="introduction-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/introduction-bg.svg", true)" />
+</div>
+
+<div class="divider"></div>
+
+<div class="resources">
+    <div class="resources-start">
+        <div class="menu">
+            <a class="menu-item active" asp-controller="eco" asp-action="index" asp-fragment="overview">
+                @Localizer["Overview"]
+                <i class="iconfont">&#xe6ab;</i>
+            </a>
+            <a class="menu-item" asp-controller="eco" asp-action="index" asp-fragment="ecoboost">
+                @Localizer["EcoBoost Program"]
+                <i class="iconfont">&#xe6ab;</i>
+            </a>
+            <a class="menu-item" asp-controller="eco" asp-action="index" asp-fragment="ecofund">
+                @Localizer["EcoFund Program"]
+                <i class="iconfont">&#xe6ab;</i>
+            </a>
+            <a class="menu-item" asp-controller="eco" asp-action="index" asp-fragment="earlyadoption">
+                @Localizer["Early Adoption Program"]
+                <i class="iconfont">&#xe6ab;</i>
+            </a>
+        </div>
+        <select class="select-menu-page form-control">
+            <option selected="selected">@Localizer["Overview"]</option>
+            <option>@Localizer["EcoBoost"]</option>
+            <option>@Localizer["EcoFund"]</option>
+            <option>@Localizer["Early Adoption Program"]</option>
+        </select>
+    </div>
+
+    <div class="resources-end">
+        <div class="menu-page active">
+            @{await Html.RenderPartialAsync("_OverviewPartial");}
+        </div>
+        <div class="menu-page">
+            <partial name="./_EcoBoostPartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_EcoFundPartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_EarlyAdoptionPartial" />
         </div>
     </div>
 </div>
 
-<div class="module1 bg1">
-    <div class="container p2">
-        <div class="row">
-            <div class="col-md-5"></div>
-            <div class="col-md-7">
-                <h2>@Localizer["Join EcoBoost program and power up for success"]</h2>
-                <p class="mt5">@Localizer["Neo is investing USD $100 million through its  EcoBoost program to accelerate the realization of large-scale commercial blockchain solutions by empowering developers and projects in the ecosystem."]</p>
-                <p class="mt4"><a class="btn1" asp-controller="ecoboost" asp-action="index">@Localizer["Learn more"]</a></p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container eco">
-    <div class="module1 left">
-        <h3 class="module-text">@Localizer["Global Neo<br />Community"]</h3>
-        <img class="module-img" data-original="@Helper.ToCDN("/images/ecosystem/NeoCommunity.svg")" />
-        <div class="module-text">
-            <p class="h4">
-                <span class="tag">@Localizer["20<span>cities</span>"]</span>
-                <span class="tag">@Localizer["7<span>countries</span>"]</span>
-            </p>
-            <p>@Localizer["Neo has more than 10 developer communities globally to support Neo infrastructure building and lower the entry barrier for Neo development.<br />Neo is a key market influencer with more than 500,000 followers over international social media channels."]</p>
-            <p><a class="btn" asp-controller="dev" asp-action="index" asp-fragment="involved">@Localizer["Learn more"]</a></p>
-        </div>
-    </div>
-
-    <div class="module1">
-        <h3 class="module-text">@Localizer["dApp Platform"]</h3>
-        <img class="module-img" data-original="@Helper.ToCDN("/images/ecosystem/dAppPlatform.svg")" />
-        <div class="module-text">
-            <p class="h4">
-                <span class="tag">100 +<span>dapps</span></span>
-            </p>
-            <p>@Localizer["The blockchain of choice for developers, Neo's powerful infrastructure is powering over 100 dApps enabling real use cases for digital assets."]</p>
-            <p><a class="btn" href="https://ndapp.org" target="_blank">@Localizer["Learn more"]</a></p>
-        </div>
-    </div>
-    <div class="module1 left">
-        <h3 class="module-text">@Localizer["Wallet"]</h3>
-        <img class="module-img" data-original="@Helper.ToCDN("/images/ecosystem/ClientInfrastructure.svg")" />
-        <div class="module-text">
-            <p class="h4">
-                <span class="tag">@Localizer["30 +<span>Wallets support</span>"]</span>
-            </p>
-            <p>@Localizer["Experience the smart economy of the future today! Download your wallet of choice for any device and any OS, and get started transfering and transacting with NEO assets!"]</p>
-            <p><a class="btn" asp-controller="wallets" asp-action="index">@Localizer["Get wallet"]</a></p>
-        </div>
-    </div>
-    <div class="module1">
-        <h3 class="module-text">@Localizer["Developer Tool"]</h3>
-        <img class="module-img" data-original="@Helper.ToCDN("/images/ecosystem/DevTools.svg")" />
-        <div class="module-text">
-            <p class="h4">
-                <span class="tag">C#  Python  Java  JavaScript  Go</span>
-            </p>
-            <p>@Localizer["Have a cool idea in mind? Neo is dedicated to bringing your ideas to life by offering the most comprehensive and developer-friendly toolkit, from smart contract development to dApp integration. Start building with Neo today!"]</p>
-            <p><a class="btn" asp-controller="dev">@Localizer["Get started"]</a></p>
-        </div>
-    </div>
-    <div class="module1 left">
-        <h3 class="module-text">@Localizer["Neo Protocol"]</h3>
-        <img class="module-img" data-original="@Helper.ToCDN("/images/ecosystem/NeoProtocol.svg")" />
-        <div class="module-text">
-            <p>@Localizer["The Neo MainNet has been steadily evolving across the 3 years since the launch in 2016. With the release of Neo3 rapidly approaching, Neo is ramping up for a series of major updates on the protocol layer to deliver a most stable, high-performance, and developer-optimized infrastructure to serve as the foundation of next-gen Internet."]</p>
-            <p><a class="btn" href="https://github.com/neo-project" target="_blank">GitHub</a></p>
-        </div>
-    </div>
-</div>
-
-@section Scripts{
+@section Scripts {
+    <script src="@Helper.ToCDN("/js/visibilityChanged.js")"></script>
     <script>
-        showEco();
-        function showEco(str) {
-            $("body").trigger("scroll");
-            if (str) {
-                var e = window.event || arguments.callee.caller.arguments[0];
-                $(e.target).addClass("selected").siblings().removeClass("selected");
+        // index
+        $(document).ready(() => {
+            function updateMenu(i) {
+                $('.menu-item').each((j, menuItem) => {
+                    if (i === j) {
+                        $(menuItem).addClass('active');
+                    } else {
+                        $(menuItem).removeClass('active');
+                    }
+                });
+                $('.menu-page').each((j, menuPage) => {
+                    if (i === j) {
+                        $(menuPage).addClass('active');
+                    } else {
+                        $(menuPage).removeClass('active');
+                    }
+                });
+                $('.select-menu-page').prop('selectedIndex', i);
+
+                $(window).trigger('scroll');
             }
-            str = str ? str : "Liquidity";
-            $('.eco-logo li').not('.' + str).hide();
-            $('.' + str).show();
+
+            function updateMenuWithHash() {
+                const hash = location.hash.slice(1);
+                if (hash === 'overview') {
+                    updateMenu(0);
+                } else if (hash === 'ecoboost'){
+                    updateMenu(1);
+                } else if (hash === 'ecofund'){
+                    updateMenu(2);
+                } else if (hash === 'earlyadoption') {
+                    updateMenu(3);
+                }
+            }
+
+            $('.select-menu-page').change(e => {
+                const index = e.target.selectedIndex;
+                if (index === 0) {
+                    location.href = '@Url.Action("index", "eco", null, null, null, "overview")';
+                } else if (index === 1) {
+                    location.href = '@Url.Action("index", "eco", null, null, null, "ecoboost")';
+                } else if (index === 2) {
+                    location.href = '@Url.Action("index", "eco", null, null, null, "ecofund")';
+                } else if (index === 3) {
+                    location.href = '@Url.Action("index", "eco", null, null, null, "earlyadoption")';
+                }
+            });
+
+            $(window).on('hashchange', updateMenuWithHash);
+
+            updateMenuWithHash();
+        });
+
+        $(document).ready(() => {
+            $('.support-end-btn').click(() => {
+                $(window).scrollTop($('.resources').offset().top);
+            });
+        });
+
+        $(document).ready(() => {
+            const scrollDistance = 400;
+            $('.projects').each((i, ele) => {
+                $(ele).find('.projects-controller-left').click(function (e) {
+                    if ($(this).hasClass('disabled')) {
+                        e.preventDefault();
+                        return;
+                    }
+
+                    $(ele).find('.projects-content').stop().animate({
+                        scrollLeft: '-=' + scrollDistance,
+                    }, 1000);
+                });
+
+                $(ele).find('.projects-controller-right').click(function (e) {
+                    if ($(this).hasClass('disabled')) {
+                        e.preventDefault();
+                        return;
+                    }
+                    $(ele).find('.projects-content').stop().animate({
+                        scrollLeft: '+=' + scrollDistance,
+                    }, 1000);
+                });
+
+                function updateControllerState() {
+                    const scroller = $(ele).find('.projects-content');
+
+                    const scrollable = scroller.prop('scrollWidth') !== scroller.prop('clientWidth')
+                    $(ele).find('.projects-controller-left').toggleClass('hidden', !scrollable);
+                    $(ele).find('.projects-controller-right').toggleClass('hidden', !scrollable);
+
+                    const leftmost = scroller.prop('scrollLeft') <= 0;
+                    $(ele).find('.projects-controller-left').toggleClass('disabled', leftmost);
+
+                    const rightmost = scroller.prop('scrollLeft') >= scroller.prop('scrollWidth') - scroller.prop('clientWidth');
+                    $(ele).find('.projects-controller-right').toggleClass('disabled', rightmost);
+
+                    $(window).trigger('scroll');
+                }
+
+                throttleUpdateCurrentPage = $.throttle(updateControllerState, 200, undefined, undefined, true);
+
+                $(ele).find('.projects-content').scroll(throttleUpdateCurrentPage);
+
+                $(ele).find('.projects-content').visibilityChanged({ callback: throttleUpdateCurrentPage });
+
+                $(window).resize(throttleUpdateCurrentPage);
+
+                throttleUpdateCurrentPage();
+
+            });
+        });
+
+        function updateTabs(i) {
+            $('.tab').each((j, tab) => {
+                if (i === j) {
+                    $(tab).addClass('active');
+                } else {
+                    $(tab).removeClass('active');
+                }
+            });
+            $('.tab-page').each((j, tabPage) => {
+                if (i === j) {
+                    $(tabPage).addClass('active');
+                } else {
+                    $(tabPage).removeClass('active');
+                }
+            });
+            $('.select-tab-page').prop('selectedIndex', i);
+            $(window).trigger('scroll');
         }
-        function showDialog() {
-            $(".modal-body").html($("#ecoFormDiv").html());
-            $('#EcoReg').modal('show');
-        }
+
+        $('.tab').each((i, tab) => {
+            $(tab).click(() => {
+                updateTabs(i);
+            });
+        });
+
+        $('.select-tab-page').change(e => {
+            updateTabs(e.target.selectedIndex);
+        });
     </script>
 }

@@ -1,191 +1,49 @@
-﻿@t1: 5.619rem; /*h1 95.37*/
-@t2: 3.16rem; /*h2 53.67 - mobile - h1 47.36*/
-@t3: 2.37rem; /*h3 40.27 - mobile - h2 35.53*/
-@t4: 1.778rem; /*h4、h5 30.27*/
-@t5: 1.333rem; /*h6 22.67 - mobile - h3、h4、h5、h6 20*/
-@t6: 1rem;
+/*字号*/
+@import 'basic.less';
 
-@green: #00af92;
-@green2: #02e49b;
-
-@font-family-zh: "SF Pro SC","SF Pro Text","SF Pro Icons","PingFang SC",'Segoe UI',SegoeUI,"Microsoft YaHei","微软雅黑","Helvetica Neue","Helvetica","Arial",sans-serif;
-
-html{
-    font-size:14px!important;
-}
+@letter-spacing: 0.03em;
+@line-height: 1.5;
+@font-family: "SF Pro SC", "SF Pro Text", "SF Pro Icons", "PingFang SC", 'Segoe UI', SegoeUI, "Microsoft YaHei", "微软雅黑", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 
 html body {
-    font-size: 15px!important;
-    font-family: @font-family-zh;
-    letter-spacing: .6px;
-    line-height: 1.75;
-
-    @media only screen and (max-width: 767px) {
-        font-size: 12px;
-    }
+    font-family: @font-family;
+    letter-spacing: @letter-spacing;
 }
 
-/*字体*/
-.font-family {
-    font-family: @font-family-zh;
+*:not(.iconfont) {
+    font-family: @font-family !important;
 }
 
-.font-family-bold {
-    font-family: @font-family-zh;
-    font-weight: bolder;
-}
-
-
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, p {
-    letter-spacing: 0.3px;
-}
 h1, .h1 {
-    .font-family-bold;
-    font-size: @t1;
-    letter-spacing: 3.4px;
-    line-height: 109px;
-
-    @media only screen and (max-width: 767px) {
-        font-size: @t2;
-        letter-spacing: 2px;
-        line-height: 60px;
-    }
+    font-size: @font-size-1;
+    line-height: @line-height;
+    letter-spacing: @letter-spacing;
+    font-weight: 800;
 }
 
 h2, .h2 {
-    .font-family-bold;
-    font-size: @t2;
-    letter-spacing: 3px;
-    line-height: 66px;
-
-    @media only screen and (max-width: 767px) {
-        font-size: @t3;
-        letter-spacing: 1px;
-        line-height: 40px;
-    }
-}
-
-h3, .h3 {
-    .font-family-bold;
-    font-size: @t3;
-    letter-spacing: 2px;
-    line-height: 50px;
-
-    @media only screen and (max-width: 767px) {
-        font-size: @t5;
-        letter-spacing: .5px;
-        line-height: 32px;
-    }
-}
-
-h4, .h4 {
-    .font-family-bold;
-    font-size: @t4;
-    letter-spacing: 1px;
-    line-height: 37px;
-
-    @media only screen and (max-width: 767px) {
-        font-size: @t5;
-        letter-spacing: .5px;
-        line-height: 30px;
-    }
-}
-
-h5, .h5 {
-    .font-family;
-    font-size: @t4;
-    letter-spacing: 1px;
-    line-height: 37px;
-
-    @media only screen and (max-width: 767px) {
-        font-size: @t5;
-        letter-spacing: .5px;
-        line-height: 25px;
-    }
-}
-
-h6, .h6 {
-    .font-family-bold;
-    font-size: @t5;
-    letter-spacing: .4px;
-    line-height: 28px;
-
-    @media only screen and (max-width: 767px) {
-        font-size: @t5;
-        letter-spacing: .5px;
-        line-height: 26px;
-    }
-}
-
-.font1 {
-    .font-family;
-    font-size: 1rem;
-    letter-spacing: .5px;
-    line-height: 21px;
-}
-
-.font2 {
-    .font1;
-    font-weight:bolder;
-}
-
-/*字体*/
-.bold {
+    font-size: @font-size-2;
+    line-height: @line-height;
+    letter-spacing: @letter-spacing;
     font-weight: 600;
 }
 
-.bolder {
-    .font-family-bold;
+h3, .h3 {
+    font-size: @font-size-3;
+    line-height: @line-height;
+    letter-spacing: @letter-spacing;
+    font-weight: 600;
 }
 
-.lighter {
-    .font-family;
-    font-weight: lighter;
-}
-.iconfont{
-    font-size:17px;
-}
-.typed-cursor {
-    .h1;
-    vertical-align: middle;
+h4, .h4, h5, .h5, h6, .h6 {
+    font-size: @font-size-4;
+    line-height: @line-height;
+    letter-spacing: @letter-spacing;
+    font-weight: 600;
 }
 
-/*list 基础样式*/
-.list1 {
-    div[class|=col],> li {
-        .list-title {
-            .h4;
-        }
-
-        a {
-            font-weight: 300;
-            text-shadow: 1px 0 0 @green2;
-
-            &:hover {
-                text-shadow: 1px 0 .1px @green;
-            }
-        }
-    }
-}
-
-.list2 {
-    div[class|=col],> li {
-        .list-title {
-            .h6;
-        }
-    }
-}
-
-.list3 {
-    div[class|=col], > li {
-        .list-ul {
-            .h4;
-
-            li {
-                span {
-                    .font1;
-                }
-            }
-        }
+html[lang="zh"] {
+    .get-started-title {
+        font-size: @font-size-70px;
     }
 }

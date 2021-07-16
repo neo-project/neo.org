@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="255px" height="274px" viewBox="0 0 255 274" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 37</title>
+    <defs>
+        <polygon id="path-1" points="102.55 0 191.360905 51.275 191.360905 153.825 102.55 205.1 13.7390948 153.825 13.7390948 51.275"></polygon>
+        <filter x="-38.4%" y="-15.8%" width="149.0%" height="163.4%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="-30" dy="35" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="15" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.316369017   0 0 0 0 0.366987588   0 0 0 0 0.353495709  0 0 0 0.257409583 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="-10" dy="17" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="6.5" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.144614907 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="HOMEPAGE-Desktop" transform="translate(-891.000000, -5391.000000)">
+            <g id="Duel-tokens-panel" transform="translate(235.500000, 5120.800000)">
+                <g id="Tokens-image" transform="translate(600.500000, 236.000000)">
+                    <g id="Group-37" transform="translate(103.000000, 35.700000)">
+                        <g id="Polygon-Copy-10">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                            <use fill="#F0F5F6" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        </g>
+                        <g id="Group-35" transform="translate(58.800000, 53.200000)" fill-rule="nonzero">
+                            <polygon id="Path" fill="#00E599" points="0 16.7825 0 80.9555833 42.0967742 95.9 42.0967742 31.1675 87.5 14.62475 46.2903226 0"></polygon>
+                            <polygon id="Path" fill="#00AF92" points="44.8 34.2068966 44.8 68.5482759 86.1 83.3 86.1 18.9"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

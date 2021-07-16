@@ -1,7 +1,7 @@
-﻿//多语言切换
+//多语言切换
 function setLanguage(culture) {
     $("#culture").val(culture);
-    $("#returnUrl").val(window.location.pathname);
+    $("#returnUrl").val(window.location.pathname + window.location.hash);
     $("#form_language").submit();
 }
 //懒加载
@@ -51,3 +51,12 @@ function pageSize() {
 
 //中英文之间添加空格
 text_replace(".with-space");
+
+//target="_blank" rel="noopener noreferrer"
+$("a").each(function () {
+    if ($(this).attr("href") && $(this).attr("href").startsWith("http")) {
+        $(this).attr("target", "_blank");
+        $(this).attr("rel", "noopener noreferrer");
+    }
+});
+

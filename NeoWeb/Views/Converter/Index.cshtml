@@ -1,72 +1,74 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 @{
-    ViewData["Title"] = @Localizer["Neo 3.0 data converter"].Value;
+    ViewData["Title"] = @Localizer["N3 data converter"].Value;
 }
-<div class="p1 bg3">
-    <h1 class="w800">@Localizer["Neo 3.0 data converter"]</h1>
-    <p class="mt5 w600">@Localizer["Support conversion of address, script hash, private key, public key, big-endian and little-endian, big-integer, character string, hexadecimal string, Application Log, Base64 encoding, etc. and analysis of smart contract script"]</p>
+<div class="py-5">
+    <p>@Localizer["Support conversion of address, script hash, private key, public key, big-endian and little-endian, big-integer, character string, hexadecimal string, Application Log, Base64 encoding, etc. and analysis of smart contract script"]</p>
+    <p>Neo 3.0.0-CI01290</p>
+    <form action="/converter/index" method="post">
+        <label class="col-form-label" for="input">@Localizer["Please enter the text to be converted"]</label>
+        <input type="text" class="form-control" name="input" value="@ViewBag.Input" />
+        <input type="submit" value="@Localizer["Convert"]" class="btn-2 mt-3" />
+    </form>
+    <div class="row">
+        @if (ViewBag.Result != null)
+        {
+            <div class="col-md-6 mt-4">
+                <div>@Localizer["Conversion result:"]</div>
+                @foreach (var item in ViewBag.Result as Dictionary<string, List<string>>)
+                {
+                    <p>@item.Key</p>
+                    <p>
+                        <code>
+                            @foreach (var v in item.Value)
+                            {@v<br />}
+                        </code>
+                    </p>
+                }
+            </div>
+        }
+        <div class="@(ViewBag.Result == null ? "col-md-12" :  "col-md-6" ) mt-4">
 
-    <div class="row text-center">
-        <div class="col">
-            <small>Neo 3.0.0-CI01223</small>
+            <div>@Localizer["Don't know what to enter? Try the following"]</div>
+            <code>
+                7472616e73666572
+            </code>
+            <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="7472616e73666572" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
+            <code>
+                00a3e111
+            </code>
+            <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="00a3e111" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
+            <code>
+                0x3346454E
+            </code>
+            <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="0x3346454E" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
+            <code>
+                5195086
+            </code>
+            <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="5195086" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
+            <code>
+                0x3ff68d232a60f23a5805b8c40f7e61747f6f61ce
+            </code>
+            <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="0x3ff68d232a60f23a5805b8c40f7e61747f6f61ce" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
+            <code>
+                zmFvf3Rhfg/EuAVYOvJgKiON9j8=
+            </code>
+            <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="zmFvf3Rhfg/EuAVYOvJgKiON9j8=" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
+            <code>
+                AHVYXVTcKw==
+            </code>
+            <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="AHVYXVTcKw==" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
+            <code>
+                03dab84c1243ec01ab2500e1a8c7a1546a26d734628180b0cf64e72bf776536997
+            </code>
+            <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="03dab84c1243ec01ab2500e1a8c7a1546a26d734628180b0cf64e72bf776536997" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
+            <code>
+                AwDkC1QCAAAADBS9AxqHRNNG1hZxgWAXL2No4BfcBQwUgUkpDXgVmkkrRX4lahSzu86gNiATwAwIdHJhbnNmZXIMFLyvQdaEx9StbuDZnalwe50fDI5mQWJ9W1I4
+            </code>
+            <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="AwDkC1QCAAAADBS9AxqHRNNG1hZxgWAXL2No4BfcBQwUgUkpDXgVmkkrRX4lahSzu86gNiATwAwIdHJhbnNmZXIMFLyvQdaEx9StbuDZnalwe50fDI5mQWJ9W1I4" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
         </div>
-    </div>
-</div>
-<form action="/converter/index" method="post">
-    <label class="col-form-label" for="input">@Localizer["Please enter the text to be converted"]</label>
-    <input type="text" class="form-control" name="input" value="@ViewBag.Input" />
-    <input type="submit" value="@Localizer["Convert"]" class="btn btn-primary mt-3" />
-</form>
-<div class="row">
-    @if (ViewBag.Result != null)
-    {
-        <div class="col-md-6 mt-4">
-            <div>@Localizer["Conversion result:"]</div>
-            @foreach (var item in ViewBag.Result as Dictionary<string, List<string>>)
-            {
-                <p>@item.Key</p>
-                <p>
-                    <code>
-                        @foreach (var v in item.Value)
-                        {@v<br />}
-                    </code>
-                </p>
-            }
-        </div>
-    }
-    <div class="@(ViewBag.Result == null ? "col-md-12" :  "col-md-6" ) mt-4">
-
-        <div>@Localizer["Don't know what to enter? Try the following"]</div>
-        <code>
-            7472616e73666572
-        </code>
-        <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="7472616e73666572" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
-        <code>
-            00a3e111
-        </code>
-        <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="00a3e111" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
-        <code>
-            0x3ff68d232a60f23a5805b8c40f7e61747f6f61ce
-        </code>
-        <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="0x3ff68d232a60f23a5805b8c40f7e61747f6f61ce" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
-        <code>
-            zmFvf3Rhfg/EuAVYOvJgKiON9j8=
-        </code>
-        <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="zmFvf3Rhfg/EuAVYOvJgKiON9j8=" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
-        <code>
-            AHVYXVTcKw==
-        </code>
-        <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="AHVYXVTcKw==" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
-        <code>
-            03dab84c1243ec01ab2500e1a8c7a1546a26d734628180b0cf64e72bf776536997
-        </code>
-        <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="03dab84c1243ec01ab2500e1a8c7a1546a26d734628180b0cf64e72bf776536997" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
-        <code>
-            AwDkC1QCAAAADBS9AxqHRNNG1hZxgWAXL2No4BfcBQwUgUkpDXgVmkkrRX4lahSzu86gNiATwAwIdHJhbnNmZXIMFLyvQdaEx9StbuDZnalwe50fDI5mQWJ9W1I4
-        </code>
-        <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="AwDkC1QCAAAADBS9AxqHRNNG1hZxgWAXL2No4BfcBQwUgUkpDXgVmkkrRX4lahSzu86gNiATwAwIdHJhbnNmZXIMFLyvQdaEx9StbuDZnalwe50fDI5mQWJ9W1I4" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
     </div>
 </div>
 

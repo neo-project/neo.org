@@ -1,0 +1,146 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+@{ ViewData["Title"] = Localizer["Neo Technology"].Value; }
+@section Styles{
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/technology.min.css", true)" />
+}
+
+<div class="introduction">
+    <div class="introduction-start">
+        <h1 class="uppercase"><span class="green">NEO</span><br class="@SharedLocalizer["d-none-zh"]" /> @Localizer["Technology"]</h1>
+        <div class="introduction-content">@Localizer["After four years of stable MainNet operation, Neo is undergoing its biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]</div>
+    </div>
+    <img class="introduction-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/discover/Technology.svg", true)" />
+</div>
+
+<div class="divider"></div>
+
+<div class="resources">
+    <div class="resources-start">
+        <div class="menu">
+            <div class="menu-item">
+                @Localizer["All in One"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+            <div class="menu-item">
+                @Localizer["Smart Contracts"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+            <div class="menu-item">
+                @Localizer["NeoFS"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+            <div class="menu-item">
+                @Localizer["NeoID"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+            <div class="menu-item">
+                @Localizer["Oracles"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+            <div class="menu-item">
+                @Localizer["Neo Name Service"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+            <div class="menu-item">
+                @Localizer["dBFT 2.0"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+            <div class="menu-item">
+                @Localizer["Interoperability"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+            <div class="menu-item">
+                @Localizer["Dev experience"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+        </div>
+
+        <select class="select-menu-page form-control">
+            <option>@Localizer["All in One"]</option>
+            <option>@Localizer["Smart Contracts"]</option>
+            <option>@Localizer["NeoFS"]</option>
+            <option>@Localizer["NeoID"]</option>
+            <option>@Localizer["Oracles"]</option>
+            <option>@Localizer["Neo Name Service"]</option>
+            <option>@Localizer["dBFT 2.0"]</option>
+            <option>@Localizer["Interoperability"]</option>
+            <option>@Localizer["Architecture"]</option>
+        </select>
+    </div>
+
+    <div class="resources-end">
+        <div class="menu-page">
+            <partial name="./_AllInOnePartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_SmartContractsPartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_NeoFSPartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_NeoIDPartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_OraclesPartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_NeoNameServicePartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_dBFTPartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_InteroperabilityPartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_ArchitecturePartial" />
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="@Helper.ToCDN("/lib/jquery/jquery.min.js")"></script>
+    <script>$(document).ready(() => {
+    const hashArray = ['all-in-one', 'smart-contracts', 'neo-fs', 'neo-id', 'oracles', 'neo-name-service', 'dbft-2.0', 'interoperability', 'architecture']
+
+    function updateCurrentPage(i) {
+        $('.menu-item').each((j, menuItem) => {
+            if (i === j) {
+                $(menuItem).addClass('active');
+                window.location.hash = hashArray[i];
+            } else {
+                $(menuItem).removeClass('active');
+            }
+        });
+        $('.menu-page').each((j, menuPage) => {
+            if (i === j) {
+                $(menuPage).addClass('active');
+                window.location.hash = hashArray[i];
+            } else {
+                $(menuPage).removeClass('active');
+            }
+        });
+        $('.select-menu-page').prop('selectedIndex', i);
+    };
+
+    $('.menu-item').each((i, menuItem) => {
+        $(menuItem).click(() => {
+            updateCurrentPage(i);
+        });
+    });
+
+    $('.select-menu-page').change(e => {
+        updateCurrentPage(e.target.selectedIndex);
+    });
+
+    const hash = window.location.hash.replace(/#/g, '');
+    const index = hashArray.indexOf(hash);
+
+    updateCurrentPage(index >= 0 ? index : 0);
+    });
+</script>
+}

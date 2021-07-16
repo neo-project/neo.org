@@ -1,92 +1,91 @@
-﻿@model NeoWeb.Models.TestCoin
+@model NeoWeb.Models.TestCoin
+
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
 @{
+    ViewData["ParentTitle"] = SharedLocalizer["Developer"].Value;
     ViewData["Title"] = "测试币申请详情";
 }
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/testnet-list.min.css", true)" />
 }
-<div class="container">
-    <div class="p1">
-        <h1 class="w800">测试币申请详情</h1>
-    </div>
-    <div class="border-static back-white p4 m3">
-        <div class="row m3">
-            <div class="col-1 text-right font-weight-bold">
-                @Html.DisplayNameFor(model => model.Name)
-            </div>
-            <div class="col-11">
-                @Html.DisplayFor(model => model.Name)
-            </div>
-            <div class="col-1 text-right font-weight-bold">
-                @Html.DisplayNameFor(model => model.Email)
-            </div>
-            <div class="col-11">
-                @Html.DisplayFor(model => model.Email)
-            </div>
-            <div class="col-1 text-right font-weight-bold">
-                @Html.DisplayNameFor(model => model.Phone)
-            </div>
-            <div class="col-11">
-                @Html.DisplayFor(model => model.Phone)
-            </div>
-            <div class="col-1 text-right font-weight-bold">
-                @Html.DisplayNameFor(model => model.QQ)
-            </div>
-            <div class="col-11">
-                @Html.DisplayFor(model => model.QQ)
-            </div>
-            <div class="col-1 text-right font-weight-bold">
-                @Html.DisplayNameFor(model => model.Company)
-            </div>
-            <div class="col-11">
-                @Html.DisplayFor(model => model.Company)
-            </div>
-            <div class="col-1 text-right font-weight-bold">
-                @Html.DisplayNameFor(model => model.Reason)
-            </div>
-            <div class="col-11">
-                @Html.DisplayFor(model => model.Reason)
-            </div>
-            <div class="col-1 text-right font-weight-bold">
-                @Html.DisplayNameFor(model => model.Version)
-            </div>
-            <div class="col-11">
-                @Html.DisplayFor(model => model.Version)
-            </div>
-            <div class="col-1 text-right font-weight-bold">
-                @Html.DisplayNameFor(model => model.NeoCount)
-            </div>
-            <div class="col-11">
-                @Html.DisplayFor(model => model.NeoCount)
-            </div>
-            <div class="col-1 text-right font-weight-bold">
-                @Html.DisplayNameFor(model => model.GasCount)
-            </div>
-            <div class="col-11">
-                @Html.DisplayFor(model => model.GasCount)
-            </div>
-            <div class="col-1 text-right font-weight-bold">
-                @Html.DisplayNameFor(model => model.PubKey)
-            </div>
-            <div class="col-11">
-                @Html.DisplayFor(model => model.PubKey)
-            </div>
-            <div class="col-1 text-right font-weight-bold">
-                @Html.DisplayNameFor(model => model.Remark)
-            </div>
-            <div class="col-11">
-                @Html.DisplayFor(model => model.Remark)
-            </div>
-            <div class="col-1 text-right font-weight-bold">
-                @Html.DisplayNameFor(model => model.Time)
-            </div>
-            <div class="col-11">
-                @Html.DisplayFor(model => model.Time)
-            </div>
+<div class="border-static back-white py-5 my-1">
+    <div class="row my-1">
+        <div class="col-1 text-right font-weight-bold">
+            @Html.DisplayNameFor(model => model.Name)
+        </div>
+        <div class="col-11">
+            @Html.DisplayFor(model => model.Name)
+        </div>
+        <div class="col-1 text-right font-weight-bold">
+            @Html.DisplayNameFor(model => model.Email)
+        </div>
+        <div class="col-11">
+            @Html.DisplayFor(model => model.Email)
+        </div>
+        <div class="col-1 text-right font-weight-bold">
+            @Html.DisplayNameFor(model => model.Phone)
+        </div>
+        <div class="col-11">
+            @Html.DisplayFor(model => model.Phone)
+        </div>
+        <div class="col-1 text-right font-weight-bold">
+            @Html.DisplayNameFor(model => model.QQ)
+        </div>
+        <div class="col-11">
+            @Html.DisplayFor(model => model.QQ)
+        </div>
+        <div class="col-1 text-right font-weight-bold">
+            @Html.DisplayNameFor(model => model.Company)
+        </div>
+        <div class="col-11">
+            @Html.DisplayFor(model => model.Company)
+        </div>
+        <div class="col-1 text-right font-weight-bold">
+            @Html.DisplayNameFor(model => model.Reason)
+        </div>
+        <div class="col-11">
+            @Html.DisplayFor(model => model.Reason)
+        </div>
+        <div class="col-1 text-right font-weight-bold">
+            @Html.DisplayNameFor(model => model.Version)
+        </div>
+        <div class="col-11">
+            @Html.DisplayFor(model => model.Version)
+        </div>
+        <div class="col-1 text-right font-weight-bold">
+            @Html.DisplayNameFor(model => model.NeoCount)
+        </div>
+        <div class="col-11">
+            @Html.DisplayFor(model => model.NeoCount)
+        </div>
+        <div class="col-1 text-right font-weight-bold">
+            @Html.DisplayNameFor(model => model.GasCount)
+        </div>
+        <div class="col-11">
+            @Html.DisplayFor(model => model.GasCount)
+        </div>
+        <div class="col-1 text-right font-weight-bold">
+            @Html.DisplayNameFor(model => model.PubKey)
+        </div>
+        <div class="col-11">
+            @Html.DisplayFor(model => model.PubKey)
+        </div>
+        <div class="col-1 text-right font-weight-bold">
+            @Html.DisplayNameFor(model => model.Remark)
+        </div>
+        <div class="col-11">
+            @Html.DisplayFor(model => model.Remark)
+        </div>
+        <div class="col-1 text-right font-weight-bold">
+            @Html.DisplayNameFor(model => model.Time)
+        </div>
+        <div class="col-11">
+            @Html.DisplayFor(model => model.Time)
         </div>
     </div>
-    <div class="my-5">
+    <div class="mt-3">
         <a asp-action="Edit" asp-route-id="@Model.Id">备注</a>
         <a href="javascript:" onclick="document.referrer === '' ?
               window.location.pathname = '/Testnet/list' :

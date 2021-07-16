@@ -1,0 +1,71 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+<div class="calculator">
+    <div class="calculator-header">
+        <div class="calculator-title">
+            @Localizer["NEO & GAS Calculator"]
+        </div>
+    </div>
+
+    <div class="calculator-body">
+        <div class="slider-row">
+            <div class="slider-before">
+                @Localizer["A user with"]
+            </div>
+            <input type="range" min="10" max="1000" value="500" class="slider" id="calculator-slider">
+            <div class="slider-after">
+                <img class="slider-neo-icon" src="@Helper.ToCDN("/images/transparent.png")"
+                    data-original="@Helper.ToCDN("/images/home/Neo-Symbol.svg")" />
+                <div id="slider-current-value" class="ngc-slider-current-value">500</div>
+            </div>
+        </div>
+
+        <div class="middle-text">
+            @Localizer["would receive up to"]
+        </div>
+
+        <div class="results-row">
+            <div class="result-col result-col-neo">
+                <div class="result-num result-holding ngc-result-holding">0.44</div>
+                <div class="gas-wrapper">
+                    <img class="result-icon" src="@Helper.ToCDN("/images/transparent.png")"
+                        data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
+                    <div class="legend">
+                        @Localizer["Gas Per Month"]<span class="green">*</span>
+                    </div>
+                </div>
+                <div class="status-text">@Localizer["For holding NEO"]</div>
+            </div>
+            <div class="plus-sign"><i class="iconfont">&#xe603;</i></div>
+            <div class="result-col result-col-gas">
+                <div class="result-num result-governance ngc-result-governance">17.52</div>
+                <div class="gas-wrapper">
+                    <img class="result-icon" src="@Helper.ToCDN("/images/transparent.png")"
+                        data-original="@Helper.ToCDN("/images/home/Gas-Symbol.svg")" />
+                    <div class="legend">@Localizer["Gas Per Month"]<span class="green">*</span></div>
+                </div>
+                <div class="status-text">@Localizer["For Governance Participation"]</div>
+            </div>
+        </div>
+
+        <div class="foot-note">
+            <span class="green">*</span>@Localizer["estimate based on average 20% circulating NEO voting participation"]
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        $("#calculator-slider").on("input", function (e) {
+            const { value } = e.currentTarget
+            $(".ngc-slider-current-value").html(value)
+
+            const holdingGas = (+value * 10512000 * 0.1 / 100000000 / 12).toFixed(2)
+            const governanceGas = (+value * 10512000 * 0.8 / 20000000 / 12).toFixed(2)
+            $(".ngc-result-holding").html(holdingGas)
+            $(".ngc-result-governance").html(governanceGas)
+        })
+    })
+</script>
