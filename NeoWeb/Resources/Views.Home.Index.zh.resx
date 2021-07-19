@@ -312,4 +312,34 @@
   <data name="Take A Tour" xml:space="preserve">
     <value>开启 N3 之旅</value>
   </data>
+  <data name="AUGUST 2ND" xml:space="preserve">
+    <value>8月2日</value>
+  </data>
+  <data name="EARLY BIRD MIGRATION" xml:space="preserve">
+    <value>9月1日</value>
+  </data>
+  <data name="FIND OUT ABOUT WHAT EACH MILESTONE HAS INSTORE FOR NEO" xml:space="preserve">
+    <value>Neo N3主网上线及迁移路线图公布</value>
+  </data>
+  <data name="FORMAL TESTNET" xml:space="preserve">
+    <value>正式测试网</value>
+  </data>
+  <data name="MAINNET" xml:space="preserve">
+    <value>主网</value>
+  </data>
+  <data name="MASS MIGRATION" xml:space="preserve">
+    <value>大规模迁移</value>
+  </data>
+  <data name="ON THE ROAD TO MAINNET" xml:space="preserve">
+    <value>主网启动计划开启</value>
+  </data>
+  <data name="SEPTEMBER 1ST" xml:space="preserve">
+    <value>“早鸟“迁移</value>
+  </data>
+  <data name="STARTING JULY 20TH" xml:space="preserve">
+    <value>7月20日起</value>
+  </data>
+  <data name="LATEST NEWS:" xml:space="preserve">
+    <value>最新资讯：</value>
+  </data>
 </root>
