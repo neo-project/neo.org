@@ -17,7 +17,7 @@
                             <img class="img-fluid" style="width: 140px" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/N3Logo.svg")" />
                         </div>
                         <div class="col-9 col-lg-12">
-                            <p class="my-0 my-lg-5 big-text">@Localizer["ON THE ROAD TO MAINNET"]</p>
+                            <p class="my-0 my-lg-3 big-text">@Localizer["ON THE ROAD TO MAINNET"]</p>
                         </div>
                         <style>
                             .big-text {
@@ -28,11 +28,16 @@
                                 color: #00E599;
                                 text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
                             }
+                            @@media (min-width: 1600px) {
+                                .find-out {
+                                    margin-top: -50px;
+                                }
+                            }
                             @@media (max-width: 1200px) {
                                 .big-text {
                                     font-size: 80px;
                                 }
-                            }
+                            }   
                             @@media (max-width: 992px) {
                                 .big-text {
                                     font-size: 60px;
@@ -77,11 +82,11 @@
                     <img class="my-1 img-fluid @SharedLocalizer["d-none"]" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/roadmap-xs-zh.png")" />
                 </div>
             </div>
-            <div class="row text-center text-lg-left">
+            <div class="row text-center text-lg-left find-out">
                 <div class="col-lg-5">
                     <p style="font-family: Work Sans; font-weight: 600; font-size: 16px; line-height: 125%; letter-spacing: 3px;">@Localizer["FIND OUT ABOUT WHAT EACH MILESTONE HAS INSTORE FOR NEO"]</p>
                     <div>
-                        <a class="btn-2 my-4">@Localizer["LEARN MORE"]</a>
+                        <a class="btn-2 my-4">@Localizer["Learn More"]</a>
                     </div>
                 </div>
                 <div class="col-lg-7">
