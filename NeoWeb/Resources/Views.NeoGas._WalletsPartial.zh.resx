@@ -357,6 +357,9 @@
   <data name="Enquiries NEP-5 balance and transactions history of accounts through RPC." xml:space="preserve">
     <value>提供 NEP-5 余额及交易历史的 RPC 查询功能。</value>
   </data>
+  <data name="Enquiries NEP-17 balance and transactions history of accounts through RPC." xml:space="preserve">
+    <value>提供 NEP-17 余额及交易历史的 RPC 查询功能。</value>
+  </data>
   <data name="Provides wallet-specific RPC functionalities." xml:space="preserve">
     <value>提供钱包相关的 RPC 功能。</value>
   </data>
