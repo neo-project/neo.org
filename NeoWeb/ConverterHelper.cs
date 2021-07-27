@@ -242,6 +242,37 @@ namespace NeoWeb
             return new UInt160(bytes).ToAddress(0x35);
         }
 
+        public static string MnemonicToWIF(string mnemonic)
+        {
+            string output;
+            try
+            {
+                if (!Mnemonic.Verification(mnemonic)) throw new FormatException();
+                var seed = Mnemonic.MnemonicToSeed(mnemonic);
+                output = Mnemonic.SeedToWIF(seed, 888);
+            }
+            catch (Exception)
+            {
+                throw new FormatException();
+            }
+            return output;
+        }
+
+        public static string MnemonicToAddress(string mnemonic)
+        {
+            string output;
+            try
+            {
+                var pubKey = PrivateKeyToPublicKey(MnemonicToWIF(mnemonic));
+                output = Contract.CreateSignatureContract(ECPoint.Parse(pubKey, ECCurve.Secp256r1)).ScriptHash.ToAddress(0x35);
+            }
+            catch (Exception)
+            {
+                throw new FormatException();
+            }
+            return output;
+        }
+
         /// <summary>
         /// 公钥转为 Neo3 地址
         /// </summary>
@@ -315,6 +346,21 @@ namespace NeoWeb
                 var privateKey = Wallet.GetPrivateKeyFromWIF(wif);
                 var account = new KeyPair(privateKey);
                 output = account.PublicKey.ToArray().ToHexString();
+            }
+            catch (Exception)
+            {
+                throw new FormatException();
+            }
+            return output;
+        }
+
+        public static string PrivateKeyToAddress(string wif)
+        {
+            string output;
+            try
+            {
+                var pubKey = PrivateKeyToPublicKey(wif);
+                output = Contract.CreateSignatureContract(ECPoint.Parse(pubKey, ECCurve.Secp256r1)).ScriptHash.ToAddress(0x35);
             }
             catch (Exception)
             {

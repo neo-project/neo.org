@@ -190,7 +190,7 @@ namespace NeoWeb.Controllers
                 catch (Exception) { }
                 try
                 {
-                    var output = ConverterHelper.PublicKeyToAddress(ConverterHelper.PrivateKeyToPublicKey(input));
+                    var output = ConverterHelper.PrivateKeyToAddress(input);
                     result.Add(_localizer["Private key to Neo3 address:"], new List<string>() { output });
                 }
                 catch (Exception) { }
@@ -295,7 +295,22 @@ namespace NeoWeb.Controllers
                 }
                 catch (Exception) { }
             }
-
+            //可能是助记词
+            if (new Regex("((\\w){3,8}\\s){11}((\\w){3,8})").IsMatch(input))
+            {
+                try
+                {
+                    var output = ConverterHelper.MnemonicToWIF(input);
+                    result.Add(_localizer["Mnemonic to Neo3 private key:"], new List<string>() { output });
+                }
+                catch (Exception) { }
+                try
+                {
+                    var output = ConverterHelper.MnemonicToAddress(input);
+                    result.Add(_localizer["Mnemonic to Neo3 address:"], new List<string>() { output });
+                }
+                catch (Exception) { }
+            }
             //当做普通字符串处理
             if (true)
             {
