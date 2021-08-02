@@ -27,6 +27,11 @@ namespace NeoWeb.Controllers
 
             var result = new Dictionary<string, List<string>>();
             input = ConverterHelper.Base64Fixed(input);
+            if (input.Length > 1024)
+            {
+                ViewBag.Input = "Too large!";
+                return View();
+            }
             //彩蛋
             if (input == "I love you")
             {
