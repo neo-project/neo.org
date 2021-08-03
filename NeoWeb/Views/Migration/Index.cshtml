@@ -12,8 +12,107 @@
     <link rel="stylesheet" href="@Helper.ToCDN("/css/migration.min.css", true)" />
 }
 <div class="container">
-    
-    <h3 class="my-5 border-bottom">@Localizer["Frequently asked questions"]</h3>
+    <h3 class="my-5"><span>@Localizer["Why do I need to migrate my tokens?"]</span></h3>
+    <p><strong>@Localizer["Neo Legacy is upgrading to Neo N3 - an all new version of the Neo protocol."]</strong></p>
+    <p>@Localizer["N3 improves on previous versions by offering an improved development experience. It boasts more powerful and complete features, a highly modular architecture, and an enhanced governance and economic model. It offers everything the hobbyist developer needs to build their first dApp, through to the power and scalability demanded by enterprise applications."]</p>
+    <p>@Localizer["Due to the extent of improvements found in version N3, certain features are not backwards compatible with the existing Neo Legacy blockchain. This means that Neo's N3 upgrade will be implemented through a new genesis block. The Neo blockchain running N3 will coexist alongside the current Neo Legacy blockchain for an extended period of time. This will provide users with ample opportunity to migrate their tokens and applications to the new chain."]</p>
+    <img class="img-fluid mt-3 @SharedLocalizer["d-none-zh"]" title="timeline" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/migration/Timeline.svg")" />
+    <img class="img-fluid mt-3 @SharedLocalizer["d-none"]" title="timeline" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/migration/Timeline-zh.svg")" />
+
+
+    <h3 class="my-5"><span>@Localizer["How do I migrate my tokens?"]</span></h3>
+    <p><strong>@Localizer["NEO & GAS tokens can be migrated from Neo Legacy to Neo N3 at a 1:1 ratio. You will need a Neo N3 compatible wallet or an account on an exchange that is supporting the migration."]</strong></p>
+    <p>@Localizer["Generally speaking, migration involves creating a new address on Neo N3 and sending your Neo Legacy tokens to a migration contract. The contract will then release an equivalent amount of Neo N3 tokens to your new Neo N3 address."]</p>
+    <p>@Localizer["We recommend choosing a migration option that best suits you from the available options below and carefully reading the guides before proceeding with any steps."]</p>
+    <h4 class="mt-5 border-bottom">@Localizer["Neo.org Website"]</h4>
+
+    <h4 class="mt-5 border-bottom">@Localizer["Native wallet migration"]</h4>
+    <p>@Localizer["Native migration support allows you to migrate your NEO & GAS tokens from Neo Legacy to Neo N3 without ever leaving your wallet. The wallets will handle communication with the migration contract for you so you do not need to connect to an external platform."]</p>
+    <p><strong>@Localizer["Available Wallets"]</strong></p>
+
+    <h4 class="mt-5 border-bottom">@Localizer["Exchanges"]</h4>
+    <p><strong>@Localizer["Participating Exchanges"]</strong></p>
+    <p>@Localizer["Some exchanges are capable of handling the migration of your NEO & GAS tokens from Neo Legacy to Neo N3 for you. Neo is working with the below exchanges to integrate Neo N3 support. Please be aware that Neo is unable to control the internal timeframes of external parties and support may come gradually."]</p>
+    <div class="row migration-exchange">
+        <div class="col-sm-4 col-md-3 col-lg-2 mt-3">
+            <div class="migration-bg">
+                <img class="img-fluid" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/migration/Exchange1.svg")" />
+                <p><strong>@Localizer["Binance"]</strong></p>
+                <p>Est. availability: TBD</p>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-2 mt-3">
+            <div class="migration-bg">
+                <img class="img-fluid" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/migration/Exchange2.svg")" />
+                <p><strong>@Localizer["Huobi"]</strong></p>
+                <p>Est. availability: TBD</p>
+            </div>
+        </div>
+
+        <div class="col-sm-4 col-md-3 col-lg-2 mt-3">
+            <div class="migration-bg">
+                <img class="img-fluid" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/migration/Exchange3.svg")" />
+                <p><strong>@Localizer["Bittrex"]</strong></p>
+                <p>Est. availability: TBD</p>
+            </div>
+        </div>
+
+        <div class="col-sm-4 col-md-3 col-lg-2 mt-3">
+            <div class="migration-bg">
+                <img class="img-fluid" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/migration/Exchange4.svg")" />
+                <p><strong>@Localizer["Okex"]</strong></p>
+                <p>Est. availability: TBD</p>
+            </div>
+        </div>
+
+        <div class="col-sm-4 col-md-3 col-lg-2 mt-3">
+            <div class="migration-bg">
+                <img class="img-fluid" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/migration/Exchange5.svg")" />
+                <p><strong>@Localizer["Bitfinex"]</strong></p>
+                <p>Est. availability: TBD</p>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="my-5"><span>@Localizer["Developers"]</span></h3>
+    <div class="migration-dev">
+        <p>@Localizer["Developers looking for information on how to support token or contract migration may find the following resources useful."]</p>
+        <div class="row">
+            <div class="col-md-3 mt-3">
+                <a href="https://neo.org/blog/details/4238">
+                    <div class="migration-bg">
+                        <img class="img-fluid" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/migration/Developers1.svg")" />
+                        <p>@Localizer["Global Asset migration guide"]</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 mt-3">
+                <a target="_blank" href="https://docs.neo.org/">
+                    <div class="migration-bg">
+                        <img class="img-fluid" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/migration/Developers2.svg")" />
+                        <p>@Localizer["N3 Documentation"]</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 mt-3">
+                <a target="_blank" href="/dev">
+                    <div class="migration-bg">
+                        <img class="img-fluid" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/migration/Developers3.svg")" />
+                        <p>@Localizer["N3 Developer Tools"]</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 mt-3">
+                <a target="_blank" href="/eco#earlyadoption">
+                    <div class="migration-bg">
+                        <img class="img-fluid" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/migration/Developers4.svg")" />
+                        <p>@Localizer["Early Adoption Program"]</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <h3 class="my-5"><span>@Localizer["Frequently asked questions"]</span></h3>
     <div id="accordion">
         <div class="my-4">
             <h5>
