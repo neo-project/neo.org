@@ -12,148 +12,150 @@
     <link rel="stylesheet" href="@Helper.ToCDN("/css/migration.min.css", true)" />
 }
 <div class="container">
-    <div class="row">
-        <div class="col-lg-6">
-            <h1 class="uppercase mt-5"><span class="green">NEO</span> @Localizer["Migration"]</h1>
-            <p>@Localizer["After four years of stable MainNet operation, Neo is undergoing its biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]</p>
-        </div>
-        <div class="col-lg-3 offset-lg-2">
-            <img class="img-fluid my-5" src="@Helper.CDN/images/migration/n3.svg" />
-        </div>
-    </div>
-    <hr />
-    <div class="row">
-        <div class="col-12 col-lg-6">
-            <h2 class="mt-5">@Localizer["What is N3?"]</h2>
-            <h3 class="mt-5">@Localizer["A whole new world"]</h3>
-            <p>@Localizer["<strong>N3</strong> is the latest version of the Neo blockchain. It was first announced in 2018 by Erik Zhang as an upgrade to the current Neo protocol."]</p>
-            <p>@Localizer["<strong>N3</strong> improves on previous versions by offering an improved development experience. It boasts more powerful and complete features, a highly modular architecture, and an enhanced governance and economic model. It offers everything the hobbyist developer needs to build their first dApp, through to the power and scalability required by enterprise applications."]</p>
-            <p>@Localizer["Due to the extent of improvements found in version <strong>N3</strong>, certain features are not backwards compatible with the existing Neo Legacy blockchain. This means that Neo's <strong>N3</strong> upgrade will be implemented through a new genesis block. The Neo blockchain running <strong>N3</strong> will coexist alongside the current Neo Legacy blockchain for an extended period of time. This will provide users with ample opportunity to migrate their tokens and applications to the new chain."]</p>
-            <p><strong>@Localizer["At this moment, no action is required on the part of token holders."]</strong></p>
-            <p>@Localizer["When the new chain is closer to a MainNet launch, Neo will publish detailed information on how to safely migrate your assets from the Legacy to <strong>N3</strong> version of Neo."]</p>
-        </div>
-        <div class="col-lg-6">
-            <img class="img-box" src="@Helper.CDN/images/migration/box.png" />
-        </div>
-    </div>
-
-    <h3 class="mt-5 border-bottom">@Localizer["New features in N3"]</h3>
-    <div class="row my-5 feature">
-        <div class="col-sm-6 col-lg-4 text-center text-xl-left">
-            <img class="img-fluid" src="@Helper.CDN/images/migration/feature1.svg" />
-            <div class="d-inline-block align-middle description">@Localizer["Built-in oracle (internet resource access)"]</div>
-        </div>
-        <div class="col-sm-6 col-lg-4 text-center text-xl-left">
-            <img class="img-fluid" src="@Helper.CDN/images/migration/feature2.svg" />
-            <div class="d-inline-block align-middle description">@Localizer["Neo Name Service domain protocol"]</div>
-        </div>
-
-        <div class="col-sm-6 col-lg-4 text-center text-xl-left">
-            <img class="img-fluid" src="@Helper.CDN/images/migration/feature3.svg" />
-            <div class="d-inline-block align-middle description">@Localizer["On-chain governance & economic model"]</div>
-
-        </div>
-
-        <div class="col-sm-6 col-lg-4 text-center text-xl-left">
-            <img class="img-fluid" src="@Helper.CDN/images/migration/feature4.svg" />
-            <div class="d-inline-block align-middle description">@Localizer["NeoID decentralized identity protocol"]</div>
-        </div>
-
-        <div class="col-sm-6 col-lg-4 text-center text-xl-left">
-            <img class="img-fluid" src="@Helper.CDN/images/migration/feature5.svg" />
-            <div class="d-inline-block align-middle description">@Localizer["NeoFS distributed object storage system"]</div>
-        </div>
-
-        <div class="col-sm-6 col-lg-4 text-center text-xl-left">
-            <img class="img-fluid" src="@Helper.CDN/images/migration/feature6.svg" />
-            <div class="d-inline-block align-middle description">@Localizer["Simplified architecture"]</div>
-        </div>
-    </div>
-    <h3 class="mt-5 border-bottom">@Localizer["Timeline"]</h3>
-    <div class="scroll-x">
-        @if (SharedLocalizer["en"].Value == "zh")
-        {
-            <img class="my-5" src="@Helper.CDN/images/migration/timeline-zh.svg" />
-        }
-        else
-        {
-            <img class="my-5" src="@Helper.CDN/images/migration/timeline.svg" />
-        }
-    </div>
+    
     <h3 class="my-5 border-bottom">@Localizer["Frequently asked questions"]</h3>
     <div id="accordion">
         <div class="my-4">
             <h5>
-                @Localizer["Why is Neo launching a new chain?"]
+                @Localizer["Is there a token migration deadline?"]
                 <i class="iconfont sub" style="display: block">&#xe62c;</i>
                 <i class="iconfont add" style="display: none">&#xe603;</i>
             </h5>
-            <p class="my-4" style="display: block;">
-                @Localizer["Some of the major improvements found in <strong>N3</strong>, such as the removal of UTXO assets in favor of an account model, are not compatible with the Legacy version of the Neo blockchain. In order to provide the best possible blockchain platform and developer experience, it is necessary to launch the <strong>N3</strong> version from a new genesis block."]
+            <p class="answer my-4" style="display: block;">
+                @Localizer["Yes, there will be eventually. However, the migration will remain open as long as the Neo Legacy network is running. Neo Legacy will move into long-term support following the launch of Neo N3 and will remain operational for at least one year."]
             </p>
         </div>
         <div class="my-4">
             <h5>
-                @Localizer["Will I need to migrate my NEO & GAS tokens from the current Neo Legacy to Neo N3?"]
+                @Localizer["How do I migrate my NEP-5 tokens to Neo N3?"]
                 <i class="iconfont sub">&#xe62c;</i>
                 <i class="iconfont add">&#xe603;</i>
             </h5>
-            <p class="my-4">
-                @Localizer["Yes, when the new Neo MainNet running N3 is live, NEO & GAS token holders will need to migrate their assets from Neo Legacy. NEO and GAS tokens will be migrated at a ratio of 1:1."]
+            <p class="answer my-4">
+                @Localizer["The migration of NEP-5 tokens from Neo Legacy requires the contract owner to first create a NEP-17 contract on Neo N3. Project owners are welcomed to reach out to NGD’s Digital Asset Unit for migration support. Token holders should seek information from project owners on migration plans and timelines."]
             </p>
         </div>
         <div class="my-4">
             <h5>
-                @Localizer["Will I need to migrate my NEP-5 tokens from the current Neo Legacy to Neo N3?"]
+                @Localizer["Will I need to pay any fees to complete the migration?"]
                 <i class="iconfont sub">&#xe62c;</i>
                 <i class="iconfont add">&#xe603;</i>
             </h5>
-            <p class="my-4">
-                @Localizer["The short answer is yes, however it is up to each individual project with a token on Neo Legacy to determine how they want to handle the migration. Neo Global Development will provide support and work closely with projects who need assistance to ensure the smoothest possible transition."]
+            <p class="answer my-4">
+                @Localizer["Yes. If you migrate less than 10 NEO or 20 GAS, you will have to pay the migration fee, the system will deduct 1 GAS for each transaction. If you are migrating 10 NEO, 20 GAS, or more, Neo foundation will cover the migration fee for you.Neo foundation has a budget of 200K GAS to cover those migration fees."]
             </p>
         </div>
         <div class="my-4">
             <h5>
-                @Localizer["Where will I find instructions on how to complete the migration safely?"]
+                @Localizer["Can I combine multiple transactions to reach enough migrated NEO to receive the bonus? For example, 90 NEO in one transaction and 10 in another?"]
                 <i class="iconfont sub">&#xe62c;</i>
                 <i class="iconfont add">&#xe603;</i>
             </h5>
-            <p class="my-4">
-                @Localizer["Right here in the migration section of neo.org. The most up-to-date information will be published as soon as it’s available."]
+            <p class="answer my-4">
+                @Localizer["No. You should migrate the NEO in a single transaction."]
             </p>
         </div>
         <div class="my-4">
             <h5>
-                @Localizer["When do I have to do the migration? How long do I have to complete the migration?"]
+                @Localizer["Will exchanges continue to support Neo Legacy after the Neo N3 migration?"]
                 <i class="iconfont sub">&#xe62c;</i>
                 <i class="iconfont add">&#xe603;</i>
             </h5>
-            <p class="mt-4">
-                @Localizer["Public NEO & GAS token migration will begin approximately one month after the Neo N3 MainNet is officially launched."]
-            </p>
-            <p class="mb-4">
-                @Localizer["Projects and developers can participate in the Early Adopter program prior to the MainNet launch to thoroughly test their applications and tokens on TestNet. Financial and technical support will be provided to facilitate the process. More details on the early adopter program will be released soon."]
+            <p class="answer mt-4">
+                @Localizer["This will depend on the exchanges themselves. Please refer to each individual exchange and their latest announcements."]
             </p>
         </div>
         <div class="my-4">
             <h5>
-                @Localizer["How long do I have to complete the migration?"]
+                @Localizer["Will I receive the Token Migration Incentive Bonus if I migrate before September 1st?"]
                 <i class="iconfont sub">&#xe62c;</i>
                 <i class="iconfont add">&#xe603;</i>
             </h5>
-            <p class="my-4">
-                @Localizer["Neo Legacy will move into long-term support after the Neo N3 MainNet is launched and migration begins, giving you an extended period of time to complete the migration. However, we still recommend that you migrate sooner rather than later to take full advantage of the new features available in N3."]
+            <p class="answer my-4">
+                @Localizer["No, you won’t."]
             </p>
         </div>
         <div class="my-4">
             <h5>
-                @Localizer["Will trading on exchanges be interrupted?"]
+                @Localizer["When will I receive my Token Migration Incentive Bonus?"]
                 <i class="iconfont sub">&#xe62c;</i>
                 <i class="iconfont add">&#xe603;</i>
             </h5>
-            <p class="my-4">
-                @Localizer["Neo Global Development will be working with exchanges to ensure the smoothest possible transition, including automatic migration of assets where appropriate."]
+            <p class="answer my-4">
+                @Localizer["Bonuses will be distributed manually within three days of completing your migration."]
             </p>
+        </div>
+        <div class="my-4">
+            <h5>
+                @Localizer["Are there any incentives for GAS migration？"]
+                <i class="iconfont sub">&#xe62c;</i>
+                <i class="iconfont add">&#xe603;</i>
+            </h5>
+            <p class="answer my-4">
+                @Localizer["There are no plans for GAS migration incentives at this time."]
+            </p>
+        </div>
+        <div class="my-4">
+            <h5>
+                @Localizer["The Token Migration Incentive Bonus starts at 1% and decreases to 0.5%. As NEO is indivisible, what happens if my token bonus does not equal a whole number?"]
+                <i class="iconfont sub">&#xe62c;</i>
+                <i class="iconfont add">&#xe603;</i>
+            </h5>
+            <p class="answer my-4">
+                @Localizer["The minimum token bonus you can receive is 1 NEO. This means you will need to migrate NEO in the following quantities to receive bonuses:"]
+            </p>
+            <ul class="answer my-4">
+                <li>@Localizer["Weeks 1 & 2 (1% bonus) - 1 bonus NEO bonus per 100 migrated NEO"]</li>
+                <li>@Localizer["Weeks 3 & 4 (0.75% bonus) - 1 bonus NEO bonus per 134 migrated NEO"]</li>
+                <li>@Localizer["Weeks 5 - 8 (0.5% bonus) - 1 bonus NEO bonus per 200 migrated NEO"]</li>
+            </ul>
+            <p class="answer my-4">
+                @Localizer["Migrating in quantities less than the above numbers will not net you a token bonus. For example, if you migrate 199 NEO during week one, you will only receive 1 NEO."]
+            </p>
+            <p class="answer my-4">
+                @Localizer["Centralized exchanges that trade NEO in fractions may distribute token bonuses differently. Please refer to the individual exchanges for their rules."]
+            </p>
+        </div>
+        <div class="my-4">
+            <h5>
+                @Localizer["What is the difference in the GAS generation model between Neo Legacy and Neo N3?"]
+                <i class="iconfont sub">&#xe62c;</i>
+                <i class="iconfont add">&#xe603;</i>
+            </h5>
+            <p class="answer my-4">
+                @Localizer["On Neo Legacy, GAS is produced every block and distributed to all token NEO holders evenly. The amount of GAS produced is currently around 5, and decreases steadily over time."]
+            </p>
+            <p class="answer my-4">
+                @Localizer["On N3, 10% of newly produced GAS is distributed to the Neo Council members, 80% to voters, and 10% evenly to all NEO holders. The GAS production is currently set at 5 GAS per block, but can be adjusted by the elected Neo Council."]
+            </p>
+            <p class="answer my-4">
+                @Localizer["For more information, please check the <a href=\"/gov\">Governance guide</a>."]
+            </p>
+        </div>
+        <div class="my-4">
+            <h5>
+                @Localizer["Can I import my Neo Legacy private key on Neo N3?"]
+                <i class="iconfont sub">&#xe62c;</i>
+                <i class="iconfont add">&#xe603;</i>
+            </h5>
+            <p class="answer my-4">
+                @Localizer["Yes, you can. However, although Neo Legacy and Neo N3 share the same private key format, they will generate different public keys. You cannot import your Neo Legacy private key into a Neo N3 wallet as a method of migrating your tokens. You still need to migrate your tokens to the new public key."]
+            </p>
+        </div>
+        <div class="my-4">
+            <h5>
+                @Localizer["Where can I perform the token migration?"]
+                <i class="iconfont sub">&#xe62c;</i>
+                <i class="iconfont add">&#xe603;</i>
+            </h5>
+            <p class="answer my-4">
+                @Localizer["There are three main options for performing the token migration:"]
+            </p>
+            <ul class="answer my-4">
+                <li>@Localizer["The official Neo.org migration website (requires NeoLine Chrome Extension or O3 desktop)"]</li>
+                <li>@Localizer["Via wallets that feature native migration support, such as Neon Wallet or NeoLine mobile"]</li>
+                <li>@Localizer["Custodial exchanges"]</li>
+            </ul>
         </div>
     </div>
 </div>
@@ -169,13 +171,13 @@
     </environment>
     <script>
         $("#accordion h5").click(function () {
-            var currentP = $(this).parent().find("p");
+            var currentA = $(this).parent().find(".answer");
             var currentI = $(this).parent().find(".iconfont");
-            $("#accordion").find("p").not(currentP).hide("fast");
+            $("#accordion").find(".answer").not(currentA).hide("fast");
             $("#accordion").find(".sub").not(currentI).hide("fast");
             $("#accordion").find(".add").not(currentI).show("fast");
 
-            currentP.toggle("fast");
+            currentA.toggle("fast");
             currentI.toggle("fast");
         });
     </script>
