@@ -165,6 +165,9 @@
   <data name="ROLE" xml:space="preserve">
     <value>角色</value>
   </data>
+  <data name="Start of governance" xml:space="preserve">
+    <value>开始治理</value>
+  </data>
   <data name="The council is responsible for maintaining the health and liveliness of the Neo network. Responsibilities include adjusting blockchain parameters, such as system fees, and electing oracle nodes." xml:space="preserve">
     <value>理事会成员负责维护 Neo 区块链的正常运行与网络活跃度。理事会可对网络费用等链上参数进行修改提案，并可指派 Oracle 节点等其他治理角色。</value>
   </data>
