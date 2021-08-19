@@ -120,6 +120,9 @@
   <data name="(Includes Ledger support)" xml:space="preserve">
     <value>（支持 Ledger）</value>
   </data>
+  <data name="According to its new economic model,  there are no more free transactions on Neo N3. The Neo Foundation has allocated 200K GAS to subsidize these costs on N3. However, in order to prevent this subsidy from spam and exploitation, a 1 GAS fee is required and deducted on the Neo Legacy side in cases where the migration amount is less than 10 NEO or 20 GAS." xml:space="preserve">
+    <value>根据新经济模型，当前，所有 Neo N3 上的交易都要收费。因此，Neo 基金会拨出了 20 万个 GAS 的总预算来补贴用户的迁移费用。然而，为了防止用户通过垃圾交易来慢性消耗 Neo 基金会的 GAS，在 Neo Legacy 上，当迁移数额少于 10 个 NEO 或 20 个 GAS 时，用户需要支付 1 个 GAS 的手续费来保证迁移顺利进行。</value>
+  </data>
   <data name="Are there any incentives for GAS migration？" xml:space="preserve">
     <value>GAS 的迁移有激励吗？</value>
   </data>
@@ -162,14 +165,8 @@
   <data name="Early Adoption Program" xml:space="preserve">
     <value>Early Adoption 计划</value>
   </data>
-  <data name="Est. August 11th" xml:space="preserve">
-    <value>8 月 11 日（Est.）</value>
-  </data>
-  <data name="Est. August 13th" xml:space="preserve">
-    <value>8 月 13 日（Est.）</value>
-  </data>
-  <data name="Est. August 9th" xml:space="preserve">
-    <value>8 月 9 日（Est.）</value>
+  <data name="Est. August 20th" xml:space="preserve">
+    <value>8 月 20 日（Est.）</value>
   </data>
   <data name="Exchange" xml:space="preserve">
     <value>交易所</value>
@@ -203,6 +200,9 @@
   </data>
   <data name="How do I participate in Early Bird migration if my wallet is not supported?" xml:space="preserve">
     <value>如果我的钱包不支持迁移，该如何参与“早鸟”迁移？</value>
+  </data>
+  <data name="How much GAS do you need for migration?" xml:space="preserve">
+    <value>完成迁移需要支付多少 GAS？</value>
   </data>
   <data name="Is there a token migration deadline?" xml:space="preserve">
     <value>通证迁移有截止日期吗？</value>
@@ -273,6 +273,9 @@
   <data name="On N3, 10% of newly produced GAS is distributed to the Neo Council members, 80% to voters, and 10% evenly to all NEO holders. The GAS production is currently set at 5 GAS per block, but can be adjusted by the elected Neo Council." xml:space="preserve">
     <value>在 N3 上，新产生的 GAS 中的 10% 分配给 Neo 理事会成员，80% 分配给投票者，10% 平均分配给所有 NEO 持有者。当前，GAS 的产量被设定为每个区块产生 5 个 GAS，但可以由当选的 Neo 理事会进行调整。</value>
   </data>
+  <data name="On Neo Legacy, a certain amount of GAS will be charged for complicated transactions, such as transactions with more than 15 UTXO inputs. This is not applicable for N3 as Neo N3 does not adopt the UTXO model." xml:space="preserve">
+    <value>在 Neo Legacy 上，如果单笔交易中包含超过 15 个 UTXO 输入，则用户需要支付一定数额的 GAS，以保证迁移成功进行。这不适用于 Neo N3，因为 Neo N3 不采用 UTXO 模式。</value>
+  </data>
   <data name="On Neo Legacy, GAS is produced every block and distributed to all token NEO holders evenly. The amount of GAS produced is currently around 5, and decreases steadily over time." xml:space="preserve">
     <value>在 Neo Legacy 上，每个区块都会产生 GAS，并平均分配给所有 NEO 持有者。当前每个区块大约生产 5 个 GAS，并随着时间的推移稳步减少。</value>
   </data>
@@ -281,6 +284,9 @@
   </data>
   <data name="Platforms:" xml:space="preserve">
     <value>平台：</value>
+  </data>
+  <data name="Please ensure that you have updated the wallets to the latest version, NeoLine Chrome Extension or O3 Desktop for example." xml:space="preserve">
+    <value>请确保使用最新版本的钱包，比如 NeoLine Chrome 插件钱包或 O3 桌面钱包；</value>
   </data>
   <data name="Quick Links" xml:space="preserve">
     <value>快速链接</value>
@@ -293,6 +299,9 @@
   </data>
   <data name="String1" xml:space="preserve">
     <value />
+  </data>
+  <data name="The &lt;a class=&quot;green&quot; target=&quot;_blank&quot; href=&quot;http://migration.eo.org&quot;&gt;Neo official migration portal&lt;/a&gt;." xml:space="preserve">
+    <value>&lt;a class="green" target="_blank" href="http://migration.eo.org"&gt;官网 Neo.org 的迁移界面 &lt;/a&gt;</value>
   </data>
   <data name="The migration of NEP-5 tokens from Neo Legacy requires the contract owner to first create a NEP-17 contract on Neo N3. Project owners are welcomed to reach out to NGD’s Digital Asset Unit for migration support. Token holders should seek information from project owners on migration plans and timelines." xml:space="preserve">
     <value>Neo Legacy 上的 NEP-5 通证在迁移时，需要合约所有者先在 Neo N3 上创建一个新的 NEP-17 合约。我们欢迎所有项目方与 NGD 的数字资产部门联系，以获得迁移支持。通证持有者应向项目方询求有关迁移计划和时间表等信息。</value>
@@ -314,6 +323,9 @@
   </data>
   <data name="There are three main options for performing the token migration:" xml:space="preserve">
     <value>通证迁移可以通过三种渠道进行。</value>
+  </data>
+  <data name="There are two types of fee involved for the migration, incurred on Neo N3 and Neo Legacy respectively." xml:space="preserve">
+    <value>迁移中可能需支付的费用共有两种，一种在 Neo N3 上，一种在 Neo Legacy 上。</value>
   </data>
   <data name="This will depend on the exchanges themselves. Please refer to each individual exchange and their latest announcements." xml:space="preserve">
     <value>这一点由各交易所自己决定。请参考各个交易所的最新公告。</value>
@@ -356,9 +368,6 @@
   </data>
   <data name="Will exchanges continue to support Neo Legacy after the Neo N3 migration?" xml:space="preserve">
     <value>Neo N3 迁移完成后，交易所是否还会继续为 Neo Legacy 提供支持？</value>
-  </data>
-  <data name="Will I need to pay any fees to complete the migration?" xml:space="preserve">
-    <value>迁移通证需要支付手续费吗？</value>
   </data>
   <data name="Will I receive the Token Migration Incentive Bonus if I migrate before September 1st?" xml:space="preserve">
     <value>如果在 9 月 1 日之前就进行迁移，是否还能获得通证迁移激励？</value>
