@@ -490,4 +490,7 @@
   <data name="Wallets" xml:space="preserve">
     <value>钱包</value>
   </data>
+  <data name="O3 Wallet is a multi-chain wallet developed by O3 Labs. This wallet supports mainstream blockchains and their popular dApps, maintains a high update frequency and can support Neo N3 updates and features in a timely manner." xml:space="preserve">
+    <value>O3 钱包是由 O3 Labs 开发的多链钱包，支持主流区块链及热门的 dApps，保持高更新率，并且及时支持 Neo N3 的更新和功能。</value>
+  </data>
 </root>
