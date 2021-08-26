@@ -455,6 +455,7 @@ namespace NeoWeb
                 var operandSize = OperandSizeTable[scripts[0]];
                 scripts.RemoveAt(0);
 
+                var onlyOpCode = true;
                 if (operandSize > 0)
                 {
                     var operand = scripts.Take(operandSize).ToArray();
@@ -471,6 +472,7 @@ namespace NeoWeb
                         result.Add($"{op} {operand.ToHexString()}");
                     }
                     scripts.RemoveRange(0, operandSize);
+                    onlyOpCode = false;
                 }
                 if (operandSizePrefix > 0)
                 {
@@ -484,8 +486,9 @@ namespace NeoWeb
 
                     result.Add($"{op} {(number == 20 ? new UInt160(operand).ToString() : asicii)}");
                     scripts.RemoveRange(0, number);
+                    onlyOpCode = false;
                 }
-                else
+                if(onlyOpCode)
                 {
                     result.Add($"{op}");
                 }
