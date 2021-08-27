@@ -27,7 +27,7 @@ namespace NeoWeb.Controllers
 
             var result = new Dictionary<string, List<string>>();
             input = ConverterHelper.Base64Fixed(input);
-            if (input.Length > 1024)
+            if (input.Length > 102400)
             {
                 ViewBag.Input = "Too large!";
                 return View();
@@ -236,16 +236,20 @@ namespace NeoWeb.Controllers
 
                 }
                 catch (Exception) { }
-                try
-                {
-                    var output = ConverterHelper.Base64StringToBigInteger(input);
-                    if (new Regex("^[0-9]{1,20}$").IsMatch(output))
-                    {
-                        result.Add(_localizer["Base64 string to big integer:"], new List<string>() { output });
 
+                if (input.Length <= 1024)
+                {
+                    try
+                    {
+                        var output = ConverterHelper.Base64StringToBigInteger(input);
+                        if (new Regex("^[0-9]{1,20}$").IsMatch(output))
+                        {
+                            result.Add(_localizer["Base64 string to big integer:"], new List<string>() { output });
+
+                        }
                     }
+                    catch (Exception) { }
                 }
-                catch (Exception) { }
                 try
                 {
                     var output = ConverterHelper.Base64StringToString(input);
@@ -317,7 +321,7 @@ namespace NeoWeb.Controllers
                 catch (Exception) { }
             }
             //当做普通字符串处理
-            if (true)
+            if (input.Length <= 1024)
             {
                 try
                 {
