@@ -106,7 +106,7 @@
         <div class="p-5" style="background-color: #EDF9F7">
             <div class="row mx-4" style="background: #FFFFFF; box-shadow: -8px 14px 12px rgba(0, 0, 0, 0.144615), -12px 20px 21px rgba(81, 94, 90, 0.25741);">
                 <div class="col-sm-4 p-0 text-center">
-                    <img class="img-fluid m-3" style="height: 150px" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/logo/neoline.png")" />
+                    <img class="img-fluid m-3" style="width: 150px" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/logo/neoline.png")" />
                 </div>
                 <div class="col-sm-8 pl-4 py-3">
                     <div><strong>@Localizer["NeoLine Chrome Extension"]</strong></div>
@@ -121,7 +121,7 @@
         <div class="p-5" style="background-color: #EDF9F7">
             <div class="row mx-4" style="background: #FFFFFF; box-shadow: -8px 14px 12px rgba(0, 0, 0, 0.144615), -12px 20px 21px rgba(81, 94, 90, 0.25741);">
                 <div class="col-sm-4 p-0 text-center">
-                    <img class="img-fluid m-3" style="height: 150px" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/logo/o3.png")" />
+                    <img class="img-fluid m-3" style="width: 150px" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/logo/o3.png")" />
                 </div>
                 <div class="col-sm-8 pl-4 py-3">
                     <div><strong>@Localizer["O3 Desktop"]</strong></div>
@@ -143,7 +143,7 @@
         <div class="p-5" style="background-color: #EDF9F7">
             <div class="row mx-4" style="background: #FFFFFF; box-shadow: -8px 14px 12px rgba(0, 0, 0, 0.144615), -12px 20px 21px rgba(81, 94, 90, 0.25741);">
                 <div class="col-sm-4 p-0 text-center">
-                    <img class="img-fluid m-3" style="height: 150px" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/logo/neoline.png")" />
+                    <img class="img-fluid m-3" style="width: 150px" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/logo/neoline.png")" />
                 </div>
                 <div class="col-sm-8 pl-4 py-3">
                     <div><strong>@Localizer["NeoLine Mobile"]</strong></div>
@@ -163,12 +163,31 @@
         <div class="p-5" style="background-color: #EDF9F7">
             <div class="row mx-4" style="background: #FFFFFF; box-shadow: -8px 14px 12px rgba(0, 0, 0, 0.144615), -12px 20px 21px rgba(81, 94, 90, 0.25741);">
                 <div class="col-sm-4 p-0 text-center">
-                    <img class="img-fluid m-3" style="height: 150px" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/migration/neon.svg")" />
+                    <img class="img-fluid m-3" style="width: 150px" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/logo/onto.png")" />
+                </div>
+                <div class="col-sm-8 pl-4 py-3">
+                    <div><strong>@Localizer["Onto Wallet"]</strong></div>
+                    <div>@Localizer["Developer:"]     ONTO</div>
+                    <div>
+                        @Localizer["Platforms:"]
+                        <i class="iconfont" title="Android">&#xe636;</i>
+                        <i class="iconfont" title="iOS">&#xe734;</i>
+                        <i class="iconfont" title="web">&#xe623;</i>
+                    </div>
+                    <a class="btn-4 d-block d-sm-inline my-1" target="_blank" href="https://www.onto.app">@Localizer["Website"]</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="p-5" style="background-color: #EDF9F7">
+            <div class="row mx-4" style="background: #FFFFFF; box-shadow: -8px 14px 12px rgba(0, 0, 0, 0.144615), -12px 20px 21px rgba(81, 94, 90, 0.25741);">
+                <div class="col-sm-4 p-0 text-center">
+                    <img class="img-fluid m-3" style="width: 150px" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/migration/neon.svg")" />
                 </div>
                 <div class="col-sm-8 pl-4 py-3">
                     <div><strong>@Localizer["Neon Wallet"]</strong><small>@Localizer["(Includes Ledger support)"]</small></div>
                     <div>@Localizer["Developer:"]     COZ</div>
-                    <div>@Localizer["Availability:"] @Localizer["Est. August 20th"]</div>
                     <div>
                         @Localizer["Platforms:"]
                         <i class="iconfont" title="Windows">&#xf266;</i>
@@ -177,7 +196,7 @@
                         <i class="iconfont" title="Android">&#xe636;</i>
                         <i class="iconfont" title="iOS">&#xe734;</i>
                     </div>
-                    <a class="btn-4 d-block d-sm-inline my-1 disabled" target="_blank" href="https://neonwallet.com/">@Localizer["Website"]</a>
+                    <a class="btn-4 d-block d-sm-inline my-1" target="_blank" href="https://neonwallet.com/">@Localizer["Website"]</a>
                 </div>
             </div>
         </div>
@@ -415,7 +434,7 @@
             @Localizer["There are three main options for performing the token migration:"]
         </p>
         <ul class="answer my-4">
-            <li>@Html.Raw(Localizer["The <a class=\"green\" target=\"_blank\" href=\"http://migration.eo.org\">Neo official migration portal</a>."].Value)
+            <li>@Html.Raw(Localizer["The <a class=\"green\" target=\"_blank\" href=\"http://migration.neo.org\">Neo official migration portal</a>."].Value)
             <br />
             @Localizer["Please ensure that you have updated the wallets to the latest version, NeoLine Chrome Extension or O3 Desktop for example."]</li>
             <li>@Localizer["Via wallets that feature native migration support, such as Neon Wallet or NeoLine mobile"]</li>
