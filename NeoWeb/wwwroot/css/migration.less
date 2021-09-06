@@ -10,30 +10,92 @@ h1 {
     }
 }
 
-.scroll-x {
-    overflow-x: scroll;
+h3 {
+    background-color: @green;
+    height: 60px;
+    position: relative;
+
+    span {
+        position: absolute;
+        background-color: @dark-blue;
+        padding: .5rem 4rem .5rem 1rem;
+        height: 60px;
+        top: 0;
+        color: white;
+    }
+}
+.quicklinks.migration-bg {
+    background-color: #EDF9F7;
+    padding: 1rem 3rem;
+    font-family: NunitoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 36px;
+    .iconfont{
+        float: right;
+    }
+}
+.quicklink {
+    border-bottom: 1px solid @dark-blue;
+}
+.keydates .migration-bg {
+    background-color: #EDF9F7;
+    padding: 1rem 3rem;
+
+    img.keydates-img {
+        margin-left: -1.5rem;
+    }
+}
+.migration-exchange .migration-bg {
+    background-color: #EDF9F7;
+    padding: 1rem .5rem;
+    height: 100%;
+    text-align: center;
 
     img {
-        max-height: 750px;
+        margin-left: -1.5rem;
+    }
+
+    p {
+        font-family: NunitoSans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 28px;
+        margin-top: 0;
+
+        strong {
+            width: 90%;
+            margin-left: 5%;
+            font-family: NunitoSans;
+            font-style: normal;
+            font-weight: 800;
+            font-size: 18px;
+            line-height: 24px;
+        }
     }
 }
 
-.feature {
+.migration-dev .migration-bg {
+    background-color: #EDF9F7;
+    padding: 1rem .5rem;
+    height: 100%;
+    text-align: center;
+
     img {
-        width: 100px;
+        margin-left: -1.5rem;
     }
 
-    div {
-        margin: 1rem 0;
+    p {
+        width: 90%;
+        margin-left: 5%;
+        font-family: NunitoSans;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 18px;
+        line-height: 24px;
     }
-}
-
-.img-box {
-    width: 140%;
-}
-
-.description {
-    width: calc(100% - 200px);
 }
 
 #accordion h5 {
@@ -48,7 +110,7 @@ h1 {
     }
 }
 
-#accordion p {
+#accordion .answer {
     display: none;
 }
 

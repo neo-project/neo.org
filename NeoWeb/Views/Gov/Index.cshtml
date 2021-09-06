@@ -11,20 +11,22 @@
     <link rel="stylesheet" href="@Helper.ToCDN("/css/gov.min.css", true)" />
 }
 <div class="container">
-    @{
-        ViewData["IS_title"] = String.Format("<em>NEO</em> <br class='{0}'/>{1}", SharedLocalizer["d-none-zh"].Value, Localizer["Governance"].Value);
-        ViewData["IS_description"] = @Localizer["NEO token holders decide who is in charge of maintaining the Neo network through the election of a Neo Council. GAS token rewards are distributed to voters and council members alike."];
-        ViewData["IS_imagePath"] = @Helper.ToCDN("/images/gov/gov.svg", true);
-    }
-    <partial name="../_Common/_IntroductionSplash" view-data="ViewData" />
-
+    <div class="introduction-splash-container">
+        <div class="introduction-content">
+            <h1 class="introduction-title">@Html.Raw(String.Format("<em>NEO</em> <br class='{0}'/>{1}", SharedLocalizer["d-none-zh"].Value, Localizer["Governance"].Value))</h1>
+            <div class="introduction-description">@Localizer["NEO token holders decide who is in charge of maintaining the Neo network through the election of a Neo Council. GAS token rewards are distributed to voters and council members alike."]</div>
+            <a class="btn-2 my-4" target="_blank" href="https://governance.neo.org/">@Localizer["VOTE NOW"]</a>
+        </div>
+        <div class="introduction-imgage-wrapper">
+            <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/gov/gov.svg", true)" />
+        </div>
+    </div>
     <hr />
     <div class="row">
         <div class="col-12 col-lg-9">
             <h2 class="mt-5">@Localizer["By the people, for the people"]</h2>
             <p><strong>@Localizer["Neo is becoming a more decentralized blockchain through its new on-chain governance mechanism."]</strong></p>
             <p>@Localizer["NEO holders participate in governance by voting in a Neo Council to manage the Neo Blockchain. The Neo Council will consist of council members and consensus nodes who provide services, maintain the liveliness of the network, and adjust critical blockchain params. GAS rewards will be distributed to both NEO votes and council members."]</p>
-            <p><strong>@Localizer["Voting is planned to begin three months after the launch of the Neo N3 MainNet."]</strong></p>
         </div>
     </div>
     <h3 class="mt-5 border-bottom">@Localizer["Key groups in Governance"]</h3>

@@ -27,6 +27,11 @@ namespace NeoWeb.Controllers
 
             var result = new Dictionary<string, List<string>>();
             input = ConverterHelper.Base64Fixed(input);
+            if (input.Length > 102400)
+            {
+                ViewBag.Input = "Too large!";
+                return View();
+            }
             //彩蛋
             if (input == "I love you")
             {
@@ -190,7 +195,7 @@ namespace NeoWeb.Controllers
                 catch (Exception) { }
                 try
                 {
-                    var output = ConverterHelper.PublicKeyToAddress(ConverterHelper.PrivateKeyToPublicKey(input));
+                    var output = ConverterHelper.PrivateKeyToAddress(input);
                     result.Add(_localizer["Private key to Neo3 address:"], new List<string>() { output });
                 }
                 catch (Exception) { }
@@ -231,16 +236,20 @@ namespace NeoWeb.Controllers
 
                 }
                 catch (Exception) { }
-                try
-                {
-                    var output = ConverterHelper.Base64StringToBigInteger(input);
-                    if (new Regex("^[0-9]{1,20}$").IsMatch(output))
-                    {
-                        result.Add(_localizer["Base64 string to big integer:"], new List<string>() { output });
 
+                if (input.Length <= 1024)
+                {
+                    try
+                    {
+                        var output = ConverterHelper.Base64StringToBigInteger(input);
+                        if (new Regex("^[0-9]{1,20}$").IsMatch(output))
+                        {
+                            result.Add(_localizer["Base64 string to big integer:"], new List<string>() { output });
+
+                        }
                     }
+                    catch (Exception) { }
                 }
-                catch (Exception) { }
                 try
                 {
                     var output = ConverterHelper.Base64StringToString(input);
@@ -295,9 +304,24 @@ namespace NeoWeb.Controllers
                 }
                 catch (Exception) { }
             }
-
+            //可能是助记词
+            if (new Regex("((\\w){3,8}\\s){11}((\\w){3,8})").IsMatch(input))
+            {
+                try
+                {
+                    var output = ConverterHelper.MnemonicToWIF(input);
+                    result.Add(_localizer["Mnemonic to Neo3 private key:"], new List<string>() { output });
+                }
+                catch (Exception) { }
+                try
+                {
+                    var output = ConverterHelper.MnemonicToAddress(input);
+                    result.Add(_localizer["Mnemonic to Neo3 address:"], new List<string>() { output });
+                }
+                catch (Exception) { }
+            }
             //当做普通字符串处理
-            if (true)
+            if (input.Length <= 1024)
             {
                 try
                 {

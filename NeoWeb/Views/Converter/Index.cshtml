@@ -5,8 +5,8 @@
     ViewData["Title"] = @Localizer["N3 data converter"].Value;
 }
 <div class="py-5">
-    <p>@Localizer["Support conversion of address, script hash, private key, public key, big-endian and little-endian, big-integer, character string, hexadecimal string, Application Log, Base64 encoding, etc. and analysis of smart contract script"]</p>
-    <p>Neo 3.0.0-CI01290</p>
+    <p>@Localizer["Support conversion of address, script hash, private key, public key, big-endian and little-endian, big-integer, character string, hexadecimal string, hexadecimal script, Base64 script, Application Log, Base64 encoding, Mnemonic etc. and analysis of smart contract script"]</p>
+    <p>Neo 3.0.2</p>
     <form action="/converter/index" method="post">
         <label class="col-form-label" for="input">@Localizer["Please enter the text to be converted"]</label>
         <input type="text" class="form-control" name="input" value="@ViewBag.Input" />
@@ -29,46 +29,50 @@
                 }
             </div>
         }
-        <div class="@(ViewBag.Result == null ? "col-md-12" :  "col-md-6" ) mt-4">
+    <div class="@(ViewBag.Result == null ? "col-md-12" :  "col-md-6" ) mt-4">
 
-            <div>@Localizer["Don't know what to enter? Try the following"]</div>
-            <code>
-                7472616e73666572
-            </code>
-            <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="7472616e73666572" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
-            <code>
-                00a3e111
-            </code>
-            <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="00a3e111" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
-            <code>
-                0x3346454E
-            </code>
-            <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="0x3346454E" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
-            <code>
-                5195086
-            </code>
-            <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="5195086" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
-            <code>
-                0x3ff68d232a60f23a5805b8c40f7e61747f6f61ce
-            </code>
-            <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="0x3ff68d232a60f23a5805b8c40f7e61747f6f61ce" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
-            <code>
-                zmFvf3Rhfg/EuAVYOvJgKiON9j8=
-            </code>
-            <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="zmFvf3Rhfg/EuAVYOvJgKiON9j8=" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
-            <code>
-                AHVYXVTcKw==
-            </code>
-            <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="AHVYXVTcKw==" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
-            <code>
-                03dab84c1243ec01ab2500e1a8c7a1546a26d734628180b0cf64e72bf776536997
-            </code>
-            <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="03dab84c1243ec01ab2500e1a8c7a1546a26d734628180b0cf64e72bf776536997" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
-            <code>
-                AwDkC1QCAAAADBS9AxqHRNNG1hZxgWAXL2No4BfcBQwUgUkpDXgVmkkrRX4lahSzu86gNiATwAwIdHJhbnNmZXIMFLyvQdaEx9StbuDZnalwe50fDI5mQWJ9W1I4
-            </code>
-            <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="AwDkC1QCAAAADBS9AxqHRNNG1hZxgWAXL2No4BfcBQwUgUkpDXgVmkkrRX4lahSzu86gNiATwAwIdHJhbnNmZXIMFLyvQdaEx9StbuDZnalwe50fDI5mQWJ9W1I4" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
-        </div>
+        <div>@Localizer["Don't know what to enter? Try the following"]</div>
+        <code>
+            7472616e73666572
+        </code>
+        <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="7472616e73666572" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
+        <code>
+            00a3e111
+        </code>
+        <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="00a3e111" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
+        <code>
+            0x3346454E
+        </code>
+        <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="0x3346454E" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
+        <code>
+            5195086
+        </code>
+        <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="5195086" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
+        <code>
+            0x3ff68d232a60f23a5805b8c40f7e61747f6f61ce
+        </code>
+        <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="0x3ff68d232a60f23a5805b8c40f7e61747f6f61ce" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
+        <code>
+            zmFvf3Rhfg/EuAVYOvJgKiON9j8=
+        </code>
+        <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="zmFvf3Rhfg/EuAVYOvJgKiON9j8=" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
+        <code>
+            AHVYXVTcKw==
+        </code>
+        <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="AHVYXVTcKw==" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
+        <code>
+            03dab84c1243ec01ab2500e1a8c7a1546a26d734628180b0cf64e72bf776536997
+        </code>
+        <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="03dab84c1243ec01ab2500e1a8c7a1546a26d734628180b0cf64e72bf776536997" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
+        <code>
+            AwDkC1QCAAAADBS9AxqHRNNG1hZxgWAXL2No4BfcBQwUgUkpDXgVmkkrRX4lahSzu86gNiATwAwIdHJhbnNmZXIMFLyvQdaEx9StbuDZnalwe50fDI5mQWJ9W1I4
+        </code>
+        <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="AwDkC1QCAAAADBS9AxqHRNNG1hZxgWAXL2No4BfcBQwUgUkpDXgVmkkrRX4lahSzu86gNiATwAwIdHJhbnNmZXIMFLyvQdaEx9StbuDZnalwe50fDI5mQWJ9W1I4" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
+        <code>
+            nature post exhibit betray village royal educate worth quantum simple essence trust
+        </code>
+        <a class="copy" data-original-title="Copy to clipboard" data-clipboard-action="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" data-clipboard-text="nature post exhibit betray village royal educate worth quantum simple essence trust" href="javascript:"><i class="iconfont">&#xe706;</i></a><br />
+    </div>
     </div>
 </div>
 

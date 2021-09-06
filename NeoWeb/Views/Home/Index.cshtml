@@ -7,18 +7,100 @@
     <link rel="stylesheet" href="@Helper.ToCDN("/css/home.min.css", true)" />
 }
 @* 基本块 - Home page *@
-@{
-    Boolean FRONTIER_PROMOTION_ENABLED = true;
-    Boolean DISPLAY_ADDITIONAL_TAKE_TOUR_BUTTON = true;
-}
 <div class="home-container">
-
-    @if(FRONTIER_PROMOTION_ENABLED) {
-        <partial name="./_HeroHomeFrontier" />
-    } else {
-        <partial name="./_HeroHomeDefault" />
-    }
-
+    <div style="background-color: #000023; color: #fff">
+        <div class="container px-3 px-md-0" style="padding: 200px 0">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="row">
+                        <div class="col-3 col-lg-12">
+                            <img class="img-fluid" style="width: 140px" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/N3Logo.svg")" />
+                        </div>
+                        <div class="col-9 col-lg-12">
+                            <p class="my-0 my-lg-3 big-text text-uppercase">@Localizer["Early Bird migration now open"]</p>
+                        </div>
+                        <style>
+                            .big-text {
+                                font-family: WorkSans;
+                                font-style: normal;
+                                font-weight: bold;
+                                font-size: 80px;
+                                line-height: 1.07;
+                                color: #00E599;
+                                text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                            }
+                            @@media (min-width: 1600px) {
+                                .find-out {
+                                    margin-top: -80px;
+                                }
+                            }
+                            @@media (max-width: 1200px) {
+                                .big-text {
+                                    font-size: 80px;
+                                }
+                            }   
+                            @@media (max-width: 992px) {
+                                .big-text {
+                                    font-size: 60px;
+                                }
+                            }
+                            @@media (max-width: 768px) {
+                                .big-text {
+                                    font-size: 40px;
+                                }
+                            }
+                        </style>
+                    </div>
+                </div>
+                <div class="col-lg-7 mt-5 mt-lg-0 d-none d-md-block">
+                    <div class="d-none d-lg-block" style="height: 50px"></div>
+                    <div class="row text-center">
+                        <div class="col-md-4">
+                            <div><strong class="my-3">01 <span class="green">@Localizer["FORMAL TESTNET"]</span></strong></div>
+                            <img class="my-3 img-fluid" style="width: 281px" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/roadmap1.svg", true)" />
+                            <p class="my-3" style="font-family: Work Sans; font-weight: 600; font-size: 16px; line-height: 18px;">@Localizer["STARTING JULY 20TH"]</p>
+                        </div>
+                        <div class="col-md-4">
+                            <div><strong class="my-3">02 <span class="green">@Localizer["MAINNET"]</span></strong></div>
+                            <img class="my-3 img-fluid" style="width: 281px" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/roadmap2.svg", true)" />
+                            <p class="my-3" style="font-family: Work Sans; font-weight: 600; font-size: 16px; line-height: 18px;">@Localizer["AUGUST 2ND"]</p>
+                        </div>
+                        <div class="col-md-4">
+                            <div><strong class="my-3">03 <span class="green">@Localizer["MASS MIGRATION"]</span></strong></div>
+                            <img class="my-3 img-fluid" style="width: 281px" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/roadmap3.svg", true)" />
+                            <p class="my-3" style="font-family: Work Sans; font-weight: 600; font-size: 16px; line-height: 18px;">@Localizer["SEPTEMBER 1ST"]</p>
+                        </div>
+                    </div>
+                    <div class="@SharedLocalizer["d-none-zh"] text-center">
+                        <img class="my-1 img-fluid" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/roadmap.svg", true)" />
+                    </div>
+                    <div class="@SharedLocalizer["d-none"] text-center">
+                        <img class="my-1 img-fluid" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/roadmap-zh.svg", true)" />
+                    </div>
+                </div>
+                <div class="d-block d-md-none my-3 text-center" style="width: 100%">
+                    <img class="my-1 img-fluid @SharedLocalizer["d-none-zh"]" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/roadmap-xs.svg", true)" />
+                    <img class="my-1 img-fluid @SharedLocalizer["d-none"]" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/roadmap-xs-zh.svg", true)" />
+                </div>
+            </div>
+            <div class="row text-center text-lg-left find-out">
+                <div class="col-lg-5">
+                    <p class="text-uppercase" style="font-family: WorkSans; font-weight: 600; font-size: 16px; line-height: 125%; letter-spacing: 3px;">@Localizer["Find out more about your migration options"]</p>
+                    <div>
+                        <a class="btn-2 my-4" href="https://neo.org/blog/details/4240">@Localizer["Learn More"]</a>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="news-wrapper">
+                        <div class="latest-news-text">
+                            @Localizer["LATEST NEWS:"]
+                        </div>
+                        <a class="news-link" href="~/blog/details/@Model.FirstOrDefault(p => p.Type == NewsViewModelType.Blog).Blog.Id">@Model[0].Blog.Title <i class="iconfont circle-arrow-icon green">&#xe6ab;</i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row horiz-row aio-row">
         <div class="col-12 col-md-12">
             <div class="aio-title @SharedLocalizer["d-none-zh"]">
@@ -29,30 +111,28 @@
             </div>
             <div class="highlight-container">
                 @{ string[,] highlightItems = new string[9, 2] {
-                                                                                    { "Interoperability", "/images/home/Interoperability.svg" },
-                                                                                    { "Native Oracles", "/images/home/NativeOracles.svg" },
-                                                                                    { "Self-Sovereign ID", "/images/home/Self-SovereignID.png" },
-                                                                                    { "Decentralized Storage", "/images/home/DecentralizedStorage.svg" },
-                                                                                    { "Neo Name Service", "/images/home/NativeNameService.svg" },
-                                                                                    { "One Block Finality", "/images/home/OneBlockFinality.svg" },
-                                                                                    { "Best-In-Class Tooling", "/images/home/BestInClassTooling.svg" },
-                                                                                    { "Smart Contracts", "/images/home/SmartContracts.svg" },
-                                                                                    { "Multi-Language", "/images/home/Multi-Language.png" }
+{ "Interoperability", "/images/home/Interoperability.svg" },
+{ "Native Oracles", "/images/home/NativeOracles.svg" },
+{ "Self-Sovereign ID", "/images/home/Self-SovereignID.png" },
+{ "Decentralized Storage", "/images/home/DecentralizedStorage.svg" },
+{ "Neo Name Service", "/images/home/NativeNameService.svg" },
+{ "One Block Finality", "/images/home/OneBlockFinality.svg" },
+{ "Best-In-Class Tooling", "/images/home/BestInClassTooling.svg" },
+{ "Smart Contracts", "/images/home/SmartContracts.svg" },
+{ "Multi-Language", "/images/home/Multi-Language.png" }
             };
 
                     for (int i = 0; i < highlightItems.GetLength(0); i++)
                     {
-                    <div class="highlight-wrapper">
-                        <img class="highlight-img png" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(highlightItems[i, 1])" />
-                        <div class="highlight-name">@Localizer[highlightItems[i, 0]]</div>
-                    </div> } }
+                        <div class="highlight-wrapper">
+                            <img class="highlight-img png" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(highlightItems[i, 1])" />
+                            <div class="highlight-name">@Localizer[highlightItems[i, 0]]</div>
+                        </div> } }
             </div>
 
-            @if(DISPLAY_ADDITIONAL_TAKE_TOUR_BUTTON) {
-                <div class="additional-button-wrapper">
-                    <a asp-controller="tour" asp-action="index" class="btn-2" target="_blank">@Localizer["Take A Tour"]</a>
-                </div>
-            }
+            <div class="additional-button-wrapper">
+                <a asp-controller="tour" asp-action="index" class="btn-2" target="_blank">@Localizer["Take A Tour"]</a>
+            </div>
         </div>
     </div>
 
@@ -69,33 +149,31 @@
             </div>
             <a class="btn-2" asp-controller="migration" asp-action="index">@Localizer["Learn More"]</a>
 
-            @if(DISPLAY_ADDITIONAL_TAKE_TOUR_BUTTON) {
-                <div class="additional-button-wrapper">
-                    <a asp-controller="tour" asp-action="index" class="btn-2" target="_blank">@Localizer["Take A Tour"]</a>
-                </div>
-            }
+            <div class="additional-button-wrapper">
+                <a asp-controller="tour" asp-action="index" class="btn-2" target="_blank">@Localizer["Take A Tour"]</a>
+            </div>
         </div>
         <div class="col-12 col-md-6 col-right">
             <div class="get-started-wrapper">
                 @{ string[,] getStartedItems = new string[4, 3]
-                       {
-                           { "Find a Wallet", "/images/home/FindWallet.svg", "/neogas#wallets" },
-                           { "Neo & Gas Tokens", "/images/home/LearnTokens.svg", "/neogas#tokens" },
-                           { "Neo's Features", "/images/home/LearnFeatures.svg", "/technology" },
-                           { "Documentation", "/images/home/ReadDocumentation.svg", "https://docs.neo.org/docs/en-us/index.html" }
-                        };
+                        {
+                                   { "Find a Wallet", "/images/home/FindWallet.svg", "/neogas#wallets" },
+                                   { "Neo & Gas Tokens", "/images/home/LearnTokens.svg", "/neogas#tokens" },
+                                   { "Neo's Features", "/images/home/LearnFeatures.svg", "/technology" },
+                                   { "Documentation", "/images/home/ReadDocumentation.svg", "https://docs.neo.org/docs/en-us/index.html" }
+                 };
 
                     for (int i = 0; i < getStartedItems.GetLength(0); i++)
                     {
-                    <a class="float-card" href="@getStartedItems[i, 2]">
-                        <div class="card-text-wrapper">
-                            <div class="green-vertline"></div>
-                            <div class="card-text">
-                                @Localizer[getStartedItems[i, 0]]
+                        <a class="float-card" href="@getStartedItems[i, 2]">
+                            <div class="card-text-wrapper">
+                                <div class="green-vertline"></div>
+                                <div class="card-text">
+                                    @Localizer[getStartedItems[i, 0]]
+                                </div>
                             </div>
-                        </div>
-                        <img class="card-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(getStartedItems[i, 1])" />
-                    </a> } }
+                            <img class="card-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(getStartedItems[i, 1])" />
+                        </a> } }
             </div>
         </div>
     </div>
@@ -255,23 +333,23 @@
                 <span class="governance-learn-more">@Localizer["Learn More"]</span>
                 <div class="governance-card-container">
                     @{ string[,] governanceItems = new string[3, 3]
-                    {
-                       { "How to vote", "/images/home/vote.svg", "/gov" },
-                       { "General guide to governance", "/images/home/ReadDocumentation.svg", "/gov" },
-                       { "Register as a committee candidate", "/images/home/register.svg", "/gov" }
- };
+                     {
+                                   { "How to vote", "/images/home/vote.svg", "/gov" },
+                                   { "General guide to governance", "/images/home/ReadDocumentation.svg", "/gov" },
+                                   { "Register as a committee candidate", "/images/home/register.svg", "/gov" }
+};
 
                         for (int i = 0; i < governanceItems.GetLength(0); i++)
                         {
-                        <a class="float-card" asp-controller="@governanceItems[i, 2]" asp-action="index">
-                            <div class="card-text-wrapper">
-                                <div class="green-vertline"></div>
-                                <div class="card-text">
-                                    @Localizer[governanceItems[i, 0]]
+                            <a class="float-card" asp-controller="@governanceItems[i, 2]" asp-action="index">
+                                <div class="card-text-wrapper">
+                                    <div class="green-vertline"></div>
+                                    <div class="card-text">
+                                        @Localizer[governanceItems[i, 0]]
+                                    </div>
                                 </div>
-                            </div>
-                            <img class="card-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
-                        </a> } }
+                                <img class="card-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
+                            </a> } }
                 </div>
             </div>
         </div>
@@ -326,15 +404,15 @@
             <div class="governance-card-container">
                 @{ for (int i = 0; i < governanceItems.GetLength(0); i++)
                     {
-                    <a class="float-card" href="@governanceItems[i, 2]">
-                        <div class="card-text-wrapper">
-                            <div class="green-vertline"></div>
-                            <div class="card-text">
-                                @Localizer[governanceItems[i, 0]]
+                        <a class="float-card" href="@governanceItems[i, 2]">
+                            <div class="card-text-wrapper">
+                                <div class="green-vertline"></div>
+                                <div class="card-text">
+                                    @Localizer[governanceItems[i, 0]]
+                                </div>
                             </div>
-                        </div>
-                        <img class="card-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
-                    </a> } }
+                            <img class="card-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
+                        </a> } }
             </div>
         </div>
     </div>
@@ -365,15 +443,15 @@
             <div class="governance-card-container">
                 @{ for (int i = 0; i < governanceItems.GetLength(0); i++)
                     {
-                    <a class="float-card" href="@governanceItems[i, 2]">
-                        <div class="card-text-wrapper">
-                            <div class="green-vertline"></div>
-                            <div class="card-text">
-                                @Localizer[governanceItems[i, 0]]
+                        <a class="float-card" href="@governanceItems[i, 2]">
+                            <div class="card-text-wrapper">
+                                <div class="green-vertline"></div>
+                                <div class="card-text">
+                                    @Localizer[governanceItems[i, 0]]
+                                </div>
                             </div>
-                        </div>
-                        <img class="card-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
-                    </a> } }
+                            <img class="card-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
+                        </a> } }
             </div>
         </div>
     </div>
@@ -592,35 +670,12 @@
             }, 650)
         })
 
-        function resizeHandler() {
-            if ($(this).outerWidth() < 768) {
-                $(".code-window").addClass("d-none")
-                $(".language-icon").removeClass("selected")
-            } else {
-                if ($(".language-icon.selected").length === 0) {
-                    $(".language-icon.python").addClass("selected")
-                    $("#code-python").removeClass("d-none")
-                } else {
-                    const currLang = $(".language-icon.selected").data("lang")
-                    $("#code-" + currLang).removeClass("d-none")
-                }
-            }
-        }
-
         $(".close-icon").on("click", function () {
             $(".language-icon.selected").removeClass("selected");
             $(".code-window").addClass("d-none")
             $('html').removeAttr('data-code-window-open')
         })
 
-        const initialRun = resizeHandler.bind(this)
-        initialRun()
-        window.addEventListener("resize", debounce(resizeHandler, 50))
-
-        window.onunload = function () {
-            window.removeEventListener('resize', debounce);
-            return;
-        }
     </script>
     <script>
         var scroll_active_top = 650;
