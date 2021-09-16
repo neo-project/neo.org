@@ -22,22 +22,15 @@
     </div>
 
     <div class="mt-5">
-        @if ((ViewBag.Groups as List<string>).Count == 1)
+        @foreach (var item in ViewBag.Groups)
         {
-            <a href="javascript:" class="btn-focus">@((ViewBag.Groups as List<string>)[0])</a>
-        }
-        else
-        {
-            @foreach (var item in ViewBag.Groups)
+            @if (item == ViewBag.Group)
             {
-                @if (item == ViewBag.Group)
-                {
-                    <a href="javascript:" class="btn-3">@item</a>
-                }
-                else
-                {
-                    <a href="/joinus?group=@item" class="btn-1">@item</a>
-                }
+                <a href="/joinus?group=@item" class="btn-3">@item</a>
+            }
+            else
+            {
+                <a href="/joinus?group=@item" class="btn-1">@item</a>
             }
         }
     </div>
