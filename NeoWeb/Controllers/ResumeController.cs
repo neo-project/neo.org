@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,6 +14,7 @@ using NeoWeb.Models;
 
 namespace NeoWeb.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ResumeController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -34,6 +36,7 @@ namespace NeoWeb.Controllers
             return View(list.Where(p => (DateTime.Now - p.DateTime).TotalDays < 30));
         }
 
+        [AllowAnonymous]
         // GET: Resume/Create
         public IActionResult Create(int jobId)
         {
@@ -48,6 +51,7 @@ namespace NeoWeb.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Phone,Scool,Specialty,ReferralCode,MyReferralCode")] Resume resume, int jobId, IFormFile file)
         {
