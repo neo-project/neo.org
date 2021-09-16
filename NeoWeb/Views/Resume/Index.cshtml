@@ -1,0 +1,76 @@
+@model IEnumerable<NeoWeb.Models.Resume>
+
+@{
+    ViewData["Title"] = "简历列表";
+}
+
+<p class="my-3">仅显示一个月之内的简历</p>
+
+@if (Model.Count() > 0)
+{
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                职位名称
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Scool)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Specialty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReferralCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MyReferralCode)
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Job.ChineseTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Scool)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Specialty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReferralCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MyReferralCode)
+                </td>
+                <td>
+                    <a href="/upload/@item.Path" download="@(item.Job?.ChineseTitle + " " + item.Name)">下载简历</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+}
+else
+{
+    <p class="my-3 text-center">还没收到简历</p>
+}

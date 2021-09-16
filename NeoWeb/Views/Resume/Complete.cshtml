@@ -1,0 +1,14 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = @Localizer["Resume submission successful"].Value;
+}
+<div class="py-5">
+    <h2>@Localizer["Resume submission successful"]</h2>
+    <p>
+        @Localizer["Resume submission is successful. Congratulations, you got a referral code"] <code>@Model</code>
+        @Localizer[", you can invite others to use your referral code, when others join, we will contact you and give you a reward."]
+    </p>
+</div>
+
+

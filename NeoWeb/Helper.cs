@@ -134,6 +134,21 @@ namespace NeoWeb
             return newName;
         }
 
+        public static string UploadFile(IFormFile file, IWebHostEnvironment env)
+        {
+            var random = new Random();
+            var bytes = new byte[10];
+            random.NextBytes(bytes);
+            var newName = bytes.ToHexString() + Path.GetExtension(file.FileName);
+            var filePath = Path.Combine(env.ContentRootPath, "wwwroot/upload", newName);
+            if (file.Length > 0)
+            {
+                using var stream = new FileStream(filePath, FileMode.Create);
+                file.CopyTo(stream);
+            }
+            return newName;
+        }
+
         public static bool ValidateCover(IWebHostEnvironment env, string fileName)
         {
             var filePath = Path.Combine(env.ContentRootPath, "wwwroot/upload", fileName);
