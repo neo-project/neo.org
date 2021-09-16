@@ -33,19 +33,83 @@
     <div class="map-container">
         <a asp-controller="home" asp-action="index">首页</a>
         <hr />
-        <a asp-controller="contributors" asp-action="index">贡献者</a>
+        <a asp-controller="tour" asp-action="index">开启 N3 之旅</a>
+        <hr />
+        <a asp-controller="migration" asp-action="index">NEO & GAS 迁移</a>
+        <a target="_blank" href="https://migration.neo.org/">迁移网站 <i class="iconfont">&#xe601;</i></a>
+        <hr />
+        <a asp-controller="about" asp-action="index">定义 NEO</a>
         <a asp-controller="presskit" asp-action="index">媒体资源</a>
-        <a asp-controller="consensus" asp-action="index">共识节点</a>
-        <a asp-controller="wallets" asp-action="index">钱包</a>
         <hr />
-        <a asp-controller="eco" asp-action="index">生态系统</a>
+        <a asp-controller="technology" asp-action="index">Neo 科技</a>
+        <br />
+        <a asp-controller="technology" asp-action="index">All in One</a>
+        <a href="~/technology#smart-contracts">智能合约</a>
+        <a href="~/technology#neo-fs">NeoFS</a>
+        <a href="~/technology#neo-id">NeoID</a>
+        <a href="~/technology#oracles">预言机</a>
+        <a href="~/technology#neo-name-service">Neo 域名服务</a>
+        <a href="~/technology#dbft-2.0">dBFT 2.0</a>
+        <a href="~/technology#interoperability">互操作性</a>
+        <a href="~/technology#architecture">开发者体验</a>
         <hr />
-        <a asp-controller="news" asp-action="index">发现更多</a>
+        <a href="~/neogas#tokens">NEO & GAS</a>
+        <br />
+        <a href="~/neogas#tokens">通证</a>
+        <a href="~/neogas#wallets">钱包</a>
         <hr />
-        <a asp-controller="dev" asp-action="index">开发者门户</a>
+        <a asp-controller="contributors" asp-action="index">贡献者</a>
+        <br />
+        <a asp-controller="contributors" asp-action="index">核心开发者</a>
+        <a href="~/contributors#communities">NEO 社区</a>
+        <a href="~/contributors#neo-fundation">Neo Foundation</a>
+        <a href="~/contributors#neo-global-development">Neo 全球发展部门（NGD）</a>
+        <a href="~/contributors#outstanding-contributors">杰出贡献者</a>
+        <a href="~/contributors#industry-collaboration">行业合作</a>
+        <hr />
+        <a asp-controller="gov" asp-action="index">治理介绍</a>
+        <a target="_blank" href="https://governance.neo.org/#/">N3 治理 <i class="iconfont">&#xe601;</i></a>
+        <hr />
+        <a href="/dev#overview">开发者</a>
+        <a href="/dev#tooling">工具集</a>
+        <a href="/dev#examples">案例 & 教学</a>
+        <a target="_blank" href="https://github.com/neo-project">GitHub <i class="iconfont">&#xe601;</i></a>
         <a target="_blank" href="https://docs.neo.org/">技术文档 <i class="iconfont">&#xe601;</i></a>
         <a asp-controller="bounty" asp-action="index">漏洞奖励计划</a>
         <a asp-controller="Converter" asp-action="index">Neo 3.0 数据转换</a>
+        <hr />
+        <a href="/eco">生态支持</a>
+        <br />
+        <a href="/eco#overview">情况概览</a>
+        <a href="/eco#ecoboost">EcoBoost 计划</a>
+        <a href="/eco#ecofund">EcoFund 计划</a>
+        <a href="/eco#earlyadoption">Early Adoption 计划</a>
+        <hr />
+        <a href="/news">资讯 & 活动</a>
+        <br />
+        <a class="disabled" title="请在发现页面点击" href="javascript:">博客详情</a>
+        <a asp-controller="blog" asp-action="create"><span>Admin</span>发布</a>
+        <a class="disabled" title="请在发现页面点击" href="javascript:"><span>Admin</span>编辑</a>
+        <a class="disabled" title="请在发现页面点击" href="javascript:"><span>Admin</span>删除</a>
+        <a href="~/blog/rss?language=en">RSS 英文</a>
+        <a href="~/blog/rss?language=zh">RSS 中文</a>
+        <br />
+        <a class="disabled" a title="请在发现页面点击" href="javascript:">活动详情</a>
+        <a asp-controller="event" asp-action="create"><span>Admin</span>发布</a>
+        <a class="disabled" title="请在发现页面点击" href="javascript:"><span>Admin</span>编辑</a>
+        <a class="disabled" title="请在发现页面点击" href="javascript:"><span>Admin</span>删除</a>
+        <a target="_blank" href="https://devcon.neo.org/">DevCon <i class="iconfont">&#xe601;</i></a>
+        <br />
+        <a class="disabled" title="请在发现页面点击" href="javascript:">媒体外链 <i class="iconfont">&#xe601;</i></a>
+        <a asp-controller="media" asp-action="create"><span>Admin</span>发布</a>
+        <a class="disabled" title="请在发现页面点击" href="javascript:"><span>Admin</span>编辑</a>
+        <a class="disabled" title="请在发现页面点击" href="javascript:"><span>Admin</span>删除</a>
+        <hr />
+        <a class="disabled" title="请直接点击短链接" href="javascript:">短链接 <i class="iconfont">&#xe601;</i></a>
+        <a asp-controller="fwlink" asp-action="list"><span>Admin</span>列表</a>
+        <a asp-controller="fwlink" asp-action="create"><span>Admin</span>新建</a>
+        <a class="disabled" title="请在短链接页面点击" href="javascript:"><span>Admin</span>编辑</a>
+        <a class="disabled" title="请在短链接页面点击" href="javascript:"><span>Admin</span>删除</a>
         <hr />
         <a asp-controller="joinus" asp-action="index">加入我们</a>
         <a asp-controller="joinus" asp-action="create"><span>Admin</span>发布</a>
@@ -60,31 +124,8 @@
         <a class="disabled" title="请在测试币列表页面点击" href="javascript:"><span>Admin</span>删除</a>
         <a class="disabled" title="请在测试币列表页面点击" href="javascript:"><span>Admin</span>详情</a>
         <hr />
-        <a class="disabled" title="请在发现页面点击" href="javascript:">博客详情</a>
-        <a asp-controller="blog" asp-action="create"><span>Admin</span>发布</a>
-        <a class="disabled" title="请在发现页面点击" href="javascript:"><span>Admin</span>编辑</a>
-        <a class="disabled" title="请在发现页面点击" href="javascript:"><span>Admin</span>删除</a>
-        <a href="~/blog/rss?language=en">RSS 英文</a>
-        <a href="~/blog/rss?language=zh">RSS 中文</a>
-        <hr />
-        <a class="disabled" a title="请在发现页面点击" href="javascript:">活动详情</a>
-        <a asp-controller="event" asp-action="create"><span>Admin</span>发布</a>
-        <a class="disabled" title="请在发现页面点击" href="javascript:"><span>Admin</span>编辑</a>
-        <a class="disabled" title="请在发现页面点击" href="javascript:"><span>Admin</span>删除</a>
-        <a target="_blank" href="https://devcon.neo.org/">DevCon <i class="iconfont">&#xe601;</i></a>
-        <hr />
-        <a class="disabled" title="请在发现页面点击" href="javascript:">媒体外链 <i class="iconfont">&#xe601;</i></a>
-        <a asp-controller="media" asp-action="create"><span>Admin</span>发布</a>
-        <a class="disabled" title="请在发现页面点击" href="javascript:"><span>Admin</span>编辑</a>
-        <a class="disabled" title="请在发现页面点击" href="javascript:"><span>Admin</span>删除</a>
-        <hr />
-        <a class="disabled" title="请直接点击短链接" href="javascript:">短链接 <i class="iconfont">&#xe601;</i></a>
-        <a asp-controller="fwlink" asp-action="list"><span>Admin</span>列表</a>
-        <a asp-controller="fwlink" asp-action="create"><span>Admin</span>新建</a>
-        <a class="disabled" title="请在短链接页面点击" href="javascript:"><span>Admin</span>编辑</a>
-        <a class="disabled" title="请在短链接页面点击" href="javascript:"><span>Admin</span>删除</a>
-        <hr />
         <a asp-controller="map" asp-action="index">站点地图</a>
+        <a asp-controller="demo" asp-action="index">网站样式</a>
         <hr />
         <a href="~/identity/account/register">注册</a>
         <a href="~/identity/account/login">登录</a>
@@ -94,7 +135,7 @@
         <a href="~/identity/account/manage/personaldata">个人信息</a>
         <a href="~/identity/account/forgotpassword">忘记密码</a>
         <hr />
-        @await Html.PartialAsync("_LoginPartial")
     </div>
+    @await Html.PartialAsync("_LoginPartial")
 
 </div>
