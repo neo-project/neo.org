@@ -2,6 +2,12 @@
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
+<style>
+    .not-open-source-div {
+        display: none;
+    }
+</style>
+
 <h2 class="main-title">@Localizer["Wallets"]</h2>
 <select class="select-version-page form-control">
     <option value="n3" selected="selected">Neo N3</option>
@@ -70,7 +76,7 @@
                     <span>@Localizer["Verification"]</span><span class="span-success">@Localizer["Comprehensive"]</span>
                     <div>@Localizer["This wallet is a full node that stores all the data in the Neo blockchain, which means that there is no need to trust a third party when verifying payments or executing contracts. The full node provides the highest level of security and is an integral part of protecting the network."]</div>
                 </div>
-                <div class="metrics">
+                <div class="metrics open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
                     <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."]@Localizer["Get source code"]: <a href="https://github.com/neo-ngd/Neo3-GUI" target="_blank">GitHub</a></div>
                 </div>
@@ -120,7 +126,7 @@
                     <span>@Localizer["Verification"]</span><span class="span-success">@Localizer["Comprehensive"]</span>
                     <div>@Localizer["This wallet is a full node that stores all the data in the Neo blockchain, which means that there is no need to trust a third party when verifying payments or executing contracts. The full node provides the highest level of security and is an integral part of protecting the network."]</div>
                 </div>
-                <div class="metrics">
+                <div class="metrics open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
                     <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."]@Localizer["Get source code"]: <a href="https://github.com/neo-project/neo-cli" target="_blank">GitHub</a></div>
                 </div>
@@ -196,6 +202,65 @@
             </div>
         </div>
     </li>
+    <li class="mobile">
+        <img id="onegate" class="client-logo" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/logo/onegate.svg", true)" />
+        <style>
+            #onegate {
+                transition: all 20s;
+                transform: rotate(0turn);
+            }
+
+                #onegate:hover {
+                    transform: rotate(10turn);
+                }
+        </style>
+        <h4>OneGate</h4>
+        <div class="platform">
+            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
+            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
+        </div>
+
+        <div class="developer d-none">
+            <a href="https://github.com/neoorder" target="_blank">The Neo Order</a>
+        </div>
+        <div class="button d-none">
+            <a class="btn-2 btn-small my-1" href="https://onegate.space/" target="_blank">@Localizer["Website"]</a>
+        </div>
+        <div class="desc d-none">
+            <div class="preview-div">
+                <h4>@Localizer["Preview"]</h4>
+                <a class="plat-btn btn-mobile active" href="javascript:" onclick="switchPlatform('mobile');">@Localizer["Mobile"]</a>
+            </div>
+            <div class="p-mobile preview">
+                <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/onegate1.png")" />
+                <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/onegate2.png")" />
+                <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/onegate3.png")" />
+                <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/onegate4.png")" />
+            </div>
+            <p>@Localizer["Welcome to OneGate -- One gate to the blockchain. OneGate is a gateway of products developed on the Neo (N3 network) public blockchain. Now we provide service as wallets and Dapp discover. OneGate conduct a ‘non-custodial’ model, as gives users full control over their assets.​"]</p>
+            <p>@Localizer["Languages"]: English / 中文</p>
+            <div>
+                <div class="metrics">
+                    <span>@Localizer["Degree of Digital Asset Control"]</span><span class="span-success">@Localizer["High"]</span>
+                    <div>@Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the wallet file."]</div>
+                </div>
+                <div class="metrics">
+                    <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
+                    <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
+                </div>
+                <div class="metrics not-open-source-div">
+                    <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
+                    <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
+                </div>
+                <div class="metrics">
+                    <span>@Localizer["Supported NEP"]</span>
+                    <div>
+                        <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-11.mediawiki" target="_blank">NEP-11</a>, <a href="https://github.com/neo-project/proposals/blob/master/nep-17.mediawiki" target="_blank">NEP-17</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
     <li class="mobile extension">
         <img class="client-logo" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/logo/neoline.png", true)" />
         <h4>NeoLine</h4>
@@ -203,7 +268,6 @@
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="extension">&#xe621;</i>
-            <a class="open-source" href="https://github.com/NeoNEXT/neoline" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
         </div>
 
         <div class="developer d-none"><a href="https://github.com/NeoNEXT/neoline" target="_blank">NeoNext</a></div>
@@ -239,9 +303,9 @@
                     <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
                     <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                 </div>
-                <div class="metrics">
-                    <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
-                    <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."] @Localizer["Get source code"]: <a href="https://github.com/neonext/neoline" target="_blank">GitHub</a></div>
+                <div class="metrics not-open-source-div">
+                    <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
+                    <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
                 </div>
                 <div class="metrics">
                     <span>@Localizer["Supported NEP"] <small>(@Localizer["Mobile"])</small></span>
@@ -265,7 +329,6 @@
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="macOS">&#xe61f;</i>
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
-            <a class="open-source" href="https://github.com/O3Labs" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
         </div>
 
         <div class="developer d-none"><a href="https://o3.network/" target="_blank">O3 Labs</a></div>
@@ -298,9 +361,9 @@
                     <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
                     <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                 </div>
-                <div class="metrics">
-                    <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
-                    <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."]@Localizer["Get source code"]: <a href="https://github.com/O3Labs" target="_blank">GitHub</a></div>
+                <div class="metrics not-open-source-div">
+                    <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
+                    <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
                 </div>
                 <div class="metrics">
                     <span>@Localizer["Supported NEP"]</span>
@@ -345,7 +408,7 @@
                     <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
                     <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                 </div>
-                <div class="metrics">
+                <div class="metrics not-open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
                     <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
                 </div>
@@ -391,7 +454,7 @@
                     <span>@Localizer["Verification"]</span><span class="span-success">@Localizer["Comprehensive"]</span>
                     <div>@Localizer["This wallet is a full node that stores all the data in the Neo blockchain, which means that there is no need to trust a third party when verifying payments or executing contracts. The full node provides the highest level of security and is an integral part of protecting the network. However, it requires more hard disk space (15GB), greater bandwidth, and a longer initialization synchronization time. The initialization synchronization speed can be accelerated by downloading the <a href=\"http://sync.ngd.network/\" target=\"_blank\">offline synchronization package</a> provided by NGD."]</div>
                 </div>
-                <div class="metrics">
+                <div class="metrics open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
                     <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."]@Localizer["Get source code"]: <a href="https://github.com/neo-project/neo-gui" target="_blank">GitHub</a></div>
                 </div>
@@ -462,7 +525,7 @@
                     <span>@Localizer["Verification"]</span><span class="span-success">@Localizer["Comprehensive"]</span>
                     <div>@Localizer["This wallet is a full node that stores all the data in the Neo blockchain, which means that there is no need to trust a third party when verifying payments or executing contracts. The full node provides the highest level of security and is an integral part of protecting the network. However, it requires more hard disk space (15GB), greater bandwidth, and a longer initialization synchronization time. The initialization synchronization speed can be accelerated by downloading the <a href=\"http://sync.ngd.network/\" target=\"_blank\">offline synchronization package</a> provided by NGD."]</div>
                 </div>
-                <div class="metrics">
+                <div class="metrics open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
                     <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."]@Localizer["Get source code"]: <a href="https://github.com/neo-project/neo-cli" target="_blank">GitHub</a></div>
                 </div>
@@ -553,7 +616,6 @@
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="macOS">&#xe61f;</i>
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
-            <a class="open-source" href="https://github.com/O3Labs" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
         </div>
 
         <div class="developer d-none"><a href="https://o3.network/" target="_blank">O3 Labs</a></div>
@@ -587,9 +649,9 @@
                     <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
                     <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                 </div>
-                <div class="metrics">
-                    <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
-                    <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."]@Localizer["Get source code"]: <a href="https://github.com/O3Labs" target="_blank">GitHub</a></div>
+                <div class="metrics not-open-source-div">
+                    <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
+                    <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
                 </div>
                 <div class="metrics">
                     <span>@Localizer["Supported NEP"]</span>
@@ -632,7 +694,7 @@
                     <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
                     <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                 </div>
-                <div class="metrics">
+                <div class="metrics open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
                     <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."]@Localizer["Get source code"]: <a href="https://github.com/CityOfZion/neon-wallet" target="_blank">GitHub</a></div>
                 </div>
@@ -652,7 +714,6 @@
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="extension">&#xe621;</i>
-            <a class="open-source" href="https://github.com/NeoNEXT/neoline" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
         </div>
 
         <div class="developer d-none"><a href="https://github.com/NeoNEXT/neoline" target="_blank">NeoNext</a></div>
@@ -688,9 +749,9 @@
                     <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
                     <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                 </div>
-                <div class="metrics">
-                    <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
-                    <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."] @Localizer["Get source code"]: <a href="https://github.com/neonext/neoline" target="_blank">GitHub</a></div>
+                <div class="metrics not-open-source-div">
+                    <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
+                    <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
                 </div>
                 <div class="metrics">
                     <span>@Localizer["Supported NEP"] <small>(@Localizer["Mobile"])</small></span>
@@ -737,7 +798,7 @@
                     <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
                     <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                 </div>
-                <div class="metrics">
+                <div class="metrics not-open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
                     <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
                 </div>
@@ -785,7 +846,7 @@
                     <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
                     <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                 </div>
-                <div class="metrics">
+                <div class="metrics not-open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
                     <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
                 </div>
@@ -831,7 +892,7 @@
                     <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
                     <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                 </div>
-                <div class="metrics">
+                <div class="metrics not-open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
                     <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
                 </div>
@@ -878,7 +939,7 @@
                     <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
                     <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                 </div>
-                <div class="metrics">
+                <div class="metrics not-open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
                     <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
                 </div>
@@ -922,7 +983,7 @@
                     <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
                     <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                 </div>
-                <div class="metrics">
+                <div class="metrics not-open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
                     <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
                 </div>
@@ -943,7 +1004,6 @@
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Linux">&#xe6c1;</i>
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="macOS">&#xe61f;</i>
             <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
-            <a class="open-source" href="https://github.com/Atomicwallet" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
         </div>
 
         <div class="developer d-none"><a href="https://github.com/Atomicwallet" target="_blank">Atomicwallet</a></div>
@@ -970,7 +1030,7 @@
                     <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
                     <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                 </div>
-                <div class="metrics">
+                <div class="metrics not-open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
                     <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
                 </div>
@@ -1020,7 +1080,7 @@
                     <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
                     <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                 </div>
-                <div class="metrics">
+                <div class="metrics open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
                     <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software."]@Localizer["Get source code"]: <a href="https://github.com/AnyBitIO/anybit-Android" target="_blank">GitHub</a></div>
                 </div>
@@ -1065,7 +1125,7 @@
                     <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
                     <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                 </div>
-                <div class="metrics">
+                <div class="metrics open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
                     <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."]@Localizer["Get source code"]: <a href="https://github.com/NewEconoLab/TeemoWallet" target="_blank">GitHub</a></div>
                 </div>
@@ -1111,7 +1171,7 @@
                     <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
                     <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                 </div>
-                <div class="metrics">
+                <div class="metrics not-open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
                     <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
                 </div>
@@ -1156,7 +1216,7 @@
                     <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
                     <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                 </div>
-                <div class="metrics">
+                <div class="metrics not-open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
                     <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
                 </div>
@@ -1205,7 +1265,7 @@
                     <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
                     <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                 </div>
-                <div class="metrics">
+                <div class="metrics open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
                     <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."]@Localizer["Get source code"]: <a href="https://github.com/guardaco/guarda-android-wallets/blob/master/LICENSE" target="_blank">GitHub</a></div>
                 </div>
@@ -1251,7 +1311,7 @@
                     <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
                     <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                 </div>
-                <div class="metrics">
+                <div class="metrics not-open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
                     <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
                 </div>
@@ -1306,7 +1366,7 @@
                     <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
                     <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                 </div>
-                <div class="metrics">
+                <div class="metrics not-open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
                     <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
                 </div>
@@ -1358,7 +1418,7 @@
                     <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
                     <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                 </div>
-                <div class="metrics">
+                <div class="metrics not-open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
                     <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
                 </div>
@@ -1409,7 +1469,7 @@
                     <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
                     <div>@Localizer["Light Wallet, the app side of this wallet relies on a central service, the hardware side is not networked and runs independently. There is no need to sync block data when using it. Only the transaction data needs to be synchronized on the app side. No payment transactions are generated without hardware authorization."]</div>
                 </div>
-                <div class="metrics">
+                <div class="metrics not-open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
                     <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
                 </div>
@@ -1453,7 +1513,7 @@
                     <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
                     <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                 </div>
-                <div class="metrics">
+                <div class="metrics not-open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
                     <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
                 </div>
@@ -1501,7 +1561,7 @@
                         @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
                     </div>
                 </div>
-                <div class="metrics">
+                <div class="metrics open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
                     <div>
                         @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when you visit a web wallet."]
@@ -1553,7 +1613,7 @@
                         @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
                     </div>
                 </div>
-                <div class="metrics">
+                <div class="metrics open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
                     <div>
                         @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when you visit a web wallet."]
@@ -1605,7 +1665,7 @@
                     <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
                     <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
                 </div>
-                <div class="metrics">
+                <div class="metrics open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
                     <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."]@Localizer["Get source code"]: <a href="https://github.com/safudex/neologin" target="_blank">GitHub</a></div>
                 </div>
@@ -1664,7 +1724,7 @@
                         @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
                     </div>
                 </div>
-                <div class="metrics">
+                <div class="metrics not-open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-danger">@Localizer["Low"]</span>
                     <div>@Localizer["This wallet is non-open source, which means that users need to trust the developers of this wallet completely. The Neo Foundation and NGD do not endorse this client."]</div>
                 </div>
@@ -1706,7 +1766,7 @@
                         @Localizer["This wallet supports the encryption and decryption of the private key for secure storage. The website itself does not store the private key, so please pay attention to the safe backup and safekeeping of the private key."]
                     </div>
                 </div>
-                <div class="metrics">
+                <div class="metrics open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
                     <div>
                         @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when you visit a web wallet."]
@@ -1760,7 +1820,7 @@
                         @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
                     </div>
                 </div>
-                <div class="metrics">
+                <div class="metrics open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
                     <div>
                         @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software."]
@@ -1815,7 +1875,7 @@
                         @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
                     </div>
                 </div>
-                <div class="metrics">
+                <div class="metrics open-source-div">
                     <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
                     <div>
                         @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software."]

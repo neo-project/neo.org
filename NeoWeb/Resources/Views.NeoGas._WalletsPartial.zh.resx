@@ -493,4 +493,7 @@
   <data name="O3 Wallet is a multi-chain wallet developed by O3 Labs. This wallet supports mainstream blockchains and their popular dApps, maintains a high update frequency and can support Neo N3 updates and features in a timely manner." xml:space="preserve">
     <value>O3 钱包是由 O3 Labs 开发的多链钱包，支持主流区块链及热门的 dApps，保持高更新率，并且及时支持 Neo N3 的更新和功能。</value>
   </data>
+  <data name="Welcome to OneGate -- One gate to the blockchain. OneGate is a gateway of products developed on the Neo (N3 network) public blockchain. Now we provide service as wallets and Dapp discover. OneGate conduct a ‘non-custodial’ model, as gives users full control over their assets.​" xml:space="preserve">
+    <value>欢迎来到 OneGate——通往区块链的大门。OneGate 类似区块链世界的 App store。是基于 Neo （N3 网络）区块链开发的一站式应用入口。提供钱包、Dapp 发现等功能。OneGate 采取非托管模式，资产完全由用户掌控。</value>
+  </data>
 </root>
