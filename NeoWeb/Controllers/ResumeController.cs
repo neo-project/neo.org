@@ -80,6 +80,7 @@ namespace NeoWeb.Controllers
                 resume.Job = job;
                 resume.Path = Helper.UploadFile(file, _env);
                 resume.MyReferralCode = resume.Path.Substring(0, 10);
+                resume.DateTime = DateTime.Now;
                 _context.Add(resume);
                 await _context.SaveChangesAsync();
                 return Complete(resume.MyReferralCode);
