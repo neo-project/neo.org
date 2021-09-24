@@ -118,18 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Please upload your resume." xml:space="preserve">
-    <value>请上传简历</value>
+    <value>请上传简历。</value>
   </data>
-  <data name="Pls fill in if there is any recommender" xml:space="preserve">
-    <value>如有推荐人，请填写</value>
+  <data name="The referral code does not exist." xml:space="preserve">
+    <value>推荐码不存在。</value>
   </data>
-  <data name="Resume" xml:space="preserve">
-    <value>简历</value>
-  </data>
-  <data name="Resume Submission" xml:space="preserve">
-    <value>投递简历</value>
-  </data>
-  <data name="Submit" xml:space="preserve">
-    <value>提交</value>
+  <data name="The selected job does not exist." xml:space="preserve">
+    <value>所选职位不存在。</value>
   </data>
 </root>

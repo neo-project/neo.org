@@ -4,12 +4,12 @@
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
 @{
-    ViewData["Title"] = Localizer["Join us"].Value;
+    ViewData["Title"] = Localizer["Join Us"].Value;
 }
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/joinus.min.css", true)" />
 }
-<div class="py-5">
+<div class="py-0 py-md-5">
     <div class="introduction">
         <div class="introduction-content">
             <h1 class="introduction-title">@Html.Raw(Localizer["Neo Career.<br/>New Era."].Value)</h1>
@@ -25,11 +25,11 @@
         {
             @if (item == ViewBag.Group)
             {
-                <a href="/joinus?group=@item" class="btn-3">@item</a>
+                <a href="/joinus?group=@item" class="btn-3 my-1">@item</a>
             }
             else
             {
-                <a href="/joinus?group=@item" class="btn-1">@item</a>
+                <a href="/joinus?group=@item" class="btn-1 my-1">@item</a>
             }
         }
     </div>

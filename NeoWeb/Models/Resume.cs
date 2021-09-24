@@ -19,20 +19,25 @@ namespace NeoWeb.Models
         public string Name { get; set; }
 
         [Required(ErrorMessage = "The {0} field is required.")]
-        [DisplayName("Phone number")]
+        [DisplayName("Contact Number")]
         public string Phone { get; set; }
 
         [Required(ErrorMessage = "The {0} field is required.")]
-        [DisplayName("Scool")]
+        [DisplayName("Mail Address")]
+        [EmailAddress(ErrorMessage = "The {0} field is not a valid e-mail address.")]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "The {0} field is required.")]
+        [DisplayName("University")]
         public string Scool { get; set; }
 
         [Required(ErrorMessage = "The {0} field is required.")]
-        [DisplayName("Specialty")]
+        [DisplayName("Major")]
         public string Specialty { get; set; }
 
         public string Path { get; set; }
 
-        [DisplayName("Referral code")]
+        [DisplayName("Referral Code")]
         public string ReferralCode { get; set; }
 
         [DisplayName("My referral code")]

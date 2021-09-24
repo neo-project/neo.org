@@ -1,14 +1,14 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @{
-    ViewData["Title"] = @Localizer["Resume submission successful"].Value;
+    ViewData["Title"] = @Localizer["Resume successfully delivered!"].Value;
 }
 <div class="py-5">
-    <h2>@Localizer["Resume submission successful"]</h2>
+    <h2>@Localizer["Resume successfully delivered!"]</h2>
     <p>
-        @Localizer["Resume submission is successful. Congratulations, you got a referral code"] <code>@Model</code>
-        @Localizer[", you can invite others to use your referral code, when others join, we will contact you and give you a reward."]
+        @Html.Raw(string.Format(Localizer["You got a personal recommendation code <code>{0}</code> which you can used to invite others for job posting."].Value, @Model)) 
     </p>
+    <p>@Localizer["We will contact you to issue corresponding rewards if the recommended candidate passed the Resume Screening/Phone Interview/Onsite Interview or Onboard session."]</p>
 </div>
 
 

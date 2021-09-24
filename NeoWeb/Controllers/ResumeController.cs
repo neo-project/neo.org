@@ -21,11 +21,13 @@ namespace NeoWeb.Controllers
 
         private readonly IWebHostEnvironment _env;
         private readonly IStringLocalizer<SharedResource> _sharedLocalizer;
+        private readonly IStringLocalizer<ResumeController> _localizer;
 
-        public ResumeController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IStringLocalizer<SharedResource> sharedLocalizer, IWebHostEnvironment env)
+        public ResumeController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IStringLocalizer<SharedResource> sharedLocalizer, IWebHostEnvironment env, IStringLocalizer<ResumeController> localizer)
         {
             _context = context;
             _sharedLocalizer = sharedLocalizer;
+            _localizer = localizer;
             _env = env;
         }
 
@@ -53,7 +55,7 @@ namespace NeoWeb.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Phone,Scool,Specialty,ReferralCode,MyReferralCode")] Resume resume, int jobId, IFormFile file)
+        public async Task<IActionResult> Create([Bind("Id,Name,Phone,Email,Scool,Specialty,ReferralCode,MyReferralCode")] Resume resume, int jobId, IFormFile file)
         {
             var job = _context.Jobs.FirstOrDefault(p => p.Id == jobId);
             if (job == null)
@@ -64,17 +66,17 @@ namespace NeoWeb.Controllers
             {
                 if (file == null)
                 {
-                    ViewBag.Error = "Please upload your resume.";
+                    ViewBag.Error = _localizer["Please upload your resume."];
                     return View(resume);
                 }
                 if (job == null)
                 {
-                    ModelState.AddModelError("Job", "The selected job does not exist.");
+                    ModelState.AddModelError("Job", _localizer["The selected job does not exist."]);
                     return View(resume);
                 }
                 if(!string.IsNullOrEmpty(resume.ReferralCode) && !_context.Resume.Any(p => resume.ReferralCode == p.MyReferralCode))
                 {
-                    ModelState.AddModelError("ReferralCode", "The referral code does not exist.");
+                    ModelState.AddModelError("ReferralCode", _localizer["The referral code does not exist."]);
                     return View(resume);
                 }
                 resume.Job = job;

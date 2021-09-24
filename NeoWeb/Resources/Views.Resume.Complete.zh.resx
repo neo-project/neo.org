@@ -117,13 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name=", you can invite others to use your referral code, when others join, we will contact you and give you a reward." xml:space="preserve">
-    <value>，你可以邀请别人使用你的推荐码，当别人入职时，我们会联系你，给你发放奖励。</value>
+  <data name="Resume successfully delivered!" xml:space="preserve">
+    <value>简历投递成功！</value>
   </data>
-  <data name="Resume submission is successful. Congratulations, you got a referral code" xml:space="preserve">
-    <value>简历投递成功。恭喜你，你获得了一个推荐码</value>
+  <data name="We will contact you to issue corresponding rewards if the recommended candidate passed the Resume Screening/Phone Interview/Onsite Interview or Onboard session." xml:space="preserve">
+    <value>被推荐简历如通过【简历初筛】/ 【电话面试】/ 【到场面试】/【成功入职】，我们都会和你联系发放相应奖励，快动动你的手指转发并邀请吧~</value>
   </data>
-  <data name="Resume submission successful" xml:space="preserve">
-    <value>简历投递成功</value>
+  <data name="You got a personal recommendation code &lt;code&gt;{0}&lt;/code&gt; which you can used to invite others for job posting." xml:space="preserve">
+    <value>你的个人专属推荐码是 &lt;code&gt;{0}&lt;/code&gt; 。 你可以邀请他人使用你的个人专属码进行职位投递。</value>
   </data>
 </root>

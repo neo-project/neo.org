@@ -117,28 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Contact Number" xml:space="preserve">
+    <value>联系方式</value>
+  </data>
+  <data name="Mail Address" xml:space="preserve">
+    <value>电子邮箱</value>
+  </data>
+  <data name="Major" xml:space="preserve">
+    <value>专业</value>
+  </data>
   <data name="My referral code" xml:space="preserve">
     <value>我的推荐码</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>姓名</value>
   </data>
-  <data name="Phone number" xml:space="preserve">
-    <value>手机号</value>
-  </data>
   <data name="Position" xml:space="preserve">
     <value>职位</value>
   </data>
-  <data name="Referral code" xml:space="preserve">
-    <value>推荐码</value>
+  <data name="Referral Code" xml:space="preserve">
+    <value>推荐人专属内推码</value>
   </data>
-  <data name="Scool" xml:space="preserve">
-    <value>学校</value>
-  </data>
-  <data name="Specialty" xml:space="preserve">
-    <value>专业</value>
+  <data name="The {0} field is not a valid e-mail address." xml:space="preserve">
+    <value>{0}字段不是有效的电子邮件地址。</value>
   </data>
   <data name="The {0} field is required." xml:space="preserve">
     <value>{0}字段是必填字段</value>
+  </data>
+  <data name="University" xml:space="preserve">
+    <value>学校</value>
   </data>
 </root>
