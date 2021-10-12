@@ -1,0 +1,152 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+<div class="menu-page-title">
+    <img class="menu-page-title-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/grants3.svg", true)" />
+    <span class="menu-page-title-text">
+        @Localizer["Research Grants"]
+    </span>
+</div>
+
+<div class="menu-page-introduction clearfix">
+    <img class="menu-page-introduction-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/research-grants.svg", true)" />
+    <div class="menu-page-title">
+        <img class="menu-page-title-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/ecofund.svg", true)" />
+        <span class="menu-page-title-text">
+            @Localizer["EcoFund Program"]
+        </span>
+    </div>
+    <div class="menu-page-introduction-title">
+        @Localizer["Research"]
+    </div>
+    <div class="menu-page-introduction-description">
+        <p>@Localizer["Technological innovation is the premise for the continuous growth and development of the blockchain industry. The Neo Foundation is interested in funding universities, research institutes, laboratories, consultancies and researchers to conduct applied research based on the Neo blockchain capabilities and roadmap."]</p>
+    </div>
+</div>
+<div class="menu-page-divider"></div>
+<div class="menu-page-secondary-title">
+    @Localizer["Research Topics"]
+</div>
+<div class="menu-page-description">
+    <p>@Localizer["We are looking for pioneering researchers to focus their applied research efforts in areas related to the Neo Foundation's vision and roadmap. In order to provide directional guidance, listed below are some relevant topics that the Neo Foundation is considering in its roadmap over the next 12-24 months. If you believe that we should sponsor applied research in areas related to the Neo that aren't currently in the list, then please feel free to submit a new request addressing the proposal using the Research Application Form."]</p>
+    <p><strong>@Localizer["The following topics are listed alphabetically."]</strong></p>
+    <div class="row">
+        <div class="col-md-6">
+            <ul class="p-0" style="list-style: none">
+                <li><p><img class="mr-3" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/1.svg", true)" />Consensus algorithm optimization</p></li>
+                <li><p><img class="mr-3" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/2.svg", true)" />Cryptography</p></li>
+                <li><p><img class="mr-3" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/3.svg", true)" />Distributed infrastructure applications</p></li>
+                <li><p><img class="mr-3" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/4.svg", true)" />Economic model optimization</p></li>
+                <li><p><img class="mr-3" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/5.svg", true)" />High-level-languages</p></li>
+                <li><p><img class="mr-3" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/6.svg", true)" />Interoperability across blockchains</p></li>
+                <li><p><img class="mr-3" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/7.svg", true)" />Large-scale enterprise adoption</p></li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <ul class="p-0" style="list-style: none">
+                <li><p><img class="mr-3" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/8.svg", true)" />NeoVM upgrades & optimization</p></li>
+                <li><p><img class="mr-3" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/9.svg", true)" />On-chain governance</p></li>
+                <li><p><img class="mr-3" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/10.svg", true)" />Privacy</p></li>
+                <li><p><img class="mr-3" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/11.svg", true)" />Scalability</p></li>
+                <li><p><img class="mr-3" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/12.svg", true)" />Security</p></li>
+                <li><p><img class="mr-3" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/13.svg", true)" />Tokenization and circulation of digital assets</p></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="menu-page-divider"></div>
+<div class="menu-page-secondary-title">
+    @Localizer["Funding"]
+</div>
+<div class="menu-page-description">
+    <p>@Localizer["The average funding for a research project is around $10,000 to $100,000. However, if the project can provide extraordinary value to the Neo Foundation, additional funding may be possible. Most of the projects should be expected to be completed within 6 months, complex ones no longer than 12 months."]</p>
+    <p>@Localizer["We attach importance to the application of research results, which may bring real - world improvements to the Neo Blockchain.Expected output and results of the applied research include but are not limited to:"]</p>
+    <ul>
+        <li>@Localizer["Shipping code on TestNet"]</li>
+        <li>@Localizer["Protocol and related specification(s)"]</li>
+        <li>@Localizer["Reference implementation(s)"]</li>
+        <li>@Localizer["Prototype(s)"]</li>
+        <li>@Localizer["Technical report(s) with experimental results"]</li>
+    </ul>
+</div>
+
+<div class="menu-page-divider"></div>
+
+<div class="menu-page-secondary-title">
+    @Localizer["How to apply"]
+</div>
+
+<div class="menu-page-description">
+    <strong>@Localizer["Projects or organizations that believe they fit the scope of the EcoBoost program are welcome to apply."]</strong>
+</div>
+
+<div class="application">
+    <div class="application-start">
+        <div class="application-start-title">
+            @Localizer["If you are…"]
+        </div>
+        <ul class="application-start-items">
+            <li>
+                @Localizer["An academic institution or research institute"]
+            </li>
+            <li>
+                @Localizer["An individual or group with expert knowledge in specialized fields such as applied cryptoography, P2P systems, engineering, economics, governance, etc."]
+            </li>
+            <li>
+                @Localizer["Capable of bringing real-world improvements to the Neo blockchain"]
+            </li>
+            <li>
+                @Localizer["Able to provide examples of previous research projects and results"]
+            </li>
+        </ul>
+    </div>
+    <div class="application-end">
+        <i class="application-chevron iconfont">&#xe6ab;</i>
+        <div class="application-end-title">
+            @Localizer["General Grants could provide..."]
+        </div>
+        <div class="application-end-items">
+            <div class="application-end-item">
+                <img class="application-end-item-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
+                <span class="application-end-item-text">
+                    @Localizer["Funding to complete your research"]
+                </span>
+            </div>
+            <div class="application-end-item">
+                <img class="application-end-item-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
+                <span class="application-end-item-text">
+                    @Localizer["Opportunities to participate in global events and media interviews"]
+                </span>
+            </div>
+            <div class="application-end-item">
+                <img class="application-end-item-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
+                <span class="application-end-item-text">
+                    @Localizer["Access to developer community events, such as the Neo Community Assembly"]
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="menu-page-description">
+    <p><strong>@Localizer["If you want to apply for a research grant, please contact the Neo Foundation with the following information:"]</strong></p>
+    <p><strong>@Localizer["Research Topic"]</strong></p>
+    <p>@Localizer["Please introduce the topic on which you intend to focus your research."]</p>
+    <p><strong>@Localizer["Project Introduction"]</strong></p>
+    <p>@Localizer["Please introduce the context of the research topic, its main goal, and the main problems to be solved. Please also indicate the expected results in detail, such as prototype, programmable code, monograph, research report, etc."]</p>
+    <p><strong>@Localizer["Team Introduction"]</strong></p>
+    <p>@Localizer["Please introduce the applicant’s background and its team members with past research results. Please also indicate the principal researcher and his/her resume and contact."]</p>
+    <p><strong>@Localizer["Research Roadmap"]</strong></p>
+    <p>@Localizer["Please introduce the research plan and its milestones, and indicate its conditions, guarantees, and risks in completing the project. Please also detail the suggested evaluation indicators."]</p>
+    <p><strong>@Localizer["Budget"]</strong></p>
+    <p>@Localizer["Please include the requested budget and its usage."]</p>
+    <p><strong>@Localizer["Budget"]</strong></p>
+</div>
+<div class="apply">
+    <div class="apply-text">@Localizer["Apply for an investment now. NGD EcoGrowth will generally respond within one month."]</div>
+    <a class="apply-btn btn-2 btn-small" href="mailto:eg@neo.org">
+        @Localizer["Apply Now"]&nbsp;&nbsp;<i class="iconfont">&#xe6ab;</i>
+    </a>
+</div>

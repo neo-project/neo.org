@@ -1,0 +1,265 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+<div class="menu-page-title">
+    <img class="menu-page-title-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/grants2.svg", true)" />
+    <span class="menu-page-title-text">
+        @Localizer["Core Developer Grants"]
+    </span>
+</div>
+
+<div class="menu-page-introduction clearfix">
+    <img class="menu-page-introduction-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/core-developer-grants.svg", true)" />
+    <div class="menu-page-title">
+        <img class="menu-page-title-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/ecofund.svg", true)" />
+        <span class="menu-page-title-text">
+            @Localizer["EcoFund Program"]
+        </span>
+    </div>
+    <div class="menu-page-introduction-title">
+        @Localizer["Funding success"]
+    </div>
+    <div class="menu-page-introduction-description">
+        <p>@Localizer["Neo is an open source, community driven platform for decentralized applications. From its beginning, Neo has been developed through GitHub open source contributions. Anyone can make contributions to the Neo core code base, including shipping new features, proposing NEPs, submitting patches, improving documentation, etc."]</p>
+        <p>@Localizer["Developers who have made outstanding contributions to the Neo core codebase, after being evaluated by the Neo Foundation, will be offered the opportunity to become Core Developers."]</p>
+        <p>@Localizer["Core Developers are empowered to manage and evolve the Neo core codebase and are deeply involved in Neo's technical and engineering decisions; therefore they are required to participate actively and regularly."]</p>
+        <p><strong><i>@Localizer["Note that community contributors who become ‘Core Developers’ are not employees of the Neo Foundation (NF) or Neo Global Development (NGD). Core Developers can choose their preferred way in contributing to the Neo protocol. However, we expect that you always do so with good intentions and never with the intention of harm."]</i></strong></p>
+    </div>
+</div>
+
+
+<div class="menu-page-divider"></div>
+
+<div class="menu-page-description">
+    <div class="menu-page-secondary-title my-4">
+        @Localizer["Responsibilities"]
+    </div>
+    <p><strong>@Localizer["Core Developers will gain the following permissions and honors; at the same time, they need to assume corresponding responsibilies:"]</strong></p>
+    <div class="row mt-3 align-items-center">
+        <div class="col-md-4 my-3">
+            <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/core-dev1.svg", true)" />
+        </div>
+        <div class="col-md-8 my-3">
+            <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/1.svg", true)" />
+            <strong>@Localizer["GitHub contribution"]</strong>
+            <div>
+                @Localizer["Active participation in the online discussion, development, and review in The Neo Project repositories to ship new functions or version iterations."]
+            </div>
+        </div>
+    </div>
+    <div class="row align-items-center">
+        <div class="col-md-8 my-3">
+            <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/2.svg", true)" />
+            <strong>@Localizer["Neo technical architecture and roadmap design"]</strong>
+            <div>
+                @Localizer["Explore the latest blockchain technologies and define Neo's long-term technical development direction."]
+            </div>
+        </div>
+        <div class="col-md-4 my-3">
+            <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/core-dev2.svg", true)" />
+        </div>
+    </div>
+    <div class="row align-items-center">
+        <div class="col-md-4 my-3">
+            <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/core-dev3.svg", true)" />
+        </div>
+        <div class="col-md-8 my-3">
+            <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/3.svg", true)" />
+            <strong>@Localizer["The Neo Project GitHub Management"]</strong>
+            <div>
+                @Localizer["Maintain effective communication and be prompt in responding to questions to guide other developers, sustain Neo's open-source spirit to facilitate good proposals that are initiated by others, and maintain the order of GitHub contributions to create a positive contribution environment."]
+            </div>
+        </div>
+    </div>
+    <div class="row align-items-center">
+        <div class="col-12 my-3">
+            <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/4.svg", true)" />
+            <strong>@Localizer["The Neo Project GitHub Management"]</strong>
+            <div>
+                @Localizer["Maintain effective communication and be prompt in responding to questions to guide other developers, sustain Neo's open-source spirit to facilitate good proposals that are initiated by others, and maintain the order of GitHub contributions to create a positive contribution environment."]
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="menu-page-divider"></div>
+
+<div class="menu-page-description">
+    <div class="menu-page-secondary-title my-4">
+        @Localizer["Incentive"]
+    </div>
+    <p>
+        @Localizer["As a Core Developer, in addition to the opportunity to work on the most cutting-edge technology in the blockchain industry and grow your personal brand, the Neo Foundation also provides financial rewards for contributions to Neo. Generally, the Core Developer Grants adopts a two-part reward model."]
+    </p>
+    <p><strong><i>@Localizer["Note that all the grants will be paid in equivalent NEO."]</i></strong></p>
+    <div class="row mt-3 align-items-center">
+        <div class="col-md-4 my-3">
+            <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/core-dev4.svg", true)" />
+        </div>
+        <div class="col-md-8 my-3">
+            <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/1.svg", true)" />
+            <strong>@Localizer["contribution reward"]</strong>
+            <div><strong>@Localizer["Core Developers will receive quarterly grants based on their active contributions to the following Neo repositories:"]</strong></div>
+            <ul>
+                <li>@Localizer["neo"]</li>
+                <li>@Localizer["neo-vm"]</li>
+                <li>@Localizer["neo-devpack-dotnet(compiler only)"]</li>
+                <li>@Localizer["neo-modules"]</li>
+            </ul>
+            <p>@Localizer["To encourage substantial improvements to the Neo protocol layer, the Neo Foundation will evaluate the contributions of PRs merged into the master branch, including:"]</p>
+            <ul>
+                <li>@Localizer["Commits"]</li>
+                <li>@Localizer["PR participation"]</li>
+                <li>@Localizer["PR review"]</li>
+            </ul>
+        </div>
+    </div>
+    <p>@Localizer["Evaluation is based on the time estimation, its importance, and priority. The Neo Foundation will distribute the Contribution Reward for the previous quarter at the beginning of each subsequent quarter."]</p>
+    <p>@Localizer["However, if the Core Developer has already received a full-time salary through other existing teams by contributing to the protocol development, he/she will not receive the Contribution Reward."]</p>
+    <div class="row align-items-center">
+        <div class="col-12 my-3">
+            <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/4.svg", true)" />
+            <strong>@Localizer["Fellowship reward"]</strong>
+            <div>
+                @Localizer["We expect Core Developers to invest a substantial amount of time in contributing to Neo’s technical direction as well as specific engineering issues and topics, which are critical towards the Neo protocol’s long-term evolution. Therefore, the Neo Foundation will provide a one-year MOU to each official Core Developer, during which they can obtain a $2,000 monthly stipend as the Fellowship Reward as long as they maintain continuous contributions."]
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="menu-page-divider"></div>
+
+<div class="menu-page-secondary-title">
+    @Localizer["How to apply"]
+</div>
+
+<div class="menu-page-description">
+    <strong>@Localizer["Projects or organizations that believe they fit the scope of the EcoBoost program are welcome to apply."]</strong>
+</div>
+
+<div class="application">
+    <div class="application-start">
+        <div class="application-start-title">
+            @Localizer["If you are…"]
+        </div>
+        <ul class="application-start-items">
+            <li>
+                @Localizer["An expert in blockchain architecture, distributed systems, applied cryptography, network and storage, or blockchain and internet security."]
+            </li>
+            <li>
+                @Localizer["Self-driven, an effective communicator and able to work with a global team."]
+            </li>
+            <li>
+                @Localizer["Well versed in open source development."]
+            </li>
+            <li>
+                @Localizer["Comfortable representing Neo if needed."]
+            </li>
+            <li>
+                @Localizer["Looking to advance Neo's core protocol."]
+            </li>
+        </ul>
+    </div>
+    <div class="application-end">
+        <i class="application-chevron iconfont">&#xe6ab;</i>
+        <div class="application-end-title">
+            @Localizer["Core developer grants could provide…"]
+        </div>
+        <div class="application-end-items">
+            <div class="application-end-item">
+                <img class="application-end-item-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
+                <span class="application-end-item-text">
+                    @Localizer["NEO rewards for contributing to the project."]
+                </span>
+            </div>
+            <div class="application-end-item">
+                <img class="application-end-item-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
+                <span class="application-end-item-text">
+                    @Localizer["A path to advance your career and personal brand."]
+                </span>
+            </div>
+            <div class="application-end-item">
+                <img class="application-end-item-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
+                <span class="application-end-item-text">
+                    @Localizer["Opportunities to participate in global events and media interviews."]
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="menu-page-description">
+    <p><strong>@Localizer["If you want to become a Core Developer, we suggest that you take the following path:"]</strong></p>
+    <p><strong>@Localizer["Learn & Contribute"]</strong></p>
+    <p>@Localizer["Contribute to The Neo Project repositories on GitHub and get familiar with the Neo protocol."]</p>
+    <p><strong>@Localizer["Apply"]</strong></p>
+    <p>@Localizer["If you feel that you have the qualities we are looking for and are willing to participate deeply in Neo's protocol development and long-term technical roadmap planning, you can send an email to dev@neo.org with attached materials that prove you meet the core developer requirements."]</p>
+    <p>@Localizer["Existing Core Developers can recommend suitable candidates in the Core Developer Meeting for discussion."]</p>
+    <p><strong>@Localizer["Initial Review & Trial Period"]</strong></p>
+    <p>@Localizer["Once the application is submitted, the current Core Developer team will review it. If more than half of the Core Developers agree, the applicant will be nominated as a Core Developer Candidate and start a 3-month trial period. During the trial period, the Candidate needs to contribute and prove himself/herself qualified and will receive the Contribution Reward accordingly."]</p>
+    <p><strong>@Localizer["Evaluation"]</strong></p>
+    <p>@Localizer["After 3 months, the Neo Foundation will evaluate the Candidate's performance and decide whether to endorse him/her in the role of an official Core Developer. Once the Candidate becomes an official Core Developer, his/her information will be added to the Core Developer list, he/she will get the GitHub write permission and start to receive the Fellowship Reward."]</p>
+</div>
+<div class="apply">
+    <div class="apply-text">@Localizer["Apply for a General Grant now. The Neo Foundation will generally respond within one month."]</div>
+    <a class="apply-btn btn-2 btn-small" href="mailto:eg@neo.org">
+        @Localizer["Apply Now"]&nbsp;&nbsp;<i class="iconfont">&#xe6ab;</i>
+    </a>
+</div>
+<div class="menu-page-divider"></div>
+
+<div class="menu-page-secondary-title">
+    @Localizer["Current core developers"]
+</div>
+<div class="row">
+    <div class="col-md-3 my-3">
+        <img class="img-fluid" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/discover/ErikZhang.jpg", true)" />
+        <p><strong>Erik Zhang</strong></p>
+        <p>张铮文</p>
+        <p class="green">2015-Present</p>
+    </div>
+    <div class="col-md-3 my-3">
+        <img class="img-fluid" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/discover/FernandoDiazToledano.jpg", true)" />
+        <p><strong>Fernando Díaz Toledano</strong></p>
+        <p>SHARGON</p>
+        <p class="green">2017-Present</p>
+    </div>
+
+    <div class="col-md-3 my-3">
+        <img class="img-fluid" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/discover/HarryPierson.jpg", true)" />
+        <p><strong>Harry Pierson</strong></p>
+        <p class="green">2018-present</p>
+    </div>
+
+    <div class="col-md-3 my-3">
+        <img class="img-fluid" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/discover/IgorCoelho.jpg", true)" />
+        <p><strong>Igor M. Coelho</strong></p>
+        <p class="green">2018-present</p>
+    </div>
+
+    <div class="col-md-3 my-3">
+        <img class="img-fluid" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/discover/RomanKhimov.jpg", true)" />
+        <p><strong>Roman Khimov</strong></p>
+        <p class="green">2021-present</p>
+    </div>
+    <div class="col-md-3 my-3">
+        <img class="img-fluid" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/discover/VitorCoelho.jpg", true)" />
+        <p><strong>Victor Nazario Coelho</strong></p>
+        <p class="green">2021-Present</p>
+    </div>
+</div>
+<div class="menu-page-description">
+    <strong>@Localizer["Core Developer alumni include:"]</strong>
+    <ul>
+        <li>Lights Li (China)</li>
+        <li>Jeff Solinsky (U.S.A)</li>
+        <li>Ashley Rolleston (U.K)</li>
+        <li>Thomas Saunders (U.S.A)</li>
+        <li>Jaime Kindelan Alonso (Spain)</li>
+        <li>Ricardo Prado (Brazil)</li>
+        <li>Yongjie Ma (Singapore)</li>
+        <li>Rodolfo Araujo (Brazil)</li>
+    </ul>
+    <p>@Localizer["The Neo Foundation will update the list annually at the end of the calendar year based on the evaluation of individual participation and contributions."]</p>
+</div>

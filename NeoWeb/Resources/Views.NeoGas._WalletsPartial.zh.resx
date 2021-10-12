@@ -496,4 +496,7 @@
   <data name="Welcome to OneGate -- One gate to the blockchain. OneGate is a gateway of products developed on the Neo (N3 network) public blockchain. Now we provide service as wallets and Dapp discover. OneGate conduct a ‘non-custodial’ model, as gives users full control over their assets.​" xml:space="preserve">
     <value>欢迎来到 OneGate——通往区块链的大门。OneGate 类似区块链世界的 App store。是基于 Neo （N3 网络）区块链开发的一站式应用入口。提供钱包、Dapp 发现等功能。OneGate 采取非托管模式，资产完全由用户掌控。</value>
   </data>
+  <data name="An open source cross-platform light walletfor the Neo blockchain available on Windows, macOS, and Linux." xml:space="preserve">
+    <value>一个开源的跨平台的 Neo 区块链轻型钱包，可在 Windows、macOS 和 Linux 上使用。</value>
+  </data>
 </root>
