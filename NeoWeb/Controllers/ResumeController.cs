@@ -32,10 +32,10 @@ namespace NeoWeb.Controllers
         }
 
         // GET: Resume
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var list = _context.Resume.Include(p => p.Job).Where(p => p.Job != null).ToList();
-            return View(list.Where(p => (DateTime.Now - p.DateTime).TotalDays < 30));
+            var list = await _context.Resume.Include(p => p.Job).Where(p => p.Job != null).OrderByDescending(p => p.DateTime).ToListAsync();
+            return View(list);
         }
 
         [AllowAnonymous]
