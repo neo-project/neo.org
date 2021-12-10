@@ -223,12 +223,60 @@
     <value>希望迁移到 Neo N3 的项目</value>
   </data>
   <data name="Suitable for the following:" xml:space="preserve">
-    <value>适用于以下情况：</value>
+    <value>适用于以下对象：</value>
   </data>
   <data name="Teams looking for funding in exchange for equity or tokens" xml:space="preserve">
     <value>寻找资金以换取股权或代币的团队</value>
   </data>
   <data name="Teams looking to deploy first-to-market dApps on Neo N3" xml:space="preserve">
     <value>希望在 Neo N3 上部署首次上市的 dApps 的团队</value>
+  </data>
+  <data name="Able to provide long-term support to your project" xml:space="preserve">
+    <value>能够为项目发展提供长期支持</value>
+  </data>
+  <data name="Academic institutions or research institutes" xml:space="preserve">
+    <value>学术机构或研究机构</value>
+  </data>
+  <data name="An experienced development team with advanced blockchain knowledge" xml:space="preserve">
+    <value>拥有先进的区块链知识且经验丰富的开发团队</value>
+  </data>
+  <data name="CORE DEV GRANTS" xml:space="preserve">
+    <value>核心开发者激励</value>
+  </data>
+  <data name="Developers well versed in open-source development." xml:space="preserve">
+    <value>精通开源开发的开发者。</value>
+  </data>
+  <data name="Experts in blockchain architecture, distributed systems, applied cryptography, network and storage, or blockchain and internet security." xml:space="preserve">
+    <value>区块链架构、分布式系统、应用密码学、网络和存储，或区块链和网络安全方面的专家。</value>
+  </data>
+  <data name="GENERAL GRANTS" xml:space="preserve">
+    <value>综合激励</value>
+  </data>
+  <data name="Individuals or groups with expert knowledge in specialized fields such as applied cryptography, P2P systems, engineering, economics, governance, etc." xml:space="preserve">
+    <value>在应用密码学、P2P 系统、工程、经济、管理等专业领域拥有专业知识的个人或团体。</value>
+  </data>
+  <data name="Infrastructure, tooling and core protocol" xml:space="preserve">
+    <value>基础设施、开发工具与核心协议</value>
+  </data>
+  <data name="Interested in building tools and infrustructure to advance the Neo ecosystem" xml:space="preserve">
+    <value>对构建开发工具和基础设施以促进Neo生态发展感兴趣</value>
+  </data>
+  <data name="Looking for funding to help us achieve our goals" xml:space="preserve">
+    <value>为了实现目标正在寻找资金支持</value>
+  </data>
+  <data name="RESEARCH" xml:space="preserve">
+    <value>研究</value>
+  </data>
+  <data name="Self-driven, effective communicators, able to work with a global team." xml:space="preserve">
+    <value>自我驱动力和沟通能力强，能够与全球团队密切合作。</value>
+  </data>
+  <data name="Those interested in advancing Neo's core protocol." xml:space="preserve">
+    <value>对促进 Neo 核心协议的完善和发展感兴趣的人。</value>
+  </data>
+  <data name="Those looking to advance Neo through applied research" xml:space="preserve">
+    <value>希望通过应用研究推动 Neo 发展的人</value>
+  </data>
+  <data name="RESEARCH GRANTS" xml:space="preserve">
+    <value>研究激励</value>
   </data>
 </root>
