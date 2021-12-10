@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -124,7 +124,7 @@
     <value>积极参与 Neo 项目资源库的在线讨论、开发和审查，以推出新功能或进行版本迭代。</value>
   </data>
   <data name="After 3 months, the Neo Foundation will evaluate the Candidate's performance and decide whether to endorse him/her in the role of an official Core Developer. Once the Candidate becomes an official Core Developer, his/her information will be added to the Core Developer list, he/she will get the GitHub write permission and start to receive the Fellowship Reward." xml:space="preserve">
-    <value>3 个月试用期过后，Neo 基金会将对候选人的表现进行评估，并决定是否将他/她转正成为正式的核心开发者。一旦候选人成为正式的核心开发者，他/她的信息将被添加到核心开发者名单中，他/她将获得 GitHub 的写入权限，并开始领取奖学金激励。</value>
+    <value>3 个月试用期过后，Neo 基金会将对候选人的表现进行评估，并决定是否将他 / 她转正成为正式的核心开发者。一旦候选人成为正式的核心开发者，他 / 她的信息将被添加到核心开发者名单中，他 / 她将获得 GitHub 的写入权限，并开始领取奖学金激励。</value>
   </data>
   <data name="An expert in blockchain architecture, distributed systems, applied cryptography, network and storage, or blockchain and internet security." xml:space="preserve">
     <value>区块链架构、分布式系统、应用密码学、网络和存储，或区块链和网络安全方面的专家。</value>
@@ -139,7 +139,7 @@
     <value>现在申请</value>
   </data>
   <data name="As a Core Developer, in addition to the opportunity to work on the most cutting-edge technology in the blockchain industry and grow your personal brand, the Neo Foundation also provides financial rewards for contributions to Neo. Generally, the Core Developer Grants adopts a two-part reward model." xml:space="preserve">
-    <value>作为核心开发者，除了有机会参与区块链行业最前沿的技术研究、发展个人品牌外，Neo基金会还为对Neo共建者提供经济奖励。一般来说，核心开发者的激励分为两部分。</value>
+    <value>作为核心开发者，除了有机会参与区块链行业最前沿的技术研究、发展个人品牌外，Neo 基金会还为对 Neo 共建者提供经济奖励。一般来说，核心开发者的激励分为两部分。</value>
   </data>
   <data name="Attend top-tier blockchain conferences to give presentations and talks, and participate in interviews with well-known blockchain media and across various social channels on behalf of Neo." xml:space="preserve">
     <value>出席顶级区块链会议，进行演讲和会谈，并代表 Neo 接受知名区块链媒体和各种社交平台的采访。</value>
@@ -184,7 +184,7 @@
     <value>现有的核心开发者可以在核心开发者会议上推荐合适的人选并进行讨论。</value>
   </data>
   <data name="Explore the latest blockchain technologies and define Neo's long-term technical development direction." xml:space="preserve">
-    <value>探索最新区块链技术，确定Neo长期技术发展方向。</value>
+    <value>探索最新区块链技术，确定 Neo 长期技术发展方向。</value>
   </data>
   <data name="FELLOWSHIP REWARD" xml:space="preserve">
     <value>奖学金</value>
@@ -199,13 +199,13 @@
     <value>如何申请</value>
   </data>
   <data name="However, if the Core Developer has already received a full-time salary through other existing teams by contributing to the protocol development, he/she will not receive the Contribution Reward." xml:space="preserve">
-    <value>但是，如果该核心开发者已经加入了其他现有团队，并通过参与协议开发获得了全职工资，他/她将不能再次取得贡献激励。</value>
+    <value>但是，如果该核心开发者已经加入了其他现有团队，并通过参与协议开发获得了全职工资，他 / 她将不能再次取得贡献激励。</value>
   </data>
   <data name="If you are…" xml:space="preserve">
     <value>如果你是：</value>
   </data>
   <data name="If you feel that you have the qualities we are looking for and are willing to participate deeply in Neo's protocol development and long-term technical roadmap planning, you can send an email to dev@neo.org with attached materials that prove you meet the core developer requirements." xml:space="preserve">
-    <value>如果您觉得自己满足我们的申请要求，并且愿意深入参与Neo的协议开发和长期技术路线规划，你可以发送电子邮件到 dev@neo.org，并附上证明你符合核心开发者要求的相关材料。</value>
+    <value>如果您觉得自己满足我们的申请要求，并且愿意深入参与 Neo 的协议开发和长期技术路线规划，你可以发送电子邮件到 dev@neo.org，并附上证明你符合核心开发者要求的相关材料。</value>
   </data>
   <data name="If you want to become a Core Developer, we suggest that you take the following path:" xml:space="preserve">
     <value>如果您想要成为一名核心开发者，我们建议您采用以下方式：</value>
@@ -223,7 +223,7 @@
     <value>希望促进 Neo 核心协议的完善和发展。</value>
   </data>
   <data name="Maintain effective communication and be prompt in responding to questions to guide other developers, sustain Neo's open-source spirit to facilitate good proposals that are initiated by others, and maintain the order of GitHub contributions to create a positive contribution environment." xml:space="preserve">
-    <value>保持有效沟通，及时回复问题，引导其他开发者；维持Neo的开源精神，推进他人提出的良好提案；维护GitHub共建秩序，打造积极的共建环境。</value>
+    <value>保持有效沟通，及时回复问题，引导其他开发者；维持 Neo 的开源精神，推进他人提出的良好提案；维护 GitHub 共建秩序，打造积极的共建环境。</value>
   </data>
   <data name="Neo is an open source, community driven platform for decentralized applications. From its beginning, Neo has been developed through GitHub open source contributions. Anyone can make contributions to the Neo core code base, including shipping new features, proposing NEPs, submitting patches, improving documentation, etc." xml:space="preserve">
     <value>Neo 是一个开源的、社区驱动的去中心化应用平台。从一开始，Neo 的发展就依赖于 GitHub 开源开发。任何人都可以为 Neo 核心代码库做贡献，比如推出新功能、提出 NEP、提交补丁、改进文档等。</value>

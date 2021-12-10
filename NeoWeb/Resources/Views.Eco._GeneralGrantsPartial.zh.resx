@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -137,7 +137,7 @@
     <value>拥有先进的区块链知识且经验丰富的开发团队</value>
   </data>
   <data name="An explanation of why this project is important to the Neo ecosystem. Are there any other projects similar to yours in the Neo ecosystem?" xml:space="preserve">
-    <value>解释该项目对Neo生态的重要性体现在何处。在Neo生态中是否已有类似项目？</value>
+    <value>解释该项目对 Neo 生态的重要性体现在何处。在 Neo 生态中是否已有类似项目？</value>
   </data>
   <data name="Any anticipated challenges or risks to successful delivery and completion of the project." xml:space="preserve">
     <value>完成并成功交付项目成果的预期挑战和风险。</value>
@@ -152,7 +152,7 @@
     <value>申请要求</value>
   </data>
   <data name="Apply for a General Grant now. The Neo Foundation will generally respond within one month." xml:space="preserve">
-    <value>现在申请综合激励（Neo基金会通常会在一个月内给予回复）</value>
+    <value>现在申请综合激励（Neo 基金会通常会在一个月内给予回复）</value>
   </data>
   <data name="Apply Now" xml:space="preserve">
     <value>现在申请</value>
@@ -176,7 +176,7 @@
     <value>提供资金，帮助你建立项目</value>
   </data>
   <data name="Future plans / team’s longer term business priorities" xml:space="preserve">
-    <value>未来规划/团队长期业务重心</value>
+    <value>未来规划 / 团队长期业务重心</value>
   </data>
   <data name="General Grants" xml:space="preserve">
     <value>综合激励</value>
@@ -227,7 +227,7 @@
     <value>NFT 交易市场 &amp; 发行平台</value>
   </data>
   <data name="NFT marketplace to issue, display and exchange NFT assets on Neo." xml:space="preserve">
-    <value>能够在 Neo 上发行、展示和交换NFT资产的NFT市场。</value>
+    <value>能够在 Neo 上发行、展示和交换 NFT 资产的 NFT 市场。</value>
   </data>
   <data name="Node API Service" xml:space="preserve">
     <value>节点 API 服务</value>
@@ -260,7 +260,7 @@
     <value>我们欢迎任何符合条件的项目与组织前来申请。</value>
   </data>
   <data name="Provide a ready to use online platform/sandbox to write, test, deploy and manage smart contracts." xml:space="preserve">
-    <value>提供一个可以随时调用的在线平台/沙盒来编写、测试、部署和管理智能合约。</value>
+    <value>提供一个可以随时调用的在线平台 / 沙盒来编写、测试、部署和管理智能合约。</value>
   </data>
   <data name="Provide reusable smart contract modules, more secure smart contract template to simplify smart contract development." xml:space="preserve">
     <value>提供可重复使用的智能合约模块，更安全的智能合约模板，以简化智能合约的开发。</value>
