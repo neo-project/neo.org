@@ -181,10 +181,10 @@
   <data name="General Grants" xml:space="preserve">
     <value>综合激励</value>
   </data>
-  <data name="General grants could provide…" xml:space="preserve">
+  <data name="General Grants could provide…" xml:space="preserve">
     <value>综合激励计划可以提供：</value>
   </data>
-  <data name="Grants may be applied for in stages for new projects with complexity, or for existing projects with major new capabilities or upgrades.For existing projects, teams need to complete and deliver on the previous grant as described in their application before receiving additional funds.The Neo Foundation Grants Committee will decide whether to approve the new grant application." xml:space="preserve">
+  <data name="Grants may be applied for in stages for new projects with complexity, or for existing projects with major new capabilities or upgrades. For existing projects, teams need to complete and deliver on the previous grant as described in their application before receiving additional funds.The Neo Foundation Grants Committee will decide whether to approve the new grant application." xml:space="preserve">
     <value>比较复杂的新项目，或计划增添重要功能、进行重大升级的现有项目，可以分阶段申请资助。现有项目在申请获得额外资助之前，应当按要求完成并交付之前申请中所承诺的开发成果。Neo 基金会资助委员会将决定是否批准新的资助申请。</value>
   </data>
   <data name="Guidance from Neo core developers and other techincal leads" xml:space="preserve">
@@ -256,7 +256,7 @@
   <data name="Project roadmap" xml:space="preserve">
     <value>项目路线图</value>
   </data>
-  <data name="Projects or organizations that believe they fit the scope of the EcoFund program are welcome to apply." xml:space="preserve">
+  <data name="Projects or organizations that believe they fit the scope of the General Grants program are welcome to apply." xml:space="preserve">
     <value>我们欢迎任何符合条件的项目与组织前来申请。</value>
   </data>
   <data name="Provide a ready to use online platform/sandbox to write, test, deploy and manage smart contracts." xml:space="preserve">
@@ -295,7 +295,7 @@
   <data name="The average funding for a project is between $5,000 to $50,000, with the typical maximum funding around $100,000. However, if a project can provide extraordinary value to the Neo ecosystem, additional funding may be possible. Generally, the Neo Foundation decides the funding for a project based on the time, difficulty, importance or priority to the Neo ecosystem and the developer-friendly nature of the project. Most of the projects should be expected to be completed within 6 months." xml:space="preserve">
     <value>每个项目能获得的平均资助在 5000 到 5 万美元之间，最高可达 10 万美元左右。当然，如果某个项目能够为 Neo 生态提供极高的价值，还有获得更高资助的可能。一般来说，Neo 基金会会根据项目的耗时、难度、对 Neo 生态的重要性以及对开发者的友好程度来决定资助的多少。绝大多数项目应在 6 个月内完成开发。</value>
   </data>
-  <data name="The Neo Foundation supports teams that are capable of executing outstanding blockchain software development initiatives that improve the Neo ecosystem.Examples include developer tools such as SDKs, nodes, layer2 protocols, IDE plugins, and infrastructure protocols.We expect teams and deliverables to be adoption driven, developer friendly, and delivered on - time." xml:space="preserve">
+  <data name="The Neo Foundation supports teams that are capable of executing outstanding blockchain software development initiatives that improve the Neo ecosystem.Examples include developer tools such as SDKs, nodes, layer2 protocols, IDE plugins, and infrastructure protocols.We expect teams and deliverables to be adoption driven, developer friendly, and delivered on-time." xml:space="preserve">
     <value>Neo 基金会愿意为那些有能力执行出色的区块链软件开发计划，促进 Neo 生态发展的团队提供支持。比如 SDK、节点、layer2 协议、IDE 插件和基础设施协议等开发工具支持。当然，我们也希望所资助的团队能够按时交付对开发者友好且具有实用性的开发成果。</value>
   </data>
   <data name="The Neo General Grants Program is primarily focused on funding the development of tools and infrastructure for the Neo Blockchain." xml:space="preserve">

@@ -132,11 +132,11 @@
   <data name="Apply" xml:space="preserve">
     <value>申请</value>
   </data>
-  <data name="Apply for a General Grant now. The Neo Foundation will generally respond within one month." xml:space="preserve">
-    <value>现在申请成为核心开发者。通常情况下，您将在一个月内收到回复。</value>
-  </data>
   <data name="Apply Now" xml:space="preserve">
     <value>现在申请</value>
+  </data>
+  <data name="Apply to become a Core Developer now. The Neo Foundation will generally respond within one month." xml:space="preserve">
+    <value>现在申请成为核心开发者。通常情况下，您将在一个月内收到回复。</value>
   </data>
   <data name="As a Core Developer, in addition to the opportunity to work on the most cutting-edge technology in the blockchain industry and grow your personal brand, the Neo Foundation also provides financial rewards for contributions to Neo. Generally, the Core Developer Grants adopts a two-part reward model." xml:space="preserve">
     <value>作为核心开发者，除了有机会参与区块链行业最前沿的技术研究、发展个人品牌外，Neo 基金会还为对 Neo 共建者提供经济奖励。一般来说，核心开发者的激励分为两部分。</value>
@@ -156,7 +156,10 @@
   <data name="Core Developer alumni include:" xml:space="preserve">
     <value>往届核心开发者包括：</value>
   </data>
-  <data name="Core developer grants could provide…" xml:space="preserve">
+  <data name="Core Developer Grants" xml:space="preserve">
+    <value>核心开发者激励</value>
+  </data>
+  <data name="Core Developer Grants could provide…" xml:space="preserve">
     <value>核心开发者激励可以提供：</value>
   </data>
   <data name="Core Developers are empowered to manage and evolve the Neo core codebase and are deeply involved in Neo's technical and engineering decisions; therefore they are required to participate actively and regularly." xml:space="preserve">
@@ -168,7 +171,7 @@
   <data name="Core Developers will receive quarterly grants based on their active contributions to the following Neo repositories:" xml:space="preserve">
     <value>核心开发者将根据他们对 Neo 资源库所做的以下积极贡献获得季度激励：</value>
   </data>
-  <data name="Current core developers" xml:space="preserve">
+  <data name="Current Core Developers" xml:space="preserve">
     <value>当前的核心开发者</value>
   </data>
   <data name="Developers who have made outstanding contributions to the Neo core codebase, after being evaluated by the Neo Foundation, will be offered the opportunity to become Core Developers." xml:space="preserve">
@@ -204,7 +207,7 @@
   <data name="If you are…" xml:space="preserve">
     <value>如果你是：</value>
   </data>
-  <data name="If you feel that you have the qualities we are looking for and are willing to participate deeply in Neo's protocol development and long-term technical roadmap planning, you can send an email to dev@neo.org with attached materials that prove you meet the core developer requirements." xml:space="preserve">
+  <data name="If you feel that you have the qualities we are looking for and are willing to participate deeply in Neo's protocol development and long-term technical roadmap planning, you can send an email to grants@neo.org with attached materials that prove you meet the core developer requirements." xml:space="preserve">
     <value>如果您觉得自己满足我们的申请要求，并且愿意深入参与 Neo 的协议开发和长期技术路线规划，你可以发送电子邮件到 dev@neo.org，并附上证明你符合核心开发者要求的相关材料。</value>
   </data>
   <data name="If you want to become a Core Developer, we suggest that you take the following path:" xml:space="preserve">
