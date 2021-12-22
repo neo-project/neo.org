@@ -126,7 +126,7 @@
   <data name="An academic institution or research institute" xml:space="preserve">
     <value>一个学术机构或研究机构</value>
   </data>
-  <data name="An individual or group with expert knowledge in specialized fields such as applied cryptoography, P2P systems, engineering, economics, governance, etc." xml:space="preserve">
+  <data name="An individual or group with expert knowledge in specialized fields such as applied cryptography, P2P systems, engineering, economics, governance, etc." xml:space="preserve">
     <value>在应用密码学、P2P 系统、工程、经济、治理等专业领域具有专业知识的个人或团体。</value>
   </data>
   <data name="Apply for a Research Grant now. The Neo Foundation will generally respond within one month." xml:space="preserve">
@@ -267,7 +267,7 @@
   <data name="We are looking for pioneering researchers to focus their applied research efforts in areas related to the Neo Foundation's vision and roadmap. In order to provide directional guidance, listed below are some relevant topics that the Neo Foundation is considering in its roadmap over the next 12-24 months. If you believe that we should sponsor applied research in areas related to the Neo that aren't currently in the list, then please feel free to submit a new request addressing the proposal using the Research Application Form." xml:space="preserve">
     <value>我们正在寻找先进的研究者，来进行 Neo 基金会愿景和路线图的相关研究。作为方向指导，下面列出了 Neo 基金会将在未来的 12-24 个月中深入考虑的一些研究课题。如果您认为我们还有遗漏的、应该给予资助的 Neo 相关研究课题，欢迎通过提交研究申请表进行提案。</value>
   </data>
-  <data name="We attach importance to the application of research results, which may bring real - world improvements to the Neo Blockchain.Expected output and results of the applied research include but are not limited to:" xml:space="preserve">
+  <data name="We attach importance to the application of research results, which may bring real - world improvements to the Neo Blockchain. Expected output and results of the applied research include but are not limited to:" xml:space="preserve">
     <value>我们重视研究成果的实际应用，这可能给 Neo 区块链带来现实世界的改进。应用研究的预期产出结果包括但不限于：</value>
   </data>
 </root>

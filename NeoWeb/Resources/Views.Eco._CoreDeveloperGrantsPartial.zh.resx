@@ -165,7 +165,7 @@
   <data name="Core Developers are empowered to manage and evolve the Neo core codebase and are deeply involved in Neo's technical and engineering decisions; therefore they are required to participate actively and regularly." xml:space="preserve">
     <value>对 Neo 核心代码库做出了突出贡献的开发者，经过 Neo 基金会的评估后，将有机会成为核心开发者。</value>
   </data>
-  <data name="Core Developers will gain the following permissions and honors; at the same time, they need to assume corresponding responsibilies:" xml:space="preserve">
+  <data name="Core Developers will gain the following permissions and honors; at the same time, they need to assume corresponding responsibilities:" xml:space="preserve">
     <value>核心开发者将获得以下权限和荣誉；同时，他们也需要承担相应的责任。</value>
   </data>
   <data name="Core Developers will receive quarterly grants based on their active contributions to the following Neo repositories:" xml:space="preserve">
@@ -240,7 +240,7 @@
   <data name="Note that all the grants will be paid in equivalent NEO." xml:space="preserve">
     <value>请注意，所有激励都将以等价的 NEO 支付。</value>
   </data>
-  <data name="Note that community contributors who become ‘Core Developers’ are not employees of the Neo Foundation (NF) or Neo Global Development (NGD). Core Developers can choose their preferred way in contributing to the Neo protocol. However, we expect that you always do so with good intentions and never with the intention of harm." xml:space="preserve">
+  <data name="Note that community contributors who become ‘Core Developers’ are not employees of the Neo Foundation (NF) or Neo Global Development (NGD). Core Developers can choose their preferred way of contributing to the Neo protocol. However, we expect that you always do so with good intentions and never with the intention of harm." xml:space="preserve">
     <value>请注意，成为“核心开发者”的社区共建者并非 Neo 基金会（NF）或 Neo 全球发展部门（NGD）的成员。只要是为了达成善意而非恶意的目的，核心开发者可以任选自己喜欢的方式来为 Neo 协议做贡献。</value>
   </data>
   <data name="Once the application is submitted, the current Core Developer team will review it. If more than half of the Core Developers agree, the applicant will be nominated as a Core Developer Candidate and start a 3-month trial period. During the trial period, the Candidate needs to contribute and prove himself/herself qualified and will receive the Contribution Reward accordingly." xml:space="preserve">
