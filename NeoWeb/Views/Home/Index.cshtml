@@ -5,102 +5,60 @@
 @{ ViewBag.HiddenBreadCrumb = true; }
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/home.min.css", true)" />
+    <link rel="stylesheet" href="@Helper.ToCDN("/css/tailwind.output.css", true)" />
 }
 @* 基本块 - Home page *@
 <div class="home-container">
-    <div style="background-color: #000023; color: #fff">
-        <div class="container px-3 px-md-0" style="padding: 200px 0">
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="row">
-                        <div class="col-3 col-lg-12">
-                            <img class="img-fluid" style="width: 140px" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/N3Logo.svg")" />
-                        </div>
-                        <div class="col-9 col-lg-12">
-                            <p class="my-0 my-lg-3 big-text text-uppercase">@Localizer["Early Bird migration now open"]</p>
-                        </div>
-                        <style>
-                            .big-text {
-                                font-family: WorkSans;
-                                font-style: normal;
-                                font-weight: bold;
-                                font-size: 80px;
-                                line-height: 1.07;
-                                color: #00E599;
-                                text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-                            }
-                            @@media (min-width: 1600px) {
-                                .find-out {
-                                    margin-top: -80px;
-                                }
-                            }
-                            @@media (max-width: 1200px) {
-                                .big-text {
-                                    font-size: 80px;
-                                }
-                            }   
-                            @@media (max-width: 992px) {
-                                .big-text {
-                                    font-size: 60px;
-                                }
-                            }
-                            @@media (max-width: 768px) {
-                                .big-text {
-                                    font-size: 40px;
-                                }
-                            }
-                        </style>
+    <div style="background-color: #010101; color: #fff">
+
+        <div class="tw-px-4 lg:tw-px-0  tw-container tw-mx-auto tw-py-40" style="background-image:url(/images/polaris/star_bg.png);background-size:cover">
+
+            <div class=" tw-flex tw-w-full tw-mb-10">
+
+                <div class="tw-flex tw-w-full tw-gap-3 tw-flex-col work-sans-bold">
+                    <div class="lg:tw-text-left tw-text-center">
+                        <div class="tw-text-polaris tw-text-4xl lg:tw-text-7xl ">POLARIS</div>
+                        <div class="tw-text-polaris tw-text-4xl lg:tw-text-7xl ">LAUNCHPAD</div>
+                        <div class="tw-text-4xl lg:tw-text-7xl  tw-mb-7">OPEN NOW</div>
+                    </div>
+                    @*on mobile*@
+                    <div class="tw-w-full lg:tw-hidden tw-block">
+                        <img src="/images/polaris/polaris_static.png" class="tw-w-full tw-object-cover" />
+                    </div>
+
+                    <p class="tw-uppercase work-sans-semibold tw-mb-7 tw-tracking-widest lg:tw-text-left tw-text-center">
+                        compete for $500,000 in prizes &<br /> $200m in incubation support
+                    </p>
+                    <div class="tw-flex tw-items-center tw-justify-center lg:tw-justify-start tw-gap-4 lg:tw-w-full tw-uppercase">
+                        <a href="https://polaris.neo.org/" target="_blank" class="hover:tw-text-white tw-border tw-border-polaris  tw-bg-polaris work-sans-semibold tw-py-2 lg:tw-px-8 tw-w-full lg:tw-w-auto tw-text-center">LEARN MORE</a>
+                        <a href="https://neo-polaris.devpost.com/" target="_blank" class="hover:tw-bg-polaris hover:tw-text-white tw-border tw-border-polaris tw-text-polaris work-sans-semibold tw-py-2 lg:tw-px-8 tw-w-full lg:tw-w-auto tw-text-center">DEVPOST</a>
                     </div>
                 </div>
-                <div class="col-lg-7 mt-5 mt-lg-0 d-none d-md-block">
-                    <div class="d-none d-lg-block" style="height: 50px"></div>
-                    <div class="row text-center">
-                        <div class="col-md-4">
-                            <div><strong class="my-3">01 <span class="green">@Localizer["FORMAL TESTNET"]</span></strong></div>
-                            <img class="my-3 img-fluid" style="width: 281px" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/roadmap1.svg", true)" />
-                            <p class="my-3" style="font-family: Work Sans; font-weight: 600; font-size: 16px; line-height: 18px;">@Localizer["STARTING JULY 20TH"]</p>
-                        </div>
-                        <div class="col-md-4">
-                            <div><strong class="my-3">02 <span class="green">@Localizer["MAINNET"]</span></strong></div>
-                            <img class="my-3 img-fluid" style="width: 281px" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/roadmap2.svg", true)" />
-                            <p class="my-3" style="font-family: Work Sans; font-weight: 600; font-size: 16px; line-height: 18px;">@Localizer["AUGUST 2ND"]</p>
-                        </div>
-                        <div class="col-md-4">
-                            <div><strong class="my-3">03 <span class="green">@Localizer["MASS MIGRATION"]</span></strong></div>
-                            <img class="my-3 img-fluid" style="width: 281px" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/roadmap3.svg", true)" />
-                            <p class="my-3" style="font-family: Work Sans; font-weight: 600; font-size: 16px; line-height: 18px;">@Localizer["SEPTEMBER 1ST"]</p>
-                        </div>
-                    </div>
-                    <div class="@SharedLocalizer["d-none-zh"] text-center">
-                        <img class="my-1 img-fluid" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/roadmap.svg", true)" />
-                    </div>
-                    <div class="@SharedLocalizer["d-none"] text-center">
-                        <img class="my-1 img-fluid" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/roadmap-zh.svg", true)" />
-                    </div>
+                @*on large screen*@
+                <div class="tw-w-full tw-hidden lg:tw-block">
+                    <img src="/images/polaris/polaris_static.png" class="tw-h-full tw-w-full tw-object-cover" />
                 </div>
-                <div class="d-block d-md-none my-3 text-center" style="width: 100%">
-                    <img class="my-1 img-fluid @SharedLocalizer["d-none-zh"]" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/roadmap-xs.svg", true)" />
-                    <img class="my-1 img-fluid @SharedLocalizer["d-none"]" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/roadmap-xs-zh.svg", true)" />
+
+            </div>
+
+            <div class="lg:tw-text-left tw-text-center lg:tw-flex lg:tw-flex-row tw-items-center tw-divide-y lg:tw-divide-x lg:tw-divide-y-0 tw-divide-gray-700 tw-w-full lg:tw-w-2/3">
+                <div class="lg:tw-pr-6 tw-py-3 ">
+                    <p class="work-sans-bold tw-uppercase tw-tracking-widest">planathon:</p>
+                    <p class="tw-text-sm">Win prize multipliers for crafting the best plan</p>
+                </div>
+                <div class="lg:tw-pl-8 lg:tw-pr-6 tw-pl-0 tw-py-3">
+                    <p class="work-sans-bold tw-uppercase tw-tracking-widest">hackathon:</p>
+                    <p class="tw-text-sm">Bring your ideas to life for a $35,000 Grand Prize</p>
+                </div>
+                <div class="lg:tw-pl-8 lg:tw-pr-6 tw-pl-0 tw-py-3">
+                    <p class="work-sans-bold tw-uppercase tw-tracking-widest">polaris plus:</p>
+                    <p class="tw-text-sm">Receive additional prize money through quadratic funding</p>
                 </div>
             </div>
-            <div class="row text-center text-lg-left find-out">
-                <div class="col-lg-5">
-                    <p class="text-uppercase" style="font-family: WorkSans; font-weight: 600; font-size: 16px; line-height: 125%; letter-spacing: 3px;">@Localizer["Find out more about your migration options"]</p>
-                    <div>
-                        <a class="btn-2 my-4" href="https://neo.org/blog/details/4240">@Localizer["Learn More"]</a>
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <div class="news-wrapper">
-                        <div class="latest-news-text">
-                            @Localizer["LATEST NEWS:"]
-                        </div>
-                        <a class="news-link" href="~/blog/details/@Model.FirstOrDefault(p => p.Type == NewsViewModelType.Blog).Blog.Id">@Model[0].Blog.Title <i class="iconfont circle-arrow-icon green">&#xe6ab;</i></a>
-                    </div>
-                </div>
-            </div>
+           
         </div>
     </div>
+
     <div class="row horiz-row aio-row">
         <div class="col-12 col-md-12">
             <div class="aio-title @SharedLocalizer["d-none-zh"]">

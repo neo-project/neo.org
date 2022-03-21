@@ -127,6 +127,7 @@ https://github.com/neo-project/neo.org
                     <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="dev">@Localizer["Developer"]</a></li>
                     <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="eco">@Localizer["Eco-Support"]</a></li>
                     <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="news">@Localizer["News"]</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://ndapp.org" target="_blank">@Localizer["dApps"]</a></li>
                     <li class="nav-item d-block d-md-none"><a class="nav-link" asp-action="index" asp-controller="migration">@Localizer["Migration"]</a></li>
 
                     @if (SharedLocalizer["en"].Value == "zh")
@@ -154,10 +155,10 @@ https://github.com/neo-project/neo.org
         {
             <div class="migration-div d-none d-md-block">
                 <a asp-action="index" asp-controller="migration">
-                    <h4 class="migration-text">
+                    <p class="migration-text tw-flex tw-gap-1 tw-text-lg tw-font-semibold">
                         <img src="@Helper.CDN/images/presskit/Neo symbol.svg" />
                         @Localizer["MIGRATE TO N3"]
-                    </h4>
+                    </p>
                 </a>
             </div>
         }
