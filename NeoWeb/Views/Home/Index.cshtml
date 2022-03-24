@@ -5,17 +5,22 @@
 @{ ViewBag.HiddenBreadCrumb = true; }
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/home.min.css", true)" />
-    <link rel="stylesheet" href="@Helper.ToCDN("/css/tailwind.output.css", true)" />
+    <link rel="stylesheet" href="@Helper.ToCDN("/tailwind/tailwind.output.css", true)" />
 }
 @* 基本块 - Home page *@
 <div class="home-container">
-    <div style="background-color: #010101; color: #fff">
+    <div style="background-color: #010101; color: #fff" class="tw-relative">
 
-        <div class="tw-px-4 lg:tw-px-0  tw-container tw-mx-auto tw-py-40" style="background-image:url(/images/polaris/star_bg.png);background-size:cover">
+        <div class="tw-px-4 lg:tw-px-0  tw-container tw-mx-auto tw-py-40 tw-relative">
 
-            <div class=" tw-flex tw-w-full tw-mb-10">
+            <div class="tw-w-full tw-h-full tw-absolute tw-left-0 tw-top-0 tw-flex tw-justify-between ">
+                <div></div>
+                <img src="/images/polaris/star_bg.png" class="tw-w-1/2 h-full tw-ml-auto"/>
+            </div>
 
-                <div class="tw-flex tw-w-full tw-gap-3 tw-flex-col work-sans-bold">
+            <div class=" tw-flex tw-w-full tw-mb-10 tw-relative">
+
+                <div class="tw-flex tw-w-full tw-gap-3 tw-flex-col work-sans-bold lg:tw-w-2/5">
                     <div class="lg:tw-text-left tw-text-center">
                         <div class="tw-text-polaris tw-text-4xl lg:tw-text-7xl ">POLARIS</div>
                         <div class="tw-text-polaris tw-text-4xl lg:tw-text-7xl ">LAUNCHPAD</div>
@@ -25,6 +30,7 @@
                     <div class="tw-w-full lg:tw-hidden tw-block">
                         <img src="/images/polaris/polaris_static.png" class="tw-w-full tw-object-cover" />
                     </div>
+                    @*end on mobile*@
 
                     <p class="tw-uppercase work-sans-semibold tw-mb-7 tw-tracking-widest lg:tw-text-left tw-text-center">
                         compete for $500,000 in prizes &<br /> $200m in incubation support
@@ -34,14 +40,15 @@
                         <a href="https://neo-polaris.devpost.com/" target="_blank" class="hover:tw-bg-polaris hover:tw-text-white tw-border tw-border-polaris tw-text-polaris work-sans-semibold tw-py-2 lg:tw-px-8 tw-w-full lg:tw-w-auto tw-text-center">DEVPOST</a>
                     </div>
                 </div>
+
                 @*on large screen*@
-                <div class="tw-w-full tw-hidden lg:tw-block">
+                <div class="tw-ml-auto tw-w-full tw-hidden lg:tw-block">
                     <img src="/images/polaris/polaris_static.png" class="tw-h-full tw-w-full tw-object-cover" />
                 </div>
 
             </div>
 
-            <div class="lg:tw-text-left tw-text-center lg:tw-flex lg:tw-flex-row tw-items-center tw-divide-y lg:tw-divide-x lg:tw-divide-y-0 tw-divide-gray-700 tw-w-full lg:tw-w-2/3">
+            <div class="tw-relative lg:tw-text-left tw-text-center lg:tw-flex lg:tw-flex-row tw-items-center tw-divide-y lg:tw-divide-x lg:tw-divide-y-0 tw-divide-gray-700 tw-w-full lg:tw-w-2/3">
                 <div class="lg:tw-pr-6 tw-py-3 ">
                     <p class="work-sans-bold tw-uppercase tw-tracking-widest">planathon:</p>
                     <p class="tw-text-sm">Win prize multipliers for crafting the best plan</p>

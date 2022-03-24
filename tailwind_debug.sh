@@ -1,1 +1,1 @@
-npx tailwindcss -i ./tailwind.css -o ./NeoWeb/wwwroot/css/tailwind.output.css --watch
+npx tailwindcss -i ./NeoWeb/wwwroot/tailwind/tailwind.css -o ./NeoWeb/wwwroot/tailwind/tailwind.output.css --watch
