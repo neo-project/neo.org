@@ -5,44 +5,61 @@
 @{ ViewBag.HiddenBreadCrumb = true; }
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/home.min.css", true)" />
+    <link rel="stylesheet" href="@Helper.ToCDN("/tailwind/tailwind.output.css", true)" />
 }
 @* 基本块 - Home page *@
 <div class="home-container">
+    <div style="background-color: #010101; color: #fff" class="tw-relative">
 
-    @* 这块经常改动，不要考虑复用 *@
-    <div class="hero">
-        <div class="container px-3 px-md-0" style="padding: 200px 0 150px">
-            <div class="row">
-                <div class="col-12 text-center text-md-left">
-                    <img class="img-fluid" style="width: 140px" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/N3Logo.svg")" />
-                    <div class="big-text my-4">
-                        <p class="green">@Localizer["migration"]</p>
-                        <p>@Localizer["open now"]</p>
+        <div class="tw-px-4 container tw-mx-auto tw-py-40 tw-relative">
+
+            <div class="tw-w-full tw-h-full tw-absolute tw-left-0 tw-top-0 tw-flex tw-justify-between ">
+                <div></div>
+                <img src="/images/polaris/star_bg.png" class="tw-w-1/2 h-full tw-ml-auto"/>
+            </div>
+
+            <div class=" tw-flex tw-w-full tw-mb-10 tw-relative">
+
+                <div class="tw-flex tw-w-full tw-gap-3 tw-flex-col work-sans-bold lg:tw-w-2/5">
+                    <div class="lg:tw-text-left tw-text-center">
+                        <div class="tw-text-polaris tw-text-4xl lg:tw-text-7xl ">@Localizer["POLARIS"]</div>
+                        <div class="tw-text-polaris tw-text-4xl lg:tw-text-7xl ">@Localizer["LAUNCHPAD"]</div>
+                        <div class="tw-text-4xl lg:tw-text-7xl tw-mb-7">@Localizer["OPEN NOW"]</div>
                     </div>
-                    <p class="text-uppercase" style="font-family: WorkSans; font-weight: 600; font-size: 16px; line-height: 125%; letter-spacing: 3px;">@Localizer["Migrate your NEO & GAS tokens to the newest version of Neo"]</p>
-                    <div>
-                        <a class="btn-4 my-4" href="https://neo.org/blog/details/4244">@Localizer["Learn More"]</a>
+                    @*on mobile*@
+                    <div class="tw-w-full lg:tw-hidden tw-block">
+                        <img src="/images/polaris/polaris_static.png" class="tw-w-full tw-object-cover" />
                     </div>
-                    <div class="my-4">
-                        <div class="news-wrapper">
-                            <div class="latest-news-text">
-                                @Localizer["Incentive:"]
-                            </div>
-                            <a class="news-link" href="~/blog/details/4244">@Localizer["Recieve up to a 1% NEO bonus for migrating early"]<i class="iconfont circle-arrow-icon">&#xe6ab;</i></a>
-                        </div>
-                        <div class="news-wrapper">
-                            <div class="latest-news-text">
-                                @Localizer["Celebrate:"]
-                            </div>
-                            <a class="news-link" target="_blank" href="https://neoverse.neo.org">@Localizer["Claim your NFT blind box to celebrate the N3 launch"] <i class="iconfont circle-arrow-icon">&#xe6ab;</i></a>
-                        </div>
-                        <div class="news-wrapper">
-                            <div class="latest-news-text">
-                                @Localizer["Latest News:"]
-                            </div>
-                            <a class="news-link" href="~/blog/details/@Model.FirstOrDefault(p => p.Type == NewsViewModelType.Blog).Blog.Id">@Model[0].Blog.Title <i class="iconfont circle-arrow-icon">&#xe6ab;</i></a>
-                        </div>
+                    @*end on mobile*@
+
+                    <p class="tw-uppercase work-sans-semibold tw-mb-7 tw-tracking-widest lg:tw-text-left tw-text-center">
+                        @Localizer["compete for $500,000 in prizes &"]<br /> @Localizer["$200m in incubation support"]
+                    </p>
+                    <div class="tw-flex tw-items-center tw-justify-center lg:tw-justify-start tw-gap-4 lg:tw-w-full tw-uppercase">
+                        <a href="https://polaris.neo.org/" target="_blank" class="hover:tw-text-white tw-border tw-border-polaris tw-bg-polaris work-sans-semibold tw-py-2 lg:tw-px-8 tw-w-full lg:tw-w-auto tw-text-center">@Localizer["LEARN MORE"]</a>
+                        <a href="https://neo-polaris.devpost.com/" target="_blank" class="hover:tw-bg-polaris hover:tw-text-white tw-border tw-border-polaris tw-text-polaris work-sans-semibold tw-py-2 lg:tw-px-8 tw-w-full lg:tw-w-auto tw-text-center">@Localizer["DEVPOST"]</a>
                     </div>
+                </div>
+
+                @*on large screen*@
+                <div class="tw-ml-auto tw-w-full tw-hidden lg:tw-block">
+                    <img src="/images/polaris/polaris_static.png" class="tw-h-full tw-w-full tw-object-cover" />
+                </div>
+
+            </div>
+
+            <div class="tw-relative lg:tw-text-left tw-text-center lg:tw-flex lg:tw-flex-row tw-items-center tw-divide-y lg:tw-divide-x lg:tw-divide-y-0 tw-divide-gray-700 tw-w-full lg:tw-w-2/3">
+                <div class="lg:tw-pr-6 tw-py-3 ">
+                    <p class="work-sans-bold tw-uppercase tw-tracking-widest">@Localizer["planathon:"]</p>
+                    <p class="tw-text-sm">@Localizer["Win prize multipliers for crafting the best plan"]</p>
+                </div>
+                <div class="lg:tw-pl-8 lg:tw-pr-6 tw-pl-0 tw-py-3">
+                    <p class="work-sans-bold tw-uppercase tw-tracking-widest">@Localizer[""]hackathon:</p>
+                    <p class="tw-text-sm">@Localizer["Bring your ideas to life for a $35,000 Grand Prize"]</p>
+                </div>
+                <div class="lg:tw-pl-8 lg:tw-pr-6 tw-pl-0 tw-py-3">
+                    <p class="work-sans-bold tw-uppercase tw-tracking-widest">@Localizer["polaris plus:"]</p>
+                    <p class="tw-text-sm">@Localizer["Receive additional prize money through quadratic funding"]</p>
                 </div>
                 <style>
                     .navbar {
@@ -81,6 +98,7 @@
                     }
                 </style>
             </div>
+           
         </div>
     </div>
 
