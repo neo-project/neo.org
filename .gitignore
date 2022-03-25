@@ -293,6 +293,3 @@ NeoWeb/validators.json
 NeoWeb/wwwroot/css/*.css
 SendGridTest/Program.cs
 .DS_Store
-NeoWeb/appsettings.json
-tailwind_debug.sh
-tailwind_prod.sh
