@@ -1,0 +1,331 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+<div class="menu-page-title">
+    <img class="menu-page-title-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/grants1.svg", true)" />
+    <span class="menu-page-title-text">
+        @Localizer["General Grants"]
+    </span>
+</div>
+
+<div class="menu-page-introduction clearfix">
+    <img class="menu-page-introduction-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/general-grants.svg", true)" />
+    <div class="menu-page-title">
+        <img class="menu-page-title-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/ecofund.svg", true)" />
+        <span class="menu-page-title-text">
+            @Localizer["General Grants"]
+        </span>
+    </div>
+    <div class="menu-page-introduction-title">
+        @Localizer["Funding success"]
+    </div>
+    <div class="menu-page-introduction-description">
+        <p>
+            <strong>@Localizer["The Neo General Grants Program is primarily focused on funding the development of tools and infrastructure for the Neo Blockchain."]</strong>
+        </p>
+        <p>
+            @Localizer["The Neo Foundation supports teams that are capable of executing outstanding blockchain software development initiatives that improve the Neo ecosystem.Examples include developer tools such as SDKs, nodes, layer2 protocols, IDE plugins, and infrastructure protocols. We expect teams and deliverables to be adoption driven, developer friendly, and delivered on-time."]
+        </p>
+    </div>
+</div>
+
+<div class="menu-page-divider"></div>
+
+<div class="menu-page-secondary-title">
+    @Localizer["Project funding"]
+</div>
+
+<div class="menu-page-description">
+    <p>
+        @Localizer["The average funding for a project is between $5,000 to $50,000, with the typical maximum funding around $100,000. However, if a project can provide extraordinary value to the Neo ecosystem, additional funding may be possible. Generally, the Neo Foundation decides the funding for a project based on the time, difficulty, importance or priority to the Neo ecosystem and the developer-friendly nature of the project. Most of the projects should be expected to be completed within 6 months."]
+    </p>
+    <p>
+        @Localizer["Grants may be applied for in stages for new projects with complexity, or for existing projects with major new capabilities or upgrades. For existing projects, teams need to complete and deliver on the previous grant as described in their application before receiving additional funds. The Neo Foundation Grants Committee will decide whether to approve the new grant application."]
+    </p>
+</div>
+
+<div class="menu-page-description">
+    <div class="menu-page-secondary-title my-4">
+        @Localizer["Opportunities & Priorities"]
+    </div>
+    <p>
+        @Localizer["Neo is currently looking for talented developers to take on the following projects."]
+    </p>
+    <table class="my-4">
+        <thead>
+            <tr>
+                <th colspan="2">@Localizer["Infrastructure & Modules"]</th>
+                <th>@Localizer["Priority"]</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Localizer["Developer Environments"]</td>
+                <td>@Localizer["Local development environment to speed up development and testing for smart contract as well as any Neo applications."]</td>
+                <td>@Localizer["High"]</td>
+            </tr>
+            <tr>
+                <td>@Localizer["Node API Service"]</td>
+                <td>@Localizer["Tools to provide more stable and scalable API service for all Neo applications."]</td>
+                <td>@Localizer["High"]</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="my-4">
+        <thead>
+            <tr>
+                <th colspan="2">@Localizer["Application Development Support"]</th>
+                <th>@Localizer["Priority"]</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Localizer["Smart Contract Library"]</td>
+                <td>@Localizer["Provide reusable smart contract modules or more secure smart contract templates to simplify smart contract development."]</td>
+                <td>@Localizer["High"]</td>
+            </tr>
+            <tr>
+                <td>@Localizer["SDK"]</td>
+                <td>@Localizer["iOS SDK"]</td>
+                <td>@Localizer["High"]</td>
+            </tr>
+            <tr>
+                <td>@Localizer["Web IDE"]</td>
+                <td>@Localizer["Provide a ready to use online platform/sandbox to write, test, deploy and manage smart contracts."]</td>
+                <td>@Localizer["High"]</td>
+            </tr>
+            <tr>
+                <td>@Localizer["Tutorials"]</td>
+                <td>@Localizer["Any non-interactive or interactive tutorials that teach how to code on Neo, ranging from smart contract to dApp development."]</td>
+                <td>@Localizer["High"]</td>
+            </tr>
+            <tr>
+                <td>@Localizer["Templates"]</td>
+                <td>@Localizer["Templates to help accelerate the development process for either smart contracts or dApps."]</td>
+                <td>@Localizer["High"]</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="my-4">
+        <thead>
+            <tr>
+                <th colspan="2">@Localizer["Middleware & Application"]</th>
+                <th>@Localizer["Priority"]</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Localizer["Oracle Solution"]</td>
+                <td>@Localizer["Oracle solutions built around Neo built-in oracle to provide specific function or feature, like price feed, randomness, bridge, etc."]</td>
+                <td>@Localizer["High"]</td>
+            </tr>
+            <tr>
+                <td>@Localizer["Lending Protocol"]</td>
+                <td>@Localizer["Decentralized lending protocol enables anyone to earn interests by supplying digital assets, also getting loans."]</td>
+                <td>@Localizer["High"]</td>
+            </tr>
+            <tr>
+                <td>@Localizer["NFT marketplace & issuing platform"]</td>
+                <td>@Localizer["NFT marketplace to issue, display and exchange NFT assets on Neo."]</td>
+                <td>@Localizer["High"]</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="menu-page-secondary-title">
+    @Localizer["How to apply"]
+</div>
+
+<div class="menu-page-description">
+    <strong>@Localizer["Projects or organizations that believe they fit the scope of the General Grants program are welcome to apply."]</strong>
+</div>
+<div class="application">
+    <div class="application-start">
+        <div class="application-start-title">
+            @Localizer["If you are…"]
+        </div>
+        <ul class="application-start-items">
+            <li>
+                @Localizer["An experienced development team with advanced blockchain knowledge"]
+            </li>
+            <li>
+                @Localizer["Interested in building tools and infrastructure to advance the Neo ecosystem"]
+            </li>
+            <li>
+                @Localizer["Able to provide long-term support to your project"]
+            </li>
+            <li>
+                @Localizer["Organised and willing to provide regular project status reports to the Neo Foundation"]
+            </li>
+        </ul>
+    </div>
+    <div class="application-end">
+        <i class="application-chevron iconfont">&#xe6ab;</i>
+        <div class="application-end-title">
+            @Localizer["General Grants could provide…"]
+        </div>
+        <div class="application-end-items">
+            <div class="application-end-item">
+                <img class="application-end-item-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
+                <span class="application-end-item-text">
+                    @Localizer["Funding to help you build your project"]
+                </span>
+            </div>
+            <div class="application-end-item">
+                <img class="application-end-item-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
+                <span class="application-end-item-text">
+                    @Localizer["Guidance from Neo core developers and other technical leads"]
+                </span>
+            </div>
+            <div class="application-end-item">
+                <img class="application-end-item-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
+                <span class="application-end-item-text">
+                    @Localizer["Access to developer community events, such as the Neo Community Assembly"]
+                </span>
+            </div>
+            <div class="application-end-item">
+                <img class="application-end-item-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/checked.png", true)" />
+                <span class="application-end-item-text">
+                    @Localizer["A kickstart in building a project that you may be able to build a business around."]
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="requirements-title">
+    @Localizer["Application requirements"]
+</div>
+
+<div class="menu-page-description">
+    <strong>@Localizer["If you feel your project is right for General Grants, please contact Neo Foundation with the following information:"]</strong>
+</div>
+
+<ul class="requirements">
+    <li>
+        @Localizer["Team introduction"]
+        <ul class="requirements-sublist">
+            <li>
+                @Localizer["Team name"]
+            </li>
+            <li>
+                @Localizer["Team website / GitHub organization"]
+            </li>
+            <li>
+                @Localizer["Legal entity information (if you have one)"]
+            </li>
+            <li>
+                @Localizer["Team composition (leaders / members)"]
+            </li>
+            <li>
+                @Localizer["Related experience"]
+            </li>
+        </ul>
+    </li>
+    <li>
+        @Localizer["Project introduction"]
+        <ul class="requirements-sublist">
+            <li>
+                @Localizer["A brief introduction to the project and its use-cases or scenarios."]
+            </li>
+            <li>
+                @Localizer["An explanation of why this project is important to the Neo ecosystem. Are there any other projects similar to yours in the Neo ecosystem?"]
+            </li>
+            <li>
+                @Localizer["A summary of why your team is motivated and interested in developing this project."]
+            </li>
+            <li>
+                @Localizer["Any anticipated challenges or risks to successful delivery and completion of the project."]
+            </li>
+        </ul>
+    </li>
+    <li>
+        @Localizer["Project roadmap"]
+        <ul class="requirements-sublist">
+            <li>
+                @Localizer["Delivery milestones and timeframe"]
+            </li>
+            <li>
+                @Localizer["Features outline"]
+            </li>
+            <li>
+                @Localizer["Verifiable deliverables"]
+            </li>
+            <li>
+                @Localizer["Total funding request / budget plan for each milestone"]
+            </li>
+            <li>
+                @Localizer["Future plans / team’s longer term business priorities"]
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<div class="apply">
+    <div class="apply-text">@Localizer["Apply for a General Grant now. The Neo Foundation will generally respond within one month."]</div>
+    <a class="apply-btn btn-2 btn-small" href="mailto:grants@neo.org">
+        @Localizer["Apply Now"]&nbsp;&nbsp;<i class="iconfont">&#xe6ab;</i>
+    </a>
+</div>
+
+
+<div class="menu-page-divider"></div>
+
+<div class="menu-page-tertiary-title">
+    @Localizer["Recently funded projects"]
+</div>
+
+<div class="projects">
+    <i class="projects-controller-left iconfont">&#xe61c;</i>
+    <i class="projects-controller-right iconfont">&#xe61b;</i>
+    <div class="projects-content oneline">
+        <div class="project">
+            <img class="project-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/grants/boa.png", true)" />
+            <div class="project-name">boa</div>
+        </div>
+        <div class="project">
+            <img class="project-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/grants/mamba.png", true)" />
+            <div class="project-name">mamba</div>
+        </div>
+        <div class="project">
+            <img class="project-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/grants/Neo Blockchain Toolkit.png", true)" />
+            <div class="project-name">Neo Blockchain Toolkit</div>
+        </div>
+        <div class="project">
+            <img class="project-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/grants/Neo RPC SDK.png", true)" />
+            <div class="project-name">Neo RPC SDK</div>
+        </div>
+        <div class="project">
+            <img class="project-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/grants/neo-cli.svg", true)" />
+            <div class="project-name">neo-cli</div>
+        </div>
+        <div class="project">
+            <img class="project-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/grants/neocompiler.png", true)" />
+            <div class="project-name">neocompiler</div>
+        </div>
+        <div class="project">
+            <img class="project-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/grants/neo-go.png", true)" />
+            <div class="project-name">neo-go</div>
+        </div>
+        <div class="project">
+            <img class="project-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/grants/neo-gui.png", true)" />
+            <div class="project-name">neo-gui</div>
+        </div>
+        <div class="project">
+            <img class="project-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/grants/neon-js.png", true)" />
+            <div class="project-name">neon-js</div>
+        </div>
+        <div class="project">
+            <img class="project-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/grants/neow3j.png", true)" />
+            <div class="project-name">neow3j</div>
+        </div>
+        <div class="project">
+            <img class="project-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/grants/nspcc.png", true)" />
+            <div class="project-name">NeoFS</div>
+        </div>
+    </div>
+</div>
+

@@ -34,6 +34,19 @@
                 @Localizer["EcoFund Program"]
                 <i class="iconfont">&#xe6ab;</i>
             </a>
+            <a class="menu-item" asp-controller="eco" asp-action="index" asp-fragment="general-grants">
+                @Localizer["General Grants"]
+                <i class="iconfont">&#xe6ab;</i>
+            </a>
+            <a class="menu-item" asp-controller="eco" asp-action="index" asp-fragment="core-developer-grants">
+                @Localizer["Core Developer Grants"]
+                <i class="iconfont">&#xe6ab;</i>
+            </a>
+            <a class="menu-item" asp-controller="eco" asp-action="index" asp-fragment="research-grants
+               ">
+                @Localizer["Research Grants"]
+                <i class="iconfont">&#xe6ab;</i>
+            </a>
             <a class="menu-item" asp-controller="eco" asp-action="index" asp-fragment="earlyadoption">
                 @Localizer["Early Adoption Program"]
                 <i class="iconfont">&#xe6ab;</i>
@@ -41,8 +54,11 @@
         </div>
         <select class="select-menu-page form-control">
             <option selected="selected">@Localizer["Overview"]</option>
-            <option>@Localizer["EcoBoost"]</option>
-            <option>@Localizer["EcoFund"]</option>
+            <option>@Localizer["EcoBoost Program"]</option>
+            <option>@Localizer["EcoFund Program"]</option>
+            <option>@Localizer["General Grants"]</option>
+            <option>@Localizer["Core Developer Grants"]</option>
+            <option>@Localizer["Research Grants"]</option>
             <option>@Localizer["Early Adoption Program"]</option>
         </select>
     </div>
@@ -56,6 +72,15 @@
         </div>
         <div class="menu-page">
             <partial name="./_EcoFundPartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_GeneralGrantsPartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_CoreDeveloperGrantsPartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_ResearchGrantsPartial" />
         </div>
         <div class="menu-page">
             <partial name="./_EarlyAdoptionPartial" />
@@ -96,8 +121,14 @@
                     updateMenu(1);
                 } else if (hash === 'ecofund'){
                     updateMenu(2);
-                } else if (hash === 'earlyadoption') {
+                } else if (hash === 'general-grants') {
                     updateMenu(3);
+                } else if (hash === 'core-developer-grants') {
+                    updateMenu(4);
+                } else if (hash === 'research-grants') {
+                    updateMenu(5);
+                } else if (hash === 'earlyadoption') {
+                    updateMenu(6);
                 }
             }
 
@@ -110,6 +141,12 @@
                 } else if (index === 2) {
                     location.href = '@Url.Action("index", "eco", null, null, null, "ecofund")';
                 } else if (index === 3) {
+                    location.href = '@Url.Action("index", "eco", null, null, null, "general-grants")';
+                } else if (index === 4) {
+                    location.href = '@Url.Action("index", "eco", null, null, null, "core-developer-grants")';
+                } else if (index === 5) {
+                    location.href = '@Url.Action("index", "eco", null, null, null, "research-grants")';
+                } else if (index === 6) {
                     location.href = '@Url.Action("index", "eco", null, null, null, "earlyadoption")';
                 }
             });

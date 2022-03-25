@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+</head>
+<body>
+    <div id="step1">
+        <img title="密码" src="images/348.jpg" />
+        <h1>请输入密码：</h1>
+        <input id="number" title="请输入密码" type="text" />
+        <button onclick="check()">确定</button>
+    </div>
+    <div id="step2" style="display: none">
+        <h1>恭喜你，获得线索，线索的内容是：</h1>
+        <img src="/images/map1.png" />
+    </div>
+    <script>
+        //既然你能看懂代码，我就不难为你了
+        function check() {
+            if ($("#number").val() == "348920") {
+                $("#step2").show();
+                $("#step1").hide();
+            }
+            else {
+                alert("密码错误");
+            }
+        }
+    </script>
+</body>
+</html>

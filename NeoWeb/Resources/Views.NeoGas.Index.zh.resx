@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="&lt;em&gt;NEO&lt;/em&gt;&lt;br/&gt;&amp; GAS" xml:space="preserve">
+    <value>&lt;em&gt;NEO&lt;/em&gt; &amp; GAS</value>
+  </data>
   <data name="Neo’s two token model allows users to participate in the ecosystem without reducing their stake in the network." xml:space="preserve">
     <value>Neo的双通证模型允许用户在不影响自己治理权的前提下自由使用网络。</value>
   </data>

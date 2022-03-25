@@ -312,40 +312,31 @@
   <data name="Take A Tour" xml:space="preserve">
     <value>开启 N3 之旅</value>
   </data>
-  <data name="AUGUST 2ND" xml:space="preserve">
-    <value>8月2日</value>
-  </data>
-  <data name="EARLY BIRD MIGRATION" xml:space="preserve">
-    <value>“早鸟“迁移</value>
-  </data>
   <data name="FIND OUT ABOUT WHAT EACH MILESTONE HAS INSTORE FOR NEO" xml:space="preserve">
     <value>Neo N3主网上线及迁移路线图公布</value>
   </data>
-  <data name="FORMAL TESTNET" xml:space="preserve">
-    <value>正式测试网</value>
-  </data>
-  <data name="MAINNET" xml:space="preserve">
-    <value>主网</value>
-  </data>
-  <data name="MASS MIGRATION" xml:space="preserve">
-    <value>大规模迁移</value>
-  </data>
-  <data name="ON THE ROAD TO MAINNET" xml:space="preserve">
-    <value>主网启动计划开启</value>
-  </data>
-  <data name="SEPTEMBER 1ST" xml:space="preserve">
-    <value>9月1日</value>
-  </data>
-  <data name="STARTING JULY 20TH" xml:space="preserve">
-    <value>7月20日起</value>
-  </data>
-  <data name="LATEST NEWS:" xml:space="preserve">
+  <data name="Latest News:" xml:space="preserve">
     <value>最新资讯：</value>
   </data>
-  <data name="Early Bird migration now open" xml:space="preserve">
-    <value>早鸟迁移现已开启</value>
+  <data name="Celebrate:" xml:space="preserve">
+    <value>庆祝 N3：</value>
   </data>
-  <data name="Find out more about your migration options" xml:space="preserve">
-    <value>点击了解更多迁移渠道</value>
+  <data name="Claim your NFT blind box to celebrate the N3 launch" xml:space="preserve">
+    <value>申领 NFT 盲盒，庆祝 N3 上线</value>
+  </data>
+  <data name="Incentive:" xml:space="preserve">
+    <value>迁移激励：</value>
+  </data>
+  <data name="Migrate your NEO &amp; GAS tokens to the newest version of Neo" xml:space="preserve">
+    <value>将 NEO 和 GAS 迁移至最新的 Neo 版本</value>
+  </data>
+  <data name="migration" xml:space="preserve">
+    <value>迁移</value>
+  </data>
+  <data name="open now" xml:space="preserve">
+    <value>现已开启</value>
+  </data>
+  <data name="Recieve up to a 1% NEO bonus for migrating early" xml:space="preserve">
+    <value>尽早迁移可得高达迁移 NEO 的 1% 作为激励</value>
   </data>
 </root>

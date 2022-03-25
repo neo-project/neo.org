@@ -1,0 +1,68 @@
+@model NeoWeb.Models.Resume
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+@{
+    ViewData["Title"] = Localizer["Resume Submission"].Value;
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="my-3">
+            <p class="@SharedLocalizer["d-none"]">投递职位：<a href="/joinus#@((ViewBag.Job as Job).Number)">@((ViewBag.Job as Job).ChineseTitle)</a></p>
+            <p class="@SharedLocalizer["d-none-zh"]">投递职位：<a href="/joinus#@((ViewBag.Job as Job).Number)">@((ViewBag.Job as Job).EnglishTitle)</a></p>
+        </div>
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger my-2"></div>
+
+            <div class="form-group">
+                <input type="hidden" name="jobId" value="@ViewBag.Job.Id" />
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Scool" class="control-label"></label>
+                <input asp-for="Scool" class="form-control" />
+                <span asp-validation-for="Scool" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specialty" class="control-label"></label>
+                <input asp-for="Specialty" class="form-control" />
+                <span asp-validation-for="Specialty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReferralCode" class="control-label"></label>
+                <input asp-for="ReferralCode" class="form-control" />
+                <span asp-validation-for="ReferralCode" class="text-danger"></span>
+                <small class="form-text text-muted">@Localizer["Pls fill in if there is any recommender"]</small>
+            </div>
+            <div class="form-group">
+                <label for="file" class="control-label">@Localizer["Resume"]</label>
+                <input type="file" class="form-control-file" id="file" name="file">
+                <small class="form-text text-muted">@Localizer["Please upload your resume."]</small>
+            </div>
+            @if (!string.IsNullOrEmpty(ViewBag.Error))
+            {
+                <div class="text-danger my-2">@ViewBag.Error</div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@Localizer["Submit"]" class="btn btn-2" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
