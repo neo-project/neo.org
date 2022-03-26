@@ -11,16 +11,19 @@
 <div class="home-container">
     <div style="background-color: #010101; color: #fff" class="tw-relative">
 
-        <div class="tw-px-4 container tw-mx-auto tw-py-40 tw-relative">
+        <div class="tw-px-4 container tw-py-40 tw-relative">
 
             <div class="tw-w-full tw-h-full tw-absolute tw-left-0 tw-top-0 tw-flex tw-justify-between ">
                 <div></div>
-                <img src="/images/polaris/star_bg.png" class="tw-w-1/2 h-full tw-ml-auto"/>
+                
+                    <img src="/images/polaris/star_bg.png" class="tw-w-1/2 h-full tw-ml-auto" />
+                
+                
             </div>
 
             <div class=" tw-flex tw-w-full tw-mb-10 tw-relative">
 
-                <div class="tw-flex tw-w-full tw-gap-3 tw-flex-col work-sans-bold lg:tw-w-2/5">
+                <div class="tw-flex tw-w-full tw-gap-3 tw-flex-col work-sans-bold lg:tw-w-2/5 tw-z-50">
                     <div class="lg:tw-text-left tw-text-center">
                         <div class="tw-text-polaris tw-text-4xl lg:tw-text-7xl ">@Localizer["POLARIS"]</div>
                         <div class="tw-text-polaris tw-text-4xl lg:tw-text-7xl ">@Localizer["LAUNCHPAD"]</div>
@@ -43,7 +46,7 @@
 
                 @*on large screen*@
                 <div class="tw-ml-auto tw-w-full tw-hidden lg:tw-block">
-                    <img src="/images/polaris/polaris_static.png" class="tw-w-full " />
+                    <img src="/images/polaris/polaris_static.png" class="tw-z-10" />
                 </div>
 
             </div>
@@ -61,42 +64,7 @@
                     <p class="work-sans-bold tw-uppercase tw-tracking-widest">@Localizer["polaris plus:"]</p>
                     <p class="tw-text-sm">@Localizer["Receive additional prize money through quadratic funding"]</p>
                 </div>
-                <style>
-                    .navbar {
-                        background-color: rgba(243, 248, 250, 0.91);
-                    }
-                    .hero {
-                        background-image: url('@Helper.ToCDN("/images/home/bg1.svg")');
-                        background-position: center;
-                        background-size: cover;
-                    }
-                    .big-text {
-                        font-family: WorkSans;
-                        font-style: normal;
-                        font-weight: bold;
-                        font-size: 80px;
-                        line-height: 1.07;
-                        text-transform: uppercase;
-                    }
-
-                    @@media (max-width: 1200px) {
-                        .big-text {
-                            font-size: 80px;
-                        }
-                    }
-
-                    @@media (max-width: 992px) {
-                        .big-text {
-                            font-size: 60px;
-                        }
-                    }
-                    @@media (max-width: 768px) {
-                        .hero {
-                            background-image: none;
-                            background-color: rgba(243, 248, 250, 0.91);
-                        }                            
-                    }
-                </style>
+              
             </div>
            
         </div>
