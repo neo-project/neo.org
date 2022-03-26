@@ -204,7 +204,7 @@
   <data name="Latest" xml:space="preserve">
     <value>最新</value>
   </data>
-  <data name="Learn More" xml:space="preserve">
+  <data name="LEARN MORE" xml:space="preserve">
     <value>了解更多</value>
   </data>
   <data name="Multi-Language" xml:space="preserve">
@@ -333,10 +333,25 @@
   <data name="migration" xml:space="preserve">
     <value>迁移</value>
   </data>
-  <data name="open now" xml:space="preserve">
-    <value>现已开启</value>
+  <data name="OPEN NOW" xml:space="preserve">
+    <value>现已启动</value>
   </data>
   <data name="Recieve up to a 1% NEO bonus for migrating early" xml:space="preserve">
     <value>尽早迁移可得高达迁移 NEO 的 1% 作为激励</value>
+  </data>
+  <data name="$200m in incubation support" xml:space="preserve">
+    <value>2 亿美金孵化支持</value>
+  </data>
+  <data name="Bring your ideas to life for a $35,000 Grand Prize" xml:space="preserve">
+    <value>实现项目理念，赢得$35,000美金大奖</value>
+  </data>
+  <data name="compete for $500,000 in prizes &amp;" xml:space="preserve">
+    <value>$500,000 美金总奖金池 &amp;</value>
+  </data>
+  <data name="Receive additional prize money through quadratic funding" xml:space="preserve">
+    <value>通过二次方投票获得额外奖励</value>
+  </data>
+  <data name="Win prize multipliers for crafting the best plan" xml:space="preserve">
+    <value>起草项目策划书，赢得奖金乘数</value>
   </data>
 </root>
