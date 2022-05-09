@@ -11,7 +11,7 @@
 </div>
 <div class="tabs d-none d-lg-block">
     <span class="tab active">@Localizer["About"]</span>
-    <span class="tab">@Localizer["Application"]</span>
+    <span class="tab">@Localizer["Portfolio"]</span>
 </div>
 
 <select class="select-tab-page d-lg-none form-control">
@@ -70,51 +70,244 @@
 </div>
 <div class="tab-page">
     <div class="eco-body py-3">
-        <h2>@Localizer["Application"]</h2>
-        <p><strong>@Html.Raw(Localizer["Please use the below template to fill in the details of the proposed project and send it to <a href=\"mailto:eg@neo.org\">eg@neo.org</a>. The Neo EcoGrowth team will contact you within approximately two weeks of application receipt."].Value)</strong></p>
-        <h3><strong>@Localizer["Application Template"]</strong></h3>
-        <h4><strong>@Localizer["Project Name"]</strong></h4>
-        <h4><strong>@Localizer["Project Introduction"]</strong></h4>
-        <p><strong>@Localizer["Please provide the following:"]</strong></p>
-        <ul>
-            <li>@Localizer["Introduction to the project and its use cases or scenarios."]</li>
-            <li>
-                @Localizer["An explanation of why this project is important to the Neo ecosystem. Are there any other projects similar to yours in the Neo ecosystem?"]<br />
-                @Localizer["- If so, how is your project different?"]<br />
-                @Localizer["- If not, how will you demonstrate that your project will bring value to the Neo ecosystem?"]
-            </li>
-            <li>@Localizer["A summary of why your team is motivated by and interested in developing this project."]</li>
-            <li>@Localizer["Any anticipated challenges or risks to successful delivery and completion of the project."]</li>
-        </ul>
-        <h4><strong>@Localizer["Project Plan"]</strong></h4>
-        <h4><strong>@Localizer["Team Introduction"]</strong></h4>
-        <div class="eco-number">1</div>
-        <div class="d-inline-block" style="width: calc(100% - 50px)">
-            <p><strong>@Localizer["Team"]</strong></p>
-            <ul>
-                <li>@Localizer["Team name"]</li>
-                <li>@Localizer["Team website/GitHub organization"]</li>
-                <li>@Localizer["Legal entity information (if you have one)"]</li>
-            </ul>
+        <h2>@Localizer["Portfolio"]</h2>
+        <p>@Localizer["This successful program concluded at the end of 2021. Read about program participants and their achievements below."]</p>
+        <div class="eapp">
+            <img src="@Helper.ToCDN("/images/eco/eapp1.svg")" />
+            <strong>GhostMarket</strong>
+            <a href="javascript:"><i class="iconfont">&#xe601;</i></a>
+            <i class="iconfont float-right up">&#xe619;</i>
+            <i class="iconfont float-right down">&#xe61a;</i>
         </div>
-        <p><strong>@Localizer["This information will be used for contractual purposes and for tax declaration as required."]</strong></p>
-        <div class="eco-number">2</div>
-        <div class="d-inline-block" style="width: calc(100% - 50px)">
-            <p><strong>@Localizer["Team Composition"]</strong></p>
-            <ul>
-                <li>@Localizer["Team leader"]</li>
-                <li>@Localizer["Team members"]</li>
-            </ul>
+        <div class="mt-4 mb-5">
+            <div>
+                <img src="@Helper.ToCDN("/images/eco/1.svg")" />
+                <strong>@Localizer["Project Introduction"]</strong>
+                <p>@Localizer["GhostMarket is a multi-chain NFT marketplace. GhostMarket allows users to buy or sell NFTs in bulk across various wallets. Through GhostMarket, users can participate in three types of auctions: Classic, Dutch, and reserve."]</p>
+            </div>
+            <div>
+                <img src="@Helper.ToCDN("/images/eco/2.svg")" />
+                <strong>@Localizer["Project Achievments"]</strong>
+                <p>@Localizer["GhostMarket was the first dApp to launch on the Neo N3 MainNet. To date, GhostMarket has deployed four smart contracts with Neo that allow users to mint and trade NFT in a fully decentralized way. GhostMarket also established a standard regarding NFT royalties on Neo N3. Some other projects in the ecosystem have already begun to adopt this standard."]</p>
+            </div>
+            <div>
+                <img src="@Helper.ToCDN("/images/eco/1.svg")" />
+                <strong>@Localizer["Leadership Quotes"]</strong>
+                <p>@Localizer["Neo’s Early Adoption Program has been a great way to attract and onboard new projects, this program has helped exponentially grow the Neo ecosystem by attracting more developers and dApps.”"]</p>
+            </div>
         </div>
-        <p><strong>@Localizer["Please provide a personal introduction, team structure and capabilities, as well as individual GitHub and CVs or LinkedIn profiles as reference. Please also indicate who will work full-time on the project."]</strong></p>
-        <div class="eco-number">3</div>
-        <div class="d-inline-block" style="width: calc(100% - 50px)">
-            <p><strong>@Localizer["Related experience"]</strong></p>
-            <p>@Localizer["We appreciate your providing us with related information about your team's experience in the blockchain field, even if it may be in other blockchain ecosystems."]</p>
+        <div class="eapp">
+            <img src="@Helper.ToCDN("/images/eco/eapp2.svg")" />
+            <strong>iMe Smart Platform</strong>
+            <a href="javascript:"><i class="iconfont">&#xe601;</i></a>
+            <i class="iconfont float-right up">&#xe619;</i>
+            <i class="iconfont float-right down">&#xe61a;</i>
         </div>
-        <h4><strong>@Localizer["Future Plans"]</strong></h4>
-        <p>@Localizer["Please include the team's longer-term business plans and priorities."]</p>
-        <h4><strong>@Localizer["Additional Information"]</strong></h4>
-        <p>@Localizer["Please include any additional information that you think is relevant to this application and that hasn't already been included."]</p>
+        <div class="mt-4 mb-5">
+            <div>
+                <img src="@Helper.ToCDN("/images/eco/1.svg")" />
+                <strong>@Localizer["Project Introduction"]</strong>
+                <p>@Localizer["The iMe Smart Platform application is a messaging platform for iOS and Android users. It is powered by the Telegram API and incorporates blockchain-enabled features such as wallets and DeFi."]</p>
+            </div>
+            <div>
+                <img src="@Helper.ToCDN("/images/eco/2.svg")" />
+                <strong>@Localizer["Project Achievments"]</strong>
+                <p>@Localizer["The iMe app has more than 5M downloads on Google Play and App Store, more than 800K activated wallets, and about a million active users per day."]</p>
+            </div>
+            <div>
+                <img src="@Helper.ToCDN("/images/eco/1.svg")" />
+                <strong>@Localizer["Leadership Quotes"]</strong>
+                <p>@Localizer["“This global initiative is a wonderful opportunity. The strong helping hand of Neo enables developers to improve their products and reach mass adoption faster,” said Borutskiy “The program has facilitated building a strong, international community that supports the growth of all participants’ projects.”"]</p>
+            </div>
+        </div>
+        <div class="eapp">
+            <img src="@Helper.ToCDN("/images/eco/eapp3.svg")" />
+            <strong>Polychain Monsters</strong>
+            <a href="javascript:"><i class="iconfont">&#xe601;</i></a>
+            <i class="iconfont float-right up">&#xe619;</i>
+            <i class="iconfont float-right down">&#xe61a;</i>
+        </div>
+        <div class="mt-4 mb-5">
+            <div>
+                <img src="@Helper.ToCDN("/images/eco/1.svg")" />
+                <strong>@Localizer["Project Introduction"]</strong>
+                <p>@Localizer["Polychain Monsters is a cross-blockchain, play-to-earn game based on NFTs. Play-to-earn games integrate blockchain-based solutions to create new monetization methods and revenue models for players and game developers."]</p>
+            </div>
+            <div>
+                <img src="@Helper.ToCDN("/images/eco/2.svg")" />
+                <strong>@Localizer["Project Achievments"]</strong>
+                <p>@Localizer["Sales of Polychain Monsters on the OpenSea NFT marketplace have surpassed US $14 million in trading volume. The Polychain Monsters collection continues to expand via special edition drops through partnerships such as ChainLink, Elrond, and Polygon."]</p>
+            </div>
+            <div>
+                <img src="@Helper.ToCDN("/images/eco/3.svg")" />
+                <strong>@Localizer["Leadership Quotes"]</strong>
+                <p>@Localizer["“Joining the N3 Early Adoption program has positioned us to double down on contributing to the smart economy of tomorrow.”"]</p>
+            </div>
+        </div>
+        <div class="eapp">
+            <img src="@Helper.ToCDN("/images/eco/eapp4.svg")" />
+            <strong>Rentfuse</strong>
+            <a href="javascript:"><i class="iconfont">&#xe601;</i></a>
+            <i class="iconfont float-right up">&#xe619;</i>
+            <i class="iconfont float-right down">&#xe61a;</i>
+        </div>
+        <div class="mt-4 mb-5">
+            <div>
+                <img src="@Helper.ToCDN("/images/eco/1.svg")" />
+                <strong>@Localizer["Project Introduction"]</strong>
+                <p>@Localizer["Rentfuse is an NFT-renting protocol layer that enables Neo N3 NFT owners to rent out their assets: Owners can lend NFTs to generate revenue, and borrowers can rent NFTs to use them temporarily."]</p>
+            </div>
+            <div>
+                <img src="@Helper.ToCDN("/images/eco/2.svg")" />
+                <strong>@Localizer["Project Achievments"]</strong>
+                <p>@Localizer["Since joining the N3 Early Adoption program, Rentfuse has reached thousands of people through Neo social channels and has developed Rentfuse’s core contracts on the N3 blockchain."]</p>
+            </div>
+            <div>
+                <img src="@Helper.ToCDN("/images/eco/3.svg")" />
+                <strong>@Localizer["Leadership Quotes"]</strong>
+                <p>@Localizer["“Thank you for believing in us, it is an honor to be able to participate in the Early adoption program. We look forward to see you all on the mainnet!”"]</p>
+            </div>
+        </div>
+
+
+        <div class="eapp">
+            <img src="@Helper.ToCDN("/images/eco/eapp5.svg")" />
+            <strong>TranslateMe Network</strong>
+            <a href="javascript:"><i class="iconfont">&#xe601;</i></a>
+            <i class="iconfont float-right up">&#xe619;</i>
+            <i class="iconfont float-right down">&#xe61a;</i>
+        </div>
+        <div class="mt-4 mb-5">
+            <div>
+                <img src="@Helper.ToCDN("/images/eco/1.svg")" />
+                <strong>@Localizer["Project Introduction"]</strong>
+                <p>@Localizer["TranslateMe is an instant translation service that joined the Neo ecosystem in 2018. The service uses a trustless protocol that leverages machine translation and blockchain technology."]</p>
+            </div>
+            <div>
+                <img src="@Helper.ToCDN("/images/eco/2.svg")" />
+                <strong>@Localizer["Project Achievments"]</strong>
+                <p>@Localizer["With support from the N3 Early Adoption Program, TranslateMe Network has contracted work with COZ.io and launched its first smart contract on the Neo N3 TestNet."]</p>
+            </div>
+            <div>
+                <img src="@Helper.ToCDN("/images/eco/3.svg")" />
+                <strong>@Localizer["Leadership Quotes"]</strong>
+                <p>@Localizer["“Having such a well-known and trusted team assisting us with real use case implementation of blockchain on N3 is a big step forward for TranslateMe, said Ryan Lloyd. “Without this partnership, we would be several months behind in our development. We are very grateful for Neo’s support.”"]</p>
+            </div>
+        </div>
+
+
+        <div class="eapp">
+            <img src="@Helper.ToCDN("/images/eco/eapp6.svg")" />
+            <strong>Defina Finance</strong>
+            <a href="javascript:"><i class="iconfont">&#xe601;</i></a>
+            <i class="iconfont float-right up">&#xe619;</i>
+            <i class="iconfont float-right down">&#xe61a;</i>
+        </div>
+        <div class="mt-4 mb-5">
+            <div>
+                <img src="@Helper.ToCDN("/images/eco/1.svg")" />
+                <strong>@Localizer["Project Introduction"]</strong>
+                <p>@Localizer["Defina Finance is a blockchain-based role-playing game (RPG) featuring a play-to-earn system. Players can participate in DeFi yield farming and reap on-chain earnings while enjoying a strategic game with Player Versus Environment (PVE) and Player Versus Player (PVP) modes. Defina also has its own utility and governance token ($FINA) that is used in the Defina ecosystem and beyond."]</p>
+            </div>
+            <div>
+                <img src="@Helper.ToCDN("/images/eco/2.svg")" />
+                <strong>@Localizer["Project Achievments"]</strong>
+                <p>@Localizer["While participating in the Early Adoption Program, Defina Finance has boosted rewards for the beta period for early players who tested out the game and provided suggestions. Now, the project is entering the mass adoption phase, where token rewards will be distributed more equally to ensure sustainable growth for Defina."]</p>
+            </div>
+        </div>
+
+
+        <div class="eapp">
+            <img src="@Helper.ToCDN("/images/eco/eapp7.svg")" />
+            <strong>Humswap</strong>
+            <a href="javascript:"><i class="iconfont">&#xe601;</i></a>
+            <i class="iconfont float-right up">&#xe619;</i>
+            <i class="iconfont float-right down">&#xe61a;</i>
+        </div>
+        <div class="mt-4 mb-5">
+            <div>
+                <img src="@Helper.ToCDN("/images/eco/1.svg")" />
+                <strong>@Localizer["Project Introduction"]</strong>
+                <p>@Localizer["Humswap brings together the worlds of DeFi and NFTs by creating unique NFTs that have potential benefits such as stackable yields, yield multipliers, lower swapping fees, and more."]</p>
+            </div>
+            <div>
+                <img src="@Helper.ToCDN("/images/eco/2.svg")" />
+                <strong>@Localizer["Project Achievments"]</strong>
+                <p>@Localizer["While participating in the Early Adoption Program, Defina Finance has boosted rewards for the beta period for early players who tested out the game and provided suggestions. Now, the project is entering the mass adoption phase, where token rewards will be distributed more equally to ensure sustainable growth for Defina."]</p>
+            </div>
+            <div>
+                <img src="@Helper.ToCDN("/images/eco/3.svg")" />
+                <strong>@Localizer["Leadership Quotes"]</strong>
+                <p>@Localizer["“We would not be where we are without this support,” said Mario Lopez. “We cannot wait to share the great things we’re cooking with you and the rest of the community!”"]</p>
+            </div>
+        </div>
+
+
+        <div class="eapp">
+            <img src="@Helper.ToCDN("/images/eco/eapp8.svg")" />
+            <strong>NekoHit</strong>
+            <a href="javascript:"><i class="iconfont">&#xe601;</i></a>
+            <i class="iconfont float-right up">&#xe619;</i>
+            <i class="iconfont float-right down">&#xe61a;</i>
+        </div>
+        <div class="mt-4 mb-5">
+            <div>
+                <img src="@Helper.ToCDN("/images/eco/1.svg")" />
+                <strong>@Localizer["Project Introduction"]</strong>
+                <p>@Localizer["The NekoHit project focuses on eliminating trust problems between content creators and their sponsors. NekoHit accomplishes this by using blockchain technology to give more control to both parties."]</p>
+            </div>
+            <div>
+                <img src="@Helper.ToCDN("/images/eco/2.svg")" />
+                <strong>@Localizer["Project Achievments"]</strong>
+                <p>@Localizer["With support from the Neo Early Adoption Program, NekoHit has developed and deployed smart contracts to the Neo N3 MainNet, including smart contracts for NekoHit’s core contract and a token. Now the team is constructing a community DAO token."]</p>
+            </div>
+            <div>
+                <img src="@Helper.ToCDN("/images/eco/3.svg")" />
+                <strong>@Localizer["Leadership Quotes"]</strong>
+                <p>@Localizer["“The Early Adoption Program has helped us move to the next level,” said Yannick. “We couldn’t have made it this far without Neo’s support.”"]</p>
+            </div>
+        </div>
+
+
+        <div class="eapp">
+            <img src="@Helper.ToCDN("/images/eco/eapp9.svg")" />
+            <strong>Saffron Finance</strong>
+            <a href="javascript:"><i class="iconfont">&#xe601;</i></a>
+            <i class="iconfont float-right up">&#xe619;</i>
+            <i class="iconfont float-right down">&#xe61a;</i>
+        </div>
+        <div class="mt-4 mb-5">
+            <div>
+                <img src="@Helper.ToCDN("/images/eco/1.svg")" />
+                <strong>@Localizer["Project Introduction"]</strong>
+                <p>@Localizer["Saffron Finance is a peer-to-peer risk management platform that uses a tranche-based yield aggregation to divide earnings into senior, junior, and fee tranches. Saffron also provides a separate insurance fund that generates yield to depositors."]</p>
+            </div>
+            <div>
+                <img src="@Helper.ToCDN("/images/eco/2.svg")" />
+                <strong>@Localizer["Project Achievments"]</strong>
+                <p>@Localizer["With the support of the Early Adoption Program, the Saffron team has worked to enable DeFi growth in the Neo ecosystem. Saffron has created a staking contract for NEO and SFI that enables SFI, NEO, and GAS staking. The contract now is live on the Neo N3 TestNet. It has been tested by more than 100 users and is undergoing an audit before launching on the Neo N3 MainNet."]</p>
+            </div>
+        </div>
+
+
+        <div class="eapp">
+            <img src="@Helper.ToCDN("/images/eco/eapp10.svg")" />
+            <strong>TOTHEMOON</strong>
+            <a href="javascript:"><i class="iconfont">&#xe601;</i></a>
+            <i class="iconfont float-right up">&#xe619;</i>
+            <i class="iconfont float-right down">&#xe61a;</i>
+        </div>
+        <div class="mt-4 mb-5">
+            <div>
+                <img src="@Helper.ToCDN("/images/eco/1.svg")" />
+                <strong>@Localizer["Project Introduction"]</strong>
+                <p>@Localizer["TOTHEMOON UNIVERSE is a Metaverse set on the Moon. TOTHEMOON plays host to a strategic, community-building game powered by NFTs. Players will engage in a new-age society built by Moon Plot Owners and Moon Teams, each with its own governance system."]</p>
+            </div>
+            <div>
+                <img src="@Helper.ToCDN("/images/eco/2.svg")" />
+                <strong>@Localizer["Project Achievments"]</strong>
+                <p>@Localizer["TOTHEMOON was the first NFT project in the Early Adoption program to sell out an NFT collection."]</p>
+            </div>
+        </div>
     </div>
 </div>

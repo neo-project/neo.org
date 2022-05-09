@@ -705,3 +705,42 @@
         }
     }
 }
+
+.eapp {
+    background: #EDF9F7;
+    position: relative;
+    padding: 17px 24px;
+    margin: 2rem 0;
+
+    .iconfont {
+        font-size: 1.5rem;
+    }
+
+    img{
+        vertical-align: top;
+    }
+
+    strong {
+        font-size: 1.75rem;
+        margin: 0 5px;
+    }
+
+    .iconfont {
+        color: #50B0AE;
+
+        &.up, &.down {
+            color: #000033;
+            cursor: pointer;
+        }
+    }
+
+    &::before {
+        position: absolute;
+        content: ' ';
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        background: #00E599;
+    }
+}

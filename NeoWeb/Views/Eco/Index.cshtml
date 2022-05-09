@@ -243,5 +243,21 @@
         $('.select-tab-page').change(e => {
             updateTabs(e.target.selectedIndex);
         });
+
+        //profile
+        $(document).ready(function () {
+        $('.down').hide();
+        $('.up').click(function(){
+            $(this).parent().next().hide('fast');
+            $(this).hide();
+            $(this).parent().find('.down').show();
+        });
+        $('.down').click(function(){
+            $(this).parent().next().show('fast');
+            $(this).hide();
+            $(this).parent().find('.up').show();
+        });
+    })
     </script>
 }
+

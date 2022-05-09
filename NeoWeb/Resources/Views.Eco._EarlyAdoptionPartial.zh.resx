@@ -117,41 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="- If not, how will you demonstrate that your project will bring value to the Neo ecosystem?" xml:space="preserve">
-    <value>- 如果没有，您将如何证明您的项目会给 Neo 生态带来价值？</value>
-  </data>
-  <data name="- If so, how is your project different?" xml:space="preserve">
-    <value>- 如果有，您的项目有什么不同？</value>
-  </data>
-  <data name="A summary of why your team is motivated by and interested in developing this project." xml:space="preserve">
-    <value>简要说明您的团队为何对此项目感兴趣（为何选择开发此项目）。</value>
-  </data>
   <data name="About" xml:space="preserve">
     <value>关于 Early Adoption</value>
-  </data>
-  <data name="Additional Information" xml:space="preserve">
-    <value>其他信息</value>
   </data>
   <data name="AMMs, lending, stablecoins, asset managers, synthetic assets, liquidity pools" xml:space="preserve">
     <value>AMM、借贷、稳定币、资产管理、合成资产、流动性资金池</value>
   </data>
-  <data name="An explanation of why this project is important to the Neo ecosystem. Are there any other projects similar to yours in the Neo ecosystem?" xml:space="preserve">
-    <value>该项目对 Neo 生态的重要性体现在何处？Neo 生态中是否有其他相似的现存项目？</value>
-  </data>
-  <data name="Any anticipated challenges or risks to successful delivery and completion of the project." xml:space="preserve">
-    <value>对于成功完成并交付此项目，您有何预期挑战或风险？</value>
-  </data>
-  <data name="Application" xml:space="preserve">
-    <value>申请</value>
-  </data>
-  <data name="Application Template" xml:space="preserve">
-    <value>申请书模版</value>
+  <data name="As a project supported by the Early Adoption Program, Humswap has released two NFT collections: First the Humswap Bowls collection, and most recently the ANTs collection (based on a snapshot of owners of Humswap Bowls and Neoverse N, E, and O series holders)." xml:space="preserve">
+    <value>在 Early Adoption计划的支持下，截至目前，Humswap已经发布了两个NFT系列——Humswap Bowl系列，和最近的ANT系列（基于Humswap Bowls和Neoverse N、E和O系列NFT所有者的空投快照）。</value>
   </data>
   <data name="Business direction" xml:space="preserve">
     <value>业务方向</value>
   </data>
   <data name="Continuously revitalizing the Neo developer community while assisting existing Neo projects with migration from Neo Legacy." xml:space="preserve">
     <value>进一步壮大 Neo 开发者社区，同时帮助现有项目从 Neo Legacy 上迁移至 Neo N3。</value>
+  </data>
+  <data name="Defina Finance is a blockchain-based role-playing game (RPG) featuring a play-to-earn system. Players can participate in DeFi yield farming and reap on-chain earnings while enjoying a strategic game with Player Versus Environment (PVE) and Player Versus Player (PVP) modes. Defina also has its own utility and governance token ($FINA) that is used in the Defina ecosystem and beyond." xml:space="preserve">
+    <value>Defina Finance是一款以“玩赚”为特色的RPG（角色扮演）链游。在Defina Finance中，玩家可以在体验PVE（玩家vs环境）模式或者PVP（玩家vs玩家）模式的战略游戏的同时，参与DeFi流动性挖矿，获取链上收益。$FINA是Defina Finance的治理和实用型通证，可以用于Defina生态的多个方面。</value>
   </data>
   <data name="Developer Guidance: documentation and/or tutorials for using the deliverables." xml:space="preserve">
     <value>开发指南：使用交付成果的文件和 / 或教程。</value>
@@ -192,14 +174,20 @@
   <data name="Funding" xml:space="preserve">
     <value>资金</value>
   </data>
-  <data name="Future Plans" xml:space="preserve">
-    <value>未来规划</value>
-  </data>
   <data name="Games" xml:space="preserve">
     <value>游戏</value>
   </data>
   <data name="General infrastructure" xml:space="preserve">
     <value>一般基础设施</value>
+  </data>
+  <data name="GhostMarket is a multi-chain NFT marketplace. GhostMarket allows users to buy or sell NFTs in bulk across various wallets. Through GhostMarket, users can participate in three types of auctions: Classic, Dutch, and reserve." xml:space="preserve">
+    <value>GhostMarket 是一个允许其用户在多种钱包中批量买卖 NFT 的多链 NFT 市场。在 GhostMarket 上，用户可以通过经典拍卖、荷兰式拍卖、和保留价拍卖三种拍卖形式来拍卖NFT。</value>
+  </data>
+  <data name="GhostMarket was the first dApp to launch on the Neo N3 MainNet. To date, GhostMarket has deployed four smart contracts with Neo that allow users to mint and trade NFT in a fully decentralized way. GhostMarket also established a standard regarding NFT royalties on Neo N3. Some other projects in the ecosystem have already begun to adopt this standard." xml:space="preserve">
+    <value>GhostMarket是第一个部署在Neo N3主网上的dApp。到目前为止，GhostMarket已经部署了四个智能合约，允许用户以完全去中心化的方式铸造和交易NFT。此外，GhostMarket还在Neo N3上建立了一个关于NFT使用费的标准。N3生态中的一些其他项目已经开始采用该标准了。</value>
+  </data>
+  <data name="Humswap brings together the worlds of DeFi and NFTs by creating unique NFTs that have potential benefits such as stackable yields, yield multipliers, lower swapping fees, and more." xml:space="preserve">
+    <value>Humswap通过创造功能独特的NFT，将DeFi和NFT“整合”在了一起。拥有这种NFT，即可享受收益率叠加、收益倍增、降低Swap费等潜在特权。</value>
   </data>
   <data name="Ideal for individuals or small teams looking to get started on N3. Typically, these types of projects will be early stage or proof-of-concept initiatives. Applications should focus on using N3 in ways that demonstrate new functionality, test the limits of N3 capabilities, or provide practical examples to the wider Neo development community." xml:space="preserve">
     <value>对想要在 N3 上起步的个人或小型团队来说，Early Adoption 项目无疑是一个最佳选择。这种类型的项目往往处于早期阶段，甚至只是对现有概念进行了初步验证。因此，此类项目的申请重点应该放在展示在 N3 上实现的新功能、测试 N3 的能力极限或为广大 Neo 开发社区提供可实践的案例上面。</value>
@@ -210,14 +198,11 @@
   <data name="In terms of the business direction, we are interested in the following:" xml:space="preserve">
     <value>以下是我们最感兴趣的业务方向：</value>
   </data>
-  <data name="Introduction to the project and its use cases or scenarios." xml:space="preserve">
-    <value>项目使用案例或应用场景的介绍</value>
-  </data>
   <data name="Layer2 protocols, scalability, privacy, DAO technologies" xml:space="preserve">
     <value>Layer2 协议、可扩展性、隐私、DAO</value>
   </data>
-  <data name="Legal entity information (if you have one)" xml:space="preserve">
-    <value>法人实体信息（如果有）</value>
+  <data name="Leadership Quotes" xml:space="preserve">
+    <value>项目方发言</value>
   </data>
   <data name="Marketplaces, explorers, wallets, fractional-ownership, gaming" xml:space="preserve">
     <value>平台、浏览器、钱包、部分所有权、游戏</value>
@@ -234,6 +219,9 @@
   <data name="NeoFS use cases" xml:space="preserve">
     <value>NeoFS 使用案例</value>
   </data>
+  <data name="Neo’s Early Adoption Program has been a great way to attract and onboard new projects, this program has helped exponentially grow the Neo ecosystem by attracting more developers and dApps.”" xml:space="preserve">
+    <value>"Early Adoption计划是吸引优秀的新项目加入N3生态的好方法，能够让更多的开发者和dApp注意到Neo，帮助Neo生态迅速发展。"</value>
+  </data>
   <data name="Please demonstrate that you follow best practices in your project planning (Software Development Life Cycle etc)." xml:space="preserve">
     <value>请证明您的项目是按照最优化方法进行规划的（软件开发生命周期等）。</value>
   </data>
@@ -249,35 +237,23 @@
   <data name="Please include a total budget plan for each milestone. This may be broken down into the number of days alongside labor cost per day. An indication of the number of full-time employees working on each milestone will be highly appreciated." xml:space="preserve">
     <value>请提供一个总预算计划书，包括各个里程碑分别需要多少预算，可以细分为每天的劳动成本。如果可能，也请进一步说明每个里程碑需要多少全职员工。</value>
   </data>
-  <data name="Please include any additional information that you think is relevant to this application and that hasn't already been included." xml:space="preserve">
-    <value />
-  </data>
-  <data name="Please include the team's longer-term business plans and priorities." xml:space="preserve">
-    <value>团队的长期业务计划和优先级别</value>
-  </data>
   <data name="Please prioritize these important criteria as the team prepares the roadmap and milestones:" xml:space="preserve">
     <value>请根据以下条件规划您的路线图和里程碑：</value>
-  </data>
-  <data name="Please provide a personal introduction, team structure and capabilities, as well as individual GitHub and CVs or LinkedIn profiles as reference. Please also indicate who will work full-time on the project." xml:space="preserve">
-    <value>请提供个人介绍、团队结构和能力说明，以及个人 GitHub 和简历或 LinkedIn 简介作为参考。也请说明谁将全职任职于该项目。</value>
-  </data>
-  <data name="Please provide the following:" xml:space="preserve">
-    <value>请提供以下信息：</value>
   </data>
   <data name="Please structure the development roadmap into multiple milestones with as much detail as possible. When each milestone is delivered, we will review the milestone report to ensure that everything has been delivered as per the expectations laid down in the proposal roadmap." xml:space="preserve">
     <value>请将开发路线图结构化为多个里程碑，并尽可能详细地进行阐释和说明。每个里程碑交付后我们都会审查相关报告，以确保与提交的开发路线图相吻合。</value>
   </data>
-  <data name="Please use the below template to fill in the details of the proposed project and send it to &lt;a href=&quot;mailto:eg@neo.org&quot;&gt;eg@neo.org&lt;/a&gt;. The Neo EcoGrowth team will contact you within approximately two weeks of application receipt." xml:space="preserve">
-    <value>请用以下模板填写拟议项目的细节，并发送至 &lt;a href="mailto:eg@neo.org"&gt;eg@neo.org&lt;/a&gt;。Neo 生态发展部门大约会在收到申请书后的两周内联系您。</value>
+  <data name="Polychain Monsters is a cross-blockchain, play-to-earn game based on NFTs. Play-to-earn games integrate blockchain-based solutions to create new monetization methods and revenue models for players and game developers." xml:space="preserve">
+    <value>Polychain Monsters是一个跨链的、基于NFT的玩赚游戏。玩赚游戏整合了基于区块链的解决方案，为玩家和游戏开发者创造了新的货币化方法和收入模式。</value>
+  </data>
+  <data name="Portfolio" xml:space="preserve">
+    <value>项目展示</value>
+  </data>
+  <data name="Project Achievments" xml:space="preserve">
+    <value>项目成果</value>
   </data>
   <data name="Project Introduction" xml:space="preserve">
     <value>项目介绍</value>
-  </data>
-  <data name="Project Name" xml:space="preserve">
-    <value>项目名称</value>
-  </data>
-  <data name="Project Plan" xml:space="preserve">
-    <value>项目计划</value>
   </data>
   <data name="Project Timeframe: up to 6 months is ideal." xml:space="preserve">
     <value>项目时间：理想为 6 个月内。</value>
@@ -288,6 +264,18 @@
   <data name="Related experience" xml:space="preserve">
     <value>相关经验</value>
   </data>
+  <data name="Rentfuse is an NFT-renting protocol layer that enables Neo N3 NFT owners to rent out their assets: Owners can lend NFTs to generate revenue, and borrowers can rent NFTs to use them temporarily." xml:space="preserve">
+    <value>Rentfuse 是一个允许 Neo N3 NFT 所有者出租其资产的协议层。在Rentfuse上，NFT所有者可以通过出租 NFT 来产生收益，其他用户也可以租借 NFT 来临时使用。</value>
+  </data>
+  <data name="Saffron Finance is a peer-to-peer risk management platform that uses a tranche-based yield aggregation to divide earnings into senior, junior, and fee tranches. Saffron also provides a separate insurance fund that generates yield to depositors." xml:space="preserve">
+    <value>Saffron Finance是一个点对点的风险管理平台，它使用基于批次的收益汇总，将收益分为优先、次级和收费批次。此外，Saffron还提供一个独立的保险基金，为存款人创造收益。</value>
+  </data>
+  <data name="Sales of Polychain Monsters on the OpenSea NFT marketplace have surpassed US $14 million in trading volume. The Polychain Monsters collection continues to expand via special edition drops through partnerships such as ChainLink, Elrond, and Polygon." xml:space="preserve">
+    <value>在OpenSea NFT市场上，Polychain Monsters的销售量已经超过了1400万美元。与ChainLink、Elrond和Polygon等项目方达成合作后，Polychain Monsters系列随着典藏版的推出持续扩大着。</value>
+  </data>
+  <data name="Since joining the N3 Early Adoption program, Rentfuse has reached thousands of people through Neo social channels and has developed Rentfuse’s core contracts on the N3 blockchain." xml:space="preserve">
+    <value>加入N3 Early Adoption计划后，Rentfuse已经接触到了成千上万的用户，并在N3区块链上开发了Rentfuse的核心合约。</value>
+  </data>
   <data name="Small or concept projects" xml:space="preserve">
     <value>小型项目 &amp; 概念项目</value>
   </data>
@@ -296,24 +284,6 @@
   </data>
   <data name="Team" xml:space="preserve">
     <value>团队</value>
-  </data>
-  <data name="Team Composition" xml:space="preserve">
-    <value>团队组成</value>
-  </data>
-  <data name="Team Introduction" xml:space="preserve">
-    <value>团队介绍</value>
-  </data>
-  <data name="Team leader" xml:space="preserve">
-    <value>团队负责人</value>
-  </data>
-  <data name="Team members" xml:space="preserve">
-    <value>团队成员</value>
-  </data>
-  <data name="Team name" xml:space="preserve">
-    <value>团队名称</value>
-  </data>
-  <data name="Team website/GitHub organization" xml:space="preserve">
-    <value>团队网站 /GitHub 组织</value>
   </data>
   <data name="Teams that already have a well defined idea or project. Start-up projects are expected to have a clearly defined niche and a sustainable business model. These projects should focus on using Neo N3 to create new business opportunities and provide new applications for Neo ecosystem users. Teams should be prepared to present an existing proof of concept or MVP." xml:space="preserve">
     <value>初创项目指的是那些已经有了比较明确的想法或发展到了一定阶段的团队。此类项目应该有明确的定位和可持续的商业模式，在申请时应该把重点放在使用 Neo N3 来开发新业务、为 Neo 生态的用户提供新应用上面，同时做好提交现有概念证明或 MVP 的准备。</value>
@@ -324,19 +294,67 @@
   <data name="The Early Adoption program will provide financial support to developers (based on the size of the project, team track record, and vision), along with high priority technical and other support." xml:space="preserve">
     <value>Early Adoption 项目将基于项目团队的规模、产品和愿景提供相应的资金支持、业界领先的技术支持和其他方面的支持。</value>
   </data>
+  <data name="The iMe app has more than 5M downloads on Google Play and App Store, more than 800K activated wallets, and about a million active users per day." xml:space="preserve">
+    <value>iMe应用在Google Play和App Store的下载量超过500万次，激活的钱包超过80万个，每天约有100万活跃用户</value>
+  </data>
+  <data name="The iMe Smart Platform application is a messaging platform for iOS and Android users. It is powered by the Telegram API and incorporates blockchain-enabled features such as wallets and DeFi." xml:space="preserve">
+    <value>​​iMe Smart Platform是一个面向iOS和安卓用户的信息传递平台。它由Telegram API驱动，并整合了钱包和DeFi等区块链功能。</value>
+  </data>
   <data name="The launch of N3 is a big milestone for Neo and we've prepared something special for the occasion. To encourage developers to start building on Neo N3, we are launching the Early Adoption Program. This program includes a grant sponsorship funding pool totaling US $10 million and will run from June to December 2021." xml:space="preserve">
     <value>对于 Neo 来说，N3 主网的正式上线无疑是一个重要的里程碑。为了鼓励开发者们在 Neo N3 上进行开发，我们即将正式启动 Early Adoption 项目。该项目拥有一个总额 1000 万美元的赞助资金池，项目将从 2021 年 6 月运行一直持续到 12 月。</value>
+  </data>
+  <data name="The NekoHit project focuses on eliminating trust problems between content creators and their sponsors. NekoHit accomplishes this by using blockchain technology to give more control to both parties." xml:space="preserve">
+    <value>NekoHit旨在利用区块链技术同时赋予内容创作者和其赞助商更高的控制权限，从而解决双方间的信任问题。</value>
   </data>
   <data name="The types of projects welcomed to apply to the Early Adoption Program include:" xml:space="preserve">
     <value>Early Adoption 欢迎以下类型的项目进行申请：</value>
   </data>
-  <data name="This information will be used for contractual purposes and for tax declaration as required." xml:space="preserve">
-    <value>此信息将用于订立合同和纳税申报。</value>
+  <data name="This successful program concluded at the end of 2021. Read about program participants and their achievements below." xml:space="preserve">
+    <value>Early Adoption 计划已于 2021 年底圆满结束。以下是所有参与项目的成果展示。</value>
+  </data>
+  <data name="TOTHEMOON UNIVERSE is a Metaverse set on the Moon. TOTHEMOON plays host to a strategic, community-building game powered by NFTs. Players will engage in a new-age society built by Moon Plot Owners and Moon Teams, each with its own governance system." xml:space="preserve">
+    <value>TOTHEMOON UNIVERSE是一个建立在月球上的虚拟世界，是一款由NFT驱动的战略性社区建设游戏。玩家将参与进一个由Moon土地所有者和Moon团队共同建立的新时代社会中，在这个社会里，每个团队都有自己的治理体系。</value>
+  </data>
+  <data name="TOTHEMOON was the first NFT project in the Early Adoption program to sell out an NFT collection." xml:space="preserve">
+    <value>TOTHEMOON是Early Adoption计划中第一个售空一个NFT系列的NFT项目。</value>
+  </data>
+  <data name="TranslateMe is an instant translation service that joined the Neo ecosystem in 2018. The service uses a trustless protocol that leverages machine translation and blockchain technology." xml:space="preserve">
+    <value>TranslateMe Network早在2018年就加入了Neo生态。其即时翻译服务功能是通过一个结合了机器翻译和区块链技术的去信任协议实现的。</value>
   </data>
   <data name="Verifiable deliverable" xml:space="preserve">
     <value>可验证交付物</value>
   </data>
   <data name="We appreciate your providing us with related information about your team's experience in the blockchain field, even if it may be in other blockchain ecosystems." xml:space="preserve">
     <value>请向我们告知您的团队在区块链领域有怎样的相关经验，可以是在其他区块链生态的相关经验。</value>
+  </data>
+  <data name="While participating in the Early Adoption Program, Defina Finance has boosted rewards for the beta period for early players who tested out the game and provided suggestions. Now, the project is entering the mass adoption phase, where token rewards will be distributed more equally to ensure sustainable growth for Defina." xml:space="preserve">
+    <value>在参与Early Adoption计划的同时，Defina Finance还为帮游戏进行测试和提供优化建议的早期玩家提供的相应的奖励。而现在，即将进入大规模采用阶段的Defina Finance将更加平均地分配通证激励，以确保Defina的可持续发展。</value>
+  </data>
+  <data name="With support from the N3 Early Adoption Program, TranslateMe Network has contracted work with COZ.io and launched its first smart contract on the Neo N3 TestNet." xml:space="preserve">
+    <value>在N3 Early Adoption计划的支持下，TranslateMe现已与COZ.io签订了工作合同，并在Neo N3测试网上推出了其第一个智能合约。</value>
+  </data>
+  <data name="With support from the Neo Early Adoption Program, NekoHit has developed and deployed smart contracts to the Neo N3 MainNet, including smart contracts for NekoHit’s core contract and a token. Now the team is constructing a community DAO token." xml:space="preserve">
+    <value>在Neo Early Adoption计划的支持下，NekoHit已经完成了核心合约和一种通证的开发，并将其智能合约部署到了N3主网上。当前，该团队正在构建一个社区DAO通证。</value>
+  </data>
+  <data name="With the support of the Early Adoption Program, the Saffron team has worked to enable DeFi growth in the Neo ecosystem. Saffron has created a staking contract for NEO and SFI that enables SFI, NEO, and GAS staking. The contract now is live on the Neo N3 TestNet. It has been tested by more than 100 users and is undergoing an audit before launching on the Neo N3 MainNet." xml:space="preserve">
+    <value>在 Early Adoption计划的支持下，Saffron团队一直致力于促进Neo生态中的DeFi发展。Saffron创建了一个能够质押SFI、NEO和GAS的合约。当前，该合约已经在Neo N3测试网上上线，被100多个用户进行了测试，并将在登陆Neo N3主网之前接受代码审计。</value>
+  </data>
+  <data name="“Having such a well-known and trusted team assisting us with real use case implementation of blockchain on N3 is a big step forward for TranslateMe, said Ryan Lloyd. “Without this partnership, we would be several months behind in our development. We are very grateful for Neo’s support.”" xml:space="preserve">
+    <value>"有这样一个值得信赖的知名团队协助我们在N3上实现区块链的真实用例，对TranslateMe来说是一个很大的进步，"TranslateMe的创始人Ryan Lloyd表示，"如果没有这样的合作关系，我们的发展可能会落后好几个月。我们非常感谢Neo的支持。"</value>
+  </data>
+  <data name="“Joining the N3 Early Adoption program has positioned us to double down on contributing to the smart economy of tomorrow.”" xml:space="preserve">
+    <value>"加入N3 Early Adoption计划使我们能够加倍努力，为未来的智能经济做出贡献。"</value>
+  </data>
+  <data name="“Thank you for believing in us, it is an honor to be able to participate in the Early adoption program. We look forward to see you all on the mainnet!”" xml:space="preserve">
+    <value>"感谢Neo对我们的信任。我们很荣幸能够参与到N3 Early Adoption计划中。未来见！"</value>
+  </data>
+  <data name="“The Early Adoption Program has helped us move to the next level,” said Yannick. “We couldn’t have made it this far without Neo’s support.”" xml:space="preserve">
+    <value>NekoHit的联合创始人Yannick表示："是Early Adoption计划的支持让NekoHit逐渐步入正轨。没有Neo的支持，就没有今天的NekoHit。"</value>
+  </data>
+  <data name="“This global initiative is a wonderful opportunity. The strong helping hand of Neo enables developers to improve their products and reach mass adoption faster,” said Borutskiy “The program has facilitated building a strong, international community that supports the growth of all participants’ projects.”" xml:space="preserve">
+    <value>iMe联合创始人兼首席业务发展官Alex Borutskiy说："iMe很荣幸能够参加N3 Early Adoption计划。N3 Early Adoption计划建立起了一个强大的全球社区，能够帮助全球开发者对他们的产品进行改进和完善，以更快地达到大规模采用。"</value>
+  </data>
+  <data name="“We would not be where we are without this support,” said Mario Lopez. “We cannot wait to share the great things we’re cooking with you and the rest of the community!”" xml:space="preserve">
+    <value>Humswap的联合创始人之一Mario Lopez表示："没有来自Neo的全方面支持，我们就不会有今天的成就。我们迫不及待地想与社区的其他成员分享我们正在做的事情！"</value>
   </data>
 </root>
