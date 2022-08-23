@@ -132,18 +132,16 @@ https://github.com/neo-project/neo.org
 
                     @if (SharedLocalizer["en"].Value == "zh")
                     {
-                        <li class="nav-item nav-lang">
-                            <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
-                            <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
-                        </li>
-                    }
-                    else
-                    {
-                        <li class="nav-item nav-lang">
-                            <a style="font-size: 1em; font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
-                            <a style="font-size: .9em;  font-weight: 500" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
-                        </li>
-                    }
+                <li class="nav-item nav-lang">
+                    <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
+                    <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+                </li> }
+                            else
+                            {
+                <li class="nav-item nav-lang">
+                    <a style="font-size: 1em; font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
+                    <a style="font-size: .9em;  font-weight: 500" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+                </li>}
                 </ul>
             </div>
         </div>
