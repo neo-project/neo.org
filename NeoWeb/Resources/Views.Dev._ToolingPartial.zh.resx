@@ -210,4 +210,7 @@
   <data name="Tooling" xml:space="preserve">
     <value>工具集</value>
   </data>
+  <data name="Welcome to OneGate -- One gate to the blockchain. OneGate Explorer is a fully functional, user-friendly, and constantly iterating N3 blockchain explorer website. It has full support for NEP-17 and NEP-11." xml:space="preserve">
+    <value>欢迎来到 OneGate——通往区块链的大门。OneGate Explorer 是一个功能完善，界面友好，不断迭代的 N3 区块链浏览器网站。完整支持 NEP-17 和 NEP-11。</value>
+  </data>
 </root>
