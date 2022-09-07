@@ -51,4 +51,10 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="ip.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

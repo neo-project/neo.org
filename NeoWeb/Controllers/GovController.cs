@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,6 +13,7 @@ using Newtonsoft.Json.Linq;
 
 namespace NeoWeb.Controllers
 {
+    [ServiceFilter(typeof(ClientIpCheckActionFilter))]
     public class GovController : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -17,6 +17,7 @@ using NeoWeb.Models;
 
 namespace NeoWeb.Controllers
 {
+    [ServiceFilter(typeof(ClientIpCheckActionFilter))]
     public class HomeController : Controller
     {
         private readonly ApplicationDbContext _context;
