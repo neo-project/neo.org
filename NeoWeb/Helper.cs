@@ -21,6 +21,8 @@ namespace NeoWeb
     {
         public static string CurrentDirectory { set; get; }
 
+        public static List<IPZone> Banlist = new List<IPZone>();
+
         public static void AddBlogs(IQueryable<Blog> blogs, List<NewsViewModel> viewModels, bool isZh)
         {
             blogs.Select(p => new BlogViewModel()
@@ -307,5 +309,20 @@ namespace NeoWeb
             return url;
         }
 
+        public static long IPToInteger(this string ip)
+        {
+            var x = 3;
+            long o = 0;
+            ip.Split('.').ToList().ForEach(p => o += Convert.ToInt64(p) << 8 * x--);
+            return o;
+        }
+
+        public static long IPToInteger(this IPAddress ip)
+        {
+            var x = 3;
+            long o = 0;
+            ip.GetAddressBytes().ToList().ForEach(p => o += (long)p << 8 * x--);
+            return o;
+        }
     }
 }
