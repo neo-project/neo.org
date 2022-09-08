@@ -34,7 +34,7 @@ namespace NeoWeb
 
             if (Helper.Banlist.Any(p => ipInteger > p.Start && ipInteger < p.End))
             {
-                context.Result = new ContentResult() { StatusCode = StatusCodes.Status403Forbidden, Content = "您所在的地区无法访问该网页。This page cannot be accessed in your region." };
+                context.Result = new ViewResult() { ViewName = "403", StatusCode = 403 };
                 return;
             }
 
