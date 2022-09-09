@@ -43,9 +43,9 @@ namespace NeoWeb.Controllers
             ViewBag.Groups = _context.Jobs.GroupBy(p => isZh ? p.ChineseGroup : p.EnglishGroup).Select(p => p.Key).ToList();
             if (group.Length > 0)
             {
-                return View(await _context.Jobs.Where(p => p.ChineseGroup == group || p.EnglishGroup == group).OrderByDescending(p => p.CreateTime).ToListAsync());
+                return View(await _context.Jobs.Where(p => p.IsShow).Where(p => p.ChineseGroup == group || p.EnglishGroup == group).OrderBy(p => p.EnglishTitle).ToListAsync());
             }
-            return View(await _context.Jobs.OrderByDescending(p => p.CreateTime).ToListAsync());
+            return View(await _context.Jobs.Where(p => p.IsShow).OrderBy(p => p.EnglishTitle).ToListAsync());
         }
 
         public IActionResult Create()
@@ -104,7 +104,7 @@ namespace NeoWeb.Controllers
                     item.EnglishTitle = job.EnglishTitle;
                     item.EnglishGroup = job.EnglishGroup;
                     item.EnglishContent = job.EnglishContent;
-                    item.IsShow = job.IsShow;
+                    item.IsShow = true;
                     item.EditTime = DateTime.Now;
                     _context.Update(item);
                     await _context.SaveChangesAsync();
@@ -147,7 +147,8 @@ namespace NeoWeb.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var job = await _context.Jobs.FindAsync(id);
-            _context.Jobs.Remove(job);
+            job.IsShow = false;
+            _context.Update(job);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
