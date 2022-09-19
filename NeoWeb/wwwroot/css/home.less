@@ -45,6 +45,36 @@ html body {
     overflow-x: hidden;
 }
 
+@nav-color: #0F1E32;
+
+.navbar&:not(.show):not(.scrolled-up) {
+    background: transparent;
+
+    #whitelogo {
+        display: block;
+    }
+
+    #darklogo {
+        display: none;
+    }
+
+    @media only screen and (min-width: 992px) {
+        &:not(.scrolled-up) {
+            a.nav-link, li.nav-item {
+                color: white;
+
+                &:hover {
+                    color: white;
+                }
+            }
+        }
+    }
+
+    .top, .bottom {
+        background-color: white;
+    }
+}
+
 .dual-row {
     margin: 0;
 }
@@ -96,8 +126,6 @@ html body {
     line-height: 1;
     background-color: @dark-blue;
     border-radius: 50%;
-    color: white;
-    padding-left: 2px;
 }
 
 // Landing
@@ -145,12 +173,25 @@ html body {
     }
 }
 
+
+
+
+
+
 .latest-news-text {
     .work-sans-bold;
     .uppercase;
     letter-spacing: 3px;
     line-height: 1.25;
     margin-bottom: 6px;
+
+    @media (min-width: 1024px) {
+        font-size: @font-size-12px;
+    }
+
+    @media (min-width: 1440px) {
+        font-size: @font-size-16px;
+    }
 }
 
 .news-link-wrapper {
@@ -160,10 +201,14 @@ html body {
 
 .news-link {
     .nunito-sans-semibold;
+    .green;
     line-height: 1.25;
-    font-size: @font-size-14px;
 
-    only screen and (max-width: 767.98px) {
+    &:hover {
+        color: fade(@green, 60%);
+    }
+
+    @media only screen and (max-width: 767.98px) {
         width: 90%;
     }
 
@@ -1762,30 +1807,10 @@ html body {
     }
 }
 
-.news-wrapper {
-    display: inline-block;
-    width: 200px;
-    margin-right: 1rem;
-    padding-right: 1rem;
-    border: none;
-    border-right: 1px solid gray;
-    vertical-align: top;
-
-    &:last-child {
-        border: none;
-    }
-
-    @media only screen and (max-width: 768px) {
-        margin-bottom: 1rem;
-        padding-bottom: 1rem;
-        border: none;
-        border-bottom: 1px solid gray;
-        width: 100%;
-
-        &:last-child {
-            border: none;
-        }
-    }
+.latest-news-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 62px;
 }
 
 .latest-news-title {

@@ -1,4 +1,50 @@
 @import './basic.less';
+
+.introduction {
+    position: relative;
+    display: flex;
+    padding: 3rem 0 6.25rem;
+
+    @media (max-width: 991.98px) {
+        display: none;
+    }
+}
+
+.introduction-content {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.introduction-title {
+    font-size: 5.75rem;
+    font-family: WorkSans;
+    font-weight: bold;
+    line-height: 0.85;
+    text-transform: uppercase;
+
+    em {
+        font-style: normal;
+        color: @green;
+    }
+}
+
+.introduction-description {
+    margin-top: 2.25rem;
+    font-size: 1.25rem;
+    font-family: NunitoSans;
+    font-weight: bold;
+}
+
+.introduction-img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    object-fit: contain;
+    z-index: -1;
+}
+
 .divider {
     height: 2px;
     background: @dark-blue;
@@ -649,9 +695,10 @@
 }
 .card {
     box-shadow: -27px 3px 30px rgba(0, 0, 0, 0.237341);
-    height: 100%;
 }
- 
+.card-body{
+    height: 363px
+}
 .card-text {
     margin-top: 1.4rem;
     img {
@@ -664,83 +711,5 @@
         width: calc(100% - 40px);
         font-size: 1rem;
         font-weight: 600;
-    }
-}
-.menu-page-description {
-    table {
-        thead {
-            tr {
-                font-weight: bold;
-                border-top: 1.5rem solid white;
-                border-bottom: 1.5rem solid white;
-
-                th {
-                    border: none;
-                    padding: 0;
-                }
-            }
-        }
-
-        tbody {
-            tr {
-                border-top: 1.5rem solid white;
-                border-bottom: 1.5rem solid white;
-
-                td {
-                    background-color: #EDF9F7;
-                    border: none;
-                    vertical-align: middle;
-                    padding: 1rem;
-
-                    &:first-child {
-                        font-weight: bold;
-                    }
-
-                    &:last-child {
-                        background-color: #BCE6D9;
-                        font-weight: bold;
-                    }
-                }
-            }
-        }
-    }
-}
-
-.eapp {
-    background: #EDF9F7;
-    position: relative;
-    padding: 17px 24px;
-    margin: 2rem 0;
-
-    .iconfont {
-        font-size: 1.5rem;
-    }
-
-    img{
-        vertical-align: top;
-    }
-
-    strong {
-        font-size: 1.75rem;
-        margin: 0 5px;
-    }
-
-    .iconfont {
-        color: #50B0AE;
-
-        &.up, &.down {
-            color: #000033;
-            cursor: pointer;
-        }
-    }
-
-    &::before {
-        position: absolute;
-        content: ' ';
-        left: 0;
-        top: 0;
-        width: 6px;
-        height: 100%;
-        background: #00E599;
     }
 }

@@ -7,9 +7,14 @@
 }
 
 <div class="introduction">
-    <div class="introduction-content">
-        <h1 class="introduction-title">@Localizer["<em>NEO</em><br/>Defined"]</h1>
-        <div class="introduction-description">@Localizer["Neo was founded 2014 and has grown into a first-class smart contract platform. It is backed by a global developer community who continue to drive the blockchain forward."]</div>
+    <div class="introduction-start">
+        <h1 class="uppercase @SharedLocalizer["d-none-zh"]">
+            <span class="green">@Localizer["NEO"]</span><br />@Localizer["Defined"]
+        </h1>
+        <h1 class="uppercase @SharedLocalizer["d-none"]">
+            @Localizer["Defined"]<span class="green">@Localizer["NEO"]</span>
+        </h1>
+        <div class="introduction-content">@Localizer["Neo was founded 2014 and has grown into a first-class smart contract platform. It is backed by a global developer community who continue to drive the blockchain forward."]</div>
     </div>
     <img class="introduction-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/discover/FloatingNeo.svg", true)" />
 </div>

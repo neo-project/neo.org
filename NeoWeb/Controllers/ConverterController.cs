@@ -266,29 +266,6 @@ namespace NeoWeb.Controllers
                     {
                         result.Add(_localizer["Smart contract script analysis:"], output);
                     }
-                    //可能是合约脚本
-                    if (output.Any(p => p.Contains("CheckSig") || p.Contains("CheckMultisig")))
-                    {
-                        try
-                        {
-                            var output1 = ConverterHelper.ScriptsToScriptHash(input).big;
-                            result.Add(_localizer["Base64 contract script to scripthash (big-endian):"], new List<string>() { output1 });
-
-                        }
-                        catch (Exception) { }
-                        try
-                        {
-                            var output2 = ConverterHelper.ScriptsToScriptHash(input).little;
-                            result.Add(_localizer["Base64 contract script to scripthash (little-endian):"], new List<string>() { output2 });
-                            try
-                            {
-                                var output3 = ConverterHelper.ScriptHashToAddress(output2);
-                                result.Add(_localizer["Base64 contract script to Neo3 address:"], new List<string>() { output3 });
-                            }
-                            catch (Exception) { }
-                        }
-                        catch (Exception) { }
-                    }
                 }
                 catch (Exception) { }
                 try

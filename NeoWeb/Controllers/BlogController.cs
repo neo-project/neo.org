@@ -34,6 +34,7 @@ namespace NeoWeb.Controllers
             if (_userId != null)
             {
                 _userRules = _context.UserRoles.Any(p => p.UserId == _userId);
+                var asfs = _context.UserRoles.Where(p => p.UserId == _userId).ToList();
             }
         }
 

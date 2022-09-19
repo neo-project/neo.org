@@ -1,5 +1,53 @@
 @import 'basic.less';
 
+.introduction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 38px 0;
+
+    @media (max-width: 991px) {
+        display: none;
+    }
+
+    &.outstanding-contributors {
+        .introduction-img {
+            width: 45%;
+        }
+    }
+}
+
+.introduction-start {
+    display: flex;
+    flex-direction: column;
+}
+
+.introduction-title {
+    font-size: 3.5rem;
+    line-height: 0.87;
+    .uppercase;
+    .work-sans-bold;
+    .dark-blue;
+
+    &.zh {
+        line-height: 1
+    }
+}
+
+.introduction-content {
+    margin-top: 2.25rem;
+    font-size: 1.25rem;
+    .nunito-sans-bold;
+}
+
+.introduction-img {
+    margin-left: 2.25rem;
+    width: 60%;
+
+    @media (max-width: 991px) {
+        display: none;
+    }
+}
 
 .divider {
     height: 2px;

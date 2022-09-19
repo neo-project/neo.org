@@ -21,158 +21,55 @@
 
 <pre class="green code">
 <code>
-package io.neow3j.examples.contractdevelopment.contracts;
+import io.neow3j.devpack.contracts.ContractManagement;
 
-import static io.neow3j.devpack.StringLiteralHelper.addressToScriptHash;
+&#64;ManifestExtra(key = "Name", value = "Nep17 example")
+&#64;ManifestExtra(key = "Author", value = "neow3j")
+public class Nep17Contract {
 
-import io.neow3j.devpack.*
+    static final Hash160 contractOwner = addressToScriptHash("NdHjSPVnw99RDMCoJdCnAcjkE23gvqUeg2");
+    static final int initialSupply = 10_000_000_000_000_000;
 
-@@ManifestExtra(key = "name", value = "FungibleToken")
-@@ManifestExtra(key = "author", value = "AxLabs")
-@@SupportedStandards("NEP-17")
-@@Permission(contract = "fffdc93764dbaddd97c48f252a53ea4643faa3fd") // ContractManagement
-public class FungibleToken {
+    static final StorageContext ctx = Storage.getStorageContext();
+    static final StorageMap tokenOwnerMap = ctx.createMap("tokenOwner");
 
-    static final Hash160 owner = addressToScriptHash("NM7Aky765FG8NhhwtxjXRx7jEL1cnw7PBP");
+    &#64;DisplayName("Transfer")
+    static Event3Args<Hash160, Hash160, Integer>
+    onTransfer;
 
-    @@DisplayName("Transfer")
-    static Event3Args<Hash160, Hash160, Integer> onTransfer;
-
-    static final int initialSupply = 200_000_000;
-    static final int decimals = 8;
-    static final String assetPrefix = "asset";
-    static final String totalSupplyKey = "totalSupply";
-    static final StorageContext sc = Storage.getStorageContext();
-    static final StorageMap assetMap = sc.createMap(assetPrefix);
-
-    public static String symbol() {
-        return "FGT";
-    }
-
-    public static int decimals() {
-        return decimals;
-    }
-
-    public static int totalSupply() {
-        return getTotalSupply();
-    }
-
-    static int getTotalSupply() {
-        return Storage.getInteger(sc, totalSupplyKey);
-    }
-
-    public static boolean transfer(Hash160 from, Hash160 to, int amount, Object[] data)
-            throws Exception {
-
-        if (!Hash160.isValid(from) || !Hash160.isValid(to)) {
+    // Transfers a token.
+    public static boolean transfer(Hash160 from, Hash160 to, int amount, Object[] data) throws Exception {
+        if (!from.isValid() || !to.isValid()) {
             throw new Exception("From or To address is not a valid address.");
         }
-        if (amount < 0) {
-            throw new Exception("The transfer amount was negative.");
+        if (amount < 0) {throw new Exception("The transfer amount was negative.");}
+
+        if (!Runtime.checkWitness(from) && from != ExecutionEngine.getCallingScriptHash()) {
+            throw new Exception("Invalid sender signature. The sender of the tokens needs to be the signing account.");
         }
-        if (!Runtime.checkWitness(from) && from != Runtime.getCallingScriptHash()) {
-            throw new Exception("Invalid sender signature. The sender of the tokens needs to be "
-                    + "the signing account.");
-        }
-        if (getBalance(from) < amount) {
-            return false;
-        }
+        if (assetGet(from) < amount) {return false;}
+
         if (from != to && amount != 0) {
             deductFromBalance(from, amount);
             addToBalance(to, amount);
         }
-
-        onTransfer.fire(from, to, amount);
         if (ContractManagement.getContract(to) != null) {
-            Contract.call(to, "onNEP17Payment", CallFlags.All, data);
+            Contract.call(to, "onNEP17Payment", CallFlags.ALL, data);
         }
-
+        onTransfer.notify(from, to, amount);
         return true;
     }
-
-    public static int balanceOf(Hash160 account) throws Exception {
-        if (!Hash160.isValid(account)) {
-            throw new Exception("Argument is not a valid address.");
-        }
-        return getBalance(account);
-    }
-
-    @@OnDeployment
-    public static void deploy(Object data, boolean update) throws Exception {
-        throwIfSignerIsNotOwner();
-        if (!update) {
-            if (Storage.get(sc, totalSupplyKey) != null) {
-                throw new Exception("Contract was already deployed.");
-            }
-            // Initialize supply
-            Storage.put(sc, totalSupplyKey, initialSupply);
-            // And allocate all tokens to the contract owner.
-            assetMap.put(owner.toByteArray(), initialSupply);
-        }
-    }
-
-    public static void update(ByteString script, String manifest) throws Exception {
-        throwIfSignerIsNotOwner();
-        if (script.length() == 0 && manifest.length() == 0) {
-            throw new Exception("The new contract script and manifest must not be empty.");
-        }
-        ContractManagement.update(script, manifest);
-    }
-
-    public static void destroy() throws Exception {
-        throwIfSignerIsNotOwner();
-        ContractManagement.destroy();
-    }
-
-    @@OnVerification
-    public static boolean verify() throws Exception {
-        throwIfSignerIsNotOwner();
-        return true;
-    }
-
-    /**
-     * Gets the address of the contract owner.
-     *
-     * @@return the address of the contract owner.
-     */
-    public static Hash160 contractOwner() {
-        return owner;
-    }
-
-    private static void throwIfSignerIsNotOwner() throws Exception {
-        if (!Runtime.checkWitness(owner)) {
-            throw new Exception("The calling entity is not the owner of this contract.");
-        }
-    }
-
-    private static void addToBalance(Hash160 key, int value) {
-        assetMap.put(key.toByteArray(), getBalance(key) + value);
-    }
-
-    private static void deductFromBalance(Hash160 key, int value) {
-        int oldValue = getBalance(key);
-        if (oldValue == value) {
-            assetMap.delete(key.toByteArray());
-        } else {
-            assetMap.put(key.toByteArray(), oldValue - value);
-        }
-    }
-
-    private static int getBalance(Hash160 key) {
-        return assetMap.getInteger(key.toByteArray());
-    }
-
 }
     </code>
 </pre>
 <div class="bottom-bar">
     <div class="bottom-bar-title">Java @Localizer["Resources"]</div>
     <div class="bottom-bar-buttons">
-        <a class="bottom-bar-button" href="https://neow3j.io" target="_blank">
+        <a class="bottom-bar-button" href="https://neow3j.io/#/overview/getting_started?id=smart-contract-development" target="_blank">
             <img class="button-icon" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/Documentation.png")" />
             @Localizer["Documentation"]
         </a>
-        <a class="bottom-bar-button" href="https://github.com/neow3j/neow3j-examples-java/blob/master/src/main/java/io/neow3j/examples/contractdevelopment/contracts/" target="_blank">
+        <a class="bottom-bar-button" href="https://github.com/neow3j/neow3j-examples-java/tree/master/neo-n3-examples/src/main/java/io/neow3j/examples/contractdevelopment/contracts" target="_blank">
             <img class="button-icon" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/home/Templates.png")" />
             @Localizer["Templates"]
         </a>

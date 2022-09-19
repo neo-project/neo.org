@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace NeoWeb.Controllers
 {
-    [ServiceFilter(typeof(ClientIpCheckActionFilter))]
     public class TourController : Controller
     {
         public IActionResult Index()

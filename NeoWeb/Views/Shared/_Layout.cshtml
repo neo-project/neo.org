@@ -107,7 +107,7 @@ https://github.com/neo-project/neo.org
 
                                         <div>
                                             <strong>@Localizer["NEO & GAS"]</strong>
-                                            <span>@Localizer["Neo’s unique dual token model"]</span>
+                                            <span>@Localizer["Neo’s unique duel token model"]</span>
                                         </div>
                                     </a>
                                 </div>
@@ -127,21 +127,22 @@ https://github.com/neo-project/neo.org
                     <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="dev">@Localizer["Developer"]</a></li>
                     <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="eco">@Localizer["Eco-Support"]</a></li>
                     <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="news">@Localizer["News"]</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://ndapp.org/" target="_blank">@Localizer["dApps"]</a></li>
                     <li class="nav-item d-block d-md-none"><a class="nav-link" asp-action="index" asp-controller="migration">@Localizer["Migration"]</a></li>
 
                     @if (SharedLocalizer["en"].Value == "zh")
                     {
-                <li class="nav-item nav-lang">
-                    <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
-                    <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
-                </li> }
-                            else
-                            {
-                <li class="nav-item nav-lang">
-                    <a style="font-size: 1em; font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
-                    <a style="font-size: .9em;  font-weight: 500" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
-                </li>}
+                        <li class="nav-item nav-lang">
+                            <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
+                            <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item nav-lang">
+                            <a style="font-size: 1em; font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
+                            <a style="font-size: .9em;  font-weight: 500" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
@@ -153,10 +154,10 @@ https://github.com/neo-project/neo.org
         {
             <div class="migration-div d-none d-md-block">
                 <a asp-action="index" asp-controller="migration">
-                    <p class="migration-text tw-flex tw-gap-1 tw-text-lg tw-font-semibold">
+                    <h4 class="migration-text">
                         <img src="@Helper.CDN/images/presskit/Neo symbol.svg" />
                         @Localizer["MIGRATE TO N3"]
-                    </p>
+                    </h4>
                 </a>
             </div>
         }
@@ -241,7 +242,7 @@ https://github.com/neo-project/neo.org
                 </div>
             </div>
             <div class="mt-3 copyright-container">
-                <p class="op-70 copyright-paragraph">Copyright © Neo Team 2014-@DateTime.Now.Year <a href="/map"><small>@Localizer["Site map"]</small></a></p>
+                <p class="op-70 copyright-paragraph">Copyright © Neo Team 2014-@DateTime.Now.Year</p>
             </div>
         </div>
     </footer>

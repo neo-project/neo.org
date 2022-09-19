@@ -1,4 +1,22 @@
 @import 'basic.less';
+
+.joinus-qrcode {
+    position: relative;
+
+    img {
+        position: absolute;
+        display: none;
+        top: 40px;
+        left: -60px;
+        width: 150px;
+        border: 10px solid #fff;
+    }
+}
+
+.joinus-qrcode:hover img {
+    display: block;
+}
+
 .title {
     color: @dark-blue;
 }

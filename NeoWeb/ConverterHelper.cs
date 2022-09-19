@@ -233,7 +233,7 @@ namespace NeoWeb
             try
             {
                 bytes = Convert.FromBase64String(base64.Trim());
-                if (bytes.Length != 20) throw new FormatException();
+                if(bytes.Length != 20) throw new FormatException();
             }
             catch (Exception)
             {
@@ -410,30 +410,6 @@ namespace NeoWeb
         }
 
         /// <summary>
-        /// 将 Base64 格式的合约脚本转为脚本哈希
-        /// <param name="base64">
-        /// Base64 编码的 scripts
-        /// e.g. DCECbzTesnBofh/Xng1SofChKkBC7jhVmLxCN1vk\u002B49xa2pBVuezJw==
-        /// </param>
-        /// <returns>eg:0xce2588a0135ea78a732f852506b05ee2760f1953 and 53190f76e25eb00625852f738aa75e13a08825ce</returns>
-        public static (string big, string little) ScriptsToScriptHash(string base64)
-        {
-            Contract contract;
-            try
-            {
-                contract = new()
-                {
-                    Script = Convert.FromBase64String(base64)
-                };
-            }
-            catch (Exception)
-            {
-                throw new FormatException();
-            }
-            return (contract.ScriptHash.ToString(), contract.ScriptHash.ToArray().ToHexString()); // big, little
-        }
-
-        /// <summary>
         /// 将十六进制的脚本转为易读的 OpCode
         /// 参考：https://github.com/chenzhitong/OpCodeConverter
         /// </summary>
@@ -512,7 +488,11 @@ namespace NeoWeb
                     scripts.RemoveRange(0, number);
                     onlyOpCode = false;
                 }
-                if (onlyOpCode)
+                if(onlyOpCode)
+                {
+                    result.Add($"{op}");
+                }
+                else
                 {
                     result.Add($"{op}");
                 }
