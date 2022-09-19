@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -120,13 +120,31 @@
   <data name="Apply Now" xml:space="preserve">
     <value>立即申请</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>编辑</value>
+  </data>
   <data name="Join Us" xml:space="preserve">
-    <value>加入我们</value>
+    <value>人才招聘</value>
+  </data>
+  <data name="Neo Career.&lt;br/&gt;New Era." xml:space="preserve">
+    <value>我们在&lt;br/&gt;新纪元等你</value>
+  </data>
+  <data name="Neo is an open-source platform driven by the community. It utilizes blockchain technology and digital identities to digitize and automate the management of assets using smart contracts. Using a distributed network, it aims to create a smart economy by building infrastructures of the next-gen Internet and creating a solid foundation for mass blockchain adoption." xml:space="preserve">
+    <value>Neo 是一个由社区驱动的开源平台。利用区块链技术与数字身份，开发者可以通过智能合约实现资产管理数字化与自动化。Neo致力于通过分布式网络建设下一代互联网基础设施，为区块链技术大规模落地奠定基础，以实现智能经济的宏大愿景。</value>
+  </data>
+  <data name="Posted by" xml:space="preserve">
+    <value>发布者</value>
+  </data>
+  <data name="Posting Date" xml:space="preserve">
+    <value>发布日期</value>
   </data>
   <data name="Scan the QR code and talk to us!" xml:space="preserve">
     <value>扫描二维码，与我们对话</value>
   </data>
-  <data name="We are calling for you to join us in the journey towards the smart economy. Please check this page for regular updates of vacancies from various teams and functions." xml:space="preserve">
-    <value>共建智能经济的路上，我们一直在寻找志同道合的你。请持续关注此页面上各团队的最新招聘信息。</value>
+  <data name="We are in a totally different world where innovation happens each single day. If you are looking for something brand new rather than normal as usual, come and join us." xml:space="preserve">
+    <value>我们正处在一个与众不同的领域，创新每天都在发生。如果你正在寻找一些全新的，非同寻常的机会，来加入我们。</value>
   </data>
 </root>

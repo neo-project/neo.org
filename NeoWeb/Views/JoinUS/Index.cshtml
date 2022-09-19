@@ -4,34 +4,36 @@
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
 @{
-    ViewData["Title"] = "Join US";
+    ViewData["Title"] = Localizer["Join Us"].Value;
 }
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/joinus.min.css", true)" />
 }
-<div class="py-5">
-    <p>@Localizer["Join Us"]</p>
-    <p class="mt-4">@Localizer["We are calling for you to join us in the journey towards the smart economy. Please check this page for regular updates of vacancies from various teams and functions."]</p>
+<div class="py-0 py-md-5">
+    <div class="introduction">
+        <div class="introduction-content">
+            <h1 class="introduction-title">@Html.Raw(Localizer["Neo Career.<br/>New Era."].Value)</h1>
+            <div class="introduction-description">
+                <p>@Localizer["We are in a totally different world where innovation happens each single day. If you are looking for something brand new rather than normal as usual, come and join us."]</p>
+            </div>
+        </div>
+        <img class="introduction-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/introduction-bg.svg", true)" />
+    </div>
+
     <div class="mt-5">
-        @if ((ViewBag.Groups as List<string>).Count == 1)
+        @foreach (var item in ViewBag.Groups)
         {
-            <a href="javascript:" class="btn-focus">@((ViewBag.Groups as List<string>)[0])</a>
-        }
-        else
-        {
-            @foreach (var item in ViewBag.Groups)
+            @if (item == ViewBag.Group)
             {
-                @if (item == ViewBag.Group)
-                {
-                    <a href="javascript:" class="btn-focus">@item</a>
-                }
-                else
-                {
-                    <a href="/joinus?group=@item" class="btn">@item</a>
-                }
+                <a href="/joinus?group=@item" class="btn-3 my-1">@item</a>
+            }
+            else
+            {
+                <a href="/joinus?group=@item" class="btn-1 my-1">@item</a>
             }
         }
     </div>
+    <hr />
     <div class="mt-5">
         @foreach (var item in Model)
         {
@@ -40,24 +42,20 @@
                     <h4>@(SharedLocalizer["en"].Value == "zh" ? @item.ChineseTitle : @item.EnglishTitle)<i class="iconfont float-right">&#xe624;</i></h4>
                 </a>
                 <div id="@item.Number" style="display: none">
-                    <div class="mt-5 with-space">@Html.Raw(SharedLocalizer["en"].Value == "zh" ? @item.ChineseContent : @item.EnglishContent)</div>
+                    <div class="mt-5 with-space">
+                        @Html.Raw(SharedLocalizer["en"].Value == "zh" ? @item.ChineseContent : @item.EnglishContent)
+                    </div>
+                    <p>@Localizer["Posted by"] <a href="mailto:career@neo.org?subject=@item.Number">career@neo.org</a> @item.EditTime.ToShortDateString() </p>
 
                     @if (ViewBag.UserRules != null && ViewBag.UserRules)
                     {
                         <div class="mt-4">
-                            <a asp-action="Edit" asp-controller="JoinUS" asp-route-id="@item.Id">Edit</a>
-                            <a class="ml-2" asp-action="Delete" asp-controller="JoinUS" asp-route-id="@item.Id">Delete</a>
+                            <a asp-action="Edit" asp-controller="JoinUS" asp-route-id="@item.Id">@Localizer["Edit"]</a>
+                            <a class="ml-2" asp-action="Delete" asp-controller="JoinUS" asp-route-id="@item.Id">@Localizer["Delete"]</a>
                         </div>
                     }
-                    <div class="text-right">
-                        <span class="joinus-qrcode mr-3">
-                            <a href="javascript:" class="iconfont">&#xe615;</a>
-                            <img src="@Helper.CDN/images/joinus/qr.png" />
-                        </span>
-                        <a class="btn" href="mailto:career@neo.org?subject=@item.Number">@Localizer["Apply Now"]</a>
-                        <div class="mt-3 gray">
-                            @Localizer["Scan the QR code and talk to us!"]
-                        </div>
+                    <div>
+                        <a class="btn-2 mt-3" href="/resume/create?jobid=@item.Id">@Localizer["Apply Now"]</a>
                     </div>
                 </div>
             </div>

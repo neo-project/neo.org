@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="&lt;em&gt;NEO&lt;/em&gt;&lt;br/&gt;Governance" xml:space="preserve">
+    <value>&lt;em&gt;NEO&lt;/em&gt; 治理</value>
+  </data>
   <data name="A GAS fee is required to register candidacy. As candidates may be elected to the role of consensus node, it is recommended that all candidates set up a reliable node and are capable of maintenance. Comprehensive knowledge of the Neo blockchain is required to fulfil the responsibility as a council member." xml:space="preserve">
     <value>理事会成员将有机会成为共识节点，我们推荐所有候选人在注册前进行相关节点设置。</value>
   </data>

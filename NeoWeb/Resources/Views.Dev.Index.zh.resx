@@ -120,6 +120,9 @@
   <data name="&lt;em&gt;Neo&lt;/em&gt;&lt;br/&gt;is getting&lt;br/&gt;an upgrade" xml:space="preserve">
     <value>&lt;em&gt;Neo&lt;/em&gt; 现已升级</value>
   </data>
+  <data name="&lt;em&gt;NEO&lt;/em&gt;&lt;br/&gt;Technology" xml:space="preserve">
+    <value>&lt;em&gt;NEO&lt;/em&gt; 开发者</value>
+  </data>
   <data name="After four years of stable MainNet operation, Neo is undergoing its biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
     <value>经历了 4 年的稳定主网运行，Neo 正在经历有史以来最大的一次进化 - 向 N3 版本进行迁移。Neo N3 是 Neo 区块链迄今为止最强大、功能最丰富的版本。</value>
   </data>

@@ -50,6 +50,10 @@ namespace NeoWeb
                 .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
                 .AddDataAnnotationsLocalization();
             services.AddRazorPages();
+            services.AddScoped(container =>
+            {
+                return new ClientIpCheckActionFilter("ip.txt");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -102,7 +106,7 @@ namespace NeoWeb
             }
             catch (Exception)
             {
-                //ÍøÕ¾µÚÒ»´ÎÔËĞĞ£¬Î´´´½¨Êı¾İ¿âÊ±»áÓĞÒì³£
+                //ç½‘ç«™ç¬¬ä¸€æ¬¡è¿è¡Œï¼Œæœªåˆ›å»ºæ•°æ®åº“æ—¶ä¼šæœ‰å¼‚å¸¸
             }
             Helper.CurrentDirectory = Configuration["CurrentDirectory"];
 

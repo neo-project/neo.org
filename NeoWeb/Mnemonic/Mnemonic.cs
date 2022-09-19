@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using Neo.Cryptography;
 using System.Linq;
 using NBitcoin;
+using Neo;
 
 namespace NeoWeb
 {
@@ -118,7 +119,7 @@ namespace NeoWeb
             //coinType: BTC 0, ETH 60, NEO 888, ONT 1024
             //see https://github.com/satoshilabs/slips/blob/master/slip-0044.md
             var derivePath = KeyPath.Parse($"m/44'/{coinType}'/0'/0/0");
-            var paymentKey = new ExtKey(seed).Derive(derivePath);
+            var paymentKey = new ExtKey(seed.ToHexString()).Derive(derivePath);
             return paymentKey.PrivateKey.ToBytes();
         }
 
@@ -137,7 +138,7 @@ namespace NeoWeb
         private static byte[] GetRandom(int length)
         {
             var rndSeries = new byte[length];
-            new RNGCryptoServiceProvider().GetBytes(rndSeries);
+            RandomNumberGenerator.Create().GetBytes(rndSeries);
             return rndSeries;
         }
 
