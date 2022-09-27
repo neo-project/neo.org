@@ -40,7 +40,7 @@ namespace NeoWeb.Controllers
             ViewBag.UserRules = _userRules;
             var isZh = _sharedLocalizer["en"] == "zh";
             ViewBag.Group = group;
-            ViewBag.Groups = _context.Jobs.GroupBy(p => isZh ? p.ChineseGroup : p.EnglishGroup).Select(p => p.Key).ToList();
+            ViewBag.Groups = _context.Jobs.Where(p => p.IsShow).GroupBy(p => isZh ? p.ChineseGroup : p.EnglishGroup).Select(p => p.Key).ToList();
             if (group.Length > 0)
             {
                 return View(await _context.Jobs.Where(p => p.IsShow).Where(p => p.ChineseGroup == group || p.EnglishGroup == group).OrderBy(p => p.EnglishTitle).ToListAsync());
