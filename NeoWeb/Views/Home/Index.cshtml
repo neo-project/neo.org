@@ -10,29 +10,33 @@
 @* 基本块 - Home page *@
 <div class="home-container">
 
-    <div style="background-color: #000023; color: #fff" class="tw-relative">
-        <div class="tw-px-4 container tw-pt-40 tw-relative">
+    <div style="background-color: #010E29; color: #fff" class="tw-relative">
+        <div class="tw-px-4 container tw-pt-40 tw-pb-20 tw-relative">
             <div class=" tw-flex lg:tw-flex-row tw-flex-col tw-w-full tw-relative">
-                <div class="tw-flex tw-w-full tw-gap-3 tw-flex-col  lg:tw-w-2/5 tw-z-50 tw-order-2 lg:tw-order-1">
+                <div class="tw-flex tw-w-full tw-gap-3 tw-flex-col  lg:tw-w-1/2 tw-z-50 ">
+                    <div class="tw-text-primary work-sans-semibold lg:tw-text-left  tw-text-center">@Localizer["DECODING WEB3"]</div>
                     <div class="lg:tw-text-left tw-text-center work-sans-bold">
-                        <div class="tw-text-primary tw-text-4xl lg:tw-text-7xl ">@Localizer["GRANTSHARES"]</div>
-                        <div class="tw-text-4xl lg:tw-text-7xl tw-mb-7">@Localizer["OPEN NOW"]</div>
+                        <div class="tw-text-4xl lg:tw-text-7xl ">@Localizer["USA"]</div>
+                        <div class="tw-text-4xl lg:tw-text-7xl tw-mb-7">@Localizer["CAMPUS TOUR"]</div>
                     </div>
                     <p class="tw-uppercase work-sans-semibold tw-mb-7 tw-tracking-widest lg:tw-text-left tw-text-center">
-                        @Localizer["decentralized and transparent grants program for the Neo ecosystem"]
+                        @Localizer["October 2nd - October 26th, 2022"]
                     </p>
-                    <div class="tw-mb-7 tw-flex tw-items-center tw-justify-center lg:tw-justify-start tw-gap-4 lg:tw-w-full tw-uppercase">
-                        <a href="https://grantshares.io" target="_blank" class="hover:tw-bg-primary/20 tw-bg-primary work-sans-semibold tw-py-2 lg:tw-px-8 tw-w-full lg:tw-w-auto tw-text-center">@Localizer["LEARN MORE"]</a>
+                    <div class="tw-flex lg:tw-hidden tw-mb-7">
+                        <img src="/images/usacampustour/usa-campus-tour-hero.png" class="tw-z-10" />
                     </div>
-                    <div class="tw-mb-7">
+                    <div class="tw-mb-7 tw-flex tw-items-center tw-justify-center lg:tw-justify-start tw-gap-4 lg:tw-w-full tw-uppercase">
+                        <a href="https://tour.neo.org/" target="_blank" class="hover:tw-bg-primary/20 tw-bg-primary work-sans-semibold tw-py-2 lg:tw-px-8 tw-w-full lg:tw-w-auto tw-text-center">@Localizer["LEARN MORE"]</a>
+                    </div>
+                    <div class="">
                         <p class="tw-uppercase work-sans-bold tw-tracking-widest">@Localizer["Latest News:"]</p>
                         <p class="tw-text-base tw-font-normal">
-                                <a class="news-link" href="~/blog/details/@Model.FirstOrDefault(p => p.Type == NewsViewModelType.Blog).Blog.Id">@Model[0].Blog.Title <i class="iconfont circle-arrow-icon">&#xe6ab;</i></a>
+                            <a class="news-link" href="~/blog/details/@Model.FirstOrDefault(p => p.Type == NewsViewModelType.Blog).Blog.Id">@Model[0].Blog.Title <i class="iconfont circle-arrow-icon">&#xe6ab;</i></a>
                         </p>
                     </div>
                 </div>
-                <div class="lg:tw-ml-auto tw-w-full tw-order-1 lg:tw-order-2">
-                    <img src="/images/grantshares/grantshares_hero.png" class="tw-z-10" />
+                <div class="lg:tw-ml-auto tw-p-6 lg:tw-w-1/2 tw-w-full tw-hidden lg:tw-flex tw-flex-items-center tw-justify-center">
+                    <img class="tw-object-contain tw-w-auto tw-h-96" src="/images/usacampustour/usa-campus-tour-hero.png"  />
                 </div>
             </div>
         </div>
