@@ -61,6 +61,7 @@ namespace NeoWeb.Controllers
             {
                 job.CreateTime = DateTime.Now;
                 job.EditTime = DateTime.Now;
+                job.IsShow = true;
                 _context.Add(job);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
