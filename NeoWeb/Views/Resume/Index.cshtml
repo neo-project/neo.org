@@ -31,6 +31,9 @@
                     @Html.DisplayNameFor(model => model.Phone)
                 </th>
                 <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.Scool) & @Html.DisplayNameFor(model => model.Specialty)
                 </th>
                 <th>
@@ -41,8 +44,6 @@
                 </th>*@
                 <th>
                     @Html.DisplayNameFor(model => model.DateTime)
-                </th>
-                <th>
                 </th>
             </tr>
         </thead>
@@ -57,11 +58,13 @@
                         </td>
                     }
                     <td>
-                        @Html.DisplayFor(modelItem => item.Name)<br>
-                        @Html.DisplayFor(modelItem => item.Email)
+                        <a href="/upload/@item.Path" download="@(item.Job?.ChineseTitle + " " + item.Name)">@item.Name</a>
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Scool)<br>
@@ -75,9 +78,6 @@
                     </td>*@
                     <td>
                         @Html.DisplayFor(modelItem => item.DateTime)
-                    </td>
-                    <td>
-                        <a href="/upload/@item.Path" download="@(item.Job?.ChineseTitle + " " + item.Name)">@Localizer["Download resume"]</a>
                     </td>
                 </tr>
             }
