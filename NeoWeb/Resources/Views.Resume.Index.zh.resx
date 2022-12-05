@@ -120,7 +120,19 @@
   <data name="Download resume" xml:space="preserve">
     <value>下载简历</value>
   </data>
+  <data name="Haven't received a resume yet" xml:space="preserve">
+    <value>还没收到简历</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>后一页</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>前一页</value>
+  </data>
   <data name="Resume" xml:space="preserve">
     <value>简历</value>
+  </data>
+  <data name="View resumes for all jobs" xml:space="preserve">
+    <value>查看全部职位的简历</value>
   </data>
 </root>

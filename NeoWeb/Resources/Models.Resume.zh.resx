@@ -138,6 +138,9 @@
   <data name="Referral Code" xml:space="preserve">
     <value>推荐人专属内推码</value>
   </data>
+  <data name="Submit Date" xml:space="preserve">
+    <value>投递日期</value>
+  </data>
   <data name="The {0} field is not a valid e-mail address." xml:space="preserve">
     <value>{0}字段不是有效的电子邮件地址。</value>
   </data>

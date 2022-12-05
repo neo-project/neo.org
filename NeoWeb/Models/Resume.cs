@@ -43,6 +43,7 @@ namespace NeoWeb.Models
         [DisplayName("My referral code")]
         public string MyReferralCode { get; set; }
 
+        [DisplayName("Submit Date")]
         public DateTime DateTime { get; set; }
     }
 }

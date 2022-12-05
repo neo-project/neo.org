@@ -1,19 +1,29 @@
 @model IEnumerable<NeoWeb.Models.Resume>
 
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
 @{
     ViewData["Title"] = "简历列表";
 }
+@if (ViewBag.Job != null)
+{
+    <h2 class="my-4">@(SharedLocalizer["en"].Value == "zh" ? (ViewBag.Job as NeoWeb.Models.Job).ChineseTitle : (ViewBag.Job as NeoWeb.Models.Job).EnglishTitle)</h2>
 
-<div class="my-3">共 @Model.Count() 份简历</div>
-
+    <a href="/resume">@Localizer["View resumes for all jobs"]</a>
+}
 @if (Model.Count() > 0)
 {
-    <table class="table my-3">
+    <table class="table my-3 table-striped table-hover">
         <thead>
             <tr>
-                <th>
-                    职位名称
-                </th>
+                @if (ViewBag.Job == null)
+                {
+                    <th>
+                        职位名称
+                    </th>
+                }
                 <th>
                     @Html.DisplayNameFor(model => model.Name)
                 </th>
@@ -21,20 +31,14 @@
                     @Html.DisplayNameFor(model => model.Phone)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Email)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Scool)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Specialty)
+                    @Html.DisplayNameFor(model => model.Scool) & @Html.DisplayNameFor(model => model.Specialty)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.ReferralCode)
                 </th>
-                <th>
+                @*<th>
                     @Html.DisplayNameFor(model => model.MyReferralCode)
-                </th>
+                </th>*@
                 <th>
                     @Html.DisplayNameFor(model => model.DateTime)
                 </th>
@@ -45,38 +49,37 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Job.ChineseTitle)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Phone)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Scool)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Specialty)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ReferralCode)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MyReferralCode)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateTime)
-                </td>
-                <td>
-                    <a href="/upload/@item.Path" download="@(item.Job?.ChineseTitle + " " + item.Name)">下载简历</a>
-                </td>
-            </tr>
+                <tr>
+                    @if (ViewBag.Job == null)
+                    {
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Job.ChineseTitle)
+                        </td>
+                    }
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)<br>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Scool)<br>
+                        @Html.DisplayFor(modelItem => item.Specialty)
+                    </td>
+                    <td>
+                        <a href="/resume/referralcode?code=@item.ReferralCode" target="_blank">@item.ReferralCode</a>
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.MyReferralCode)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateTime)
+                    </td>
+                    <td>
+                        <a href="/upload/@item.Path" download="@(item.Job?.ChineseTitle + " " + item.Name)">@Localizer["Download resume"]</a>
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
@@ -84,4 +87,54 @@
 }
 else
 {
-<p class="my-3 text-center">还没收到简历</p>}
+    <p class="my-3 text-center">@Localizer["Haven't received a resume yet"]</p>
+}
+<nav aria-label="...">
+    <ul class="pagination">
+        @if (ViewBag.Page == 1)
+        {
+            <li class="page-item disabled">
+                <a class="page-link" href="javascript:" tabindex="-1">@Localizer["Previous"]</a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item">
+                <a class="page-link" href="/resume?page=@(ViewBag.Page-1)&jobid=@ViewBag.JobId" tabindex="-1">@Localizer["Previous"]</a>
+            </li>
+        }
+        @if(ViewBag.Page > 3)
+        {
+            <li class="page-item"><a class="page-link" href="/resume?page=1&jobid=@ViewBag.JobId">1</a></li>
+            <li class="page-item"><a class="page-link" href="/resume?page=@(ViewBag.Page - 3)&jobid=@ViewBag.JobId">…</a></li>
+        }
+        @for (int i = 1; i <= (int)ViewBag.Pages; i++)
+        {
+            if (i == ViewBag.Page)
+            {
+                <li class="page-item active"><a class="page-link" href="/resume?page=@(i)&jobid=@ViewBag.JobId">@i</a></li>
+            }
+            else if (i - ViewBag.Page < 3 && ViewBag.Page - i < 3 || ViewBag.Page == 1 && i < 6 || ViewBag.Page == 2 && i < 6 || ViewBag.Page == ViewBag.Pages && i > ViewBag.Pages - 5 || ViewBag.Page == ViewBag.Pages - 1 && i > ViewBag.Pages - 5)
+            {
+                <li class="page-item"><a class="page-link" href="/resume?page=@(i)&jobid=@ViewBag.JobId">@i</a></li>
+            }
+        }
+        @if(ViewBag.Page < (ViewBag.Pages - 3))
+        {
+            <li class="page-item"><a class="page-link" href="/resume?page=@(ViewBag.Page + 3)&jobid=@ViewBag.JobId">…</a></li>
+            <li class="page-item"><a class="page-link" href="/resume?page=@(ViewBag.Pages)&jobid=@ViewBag.JobId">@ViewBag.Pages</a></li>
+        }
+        @if (ViewBag.Page == ViewBag.Pages)
+        {
+            <li class="page-item disabled">
+                <a class="page-link" href="javascript:">@Localizer["Next"]</a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item">
+                <a class="page-link" href="/resume?page=@(ViewBag.Page+1)&jobid=@ViewBag.JobId">@Localizer["Next"]</a>
+            </li>
+        }
+    </ul>
+</nav>

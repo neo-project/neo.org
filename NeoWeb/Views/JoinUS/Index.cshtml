@@ -50,7 +50,8 @@
                     @if (ViewBag.UserRules != null && ViewBag.UserRules)
                     {
                         <div class="mt-4">
-                            <a asp-action="Edit" asp-controller="JoinUS" asp-route-id="@item.Id">@Localizer["Edit"]</a>
+                            <a target="_blank" href="/resume?jobid=@item.Id">@Localizer["Resume List"]</a>
+                            <a class="ml-2" asp-action="Edit" asp-controller="JoinUS" asp-route-id="@item.Id">@Localizer["Edit"]</a>
                             <a class="ml-2" asp-action="Delete" asp-controller="JoinUS" asp-route-id="@item.Id">@Localizer["Delete"]</a>
                         </div>
                     }
