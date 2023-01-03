@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using NeoWeb.Data;
 using NeoWeb.Models;
+using reCAPTCHA.AspNetCore;
 
 namespace NeoWeb.Controllers
 {
@@ -18,17 +19,19 @@ namespace NeoWeb.Controllers
     public class ResumeController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IRecaptchaService _recaptcha;
 
         private readonly IWebHostEnvironment _env;
         private readonly IStringLocalizer<SharedResource> _sharedLocalizer;
         private readonly IStringLocalizer<ResumeController> _localizer;
 
-        public ResumeController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IStringLocalizer<SharedResource> sharedLocalizer, IWebHostEnvironment env, IStringLocalizer<ResumeController> localizer)
+        public ResumeController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IStringLocalizer<SharedResource> sharedLocalizer, IWebHostEnvironment env, IStringLocalizer<ResumeController> localizer, IRecaptchaService recaptcha)
         {
             _context = context;
             _sharedLocalizer = sharedLocalizer;
             _localizer = localizer;
             _env = env;
+            _recaptcha = recaptcha;
         }
 
         // GET: Resume
@@ -76,7 +79,7 @@ namespace NeoWeb.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Phone,Email,Scool,Specialty,ReferralCode,MyReferralCode")] Resume resume, int jobId, IFormFile file)
+        public async Task<IActionResult> Create([Bind("Id,Name,Phone,Email,Scool,Specialty,ReferralCode,MyReferralCode,GoogleToken")] Resume resume, int jobId, IFormFile file)
         {
             var job = _context.Jobs.FirstOrDefault(p => p.Id == jobId);
             if (job == null)
@@ -98,6 +101,13 @@ namespace NeoWeb.Controllers
                 if(!string.IsNullOrEmpty(resume.ReferralCode) && !_context.Resume.Any(p => resume.ReferralCode == p.MyReferralCode))
                 {
                     ModelState.AddModelError("ReferralCode", _localizer["The referral code does not exist."]);
+                    return View(resume);
+                }
+                var recaptchaReault = await _recaptcha.Validate(resume.GoogleToken);
+
+                if (!recaptchaReault.Success || recaptchaReault.Score < .5m)
+                {
+                    ModelState.AddModelError(string.Empty, "人机验证失败，请稍后重试");
                     return View(resume);
                 }
                 resume.Job = job;

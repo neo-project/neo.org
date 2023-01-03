@@ -17,6 +17,7 @@ using NeoWeb.Services;
 using System.Globalization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.StaticFiles;
+using reCAPTCHA.AspNetCore;
 
 namespace NeoWeb
 {
@@ -54,6 +55,7 @@ namespace NeoWeb
             {
                 return new ClientIpCheckActionFilter("ip.txt");
             });
+            services.AddGoogleRecaptcha(Configuration.GetSection("RecaptchaSettings"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

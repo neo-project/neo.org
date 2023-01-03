@@ -1,6 +1,9 @@
 @model NeoWeb.Models.Resume
 @using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Options
+@using reCAPTCHA.AspNetCore
 @inject IViewLocalizer Localizer
+@inject IOptions<RecaptchaSettings> options
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 @{
     ViewData["Title"] = Localizer["Resume Submission"].Value;
@@ -14,7 +17,7 @@
         </div>
         <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger my-2"></div>
-
+            <input type="hidden" id="googleToken" name="googleToken" />
             <div class="form-group">
                 <input type="hidden" name="jobId" value="@ViewBag.Job.Id" />
                 <label asp-for="Name" class="control-label"></label>
@@ -65,4 +68,12 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="https://www.recaptcha.net/recaptcha/api.js?render=@options.Value.SiteKey"></script>
+    <script>
+        grecaptcha.ready(function () {
+            grecaptcha.execute('@options.Value.SiteKey', { action: 'create' }).then(function (token) {
+                $("#googleToken").val(token);
+            });
+        });
+    </script>
 }
