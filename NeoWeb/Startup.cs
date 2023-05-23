@@ -97,7 +97,7 @@ namespace NeoWeb
             });
 
             app.UseRouting();
-
+            app.UseCCAntiAttackMiddleware();
             app.UseAuthentication();
             app.UseAuthorization();
 
