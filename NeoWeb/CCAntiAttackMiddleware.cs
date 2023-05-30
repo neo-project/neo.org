@@ -14,7 +14,7 @@ namespace NeoWeb
         private readonly IMemoryCache _cache;
         private readonly ConcurrentDictionary<string, int> _requestCounts;
 
-        private const int MaxRequestsPerMinute = 10;
+        private const int MaxRequestsPerMinute = 20;
         private const int BlockDurationMinutes = 10;
 
         public CCAntiAttackMiddleware(RequestDelegate next, IMemoryCache cache)
