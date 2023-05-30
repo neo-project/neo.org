@@ -1,6 +1,7 @@
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Concurrent;
@@ -44,6 +45,8 @@ namespace NeoWeb
 
                     context.Response.StatusCode = 429; // Too Many Requests
                     context.Response.Headers.Add("Retry-After", blockExpiration.Value.ToString("R"));
+                    context.Response.ContentType = "text/html";
+                    await context.Response.WriteAsync(System.IO.File.ReadAllText("Views/Shared/429.cshtml"));
 
                     return;
                 }
