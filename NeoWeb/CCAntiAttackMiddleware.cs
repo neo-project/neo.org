@@ -18,7 +18,7 @@ namespace NeoWeb
         private readonly List<RequestItem> _requestList;
         private readonly List<BlockItem> _blockList;
 
-        private const int MaxRequestsPerMinute = 20;
+        private const int MaxRequestsPerMinute = 3;
         private const int BlockDurationMinutes = 10;
 
         public CCAntiAttackMiddleware(RequestDelegate next, IMemoryCache cache)
@@ -44,7 +44,7 @@ namespace NeoWeb
                     context.Response.StatusCode = 429; // Too Many Requests
                     context.Response.Headers.Add("Retry-After", block.DateTime.ToString("R"));
                     context.Response.ContentType = "text/html";
-                    await context.Response.WriteAsync(string.Format(System.IO.File.ReadAllText("Views/Shared/429.cshtml"), (int)(block.DateTime - DateTime.Now).TotalSeconds, ipAddress, block.DateTime.ToString("R")));
+                    await context.Response.WriteAsync(string.Format(System.IO.File.ReadAllText("wwwroot/429.html"), (int)(block.DateTime - DateTime.Now).TotalSeconds, ipAddress, block.DateTime.ToString("R")));
                     return;
                 }
                 else if (requestsPerMinute > MaxRequestsPerMinute)
@@ -54,7 +54,7 @@ namespace NeoWeb
                     context.Response.StatusCode = 429; // Too Many Requests
                     context.Response.Headers.Add("Retry-After", blockTime.ToString("R"));
                     context.Response.ContentType = "text/html";
-                    await context.Response.WriteAsync(string.Format(System.IO.File.ReadAllText("Views/Shared/429.cshtml"), (int)(blockTime - DateTime.Now).TotalSeconds, ipAddress, blockTime.ToString("R")));
+                    await context.Response.WriteAsync(string.Format(System.IO.File.ReadAllText("wwwroot/429.html"), (int)(blockTime - DateTime.Now).TotalSeconds, ipAddress, blockTime.ToString("R")));
                     return;
                 }
             }

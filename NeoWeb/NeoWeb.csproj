@@ -15,6 +15,10 @@
     <None Remove="CandidateBackgrounder\**" />
     <None Remove="Views\People\**" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Views\Shared\429.html" />
+  </ItemGroup>
   
   <ItemGroup>
     <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
