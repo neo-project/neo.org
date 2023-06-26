@@ -3,8 +3,11 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
+using NBitcoin;
 using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace NeoWeb
@@ -12,8 +15,8 @@ namespace NeoWeb
     public class CCAntiAttackMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly IMemoryCache _cache;
-        private readonly ConcurrentDictionary<string, int> _requestCounts;
+        private readonly List<RequestItem> _requestList;
+        private readonly List<BlockItem> _blockList;
 
         private const int MaxRequestsPerMinute = 20;
         private const int BlockDurationMinutes = 10;
@@ -21,39 +24,55 @@ namespace NeoWeb
         public CCAntiAttackMiddleware(RequestDelegate next, IMemoryCache cache)
         {
             _next = next;
-            _cache = cache;
-            _requestCounts = new ConcurrentDictionary<string, int>();
+            _requestList = new List<RequestItem> { };
+            _blockList = new List<BlockItem> { };
         }
 
         public async Task Invoke(HttpContext context)
         {
             var ipAddress = context.Connection.RemoteIpAddress?.ToString();
+            _requestList.RemoveAll(p => p.DateTime < DateTime.Now.AddMinutes(-1));
+            _blockList.RemoveAll(p => p.DateTime < DateTime.Now);
 
             if (!string.IsNullOrEmpty(ipAddress))
             {
-                var requestCount = _requestCounts.AddOrUpdate(ipAddress, 1, (_, count) => count + 1);
-
-                if (requestCount > MaxRequestsPerMinute)
+                var block = _blockList.FirstOrDefault(p => p.IP == ipAddress);
+                _requestList.Add(new RequestItem() { IP = ipAddress, DateTime = DateTime.Now });
+                var requestsPerMinute = _requestList.Count(p => p.IP == ipAddress);
+                if (block is not null)
                 {
-                    var blockExpiration = _cache.Get<DateTimeOffset?>(ipAddress);
-
-                    if (blockExpiration == null || blockExpiration <= DateTimeOffset.Now)
-                    {
-                        blockExpiration = DateTimeOffset.Now.AddMinutes(BlockDurationMinutes);
-                        _cache.Set(ipAddress, blockExpiration, blockExpiration.Value);
-                    }
-
                     context.Response.StatusCode = 429; // Too Many Requests
-                    context.Response.Headers.Add("Retry-After", blockExpiration.Value.ToString("R"));
+                    context.Response.Headers.Add("Retry-After", block.DateTime.ToString("R"));
                     context.Response.ContentType = "text/html";
-                    await context.Response.WriteAsync(System.IO.File.ReadAllText("Views/Shared/429.cshtml"));
-
+                    await context.Response.WriteAsync(string.Format(System.IO.File.ReadAllText("Views/Shared/429.cshtml"), (int)(block.DateTime - DateTime.Now).TotalSeconds, ipAddress, block.DateTime.ToString("R")));
+                    return;
+                }
+                else if (requestsPerMinute > MaxRequestsPerMinute)
+                {
+                    var blockTime = DateTime.Now.AddMinutes(BlockDurationMinutes);
+                    _blockList.Add(new BlockItem() { IP = ipAddress, DateTime = blockTime });
+                    context.Response.StatusCode = 429; // Too Many Requests
+                    context.Response.Headers.Add("Retry-After", blockTime.ToString("R"));
+                    context.Response.ContentType = "text/html";
+                    await context.Response.WriteAsync(string.Format(System.IO.File.ReadAllText("Views/Shared/429.cshtml"), (int)(blockTime - DateTime.Now).TotalSeconds, ipAddress, blockTime.ToString("R")));
                     return;
                 }
             }
 
             await _next(context);
         }
+    }
+
+    public class RequestItem
+    {
+        public string IP { get; set; }
+        public DateTime DateTime { get; set; } //访问时间
+    }
+
+    public class BlockItem
+    {
+        public string IP { get; set; }
+        public DateTime DateTime { get; set; } //阻止访问的截止时间
     }
 
     public static class CCAntiAttackMiddlewareExtensions

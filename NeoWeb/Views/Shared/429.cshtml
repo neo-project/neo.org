@@ -7,8 +7,12 @@
 </head>
 <body style="background-color: #e9ecef; text-align: center">
     <div style="padding: 4rem 2rem;">
-        <h1 style="font-size: 2.5rem; font-weight: 300; line-height: 1.2;">由于你访问次数过多，你的IP地址被临时阻止访问。<br />请10分钟后再试。</h1>
-        <p style="font-size: 1.25rem; font-weight: 300;">Due to your excessive visits, your IP address is temporarily blocked from access.<br />Please try again in 10 minutes.</p>
+        <h1 style="font-size: 2.5rem; font-weight: 300; line-height: 1.2;">由于你访问次数过多，你的IP地址被临时阻止访问。<br />请 {0} 秒后再试。</h1>
+        <p style="font-size: 1.25rem; font-weight: 300;">Due to your excessive visits, your IP address is temporarily blocked from access.<br />Please retry after {0} seconds.</p>
+    </div>
+    <div style="font-size: 1.25rem; font-weight: 300;">
+        Current IP: {1}<br />
+        Blocking time: {2}
     </div>
 </body>
 </html>
