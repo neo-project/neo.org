@@ -293,7 +293,7 @@ namespace NeoWeb
 #endif
 
 #if !DEBUG
-            return "https://neo3.azureedge.net";
+            return "https://neo-web.azureedge.net";
 #endif
             }
         }
