@@ -18,7 +18,7 @@ namespace NeoWeb
         private readonly List<RequestItem> _requestList;
         private readonly List<BlockItem> _blockList;
 
-        private const int MaxRequestsPerMinute = 10;
+        private const int MaxRequestsPerMinute = 20;
         private const int BlockDurationMinutes = 10;
 
         public CCAntiAttackMiddleware(RequestDelegate next, IMemoryCache cache)
