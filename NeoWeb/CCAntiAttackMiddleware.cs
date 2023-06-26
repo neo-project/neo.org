@@ -31,30 +31,30 @@ namespace NeoWeb
         public async Task Invoke(HttpContext context)
         {
             var ipAddress = context.Connection.RemoteIpAddress?.ToString();
-            _requestList.RemoveAll(p => p.DateTime < DateTime.Now.AddMinutes(-1));
-            _blockList.RemoveAll(p => p.DateTime < DateTime.Now);
+            _requestList.RemoveAll(p => p.DateTime < DateTime.UtcNow.AddMinutes(-1));
+            _blockList.RemoveAll(p => p.DateTime < DateTime.UtcNow);
 
             if (!string.IsNullOrEmpty(ipAddress))
             {
                 var block = _blockList.FirstOrDefault(p => p.IP == ipAddress);
-                _requestList.Add(new RequestItem() { IP = ipAddress, DateTime = DateTime.Now });
+                _requestList.Add(new RequestItem() { IP = ipAddress, DateTime = DateTime.UtcNow });
                 var requestsPerMinute = _requestList.Count(p => p.IP == ipAddress);
                 if (block is not null)
                 {
                     context.Response.StatusCode = 429; // Too Many Requests
                     context.Response.Headers.Add("Retry-After", block.DateTime.ToString("R"));
                     context.Response.ContentType = "text/html";
-                    await context.Response.WriteAsync(string.Format(System.IO.File.ReadAllText("wwwroot/429.html"), (int)(block.DateTime - DateTime.Now).TotalSeconds, ipAddress, block.DateTime.ToString("R")));
+                    await context.Response.WriteAsync(string.Format(System.IO.File.ReadAllText("wwwroot/429.html"), (int)(block.DateTime - DateTime.UtcNow).TotalSeconds, ipAddress, block.DateTime.ToString("R")));
                     return;
                 }
                 else if (requestsPerMinute > MaxRequestsPerMinute)
                 {
-                    var blockTime = DateTime.Now.AddMinutes(BlockDurationMinutes);
+                    var blockTime = DateTime.UtcNow.AddMinutes(BlockDurationMinutes);
                     _blockList.Add(new BlockItem() { IP = ipAddress, DateTime = blockTime });
                     context.Response.StatusCode = 429; // Too Many Requests
                     context.Response.Headers.Add("Retry-After", blockTime.ToString("R"));
                     context.Response.ContentType = "text/html";
-                    await context.Response.WriteAsync(string.Format(System.IO.File.ReadAllText("wwwroot/429.html"), (int)(blockTime - DateTime.Now).TotalSeconds, ipAddress, blockTime.ToString("R")));
+                    await context.Response.WriteAsync(string.Format(System.IO.File.ReadAllText("wwwroot/429.html"), (int)(blockTime - DateTime.UtcNow).TotalSeconds, ipAddress, blockTime.ToString("R")));
                     return;
                 }
             }
