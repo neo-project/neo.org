@@ -14,9 +14,9 @@ namespace NeoWeb
 {
     public class CCAntiAttackMiddleware
     {
-        private readonly RequestDelegate _next;
-        private readonly List<RequestItem> _requestList;
-        private readonly List<BlockItem> _blockList;
+        private RequestDelegate _next;
+        private List<RequestItem> _requestList;
+        private List<BlockItem> _blockList;
 
         private const int MaxRequestsPerMinute = 20;
         private const int BlockDurationMinutes = 10;
@@ -31,7 +31,11 @@ namespace NeoWeb
         public async Task Invoke(HttpContext context)
         {
             var ipAddress = context.Connection.RemoteIpAddress?.ToString();
+            if(_requestList is null)
+                _requestList = new List<RequestItem> { };
             _requestList.RemoveAll(p => p.DateTime < DateTime.UtcNow.AddMinutes(-1));
+            if (_blockList is null)
+                _blockList = new List<BlockItem> { };
             _blockList.RemoveAll(p => p.DateTime < DateTime.UtcNow);
 
             if (!string.IsNullOrEmpty(ipAddress))
