@@ -31,9 +31,7 @@ namespace NeoWeb
         public async Task Invoke(HttpContext context)
         {
             var ipAddress = context.Connection.RemoteIpAddress?.ToString();
-            _requestList = new List<RequestItem> { };
             _requestList.RemoveAll(p => p?.DateTime < DateTime.UtcNow.AddMinutes(-1));
-            _blockList = new List<BlockItem> { };
             _blockList.RemoveAll(p => p?.DateTime < DateTime.UtcNow);
 
             if (!string.IsNullOrEmpty(ipAddress))
