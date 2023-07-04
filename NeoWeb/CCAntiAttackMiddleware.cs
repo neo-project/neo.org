@@ -31,18 +31,16 @@ namespace NeoWeb
         public async Task Invoke(HttpContext context)
         {
             var ipAddress = context.Connection.RemoteIpAddress?.ToString();
-            if(_requestList is null)
-                _requestList = new List<RequestItem> { };
-            _requestList.RemoveAll(p => p.DateTime < DateTime.UtcNow.AddMinutes(-1));
-            if (_blockList is null)
-                _blockList = new List<BlockItem> { };
-            _blockList.RemoveAll(p => p.DateTime < DateTime.UtcNow);
+            _requestList = new List<RequestItem> { };
+            _requestList.RemoveAll(p => p?.DateTime < DateTime.UtcNow.AddMinutes(-1));
+            _blockList = new List<BlockItem> { };
+            _blockList.RemoveAll(p => p?.DateTime < DateTime.UtcNow);
 
             if (!string.IsNullOrEmpty(ipAddress))
             {
-                var block = _blockList.FirstOrDefault(p => p.IP == ipAddress);
+                var block = _blockList.FirstOrDefault(p => p?.IP == ipAddress);
                 _requestList.Add(new RequestItem() { IP = ipAddress, DateTime = DateTime.UtcNow });
-                var requestsPerMinute = _requestList.Count(p => p.IP == ipAddress);
+                var requestsPerMinute = _requestList.Count(p => p?.IP == ipAddress);
                 if (block is not null)
                 {
                     context.Response.StatusCode = 429; // Too Many Requests
