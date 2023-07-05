@@ -9,8 +9,8 @@ namespace NeoWeb
     public class CCAntiAttackMiddleware
     {
         private readonly RequestDelegate _next;
-        private List<RequestItem> _requestList;
-        private List<BlockItem> _blockList;
+        private readonly List<RequestItem> _requestList = new ();
+        private readonly List<BlockItem> _blockList = new();
 
         private const int MaxRequestsPerMinute = 10;
         private const int BlockDurationMinutes = 10;
