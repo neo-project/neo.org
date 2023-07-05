@@ -9,8 +9,8 @@ namespace NeoWeb
     public class CCAntiAttackMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly List<RequestItem> _requestList;
-        private readonly List<BlockItem> _blockList;
+        private List<RequestItem> _requestList;
+        private List<BlockItem> _blockList;
 
         private const int MaxRequestsPerMinute = 10;
         private const int BlockDurationMinutes = 10;
@@ -18,8 +18,6 @@ namespace NeoWeb
         public CCAntiAttackMiddleware(RequestDelegate next)
         {
             _next = next;
-            _requestList = new List<RequestItem>();
-            _blockList = new List<BlockItem>();
         }
 
         public async Task Invoke(HttpContext context)
@@ -29,8 +27,8 @@ namespace NeoWeb
             {
                 CleanUpExpiredRequestsAndBlocks();
 
-                var block = _blockList.FirstOrDefault(p => p.IP == ipAddress);
-                var requestsPerMinute = _requestList.Count(p => p.IP == ipAddress);
+                var block = _blockList.FirstOrDefault(p => p?.IP == ipAddress);
+                var requestsPerMinute = _requestList.Count(p => p?.IP == ipAddress);
 
                 if (block is not null)
                 {
@@ -53,8 +51,8 @@ namespace NeoWeb
         private void CleanUpExpiredRequestsAndBlocks()
         {
             var utcNow = DateTime.UtcNow;
-            _requestList.RemoveAll(p => p.DateTime < utcNow.AddMinutes(-1));
-            _blockList.RemoveAll(p => p.DateTime < utcNow);
+            _requestList.RemoveAll(p => p == null || p?.DateTime < utcNow.AddMinutes(-1));
+            _blockList.RemoveAll(p => p == null || p?.DateTime < utcNow);
         }
 
         private async Task HandleBlockedRequest(HttpContext context, BlockItem block)
