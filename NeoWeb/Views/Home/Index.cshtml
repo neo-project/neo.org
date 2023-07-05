@@ -127,7 +127,7 @@
                 }
         }
     </style>
-    @if (DateTime.UtcNow >= new DateTime(2023, 7, 5, 12, 0, 0))
+    @if (DateTime.UtcNow < new DateTime(2023, 7, 5, 12, 0, 0))
     {
         <div style="padding: 223px 10px 137px 10px" class="hackathon">
             <img src="~/images/hackathon/logo.svg" />
@@ -145,7 +145,7 @@
                 <br class="@SharedLocalizer["d-none-zh"]">
                 @Localizer["Total prize and grant fund of $1.1 million."]
             </div>
-            <a href="http://hackathon.neo.org/">
+            <a href="https://hackathon.neo.org/">
                 @Localizer["REGISTER NOW"]
             </a>
         </div>
