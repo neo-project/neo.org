@@ -2,7 +2,9 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
-@{ ViewBag.HiddenBreadCrumb = true; }
+@{
+    ViewBag.HiddenBreadCrumb = true;
+}
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/home.min.css", true)" />
     <link rel="stylesheet" href="@Helper.ToCDN("/tailwind/tailwind.output.css", true)" />
@@ -10,34 +12,174 @@
 @* 基本块 - Home page *@
 <div class="home-container">
 
-    <div style="background-color: #000023; color: #fff" class="tw-relative">
-        <div class="tw-px-4 container tw-pt-40 tw-relative">
-            <div class=" tw-flex lg:tw-flex-row tw-flex-col tw-w-full tw-relative">
-                <div class="tw-flex tw-w-full tw-gap-3 tw-flex-col  lg:tw-w-2/5 tw-z-50 tw-order-2 lg:tw-order-1">
-                    <div class="lg:tw-text-left tw-text-center work-sans-bold">
-                        <div class="tw-text-primary tw-text-4xl lg:tw-text-7xl ">@Localizer["GRANTSHARES"]</div>
-                        <div class="tw-text-4xl lg:tw-text-7xl tw-mb-7">@Localizer["OPEN NOW"]</div>
-                    </div>
-                    <p class="tw-uppercase work-sans-semibold tw-mb-7 tw-tracking-widest lg:tw-text-left tw-text-center">
-                        @Localizer["decentralized and transparent grants program for the Neo ecosystem"]
-                    </p>
-                    <div class="tw-mb-7 tw-flex tw-items-center tw-justify-center lg:tw-justify-start tw-gap-4 lg:tw-w-full tw-uppercase">
-                        <a href="https://grantshares.io" target="_blank" class="hover:tw-bg-primary/20 tw-bg-primary work-sans-semibold tw-py-2 lg:tw-px-8 tw-w-full lg:tw-w-auto tw-text-center">@Localizer["LEARN MORE"]</a>
-                    </div>
-                    <div class="tw-mb-7">
-                        <p class="tw-uppercase work-sans-bold tw-tracking-widest">@Localizer["Latest News:"]</p>
-                        <p class="tw-text-base tw-font-normal">
-                            <a class="news-link" href="~/blog/details/@Model.FirstOrDefault(p => p.Type == NewsViewModelType.Blog).Blog.Id">@Model[0].Blog.Title <i class="iconfont circle-arrow-icon">&#xe6ab;</i></a>
+
+    <style>
+        .hackathon {
+            background: #000;
+            background-image: url(/images/hackathon/bl.png), url(/images/hackathon/tr.png);
+            background-position: left bottom, right top;
+            background-repeat: no-repeat;
+        }
+            .hackathon img{
+                margin:auto;
+                width: 150px
+            }
+
+            .hackathon .div1 {
+                margin: 58px auto 36px auto;
+                font-family: Work Sans;
+                font-size: 30px;
+                font-weight: 600;
+                line-height: 38px;
+                letter-spacing: 1px;
+                text-align: center;
+                color: #FCB304;
+            }
+
+            .hackathon .div2 {
+                margin: 36px auto 54px auto;
+                font-family: Work Sans;
+                font-size: 75px;
+                font-weight: 700;
+                line-height: 80px;
+                letter-spacing: 0.5px;
+                text-align: center;
+                color: #fff;
+            }
+
+            .hackathon .div3 {
+                margin: 54px auto 60px auto;
+                font-family: Work Sans;
+                font-size: 20px;
+                font-weight: 600;
+                line-height: 28px;
+                letter-spacing: 1px;
+                text-align: center;
+                color: #fff;
+            }
+
+            .hackathon .div4{
+                margin: -20px auto;
+                font-family: Source Han Sans CN;
+                font-size: 36px;
+                font-weight: 700;
+                line-height: 54px;
+                letter-spacing: 0.205em;
+                text-align: center;
+                background: linear-gradient(90deg, #FF8400 -5%, #FF5F00 32%, #FF0080 90%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                width: 220px;
+            }
+
+            .hackathon a {
+                display: block;
+                margin: auto;
+                color: #000;
+                width: 290px;
+                height: 66px;
+                background: linear-gradient(90deg, #F9A707 -27.07%, #FD8303 137.41%);
+                font-family: Work Sans;
+                font-size: 25px;
+                font-weight: 600;
+                line-height: 28px;
+                letter-spacing: 1px;
+                text-align: center;
+                line-height: 66px
+            }
+        @@media only screen and (max-width: 991px) {
+            .hackathon {
+                background: #000;
+            }
+
+                .hackathon img {
+                    width: 62px
+                }
+
+                .hackathon .div1 {
+                    margin: 28px auto 28px auto;
+                    font-size: 12px;
+                    line-height: 20px;
+                }
+
+                .hackathon .div2 {
+                    margin: 28px auto 38px auto;
+                    font-family: Work Sans;
+                    font-size: 48px;
+                    line-height: 56px;
+                }
+
+                .hackathon .div3 {
+                    margin: 38px auto 46px auto;
+                    font-size: 15px;
+                    line-height: 28px;
+                    letter-spacing: 1px;
+                    width: 248px;
+                }
+
+                .hackathon .div4 {
+                    margin: -20px auto;
+                }
+
+                .hackathon a {
+                    width: 284px;
+                    height: 66px;
+                }
+        }
+    </style>
+    @if (DateTime.UtcNow >= new DateTime(2023, 7, 5, 12, 0, 0))
+    {
+        <div style="padding: 223px 10px 137px 10px" class="hackathon">
+            <img src="~/images/hackathon/logo.svg" />
+            <div class="div1 @SharedLocalizer["d-none-zh"]">
+                @Localizer["RESILIENCE, MEET INNOVATION"]
+            </div>
+            <div class="div2">
+                @Localizer["NEO APAC"]<br class="@SharedLocalizer["d-none"] d-md-none"/><span class="@SharedLocalizer["d-none-zh"]"> </span>@Localizer["HACKATHON"]
+            </div>
+            <div class="div4 @SharedLocalizer["d-none"]">
+                火热报名中
+            </div>
+            <div class="div3">
+                @Localizer["Embark on an innovative journey in six APAC cities."]
+                <br class="@SharedLocalizer["d-none-zh"]">
+                @Localizer["Total prize and grant fund of $1.1 million."]
+            </div>
+            <a href="http://hackathon.neo.org/">
+                @Localizer["REGISTER NOW"]
+            </a>
+        </div>
+    }
+    else
+    {
+        <div style="background-color: #000023; color: #fff" class="tw-relative">
+            <div class="tw-px-4 container tw-pt-40 tw-relative">
+                <div class=" tw-flex lg:tw-flex-row tw-flex-col tw-w-full tw-relative">
+                    <div class="tw-flex tw-w-full tw-gap-3 tw-flex-col  lg:tw-w-2/5 tw-z-50 tw-order-2 lg:tw-order-1">
+                        <div class="lg:tw-text-left tw-text-center work-sans-bold">
+                            <div class="tw-text-primary tw-text-4xl lg:tw-text-7xl ">@Localizer["GRANTSHARES"]</div>
+                            <div class="tw-text-4xl lg:tw-text-7xl tw-mb-7">@Localizer["OPEN NOW"]</div>
+                        </div>
+                        <p class="tw-uppercase work-sans-semibold tw-mb-7 tw-tracking-widest lg:tw-text-left tw-text-center">
+                            @Localizer["decentralized and transparent grants program for the Neo ecosystem"]
                         </p>
+                        <div class="tw-mb-7 tw-flex tw-items-center tw-justify-center lg:tw-justify-start tw-gap-4 lg:tw-w-full tw-uppercase">
+                            <a href="https://grantshares.io" target="_blank" class="hover:tw-bg-primary/20 tw-bg-primary work-sans-semibold tw-py-2 lg:tw-px-8 tw-w-full lg:tw-w-auto tw-text-center">@Localizer["LEARN MORE"]</a>
+                        </div>
+                        <div class="tw-mb-7">
+                            <p class="tw-uppercase work-sans-bold tw-tracking-widest">@Localizer["Latest News:"]</p>
+                            <p class="tw-text-base tw-font-normal">
+                                <a class="news-link" href="~/blog/details/@Model.FirstOrDefault(p => p.Type == NewsViewModelType.Blog).Blog.Id">@Model[0].Blog.Title <i class="iconfont circle-arrow-icon">&#xe6ab;</i></a>
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="lg:tw-ml-auto tw-w-full tw-order-1 lg:tw-order-2">
-                    <img src="/images/grantshares/grantshares_hero.png" class="tw-z-10" />
+                    <div class="lg:tw-ml-auto tw-w-full tw-order-1 lg:tw-order-2">
+                        <img src="/images/grantshares/grantshares_hero.png" class="tw-z-10" />
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
+    }
     <div class="row horiz-row aio-row">
         <div class="col-12 col-md-12">
             <div class="aio-title @SharedLocalizer["d-none-zh"]">
@@ -47,24 +189,27 @@
                 <span class="green">All</span> in One - <span class="green">All</span> in Neo
             </div>
             <div class="highlight-container">
-                @{ string[,] highlightItems = new string[9, 2] {
-{ "Interoperability", "/images/home/Interoperability.svg" },
-{ "Native Oracles", "/images/home/NativeOracles.svg" },
-{ "Self-Sovereign ID", "/images/home/Self-SovereignID.png" },
-{ "Decentralized Storage", "/images/home/DecentralizedStorage.svg" },
-{ "Neo Name Service", "/images/home/NativeNameService.svg" },
-{ "One Block Finality", "/images/home/OneBlockFinality.svg" },
-{ "Best-In-Class Tooling", "/images/home/BestInClassTooling.svg" },
-{ "Smart Contracts", "/images/home/SmartContracts.svg" },
-{ "Multi-Language", "/images/home/Multi-Language.png" }
-            };
+                @{
+                    string[,] highlightItems = new string[9, 2] {
+                { "Interoperability", "/images/home/Interoperability.svg" },
+                { "Native Oracles", "/images/home/NativeOracles.svg" },
+                { "Self-Sovereign ID", "/images/home/Self-SovereignID.png" },
+                { "Decentralized Storage", "/images/home/DecentralizedStorage.svg" },
+                { "Neo Name Service", "/images/home/NativeNameService.svg" },
+                { "One Block Finality", "/images/home/OneBlockFinality.svg" },
+                { "Best-In-Class Tooling", "/images/home/BestInClassTooling.svg" },
+                { "Smart Contracts", "/images/home/SmartContracts.svg" },
+                { "Multi-Language", "/images/home/Multi-Language.png" }
+                        };
 
                     for (int i = 0; i < highlightItems.GetLength(0); i++)
                     {
                         <div class="highlight-wrapper">
                             <img class="highlight-img png" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(highlightItems[i, 1])" />
                             <div class="highlight-name">@Localizer[highlightItems[i, 0]]</div>
-                        </div> } }
+                        </div>
+                    }
+                }
             </div>
 
             <div class="additional-button-wrapper">
@@ -92,12 +237,13 @@
         </div>
         <div class="col-12 col-md-6 col-right">
             <div class="get-started-wrapper">
-                @{ string[,] getStartedItems = new string[4, 3]
-                        {
-                                   { "Find a Wallet", "/images/home/FindWallet.svg", "/neogas#wallets" },
-                                   { "Neo & Gas Tokens", "/images/home/LearnTokens.svg", "/neogas#tokens" },
-                                   { "Neo's Features", "/images/home/LearnFeatures.svg", "/technology" },
-                                   { "Documentation", "/images/home/ReadDocumentation.svg", "https://developers.neo.org/docs" }
+                @{
+                    string[,] getStartedItems = new string[4, 3]
+        {
+                { "Find a Wallet", "/images/home/FindWallet.svg", "/neogas#wallets" },
+                { "Neo & Gas Tokens", "/images/home/LearnTokens.svg", "/neogas#tokens" },
+                { "Neo's Features", "/images/home/LearnFeatures.svg", "/technology" },
+                { "Documentation", "/images/home/ReadDocumentation.svg", "https://developers.neo.org/docs" }
         };
 
                     for (int i = 0; i < getStartedItems.GetLength(0); i++)
@@ -110,7 +256,9 @@
                                 </div>
                             </div>
                             <img class="card-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(getStartedItems[i, 1])" />
-                        </a> } }
+                        </a>
+                    }
+                }
             </div>
         </div>
     </div>
@@ -269,12 +417,13 @@
             <div class="governance-cards">
                 <span class="governance-learn-more">@Localizer["Learn More"]</span>
                 <div class="governance-card-container">
-                    @{ string[,] governanceItems = new string[3, 3]
-                     {
-                                   { "How to vote", "/images/home/vote.svg", "/gov" },
-                                   { "General guide to governance", "/images/home/ReadDocumentation.svg", "/gov" },
-                                   { "Register as a committee candidate", "/images/home/register.svg", "/gov" }
-};
+                    @{
+                        string[,] governanceItems = new string[3, 3]
+        {
+                    { "How to vote", "/images/home/vote.svg", "/gov" },
+                    { "General guide to governance", "/images/home/ReadDocumentation.svg", "/gov" },
+                    { "Register as a committee candidate", "/images/home/register.svg", "/gov" }
+        };
 
                         for (int i = 0; i < governanceItems.GetLength(0); i++)
                         {
@@ -286,7 +435,9 @@
                                     </div>
                                 </div>
                                 <img class="card-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
-                            </a> } }
+                            </a>
+                        }
+                    }
                 </div>
             </div>
         </div>
@@ -339,7 +490,8 @@
         <div class="governance-cards">
             <span class="governance-learn-more">@Localizer["Learn More"]</span>
             <div class="governance-card-container">
-                @{ for (int i = 0; i < governanceItems.GetLength(0); i++)
+                @{
+                    for (int i = 0; i < governanceItems.GetLength(0); i++)
                     {
                         <a class="float-card" href="@governanceItems[i, 2]">
                             <div class="card-text-wrapper">
@@ -349,7 +501,9 @@
                                 </div>
                             </div>
                             <img class="card-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
-                        </a> } }
+                        </a>
+                    }
+                }
             </div>
         </div>
     </div>
@@ -378,18 +532,21 @@
         <div class="governance-cards">
             <span class="governance-learn-more">@Localizer["Learn More"]</span>
             <div class="governance-card-container">
-                @{ for (int i = 0; i < governanceItems.GetLength(0); i++)
-                    {
-                        <a class="float-card" href="@governanceItems[i, 2]">
-                            <div class="card-text-wrapper">
-                                <div class="green-vertline"></div>
-                                <div class="card-text">
-                                    @Localizer[governanceItems[i, 0]]
-                                </div>
-                            </div>
-                            <img class="card-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
-                        </a> } }
-            </div>
+                        @{
+                            for (int i = 0; i < governanceItems.GetLength(0); i++)
+                            {
+                                <a class="float-card" href="@governanceItems[i, 2]">
+                                    <div class="card-text-wrapper">
+                                        <div class="green-vertline"></div>
+                                        <div class="card-text">
+                                            @Localizer[governanceItems[i, 0]]
+                                        </div>
+                                    </div>
+                                    <img class="card-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
+                                </a>
+                            }
+                        }
+                    </div>
         </div>
     </div>
 
@@ -507,8 +664,10 @@
                     <span class="green">@Localizer["Latest"]</span> @Localizer["News"]
                 </div>
                 <div class="row list2">
-                    @{await Html.RenderPartialAsync("../News/_ItemPartial", Model);}
-                </div>
+                            @{
+                                await Html.RenderPartialAsync("../News/_ItemPartial", Model);
+                            }
+                        </div>
                 <a asp-controller="news" asp-action="index" class="btn-n3 dark-blue view-all-btn">@Localizer["View All"]</a>
             </div>
         </div>
