@@ -45,7 +45,7 @@
                     <div class="mt-5 with-space">
                         @Html.Raw(SharedLocalizer["en"].Value == "zh" ? @item.ChineseContent : @item.EnglishContent)
                     </div>
-                    <p>@Localizer["Posted by"] <a href="mailto:career@neo.org?subject=@item.Number">career@neo.org</a> @item.EditTime.ToShortDateString() </p>
+                    @* <p>@Localizer["Posted by"] <a href="mailto:career@neo.org?subject=@item.Number">career@neo.org</a> @item.EditTime.ToShortDateString() </p> *@
 
                     @if (ViewBag.UserRules != null && ViewBag.UserRules)
                     {
