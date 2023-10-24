@@ -3,7 +3,9 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
-
+@section Styles{
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+}
 @{
     ViewData["Title"] = "简历列表";
 }
@@ -138,3 +140,15 @@ else
         }
     </ul>
 </nav>
+@section Scripts{
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+    <script>
+        var table = new DataTable('.table', {
+            paging: false,
+            info: false,
+            language: {
+                url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/zh.json',
+            },
+        });
+    </script>
+}
