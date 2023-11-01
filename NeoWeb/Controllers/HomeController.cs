@@ -5,6 +5,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -100,13 +101,16 @@ namespace NeoWeb.Controllers
         
         static string status;
         static DateTime lastRequest;
-        public IActionResult GitHubStatus()
+        public async Task<IActionResult> GitHubStatus()
         {
             try
             {
-                if (string.IsNullOrEmpty(status) || (DateTime.Now - lastRequest).TotalMinutes > 60)
+                if (string.IsNullOrEmpty(status) || (DateTime.Now - lastRequest).TotalHours > 24)
                 {
-                    status = System.IO.File.ReadAllText(Path.Combine(_env.ContentRootPath, "GitHubStatus/neo.json"));
+                    using var client = new HttpClient();
+                    client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.2088.76");
+                    HttpResponseMessage response = await client.GetAsync("https://api.github.com/repos/neo-project/neo");
+                    status = response.IsSuccessStatusCode ? await response.Content.ReadAsStringAsync() : System.IO.File.ReadAllText(Path.Combine(_env.ContentRootPath, "GitHubStatus/neo.json"));
                     lastRequest = DateTime.Now;
                 }
             }
