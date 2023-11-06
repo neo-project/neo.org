@@ -100,7 +100,7 @@ namespace NeoWeb
 
         public static string UploadMedia(IFormFile cover, IWebHostEnvironment env, int? maxWidth = null)
         {
-            if (cover.Length > 1024 * 1024 * 25 || // 25Mb
+            if (cover.Length > 1024 * 1024 * 10 || // 10Mb
                 !new string[]
                 {
                     ".gif",
@@ -120,7 +120,7 @@ namespace NeoWeb
             var filePath = Path.Combine(env.ContentRootPath, "wwwroot/upload", newName);
             if (cover.Length > 0)
             {
-                using var stream = new FileStream(filePath, FileMode.Create);
+                using var stream = new FileStream(filePath, FileMode.CreateNew);
                 cover.CopyTo(stream);
             }
             if (maxWidth != null)
@@ -138,6 +138,22 @@ namespace NeoWeb
 
         public static string UploadFile(IFormFile file, IWebHostEnvironment env)
         {
+            if (file.Length > 1024 * 1024 * 10 || // 10Mb
+                !new string[]
+                {
+                    ".pdf",
+                    ".docx",
+                    ".doc",
+                    ".jpeg",
+                    ".jpg",
+                    ".png",
+                    ".zip",
+                    ".rar"
+                }
+                .Contains(Path.GetExtension(file.FileName).ToLowerInvariant()))
+            {
+                throw new ArgumentException(null, nameof(file));
+            }
             var random = new Random();
             var bytes = new byte[10];
             random.NextBytes(bytes);
@@ -145,7 +161,7 @@ namespace NeoWeb
             var filePath = Path.Combine(env.ContentRootPath, "wwwroot/upload", newName);
             if (file.Length > 0)
             {
-                using var stream = new FileStream(filePath, FileMode.Create);
+                using var stream = new FileStream(filePath, FileMode.CreateNew);
                 file.CopyTo(stream);
             }
             return newName;

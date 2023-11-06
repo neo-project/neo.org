@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
+using Neo;
 using NeoWeb.Data;
 using NeoWeb.Models;
 using reCAPTCHA.AspNetCore;
@@ -112,7 +113,10 @@ namespace NeoWeb.Controllers
                 }
                 resume.Job = job;
                 resume.Path = Helper.UploadFile(file, _env);
-                resume.MyReferralCode = resume.Path.Substring(0, 10);
+                var random = new Random();
+                var bytes = new byte[10];
+                random.NextBytes(bytes);
+                resume.MyReferralCode = bytes.ToHexString().Substring(0,10);
                 resume.DateTime = DateTime.Now;
                 _context.Add(resume);
                 await _context.SaveChangesAsync();
