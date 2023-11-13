@@ -30,16 +30,24 @@
                 padding-top: 56.25%
             }
 
-            .sidechain img {
+            .sidechain .img1 {
                 position: absolute;
                 width: 49%;
                 top: 29%;
-                left: 3%;
+                left: 4%;
+            }
+
+            .sidechain .img2 {
+                position: absolute;
+                width: 58%;
+                top: 29%;
+                left: 4%;
             }
     </style>
 
     <div class="sidechain">
-        <img src="~/images/sidechain/text2.png" />
+        <img class="img1 @SharedLocalizer["d-none-zh"]" src="~/images/sidechain/text2.svg" />
+        <img class="img2 @SharedLocalizer["d-none"]" src="~/images/sidechain/text3.svg" />
     </div>
 
     <div class="row horiz-row aio-row">
