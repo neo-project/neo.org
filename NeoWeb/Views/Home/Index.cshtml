@@ -13,141 +13,35 @@
 
 
     <style>
-        .hackathon {
-            background: #000;
-            background-image: url(/images/hackathon/bl.png), url(/images/hackathon/tr.png);
-            background-position: left bottom, right top;
-            background-repeat: no-repeat;
+        .sidechain {
+            background-color: #000023;
+            background-image: url("/images/sidechain/bg.png");
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            -webkit-text-stroke: 1px black;
+            margin-top: 76px;
         }
-            .hackathon img{
-                margin:auto;
-                width: 150px
-            }
 
-            .hackathon .div1 {
-                margin: 58px auto 36px auto;
-                font-family: WorkSans;
-                font-size: 30px;
-                font-weight: 600;
-                line-height: 38px;
-                letter-spacing: 1px;
-                text-align: center;
-                color: #FCB304;
-            }
-
-            .hackathon .div2 {
-                margin: 36px auto 54px auto;
-                font-family: WorkSans;
-                font-size: 75px;
-                font-weight: 700;
-                line-height: 80px;
-                letter-spacing: 0.5px;
-                text-align: center;
-                color: #fff;
-            }
-
-            .hackathon .div3 {
-                margin: 54px auto 60px auto;
-                font-family: WorkSans;
-                font-size: 20px;
-                font-weight: 600;
-                line-height: 28px;
-                letter-spacing: 1px;
-                text-align: center;
-                color: #fff;
-            }
-
-            .hackathon .div4{
-                margin: -20px auto;
-                font-family: Source Han Sans CN;
-                font-size: 36px;
-                font-weight: 700;
-                line-height: 54px;
-                letter-spacing: 0.205em;
-                text-align: center;
-                background: linear-gradient(90deg, #FF8400 -5%, #FF5F00 32%, #FF0080 90%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                width: 220px;
-            }
-
-            .hackathon a {
+            .sidechain::before {
+                margin-top: 60px;
                 display: block;
-                margin: auto;
-                color: #000;
-                width: 290px;
-                height: 66px;
-                background: linear-gradient(90deg, #F9A707 -27.07%, #FD8303 137.41%);
-                font-family: WorkSans;
-                font-size: 25px;
-                font-weight: 600;
-                line-height: 28px;
-                letter-spacing: 1px;
-                text-align: center;
-                line-height: 66px
-            }
-        @@media only screen and (max-width: 991px) {
-            .hackathon {
-                background: #000;
+                content: " ";
+                padding-top: 56.25%
             }
 
-                .hackathon img {
-                    width: 62px
-                }
-
-                .hackathon .div1 {
-                    margin: 28px auto 28px auto;
-                    font-size: 12px;
-                    line-height: 20px;
-                }
-
-                .hackathon .div2 {
-                    margin: 28px auto 38px auto;
-                    font-family: WorkSans;
-                    font-size: 48px;
-                    line-height: 56px;
-                }
-
-                .hackathon .div3 {
-                    margin: 38px auto 46px auto;
-                    font-size: 15px;
-                    line-height: 28px;
-                    letter-spacing: 1px;
-                    width: 248px;
-                }
-
-                .hackathon .div4 {
-                    margin: -20px auto;
-                }
-
-                .hackathon a {
-                    width: 284px;
-                    height: 66px;
-                }
-        }
+            .sidechain img {
+                position: absolute;
+                width: 49%;
+                top: 29%;
+                left: 3%;
+            }
     </style>
-    
-        <div style="padding: 160px 10px 90px 10px" class="hackathon">
-            <img src="~/images/hackathon/logo.svg" />
-        <div class="div1 @SharedLocalizer["d-none-zh"]">
-                @Localizer["RESILIENCE, MEET INNOVATION"]
-            </div>
-            <div class="div2">
-                @Localizer["NEO APAC"]<br class="@SharedLocalizer["d-none"] d-md-none"/><span class="@SharedLocalizer["d-none-zh"]"> </span>@Localizer["HACKATHON"]
-            </div>
-            <div class="div4 @SharedLocalizer["d-none"]">
-                火热报名中
-            </div>
-            <div class="div3">
-                @Localizer["Embark on an innovative journey in six APAC cities."]
-                <br class="@SharedLocalizer["d-none-zh"]">
-                @Localizer["Total prize and grant fund of $1.1 million."]
-            </div>
-            <a href="https://hackathon.neo.org/">
-                @Localizer["REGISTER NOW"]
-            </a>
-        </div>
-    
+
+    <div class="sidechain">
+        <img src="~/images/sidechain/text2.png" />
+    </div>
+
     <div class="row horiz-row aio-row">
         <div class="col-12 col-md-12">
             <div class="aio-title @SharedLocalizer["d-none-zh"]">
@@ -207,12 +101,12 @@
             <div class="get-started-wrapper">
                 @{
                     string[,] getStartedItems = new string[4, 3]
-        {
+                    {
                 { "Find a Wallet", "/images/home/FindWallet.svg", "/neogas#wallets" },
                 { "Neo & Gas Tokens", "/images/home/LearnTokens.svg", "/neogas#tokens" },
                 { "Neo's Features", "/images/home/LearnFeatures.svg", "/technology" },
                 { "Documentation", "/images/home/ReadDocumentation.svg", "https://developers.neo.org/docs" }
-        };
+                    };
 
                     for (int i = 0; i < getStartedItems.GetLength(0); i++)
                     {
@@ -387,11 +281,11 @@
                 <div class="governance-card-container">
                     @{
                         string[,] governanceItems = new string[3, 3]
-        {
+                        {
                     { "How to vote", "/images/home/vote.svg", "/gov" },
                     { "General guide to governance", "/images/home/ReadDocumentation.svg", "/gov" },
                     { "Register as a committee candidate", "/images/home/register.svg", "/gov" }
-        };
+                        };
 
                         for (int i = 0; i < governanceItems.GetLength(0); i++)
                         {
@@ -500,21 +394,21 @@
         <div class="governance-cards">
             <span class="governance-learn-more">@Localizer["Learn More"]</span>
             <div class="governance-card-container">
-                        @{
-                            for (int i = 0; i < governanceItems.GetLength(0); i++)
-                            {
-                                <a class="float-card" href="@governanceItems[i, 2]">
-                                    <div class="card-text-wrapper">
-                                        <div class="green-vertline"></div>
-                                        <div class="card-text">
-                                            @Localizer[governanceItems[i, 0]]
-                                        </div>
-                                    </div>
-                                    <img class="card-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
-                                </a>
-                            }
-                        }
-                    </div>
+                @{
+                    for (int i = 0; i < governanceItems.GetLength(0); i++)
+                    {
+                        <a class="float-card" href="@governanceItems[i, 2]">
+                            <div class="card-text-wrapper">
+                                <div class="green-vertline"></div>
+                                <div class="card-text">
+                                    @Localizer[governanceItems[i, 0]]
+                                </div>
+                            </div>
+                            <img class="card-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(governanceItems[i, 1])" />
+                        </a>
+                    }
+                }
+            </div>
         </div>
     </div>
 
@@ -632,10 +526,10 @@
                     <span class="green">@Localizer["Latest"]</span> @Localizer["News"]
                 </div>
                 <div class="row list2">
-                            @{
-                                await Html.RenderPartialAsync("../News/_ItemPartial", Model);
-                            }
-                        </div>
+                    @{
+                        await Html.RenderPartialAsync("../News/_ItemPartial", Model);
+                    }
+                </div>
                 <a asp-controller="news" asp-action="index" class="btn-n3 dark-blue view-all-btn">@Localizer["View All"]</a>
             </div>
         </div>
