@@ -153,6 +153,9 @@
   <data name="Neo-CLI is the reference Neo implementation, a headless node with reliable performance and the full range of core functionality. Designed with application integration in mind, the node can be outfitted with custom logic via plugin modules." xml:space="preserve">
     <value>Neo-CLI 作为 Neo 的参考实现，是一个性能可靠、核心功能齐全的命令行节点。为了方便的应用集成，该节点可以通过插件完成自定义扩展。</value>
   </data>
+  <data name="Neo-Express is a privatenet optimized for development scenarios. It is built on the same neo platform core as neo-cli and neo-gui to maximize compatibility between local development and public chain environments." xml:space="preserve">
+    <value>Neo-Express 是专为开发场景优化的私有链。它与 neo-cli 和 neo-gui 建立在相同的 neo 平台核心上，最大限度地提高了本地开发与公共链环境之间的兼容性。</value>
+  </data>
   <data name="Neo-gogogo is a lightweight Go SDK that provides all the structures and methods required to interface with the Neo blockchain. All the necessary tools are available for any kind of application, making it easy to manage wallets, verify state proofs, interact with contracts and tokens, build transactions, send RPC requests, and more." xml:space="preserve">
     <value>Neo-gogogo 是一个轻量级的 Go SDK，提供了与 Neo 区块链交互所需的所有数据结构和方法，便于任何区块链应用所需的包括管理钱包，验证区块链状态，转账以及智能合约交互，构建交易，发送 RPC 请求等功能。</value>
   </data>
