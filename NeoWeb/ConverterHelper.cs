@@ -406,6 +406,14 @@ namespace NeoWeb
             {
                 throw new FormatException();
             }
+            try
+            {
+                _ = new Script(scripts.ToArray(), true);
+            }
+            catch (Exception)
+            {
+                throw new FormatException();
+            }
             return ScriptsToOpCode(scripts);
         }
 
@@ -445,6 +453,14 @@ namespace NeoWeb
             try
             {
                 scripts = hex.HexToBytes().ToList();
+            }
+            catch (Exception)
+            {
+                throw new FormatException();
+            }
+            try
+            {
+                _ = new Script(scripts.ToArray(), true);
             }
             catch (Exception)
             {
