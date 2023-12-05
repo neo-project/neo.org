@@ -10,7 +10,7 @@
       ]
     },
     {
-      "library": "twitter-bootstrap@5.3.2",
+      "library": "twitter-bootstrap@4.6.0",
       "destination": "wwwroot/lib/bootstrap/",
       "files": [
         "js/bootstrap.min.js",
