@@ -23,7 +23,7 @@ namespace NeoWeb
         public async Task Invoke(HttpContext context)
         {
             var ipAddress = context.Connection.RemoteIpAddress?.ToString();
-            if (!string.IsNullOrEmpty(ipAddress))
+            if (!string.IsNullOrEmpty(ipAddress) && System.IO.File.ReadAllLines("whitelist.txt").All(p => p != ipAddress))
             {
                 CleanUpExpiredRequestsAndBlocks();
 
@@ -65,9 +65,6 @@ namespace NeoWeb
 
         private async Task HandleExceededRequestLimit(HttpContext context, string ipAddress)
         {
-            var file = "whitelist.txt";
-            if (System.IO.File.Exists(file) &&  System.IO.File.ReadAllLines(file).Any(p => p == ipAddress))
-                return;
             var blockTime = DateTime.UtcNow.AddMinutes(BlockDurationMinutes);
             _blockList.Add(new BlockItem { IP = ipAddress, DateTime = blockTime });
             context.Response.StatusCode = 429; // Too Many Requests
