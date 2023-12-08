@@ -65,7 +65,9 @@ namespace NeoWeb
 
         private async Task HandleExceededRequestLimit(HttpContext context, string ipAddress)
         {
-            if ("127.0.0.1,::1".Contains(ipAddress)) return;
+            var file = "whitelist.txt";
+            if (System.IO.File.Exists(file) &&  System.IO.File.ReadAllLines(file).Any(p => p == ipAddress))
+                return;
             var blockTime = DateTime.UtcNow.AddMinutes(BlockDurationMinutes);
             _blockList.Add(new BlockItem { IP = ipAddress, DateTime = blockTime });
             context.Response.StatusCode = 429; // Too Many Requests
