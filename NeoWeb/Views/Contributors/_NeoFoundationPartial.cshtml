@@ -8,39 +8,34 @@
 </div>
 
 <div class="people-card-container">
-    @{ string[,] people = new string[3, 6]
-    {
-        { "Da Hongfei", "达鸿飞", "NEO FOUNDER ", "Founder of Neo, Chair of Neo Foundation, CEO of NGD", "https://www.linkedin.com/in/dahongfei/", "/images/discover/DaHongfei.jpg" },
-        { "Erik Zhang", "张铮文", "NEO FOUNDER", "Founder and Core developer of Neo, Chair of Neo Foundation", "https://www.linkedin.com/in/erik-zhang-5a6b14ab/", "/images/discover/ErikZhang.jpg" },
-        { "John deVadoss", "", "NGD ENTERPRISE<br/>BOARD PRESIDENT", "Director of Enterprise Adoption", "https://www.linkedin.com/in/johnkdevadoss/", "/images/discover/JohnDevadoss.jpg" },
-    };
-
-
-        for (int i = 0; i < people.GetLength(0); i++)
-                    {
-        <div class="people-card">
-            <img class="people-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(people[i, 5])" />
-
-            <div class="people-content">
-                <div class="col-name">
-                    <div class="primary-name">@people[i, 0]</div>
-                    @if (!String.IsNullOrEmpty(people[i, 1]))
-                    {
-                        <div class="secondary-name">@people[i, 1]</div>}
-                    @if (!String.IsNullOrEmpty(people[i, 2]))
-                    {
-                        <div class="title-name">@Localizer[people[i, 2]]</div>}
-                    @if (!String.IsNullOrEmpty(people[0, 3]))
-                    {
-                        <div class="people-description">@people[i, 3]</div>}
-                </div>
-                <div class="col-icon">
-                    @if (!String.IsNullOrEmpty(people[i, 4]))
-                    {
-                        <a href="@people[i, 4]" target="_blank"><i class="iconfont link-icon">&#xe62e;</i></a>}
-
-                </div>
+    <div class="people-card">
+        <img class="people-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="/images/discover/DaHongfei.jpg" />
+        <div class="people-content">
+            <div class="col-name">
+                <div class="primary-name">Da Hongfei</div>
+                <div class="secondary-name">达鸿飞</div>
+                <div class="title-name">@Localizer["NEO FOUNDER"]</div>
+                <div class="people-description">Founder of Neo, Chair of Neo Foundation, CEO of NGD</div>
             </div>
-            </div>} }
+            <div class="col-icon">
+                <a href="https://www.linkedin.com/in/dahongfei/" target="_blank"><i class="iconfont link-icon">&#xe62e;</i></a>
+            </div>
+        </div>
     </div>
+    <div class="people-card">
+        <img class="people-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="/images/discover/ErikZhang.jpg" />
+
+        <div class="people-content">
+            <div class="col-name">
+                <div class="primary-name">Erik Zhang</div>
+                <div class="secondary-name">张铮文</div>
+                <div class="title-name">@Localizer["NEO FOUNDER"]</div>
+                <div class="people-description">Founder and Core developer of Neo, Chair of Neo Foundation</div>
+            </div>
+            <div class="col-icon">
+                <a href="https://www.linkedin.com/in/erik-zhang-5a6b14ab/" target="_blank"><i class="iconfont link-icon">&#xe62e;</i></a>
+            </div>
+        </div>
+    </div>
+</div>
 
