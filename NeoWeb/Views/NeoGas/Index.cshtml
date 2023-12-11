@@ -102,8 +102,6 @@
             if (window.location.hash) {
                 var _num = parseInt(window.location.hash.substr(1, 1));
                 var _str = window.location.hash.substr(2);
-                console.log(_num);
-                console.log(_str);
                 showPlatform($('.nav-client li')[_num], _str);
             }
         })
