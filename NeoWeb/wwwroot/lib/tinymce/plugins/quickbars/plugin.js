@@ -1,168 +1,120 @@
 /**
- * TinyMCE version 6.8.1 (2023-11-29)
+ * Copyright (c) Tiny Technologies, Inc. All rights reserved.
+ * Licensed under the LGPL or a commercial license.
+ * For LGPL see License.txt in the project root for license information.
+ * For commercial licenses see https://www.tiny.cloud/
+ *
+ * Version: 5.7.0 (2021-02-10)
  */
-
 (function () {
     'use strict';
 
-    var global$1 = tinymce.util.Tools.resolve('tinymce.PluginManager');
+    var global = tinymce.util.Tools.resolve('tinymce.PluginManager');
 
-    const hasProto = (v, constructor, predicate) => {
-      var _a;
-      if (predicate(v, constructor.prototype)) {
-        return true;
-      } else {
-        return ((_a = v.constructor) === null || _a === void 0 ? void 0 : _a.name) === constructor.name;
-      }
-    };
-    const typeOf = x => {
-      const t = typeof x;
-      if (x === null) {
-        return 'null';
-      } else if (t === 'object' && Array.isArray(x)) {
-        return 'array';
-      } else if (t === 'object' && hasProto(x, String, (o, proto) => proto.isPrototypeOf(o))) {
-        return 'string';
-      } else {
-        return t;
-      }
-    };
-    const isType = type => value => typeOf(value) === type;
-    const isSimpleType = type => value => typeof value === type;
-    const isString = isType('string');
-    const isBoolean = isSimpleType('boolean');
-    const isNullable = a => a === null || a === undefined;
-    const isNonNullable = a => !isNullable(a);
-    const isFunction = isSimpleType('function');
-
-    const option = name => editor => editor.options.get(name);
-    const register = editor => {
-      const registerOption = editor.options.register;
-      const toolbarProcessor = defaultValue => value => {
-        const valid = isBoolean(value) || isString(value);
-        if (valid) {
-          if (isBoolean(value)) {
-            return {
-              value: value ? defaultValue : '',
-              valid
-            };
-          } else {
-            return {
-              value: value.trim(),
-              valid
-            };
-          }
-        } else {
-          return {
-            valid: false,
-            message: 'Must be a boolean or string.'
-          };
-        }
-      };
-      const defaultSelectionToolbar = 'bold italic | quicklink h2 h3 blockquote';
-      registerOption('quickbars_selection_toolbar', {
-        processor: toolbarProcessor(defaultSelectionToolbar),
-        default: defaultSelectionToolbar
-      });
-      const defaultInsertToolbar = 'quickimage quicktable';
-      registerOption('quickbars_insert_toolbar', {
-        processor: toolbarProcessor(defaultInsertToolbar),
-        default: defaultInsertToolbar
-      });
-      const defaultImageToolbar = 'alignleft aligncenter alignright';
-      registerOption('quickbars_image_toolbar', {
-        processor: toolbarProcessor(defaultImageToolbar),
-        default: defaultImageToolbar
-      });
-    };
-    const getTextSelectionToolbarItems = option('quickbars_selection_toolbar');
-    const getInsertToolbarItems = option('quickbars_insert_toolbar');
-    const getImageToolbarItems = option('quickbars_image_toolbar');
-
-    let unique = 0;
-    const generate = prefix => {
-      const date = new Date();
-      const time = date.getTime();
-      const random = Math.floor(Math.random() * 1000000000);
+    var unique = 0;
+    var generate = function (prefix) {
+      var date = new Date();
+      var time = date.getTime();
+      var random = Math.floor(Math.random() * 1000000000);
       unique++;
       return prefix + '_' + random + unique + String(time);
     };
 
-    const insertTable = (editor, columns, rows) => {
-      editor.execCommand('mceInsertTable', false, {
-        rows,
-        columns
+    var createTableHtml = function (cols, rows) {
+      var x, y, html;
+      html = '<table data-mce-id="mce" style="width: 100%">';
+      html += '<tbody>';
+      for (y = 0; y < rows; y++) {
+        html += '<tr>';
+        for (x = 0; x < cols; x++) {
+          html += '<td><br></td>';
+        }
+        html += '</tr>';
+      }
+      html += '</tbody>';
+      html += '</table>';
+      return html;
+    };
+    var getInsertedElement = function (editor) {
+      var elms = editor.dom.select('*[data-mce-id]');
+      return elms[0];
+    };
+    var insertTableHtml = function (editor, cols, rows) {
+      editor.undoManager.transact(function () {
+        editor.insertContent(createTableHtml(cols, rows));
+        var tableElm = getInsertedElement(editor);
+        tableElm.removeAttribute('data-mce-id');
+        var cellElm = editor.dom.select('td,th', tableElm);
+        editor.selection.setCursorLocation(cellElm[0], 0);
       });
     };
-    const insertBlob = (editor, base64, blob) => {
-      const blobCache = editor.editorUpload.blobCache;
-      const blobInfo = blobCache.create(generate('mceu'), blob, base64);
+    var insertTable = function (editor, cols, rows) {
+      editor.plugins.table ? editor.plugins.table.insertTable(cols, rows) : insertTableHtml(editor, cols, rows);
+    };
+    var insertBlob = function (editor, base64, blob) {
+      var blobCache = editor.editorUpload.blobCache;
+      var blobInfo = blobCache.create(generate('mceu'), blob, base64);
       blobCache.add(blobInfo);
       editor.insertContent(editor.dom.createHTML('img', { src: blobInfo.blobUri() }));
     };
 
-    const blobToBase64 = blob => {
-      return new Promise(resolve => {
-        const reader = new FileReader();
-        reader.onloadend = () => {
+    var global$1 = tinymce.util.Tools.resolve('tinymce.util.Promise');
+
+    var blobToBase64 = function (blob) {
+      return new global$1(function (resolve) {
+        var reader = new FileReader();
+        reader.onloadend = function () {
           resolve(reader.result.split(',')[1]);
         };
         reader.readAsDataURL(blob);
       });
     };
 
-    var global = tinymce.util.Tools.resolve('tinymce.util.Delay');
+    var global$2 = tinymce.util.Tools.resolve('tinymce.Env');
 
-    const pickFile = editor => new Promise(resolve => {
-      let resolved = false;
-      const fileInput = document.createElement('input');
-      fileInput.type = 'file';
-      fileInput.accept = 'image/*';
-      fileInput.style.position = 'fixed';
-      fileInput.style.left = '0';
-      fileInput.style.top = '0';
-      fileInput.style.opacity = '0.001';
-      document.body.appendChild(fileInput);
-      const resolveFileInput = value => {
-        var _a;
-        if (!resolved) {
-          (_a = fileInput.parentNode) === null || _a === void 0 ? void 0 : _a.removeChild(fileInput);
-          resolved = true;
-          resolve(value);
-        }
-      };
-      const changeHandler = e => {
-        resolveFileInput(Array.prototype.slice.call(e.target.files));
-      };
-      fileInput.addEventListener('input', changeHandler);
-      fileInput.addEventListener('change', changeHandler);
-      const cancelHandler = e => {
-        const cleanup = () => {
-          resolveFileInput([]);
+    var global$3 = tinymce.util.Tools.resolve('tinymce.util.Delay');
+
+    var pickFile = function (editor) {
+      return new global$1(function (resolve) {
+        var fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.accept = 'image/*';
+        fileInput.style.position = 'fixed';
+        fileInput.style.left = '0';
+        fileInput.style.top = '0';
+        fileInput.style.opacity = '0.001';
+        document.body.appendChild(fileInput);
+        var changeHandler = function (e) {
+          resolve(Array.prototype.slice.call(e.target.files));
         };
-        if (!resolved) {
-          if (e.type === 'focusin') {
-            global.setEditorTimeout(editor, cleanup, 1000);
+        fileInput.addEventListener('change', changeHandler);
+        var cancelHandler = function (e) {
+          var cleanup = function () {
+            resolve([]);
+            fileInput.parentNode.removeChild(fileInput);
+          };
+          if (global$2.os.isAndroid() && e.type !== 'remove') {
+            global$3.setEditorTimeout(editor, cleanup, 0);
           } else {
             cleanup();
           }
-        }
-        editor.off('focusin remove', cancelHandler);
-      };
-      editor.on('focusin remove', cancelHandler);
-      fileInput.click();
-    });
+          editor.off('focusin remove', cancelHandler);
+        };
+        editor.on('focusin remove', cancelHandler);
+        fileInput.click();
+      });
+    };
 
-    const setupButtons = editor => {
+    var setupButtons = function (editor) {
       editor.ui.registry.addButton('quickimage', {
         icon: 'image',
         tooltip: 'Insert image',
-        onAction: () => {
-          pickFile(editor).then(files => {
+        onAction: function () {
+          pickFile(editor).then(function (files) {
             if (files.length > 0) {
-              const blob = files[0];
-              blobToBase64(blob).then(base64 => {
-                insertBlob(editor, base64, blob);
+              var blob_1 = files[0];
+              blobToBase64(blob_1).then(function (base64) {
+                insertBlob(editor, base64, blob_1);
               });
             }
           });
@@ -171,127 +123,163 @@
       editor.ui.registry.addButton('quicktable', {
         icon: 'table',
         tooltip: 'Insert table',
-        onAction: () => {
+        onAction: function () {
           insertTable(editor, 2, 2);
         }
       });
     };
 
-    const constant = value => {
-      return () => {
+    var noop = function () {
+    };
+    var constant = function (value) {
+      return function () {
         return value;
       };
     };
-    const never = constant(false);
+    var never = constant(false);
+    var always = constant(true);
 
-    class Optional {
-      constructor(tag, value) {
-        this.tag = tag;
-        this.value = value;
-      }
-      static some(value) {
-        return new Optional(true, value);
-      }
-      static none() {
-        return Optional.singletonNone;
-      }
-      fold(onNone, onSome) {
-        if (this.tag) {
-          return onSome(this.value);
-        } else {
-          return onNone();
+    var none = function () {
+      return NONE;
+    };
+    var NONE = function () {
+      var eq = function (o) {
+        return o.isNone();
+      };
+      var call = function (thunk) {
+        return thunk();
+      };
+      var id = function (n) {
+        return n;
+      };
+      var me = {
+        fold: function (n, _s) {
+          return n();
+        },
+        is: never,
+        isSome: never,
+        isNone: always,
+        getOr: id,
+        getOrThunk: call,
+        getOrDie: function (msg) {
+          throw new Error(msg || 'error: getOrDie called on none.');
+        },
+        getOrNull: constant(null),
+        getOrUndefined: constant(undefined),
+        or: id,
+        orThunk: call,
+        map: none,
+        each: noop,
+        bind: none,
+        exists: never,
+        forall: always,
+        filter: none,
+        equals: eq,
+        equals_: eq,
+        toArray: function () {
+          return [];
+        },
+        toString: constant('none()')
+      };
+      return me;
+    }();
+    var some = function (a) {
+      var constant_a = constant(a);
+      var self = function () {
+        return me;
+      };
+      var bind = function (f) {
+        return f(a);
+      };
+      var me = {
+        fold: function (n, s) {
+          return s(a);
+        },
+        is: function (v) {
+          return a === v;
+        },
+        isSome: always,
+        isNone: never,
+        getOr: constant_a,
+        getOrThunk: constant_a,
+        getOrDie: constant_a,
+        getOrNull: constant_a,
+        getOrUndefined: constant_a,
+        or: self,
+        orThunk: self,
+        map: function (f) {
+          return some(f(a));
+        },
+        each: function (f) {
+          f(a);
+        },
+        bind: bind,
+        exists: bind,
+        forall: bind,
+        filter: function (f) {
+          return f(a) ? me : NONE;
+        },
+        toArray: function () {
+          return [a];
+        },
+        toString: function () {
+          return 'some(' + a + ')';
+        },
+        equals: function (o) {
+          return o.is(a);
+        },
+        equals_: function (o, elementEq) {
+          return o.fold(never, function (b) {
+            return elementEq(a, b);
+          });
         }
-      }
-      isSome() {
-        return this.tag;
-      }
-      isNone() {
-        return !this.tag;
-      }
-      map(mapper) {
-        if (this.tag) {
-          return Optional.some(mapper(this.value));
-        } else {
-          return Optional.none();
-        }
-      }
-      bind(binder) {
-        if (this.tag) {
-          return binder(this.value);
-        } else {
-          return Optional.none();
-        }
-      }
-      exists(predicate) {
-        return this.tag && predicate(this.value);
-      }
-      forall(predicate) {
-        return !this.tag || predicate(this.value);
-      }
-      filter(predicate) {
-        if (!this.tag || predicate(this.value)) {
-          return this;
-        } else {
-          return Optional.none();
-        }
-      }
-      getOr(replacement) {
-        return this.tag ? this.value : replacement;
-      }
-      or(replacement) {
-        return this.tag ? this : replacement;
-      }
-      getOrThunk(thunk) {
-        return this.tag ? this.value : thunk();
-      }
-      orThunk(thunk) {
-        return this.tag ? this : thunk();
-      }
-      getOrDie(message) {
-        if (!this.tag) {
-          throw new Error(message !== null && message !== void 0 ? message : 'Called getOrDie on None');
-        } else {
-          return this.value;
-        }
-      }
-      static from(value) {
-        return isNonNullable(value) ? Optional.some(value) : Optional.none();
-      }
-      getOrNull() {
-        return this.tag ? this.value : null;
-      }
-      getOrUndefined() {
-        return this.value;
-      }
-      each(worker) {
-        if (this.tag) {
-          worker(this.value);
-        }
-      }
-      toArray() {
-        return this.tag ? [this.value] : [];
-      }
-      toString() {
-        return this.tag ? `some(${ this.value })` : 'none()';
-      }
-    }
-    Optional.singletonNone = new Optional(false);
-
-    typeof window !== 'undefined' ? window : Function('return this;')();
-
-    const ELEMENT = 1;
-
-    const name = element => {
-      const r = element.dom.nodeName;
-      return r.toLowerCase();
+      };
+      return me;
+    };
+    var from = function (value) {
+      return value === null || value === undefined ? NONE : some(value);
+    };
+    var Optional = {
+      some: some,
+      none: none,
+      from: from
     };
 
-    const has$1 = (element, key) => {
-      const dom = element.dom;
-      return dom && dom.hasAttribute ? dom.hasAttribute(key) : false;
+    var typeOf = function (x) {
+      var t = typeof x;
+      if (x === null) {
+        return 'null';
+      } else if (t === 'object' && (Array.prototype.isPrototypeOf(x) || x.constructor && x.constructor.name === 'Array')) {
+        return 'array';
+      } else if (t === 'object' && (String.prototype.isPrototypeOf(x) || x.constructor && x.constructor.name === 'String')) {
+        return 'string';
+      } else {
+        return t;
+      }
     };
+    var isType = function (type) {
+      return function (value) {
+        return typeOf(value) === type;
+      };
+    };
+    var isSimpleType = function (type) {
+      return function (value) {
+        return typeof value === type;
+      };
+    };
+    var eq = function (t) {
+      return function (a) {
+        return t === a;
+      };
+    };
+    var isString = isType('string');
+    var isObject = isType('object');
+    var isArray = isType('array');
+    var isBoolean = isSimpleType('boolean');
+    var isUndefined = eq(undefined);
+    var isFunction = isSimpleType('function');
 
-    var ClosestOrAncestor = (is, ancestor, scope, a, isRoot) => {
+    function ClosestOrAncestor (is, ancestor, scope, a, isRoot) {
       if (is(scope, a)) {
         return Optional.some(scope);
       } else if (isFunction(isRoot) && isRoot(scope)) {
@@ -299,50 +287,53 @@
       } else {
         return ancestor(scope, a, isRoot);
       }
-    };
+    }
 
-    const fromHtml = (html, scope) => {
-      const doc = scope || document;
-      const div = doc.createElement('div');
+    var ELEMENT = 1;
+
+    var fromHtml = function (html, scope) {
+      var doc = scope || document;
+      var div = doc.createElement('div');
       div.innerHTML = html;
       if (!div.hasChildNodes() || div.childNodes.length > 1) {
-        const message = 'HTML does not have a single root node';
-        console.error(message, html);
-        throw new Error(message);
+        console.error('HTML does not have a single root node', html);
+        throw new Error('HTML must have a single root node');
       }
       return fromDom(div.childNodes[0]);
     };
-    const fromTag = (tag, scope) => {
-      const doc = scope || document;
-      const node = doc.createElement(tag);
+    var fromTag = function (tag, scope) {
+      var doc = scope || document;
+      var node = doc.createElement(tag);
       return fromDom(node);
     };
-    const fromText = (text, scope) => {
-      const doc = scope || document;
-      const node = doc.createTextNode(text);
+    var fromText = function (text, scope) {
+      var doc = scope || document;
+      var node = doc.createTextNode(text);
       return fromDom(node);
     };
-    const fromDom = node => {
+    var fromDom = function (node) {
       if (node === null || node === undefined) {
         throw new Error('Node cannot be null or undefined');
       }
       return { dom: node };
     };
-    const fromPoint = (docElm, x, y) => Optional.from(docElm.dom.elementFromPoint(x, y)).map(fromDom);
-    const SugarElement = {
-      fromHtml,
-      fromTag,
-      fromText,
-      fromDom,
-      fromPoint
+    var fromPoint = function (docElm, x, y) {
+      return Optional.from(docElm.dom.elementFromPoint(x, y)).map(fromDom);
+    };
+    var SugarElement = {
+      fromHtml: fromHtml,
+      fromTag: fromTag,
+      fromText: fromText,
+      fromDom: fromDom,
+      fromPoint: fromPoint
     };
 
-    const is = (element, selector) => {
-      const dom = element.dom;
+    var is = function (element, selector) {
+      var dom = element.dom;
       if (dom.nodeType !== ELEMENT) {
         return false;
       } else {
-        const elem = dom;
+        var elem = dom;
         if (elem.matches !== undefined) {
           return elem.matches(selector);
         } else if (elem.msMatchesSelector !== undefined) {
@@ -357,12 +348,19 @@
       }
     };
 
-    const ancestor$1 = (scope, predicate, isRoot) => {
-      let element = scope.dom;
-      const stop = isFunction(isRoot) ? isRoot : never;
+    var Global = typeof window !== 'undefined' ? window : Function('return this;')();
+
+    var name = function (element) {
+      var r = element.dom.nodeName;
+      return r.toLowerCase();
+    };
+
+    var ancestor = function (scope, predicate, isRoot) {
+      var element = scope.dom;
+      var stop = isFunction(isRoot) ? isRoot : never;
       while (element.parentNode) {
         element = element.parentNode;
-        const el = SugarElement.fromDom(element);
+        var el = SugarElement.fromDom(element);
         if (predicate(el)) {
           return Optional.some(el);
         } else if (stop(el)) {
@@ -371,28 +369,77 @@
       }
       return Optional.none();
     };
-    const closest$2 = (scope, predicate, isRoot) => {
-      const is = (s, test) => test(s);
-      return ClosestOrAncestor(is, ancestor$1, scope, predicate, isRoot);
+    var closest = function (scope, predicate, isRoot) {
+      var is = function (s, test) {
+        return test(s);
+      };
+      return ClosestOrAncestor(is, ancestor, scope, predicate, isRoot);
     };
 
-    const closest$1 = (scope, predicate, isRoot) => closest$2(scope, predicate, isRoot).isSome();
-
-    const ancestor = (scope, selector, isRoot) => ancestor$1(scope, e => is(e, selector), isRoot);
-    const closest = (scope, selector, isRoot) => {
-      const is$1 = (element, selector) => is(element, selector);
-      return ClosestOrAncestor(is$1, ancestor, scope, selector, isRoot);
+    var ancestor$1 = function (scope, selector, isRoot) {
+      return ancestor(scope, function (e) {
+        return is(e, selector);
+      }, isRoot);
+    };
+    var closest$1 = function (scope, selector, isRoot) {
+      var is$1 = function (element, selector) {
+        return is(element, selector);
+      };
+      return ClosestOrAncestor(is$1, ancestor$1, scope, selector, isRoot);
     };
 
-    const addToEditor$1 = editor => {
-      const insertToolbarItems = getInsertToolbarItems(editor);
-      if (insertToolbarItems.length > 0) {
+    var validDefaultOrDie = function (value, predicate) {
+      if (predicate(value)) {
+        return true;
+      }
+      throw new Error('Default value doesn\'t match requested type.');
+    };
+    var items = function (value, defaultValue) {
+      if (isArray(value) || isObject(value)) {
+        throw new Error('expected a string but found: ' + value);
+      }
+      if (isUndefined(value)) {
+        return defaultValue;
+      }
+      if (isBoolean(value)) {
+        return value === false ? '' : defaultValue;
+      }
+      return value;
+    };
+    var getToolbarItemsOr_ = function (predicate) {
+      return function (editor, name, defaultValue) {
+        validDefaultOrDie(defaultValue, predicate);
+        var value = editor.getParam(name, defaultValue);
+        return items(value, defaultValue);
+      };
+    };
+    var getToolbarItemsOr = getToolbarItemsOr_(isString);
+
+    var getTextSelectionToolbarItems = function (editor) {
+      return getToolbarItemsOr(editor, 'quickbars_selection_toolbar', 'bold italic | quicklink h2 h3 blockquote');
+    };
+    var getInsertToolbarItems = function (editor) {
+      return getToolbarItemsOr(editor, 'quickbars_insert_toolbar', 'quickimage quicktable');
+    };
+    var getImageToolbarItems = function (editor) {
+      return getToolbarItemsOr(editor, 'quickbars_image_toolbar', 'alignleft aligncenter alignright');
+    };
+
+    var addToEditor = function (editor) {
+      var insertToolbarItems = getInsertToolbarItems(editor);
+      if (insertToolbarItems.trim().length > 0) {
         editor.ui.registry.addContextToolbar('quickblock', {
-          predicate: node => {
-            const sugarNode = SugarElement.fromDom(node);
-            const textBlockElementsMap = editor.schema.getTextBlockElements();
-            const isRoot = elem => elem.dom === editor.getBody();
-            return !has$1(sugarNode, 'data-mce-bogus') && closest(sugarNode, 'table,[data-mce-bogus="all"]', isRoot).fold(() => closest$1(sugarNode, elem => name(elem) in textBlockElementsMap && editor.dom.isEmpty(elem.dom), isRoot), never);
+          predicate: function (node) {
+            var sugarNode = SugarElement.fromDom(node);
+            var textBlockElementsMap = editor.schema.getTextBlockElements();
+            var isRoot = function (elem) {
+              return elem.dom === editor.getBody();
+            };
+            return closest$1(sugarNode, 'table', isRoot).fold(function () {
+              return closest(sugarNode, function (elem) {
+                return name(elem) in textBlockElementsMap && editor.dom.isEmpty(elem.dom);
+              }, isRoot).isSome();
+            }, never);
           },
           items: insertToolbarItems,
           position: 'line',
@@ -401,31 +448,27 @@
       }
     };
 
-    const supports = element => element.dom.classList !== undefined;
-
-    const has = (element, clazz) => supports(element) && element.dom.classList.contains(clazz);
-
-    const addToEditor = editor => {
-      const isEditable = node => editor.dom.isEditable(node);
-      const isInEditableContext = el => isEditable(el.parentElement);
-      const isImage = node => {
-        const isImageFigure = node.nodeName === 'FIGURE' && /image/i.test(node.className);
-        const isImage = node.nodeName === 'IMG' || isImageFigure;
-        const isPagebreak = has(SugarElement.fromDom(node), 'mce-pagebreak');
-        return isImage && isInEditableContext(node) && !isPagebreak;
+    var addToEditor$1 = function (editor) {
+      var isEditable = function (node) {
+        return editor.dom.getContentEditableParent(node) !== 'false';
       };
-      const imageToolbarItems = getImageToolbarItems(editor);
-      if (imageToolbarItems.length > 0) {
+      var isImage = function (node) {
+        return node.nodeName === 'IMG' || node.nodeName === 'FIGURE' && /image/i.test(node.className);
+      };
+      var imageToolbarItems = getImageToolbarItems(editor);
+      if (imageToolbarItems.trim().length > 0) {
         editor.ui.registry.addContextToolbar('imageselection', {
           predicate: isImage,
           items: imageToolbarItems,
           position: 'node'
         });
       }
-      const textToolbarItems = getTextSelectionToolbarItems(editor);
-      if (textToolbarItems.length > 0) {
+      var textToolbarItems = getTextSelectionToolbarItems(editor);
+      if (textToolbarItems.trim().length > 0) {
         editor.ui.registry.addContextToolbar('textselection', {
-          predicate: node => !isImage(node) && !editor.selection.isCollapsed() && isEditable(node),
+          predicate: function (node) {
+            return !isImage(node) && !editor.selection.isCollapsed() && isEditable(node);
+          },
           items: textToolbarItems,
           position: 'selection',
           scope: 'editor'
@@ -433,15 +476,14 @@
       }
     };
 
-    var Plugin = () => {
-      global$1.add('quickbars', editor => {
-        register(editor);
+    function Plugin () {
+      global.add('quickbars', function (editor) {
         setupButtons(editor);
-        addToEditor$1(editor);
         addToEditor(editor);
+        addToEditor$1(editor);
       });
-    };
+    }
 
     Plugin();
 
-})();
+}());

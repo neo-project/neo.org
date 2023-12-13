@@ -38,7 +38,7 @@
       "destination": "wwwroot/lib/animate.css/"
     },
     {
-      "library": "tinymce@6.8.1",
+      "library": "tinymce@5.7.0",
       "destination": "wwwroot/lib/tinymce/"
     },
     {

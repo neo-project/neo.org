@@ -1,200 +1,227 @@
 /**
- * TinyMCE version 6.8.1 (2023-11-29)
+ * Copyright (c) Tiny Technologies, Inc. All rights reserved.
+ * Licensed under the LGPL or a commercial license.
+ * For LGPL see License.txt in the project root for license information.
+ * For commercial licenses see https://www.tiny.cloud/
+ *
+ * Version: 5.7.0 (2021-02-10)
  */
-
 (function () {
     'use strict';
 
-    const Cell = initial => {
-      let value = initial;
-      const get = () => {
+    var Cell = function (initial) {
+      var value = initial;
+      var get = function () {
         return value;
       };
-      const set = v => {
+      var set = function (v) {
         value = v;
       };
       return {
-        get,
-        set
+        get: get,
+        set: set
       };
     };
 
-    var global$3 = tinymce.util.Tools.resolve('tinymce.PluginManager');
+    var global = tinymce.util.Tools.resolve('tinymce.PluginManager');
 
-    const hasProto = (v, constructor, predicate) => {
-      var _a;
-      if (predicate(v, constructor.prototype)) {
-        return true;
-      } else {
-        return ((_a = v.constructor) === null || _a === void 0 ? void 0 : _a.name) === constructor.name;
-      }
+    var __assign = function () {
+      __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+          s = arguments[i];
+          for (var p in s)
+            if (Object.prototype.hasOwnProperty.call(s, p))
+              t[p] = s[p];
+        }
+        return t;
+      };
+      return __assign.apply(this, arguments);
     };
-    const typeOf = x => {
-      const t = typeof x;
+
+    var noop = function () {
+    };
+    var constant = function (value) {
+      return function () {
+        return value;
+      };
+    };
+    var never = constant(false);
+    var always = constant(true);
+
+    var punctuationStr = '[!-#%-*,-\\/:;?@\\[-\\]_{}\xA1\xAB\xB7\xBB\xBF;\xB7\u055A-\u055F\u0589\u058A\u05BE\u05C0\u05C3\u05C6\u05F3\u05F4\u0609\u060A\u060C\u060D\u061B\u061E\u061F\u066A-\u066D\u06D4\u0700-\u070D\u07F7-\u07F9\u0830-\u083E\u085E\u0964\u0965\u0970\u0DF4\u0E4F\u0E5A\u0E5B\u0F04-\u0F12\u0F3A-\u0F3D\u0F85\u0FD0-\u0FD4\u0FD9\u0FDA\u104A-\u104F\u10FB\u1361-\u1368\u1400\u166D\u166E\u169B\u169C\u16EB-\u16ED\u1735\u1736\u17D4-\u17D6\u17D8-\u17DA\u1800-\u180A\u1944\u1945\u1A1E\u1A1F\u1AA0-\u1AA6\u1AA8-\u1AAD\u1B5A-\u1B60\u1BFC-\u1BFF\u1C3B-\u1C3F\u1C7E\u1C7F\u1CD3\u2010-\u2027\u2030-\u2043\u2045-\u2051\u2053-\u205E\u207D\u207E\u208D\u208E\u3008\u3009\u2768-\u2775\u27C5\u27C6\u27E6-\u27EF\u2983-\u2998\u29D8-\u29DB\u29FC\u29FD\u2CF9-\u2CFC\u2CFE\u2CFF\u2D70\u2E00-\u2E2E\u2E30\u2E31\u3001-\u3003\u3008-\u3011\u3014-\u301F\u3030\u303D\u30A0\u30FB\uA4FE\uA4FF\uA60D-\uA60F\uA673\uA67E\uA6F2-\uA6F7\uA874-\uA877\uA8CE\uA8CF\uA8F8-\uA8FA\uA92E\uA92F\uA95F\uA9C1-\uA9CD\uA9DE\uA9DF\uAA5C-\uAA5F\uAADE\uAADF\uABEB\uFD3E\uFD3F\uFE10-\uFE19\uFE30-\uFE52\uFE54-\uFE61\uFE63\uFE68\uFE6A\uFE6B\uFF01-\uFF03\uFF05-\uFF0A\uFF0C-\uFF0F\uFF1A\uFF1B\uFF1F\uFF20\uFF3B-\uFF3D\uff3f\uFF5B\uFF5D\uFF5F-\uFF65]';
+
+    var punctuation = constant(punctuationStr);
+
+    var none = function () {
+      return NONE;
+    };
+    var NONE = function () {
+      var eq = function (o) {
+        return o.isNone();
+      };
+      var call = function (thunk) {
+        return thunk();
+      };
+      var id = function (n) {
+        return n;
+      };
+      var me = {
+        fold: function (n, _s) {
+          return n();
+        },
+        is: never,
+        isSome: never,
+        isNone: always,
+        getOr: id,
+        getOrThunk: call,
+        getOrDie: function (msg) {
+          throw new Error(msg || 'error: getOrDie called on none.');
+        },
+        getOrNull: constant(null),
+        getOrUndefined: constant(undefined),
+        or: id,
+        orThunk: call,
+        map: none,
+        each: noop,
+        bind: none,
+        exists: never,
+        forall: always,
+        filter: none,
+        equals: eq,
+        equals_: eq,
+        toArray: function () {
+          return [];
+        },
+        toString: constant('none()')
+      };
+      return me;
+    }();
+    var some = function (a) {
+      var constant_a = constant(a);
+      var self = function () {
+        return me;
+      };
+      var bind = function (f) {
+        return f(a);
+      };
+      var me = {
+        fold: function (n, s) {
+          return s(a);
+        },
+        is: function (v) {
+          return a === v;
+        },
+        isSome: always,
+        isNone: never,
+        getOr: constant_a,
+        getOrThunk: constant_a,
+        getOrDie: constant_a,
+        getOrNull: constant_a,
+        getOrUndefined: constant_a,
+        or: self,
+        orThunk: self,
+        map: function (f) {
+          return some(f(a));
+        },
+        each: function (f) {
+          f(a);
+        },
+        bind: bind,
+        exists: bind,
+        forall: bind,
+        filter: function (f) {
+          return f(a) ? me : NONE;
+        },
+        toArray: function () {
+          return [a];
+        },
+        toString: function () {
+          return 'some(' + a + ')';
+        },
+        equals: function (o) {
+          return o.is(a);
+        },
+        equals_: function (o, elementEq) {
+          return o.fold(never, function (b) {
+            return elementEq(a, b);
+          });
+        }
+      };
+      return me;
+    };
+    var from = function (value) {
+      return value === null || value === undefined ? NONE : some(value);
+    };
+    var Optional = {
+      some: some,
+      none: none,
+      from: from
+    };
+
+    var punctuation$1 = punctuation;
+
+    var global$1 = tinymce.util.Tools.resolve('tinymce.util.Tools');
+
+    var typeOf = function (x) {
+      var t = typeof x;
       if (x === null) {
         return 'null';
-      } else if (t === 'object' && Array.isArray(x)) {
+      } else if (t === 'object' && (Array.prototype.isPrototypeOf(x) || x.constructor && x.constructor.name === 'Array')) {
         return 'array';
-      } else if (t === 'object' && hasProto(x, String, (o, proto) => proto.isPrototypeOf(o))) {
+      } else if (t === 'object' && (String.prototype.isPrototypeOf(x) || x.constructor && x.constructor.name === 'String')) {
         return 'string';
       } else {
         return t;
       }
     };
-    const isType$1 = type => value => typeOf(value) === type;
-    const isSimpleType = type => value => typeof value === type;
-    const isString = isType$1('string');
-    const isArray = isType$1('array');
-    const isBoolean = isSimpleType('boolean');
-    const isNullable = a => a === null || a === undefined;
-    const isNonNullable = a => !isNullable(a);
-    const isNumber = isSimpleType('number');
-
-    const noop = () => {
-    };
-    const constant = value => {
-      return () => {
-        return value;
+    var isType = function (type) {
+      return function (value) {
+        return typeOf(value) === type;
       };
     };
-    const always = constant(true);
+    var isSimpleType = function (type) {
+      return function (value) {
+        return typeof value === type;
+      };
+    };
+    var isString = isType('string');
+    var isArray = isType('array');
+    var isBoolean = isSimpleType('boolean');
+    var isNumber = isSimpleType('number');
 
-    const punctuationStr = `[~\u2116|!-*+-\\/:;?@\\[-\`{}\u00A1\u00AB\u00B7\u00BB\u00BF;\u00B7\u055A-\u055F\u0589\u058A\u05BE\u05C0\u05C3\u05C6\u05F3\u05F4\u0609\u060A\u060C\u060D\u061B\u061E\u061F\u066A-\u066D\u06D4\u0700-\u070D\u07F7-\u07F9\u0830-\u083E\u085E\u0964\u0965\u0970\u0DF4\u0E4F\u0E5A\u0E5B\u0F04-\u0F12\u0F3A-\u0F3D\u0F85\u0FD0-\u0FD4\u0FD9\u0FDA\u104A-\u104F\u10FB\u1361-\u1368\u1400\u166D\u166E\u169B\u169C\u16EB-\u16ED\u1735\u1736\u17D4-\u17D6\u17D8-\u17DA\u1800-\u180A\u1944\u1945\u1A1E\u1A1F\u1AA0-\u1AA6\u1AA8-\u1AAD\u1B5A-\u1B60\u1BFC-\u1BFF\u1C3B-\u1C3F\u1C7E\u1C7F\u1CD3\u2010-\u2027\u2030-\u2043\u2045-\u2051\u2053-\u205E\u207D\u207E\u208D\u208E\u3008\u3009\u2768-\u2775\u27C5\u27C6\u27E6-\u27EF\u2983-\u2998\u29D8-\u29DB\u29FC\u29FD\u2CF9-\u2CFC\u2CFE\u2CFF\u2D70\u2E00-\u2E2E\u2E30\u2E31\u3001-\u3003\u3008-\u3011\u3014-\u301F\u3030\u303D\u30A0\u30FB\uA4FE\uA4FF\uA60D-\uA60F\uA673\uA67E\uA6F2-\uA6F7\uA874-\uA877\uA8CE\uA8CF\uA8F8-\uA8FA\uA92E\uA92F\uA95F\uA9C1-\uA9CD\uA9DE\uA9DF\uAA5C-\uAA5F\uAADE\uAADF\uABEB\uFD3E\uFD3F\uFE10-\uFE19\uFE30-\uFE52\uFE54-\uFE61\uFE63\uFE68\uFE6A\uFE6B\uFF01-\uFF03\uFF05-\uFF0A\uFF0C-\uFF0F\uFF1A\uFF1B\uFF1F\uFF20\uFF3B-\uFF3D\uFF3F\uFF5B\uFF5D\uFF5F-\uFF65]`;
-
-    const punctuation$1 = constant(punctuationStr);
-
-    class Optional {
-      constructor(tag, value) {
-        this.tag = tag;
-        this.value = value;
-      }
-      static some(value) {
-        return new Optional(true, value);
-      }
-      static none() {
-        return Optional.singletonNone;
-      }
-      fold(onNone, onSome) {
-        if (this.tag) {
-          return onSome(this.value);
-        } else {
-          return onNone();
-        }
-      }
-      isSome() {
-        return this.tag;
-      }
-      isNone() {
-        return !this.tag;
-      }
-      map(mapper) {
-        if (this.tag) {
-          return Optional.some(mapper(this.value));
-        } else {
-          return Optional.none();
-        }
-      }
-      bind(binder) {
-        if (this.tag) {
-          return binder(this.value);
-        } else {
-          return Optional.none();
-        }
-      }
-      exists(predicate) {
-        return this.tag && predicate(this.value);
-      }
-      forall(predicate) {
-        return !this.tag || predicate(this.value);
-      }
-      filter(predicate) {
-        if (!this.tag || predicate(this.value)) {
-          return this;
-        } else {
-          return Optional.none();
-        }
-      }
-      getOr(replacement) {
-        return this.tag ? this.value : replacement;
-      }
-      or(replacement) {
-        return this.tag ? this : replacement;
-      }
-      getOrThunk(thunk) {
-        return this.tag ? this.value : thunk();
-      }
-      orThunk(thunk) {
-        return this.tag ? this : thunk();
-      }
-      getOrDie(message) {
-        if (!this.tag) {
-          throw new Error(message !== null && message !== void 0 ? message : 'Called getOrDie on None');
-        } else {
-          return this.value;
-        }
-      }
-      static from(value) {
-        return isNonNullable(value) ? Optional.some(value) : Optional.none();
-      }
-      getOrNull() {
-        return this.tag ? this.value : null;
-      }
-      getOrUndefined() {
-        return this.value;
-      }
-      each(worker) {
-        if (this.tag) {
-          worker(this.value);
-        }
-      }
-      toArray() {
-        return this.tag ? [this.value] : [];
-      }
-      toString() {
-        return this.tag ? `some(${ this.value })` : 'none()';
-      }
-    }
-    Optional.singletonNone = new Optional(false);
-
-    const punctuation = punctuation$1;
-
-    var global$2 = tinymce.util.Tools.resolve('tinymce.Env');
-
-    var global$1 = tinymce.util.Tools.resolve('tinymce.util.Tools');
-
-    const nativeSlice = Array.prototype.slice;
-    const nativePush = Array.prototype.push;
-    const map = (xs, f) => {
-      const len = xs.length;
-      const r = new Array(len);
-      for (let i = 0; i < len; i++) {
-        const x = xs[i];
+    var nativeSlice = Array.prototype.slice;
+    var nativePush = Array.prototype.push;
+    var map = function (xs, f) {
+      var len = xs.length;
+      var r = new Array(len);
+      for (var i = 0; i < len; i++) {
+        var x = xs[i];
         r[i] = f(x, i);
       }
       return r;
     };
-    const each = (xs, f) => {
-      for (let i = 0, len = xs.length; i < len; i++) {
-        const x = xs[i];
+    var each = function (xs, f) {
+      for (var i = 0, len = xs.length; i < len; i++) {
+        var x = xs[i];
         f(x, i);
       }
     };
-    const eachr = (xs, f) => {
-      for (let i = xs.length - 1; i >= 0; i--) {
-        const x = xs[i];
+    var eachr = function (xs, f) {
+      for (var i = xs.length - 1; i >= 0; i--) {
+        var x = xs[i];
         f(x, i);
       }
     };
-    const groupBy = (xs, f) => {
+    var groupBy = function (xs, f) {
       if (xs.length === 0) {
         return [];
       } else {
-        let wasType = f(xs[0]);
-        const r = [];
-        let group = [];
-        for (let i = 0, len = xs.length; i < len; i++) {
-          const x = xs[i];
-          const type = f(x);
+        var wasType = f(xs[0]);
+        var r = [];
+        var group = [];
+        for (var i = 0, len = xs.length; i < len; i++) {
+          var x = xs[i];
+          var type = f(x);
           if (type !== wasType) {
             r.push(group);
             group = [];
@@ -208,15 +235,15 @@
         return r;
       }
     };
-    const foldl = (xs, f, acc) => {
-      each(xs, (x, i) => {
-        acc = f(acc, x, i);
+    var foldl = function (xs, f, acc) {
+      each(xs, function (x) {
+        acc = f(acc, x);
       });
       return acc;
     };
-    const flatten = xs => {
-      const r = [];
-      for (let i = 0, len = xs.length; i < len; ++i) {
+    var flatten = function (xs) {
+      var r = [];
+      for (var i = 0, len = xs.length; i < len; ++i) {
         if (!isArray(xs[i])) {
           throw new Error('Arr.flatten item ' + i + ' was not an array, input: ' + xs);
         }
@@ -224,28 +251,38 @@
       }
       return r;
     };
-    const bind = (xs, f) => flatten(map(xs, f));
-    const sort = (xs, comparator) => {
-      const copy = nativeSlice.call(xs, 0);
+    var bind = function (xs, f) {
+      return flatten(map(xs, f));
+    };
+    var sort = function (xs, comparator) {
+      var copy = nativeSlice.call(xs, 0);
       copy.sort(comparator);
       return copy;
     };
 
-    const hasOwnProperty = Object.hasOwnProperty;
-    const has = (obj, key) => hasOwnProperty.call(obj, key);
+    var hasOwnProperty = Object.hasOwnProperty;
+    var has = function (obj, key) {
+      return hasOwnProperty.call(obj, key);
+    };
 
-    typeof window !== 'undefined' ? window : Function('return this;')();
+    var Global = typeof window !== 'undefined' ? window : Function('return this;')();
 
-    const DOCUMENT = 9;
-    const DOCUMENT_FRAGMENT = 11;
-    const ELEMENT = 1;
-    const TEXT = 3;
+    var DOCUMENT = 9;
+    var DOCUMENT_FRAGMENT = 11;
+    var ELEMENT = 1;
+    var TEXT = 3;
 
-    const type = element => element.dom.nodeType;
-    const isType = t => element => type(element) === t;
-    const isText$1 = isType(TEXT);
+    var type = function (element) {
+      return element.dom.nodeType;
+    };
+    var isType$1 = function (t) {
+      return function (element) {
+        return type(element) === t;
+      };
+    };
+    var isText = isType$1(TEXT);
 
-    const rawSet = (dom, key, value) => {
+    var rawSet = function (dom, key, value) {
       if (isString(value) || isBoolean(value) || isNumber(value)) {
         dom.setAttribute(key, value + '');
       } else {
@@ -253,130 +290,164 @@
         throw new Error('Attribute value was not simple');
       }
     };
-    const set = (element, key, value) => {
+    var set = function (element, key, value) {
       rawSet(element.dom, key, value);
     };
 
-    const fromHtml = (html, scope) => {
-      const doc = scope || document;
-      const div = doc.createElement('div');
+    var compareDocumentPosition = function (a, b, match) {
+      return (a.compareDocumentPosition(b) & match) !== 0;
+    };
+    var documentPositionPreceding = function (a, b) {
+      return compareDocumentPosition(a, b, Node.DOCUMENT_POSITION_PRECEDING);
+    };
+
+    var fromHtml = function (html, scope) {
+      var doc = scope || document;
+      var div = doc.createElement('div');
       div.innerHTML = html;
       if (!div.hasChildNodes() || div.childNodes.length > 1) {
-        const message = 'HTML does not have a single root node';
-        console.error(message, html);
-        throw new Error(message);
+        console.error('HTML does not have a single root node', html);
+        throw new Error('HTML must have a single root node');
       }
       return fromDom(div.childNodes[0]);
     };
-    const fromTag = (tag, scope) => {
-      const doc = scope || document;
-      const node = doc.createElement(tag);
+    var fromTag = function (tag, scope) {
+      var doc = scope || document;
+      var node = doc.createElement(tag);
       return fromDom(node);
     };
-    const fromText = (text, scope) => {
-      const doc = scope || document;
-      const node = doc.createTextNode(text);
+    var fromText = function (text, scope) {
+      var doc = scope || document;
+      var node = doc.createTextNode(text);
       return fromDom(node);
     };
-    const fromDom = node => {
+    var fromDom = function (node) {
       if (node === null || node === undefined) {
         throw new Error('Node cannot be null or undefined');
       }
       return { dom: node };
     };
-    const fromPoint = (docElm, x, y) => Optional.from(docElm.dom.elementFromPoint(x, y)).map(fromDom);
-    const SugarElement = {
-      fromHtml,
-      fromTag,
-      fromText,
-      fromDom,
-      fromPoint
+    var fromPoint = function (docElm, x, y) {
+      return Optional.from(docElm.dom.elementFromPoint(x, y)).map(fromDom);
+    };
+    var SugarElement = {
+      fromHtml: fromHtml,
+      fromTag: fromTag,
+      fromText: fromText,
+      fromDom: fromDom,
+      fromPoint: fromPoint
     };
 
-    const bypassSelector = dom => dom.nodeType !== ELEMENT && dom.nodeType !== DOCUMENT && dom.nodeType !== DOCUMENT_FRAGMENT || dom.childElementCount === 0;
-    const all = (selector, scope) => {
-      const base = scope === undefined ? document : scope.dom;
+    var bypassSelector = function (dom) {
+      return dom.nodeType !== ELEMENT && dom.nodeType !== DOCUMENT && dom.nodeType !== DOCUMENT_FRAGMENT || dom.childElementCount === 0;
+    };
+    var all = function (selector, scope) {
+      var base = scope === undefined ? document : scope.dom;
       return bypassSelector(base) ? [] : map(base.querySelectorAll(selector), SugarElement.fromDom);
     };
 
-    const parent = element => Optional.from(element.dom.parentNode).map(SugarElement.fromDom);
-    const children = element => map(element.dom.childNodes, SugarElement.fromDom);
-    const spot = (element, offset) => ({
-      element,
-      offset
-    });
-    const leaf = (element, offset) => {
-      const cs = children(element);
+    var parent = function (element) {
+      return Optional.from(element.dom.parentNode).map(SugarElement.fromDom);
+    };
+    var children = function (element) {
+      return map(element.dom.childNodes, SugarElement.fromDom);
+    };
+    var spot = function (element, offset) {
+      return {
+        element: element,
+        offset: offset
+      };
+    };
+    var leaf = function (element, offset) {
+      var cs = children(element);
       return cs.length > 0 && offset < cs.length ? spot(cs[offset], 0) : spot(element, offset);
     };
 
-    const before = (marker, element) => {
-      const parent$1 = parent(marker);
-      parent$1.each(v => {
+    var before = function (marker, element) {
+      var parent$1 = parent(marker);
+      parent$1.each(function (v) {
         v.dom.insertBefore(element.dom, marker.dom);
       });
     };
-    const append = (parent, element) => {
+    var append = function (parent, element) {
       parent.dom.appendChild(element.dom);
     };
-    const wrap = (element, wrapper) => {
+    var wrap = function (element, wrapper) {
       before(element, wrapper);
       append(wrapper, element);
     };
 
-    const NodeValue = (is, name) => {
-      const get = element => {
+    var NodeValue = function (is, name) {
+      var get = function (element) {
         if (!is(element)) {
           throw new Error('Can only get ' + name + ' value of a ' + name + ' node');
         }
         return getOption(element).getOr('');
       };
-      const getOption = element => is(element) ? Optional.from(element.dom.nodeValue) : Optional.none();
-      const set = (element, value) => {
+      var getOption = function (element) {
+        return is(element) ? Optional.from(element.dom.nodeValue) : Optional.none();
+      };
+      var set = function (element, value) {
         if (!is(element)) {
           throw new Error('Can only set raw ' + name + ' value of a ' + name + ' node');
         }
         element.dom.nodeValue = value;
       };
       return {
-        get,
-        getOption,
-        set
+        get: get,
+        getOption: getOption,
+        set: set
       };
     };
 
-    const api = NodeValue(isText$1, 'text');
-    const get$1 = element => api.get(element);
-
-    const compareDocumentPosition = (a, b, match) => {
-      return (a.compareDocumentPosition(b) & match) !== 0;
-    };
-    const documentPositionPreceding = (a, b) => {
-      return compareDocumentPosition(a, b, Node.DOCUMENT_POSITION_PRECEDING);
+    var api = NodeValue(isText, 'text');
+    var get = function (element) {
+      return api.get(element);
     };
 
-    const descendants = (scope, selector) => all(selector, scope);
+    var descendants = function (scope, selector) {
+      return all(selector, scope);
+    };
 
-    var global = tinymce.util.Tools.resolve('tinymce.dom.TreeWalker');
+    var global$2 = tinymce.util.Tools.resolve('tinymce.dom.TreeWalker');
 
-    const isSimpleBoundary = (dom, node) => dom.isBlock(node) || has(dom.schema.getVoidElements(), node.nodeName);
-    const isContentEditableFalse = (dom, node) => !dom.isEditable(node);
-    const isContentEditableTrueInCef = (dom, node) => dom.getContentEditable(node) === 'true' && node.parentNode && !dom.isEditable(node.parentNode);
-    const isHidden = (dom, node) => !dom.isBlock(node) && has(dom.schema.getWhitespaceElements(), node.nodeName);
-    const isBoundary = (dom, node) => isSimpleBoundary(dom, node) || isContentEditableFalse(dom, node) || isHidden(dom, node) || isContentEditableTrueInCef(dom, node);
-    const isText = node => node.nodeType === 3;
-    const nuSection = () => ({
-      sOffset: 0,
-      fOffset: 0,
-      elements: []
-    });
-    const toLeaf = (node, offset) => leaf(SugarElement.fromDom(node), offset);
-    const walk = (dom, walkerFn, startNode, callbacks, endNode, skipStart = true) => {
-      let next = skipStart ? walkerFn(false) : startNode;
+    var isSimpleBoundary = function (dom, node) {
+      return dom.isBlock(node) || has(dom.schema.getShortEndedElements(), node.nodeName);
+    };
+    var isContentEditableFalse = function (dom, node) {
+      return dom.getContentEditable(node) === 'false';
+    };
+    var isContentEditableTrueInCef = function (dom, node) {
+      return dom.getContentEditable(node) === 'true' && dom.getContentEditableParent(node.parentNode) === 'false';
+    };
+    var isHidden = function (dom, node) {
+      return !dom.isBlock(node) && has(dom.schema.getWhiteSpaceElements(), node.nodeName);
+    };
+    var isBoundary = function (dom, node) {
+      return isSimpleBoundary(dom, node) || isContentEditableFalse(dom, node) || isHidden(dom, node) || isContentEditableTrueInCef(dom, node);
+    };
+    var isText$1 = function (node) {
+      return node.nodeType === 3;
+    };
+    var nuSection = function () {
+      return {
+        sOffset: 0,
+        fOffset: 0,
+        elements: []
+      };
+    };
+    var toLeaf = function (node, offset) {
+      return leaf(SugarElement.fromDom(node), offset);
+    };
+    var walk = function (dom, walkerFn, startNode, callbacks, endNode, skipStart) {
+      if (skipStart === void 0) {
+        skipStart = true;
+      }
+      var next = skipStart ? walkerFn(false) : startNode;
       while (next) {
-        const isCefNode = isContentEditableFalse(dom, next);
+        var isCefNode = isContentEditableFalse(dom, next);
         if (isCefNode || isHidden(dom, next)) {
-          const stopWalking = isCefNode ? callbacks.cef(next) : callbacks.boundary(next);
+          var stopWalking = isCefNode ? callbacks.cef(next) : callbacks.boundary(next);
           if (stopWalking) {
             break;
           } else {
@@ -387,7 +458,7 @@
           if (callbacks.boundary(next)) {
             break;
           }
-        } else if (isText(next)) {
+        } else if (isText$1(next)) {
           callbacks.text(next);
         }
         if (next === endNode) {
@@ -397,18 +468,17 @@
         }
       }
     };
-    const collectTextToBoundary = (dom, section, node, rootNode, forwards) => {
-      var _a;
+    var collectTextToBoundary = function (dom, section, node, rootNode, forwards) {
       if (isBoundary(dom, node)) {
         return;
       }
-      const rootBlock = (_a = dom.getParent(rootNode, dom.isBlock)) !== null && _a !== void 0 ? _a : dom.getRoot();
-      const walker = new global(node, rootBlock);
-      const walkerFn = forwards ? walker.next.bind(walker) : walker.prev.bind(walker);
+      var rootBlock = dom.getParent(rootNode, dom.isBlock);
+      var walker = new global$2(node, rootBlock);
+      var walkerFn = forwards ? walker.next.bind(walker) : walker.prev.bind(walker);
       walk(dom, walkerFn, node, {
         boundary: always,
         cef: always,
-        text: next => {
+        text: function (next) {
           if (forwards) {
             section.fOffset += next.length;
           } else {
@@ -418,12 +488,15 @@
         }
       });
     };
-    const collect = (dom, rootNode, startNode, endNode, callbacks, skipStart = true) => {
-      const walker = new global(startNode, rootNode);
-      const sections = [];
-      let current = nuSection();
+    var collect = function (dom, rootNode, startNode, endNode, callbacks, skipStart) {
+      if (skipStart === void 0) {
+        skipStart = true;
+      }
+      var walker = new global$2(startNode, rootNode);
+      var sections = [];
+      var current = nuSection();
       collectTextToBoundary(dom, current, startNode, rootNode, false);
-      const finishSection = () => {
+      var finishSection = function () {
         if (current.elements.length > 0) {
           sections.push(current);
           current = nuSection();
@@ -432,14 +505,14 @@
       };
       walk(dom, walker.next.bind(walker), startNode, {
         boundary: finishSection,
-        cef: node => {
+        cef: function (node) {
           finishSection();
           if (callbacks) {
-            sections.push(...callbacks.cef(node));
+            sections.push.apply(sections, callbacks.cef(node));
           }
           return false;
         },
-        text: next => {
+        text: function (next) {
           current.elements.push(SugarElement.fromDom(next));
           if (callbacks) {
             callbacks.text(next, current);
@@ -452,45 +525,59 @@
       finishSection();
       return sections;
     };
-    const collectRangeSections = (dom, rng) => {
-      const start = toLeaf(rng.startContainer, rng.startOffset);
-      const startNode = start.element.dom;
-      const end = toLeaf(rng.endContainer, rng.endOffset);
-      const endNode = end.element.dom;
+    var collectRangeSections = function (dom, rng) {
+      var start = toLeaf(rng.startContainer, rng.startOffset);
+      var startNode = start.element.dom;
+      var end = toLeaf(rng.endContainer, rng.endOffset);
+      var endNode = end.element.dom;
       return collect(dom, rng.commonAncestorContainer, startNode, endNode, {
-        text: (node, section) => {
+        text: function (node, section) {
           if (node === endNode) {
             section.fOffset += node.length - end.offset;
           } else if (node === startNode) {
             section.sOffset += start.offset;
           }
         },
-        cef: node => {
-          const sections = bind(descendants(SugarElement.fromDom(node), '*[contenteditable=true]'), e => {
-            const ceTrueNode = e.dom;
+        cef: function (node) {
+          var sections = bind(descendants(SugarElement.fromDom(node), '*[contenteditable=true]'), function (e) {
+            var ceTrueNode = e.dom;
             return collect(dom, ceTrueNode, ceTrueNode);
           });
-          return sort(sections, (a, b) => documentPositionPreceding(a.elements[0].dom, b.elements[0].dom) ? 1 : -1);
+          return sort(sections, function (a, b) {
+            return documentPositionPreceding(a.elements[0].dom, b.elements[0].dom) ? 1 : -1;
+          });
         }
       }, false);
     };
-    const fromRng = (dom, rng) => rng.collapsed ? [] : collectRangeSections(dom, rng);
-    const fromNode = (dom, node) => {
-      const rng = dom.createRng();
+    var fromRng = function (dom, rng) {
+      return rng.collapsed ? [] : collectRangeSections(dom, rng);
+    };
+    var fromNode = function (dom, node) {
+      var rng = dom.createRng();
       rng.selectNode(node);
       return fromRng(dom, rng);
     };
-    const fromNodes = (dom, nodes) => bind(nodes, node => fromNode(dom, node));
+    var fromNodes = function (dom, nodes) {
+      return bind(nodes, function (node) {
+        return fromNode(dom, node);
+      });
+    };
 
-    const find$2 = (text, pattern, start = 0, finish = text.length) => {
-      const regex = pattern.regex;
+    var find = function (text, pattern, start, finish) {
+      if (start === void 0) {
+        start = 0;
+      }
+      if (finish === void 0) {
+        finish = text.length;
+      }
+      var regex = pattern.regex;
       regex.lastIndex = start;
-      const results = [];
-      let match;
+      var results = [];
+      var match;
       while (match = regex.exec(text)) {
-        const matchedText = match[pattern.matchIndex];
-        const matchStart = match.index + match[0].indexOf(matchedText);
-        const matchFinish = matchStart + matchedText.length;
+        var matchedText = match[pattern.matchIndex];
+        var matchStart = match.index + match[0].indexOf(matchedText);
+        var matchFinish = matchStart + matchedText.length;
         if (matchFinish > finish) {
           break;
         }
@@ -502,15 +589,15 @@
       }
       return results;
     };
-    const extract = (elements, matches) => {
-      const nodePositions = foldl(elements, (acc, element) => {
-        const content = get$1(element);
-        const start = acc.last;
-        const finish = start + content.length;
-        const positions = bind(matches, (match, matchIdx) => {
+    var extract = function (elements, matches) {
+      var nodePositions = foldl(elements, function (acc, element) {
+        var content = get(element);
+        var start = acc.last;
+        var finish = start + content.length;
+        var positions = bind(matches, function (match, matchIdx) {
           if (match.start < finish && match.finish > start) {
             return [{
-                element,
+                element: element,
                 start: Math.max(start, match.start) - start,
                 finish: Math.min(finish, match.finish) - start,
                 matchId: matchIdx
@@ -527,56 +614,64 @@
         results: [],
         last: 0
       }).results;
-      return groupBy(nodePositions, position => position.matchId);
+      return groupBy(nodePositions, function (position) {
+        return position.matchId;
+      });
     };
 
-    const find$1 = (pattern, sections) => bind(sections, section => {
-      const elements = section.elements;
-      const content = map(elements, get$1).join('');
-      const positions = find$2(content, pattern, section.sOffset, content.length - section.fOffset);
-      return extract(elements, positions);
-    });
-    const mark = (matches, replacementNode) => {
-      eachr(matches, (match, idx) => {
-        eachr(match, pos => {
-          const wrapper = SugarElement.fromDom(replacementNode.cloneNode(false));
+    var find$1 = function (pattern, sections) {
+      return bind(sections, function (section) {
+        var elements = section.elements;
+        var content = map(elements, get).join('');
+        var positions = find(content, pattern, section.sOffset, content.length - section.fOffset);
+        return extract(elements, positions);
+      });
+    };
+    var mark = function (matches, replacementNode) {
+      eachr(matches, function (match, idx) {
+        eachr(match, function (pos) {
+          var wrapper = SugarElement.fromDom(replacementNode.cloneNode(false));
           set(wrapper, 'data-mce-index', idx);
-          const textNode = pos.element.dom;
+          var textNode = pos.element.dom;
           if (textNode.length === pos.finish && pos.start === 0) {
             wrap(pos.element, wrapper);
           } else {
             if (textNode.length !== pos.finish) {
               textNode.splitText(pos.finish);
             }
-            const matchNode = textNode.splitText(pos.start);
+            var matchNode = textNode.splitText(pos.start);
             wrap(SugarElement.fromDom(matchNode), wrapper);
           }
         });
       });
     };
-    const findAndMark = (dom, pattern, node, replacementNode) => {
-      const textSections = fromNode(dom, node);
-      const matches = find$1(pattern, textSections);
+    var findAndMark = function (dom, pattern, node, replacementNode) {
+      var textSections = fromNode(dom, node);
+      var matches = find$1(pattern, textSections);
       mark(matches, replacementNode);
       return matches.length;
     };
-    const findAndMarkInSelection = (dom, pattern, selection, replacementNode) => {
-      const bookmark = selection.getBookmark();
-      const nodes = dom.select('td[data-mce-selected],th[data-mce-selected]');
-      const textSections = nodes.length > 0 ? fromNodes(dom, nodes) : fromRng(dom, selection.getRng());
-      const matches = find$1(pattern, textSections);
+    var findAndMarkInSelection = function (dom, pattern, selection, replacementNode) {
+      var bookmark = selection.getBookmark();
+      var nodes = dom.select('td[data-mce-selected],th[data-mce-selected]');
+      var textSections = nodes.length > 0 ? fromNodes(dom, nodes) : fromRng(dom, selection.getRng());
+      var matches = find$1(pattern, textSections);
       mark(matches, replacementNode);
       selection.moveToBookmark(bookmark);
       return matches.length;
     };
 
-    const getElmIndex = elm => {
-      return elm.getAttribute('data-mce-index');
+    var getElmIndex = function (elm) {
+      var value = elm.getAttribute('data-mce-index');
+      if (typeof value === 'number') {
+        return '' + value;
+      }
+      return value;
     };
-    const markAllMatches = (editor, currentSearchState, pattern, inSelection) => {
-      const marker = editor.dom.create('span', { 'data-mce-bogus': 1 });
+    var markAllMatches = function (editor, currentSearchState, pattern, inSelection) {
+      var marker = editor.dom.create('span', { 'data-mce-bogus': 1 });
       marker.className = 'mce-match-marker';
-      const node = editor.getBody();
+      var node = editor.getBody();
       done(editor, currentSearchState, false);
       if (inSelection) {
         return findAndMarkInSelection(editor.dom, pattern, editor.selection, marker);
@@ -584,20 +679,19 @@
         return findAndMark(editor.dom, pattern, node, marker);
       }
     };
-    const unwrap = node => {
-      var _a;
-      const parentNode = node.parentNode;
+    var unwrap = function (node) {
+      var parentNode = node.parentNode;
       if (node.firstChild) {
         parentNode.insertBefore(node.firstChild, node);
       }
-      (_a = node.parentNode) === null || _a === void 0 ? void 0 : _a.removeChild(node);
+      node.parentNode.removeChild(node);
     };
-    const findSpansByIndex = (editor, index) => {
-      const spans = [];
-      const nodes = global$1.toArray(editor.getBody().getElementsByTagName('span'));
+    var findSpansByIndex = function (editor, index) {
+      var spans = [];
+      var nodes = global$1.toArray(editor.getBody().getElementsByTagName('span'));
       if (nodes.length) {
-        for (let i = 0; i < nodes.length; i++) {
-          const nodeIndex = getElmIndex(nodes[i]);
+        for (var i = 0; i < nodes.length; i++) {
+          var nodeIndex = getElmIndex(nodes[i]);
           if (nodeIndex === null || !nodeIndex.length) {
             continue;
           }
@@ -608,10 +702,11 @@
       }
       return spans;
     };
-    const moveSelection = (editor, currentSearchState, forward) => {
-      const searchState = currentSearchState.get();
-      let testIndex = searchState.index;
-      const dom = editor.dom;
+    var moveSelection = function (editor, currentSearchState, forward) {
+      var searchState = currentSearchState.get();
+      var testIndex = searchState.index;
+      var dom = editor.dom;
+      forward = forward !== false;
       if (forward) {
         if (testIndex + 1 === searchState.count) {
           testIndex = 0;
@@ -626,7 +721,7 @@
         }
       }
       dom.removeClass(findSpansByIndex(editor, searchState.index), 'mce-match-marker-selected');
-      const spans = findSpansByIndex(editor, testIndex);
+      var spans = findSpansByIndex(editor, testIndex);
       if (spans.length) {
         dom.addClass(findSpansByIndex(editor, testIndex), 'mce-match-marker-selected');
         editor.selection.scrollIntoView(spans[0]);
@@ -634,74 +729,63 @@
       }
       return -1;
     };
-    const removeNode = (dom, node) => {
-      const parent = node.parentNode;
+    var removeNode = function (dom, node) {
+      var parent = node.parentNode;
       dom.remove(node);
-      if (parent && dom.isEmpty(parent)) {
+      if (dom.isEmpty(parent)) {
         dom.remove(parent);
       }
     };
-    const escapeSearchText = (text, wholeWord) => {
-      const escapedText = text.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&').replace(/\s/g, '[^\\S\\r\\n\\uFEFF]');
-      const wordRegex = '(' + escapedText + ')';
-      return wholeWord ? `(?:^|\\s|${ punctuation() })` + wordRegex + `(?=$|\\s|${ punctuation() })` : wordRegex;
+    var escapeSearchText = function (text, wholeWord) {
+      var escapedText = text.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&').replace(/\s/g, '[^\\S\\r\\n\\uFEFF]');
+      var wordRegex = '(' + escapedText + ')';
+      return wholeWord ? '(?:^|\\s|' + punctuation$1() + ')' + wordRegex + ('(?=$|\\s|' + punctuation$1() + ')') : wordRegex;
     };
-    const find = (editor, currentSearchState, text, matchCase, wholeWord, inSelection) => {
-      const selection = editor.selection;
-      const escapedText = escapeSearchText(text, wholeWord);
-      const isForwardSelection = selection.isForward();
-      const pattern = {
+    var find$2 = function (editor, currentSearchState, text, matchCase, wholeWord, inSelection) {
+      var escapedText = escapeSearchText(text, wholeWord);
+      var pattern = {
         regex: new RegExp(escapedText, matchCase ? 'g' : 'gi'),
         matchIndex: 1
       };
-      const count = markAllMatches(editor, currentSearchState, pattern, inSelection);
-      if (global$2.browser.isSafari()) {
-        selection.setRng(selection.getRng(), isForwardSelection);
-      }
+      var count = markAllMatches(editor, currentSearchState, pattern, inSelection);
       if (count) {
-        const newIndex = moveSelection(editor, currentSearchState, true);
+        var newIndex = moveSelection(editor, currentSearchState, true);
         currentSearchState.set({
           index: newIndex,
-          count,
-          text,
-          matchCase,
-          wholeWord,
-          inSelection
+          count: count,
+          text: text,
+          matchCase: matchCase,
+          wholeWord: wholeWord,
+          inSelection: inSelection
         });
       }
       return count;
     };
-    const next = (editor, currentSearchState) => {
-      const index = moveSelection(editor, currentSearchState, true);
-      currentSearchState.set({
-        ...currentSearchState.get(),
-        index
-      });
+    var next = function (editor, currentSearchState) {
+      var index = moveSelection(editor, currentSearchState, true);
+      currentSearchState.set(__assign(__assign({}, currentSearchState.get()), { index: index }));
     };
-    const prev = (editor, currentSearchState) => {
-      const index = moveSelection(editor, currentSearchState, false);
-      currentSearchState.set({
-        ...currentSearchState.get(),
-        index
-      });
+    var prev = function (editor, currentSearchState) {
+      var index = moveSelection(editor, currentSearchState, false);
+      currentSearchState.set(__assign(__assign({}, currentSearchState.get()), { index: index }));
     };
-    const isMatchSpan = node => {
-      const matchIndex = getElmIndex(node);
+    var isMatchSpan = function (node) {
+      var matchIndex = getElmIndex(node);
       return matchIndex !== null && matchIndex.length > 0;
     };
-    const replace = (editor, currentSearchState, text, forward, all) => {
-      const searchState = currentSearchState.get();
-      const currentIndex = searchState.index;
-      let currentMatchIndex, nextIndex = currentIndex;
+    var replace = function (editor, currentSearchState, text, forward, all) {
+      var searchState = currentSearchState.get();
+      var currentIndex = searchState.index;
+      var currentMatchIndex, nextIndex = currentIndex;
       forward = forward !== false;
-      const node = editor.getBody();
-      const nodes = global$1.grep(global$1.toArray(node.getElementsByTagName('span')), isMatchSpan);
-      for (let i = 0; i < nodes.length; i++) {
-        const nodeIndex = getElmIndex(nodes[i]);
-        let matchIndex = currentMatchIndex = parseInt(nodeIndex, 10);
+      var node = editor.getBody();
+      var nodes = global$1.grep(global$1.toArray(node.getElementsByTagName('span')), isMatchSpan);
+      for (var i = 0; i < nodes.length; i++) {
+        var nodeIndex = getElmIndex(nodes[i]);
+        var matchIndex = currentMatchIndex = parseInt(nodeIndex, 10);
         if (all || matchIndex === searchState.index) {
           if (text.length) {
-            nodes[i].innerText = text;
+            nodes[i].firstChild.nodeValue = text;
             unwrap(nodes[i]);
           } else {
             removeNode(editor.dom, nodes[i]);
@@ -722,11 +806,10 @@
           nodes[i].setAttribute('data-mce-index', String(currentMatchIndex - 1));
         }
       }
-      currentSearchState.set({
-        ...searchState,
+      currentSearchState.set(__assign(__assign({}, searchState), {
         count: all ? 0 : searchState.count - 1,
         index: nextIndex
-      });
+      }));
       if (forward) {
         next(editor, currentSearchState);
       } else {
@@ -734,13 +817,12 @@
       }
       return !all && currentSearchState.get().count > 0;
     };
-    const done = (editor, currentSearchState, keepEditorSelection) => {
-      let startContainer;
-      let endContainer;
-      const searchState = currentSearchState.get();
-      const nodes = global$1.toArray(editor.getBody().getElementsByTagName('span'));
-      for (let i = 0; i < nodes.length; i++) {
-        const nodeIndex = getElmIndex(nodes[i]);
+    var done = function (editor, currentSearchState, keepEditorSelection) {
+      var i, startContainer, endContainer;
+      var searchState = currentSearchState.get();
+      var nodes = global$1.toArray(editor.getBody().getElementsByTagName('span'));
+      for (i = 0; i < nodes.length; i++) {
+        var nodeIndex = getElmIndex(nodes[i]);
         if (nodeIndex !== null && nodeIndex.length) {
           if (nodeIndex === searchState.index.toString()) {
             if (!startContainer) {
@@ -751,125 +833,127 @@
           unwrap(nodes[i]);
         }
       }
-      currentSearchState.set({
-        ...searchState,
+      currentSearchState.set(__assign(__assign({}, searchState), {
         index: -1,
         count: 0,
         text: ''
-      });
+      }));
       if (startContainer && endContainer) {
-        const rng = editor.dom.createRng();
+        var rng = editor.dom.createRng();
         rng.setStart(startContainer, 0);
         rng.setEnd(endContainer, endContainer.data.length);
         if (keepEditorSelection !== false) {
           editor.selection.setRng(rng);
         }
         return rng;
-      } else {
-        return undefined;
       }
     };
-    const hasNext = (editor, currentSearchState) => currentSearchState.get().count > 1;
-    const hasPrev = (editor, currentSearchState) => currentSearchState.get().count > 1;
+    var hasNext = function (editor, currentSearchState) {
+      return currentSearchState.get().count > 1;
+    };
+    var hasPrev = function (editor, currentSearchState) {
+      return currentSearchState.get().count > 1;
+    };
 
-    const get = (editor, currentState) => {
-      const done$1 = keepEditorSelection => {
+    var get$1 = function (editor, currentState) {
+      var done$1 = function (keepEditorSelection) {
         return done(editor, currentState, keepEditorSelection);
       };
-      const find$1 = (text, matchCase, wholeWord, inSelection = false) => {
-        return find(editor, currentState, text, matchCase, wholeWord, inSelection);
+      var find = function (text, matchCase, wholeWord, inSelection) {
+        if (inSelection === void 0) {
+          inSelection = false;
+        }
+        return find$2(editor, currentState, text, matchCase, wholeWord, inSelection);
       };
-      const next$1 = () => {
+      var next$1 = function () {
         return next(editor, currentState);
       };
-      const prev$1 = () => {
+      var prev$1 = function () {
         return prev(editor, currentState);
       };
-      const replace$1 = (text, forward, all) => {
+      var replace$1 = function (text, forward, all) {
         return replace(editor, currentState, text, forward, all);
       };
       return {
         done: done$1,
-        find: find$1,
+        find: find,
         next: next$1,
         prev: prev$1,
         replace: replace$1
       };
     };
 
-    const singleton = doRevoke => {
-      const subject = Cell(Optional.none());
-      const revoke = () => subject.get().each(doRevoke);
-      const clear = () => {
-        revoke();
-        subject.set(Optional.none());
+    var value = function () {
+      var subject = Cell(Optional.none());
+      var clear = function () {
+        return subject.set(Optional.none());
       };
-      const isSet = () => subject.get().isSome();
-      const get = () => subject.get();
-      const set = s => {
-        revoke();
-        subject.set(Optional.some(s));
+      var set = function (s) {
+        return subject.set(Optional.some(s));
+      };
+      var isSet = function () {
+        return subject.get().isSome();
+      };
+      var on = function (f) {
+        return subject.get().each(f);
       };
       return {
-        clear,
-        isSet,
-        get,
-        set
-      };
-    };
-    const value = () => {
-      const subject = singleton(noop);
-      const on = f => subject.get().each(f);
-      return {
-        ...subject,
-        on
+        clear: clear,
+        set: set,
+        isSet: isSet,
+        on: on
       };
     };
 
-    const open = (editor, currentSearchState) => {
-      const dialogApi = value();
+    var global$3 = tinymce.util.Tools.resolve('tinymce.Env');
+
+    var open = function (editor, currentSearchState) {
+      var dialogApi = value();
       editor.undoManager.add();
-      const selectedText = global$1.trim(editor.selection.getContent({ format: 'text' }));
-      const updateButtonStates = api => {
-        api.setEnabled('next', hasNext(editor, currentSearchState));
-        api.setEnabled('prev', hasPrev(editor, currentSearchState));
+      var selectedText = global$1.trim(editor.selection.getContent({ format: 'text' }));
+      var updateButtonStates = function (api) {
+        var updateNext = hasNext(editor, currentSearchState) ? api.enable : api.disable;
+        updateNext('next');
+        var updatePrev = hasPrev(editor, currentSearchState) ? api.enable : api.disable;
+        updatePrev('prev');
       };
-      const updateSearchState = api => {
-        const data = api.getData();
-        const current = currentSearchState.get();
-        currentSearchState.set({
-          ...current,
+      var updateSearchState = function (api) {
+        var data = api.getData();
+        var current = currentSearchState.get();
+        currentSearchState.set(__assign(__assign({}, current), {
           matchCase: data.matchcase,
           wholeWord: data.wholewords,
           inSelection: data.inselection
-        });
+        }));
       };
-      const disableAll = (api, disable) => {
-        const buttons = [
+      var disableAll = function (api, disable) {
+        var buttons = [
           'replace',
           'replaceall',
           'prev',
           'next'
         ];
-        const toggle = name => api.setEnabled(name, !disable);
+        var toggle = disable ? api.disable : api.enable;
         each(buttons, toggle);
       };
-      const toggleNotFoundAlert = (isVisible, api) => {
-        api.redial(getDialogSpec(isVisible, api.getData()));
+      var notFoundAlert = function (api) {
+        editor.windowManager.alert('Could not find the specified string.', function () {
+          api.focus('findtext');
+        });
       };
-      const focusButtonIfRequired = (api, name) => {
-        if (global$2.browser.isSafari() && global$2.deviceType.isTouch() && (name === 'find' || name === 'replace' || name === 'replaceall')) {
+      var focusButtonIfRequired = function (api, name) {
+        if (global$3.browser.isSafari() && global$3.deviceType.isTouch() && (name === 'find' || name === 'replace' || name === 'replaceall')) {
           api.focus(name);
         }
       };
-      const reset = api => {
+      var reset = function (api) {
         done(editor, currentSearchState, false);
         disableAll(api, true);
         updateButtonStates(api);
       };
-      const doFind = api => {
-        const data = api.getData();
-        const last = currentSearchState.get();
+      var doFind = function (api) {
+        var data = api.getData();
+        var last = currentSearchState.get();
         if (!data.findtext.length) {
           reset(api);
           return;
@@ -877,75 +961,63 @@
         if (last.text === data.findtext && last.matchCase === data.matchcase && last.wholeWord === data.wholewords) {
           next(editor, currentSearchState);
         } else {
-          const count = find(editor, currentSearchState, data.findtext, data.matchcase, data.wholewords, data.inselection);
+          var count = find$2(editor, currentSearchState, data.findtext, data.matchcase, data.wholewords, data.inselection);
           if (count <= 0) {
-            toggleNotFoundAlert(true, api);
+            notFoundAlert(api);
           }
           disableAll(api, count === 0);
         }
         updateButtonStates(api);
       };
-      const initialState = currentSearchState.get();
-      const initialData = {
+      var initialState = currentSearchState.get();
+      var initialData = {
         findtext: selectedText,
         replacetext: '',
         wholewords: initialState.wholeWord,
         matchcase: initialState.matchCase,
         inselection: initialState.inSelection
       };
-      const getPanelItems = error => {
-        const items = [
-          {
-            type: 'bar',
-            items: [
-              {
-                type: 'input',
-                name: 'findtext',
-                placeholder: 'Find',
-                maximized: true,
-                inputMode: 'search'
-              },
-              {
-                type: 'button',
-                name: 'prev',
-                text: 'Previous',
-                icon: 'action-prev',
-                enabled: false,
-                borderless: true
-              },
-              {
-                type: 'button',
-                name: 'next',
-                text: 'Next',
-                icon: 'action-next',
-                enabled: false,
-                borderless: true
-              }
-            ]
-          },
-          {
-            type: 'input',
-            name: 'replacetext',
-            placeholder: 'Replace with',
-            inputMode: 'search'
-          }
-        ];
-        if (error) {
-          items.push({
-            type: 'alertbanner',
-            level: 'error',
-            text: 'Could not find the specified string.',
-            icon: 'warning'
-          });
-        }
-        return items;
-      };
-      const getDialogSpec = (showNoMatchesAlertBanner, initialData) => ({
+      var spec = {
         title: 'Find and Replace',
         size: 'normal',
         body: {
           type: 'panel',
-          items: getPanelItems(showNoMatchesAlertBanner)
+          items: [
+            {
+              type: 'bar',
+              items: [
+                {
+                  type: 'input',
+                  name: 'findtext',
+                  placeholder: 'Find',
+                  maximized: true,
+                  inputMode: 'search'
+                },
+                {
+                  type: 'button',
+                  name: 'prev',
+                  text: 'Previous',
+                  icon: 'action-prev',
+                  disabled: true,
+                  borderless: true
+                },
+                {
+                  type: 'button',
+                  name: 'next',
+                  text: 'Next',
+                  icon: 'action-next',
+                  disabled: true,
+                  borderless: true
+                }
+              ]
+            },
+            {
+              type: 'input',
+              name: 'replacetext',
+              placeholder: 'Replace with',
+              inputMode: 'search'
+            }
+          ]
         },
         buttons: [
           {
@@ -982,26 +1054,23 @@
             type: 'custom',
             name: 'replace',
             text: 'Replace',
-            enabled: false
+            disabled: true
           },
           {
             type: 'custom',
             name: 'replaceall',
-            text: 'Replace all',
-            enabled: false
+            text: 'Replace All',
+            disabled: true
           }
         ],
-        initialData,
-        onChange: (api, details) => {
-          if (showNoMatchesAlertBanner) {
-            toggleNotFoundAlert(false, api);
-          }
+        initialData: initialData,
+        onChange: function (api, details) {
           if (details.name === 'findtext' && currentSearchState.get().count > 0) {
             reset(api);
           }
         },
-        onAction: (api, details) => {
-          const data = api.getData();
+        onAction: function (api, details) {
+          var data = api.getData();
           switch (details.name) {
           case 'find':
             doFind(api);
@@ -1028,36 +1097,37 @@
           case 'matchcase':
           case 'wholewords':
           case 'inselection':
-            toggleNotFoundAlert(false, api);
             updateSearchState(api);
             reset(api);
             break;
           }
           focusButtonIfRequired(api, details.name);
         },
-        onSubmit: api => {
+        onSubmit: function (api) {
           doFind(api);
           focusButtonIfRequired(api, 'find');
         },
-        onClose: () => {
+        onClose: function () {
           editor.focus();
           done(editor, currentSearchState);
           editor.undoManager.add();
         }
-      });
-      dialogApi.set(editor.windowManager.open(getDialogSpec(false, initialData), { inline: 'toolbar' }));
+      };
+      dialogApi.set(editor.windowManager.open(spec, { inline: 'toolbar' }));
     };
 
-    const register$1 = (editor, currentSearchState) => {
-      editor.addCommand('SearchReplace', () => {
+    var register = function (editor, currentSearchState) {
+      editor.addCommand('SearchReplace', function () {
         open(editor, currentSearchState);
       });
     };
 
-    const showDialog = (editor, currentSearchState) => () => {
-      open(editor, currentSearchState);
+    var showDialog = function (editor, currentSearchState) {
+      return function () {
+        open(editor, currentSearchState);
+      };
     };
-    const register = (editor, currentSearchState) => {
+    var register$1 = function (editor, currentSearchState) {
       editor.ui.registry.addMenuItem('searchreplace', {
         text: 'Find and replace...',
         shortcut: 'Meta+F',
@@ -1072,9 +1142,9 @@
       editor.shortcuts.add('Meta+F', '', showDialog(editor, currentSearchState));
     };
 
-    var Plugin = () => {
-      global$3.add('searchreplace', editor => {
-        const currentSearchState = Cell({
+    function Plugin () {
+      global.add('searchreplace', function (editor) {
+        var currentSearchState = Cell({
           index: -1,
           count: 0,
           text: '',
@@ -1082,12 +1152,12 @@
           wholeWord: false,
           inSelection: false
         });
-        register$1(editor, currentSearchState);
         register(editor, currentSearchState);
-        return get(editor, currentSearchState);
+        register$1(editor, currentSearchState);
+        return get$1(editor, currentSearchState);
       });
-    };
+    }
 
     Plugin();
 
-})();
+}());

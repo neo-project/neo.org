@@ -1,185 +1,223 @@
 /**
- * TinyMCE version 6.8.1 (2023-11-29)
+ * Copyright (c) Tiny Technologies, Inc. All rights reserved.
+ * Licensed under the LGPL or a commercial license.
+ * For LGPL see License.txt in the project root for license information.
+ * For commercial licenses see https://www.tiny.cloud/
+ *
+ * Version: 5.7.0 (2021-02-10)
  */
-
 (function () {
     'use strict';
 
-    var global$4 = tinymce.util.Tools.resolve('tinymce.PluginManager');
+    var global = tinymce.util.Tools.resolve('tinymce.PluginManager');
 
-    const getPrototypeOf = Object.getPrototypeOf;
-    const hasProto = (v, constructor, predicate) => {
-      var _a;
-      if (predicate(v, constructor.prototype)) {
-        return true;
-      } else {
-        return ((_a = v.constructor) === null || _a === void 0 ? void 0 : _a.name) === constructor.name;
+    var __assign = function () {
+      __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+          s = arguments[i];
+          for (var p in s)
+            if (Object.prototype.hasOwnProperty.call(s, p))
+              t[p] = s[p];
+        }
+        return t;
+      };
+      return __assign.apply(this, arguments);
+    };
+
+    var noop = function () {
+    };
+    var constant = function (value) {
+      return function () {
+        return value;
+      };
+    };
+    var never = constant(false);
+    var always = constant(true);
+
+    var none = function () {
+      return NONE;
+    };
+    var NONE = function () {
+      var eq = function (o) {
+        return o.isNone();
+      };
+      var call = function (thunk) {
+        return thunk();
+      };
+      var id = function (n) {
+        return n;
+      };
+      var me = {
+        fold: function (n, _s) {
+          return n();
+        },
+        is: never,
+        isSome: never,
+        isNone: always,
+        getOr: id,
+        getOrThunk: call,
+        getOrDie: function (msg) {
+          throw new Error(msg || 'error: getOrDie called on none.');
+        },
+        getOrNull: constant(null),
+        getOrUndefined: constant(undefined),
+        or: id,
+        orThunk: call,
+        map: none,
+        each: noop,
+        bind: none,
+        exists: never,
+        forall: always,
+        filter: none,
+        equals: eq,
+        equals_: eq,
+        toArray: function () {
+          return [];
+        },
+        toString: constant('none()')
+      };
+      return me;
+    }();
+    var some = function (a) {
+      var constant_a = constant(a);
+      var self = function () {
+        return me;
+      };
+      var bind = function (f) {
+        return f(a);
+      };
+      var me = {
+        fold: function (n, s) {
+          return s(a);
+        },
+        is: function (v) {
+          return a === v;
+        },
+        isSome: always,
+        isNone: never,
+        getOr: constant_a,
+        getOrThunk: constant_a,
+        getOrDie: constant_a,
+        getOrNull: constant_a,
+        getOrUndefined: constant_a,
+        or: self,
+        orThunk: self,
+        map: function (f) {
+          return some(f(a));
+        },
+        each: function (f) {
+          f(a);
+        },
+        bind: bind,
+        exists: bind,
+        forall: bind,
+        filter: function (f) {
+          return f(a) ? me : NONE;
+        },
+        toArray: function () {
+          return [a];
+        },
+        toString: function () {
+          return 'some(' + a + ')';
+        },
+        equals: function (o) {
+          return o.is(a);
+        },
+        equals_: function (o, elementEq) {
+          return o.fold(never, function (b) {
+            return elementEq(a, b);
+          });
+        }
+      };
+      return me;
+    };
+    var from = function (value) {
+      return value === null || value === undefined ? NONE : some(value);
+    };
+    var Optional = {
+      some: some,
+      none: none,
+      from: from
+    };
+
+    var keys = Object.keys;
+    var hasOwnProperty = Object.hasOwnProperty;
+    var each = function (obj, f) {
+      var props = keys(obj);
+      for (var k = 0, len = props.length; k < len; k++) {
+        var i = props[k];
+        var x = obj[i];
+        f(x, i);
       }
     };
-    const typeOf = x => {
-      const t = typeof x;
+    var objAcc = function (r) {
+      return function (x, i) {
+        r[i] = x;
+      };
+    };
+    var internalFilter = function (obj, pred, onTrue, onFalse) {
+      var r = {};
+      each(obj, function (x, i) {
+        (pred(x, i) ? onTrue : onFalse)(x, i);
+      });
+      return r;
+    };
+    var filter = function (obj, pred) {
+      var t = {};
+      internalFilter(obj, pred, objAcc(t), noop);
+      return t;
+    };
+    var has = function (obj, key) {
+      return hasOwnProperty.call(obj, key);
+    };
+    var hasNonNullableKey = function (obj, key) {
+      return has(obj, key) && obj[key] !== undefined && obj[key] !== null;
+    };
+
+    var typeOf = function (x) {
+      var t = typeof x;
       if (x === null) {
         return 'null';
-      } else if (t === 'object' && Array.isArray(x)) {
+      } else if (t === 'object' && (Array.prototype.isPrototypeOf(x) || x.constructor && x.constructor.name === 'Array')) {
         return 'array';
-      } else if (t === 'object' && hasProto(x, String, (o, proto) => proto.isPrototypeOf(o))) {
+      } else if (t === 'object' && (String.prototype.isPrototypeOf(x) || x.constructor && x.constructor.name === 'String')) {
         return 'string';
       } else {
         return t;
       }
     };
-    const isType = type => value => typeOf(value) === type;
-    const isSimpleType = type => value => typeof value === type;
-    const eq = t => a => t === a;
-    const is = (value, constructor) => isObject(value) && hasProto(value, constructor, (o, proto) => getPrototypeOf(o) === proto);
-    const isString = isType('string');
-    const isObject = isType('object');
-    const isPlainObject = value => is(value, Object);
-    const isArray = isType('array');
-    const isNull = eq(null);
-    const isBoolean = isSimpleType('boolean');
-    const isNullable = a => a === null || a === undefined;
-    const isNonNullable = a => !isNullable(a);
-    const isFunction = isSimpleType('function');
-    const isNumber = isSimpleType('number');
-    const isArrayOf = (value, pred) => {
-      if (isArray(value)) {
-        for (let i = 0, len = value.length; i < len; ++i) {
-          if (!pred(value[i])) {
-            return false;
-          }
-        }
-        return true;
-      }
-      return false;
+    var isType = function (type) {
+      return function (value) {
+        return typeOf(value) === type;
+      };
     };
+    var isSimpleType = function (type) {
+      return function (value) {
+        return typeof value === type;
+      };
+    };
+    var eq = function (t) {
+      return function (a) {
+        return t === a;
+      };
+    };
+    var isString = isType('string');
+    var isObject = isType('object');
+    var isArray = isType('array');
+    var isNull = eq(null);
+    var isBoolean = isSimpleType('boolean');
+    var isNullable = function (a) {
+      return a === null || a === undefined;
+    };
+    var isNonNullable = function (a) {
+      return !isNullable(a);
+    };
+    var isNumber = isSimpleType('number');
 
-    const noop = () => {
-    };
-
-    class Optional {
-      constructor(tag, value) {
-        this.tag = tag;
-        this.value = value;
-      }
-      static some(value) {
-        return new Optional(true, value);
-      }
-      static none() {
-        return Optional.singletonNone;
-      }
-      fold(onNone, onSome) {
-        if (this.tag) {
-          return onSome(this.value);
-        } else {
-          return onNone();
-        }
-      }
-      isSome() {
-        return this.tag;
-      }
-      isNone() {
-        return !this.tag;
-      }
-      map(mapper) {
-        if (this.tag) {
-          return Optional.some(mapper(this.value));
-        } else {
-          return Optional.none();
-        }
-      }
-      bind(binder) {
-        if (this.tag) {
-          return binder(this.value);
-        } else {
-          return Optional.none();
-        }
-      }
-      exists(predicate) {
-        return this.tag && predicate(this.value);
-      }
-      forall(predicate) {
-        return !this.tag || predicate(this.value);
-      }
-      filter(predicate) {
-        if (!this.tag || predicate(this.value)) {
-          return this;
-        } else {
-          return Optional.none();
-        }
-      }
-      getOr(replacement) {
-        return this.tag ? this.value : replacement;
-      }
-      or(replacement) {
-        return this.tag ? this : replacement;
-      }
-      getOrThunk(thunk) {
-        return this.tag ? this.value : thunk();
-      }
-      orThunk(thunk) {
-        return this.tag ? this : thunk();
-      }
-      getOrDie(message) {
-        if (!this.tag) {
-          throw new Error(message !== null && message !== void 0 ? message : 'Called getOrDie on None');
-        } else {
-          return this.value;
-        }
-      }
-      static from(value) {
-        return isNonNullable(value) ? Optional.some(value) : Optional.none();
-      }
-      getOrNull() {
-        return this.tag ? this.value : null;
-      }
-      getOrUndefined() {
-        return this.value;
-      }
-      each(worker) {
-        if (this.tag) {
-          worker(this.value);
-        }
-      }
-      toArray() {
-        return this.tag ? [this.value] : [];
-      }
-      toString() {
-        return this.tag ? `some(${ this.value })` : 'none()';
-      }
-    }
-    Optional.singletonNone = new Optional(false);
-
-    const keys = Object.keys;
-    const hasOwnProperty = Object.hasOwnProperty;
-    const each = (obj, f) => {
-      const props = keys(obj);
-      for (let k = 0, len = props.length; k < len; k++) {
-        const i = props[k];
-        const x = obj[i];
-        f(x, i);
-      }
-    };
-    const objAcc = r => (x, i) => {
-      r[i] = x;
-    };
-    const internalFilter = (obj, pred, onTrue, onFalse) => {
-      each(obj, (x, i) => {
-        (pred(x, i) ? onTrue : onFalse)(x, i);
-      });
-    };
-    const filter = (obj, pred) => {
-      const t = {};
-      internalFilter(obj, pred, objAcc(t), noop);
-      return t;
-    };
-    const has = (obj, key) => hasOwnProperty.call(obj, key);
-    const hasNonNullableKey = (obj, key) => has(obj, key) && obj[key] !== undefined && obj[key] !== null;
-
-    const nativePush = Array.prototype.push;
-    const flatten = xs => {
-      const r = [];
-      for (let i = 0, len = xs.length; i < len; ++i) {
+    var nativePush = Array.prototype.push;
+    var flatten = function (xs) {
+      var r = [];
+      for (var i = 0, len = xs.length; i < len; ++i) {
         if (!isArray(xs[i])) {
           throw new Error('Arr.flatten item ' + i + ' was not an array, input: ' + xs);
         }
@@ -187,11 +225,15 @@
       }
       return r;
     };
-    const get = (xs, i) => i >= 0 && i < xs.length ? Optional.some(xs[i]) : Optional.none();
-    const head = xs => get(xs, 0);
-    const findMap = (arr, f) => {
-      for (let i = 0; i < arr.length; i++) {
-        const r = f(arr[i], i);
+    var get = function (xs, i) {
+      return i >= 0 && i < xs.length ? Optional.some(xs[i]) : Optional.none();
+    };
+    var head = function (xs) {
+      return get(xs, 0);
+    };
+    var findMap = function (arr, f) {
+      for (var i = 0; i < arr.length; i++) {
+        var r = f(arr[i], i);
         if (r.isSome()) {
           return r;
         }
@@ -199,9 +241,9 @@
       return Optional.none();
     };
 
-    typeof window !== 'undefined' ? window : Function('return this;')();
+    var Global = typeof window !== 'undefined' ? window : Function('return this;')();
 
-    const rawSet = (dom, key, value) => {
+    var rawSet = function (dom, key, value) {
       if (isString(value) || isBoolean(value) || isNumber(value)) {
         dom.setAttribute(key, value + '');
       } else {
@@ -209,160 +251,144 @@
         throw new Error('Attribute value was not simple');
       }
     };
-    const set = (element, key, value) => {
+    var set = function (element, key, value) {
       rawSet(element.dom, key, value);
     };
-    const remove = (element, key) => {
+    var remove = function (element, key) {
       element.dom.removeAttribute(key);
     };
 
-    const fromHtml = (html, scope) => {
-      const doc = scope || document;
-      const div = doc.createElement('div');
+    var fromHtml = function (html, scope) {
+      var doc = scope || document;
+      var div = doc.createElement('div');
       div.innerHTML = html;
       if (!div.hasChildNodes() || div.childNodes.length > 1) {
-        const message = 'HTML does not have a single root node';
-        console.error(message, html);
-        throw new Error(message);
+        console.error('HTML does not have a single root node', html);
+        throw new Error('HTML must have a single root node');
       }
       return fromDom(div.childNodes[0]);
     };
-    const fromTag = (tag, scope) => {
-      const doc = scope || document;
-      const node = doc.createElement(tag);
+    var fromTag = function (tag, scope) {
+      var doc = scope || document;
+      var node = doc.createElement(tag);
       return fromDom(node);
     };
-    const fromText = (text, scope) => {
-      const doc = scope || document;
-      const node = doc.createTextNode(text);
+    var fromText = function (text, scope) {
+      var doc = scope || document;
+      var node = doc.createTextNode(text);
       return fromDom(node);
     };
-    const fromDom = node => {
+    var fromDom = function (node) {
       if (node === null || node === undefined) {
         throw new Error('Node cannot be null or undefined');
       }
       return { dom: node };
     };
-    const fromPoint = (docElm, x, y) => Optional.from(docElm.dom.elementFromPoint(x, y)).map(fromDom);
-    const SugarElement = {
-      fromHtml,
-      fromTag,
-      fromText,
-      fromDom,
-      fromPoint
+    var fromPoint = function (docElm, x, y) {
+      return Optional.from(docElm.dom.elementFromPoint(x, y)).map(fromDom);
+    };
+    var SugarElement = {
+      fromHtml: fromHtml,
+      fromTag: fromTag,
+      fromText: fromText,
+      fromDom: fromDom,
+      fromPoint: fromPoint
     };
 
-    var global$3 = tinymce.util.Tools.resolve('tinymce.dom.DOMUtils');
+    var global$1 = tinymce.util.Tools.resolve('tinymce.dom.DOMUtils');
 
-    var global$2 = tinymce.util.Tools.resolve('tinymce.util.URI');
+    var global$2 = tinymce.util.Tools.resolve('tinymce.util.Promise');
 
-    const isNotEmpty = s => s.length > 0;
+    var global$3 = tinymce.util.Tools.resolve('tinymce.util.XHR');
 
-    const option = name => editor => editor.options.get(name);
-    const register$2 = editor => {
-      const registerOption = editor.options.register;
-      registerOption('image_dimensions', {
-        processor: 'boolean',
-        default: true
-      });
-      registerOption('image_advtab', {
-        processor: 'boolean',
-        default: false
-      });
-      registerOption('image_uploadtab', {
-        processor: 'boolean',
-        default: true
-      });
-      registerOption('image_prepend_url', {
-        processor: 'string',
-        default: ''
-      });
-      registerOption('image_class_list', { processor: 'object[]' });
-      registerOption('image_description', {
-        processor: 'boolean',
-        default: true
-      });
-      registerOption('image_title', {
-        processor: 'boolean',
-        default: false
-      });
-      registerOption('image_caption', {
-        processor: 'boolean',
-        default: false
-      });
-      registerOption('image_list', {
-        processor: value => {
-          const valid = value === false || isString(value) || isArrayOf(value, isObject) || isFunction(value);
-          return valid ? {
-            value,
-            valid
-          } : {
-            valid: false,
-            message: 'Must be false, a string, an array or a function.'
-          };
-        },
-        default: false
-      });
+    var hasDimensions = function (editor) {
+      return editor.getParam('image_dimensions', true, 'boolean');
     };
-    const hasDimensions = option('image_dimensions');
-    const hasAdvTab = option('image_advtab');
-    const hasUploadTab = option('image_uploadtab');
-    const getPrependUrl = option('image_prepend_url');
-    const getClassList = option('image_class_list');
-    const hasDescription = option('image_description');
-    const hasImageTitle = option('image_title');
-    const hasImageCaption = option('image_caption');
-    const getImageList = option('image_list');
-    const showAccessibilityOptions = option('a11y_advanced_options');
-    const isAutomaticUploadsEnabled = option('automatic_uploads');
-    const hasUploadUrl = editor => isNotEmpty(editor.options.get('images_upload_url'));
-    const hasUploadHandler = editor => isNonNullable(editor.options.get('images_upload_handler'));
+    var hasAdvTab = function (editor) {
+      return editor.getParam('image_advtab', false, 'boolean');
+    };
+    var hasUploadTab = function (editor) {
+      return editor.getParam('image_uploadtab', true, 'boolean');
+    };
+    var getPrependUrl = function (editor) {
+      return editor.getParam('image_prepend_url', '', 'string');
+    };
+    var getClassList = function (editor) {
+      return editor.getParam('image_class_list');
+    };
+    var hasDescription = function (editor) {
+      return editor.getParam('image_description', true, 'boolean');
+    };
+    var hasImageTitle = function (editor) {
+      return editor.getParam('image_title', false, 'boolean');
+    };
+    var hasImageCaption = function (editor) {
+      return editor.getParam('image_caption', false, 'boolean');
+    };
+    var getImageList = function (editor) {
+      return editor.getParam('image_list', false);
+    };
+    var hasUploadUrl = function (editor) {
+      return isNonNullable(editor.getParam('images_upload_url'));
+    };
+    var hasUploadHandler = function (editor) {
+      return isNonNullable(editor.getParam('images_upload_handler'));
+    };
+    var showAccessibilityOptions = function (editor) {
+      return editor.getParam('a11y_advanced_options', false, 'boolean');
+    };
+    var isAutomaticUploadsEnabled = function (editor) {
+      return editor.getParam('automatic_uploads', true, 'boolean');
+    };
 
-    const parseIntAndGetMax = (val1, val2) => Math.max(parseInt(val1, 10), parseInt(val2, 10));
-    const getImageSize = url => new Promise(callback => {
-      const img = document.createElement('img');
-      const done = dimensions => {
-        img.onload = img.onerror = null;
-        if (img.parentNode) {
-          img.parentNode.removeChild(img);
-        }
-        callback(dimensions);
-      };
-      img.onload = () => {
-        const width = parseIntAndGetMax(img.width, img.clientWidth);
-        const height = parseIntAndGetMax(img.height, img.clientHeight);
-        const dimensions = {
-          width,
-          height
+    var parseIntAndGetMax = function (val1, val2) {
+      return Math.max(parseInt(val1, 10), parseInt(val2, 10));
+    };
+    var getImageSize = function (url) {
+      return new global$2(function (callback) {
+        var img = document.createElement('img');
+        var done = function (dimensions) {
+          if (img.parentNode) {
+            img.parentNode.removeChild(img);
+          }
+          callback(dimensions);
         };
-        done(Promise.resolve(dimensions));
-      };
-      img.onerror = () => {
-        done(Promise.reject(`Failed to get image dimensions for: ${ url }`));
-      };
-      const style = img.style;
-      style.visibility = 'hidden';
-      style.position = 'fixed';
-      style.bottom = style.left = '0px';
-      style.width = style.height = 'auto';
-      document.body.appendChild(img);
-      img.src = url;
-    });
-    const removePixelSuffix = value => {
+        img.onload = function () {
+          var width = parseIntAndGetMax(img.width, img.clientWidth);
+          var height = parseIntAndGetMax(img.height, img.clientHeight);
+          var dimensions = {
+            width: width,
+            height: height
+          };
+          done(global$2.resolve(dimensions));
+        };
+        img.onerror = function () {
+          done(global$2.reject('Failed to get image dimensions for: ' + url));
+        };
+        var style = img.style;
+        style.visibility = 'hidden';
+        style.position = 'fixed';
+        style.bottom = style.left = '0px';
+        style.width = style.height = 'auto';
+        document.body.appendChild(img);
+        img.src = url;
+      });
+    };
+    var removePixelSuffix = function (value) {
       if (value) {
         value = value.replace(/px$/, '');
       }
       return value;
     };
-    const addPixelSuffix = value => {
+    var addPixelSuffix = function (value) {
       if (value.length > 0 && /^[0-9]+$/.test(value)) {
         value += 'px';
       }
       return value;
     };
-    const mergeMargins = css => {
+    var mergeMargins = function (css) {
       if (css.margin) {
-        const splitMargin = String(css.margin).split(' ');
+        var splitMargin = String(css.margin).split(' ');
         switch (splitMargin.length) {
         case 1:
           css['margin-top'] = css['margin-top'] || splitMargin[0];
@@ -392,29 +418,30 @@
       }
       return css;
     };
-    const createImageList = (editor, callback) => {
-      const imageList = getImageList(editor);
-      if (isString(imageList)) {
-        fetch(imageList).then(res => {
-          if (res.ok) {
-            res.json().then(callback);
+    var createImageList = function (editor, callback) {
+      var imageList = getImageList(editor);
+      if (typeof imageList === 'string') {
+        global$3.send({
+          url: imageList,
+          success: function (text) {
+            callback(JSON.parse(text));
           }
         });
-      } else if (isFunction(imageList)) {
+      } else if (typeof imageList === 'function') {
         imageList(callback);
       } else {
         callback(imageList);
       }
     };
-    const waitLoadImage = (editor, data, imgElm) => {
-      const selectImage = () => {
+    var waitLoadImage = function (editor, data, imgElm) {
+      var selectImage = function () {
         imgElm.onload = imgElm.onerror = null;
         if (editor.selection) {
           editor.selection.select(imgElm);
           editor.nodeChanged();
         }
       };
-      imgElm.onload = () => {
+      imgElm.onload = function () {
         if (!data.width && !data.height && hasDimensions(editor)) {
           editor.dom.setAttribs(imgElm, {
             width: String(imgElm.clientWidth),
@@ -425,89 +452,86 @@
       };
       imgElm.onerror = selectImage;
     };
-    const blobToDataUri = blob => new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => {
-        resolve(reader.result);
-      };
-      reader.onerror = () => {
-        var _a;
-        reject((_a = reader.error) === null || _a === void 0 ? void 0 : _a.message);
-      };
-      reader.readAsDataURL(blob);
-    });
-    const isPlaceholderImage = imgElm => imgElm.nodeName === 'IMG' && (imgElm.hasAttribute('data-mce-object') || imgElm.hasAttribute('data-mce-placeholder'));
-    const isSafeImageUrl = (editor, src) => {
-      const getOption = editor.options.get;
-      return global$2.isDomSafe(src, 'img', {
-        allow_html_data_urls: getOption('allow_html_data_urls'),
-        allow_script_urls: getOption('allow_script_urls'),
-        allow_svg_data_urls: getOption('allow_svg_data_urls')
+    var blobToDataUri = function (blob) {
+      return new global$2(function (resolve, reject) {
+        var reader = new FileReader();
+        reader.onload = function () {
+          resolve(reader.result);
+        };
+        reader.onerror = function () {
+          reject(reader.error.message);
+        };
+        reader.readAsDataURL(blob);
       });
     };
+    var isPlaceholderImage = function (imgElm) {
+      return imgElm.nodeName === 'IMG' && (imgElm.hasAttribute('data-mce-object') || imgElm.hasAttribute('data-mce-placeholder'));
+    };
 
-    const DOM = global$3.DOM;
-    const getHspace = image => {
+    var DOM = global$1.DOM;
+    var getHspace = function (image) {
       if (image.style.marginLeft && image.style.marginRight && image.style.marginLeft === image.style.marginRight) {
         return removePixelSuffix(image.style.marginLeft);
       } else {
         return '';
       }
     };
-    const getVspace = image => {
+    var getVspace = function (image) {
       if (image.style.marginTop && image.style.marginBottom && image.style.marginTop === image.style.marginBottom) {
         return removePixelSuffix(image.style.marginTop);
       } else {
         return '';
       }
     };
-    const getBorder = image => {
+    var getBorder = function (image) {
       if (image.style.borderWidth) {
         return removePixelSuffix(image.style.borderWidth);
       } else {
         return '';
       }
     };
-    const getAttrib = (image, name) => {
-      var _a;
+    var getAttrib = function (image, name) {
       if (image.hasAttribute(name)) {
-        return (_a = image.getAttribute(name)) !== null && _a !== void 0 ? _a : '';
+        return image.getAttribute(name);
       } else {
         return '';
       }
     };
-    const hasCaption = image => image.parentNode !== null && image.parentNode.nodeName === 'FIGURE';
-    const updateAttrib = (image, name, value) => {
-      if (value === '' || value === null) {
+    var getStyle = function (image, name) {
+      return image.style[name] ? image.style[name] : '';
+    };
+    var hasCaption = function (image) {
+      return image.parentNode !== null && image.parentNode.nodeName === 'FIGURE';
+    };
+    var updateAttrib = function (image, name, value) {
+      if (value === '') {
         image.removeAttribute(name);
       } else {
         image.setAttribute(name, value);
       }
     };
-    const wrapInFigure = image => {
-      const figureElm = DOM.create('figure', { class: 'image' });
+    var wrapInFigure = function (image) {
+      var figureElm = DOM.create('figure', { class: 'image' });
       DOM.insertAfter(figureElm, image);
       figureElm.appendChild(image);
       figureElm.appendChild(DOM.create('figcaption', { contentEditable: 'true' }, 'Caption'));
       figureElm.contentEditable = 'false';
     };
-    const removeFigure = image => {
-      const figureElm = image.parentNode;
-      if (isNonNullable(figureElm)) {
-        DOM.insertAfter(image, figureElm);
-        DOM.remove(figureElm);
-      }
+    var removeFigure = function (image) {
+      var figureElm = image.parentNode;
+      DOM.insertAfter(image, figureElm);
+      DOM.remove(figureElm);
     };
-    const toggleCaption = image => {
+    var toggleCaption = function (image) {
       if (hasCaption(image)) {
         removeFigure(image);
       } else {
         wrapInFigure(image);
       }
     };
-    const normalizeStyle = (image, normalizeCss) => {
-      const attrValue = image.getAttribute('style');
-      const value = normalizeCss(attrValue !== null ? attrValue : '');
+    var normalizeStyle = function (image, normalizeCss) {
+      var attrValue = image.getAttribute('style');
+      var value = normalizeCss(attrValue !== null ? attrValue : '');
       if (value.length > 0) {
         image.setAttribute('style', value);
         image.setAttribute('data-mce-style', value);
@@ -515,71 +539,78 @@
         image.removeAttribute('style');
       }
     };
-    const setSize = (name, normalizeCss) => (image, name, value) => {
-      const styles = image.style;
-      if (styles[name]) {
-        styles[name] = addPixelSuffix(value);
-        normalizeStyle(image, normalizeCss);
-      } else {
-        updateAttrib(image, name, value);
-      }
+    var setSize = function (name, normalizeCss) {
+      return function (image, name, value) {
+        if (image.style[name]) {
+          image.style[name] = addPixelSuffix(value);
+          normalizeStyle(image, normalizeCss);
+        } else {
+          updateAttrib(image, name, value);
+        }
+      };
     };
-    const getSize = (image, name) => {
+    var getSize = function (image, name) {
       if (image.style[name]) {
         return removePixelSuffix(image.style[name]);
       } else {
         return getAttrib(image, name);
       }
     };
-    const setHspace = (image, value) => {
-      const pxValue = addPixelSuffix(value);
+    var setHspace = function (image, value) {
+      var pxValue = addPixelSuffix(value);
       image.style.marginLeft = pxValue;
       image.style.marginRight = pxValue;
     };
-    const setVspace = (image, value) => {
-      const pxValue = addPixelSuffix(value);
+    var setVspace = function (image, value) {
+      var pxValue = addPixelSuffix(value);
       image.style.marginTop = pxValue;
       image.style.marginBottom = pxValue;
     };
-    const setBorder = (image, value) => {
-      const pxValue = addPixelSuffix(value);
+    var setBorder = function (image, value) {
+      var pxValue = addPixelSuffix(value);
       image.style.borderWidth = pxValue;
     };
-    const setBorderStyle = (image, value) => {
+    var setBorderStyle = function (image, value) {
       image.style.borderStyle = value;
     };
-    const getBorderStyle = image => {
-      var _a;
-      return (_a = image.style.borderStyle) !== null && _a !== void 0 ? _a : '';
+    var getBorderStyle = function (image) {
+      return getStyle(image, 'borderStyle');
     };
-    const isFigure = elm => isNonNullable(elm) && elm.nodeName === 'FIGURE';
-    const isImage = elm => elm.nodeName === 'IMG';
-    const getIsDecorative = image => DOM.getAttrib(image, 'alt').length === 0 && DOM.getAttrib(image, 'role') === 'presentation';
-    const getAlt = image => {
+    var isFigure = function (elm) {
+      return elm.nodeName === 'FIGURE';
+    };
+    var isImage = function (elm) {
+      return elm.nodeName === 'IMG';
+    };
+    var getIsDecorative = function (image) {
+      return DOM.getAttrib(image, 'alt').length === 0 && DOM.getAttrib(image, 'role') === 'presentation';
+    };
+    var getAlt = function (image) {
       if (getIsDecorative(image)) {
         return '';
       } else {
         return getAttrib(image, 'alt');
       }
     };
-    const defaultData = () => ({
-      src: '',
-      alt: '',
-      title: '',
-      width: '',
-      height: '',
-      class: '',
-      style: '',
-      caption: false,
-      hspace: '',
-      vspace: '',
-      border: '',
-      borderStyle: '',
-      isDecorative: false
-    });
-    const getStyleValue = (normalizeCss, data) => {
-      var _a;
-      const image = document.createElement('img');
+    var defaultData = function () {
+      return {
+        src: '',
+        alt: '',
+        title: '',
+        width: '',
+        height: '',
+        class: '',
+        style: '',
+        caption: false,
+        hspace: '',
+        vspace: '',
+        border: '',
+        borderStyle: '',
+        isDecorative: false
+      };
+    };
+    var getStyleValue = function (normalizeCss, data) {
+      var image = document.createElement('img');
       updateAttrib(image, 'style', data.style);
       if (getHspace(image) || data.hspace !== '') {
         setHspace(image, data.hspace);
@@ -593,17 +624,14 @@
       if (getBorderStyle(image) || data.borderStyle !== '') {
         setBorderStyle(image, data.borderStyle);
       }
-      return normalizeCss((_a = image.getAttribute('style')) !== null && _a !== void 0 ? _a : '');
+      return normalizeCss(image.getAttribute('style'));
     };
-    const create = (normalizeCss, data) => {
-      const image = document.createElement('img');
-      write(normalizeCss, {
-        ...data,
-        caption: false
-      }, image);
+    var create = function (normalizeCss, data) {
+      var image = document.createElement('img');
+      write(normalizeCss, __assign(__assign({}, data), { caption: false }), image);
       setAlt(image, data.alt, data.isDecorative);
       if (data.caption) {
-        const figure = DOM.create('figure', { class: 'image' });
+        var figure = DOM.create('figure', { class: 'image' });
         figure.appendChild(image);
         figure.appendChild(DOM.create('figcaption', { contentEditable: 'true' }, 'Caption'));
         figure.contentEditable = 'false';
@@ -612,37 +640,39 @@
         return image;
       }
     };
-    const read = (normalizeCss, image) => ({
-      src: getAttrib(image, 'src'),
-      alt: getAlt(image),
-      title: getAttrib(image, 'title'),
-      width: getSize(image, 'width'),
-      height: getSize(image, 'height'),
-      class: getAttrib(image, 'class'),
-      style: normalizeCss(getAttrib(image, 'style')),
-      caption: hasCaption(image),
-      hspace: getHspace(image),
-      vspace: getVspace(image),
-      border: getBorder(image),
-      borderStyle: getBorderStyle(image),
-      isDecorative: getIsDecorative(image)
-    });
-    const updateProp = (image, oldData, newData, name, set) => {
+    var read = function (normalizeCss, image) {
+      return {
+        src: getAttrib(image, 'src'),
+        alt: getAlt(image),
+        title: getAttrib(image, 'title'),
+        width: getSize(image, 'width'),
+        height: getSize(image, 'height'),
+        class: getAttrib(image, 'class'),
+        style: normalizeCss(getAttrib(image, 'style')),
+        caption: hasCaption(image),
+        hspace: getHspace(image),
+        vspace: getVspace(image),
+        border: getBorder(image),
+        borderStyle: getStyle(image, 'borderStyle'),
+        isDecorative: getIsDecorative(image)
+      };
+    };
+    var updateProp = function (image, oldData, newData, name, set) {
       if (newData[name] !== oldData[name]) {
-        set(image, name, String(newData[name]));
+        set(image, name, newData[name]);
       }
     };
-    const setAlt = (image, alt, isDecorative) => {
+    var setAlt = function (image, alt, isDecorative) {
       if (isDecorative) {
         DOM.setAttrib(image, 'role', 'presentation');
-        const sugarImage = SugarElement.fromDom(image);
+        var sugarImage = SugarElement.fromDom(image);
         set(sugarImage, 'alt', '');
       } else {
         if (isNull(alt)) {
-          const sugarImage = SugarElement.fromDom(image);
+          var sugarImage = SugarElement.fromDom(image);
           remove(sugarImage, 'alt');
         } else {
-          const sugarImage = SugarElement.fromDom(image);
+          var sugarImage = SugarElement.fromDom(image);
           set(sugarImage, 'alt', alt);
         }
         if (DOM.getAttrib(image, 'role') === 'presentation') {
@@ -650,24 +680,30 @@
         }
       }
     };
-    const updateAlt = (image, oldData, newData) => {
+    var updateAlt = function (image, oldData, newData) {
       if (newData.alt !== oldData.alt || newData.isDecorative !== oldData.isDecorative) {
         setAlt(image, newData.alt, newData.isDecorative);
       }
     };
-    const normalized = (set, normalizeCss) => (image, name, value) => {
-      set(image, value);
-      normalizeStyle(image, normalizeCss);
+    var normalized = function (set, normalizeCss) {
+      return function (image, name, value) {
+        set(image, value);
+        normalizeStyle(image, normalizeCss);
+      };
     };
-    const write = (normalizeCss, newData, image) => {
-      const oldData = read(normalizeCss, image);
-      updateProp(image, oldData, newData, 'caption', (image, _name, _value) => toggleCaption(image));
+    var write = function (normalizeCss, newData, image) {
+      var oldData = read(normalizeCss, image);
+      updateProp(image, oldData, newData, 'caption', function (image, _name, _value) {
+        return toggleCaption(image);
+      });
       updateProp(image, oldData, newData, 'src', updateAttrib);
       updateProp(image, oldData, newData, 'title', updateAttrib);
       updateProp(image, oldData, newData, 'width', setSize('width', normalizeCss));
       updateProp(image, oldData, newData, 'height', setSize('height', normalizeCss));
       updateProp(image, oldData, newData, 'class', updateAttrib);
-      updateProp(image, oldData, newData, 'style', normalized((image, value) => updateAttrib(image, 'style', value), normalizeCss));
+      updateProp(image, oldData, newData, 'style', normalized(function (image, value) {
+        return updateAttrib(image, 'style', value);
+      }, normalizeCss));
       updateProp(image, oldData, newData, 'hspace', normalized(setHspace, normalizeCss));
       updateProp(image, oldData, newData, 'vspace', normalized(setVspace, normalizeCss));
       updateProp(image, oldData, newData, 'border', normalized(setBorder, normalizeCss));
@@ -675,15 +711,15 @@
       updateAlt(image, oldData, newData);
     };
 
-    const normalizeCss$1 = (editor, cssText) => {
-      const css = editor.dom.styles.parse(cssText);
-      const mergedCss = mergeMargins(css);
-      const compressed = editor.dom.styles.parse(editor.dom.styles.serialize(mergedCss));
+    var normalizeCss = function (editor, cssText) {
+      var css = editor.dom.styles.parse(cssText);
+      var mergedCss = mergeMargins(css);
+      var compressed = editor.dom.styles.parse(editor.dom.styles.serialize(mergedCss));
       return editor.dom.styles.serialize(compressed);
     };
-    const getSelectedImage = editor => {
-      const imgElm = editor.selection.getNode();
-      const figureElm = editor.dom.getParent(imgElm, 'figure.image');
+    var getSelectedImage = function (editor) {
+      var imgElm = editor.selection.getNode();
+      var figureElm = editor.dom.getParent(imgElm, 'figure.image');
       if (figureElm) {
         return editor.dom.select('img', figureElm)[0];
       }
@@ -692,41 +728,48 @@
       }
       return imgElm;
     };
-    const splitTextBlock = (editor, figure) => {
-      var _a;
-      const dom = editor.dom;
-      const textBlockElements = filter(editor.schema.getTextBlockElements(), (_, parentElm) => !editor.schema.isValidChild(parentElm, 'figure'));
-      const textBlock = dom.getParent(figure.parentNode, node => hasNonNullableKey(textBlockElements, node.nodeName), editor.getBody());
+    var splitTextBlock = function (editor, figure) {
+      var dom = editor.dom;
+      var textBlockElements = filter(editor.schema.getTextBlockElements(), function (_, parentElm) {
+        return !editor.schema.isValidChild(parentElm, 'figure');
+      });
+      var textBlock = dom.getParent(figure.parentNode, function (node) {
+        return hasNonNullableKey(textBlockElements, node.nodeName);
+      }, editor.getBody());
       if (textBlock) {
-        return (_a = dom.split(textBlock, figure)) !== null && _a !== void 0 ? _a : figure;
+        return dom.split(textBlock, figure);
       } else {
         return figure;
       }
     };
-    const readImageDataFromSelection = editor => {
-      const image = getSelectedImage(editor);
-      return image ? read(css => normalizeCss$1(editor, css), image) : defaultData();
+    var readImageDataFromSelection = function (editor) {
+      var image = getSelectedImage(editor);
+      return image ? read(function (css) {
+        return normalizeCss(editor, css);
+      }, image) : defaultData();
     };
-    const insertImageAtCaret = (editor, data) => {
-      const elm = create(css => normalizeCss$1(editor, css), data);
+    var insertImageAtCaret = function (editor, data) {
+      var elm = create(function (css) {
+        return normalizeCss(editor, css);
+      }, data);
       editor.dom.setAttrib(elm, 'data-mce-id', '__mcenew');
       editor.focus();
       editor.selection.setContent(elm.outerHTML);
-      const insertedElm = editor.dom.select('*[data-mce-id="__mcenew"]')[0];
+      var insertedElm = editor.dom.select('*[data-mce-id="__mcenew"]')[0];
       editor.dom.setAttrib(insertedElm, 'data-mce-id', null);
       if (isFigure(insertedElm)) {
-        const figure = splitTextBlock(editor, insertedElm);
+        var figure = splitTextBlock(editor, insertedElm);
         editor.selection.select(figure);
       } else {
         editor.selection.select(insertedElm);
       }
     };
-    const syncSrcAttr = (editor, image) => {
+    var syncSrcAttr = function (editor, image) {
       editor.dom.setAttrib(image, 'src', image.getAttribute('src'));
     };
-    const deleteImage = (editor, image) => {
+    var deleteImage = function (editor, image) {
       if (image) {
-        const elm = editor.dom.is(image.parentNode, 'figure.image') ? image.parentNode : image;
+        var elm = editor.dom.is(image.parentNode, 'figure.image') ? image.parentNode : image;
         editor.dom.remove(elm);
         editor.focus();
         editor.nodeChanged();
@@ -736,64 +779,57 @@
         }
       }
     };
-    const writeImageDataToSelection = (editor, data) => {
-      const image = getSelectedImage(editor);
-      if (image) {
-        write(css => normalizeCss$1(editor, css), data, image);
-        syncSrcAttr(editor, image);
-        if (isFigure(image.parentNode)) {
-          const figure = image.parentNode;
-          splitTextBlock(editor, figure);
-          editor.selection.select(image.parentNode);
-        } else {
-          editor.selection.select(image);
-          waitLoadImage(editor, data, image);
-        }
+    var writeImageDataToSelection = function (editor, data) {
+      var image = getSelectedImage(editor);
+      write(function (css) {
+        return normalizeCss(editor, css);
+      }, data, image);
+      syncSrcAttr(editor, image);
+      if (isFigure(image.parentNode)) {
+        var figure = image.parentNode;
+        splitTextBlock(editor, figure);
+        editor.selection.select(image.parentNode);
+      } else {
+        editor.selection.select(image);
+        waitLoadImage(editor, data, image);
       }
     };
-    const sanitizeImageData = (editor, data) => {
-      const src = data.src;
-      return {
-        ...data,
-        src: isSafeImageUrl(editor, src) ? src : ''
-      };
-    };
-    const insertOrUpdateImage = (editor, partialData) => {
-      const image = getSelectedImage(editor);
+    var insertOrUpdateImage = function (editor, partialData) {
+      var image = getSelectedImage(editor);
       if (image) {
-        const selectedImageData = read(css => normalizeCss$1(editor, css), image);
-        const data = {
-          ...selectedImageData,
-          ...partialData
-        };
-        const sanitizedData = sanitizeImageData(editor, data);
+        var selectedImageData = read(function (css) {
+          return normalizeCss(editor, css);
+        }, image);
+        var data = __assign(__assign({}, selectedImageData), partialData);
         if (data.src) {
-          writeImageDataToSelection(editor, sanitizedData);
+          writeImageDataToSelection(editor, data);
         } else {
           deleteImage(editor, image);
         }
       } else if (partialData.src) {
-        insertImageAtCaret(editor, {
-          ...defaultData(),
-          ...partialData
-        });
+        insertImageAtCaret(editor, __assign(__assign({}, defaultData()), partialData));
       }
     };
 
-    const deep = (old, nu) => {
-      const bothObjects = isPlainObject(old) && isPlainObject(nu);
+    var hasOwnProperty$1 = Object.prototype.hasOwnProperty;
+    var deep = function (old, nu) {
+      var bothObjects = isObject(old) && isObject(nu);
       return bothObjects ? deepMerge(old, nu) : nu;
     };
-    const baseMerge = merger => {
-      return (...objects) => {
-        if (objects.length === 0) {
-          throw new Error(`Can't merge zero objects`);
+    var baseMerge = function (merger) {
+      return function () {
+        var objects = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+          objects[_i] = arguments[_i];
         }
-        const ret = {};
-        for (let j = 0; j < objects.length; j++) {
-          const curObject = objects[j];
-          for (const key in curObject) {
-            if (has(curObject, key)) {
+        if (objects.length === 0) {
+          throw new Error('Can\'t merge zero objects');
+        }
+        var ret = {};
+        for (var j = 0; j < objects.length; j++) {
+          var curObject = objects[j];
+          for (var key in curObject) {
+            if (hasOwnProperty$1.call(curObject, key)) {
               ret[key] = merger(ret[key], curObject[key]);
             }
           }
@@ -801,14 +837,20 @@
         return ret;
       };
     };
-    const deepMerge = baseMerge(deep);
+    var deepMerge = baseMerge(deep);
 
-    var global$1 = tinymce.util.Tools.resolve('tinymce.util.ImageUploader');
+    var isNotEmpty = function (s) {
+      return s.length > 0;
+    };
 
-    var global = tinymce.util.Tools.resolve('tinymce.util.Tools');
+    var global$4 = tinymce.util.Tools.resolve('tinymce.util.ImageUploader');
 
-    const getValue = item => isString(item.value) ? item.value : '';
-    const getText = item => {
+    var global$5 = tinymce.util.Tools.resolve('tinymce.util.Tools');
+
+    var getValue = function (item) {
+      return isString(item.value) ? item.value : '';
+    };
+    var getText = function (item) {
       if (isString(item.text)) {
         return item.text;
       } else if (isString(item.title)) {
@@ -817,206 +859,241 @@
         return '';
       }
     };
-    const sanitizeList = (list, extractValue) => {
-      const out = [];
-      global.each(list, item => {
-        const text = getText(item);
+    var sanitizeList = function (list, extractValue) {
+      var out = [];
+      global$5.each(list, function (item) {
+        var text = getText(item);
         if (item.menu !== undefined) {
-          const items = sanitizeList(item.menu, extractValue);
+          var items = sanitizeList(item.menu, extractValue);
           out.push({
-            text,
-            items
+            text: text,
+            items: items
           });
         } else {
-          const value = extractValue(item);
+          var value = extractValue(item);
           out.push({
-            text,
-            value
+            text: text,
+            value: value
           });
         }
       });
       return out;
     };
-    const sanitizer = (extractor = getValue) => list => {
-      if (list) {
-        return Optional.from(list).map(list => sanitizeList(list, extractor));
-      } else {
-        return Optional.none();
+    var sanitizer = function (extracter) {
+      if (extracter === void 0) {
+        extracter = getValue;
       }
+      return function (list) {
+        if (list) {
+          return Optional.from(list).map(function (list) {
+            return sanitizeList(list, extracter);
+          });
+        } else {
+          return Optional.none();
+        }
+      };
     };
-    const sanitize = list => sanitizer(getValue)(list);
-    const isGroup = item => has(item, 'items');
-    const findEntryDelegate = (list, value) => findMap(list, item => {
-      if (isGroup(item)) {
-        return findEntryDelegate(item.items, value);
-      } else if (item.value === value) {
-        return Optional.some(item);
-      } else {
-        return Optional.none();
-      }
-    });
-    const findEntry = (optList, value) => optList.bind(list => findEntryDelegate(list, value));
-    const ListUtils = {
-      sanitizer,
-      sanitize,
-      findEntry
+    var sanitize = function (list) {
+      return sanitizer(getValue)(list);
+    };
+    var isGroup = function (item) {
+      return Object.prototype.hasOwnProperty.call(item, 'items');
+    };
+    var findEntryDelegate = function (list, value) {
+      return findMap(list, function (item) {
+        if (isGroup(item)) {
+          return findEntryDelegate(item.items, value);
+        } else if (item.value === value) {
+          return Optional.some(item);
+        } else {
+          return Optional.none();
+        }
+      });
+    };
+    var findEntry = function (optList, value) {
+      return optList.bind(function (list) {
+        return findEntryDelegate(list, value);
+      });
+    };
+    var ListUtils = {
+      sanitizer: sanitizer,
+      sanitize: sanitize,
+      findEntry: findEntry
     };
 
-    const makeTab$2 = _info => ({
-      title: 'Advanced',
-      name: 'advanced',
-      items: [{
-          type: 'grid',
-          columns: 2,
-          items: [
-            {
-              type: 'input',
-              label: 'Vertical space',
-              name: 'vspace',
-              inputMode: 'numeric'
-            },
-            {
-              type: 'input',
-              label: 'Horizontal space',
-              name: 'hspace',
-              inputMode: 'numeric'
-            },
-            {
-              type: 'input',
-              label: 'Border width',
-              name: 'border',
-              inputMode: 'numeric'
-            },
-            {
-              type: 'listbox',
-              name: 'borderstyle',
-              label: 'Border style',
-              items: [
-                {
-                  text: 'Select...',
-                  value: ''
-                },
-                {
-                  text: 'Solid',
-                  value: 'solid'
-                },
-                {
-                  text: 'Dotted',
-                  value: 'dotted'
-                },
-                {
-                  text: 'Dashed',
-                  value: 'dashed'
-                },
-                {
-                  text: 'Double',
-                  value: 'double'
-                },
-                {
-                  text: 'Groove',
-                  value: 'groove'
-                },
-                {
-                  text: 'Ridge',
-                  value: 'ridge'
-                },
-                {
-                  text: 'Inset',
-                  value: 'inset'
-                },
-                {
-                  text: 'Outset',
-                  value: 'outset'
-                },
-                {
+    var makeTab = function (_info) {
+      return {
+        title: 'Advanced',
+        name: 'advanced',
+        items: [
+          {
+            type: 'input',
+            label: 'Style',
+            name: 'style'
+          },
+          {
+            type: 'grid',
+            columns: 2,
+            items: [
+              {
+                type: 'input',
+                label: 'Vertical space',
+                name: 'vspace',
+                inputMode: 'numeric'
+              },
+              {
+                type: 'input',
+                label: 'Horizontal space',
+                name: 'hspace',
+                inputMode: 'numeric'
+              },
+              {
+                type: 'input',
+                label: 'Border width',
+                name: 'border',
+                inputMode: 'numeric'
+              },
+              {
+                type: 'listbox',
+                name: 'borderstyle',
+                label: 'Border style',
+                items: [
+                  {
+                    text: 'Select...',
+                    value: ''
+                  },
+                  {
+                    text: 'Solid',
+                    value: 'solid'
+                  },
+                  {
+                    text: 'Dotted',
+                    value: 'dotted'
+                  },
+                  {
+                    text: 'Dashed',
+                    value: 'dashed'
+                  },
+                  {
+                    text: 'Double',
+                    value: 'double'
+                  },
+                  {
+                    text: 'Groove',
+                    value: 'groove'
+                  },
+                  {
+                    text: 'Ridge',
+                    value: 'ridge'
+                  },
+                  {
+                    text: 'Inset',
+                    value: 'inset'
+                  },
+                  {
+                    text: 'Outset',
+                    value: 'outset'
+                  },
+                  {
+                    text: 'None',
+                    value: 'none'
+                  },
+                  {
+                    text: 'Hidden',
+                    value: 'hidden'
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      };
+    };
+    var AdvTab = { makeTab: makeTab };
+
+    var collect = function (editor) {
+      var urlListSanitizer = ListUtils.sanitizer(function (item) {
+        return editor.convertURL(item.value || item.url, 'src');
+      });
+      var futureImageList = new global$2(function (completer) {
+        createImageList(editor, function (imageList) {
+          completer(urlListSanitizer(imageList).map(function (items) {
+            return flatten([
+              [{
                   text: 'None',
-                  value: 'none'
-                },
-                {
-                  text: 'Hidden',
-                  value: 'hidden'
-                }
-              ]
-            }
-          ]
-        }]
-    });
-    const AdvTab = { makeTab: makeTab$2 };
-
-    const collect = editor => {
-      const urlListSanitizer = ListUtils.sanitizer(item => editor.convertURL(item.value || item.url || '', 'src'));
-      const futureImageList = new Promise(completer => {
-        createImageList(editor, imageList => {
-          completer(urlListSanitizer(imageList).map(items => flatten([
-            [{
-                text: 'None',
-                value: ''
-              }],
-            items
-          ])));
+                  value: ''
+                }],
+              items
+            ]);
+          }));
         });
       });
-      const classList = ListUtils.sanitize(getClassList(editor));
-      const hasAdvTab$1 = hasAdvTab(editor);
-      const hasUploadTab$1 = hasUploadTab(editor);
-      const hasUploadUrl$1 = hasUploadUrl(editor);
-      const hasUploadHandler$1 = hasUploadHandler(editor);
-      const image = readImageDataFromSelection(editor);
-      const hasDescription$1 = hasDescription(editor);
-      const hasImageTitle$1 = hasImageTitle(editor);
-      const hasDimensions$1 = hasDimensions(editor);
-      const hasImageCaption$1 = hasImageCaption(editor);
-      const hasAccessibilityOptions = showAccessibilityOptions(editor);
-      const automaticUploads = isAutomaticUploadsEnabled(editor);
-      const prependURL = Optional.some(getPrependUrl(editor)).filter(preUrl => isString(preUrl) && preUrl.length > 0);
-      return futureImageList.then(imageList => ({
-        image,
-        imageList,
-        classList,
-        hasAdvTab: hasAdvTab$1,
-        hasUploadTab: hasUploadTab$1,
-        hasUploadUrl: hasUploadUrl$1,
-        hasUploadHandler: hasUploadHandler$1,
-        hasDescription: hasDescription$1,
-        hasImageTitle: hasImageTitle$1,
-        hasDimensions: hasDimensions$1,
-        hasImageCaption: hasImageCaption$1,
-        prependURL,
-        hasAccessibilityOptions,
-        automaticUploads
-      }));
+      var classList = ListUtils.sanitize(getClassList(editor));
+      var hasAdvTab$1 = hasAdvTab(editor);
+      var hasUploadTab$1 = hasUploadTab(editor);
+      var hasUploadUrl$1 = hasUploadUrl(editor);
+      var hasUploadHandler$1 = hasUploadHandler(editor);
+      var image = readImageDataFromSelection(editor);
+      var hasDescription$1 = hasDescription(editor);
+      var hasImageTitle$1 = hasImageTitle(editor);
+      var hasDimensions$1 = hasDimensions(editor);
+      var hasImageCaption$1 = hasImageCaption(editor);
+      var hasAccessibilityOptions = showAccessibilityOptions(editor);
+      var automaticUploads = isAutomaticUploadsEnabled(editor);
+      var prependURL = Optional.some(getPrependUrl(editor)).filter(function (preUrl) {
+        return isString(preUrl) && preUrl.length > 0;
+      });
+      return futureImageList.then(function (imageList) {
+        return {
+          image: image,
+          imageList: imageList,
+          classList: classList,
+          hasAdvTab: hasAdvTab$1,
+          hasUploadTab: hasUploadTab$1,
+          hasUploadUrl: hasUploadUrl$1,
+          hasUploadHandler: hasUploadHandler$1,
+          hasDescription: hasDescription$1,
+          hasImageTitle: hasImageTitle$1,
+          hasDimensions: hasDimensions$1,
+          hasImageCaption: hasImageCaption$1,
+          prependURL: prependURL,
+          hasAccessibilityOptions: hasAccessibilityOptions,
+          automaticUploads: automaticUploads
+        };
+      });
     };
 
-    const makeItems = info => {
-      const imageUrl = {
+    var makeItems = function (info) {
+      var imageUrl = {
         name: 'src',
         type: 'urlinput',
         filetype: 'image',
-        label: 'Source',
-        picker_text: 'Browse files'
+        label: 'Source'
       };
-      const imageList = info.imageList.map(items => ({
-        name: 'images',
-        type: 'listbox',
-        label: 'Image list',
-        items
-      }));
-      const imageDescription = {
+      var imageList = info.imageList.map(function (items) {
+        return {
+          name: 'images',
+          type: 'listbox',
+          label: 'Image list',
+          items: items
+        };
+      });
+      var imageDescription = {
         name: 'alt',
         type: 'input',
         label: 'Alternative description',
-        enabled: !(info.hasAccessibilityOptions && info.image.isDecorative)
+        disabled: info.hasAccessibilityOptions && info.image.isDecorative
       };
-      const imageTitle = {
+      var imageTitle = {
         name: 'title',
         type: 'input',
         label: 'Image title'
       };
-      const imageDimensions = {
+      var imageDimensions = {
         name: 'dimensions',
         type: 'sizeinput'
       };
-      const isDecorative = {
+      var isDecorative = {
         type: 'label',
         label: 'Accessibility',
         items: [{
@@ -1025,13 +1102,15 @@
             label: 'Image is decorative'
           }]
       };
-      const classList = info.classList.map(items => ({
-        name: 'classes',
-        type: 'listbox',
-        label: 'Class',
-        items
-      }));
-      const caption = {
+      var classList = info.classList.map(function (items) {
+        return {
+          name: 'classes',
+          type: 'listbox',
+          label: 'Class',
+          items: items
+        };
+      });
+      var caption = {
         type: 'label',
         label: 'Caption',
         items: [{
@@ -1040,10 +1119,6 @@
             label: 'Show caption'
           }]
       };
-      const getDialogContainerType = useColumns => useColumns ? {
-        type: 'grid',
-        columns: 2
-      } : { type: 'panel' };
       return flatten([
         [imageUrl],
         imageList.toArray(),
@@ -1052,7 +1127,8 @@
         info.hasImageTitle ? [imageTitle] : [],
         info.hasDimensions ? [imageDimensions] : [],
         [{
-            ...getDialogContainerType(info.classList.isSome() && info.hasImageCaption),
+            type: 'grid',
+            columns: 2,
             items: flatten([
               classList.toArray(),
               info.hasImageCaption ? [caption] : []
@@ -1060,74 +1136,82 @@
           }]
       ]);
     };
-    const makeTab$1 = info => ({
-      title: 'General',
-      name: 'general',
-      items: makeItems(info)
-    });
-    const MainTab = {
+    var makeTab$1 = function (info) {
+      return {
+        title: 'General',
+        name: 'general',
+        items: makeItems(info)
+      };
+    };
+    var MainTab = {
       makeTab: makeTab$1,
-      makeItems
+      makeItems: makeItems
     };
 
-    const makeTab = _info => {
-      const items = [{
+    var makeTab$2 = function (_info) {
+      var items = [{
           type: 'dropzone',
           name: 'fileinput'
         }];
       return {
         title: 'Upload',
         name: 'upload',
-        items
+        items: items
       };
     };
-    const UploadTab = { makeTab };
+    var UploadTab = { makeTab: makeTab$2 };
 
-    const createState = info => ({
-      prevImage: ListUtils.findEntry(info.imageList, info.image.src),
-      prevAlt: info.image.alt,
-      open: true
-    });
-    const fromImageData = image => ({
-      src: {
-        value: image.src,
-        meta: {}
-      },
-      images: image.src,
-      alt: image.alt,
-      title: image.title,
-      dimensions: {
-        width: image.width,
-        height: image.height
-      },
-      classes: image.class,
-      caption: image.caption,
-      style: image.style,
-      vspace: image.vspace,
-      border: image.border,
-      hspace: image.hspace,
-      borderstyle: image.borderStyle,
-      fileinput: [],
-      isDecorative: image.isDecorative
-    });
-    const toImageData = (data, removeEmptyAlt) => ({
-      src: data.src.value,
-      alt: (data.alt === null || data.alt.length === 0) && removeEmptyAlt ? null : data.alt,
-      title: data.title,
-      width: data.dimensions.width,
-      height: data.dimensions.height,
-      class: data.classes,
-      style: data.style,
-      caption: data.caption,
-      hspace: data.hspace,
-      vspace: data.vspace,
-      border: data.border,
-      borderStyle: data.borderstyle,
-      isDecorative: data.isDecorative
-    });
-    const addPrependUrl2 = (info, srcURL) => {
+    var createState = function (info) {
+      return {
+        prevImage: ListUtils.findEntry(info.imageList, info.image.src),
+        prevAlt: info.image.alt,
+        open: true
+      };
+    };
+    var fromImageData = function (image) {
+      return {
+        src: {
+          value: image.src,
+          meta: {}
+        },
+        images: image.src,
+        alt: image.alt,
+        title: image.title,
+        dimensions: {
+          width: image.width,
+          height: image.height
+        },
+        classes: image.class,
+        caption: image.caption,
+        style: image.style,
+        vspace: image.vspace,
+        border: image.border,
+        hspace: image.hspace,
+        borderstyle: image.borderStyle,
+        fileinput: [],
+        isDecorative: image.isDecorative
+      };
+    };
+    var toImageData = function (data, removeEmptyAlt) {
+      return {
+        src: data.src.value,
+        alt: data.alt.length === 0 && removeEmptyAlt ? null : data.alt,
+        title: data.title,
+        width: data.dimensions.width,
+        height: data.dimensions.height,
+        class: data.classes,
+        style: data.style,
+        caption: data.caption,
+        hspace: data.hspace,
+        vspace: data.vspace,
+        border: data.border,
+        borderStyle: data.borderstyle,
+        isDecorative: data.isDecorative
+      };
+    };
+    var addPrependUrl2 = function (info, srcURL) {
       if (!/^(?:[a-zA-Z]+:)?\/\//.test(srcURL)) {
-        return info.prependURL.bind(prependUrl => {
+        return info.prependURL.bind(function (prependUrl) {
           if (srcURL.substring(0, prependUrl.length) !== prependUrl) {
             return Optional.some(prependUrl + srcURL);
           }
@@ -1136,9 +1220,9 @@
       }
       return Optional.none();
     };
-    const addPrependUrl = (info, api) => {
-      const data = api.getData();
-      addPrependUrl2(info, data.src.value).each(srcURL => {
+    var addPrependUrl = function (info, api) {
+      var data = api.getData();
+      addPrependUrl2(info, data.src.value).each(function (srcURL) {
         api.setData({
           src: {
             value: srcURL,
@@ -1147,7 +1231,7 @@
         });
       });
     };
-    const formFillFromMeta2 = (info, data, meta) => {
+    var formFillFromMeta2 = function (info, data, meta) {
       if (info.hasDescription && isString(meta.alt)) {
         data.alt = meta.alt;
       }
@@ -1166,7 +1250,7 @@
         }
       }
       if (isString(meta.class)) {
-        ListUtils.findEntry(info.classList, meta.class).each(entry => {
+        ListUtils.findEntry(info.classList, meta.class).each(function (entry) {
           data.classes = entry.value;
         });
       }
@@ -1193,26 +1277,28 @@
         }
       }
     };
-    const formFillFromMeta = (info, api) => {
-      const data = api.getData();
-      const meta = data.src.meta;
+    var formFillFromMeta = function (info, api) {
+      var data = api.getData();
+      var meta = data.src.meta;
       if (meta !== undefined) {
-        const newData = deepMerge({}, data);
+        var newData = deepMerge({}, data);
         formFillFromMeta2(info, newData, meta);
         api.setData(newData);
       }
     };
-    const calculateImageSize = (helpers, info, state, api) => {
-      const data = api.getData();
-      const url = data.src.value;
-      const meta = data.src.meta || {};
+    var calculateImageSize = function (helpers, info, state, api) {
+      var data = api.getData();
+      var url = data.src.value;
+      var meta = data.src.meta || {};
       if (!meta.width && !meta.height && info.hasDimensions) {
         if (isNotEmpty(url)) {
-          helpers.imageSize(url).then(size => {
+          helpers.imageSize(url).then(function (size) {
             if (state.open) {
               api.setData({ dimensions: size });
             }
-          }).catch(e => console.error(e));
+          }).catch(function (e) {
+            return console.error(e);
+          });
         } else {
           api.setData({
             dimensions: {
@@ -1223,23 +1309,29 @@
         }
       }
     };
-    const updateImagesDropdown = (info, state, api) => {
-      const data = api.getData();
-      const image = ListUtils.findEntry(info.imageList, data.src.value);
+    var updateImagesDropdown = function (info, state, api) {
+      var data = api.getData();
+      var image = ListUtils.findEntry(info.imageList, data.src.value);
       state.prevImage = image;
-      api.setData({ images: image.map(entry => entry.value).getOr('') });
+      api.setData({
+        images: image.map(function (entry) {
+          return entry.value;
+        }).getOr('')
+      });
     };
-    const changeSrc = (helpers, info, state, api) => {
+    var changeSrc = function (helpers, info, state, api) {
       addPrependUrl(info, api);
       formFillFromMeta(info, api);
       calculateImageSize(helpers, info, state, api);
       updateImagesDropdown(info, state, api);
     };
-    const changeImages = (helpers, info, state, api) => {
-      const data = api.getData();
-      const image = ListUtils.findEntry(info.imageList, data.images);
-      image.each(img => {
-        const updateAlt = data.alt === '' || state.prevImage.map(image => image.text === data.alt).getOr(false);
+    var changeImages = function (helpers, info, state, api) {
+      var data = api.getData();
+      var image = ListUtils.findEntry(info.imageList, data.images);
+      image.each(function (img) {
+        var updateAlt = data.alt === '' || state.prevImage.map(function (image) {
+          return image.text === data.alt;
+        }).getOr(false);
         if (updateAlt) {
           if (img.value === '') {
             api.setData({
@@ -1259,18 +1351,55 @@
       state.prevImage = image;
       changeSrc(helpers, info, state, api);
     };
-    const changeFileInput = (helpers, info, state, api) => {
-      const data = api.getData();
+    var calcVSpace = function (css) {
+      var matchingTopBottom = css['margin-top'] && css['margin-bottom'] && css['margin-top'] === css['margin-bottom'];
+      return matchingTopBottom ? removePixelSuffix(String(css['margin-top'])) : '';
+    };
+    var calcHSpace = function (css) {
+      var matchingLeftRight = css['margin-right'] && css['margin-left'] && css['margin-right'] === css['margin-left'];
+      return matchingLeftRight ? removePixelSuffix(String(css['margin-right'])) : '';
+    };
+    var calcBorderWidth = function (css) {
+      return css['border-width'] ? removePixelSuffix(String(css['border-width'])) : '';
+    };
+    var calcBorderStyle = function (css) {
+      return css['border-style'] ? String(css['border-style']) : '';
+    };
+    var calcStyle = function (parseStyle, serializeStyle, css) {
+      return serializeStyle(parseStyle(serializeStyle(css)));
+    };
+    var changeStyle2 = function (parseStyle, serializeStyle, data) {
+      var css = mergeMargins(parseStyle(data.style));
+      var dataCopy = deepMerge({}, data);
+      dataCopy.vspace = calcVSpace(css);
+      dataCopy.hspace = calcHSpace(css);
+      dataCopy.border = calcBorderWidth(css);
+      dataCopy.borderstyle = calcBorderStyle(css);
+      dataCopy.style = calcStyle(parseStyle, serializeStyle, css);
+      return dataCopy;
+    };
+    var changeStyle = function (helpers, api) {
+      var data = api.getData();
+      var newData = changeStyle2(helpers.parseStyle, helpers.serializeStyle, data);
+      api.setData(newData);
+    };
+    var changeAStyle = function (helpers, info, api) {
+      var data = deepMerge(fromImageData(info.image), api.getData());
+      var style = getStyleValue(helpers.normalizeCss, toImageData(data, false));
+      api.setData({ style: style });
+    };
+    var changeFileInput = function (helpers, info, state, api) {
+      var data = api.getData();
       api.block('Uploading image');
-      head(data.fileinput).fold(() => {
+      head(data.fileinput).fold(function () {
         api.unblock();
-      }, file => {
-        const blobUri = URL.createObjectURL(file);
-        const finalize = () => {
+      }, function (file) {
+        var blobUri = URL.createObjectURL(file);
+        var finalize = function () {
           api.unblock();
           URL.revokeObjectURL(blobUri);
         };
-        const updateSrcAndSwitchTab = url => {
+        var updateSrcAndSwitchTab = function (url) {
           api.setData({
             src: {
               value: url,
@@ -1280,13 +1409,13 @@
           api.showTab('general');
           changeSrc(helpers, info, state, api);
         };
-        blobToDataUri(file).then(dataUrl => {
-          const blobInfo = helpers.createBlobCache(file, blobUri, dataUrl);
+        blobToDataUri(file).then(function (dataUrl) {
+          var blobInfo = helpers.createBlobCache(file, blobUri, dataUrl);
           if (info.automaticUploads) {
-            helpers.uploadImage(blobInfo).then(result => {
+            helpers.uploadImage(blobInfo).then(function (result) {
               updateSrcAndSwitchTab(result.url);
               finalize();
-            }).catch(err => {
+            }).catch(function (err) {
               finalize();
               helpers.alertErr(err);
             });
@@ -1298,25 +1427,37 @@
         });
       });
     };
-    const changeHandler = (helpers, info, state) => (api, evt) => {
-      if (evt.name === 'src') {
-        changeSrc(helpers, info, state, api);
-      } else if (evt.name === 'images') {
-        changeImages(helpers, info, state, api);
-      } else if (evt.name === 'alt') {
-        state.prevAlt = api.getData().alt;
-      } else if (evt.name === 'fileinput') {
-        changeFileInput(helpers, info, state, api);
-      } else if (evt.name === 'isDecorative') {
-        api.setEnabled('alt', !api.getData().isDecorative);
-      }
+    var changeHandler = function (helpers, info, state) {
+      return function (api, evt) {
+        if (evt.name === 'src') {
+          changeSrc(helpers, info, state, api);
+        } else if (evt.name === 'images') {
+          changeImages(helpers, info, state, api);
+        } else if (evt.name === 'alt') {
+          state.prevAlt = api.getData().alt;
+        } else if (evt.name === 'style') {
+          changeStyle(helpers, api);
+        } else if (evt.name === 'vspace' || evt.name === 'hspace' || evt.name === 'border' || evt.name === 'borderstyle') {
+          changeAStyle(helpers, info, api);
+        } else if (evt.name === 'fileinput') {
+          changeFileInput(helpers, info, state, api);
+        } else if (evt.name === 'isDecorative') {
+          if (api.getData().isDecorative) {
+            api.disable('alt');
+          } else {
+            api.enable('alt');
+          }
+        }
+      };
     };
-    const closeHandler = state => () => {
-      state.open = false;
+    var closeHandler = function (state) {
+      return function () {
+        state.open = false;
+      };
     };
-    const makeDialogBody = info => {
+    var makeDialogBody = function (info) {
       if (info.hasAdvTab || info.hasUploadUrl || info.hasUploadHandler) {
-        const tabPanel = {
+        var tabPanel = {
           type: 'tabpanel',
           tabs: flatten([
             [MainTab.makeTab(info)],
@@ -1326,180 +1467,191 @@
         };
         return tabPanel;
       } else {
-        const panel = {
+        var panel = {
           type: 'panel',
           items: MainTab.makeItems(info)
         };
         return panel;
       }
     };
-    const submitHandler = (editor, info, helpers) => api => {
-      const data = deepMerge(fromImageData(info.image), api.getData());
-      const finalData = {
-        ...data,
-        style: getStyleValue(helpers.normalizeCss, toImageData(data, false))
+    var makeDialog = function (helpers) {
+      return function (info) {
+        var state = createState(info);
+        return {
+          title: 'Insert/Edit Image',
+          size: 'normal',
+          body: makeDialogBody(info),
+          buttons: [
+            {
+              type: 'cancel',
+              name: 'cancel',
+              text: 'Cancel'
+            },
+            {
+              type: 'submit',
+              name: 'save',
+              text: 'Save',
+              primary: true
+            }
+          ],
+          initialData: fromImageData(info.image),
+          onSubmit: helpers.onSubmit(info),
+          onChange: changeHandler(helpers, info, state),
+          onClose: closeHandler(state)
+        };
       };
-      editor.execCommand('mceUpdateImage', false, toImageData(finalData, info.hasAccessibilityOptions));
-      editor.editorUpload.uploadImagesAuto();
-      api.close();
     };
-    const imageSize = editor => url => {
-      if (!isSafeImageUrl(editor, url)) {
-        return Promise.resolve({
-          width: '',
-          height: ''
+    var submitHandler = function (editor) {
+      return function (info) {
+        return function (api) {
+          var data = deepMerge(fromImageData(info.image), api.getData());
+          editor.execCommand('mceUpdateImage', false, toImageData(data, info.hasAccessibilityOptions));
+          editor.editorUpload.uploadImagesAuto();
+          api.close();
+        };
+      };
+    };
+    var imageSize = function (editor) {
+      return function (url) {
+        return getImageSize(editor.documentBaseURI.toAbsolute(url)).then(function (dimensions) {
+          return {
+            width: String(dimensions.width),
+            height: String(dimensions.height)
+          };
         });
-      } else {
-        return getImageSize(editor.documentBaseURI.toAbsolute(url)).then(dimensions => ({
-          width: String(dimensions.width),
-          height: String(dimensions.height)
-        }));
-      }
+      };
     };
-    const createBlobCache = editor => (file, blobUri, dataUrl) => {
-      var _a;
-      return editor.editorUpload.blobCache.create({
-        blob: file,
-        blobUri,
-        name: (_a = file.name) === null || _a === void 0 ? void 0 : _a.replace(/\.[^\.]+$/, ''),
-        filename: file.name,
-        base64: dataUrl.split(',')[1]
-      });
+    var createBlobCache = function (editor) {
+      return function (file, blobUri, dataUrl) {
+        return editor.editorUpload.blobCache.create({
+          blob: file,
+          blobUri: blobUri,
+          name: file.name ? file.name.replace(/\.[^\.]+$/, '') : null,
+          filename: file.name,
+          base64: dataUrl.split(',')[1]
+        });
+      };
     };
-    const addToBlobCache = editor => blobInfo => {
-      editor.editorUpload.blobCache.add(blobInfo);
+    var addToBlobCache = function (editor) {
+      return function (blobInfo) {
+        editor.editorUpload.blobCache.add(blobInfo);
+      };
     };
-    const alertErr = editor => message => {
-      editor.windowManager.alert(message);
+    var alertErr = function (editor) {
+      return function (message) {
+        editor.windowManager.alert(message);
+      };
     };
-    const normalizeCss = editor => cssText => normalizeCss$1(editor, cssText);
-    const parseStyle = editor => cssText => editor.dom.parseStyle(cssText);
-    const serializeStyle = editor => (stylesArg, name) => editor.dom.serializeStyle(stylesArg, name);
-    const uploadImage = editor => blobInfo => global$1(editor).upload([blobInfo], false).then(results => {
-      var _a;
-      if (results.length === 0) {
-        return Promise.reject('Failed to upload image');
-      } else if (results[0].status === false) {
-        return Promise.reject((_a = results[0].error) === null || _a === void 0 ? void 0 : _a.message);
-      } else {
-        return results[0];
-      }
-    });
-    const Dialog = editor => {
-      const helpers = {
+    var normalizeCss$1 = function (editor) {
+      return function (cssText) {
+        return normalizeCss(editor, cssText);
+      };
+    };
+    var parseStyle = function (editor) {
+      return function (cssText) {
+        return editor.dom.parseStyle(cssText);
+      };
+    };
+    var serializeStyle = function (editor) {
+      return function (stylesArg, name) {
+        return editor.dom.serializeStyle(stylesArg, name);
+      };
+    };
+    var uploadImage = function (editor) {
+      return function (blobInfo) {
+        return global$4(editor).upload([blobInfo], false).then(function (results) {
+          if (results.length === 0) {
+            return global$2.reject('Failed to upload image');
+          } else if (results[0].status === false) {
+            return global$2.reject(results[0].error);
+          } else {
+            return results[0];
+          }
+        });
+      };
+    };
+    var Dialog = function (editor) {
+      var helpers = {
+        onSubmit: submitHandler(editor),
         imageSize: imageSize(editor),
         addToBlobCache: addToBlobCache(editor),
         createBlobCache: createBlobCache(editor),
         alertErr: alertErr(editor),
-        normalizeCss: normalizeCss(editor),
+        normalizeCss: normalizeCss$1(editor),
         parseStyle: parseStyle(editor),
         serializeStyle: serializeStyle(editor),
         uploadImage: uploadImage(editor)
       };
-      const open = () => {
-        collect(editor).then(info => {
-          const state = createState(info);
-          return {
-            title: 'Insert/Edit Image',
-            size: 'normal',
-            body: makeDialogBody(info),
-            buttons: [
-              {
-                type: 'cancel',
-                name: 'cancel',
-                text: 'Cancel'
-              },
-              {
-                type: 'submit',
-                name: 'save',
-                text: 'Save',
-                primary: true
-              }
-            ],
-            initialData: fromImageData(info.image),
-            onSubmit: submitHandler(editor, info, helpers),
-            onChange: changeHandler(helpers, info, state),
-            onClose: closeHandler(state)
-          };
-        }).then(editor.windowManager.open);
+      var open = function () {
+        collect(editor).then(makeDialog(helpers)).then(editor.windowManager.open);
       };
-      return { open };
+      return { open: open };
     };
 
-    const register$1 = editor => {
+    var register = function (editor) {
       editor.addCommand('mceImage', Dialog(editor).open);
-      editor.addCommand('mceUpdateImage', (_ui, data) => {
-        editor.undoManager.transact(() => insertOrUpdateImage(editor, data));
+      editor.addCommand('mceUpdateImage', function (_ui, data) {
+        editor.undoManager.transact(function () {
+          return insertOrUpdateImage(editor, data);
+        });
       });
     };
 
-    const hasImageClass = node => {
-      const className = node.attr('class');
-      return isNonNullable(className) && /\bimage\b/.test(className);
+    var hasImageClass = function (node) {
+      var className = node.attr('class');
+      return className && /\bimage\b/.test(className);
     };
-    const toggleContentEditableState = state => nodes => {
-      let i = nodes.length;
-      const toggleContentEditable = node => {
-        node.attr('contenteditable', state ? 'true' : null);
-      };
-      while (i--) {
-        const node = nodes[i];
-        if (hasImageClass(node)) {
-          node.attr('contenteditable', state ? 'false' : null);
-          global.each(node.getAll('figcaption'), toggleContentEditable);
+    var toggleContentEditableState = function (state) {
+      return function (nodes) {
+        var i = nodes.length;
+        var toggleContentEditable = function (node) {
+          node.attr('contenteditable', state ? 'true' : null);
+        };
+        while (i--) {
+          var node = nodes[i];
+          if (hasImageClass(node)) {
+            node.attr('contenteditable', state ? 'false' : null);
+            global$5.each(node.getAll('figcaption'), toggleContentEditable);
+          }
         }
-      }
+      };
     };
-    const setup = editor => {
-      editor.on('PreInit', () => {
+    var setup = function (editor) {
+      editor.on('PreInit', function () {
         editor.parser.addNodeFilter('figure', toggleContentEditableState(true));
         editor.serializer.addNodeFilter('figure', toggleContentEditableState(false));
       });
     };
 
-    const onSetupEditable = editor => api => {
-      const nodeChanged = () => {
-        api.setEnabled(editor.selection.isEditable());
-      };
-      editor.on('NodeChange', nodeChanged);
-      nodeChanged();
-      return () => {
-        editor.off('NodeChange', nodeChanged);
-      };
-    };
-    const register = editor => {
+    var register$1 = function (editor) {
       editor.ui.registry.addToggleButton('image', {
         icon: 'image',
         tooltip: 'Insert/edit image',
         onAction: Dialog(editor).open,
-        onSetup: buttonApi => {
-          buttonApi.setActive(isNonNullable(getSelectedImage(editor)));
-          const unbindSelectorChanged = editor.selection.selectorChangedWithUnbind('img:not([data-mce-object]):not([data-mce-placeholder]),figure.image', buttonApi.setActive).unbind;
-          const unbindEditable = onSetupEditable(editor)(buttonApi);
-          return () => {
-            unbindSelectorChanged();
-            unbindEditable();
-          };
+        onSetup: function (buttonApi) {
+          return editor.selection.selectorChangedWithUnbind('img:not([data-mce-object],[data-mce-placeholder]),figure.image', buttonApi.setActive).unbind;
         }
       });
       editor.ui.registry.addMenuItem('image', {
         icon: 'image',
         text: 'Image...',
-        onAction: Dialog(editor).open,
-        onSetup: onSetupEditable(editor)
+        onAction: Dialog(editor).open
       });
-      editor.ui.registry.addContextMenu('image', { update: element => editor.selection.isEditable() && (isFigure(element) || isImage(element) && !isPlaceholderImage(element)) ? ['image'] : [] });
+      editor.ui.registry.addContextMenu('image', {
+        update: function (element) {
+          return isFigure(element) || isImage(element) && !isPlaceholderImage(element) ? ['image'] : [];
+        }
+      });
     };
 
-    var Plugin = () => {
-      global$4.add('image', editor => {
-        register$2(editor);
+    function Plugin () {
+      global.add('image', function (editor) {
         setup(editor);
-        register(editor);
         register$1(editor);
+        register(editor);
       });
-    };
+    }
 
     Plugin();
 
-})();
+}());
