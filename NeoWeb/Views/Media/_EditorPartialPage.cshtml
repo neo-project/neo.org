@@ -69,24 +69,8 @@
     </div>
 </div>
 <div class="my-4">
-    <input type="submit" value="Create" class="btn" />
+    <input type="submit" value="Create" class="btn-2" />
 </div>
 <div class="my-4">
     <a asp-action="index" asp-controller="news">Back to List</a>
 </div>
-<script src="@Helper.ToCDN("/lib/tinymce/tinymce.min.js", true)"></script>
-<script>
-    tinymce.init({
-        selector: 'textarea',
-        language: 'zh_CN',
-        height: 500,
-        menubar: true,
-        plugins: 'print preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern help',
-        toolbar: 'formatselect | bold italic strikethrough forecolor backcolor permanentpen formatpainter | link image media pageembed | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | removeformat | addcomment',
-        image_advtab: true,
-        images_upload_url: "../../../../blog/upload"
-    });
-</script>
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

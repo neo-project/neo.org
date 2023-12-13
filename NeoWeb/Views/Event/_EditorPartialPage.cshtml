@@ -166,29 +166,8 @@
     </div>
 </div>
 <div class="my-4">
-    <input type="submit" value="Create" class="btn" />
+    <input type="submit" value="Create" class="btn-2" />
 </div>
 <div class="my-4">
     <a asp-action="index" asp-controller="news">Back to List</a>
 </div>
-<script src="@Helper.ToCDN("/lib/tinymce/tinymce.min.js", true)"></script>
-<script>
-    tinymce.init({
-        selector: 'textarea',
-        height: 500,
-        menubar: true,
-        plugins: [
-            'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-            'searchreplace wordcount visualblocks visualchars code fullscreen',
-            'insertdatetime media nonbreaking save table contextmenu directionality',
-            'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc'
-        ],
-        toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-        toolbar2: 'print preview media | forecolor backcolor emoticons | codesample | fontselect | fontsizeselect',
-        image_advtab: true,
-        images_upload_url: "../../../../blog/upload"
-    });
-</script>
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

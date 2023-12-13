@@ -17,9 +17,9 @@
     </form>
 </div>
 @section Scripts {
+    <script src="@Helper.ToCDN("/js/editor.min.js")"></script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     @{await Html.RenderPartialAsync("_Tiny.ScriptsPartial");}
-    <script src="@Helper.ToCDN("/js/editor.min.js")"></script>
     <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
     <script>
         $(document).ready(function () {

@@ -38,10 +38,6 @@
       "destination": "wwwroot/lib/animate.css/"
     },
     {
-      "library": "tinymce@5.7.0",
-      "destination": "wwwroot/lib/tinymce/"
-    },
-    {
       "library": "bootstrap-fileinput@5.5.2",
       "destination": "wwwroot/lib/bootstrap-fileinput/",
       "files": [
