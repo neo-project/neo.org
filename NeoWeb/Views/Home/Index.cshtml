@@ -11,48 +11,47 @@
 @* 基本块 - Home page *@
 <div class="home-container">
 
-
     <style>
-        .sidechain {
-            background-color: #000023;
-            background-image: url("/images/sidechain/bg2.png");
-            background-position: center;
-            background-size: cover;
-            position: relative;
-            -webkit-text-stroke: 1px black;
-            margin-top: 76px;
+        .grantshares.container{
+            padding-top: 150px;
+            padding-bottom: 80px;
         }
-
-            .sidechain::before {
-                display: block;
-                content: " ";
-                padding-top: 35%;
-                min-height: 250px;
+        .grantshares h1 {
+            font-size: 4.8rem;
+            line-height: 1.1;
+        }
+        @@media only screen and (max-width: 992px) {
+            .grantshares h1{
+                font-size: 3rem
             }
-
-            .sidechain .img1 {
-                position: absolute;
-                width: 27%;
-                top: 21%;
-                left: 6%;
-                min-width: 280px;
-            }
-
-            .sidechain .img2 {
-                position: absolute;
-                width: 33%;
-                top: 21%;
-                left: 6%;
-                min-width: 280px;
-            }
+        }
     </style>
-
-    <div class="sidechain">
-        <a href="https://neo-blockchain.medium.com/neo-sidechain-naming-campaign-phase-2-your-vote-matters-49ac468dfb0f" target="_blank">
-            <img class="img1 @SharedLocalizer["d-none-zh"]" src="~/images/sidechain/text2.svg" />
-            <img class="img2 @SharedLocalizer["d-none"]" src="~/images/sidechain/text3.svg" />
-        </a>
+    <div style="background-color: #000023; color: #fff">
+        <div class="grantshares container">
+            <div class="row">
+                <div class="col-lg-6 pt-5">
+                    <div class="work-sans-bold">
+                        <h1 class="green">@Localizer["GRANTSHARES"]</h1>
+                        <h1>@Localizer["OPEN NOW"]</h1>
+                    </div>
+                    <div class="work-sans-semibold my-4 uppercase">
+                        @Localizer["decentralized and transparent grants program for the Neo ecosystem"]
+                    </div>
+                    <div class="my-4">
+                        <a href="https://grantshares.io" target="_blank" class="btn-2">@Localizer["LEARN MORE"]</a>
+                    </div>
+                    <div class="work-sans-bold my-4">@Localizer["Latest News:"]</div>
+                    <div class="my-4">
+                        <a class="news-link" href="~/blog/details/@Model.FirstOrDefault(p => p.Type == NewsViewModelType.Blog).Blog.Id">@Model.FirstOrDefault(p => p.Type == NewsViewModelType.Blog).Blog.Title <i class="iconfont circle-arrow-icon">&#xe6ab;</i></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="/images/grantshares/grantshares_hero.png" class="img-fluid" />
+                </div>
+            </div>
+        </div>
     </div>
+
 
     <div class="row horiz-row aio-row">
         <div class="col-12 col-md-12">
