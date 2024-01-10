@@ -3,13 +3,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Localization;
 using NeoWeb.Data;
 using NeoWeb.Models;
 using System;
 using System.IO;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace NeoWeb.Controllers
@@ -50,6 +48,7 @@ namespace NeoWeb.Controllers
                         ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
                 }
                 if (!ModelState.IsValid) return View(media);
+                media.Link = Helper.Sanitizer(media.Link);
                 media.Time = DateTime.Now;
                 context.Add(media);
                 await context.SaveChangesAsync();
@@ -130,6 +129,7 @@ namespace NeoWeb.Controllers
                         context.Top.ToList().ForEach(p => context.Top.Remove(p));
                         context.Add(new Top() { ItemId = media.Id, Type = NewsViewModelType.Media });
                     }
+                    media.Link = Helper.Sanitizer(media.Link);
                     context.Update(media);
                     await context.SaveChangesAsync();
                 }

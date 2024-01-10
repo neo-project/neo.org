@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Linq;
 using System;
 
 namespace NeoWeb.Models
@@ -7,7 +7,7 @@ namespace NeoWeb.Models
     {
         public string PublicKey { get; set; }
 
-        public int  Votes { get; set; }
+        public int Votes { get; set; }
 
         public Candidate Info { get; set; }
 

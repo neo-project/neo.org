@@ -1,3 +1,10 @@
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Neo;
+using NeoWeb.Models;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Formats.Jpeg;
+using SixLabors.ImageSharp.Processing;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -6,14 +13,6 @@ using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Neo;
-using NeoWeb.Models;
-using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Formats.Jpeg;
-using SixLabors.ImageSharp.Processing;
 using static System.Text.RegularExpressions.Regex;
 
 namespace NeoWeb
@@ -91,7 +90,7 @@ namespace NeoWeb
 
         public static string ToPubDate(this DateTime Date)
         {
-            string ReturnString = Date.DayOfWeek.ToString().Substring(0, 3) + ", ";
+            string ReturnString = string.Concat(Date.DayOfWeek.ToString().AsSpan(0, 3), ", ");
             ReturnString += Date.Day + " ";
             ReturnString += CultureInfo.CreateSpecificCulture("en-us").DateTimeFormat.GetAbbreviatedMonthName(Date.Month) + " ";
             ReturnString += Date.Year + " ";
@@ -189,7 +188,7 @@ namespace NeoWeb
             html = html.ClearHtmlTag();
             if (length > 0 && html.Length > length)
             {
-                html = html.Substring(0, length);
+                html = html[..length];
             }
             return html.Trim();
         }
@@ -207,15 +206,11 @@ namespace NeoWeb
 
         public static string ToMonth(this int month)
         {
-            string[] months = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+            string[] months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
             return (month > 12 || month < 1) ? "ERROR" : months[month - 1];
         }
 
-        public static string Sha256(this string input)
-        {
-            using SHA256 obj = SHA256.Create();
-            return BitConverter.ToString(obj.ComputeHash(Encoding.UTF8.GetBytes(input))).Replace("-", "");
-        }
+        public static string Sha256(this string input) => BitConverter.ToString(SHA256.HashData(Encoding.UTF8.GetBytes(input))).Replace("-", "");
 
         class IPItem
         {
@@ -262,7 +257,7 @@ namespace NeoWeb
         public static byte[] HexToBytes(this string value)
         {
             if (value == null || value.Length == 0)
-                return Array.Empty<byte>();
+                return [];
             if (value.Length % 2 == 1)
                 throw new FormatException();
             byte[] result = new byte[value.Length / 2];
@@ -349,6 +344,17 @@ namespace NeoWeb
             long o = 0;
             ip.GetAddressBytes().ToList().ForEach(p => o += (long)p << 8 * x--);
             return o;
+        }
+        public static string Sanitizer(string input)
+        {
+            input = Replace(input, @"<!\-\-\[if gte mso 9\]>[\s\S]*<!\[endif\]\-\->", ""); //删除 ms office 注解
+            input = Replace(input, "src=\".*/upload", "data-original=\"/upload"); //替换上传图片的链接
+            input = Replace(input, "<img src=", "<img data-original="); //替换外部图片的链接
+            input = Replace(input, @"<p>((&nbsp;\s)|(&nbsp;)|\s)+", "<p>"); //删除段首由空格造成的缩进
+            var sanitizer = new Ganss.Xss.HtmlSanitizer();
+            sanitizer.AllowedAttributes.Remove("style");
+            input = sanitizer.Sanitize(input);
+            return input;
         }
     }
 }

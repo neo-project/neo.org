@@ -1,11 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Security.Cryptography;
-using Neo.Cryptography;
-using System.Linq;
 using NBitcoin;
 using Neo;
+using Neo.Cryptography;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace NeoWeb
 {
@@ -106,7 +106,7 @@ namespace NeoWeb
         /// <param name="mnemonic">助记词</param>
         /// <param name="passphrase">口令</param>
         /// <returns></returns>
-        public static byte[] MnemonicToSeed(string mnemonic, string passphrase = "") 
+        public static byte[] MnemonicToSeed(string mnemonic, string passphrase = "")
         {
             if (!Verification(mnemonic)) return null;
             Rfc2898DeriveBytes pbkdf2 = new(Encoding.UTF8.GetBytes(mnemonic), Encoding.UTF8.GetBytes(saltHeader + passphrase), 2048, HashAlgorithmName.SHA512); ;
@@ -162,5 +162,5 @@ namespace NeoWeb
             return sb.ToString();
         }
     }
-    
+
 }

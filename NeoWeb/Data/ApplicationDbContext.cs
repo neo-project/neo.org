@@ -1,19 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using NeoWeb.Models;
 
 namespace NeoWeb.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : IdentityDbContext(options)
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options)
-        {
-        }
-
         public DbSet<Blog> Blogs { get; set; }
 
         public DbSet<Country> Countries { get; set; }

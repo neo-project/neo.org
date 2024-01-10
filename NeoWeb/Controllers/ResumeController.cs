@@ -1,18 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using Neo;
 using NeoWeb.Data;
 using NeoWeb.Models;
 using reCAPTCHA.AspNetCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace NeoWeb.Controllers
 {
@@ -84,7 +83,7 @@ namespace NeoWeb.Controllers
                     ModelState.AddModelError("Job", localizer["The selected job does not exist."]);
                     return View(resume);
                 }
-                if(!string.IsNullOrEmpty(resume.ReferralCode) && !context.Resume.Any(p => resume.ReferralCode == p.MyReferralCode))
+                if (!string.IsNullOrEmpty(resume.ReferralCode) && !context.Resume.Any(p => resume.ReferralCode == p.MyReferralCode))
                 {
                     ModelState.AddModelError("ReferralCode", localizer["The referral code does not exist."]);
                     return View(resume);

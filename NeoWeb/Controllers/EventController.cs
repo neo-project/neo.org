@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -25,7 +25,7 @@ namespace NeoWeb.Controllers
         private readonly IWebHostEnvironment _env;
         private readonly IStringLocalizer<SharedResource> _sharedLocalizer;
 
-        public EventController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IWebHostEnvironment env, 
+        public EventController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IWebHostEnvironment env,
              IStringLocalizer<SharedResource> sharedLocalizer)
         {
             _context = context;
@@ -80,7 +80,7 @@ namespace NeoWeb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(
             [Bind("Id,ChineseName,EnglishName,ChineseCity,EnglishCity,ChineseAddress,EnglishAddress,StartTime,EndTime," +
-            "ChineseCover,EnglishCover,ChineseDetails,EnglishDetails,ChineseOrganizers,EnglishOrganizers,ChineseTags,EnglishTags,IsFree")] Event evt, 
+            "ChineseCover,EnglishCover,ChineseDetails,EnglishDetails,ChineseOrganizers,EnglishOrganizers,ChineseTags,EnglishTags,IsFree")] Event evt,
             int countryId, IFormFile chineseCover, IFormFile englishCover, string isTop)
         {
             ViewBag.IsTop = isTop != null;
@@ -154,7 +154,7 @@ namespace NeoWeb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(
             int id, [Bind("Id,ChineseName,EnglishName,ChineseCity,EnglishCity,ChineseAddress,EnglishAddress,StartTime,EndTime," +
-            "ChineseCover,EnglishCover,ChineseDetails,EnglishDetails,ChineseOrganizers,EnglishOrganizers,ChineseTags,EnglishTags,IsFree")] Event evt, 
+            "ChineseCover,EnglishCover,ChineseDetails,EnglishDetails,ChineseOrganizers,EnglishOrganizers,ChineseTags,EnglishTags,IsFree")] Event evt,
             int countryId, IFormFile chineseCover, IFormFile englishCover, string isTop)
         {
             if (id != evt.Id)
@@ -209,7 +209,7 @@ namespace NeoWeb.Controllers
                     evt.EnglishDetails = EventConvert(evt.EnglishDetails);
                     evt.ChineseTags = evt.ChineseTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
                     evt.EnglishTags = evt.EnglishTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
-                    
+
                     _context.Update(evt);
                     if (isTop != null)
                     {

@@ -1,34 +1,24 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
-using NeoWeb.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.AspNetCore.Identity.UI.Services;
+using NeoWeb.Data;
 using NeoWeb.Services;
-using System.Globalization;
-using Microsoft.AspNetCore.Mvc.Razor;
-using Microsoft.AspNetCore.StaticFiles;
 using reCAPTCHA.AspNetCore;
+using System;
+using System.Globalization;
 
 namespace NeoWeb
 {
-    public class Startup
+    public class Startup(IConfiguration configuration)
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
-
-        public IConfiguration Configuration { get; }
+        public IConfiguration Configuration { get; } = configuration;
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -89,7 +79,7 @@ namespace NeoWeb
             }
             app.UseHttpsRedirection();
 
-            FileExtensionContentTypeProvider provider = new FileExtensionContentTypeProvider();
+            FileExtensionContentTypeProvider provider = new();
             provider.Mappings[".webmanifest"] = "application/manifest+json";
             app.UseStaticFiles(new StaticFileOptions()
             {

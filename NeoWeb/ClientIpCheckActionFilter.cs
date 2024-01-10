@@ -1,13 +1,6 @@
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace NeoWeb
 {
@@ -42,15 +35,9 @@ namespace NeoWeb
         }
     }
 
-    public class IPZone
+    public class IPZone(long start, long end)
     {
-        public IPZone(long start, long end)
-        {
-            Start = start;
-            End = end;
-        }
-
-        public long Start { get; set; }
-        public long End { get; set; }
+        public long Start { get; set; } = start;
+        public long End { get; set; } = end;
     }
 }

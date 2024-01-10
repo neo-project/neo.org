@@ -10,7 +10,6 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Security.Claims;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml;
 
@@ -57,7 +56,7 @@ namespace NeoWeb.Controllers
 
             #region Previous and  Next
             var idList = _context.Blogs.OrderByDescending(o => o.CreateTime).Select(p => p.Id).ToList();
-            ViewBag.NextBlogId = idList.Count == 0 ? id: idList[Math.Max(idList.IndexOf((int)id) - 1, 0)];
+            ViewBag.NextBlogId = idList.Count == 0 ? id : idList[Math.Max(idList.IndexOf((int)id) - 1, 0)];
             ViewBag.PrevBlogId = idList.Count == 0 ? id : idList[Math.Min(idList.IndexOf((int)id) + 1, idList.Count - 1)];
             #endregion
 
@@ -105,10 +104,10 @@ namespace NeoWeb.Controllers
                     else
                         ModelState.AddModelError("EnglishCover", "Cover size must be 16:9.");
                 }
-                if(!ModelState.IsValid) return View(blog);
+                if (!ModelState.IsValid) return View(blog);
 
-                blog.ChineseContent = Convert(blog.ChineseContent);
-                blog.EnglishContent = Convert(blog.EnglishContent);
+                blog.ChineseContent = Helper.Sanitizer(blog.ChineseContent);
+                blog.EnglishContent = Helper.Sanitizer(blog.EnglishContent);
                 blog.ChineseSummary = blog.ChineseContent.ClearHtmlTag(150);
                 blog.EnglishSummary = blog.EnglishContent.ClearHtmlTag(150);
                 blog.ChineseTags = blog.ChineseTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
@@ -192,8 +191,8 @@ namespace NeoWeb.Controllers
                 if (!ModelState.IsValid) return View(blog);
                 try
                 {
-                    item.ChineseContent = Convert(blog.ChineseContent);
-                    item.EnglishContent = Convert(blog.EnglishContent);
+                    item.ChineseContent = Helper.Sanitizer(blog.ChineseContent);
+                    item.EnglishContent = Helper.Sanitizer(blog.EnglishContent);
                     item.ChineseSummary = blog.ChineseContent.ClearHtmlTag(150);
                     item.EnglishSummary = blog.EnglishContent.ClearHtmlTag(150);
                     item.ChineseTags = blog.ChineseTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
@@ -203,7 +202,7 @@ namespace NeoWeb.Controllers
                     item.Editor = blog.Editor;
                     item.EditTime = DateTime.Now;
                     item.IsShow = blog.IsShow;
-                    
+
                     _context.Update(item);
                     if (isTop != null)
                     {
@@ -332,7 +331,7 @@ namespace NeoWeb.Controllers
             rss.AppendChild(channel);
             xml.AppendChild(rss);
             RssModel.Chinese = xml.OuterXml;
-            
+
         }
 
         private void UpdateRssEnglish()
@@ -438,17 +437,6 @@ namespace NeoWeb.Controllers
         private bool BlogExists(int id)
         {
             return _context.Blogs.Any(e => e.Id == id);
-        }
-
-        private static string Convert(string input)
-        {
-            input = Regex.Replace(input, @"<!\-\-\[if gte mso 9\]>[\s\S]*<!\[endif\]\-\->", ""); //删除 ms office 注解
-            input = Regex.Replace(input, "src=\".*/upload", "data-original=\"/upload"); //替换上传图片的链接
-            input = Regex.Replace(input, "<img src=", "<img data-original="); //替换外部图片的链接
-            input = Regex.Replace(input, @"<p>((&nbsp;\s)|(&nbsp;)|\s)+", "<p>"); //删除段首由空格造成的缩进
-            input = Regex.Replace(input, @"\sstyle="".*?""", ""); //删除 Style 样式
-            input = Regex.Replace(input, @"\sclass="".*?""", ""); //删除 Class 样式
-            return input;
         }
 
         private static string XmlEncode(string input)

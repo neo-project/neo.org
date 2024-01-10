@@ -1,20 +1,18 @@
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
+using NeoWeb.Data;
+using NeoWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Localization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Localization;
-using NeoWeb.Data;
-using NeoWeb.Models;
 
 namespace NeoWeb.Controllers
 {
@@ -87,7 +85,7 @@ namespace NeoWeb.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        
+
         static string status;
         static DateTime lastRequest;
         public async Task<IActionResult> GitHubStatus()

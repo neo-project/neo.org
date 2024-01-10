@@ -1,16 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 using NeoWeb.Data;
 using NeoWeb.Models;
+using System;
+using System.Linq;
 using System.Security.Claims;
-using Microsoft.Extensions.Localization;
+using System.Threading.Tasks;
 
 namespace NeoWeb.Controllers
 {
@@ -27,7 +25,7 @@ namespace NeoWeb.Controllers
             _context = context;
             _sharedLocalizer = sharedLocalizer;
             _userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            
+
             if (_userId != null)
             {
                 _userRules = _context.UserRoles.Any(p => p.UserId == _userId);
