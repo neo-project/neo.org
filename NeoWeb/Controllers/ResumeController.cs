@@ -17,23 +17,8 @@ using reCAPTCHA.AspNetCore;
 namespace NeoWeb.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class ResumeController : Controller
+    public class ResumeController(ApplicationDbContext context, IWebHostEnvironment env, IStringLocalizer<ResumeController> localizer, IRecaptchaService recaptcha) : Controller
     {
-        private readonly ApplicationDbContext _context;
-        private readonly IRecaptchaService _recaptcha;
-
-        private readonly IWebHostEnvironment _env;
-        private readonly IStringLocalizer<SharedResource> _sharedLocalizer;
-        private readonly IStringLocalizer<ResumeController> _localizer;
-
-        public ResumeController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IStringLocalizer<SharedResource> sharedLocalizer, IWebHostEnvironment env, IStringLocalizer<ResumeController> localizer, IRecaptchaService recaptcha)
-        {
-            _context = context;
-            _sharedLocalizer = sharedLocalizer;
-            _localizer = localizer;
-            _env = env;
-            _recaptcha = recaptcha;
-        }
 
         // GET: Resume
         public async Task<IActionResult> Index(int? jobId, int page = 1)
@@ -43,31 +28,31 @@ namespace NeoWeb.Controllers
             var list = new List<Resume>();
             if (jobId is not null)
             {
-                list = await _context.Resume.Include(p => p.Job).Where(p => p.Job.Id == jobId).OrderByDescending(p => p.DateTime).Skip(dataBasePage * countPerPage).Take(countPerPage).ToListAsync();
-                ViewBag.Pages = Math.Ceiling(_context.Resume.Include(p => p.Job).Where(p => p.Job.Id == jobId).Count() / (double)countPerPage);
+                list = await context.Resume.Include(p => p.Job).Where(p => p.Job.Id == jobId).OrderByDescending(p => p.DateTime).Skip(dataBasePage * countPerPage).Take(countPerPage).ToListAsync();
+                ViewBag.Pages = Math.Ceiling(context.Resume.Include(p => p.Job).Where(p => p.Job.Id == jobId).Count() / (double)countPerPage);
             }
             else
             {
-                list = await _context.Resume.Include(p => p.Job).Where(p => p.Job != null).OrderByDescending(p => p.DateTime).Skip(dataBasePage * countPerPage).Take(countPerPage).ToListAsync();
-                ViewBag.Pages = Math.Ceiling(_context.Resume.Include(p => p.Job).Where(p => p.Job != null).Count() / (double)countPerPage);
+                list = await context.Resume.Include(p => p.Job).Where(p => p.Job != null).OrderByDescending(p => p.DateTime).Skip(dataBasePage * countPerPage).Take(countPerPage).ToListAsync();
+                ViewBag.Pages = Math.Ceiling(context.Resume.Include(p => p.Job).Where(p => p.Job != null).Count() / (double)countPerPage);
             }
-            ViewBag.Job = _context.Jobs.FirstOrDefault(p => p.Id == jobId);
+            ViewBag.Job = context.Jobs.FirstOrDefault(p => p.Id == jobId);
             ViewBag.Page = page;
             ViewBag.JobId = jobId;
             return View(list);
         }
 
-        public async Task<IActionResult> ReferralCode(string code)
+        public Task<IActionResult> ReferralCode(string code)
         {
-            var person = _context.Resume.FirstOrDefault(p => p.MyReferralCode == code);
-            return View(person);
+            var person = context.Resume.FirstOrDefault(p => p.MyReferralCode == code);
+            return Task.FromResult<IActionResult>(View(person));
         }
 
         [AllowAnonymous]
         // GET: Resume/Create
         public IActionResult Create(int jobId)
         {
-            var job = _context.Jobs.FirstOrDefault(p => p.Id == jobId);
+            var job = context.Jobs.FirstOrDefault(p => p.Id == jobId);
             if (job == null)
                 return NotFound();
             ViewBag.Job = job;
@@ -82,7 +67,7 @@ namespace NeoWeb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Phone,Email,Scool,Specialty,ReferralCode,MyReferralCode,GoogleToken")] Resume resume, int jobId, IFormFile file)
         {
-            var job = _context.Jobs.FirstOrDefault(p => p.Id == jobId);
+            var job = context.Jobs.FirstOrDefault(p => p.Id == jobId);
             if (job == null)
                 return NotFound();
             ViewBag.Job = job;
@@ -91,20 +76,20 @@ namespace NeoWeb.Controllers
             {
                 if (file == null)
                 {
-                    ViewBag.Error = _localizer["Please upload your resume."];
+                    ViewBag.Error = localizer["Please upload your resume."];
                     return View(resume);
                 }
                 if (job == null)
                 {
-                    ModelState.AddModelError("Job", _localizer["The selected job does not exist."]);
+                    ModelState.AddModelError("Job", localizer["The selected job does not exist."]);
                     return View(resume);
                 }
-                if(!string.IsNullOrEmpty(resume.ReferralCode) && !_context.Resume.Any(p => resume.ReferralCode == p.MyReferralCode))
+                if(!string.IsNullOrEmpty(resume.ReferralCode) && !context.Resume.Any(p => resume.ReferralCode == p.MyReferralCode))
                 {
-                    ModelState.AddModelError("ReferralCode", _localizer["The referral code does not exist."]);
+                    ModelState.AddModelError("ReferralCode", localizer["The referral code does not exist."]);
                     return View(resume);
                 }
-                var recaptchaReault = await _recaptcha.Validate(resume.GoogleToken);
+                var recaptchaReault = await recaptcha.Validate(resume.GoogleToken);
 
                 if (!recaptchaReault.Success || recaptchaReault.Score < .5m)
                 {
@@ -112,14 +97,14 @@ namespace NeoWeb.Controllers
                     return View(resume);
                 }
                 resume.Job = job;
-                resume.Path = Helper.UploadFile(file, _env);
+                resume.Path = Helper.UploadFile(file, env);
                 var random = new Random();
                 var bytes = new byte[10];
                 random.NextBytes(bytes);
-                resume.MyReferralCode = bytes.ToHexString().Substring(0,10);
+                resume.MyReferralCode = bytes.ToHexString()[..10];
                 resume.DateTime = DateTime.Now;
-                _context.Add(resume);
-                await _context.SaveChangesAsync();
+                context.Add(resume);
+                await context.SaveChangesAsync();
                 return Complete(resume.MyReferralCode);
             }
             return View(resume);

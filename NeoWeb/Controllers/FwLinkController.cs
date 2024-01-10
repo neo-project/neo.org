@@ -14,22 +14,15 @@ using NeoWeb.Models;
 namespace NeoWeb.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class FwLinkController : Controller
+    public class FwLinkController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor) : Controller
     {
-        private readonly ApplicationDbContext _context;
-        private readonly string _userId;
-
-        public FwLinkController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
-        {
-            _context = context;
-            _userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        }
+        private readonly string _userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
         // GET: FwLink
         [AllowAnonymous]
         public IActionResult Index(int id)
         {
-            var link = _context.FwLink.FirstOrDefault(p => p.Id == id);
+            var link = context.FwLink.FirstOrDefault(p => p.Id == id);
             if (link == null)
                 return RedirectToAction("Index", "Home");
             return Redirect(link.Link);
@@ -37,7 +30,7 @@ namespace NeoWeb.Controllers
 
         public async Task<IActionResult> List()
         {
-            return View(await _context.FwLink.ToListAsync());
+            return View(await context.FwLink.ToListAsync());
         }
 
         // GET: FwLink/Create
@@ -55,21 +48,21 @@ namespace NeoWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (_context.FwLink.Any(p => p.Id != fwLink.Id && p.Link == fwLink.Link))
+                if (context.FwLink.Any(p => p.Id != fwLink.Id && p.Link == fwLink.Link))
                 {
                     ModelState.AddModelError("Link", "链接已存在");
                     return View(fwLink);
                 }
-                if (_context.FwLink.Any(p => p.Id != fwLink.Id && p.Name == fwLink.Name))
+                if (context.FwLink.Any(p => p.Id != fwLink.Id && p.Name == fwLink.Name))
                 {
                     ModelState.AddModelError("Name", "链接名称已存在");
                     return View(fwLink);
                 }
-                fwLink.User = _context.Users.Find(_userId);
+                fwLink.User = context.Users.Find(_userId);
                 fwLink.CreateTime = DateTime.Now;
                 fwLink.EditTime = fwLink.CreateTime;
-                _context.Add(fwLink);
-                await _context.SaveChangesAsync();
+                context.Add(fwLink);
+                await context.SaveChangesAsync();
                 return RedirectToAction(nameof(List));
             }
             return View(fwLink);
@@ -83,7 +76,7 @@ namespace NeoWeb.Controllers
                 return NotFound();
             }
 
-            var fwLink = await _context.FwLink.FindAsync(id);
+            var fwLink = await context.FwLink.FindAsync(id);
             if (fwLink == null)
             {
                 return NotFound();
@@ -105,24 +98,24 @@ namespace NeoWeb.Controllers
 
             if (ModelState.IsValid)
             {
-                if (_context.FwLink.Any(p => p.Id != fwLink.Id && p.Link == fwLink.Link))
+                if (context.FwLink.Any(p => p.Id != fwLink.Id && p.Link == fwLink.Link))
                 {
                     ModelState.AddModelError("Link", "链接已存在");
                     return View(fwLink);
                 }
-                if (_context.FwLink.Any(p => p.Id != fwLink.Id && p.Name == fwLink.Name))
+                if (context.FwLink.Any(p => p.Id != fwLink.Id && p.Name == fwLink.Name))
                 {
                     ModelState.AddModelError("Name", "链接名称已存在");
                     return View(fwLink);
                 }
-                var item = _context.FwLink.FirstOrDefault(p => p.Id == fwLink.Id);
+                var item = context.FwLink.FirstOrDefault(p => p.Id == fwLink.Id);
                 try
                 {
                     item.Link = fwLink.Link;
                     item.Name = fwLink.Name;
                     item.EditTime = DateTime.Now;
-                    _context.Update(item);
-                    await _context.SaveChangesAsync();
+                    context.Update(item);
+                    await context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -148,7 +141,7 @@ namespace NeoWeb.Controllers
                 return NotFound();
             }
 
-            var fwLink = await _context.FwLink
+            var fwLink = await context.FwLink
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (fwLink == null)
             {
@@ -163,15 +156,15 @@ namespace NeoWeb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var fwLink = await _context.FwLink.FindAsync(id);
-            _context.FwLink.Remove(fwLink);
-            await _context.SaveChangesAsync();
+            var fwLink = await context.FwLink.FindAsync(id);
+            context.FwLink.Remove(fwLink);
+            await context.SaveChangesAsync();
             return RedirectToAction(nameof(List));
         }
 
         private bool FwLinkExists(int id)
         {
-            return _context.FwLink.Any(e => e.Id == id);
+            return context.FwLink.Any(e => e.Id == id);
         }
     }
 }

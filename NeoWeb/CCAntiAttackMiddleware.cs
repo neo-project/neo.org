@@ -6,19 +6,13 @@ using System.Threading.Tasks;
 
 namespace NeoWeb
 {
-    public class CCAntiAttackMiddleware
+    public class CCAntiAttackMiddleware(RequestDelegate next)
     {
-        private readonly RequestDelegate _next;
-        private readonly List<RequestItem> _requestList = new ();
-        private readonly List<BlockItem> _blockList = new();
+        private readonly List<RequestItem> _requestList = [];
+        private readonly List<BlockItem> _blockList = [];
 
         private const int MaxRequestsPerMinute = 10;
         private const int BlockDurationMinutes = 10;
-
-        public CCAntiAttackMiddleware(RequestDelegate next)
-        {
-            _next = next;
-        }
 
         public async Task Invoke(HttpContext context)
         {
@@ -45,7 +39,7 @@ namespace NeoWeb
                 _requestList.Add(new RequestItem { IP = ipAddress, DateTime = DateTime.UtcNow });
             }
 
-            await _next(context);
+            await next(context);
         }
 
         private void CleanUpExpiredRequestsAndBlocks()
@@ -55,10 +49,10 @@ namespace NeoWeb
             _blockList.RemoveAll(p => p == null || p?.DateTime < utcNow);
         }
 
-        private async Task HandleBlockedRequest(HttpContext context, BlockItem block)
+        private static async Task HandleBlockedRequest(HttpContext context, BlockItem block)
         {
             context.Response.StatusCode = 429; // Too Many Requests
-            context.Response.Headers.Add("Retry-After", block.DateTime.ToString("R"));
+            context.Response.Headers.Append("Retry-After", block.DateTime.ToString("R"));
             context.Response.ContentType = "text/html";
             await context.Response.WriteAsync(string.Format(System.IO.File.ReadAllText("wwwroot/429.html"), (int)(block.DateTime - DateTime.UtcNow).TotalSeconds, block.IP, block.DateTime.ToString("R")));
         }
@@ -68,7 +62,7 @@ namespace NeoWeb
             var blockTime = DateTime.UtcNow.AddMinutes(BlockDurationMinutes);
             _blockList.Add(new BlockItem { IP = ipAddress, DateTime = blockTime });
             context.Response.StatusCode = 429; // Too Many Requests
-            context.Response.Headers.Add("Retry-After", blockTime.ToString("R"));
+            context.Response.Headers.Append("Retry-After", blockTime.ToString("R"));
             context.Response.ContentType = "text/html";
             await context.Response.WriteAsync(string.Format(System.IO.File.ReadAllText("wwwroot/429.html"), (int)(blockTime - DateTime.UtcNow).TotalSeconds, ipAddress, blockTime.ToString("R")));
         }

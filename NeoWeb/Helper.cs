@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Http;
 using Neo;
 using NeoWeb.Models;
 using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Formats.Jpeg;
 using SixLabors.ImageSharp.Processing;
 using static System.Text.RegularExpressions.Regex;
 
@@ -21,7 +22,7 @@ namespace NeoWeb
     {
         public static string CurrentDirectory { set; get; }
 
-        public static List<IPZone> Banlist = new List<IPZone>();
+        public static List<IPZone> Banlist = [];
 
         public static void AddBlogs(IQueryable<Blog> blogs, List<NewsViewModel> viewModels, bool isZh)
         {
@@ -112,12 +113,16 @@ namespace NeoWeb
             {
                 throw new ArgumentException(null, nameof(cover));
             }
-
-            var random = new Random();
             var bytes = new byte[10];
-            random.NextBytes(bytes);
-            var newName = bytes.ToHexString() + Path.GetExtension(cover.FileName);
-            var filePath = Path.Combine(env.ContentRootPath, "wwwroot/upload", newName);
+            string newName, filePath;
+            do
+            {
+                new Random().NextBytes(bytes);
+                newName = $"{bytes.ToHexString()}.jpg";
+                filePath = Path.Combine(env.ContentRootPath, "wwwroot/upload", newName);
+            }
+            while (File.Exists(filePath));
+
             if (cover.Length > 0)
             {
                 using var stream = new FileStream(filePath, FileMode.CreateNew);
@@ -131,7 +136,7 @@ namespace NeoWeb
                     Size = new Size((int)maxWidth, (int)maxWidth * image.Height / image.Width),
                     Mode = ResizeMode.Max
                 }));
-                image.Save(filePath);
+                image.Save(filePath, new JpegEncoder() { Quality = 75, SkipMetadata = true });
             }
             return newName;
         }
@@ -154,11 +159,16 @@ namespace NeoWeb
             {
                 throw new ArgumentException(null, nameof(file));
             }
-            var random = new Random();
             var bytes = new byte[10];
-            random.NextBytes(bytes);
-            var newName = bytes.ToHexString() + Path.GetExtension(file.FileName);
-            var filePath = Path.Combine(env.ContentRootPath, "wwwroot/upload", newName);
+            string newName, filePath;
+            do
+            {
+                new Random().NextBytes(bytes);
+                newName = bytes.ToHexString() + Path.GetExtension(file.FileName);
+                filePath = Path.Combine(env.ContentRootPath, "wwwroot/upload", newName);
+            }
+            while (File.Exists(filePath));
+
             if (file.Length > 0)
             {
                 using var stream = new FileStream(filePath, FileMode.CreateNew);
@@ -214,7 +224,7 @@ namespace NeoWeb
             public DateTime Time;
         }
 
-        private static readonly List<IPItem> IPList = new List<IPItem>();
+        private static readonly List<IPItem> IPList = [];
 
         internal static bool CCAttack(IPAddress ip, string action, int interval, int times)
         {
