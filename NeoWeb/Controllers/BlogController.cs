@@ -90,19 +90,33 @@ namespace NeoWeb.Controllers
             {
                 if (chineseCover != null)
                 {
-                    var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
-                    if (Helper.ValidateCover(_env, fileName))
-                        blog.ChineseCover = fileName;
-                    else
-                        ModelState.AddModelError("ChineseCover", "Cover size must be 16:9.");
+                    try
+                    {
+                        var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
+                        if (Helper.ValidateCover(_env, fileName))
+                            blog.ChineseCover = fileName;
+                        else
+                            ModelState.AddModelError("ChineseCover", "Cover size must be 16:9.");
+                    }
+                    catch (ArgumentException)
+                    {
+                        ModelState.AddModelError("ChineseCover", "Image files exceeding 10MB or in an unsupported format.");
+                    }
                 }
                 if (englishCover != null)
                 {
-                    var fileName = Helper.UploadMedia(englishCover, _env, 1000);
-                    if (Helper.ValidateCover(_env, fileName))
-                        blog.EnglishCover = fileName;
-                    else
-                        ModelState.AddModelError("EnglishCover", "Cover size must be 16:9.");
+                    try
+                    {
+                        var fileName = Helper.UploadMedia(englishCover, _env, 1000);
+                        if (Helper.ValidateCover(_env, fileName))
+                            blog.EnglishCover = fileName;
+                        else
+                            ModelState.AddModelError("EnglishCover", "Cover size must be 16:9.");
+                    }
+                    catch (ArgumentException)
+                    {
+                        ModelState.AddModelError("EnglishCover", "Image files exceeding 10MB or in an unsupported format.");
+                    }
                 }
                 if (!ModelState.IsValid) return View(blog);
 
@@ -162,30 +176,44 @@ namespace NeoWeb.Controllers
                 var item = _context.Blogs.FirstOrDefault(p => p.Id == blog.Id);
                 if (chineseCover != null)
                 {
-                    var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
-                    if (Helper.ValidateCover(_env, fileName))
+                    try
                     {
-                        if (!string.IsNullOrEmpty(blog.ChineseCover))
-                            System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", blog.ChineseCover));
-                        item.ChineseCover = fileName;
+                        var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
+                        if (Helper.ValidateCover(_env, fileName))
+                        {
+                            if (!string.IsNullOrEmpty(blog.ChineseCover))
+                                System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", blog.ChineseCover));
+                            item.ChineseCover = fileName;
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("ChineseCover", "Cover size must be 16:9");
+                        }
                     }
-                    else
+                    catch (ArgumentException)
                     {
-                        ModelState.AddModelError("ChineseCover", "Cover size must be 16:9");
+                        ModelState.AddModelError("ChineseCover", "Image files exceeding 10MB or in an unsupported format.");
                     }
                 }
                 if (englishCover != null)
                 {
-                    var fileName = Helper.UploadMedia(englishCover, _env, 1000);
-                    if (Helper.ValidateCover(_env, fileName))
+                    try
                     {
-                        if (!string.IsNullOrEmpty(blog.EnglishCover))
-                            System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", blog.EnglishCover));
-                        item.EnglishCover = fileName;
+                        var fileName = Helper.UploadMedia(englishCover, _env, 1000);
+                        if (Helper.ValidateCover(_env, fileName))
+                        {
+                            if (!string.IsNullOrEmpty(blog.EnglishCover))
+                                System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", blog.EnglishCover));
+                            item.EnglishCover = fileName;
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
+                        }
                     }
-                    else
+                    catch (ArgumentException)
                     {
-                        ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
+                        ModelState.AddModelError("EnglishCover", "Image files exceeding 10MB or in an unsupported format.");
                     }
                 }
                 if (!ModelState.IsValid) return View(blog);

@@ -59,37 +59,37 @@ namespace NeoWeb.Controllers
             {
                 foreach (var item in keywords.Split(" "))
                 {
-                    blogs = blogs.Where(p => p.ChineseTitle.Contains(item, StringComparison.CurrentCultureIgnoreCase)
-                        || p.ChineseContent.Contains(item, StringComparison.CurrentCultureIgnoreCase)
-                        || !p.ChineseTags.Equals(null, StringComparison.CurrentCultureIgnoreCase) && p.ChineseTags.Contains(item, StringComparison.CurrentCultureIgnoreCase)
-                        || !p.ChineseSummary.Equals(null, StringComparison.CurrentCultureIgnoreCase) && p.ChineseSummary.Contains(item, StringComparison.CurrentCultureIgnoreCase)
-                        || p.EnglishTitle.Contains(item, StringComparison.CurrentCultureIgnoreCase)
-                        || p.EnglishContent.Contains(item, StringComparison.CurrentCultureIgnoreCase)
-                        || p.EnglishTags != null && p.EnglishTags.Contains(item, StringComparison.CurrentCultureIgnoreCase)
-                        || p.EnglishSummary != null && p.EnglishSummary.Contains(item, StringComparison.CurrentCultureIgnoreCase));
+                    blogs = blogs.Where(p => p.ChineseTitle.ToLower().Contains(item.ToLower())
+                        || p.ChineseContent.ToLower().Contains(item.ToLower())
+                        || p.ChineseTags.ToLower() != null && p.ChineseTags.ToLower().Contains(item.ToLower())
+                        || p.ChineseSummary.ToLower() != null && p.ChineseSummary.ToLower().Contains(item.ToLower())
+                        || p.EnglishTitle.ToLower().Contains(item.ToLower())
+                        || p.EnglishContent.ToLower().Contains(item.ToLower())
+                        || p.EnglishTags != null && p.EnglishTags.ToLower().Contains(item.ToLower())
+                        || p.EnglishSummary != null && p.EnglishSummary.ToLower().Contains(item.ToLower()));
                     if (blogs == null) break;
                 }
                 foreach (var item in keywords.Split(" "))
                 {
-                    events = events.Where(p => p.ChineseAddress.Contains(item, StringComparison.CurrentCultureIgnoreCase)
-                                || p.ChineseCity.Contains(item, StringComparison.CurrentCultureIgnoreCase)
-                                || p.ChineseDetails.Contains(item, StringComparison.CurrentCultureIgnoreCase)
-                                || p.ChineseName.Contains(item, StringComparison.CurrentCultureIgnoreCase)
-                                || p.ChineseOrganizers.Contains(item, StringComparison.CurrentCultureIgnoreCase)
-                                || p.Country != null && p.Country.ZhName.Contains(item, StringComparison.CurrentCultureIgnoreCase)
-                                || p.Country != null && p.Country.Name.Contains(item, StringComparison.CurrentCultureIgnoreCase)
-                                || p.EnglishAddress.Contains(item, StringComparison.CurrentCultureIgnoreCase)
-                                || p.EnglishCity.Contains(item, StringComparison.CurrentCultureIgnoreCase)
-                                || p.EnglishDetails.Contains(item, StringComparison.CurrentCultureIgnoreCase)
-                                || p.EnglishName.Contains(item, StringComparison.CurrentCultureIgnoreCase)
-                                || p.EnglishOrganizers.Contains(item, StringComparison.CurrentCultureIgnoreCase));
+                    events = events.Where(p => p.ChineseAddress.ToLower().Contains(item.ToLower())
+                                || p.ChineseCity.ToLower().Contains(item.ToLower())
+                                || p.ChineseDetails.ToLower().Contains(item.ToLower())
+                                || p.ChineseName.ToLower().Contains(item.ToLower())
+                                || p.ChineseOrganizers.ToLower().Contains(item.ToLower())
+                                || p.Country != null && p.Country.ZhName.ToLower().Contains(item.ToLower())
+                                || p.Country != null && p.Country.Name.ToLower().Contains(item.ToLower())
+                                || p.EnglishAddress.ToLower().Contains(item.ToLower())
+                                || p.EnglishCity.ToLower().Contains(item.ToLower())
+                                || p.EnglishDetails.ToLower().Contains(item.ToLower())
+                                || p.EnglishName.ToLower().Contains(item.ToLower())
+                                || p.EnglishOrganizers.ToLower().Contains(item.ToLower()));
                     if (events == null) break;
                 }
                 foreach (var item in keywords.Split(" "))
                 {
-                    news = news.Where(p => p.ChineseTitle.Contains(item, StringComparison.CurrentCultureIgnoreCase)
-                        || p.EnglishTitle.Contains(item, StringComparison.CurrentCultureIgnoreCase)
-                        || p.Link.Contains(item, StringComparison.CurrentCultureIgnoreCase));
+                    news = news.Where(p => p.ChineseTitle.ToLower().Contains(item.ToLower())
+                        || p.EnglishTitle.ToLower().Contains(item.ToLower())
+                        || p.Link.ToLower().Contains(item.ToLower()));
                     if (news == null) break;
                 }
             }
@@ -114,7 +114,7 @@ namespace NeoWeb.Controllers
                     break;
             }
 
-            viewModels = [.. viewModels.OrderByDescending(p => p.Time)];
+            viewModels = viewModels.OrderByDescending(p => p.Time).ToList();
 
             // 添加置顶内容
             if (type == null && year == null && string.IsNullOrEmpty(keywords))
@@ -149,13 +149,12 @@ namespace NeoWeb.Controllers
             allYear.Insert(0, new SelectListItem("All Year", ""));
 
             ViewBag.AllYear = allYear;
-            List<SelectListItem> selectListItems = [
-                new() { Value = "0", Text = "All Type" },
-                new() { Value = "1", Text = "Blog" },
-                new() { Value = "2", Text = "Event" },
-                new() { Value = "3", Text = "News" }
-            ];
-            ViewBag.AllType = selectListItems;
+            ViewBag.AllType = new List<SelectListItem>() {
+                new SelectListItem { Value = "0", Text = "All Type" },
+                new SelectListItem { Value = "1", Text = "Blog" },
+                new SelectListItem { Value = "2", Text = "Event" },
+                new SelectListItem { Value = "3", Text = "News" }
+            };
 
             ViewBag.Year = year;
             ViewBag.KeyWords = keywords;
