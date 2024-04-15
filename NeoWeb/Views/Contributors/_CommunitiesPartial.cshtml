@@ -8,54 +8,54 @@
 </div>
 
 <div class="communities-container">
-    @{ string[,] items = new string[10, 5]
-                      {
-        { "/images/discover/COZ.png", "COZ", "COZ is a software development group specializing in blockchain and distributed technologies. Since its humble beginnings as an open source, community driven organization, COZ has become one of blockchain’s most respected development organizations, consistently delivering groundbreaking products. COZ is responsible for projects such as Neon wallet, Dora, the Neo Python suite, and Neon-js.", "https://coz.io", "https://github.com/CityOfZion" },
+    @{
+        string[,] items = new string[8, 5]
+        {
+    { "/images/discover/COZ.png", "COZ", "COZ is a software development group specializing in blockchain and distributed technologies. Since its humble beginnings as an open source, community driven organization, COZ has become one of blockchain’s most respected development organizations, consistently delivering groundbreaking products. COZ is responsible for projects such as Neon wallet, Dora, the Neo Python suite, and Neon-js.", "https://coz.io", "https://github.com/CityOfZion" },
 
-        { "/images/discover/NeoResearch.png", "NeoResearch", "NeoResearch is an open-source community which supports the ecosystem with teaching, researching and applied development for blockchain technology. The group welcomes contributors to discuss, investigate and propose solutions for challenges that are present on a variety of core components of the Neo Blockchain. In this sense, monitoring, analysis, testing and experimentation are core concepts embraced by NeoResearch. Empowering the ecosystem with didactic tools is a path for technology adoption and a positive identity consolidation is NeoResearch's vision.", "https://neoresearch.io", "https://github.com/neoresearch" },
+    { "/images/discover/NeoResearch.png", "NeoResearch", "NeoResearch is an open-source community which supports the ecosystem with teaching, researching and applied development for blockchain technology. The group welcomes contributors to discuss, investigate and propose solutions for challenges that are present on a variety of core components of the Neo Blockchain. In this sense, monitoring, analysis, testing and experimentation are core concepts embraced by NeoResearch. Empowering the ecosystem with didactic tools is a path for technology adoption and a positive identity consolidation is NeoResearch's vision.", "https://neoresearch.io", "https://github.com/neoresearch" },
 
-        { "/images/discover/SPCC.png", "Neo St Petersburg Competence Center", "With support from Neo Foundation, Neo SPCC works on Neo ecosystem projects as a part of the international community of developers. Neo SPCC core projects are NeoFS, a decentralized object storage platform integrated with Neo Blockchain, and NeoGo, high-performance Neo node implementation and SDK for Go programming language. <br /><br />Neo SPCC's long-term goal is to build a true decentralized cloud platform using Neo technologies that will allow solving almost any real-world B2B and B2C problems in a decentralized setting.", "https://nspcc.ru/en/", "https://github.com/nspcc-dev/" },
+    { "/images/discover/SPCC.png", "Neo St Petersburg Competence Center", "With support from Neo Foundation, Neo SPCC works on Neo ecosystem projects as a part of the international community of developers. Neo SPCC core projects are NeoFS, a decentralized object storage platform integrated with Neo Blockchain, and NeoGo, high-performance Neo node implementation and SDK for Go programming language. <br /><br />Neo SPCC's long-term goal is to build a true decentralized cloud platform using Neo technologies that will allow solving almost any real-world B2B and B2C problems in a decentralized setting.", "https://nspcc.ru/en/", "https://github.com/nspcc-dev/" },
 
-        { "/images/discover/Next.png", "NEXT", "NEXT is a next-generation internet application lab, delivering Neo open network infrastructure services. The community was created as a dApp incubator, seeking to pull more developers into the Neo community and spearhead innovation in the blockchain sector.", "https://neonext.io", "https://github.com/NeoNEXT" },
+    { "/images/discover/Next.png", "NEXT", "NEXT is a next-generation internet application lab, delivering Neo open network infrastructure services. The community was created as a dApp incubator, seeking to pull more developers into the Neo community and spearhead innovation in the blockchain sector.", "https://neonext.io", "https://github.com/NeoNEXT" },
 
-        { "/images/discover/AxLabs.png", "AxLabs", "AxLabs is a community developing and maintaining projects in the Neo Ecosystem, mainly focusing on Developer Experience (DevEx). AxLabs joined Neo in late 2018, and since then has been building various tools to make the DevEx on Neo as smooth and intuitive as possible. Examples are tools for Java/Kotlin developers, like the neow3j SDK, the neow3j compiler & devpack, as well as the Neo Playground. <br /><br />The team consists of passionate builders and open-source enthusiasts, with a track record in projects in the blockchain scene. Alongside its broad software engineering experience, AxLabs team members share a strong academic background, with close ties to educational institutions in Switzerland - giving workshops, lectures, and tutorials for a broad audience across the globe.", "https://axlabs.com", "https://github.com/AxLabs" },
+    { "/images/discover/NeoOne.png", "Neo Tracker", "NEO Tracker is the team is behind the NEO•ONE and NEO Tracker tools. NEO•ONE is an open source end-to-end framework that makes coding, testing and deploying Neo dapps easy, fast, efficient and enjoyable. NEO Tracker is a blockchain explorer and web wallet which gives users a gateway to interact with the Neo Blockchain. The NEO Tracker team aims to provide powerful, intuitive and approachable tools for the community.", "https://neo-one.io", "https://github.com/neo-one-suite" },
 
-        { "/images/discover/NeoOne.png", "Neo Tracker", "NEO Tracker is the team is behind the NEO•ONE and NEO Tracker tools. NEO•ONE is an open source end-to-end framework that makes coding, testing and deploying Neo dapps easy, fast, efficient and enjoyable. NEO Tracker is a blockchain explorer and web wallet which gives users a gateway to interact with the Neo Blockchain. The NEO Tracker team aims to provide powerful, intuitive and approachable tools for the community.", "https://neo-one.io", "https://github.com/neo-one-suite" },
-                      
-        { "/images/discover/NEL.png", "NewEconoLabs", "NEL is a Chinese developer community committed to providing developer-friendly tools to improve Neo's ease of use. It has developed and maintained many blockchain tools such as NELScan browser, NEORAY online contract development tool, Teemo wallet, etc.", "https://nel.group/index-En.html", "https://github.com/NewEconoLab" },
+    { "/images/discover/Red4Sec.png", "Red4Sec", "Red4Sec is a Cybersecurity company located in Madrid, Spain, specializing in blockchain technologies, ethical hacking, penetration testing, and code audits. Rec4Sec was formed by a team of experts and security analysts with many years of experience in the Cybersecurity sector. In recent years, Red4Sec has become increasingly focused on blockchain and smart contract code audits and has partnered with great blockchain projects such as Neo.", "https://red4sec.com/en", "https://github.com/red4sec" },
 
-        { "/images/discover/Alienworks.png", "Alienworks", "Alienworks is a global group of developers formed to build tools and resources to support current and future developers in Neo's ecosystem and beyond. Its goal is to provide users and developers with the convenience of using and building a future-oriented smart economy in the crypto world.", "", "https://github.com/alienworks" },
+    { "/images/discover/NeoNewsToday.png", "Neo News Today", "Neo News Today is a community run news website dedicated to delivering up-to-date information on all things connected to the Neo ecosystem. NNT provides breaking news, interviews, guides, and resources materials, carefully delivered to the community with an emphasis on accuracy and reliability.", "https://neonewstoday.com/ ", "" },
 
-         { "/images/discover/Red4Sec.png", "Red4Sec", "Red4Sec is a Cybersecurity company located in Madrid, Spain, specializing in blockchain technologies, ethical hacking, penetration testing, and code audits. Rec4Sec was formed by a team of experts and security analysts with many years of experience in the Cybersecurity sector. In recent years, Red4Sec has become increasingly focused on blockchain and smart contract code audits and has partnered with great blockchain projects such as Neo.", "https://red4sec.com/en", "https://github.com/red4sec" },
+    { "/images/discover/R3E.jpg", "R3E", "R3E is a Neo community created by blockchain security and cryptography PhDs. The community focuses on developing an off-chain service layer for the Neo blockchain. R3E utilizes Zero-Knowledge Proof (ZKP) technology, Trusted Execution Environment (TEE) technology, and the Rust programming language to develop a service layer framework for Neo.", "", "https://github.com/R3E-Network/" },
 
-         { "/images/discover/NeoNewsToday.png", "Neo News Today", "Neo News Today is a community run news website dedicated to delivering up-to-date information on all things connected to the Neo ecosystem. NNT provides breaking news, interviews, guides, and resources materials, carefully delivered to the community with an emphasis on accuracy and reliability.", "https://neonewstoday.com/ ", "" },
-    };
+        };
 
-    for (int i = 0; i < items.GetLength(0); i++)
-    {
-    <div class="communities-item">
-        <img class="content-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(items[i, 0], true)" />
-        <div class="content-wrapper">
-            <div class="communities-name">@items[i, 1]</div>
-            <div class="communities-description">
-                @Localizer[items[i, 2]]
+        for (int i = 0; i < items.GetLength(0); i++)
+        {
+            <div class="communities-item">
+                <img class="content-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(items[i, 0], true)" />
+                <div class="content-wrapper">
+                    <div class="communities-name">@items[i, 1]</div>
+                    <div class="communities-description">
+                        @Localizer[items[i, 2]]
+                    </div>
+                    @if (!String.IsNullOrEmpty(@items[i, 3]))
+                    {
+                        <a class="link-wrapper" href="@items[i, 3]">
+                            <img class="link-icon" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/discover/WebLink.svg", true)" />
+                            <div>@items[i, 3]</div>
+                        </a>
+                    }
+
+                    @if (!String.IsNullOrEmpty(@items[i, 4]))
+                    {
+                        <a class="link-wrapper" href="@items[i, 4]">
+                            <i class="iconfont link-icon">&#xe609;</i>
+                            <div>@items[i, 4]</div>
+                        </a>
+                    }
+                </div>
             </div>
-            @if (!String.IsNullOrEmpty(@items[i, 3])) {
-            <a class="link-wrapper" href="@items[i, 3]">
-                <img class="link-icon" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/discover/WebLink.svg", true)" />
-                <div>@items[i, 3]</div>
-            </a>
-            }
-
-            @if (!String.IsNullOrEmpty(@items[i, 4])) {
-                <a class="link-wrapper" href="@items[i, 4]">
-                    <i class="iconfont link-icon">&#xe609;</i>
-                    <div>@items[i, 4]</div>
-                </a>
-            }
-        </div>
-    </div>
-    }
+        }
     }
 
 

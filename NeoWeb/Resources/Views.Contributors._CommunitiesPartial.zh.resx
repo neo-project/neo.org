@@ -153,4 +153,7 @@
   <data name="Communities" xml:space="preserve">
     <value>NEO 社区</value>
   </data>
+  <data name="R3E is a Neo community created by blockchain security and cryptography PhDs. The community focuses on developing an off-chain service layer for the Neo blockchain. R3E utilizes Zero-Knowledge Proof (ZKP) technology, Trusted Execution Environment (TEE) technology, and the Rust programming language to develop a service layer framework for Neo." xml:space="preserve">
+    <value>R3E 是一个由区块链安全和密码学博士创建的 Neo 社区。该社区致力于为 Neo 区块链开发链外服务层。R3E 利用零知识证明（ZKP）技术、可信执行环境（TEE）技术和 Rust 编程语言为 Neo 开发服务层框架。</value>
+  </data>
 </root>
