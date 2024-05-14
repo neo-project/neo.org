@@ -390,34 +390,6 @@ namespace NeoWeb
         }
 
         /// <summary>
-        /// 将 Base64 格式的脚本转为易读的 OpCode
-        /// 参考：https://github.com/chenzhitong/OpCodeConverter
-        /// </summary>
-        /// <param name="base64">Base64 编码的 scripts</param>
-        /// <returns>List&lt;string&gt; 类型的 OpCode 及操作数</returns>
-        public static List<string> ScriptsToOpCode(string base64)
-        {
-            List<byte> scripts;
-            try
-            {
-                scripts = Convert.FromBase64String(base64).ToList();
-            }
-            catch (Exception)
-            {
-                throw new FormatException();
-            }
-            try
-            {
-                _ = new Script(scripts.ToArray(), true);
-            }
-            catch (Exception)
-            {
-                throw new FormatException();
-            }
-            return ScriptsToOpCode(scripts);
-        }
-
-        /// <summary>
         /// 将 Base64 格式的合约脚本转为脚本哈希
         /// <param name="base64">
         /// Base64 编码的 scripts
@@ -442,31 +414,88 @@ namespace NeoWeb
         }
 
         /// <summary>
+        /// 将 Base64 格式的脚本转为易读的 OpCode
+        /// </summary>
+        /// <param name="base64">Base64 编码的 scripts</param>
+        /// <returns>List&lt;string&gt; 类型的 OpCode 及操作数</returns>
+        public static List<string> ScriptsToOpCode(string base64)
+        {
+            Script script;
+            try
+            {
+                var scriptData = Convert.FromBase64String(base64);
+                script = new Script(scriptData.ToArray(), true);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            return ScriptsToOpCode(script);
+        }
+
+        /// <summary>
         /// 将十六进制的脚本转为易读的 OpCode
-        /// 参考：https://github.com/chenzhitong/OpCodeConverter
         /// </summary>
         /// <param name="hex">十六进制的脚本</param>
         /// <returns>List&lt;string&gt; 类型的 OpCode 及操作数</returns>
         public static List<string> HexScriptsToOpCode(string hex)
         {
-            List<byte> scripts;
+            Script script;
             try
             {
-                scripts = hex.HexToBytes().ToList();
+                var scriptData = hex.HexToBytes().ToArray();
+                script = new Script(hex.HexToBytes(), true);
             }
             catch (Exception)
             {
-                throw new FormatException();
+                return null;
             }
-            try
+            return ScriptsToOpCode(script);
+        }
+
+        private static List<string> ScriptsToOpCode(Script script)
+        {
+            //Initialize all InteropService
+            var dic = new Dictionary<uint, string>();
+            ApplicationEngine.Services.ToList().ForEach(p => dic.Add(p.Value.Hash, p.Value.Name));
+
+            //Analyzing Scripts
+            var ip = 0;
+            Instruction instruction;
+            var result = new List<string>();
+            while (ip < script.Length && (instruction = script.GetInstruction(ip)) != null)
             {
-                _ = new Script(scripts.ToArray(), true);
+                ip += instruction.Size;
+
+                var op = instruction.OpCode;
+
+                if (op.ToString().StartsWith("PUSHINT"))
+                {
+                    var operand = instruction.Operand.ToArray();
+                    result.Add($"{op} {new BigInteger(operand)}");
+                }
+                else if (op == OpCode.SYSCALL)
+                {
+                    var operand = instruction.Operand.ToArray();
+                    result.Add($"{op} {dic[BitConverter.ToUInt32(operand)]}");
+                }
+                else
+                {
+                    if (!instruction.Operand.IsEmpty && instruction.Operand.Length > 0)
+                    {
+                        var operand = instruction.Operand.ToArray();
+                        var ascii = Encoding.Default.GetString(operand);
+                        ascii = ascii.Any(p => p < '0' || p > 'z') ? operand.ToHexString() : ascii;
+
+                        result.Add($"{op} {(operand.Length == 20 ? new UInt160(operand).ToString() : ascii)}");
+                    }
+                    else
+                    {
+                        result.Add($"{op}");
+                    }
+                }
             }
-            catch (Exception)
-            {
-                throw new FormatException();
-            }
-            return ScriptsToOpCode(scripts);
+            return result.ToArray().ToList();
         }
 
         private static List<string> ScriptsToOpCode(List<byte> scripts)
