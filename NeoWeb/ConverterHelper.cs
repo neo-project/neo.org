@@ -390,6 +390,26 @@ namespace NeoWeb
         }
 
         /// <summary>
+        /// WIF 转 HEX 私钥
+        /// </summary>
+        /// <param name="wif">WIF 格式的私钥</param>
+        /// <returns>HEX 格式的私钥</returns>
+        public static string WIFToHexPrivateKey(string wif)
+        {
+            string output;
+            try
+            {
+                var privateKey = Wallet.GetPrivateKeyFromWIF(wif);
+                output = privateKey.ToHexString();
+            }
+            catch (Exception)
+            {
+                throw new FormatException();
+            }
+            return output;
+        }
+
+        /// <summary>
         /// 将 Base64 格式的合约脚本转为脚本哈希
         /// <param name="base64">
         /// Base64 编码的 scripts

@@ -199,6 +199,18 @@ namespace NeoWeb.Controllers
                 catch (Exception) { }
                 try
                 {
+                    var output = ConverterHelper.WIFToHexPrivateKey(input);
+                    result.Add(localizer["WIF private key to Hex little-endian private key:"], [output]);
+                }
+                catch (Exception) { }
+                try
+                {
+                    var output = ConverterHelper.PrivateKeyToAddress(input);
+                    result.Add(localizer["Private key to Neo3 address:"], [output]);
+                }
+                catch (Exception) { }
+                try
+                {
                     var output = ConverterHelper.AddressToScriptHash(ConverterHelper.PublicKeyToAddress(ConverterHelper.PrivateKeyToPublicKey(input))).big;
                     result.Add(localizer["Private key to script hash (big-endian):"], [output]);
                 }

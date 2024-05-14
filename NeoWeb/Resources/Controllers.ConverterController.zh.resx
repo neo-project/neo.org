@@ -225,4 +225,7 @@
   <data name="UTF8 string to hexadecimal string:" xml:space="preserve">
     <value>UTF8 字符串转十六进制字符串：</value>
   </data>
+  <data name="WIF private key to Hex little-endian private key:" xml:space="preserve">
+    <value>WIF 私钥转 16 进制小端序私钥</value>
+  </data>
 </root>
