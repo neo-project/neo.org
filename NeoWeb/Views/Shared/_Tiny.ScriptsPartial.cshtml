@@ -1,7 +1,7 @@
 <script src="https://cdn.tiny.cloud/1/gn2hgb11cjhlok7oigo4xghbvzulbm61muijkahjvwamzej5/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
     tinymce.init({
-        selector: 'textarea',
+        selector: '#ChineseContent',
         height: 500,
         menubar: true,
         language: 'zh_CN',
@@ -14,6 +14,88 @@
             'bullist numlist checklist outdent indent | removeformat | code table help',
         image_advtab: true,
         default_link_target: "_blank",
-        images_upload_url: "../../../../blog/upload"
+        images_upload_url: "../../../../blog/upload",
+        init_instance_callback: function (editor) {
+            editor.on('Change', function (e) {
+                localStorage.setItem('blog_zh', editor.getContent());
+            });
+        }
     });
+    tinymce.init({
+        selector: '#EnglishContent',
+        height: 500,
+        menubar: true,
+        language: 'zh_CN',
+        plugins: [
+            'advlist', 'autolink',
+            'lists', 'link', 'image', 'charmap', 'preview', 'anchor', 'searchreplace', 'visualblocks',
+            'fullscreen', 'insertdatetime', 'media', 'table', 'help', 'wordcount'
+        ],
+        toolbar: 'undo redo | a11ycheck casechange blocks | bold italic backcolor | alignleft aligncenter alignright alignjustify |' +
+            'bullist numlist checklist outdent indent | removeformat | code table help',
+        image_advtab: true,
+        default_link_target: "_blank",
+        images_upload_url: "../../../../blog/upload",
+        init_instance_callback: function (editor) {
+            editor.on('Change', function (e) {
+                localStorage.setItem('blog_en', editor.getContent());
+            });
+        }
+    });
+    tinymce.init({
+        selector: '#ChineseDetails',
+        height: 500,
+        menubar: true,
+        language: 'zh_CN',
+        plugins: [
+            'advlist', 'autolink',
+            'lists', 'link', 'image', 'charmap', 'preview', 'anchor', 'searchreplace', 'visualblocks',
+            'fullscreen', 'insertdatetime', 'media', 'table', 'help', 'wordcount'
+        ],
+        toolbar: 'undo redo | a11ycheck casechange blocks | bold italic backcolor | alignleft aligncenter alignright alignjustify |' +
+            'bullist numlist checklist outdent indent | removeformat | code table help',
+        image_advtab: true,
+        default_link_target: "_blank",
+        images_upload_url: "../../../../blog/upload",
+        init_instance_callback: function (editor) {
+            editor.on('Change', function (e) {
+                localStorage.setItem('event_zh', editor.getContent());
+            });
+        }
+    });
+    tinymce.init({
+        selector: '#EnglishDetails',
+        height: 500,
+        menubar: true,
+        language: 'zh_CN',
+        plugins: [
+            'advlist', 'autolink',
+            'lists', 'link', 'image', 'charmap', 'preview', 'anchor', 'searchreplace', 'visualblocks',
+            'fullscreen', 'insertdatetime', 'media', 'table', 'help', 'wordcount'
+        ],
+        toolbar: 'undo redo | a11ycheck casechange blocks | bold italic backcolor | alignleft aligncenter alignright alignjustify |' +
+            'bullist numlist checklist outdent indent | removeformat | code table help',
+        image_advtab: true,
+        default_link_target: "_blank",
+        images_upload_url: "../../../../blog/upload",
+        init_instance_callback: function (editor) {
+            editor.on('Change', function (e) {
+                localStorage.setItem('event_en', editor.getContent());
+            });
+        }
+    });
+    function loadDraft()
+    {
+        var a = tinyMCE.get('EnglishDetails');
+        if(a != null) a.setContent(localStorage.getItem('event_en'));
+
+        var b = tinyMCE.get('ChineseDetails');
+        if (b != null) b.setContent(localStorage.getItem('event_zh'));
+
+        var c = tinyMCE.get('EnglishContent');
+        if (c != null) c.setContent(localStorage.getItem('blog_en'));
+
+        var d = tinyMCE.get('ChineseContent');
+        if (d != null) d.setContent(localStorage.getItem('blog_zh'));
+    }
 </script>
