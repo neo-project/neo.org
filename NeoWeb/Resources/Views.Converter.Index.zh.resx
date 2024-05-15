@@ -133,6 +133,6 @@
     <value>请输入待转换的文本</value>
   </data>
   <data name="Support conversion of address, script hash, private key, public key, big-endian and little-endian, big-integer, character string, hexadecimal string, hexadecimal script, Base64 script, Application Log, Base64 encoding, Mnemonic etc. and analysis of smart contract script" xml:space="preserve">
-    <value>支持地址、脚本哈希、私钥、公钥、大小端序、大整数、字符串、十六进制脚本、Base64 脚本、十六进制字符串、Application Log、Base64 编码、助记词等的转换和智能合约脚本的解析</value>
+    <value>支持地址、脚本哈希、私钥、公钥、大小端序、大整数、字符串、 16 进制脚本、Base64 脚本、 16 进制字符串、Application Log、Base64 编码、助记词等的转换和智能合约脚本的解析</value>
   </data>
 </root>

@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
+using Neo.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Xml;
 
 namespace NeoWeb.Controllers
 {
@@ -13,6 +15,7 @@ namespace NeoWeb.Controllers
         [HttpPost]
         public IActionResult Index(string input)
         {
+            ViewBag.NeoVersion = GetNeoVersion();
             if (string.IsNullOrEmpty(input)) return View();
             input = input.Trim();
             ViewBag.Input = input;
@@ -128,6 +131,12 @@ namespace NeoWeb.Controllers
                     }
                 }
                 catch (Exception) { }
+                try
+                {
+                    var output = ConverterHelper.HexStringToHash(input);
+                    result.Add(localizer["Calculate SHA256 hash for Hex string:"], [output]);
+                }
+                catch (Exception) { }
             }
             //可能是 16 进制大端序字符串
             else if (new Regex("^0x([0-9a-f]{2})+$").IsMatch(input.ToLower()))
@@ -154,6 +163,12 @@ namespace NeoWeb.Controllers
                     var output = ConverterHelper.BigLittleEndConversion(input);
                     result.Add(localizer["Big-endian to little-endian:"], [output]);
 
+                }
+                catch (Exception) { }
+                try
+                {
+                    var output = ConverterHelper.HexStringToHash(input);
+                    result.Add(localizer["Calculate SHA256 hash for Hex string:"], [output]);
                 }
                 catch (Exception) { }
             }
@@ -308,6 +323,12 @@ namespace NeoWeb.Controllers
 
                 }
                 catch (Exception) { }
+                try
+                {
+                    var output = ConverterHelper.Base64StringToHash(input);
+                    result.Add(localizer["Calculate SHA256 hash for Base64 string:"], [output]);
+                }
+                catch (Exception) { }
             }
             //可能是正整数
             if (new Regex("^\\d+$").IsMatch(input) && !input.StartsWith('0'))
@@ -375,9 +396,46 @@ namespace NeoWeb.Controllers
                     result.Add(localizer["Base64 encoding:"], [output]);
                 }
                 catch (Exception) { }
+                try
+                {
+                    var output = ConverterHelper.UTF8StringToHash(input);
+                    result.Add(localizer["Calculate SHA256 hash for UTF8 string:"], [output]);
+                }
+                catch (Exception) { }
             }
             ViewBag.Result = result;
             return View();
+        }
+
+        static string NeoVersion;
+
+        private static string GetNeoVersion()
+        {
+            if (string.IsNullOrEmpty(NeoVersion))
+            {
+                var domain = AppDomain.CurrentDomain.FriendlyName; //FriendlyName = "NeoWeb"
+                var jsonFile = $"{domain}.deps.json";
+                var xmlFile = $"{domain}.csproj";
+                if (System.IO.File.Exists(jsonFile))
+                {
+                    var json = JToken.Parse(System.IO.File.ReadAllText(jsonFile));
+                    NeoVersion = json?["targets"]?[0]?[0]?["dependencies"]?["Neo"].AsString();
+                }
+                else if (System.IO.File.Exists(xmlFile))
+                {
+                    var doc = new XmlDocument();
+                    doc.Load(xmlFile);
+                    var nodes = doc.GetElementsByTagName("PackageReference");
+                    foreach (XmlNode node in nodes)
+                    {
+                        if (node.Attributes["Include"]?.InnerText == "Neo")
+                        {
+                            NeoVersion = node.Attributes["Version"]?.InnerText;
+                        }
+                    }
+                }
+            }
+            return NeoVersion;
         }
 
         private static bool IsSupportedAsciiString(string input)

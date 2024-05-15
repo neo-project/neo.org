@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Numerics;
-using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -18,7 +17,7 @@ namespace NeoWeb
     public static class ConverterHelper
     {
         /// <summary>
-        /// 将十六进制的字符串转为 UTF8 字符串
+        /// 将 16 进制的字符串转为 UTF8 字符串
         /// </summary>
         /// <param name="hex">eg:7472616e73666572</param>
         /// <returns>eg:transfer</returns>
@@ -38,7 +37,7 @@ namespace NeoWeb
         }
 
         /// <summary>
-        /// 将 UTF8 格式的字符串转为十六进制的字符串
+        /// 将 UTF8 格式的字符串转为 16 进制的字符串
         /// </summary>
         /// <param name="str">eg:transfer</param>
         /// <returns>eg:7472616e73666572</returns>
@@ -48,7 +47,17 @@ namespace NeoWeb
         }
 
         /// <summary>
-        /// 将十六进制的小端序大整数转为十进制的大整数
+        /// 计算 UTF8 字符串的 Sha256 哈希
+        /// </summary>
+        /// <param name="str">eg:All in one, All in neo.</param>
+        /// <returns>eg:0758c9e9f2514a6e87e893af15b31c26b0f9f69300ac27820d5991cc8eb0bb20</returns>
+        public static string UTF8StringToHash(string str)
+        {
+            return str.Trim().Sha256().ToLower();
+        }
+
+        /// <summary>
+        /// 将 16 进制的小端序大整数转为十进制的大整数
         /// </summary>
         /// <param name="hex">eg:00a3e111</param>
         /// <returns>eg:300000000</returns>
@@ -61,7 +70,7 @@ namespace NeoWeb
         }
 
         /// <summary>
-        /// 将十进制的大整数转为十六进制的小端序大整数
+        /// 将十进制的大整数转为 16 进制的小端序大整数
         /// </summary>
         /// <param name="integer">eg:300000000</param>
         /// <returns>eg:00a3e111</returns>
@@ -123,7 +132,7 @@ namespace NeoWeb
         }
 
         /// <summary>
-        /// 大小端序的十六进制字节数组互转
+        /// 大小端序的 16 进制字节数组互转
         /// </summary>
         /// <param name="hex">eg:0x3ff68d232a60f23a5805b8c40f7e61747f6f61ce</param>
         /// <returns>eg:ce616f7f74617e0fc4b805583af2602a238df63f</returns>
@@ -191,6 +200,23 @@ namespace NeoWeb
             return bytes.ToHexString();
         }
 
+        /// <summary>
+        /// 计算 Base64 格式字符串的 Sha256 哈希
+        /// </summary>
+        /// <param name="base64">eg:SGVsbG8gV29ybGQh</param>
+        /// <returns>eg:7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069</returns>
+        public static string Base64StringToHash(string base64)
+        {
+            try
+            {
+                var bytes = Convert.FromBase64String(base64.Trim());
+                return BitConverter.ToString(System.Security.Cryptography.SHA256.HashData(bytes)).Replace("-", "").ToLower();
+            }
+            catch (Exception)
+            {
+                throw new FormatException();
+            }
+        }
 
         /// <summary>
         /// HEX 字符串 转为 Base64 格式的字符串
@@ -210,6 +236,31 @@ namespace NeoWeb
                 throw new FormatException();
             }
             return base64;
+        }
+
+
+
+        /// <summary>
+        /// 计算 16 进制的字符串的 Sha256 哈希
+        /// </summary>
+        /// <param name="base64">eg:7472616e73666572</param>
+        /// <returns>eg:27f576cafbb263ed44be8bd094f66114da26877706f96c4c31d5a97ffebf2e29</returns>
+        public static string HexStringToHash(string hex)
+        {
+            hex = hex.ToLower().Trim();
+            if (!new Regex("^(0x)?([0-9a-f]{2})+$").IsMatch(hex)) throw new FormatException();
+
+            if (new Regex("^([0-9a-f]{2})+$").IsMatch(hex))
+            {
+                var bytes = hex.HexToBytes();
+                return BitConverter.ToString(System.Security.Cryptography.SHA256.HashData(bytes)).Replace("-", "").ToLower();
+            }
+            else
+            {
+                var bytes = hex[2..].HexToBytes().Reverse().ToArray();
+                return BitConverter.ToString(System.Security.Cryptography.SHA256.HashData(bytes)).Replace("-", "").ToLower();
+
+            }
         }
 
         /// <summary>
@@ -448,15 +499,15 @@ namespace NeoWeb
             }
             catch (Exception)
             {
-                return null;
+                throw new FormatException();
             }
             return ScriptsToOpCode(script);
         }
 
         /// <summary>
-        /// 将十六进制的脚本转为易读的 OpCode
+        /// 将 16 进制的脚本转为易读的 OpCode
         /// </summary>
-        /// <param name="hex">十六进制的脚本</param>
+        /// <param name="hex"> 16 进制的脚本</param>
         /// <returns>List&lt;string&gt; 类型的 OpCode 及操作数</returns>
         public static List<string> HexScriptsToOpCode(string hex)
         {
@@ -468,7 +519,7 @@ namespace NeoWeb
             }
             catch (Exception)
             {
-                return null;
+                throw new FormatException();
             }
             return ScriptsToOpCode(script);
         }
@@ -513,73 +564,6 @@ namespace NeoWeb
                     {
                         result.Add($"{op}");
                     }
-                }
-            }
-            return result.ToArray().ToList();
-        }
-
-        private static List<string> ScriptsToOpCode(List<byte> scripts)
-        {
-            //初始化所有 OpCode
-            var OperandSizePrefixTable = new int[256];
-            var OperandSizeTable = new int[256];
-            foreach (FieldInfo field in typeof(OpCode).GetFields(BindingFlags.Public | BindingFlags.Static))
-            {
-                var attribute = field.GetCustomAttribute<OperandSizeAttribute>();
-                if (attribute == null) continue;
-                int index = (int)(OpCode)field.GetValue(null);
-                OperandSizePrefixTable[index] = attribute.SizePrefix;
-                OperandSizeTable[index] = attribute.Size;
-            }
-            //初始化所有 InteropService
-            var dic = new Dictionary<uint, string>();
-            ApplicationEngine.Services.ToList().ForEach(p => dic.Add(p.Value.Hash, p.Value.Name));
-
-            //解析 Scripts
-            var result = new List<string>();
-            while (scripts.Count > 0)
-            {
-                var op = (OpCode)scripts[0];
-                var operandSizePrefix = OperandSizePrefixTable[scripts[0]];
-                var operandSize = OperandSizeTable[scripts[0]];
-                scripts.RemoveAt(0);
-
-                var onlyOpCode = true;
-                if (operandSize > 0)
-                {
-                    var operand = scripts.Take(operandSize).ToArray();
-                    if (op.ToString().StartsWith("PUSHINT"))
-                    {
-                        result.Add($"{op} {new BigInteger(operand)}");
-                    }
-                    else if (op == OpCode.SYSCALL)
-                    {
-                        result.Add($"{op} {dic[BitConverter.ToUInt32(operand)]}");
-                    }
-                    else
-                    {
-                        result.Add($"{op} {operand.ToHexString()}");
-                    }
-                    scripts.RemoveRange(0, operandSize);
-                    onlyOpCode = false;
-                }
-                if (operandSizePrefix > 0)
-                {
-                    var bytes = scripts.Take(operandSizePrefix).ToArray();
-                    var number = bytes.Length == 1 ? bytes[0] : (int)new BigInteger(bytes);
-                    scripts.RemoveRange(0, operandSizePrefix);
-                    var operand = scripts.Take(number).ToArray();
-
-                    var asicii = Encoding.Default.GetString(operand);
-                    asicii = asicii.Any(p => p < '0' || p > 'z') ? operand.ToHexString() : asicii;
-
-                    result.Add($"{op} {(number == 20 ? new UInt160(operand).ToString() : asicii)}");
-                    scripts.RemoveRange(0, number);
-                    onlyOpCode = false;
-                }
-                if (onlyOpCode)
-                {
-                    result.Add($"{op}");
                 }
             }
             return result.ToArray().ToList();
