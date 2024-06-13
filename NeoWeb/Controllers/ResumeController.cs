@@ -18,7 +18,6 @@ namespace NeoWeb.Controllers
     [Authorize(Roles = "Admin")]
     public class ResumeController(ApplicationDbContext context, IWebHostEnvironment env, IStringLocalizer<ResumeController> localizer, IRecaptchaService recaptcha) : Controller
     {
-
         // GET: Resume
         public async Task<IActionResult> Index(int? jobId, int page = 1)
         {
@@ -48,7 +47,6 @@ namespace NeoWeb.Controllers
         }
 
         [AllowAnonymous]
-        // GET: Resume/Create
         public IActionResult Create(int jobId)
         {
             var job = context.Jobs.FirstOrDefault(p => p.Id == jobId);

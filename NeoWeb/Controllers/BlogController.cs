@@ -55,10 +55,12 @@ namespace NeoWeb.Controllers
             language = !string.IsNullOrEmpty(language) ? language : _sharedLocalizer["en"];
 
             #region Previous and  Next
+
             var idList = _context.Blogs.OrderByDescending(o => o.CreateTime).Select(p => p.Id).ToList();
             ViewBag.NextBlogId = idList.Count == 0 ? id : idList[Math.Max(idList.IndexOf((int)id) - 1, 0)];
             ViewBag.PrevBlogId = idList.Count == 0 ? id : idList[Math.Min(idList.IndexOf((int)id) + 1, idList.Count - 1)];
-            #endregion
+
+            #endregion Previous and  Next
 
             ViewBag.UserRules = _userRules;
 
@@ -143,6 +145,7 @@ namespace NeoWeb.Controllers
             }
             return View(blog);
         }
+
         // GET: blog/edit/5
         public IActionResult Edit(int? id)
         {
@@ -283,6 +286,7 @@ namespace NeoWeb.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("index", "news", new { type = NewsViewModelType.Blog });
         }
+
         private async Task UpdateRSSAsync()
         {
             await Task.Run(() =>
@@ -359,7 +363,6 @@ namespace NeoWeb.Controllers
             rss.AppendChild(channel);
             xml.AppendChild(rss);
             RssModel.Chinese = xml.OuterXml;
-
         }
 
         private void UpdateRssEnglish()

@@ -238,8 +238,6 @@ namespace NeoWeb
             return base64;
         }
 
-
-
         /// <summary>
         /// 计算 16 进制的字符串的 Sha256 哈希
         /// </summary>
@@ -259,7 +257,6 @@ namespace NeoWeb
             {
                 var bytes = hex[2..].HexToBytes().Reverse().ToArray();
                 return BitConverter.ToString(System.Security.Cryptography.SHA256.HashData(bytes)).Replace("-", "").ToLower();
-
             }
         }
 

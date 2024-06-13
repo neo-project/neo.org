@@ -13,7 +13,7 @@ namespace NeoWeb.Models
 
         public bool Active { get; set; }
 
-        static public CandidateViewModels FromJson(JObject obj)
+        public static CandidateViewModels FromJson(JObject obj)
         {
             return new CandidateViewModels()
             {

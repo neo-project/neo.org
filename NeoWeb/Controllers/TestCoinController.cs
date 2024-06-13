@@ -14,7 +14,6 @@ namespace NeoWeb.Controllers
     [Authorize(Roles = "Admin")]
     public class TestCoinController(ApplicationDbContext context, IStringLocalizer<TestCoinController> localizer, IHttpContextAccessor accessor) : Controller
     {
-
         // GET: testcoin/List
         public async Task<IActionResult> List(string version)
         {

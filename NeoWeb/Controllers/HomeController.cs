@@ -41,9 +41,11 @@ namespace NeoWeb.Controllers
                     case NewsViewModelType.Blog:
                         Helper.AddBlogs(context.Blogs.Where(p => p.Id == top.ItemId), topItems, isZh);
                         break;
+
                     case NewsViewModelType.Event:
                         Helper.AddEvents(context.Events.Where(p => p.Id == top.ItemId), topItems, isZh);
                         break;
+
                     case NewsViewModelType.Media:
                         Helper.AddMedia(context.Media.Where(p => p.Id == top.ItemId), topItems, isZh);
                         break;
@@ -86,8 +88,9 @@ namespace NeoWeb.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        static string status;
-        static DateTime lastRequest;
+        private static string status;
+        private static DateTime lastRequest;
+
         public async Task<IActionResult> GitHubStatus()
         {
             try

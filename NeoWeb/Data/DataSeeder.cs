@@ -1,7 +1,7 @@
-using System.Linq;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using NeoWeb.Data;
+using System.Linq;
 
 namespace NeoWeb
 {

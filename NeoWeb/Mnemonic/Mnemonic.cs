@@ -12,7 +12,9 @@ namespace NeoWeb
     public static class Mnemonic
     {
         private const string saltHeader = "mnemonic"; //这是盐的第一部分，如 BIP39 规范中所述
-        public enum Language { English, ChineseSimplified, ChineseTraditional, Unknown };
+
+        public enum Language
+        { English, ChineseSimplified, ChineseTraditional, Unknown };
 
         /// <summary>
         /// 生成助记词
@@ -162,5 +164,4 @@ namespace NeoWeb
             return sb.ToString();
         }
     }
-
 }

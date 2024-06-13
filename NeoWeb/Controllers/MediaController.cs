@@ -15,7 +15,6 @@ namespace NeoWeb.Controllers
     [Authorize(Roles = "Admin")]
     public class MediaController(ApplicationDbContext context, IWebHostEnvironment env) : Controller
     {
-
         // GET: media/create
         public IActionResult Create()
         {

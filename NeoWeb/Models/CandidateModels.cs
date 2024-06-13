@@ -29,6 +29,5 @@ namespace NeoWeb.Models
 
         [MaxLength(500)]
         public string Summary { get; set; }
-
     }
 }

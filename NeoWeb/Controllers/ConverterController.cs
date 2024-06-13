@@ -60,7 +60,6 @@ namespace NeoWeb.Controllers
                 {
                     var output = ConverterHelper.AddressToScriptHash(ConverterHelper.PublicKeyToAddress(input)).little;
                     result.Add(localizer["Public key to script hash (little endian):"], [output]);
-
                 }
                 catch (Exception) { }
                 try
@@ -95,7 +94,6 @@ namespace NeoWeb.Controllers
                     if (new Regex("^[0-9]{1,16}$").IsMatch(output))
                     {
                         result.Add(localizer["Hexadecimal little-endian string to big integer:"], [output]);
-
                     }
                 }
                 catch (Exception) { }
@@ -113,7 +111,6 @@ namespace NeoWeb.Controllers
                 {
                     var output = ConverterHelper.BigLittleEndConversion(input);
                     result.Add(localizer["Little-endian to big-endian:"], [output]);
-
                 }
                 catch (Exception) { }
                 try
@@ -155,14 +152,12 @@ namespace NeoWeb.Controllers
                 {
                     var output = ConverterHelper.ScriptHashToAddress(input);
                     result.Add(localizer["Script hash to Neo3 address:"], [output]);
-
                 }
                 catch (Exception) { }
                 try
                 {
                     var output = ConverterHelper.BigLittleEndConversion(input);
                     result.Add(localizer["Big-endian to little-endian:"], [output]);
-
                 }
                 catch (Exception) { }
                 try
@@ -179,21 +174,18 @@ namespace NeoWeb.Controllers
                 {
                     var output = ConverterHelper.AddressToScriptHash(input).big;
                     result.Add(localizer["Neo 3 address to script hash (big-endian):"], [output]);
-
                 }
                 catch (Exception) { }
                 try
                 {
                     var output = ConverterHelper.AddressToScriptHash(input).little;
                     result.Add(localizer["Neo 3 address to script hash (little-endian):"], [output]);
-
                 }
                 catch (Exception) { }
                 try
                 {
                     var output = ConverterHelper.AddressToBase64String(input);
                     result.Add(localizer["Neo 3 address to Base64 script hash:"], [output]);
-
                 }
                 catch (Exception) { }
             }
@@ -244,21 +236,18 @@ namespace NeoWeb.Controllers
                 {
                     var output = ConverterHelper.Base64StringToAddress(input);
                     result.Add(localizer["Base64 script hash to Neo 3 address:"], [output]);
-
                 }
                 catch (Exception) { }
                 try
                 {
                     var output = ConverterHelper.AddressToScriptHash(ConverterHelper.Base64StringToAddress(input)).little;
                     result.Add(localizer["Base64 script hash to script hash (little-endian):"], [output]);
-
                 }
                 catch (Exception) { }
                 try
                 {
                     var output = ConverterHelper.AddressToScriptHash(ConverterHelper.Base64StringToAddress(input)).big;
                     result.Add(localizer["Base64 script hash to script hash (big-endian):"], [output]);
-
                 }
                 catch (Exception) { }
 
@@ -270,7 +259,6 @@ namespace NeoWeb.Controllers
                         if (new Regex("^[0-9]{1,20}$").IsMatch(output))
                         {
                             result.Add(localizer["Base64 string to big integer:"], [output]);
-
                         }
                     }
                     catch (Exception) { }
@@ -298,7 +286,6 @@ namespace NeoWeb.Controllers
                         {
                             var output1 = ConverterHelper.ScriptsToScriptHash(input).big;
                             result.Add(localizer["Base64 contract script to scripthash (big-endian):"], [output1]);
-
                         }
                         catch (Exception) { }
                         try
@@ -320,7 +307,6 @@ namespace NeoWeb.Controllers
                 {
                     var output = ConverterHelper.Base64StringToHexString(input);
                     result.Add(localizer["Base64 string to hexadecimal string:"], [output]);
-
                 }
                 catch (Exception) { }
                 try
@@ -337,7 +323,6 @@ namespace NeoWeb.Controllers
                 {
                     var output = ConverterHelper.BigIntegerToHexNumber(input);
                     result.Add(localizer["Big integer to hexadecimal string:"], [output]);
-
                 }
                 catch (Exception) { }
                 try
@@ -354,7 +339,6 @@ namespace NeoWeb.Controllers
                 {
                     var output = ConverterHelper.BigIntegerToBase64String(input);
                     result.Add(localizer["Big integer to Base64 string:"], [output]);
-
                 }
                 catch (Exception) { }
             }
@@ -407,7 +391,7 @@ namespace NeoWeb.Controllers
             return View();
         }
 
-        static string NeoVersion;
+        private static string NeoVersion;
 
         private static string GetNeoVersion()
         {

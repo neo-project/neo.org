@@ -5,7 +5,6 @@ namespace NeoWeb.Controllers
     [ServiceFilter(typeof(ClientIpCheckActionFilter))]
     public class GovController() : Controller
     {
-
         // GET: consensus
         [HttpGet]
         public IActionResult Index()

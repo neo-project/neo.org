@@ -212,7 +212,7 @@ namespace NeoWeb
 
         public static string Sha256(this string input) => BitConverter.ToString(SHA256.HashData(Encoding.UTF8.GetBytes(input))).Replace("-", "");
 
-        class IPItem
+        private class IPItem
         {
             public string IP;
             public string Action;
@@ -271,7 +271,6 @@ namespace NeoWeb
 #endif
             }
         }
-
 
         public static string ToCDN(string url, bool appendVersion = false)
         {
