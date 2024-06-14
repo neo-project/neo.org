@@ -522,6 +522,161 @@
             </div>
         </div>
     </li>
+
+    <li class="web">
+        <img class="client-logo" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/logo/ansy.png")" />
+        <h4>Ansy</h4>
+        <div class="platform">
+            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Web">&#xe623;</i>
+            <a class="open-source" href="https://github.com/snowypowers/ansy" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
+        </div>
+
+        <div class="developer d-none"><a href="https://github.com/snowypowers/" target="_blank">Snowypowers</a></div>
+        <div class="license d-none"><a href="https://github.com/snowypowers/ansy/blob/master/LICENSE" target="_blank">MIT License</a></div>
+        <div class="button d-none"><a class="btn-2 btn-small my-1" href="https://snowypowers.github.io/ansy/" target="_blank">@Localizer["Go to Web Wallet"]</a></div>
+        <div class="desc d-none">
+            <div class="preview-div">
+                <h4>@Localizer["Preview"]</h4>
+                <a class="plat-btn btn-web active" href="javascript:" onclick="switchPlatform('web');">@Localizer["Web"]</a>
+            </div>
+            <div class="p-web preview">
+                <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/ansy.png")" />
+            </div>
+            <p>@Localizer["It's a simple paper wallet generator developed by Snowypowers. This wallet only supports the encryption and decryption of private keys. It fails to support other functions like transferring assets."]</p>
+            <p>@Localizer["Languages"]: English<br>
+            <p>@Localizer["Supported Browser"]: Chrome/Edge</p>
+            <div>
+                <div class="metrics">
+                    <span>@Localizer["Degree of Digital Asset Control"]</span><span class="span-success">@Localizer["High"]</span>
+                    <div>
+                            @Localizer["This wallet supports the encryption and decryption of the private key for secure storage. The website itself does not store the private key, so please pay attention to the safe backup and safekeeping of the private key."]
+                    </div>
+                </div>
+                <div class="metrics open-source-div">
+                    <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
+                    <div>
+                            @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when you visit a web wallet."]
+                            @Localizer["Get source code"]: <a href="https://github.com/snowypowers/ansy" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <div class="metrics">
+                    <span>@Localizer["Supported NEP"]</span>
+                    <div>
+                        <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki" target="_blank">NEP-2</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="desktop mobile hardware">
+        <img class="client-logo" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/logo/ledger.png")" />
+        <h4>Ledger Nano S</h4>
+        <div class="platform">
+            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Windows">&#xf266;</i>
+            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="macOS">&#xe61f;</i>
+            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
+            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
+            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Hardware">&#xe622;</i>
+            <a class="open-source" href="https://github.com/LedgerHQ" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
+        </div>
+
+        <div class="developer d-none"><a href="https://github.com/LedgerHQ" target="_blank">Ledger SAS</a></div>
+        <div class="license d-none"><a href="https://github.com/LedgerHQ/ledger-wallet-chrome/blob/master/LICENSE" target="_blank">MIT License</a></div>
+        <div class="button d-none"><a class="btn-2 btn-small my-1" href="https://www.ledgerwallet.com" target="_blank">@Localizer["Website"]</a></div>
+        <div class="desc d-none">
+            <div class="preview-div">
+                <h4>@Localizer["Preview"]</h4>
+                <a class="plat-btn btn-hardware active" href="javascript:" onclick="switchPlatform('hardware');">@Localizer["Hardware"]</a>
+            </div>
+            <div class="p-hardware preview">
+                <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/ledgernanos.png")" />
+            </div>
+            <p>@Localizer["It's a multi-currency hardware wallet that supports NEO. This wallet’s private key is stored in the hardware chip and it focuses on the security."]</p>
+            <p>@Localizer["Languages"]: English</p>
+            <div>
+                <div class="metrics">
+                    <span>@Localizer["Degree of Digital Asset Control"]</span><span class="span-success">@Localizer["High"]</span>
+                    <div>
+                        @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the hardware wallet, so it has extremely high security."]
+                    </div>
+                </div>
+                <div class="metrics">
+                    <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
+                    <div>
+                        @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
+                    </div>
+                </div>
+                <div class="metrics open-source-div">
+                    <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
+                    <div>
+                        @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software."]
+                        @Localizer["Get source code"]: <a href="https://github.com/LedgerHQ" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <div class="metrics">
+                    <span>@Localizer["Supported NEP"]</span>
+                    <div>
+                        @Localizer["None"]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="desktop mobile hardware">
+        <img class="client-logo" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/logo/ledger.png")" />
+        <h4>Ledger Blue</h4>
+        <div class="platform">
+            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Windows">&#xf266;</i>
+            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="macOS">&#xe61f;</i>
+            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
+            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
+            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Hardware">&#xe622;</i>
+            <a class="open-source" href="https://github.com/LedgerHQ" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
+        </div>
+        <div class="developer d-none"><a href="https://github.com/LedgerHQ" target="_blank">Ledger SAS</a></div>
+        <div class="license d-none"><a href="https://github.com/LedgerHQ/ledger-wallet-chrome/blob/master/LICENSE" target="_blank">MIT License</a></div>
+        <div class="button d-none"><a class="btn-2 btn-small my-1" href="https://www.ledgerwallet.com" target="_blank">@Localizer["Website"]</a></div>
+        <div class="desc d-none">
+            <div class="preview-div">
+                <h4>@Localizer["Preview"]</h4>
+                <a class="plat-btn btn-hardware active" href="javascript:" onclick="switchPlatform('hardware');">@Localizer["Hardware"]</a>
+            </div>
+            <div class="p-hardware preview">
+                <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/ledgerblue.png")" />
+            </div>
+            <p>
+                @Localizer["It's a multi-currency hardware wallet that supports NEO. This wallet’s private key is stored in the hardware chip and it focuses on the security."]
+            </p>
+            <p>@Localizer["Languages"]: English</p>
+            <div>
+                <div class="metrics">
+                    <span>@Localizer["Degree of Digital Asset Control"]</span><span class="span-success">@Localizer["High"]</span>
+                    <div>
+                        @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the hardware wallet, so it has extremely high security."]
+                    </div>
+                </div>
+                <div class="metrics">
+                    <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
+                    <div>
+                        @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
+                    </div>
+                </div>
+                <div class="metrics open-source-div">
+                    <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
+                    <div>
+                        @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software."]
+                        @Localizer["Get source code"]: <a href="https://github.com/LedgerHQ" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <div class="metrics">
+                    <span>@Localizer["Supported NEP"]</span>
+                    <div>
+                        @Localizer["None"]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
 </ul>
 <ul class="row mt-4 client-ul legacy" style="display: none">
     <li class="desktop">
@@ -1201,50 +1356,6 @@
             </div>
         </div>
     </li>
-    <li class="extension">
-        <img class="client-logo" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/logo/teemo.png")" />
-        <h4>Teemo Wallet</h4>
-        <div class="platform">
-            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="extension">&#xe621;</i>
-            <a class="open-source" href="https://github.com/NewEconoLab/TeemoWallet" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
-        </div>
-
-        <div class="developer d-none"><a href="https://github.com/NewEconoLab" target="_blank">NewEconoLab</a></div>
-        <div class="desc d-none">
-            <div class="preview-div">
-                <h4>@Localizer["Preview"]</h4>
-                <a class="plat-btn btn-extension active" href="javascript:" onclick="switchPlatform('extension');">@Localizer["Extension"]</a>
-            </div>
-            <div class="p-extension preview">
-                <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/teemo1.png")" />
-                <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/teemo2.png")" />
-                <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/teemo3.png")" />
-                <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/teemo4.png")" />
-            </div>
-            <p>@Localizer["Teemo is a browser extension wallet of Neo.<br/>The extension injects the Neo dApp API into every website's JavaScript context, so that DApps can interact with the blockchain."]</p>
-            <p>@Localizer["Languages"]: English / 中文</p>
-            <div>
-                <div class="metrics">
-                    <span>@Localizer["Degree of Digital Asset Control"]</span><span class="span-success">@Localizer["High"]</span>
-                    <div>@Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the private key."]</div>
-                </div>
-                <div class="metrics">
-                    <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
-                    <div>@Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]</div>
-                </div>
-                <div class="metrics open-source-div">
-                    <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
-                    <div>@Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets."]@Localizer["Get source code"]: <a href="https://github.com/NewEconoLab/TeemoWallet" target="_blank">GitHub</a></div>
-                </div>
-                <div class="metrics">
-                    <span>@Localizer["Supported NEP"]</span>
-                    <div>
-                        <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/obsolete/nep-5.mediawiki" target="_blank">NEP-5</a>, <a href="https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki" target="_blank">NEP-6</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
     <li class="mobile web">
         <img class="client-logo" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/logo/bitkeep.png")" />
         <h4>Bitkeep Wallet</h4>
@@ -1629,57 +1740,6 @@
         </div>
     </li>
     <li class="web">
-        <img class="client-logo" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/logo/nelwallet.png")" />
-        <h4>NEL Wallet</h4>
-        <div class="platform">
-            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Web">&#xe623;</i>
-            <a class="open-source" href="https://github.com/NewEconoLab/NELBrowser-Web-React" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
-        </div>
-
-        <div class="developer d-none"><a href="https://nel.group/" target="_blank">NewEconoLabs</a></div>
-        <div class="license d-none"><a href="https://github.com/NewEconoLab/NELBrowser-Web-React/blob/master/LICENSE" target="_blank">MIT License</a></div>
-        <div class="button d-none"><a class="btn-2 btn-small my-1" href="https://wallet.nel.group/" target="_blank">@Localizer["Go to Web Wallet"]</a></div>
-        <div class="desc d-none">
-            <div class="preview-div">
-                <h4>@Localizer["Preview"]</h4>
-                <a class="plat-btn btn-web active" href="javascript:" onclick="switchPlatform('web');">@Localizer["Web"]</a>
-            </div>
-            <div class="p-web preview">
-                <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/nelwallet.png")" />
-            </div>
-            <p>@Localizer["It's an online wallet developed by NEL. This wallet supports NNS auction, transaction information viewing, and is also a blockchain browser."]</p>
-            <p>@Localizer["Languages"]: English / 简体中文<br>
-            <p>@Localizer["Supported Browser"]: Chrome/Edge</p>
-            <div>
-                <div class="metrics">
-                    <span>@Localizer["Degree of Digital Asset Control"]</span><span class="span-success">@Localizer["High"]</span>
-                    <div>
-                        @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the wallet files and passwords. However, users should better run the wallet on secure devices, and always pay attention to the safe backup and safekeeping of the private key."]
-                    </div>
-                </div>
-                <div class="metrics">
-                    <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
-                    <div>
-                        @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
-                    </div>
-                </div>
-                <div class="metrics open-source-div">
-                    <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
-                    <div>
-                        @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when you visit a web wallet."]
-                        @Localizer["Get source code"]: <a href="https://github.com/NewEconoLab/NELBrowser-Web-React" target="_blank">GitHub</a>
-                    </div>
-                </div>
-                <div class="metrics">
-                    <span>@Localizer["Supported NEP"]</span>
-                    <div>
-                        <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/obsolete/nep-5.mediawiki" target="_blank">NEP-5</a>, <a href="https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki" target="_blank">NEP-6</a> </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li class="web">
         <img class="client-logo" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/logo/neologin.png")" />
         <h4>NeoLogin</h4>
         <div class="platform">
@@ -1781,160 +1841,6 @@
                     <span>@Localizer["Supported NEP"]</span>
                     <div>
                         <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/obsolete/nep-5.mediawiki" target="_blank">NEP-5</a>, <a href="https://github.com/neo-project/proposals/blob/master/nep-9.mediawiki" target="_blank">NEP-9</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li class="web">
-        <img class="client-logo" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/logo/ansy.png")" />
-        <h4>Ansy</h4>
-        <div class="platform">
-            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Web">&#xe623;</i>
-            <a class="open-source" href="https://github.com/snowypowers/ansy" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
-        </div>
-
-        <div class="developer d-none"><a href="https://github.com/snowypowers/" target="_blank">Snowypowers</a></div>
-        <div class="license d-none"><a href="https://github.com/snowypowers/ansy/blob/master/LICENSE" target="_blank">MIT License</a></div>
-        <div class="button d-none"><a class="btn-2 btn-small my-1" href="https://snowypowers.github.io/ansy/" target="_blank">@Localizer["Go to Web Wallet"]</a></div>
-        <div class="desc d-none">
-            <div class="preview-div">
-                <h4>@Localizer["Preview"]</h4>
-                <a class="plat-btn btn-web active" href="javascript:" onclick="switchPlatform('web');">@Localizer["Web"]</a>
-            </div>
-            <div class="p-web preview">
-                <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/ansy.png")" />
-            </div>
-            <p>@Localizer["It's a simple paper wallet generator developed by Snowypowers. This wallet only supports the encryption and decryption of private keys. It fails to support other functions like transferring assets."]</p>
-            <p>@Localizer["Languages"]: English<br>
-            <p>@Localizer["Supported Browser"]: Chrome/Edge</p>
-            <div>
-                <div class="metrics">
-                    <span>@Localizer["Degree of Digital Asset Control"]</span><span class="span-success">@Localizer["High"]</span>
-                    <div>
-                        @Localizer["This wallet supports the encryption and decryption of the private key for secure storage. The website itself does not store the private key, so please pay attention to the safe backup and safekeeping of the private key."]
-                    </div>
-                </div>
-                <div class="metrics open-source-div">
-                    <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
-                    <div>
-                        @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when you visit a web wallet."]
-                        @Localizer["Get source code"]: <a href="https://github.com/snowypowers/ansy" target="_blank">GitHub</a>
-                    </div>
-                </div>
-                <div class="metrics">
-                    <span>@Localizer["Supported NEP"]</span>
-                    <div>
-                        <p>@Localizer["Support"]: <a href="https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki" target="_blank">NEP-2</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li class="desktop mobile hardware">
-        <img class="client-logo" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/logo/ledger.png")" />
-        <h4>Ledger Nano S</h4>
-        <div class="platform">
-            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Windows">&#xf266;</i>
-            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="macOS">&#xe61f;</i>
-            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
-            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
-            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Hardware">&#xe622;</i>
-            <a class="open-source" href="https://github.com/LedgerHQ" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
-        </div>
-
-        <div class="developer d-none"><a href="https://github.com/LedgerHQ" target="_blank">Ledger SAS</a></div>
-        <div class="license d-none"><a href="https://github.com/LedgerHQ/ledger-wallet-chrome/blob/master/LICENSE" target="_blank">MIT License</a></div>
-        <div class="button d-none"><a class="btn-2 btn-small my-1" href="https://www.ledgerwallet.com" target="_blank">@Localizer["Website"]</a></div>
-        <div class="desc d-none">
-            <div class="preview-div">
-                <h4>@Localizer["Preview"]</h4>
-                <a class="plat-btn btn-hardware active" href="javascript:" onclick="switchPlatform('hardware');">@Localizer["Hardware"]</a>
-            </div>
-            <div class="p-hardware preview">
-                <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/ledgernanos.png")" />
-            </div>
-            <p>@Localizer["It's a multi-currency hardware wallet that supports NEO. This wallet’s private key is stored in the hardware chip and it focuses on the security."]</p>
-            <p>@Localizer["Languages"]: English</p>
-            <div>
-                <div class="metrics">
-                    <span>@Localizer["Degree of Digital Asset Control"]</span><span class="span-success">@Localizer["High"]</span>
-                    <div>
-                        @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the hardware wallet, so it has extremely high security."]
-                    </div>
-                </div>
-                <div class="metrics">
-                    <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
-                    <div>
-                        @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
-                    </div>
-                </div>
-                <div class="metrics open-source-div">
-                    <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
-                    <div>
-                        @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software."]
-                        @Localizer["Get source code"]: <a href="https://github.com/LedgerHQ" target="_blank">GitHub</a>
-                    </div>
-                </div>
-                <div class="metrics">
-                    <span>@Localizer["Supported NEP"]</span>
-                    <div>
-                        @Localizer["None"]
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li class="desktop mobile hardware">
-        <img class="client-logo" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/logo/ledger.png")" />
-        <h4>Ledger Blue</h4>
-        <div class="platform">
-            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Windows">&#xf266;</i>
-            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="macOS">&#xe61f;</i>
-            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Android">&#xe636;</i>
-            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="iOS">&#xe734;</i>
-            <i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Hardware">&#xe622;</i>
-            <a class="open-source" href="https://github.com/LedgerHQ" target="_blank"><i class="iconfont" data-toggle="tooltip" data-placement="bottom" title="Open Source">&#xe609;</i></a>
-        </div>
-        <div class="developer d-none"><a href="https://github.com/LedgerHQ" target="_blank">Ledger SAS</a></div>
-        <div class="license d-none"><a href="https://github.com/LedgerHQ/ledger-wallet-chrome/blob/master/LICENSE" target="_blank">MIT License</a></div>
-        <div class="button d-none"><a class="btn-2 btn-small my-1" href="https://www.ledgerwallet.com" target="_blank">@Localizer["Website"]</a></div>
-        <div class="desc d-none">
-            <div class="preview-div">
-                <h4>@Localizer["Preview"]</h4>
-                <a class="plat-btn btn-hardware active" href="javascript:" onclick="switchPlatform('hardware');">@Localizer["Hardware"]</a>
-            </div>
-            <div class="p-hardware preview">
-                <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/wallets/ledgerblue.png")" />
-            </div>
-            <p>
-                @Localizer["It's a multi-currency hardware wallet that supports NEO. This wallet’s private key is stored in the hardware chip and it focuses on the security."]
-            </p>
-            <p>@Localizer["Languages"]: English</p>
-            <div>
-                <div class="metrics">
-                    <span>@Localizer["Degree of Digital Asset Control"]</span><span class="span-success">@Localizer["High"]</span>
-                    <div>
-                        @Localizer["This wallet gives users a high degree of control over digital assets. The private key is encrypted and stored by the hardware wallet, so it has extremely high security."]
-                    </div>
-                </div>
-                <div class="metrics">
-                    <span>@Localizer["Verification"]</span><span class="span-warning">@Localizer["Centralized"]</span>
-                    <div>
-                        @Localizer["Light wallet, which relies on the central service, can be used without synchronizing block data. But users need to trust third parties that they will not hide and simulate payments."]
-                    </div>
-                </div>
-                <div class="metrics open-source-div">
-                    <span>@Localizer["Transparency"]</span><span class="span-success">@Localizer["High"]</span>
-                    <div>
-                        @Localizer["This wallet is open-source, which means any developer in the world can audit the code and make sure the final software isn't hiding any secrets. However, you still need to trust the developers of this wallet when installing or updating the final software."]
-                        @Localizer["Get source code"]: <a href="https://github.com/LedgerHQ" target="_blank">GitHub</a>
-                    </div>
-                </div>
-                <div class="metrics">
-                    <span>@Localizer["Supported NEP"]</span>
-                    <div>
-                        @Localizer["None"]
                     </div>
                 </div>
             </div>
