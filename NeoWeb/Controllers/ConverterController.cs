@@ -52,6 +52,12 @@ namespace NeoWeb.Controllers
                 catch (Exception) { }
                 try
                 {
+                    var output = ConverterHelper.PublicKeyToMultiSignAddress(input);
+                    result.Add(localizer["Public key to Neo3 Multi-Sign Address (1/1):"], [output]);
+                }
+                catch (Exception) { }
+                try
+                {
                     var output = ConverterHelper.AddressToScriptHash(ConverterHelper.PublicKeyToAddress(input)).big;
                     result.Add(localizer["Public key to script hash (big endian):"], [output]);
                 }
@@ -202,6 +208,12 @@ namespace NeoWeb.Controllers
                 {
                     var output = ConverterHelper.PrivateKeyToAddress(input);
                     result.Add(localizer["Private key to Neo3 address:"], [output]);
+                }
+                catch (Exception) { }
+                try
+                {
+                    var output = ConverterHelper.PrivateKeyToMultiSignAddress(input);
+                    result.Add(localizer["Private key to Neo3 Multi-Sign address (1/1):"], [output]);
                 }
                 catch (Exception) { }
                 try

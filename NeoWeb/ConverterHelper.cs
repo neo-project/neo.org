@@ -334,6 +334,14 @@ namespace NeoWeb
             return Contract.CreateSignatureContract(ECPoint.Parse(pubKey, ECCurve.Secp256r1)).ScriptHash.ToAddress(0x35);
         }
 
+        public static string PublicKeyToMultiSignAddress(string pubKey)
+        {
+            pubKey = pubKey.ToLower().Trim();
+            if (!new Regex("^(0[23][0-9a-f]{64})+$").IsMatch(pubKey)) throw new FormatException();
+
+            return Contract.CreateMultiSigContract(1, [ECPoint.Parse(pubKey, ECCurve.Secp256r1)]).ScriptHash.ToAddress(0x35);
+        }
+
         /// <summary>
         ///  Neo3 地址转为 Base64 格式的脚本哈希
         /// </summary>
@@ -409,6 +417,21 @@ namespace NeoWeb
             {
                 var pubKey = PrivateKeyToPublicKey(wif);
                 output = Contract.CreateSignatureContract(ECPoint.Parse(pubKey, ECCurve.Secp256r1)).ScriptHash.ToAddress(0x35);
+            }
+            catch (Exception)
+            {
+                throw new FormatException();
+            }
+            return output;
+        }
+
+        public static string PrivateKeyToMultiSignAddress(string wif)
+        {
+            string output;
+            try
+            {
+                var pubKey = PrivateKeyToPublicKey(wif);
+                output = Contract.CreateMultiSigContract(1, [ECPoint.Parse(pubKey, ECCurve.Secp256r1)]).ScriptHash.ToAddress(0x35);
             }
             catch (Exception)
             {
