@@ -5,53 +5,146 @@
 @{
     ViewBag.HiddenBreadCrumb = true;
 }
-@section Styles{
+@section Styles {
     <link rel="stylesheet" href="@Helper.ToCDN("/css/home.min.css", true)" />
 }
 @* 基本块 - Home page *@
 <div class="home-container">
 
     <style>
-        .grantshares.container{
-            padding-top: 150px;
-            padding-bottom: 80px;
+        .navbar.smart-scroll {
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            background-color: rgba(255,255,255,.95);
+            opacity: 0.95px;
         }
-        .grantshares h1 {
-            font-size: 4.8rem;
-            line-height: 1.1;
+
+        .migration-div.d-md-block {
+            display: none !important;
         }
+
+        .neox {
+            position: relative;
+            min-height: 740px;
+            background-image: url('/images/home/neox/bg.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+            .neox .lt {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                background-repeat: no-repeat;
+                background-position-x: left;
+                background-position-y: top;
+                background-size: 20%;
+                background-image: url('/images/home/neox/lt.png')
+            }
+
+            .neox .lb {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                background-repeat: no-repeat;
+                background-position-x: left;
+                background-position-y: bottom;
+                background-size: 20%;
+                background-image: url('/images/home/neox/lb.png');
+            }
+
+            .neox .x {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                background-image: url('/images/home/neox/x.png');
+                background-repeat: no-repeat;
+                background-position-x: right;
+                background-position-y: top;
+                background-size: 55%;
+            }
+
+            .neox .container {
+                padding-top: 150px;
+                padding-bottom: 80px;
+            }
+
+            .neox h1 {
+                font-size: 4.8rem;
+                line-height: 1.1;
+            }
+
+            .neox .ls3 {
+                letter-spacing: 3px
+            }
+
         @@media only screen and (max-width: 992px) {
-            .grantshares h1{
+            .neox h1 {
                 font-size: 3rem
+            }
+
+            .neox .lt {
+                background-size: 28%;
+            }
+
+            .neox .lb {
+                background-size: 28%;
+            }
+
+            .neox .x {
+                background-size: 70%;
+            }
+
+            .neox {
+                min-height: 640px;
+            }
+        }
+
+        @@media only screen and (max-width: 768px) {
+            .neox .lt {
+                background-size: 50%;
+            }
+
+            .neox .lb {
+                background-size: 40%;
+            }
+
+            .neox .x {
+                background-size: 80%;
+            }
+
+            .neox {
+                min-height: 540px;
             }
         }
     </style>
-    <div style="background-color: #000023; color: #fff">
-        <div class="grantshares container">
+    <div class="neox">
+        <div class="lt"></div>
+        <div class="lb"></div>
+        <div class="x"></div>
+        <div class="container">
             <div class="row">
                 <div class="col-lg-6 pt-5">
                     <div class="work-sans-bold">
-                        <h1 class="green">@Localizer["GRANTSHARES"]</h1>
-                        <h1>@Localizer["OPEN NOW"]</h1>
+                        <h1 class="uppercase">
+                            @Localizer["Introducing:"]<br />
+                            Neo X
+                        </h1>
                     </div>
-                    <div class="work-sans-semibold my-4 uppercase">
-                        @Localizer["decentralized and transparent grants program for the Neo ecosystem"]
+                    <div class="work-sans-semibold my-4 uppercase ls3">
+                        @Localizer["Neo’s EVM-based sidechain is here."]<br />
+                        @Localizer["Find out what opportunities await."]
                     </div>
                     <div class="my-4">
-                        <a href="https://grantshares.io" target="_blank" class="btn-2">@Localizer["LEARN MORE"]</a>
+                        <a href="https://x.neo.org/" target="_blank" class="btn-2">@Localizer["LEARN MORE"]</a>
                     </div>
                     <div class="work-sans-bold my-4">@Localizer["Latest News:"]</div>
                     <div class="my-4">
                         <a class="news-link" href="~/blog/details/@Model.FirstOrDefault(p => p.Type == NewsViewModelType.Blog).Blog.Id">@Model.FirstOrDefault(p => p.Type == NewsViewModelType.Blog).Blog.Title <i class="iconfont circle-arrow-icon">&#xe6ab;</i></a>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <img src="/images/grantshares/grantshares_hero.png" class="img-fluid" />
-                </div>
             </div>
         </div>
     </div>
-
 
     <div class="row horiz-row aio-row">
         <div class="col-12 col-md-12">
@@ -547,7 +640,7 @@
     </div>
 </div>
 
-@section Scripts{
+@section Scripts {
     <script src="@Helper.ToCDN("/lib/image-map-resizer/js/imageMapResizer.js")"></script>
     <script>
         $(document).ready(function () {
