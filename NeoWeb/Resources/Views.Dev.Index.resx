@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,45 +118,45 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="&lt;em&gt;Neo&lt;/em&gt;&lt;br/&gt;is getting&lt;br/&gt;an upgrade" xml:space="preserve">
-    <value>&lt;em&gt;Neo&lt;/em&gt; 现已升级</value>
+    <value />
   </data>
   <data name="&lt;em&gt;NEO&lt;/em&gt;&lt;br/&gt;Technology" xml:space="preserve">
-    <value>&lt;em&gt;NEO&lt;/em&gt; 开发者</value>
+    <value />
   </data>
   <data name="After four years of stable MainNet operation, Neo is undergoing its biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date." xml:space="preserve">
-    <value>经历了 4 年的稳定主网运行，Neo 正在经历有史以来最大的一次进化 - 向 N3 版本进行迁移。Neo N3 是 Neo 区块链迄今为止最强大、功能最丰富的版本。</value>
+    <value />
   </data>
   <data name="Developer" xml:space="preserve">
-    <value>开发者</value>
+    <value />
   </data>
   <data name="Examples &amp; Tutorials" xml:space="preserve">
-    <value>案例 &amp; 教学</value>
+    <value />
   </data>
   <data name="GitHub" xml:space="preserve">
-    <value>GitHub</value>
+    <value />
   </data>
   <data name="Learn More" xml:space="preserve">
-    <value>了解更多</value>
+    <value />
   </data>
   <data name="N3 data converter" xml:space="preserve">
-    <value>N3 数据转换</value>
+    <value />
   </data>
   <data name="Neo Legacy" xml:space="preserve">
-    <value>Neo Legacy</value>
+    <value />
   </data>
   <data name="Neo(N3)" xml:space="preserve">
-    <value>Neo(N3)</value>
+    <value />
   </data>
   <data name="Overview" xml:space="preserve">
-    <value>概览</value>
+    <value />
   </data>
   <data name="Platform" xml:space="preserve">
-    <value>平台</value>
+    <value />
   </data>
   <data name="Tooling" xml:space="preserve">
-    <value>工具集</value>
+    <value />
   </data>
   <data name="Documentation" xml:space="preserve">
-    <value>技术文档</value>
+    <value />
   </data>
 </root>

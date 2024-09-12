@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,272 +118,271 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="(Includes Ledger support)" xml:space="preserve">
-    <value>（支持 Ledger）</value>
+    <value />
   </data>
   <data name="According to its new economic model,  there are no more free transactions on Neo N3. The Neo Foundation has allocated 200K GAS to subsidize these costs on N3. However, in order to prevent this subsidy from spam and exploitation, a 1 GAS fee is required and deducted on the Neo Legacy side in cases where the migration amount is less than 10 NEO or 20 GAS." xml:space="preserve">
-    <value>根据新经济模型，当前，所有 Neo N3 上的交易都要收费。因此，Neo 基金会拨出了 20 万个 GAS 的总预算来补贴用户的迁移费用。然而，为了防止用户通过垃圾交易来慢性消耗 Neo 基金会的 GAS，在 Neo Legacy 上，当迁移数额少于 10 个 NEO 或 20 个 GAS 时，用户需要支付 1 个 GAS 的手续费来保证迁移顺利进行。</value>
+    <value />
   </data>
   <data name="Are there any incentives for GAS migration？" xml:space="preserve">
-    <value>GAS 的迁移有激励吗？</value>
+    <value />
   </data>
   <data name="Availability:" xml:space="preserve">
-    <value>可用时间：</value>
+    <value />
   </data>
-  <data name="Available Wallets" xml:space="preserve">
-    <value>可用钱包</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Available Wallets" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
   </data>
   <data name="Bonuses will be distributed manually within three days of completing your migration." xml:space="preserve">
-    <value>激励将在迁移完成后的三天内人工发放。</value>
+    <value />
   </data>
   <data name="Can I combine multiple transactions to reach enough migrated NEO to receive the bonus? For example, 90 NEO in one transaction and 10 in another?" xml:space="preserve">
-    <value>我能否合计多笔交易中迁移的 NEO 数量，获取该总数相应的激励？比如，在一笔交易中迁移了 90 个 NEO，在另一笔中迁移了 10 个？</value>
+    <value />
   </data>
   <data name="Can I import my Neo Legacy private key on Neo N3?" xml:space="preserve">
-    <value>Neo N3 能否导入 Neo Legacy 的私钥?</value>
+    <value />
   </data>
   <data name="Centralized exchanges that trade NEO in fractions may distribute token bonuses differently. Please refer to the individual exchanges for their rules." xml:space="preserve">
-    <value>中心化交易所将有自行公布的激励计划，可能会提供可拆分的迁移奖励，详情请以交易所激励公告为准。</value>
+    <value />
   </data>
   <data name="Compatible Wallets" xml:space="preserve">
-    <value>兼容钱包</value>
+    <value />
   </data>
   <data name="Custodial exchanges" xml:space="preserve">
-    <value>中心化交易所。</value>
+    <value />
   </data>
   <data name="Developer:" xml:space="preserve">
-    <value>开发方：</value>
+    <value />
   </data>
   <data name="Developers" xml:space="preserve">
-    <value>开发者</value>
+    <value />
   </data>
   <data name="Developers looking for information on how to support token or contract migration may find the following resources useful." xml:space="preserve">
-    <value>如果您是想知道如何支持通证或合约迁移的开发者，请参阅以下资料</value>
+    <value />
   </data>
   <data name="Due to the extent of improvements found in version N3, certain features are not backwards compatible with the existing Neo Legacy blockchain. This means that Neo's N3 upgrade will be implemented through a new genesis block. The Neo blockchain running N3 will coexist alongside the current Neo Legacy blockchain for an extended period of time. This will provide users with ample opportunity to migrate their tokens and applications to the new chain." xml:space="preserve">
-    <value>受改进程度影响，Neo N3 的某些功能无法向后兼容现有的 Neo Legacy。这意味着 Neo N3 的升级将通过一个新的创世区块来实现。Neo N3 将会与当前的 Neo Legacy 共存较长的一段时间，为用户提供充足的机会来进行通证迁移和应用迁移。</value>
+    <value />
   </data>
   <data name="Early Adoption Program" xml:space="preserve">
-    <value>Early Adoption 计划</value>
+    <value />
   </data>
   <data name="Est. August 20th" xml:space="preserve">
-    <value>8 月 20 日（Est.）</value>
+    <value />
   </data>
   <data name="Exchange" xml:space="preserve">
-    <value>交易所</value>
+    <value />
   </data>
   <data name="Exchanges" xml:space="preserve">
-    <value>交易所</value>
+    <value />
   </data>
-  <data name="For more information, please check the &lt;a href=&quot;/gov&quot;&gt;Governance guide&lt;/a&gt;." xml:space="preserve">
-    <value>更多信息参阅 &lt;a href="/gov"&gt; 治理指南 &lt;/a&gt;。</value>
+  <data name="For more information, please check the &lt;a href=&quot;/gov&quot;&gt;Governance guide&lt;/a&gt;." type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
   </data>
   <data name="Frequently asked questions" xml:space="preserve">
-    <value>常见问题</value>
+    <value />
   </data>
   <data name="Generally speaking, migration involves creating a new address on Neo N3 and sending your Neo Legacy tokens to a migration contract. The contract will then release an equivalent amount of Neo N3 tokens to your new Neo N3 address." xml:space="preserve">
-    <value>一般的迁移步骤包括在 Neo N3 上创建一个新的地址，并将你的 Neo Legacy 通证发送到迁移合约上。然后，该合约将向你在 Neo N3 上的新地址释放同等数量的 Neo N3 通证。</value>
+    <value />
   </data>
   <data name="Global Asset migration guide" xml:space="preserve">
-    <value>全球资产迁移指南</value>
+    <value />
   </data>
   <data name="Guide" xml:space="preserve">
-    <value>指南</value>
+    <value />
   </data>
   <data name="How do I migrate my NEP-5 tokens to Neo N3?" xml:space="preserve">
-    <value>怎样把 NEP-5 通证迁移至 Neo N3？</value>
+    <value />
   </data>
   <data name="How do I migrate my tokens?" xml:space="preserve">
-    <value>我该如何迁移我的通证？</value>
+    <value />
   </data>
   <data name="How do I migrate tokens via web, wallet or exchange?" xml:space="preserve">
-    <value>我该如何通过网页、钱包、交易所迁移我的通证？</value>
+    <value />
   </data>
   <data name="How do I participate in Early Bird migration if my wallet is not supported?" xml:space="preserve">
-    <value>如果我的钱包不支持迁移，该如何参与“早鸟”迁移？</value>
+    <value />
   </data>
   <data name="How much GAS do you need for migration?" xml:space="preserve">
-    <value>完成迁移需要支付多少 GAS？</value>
+    <value />
   </data>
   <data name="Is there a token migration deadline?" xml:space="preserve">
-    <value>通证迁移有截止日期吗？</value>
+    <value />
   </data>
   <data name="It allows you to connect a dAPI compatible app to interface with the migration contract." xml:space="preserve">
-    <value>你可以连接一个与 dAPI 兼容的 app，来与迁移合约进行对接。</value>
+    <value />
   </data>
   <data name="Key Dates" xml:space="preserve">
-    <value>关键日期</value>
+    <value />
   </data>
   <data name="Migrating in quantities less than the above numbers will not net you a token bonus. For example, if you migrate 199 NEO during week one, you will only receive 1 NEO." xml:space="preserve">
-    <value>迁移少于上述数量的 NEO 时，用户无法获得任何激励。例如，如果你在第一周迁移了 199 个 NEO，你将只能收到 1 个 NEO 的激励。</value>
+    <value />
   </data>
   <data name="Migration" xml:space="preserve">
-    <value>迁移</value>
+    <value />
   </data>
   <data name="N3 Developer Tools" xml:space="preserve">
-    <value>N3 开发工具</value>
+    <value />
   </data>
   <data name="N3 Developer Portal" xml:space="preserve">
-    <value>N3 开发者中心</value>
+    <value />
   </data>
   <data name="N3 improves on previous versions by offering an improved development experience. It boasts more powerful and complete features, a highly modular architecture, and an enhanced governance and economic model. It offers everything the hobbyist developer needs to build their first dApp, through to the power and scalability demanded by enterprise applications." xml:space="preserve">
-    <value>相较于从前的版本，N3 能够提供更好的开发体验。它拥有更强大更完整的功能，高度模块化的架构，以及增强过的治理和经济模型。它能够为业余开发者提供建立自己的第一个 dApp 所需要的一切，也能够为企业应用提供其所需要的力量和可扩展性。</value>
+    <value />
   </data>
   <data name="Native migration support allows you to migrate your NEO &amp; GAS tokens from Neo Legacy to Neo N3 without ever leaving your wallet. The wallets will handle communication with the migration contract for you so you do not need to connect to an external platform." xml:space="preserve">
-    <value>在原生迁移支持下，您可以在钱包中完成从 Neo Legacy 到 Neo N3 的 NEO 和 GAS 迁移。钱包将替您与迁移合约进行对接，因此，您毋需连接到外部平台。</value>
+    <value />
   </data>
   <data name="Native wallet migration" xml:space="preserve">
-    <value>原生钱包迁移</value>
+    <value />
   </data>
   <data name="NEO &amp; GAS MIGRATION" xml:space="preserve">
-    <value>NEO &amp; GAS 迁移</value>
+    <value />
   </data>
   <data name="NEO &amp; GAS tokens can be migrated from Neo Legacy to Neo N3 at a 1:1 ratio. You will need a Neo N3 compatible wallet or an account on an exchange that is supporting the migration." xml:space="preserve">
-    <value>NEO 和 GAS 可以按照 1:1 的比例从 Neo Legacy 迁移到 Neo N3。你需要一个与 Neo N3 兼容的钱包，或者一个支持迁移的交易所的账户。</value>
+    <value />
   </data>
   <data name="Neo Legacy is upgrading to Neo N3 - an all new version of the Neo protocol." xml:space="preserve">
-    <value>Neo Legacy 将要升级为 Neo N3-- 一个全新的 Neo 协议版本。</value>
+    <value />
   </data>
   <data name="Neo Legacy to Neo N3" xml:space="preserve">
-    <value>从 Neo Legacy 迁移到 Neo N3</value>
+    <value />
   </data>
   <data name="Neo.org Migration Website" xml:space="preserve">
-    <value>Neo.org 迁移网站</value>
+    <value />
   </data>
   <data name="Neo.org Website" xml:space="preserve">
-    <value>Neo.org 网站</value>
+    <value />
   </data>
   <data name="NeoLine Chrome Extension" xml:space="preserve">
-    <value>NeoLine Chrome 插件钱包</value>
+    <value />
   </data>
   <data name="NeoLine Mobile" xml:space="preserve">
-    <value>NeoLine 移动端</value>
+    <value />
   </data>
   <data name="Neon Wallet" xml:space="preserve">
-    <value>Neon 钱包</value>
+    <value />
   </data>
   <data name="No, you won’t." xml:space="preserve">
-    <value>无法获得。</value>
+    <value />
   </data>
   <data name="No. You should migrate the NEO in a single transaction." xml:space="preserve">
-    <value>不行。NEO 的迁移必须在同一笔交易中进行。</value>
+    <value />
   </data>
   <data name="O3 Desktop" xml:space="preserve">
-    <value>O3 桌面钱包</value>
+    <value />
   </data>
   <data name="On N3, 10% of newly produced GAS is distributed to the Neo Council members, 80% to voters, and 10% evenly to all NEO holders. The GAS production is currently set at 5 GAS per block, but can be adjusted by the elected Neo Council." xml:space="preserve">
-    <value>在 N3 上，新产生的 GAS 中的 10% 分配给 Neo 理事会成员，80% 分配给投票者，10% 平均分配给所有 NEO 持有者。当前，GAS 的产量被设定为每个区块产生 5 个 GAS，但可以由当选的 Neo 理事会进行调整。</value>
+    <value />
   </data>
   <data name="On Neo Legacy, a certain amount of GAS will be charged for complicated transactions, such as transactions with more than 15 UTXO inputs. This is not applicable for N3 as Neo N3 does not adopt the UTXO model." xml:space="preserve">
-    <value>在 Neo Legacy 上，如果单笔交易中包含超过 15 个 UTXO 输入，则用户需要支付一定数额的 GAS，以保证迁移成功进行。这不适用于 Neo N3，因为 Neo N3 不采用 UTXO 模式。</value>
+    <value />
   </data>
   <data name="On Neo Legacy, GAS is produced every block and distributed to all token NEO holders evenly. The amount of GAS produced is currently around 5, and decreases steadily over time." xml:space="preserve">
-    <value>在 Neo Legacy 上，每个区块都会产生 GAS，并平均分配给所有 NEO 持有者。当前每个区块大约生产 5 个 GAS，并随着时间的推移稳步减少。</value>
+    <value />
   </data>
   <data name="Participating Exchanges" xml:space="preserve">
-    <value>交易所合作方</value>
+    <value />
   </data>
   <data name="Platforms:" xml:space="preserve">
-    <value>平台：</value>
+    <value />
   </data>
   <data name="Please ensure that you have updated the wallets to the latest version, NeoLine Chrome Extension or O3 Desktop for example." xml:space="preserve">
-    <value>请确保使用最新版本的钱包，比如 NeoLine Chrome 插件钱包或 O3 桌面钱包；</value>
+    <value />
   </data>
   <data name="Quick Links" xml:space="preserve">
-    <value>快速链接</value>
+    <value />
   </data>
   <data name="READ MORE" xml:space="preserve">
-    <value>了解更多</value>
+    <value />
   </data>
   <data name="Some exchanges are capable of handling the migration of your NEO &amp; GAS tokens from Neo Legacy to Neo N3 for you. Neo is working with the below exchanges to integrate Neo N3 support. Please be aware that Neo is unable to control the internal timeframes of external parties and support may come gradually." xml:space="preserve">
-    <value>您可以通过交易所来进行从 Neo Legacy 向 Neo N3 的 NEO 和 GAS 迁移。Neo 将与下列交易所达成合作，为 Neo N3 提供支持。请注意，Neo 无法完全控制外部组织的工作进程，因此，各交易所对 Neo N3 的支持可能不会同时达成。</value>
+    <value />
   </data>
   <data name="The &lt;a class=&quot;green&quot; target=&quot;_blank&quot; href=&quot;http://migration.eo.org&quot;&gt;Neo official migration portal&lt;/a&gt;." xml:space="preserve">
-    <value>&lt;a class="green" target="_blank" href="http://migration.eo.org"&gt;官网 Neo.org 的迁移界面 &lt;/a&gt;</value>
+    <value />
   </data>
   <data name="The migration of NEP-5 tokens from Neo Legacy requires the contract owner to first create a NEP-17 contract on Neo N3. Project owners are welcomed to reach out to NGD’s Digital Asset Unit for migration support. Token holders should seek information from project owners on migration plans and timelines." xml:space="preserve">
-    <value>Neo Legacy 上的 NEP-5 通证在迁移时，需要合约所有者先在 Neo N3 上创建一个新的 NEP-17 合约。我们欢迎所有项目方与 NGD 的数字资产部门联系，以获得迁移支持。通证持有者应向项目方询求有关迁移计划和时间表等信息。</value>
+    <value />
   </data>
   <data name="The minimum token bonus you can receive is 1 NEO. This means you will need to migrate NEO in the following quantities to receive bonuses:" xml:space="preserve">
-    <value>请注意：由于 NEO 不可分割，用户能获得的最低迁移激励为 1NEO。因此，用户至少需要迁移以下数量的 NEO 才能获得奖励：</value>
+    <value />
   </data>
   <data name="The Neo.org Migration app was built by Neo Global Development to faciliate smooth migration of NEO &amp; GAS tokens from Neo Legacy to Neo N3." xml:space="preserve">
-    <value>Neo.org 迁移 app 由 NGD 开发，旨在使 NEO 和 GAS 能够顺利地从 Neo Legacy 迁移到 Neo N3。</value>
+    <value />
   </data>
   <data name="The official Neo.org migration website (requires NeoLine Chrome Extension or O3 desktop)" xml:space="preserve">
-    <value>官网 Neo.org 的迁移界面（需要 NeoLine Chrome 插件钱包或 O3 桌面钱包）；</value>
+    <value />
   </data>
   <data name="The Token Migration Incentive Bonus starts at 1% and decreases to 0.5%. As NEO is indivisible, what happens if my token bonus does not equal a whole number?" xml:space="preserve">
-    <value>通证迁移激励从开始的 1% 逐步降低至 0.5%。既然 NEO 不可分，如果我的通证激励计算结果不是整数怎么办？</value>
+    <value />
   </data>
   <data name="There are no plans for GAS migration incentives at this time." xml:space="preserve">
-    <value>目前没有针对 GAS 的迁移激励。</value>
+    <value />
   </data>
   <data name="There are three main options for performing the token migration:" xml:space="preserve">
-    <value>通证迁移可以通过三种渠道进行。</value>
+    <value />
   </data>
   <data name="There are two types of fee involved for the migration, incurred on Neo N3 and Neo Legacy respectively." xml:space="preserve">
-    <value>迁移中可能需支付的费用共有两种，一种在 Neo N3 上，一种在 Neo Legacy 上。</value>
+    <value />
   </data>
   <data name="This will depend on the exchanges themselves. Please refer to each individual exchange and their latest announcements." xml:space="preserve">
-    <value>这一点由各交易所自己决定。请参考各个交易所的最新公告。</value>
+    <value />
   </data>
   <data name="Via wallets that feature native migration support, such as Neon Wallet or NeoLine mobile" xml:space="preserve">
-    <value>通过支持本地迁移的钱包进行迁移，比如 Neon 钱包或 NeoLine 移动端钱包；</value>
+    <value />
   </data>
   <data name="VISIT APP" xml:space="preserve">
-    <value>查看应用</value>
+    <value />
   </data>
   <data name="Wallet" xml:space="preserve">
-    <value>钱包</value>
+    <value />
   </data>
   <data name="We recommend choosing a migration option that best suits you from the available options below and carefully reading the guides before proceeding with any steps." xml:space="preserve">
-    <value>您可以从下列选项中选择一个最适合您的迁移方案。请在操作之前仔细阅读指南。</value>
+    <value />
   </data>
   <data name="Website" xml:space="preserve">
-    <value>网站</value>
+    <value />
   </data>
   <data name="Weeks 1 &amp; 2 (1% bonus) - 1 bonus NEO bonus per 100 migrated NEO" xml:space="preserve">
-    <value>第 1&amp;2 周（奖励迁移数量 1% 的 NEO 时） - 每迁移 100 个 NEO 获得 1 个 NEO 的激励</value>
+    <value />
   </data>
   <data name="Weeks 3 &amp; 4 (0.75% bonus) - 1 bonus NEO bonus per 134 migrated NEO" xml:space="preserve">
-    <value>第 3&amp;4 周（奖励迁移数量 0.75% 的 NEO 时） - 每迁移 134 个 NEO 获得 1 个 NEO 的激励</value>
+    <value />
   </data>
   <data name="Weeks 5 - 8 (0.5% bonus) - 1 bonus NEO bonus per 200 migrated NEO" xml:space="preserve">
-    <value>第 5 - 8 周（奖励迁移数量 0.5% 的 NEO 时） - 每迁移 200 个 NEO 获得 1 个 NEO 的激励</value>
+    <value />
   </data>
   <data name="What is the difference in the GAS generation model between Neo Legacy and Neo N3?" xml:space="preserve">
-    <value>Neo Legacy 和 Neo N3 的 GAS 生成模式有何不同？</value>
+    <value />
   </data>
   <data name="When will I receive my Token Migration Incentive Bonus?" xml:space="preserve">
-    <value>什么时候可以拿到通证迁移激励？</value>
+    <value />
   </data>
   <data name="Where can I perform the token migration?" xml:space="preserve">
-    <value>在哪里进行通证迁移？</value>
+    <value />
   </data>
   <data name="Why do I need to migrate my tokens?" xml:space="preserve">
-    <value>为什么我需要迁移我的通证？</value>
+    <value />
   </data>
   <data name="Will exchanges continue to support Neo Legacy after the Neo N3 migration?" xml:space="preserve">
-    <value>Neo N3 迁移完成后，交易所是否还会继续为 Neo Legacy 提供支持？</value>
+    <value />
   </data>
   <data name="Will I receive the Token Migration Incentive Bonus if I migrate before September 1st?" xml:space="preserve">
-    <value>如果在 9 月 1 日之前就进行迁移，是否还能获得通证迁移激励？</value>
+    <value />
   </data>
   <data name="Yes, there will be eventually. However, the migration will remain open as long as the Neo Legacy network is running. Neo Legacy will move into long-term support following the launch of Neo N3 and will remain operational for at least one year." xml:space="preserve">
-    <value>有截止日期。但只要 Neo Legacy 网络还在运行，迁移就不会停止。Neo N3 上线后，Neo Legacy 会提供长期支持，继续运行至少一年。</value>
+    <value />
   </data>
   <data name="Yes, you can. However, although Neo Legacy and Neo N3 share the same private key format, they will generate different public keys. You cannot import your Neo Legacy private key into a Neo N3 wallet as a method of migrating your tokens. You still need to migrate your tokens to the new public key." xml:space="preserve">
-    <value>可以。不过，虽然 Neo Legacy 和 Neo N3 有相同的私钥格式，却会产生不同的公钥。把 Neo Legacy 的私钥导入 Neo N3 钱包并不是一种迁移通证的方法。用户仍然需要将通证迁移到新的公钥上。</value>
+    <value />
   </data>
   <data name="Yes. If you migrate less than 10 NEO or 20 GAS, you will have to pay the migration fee, the system will deduct 1 GAS for each transaction. If you are migrating 10 NEO, 20 GAS, or more, Neo foundation will cover the migration fee for you.Neo foundation has a budget of 200K GAS to cover those migration fees." xml:space="preserve">
-    <value>需要。
-当用户迁移少于个 10NEO 或 20 个 GAS 时，系统将为每笔交易扣除 1 个 GAS 作为迁移费用。
-当用户迁移大于等于 10 个 NEO 或 20 个 GAS 时，将由 Neo 基金会将来支付迁移费用。Neo 基金会为此准备了 20 万个 GAS 的总预算。</value>
+    <value />
   </data>
   <data name="You will have to export your private key and import it into a supported wallet." xml:space="preserve">
-    <value>这种情况下，你需要导出你的私钥，然后将其导入支持的钱包。</value>
+    <value />
   </data>
   <data name="N3 Documentation" xml:space="preserve">
-    <value>N3 文档</value>
+    <value />
   </data>
 </root>
