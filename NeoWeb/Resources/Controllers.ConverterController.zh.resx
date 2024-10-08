@@ -243,4 +243,7 @@
   <data name="WIF private key to Hex little-endian private key:" xml:space="preserve">
     <value>WIF 私钥转 16 进制小端序私钥</value>
   </data>
+  <data name="This is a simple transfer script:" xml:space="preserve">
+    <value>这是一个简单的转账脚本：</value>
+  </data>
 </root>

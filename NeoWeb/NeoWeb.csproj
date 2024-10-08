@@ -40,6 +40,7 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.5" />
     <PackageReference Include="NBitcoin" Version="7.0.39" />
     <PackageReference Include="Neo" Version="3.7.6" />
+    <PackageReference Include="Neo.Network.RPC.RpcClient" Version="3.7.5" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="SixLabors.ImageSharp" Version="3.1.5" />
     <PackageReference Include="System.Net.Http" Version="4.3.4" />

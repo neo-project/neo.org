@@ -1,9 +1,12 @@
+using Microsoft.Extensions.Options;
 using Neo;
 using Neo.Cryptography.ECC;
 using Neo.IO;
+using Neo.Network.RPC;
 using Neo.SmartContract;
 using Neo.VM;
 using Neo.Wallets;
+using NeoWeb.Services;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -587,6 +590,74 @@ namespace NeoWeb
                 }
             }
             return result.ToArray().ToList();
+        }
+
+        private static readonly string[] transferTemplates =
+        {
+            "SYSCALL System.Contract.Call",
+            "PUSHDATA1 0x[0-9a-f]{40}",
+            "PUSHDATA1 transfer",
+            "PUSH15",
+            "PACK",
+            "PUSH4",
+            "PUSHDATA1 0x[0-9a-f]{40}",
+            "PUSHDATA1 0x[0-9a-f]{40}",
+            "PUSH(?:1[0-6]|[1-9])|PUSHINT(?:8|16|32|64|128|256) \\d+",
+            "PUSHT|PUSHNULL"
+        };
+
+        public static List<string> AsTransferScript(List<string> input, IOptions<RpcOptions> options)
+        {
+            try
+            {
+                var copy = input.AsEnumerable().Reverse().ToList();
+                if (copy.Count != 10) return [];
+
+                for (int i = 0; i < copy.Count; i++)
+                {
+                    if (copy[i] != transferTemplates[i] && !Regex.IsMatch(copy[i], transferTemplates[i]))
+                        return [];
+                }
+
+                var amount = copy[8].StartsWith("PUSHINT") ? BigInteger.Parse(copy[8].Split(' ')[1]) : BigInteger.Parse(copy[8].Replace("PUSH", ""));
+                var contract = UInt160.Parse(copy[1].Split(' ')[1]);
+                var clientOptions = new[] { options.Value.TestNet, options.Value.MainNet };
+
+                foreach (var net in clientOptions)
+                {
+                    try
+                    {
+                        var client = new RpcClient(new Uri(net), null, null, null);
+                        var nativeContract = client.GetNativeContractsAsync().Result.FirstOrDefault(p => p.Hash == contract);
+                        var decimals = new Nep17API(client).DecimalsAsync(contract).Result;
+                        var symbol = new Nep17API(client).SymbolAsync(contract).Result;
+                        var trueAmount = new BigDecimal(amount, decimals);
+
+                        var result = new List<string>
+                        {
+                            $"Transfer: {trueAmount} {symbol} from {ScriptHashToAddress(copy[6].Split(' ')[1])} to {ScriptHashToAddress(copy[7].Split(' ')[1])}"
+                        };
+                        if (nativeContract == null)
+                        {
+                            result.Add($"Token: {copy[1].Split(' ')[1]}");
+                            result.Add($"Network: {(net == options.Value.TestNet ? "TestT5" : "MainNet")}");
+                        }
+                        try
+                        {
+                            var toContract = client.GetContractStateAsync(copy[7].Split(' ')[1]).Result;
+                            result.Add($"Note: {ScriptHashToAddress(copy[7].Split(' ')[1])} is a contract.");
+                        }
+                        catch (Exception)
+                        {
+                        }
+                        return result;
+                    }
+                    catch { }
+                }
+            }
+            catch { }
+
+            return [];
         }
     }
 }

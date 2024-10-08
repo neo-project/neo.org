@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Options;
 using Neo.Json;
+using NeoWeb.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +11,7 @@ using System.Xml;
 
 namespace NeoWeb.Controllers
 {
-    public class ConverterController(IStringLocalizer<ConverterController> localizer) : Controller
+    public class ConverterController(IStringLocalizer<ConverterController> localizer, IOptions<RpcOptions> options) : Controller
     {
         [HttpGet]
         [HttpPost]
@@ -131,6 +133,11 @@ namespace NeoWeb.Controllers
                     if (output.Count > 0)
                     {
                         result.Add(localizer["Smart contract script analysis:"], output);
+                        var transfer = ConverterHelper.AsTransferScript(output, options);
+                        if (transfer.Count > 0)
+                        {
+                            result.Add(localizer["This is a simple transfer script:"], transfer);
+                        }
                     }
                 }
                 catch (Exception) { }
@@ -290,6 +297,11 @@ namespace NeoWeb.Controllers
                     if (output.Count > 0)
                     {
                         result.Add(localizer["Smart contract script analysis:"], output);
+                        var transfer = ConverterHelper.AsTransferScript(output, options);
+                        if (transfer.Count > 0)
+                        {
+                            result.Add(localizer["This is a simple transfer script:"], transfer);
+                        }
                     }
                     //可能是合约脚本
                     if (output.Any(p => p.Contains("CheckSig") || p.Contains("CheckMultisig")))

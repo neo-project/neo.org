@@ -29,7 +29,8 @@ namespace NeoWeb
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
             builder.Services.AddTransient<IEmailSender, EmailSender>();
-            builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
+            builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration.GetSection("Email"));
+            builder.Services.Configure<RpcOptions>(builder.Configuration.GetSection("RPC"));
 
             builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
             builder.Services.AddRouting(options => options.LowercaseUrls = true);
