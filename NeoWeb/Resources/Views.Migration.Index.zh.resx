@@ -222,8 +222,8 @@
   <data name="N3 Developer Tools" xml:space="preserve">
     <value>N3 开发工具</value>
   </data>
-  <data name="N3 Documentation" xml:space="preserve">
-    <value>N3 文档</value>
+  <data name="N3 Developer Portal" xml:space="preserve">
+    <value>N3 开发者中心</value>
   </data>
   <data name="N3 improves on previous versions by offering an improved development experience. It boasts more powerful and complete features, a highly modular architecture, and an enhanced governance and economic model. It offers everything the hobbyist developer needs to build their first dApp, through to the power and scalability demanded by enterprise applications." xml:space="preserve">
     <value>相较于从前的版本，N3 能够提供更好的开发体验。它拥有更强大更完整的功能，高度模块化的架构，以及增强过的治理和经济模型。它能够为业余开发者提供建立自己的第一个 dApp 所需要的一切，也能够为企业应用提供其所需要的力量和可扩展性。</value>
@@ -296,9 +296,6 @@
   </data>
   <data name="Some exchanges are capable of handling the migration of your NEO &amp; GAS tokens from Neo Legacy to Neo N3 for you. Neo is working with the below exchanges to integrate Neo N3 support. Please be aware that Neo is unable to control the internal timeframes of external parties and support may come gradually." xml:space="preserve">
     <value>您可以通过交易所来进行从 Neo Legacy 向 Neo N3 的 NEO 和 GAS 迁移。Neo 将与下列交易所达成合作，为 Neo N3 提供支持。请注意，Neo 无法完全控制外部组织的工作进程，因此，各交易所对 Neo N3 的支持可能不会同时达成。</value>
-  </data>
-  <data name="String1" xml:space="preserve">
-    <value />
   </data>
   <data name="The &lt;a class=&quot;green&quot; target=&quot;_blank&quot; href=&quot;http://migration.eo.org&quot;&gt;Neo official migration portal&lt;/a&gt;." xml:space="preserve">
     <value>&lt;a class="green" target="_blank" href="http://migration.eo.org"&gt;官网 Neo.org 的迁移界面 &lt;/a&gt;</value>
@@ -385,5 +382,8 @@
   </data>
   <data name="You will have to export your private key and import it into a supported wallet." xml:space="preserve">
     <value>这种情况下，你需要导出你的私钥，然后将其导入支持的钱包。</value>
+  </data>
+  <data name="N3 Documentation" xml:space="preserve">
+    <value>N3 文档</value>
   </data>
 </root>

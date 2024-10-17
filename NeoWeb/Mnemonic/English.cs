@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 namespace NeoWeb
 {
     public class English : Wordlist
@@ -12,8 +7,6 @@ namespace NeoWeb
 
         public English() : base(englishWords)
         {
-
         }
-
     }
 }

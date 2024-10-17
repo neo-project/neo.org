@@ -1,19 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using NeoWeb.Models;
 
 namespace NeoWeb.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : IdentityDbContext(options)
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options)
-        {
-        }
-
         public DbSet<Blog> Blogs { get; set; }
 
         public DbSet<Country> Countries { get; set; }
@@ -30,6 +22,7 @@ namespace NeoWeb.Data
 
         public DbSet<FwLink> FwLink { get; set; }
         public DbSet<Top> Top { get; set; }
-        public DbSet<Job> Careers { get; set; }
+        public DbSet<Job> Jobs { get; set; }
+        public DbSet<Resume> Resume { get; set; }
     }
 }

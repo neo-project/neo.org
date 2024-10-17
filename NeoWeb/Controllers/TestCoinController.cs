@@ -1,35 +1,24 @@
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
+using NeoWeb.Data;
+using NeoWeb.Models;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using NeoWeb.Data;
-using NeoWeb.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.Extensions.Localization;
-using Microsoft.AspNetCore.Http;
 
 namespace NeoWeb.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class TestCoinController : Controller
+    public class TestCoinController(ApplicationDbContext context, IStringLocalizer<TestCoinController> localizer, IHttpContextAccessor accessor) : Controller
     {
-        private readonly ApplicationDbContext _context;
-        private readonly IHttpContextAccessor _accessor;
-        private readonly IStringLocalizer<TestCoinController> _localizer;
-
-        public TestCoinController(ApplicationDbContext context, IStringLocalizer<TestCoinController> localizer, IHttpContextAccessor accessor)
-        {
-            _context = context;
-            _accessor = accessor;
-            _localizer = localizer;
-        }
-
         // GET: testcoin/List
         public async Task<IActionResult> List(string version)
         {
             var fromDate = DateTime.Now - new TimeSpan(15, 0, 0, 0);
-            var result = await _context.TestCoins.OrderByDescending(p => p.Time).Where(p => p.Time > fromDate).ToListAsync();
+            var result = await context.TestCoins.OrderByDescending(p => p.Time).Where(p => p.Time > fromDate).ToListAsync();
             if (version == "2")
                 result = result.Where(p => p.Version == Models.Version.NEO2).ToList();
             else if (version == "3")
@@ -45,7 +34,7 @@ namespace NeoWeb.Controllers
                 return NotFound();
             }
 
-            var testcoin = await _context.TestCoins
+            var testcoin = await context.TestCoins
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (testcoin == null)
             {
@@ -77,16 +66,16 @@ namespace NeoWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (_context.TestCoins.Any(p => p.PubKey == testcoin.PubKey))
+                if (context.TestCoins.Any(p => p.PubKey == testcoin.PubKey))
                 {
-                    ModelState.AddModelError("PubKey", _localizer["Please do not repeat the request."]);
+                    ModelState.AddModelError("PubKey", localizer["Please do not repeat the request."]);
                     return View();
                 }
-                if (!Helper.CCAttack(_accessor.HttpContext.Connection.RemoteIpAddress, "testcoin_apply", 86400, 5))
+                if (!Helper.CCAttack(accessor.HttpContext.Connection.RemoteIpAddress, "testcoin_apply", 86400, 5))
                     return Content("Protecting from overposting attacks now!");
                 testcoin.Time = DateTime.Now;
-                _context.Add(testcoin);
-                await _context.SaveChangesAsync();
+                context.Add(testcoin);
+                await context.SaveChangesAsync();
                 return View("completed");
             }
             return View(testcoin);
@@ -100,7 +89,7 @@ namespace NeoWeb.Controllers
                 return NotFound();
             }
 
-            var testcoin = await _context.TestCoins.SingleOrDefaultAsync(m => m.Id == id);
+            var testcoin = await context.TestCoins.SingleOrDefaultAsync(m => m.Id == id);
             if (testcoin == null)
             {
                 return NotFound();
@@ -117,14 +106,14 @@ namespace NeoWeb.Controllers
             {
                 return NotFound();
             }
-            var item = _context.TestCoins.FirstOrDefault(p => p.Id == testcoin.Id);
+            var item = context.TestCoins.FirstOrDefault(p => p.Id == testcoin.Id);
             if (item != null)
             {
                 try
                 {
                     item.Remark = testcoin.Remark;
-                    _context.Update(item);
-                    await _context.SaveChangesAsync();
+                    context.Update(item);
+                    await context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -150,7 +139,7 @@ namespace NeoWeb.Controllers
                 return NotFound();
             }
 
-            var testcoin = await _context.TestCoins
+            var testcoin = await context.TestCoins
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (testcoin == null)
             {
@@ -165,15 +154,15 @@ namespace NeoWeb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var testcoin = await _context.TestCoins.SingleOrDefaultAsync(m => m.Id == id);
-            _context.TestCoins.Remove(testcoin);
-            await _context.SaveChangesAsync();
+            var testcoin = await context.TestCoins.SingleOrDefaultAsync(m => m.Id == id);
+            context.TestCoins.Remove(testcoin);
+            await context.SaveChangesAsync();
             return RedirectToAction(nameof(List));
         }
 
         private bool TestCoinExists(int id)
         {
-            return _context.TestCoins.Any(e => e.Id == id);
+            return context.TestCoins.Any(e => e.Id == id);
         }
     }
 }

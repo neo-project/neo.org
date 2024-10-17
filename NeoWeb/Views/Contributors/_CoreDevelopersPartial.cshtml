@@ -9,50 +9,51 @@
 
 <div class="people-card-container">
     @{
-        string[,] people = new string[6, 7]
+        string[,] people = new string[7, 7]
         {
-            { "Erik Zhang", "张铮文", "Neo Founder", "Author of dBFT", "https://github.com/erikzhang", "https://www.linkedin.com/in/erik-zhang-5a6b14ab/", "/images/discover/ErikZhang.jpg" },
-            { "Fernando Díaz Toledano", "SHARGON", "RED4SEC FOUNDER", "Expert in security", "https://github.com/shargon", "https://www.linkedin.com/in/fernando-diaz-toledano/", "/images/discover/FernandoDiazToledano.jpg" },
-            { "Harry Pierson", "", "NGD ENTERPRISE", "Chief Architect", "https://github.com/devhawk", "https://www.linkedin.com/in/harrypierson/", "/images/discover/HarryPierson.jpg" },
-            { "Igor M. Coelho", "", "NEORESEARCH CO-FOUNDER", "Researcher & professor", "https://github.com/igormcoelho/", "https://www.linkedin.com/in/imcoelho/", "/images/discover/IgorCoelho.jpg" },
-            { "Roman Khimov", "", "NEO SPCC", "Principal Software Engineer", "https://github.com/roman-khimov", "", "/images/discover/RomanKhimov.jpg" },
-            { "Victor Nazario Coelho", "", "NEORESEARCH CO-FOUNDER", "Researcher", "https://github.com/vncoelho", "https://www.linkedin.com/in/vitor-nazário-coelho-b76511a1/", "/images/discover/VitorCoelho.jpg" }
+    { "Erik Zhang", "张铮文", "Neo Founder", "Author of dBFT", "https://github.com/erikzhang", "https://www.linkedin.com/in/erik-zhang-5a6b14ab/", "/images/discover/ErikZhang.jpg" },
+    { "Fernando Díaz Toledano", "SHARGON", "RED4SEC FOUNDER", "Expert in security", "https://github.com/shargon", "https://www.linkedin.com/in/fernando-diaz-toledano/", "/images/discover/FernandoDiazToledano.jpg" },
+    { "Igor M. Coelho", "", "NEORESEARCH CO-FOUNDER", "Researcher & professor", "https://github.com/igormcoelho/", "https://www.linkedin.com/in/imcoelho/", "/images/discover/IgorCoelho.jpg" },
+    { "Roman Khimov", "", "NEO SPCC", "Principal Software Engineer", "https://github.com/roman-khimov", "", "/images/discover/RomanKhimov.jpg" },
+    { "Victor Nazario Coelho", "", "NEORESEARCH CO-FOUNDER", "Researcher", "https://github.com/vncoelho", "https://www.linkedin.com/in/vitor-nazário-coelho-b76511a1/", "/images/discover/VitorCoelho.jpg" },
+    { "Anna Shaleva", "", "NEO SPCC", "Software Engineer", "https://github.com/AnnaShaleva", "", "/images/discover/Anna.png" },
+    { "vang1ong7ang", "", "LAZYNODE", "Researcher", "https://github.com/vang1ong7ang", "", "/images/discover/vang1ong7ang.jpg" }
         };
 
 
         for (int i = 0; i < people.GetLength(0); i++)
         {
-        <div class="people-card">
-            <img class="people-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(people[i, 6])" />
+            <div class="people-card">
+                <img class="people-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN(people[i, 6])" />
 
-            <div class="people-content">
-                <div class="col-name">
-                    <div class="primary-name">@people[i, 0]</div>
-                    @if (!String.IsNullOrEmpty(people[i, 1]))
-                    {
-                        <div class="secondary-name">@people[i, 1]</div>
-                    }
-                    @if (!String.IsNullOrEmpty(people[i, 2]))
-                    {
-                        <div class="title-name">@Localizer[people[i, 2]]</div>
-                    }
-                    @if (!String.IsNullOrEmpty(people[0, 3]))
-                    {
-                        <div class="people-description">@people[i, 3]</div>
-                    }
-                </div>
-                <div class="col-icon">
-                    @if (!String.IsNullOrEmpty(people[i, 4]))
-                    {
-                        <a href="@people[i, 4]" target="_blank"><i class="iconfont link-icon">&#xe609;</i></a>
-                    }
-                    @if (!String.IsNullOrEmpty(people[i, 5]))
-                    {
-                        <a href="@people[i, 5]" target="_blank"><i class="iconfont link-icon">&#xe62e;</i></a>
-                    }
+                <div class="people-content">
+                    <div class="col-name">
+                        <div class="primary-name">@people[i, 0]</div>
+                        @if (!String.IsNullOrEmpty(people[i, 1]))
+                        {
+                            <div class="secondary-name">@people[i, 1]</div>
+                        }
+                        @if (!String.IsNullOrEmpty(people[i, 2]))
+                        {
+                            <div class="title-name">@Localizer[people[i, 2]]</div>
+                        }
+                        @if (!String.IsNullOrEmpty(people[0, 3]))
+                        {
+                            <div class="people-description">@people[i, 3]</div>
+                        }
+                    </div>
+                    <div class="col-icon">
+                        @if (!String.IsNullOrEmpty(people[i, 4]))
+                        {
+                            <a href="@people[i, 4]" target="_blank"><i class="iconfont link-icon">&#xe609;</i></a>
+                        }
+                        @if (!String.IsNullOrEmpty(people[i, 5]))
+                        {
+                            <a href="@people[i, 5]" target="_blank"><i class="iconfont link-icon">&#xe62e;</i></a>
+                        }
+                    </div>
                 </div>
             </div>
-        </div>
         }
     }
 </div>

@@ -1,7 +1,7 @@
 //多语言切换
 function setLanguage(culture) {
     $("#culture").val(culture);
-    $("#returnUrl").val(window.location.pathname + window.location.hash);
+    $("#returnUrl").val(window.location.pathname + window.location.search);
     $("#form_language").submit();
 }
 //懒加载

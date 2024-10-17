@@ -446,6 +446,7 @@ footer {
     vertical-align: middle;
     text-transform: uppercase;
     word-break: keep-all;
+    width: fit-content;
     .work-sans-semibold;
 
     &.btn-small {
@@ -487,12 +488,6 @@ footer {
     background: @green;
     color: white;
     border: 1px solid @green;
-    font-size: @font-size-14px;
-    transition: background-color 0.3s, color 0.3s;
-
-    @media (min-width: 1440px) {
-        font-size: @font-size-18px;
-    }
 
     &:hover, &:focus, &:active {
         background: @green;
@@ -746,4 +741,50 @@ hr {
 
 .wechat2 {
     margin: -150px 0 0 -110px;
+}
+
+.introduction {
+    position: relative;
+    display: flex;
+    padding: 3rem 0 6.25rem;
+
+    @media (max-width: 991.98px) {
+        display: none;
+    }
+}
+
+.introduction-content {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.introduction-title {
+    font-size: 5.75rem;
+    font-family: WorkSans;
+    font-weight: bold;
+    line-height: 0.85;
+    text-transform: uppercase;
+
+    em {
+        font-style: normal;
+        color: @green;
+    }
+}
+
+.introduction-description {
+    margin-top: 2.25rem;
+    font-size: 1.25rem;
+    font-family: NunitoSans;
+    font-weight: bold;
+}
+
+.introduction-img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    max-width: 50%;
+    height: 100%;
+    object-fit: contain;
+    z-index: -1;
 }

@@ -25,14 +25,17 @@ namespace NeoWeb.Models
                         Blog = new BlogViewModel((Blog)data, isZh);
                         Time = Blog.CreateTime;
                         break;
+
                     case NewsViewModelType.Event:
                         Event = new EventViewModel((Event)data, isZh);
                         Time = Event.StartTime;
                         break;
+
                     case NewsViewModelType.Media:
                         Media = new MediaViewModel((Media)data, isZh);
                         Time = Media.Time;
                         break;
+
                     default:
                         throw new ArgumentException("Type does not match.");
                         //break;

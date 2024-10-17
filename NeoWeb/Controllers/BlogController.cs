@@ -10,7 +10,6 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Security.Claims;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml;
 
@@ -34,7 +33,6 @@ namespace NeoWeb.Controllers
             if (_userId != null)
             {
                 _userRules = _context.UserRoles.Any(p => p.UserId == _userId);
-                var asfs = _context.UserRoles.Where(p => p.UserId == _userId).ToList();
             }
         }
 
@@ -57,10 +55,12 @@ namespace NeoWeb.Controllers
             language = !string.IsNullOrEmpty(language) ? language : _sharedLocalizer["en"];
 
             #region Previous and  Next
+
             var idList = _context.Blogs.OrderByDescending(o => o.CreateTime).Select(p => p.Id).ToList();
-            ViewBag.NextBlogId = idList.Count == 0 ? id: idList[Math.Max(idList.IndexOf((int)id) - 1, 0)];
+            ViewBag.NextBlogId = idList.Count == 0 ? id : idList[Math.Max(idList.IndexOf((int)id) - 1, 0)];
             ViewBag.PrevBlogId = idList.Count == 0 ? id : idList[Math.Min(idList.IndexOf((int)id) + 1, idList.Count - 1)];
-            #endregion
+
+            #endregion Previous and  Next
 
             ViewBag.UserRules = _userRules;
 
@@ -92,24 +92,38 @@ namespace NeoWeb.Controllers
             {
                 if (chineseCover != null)
                 {
-                    var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
-                    if (Helper.ValidateCover(_env, fileName))
-                        blog.ChineseCover = fileName;
-                    else
-                        ModelState.AddModelError("ChineseCover", "Cover size must be 16:9.");
+                    try
+                    {
+                        var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
+                        if (Helper.ValidateCover(_env, fileName))
+                            blog.ChineseCover = fileName;
+                        else
+                            ModelState.AddModelError("ChineseCover", "Cover size must be 16:9.");
+                    }
+                    catch (ArgumentException)
+                    {
+                        ModelState.AddModelError("ChineseCover", "Image files exceeding 10MB or in an unsupported format.");
+                    }
                 }
                 if (englishCover != null)
                 {
-                    var fileName = Helper.UploadMedia(englishCover, _env, 1000);
-                    if (Helper.ValidateCover(_env, fileName))
-                        blog.EnglishCover = fileName;
-                    else
-                        ModelState.AddModelError("EnglishCover", "Cover size must be 16:9.");
+                    try
+                    {
+                        var fileName = Helper.UploadMedia(englishCover, _env, 1000);
+                        if (Helper.ValidateCover(_env, fileName))
+                            blog.EnglishCover = fileName;
+                        else
+                            ModelState.AddModelError("EnglishCover", "Cover size must be 16:9.");
+                    }
+                    catch (ArgumentException)
+                    {
+                        ModelState.AddModelError("EnglishCover", "Image files exceeding 10MB or in an unsupported format.");
+                    }
                 }
-                if(!ModelState.IsValid) return View(blog);
+                if (!ModelState.IsValid) return View(blog);
 
-                blog.ChineseContent = Convert(blog.ChineseContent);
-                blog.EnglishContent = Convert(blog.EnglishContent);
+                blog.ChineseContent = Helper.Sanitizer(blog.ChineseContent);
+                blog.EnglishContent = Helper.Sanitizer(blog.EnglishContent);
                 blog.ChineseSummary = blog.ChineseContent.ClearHtmlTag(150);
                 blog.EnglishSummary = blog.EnglishContent.ClearHtmlTag(150);
                 blog.ChineseTags = blog.ChineseTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
@@ -131,6 +145,7 @@ namespace NeoWeb.Controllers
             }
             return View(blog);
         }
+
         // GET: blog/edit/5
         public IActionResult Edit(int? id)
         {
@@ -164,37 +179,51 @@ namespace NeoWeb.Controllers
                 var item = _context.Blogs.FirstOrDefault(p => p.Id == blog.Id);
                 if (chineseCover != null)
                 {
-                    var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
-                    if (Helper.ValidateCover(_env, fileName))
+                    try
                     {
-                        if (!string.IsNullOrEmpty(blog.ChineseCover))
-                            System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", blog.ChineseCover));
-                        item.ChineseCover = fileName;
+                        var fileName = Helper.UploadMedia(chineseCover, _env, 1000);
+                        if (Helper.ValidateCover(_env, fileName))
+                        {
+                            if (!string.IsNullOrEmpty(blog.ChineseCover))
+                                System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", blog.ChineseCover));
+                            item.ChineseCover = fileName;
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("ChineseCover", "Cover size must be 16:9");
+                        }
                     }
-                    else
+                    catch (ArgumentException)
                     {
-                        ModelState.AddModelError("ChineseCover", "Cover size must be 16:9");
+                        ModelState.AddModelError("ChineseCover", "Image files exceeding 10MB or in an unsupported format.");
                     }
                 }
                 if (englishCover != null)
                 {
-                    var fileName = Helper.UploadMedia(englishCover, _env, 1000);
-                    if (Helper.ValidateCover(_env, fileName))
+                    try
                     {
-                        if (!string.IsNullOrEmpty(blog.EnglishCover))
-                            System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", blog.EnglishCover));
-                        item.EnglishCover = fileName;
+                        var fileName = Helper.UploadMedia(englishCover, _env, 1000);
+                        if (Helper.ValidateCover(_env, fileName))
+                        {
+                            if (!string.IsNullOrEmpty(blog.EnglishCover))
+                                System.IO.File.Delete(Path.Combine(_env.ContentRootPath, "wwwroot/upload", blog.EnglishCover));
+                            item.EnglishCover = fileName;
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
+                        }
                     }
-                    else
+                    catch (ArgumentException)
                     {
-                        ModelState.AddModelError("EnglishCover", "Cover size must be 16:9");
+                        ModelState.AddModelError("EnglishCover", "Image files exceeding 10MB or in an unsupported format.");
                     }
                 }
                 if (!ModelState.IsValid) return View(blog);
                 try
                 {
-                    item.ChineseContent = Convert(blog.ChineseContent);
-                    item.EnglishContent = Convert(blog.EnglishContent);
+                    item.ChineseContent = Helper.Sanitizer(blog.ChineseContent);
+                    item.EnglishContent = Helper.Sanitizer(blog.EnglishContent);
                     item.ChineseSummary = blog.ChineseContent.ClearHtmlTag(150);
                     item.EnglishSummary = blog.EnglishContent.ClearHtmlTag(150);
                     item.ChineseTags = blog.ChineseTags?.Replace(", ", ",").Replace("，", ",").Replace("， ", ",");
@@ -204,7 +233,7 @@ namespace NeoWeb.Controllers
                     item.Editor = blog.Editor;
                     item.EditTime = DateTime.Now;
                     item.IsShow = blog.IsShow;
-                    
+
                     _context.Update(item);
                     if (isTop != null)
                     {
@@ -257,6 +286,7 @@ namespace NeoWeb.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("index", "news", new { type = NewsViewModelType.Blog });
         }
+
         private async Task UpdateRSSAsync()
         {
             await Task.Run(() =>
@@ -333,7 +363,6 @@ namespace NeoWeb.Controllers
             rss.AppendChild(channel);
             xml.AppendChild(rss);
             RssModel.Chinese = xml.OuterXml;
-            
         }
 
         private void UpdateRssEnglish()
@@ -439,17 +468,6 @@ namespace NeoWeb.Controllers
         private bool BlogExists(int id)
         {
             return _context.Blogs.Any(e => e.Id == id);
-        }
-
-        private static string Convert(string input)
-        {
-            input = Regex.Replace(input, @"<!\-\-\[if gte mso 9\]>[\s\S]*<!\[endif\]\-\->", ""); //删除 ms office 注解
-            input = Regex.Replace(input, "src=\".*/upload", "data-original=\"/upload"); //替换上传图片的链接
-            input = Regex.Replace(input, "<img src=", "<img data-original="); //替换外部图片的链接
-            input = Regex.Replace(input, @"<p>((&nbsp;\s)|(&nbsp;)|\s)+", "<p>"); //删除段首由空格造成的缩进
-            input = Regex.Replace(input, @"\sstyle="".*?""", ""); //删除 Style 样式
-            input = Regex.Replace(input, @"\sclass="".*?""", ""); //删除 Class 样式
-            return input;
         }
 
         private static string XmlEncode(string input)

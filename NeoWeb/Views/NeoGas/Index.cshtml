@@ -8,9 +8,9 @@
 }
 
 <div class="introduction">
-    <div class="introduction-start">
-        <h1 class="uppercase"><span class="green">NEO</span> <br class="@SharedLocalizer["d-none-zh"]" /> &amp; GAS</h1>
-        <div class="introduction-content">@Localizer["Neo’s two token model allows users to participate in the ecosystem without reducing their stake in the network."]</div>
+    <div class="introduction-content">
+        <h1 class="introduction-title">@Localizer["<em>NEO</em><br/>& GAS"]</h1>
+        <div class="introduction-description">@Localizer["Neo’s two token model allows users to participate in the ecosystem without reducing their stake in the network."]</div>
     </div>
     <img class="introduction-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/discover/DualTokens.svg", true)" />
 </div>
@@ -102,8 +102,6 @@
             if (window.location.hash) {
                 var _num = parseInt(window.location.hash.substr(1, 1));
                 var _str = window.location.hash.substr(2);
-                console.log(_num);
-                console.log(_str);
                 showPlatform($('.nav-client li')[_num], _str);
             }
         })

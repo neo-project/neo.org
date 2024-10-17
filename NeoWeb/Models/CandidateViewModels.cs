@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Linq;
 using System;
 
 namespace NeoWeb.Models
@@ -7,13 +7,13 @@ namespace NeoWeb.Models
     {
         public string PublicKey { get; set; }
 
-        public int  Votes { get; set; }
+        public int Votes { get; set; }
 
         public Candidate Info { get; set; }
 
         public bool Active { get; set; }
 
-        static public CandidateViewModels FromJson(JObject obj)
+        public static CandidateViewModels FromJson(JObject obj)
         {
             return new CandidateViewModels()
             {

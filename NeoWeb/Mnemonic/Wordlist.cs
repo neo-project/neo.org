@@ -1,17 +1,9 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace NeoWeb
 {
-    public abstract class Wordlist
+    public abstract class Wordlist(string[] words)
     {
-        public List<string> WordList { get; }
-
-        public Wordlist(string[] words)
-        {
-            WordList = words.ToList();
-        }
+        public List<string> WordList { get; } = [.. words];
     }
 }

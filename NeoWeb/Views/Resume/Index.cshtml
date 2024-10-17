@@ -1,0 +1,154 @@
+@model IEnumerable<NeoWeb.Models.Resume>
+
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+@section Styles{
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+}
+@{
+    ViewData["Title"] = "简历列表";
+}
+@if (ViewBag.Job != null)
+{
+    <h2 class="my-4">@(SharedLocalizer["en"].Value == "zh" ? (ViewBag.Job as NeoWeb.Models.Job).ChineseTitle : (ViewBag.Job as NeoWeb.Models.Job).EnglishTitle)</h2>
+
+    <a href="/resume">@Localizer["View resumes for all jobs"]</a>
+}
+@if (Model.Count() > 0)
+{
+    <table class="table my-3 table-striped table-hover">
+        <thead>
+            <tr>
+                @if (ViewBag.Job == null)
+                {
+                    <th>
+                        职位名称
+                    </th>
+                }
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Scool) & @Html.DisplayNameFor(model => model.Specialty)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ReferralCode)
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.MyReferralCode)
+                </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.DateTime)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @if (ViewBag.Job == null)
+                    {
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Job.ChineseTitle)
+                        </td>
+                    }
+                    <td>
+                        <a href="/upload/@item.Path" download="@(item.Job?.ChineseTitle + " " + item.Name)">@item.Name</a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Scool)<br>
+                        @Html.DisplayFor(modelItem => item.Specialty)
+                    </td>
+                    <td>
+                        <a href="/resume/referralcode?code=@item.ReferralCode" target="_blank">@item.ReferralCode</a>
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.MyReferralCode)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateTime)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+else
+{
+    <p class="my-3 text-center">@Localizer["Haven't received a resume yet"]</p>
+}
+<nav aria-label="...">
+    <ul class="pagination">
+        @if (ViewBag.Page == 1)
+        {
+            <li class="page-item disabled">
+                <a class="page-link" href="javascript:" tabindex="-1">@Localizer["Previous"]</a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item">
+                <a class="page-link" href="/resume?page=@(ViewBag.Page-1)&jobid=@ViewBag.JobId" tabindex="-1">@Localizer["Previous"]</a>
+            </li>
+        }
+        @if(ViewBag.Page > 3)
+        {
+            <li class="page-item"><a class="page-link" href="/resume?page=1&jobid=@ViewBag.JobId">1</a></li>
+            <li class="page-item"><a class="page-link" href="/resume?page=@(ViewBag.Page - 3)&jobid=@ViewBag.JobId">…</a></li>
+        }
+        @for (int i = 1; i <= (int)ViewBag.Pages; i++)
+        {
+            if (i == ViewBag.Page)
+            {
+                <li class="page-item active"><a class="page-link" href="/resume?page=@(i)&jobid=@ViewBag.JobId">@i</a></li>
+            }
+            else if (i - ViewBag.Page < 3 && ViewBag.Page - i < 3 || ViewBag.Page == 1 && i < 6 || ViewBag.Page == 2 && i < 6 || ViewBag.Page == ViewBag.Pages && i > ViewBag.Pages - 5 || ViewBag.Page == ViewBag.Pages - 1 && i > ViewBag.Pages - 5)
+            {
+                <li class="page-item"><a class="page-link" href="/resume?page=@(i)&jobid=@ViewBag.JobId">@i</a></li>
+            }
+        }
+        @if(ViewBag.Page < (ViewBag.Pages - 3))
+        {
+            <li class="page-item"><a class="page-link" href="/resume?page=@(ViewBag.Page + 3)&jobid=@ViewBag.JobId">…</a></li>
+            <li class="page-item"><a class="page-link" href="/resume?page=@(ViewBag.Pages)&jobid=@ViewBag.JobId">@ViewBag.Pages</a></li>
+        }
+        @if (ViewBag.Page == ViewBag.Pages)
+        {
+            <li class="page-item disabled">
+                <a class="page-link" href="javascript:">@Localizer["Next"]</a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item">
+                <a class="page-link" href="/resume?page=@(ViewBag.Page+1)&jobid=@ViewBag.JobId">@Localizer["Next"]</a>
+            </li>
+        }
+    </ul>
+</nav>
+@section Scripts{
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+    <script>
+        var table = new DataTable('.table', {
+            paging: false,
+            info: false,
+            language: {
+                url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/zh.json',
+            },
+        });
+    </script>
+}

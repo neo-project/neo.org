@@ -219,8 +219,8 @@
   <data name="It's an Android wallet developed by e-studio. This wallet contains basic functions such as importing private keys, transferring assets, etc." xml:space="preserve">
     <value>e-studio 开发的安卓钱包，包含基本的功能，如导入私钥，转账等。</value>
   </data>
-  <data name="It's a cross-platform wallet developed by Neo developer community City of Zion. This wallet supports mainstream operating systems such as Windows, macOS and Linux, and focuses on UE and UI." xml:space="preserve">
-    <value>Neo 开发者社区 City of Zion 开发的跨平台的钱包，支持 Windows、 macOS 和 Linux 等主流操作系统，注重 UE 与 UI。</value>
+  <data name="It's a cross-platform wallet developed by Neo developer community COZ. This wallet supports mainstream operating systems such as Windows, macOS and Linux, and focuses on UE and UI." xml:space="preserve">
+    <value>Neo 开发者社区 COZ 开发的跨平台的钱包，支持 Windows、 macOS 和 Linux 等主流操作系统，注重 UE 与 UI。</value>
   </data>
   <data name="It's an online wallet developed by SafuDEX. It heavily focuses on dApp integration and operability, as well as streamlining the user experience." xml:space="preserve">
     <value>SaduDEX 开发的在线钱包。侧重于 dApp 的集成和交互，同时简化操作流程提升用户体验。</value>
@@ -423,13 +423,13 @@
   <data name="Guarda is a multi-currency, multi-platform cryptocurrency wallet providing custody-free fund management for a variety of coins and tokens. Currently, the wallet supports over 45 major blockchains along with thousands of tokens and offers additional features such as built-in cryptocurrency purchases, exchanges, selling crypto, staking, claiming NEO GAS and more." xml:space="preserve">
     <value>Guarda 是一种多币种，多平台的加密货币钱包。此钱包目前支持 45 个区块链及数千种代币，并提供加密货币购买、交易、出售、抵押、提取 GAS 等功能。</value>
   </data>
-  <data name="This is the official Nash Exchange wallet. Nash is a DEX originated from the NEO community and found by City of Zion founders. Wallet video:" xml:space="preserve">
-    <value>Nash 交易所的官方钱包。Nash 是一个去中心化交易所，由 City of Zion 发起人和 Neo 社区成员组建。钱包视频：</value>
+  <data name="This is the official Nash Exchange wallet. Nash is a DEX originated from the NEO community and found by COZ founders. Wallet video:" xml:space="preserve">
+    <value>Nash 交易所的官方钱包。Nash 是一个去中心化交易所，由 COZ 发起人和 Neo 社区成员组建。钱包视频：</value>
   </data>
   <data name="Send, receive, and exchange your favorite cryptocurrencies like Neo, Bitcoin, Ripple, and more with Exodus." xml:space="preserve">
     <value>使用 Exodus 发送、接收、交换数字货币，例如 Neo、Bitcoin、Ripple 等。</value>
   </data>
-  <data name="Neo-GUI (v3.0 Preview 3) is a full-node application on the Neo 3 blockchain. It uses Electron cross-platform technology and can run on Windows 10, macOS systems." xml:space="preserve">
+  <data name="Neo-GUI  is a full-node application on the Neo 3 blockchain. It uses Electron cross-platform technology and can run on Windows 10, macOS systems." xml:space="preserve">
     <value>Neo-GUI（v3.0 Preview 3）是 Neo 3 区块链上的全节点的应用程序，采用 Electron 跨平台技术，可在 Windows 10、macOS 系统上运行。</value>
   </data>
   <data name="Enables RPC for the node" xml:space="preserve">
@@ -492,5 +492,17 @@
   </data>
   <data name="O3 Wallet is a multi-chain wallet developed by O3 Labs. This wallet supports mainstream blockchains and their popular dApps, maintains a high update frequency and can support Neo N3 updates and features in a timely manner." xml:space="preserve">
     <value>O3 钱包是由 O3 Labs 开发的多链钱包，支持主流区块链及热门的 dApps，保持高更新率，并且及时支持 Neo N3 的更新和功能。</value>
+  </data>
+  <data name="Welcome to OneGate -- One gate to the blockchain. OneGate is a gateway of products developed on the Neo (N3 network) public blockchain. Now we provide service as wallets and Dapp discover. OneGate conduct a ‘non-custodial’ model, as gives users full control over their assets.​" xml:space="preserve">
+    <value>欢迎来到 OneGate——通往区块链的大门。OneGate 类似区块链世界的 App store。是基于 Neo （N3 网络）区块链开发的一站式应用入口。提供钱包、Dapp 发现等功能。OneGate 采取非托管模式，资产完全由用户掌控。</value>
+  </data>
+  <data name="An open source cross-platform light wallet for the Neo blockchain available on Windows, macOS, and Linux." xml:space="preserve">
+    <value>一个开源的跨平台的 Neo 区块链轻型钱包，可在 Windows、macOS 和 Linux 上使用。</value>
+  </data>
+  <data name="An online multi-party signature wallet. You can log in via NeoLine or OneGate. You can construct a transfer transaction or contract that requires multiple signatures on a web page and then sign it." xml:space="preserve">
+    <value>一个在线的多方签名钱包。你可以通过 NeoLine 或 OneGate 登录。你可以在网页上构造需要多方签名的转账交易或合约，然后进行签名。</value>
+  </data>
+  <data name="Quotes from NeoLine and OneGate" xml:space="preserve">
+    <value>引用自 NeoLine 和 OneGate</value>
   </data>
 </root>

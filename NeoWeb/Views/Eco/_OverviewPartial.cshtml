@@ -20,6 +20,7 @@
     @Localizer["Find the support that is right for you"]
 </div>
 <div class="menu-page-tertiary-title">
+    <img class="menu-page-title-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/1.svg", true)" />
     @Localizer["Existing dApps or blockchain - related business"]
 </div>
 
@@ -83,8 +84,79 @@
         </div>
     </div>
 </div>
+<div class="menu-page-tertiary-title">
+    <img class="menu-page-title-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/2.svg", true)" />
+    @Localizer["Infrastructure, tooling and core protocol"]
+</div>
 
+<div class="row py-4" style="background-image: url(@Helper.ToCDN("/images/eco/overview-bg.svg")); background-size: cover; background-position: center;">
+    <div class="col-lg-6 my-3">
+        <div class="card mx-auto" style="max-width: 25rem;">
+            <div class="card-img-top">
+                <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/grants1.svg")" />
+                <h4><strong>@Localizer["GENERAL GRANTS"]</strong></h4>
+            </div>
+            <div class="card-body">
+                <div class="text-center">
+                    <strong class="card-title">@Localizer["Suitable for the following:"]</strong>
+                </div>
+                <p class="card-text"><img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/check.svg")" /><span>@Localizer["An experienced development team with advanced blockchain knowledge"]</span></p>
+                <p class="card-text"><img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/check.svg")" /><span>@Localizer["Interested in building tools and infrastructure to advance the Neo ecosystem"]</span></p>
+                <p class="card-text"><img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/check.svg")" /><span>@Localizer["Able to provide long-term support to your project"]</span></p>
+                <p class="card-text"><img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/check.svg")" /><span>@Localizer["Seeking funding to help achieve project goals"]</span></p>
+                <div class="text-center my-3">
+                    <a asp-controller="eco" asp-action="index" asp-fragment="general-grants" class="btn-4 my-3 my-auto">@Localizer["LEARN MORE"]</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 my-3">
+        <div class="card mx-auto" style="max-width: 25rem;">
+            <div class="card-img-top">
+                <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/grants2.svg")" />
+                <h4><strong>@Localizer["CORE DEV GRANTS"]</strong></h4>
+            </div>
+            <div class="card-body">
+                <div class="text-center">
+                    <strong class="card-title">@Localizer["Suitable for the following:"]</strong>
+                </div>
+                <p class="card-text"><img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/check.svg")" /><span>@Localizer["Experts in blockchain architecture, distributed systems, applied cryptography, network and storage, or blockchain and internet security."]</span></p>
+                <p class="card-text"><img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/check.svg")" /><span>@Localizer["Self-driven, effective communicators, able to work with a global team."]</span></p>
+                <p class="card-text"><img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/check.svg")" /><span>@Localizer["Developers well versed in open-source development."]</span></p>
+                <p class="card-text"><img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/check.svg")" /><span>@Localizer["Those interested in advancing Neo's core protocol."]</span></p>
+                <div class="text-center my-3">
+                    <a asp-controller="eco" asp-action="index" asp-fragment="core-developer-grants" class="btn-4 my-3 my-auto">@Localizer["LEARN MORE"]</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="menu-page-tertiary-title">
+    <img class="menu-page-title-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/3.svg", true)" />
+    @Localizer["RESEARCH"]
+</div>
 
+<div class="row py-4" style="background-image: url(@Helper.ToCDN("/images/eco/overview-bg.svg")); background-size: cover; background-position: center;">
+    <div class="col-lg-6 my-3">
+        <div class="card mx-auto" style="max-width: 25rem;">
+            <div class="card-img-top">
+                <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/grants3.svg")" />
+                <h4><strong>@Localizer["RESEARCH GRANTS"]</strong></h4>
+            </div>
+            <div class="card-body">
+                <div class="text-center">
+                    <strong class="card-title">@Localizer["Suitable for the following:"]</strong>
+                </div>
+                <p class="card-text"><img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/check.svg")" /><span>@Localizer["Academic institutions or research institutes"]</span></p>
+                <p class="card-text"><img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/check.svg")" /><span>@Localizer["Individuals or groups with expert knowledge in specialized fields such as applied cryptography, P2P systems, engineering, economics, governance, etc."]</span></p>
+                <p class="card-text"><img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/eco/check.svg")" /><span>@Localizer["Those looking to advance Neo through applied research"]</span></p>
+                <div class="text-center my-3">
+                    <a asp-controller="eco" asp-action="index" asp-fragment="research-grants" class="btn-4 my-3 my-auto">@Localizer["LEARN MORE"]</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="menu-page-divider"></div>
 <div class="menu-page-secondary-title">

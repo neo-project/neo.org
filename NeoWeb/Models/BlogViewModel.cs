@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace NeoWeb.Models
 {
@@ -22,7 +18,7 @@ namespace NeoWeb.Models
         public DateTime CreateTime { get; set; }
 
         public int ReadCount { get; set; }
-        
+
         public bool IsShow { get; set; }
         public string Editor { get; set; }
 

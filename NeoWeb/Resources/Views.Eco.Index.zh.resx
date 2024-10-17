@@ -120,6 +120,9 @@
   <data name="&lt;em&gt;Eco&lt;/em&gt;&lt;br/&gt;Support" xml:space="preserve">
     <value>&lt;em&gt; 生态 &lt;/em&gt; 支持</value>
   </data>
+  <data name="Core Developer Grants" xml:space="preserve">
+    <value>核心开发者激励</value>
+  </data>
   <data name="Early Adoption Program" xml:space="preserve">
     <value>Early Adoption 计划</value>
   </data>
@@ -132,11 +135,17 @@
   <data name="EcoFund Program" xml:space="preserve">
     <value>EcoFund 计划</value>
   </data>
+  <data name="General Grants" xml:space="preserve">
+    <value>综合激励</value>
+  </data>
   <data name="Overview" xml:space="preserve">
     <value>情况概览</value>
   </data>
   <data name="Projects" xml:space="preserve">
     <value>项目</value>
+  </data>
+  <data name="Research Grants" xml:space="preserve">
+    <value>研究激励</value>
   </data>
   <data name="Whether you are a hobbyist developer, a fledgling start-up, or an established business, we have a range of initiatives to help you bring your vision to life on the Neo blockchain." xml:space="preserve">
     <value>无论是业余开发者、初创企业或是已成型的企业，都能在 Neo 区块链上实现您的愿景。</value>

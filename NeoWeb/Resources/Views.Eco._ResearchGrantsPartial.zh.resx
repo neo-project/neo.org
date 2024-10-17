@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Able to provide examples of previous research projects and results" xml:space="preserve">
+    <value>能够提供以往研究项目和成果的实例</value>
+  </data>
+  <data name="Access to developer community events, such as the Neo Community Assembly" xml:space="preserve">
+    <value>参加开发者社区活动（如 Neo 社区会议）的机会</value>
+  </data>
+  <data name="An academic institution or research institute" xml:space="preserve">
+    <value>一个学术机构或研究机构</value>
+  </data>
+  <data name="An individual or group with expert knowledge in specialized fields such as applied cryptography, P2P systems, engineering, economics, governance, etc." xml:space="preserve">
+    <value>在应用密码学、P2P 系统、工程、经济、治理等专业领域具有专业知识的个人或团体。</value>
+  </data>
+  <data name="Apply for a Research Grant now. The Neo Foundation will generally respond within one month." xml:space="preserve">
+    <value>现在申请研究激励。通常情况下，您将在一个月之内获得回复。</value>
+  </data>
+  <data name="Apply Now" xml:space="preserve">
+    <value>现在申请</value>
+  </data>
+  <data name="Budget" xml:space="preserve">
+    <value>预算</value>
+  </data>
+  <data name="Capable of bringing real-world improvements to the Neo blockchain" xml:space="preserve">
+    <value>有能力为 Neo 区块链带来现实世界的改进</value>
+  </data>
+  <data name="Consensus algorithm optimization" xml:space="preserve">
+    <value>共识算法的优化</value>
+  </data>
+  <data name="Core Developer Grants" xml:space="preserve">
+    <value>核心开发者激励</value>
+  </data>
+  <data name="Cryptography" xml:space="preserve">
+    <value>密码学</value>
+  </data>
+  <data name="Distributed infrastructure applications" xml:space="preserve">
+    <value>分布式基础设施应用</value>
+  </data>
+  <data name="Economic model optimization" xml:space="preserve">
+    <value>经济模型优化</value>
+  </data>
+  <data name="Funding" xml:space="preserve">
+    <value>资助</value>
+  </data>
+  <data name="Funding to complete your research" xml:space="preserve">
+    <value>资助你完成你的研究</value>
+  </data>
+  <data name="High-level-languages" xml:space="preserve">
+    <value>高级语言</value>
+  </data>
+  <data name="How to apply" xml:space="preserve">
+    <value>如何申请</value>
+  </data>
+  <data name="If you are…" xml:space="preserve">
+    <value>如果你是：</value>
+  </data>
+  <data name="If you want to apply for a research grant, please contact the Neo Foundation with the following information:" xml:space="preserve">
+    <value>如果您想要申请研究激励，请联系 Neo 基金会并提供以下信息：</value>
+  </data>
+  <data name="Interoperability across blockchains" xml:space="preserve">
+    <value>跨链互操作性</value>
+  </data>
+  <data name="Large-scale enterprise adoption" xml:space="preserve">
+    <value>大规模的企业应用</value>
+  </data>
+  <data name="NeoVM upgrades &amp; optimization" xml:space="preserve">
+    <value>NeoVM 的升级和优化</value>
+  </data>
+  <data name="On-chain governance" xml:space="preserve">
+    <value>链上治理</value>
+  </data>
+  <data name="Opportunities to participate in global events and media interviews" xml:space="preserve">
+    <value>参加全球活动，接受媒体采访的机会</value>
+  </data>
+  <data name="Please include the requested budget and its usage." xml:space="preserve">
+    <value>包括预算要求及使用情况说明。</value>
+  </data>
+  <data name="Please introduce the applicant’s background and its team members with past research results. Please also indicate the principal researcher and his/her resume and contact." xml:space="preserve">
+    <value>请介绍申请人的背景及其团队成员，并附上过去的研究成果。此外，还请注明主要研究人员，并附上其简历和联系方式。</value>
+  </data>
+  <data name="Please introduce the context of the research topic, its main goal, and the main problems to be solved. Please also indicate the expected results in detail, such as prototype, programmable code, monograph, research report, etc." xml:space="preserve">
+    <value>请介绍研究课题的背景、主要目标和要解决的主要问题。此外，还请详细说明预期成果，如技术原型、可编程代码、专题论文、研究报告等。</value>
+  </data>
+  <data name="Please introduce the research plan and its milestones, and indicate its conditions, guarantees, and risks in completing the project. Please also detail the suggested evaluation indicators." xml:space="preserve">
+    <value>请介绍研究计划及其里程碑，以及完成项目的条件、保障和风险。此外，还请详细说明您建议的评估指标。</value>
+  </data>
+  <data name="Please introduce the topic on which you intend to focus your research." xml:space="preserve">
+    <value>请介绍你打算重点研究的课题。</value>
+  </data>
+  <data name="Privacy" xml:space="preserve">
+    <value>隐私保护</value>
+  </data>
+  <data name="Project Introduction" xml:space="preserve">
+    <value>项目介绍</value>
+  </data>
+  <data name="Protocol and related specification(s)" xml:space="preserve">
+    <value>协议和相关规范</value>
+  </data>
+  <data name="Prototype(s)" xml:space="preserve">
+    <value>技术原型</value>
+  </data>
+  <data name="Reference implementation(s)" xml:space="preserve">
+    <value>参考实现</value>
+  </data>
+  <data name="Research" xml:space="preserve">
+    <value>研究</value>
+  </data>
+  <data name="Research Grants" xml:space="preserve">
+    <value>研究激励</value>
+  </data>
+  <data name="Research Grants could provide..." xml:space="preserve">
+    <value>研究激励可以提供：</value>
+  </data>
+  <data name="Research Roadmap" xml:space="preserve">
+    <value>研究路线图</value>
+  </data>
+  <data name="Research Topic" xml:space="preserve">
+    <value>研究课题</value>
+  </data>
+  <data name="Research Topics" xml:space="preserve">
+    <value>研究课题</value>
+  </data>
+  <data name="Scalability" xml:space="preserve">
+    <value>可扩展性</value>
+  </data>
+  <data name="Security" xml:space="preserve">
+    <value>安全性</value>
+  </data>
+  <data name="Shipping code on TestNet" xml:space="preserve">
+    <value>在测试网上推出代码</value>
+  </data>
+  <data name="Team Introduction" xml:space="preserve">
+    <value>团队介绍</value>
+  </data>
+  <data name="Technical report(s) with experimental results" xml:space="preserve">
+    <value>包含实验结果的技术报告</value>
+  </data>
+  <data name="Technological innovation is the premise for the continuous growth and development of the blockchain industry. The Neo Foundation is interested in funding universities, research institutes, laboratories, consultancies and researchers to conduct applied research based on the Neo blockchain capabilities and roadmap." xml:space="preserve">
+    <value>技术创新是区块链行业持续增长和发展的前提。Neo 基金会愿意为大学、研究机构、实验室、咨询机构和研究人员提供资助，根据 Neo 区块链的性能和路线图开展应用研究。</value>
+  </data>
+  <data name="The average funding for a research project is around $10,000 to $100,000. However, if the project can provide extraordinary value to the Neo Foundation, additional funding may be possible. Most of the projects should be expected to be completed within 6 months, complex ones no longer than 12 months." xml:space="preserve">
+    <value>每个研究项目能获得的平均资助在 1 万至 10 万美元之间。当然，如果该项目能够为 Neo 生态提供极高的价值，还有获得更高资助的可能。绝大多数项目应在 6 个月内完成开发，相对复杂的项目则不能超过 12 个月。</value>
+  </data>
+  <data name="The following topics are listed alphabetically." xml:space="preserve">
+    <value>以下课题按照字母顺序排列：</value>
+  </data>
+  <data name="Tokenization and circulation of digital assets" xml:space="preserve">
+    <value>数字资产的通证化与流通</value>
+  </data>
+  <data name="We are looking for pioneering researchers to focus their applied research efforts in areas related to the Neo Foundation's vision and roadmap. In order to provide directional guidance, listed below are some relevant topics that the Neo Foundation is considering in its roadmap over the next 12-24 months. If you believe that we should sponsor applied research in areas related to the Neo that aren't currently in the list, then please feel free to submit a new request addressing the proposal using the Research Application Form." xml:space="preserve">
+    <value>我们正在寻找先进的研究者，来进行 Neo 基金会愿景和路线图的相关研究。作为方向指导，下面列出了 Neo 基金会将在未来的 12-24 个月中深入考虑的一些研究课题。如果您认为我们还有遗漏的、应该给予资助的 Neo 相关研究课题，欢迎通过提交研究申请表进行提案。</value>
+  </data>
+  <data name="We attach importance to the application of research results, which may bring real - world improvements to the Neo Blockchain. Expected output and results of the applied research include but are not limited to:" xml:space="preserve">
+    <value>我们重视研究成果的实际应用，这可能给 Neo 区块链带来现实世界的改进。应用研究的预期产出结果包括但不限于：</value>
+  </data>
+</root>
