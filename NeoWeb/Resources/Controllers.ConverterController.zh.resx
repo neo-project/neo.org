@@ -246,4 +246,13 @@
   <data name="This is a simple transfer script:" xml:space="preserve">
     <value>这是一个简单的转账脚本：</value>
   </data>
+  <data name="This is a vote script:" xml:space="preserve">
+    <value>这是一个投票脚本：</value>
+  </data>
+  <data name="This is a check signature script:" xml:space="preserve">
+    <value>这是一个验证签名的脚本：</value>
+  </data>
+  <data name="This is a check multi signature script:" xml:space="preserve">
+    <value>这是一个验证多签的脚本：</value>
+  </data>
 </root>

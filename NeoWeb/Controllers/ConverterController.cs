@@ -132,12 +132,27 @@ namespace NeoWeb.Controllers
                     var output = ConverterHelper.HexScriptsToOpCode(input);
                     if (output.Count > 0)
                     {
-                        result.Add(localizer["Smart contract script analysis:"], output);
                         var transfer = ConverterHelper.AsTransferScript(output, options);
                         if (transfer.Count > 0)
                         {
                             result.Add(localizer["This is a simple transfer script:"], transfer);
                         }
+                        var vote = ConverterHelper.AsVoteScript(output, options);
+                        if (vote.Count > 0)
+                        {
+                            result.Add(localizer["This is a vote script:"], vote);
+                        }
+                        var checkSig = ConverterHelper.AsCheckSigScript(output);
+                        if (checkSig.Count > 0)
+                        {
+                            result.Add(localizer["This is a check signature script:"], checkSig);
+                        }
+                        var checkMultiSig = ConverterHelper.AsCheckMultiSigScript(output);
+                        if (checkMultiSig.Count > 0)
+                        {
+                            result.Add(localizer["This is a check multi signature script:"], checkMultiSig);
+                        }
+                        result.Add(localizer["Smart contract script analysis:"], output);
                     }
                 }
                 catch (Exception) { }
@@ -296,12 +311,27 @@ namespace NeoWeb.Controllers
                     var output = ConverterHelper.ScriptsToOpCode(input);
                     if (output.Count > 0)
                     {
-                        result.Add(localizer["Smart contract script analysis:"], output);
                         var transfer = ConverterHelper.AsTransferScript(output, options);
                         if (transfer.Count > 0)
                         {
                             result.Add(localizer["This is a simple transfer script:"], transfer);
                         }
+                        var vote = ConverterHelper.AsVoteScript(output, options);
+                        if (vote.Count > 0)
+                        {
+                            result.Add(localizer["This is a vote script:"], vote);
+                        }
+                        var checkSig = ConverterHelper.AsCheckSigScript(output);
+                        if (checkSig.Count > 0)
+                        {
+                            result.Add(localizer["This is a check signature script:"], checkSig);
+                        }
+                        var checkMultiSig = ConverterHelper.AsCheckMultiSigScript(output);
+                        if (checkMultiSig.Count > 0)
+                        {
+                            result.Add(localizer["This is a check multi signature script:"], checkMultiSig);
+                        }
+                        result.Add(localizer["Smart contract script analysis:"], output);
                     }
                     //可能是合约脚本
                     if (output.Any(p => p.Contains("CheckSig") || p.Contains("CheckMultisig")))

@@ -592,35 +592,35 @@ namespace NeoWeb
             return result.ToArray().ToList();
         }
 
+        //CwEQJwwUTMlSGZmdQhJDyBYeP8D0KQwGeEUMFK74DaAKZqVwscMjLQsWKMqwub86FMAfDAh0cmFuc2ZlcgwUz3bii9AGLEpHjuNVYQETGfPPpNJBYn1bUg==
         private static readonly string[] transferTemplates =
         {
-            "SYSCALL System.Contract.Call",
-            "PUSHDATA1 0x[0-9a-f]{40}",
-            "PUSHDATA1 transfer",
-            "PUSH15",
-            "PACK",
-            "PUSH4",
-            "PUSHDATA1 0x[0-9a-f]{40}",
-            "PUSHDATA1 0x[0-9a-f]{40}",
+            "PUSHT|PUSHNULL",
             "PUSH(?:1[0-6]|[1-9])|PUSHINT(?:8|16|32|64|128|256) \\d+",
-            "PUSHT|PUSHNULL"
+            "PUSHDATA1 0x[0-9a-f]{40}",
+            "PUSHDATA1 0x[0-9a-f]{40}",
+            "PUSH4",
+            "PACK",
+            "PUSH15",
+            "PUSHDATA1 transfer",
+            "PUSHDATA1 0x[0-9a-f]{40}",
+            "SYSCALL System.Contract.Call"
         };
 
         public static List<string> AsTransferScript(List<string> input, IOptions<RpcOptions> options)
         {
             try
             {
-                var copy = input.AsEnumerable().Reverse().ToList();
-                if (copy.Count != 10) return [];
+                if (input.Count != transferTemplates.Length) return [];
 
-                for (int i = 0; i < copy.Count; i++)
+                for (int i = 0; i < input.Count; i++)
                 {
-                    if (copy[i] != transferTemplates[i] && !Regex.IsMatch(copy[i], transferTemplates[i]))
+                    if (input[i] != transferTemplates[i] && !Regex.IsMatch(input[i], transferTemplates[i]))
                         return [];
                 }
 
-                var amount = copy[8].StartsWith("PUSHINT") ? BigInteger.Parse(copy[8].Split(' ')[1]) : BigInteger.Parse(copy[8].Replace("PUSH", ""));
-                var contract = UInt160.Parse(copy[1].Split(' ')[1]);
+                var amount = input[1].StartsWith("PUSHINT") ? BigInteger.Parse(input[1].Split(' ')[1]) : BigInteger.Parse(input[1].Replace("PUSH", ""));
+                var contract = UInt160.Parse(input[8].Split(' ')[1]);
                 var clientOptions = new[] { options.Value.TestNet, options.Value.MainNet };
 
                 foreach (var net in clientOptions)
@@ -635,17 +635,17 @@ namespace NeoWeb
 
                         var result = new List<string>
                         {
-                            $"Transfer: {trueAmount} {symbol} from {ScriptHashToAddress(copy[6].Split(' ')[1])} to {ScriptHashToAddress(copy[7].Split(' ')[1])}"
+                            $"Transfer {trueAmount} {symbol} from {ScriptHashToAddress(input[3].Split(' ')[1])} to {ScriptHashToAddress(input[2].Split(' ')[1])}"
                         };
                         if (nativeContract == null)
                         {
-                            result.Add($"Token: {copy[1].Split(' ')[1]}");
+                            result.Add($"Token: {input[8].Split(' ')[1]}");
                             result.Add($"Network: {(net == options.Value.TestNet ? "TestT5" : "MainNet")}");
                         }
                         try
                         {
-                            var toContract = client.GetContractStateAsync(copy[7].Split(' ')[1]).Result;
-                            result.Add($"Note: {ScriptHashToAddress(copy[7].Split(' ')[1])} is a contract.");
+                            var toContract = client.GetContractStateAsync(input[2].Split(' ')[1]).Result;
+                            result.Add($"Note: {ScriptHashToAddress(input[2].Split(' ')[1])} is a contract.");
                         }
                         catch (Exception)
                         {
@@ -658,6 +658,84 @@ namespace NeoWeb
             catch { }
 
             return [];
+        }
+
+        //DCEDXVdMxqkE6C39gtf2/JwsoELUQQpJEOzIwHoH20ncZRMMFEzJUhmZnUISQ8gWHj/A9CkMBnhFEsAfDAR2b3RlDBT1Y+pAvCg9TQ4FxI6jBbPyoHNA70FifVtS
+        private static readonly string[] voteTemplates =
+        {
+            "PUSHDATA1 0[23][0-9a-f]{64}",
+            "PUSHDATA1 0x[0-9a-f]{40}",
+            "PUSH2",
+            "PACK",
+            "PUSH15",
+            "PUSHDATA1 vote",
+            "PUSHDATA1 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5",
+            "SYSCALL System.Contract.Call",
+        };
+
+        public static List<string> AsVoteScript(List<string> input, IOptions<RpcOptions> options)
+        {
+            try
+            {
+                if (input.Count != voteTemplates.Length) return [];
+
+                for (int i = 0; i < input.Count; i++)
+                {
+                    if (input[i] != voteTemplates[i] && !Regex.IsMatch(input[i], voteTemplates[i]))
+                        return [];
+                }
+                return new List<string> { $"Address {ScriptHashToAddress(input[1].Split(' ')[1])} voted to candidate {input[0].Split(' ')[1]}" };
+            }
+            catch { }
+
+            return [];
+        }
+
+        private static readonly string[] checkSigTemplates =
+        {
+            "PUSHDATA1 0[23][0-9a-f]{64}",
+            "SYSCALL System.Crypto.CheckSig"
+        };
+
+        public static List<string> AsCheckSigScript(List<string> input)
+        {
+            try
+            {
+                if (input.Count != checkSigTemplates.Length) return [];
+
+                for (int i = 0; i < input.Count; i++)
+                {
+                    if (input[i] != checkSigTemplates[i] && !Regex.IsMatch(input[i], checkSigTemplates[i]))
+                        return [];
+                }
+                return [$"Check signature with public key {input[0].Split(' ')[1]}"];
+            }
+            catch { }
+
+            return [];
+        }
+
+        //EgwhAnuOhIl9zf58vffm17ad227dYyPL5zLqaN0rPUSoDoDwDCEDgBchE+mBddcV0vPzyiKd0d99+WXHZpv8IvBS7oRicy8SQZ7Q3Do=
+        public static List<string> AsCheckMultiSigScript(List<string> input)
+        {
+            if (!Regex.IsMatch(input[0], "PUSH(?:1[0-6]|[1-9])|PUSHINT(?:8|16|32|64|128|256) \\d+")) return [];
+            var m = input[0].StartsWith("PUSHINT") ? BigInteger.Parse(input[0].Split(' ')[1]) : BigInteger.Parse(input[0].Replace("PUSH", ""));
+            var publicList = new List<string>();
+            int i = 1;
+            for (; i < input.Count - 2; i++)
+            {
+                if (Regex.IsMatch(input[i], "PUSHDATA1 0[23][0-9a-f]{64}"))
+                    publicList.Add(input[i].Split(' ')[1]);
+            }
+            var n = input[i].StartsWith("PUSHINT") ? BigInteger.Parse(input[i].Split(' ')[1]) : BigInteger.Parse(input[i].Replace("PUSH", ""));
+            if (n != publicList.Count) return [];
+            if (input[i + 1] != "SYSCALL System.Crypto.CheckMultisig") return [];
+            var result = new List<string>
+            {
+                $"Check {m}/{n} multi-signature, public keys:"
+            };
+            publicList.ForEach(result.Add);
+            return result;
         }
     }
 }
