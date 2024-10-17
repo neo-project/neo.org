@@ -255,4 +255,7 @@
   <data name="This is a check multi signature script:" xml:space="preserve">
     <value>这是一个验证多签的脚本：</value>
   </data>
+  <data name="Script hash to to Base64 string:" xml:space="preserve">
+    <value>脚本哈希转 Base64 字符串：</value>
+  </data>
 </root>

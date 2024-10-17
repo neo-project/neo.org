@@ -184,6 +184,13 @@ namespace NeoWeb.Controllers
                 catch (Exception) { }
                 try
                 {
+                    var output = ConverterHelper.ScriptHashToAddress(input);
+                    output = ConverterHelper.AddressToBase64String(output);
+                    result.Add(localizer["Script hash to to Base64 string:"], [output]);
+                }
+                catch (Exception) { }
+                try
+                {
                     var output = ConverterHelper.BigLittleEndConversion(input);
                     result.Add(localizer["Big-endian to little-endian:"], [output]);
                 }
