@@ -555,35 +555,51 @@ namespace NeoWeb
             ApplicationEngine.Services.ToList().ForEach(p => dic.Add(p.Value.Hash, p.Value.Name));
 
             //Analyzing Scripts
-            var ip = 0;
             Instruction instruction;
             var result = new List<string>();
+            var bookmark = new Dictionary<int, int>(); //ip, line 
             var line = 1;
-            while (ip < script.Length && (instruction = script.GetInstruction(ip)) != null)
+            for (int ip = 0; ip < script.Length && (instruction = script.GetInstruction(ip)) != null; ip += instruction.Size)
             {
-                ip += instruction.Size;
-
                 var op = instruction.OpCode;
 
                 if (op.ToString().StartsWith("PUSHINT"))
                 {
                     var operand = instruction.Operand.ToArray();
-                    result.Add($"{op} {new BigInteger(operand)}"); line++;
+                    result.Add($"{op} {new BigInteger(operand)}");
+                    bookmark.Add(ip, line++);
                 }
                 else if (op == OpCode.SYSCALL)
                 {
                     var operand = instruction.Operand.ToArray();
-                    result.Add($"{op} {dic[BitConverter.ToUInt32(operand)]}"); line++;
+                    result.Add($"{op} {dic[BitConverter.ToUInt32(operand)]}");
+                    bookmark.Add(ip, line++);
                 }
-                else if (op == OpCode.JMPIF || op == OpCode.JMPIFNOT || op == OpCode.JMPEQ || op == OpCode.JMPNE || op == OpCode.JMPGE || op == OpCode.JMPLE || op == OpCode.JMPLT || op == OpCode.JMPGT)
+                else if (op == OpCode.JMP || op == OpCode.JMPIF || op == OpCode.JMPIFNOT || op == OpCode.JMPEQ || op == OpCode.JMPNE || op == OpCode.JMPGE || op == OpCode.JMPLE || op == OpCode.JMPLT || op == OpCode.JMPGT)
                 {
                     var operand = instruction.Operand.ToArray();
-                    result.Add($"{op} L{line + (sbyte)operand[0]}"); line++;
+                    bookmark.TryGetValue(ip + (sbyte)operand[0], out var distLine);
+                    result.Add($"{op} L{distLine}");
+                    bookmark.Add(ip, line++);
                 }
-                else if (op == OpCode.JMPIF_L || op == OpCode.JMPIFNOT_L || op == OpCode.JMPEQ_L || op == OpCode.JMPNE_L || op == OpCode.JMPGE_L || op == OpCode.JMPLE_L || op == OpCode.JMPLT_L || op == OpCode.JMPGT_L)
+                else if (op == OpCode.JMP_L || op == OpCode.JMPIF_L || op == OpCode.JMPIFNOT_L || op == OpCode.JMPEQ_L || op == OpCode.JMPNE_L || op == OpCode.JMPGE_L || op == OpCode.JMPLE_L || op == OpCode.JMPLT_L || op == OpCode.JMPGT_L)
                 {
                     var operand = instruction.Operand.ToArray();
-                    result.Add($"{op} L{line + BitConverter.ToInt32(operand, 0)}"); line++;
+                    bookmark.TryGetValue(ip + (sbyte)operand[0], out var distLine);
+                    result.Add($"{op} L{distLine}");
+                    bookmark.Add(ip, line++);
+                }
+                else if (op == OpCode.STSFLD || op == OpCode.LDSFLD || op == OpCode.LDLOC || op == OpCode.STLOC || op == OpCode.LDARG || op == OpCode.STARG)
+                {
+                    var operand = instruction.Operand.ToArray();
+                    result.Add($"{op} {(sbyte)operand[0]}");
+                    bookmark.Add(ip, line++);
+                }
+                else if (op == OpCode.INITSLOT || op == OpCode.INITSSLOT)
+                {
+                    var operand = instruction.Operand.ToArray();
+                    result.Add($"{op} {string.Join(", ", operand)}");
+                    bookmark.Add(ip, line++);
                 }
                 else
                 {
@@ -592,12 +608,13 @@ namespace NeoWeb
                         var operand = instruction.Operand.ToArray();
                         var ascii = Encoding.Default.GetString(operand);
                         ascii = ascii.Any(p => p < '0' || p > 'z') ? operand.ToHexString() : ascii;
-
-                        result.Add($"{op} {(operand.Length == 20 ? new UInt160(operand).ToString() : ascii)}"); line++;
+                        result.Add($"{op} {(operand.Length == 20 ? new UInt160(operand).ToString() : ascii)}");
+                        bookmark.Add(ip, line++);
                     }
                     else
                     {
-                        result.Add($"{op}"); line++;
+                        result.Add($"{op}");
+                        bookmark.Add(ip, line++);
                     }
                 }
             }
