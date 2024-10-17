@@ -7,6 +7,7 @@ using Neo.SmartContract;
 using Neo.VM;
 using Neo.Wallets;
 using NeoWeb.Services;
+using Org.BouncyCastle.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -557,6 +558,7 @@ namespace NeoWeb
             var ip = 0;
             Instruction instruction;
             var result = new List<string>();
+            var line = 1;
             while (ip < script.Length && (instruction = script.GetInstruction(ip)) != null)
             {
                 ip += instruction.Size;
@@ -566,12 +568,22 @@ namespace NeoWeb
                 if (op.ToString().StartsWith("PUSHINT"))
                 {
                     var operand = instruction.Operand.ToArray();
-                    result.Add($"{op} {new BigInteger(operand)}");
+                    result.Add($"{op} {new BigInteger(operand)}"); line++;
                 }
                 else if (op == OpCode.SYSCALL)
                 {
                     var operand = instruction.Operand.ToArray();
-                    result.Add($"{op} {dic[BitConverter.ToUInt32(operand)]}");
+                    result.Add($"{op} {dic[BitConverter.ToUInt32(operand)]}"); line++;
+                }
+                else if (op == OpCode.JMPIF || op == OpCode.JMPIFNOT || op == OpCode.JMPEQ || op == OpCode.JMPNE || op == OpCode.JMPGE || op == OpCode.JMPLE || op == OpCode.JMPLT || op == OpCode.JMPGT)
+                {
+                    var operand = instruction.Operand.ToArray();
+                    result.Add($"{op} L{line + (sbyte)operand[0]}"); line++;
+                }
+                else if (op == OpCode.JMPIF_L || op == OpCode.JMPIFNOT_L || op == OpCode.JMPEQ_L || op == OpCode.JMPNE_L || op == OpCode.JMPGE_L || op == OpCode.JMPLE_L || op == OpCode.JMPLT_L || op == OpCode.JMPGT_L)
+                {
+                    var operand = instruction.Operand.ToArray();
+                    result.Add($"{op} L{line + BitConverter.ToInt32(operand, 0)}"); line++;
                 }
                 else
                 {
@@ -581,11 +593,11 @@ namespace NeoWeb
                         var ascii = Encoding.Default.GetString(operand);
                         ascii = ascii.Any(p => p < '0' || p > 'z') ? operand.ToHexString() : ascii;
 
-                        result.Add($"{op} {(operand.Length == 20 ? new UInt160(operand).ToString() : ascii)}");
+                        result.Add($"{op} {(operand.Length == 20 ? new UInt160(operand).ToString() : ascii)}"); line++;
                     }
                     else
                     {
-                        result.Add($"{op}");
+                        result.Add($"{op}"); line++;
                     }
                 }
             }

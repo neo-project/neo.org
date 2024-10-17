@@ -4,6 +4,17 @@
 @{
     ViewData["Title"] = @Localizer["N3 data converter"].Value;
 }
+<style>
+    .opline
+    {
+        color: rgb(89, 99, 110);
+        width: 3rem;
+        display: inline-block;
+        text-align: right;
+        margin-right: .5rem;
+        margin-left: -2rem;
+    }
+</style>
 <div class="py-5">
     <p>@Localizer["Support conversion of address, script hash, private key, public key, big-endian and little-endian, big-integer, character string, hexadecimal string, hexadecimal script, Base64 script, Application Log, Base64 encoding, Mnemonic etc. and analysis of smart contract script"]</p>
     <p>Neo @ViewBag.NeoVersion</p>
@@ -22,9 +33,13 @@
                     <p>@item.Key</p>
                     <p>
                         <code>
-                            @foreach (var v in item.Value)
+                            @for (int i = 0; i < item.Value.Count; i++)
                             {
-                                @v
+                                if (item.Value.Count > 5)
+                                {
+                                    <i class="opline">@(i+1)</i>
+                                }
+                                @item.Value[i]
 
                                 <br />
                             }
