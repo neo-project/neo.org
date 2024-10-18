@@ -550,75 +550,127 @@ namespace NeoWeb
 
         private static List<string> ScriptsToOpCode(Script script)
         {
-            //Initialize all InteropService
-            var dic = new Dictionary<uint, string>();
-            ApplicationEngine.Services.ToList().ForEach(p => dic.Add(p.Value.Hash, p.Value.Name));
+            // Initialize all InteropService
+            var dic = ApplicationEngine.Services.ToDictionary(p => p.Value.Hash, p => p.Value.Name);
 
-            //Analyzing Scripts
+            // Analyzing Scripts
             Instruction instruction;
             var result = new List<string>();
-            var bookmark = new Dictionary<int, int>(); //ip, line 
+            var bookmark = new Dictionary<int, int>(); // ip, line
             var line = 1;
+
             for (int ip = 0; ip < script.Length && (instruction = script.GetInstruction(ip)) != null; ip += instruction.Size)
             {
                 var op = instruction.OpCode;
+                var operand = instruction.Operand.ToArray();
 
-                if (op.ToString().StartsWith("PUSHINT"))
+                switch (op)
                 {
-                    var operand = instruction.Operand.ToArray();
-                    result.Add($"{op} {new BigInteger(operand)}");
-                    bookmark.Add(ip, line++);
-                }
-                else if (op == OpCode.SYSCALL)
-                {
-                    var operand = instruction.Operand.ToArray();
-                    result.Add($"{op} {dic[BitConverter.ToUInt32(operand)]}");
-                    bookmark.Add(ip, line++);
-                }
-                else if (op == OpCode.JMP || op == OpCode.JMPIF || op == OpCode.JMPIFNOT || op == OpCode.JMPEQ || op == OpCode.JMPNE || op == OpCode.JMPGE || op == OpCode.JMPLE || op == OpCode.JMPLT || op == OpCode.JMPGT)
-                {
-                    var operand = instruction.Operand.ToArray();
-                    bookmark.TryGetValue(ip + (sbyte)operand[0], out var distLine);
-                    result.Add($"{op} L{distLine}");
-                    bookmark.Add(ip, line++);
-                }
-                else if (op == OpCode.JMP_L || op == OpCode.JMPIF_L || op == OpCode.JMPIFNOT_L || op == OpCode.JMPEQ_L || op == OpCode.JMPNE_L || op == OpCode.JMPGE_L || op == OpCode.JMPLE_L || op == OpCode.JMPLT_L || op == OpCode.JMPGT_L)
-                {
-                    var operand = instruction.Operand.ToArray();
-                    bookmark.TryGetValue(ip + (sbyte)operand[0], out var distLine);
-                    result.Add($"{op} L{distLine}");
-                    bookmark.Add(ip, line++);
-                }
-                else if (op == OpCode.STSFLD || op == OpCode.LDSFLD || op == OpCode.LDLOC || op == OpCode.STLOC || op == OpCode.LDARG || op == OpCode.STARG)
-                {
-                    var operand = instruction.Operand.ToArray();
-                    result.Add($"{op} {(sbyte)operand[0]}");
-                    bookmark.Add(ip, line++);
-                }
-                else if (op == OpCode.INITSLOT || op == OpCode.INITSSLOT)
-                {
-                    var operand = instruction.Operand.ToArray();
-                    result.Add($"{op} {string.Join(", ", operand)}");
-                    bookmark.Add(ip, line++);
-                }
-                else
-                {
-                    if (!instruction.Operand.IsEmpty && instruction.Operand.Length > 0)
-                    {
-                        var operand = instruction.Operand.ToArray();
-                        var ascii = Encoding.Default.GetString(operand);
-                        ascii = ascii.Any(p => p < '0' || p > 'z') ? operand.ToHexString() : ascii;
-                        result.Add($"{op} {(operand.Length == 20 ? new UInt160(operand).ToString() : ascii)}");
-                        bookmark.Add(ip, line++);
-                    }
-                    else
-                    {
-                        result.Add($"{op}");
-                        bookmark.Add(ip, line++);
-                    }
+                    case OpCode.SYSCALL:
+                        AddResult(result, $"{op} {dic[BitConverter.ToUInt32(operand)]}", bookmark, ref line, ip);
+                        break;
+
+                    case OpCode.PUSHINT8:
+                    case OpCode.PUSHINT16:
+                    case OpCode.PUSHINT32:
+                    case OpCode.PUSHINT64:
+                    case OpCode.PUSHINT128:
+                    case OpCode.PUSHINT256:
+                    case OpCode.STSFLD:
+                    case OpCode.LDSFLD:
+                    case OpCode.LDLOC:
+                    case OpCode.STLOC:
+                    case OpCode.LDARG:
+                    case OpCode.STARG:
+                        AddResult(result, $"{op} {new BigInteger(operand)}", bookmark, ref line, ip);
+                        break;
+
+                    case OpCode.JMP:
+                    case OpCode.JMP_L:
+                    case OpCode.JMPIF:
+                    case OpCode.JMPIF_L:
+                    case OpCode.JMPIFNOT:
+                    case OpCode.JMPIFNOT_L:
+                    case OpCode.JMPEQ:
+                    case OpCode.JMPEQ_L:
+                    case OpCode.JMPNE:
+                    case OpCode.JMPNE_L:
+                    case OpCode.JMPGE:
+                    case OpCode.JMPGE_L:
+                    case OpCode.JMPLE:
+                    case OpCode.JMPLE_L:
+                    case OpCode.JMPLT:
+                    case OpCode.JMPLT_L:
+                    case OpCode.JMPGT:
+                    case OpCode.JMPGT_L:
+                    case OpCode.CALL:
+                    case OpCode.CALL_L:
+                    case OpCode.ENDTRY:
+                    case OpCode.ENDTRY_L:
+                    case OpCode.PUSHA:
+                        AddJumpResult(result, op, operand, bookmark, ref line, ip);
+                        break;
+
+                    case OpCode.TRY:
+                    case OpCode.TRY_L:
+                        AddTryResult(result, op, operand, bookmark, ref line, ip);
+                        break;
+
+                    case OpCode.INITSLOT:
+                        AddResult(result, $"{op} {operand[0]} local variable {operand[1]} argument", bookmark, ref line, ip);
+                        break;
+
+                    case OpCode.INITSSLOT:
+                        AddResult(result, $"{op} {string.Join(", ", operand)}", bookmark, ref line, ip);
+                        break;
+
+                    case OpCode.CONVERT:
+                    case OpCode.ISTYPE:
+                        AddResult(result, $"{op} {(Neo.VM.Types.StackItemType)operand[0]}", bookmark, ref line, ip);
+                        break;
+
+                    default:
+                        AddDefaultResult(result, op, operand, bookmark, ref line, ip);
+                        break;
                 }
             }
-            return result.ToArray().ToList();
+
+            return result;
+        }
+
+        private static void AddResult(List<string> result, string value, Dictionary<int, int> bookmark, ref int line, int ip)
+        {
+            result.Add(value);
+            bookmark.Add(ip, line++);
+        }
+
+        private static void AddJumpResult(List<string> result, OpCode op, byte[] operand, Dictionary<int, int> bookmark, ref int line, int ip)
+        {
+            bookmark.TryGetValue(ip + (int)new BigInteger(operand), out var distLine);
+            AddResult(result, $"{op} L{distLine}", bookmark, ref line, ip);
+        }
+
+        private static void AddTryResult(List<string> result, OpCode op, byte[] operand, Dictionary<int, int> bookmark, ref int line, int ip)
+        {
+            var catchOperand = operand.Take(operand.Length / 2).ToArray();
+            var finallyOperand = operand.Skip(operand.Length / 2).ToArray();
+            bookmark.TryGetValue(ip + (int)new BigInteger(catchOperand), out var catchLine);
+            bookmark.TryGetValue(ip + (int)new BigInteger(finallyOperand), out var finallyLine);
+            AddResult(result, $"{op} catch:{catchLine} finally:{finallyLine}", bookmark, ref line, ip);
+        }
+
+        private static void AddDefaultResult(List<string> result, OpCode op, byte[] operand, Dictionary<int, int> bookmark, ref int line, int ip)
+        {
+            if (operand.Length > 0)
+            {
+                var ascii = Encoding.Default.GetString(operand);
+                ascii = ascii.Any(p => p < '0' || p > 'z') ? operand.ToHexString() : ascii;
+                AddResult(result, $"{op} {(operand.Length == 20 ? new UInt160(operand).ToString() : ascii)}", bookmark, ref line, ip);
+            }
+            else
+            {
+                AddResult(result, $"{op}", bookmark, ref line, ip);
+            }
         }
 
         //CwEQJwwUTMlSGZmdQhJDyBYeP8D0KQwGeEUMFK74DaAKZqVwscMjLQsWKMqwub86FMAfDAh0cmFuc2ZlcgwUz3bii9AGLEpHjuNVYQETGfPPpNJBYn1bUg==
