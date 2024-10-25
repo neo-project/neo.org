@@ -306,7 +306,9 @@ namespace NeoWeb
             input = Replace(input, @"<p>((&nbsp;\s)|(&nbsp;)|\s)+", "<p>"); //删除段首由空格造成的缩进
             var sanitizer = new Ganss.Xss.HtmlSanitizer();
             sanitizer.AllowedAttributes.Remove("style");
+            sanitizer.AllowedAttributes.Add("data-original");
             input = sanitizer.Sanitize(input);
+
             return input;
         }
     }
