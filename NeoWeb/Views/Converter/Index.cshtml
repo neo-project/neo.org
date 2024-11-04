@@ -20,7 +20,7 @@
     <p>Neo @ViewBag.NeoVersion</p>
     <form action="/converter/index" method="post">
         <label class="col-form-label" for="input">@Localizer["Please enter the text to be converted"]</label>
-        <input type="text" class="form-control" name="input" value="@ViewBag.Input" />
+        <input type="text" class="form-control" id="dropZone" name="input" placeholder="@Localizer["Please enter the text to be converted or drag a file here."]" value="@ViewBag.Input" />
         <input type="submit" value="@Localizer["Convert"]" class="btn-2 mt-3" />
     </form>
     <div class="row">
@@ -48,6 +48,13 @@
                 }
             </div>
         }
+        <div id="fileToBase64Div" class="col-md-8 mt-4" style="display: none">
+            <div>@Localizer["File to Base64:"]</div>
+            <p>
+                <code id="fileToBase64Output">
+                </code>
+            </p>
+        </div>
         <div class="@(ViewBag.Result == null ? "col-md-12" :  "col-md-4" ) mt-4">
 
             <div>@Localizer["Don't know what to enter? Try the following"]</div>
@@ -130,4 +137,35 @@
         });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script>
+        //file to base64
+        $(document).ready(function () {
+            const $dropZone = $('#dropZone');
+
+            $dropZone.on('dragover', function (event) {
+                event.preventDefault();
+                $dropZone.css({ borderColor: '#007bff', color: '#007bff' });
+            });
+
+            $dropZone.on('dragleave', function () {
+                $dropZone.css({ borderColor: '#ccc', color: '#888' });
+            });
+
+            $dropZone.on('drop', function (event) {
+                event.preventDefault();
+                $dropZone.css({ borderColor: '#ccc', color: '#888' });
+
+                const file = event.originalEvent.dataTransfer.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function () {
+                        const base64String = reader.result.split(',')[1];
+                        $('#fileToBase64Div').show();
+                        $('#fileToBase64Output').text(base64String);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+    </script>
 }
