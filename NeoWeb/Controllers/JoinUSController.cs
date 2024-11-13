@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 using NeoWeb.Data;
 using NeoWeb.Models;
+using System;
+using System.Linq;
 using System.Security.Claims;
-using Microsoft.Extensions.Localization;
+using System.Threading.Tasks;
 
 namespace NeoWeb.Controllers
 {
@@ -27,7 +25,7 @@ namespace NeoWeb.Controllers
             _context = context;
             _sharedLocalizer = sharedLocalizer;
             _userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            
+
             if (_userId != null)
             {
                 _userRules = _context.UserRoles.Any(p => p.UserId == _userId);
@@ -40,12 +38,12 @@ namespace NeoWeb.Controllers
             ViewBag.UserRules = _userRules;
             var isZh = _sharedLocalizer["en"] == "zh";
             ViewBag.Group = group;
-            ViewBag.Groups = _context.Careers.GroupBy(p => isZh ? p.ChineseGroup : p.EnglishGroup).Select(p => p.Key).ToList();
+            ViewBag.Groups = _context.Jobs.Where(p => p.IsShow).GroupBy(p => isZh ? p.ChineseGroup : p.EnglishGroup).Select(p => p.Key).ToList();
             if (group.Length > 0)
             {
-                return View(await _context.Careers.Where(p => p.ChineseGroup == group || p.EnglishGroup == group).OrderByDescending(p => p.CreateTime).ToListAsync());
+                return View(await _context.Jobs.Where(p => p.IsShow).Where(p => p.ChineseGroup == group || p.EnglishGroup == group).OrderBy(p => p.EnglishTitle).ToListAsync());
             }
-            return View(await _context.Careers.OrderByDescending(p => p.CreateTime).ToListAsync());
+            return View(await _context.Jobs.Where(p => p.IsShow).OrderBy(p => p.EnglishTitle).ToListAsync());
         }
 
         public IActionResult Create()
@@ -61,6 +59,7 @@ namespace NeoWeb.Controllers
             {
                 job.CreateTime = DateTime.Now;
                 job.EditTime = DateTime.Now;
+                job.IsShow = true;
                 _context.Add(job);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -75,7 +74,7 @@ namespace NeoWeb.Controllers
                 return NotFound();
             }
 
-            var job = await _context.Careers.FindAsync(id);
+            var job = await _context.Jobs.FindAsync(id);
             if (job == null)
             {
                 return NotFound();
@@ -94,7 +93,7 @@ namespace NeoWeb.Controllers
 
             if (ModelState.IsValid)
             {
-                var item = _context.Careers.FirstOrDefault(p => p.Id == job.Id);
+                var item = _context.Jobs.FirstOrDefault(p => p.Id == job.Id);
                 try
                 {
                     item.Number = job.Number;
@@ -104,7 +103,7 @@ namespace NeoWeb.Controllers
                     item.EnglishTitle = job.EnglishTitle;
                     item.EnglishGroup = job.EnglishGroup;
                     item.EnglishContent = job.EnglishContent;
-                    item.IsShow = job.IsShow;
+                    item.IsShow = true;
                     item.EditTime = DateTime.Now;
                     _context.Update(item);
                     await _context.SaveChangesAsync();
@@ -132,7 +131,7 @@ namespace NeoWeb.Controllers
                 return NotFound();
             }
 
-            var job = await _context.Careers
+            var job = await _context.Jobs
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (job == null)
             {
@@ -146,15 +145,16 @@ namespace NeoWeb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var job = await _context.Careers.FindAsync(id);
-            _context.Careers.Remove(job);
+            var job = await _context.Jobs.FindAsync(id);
+            job.IsShow = false;
+            _context.Update(job);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool JobExists(int id)
         {
-            return _context.Careers.Any(e => e.Id == id);
+            return _context.Jobs.Any(e => e.Id == id);
         }
     }
 }

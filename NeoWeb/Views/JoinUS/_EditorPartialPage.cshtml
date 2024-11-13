@@ -25,11 +25,17 @@
 </div>
 <div class="zh">
     <label asp-for="ChineseContent" class="col-form-label"></label>
+    <div class="my-2">
+        <a class="green" href="javascript:" onclick="loadDraft()">Load draft</a>
+    </div>
     <textarea asp-for="ChineseContent" class="form-control" autocomplete="off" rows=10></textarea>
     <span asp-validation-for="ChineseContent" class="text-danger"></span>
 </div>
 <div class="en">
     <label asp-for="EnglishContent" class="col-form-label"></label>
+    <div class="my-2">
+        <a class="green" href="javascript:" onclick="loadDraft()">Load draft</a>
+    </div>
     <textarea asp-for="EnglishContent" class="form-control" autocomplete="off" rows=10></textarea>
     <span asp-validation-for="EnglishContent" class="text-danger"></span>
 </div>
@@ -52,7 +58,7 @@
     </div>
 </div>
 <div class="my-4">
-    <input type="submit" value="Create" class="btn" />
+    <input type="submit" value="Create" class="btn-2" />
 </div>
 <div class="my-4">
     <a asp-action="index" asp-controller="joinus">Back to List</a>

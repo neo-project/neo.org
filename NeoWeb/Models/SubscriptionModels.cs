@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace NeoWeb.Models
@@ -15,7 +15,7 @@ namespace NeoWeb.Models
         public string Group { get; set; }
 
         public bool IsSubscription { get; set; }
-        
+
         public DateTime SubscriptionTime { get; set; }
     }
 }

@@ -10,16 +10,15 @@
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/gov.min.css", true)" />
 }
+
 <div class="container">
-    <div class="introduction-splash-container">
+    <div class="introduction">
         <div class="introduction-content">
-            <h1 class="introduction-title">@Html.Raw(String.Format("<em>NEO</em> <br class='{0}'/>{1}", SharedLocalizer["d-none-zh"].Value, Localizer["Governance"].Value))</h1>
+            <h1 class="introduction-title">@Localizer["<em>NEO</em><br/>Governance"]</h1>
             <div class="introduction-description">@Localizer["NEO token holders decide who is in charge of maintaining the Neo network through the election of a Neo Council. GAS token rewards are distributed to voters and council members alike."]</div>
             <a class="btn-2 my-4" target="_blank" href="https://governance.neo.org/">@Localizer["VOTE NOW"]</a>
         </div>
-        <div class="introduction-imgage-wrapper">
-            <img src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/gov/gov.svg", true)" />
-        </div>
+        <img class="introduction-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/gov/gov.svg", true)" />
     </div>
     <hr />
     <div class="row">
@@ -87,10 +86,4 @@
 
 @section Scripts{
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <environment include="Development">
-        <script src="/js/gov.js" asp-append-version="true"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="@Helper.ToCDN("/js/gov.min.js", true)"></script>
-    </environment>
 }

@@ -228,7 +228,7 @@
   <data name="Neo Technology" xml:space="preserve">
     <value>Neo 科技</value>
   </data>
-  <data name="Neo’s unique duel token model" xml:space="preserve">
+  <data name="Neo’s unique dual token model" xml:space="preserve">
     <value>Neo 独特的双代币模型</value>
   </data>
   <data name="News" xml:space="preserve">
@@ -239,6 +239,9 @@
   </data>
   <data name="Press Kit" xml:space="preserve">
     <value>媒体资源</value>
+  </data>
+  <data name="Site map" xml:space="preserve">
+    <value>站点地图</value>
   </data>
   <data name="Submit" xml:space="preserve">
     <value>提交</value>
@@ -254,6 +257,9 @@
   </data>
   <data name="Technology" xml:space="preserve">
     <value>特色技术</value>
+  </data>
+  <data name="Thank you for subscribing!" xml:space="preserve">
+    <value>感谢订阅！</value>
   </data>
   <data name="Tooling" xml:space="preserve">
     <value>工具</value>

@@ -1,3 +1,10 @@
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Neo;
+using NeoWeb.Models;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Formats.Jpeg;
+using SixLabors.ImageSharp.Processing;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -6,13 +13,6 @@ using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Neo;
-using NeoWeb.Models;
-using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Processing;
 using static System.Text.RegularExpressions.Regex;
 
 namespace NeoWeb
@@ -20,6 +20,8 @@ namespace NeoWeb
     public static class Helper
     {
         public static string CurrentDirectory { set; get; }
+
+        public static List<IPZone> Banlist = [];
 
         public static void AddBlogs(IQueryable<Blog> blogs, List<NewsViewModel> viewModels, bool isZh)
         {
@@ -88,7 +90,7 @@ namespace NeoWeb
 
         public static string ToPubDate(this DateTime Date)
         {
-            string ReturnString = Date.DayOfWeek.ToString().Substring(0, 3) + ", ";
+            string ReturnString = string.Concat(Date.DayOfWeek.ToString().AsSpan(0, 3), ", ");
             ReturnString += Date.Day + " ";
             ReturnString += CultureInfo.CreateSpecificCulture("en-us").DateTimeFormat.GetAbbreviatedMonthName(Date.Month) + " ";
             ReturnString += Date.Year + " ";
@@ -98,7 +100,7 @@ namespace NeoWeb
 
         public static string UploadMedia(IFormFile cover, IWebHostEnvironment env, int? maxWidth = null)
         {
-            if (cover.Length > 1024 * 1024 * 25 || // 25Mb
+            if (cover.Length > 1024 * 1024 * 10 || // 10Mb
                 !new string[]
                 {
                     ".gif",
@@ -110,15 +112,19 @@ namespace NeoWeb
             {
                 throw new ArgumentException(null, nameof(cover));
             }
-
-            var random = new Random();
             var bytes = new byte[10];
-            random.NextBytes(bytes);
-            var newName = bytes.ToHexString() + Path.GetExtension(cover.FileName);
-            var filePath = Path.Combine(env.ContentRootPath, "wwwroot/upload", newName);
+            string newName, filePath;
+            do
+            {
+                new Random().NextBytes(bytes);
+                newName = $"{bytes.ToHexString()}.jpg";
+                filePath = Path.Combine(env.ContentRootPath, "wwwroot/upload", newName);
+            }
+            while (File.Exists(filePath));
+
             if (cover.Length > 0)
             {
-                using var stream = new FileStream(filePath, FileMode.Create);
+                using var stream = new FileStream(filePath, FileMode.CreateNew);
                 cover.CopyTo(stream);
             }
             if (maxWidth != null)
@@ -129,7 +135,43 @@ namespace NeoWeb
                     Size = new Size((int)maxWidth, (int)maxWidth * image.Height / image.Width),
                     Mode = ResizeMode.Max
                 }));
-                image.Save(filePath);
+                image.Save(filePath, new JpegEncoder() { Quality = 75, SkipMetadata = true });
+            }
+            return newName;
+        }
+
+        public static string UploadFile(IFormFile file, IWebHostEnvironment env)
+        {
+            if (file.Length > 1024 * 1024 * 10 || // 10Mb
+                !new string[]
+                {
+                    ".pdf",
+                    ".docx",
+                    ".doc",
+                    ".jpeg",
+                    ".jpg",
+                    ".png",
+                    ".zip",
+                    ".rar"
+                }
+                .Contains(Path.GetExtension(file.FileName).ToLowerInvariant()))
+            {
+                throw new ArgumentException(null, nameof(file));
+            }
+            var bytes = new byte[10];
+            string newName, filePath;
+            do
+            {
+                new Random().NextBytes(bytes);
+                newName = bytes.ToHexString() + Path.GetExtension(file.FileName);
+                filePath = Path.Combine(env.ContentRootPath, "wwwroot/upload", newName);
+            }
+            while (File.Exists(filePath));
+
+            if (file.Length > 0)
+            {
+                using var stream = new FileStream(filePath, FileMode.CreateNew);
+                file.CopyTo(stream);
             }
             return newName;
         }
@@ -146,7 +188,7 @@ namespace NeoWeb
             html = html.ClearHtmlTag();
             if (length > 0 && html.Length > length)
             {
-                html = html.Substring(0, length);
+                html = html[..length];
             }
             return html.Trim();
         }
@@ -164,24 +206,20 @@ namespace NeoWeb
 
         public static string ToMonth(this int month)
         {
-            string[] months = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+            string[] months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
             return (month > 12 || month < 1) ? "ERROR" : months[month - 1];
         }
 
-        public static string Sha256(this string input)
-        {
-            using SHA256 obj = SHA256.Create();
-            return BitConverter.ToString(obj.ComputeHash(Encoding.UTF8.GetBytes(input))).Replace("-", "");
-        }
+        public static string Sha256(this string input) => BitConverter.ToString(SHA256.HashData(Encoding.UTF8.GetBytes(input))).Replace("-", "");
 
-        class IPItem
+        private class IPItem
         {
             public string IP;
             public string Action;
             public DateTime Time;
         }
 
-        private static readonly List<IPItem> IPList = new List<IPItem>();
+        private static readonly List<IPItem> IPList = [];
 
         internal static bool CCAttack(IPAddress ip, string action, int interval, int times)
         {
@@ -203,63 +241,16 @@ namespace NeoWeb
             return true;
         }
 
-        public static bool VerifySignature(string message, string signature, string pubkey)
-        {
-            var msg = Encoding.Default.GetBytes(message);
-            try
-            {
-                return VerifySignature(msg, signature.HexToBytes(), pubkey.HexToBytes());
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-
         public static byte[] HexToBytes(this string value)
         {
             if (value == null || value.Length == 0)
-                return Array.Empty<byte>();
+                return [];
             if (value.Length % 2 == 1)
                 throw new FormatException();
             byte[] result = new byte[value.Length / 2];
             for (int i = 0; i < result.Length; i++)
                 result[i] = byte.Parse(value.Substring(i * 2, 2), NumberStyles.AllowHexSpecifier);
             return result;
-        }
-
-        //reference https://github.com/neo-project/neo/blob/master/neo/Cryptography/Crypto.cs
-        public static bool VerifySignature(byte[] message, byte[] signature, byte[] pubkey)
-        {
-            if (pubkey.Length == 33 && (pubkey[0] == 0x02 || pubkey[0] == 0x03))
-            {
-                try
-                {
-                    pubkey = ThinNeo.Cryptography.ECC.ECPoint.DecodePoint(pubkey, ThinNeo.Cryptography.ECC.ECCurve.Secp256r1).EncodePoint(false).Skip(1).ToArray();
-                }
-                catch
-                {
-                    return false;
-                }
-            }
-            else if (pubkey.Length == 65 && pubkey[0] == 0x04)
-            {
-                pubkey = pubkey.Skip(1).ToArray();
-            }
-            else if (pubkey.Length != 64)
-            {
-                throw new ArgumentException("pubkey is incorrect.");
-            }
-            using var ecdsa = ECDsa.Create(new ECParameters
-            {
-                Curve = ECCurve.NamedCurves.nistP256,
-                Q = new ECPoint
-                {
-                    X = pubkey.Take(32).ToArray(),
-                    Y = pubkey.Skip(32).ToArray()
-                }
-            });
-            return ecdsa.VerifyData(message, signature, HashAlgorithmName.SHA256);
         }
 
         /// <summary>
@@ -276,11 +267,10 @@ namespace NeoWeb
 #endif
 
 #if !DEBUG
-            return "https://neo3.azureedge.net";
+            return "https://neo-web.azureedge.net";
 #endif
             }
         }
-
 
         public static string ToCDN(string url, bool appendVersion = false)
         {
@@ -292,5 +282,34 @@ namespace NeoWeb
             return url;
         }
 
+        public static long IPToInteger(this string ip)
+        {
+            var x = 3;
+            long o = 0;
+            ip.Split('.').ToList().ForEach(p => o += Convert.ToInt64(p) << 8 * x--);
+            return o;
+        }
+
+        public static long IPToInteger(this IPAddress ip)
+        {
+            var x = 3;
+            long o = 0;
+            ip.GetAddressBytes().ToList().ForEach(p => o += (long)p << 8 * x--);
+            return o;
+        }
+
+        public static string Sanitizer(string input)
+        {
+            input = Replace(input, @"<!\-\-\[if gte mso 9\]>[\s\S]*<!\[endif\]\-\->", ""); //删除 ms office 注解
+            input = Replace(input, "src=\".*/upload", "data-original=\"/upload"); //替换上传图片的链接
+            input = Replace(input, "<img src=", "<img data-original="); //替换外部图片的链接
+            input = Replace(input, @"<p>((&nbsp;\s)|(&nbsp;)|\s)+", "<p>"); //删除段首由空格造成的缩进
+            var sanitizer = new Ganss.Xss.HtmlSanitizer();
+            sanitizer.AllowedAttributes.Remove("style");
+            sanitizer.AllowedAttributes.Add("data-original");
+            input = sanitizer.Sanitize(input);
+
+            return input;
+        }
     }
 }

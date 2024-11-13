@@ -107,7 +107,7 @@ https://github.com/neo-project/neo.org
 
                                         <div>
                                             <strong>@Localizer["NEO & GAS"]</strong>
-                                            <span>@Localizer["Neo’s unique duel token model"]</span>
+                                            <span>@Localizer["Neo’s unique dual token model"]</span>
                                         </div>
                                     </a>
                                 </div>
@@ -127,22 +127,21 @@ https://github.com/neo-project/neo.org
                     <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="dev">@Localizer["Developer"]</a></li>
                     <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="eco">@Localizer["Eco-Support"]</a></li>
                     <li class="nav-item"><a class="nav-link" asp-action="index" asp-controller="news">@Localizer["News"]</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://ndapp.org/" target="_blank">@Localizer["dApps"]</a></li>
                     <li class="nav-item d-block d-md-none"><a class="nav-link" asp-action="index" asp-controller="migration">@Localizer["Migration"]</a></li>
 
                     @if (SharedLocalizer["en"].Value == "zh")
                     {
-                        <li class="nav-item nav-lang">
-                            <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
-                            <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
-                        </li>
-                    }
-                    else
-                    {
-                        <li class="nav-item nav-lang">
-                            <a style="font-size: 1em; font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
-                            <a style="font-size: .9em;  font-weight: 500" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
-                        </li>
-                    }
+                <li class="nav-item nav-lang">
+                    <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
+                    <a style="font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+                </li> }
+                            else
+                            {
+                <li class="nav-item nav-lang">
+                    <a style="font-size: 1em; font-weight: 600" class="nav-link" href="javascript:" onclick="setLanguage('en-us')">EN</a> |
+                    <a style="font-size: .9em;  font-weight: 500" class="nav-link" href="javascript:" onclick="setLanguage('zh-cn')">中文</a>
+                </li>}
                 </ul>
             </div>
         </div>
@@ -154,10 +153,10 @@ https://github.com/neo-project/neo.org
         {
             <div class="migration-div d-none d-md-block">
                 <a asp-action="index" asp-controller="migration">
-                    <h4 class="migration-text">
+                    <p class="migration-text tw-flex tw-gap-1 tw-text-lg tw-font-semibold">
                         <img src="@Helper.CDN/images/presskit/Neo symbol.svg" />
                         @Localizer["MIGRATE TO N3"]
-                    </h4>
+                    </p>
                 </a>
             </div>
         }
@@ -176,9 +175,9 @@ https://github.com/neo-project/neo.org
                             <input type="email" class="form-control required email" value="" name="EMAIL" id="mce-EMAIL" placeholder="@Localizer["Enter Email Address"]">
                             <button class="form-control btn-2" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe">@Localizer["Submit"]</button>
                         </div>
-                        <div id="mce-responses" class="clear">
+                        <div id="mce-responses" class="clear mt-2">
                             <div class="response" id="mce-error-response" style="display:none"></div>
-                            <div class="response" id="mce-success-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none">@Localizer["Thank you for subscribing!"]</div>
                         </div>
                         <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                         <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_228d6f3157920dc1cad664104_4f3883ac10" tabindex="-1" value=""></div>
@@ -197,7 +196,7 @@ https://github.com/neo-project/neo.org
                     <h4 class="my-3">@Localizer["For Developers"]</h4>
                     <a href="/dev#tooling">@Localizer["Tooling"]</a>
                     <a href="/dev#examples">@Localizer["Examples & Tutorials"]</a>
-                    <a target="_blank" href="https://docs.neo.org/">@Localizer["Documentation"]</a>
+                    <a target="_blank" href="https://developers.neo.org/docs">@Localizer["Documentation"]</a>
                     <a target="_blank" href="https://github.com/neo-project">@Localizer["GitHub"]</a>
                     <a href="/eco">@Localizer["Eco-Support"]</a>
                 </div>
@@ -205,7 +204,7 @@ https://github.com/neo-project/neo.org
                     <h4 class="my-3">@Localizer["For token holders"]</h4>
                     <a href="/gov">@Localizer["Governance"]</a>
                     <a href="/neogas">@Localizer["NEO & GAS"]</a>
-                    <a href="/neogas#wallet">@Localizer["Wallet"]</a>
+                    <a href="/neogas#wallets">@Localizer["Wallet"]</a>
                     <a href="/news?type=blog">@Localizer["Blogs"]</a>
                     <a href="/news?type=event">@Localizer["Events"]</a>
                 </div>
@@ -238,11 +237,11 @@ https://github.com/neo-project/neo.org
                         <a class="d-inline" target="_blank" href="https://t.me/NEO_EN"><i class="iconfont">&#xe606;</i></a>
                     }
                     <a class="d-inline" target="_blank" href="https://www.reddit.com/r/NEO/"><i class="iconfont">&#xe60a;</i></a>
-                    <a class="d-inline" target="_blank" href="https://medium.com/neo-smart-economy"><i class="iconfont">&#xe608;</i></a>
+                    <a class="d-inline" target="_blank" href="https://neo-blockchain.medium.com/"><i class="iconfont">&#xe608;</i></a>
                 </div>
             </div>
             <div class="mt-3 copyright-container">
-                <p class="op-70 copyright-paragraph">Copyright © Neo Team 2014-@DateTime.Now.Year</p>
+                <p class="op-70 copyright-paragraph">Copyright © Neo Team 2014-@DateTime.Now.Year <a class="d-none" href="/map"><small>@Localizer["Site map"]</small></a></p>
             </div>
         </div>
     </footer>
@@ -301,13 +300,13 @@ https://github.com/neo-project/neo.org
             });
         }
 
-        if ("@(SharedLocalizer["en"].Value)" == "zh") {
-            $("a").each(function () {
-                if ($(this).attr("href") && $(this).attr("href").startsWith("https://docs.neo.org")) {
-                    $(this).attr("href", $(this).attr("href").replace("en-us", "zh-cn"));
-                }
-            });
-        }
+        //if ("@(SharedLocalizer["en"].Value)" == "zh") {
+        //    $("a").each(function () {
+        //        if ($(this).attr("href") && $(this).attr("href").startsWith("https://docs.neo.org")) {
+        //            $(this).attr("href", $(this).attr("href").replace("en-us", "zh-cn"));
+        //        }
+        //    });
+        //}
     </script>
 
     @RenderSection("Scripts", required: false)

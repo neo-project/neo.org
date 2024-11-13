@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Localization;
 using NeoWeb.Data;
 using NeoWeb.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -101,12 +100,15 @@ namespace NeoWeb.Controllers
                 case (int)NewsViewModelType.Blog:
                     Helper.AddBlogs(blogs, viewModels, isZh);
                     break;
+
                 case (int)NewsViewModelType.Event:
                     Helper.AddEvents(events, viewModels, isZh);
                     break;
+
                 case (int)NewsViewModelType.Media:
                     Helper.AddMedia(news, viewModels, isZh);
                     break;
+
                 default:
                     Helper.AddBlogs(blogs, viewModels, isZh);
                     Helper.AddEvents(events, viewModels, isZh);
@@ -129,10 +131,12 @@ namespace NeoWeb.Controllers
                             Helper.AddBlogs(_context.Blogs.Where(p => p.Id == top.ItemId), topItems, isZh);
                             viewModels.RemoveAll(p => p.Type == top.Type && p.Blog.Id == top.ItemId);
                             break;
+
                         case NewsViewModelType.Event:
                             Helper.AddEvents(_context.Events.Where(p => p.Id == top.ItemId), topItems, isZh);
                             viewModels.RemoveAll(p => p.Type == top.Type && p.Event.Id == top.ItemId);
                             break;
+
                         case NewsViewModelType.Media:
                             Helper.AddMedia(_context.Media.Where(p => p.Id == top.ItemId), topItems, isZh);
                             viewModels.RemoveAll(p => p.Type == top.Type && p.Media.Id == top.ItemId);

@@ -1,17 +1,20 @@
+using NBitcoin;
+using Neo;
+using Neo.Cryptography;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Security.Cryptography;
-using Neo.Cryptography;
 using System.Linq;
-using NBitcoin;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace NeoWeb
 {
     public static class Mnemonic
     {
         private const string saltHeader = "mnemonic"; //这是盐的第一部分，如 BIP39 规范中所述
-        public enum Language { English, ChineseSimplified, ChineseTraditional, Unknown };
+
+        public enum Language
+        { English, ChineseSimplified, ChineseTraditional, Unknown };
 
         /// <summary>
         /// 生成助记词
@@ -105,7 +108,7 @@ namespace NeoWeb
         /// <param name="mnemonic">助记词</param>
         /// <param name="passphrase">口令</param>
         /// <returns></returns>
-        public static byte[] MnemonicToSeed(string mnemonic, string passphrase = "") 
+        public static byte[] MnemonicToSeed(string mnemonic, string passphrase = "")
         {
             if (!Verification(mnemonic)) return null;
             Rfc2898DeriveBytes pbkdf2 = new(Encoding.UTF8.GetBytes(mnemonic), Encoding.UTF8.GetBytes(saltHeader + passphrase), 2048, HashAlgorithmName.SHA512); ;
@@ -118,7 +121,7 @@ namespace NeoWeb
             //coinType: BTC 0, ETH 60, NEO 888, ONT 1024
             //see https://github.com/satoshilabs/slips/blob/master/slip-0044.md
             var derivePath = KeyPath.Parse($"m/44'/{coinType}'/0'/0/0");
-            var paymentKey = new ExtKey(seed).Derive(derivePath);
+            var paymentKey = new ExtKey(seed.ToHexString()).Derive(derivePath);
             return paymentKey.PrivateKey.ToBytes();
         }
 
@@ -137,7 +140,7 @@ namespace NeoWeb
         private static byte[] GetRandom(int length)
         {
             var rndSeries = new byte[length];
-            new RNGCryptoServiceProvider().GetBytes(rndSeries);
+            RandomNumberGenerator.Create().GetBytes(rndSeries);
             return rndSeries;
         }
 
@@ -161,5 +164,4 @@ namespace NeoWeb
             return sb.ToString();
         }
     }
-    
 }

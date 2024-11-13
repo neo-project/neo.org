@@ -17,6 +17,7 @@ namespace NeoWeb.Controllers
         [Route("client")]
         [Route("client/index")]
         [Route("wallet")]
+        [Route("wallets")]
         [Route("wallet/index")]
         public IActionResult WalletsIndex() => RedirectToAction("index", "neogas", "wallets");
 

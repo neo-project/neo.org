@@ -1,15 +1,18 @@
+using Microsoft.Extensions.Options;
 using Neo;
 using Neo.Cryptography.ECC;
 using Neo.IO;
+using Neo.Network.RPC;
 using Neo.SmartContract;
 using Neo.VM;
 using Neo.Wallets;
+using NeoWeb.Services;
+using Org.BouncyCastle.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Numerics;
-using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -18,7 +21,7 @@ namespace NeoWeb
     public static class ConverterHelper
     {
         /// <summary>
-        /// 将十六进制的字符串转为 UTF8 字符串
+        /// 将 16 进制的字符串转为 UTF8 字符串
         /// </summary>
         /// <param name="hex">eg:7472616e73666572</param>
         /// <returns>eg:transfer</returns>
@@ -38,7 +41,7 @@ namespace NeoWeb
         }
 
         /// <summary>
-        /// 将 UTF8 格式的字符串转为十六进制的字符串
+        /// 将 UTF8 格式的字符串转为 16 进制的字符串
         /// </summary>
         /// <param name="str">eg:transfer</param>
         /// <returns>eg:7472616e73666572</returns>
@@ -48,7 +51,17 @@ namespace NeoWeb
         }
 
         /// <summary>
-        /// 将十六进制的小端序大整数转为十进制的大整数
+        /// 计算 UTF8 字符串的 Sha256 哈希
+        /// </summary>
+        /// <param name="str">eg:All in one, All in neo.</param>
+        /// <returns>eg:0758c9e9f2514a6e87e893af15b31c26b0f9f69300ac27820d5991cc8eb0bb20</returns>
+        public static string UTF8StringToHash(string str)
+        {
+            return str.Trim().Sha256().ToLower();
+        }
+
+        /// <summary>
+        /// 将 16 进制的小端序大整数转为十进制的大整数
         /// </summary>
         /// <param name="hex">eg:00a3e111</param>
         /// <returns>eg:300000000</returns>
@@ -61,7 +74,7 @@ namespace NeoWeb
         }
 
         /// <summary>
-        /// 将十进制的大整数转为十六进制的小端序大整数
+        /// 将十进制的大整数转为 16 进制的小端序大整数
         /// </summary>
         /// <param name="integer">eg:300000000</param>
         /// <returns>eg:00a3e111</returns>
@@ -123,7 +136,7 @@ namespace NeoWeb
         }
 
         /// <summary>
-        /// 大小端序的十六进制字节数组互转
+        /// 大小端序的 16 进制字节数组互转
         /// </summary>
         /// <param name="hex">eg:0x3ff68d232a60f23a5805b8c40f7e61747f6f61ce</param>
         /// <returns>eg:ce616f7f74617e0fc4b805583af2602a238df63f</returns>
@@ -191,6 +204,23 @@ namespace NeoWeb
             return bytes.ToHexString();
         }
 
+        /// <summary>
+        /// 计算 Base64 格式字符串的 Sha256 哈希
+        /// </summary>
+        /// <param name="base64">eg:SGVsbG8gV29ybGQh</param>
+        /// <returns>eg:7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069</returns>
+        public static string Base64StringToHash(string base64)
+        {
+            try
+            {
+                var bytes = Convert.FromBase64String(base64.Trim());
+                return BitConverter.ToString(System.Security.Cryptography.SHA256.HashData(bytes)).Replace("-", "").ToLower();
+            }
+            catch (Exception)
+            {
+                throw new FormatException();
+            }
+        }
 
         /// <summary>
         /// HEX 字符串 转为 Base64 格式的字符串
@@ -210,6 +240,28 @@ namespace NeoWeb
                 throw new FormatException();
             }
             return base64;
+        }
+
+        /// <summary>
+        /// 计算 16 进制的字符串的 Sha256 哈希
+        /// </summary>
+        /// <param name="base64">eg:7472616e73666572</param>
+        /// <returns>eg:27f576cafbb263ed44be8bd094f66114da26877706f96c4c31d5a97ffebf2e29</returns>
+        public static string HexStringToHash(string hex)
+        {
+            hex = hex.ToLower().Trim();
+            if (!new Regex("^(0x)?([0-9a-f]{2})+$").IsMatch(hex)) throw new FormatException();
+
+            if (new Regex("^([0-9a-f]{2})+$").IsMatch(hex))
+            {
+                var bytes = hex.HexToBytes();
+                return BitConverter.ToString(System.Security.Cryptography.SHA256.HashData(bytes)).Replace("-", "").ToLower();
+            }
+            else
+            {
+                var bytes = hex[2..].HexToBytes().Reverse().ToArray();
+                return BitConverter.ToString(System.Security.Cryptography.SHA256.HashData(bytes)).Replace("-", "").ToLower();
+            }
         }
 
         /// <summary>
@@ -233,7 +285,7 @@ namespace NeoWeb
             try
             {
                 bytes = Convert.FromBase64String(base64.Trim());
-                if(bytes.Length != 20) throw new FormatException();
+                if (bytes.Length != 20) throw new FormatException();
             }
             catch (Exception)
             {
@@ -284,6 +336,14 @@ namespace NeoWeb
             if (!new Regex("^(0[23][0-9a-f]{64})+$").IsMatch(pubKey)) throw new FormatException();
 
             return Contract.CreateSignatureContract(ECPoint.Parse(pubKey, ECCurve.Secp256r1)).ScriptHash.ToAddress(0x35);
+        }
+
+        public static string PublicKeyToMultiSignAddress(string pubKey)
+        {
+            pubKey = pubKey.ToLower().Trim();
+            if (!new Regex("^(0[23][0-9a-f]{64})+$").IsMatch(pubKey)) throw new FormatException();
+
+            return Contract.CreateMultiSigContract(1, [ECPoint.Parse(pubKey, ECCurve.Secp256r1)]).ScriptHash.ToAddress(0x35);
         }
 
         /// <summary>
@@ -369,6 +429,21 @@ namespace NeoWeb
             return output;
         }
 
+        public static string PrivateKeyToMultiSignAddress(string wif)
+        {
+            string output;
+            try
+            {
+                var pubKey = PrivateKeyToPublicKey(wif);
+                output = Contract.CreateMultiSigContract(1, [ECPoint.Parse(pubKey, ECCurve.Secp256r1)]).ScriptHash.ToAddress(0x35);
+            }
+            catch (Exception)
+            {
+                throw new FormatException();
+            }
+            return output;
+        }
+
         /// <summary>
         /// HEX 私钥转 WIF
         /// </summary>
@@ -390,114 +465,358 @@ namespace NeoWeb
         }
 
         /// <summary>
+        /// WIF 转 HEX 私钥
+        /// </summary>
+        /// <param name="wif">WIF 格式的私钥</param>
+        /// <returns>HEX 格式的私钥</returns>
+        public static string WIFToHexPrivateKey(string wif)
+        {
+            string output;
+            try
+            {
+                var privateKey = Wallet.GetPrivateKeyFromWIF(wif);
+                output = privateKey.ToHexString();
+            }
+            catch (Exception)
+            {
+                throw new FormatException();
+            }
+            return output;
+        }
+
+        /// <summary>
+        /// 将 Base64 格式的合约脚本转为脚本哈希
+        /// <param name="base64">
+        /// Base64 编码的 scripts
+        /// e.g. DCECbzTesnBofh/Xng1SofChKkBC7jhVmLxCN1vk\u002B49xa2pBVuezJw==
+        /// </param>
+        /// <returns>eg:0xce2588a0135ea78a732f852506b05ee2760f1953 and 53190f76e25eb00625852f738aa75e13a08825ce</returns>
+        public static (string big, string little) ScriptsToScriptHash(string base64)
+        {
+            Contract contract;
+            try
+            {
+                contract = new()
+                {
+                    Script = Convert.FromBase64String(base64)
+                };
+            }
+            catch (Exception)
+            {
+                throw new FormatException();
+            }
+            return (contract.ScriptHash.ToString(), contract.ScriptHash.ToArray().ToHexString()); // big, little
+        }
+
+        /// <summary>
         /// 将 Base64 格式的脚本转为易读的 OpCode
-        /// 参考：https://github.com/chenzhitong/OpCodeConverter
         /// </summary>
         /// <param name="base64">Base64 编码的 scripts</param>
         /// <returns>List&lt;string&gt; 类型的 OpCode 及操作数</returns>
         public static List<string> ScriptsToOpCode(string base64)
         {
-            List<byte> scripts;
+            Script script;
             try
             {
-                scripts = Convert.FromBase64String(base64).ToList();
+                var scriptData = Convert.FromBase64String(base64);
+                script = new Script(scriptData.ToArray(), true);
             }
             catch (Exception)
             {
                 throw new FormatException();
             }
-            return ScriptsToOpCode(scripts);
+            return ScriptsToOpCode(script);
         }
 
         /// <summary>
-        /// 将十六进制的脚本转为易读的 OpCode
-        /// 参考：https://github.com/chenzhitong/OpCodeConverter
+        /// 将 16 进制的脚本转为易读的 OpCode
         /// </summary>
-        /// <param name="hex">十六进制的脚本</param>
+        /// <param name="hex"> 16 进制的脚本</param>
         /// <returns>List&lt;string&gt; 类型的 OpCode 及操作数</returns>
         public static List<string> HexScriptsToOpCode(string hex)
         {
-            List<byte> scripts;
+            Script script;
             try
             {
-                scripts = hex.HexToBytes().ToList();
+                var scriptData = hex.HexToBytes().ToArray();
+                script = new Script(hex.HexToBytes(), true);
             }
             catch (Exception)
             {
                 throw new FormatException();
             }
-            return ScriptsToOpCode(scripts);
+            return ScriptsToOpCode(script);
         }
 
-        private static List<string> ScriptsToOpCode(List<byte> scripts)
+        private static List<string> ScriptsToOpCode(Script script)
         {
-            //初始化所有 OpCode
-            var OperandSizePrefixTable = new int[256];
-            var OperandSizeTable = new int[256];
-            foreach (FieldInfo field in typeof(OpCode).GetFields(BindingFlags.Public | BindingFlags.Static))
-            {
-                var attribute = field.GetCustomAttribute<OperandSizeAttribute>();
-                if (attribute == null) continue;
-                int index = (int)(OpCode)field.GetValue(null);
-                OperandSizePrefixTable[index] = attribute.SizePrefix;
-                OperandSizeTable[index] = attribute.Size;
-            }
-            //初始化所有 InteropService
-            var dic = new Dictionary<uint, string>();
-            ApplicationEngine.Services.ToList().ForEach(p => dic.Add(p.Value.Hash, p.Value.Name));
+            // Initialize all InteropService
+            var dic = ApplicationEngine.Services.ToDictionary(p => p.Value.Hash, p => p.Value.Name);
 
-            //解析 Scripts
+            // Analyzing Scripts
+            Instruction instruction;
             var result = new List<string>();
-            while (scripts.Count > 0)
+            var bookmark = new Dictionary<int, int>(); // ip, line
+            var line = 1;
+
+            for (int ip = 0; ip < script.Length && (instruction = script.GetInstruction(ip)) != null; ip += instruction.Size)
             {
-                var op = (OpCode)scripts[0];
-                var operandSizePrefix = OperandSizePrefixTable[scripts[0]];
-                var operandSize = OperandSizeTable[scripts[0]];
-                scripts.RemoveAt(0);
+                var op = instruction.OpCode;
+                var operand = instruction.Operand.ToArray();
 
-                var onlyOpCode = true;
-                if (operandSize > 0)
+                switch (op)
                 {
-                    var operand = scripts.Take(operandSize).ToArray();
-                    if (op.ToString().StartsWith("PUSHINT"))
-                    {
-                        result.Add($"{op} {new BigInteger(operand)}");
-                    }
-                    else if (op == OpCode.SYSCALL)
-                    {
-                        result.Add($"{op} {dic[BitConverter.ToUInt32(operand)]}");
-                    }
-                    else
-                    {
-                        result.Add($"{op} {operand.ToHexString()}");
-                    }
-                    scripts.RemoveRange(0, operandSize);
-                    onlyOpCode = false;
-                }
-                if (operandSizePrefix > 0)
-                {
-                    var bytes = scripts.Take(operandSizePrefix).ToArray();
-                    var number = bytes.Length == 1 ? bytes[0] : (int)new BigInteger(bytes);
-                    scripts.RemoveRange(0, operandSizePrefix);
-                    var operand = scripts.Take(number).ToArray();
+                    case OpCode.SYSCALL:
+                        AddResult(result, $"{op} {dic[BitConverter.ToUInt32(operand)]}", bookmark, ref line, ip);
+                        break;
 
-                    var asicii = Encoding.Default.GetString(operand);
-                    asicii = asicii.Any(p => p < '0' || p > 'z') ? operand.ToHexString() : asicii;
+                    case OpCode.PUSHINT8:
+                    case OpCode.PUSHINT16:
+                    case OpCode.PUSHINT32:
+                    case OpCode.PUSHINT64:
+                    case OpCode.PUSHINT128:
+                    case OpCode.PUSHINT256:
+                    case OpCode.STSFLD:
+                    case OpCode.LDSFLD:
+                    case OpCode.LDLOC:
+                    case OpCode.STLOC:
+                    case OpCode.LDARG:
+                    case OpCode.STARG:
+                        AddResult(result, $"{op} {new BigInteger(operand)}", bookmark, ref line, ip);
+                        break;
 
-                    result.Add($"{op} {(number == 20 ? new UInt160(operand).ToString() : asicii)}");
-                    scripts.RemoveRange(0, number);
-                    onlyOpCode = false;
-                }
-                if(onlyOpCode)
-                {
-                    result.Add($"{op}");
-                }
-                else
-                {
-                    result.Add($"{op}");
+                    case OpCode.JMP:
+                    case OpCode.JMP_L:
+                    case OpCode.JMPIF:
+                    case OpCode.JMPIF_L:
+                    case OpCode.JMPIFNOT:
+                    case OpCode.JMPIFNOT_L:
+                    case OpCode.JMPEQ:
+                    case OpCode.JMPEQ_L:
+                    case OpCode.JMPNE:
+                    case OpCode.JMPNE_L:
+                    case OpCode.JMPGE:
+                    case OpCode.JMPGE_L:
+                    case OpCode.JMPLE:
+                    case OpCode.JMPLE_L:
+                    case OpCode.JMPLT:
+                    case OpCode.JMPLT_L:
+                    case OpCode.JMPGT:
+                    case OpCode.JMPGT_L:
+                    case OpCode.CALL:
+                    case OpCode.CALL_L:
+                    case OpCode.ENDTRY:
+                    case OpCode.ENDTRY_L:
+                    case OpCode.PUSHA:
+                        AddJumpResult(result, op, operand, bookmark, ref line, ip);
+                        break;
+
+                    case OpCode.TRY:
+                    case OpCode.TRY_L:
+                        AddTryResult(result, op, operand, bookmark, ref line, ip);
+                        break;
+
+                    case OpCode.INITSLOT:
+                        AddResult(result, $"{op} {operand[0]} local variable {operand[1]} argument", bookmark, ref line, ip);
+                        break;
+
+                    case OpCode.INITSSLOT:
+                        AddResult(result, $"{op} {string.Join(", ", operand)}", bookmark, ref line, ip);
+                        break;
+
+                    case OpCode.CONVERT:
+                    case OpCode.ISTYPE:
+                        AddResult(result, $"{op} {(Neo.VM.Types.StackItemType)operand[0]}", bookmark, ref line, ip);
+                        break;
+
+                    default:
+                        AddDefaultResult(result, op, operand, bookmark, ref line, ip);
+                        break;
                 }
             }
-            return result.ToArray().ToList();
+
+            return result;
+        }
+
+        private static void AddResult(List<string> result, string value, Dictionary<int, int> bookmark, ref int line, int ip)
+        {
+            result.Add(value);
+            bookmark.Add(ip, line++);
+        }
+
+        private static void AddJumpResult(List<string> result, OpCode op, byte[] operand, Dictionary<int, int> bookmark, ref int line, int ip)
+        {
+            bookmark.TryGetValue(ip + (int)new BigInteger(operand), out var distLine);
+            AddResult(result, $"{op} L{distLine}", bookmark, ref line, ip);
+        }
+
+        private static void AddTryResult(List<string> result, OpCode op, byte[] operand, Dictionary<int, int> bookmark, ref int line, int ip)
+        {
+            var catchOperand = operand.Take(operand.Length / 2).ToArray();
+            var finallyOperand = operand.Skip(operand.Length / 2).ToArray();
+            bookmark.TryGetValue(ip + (int)new BigInteger(catchOperand), out var catchLine);
+            bookmark.TryGetValue(ip + (int)new BigInteger(finallyOperand), out var finallyLine);
+            AddResult(result, $"{op} catch:{catchLine} finally:{finallyLine}", bookmark, ref line, ip);
+        }
+
+        private static void AddDefaultResult(List<string> result, OpCode op, byte[] operand, Dictionary<int, int> bookmark, ref int line, int ip)
+        {
+            if (operand.Length > 0)
+            {
+                var ascii = Encoding.Default.GetString(operand);
+                ascii = ascii.Any(p => p < '0' || p > 'z') ? operand.ToHexString() : ascii;
+                AddResult(result, $"{op} {(operand.Length == 20 ? new UInt160(operand).ToString() : ascii)}", bookmark, ref line, ip);
+            }
+            else
+            {
+                AddResult(result, $"{op}", bookmark, ref line, ip);
+            }
+        }
+
+        //CwEQJwwUTMlSGZmdQhJDyBYeP8D0KQwGeEUMFK74DaAKZqVwscMjLQsWKMqwub86FMAfDAh0cmFuc2ZlcgwUz3bii9AGLEpHjuNVYQETGfPPpNJBYn1bUg==
+        private static readonly string[] transferTemplates =
+        {
+            "PUSHT|PUSHNULL",
+            "PUSH(?:1[0-6]|[1-9])|PUSHINT(?:8|16|32|64|128|256) \\d+",
+            "PUSHDATA1 0x[0-9a-f]{40}",
+            "PUSHDATA1 0x[0-9a-f]{40}",
+            "PUSH4",
+            "PACK",
+            "PUSH15",
+            "PUSHDATA1 transfer",
+            "PUSHDATA1 0x[0-9a-f]{40}",
+            "SYSCALL System.Contract.Call"
+        };
+
+        public static List<string> AsTransferScript(List<string> input, IOptions<RpcOptions> options)
+        {
+            try
+            {
+                if (input.Count != transferTemplates.Length) return [];
+
+                for (int i = 0; i < input.Count; i++)
+                {
+                    if (input[i] != transferTemplates[i] && !Regex.IsMatch(input[i], transferTemplates[i]))
+                        return [];
+                }
+
+                var amount = input[1].StartsWith("PUSHINT") ? BigInteger.Parse(input[1].Split(' ')[1]) : BigInteger.Parse(input[1].Replace("PUSH", ""));
+                var contract = UInt160.Parse(input[8].Split(' ')[1]);
+                var clientOptions = new[] { options.Value.TestNet, options.Value.MainNet };
+
+                foreach (var net in clientOptions)
+                {
+                    try
+                    {
+                        var client = new RpcClient(new Uri(net), null, null, null);
+                        var nativeContract = client.GetNativeContractsAsync().Result.FirstOrDefault(p => p.Hash == contract);
+                        var decimals = new Nep17API(client).DecimalsAsync(contract).Result;
+                        var symbol = new Nep17API(client).SymbolAsync(contract).Result;
+                        var trueAmount = new BigDecimal(amount, decimals);
+
+                        var result = new List<string>
+                        {
+                            $"Transfer {trueAmount} {symbol} from {ScriptHashToAddress(input[3].Split(' ')[1])} to {ScriptHashToAddress(input[2].Split(' ')[1])}"
+                        };
+                        if (nativeContract == null)
+                        {
+                            result.Add($"Token: {input[8].Split(' ')[1]}");
+                            result.Add($"Network: {(net == options.Value.TestNet ? "TestT5" : "MainNet")}");
+                        }
+                        try
+                        {
+                            var toContract = client.GetContractStateAsync(input[2].Split(' ')[1]).Result;
+                            result.Add($"Note: {ScriptHashToAddress(input[2].Split(' ')[1])} is a contract.");
+                        }
+                        catch (Exception)
+                        {
+                        }
+                        return result;
+                    }
+                    catch { }
+                }
+            }
+            catch { }
+
+            return [];
+        }
+
+        //DCEDXVdMxqkE6C39gtf2/JwsoELUQQpJEOzIwHoH20ncZRMMFEzJUhmZnUISQ8gWHj/A9CkMBnhFEsAfDAR2b3RlDBT1Y+pAvCg9TQ4FxI6jBbPyoHNA70FifVtS
+        private static readonly string[] voteTemplates =
+        {
+            "PUSHDATA1 0[23][0-9a-f]{64}",
+            "PUSHDATA1 0x[0-9a-f]{40}",
+            "PUSH2",
+            "PACK",
+            "PUSH15",
+            "PUSHDATA1 vote",
+            "PUSHDATA1 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5",
+            "SYSCALL System.Contract.Call",
+        };
+
+        public static List<string> AsVoteScript(List<string> input, IOptions<RpcOptions> options)
+        {
+            try
+            {
+                if (input.Count != voteTemplates.Length) return [];
+
+                for (int i = 0; i < input.Count; i++)
+                {
+                    if (input[i] != voteTemplates[i] && !Regex.IsMatch(input[i], voteTemplates[i]))
+                        return [];
+                }
+                return new List<string> { $"Address {ScriptHashToAddress(input[1].Split(' ')[1])} voted to candidate {input[0].Split(' ')[1]}" };
+            }
+            catch { }
+
+            return [];
+        }
+
+        private static readonly string[] checkSigTemplates =
+        {
+            "PUSHDATA1 0[23][0-9a-f]{64}",
+            "SYSCALL System.Crypto.CheckSig"
+        };
+
+        public static List<string> AsCheckSigScript(List<string> input)
+        {
+            try
+            {
+                if (input.Count != checkSigTemplates.Length) return [];
+
+                for (int i = 0; i < input.Count; i++)
+                {
+                    if (input[i] != checkSigTemplates[i] && !Regex.IsMatch(input[i], checkSigTemplates[i]))
+                        return [];
+                }
+                return [$"Check signature with public key {input[0].Split(' ')[1]}"];
+            }
+            catch { }
+
+            return [];
+        }
+
+        //EgwhAnuOhIl9zf58vffm17ad227dYyPL5zLqaN0rPUSoDoDwDCEDgBchE+mBddcV0vPzyiKd0d99+WXHZpv8IvBS7oRicy8SQZ7Q3Do=
+        public static List<string> AsCheckMultiSigScript(List<string> input)
+        {
+            if (!Regex.IsMatch(input[0], "PUSH(?:1[0-6]|[1-9])|PUSHINT(?:8|16|32|64|128|256) \\d+")) return [];
+            var m = input[0].StartsWith("PUSHINT") ? BigInteger.Parse(input[0].Split(' ')[1]) : BigInteger.Parse(input[0].Replace("PUSH", ""));
+            var publicList = new List<string>();
+            int i = 1;
+            for (; i < input.Count - 2; i++)
+            {
+                if (Regex.IsMatch(input[i], "PUSHDATA1 0[23][0-9a-f]{64}"))
+                    publicList.Add(input[i].Split(' ')[1]);
+            }
+            var n = input[i].StartsWith("PUSHINT") ? BigInteger.Parse(input[i].Split(' ')[1]) : BigInteger.Parse(input[i].Replace("PUSH", ""));
+            if (n != publicList.Count) return [];
+            if (input[i + 1] != "SYSCALL System.Crypto.CheckMultisig") return [];
+            var result = new List<string>
+            {
+                $"Check {m}/{n} multi-signature, public keys:"
+            };
+            publicList.ForEach(result.Add);
+            return result;
         }
     }
 }

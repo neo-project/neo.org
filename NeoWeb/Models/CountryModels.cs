@@ -1,4 +1,4 @@
-﻿namespace NeoWeb.Models
+namespace NeoWeb.Models
 {
     public class Country
     {

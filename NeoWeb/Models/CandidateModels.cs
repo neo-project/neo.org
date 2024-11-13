@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace NeoWeb.Models
 {
@@ -18,7 +18,7 @@ namespace NeoWeb.Models
         [Required]
         [EmailAddress]
         public string Email { get; set; }
-        
+
         [Required]
         [MaxLength(50)]
         [RegularExpression("^(?=^.{3,255}$)(http(s)?:\\/\\/)?(www\\.)?[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+(:\\d+)*(\\/\\w+\\.\\w+)*$")]
@@ -29,6 +29,5 @@ namespace NeoWeb.Models
 
         [MaxLength(500)]
         public string Summary { get; set; }
-
     }
 }

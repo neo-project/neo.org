@@ -1,11 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 namespace NeoWeb
 {
-
     public class ChineseSimplified : Wordlist
     {
         //参考 https://github.com/bitcoin/bips/blob/master/bip-0039/bip-0039-wordlists.md
@@ -14,7 +8,6 @@ namespace NeoWeb
         public ChineseSimplified()
             : base(chineseSimplifiedWords)
         {
-
         }
     }
 }

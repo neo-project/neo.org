@@ -204,7 +204,7 @@
   <data name="Latest" xml:space="preserve">
     <value>最新</value>
   </data>
-  <data name="Learn More" xml:space="preserve">
+  <data name="LEARN MORE" xml:space="preserve">
     <value>了解更多</value>
   </data>
   <data name="Multi-Language" xml:space="preserve">
@@ -312,40 +312,73 @@
   <data name="Take A Tour" xml:space="preserve">
     <value>开启 N3 之旅</value>
   </data>
-  <data name="AUGUST 2ND" xml:space="preserve">
-    <value>8月2日</value>
-  </data>
-  <data name="EARLY BIRD MIGRATION" xml:space="preserve">
-    <value>“早鸟“迁移</value>
-  </data>
   <data name="FIND OUT ABOUT WHAT EACH MILESTONE HAS INSTORE FOR NEO" xml:space="preserve">
     <value>Neo N3主网上线及迁移路线图公布</value>
   </data>
-  <data name="FORMAL TESTNET" xml:space="preserve">
-    <value>正式测试网</value>
-  </data>
-  <data name="MAINNET" xml:space="preserve">
-    <value>主网</value>
-  </data>
-  <data name="MASS MIGRATION" xml:space="preserve">
-    <value>大规模迁移</value>
-  </data>
-  <data name="ON THE ROAD TO MAINNET" xml:space="preserve">
-    <value>主网启动计划开启</value>
-  </data>
-  <data name="SEPTEMBER 1ST" xml:space="preserve">
-    <value>9月1日</value>
-  </data>
-  <data name="STARTING JULY 20TH" xml:space="preserve">
-    <value>7月20日起</value>
-  </data>
-  <data name="LATEST NEWS:" xml:space="preserve">
+  <data name="Latest News:" xml:space="preserve">
     <value>最新资讯：</value>
   </data>
-  <data name="Early Bird migration now open" xml:space="preserve">
-    <value>早鸟迁移现已开启</value>
+  <data name="Celebrate:" xml:space="preserve">
+    <value>庆祝 N3：</value>
   </data>
-  <data name="Find out more about your migration options" xml:space="preserve">
-    <value>点击了解更多迁移渠道</value>
+  <data name="Claim your NFT blind box to celebrate the N3 launch" xml:space="preserve">
+    <value>申领 NFT 盲盒，庆祝 N3 上线</value>
+  </data>
+  <data name="Incentive:" xml:space="preserve">
+    <value>迁移激励：</value>
+  </data>
+  <data name="Migrate your NEO &amp; GAS tokens to the newest version of Neo" xml:space="preserve">
+    <value>将 NEO 和 GAS 迁移至最新的 Neo 版本</value>
+  </data>
+  <data name="migration" xml:space="preserve">
+    <value>迁移</value>
+  </data>
+  <data name="OPEN NOW" xml:space="preserve">
+    <value>现已启动</value>
+  </data>
+  <data name="Recieve up to a 1% NEO bonus for migrating early" xml:space="preserve">
+    <value>尽早迁移可得高达迁移 NEO 的 1% 作为激励</value>
+  </data>
+  <data name="$200m in incubation support" xml:space="preserve">
+    <value>2 亿美金孵化支持</value>
+  </data>
+  <data name="Bring your ideas to life for a $35,000 Grand Prize" xml:space="preserve">
+    <value>实现项目理念，赢得$35,000美金大奖</value>
+  </data>
+  <data name="compete for $500,000 in prizes &amp;" xml:space="preserve">
+    <value>$500,000 美金总奖金池 &amp;</value>
+  </data>
+  <data name="Receive additional prize money through quadratic funding" xml:space="preserve">
+    <value>通过二次方投票获得额外奖励</value>
+  </data>
+  <data name="Win prize multipliers for crafting the best plan" xml:space="preserve">
+    <value>起草项目策划书，赢得奖金乘数</value>
+  </data>
+  <data name="decentralized and transparent grants program for the Neo ecosystem" xml:space="preserve">
+    <value>为 Neo 生态系统提供去中心化和透明的激励计划</value>
+  </data>
+  <data name="Embark on an innovative journey in six APAC cities." xml:space="preserve">
+    <value>线上线下结合，覆盖六座亚太城市。</value>
+  </data>
+  <data name="HACKATHON" xml:space="preserve">
+    <value>黑客马拉松</value>
+  </data>
+  <data name="NEO APAC" xml:space="preserve">
+    <value>Neo 亚太区</value>
+  </data>
+  <data name="REGISTER NOW" xml:space="preserve">
+    <value>了解更多</value>
+  </data>
+  <data name="Total prize and grant fund of $1.1 million." xml:space="preserve">
+    <value>奖金和资助合计 110 万美元。</value>
+  </data>
+  <data name="Find out what opportunities await." xml:space="preserve">
+    <value>探索生态新机遇。</value>
+  </data>
+  <data name="Introducing:" xml:space="preserve">
+    <value>重磅推出：</value>
+  </data>
+  <data name="Neo’s EVM-based sidechain is here." xml:space="preserve">
+    <value>NEO EVM 兼容侧链已上线。</value>
   </data>
 </root>

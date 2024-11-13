@@ -3,7 +3,7 @@
   "defaultProvider": "cdnjs",
   "libraries": [
     {
-      "library": "jquery@3.6.0",
+      "library": "jquery@3.7.1",
       "destination": "wwwroot/lib/jquery/",
       "files": [
         "jquery.min.js"
@@ -20,14 +20,14 @@
       ]
     },
     {
-      "library": "jquery-validation-unobtrusive@3.2.12",
+      "library": "jquery-validation-unobtrusive@4.0.0",
       "destination": "wwwroot/lib/jquery-validation-unobtrusive/",
       "files": [
         "jquery.validate.unobtrusive.min.js"
       ]
     },
     {
-      "library": "jquery-validate@1.19.2",
+      "library": "jquery-validate@1.20.0",
       "destination": "wwwroot/lib/jquery-validate/",
       "files": [
         "jquery.validate.min.js"
@@ -38,11 +38,7 @@
       "destination": "wwwroot/lib/animate.css/"
     },
     {
-      "library": "tinymce@5.7.0",
-      "destination": "wwwroot/lib/tinymce/"
-    },
-    {
-      "library": "bootstrap-fileinput@5.1.5",
+      "library": "bootstrap-fileinput@5.5.2",
       "destination": "wwwroot/lib/bootstrap-fileinput/",
       "files": [
         "js/fileinput.min.js",

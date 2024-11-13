@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Base64 contract script to Neo3 address:" xml:space="preserve">
+    <value>Base64 合约脚本转 Neo 3 地址：</value>
+  </data>
+  <data name="Base64 contract script to scripthash (big-endian):" xml:space="preserve">
+    <value>Base64 合约脚本转脚本哈希（大端序）:</value>
+  </data>
+  <data name="Base64 contract script to scripthash (little-endian):" xml:space="preserve">
+    <value>Base64 合约脚本转脚本哈希（小端序）:</value>
+  </data>
   <data name="Base64 decoding:" xml:space="preserve">
     <value>Base64 解码：</value>
   </data>
@@ -136,19 +145,28 @@
     <value>Base64 格式的字符串转大整数：</value>
   </data>
   <data name="Base64 string to hexadecimal string:" xml:space="preserve">
-    <value>Base64 格式的字符串转十六进制字符串：</value>
+    <value>Base64 格式的字符串转 16 进制字符串：</value>
   </data>
   <data name="Big integer to Base64 string:" xml:space="preserve">
     <value>大整数转 Base64 字符串：</value>
   </data>
   <data name="Big integer to hexadecimal string to UTF8 string:" xml:space="preserve">
-    <value>大整数转十六进制字符串再转成 UTF8 字符串：</value>
+    <value>大整数转 16 进制字符串再转成 UTF8 字符串：</value>
   </data>
   <data name="Big integer to hexadecimal string:" xml:space="preserve">
-    <value>大整数转十六进制字符串：</value>
+    <value>大整数转 16 进制字符串：</value>
   </data>
   <data name="Big-endian to little-endian:" xml:space="preserve">
     <value>大端序转小端序：</value>
+  </data>
+  <data name="Calculate SHA256 hash for Base64 string:" xml:space="preserve">
+    <value>计算 Base64 格式的字符串的 SHA256 哈希：</value>
+  </data>
+  <data name="Calculate SHA256 hash for Hex string:" xml:space="preserve">
+    <value>计算 16 进制字符串的 SHA256 哈希：</value>
+  </data>
+  <data name="Calculate SHA256 hash for UTF8 string:" xml:space="preserve">
+    <value>计算 UTF8 字符串的 SHA256 哈希：</value>
   </data>
   <data name="Hexadecimal big-endian string to UTF8 string:" xml:space="preserve">
     <value>16 进制大端序字符串转 UTF8 字符串：</value>
@@ -186,6 +204,9 @@
   <data name="Private key to Neo3 address:" xml:space="preserve">
     <value>私钥转 Neo3 地址：</value>
   </data>
+  <data name="Private key to Neo3 Multi-Sign address (1/1):" xml:space="preserve">
+    <value>私钥转 Neo3 多签地址（1/1）：</value>
+  </data>
   <data name="Private key to public key:" xml:space="preserve">
     <value>私钥转公钥：</value>
   </data>
@@ -197,6 +218,9 @@
   </data>
   <data name="Public key to Neo3 Address:" xml:space="preserve">
     <value>公钥转 Neo3 地址：</value>
+  </data>
+  <data name="Public key to Neo3 Multi-Sign Address (1/1):" xml:space="preserve">
+    <value>公钥转 Neo3 多签地址（1/1）：</value>
   </data>
   <data name="Public key to script hash (big endian):" xml:space="preserve">
     <value>公钥转脚本哈希（大端序）:</value>
@@ -211,9 +235,27 @@
     <value>智能合约脚本解析：</value>
   </data>
   <data name="UTF8 string to hexadecimal string to big integer:" xml:space="preserve">
-    <value>UTF8 字符串转十六进制字符串再转成大整数：</value>
+    <value>UTF8 字符串转 16 进制字符串再转成大整数：</value>
   </data>
   <data name="UTF8 string to hexadecimal string:" xml:space="preserve">
-    <value>UTF8 字符串转十六进制字符串：</value>
+    <value>UTF8 字符串转 16 进制字符串：</value>
+  </data>
+  <data name="WIF private key to Hex little-endian private key:" xml:space="preserve">
+    <value>WIF 私钥转 16 进制小端序私钥</value>
+  </data>
+  <data name="This is a simple transfer script:" xml:space="preserve">
+    <value>这是一个简单的转账脚本：</value>
+  </data>
+  <data name="This is a vote script:" xml:space="preserve">
+    <value>这是一个投票脚本：</value>
+  </data>
+  <data name="This is a check signature script:" xml:space="preserve">
+    <value>这是一个验证签名的脚本：</value>
+  </data>
+  <data name="This is a check multi signature script:" xml:space="preserve">
+    <value>这是一个验证多签的脚本：</value>
+  </data>
+  <data name="Script hash to to Base64 string:" xml:space="preserve">
+    <value>脚本哈希转 Base64 字符串：</value>
   </data>
 </root>
