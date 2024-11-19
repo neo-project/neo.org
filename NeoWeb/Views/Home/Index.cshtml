@@ -12,10 +12,18 @@
 <div class="home-container">
 
     <style>
+        .navbar #whitelogo{
+            display: block;
+        }
+
+        .navbar .nav-item a{
+            color: white;
+        }
+        .navbar #darklogo{
+            display: none;
+        }
         .navbar.smart-scroll {
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            background-color: rgba(255,255,255,.95);
-            opacity: 0.95px;
+            background-color: rgba(0,0,0,.75);
         }
 
         .migration-div.d-md-block {
@@ -25,9 +33,9 @@
         .neox {
             position: relative;
             min-height: 740px;
-            background-image: url('/images/home/neox/bg.png');
-            background-repeat: no-repeat;
-            background-size: cover;
+            background: #000;
+            color: #fff;
+            overflow: hidden;
         }
 
             .neox .lt {
@@ -38,29 +46,17 @@
                 background-position-x: left;
                 background-position-y: top;
                 background-size: 20%;
-                background-image: url('/images/home/neox/lt.png')
+                background-image: url('/images/home/neoxgrind/lt.svg')
             }
 
-            .neox .lb {
+            .neox .rb {
                 position: absolute;
                 height: 100%;
                 width: 100%;
-                background-repeat: no-repeat;
-                background-position-x: left;
-                background-position-y: bottom;
-                background-size: 20%;
-                background-image: url('/images/home/neox/lb.png');
-            }
-
-            .neox .x {
-                position: absolute;
-                height: 100%;
-                width: 100%;
-                background-image: url('/images/home/neox/x.png');
                 background-repeat: no-repeat;
                 background-position-x: right;
-                background-position-y: top;
-                background-size: 55%;
+                background-image: url(/images/home/neoxgrind/rb.svg);
+                bottom: -155px;
             }
 
             .neox .container {
@@ -69,7 +65,7 @@
             }
 
             .neox h1 {
-                font-size: 4.8rem;
+                font-size: 4.3rem;
                 line-height: 1.1;
             }
 
@@ -86,8 +82,9 @@
                 background-size: 28%;
             }
 
-            .neox .lb {
-                background-size: 28%;
+            .neox .rb {
+                background-size: 40%;
+                height: 65%;
             }
 
             .neox .x {
@@ -104,8 +101,9 @@
                 background-size: 50%;
             }
 
-            .neox .lb {
-                background-size: 40%;
+            .neox .rb {
+                background-size: 50%;
+                height: 55%;
             }
 
             .neox .x {
@@ -119,28 +117,38 @@
     </style>
     <div class="neox">
         <div class="lt"></div>
-        <div class="lb"></div>
-        <div class="x"></div>
+        <div class="rb"></div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 pt-5">
+                <div class="col-lg-7 pt-5">
                     <div class="work-sans-bold">
-                        <h1 class="uppercase">
-                            @Localizer["Introducing:"]<br />
-                            Neo X
+                        <h2>
+                            @Localizer["NEO X GRIND HACKATHON:"]<br />
+                        </h2>
+                        <h1 class="@SharedLocalizer["d-none-zh"]">
+                            OVER $22M<br />IN PRIZES & GRANTS
+                        </h1>
+                        <h1 class="@SharedLocalizer["d-none"]">
+                            奖金和资助总额超过 2200 万美元
                         </h1>
                     </div>
-                    <div class="work-sans-semibold my-4 uppercase ls3">
-                        @Localizer["Neo’s EVM-based sidechain is here."]<br />
-                        @Localizer["Find out what opportunities await."]
+                    <div class="work-sans-semibold my-4 ls3">
+                        @Localizer["EMPOWERING YOUR WEB3 DREAMS WITH TECHNOLOGY, RESOURCES, AND CAPITAL"]
+                    </div>
+                    <div class="work-sans-semibold my-4 ls3">
+                        @Localizer["CO-HOSTED BY:"]
+                        <img class="img-fluid" style="width: 50%; margin-left: 1rem;" data-original="/images/home/neoxgrind/co-hosted.png" />
                     </div>
                     <div class="my-4">
-                        <a href="https://x.neo.org/" target="_blank" class="btn-2">@Localizer["LEARN MORE"]</a>
+                        <a href="https://bit.ly/48UYya6" target="_blank" class="btn-2">@Localizer["LEARN MORE"]</a>
                     </div>
                     <div class="work-sans-bold my-4">@Localizer["Latest News:"]</div>
                     <div class="my-4">
                         <a class="news-link" href="~/blog/details/@Model.FirstOrDefault(p => p.Type == NewsViewModelType.Blog).Blog.Id">@Model.FirstOrDefault(p => p.Type == NewsViewModelType.Blog).Blog.Title <i class="iconfont circle-arrow-icon">&#xe6ab;</i></a>
                     </div>
+                </div>
+                <div class="col-lg-5 pt-5 text-center">
+                    <img class="img-fluid" data-original="/images/home/neoxgrind/grind icon.svg" />
                 </div>
             </div>
         </div>

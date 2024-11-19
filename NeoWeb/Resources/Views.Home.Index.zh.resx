@@ -313,7 +313,7 @@
     <value>开启 N3 之旅</value>
   </data>
   <data name="FIND OUT ABOUT WHAT EACH MILESTONE HAS INSTORE FOR NEO" xml:space="preserve">
-    <value>Neo N3主网上线及迁移路线图公布</value>
+    <value>Neo N3 主网上线及迁移路线图公布</value>
   </data>
   <data name="Latest News:" xml:space="preserve">
     <value>最新资讯：</value>
@@ -380,5 +380,14 @@
   </data>
   <data name="Neo’s EVM-based sidechain is here." xml:space="preserve">
     <value>NEO EVM 兼容侧链已上线。</value>
+  </data>
+  <data name="NEO X GRIND HACKATHON:" xml:space="preserve">
+    <value>Neo x Grind 黑客松</value>
+  </data>
+  <data name="IN PRIZES &amp; GRANTS" xml:space="preserve">
+    <value>奖金和资助总额超过 2200 万美元</value>
+  </data>
+  <data name="EMPOWERING YOUR WEB3 DREAMS WITH TECHNOLOGY, RESOURCES, AND CAPITAL" xml:space="preserve">
+    <value>技术支持、资金资助和资源对接,助你成为下一个 web3 独角兽</value>
   </data>
 </root>
