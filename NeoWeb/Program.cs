@@ -84,6 +84,10 @@ namespace NeoWeb
             FileExtensionContentTypeProvider provider = new();
             provider.Mappings[".webmanifest"] = "application/manifest+json";
             app.MapStaticAssets();
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                ContentTypeProvider = provider
+            });
 
             app.UseMiddleware<CCAntiAttackMiddleware>();
             app.UseRouting();
