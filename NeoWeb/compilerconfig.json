@@ -68,10 +68,6 @@
     "inputFile": "wwwroot/css/migration.less"
   },
   {
-    "outputFile": "wwwroot/css/tour.css",
-    "inputFile": "wwwroot/css/tour.less"
-  },
-  {
     "outputFile": "wwwroot/css/sitecn.css",
     "inputFile": "wwwroot/css/sitecn.less"
   }
