@@ -406,18 +406,48 @@ namespace NeoWeb.Controllers
             //可能是助记词
             if (new Regex("((\\w){3,8}\\s){11}((\\w){3,8})").IsMatch(input))
             {
-                try
+                if (input.Split(' ').Length == 12)
                 {
-                    var output = ConverterHelper.MnemonicToWIF(input);
-                    result.Add(localizer["Mnemonic to Neo3 private key:"], [output]);
+                    try
+                    {
+                        var output = ConverterHelper.MnemonicToWIF_1(input);
+                        result.Add(localizer["Mnemonic to Neo3 private key (OneGate compatibility):"], [output]);
+                    }
+                    catch (Exception) { }
+                    try
+                    {
+                        var output = ConverterHelper.MnemonicToAddress_1(input);
+                        result.Add(localizer["Mnemonic to Neo3 address (OneGate compatibility):"], [output]);
+                    }
+                    catch (Exception) { }
+                    try
+                    {
+                        var output = ConverterHelper.MnemonicToWIF_2(input);
+                        result.Add(localizer["Mnemonic to Neo3 private key (Ledger/neon compatibility):"], [output]);
+                    }
+                    catch (Exception) { }
+                    try
+                    {
+                        var output = ConverterHelper.MnemonicToAddress_2(input);
+                        result.Add(localizer["Mnemonic to Neo3 address (Ledger/neon compatibility):"], [output]);
+                    }
+                    catch (Exception) { }
                 }
-                catch (Exception) { }
-                try
+                else
                 {
-                    var output = ConverterHelper.MnemonicToAddress(input);
-                    result.Add(localizer["Mnemonic to Neo3 address:"], [output]);
+                    try
+                    {
+                        var output = ConverterHelper.MnemonicToWIF_2(input);
+                        result.Add(localizer["Mnemonic to Neo3 private key (Ledger compatibility):"], [output]);
+                    }
+                    catch (Exception) { }
+                    try
+                    {
+                        var output = ConverterHelper.MnemonicToAddress_2(input);
+                        result.Add(localizer["Mnemonic to Neo3 address (Ledger compatibility):"], [output]);
+                    }
+                    catch (Exception) { }
                 }
-                catch (Exception) { }
             }
             //当做普通字符串处理
             if (input.Length <= 1024)

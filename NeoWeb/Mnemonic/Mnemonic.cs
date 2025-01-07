@@ -1,20 +1,30 @@
 using NBitcoin;
 using Neo;
 using Neo.Cryptography;
+using Neo.IO;
+using Neo.SmartContract;
+using Neo.Wallets;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Security.Cryptography;
 using System.Text;
 
 namespace NeoWeb
 {
+    public class Key
+    {
+        public uint ChildNumber { get; set; }
+        public byte[] ChainCode { get; set; }
+        public byte[] K { get; set; }
+        public byte[] Fingerprint { get; set; }
+        public bool IsPrivate { get; set; }
+    }
+
     public static class Mnemonic
     {
-        private const string saltHeader = "mnemonic"; //这是盐的第一部分，如 BIP39 规范中所述
-
-        public enum Language
-        { English, ChineseSimplified, ChineseTraditional, Unknown };
+        public enum Language { English, ChineseSimplified, ChineseTraditional, Unknown };
 
         /// <summary>
         /// 生成助记词
@@ -97,13 +107,13 @@ namespace NeoWeb
                 entropyBytes.Add((byte)temp);
             }
             var checksum = entropyBytes.ToArray().Sha256();
-            var checksumString = ToBinaryString(checksum).Substring(0, entropyBytes.Count / 4);
+            var checksumString = ToBinaryString(checksum).Substring(0, entropyBytes.Count() / 4);
             if (!entcsString.EndsWith(checksumString)) throw new ArgumentException($"The mnemonic verification doesn't pass!");
             return true;
         }
 
         /// <summary>
-        /// 通过助记词和口令（可选）生成种子
+        /// 通过助记词和口令（可选）生成种子，这段各钱包和SDK的结果均一致，兼容性良好
         /// </summary>
         /// <param name="mnemonic">助记词</param>
         /// <param name="passphrase">口令</param>
@@ -111,25 +121,134 @@ namespace NeoWeb
         public static byte[] MnemonicToSeed(string mnemonic, string passphrase = "")
         {
             if (!Verification(mnemonic)) return null;
-            Rfc2898DeriveBytes pbkdf2 = new(Encoding.UTF8.GetBytes(mnemonic), Encoding.UTF8.GetBytes(saltHeader + passphrase), 2048, HashAlgorithmName.SHA512); ;
-            var counterBytes = pbkdf2.GetBytes(64);
-            return counterBytes;
+            using Rfc2898DeriveBytes pbkdf2 = new Rfc2898DeriveBytes(Encoding.UTF8.GetBytes(mnemonic), Encoding.UTF8.GetBytes("mnemonic" + passphrase), 2048, HashAlgorithmName.SHA512);
+            return pbkdf2.GetBytes(64);
         }
 
-        public static byte[] SeedToPrivateKey(byte[] seed, int coinType)
+        /// <summary>
+        /// 这段是兼容比特币和OneGate的种子转私钥算法，其中HMACSHA512密钥为默认的"Bitcoin seed"，初始Fingerprint为0
+        /// </summary>
+        /// <param name="seed">由助记词生成的seed</param>
+        /// <param name="derivationPath">派生路径</param>
+        /// <returns></returns>
+        public static byte[] SeedToPrivateKey_1(byte[] seed, string derivationPath = "m/44'/888'/0'/0/0")
         {
-            //coinType: BTC 0, ETH 60, NEO 888, ONT 1024
-            //see https://github.com/satoshilabs/slips/blob/master/slip-0044.md
-            var derivePath = KeyPath.Parse($"m/44'/{coinType}'/0'/0/0");
-            var paymentKey = new ExtKey(seed.ToHexString()).Derive(derivePath);
+            var paymentKey = new ExtKey(seed.ToHexString()).Derive(KeyPath.Parse(derivationPath));
             return paymentKey.PrivateKey.ToBytes();
         }
 
-        public static string SeedToWIF(byte[] seed, int coinType)
+        public static string SeedToWIF_1(byte[] seed)
         {
-            if (seed == null) throw new ArgumentNullException(nameof(seed));
-            var account = new Neo.Wallets.KeyPair(SeedToPrivateKey(seed, coinType));
+            if (seed == null) throw new ArgumentNullException("seed");
+            var account = new Neo.Wallets.KeyPair(SeedToPrivateKey_1(seed));
             return account.Export();
+        }
+
+        /// <summary>
+        /// 这是兼容neon和ledger的种子转私钥算法
+        /// </summary>
+        /// <param name="seed"></param>
+        /// <returns></returns>
+        public static string SeedToWIF_2(byte[] seed)
+        {
+            var hmac = new HMACSHA512(Encoding.UTF8.GetBytes("Nist256p1 seed")).ComputeHash(seed);
+
+            var masterKey = new Key
+            {
+                ChildNumber = 0,
+                ChainCode = hmac.Skip(32).Take(32).ToArray(), // 初始化链码
+                K = hmac.Take(32).ToArray(), // 初始化私钥
+                Fingerprint = [(byte)'0'], // 初始化fingerprint，按照规范应该是 [0,0,0,0]，但为了兼容，改为 [(byte)'0']
+                IsPrivate = true
+            };
+            var account = new Neo.Wallets.KeyPair(GenerateChildKey(masterKey).K);
+            return account.Export();
+        }
+
+        // 派生子私钥的方法
+        public static Key GenerateChildKey(Key parentKey, string derivationPath = "m/44'/888'/0'/0/0")
+        {
+            var pathArray = derivationPath.Split('/');
+            if (pathArray[0] != "m")
+            {
+                throw new Exception("Derivation path must be of format: m/x/x...");
+            }
+            pathArray = pathArray.Skip(1).ToArray(); // 去掉 m，继续处理后面的部分
+            var childKey = parentKey;
+            foreach (var stringIdx in pathArray)
+            {
+                var childIdx = 0u;
+                if (stringIdx.EndsWith('\''))
+                {
+                    childIdx = uint.Parse(stringIdx[..^1]) + 0x80000000;
+                }
+                else
+                {
+                    childIdx = uint.Parse(stringIdx);
+                }
+                childKey = NewChildKey(childKey, childIdx);
+            }
+
+            return childKey;
+        }
+
+        // 生成一个新的子私钥
+        private static Key NewChildKey(Key parentKey, uint childIdx)
+        {
+            var hardenedChild = childIdx >= 0x80000000;
+            byte[] data;
+            // 如果是硬化子密钥
+            if (hardenedChild)
+            {
+                data = [0x00, .. parentKey.K];
+            }
+            else
+            {
+                if (parentKey.K.Length == 33)
+                    data = parentKey.K;
+                else
+                    data = new Neo.Wallets.KeyPair(parentKey.K).PublicKey.ToArray();
+            }
+
+            var childIdBuffer = BitConverter.GetBytes(childIdx);
+            if (BitConverter.IsLittleEndian)
+            {
+                Array.Reverse(childIdBuffer); // 转换字节顺序
+            }
+            data = [.. data, .. childIdBuffer];
+
+            // 使用 HMAC-SHA512 进行计算
+            using var hmac = new HMACSHA512(parentKey.ChainCode);
+            var intermediary = hmac.ComputeHash(data);
+
+            byte[] newKey;
+            if (parentKey.IsPrivate)
+            {
+                // 使用前32个字节生成私钥
+                //var k1 = new BigInteger(intermediary.Take(32).ToArray()); 这种写法与TS库中的不一致，为了兼容，改为下面的写法
+
+                var k1 = BigInteger.Parse("0" + intermediary.Take(32).ToArray().ToHexString(), System.Globalization.NumberStyles.HexNumber);
+                var k2 = BigInteger.Parse("0" + parentKey.K.ToHexString(), System.Globalization.NumberStyles.HexNumber);
+                var n = Neo.Cryptography.ECC.ECCurve.Secp256r1.N; // 这里使用曲线阶（假设使用secp256k1）
+
+                // 使用 HMAC 得到新的私钥，k1 + k2 mod n
+                BigInteger protoKey = (k1 + k2) % n;
+
+                newKey = protoKey.ToByteArray().Take(32).Reverse().ToArray();
+            }
+            else
+            {
+                throw new Exception("Only private keys are supported for key generation.");
+            }
+
+            return new Key
+            {
+                ChildNumber = childIdx,
+                ChainCode = intermediary.Skip(32).ToArray(),
+                K = newKey,
+                Fingerprint = newKey.Sha256(),
+                IsPrivate = parentKey.IsPrivate
+            };
         }
 
         /// <summary>
@@ -140,7 +259,7 @@ namespace NeoWeb
         private static byte[] GetRandom(int length)
         {
             var rndSeries = new byte[length];
-            RandomNumberGenerator.Create().GetBytes(rndSeries);
+            RandomNumberGenerator.Fill(rndSeries);
             return rndSeries;
         }
 

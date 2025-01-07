@@ -294,14 +294,14 @@ namespace NeoWeb
             return new UInt160(bytes).ToAddress(0x35);
         }
 
-        public static string MnemonicToWIF(string mnemonic)
+        public static string MnemonicToWIF_1(string mnemonic)
         {
             string output;
             try
             {
                 if (!Mnemonic.Verification(mnemonic)) throw new FormatException();
                 var seed = Mnemonic.MnemonicToSeed(mnemonic);
-                output = Mnemonic.SeedToWIF(seed, 888);
+                output = Mnemonic.SeedToWIF_1(seed);
             }
             catch (Exception)
             {
@@ -310,12 +310,43 @@ namespace NeoWeb
             return output;
         }
 
-        public static string MnemonicToAddress(string mnemonic)
+        public static string MnemonicToAddress_1(string mnemonic)
         {
             string output;
             try
             {
-                var pubKey = PrivateKeyToPublicKey(MnemonicToWIF(mnemonic));
+                var pubKey = PrivateKeyToPublicKey(MnemonicToWIF_1(mnemonic));
+                output = Contract.CreateSignatureContract(ECPoint.Parse(pubKey, ECCurve.Secp256r1)).ScriptHash.ToAddress(0x35);
+            }
+            catch (Exception)
+            {
+                throw new FormatException();
+            }
+            return output;
+        }
+
+        public static string MnemonicToWIF_2(string mnemonic)
+        {
+            string output;
+            try
+            {
+                if (!Mnemonic.Verification(mnemonic)) throw new FormatException();
+                var seed = Mnemonic.MnemonicToSeed(mnemonic);
+                output = Mnemonic.SeedToWIF_2(seed);
+            }
+            catch (Exception)
+            {
+                throw new FormatException();
+            }
+            return output;
+        }
+
+        public static string MnemonicToAddress_2(string mnemonic)
+        {
+            string output;
+            try
+            {
+                var pubKey = PrivateKeyToPublicKey(MnemonicToWIF_2(mnemonic));
                 output = Contract.CreateSignatureContract(ECPoint.Parse(pubKey, ECCurve.Secp256r1)).ScriptHash.ToAddress(0x35);
             }
             catch (Exception)

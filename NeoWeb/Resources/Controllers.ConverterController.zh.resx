@@ -186,11 +186,23 @@
   <data name="Little-endian to big-endian:" xml:space="preserve">
     <value>小端序转大端序：</value>
   </data>
-  <data name="Mnemonic to Neo3 address:" xml:space="preserve">
-    <value>助记词转 Neo3 地址</value>
+  <data name="Mnemonic to Neo3 address (OneGate compatibility):" xml:space="preserve">
+    <value>助记词转 Neo3 地址 (兼容 OneGate)</value>
   </data>
-  <data name="Mnemonic to Neo3 private key:" xml:space="preserve">
-    <value>助记词转 Neo3 私钥</value>
+  <data name="Mnemonic to Neo3 private key (OneGate compatibility):" xml:space="preserve">
+    <value>助记词转 Neo3 私钥 (兼容 OneGate)</value>
+  </data>
+  <data name="Mnemonic to Neo3 address (Ledger/neon compatibility):" xml:space="preserve">
+    <value>助记词转 Neo3 地址 (兼容 Ledger/neon)</value>
+  </data>
+  <data name="Mnemonic to Neo3 private key (Ledger/neon compatibility):" xml:space="preserve">
+    <value>助记词转 Neo3 私钥 (兼容 Ledger/neon)</value>
+  </data>
+  <data name="Mnemonic to Neo3 address (Ledger compatibility):" xml:space="preserve">
+    <value>助记词转 Neo3 地址 (兼容 Ledger)</value>
+  </data>
+  <data name="Mnemonic to Neo3 private key (Ledger compatibility):" xml:space="preserve">
+    <value>助记词转 Neo3 私钥 (兼容 Ledger)</value>
   </data>
   <data name="Neo 3 address to Base64 script hash:" xml:space="preserve">
     <value>Neo 3 地址转 Base64 脚本哈希：</value>
