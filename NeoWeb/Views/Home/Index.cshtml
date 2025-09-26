@@ -12,23 +12,10 @@
 <div class="home-container">
 
     <style>
-        .navbar #whitelogo{
-            display: block;
-        }
-
-        .navbar .nav-item a{
-            color: white;
-        }
-
-        .navbar .nav-item .dropdown-item {
-            color: #212529;
-        }
-
-        .navbar #darklogo{
-            display: none;
-        }
         .navbar.smart-scroll {
-            background-color: rgba(0,0,0,.75);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            background-color: rgba(255,255,255,.95);
+            opacity: 0.95px;
         }
 
         .migration-div.d-md-block {
@@ -38,9 +25,9 @@
         .neox {
             position: relative;
             min-height: 740px;
-            background: #000;
-            color: #fff;
-            overflow: hidden;
+            background-image: url('/images/home/neox/bg.png');
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
             .neox .lt {
@@ -51,17 +38,29 @@
                 background-position-x: left;
                 background-position-y: top;
                 background-size: 20%;
-                background-image: url('/images/home/neoxgrind/lt.svg')
+                background-image: url('/images/home/neox/lt.png')
             }
 
-            .neox .rb {
+            .neox .lb {
                 position: absolute;
                 height: 100%;
                 width: 100%;
                 background-repeat: no-repeat;
+                background-position-x: left;
+                background-position-y: bottom;
+                background-size: 20%;
+                background-image: url('/images/home/neox/lb.png');
+            }
+
+            .neox .x {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                background-image: url('/images/home/neox/x.png');
+                background-repeat: no-repeat;
                 background-position-x: right;
-                background-image: url(/images/home/neoxgrind/rb.svg);
-                bottom: -155px;
+                background-position-y: top;
+                background-size: 55%;
             }
 
             .neox .container {
@@ -70,7 +69,7 @@
             }
 
             .neox h1 {
-                font-size: 4.2rem;
+                font-size: 4.8rem;
                 line-height: 1.1;
             }
 
@@ -78,29 +77,17 @@
                 letter-spacing: 3px
             }
 
-        @@media only screen and (max-width: 1800px) {
-            .neox h1 {
-                font-size: 3.8rem
-            }
-        }
-        @@media only screen and (max-width: 1599px) {
-            .neox h1 {
-                font-size: 3.2rem
-            }
-        }
-
         @@media only screen and (max-width: 992px) {
             .neox h1 {
-                font-size: 2.8rem
+                font-size: 3rem
             }
 
             .neox .lt {
                 background-size: 28%;
             }
 
-            .neox .rb {
-                background-size: 40%;
-                height: 65%;
+            .neox .lb {
+                background-size: 28%;
             }
 
             .neox .x {
@@ -113,17 +100,12 @@
         }
 
         @@media only screen and (max-width: 768px) {
-            .neox h1 {
-                font-size: 2.1rem
-            }
-
             .neox .lt {
                 background-size: 50%;
             }
 
-            .neox .rb {
-                background-size: 50%;
-                height: 55%;
+            .neox .lb {
+                background-size: 40%;
             }
 
             .neox .x {
@@ -137,39 +119,28 @@
     </style>
     <div class="neox">
         <div class="lt"></div>
-        <div class="rb"></div>
+        <div class="lb"></div>
+        <div class="x"></div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-7 pt-5">
+                <div class="col-lg-6 pt-5">
                     <div class="work-sans-bold">
-                        <h2>
-                            @Localizer["NEO X GRIND HACKATHON:"]<br />
-                        </h2>
-                        <h1 class="@SharedLocalizer["d-none-zh"]">
-                            OVER $22M<br />IN PRIZES & GRANTS
-                        </h1>
-                        <h1 class="@SharedLocalizer["d-none"]">
-                            丰厚奖金 & 投资资助<br />
-                            总额超过 2200 万美元
+                        <h1 class="uppercase">
+                            @Localizer["Introducing:"]<br />
+                            Neo X
                         </h1>
                     </div>
-                    <div class="work-sans-semibold my-4 ls3">
-                        @Localizer["EMPOWERING YOUR WEB3 DREAMS WITH TECHNOLOGY, RESOURCES, AND CAPITAL"]
-                    </div>
-                    <div class="work-sans-semibold my-4 ls3">
-                        @Localizer["CO-HOSTED BY:"]
-                        <img class="img-fluid" style="width: 50%; margin-left: 1rem;" src="/images/home/neoxgrind/co-hosted.png" />
+                    <div class="work-sans-semibold my-4 uppercase ls3">
+                        @Localizer["Neo’s EVM-based sidechain is here."]<br />
+                        @Localizer["Find out what opportunities await."]
                     </div>
                     <div class="my-4">
-                        <a href="https://bit.ly/48UYya6" target="_blank" class="btn-2">@Localizer["LEARN MORE"]</a>
+                        <a href="https://x.neo.org/" target="_blank" class="btn-2">@Localizer["LEARN MORE"]</a>
                     </div>
                     <div class="work-sans-bold my-4">@Localizer["Latest News:"]</div>
                     <div class="my-4">
                         <a class="news-link" href="~/blog/details/@Model.FirstOrDefault(p => p.Type == NewsViewModelType.Blog).Blog.Id">@Model.FirstOrDefault(p => p.Type == NewsViewModelType.Blog).Blog.Title <i class="iconfont circle-arrow-icon">&#xe6ab;</i></a>
                     </div>
-                </div>
-                <div class="col-lg-5 pt-5 text-center">
-                    <img class="img-fluid" data-original="/images/home/neoxgrind/grind icon.svg" />
                 </div>
             </div>
         </div>
@@ -186,16 +157,16 @@
             <div class="highlight-container">
                 @{
                     string[,] highlightItems = new string[9, 2] {
-                { "Interoperability", "/images/home/Interoperability.svg" },
-                { "Native Oracles", "/images/home/NativeOracles.svg" },
-                { "Self-Sovereign ID", "/images/home/Self-SovereignID.png" },
-                { "Decentralized Storage", "/images/home/DecentralizedStorage.svg" },
-                { "Neo Name Service", "/images/home/NativeNameService.svg" },
-                { "One Block Finality", "/images/home/OneBlockFinality.svg" },
-                { "Best-In-Class Tooling", "/images/home/BestInClassTooling.svg" },
-                { "Smart Contracts", "/images/home/SmartContracts.svg" },
-                { "Multi-Language", "/images/home/Multi-Language.png" }
-                        };
+                                { "Interoperability", "/images/home/Interoperability.svg" },
+                                { "Native Oracles", "/images/home/NativeOracles.svg" },
+                                { "Self-Sovereign ID", "/images/home/Self-SovereignID.png" },
+                                { "Decentralized Storage", "/images/home/DecentralizedStorage.svg" },
+                                { "Neo Name Service", "/images/home/NativeNameService.svg" },
+                                { "One Block Finality", "/images/home/OneBlockFinality.svg" },
+                                { "Best-In-Class Tooling", "/images/home/BestInClassTooling.svg" },
+                                { "Smart Contracts", "/images/home/SmartContracts.svg" },
+                                { "Multi-Language", "/images/home/Multi-Language.png" }
+                                };
 
                     for (int i = 0; i < highlightItems.GetLength(0); i++)
                     {
@@ -205,10 +176,6 @@
                         </div>
                     }
                 }
-            </div>
-
-            <div class="additional-button-wrapper">
-                <a asp-controller="tour" asp-action="index" class="btn-2" target="_blank">@Localizer["Take A Tour"]</a>
             </div>
         </div>
     </div>
@@ -225,20 +192,16 @@
                 @Localizer["After four years of stable MainNet operation, Neo is undergoing its biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]
             </div>
             <a class="btn-2" asp-controller="migration" asp-action="index">@Localizer["Learn More"]</a>
-
-            <div class="additional-button-wrapper">
-                <a asp-controller="tour" asp-action="index" class="btn-2" target="_blank">@Localizer["Take A Tour"]</a>
-            </div>
         </div>
         <div class="col-12 col-md-6 col-right">
             <div class="get-started-wrapper">
                 @{
                     string[,] getStartedItems = new string[4, 3]
                     {
-                { "Find a Wallet", "/images/home/FindWallet.svg", "/neogas#wallets" },
-                { "Neo & Gas Tokens", "/images/home/LearnTokens.svg", "/neogas#tokens" },
-                { "Neo's Features", "/images/home/LearnFeatures.svg", "/technology" },
-                { "Documentation", "/images/home/ReadDocumentation.svg", "https://docs.neo.org" }
+                                { "Find a Wallet", "/images/home/FindWallet.svg", "/neogas#wallets" },
+                                { "Neo & Gas Tokens", "/images/home/LearnTokens.svg", "/neogas#tokens" },
+                                { "Neo's Features", "/images/home/LearnFeatures.svg", "/technology" },
+                                { "Documentation", "/images/home/ReadDocumentation.svg", "https://docs.neo.org" }
                     };
 
                     for (int i = 0; i < getStartedItems.GetLength(0); i++)
@@ -415,9 +378,9 @@
                     @{
                         string[,] governanceItems = new string[3, 3]
                         {
-                    { "How to vote", "/images/home/vote.svg", "/gov" },
-                    { "General guide to governance", "/images/home/ReadDocumentation.svg", "/gov" },
-                    { "Register as a committee candidate", "/images/home/register.svg", "/gov" }
+                                        { "How to vote", "/images/home/vote.svg", "/gov" },
+                                        { "General guide to governance", "/images/home/ReadDocumentation.svg", "/gov" },
+                                        { "Register as a committee candidate", "/images/home/register.svg", "/gov" }
                         };
 
                         for (int i = 0; i < governanceItems.GetLength(0); i++)
