@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <UserSecretsId>aspnet-NeoWeb2-7BB1D7AA-0901-4E07-B09A-946BA357E853</UserSecretsId>
+    <RunCssBuild Condition="'$(RunCssBuild)' == ''">True</RunCssBuild>
+    <RunJsBuild Condition="'$(RunJsBuild)' == ''">True</RunJsBuild>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,8 +24,6 @@
   
   <ItemGroup>
     <PackageReference Include="Azure.Identity" Version="1.13.1" />
-    <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
-    <PackageReference Include="BuildWebCompiler" Version="1.12.405" />
     <PackageReference Include="HtmlSanitizer" Version="8.1.870" />
     <PackageReference Include="MailKit" Version="4.8.0" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="9.0.0" />
@@ -50,12 +50,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="bundleconfig.json">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Content>
-    <Content Update="compilerconfig.json">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Content>
     <Content Update="libman.json">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
@@ -69,5 +63,22 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+
+  <ItemGroup>
+    <CssAssetBase Include="about;contributors;neogas;technology;wallets;gov;dev;news;eco;editor;home;site;testnet;testnet-list;joinus;migration;sitecn" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <JsAssetBase Include="site;editor" />
+  </ItemGroup>
+
+  <Target Name="BuildCssAssets" BeforeTargets="Build;Publish" Condition="'$(RunCssBuild)' != 'False'">
+    <Exec Command='npx --yes --package less lessc "wwwroot/css/%(CssAssetBase.Identity).less" "wwwroot/css/%(CssAssetBase.Identity).css"' WorkingDirectory="$(MSBuildProjectDirectory)" />
+    <Exec Command='npx --yes --package clean-css-cli cleancss -O2 -o "wwwroot/css/%(CssAssetBase.Identity).min.css" "wwwroot/css/%(CssAssetBase.Identity).css"' WorkingDirectory="$(MSBuildProjectDirectory)" />
+  </Target>
+
+  <Target Name="BuildJsAssets" BeforeTargets="Build;Publish" Condition="'$(RunJsBuild)' != 'False'">
+    <Exec Command='npx --yes --package terser terser "wwwroot/js/%(JsAssetBase.Identity).js" --compress --mangle --output "wwwroot/js/%(JsAssetBase.Identity).min.js"' WorkingDirectory="$(MSBuildProjectDirectory)" />
+  </Target>
 
 </Project>

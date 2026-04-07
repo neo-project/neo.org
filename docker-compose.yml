@@ -1,0 +1,49 @@
+services:
+  db:
+    image: mcr.microsoft.com/azure-sql-edge:latest
+    environment:
+      ACCEPT_EULA: "1"
+      MSSQL_SA_PASSWORD: "NeoStrongPassw0rd@"
+      MSSQL_PID: "Developer"
+    volumes:
+      - neo_sql_data:/var/opt/mssql
+    restart: unless-stopped
+
+  db-init:
+    image: mcr.microsoft.com/mssql-tools:latest
+    platform: linux/amd64
+    depends_on:
+      - db
+    entrypoint: ["/bin/bash", "/scripts/init-db.sh"]
+    environment:
+      DB_HOST: "db"
+      DB_PORT: "1433"
+      DB_USER: "sa"
+      DB_PASSWORD: "NeoStrongPassw0rd@"
+      DB_NAME: "NeoWeb"
+      DB_WAIT_TIMEOUT: "240"
+    volumes:
+      - ./scripts/docker/init-db.sh:/scripts/init-db.sh:ro
+    restart: "no"
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      db-init:
+        condition: service_completed_successfully
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_URLS: "http://+:5005"
+      AutoApplyMigrations: "true"
+      ConnectionStrings__DefaultConnection: "Server=db,1433;Database=NeoWeb;User Id=sa;Password=NeoStrongPassw0rd@;TrustServerCertificate=True;MultipleActiveResultSets=true"
+      DB_HOST: "db"
+      DB_PORT: "1433"
+      DB_WAIT_TIMEOUT: "180"
+    ports:
+      - "5005:5005"
+    restart: unless-stopped
+
+volumes:
+  neo_sql_data:

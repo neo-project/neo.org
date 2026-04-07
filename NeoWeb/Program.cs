@@ -51,6 +51,14 @@ namespace NeoWeb
 
             var app = builder.Build();
 
+            var autoApplyMigrations = builder.Configuration.GetValue("AutoApplyMigrations", false);
+            if (autoApplyMigrations)
+            {
+                using var scope = app.Services.CreateScope();
+                var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                dbContext.Database.Migrate();
+            }
+
             var supportedCultures = new[]
                {
                 new CultureInfo("en-US"),

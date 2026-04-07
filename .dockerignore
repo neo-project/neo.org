@@ -1,0 +1,9 @@
+.git
+.gitignore
+.dotnet
+.dotnet9
+.dotnet-tools
+**/bin
+**/obj
+**/node_modules
+**/.DS_Store

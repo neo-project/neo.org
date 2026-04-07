@@ -138,8 +138,15 @@
                         <a href="https://x.neo.org/" target="_blank" class="btn-2">@Localizer["LEARN MORE"]</a>
                     </div>
                     <div class="work-sans-bold my-4">@Localizer["Latest News:"]</div>
+                    @{
+                        var latestBlogItem = Model?.FirstOrDefault(p => p.Type == NewsViewModelType.Blog);
+                        var latestBlog = latestBlogItem?.Blog;
+                    }
                     <div class="my-4">
-                        <a class="news-link" href="~/blog/details/@Model.FirstOrDefault(p => p.Type == NewsViewModelType.Blog).Blog.Id">@Model.FirstOrDefault(p => p.Type == NewsViewModelType.Blog).Blog.Title <i class="iconfont circle-arrow-icon">&#xe6ab;</i></a>
+                        @if (latestBlog != null)
+                        {
+                            <a class="news-link" href="~/blog/details/@latestBlog.Id">@latestBlog.Title <i class="iconfont circle-arrow-icon">&#xe6ab;</i></a>
+                        }
                     </div>
                 </div>
             </div>
@@ -735,4 +742,3 @@
         var scroll_active_top = 650;
     </script>
 }
-
