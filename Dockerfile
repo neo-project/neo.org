@@ -1,14 +1,12 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends nodejs npm \
-    && rm -rf /var/lib/apt/lists/*
-
 COPY ["NeoWeb.sln", "./"]
 COPY ["NeoWeb/NeoWeb.csproj", "NeoWeb/"]
+COPY ["tools/NeoWeb.AssetBuilder/NeoWeb.AssetBuilder.csproj", "tools/NeoWeb.AssetBuilder/"]
 COPY ["NuGet.Config", "./"]
-RUN dotnet restore "NeoWeb/NeoWeb.csproj"
+RUN dotnet restore "NeoWeb/NeoWeb.csproj" \
+    && dotnet restore "tools/NeoWeb.AssetBuilder/NeoWeb.AssetBuilder.csproj"
 
 COPY . .
 RUN dotnet publish "NeoWeb/NeoWeb.csproj" \

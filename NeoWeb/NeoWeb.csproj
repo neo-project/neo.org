@@ -72,13 +72,16 @@
     <JsAssetBase Include="site;editor" />
   </ItemGroup>
 
-  <Target Name="BuildCssAssets" BeforeTargets="Build;Publish" Condition="'$(RunCssBuild)' != 'False'">
-    <Exec Command='npx --yes --package less lessc "wwwroot/css/%(CssAssetBase.Identity).less" "wwwroot/css/%(CssAssetBase.Identity).css"' WorkingDirectory="$(MSBuildProjectDirectory)" />
-    <Exec Command='npx --yes --package clean-css-cli cleancss -O2 -o "wwwroot/css/%(CssAssetBase.Identity).min.css" "wwwroot/css/%(CssAssetBase.Identity).css"' WorkingDirectory="$(MSBuildProjectDirectory)" />
-  </Target>
+  <Target Name="BuildWebAssets" BeforeTargets="Build;Publish" Condition="('$(RunCssBuild)' != 'False' Or '$(RunJsBuild)' != 'False') And '$(DesignTimeBuild)' != 'true'">
+    <PropertyGroup>
+      <AssetBuilderProject>$(MSBuildProjectDirectory)/../tools/NeoWeb.AssetBuilder/NeoWeb.AssetBuilder.csproj</AssetBuilderProject>
+      <CssAssetList></CssAssetList>
+      <JsAssetList></JsAssetList>
+      <CssAssetList Condition="'$(RunCssBuild)' != 'False'">@(CssAssetBase, ';')</CssAssetList>
+      <JsAssetList Condition="'$(RunJsBuild)' != 'False'">@(JsAssetBase, ';')</JsAssetList>
+    </PropertyGroup>
 
-  <Target Name="BuildJsAssets" BeforeTargets="Build;Publish" Condition="'$(RunJsBuild)' != 'False'">
-    <Exec Command='npx --yes --package terser terser "wwwroot/js/%(JsAssetBase.Identity).js" --compress --mangle --output "wwwroot/js/%(JsAssetBase.Identity).min.js"' WorkingDirectory="$(MSBuildProjectDirectory)" />
+    <Exec Command='dotnet run --project "$(AssetBuilderProject)" --configuration Release -- "$(MSBuildProjectDirectory)" "$(CssAssetList)" "$(JsAssetList)"' WorkingDirectory="$(MSBuildProjectDirectory)" />
   </Target>
 
 </Project>
