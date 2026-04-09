@@ -25,6 +25,8 @@ This website uses `ASP.NET Core 9.0`. Developers need to run local debugging. Pl
 
 - [.NET Core 9.0  SDK](https://dotnet.microsoft.com/download).
 
+- [Node.js LTS](https://nodejs.org/) (includes `npm`/`npx`) - required when building/publishing with default `RunCssBuild` and `RunJsBuild` settings.
+
 Legacy Visual Studio extension workflow used: WebCompiler 2022+, Bundler & Minifier 2022+.
 
 If you use Docker Compose (recommended), you only need Docker Desktop / Docker Engine on your host machine.
@@ -116,6 +118,8 @@ Microsoft Edge、Google Chrome、Firefox、Safari、iOS、Android
 [Visual Studio 2022](https://visualstudio.microsoft.com/) 安装时需要勾选 `ASP.NET 和 Web 开发` 。
 
 [.NET Core 9.0 SDK](https://dotnet.microsoft.com/download)
+
+建议安装 [Node.js LTS](https://nodejs.org/)（包含 `npm`/`npx`），在默认启用 `RunCssBuild` 与 `RunJsBuild` 时，本地构建/发布会用到。
 
 旧版 Visual Studio 工作流曾使用扩展：WebCompiler 2022+, Bundler & Minifier 2022+。
 
