@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <UserSecretsId>aspnet-NeoWeb2-7BB1D7AA-0901-4E07-B09A-946BA357E853</UserSecretsId>
+    <RunCssBuild Condition="'$(RunCssBuild)' == ''">True</RunCssBuild>
+    <RunJsBuild Condition="'$(RunJsBuild)' == ''">True</RunJsBuild>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,8 +24,6 @@
   
   <ItemGroup>
     <PackageReference Include="Azure.Identity" Version="1.13.1" />
-    <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
-    <PackageReference Include="BuildWebCompiler" Version="1.12.405" />
     <PackageReference Include="HtmlSanitizer" Version="8.1.870" />
     <PackageReference Include="MailKit" Version="4.8.0" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="9.0.0" />
@@ -50,12 +50,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="bundleconfig.json">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Content>
-    <Content Update="compilerconfig.json">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Content>
     <Content Update="libman.json">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
@@ -69,5 +63,25 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+
+  <ItemGroup>
+    <CssAssetBase Include="about;contributors;neogas;technology;wallets;gov;dev;news;eco;editor;home;site;testnet;testnet-list;joinus;migration;sitecn" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <JsAssetBase Include="site;editor" />
+  </ItemGroup>
+
+  <Target Name="BuildWebAssets" BeforeTargets="Build;Publish" Condition="('$(RunCssBuild)' != 'False' Or '$(RunJsBuild)' != 'False') And '$(DesignTimeBuild)' != 'true'">
+    <PropertyGroup>
+      <AssetBuilderProject>$(MSBuildProjectDirectory)/../tools/NeoWeb.AssetBuilder/NeoWeb.AssetBuilder.csproj</AssetBuilderProject>
+      <CssAssetList></CssAssetList>
+      <JsAssetList></JsAssetList>
+      <CssAssetList Condition="'$(RunCssBuild)' != 'False'">@(CssAssetBase, ';')</CssAssetList>
+      <JsAssetList Condition="'$(RunJsBuild)' != 'False'">@(JsAssetBase, ';')</JsAssetList>
+    </PropertyGroup>
+
+    <Exec Command='dotnet run --project "$(AssetBuilderProject)" --configuration Release -- "$(MSBuildProjectDirectory)" "$(CssAssetList)" "$(JsAssetList)"' WorkingDirectory="$(MSBuildProjectDirectory)" />
+  </Target>
 
 </Project>

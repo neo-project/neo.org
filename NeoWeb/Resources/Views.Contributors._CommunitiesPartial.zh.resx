@@ -126,6 +126,18 @@
   <data name="COZ is a software development group specializing in blockchain and distributed technologies. Since its humble beginnings as an open source, community driven organization, COZ has become one of blockchain’s most respected development organizations, consistently delivering groundbreaking products. COZ is responsible for projects such as Neon wallet, Dora, the Neo Python suite, and Neon-js." xml:space="preserve">
     <value>COZ 是一个专门从事区块链和分布式技术的软件开发小组。作为一个开源且社区驱动的组织，COZ 曾经默默无闻，如今却已经成为最受尊敬的区块链开发组织之一，交付了一个又一个开创性的产品。COZ 负责 Neon wallet、Dora、Neo Python suite、Neon-js 等项目。</value>
   </data>
+  <data name="Neo Global Development (NGD) can be considered as the main execution arm of the Neo Foundation. It is responsible for tasks such as business development, marketing, events management, and direct technical support to partner organizations." xml:space="preserve">
+    <value>Neo Global Development (NGD) 可以被视为 Neo Foundation 的主要执行团队，负责商务拓展、市场营销、活动管理，以及为合作伙伴组织提供直接技术支持等工作。</value>
+  </data>
+  <data name="Neo Global Development (NGD)" xml:space="preserve">
+    <value>Neo Global Development (NGD)</value>
+  </data>
+  <data name="Neo Global Resources (NGR)" xml:space="preserve">
+    <value>Neo Global Resources (NGR)</value>
+  </data>
+  <data name="Neo Global Resources (NGR) is an organization focused on advanced technology research and global commercial collaboration, dedicated to supporting the continued evolution of Neo-related technologies and promoting their adoption in real-world business scenarios." xml:space="preserve">
+    <value>Neo Global Resources (NGR) 是一个专注于前沿技术研究和全球商业协作的组织，致力于支持 Neo 相关技术的持续演进，并推动其在真实商业场景中的应用落地。</value>
+  </data>
   <data name="Neo News Today is a community run news website dedicated to delivering up-to-date information on all things connected to the Neo ecosystem. NNT provides breaking news, interviews, guides, and resources materials, carefully delivered to the community with an emphasis on accuracy and reliability." xml:space="preserve">
     <value>Neo News Today 是一个由社区运营的新闻网站，致力于提供与 Neo 生态系统相关的最新信息。NNT 向社区提供准确可靠的突发新闻、采访、指南和资源材料。</value>
   </data>
@@ -153,7 +165,34 @@
   <data name="Communities" xml:space="preserve">
     <value>NEO 社区</value>
   </data>
+  <data name="Community Groups" xml:space="preserve">
+    <value>社区组织</value>
+  </data>
   <data name="R3E is a Neo community created by blockchain security and cryptography PhDs. The community focuses on developing an off-chain service layer for the Neo blockchain. R3E utilizes Zero-Knowledge Proof (ZKP) technology, Trusted Execution Environment (TEE) technology, and the Rust programming language to develop a service layer framework for Neo." xml:space="preserve">
     <value>R3E 是一个由区块链安全和密码学博士创建的 Neo 社区。该社区致力于为 Neo 区块链开发链外服务层。R3E 利用零知识证明（ZKP）技术、可信执行环境（TEE）技术和 Rust 编程语言为 Neo 开发服务层框架。</value>
+  </data>
+  <data name="Members" xml:space="preserve">
+    <value>成员</value>
+  </data>
+  <data name="CEO: Da Hongfei" xml:space="preserve">
+    <value>首席执行官：Da Hongfei</value>
+  </data>
+  <data name="Head of Eco-Growth: John Wang" xml:space="preserve">
+    <value>生态发展负责人：John Wang</value>
+  </data>
+  <data name="Head of Development: Steven Liu" xml:space="preserve">
+    <value>开发负责人：Steven Liu</value>
+  </data>
+  <data name="Quality Assurance Manager: Owen zhang" xml:space="preserve">
+    <value>质量保障经理：Owen Zhang</value>
+  </data>
+  <data name="Director: Erik Zhang" xml:space="preserve">
+    <value>董事：Erik Zhang</value>
+  </data>
+  <data name="Director: Fernando Díaz Toledano" xml:space="preserve">
+    <value>董事：Fernando Díaz Toledano</value>
+  </data>
+  <data name="Director: Jimmy Liao" xml:space="preserve">
+    <value>董事：Jimmy Liao</value>
   </data>
 </root>

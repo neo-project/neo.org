@@ -25,7 +25,11 @@ This website uses `ASP.NET Core 9.0`. Developers need to run local debugging. Pl
 
 - [.NET Core 9.0  SDK](https://dotnet.microsoft.com/download).
 
-Visual Studio extension：WebCompiler 2022+, Bundler & Minifier 2022+
+- Front-end assets are built by the project pipeline during `Build/Publish` by default.
+
+Legacy Visual Studio extension workflow (WebCompiler / Bundler & Minifier) is no longer required.
+
+If you use Docker Compose (recommended), you only need Docker Desktop / Docker Engine on your host machine.
 
 The project code does not contain the database. The first time running the website, the following prompt will appear:
 
@@ -35,6 +39,44 @@ Applying existing migrations for ApplicationDbContext may resolve this issue.`
 At this point, follow the prompts, click the `Apply Migrations` button to automatically create the database.
 
 See also: [ASP.NET Core Tutorials](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core)
+
+### Docker Compose Local Start (Recommended for stability)
+
+This repository now includes `docker-compose.yml` and a production-style `Dockerfile`, so you can start both SQL Edge and NeoWeb with one command.
+
+Start:
+
+```bash
+docker compose up --build -d
+```
+
+View logs:
+
+```bash
+docker compose logs -f web
+```
+
+Stop:
+
+```bash
+docker compose down
+```
+
+Reset database data:
+
+```bash
+docker compose down -v
+```
+
+Default local URL: `http://localhost:5005`
+
+Notes:
+
+- `db-init` creates database `NeoWeb` automatically on first run.
+- The web container waits for SQL Server TCP readiness before starting NeoWeb.
+- `docker-compose.yml` enables `AutoApplyMigrations=true` by default, so migrations are applied automatically at startup.
+- If you disable auto migrations, open `/ApplyDatabaseMigrations` to initialize the database.
+- Compose mode relies on `scripts/docker/entrypoint.sh` and `scripts/docker/init-db.sh`. Keep these files.
 
 ### How to modify the Website Code
 
@@ -77,7 +119,11 @@ Microsoft Edge、Google Chrome、Firefox、Safari、iOS、Android
 
 [.NET Core 9.0 SDK](https://dotnet.microsoft.com/download)
 
-Visual Studio 扩展：WebCompiler 2022+, Bundler & Minifier 2022+
+前端静态资源默认在 `Build/Publish` 阶段通过项目构建流程生成。
+
+旧版 Visual Studio 扩展工作流（WebCompiler / Bundler & Minifier）已不再需要。
+
+如果使用 Docker Compose（推荐），宿主机只需要安装 Docker Desktop / Docker Engine。
 
 
 项目代码不包含数据库，首次运行网站会提示：
@@ -89,6 +135,44 @@ Applying existing migrations for ApplicationDbContext may resolve this issue.
 此时按照提示操作，点击 `Apply Migrations` 按钮即可自动创建数据库。
 
 附：[ASP.NET Core 简介](https://docs.microsoft.com/zh-cn/aspnet/core/introduction-to-aspnet-core)
+
+### Docker Compose 本地启动（更稳定，推荐）
+
+仓库已提供 `docker-compose.yml` 和容器化 `Dockerfile`，可一条命令同时启动 SQL Edge 与 NeoWeb。
+
+启动：
+
+```bash
+docker compose up --build -d
+```
+
+查看日志：
+
+```bash
+docker compose logs -f web
+```
+
+停止：
+
+```bash
+docker compose down
+```
+
+清理数据库数据卷：
+
+```bash
+docker compose down -v
+```
+
+默认访问地址：`http://localhost:5005`
+
+说明：
+
+- `db-init` 会在首次启动时自动创建 `NeoWeb` 数据库。
+- Web 容器会在 NeoWeb 启动前等待 SQL Server TCP 就绪。
+- `docker-compose.yml` 默认启用 `AutoApplyMigrations=true`，启动时会自动应用迁移。
+- 如果你关闭了自动迁移，请访问 `/ApplyDatabaseMigrations` 手动初始化数据库。
+- Compose 模式依赖 `scripts/docker/entrypoint.sh` 与 `scripts/docker/init-db.sh`，请保留这两个文件。
 
 ### 如何修改网站的代码
 

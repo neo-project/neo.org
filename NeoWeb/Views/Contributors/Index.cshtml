@@ -2,14 +2,16 @@
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
-@{ ViewData["Title"] = Localizer["Contributors"].Value; }
+@{
+    ViewData["Title"] = Localizer["Who Builds Neo"].Value;
+}
 @section Styles{
     <link rel="stylesheet" href="@Helper.ToCDN("/css/contributors.min.css", true)" />
 }
 
 <div class="introduction others">
     <div class="introduction-content">
-        <h1 class="introduction-title">@Localizer["<em>NEO</em><br/>Contributors"]</h1>
+        <h1 class="introduction-title">@Html.Raw(Localizer["<em>Who Builds</em><br/>Neo"].Value)</h1>
         <div class="introduction-description">@Localizer["Many hands make light work. Neo is a collaborative project with contributors from many different groups and organizations across the globe."]</div>
     </div>
     <img class="introduction-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/discover/ContributorsWorldMap.svg", true)" />
@@ -17,8 +19,8 @@
 
 <div class="introduction outstanding-contributors">
     <div class="introduction-content">
-        <div class="introduction-title @SharedLocalizer["d-none-zh"]"><em>@Localizer["Outstanding"]</em><br />@Localizer["Contributors"]</div>
-        <div class="introduction-title zh @SharedLocalizer["d-none"]"><em>@Localizer["Outstanding"]</em><br />@Localizer["Contributors"]</div>
+        <div class="introduction-title @SharedLocalizer["d-none-zh"]"><em>@Localizer["Other"]</em><br />@Localizer["Contributors"]</div>
+        <div class="introduction-title zh @SharedLocalizer["d-none"]"><em>@Localizer["Other"]</em><br />@Localizer["Contributors"]</div>
         <div class="introduction-description">@Localizer["Community projects like Neo attract people from all walks of life with all kinds of skills and abilities. Some may work with the project long term, while others may make impactful contributions over a short period of time. We like to provide special acknowledgement of these outstanding community members and thank them for their contributions to the Neo project."]</div>
     </div>
     <img class="introduction-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/discover/ContributorsWorldMap.svg", true)" />
@@ -26,8 +28,8 @@
 
 <div class="introduction industry-collaboration">
     <div class="introduction-content">
-        <div class="introduction-title @SharedLocalizer["d-none-zh"]"><em>@Localizer["Industry"]</em><br />@Localizer["Collaboration"]</div>
-        <div class="introduction-title zh @SharedLocalizer["d-none"]"><em>@Localizer["Industry"]</em><br />@Localizer["Collaboration"]</div>
+        <div class="introduction-title @SharedLocalizer["d-none-zh"]"><em>@Localizer["Ecosystem"]</em><br />@Localizer["Partners"]</div>
+        <div class="introduction-title zh @SharedLocalizer["d-none"]"><em>@Localizer["Ecosystem"]</em><br />@Localizer["Partners"]</div>
         <div class="introduction-description">@Localizer["Many hands make light work. Neo is a collaborative project with contributors from many different groups and organizations across the globe."]</div>
     </div>
     <img class="introduction-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/discover/ContributorsWorldMap.svg", true)" />
@@ -39,42 +41,40 @@
     <div class="resources-start">
         <div class="menu">
             <div class="menu-item">
-                @Localizer["Core Developers"]
-                <i class="iconfont">&#xe6ab;</i>
-            </div>
-            <div class="menu-item">
-                @Localizer["Communities"]
-                <i class="iconfont">&#xe6ab;</i>
-            </div>
-            <div class="menu-item">
                 @Localizer["Neo Foundation"]
                 <i class="iconfont">&#xe6ab;</i>
             </div>
             <div class="menu-item">
-                @Localizer["Neo Global Development"]
+                @Localizer["Protocol Contributors"]
                 <i class="iconfont">&#xe6ab;</i>
             </div>
             <div class="menu-item">
-                @Localizer["Outstanding Contributors"]
+                @Localizer["Community Groups"]
                 <i class="iconfont">&#xe6ab;</i>
             </div>
             <div class="menu-item">
-                @Localizer["Industry collaboration"]
+                @Localizer["Ecosystem Partners"]
+                <i class="iconfont">&#xe6ab;</i>
+            </div>
+            <div class="menu-item">
+                @Localizer["Other Contributors"]
                 <i class="iconfont">&#xe6ab;</i>
             </div>
         </div>
         
         <select class="select-menu-page form-control">
-            <option>@Localizer["Core Developers"]</option>
-            <option>@Localizer["Communities"]</option>
             <option>@Localizer["Neo Foundation"]</option>
-            <option>@Localizer["Neo Global Development"]</option>
-            <option>@Localizer["Outstanding Contributors"]</option>
-            <option>@Localizer["Industry collaboration"]</option>
+            <option>@Localizer["Protocol Contributors"]</option>
+            <option>@Localizer["Community Groups"]</option>
+            <option>@Localizer["Ecosystem Partners"]</option>
+            <option>@Localizer["Other Contributors"]</option>
         </select>
     </div>
 
     <div class="resources-end">
+        <div class="menu-page">
+            <partial name="./_NeoFoundationPartial" />
+        </div>
         <div class="menu-page">
             <partial name="./_CoreDevelopersPartial" />
         </div>
@@ -82,16 +82,10 @@
             <partial name="./_CommunitiesPartial" />
         </div>
         <div class="menu-page">
-            <partial name="./_NeoFoundationPartial" />
-        </div>
-        <div class="menu-page">
-            <partial name="./_NeoGlobalDevelopmentPartial" />
-        </div>
-        <div class="menu-page">
-            <partial name="./_OutStandingContributorsPartial" />
-        </div>
-        <div class="menu-page">
             <partial name="./_IndustryCollaborationPartial" />
+        </div>
+        <div class="menu-page">
+            <partial name="./_OutstandingContributorsPartial" />
         </div>
     </div>
 </div>
@@ -100,11 +94,11 @@
     <script src="@Helper.ToCDN("/lib/jquery/jquery.min.js")"></script>
     <script>
         $(document).ready(() => {
-            const hashArray = ['core-developers', 'communities', 'neo-fundation', 'neo-global-development', 'outstanding-contributors', 'industry-collaboration']
+            const hashArray = ['neo-foundation', 'protocol-contributors', 'community-groups', 'ecosystem-partners', 'other-contributors']
 
             function updateCurrentPage(i) {
-                const icIndex = hashArray.indexOf('industry-collaboration')
-                const ocIndex = hashArray.indexOf('outstanding-contributors')
+                const icIndex = hashArray.indexOf('ecosystem-partners')
+                const ocIndex = hashArray.indexOf('other-contributors')
                 if (i === icIndex) {
                     $(".introduction.industry-collaboration").removeClass("d-none")
                     $(".introduction.outstanding-contributors").addClass("d-none")

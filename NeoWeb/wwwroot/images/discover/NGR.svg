@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 160" width="220" height="160" role="img" aria-label="Neo Global Resources">
+  <defs>
+    <style>
+      .neo1 { fill: #00e599; }
+      .neo2 { fill: #00af92; }
+      .name { fill: #050a4b; font-family: "Work Sans", Arial, sans-serif; font-weight: 700; }
+    </style>
+  </defs>
+
+  <g transform="translate(10 46) scale(0.09)">
+    <polygon class="neo1" points="0 64.6 0 311.1 160 368.5 160 120 333.1 56.2 176 0 0 64.6" />
+    <polygon class="neo2" points="173.1 127.1 173.1 261.9 333.1 319.3 333.1 67.9 173.1 127.1" />
+  </g>
+
+  <text class="name" x="62" y="74" font-size="21">Neo Global</text>
+  <text class="name" x="62" y="104" font-size="21">Resources</text>
+</svg>

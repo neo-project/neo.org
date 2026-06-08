@@ -132,14 +132,35 @@
   <data name="Contributors" xml:space="preserve">
     <value>贡献者</value>
   </data>
+  <data name="Who Builds Neo" xml:space="preserve">
+    <value>谁在建设 Neo</value>
+  </data>
+  <data name="&lt;em&gt;Who Builds&lt;/em&gt;&lt;br/&gt;Neo" xml:space="preserve">
+    <value>&lt;em&gt;谁在建设&lt;/em&gt;&lt;br/&gt;Neo</value>
+  </data>
   <data name="Core Developers" xml:space="preserve">
     <value>核心开发者</value>
+  </data>
+  <data name="Protocol Contributors" xml:space="preserve">
+    <value>协议贡献者</value>
+  </data>
+  <data name="Community Groups" xml:space="preserve">
+    <value>社区组织</value>
   </data>
   <data name="Industry" xml:space="preserve">
     <value>行业</value>
   </data>
+  <data name="Ecosystem" xml:space="preserve">
+    <value>生态</value>
+  </data>
+  <data name="Partners" xml:space="preserve">
+    <value>合作伙伴</value>
+  </data>
   <data name="Industry collaboration" xml:space="preserve">
     <value>行业合作</value>
+  </data>
+  <data name="Ecosystem Partners" xml:space="preserve">
+    <value>生态合作伙伴</value>
   </data>
   <data name="Many hands make light work. Neo is a collaborative project with contributors from many different groups and organizations across the globe." xml:space="preserve">
     <value>齐心协力，众志成城。Neo 是一个由全球各地的社区与个人共同参与的开放网络。</value>
@@ -150,13 +171,19 @@
   <data name="Neo Foundation" xml:space="preserve">
     <value>Neo 基金会</value>
   </data>
-  <data name="Neo Global Development" xml:space="preserve">
-    <value>Neo 全球发展部门（NGD）</value>
+  <data name="Neo Global Development (NGD)" xml:space="preserve">
+    <value>Neo Global Development (NGD)</value>
   </data>
   <data name="Outstanding" xml:space="preserve">
     <value>杰出</value>
   </data>
   <data name="Outstanding Contributors" xml:space="preserve">
     <value>杰出贡献者</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>其他</value>
+  </data>
+  <data name="Other Contributors" xml:space="preserve">
+    <value>其他贡献者</value>
   </data>
 </root>
