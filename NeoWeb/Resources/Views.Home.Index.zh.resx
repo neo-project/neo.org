@@ -270,8 +270,8 @@
   <data name="Partners" xml:space="preserve">
     <value>产业</value>
   </data>
-  <data name="Poly.Network enabled cross-chain interoperability with Ethereum, Binance Chain, and more." xml:space="preserve">
-    <value>通过 Poly Network，实现与以太坊、币安智能链、火币生态链等多个网络的双向跨链互操作。</value>
+  <data name="Cross-chain interoperability with Ethereum, Binance Chain, and more." xml:space="preserve">
+    <value>与以太坊、币安智能链、火币生态链等多个网络的双向跨链互操作。</value>
   </data>
   <data name="Register as a committee candidate" xml:space="preserve">
     <value>注册成为委员会候选人</value>
