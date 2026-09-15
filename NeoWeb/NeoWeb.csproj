@@ -65,7 +65,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <CssAssetBase Include="about;contributors;neogas;technology;wallets;gov;dev;news;eco;editor;home;site;testnet;testnet-list;joinus;migration;sitecn" />
+    <CssAssetBase Include="about;contributors;neogas;technology;wallets;gov;dev;news;eco;editor;home;site;testnet;testnet-list;joinus;sitecn" />
   </ItemGroup>
 
   <ItemGroup>

@@ -9,19 +9,10 @@
     <link rel="stylesheet" href="@Helper.ToCDN("/css/dev.min.css", true)" />
 }
 
-<div class="header-end form-inline">
-    <span class="platform-label">@Localizer["Platform"]</span>
-    <select class="select-platform form-control">
-        <option value="neo2">@Localizer["Neo Legacy"]</option>
-        <option value="neo3" selected="selected">@Localizer["Neo(N3)"]</option>
-    </select>
-</div>
-
 <div class="introduction">
     <div class="introduction-content">
         <h1 class="introduction-title">@Localizer["<em>Neo</em><br/>is getting<br/>an upgrade"]</h1>
         <div class="introduction-description">@Localizer["After four years of stable MainNet operation, Neo is undergoing its biggest evolution as it migrates to N3 - The most powerful and feature rich version of the Neo blockchain to date."]</div>
-        <a class="learn-more btn-2" asp-controller="migration" asp-action="index">@Localizer["Learn More"]</a>
     </div>
     <img class="introduction-img" src="@Helper.ToCDN("/images/transparent.png")" data-original="@Helper.ToCDN("/images/dev/introduction-bg.png", true)" />
 </div>
@@ -162,12 +153,6 @@
                 $(window).trigger('scroll');
             }
 
-            $('.select-platform').change(e => {
-                currentVersion = $(e.target).val();
-                updateDocumentations();
-                updateOverviewExamples();
-            });
-
             $(document).ready(() => {
                 $('.view-all-examples').click(() => {
                     $(window).scrollTop($('.resources').offset().top);
@@ -220,10 +205,6 @@
                 updateTabs(e.target.selectedIndex);
             });
 
-            $('.select-platform').change(e => {
-                currentVersion = $(e.target).val();
-                updateTools();
-            });
         });
 
         // examples
@@ -259,12 +240,6 @@
 
             $('.load-more-examples').click(() => {
                 currentPage++;
-                updateExamples();
-            });
-
-            $('.select-platform').change(e => {
-                currentPage = 1;
-                currentVersion = $(e.target).val();
                 updateExamples();
             });
 
